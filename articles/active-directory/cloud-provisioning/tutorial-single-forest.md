@@ -11,12 +11,12 @@ ms.date: 12/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95a0cbdc02f7adacf2e3ffa8ca21491f44fe4b7f
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 33b7db8d08c285056e637eb962b28eef0e74fc94
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793847"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74814109"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Esercitazione: integrare una singola foresta con un singolo tenant di Azure AD
 
@@ -51,23 +51,30 @@ Questa esercitazione illustra la creazione di un ambiente di identità ibrido us
    - Per la convalida del certificato, sbloccare gli URL seguenti: **mscrl.Microsoft.com:80**, **CRL.Microsoft.com:80**, **OCSP.msocsp.com:80**e **www\.Microsoft.com:80**. Poiché vengono usati per la convalida del certificato con altri prodotti Microsoft, questi URL potrebbero essere già sbloccati.
 
 ## <a name="install-the-azure-ad-connect-provisioning-agent"></a>Installare l'agente di provisioning Azure AD Connect
-1. Accedere al server che si userà con le autorizzazioni di amministratore dell'organizzazione.  Se si usa l'esercitazione di [base di Active Directory e dell'ambiente Azure](tutorial-basic-ad-azure.md) , sarà DC1.
-2. Scaricare l'agente di provisioning Azure AD Connect [qui](https://go.microsoft.com/fwlink/?linkid=2109037).
-3. Eseguire l'agente di provisioning di Azure AD Connect (AADConnectProvisionin
-4. gAgent. Installer)
-3. Nella schermata iniziale **accettare** le condizioni di licenza e fare clic su **Installa**.</br>
-![Schermata iniziale](media/how-to-install/install1.png)</br>
+1. Accedere al server aggiunto al dominio.  Se si usa l'esercitazione di [base di Active Directory e dell'ambiente Azure](tutorial-basic-ad-azure.md) , sarà DC1.
+2. Accedere al portale di Azure usando le credenziali di amministratore globale solo cloud.
+3. A sinistra selezionare **Azure Active Directory**, fare clic su **Azure ad Connect**e al centro selezionare **Gestisci provisioning (anteprima)** .
 
-4. Al termine dell'operazione verrà avviata la configurazione guidata.  Accedere con l'account amministratore globale Azure AD.  Si noti che se è abilitata la sicurezza avanzata di IE, l'accesso verrà bloccato.  In tal caso, chiudere l'installazione, disabilitare la sicurezza avanzata di IE in Server Manager e fare clic sulla **creazione guidata dell'agente di provisioning di AAD Connect** per riavviare l'installazione.
-5. Nella schermata **connetti Active Directory** fare clic su **Aggiungi directory** , quindi accedere con l'account amministratore di dominio Active Directory.  Nota: l'account amministratore di dominio non deve avere requisiti per la modifica della password. Se la password scade o viene modificata, sarà necessario riconfigurare l'agente con le nuove credenziali. Questa operazione aggiungerà la directory locale.  Fare clic su **Next** (Avanti).</br>
-![Schermata iniziale](media/how-to-install/install3.png)</br>
+   ![Portale di Azure](media/how-to-install/install6.png)
 
-6. Nella schermata **Configurazione completata** fare clic su **conferma**.  Questa operazione registrerà e riavvierà l'agente.</br>
-![Schermata iniziale](media/how-to-install/install4.png)</br>
+4. Fare clic su **Scarica agente**.
+5. Eseguire l'agente di provisioning di Azure AD Connect.
+6. Nella schermata iniziale **accettare** le condizioni di licenza e fare clic su **Installa**.
 
-7. Al termine dell'operazione verrà visualizzato un avviso: **la configurazione dell'agente è stata verificata correttamente.**  È possibile fare clic su **Esci**.</br>
+   ![Schermata iniziale](media/how-to-install/install1.png)
+
+7. Al termine dell'operazione verrà avviata la configurazione guidata.  Accedere con l'account amministratore globale Azure AD.  Si noti che se è abilitata la sicurezza avanzata di IE, l'accesso verrà bloccato.  In tal caso, chiudere l'installazione, disabilitare la sicurezza avanzata di IE in Server Manager e fare clic sulla **creazione guidata dell'agente di provisioning di AAD Connect** per riavviare l'installazione.
+8. Nella schermata **connetti Active Directory** fare clic su **Aggiungi directory** , quindi accedere con l'account amministratore di dominio Active Directory.  Nota: l'account amministratore di dominio non deve avere requisiti per la modifica della password. Se la password scade o viene modificata, sarà necessario riconfigurare l'agente con le nuove credenziali. Questa operazione aggiungerà la directory locale.  Fare clic su **Next** (Avanti).
+
+   ![Schermata iniziale](media/how-to-install/install3.png)
+
+9. Nella schermata **Configurazione completata** fare clic su **conferma**.  Questa operazione registrerà e riavvierà l'agente.
+
+   ![Schermata iniziale](media/how-to-install/install4.png)
+
+10. Al termine dell'operazione verrà visualizzato un avviso: **la configurazione dell'agente è stata verificata correttamente.**  È possibile fare clic su **Esci**.</br>
 ![Schermata iniziale](media/how-to-install/install5.png)</br>
-8. Se viene ancora visualizzata la schermata iniziale iniziale, fare clic su **Chiudi**.
+11. Se viene ancora visualizzata la schermata iniziale iniziale, fare clic su **Chiudi**.
 
 
 ## <a name="verify-agent-installation"></a>Verificare l'installazione dell'agente

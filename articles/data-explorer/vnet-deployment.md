@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: 8dec673408b706a92a29f418af3bef4cc05a8d2d
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 28b9c55df8cd7883e05e964b8b67e08c7a3eb8c1
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668581"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74812735"
 ---
 # <a name="deploy-azure-data-explorer-into-your-virtual-network-preview"></a>Distribuire Esplora dati di Azure nella rete virtuale (anteprima)
 
@@ -52,7 +52,7 @@ Il numero totale di indirizzi IP:
 | --- | --- |
 | Servizio motore | 1 per istanza |
 | Servizio di gestione dati | 2 |
-| Bilanciamento del carico interno | 2 |
+| Servizi di bilanciamento del carico interni | 2 |
 | Indirizzi riservati di Azure | 5 |
 | **Totale** | **#engine_instances + 9** |
 
@@ -236,7 +236,6 @@ azureprofilerfrontdoor.cloudapp.net:443
 *.core.windows.net:443
 *.servicebus.windows.net:443
 shoebox2.metrics.nsatc.net:443
-production.diagnostics.monitoring.core.windows.net:443
 prod-dsts.dsts.core.windows.net:443
 ocsp.msocsp.com:80
 *.windowsupdate.com:80

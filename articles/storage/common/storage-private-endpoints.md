@@ -9,12 +9,12 @@ ms.date: 09/25/2019
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: e9781d9c277d19257d9b00bea3106adb3b04ffd6
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: fff92057bc9812a5ef1488a46ed469382ad3ace3
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672511"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806882"
 ---
 # <a name="using-private-endpoints-for-azure-storage-preview"></a>Uso di endpoint privati per archiviazione di Azure (anteprima)
 
@@ -25,14 +25,14 @@ L'uso di endpoint privati per l'account di archiviazione consente di:
 - Aumentare la sicurezza per la rete virtuale (VNet), consentendo di bloccare exfiltration di dati da VNet.
 - Connettersi in modo sicuro agli account di archiviazione da reti locali che si connettono alla VNet tramite [VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) o [delle expressroute](../../expressroute/expressroute-locations.md) con peering privato.
 
-## <a name="conceptual-overview"></a>Panoramica concettuale
+## <a name="conceptual-overview"></a>Panoramica dei concetti
 ![Panoramica degli endpoint privati per archiviazione di Azure](media/storage-private-endpoints/storage-private-endpoints-overview.jpg)
 
 Un endpoint privato è un'interfaccia di rete speciale per un servizio di Azure nella [rete virtuale](../../virtual-network/virtual-networks-overview.md) (VNet). Quando si crea un endpoint privato per l'account di archiviazione, fornisce connettività sicura tra i client nella VNet e l'archiviazione. All'endpoint privato viene assegnato un indirizzo IP dall'intervallo di indirizzi IP della VNet. La connessione tra l'endpoint privato e il servizio di archiviazione usa un collegamento privato protetto.
 
 Le applicazioni in VNet possono connettersi al servizio di archiviazione tramite l'endpoint privato senza interruzioni, **usando le stesse stringhe di connessione e i meccanismi di autorizzazione che verrebbero usati in caso contrario**. Gli endpoint privati possono essere usati con tutti i protocolli supportati dall'account di archiviazione, inclusi REST e SMB.
 
-Gli endpoint privati possono essere creati in subnet che usano gli [endpoint del servizio](/azure/virtual-network/virtual-network-service-endpoints-overview.md). I client in una subnet possono quindi connettersi a un account di archiviazione usando un endpoint privato, usando gli endpoint di servizio per accedere ad altri utenti.
+Gli endpoint privati possono essere creati in subnet che usano gli [endpoint del servizio](../../virtual-network/virtual-network-service-endpoints-overview.md). I client in una subnet possono quindi connettersi a un account di archiviazione usando un endpoint privato, usando gli endpoint di servizio per accedere ad altri utenti.
 
 Quando si crea un endpoint privato per un servizio di archiviazione nella rete virtuale, viene inviata una richiesta di consenso che il proprietario dell'account di archiviazione dovrà approvare. Se l'utente che richiede la creazione dell'endpoint privato è anche un proprietario dell'account di archiviazione, questa richiesta di consenso viene approvata automaticamente.
 
@@ -115,8 +115,8 @@ I nomi di zona DNS consigliati per gli endpoint privati per i servizi di archivi
 
 Per ulteriori informazioni sulla configurazione del server DNS per supportare endpoint privati, fare riferimento agli articoli seguenti:
 
-- [Risoluzione dei nomi per le risorse in reti virtuali di Azure](/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [Configurazione DNS per endpoint privati](/private-link/private-endpoint-overview#dns-configuration)
+- [Risoluzione dei nomi per le risorse in reti virtuali di Azure](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
+- [Configurazione DNS per endpoint privati](/azure/private-link/private-endpoint-overview#dns-configuration)
 
 ## <a name="pricing"></a>Prezzi
 

@@ -1,7 +1,7 @@
 ---
 title: Eseguire la migrazione dal servizio Riconoscimento vocale personalizzato al servizio Voce
 titleSuffix: Azure Cognitive Services
-description: Il servizio Riconoscimento vocale personalizzato fa ora parte del servizio Voce. Passare al servizio Voce per trarre vantaggio dagli ultimi aggiornamenti in termini di qualità e funzionalità.
+description: Il servizio Riconoscimento vocale personalizzato fa ora parte del servizio di riconoscimento vocale. Passa al servizio riconoscimento vocale per trarre vantaggio dagli ultimi aggiornamenti qualitativi e delle funzionalità.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -11,22 +11,22 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 01b853c59723a8ed79cb32b0ee9c245c9c3ffb3f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9c93286329316d081f8fd99ebd360195931b7b09
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562762"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805927"
 ---
-# <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Eseguire la migrazione dal Servizio di riconoscimento vocale personalizzato al servizio Voce
+# <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Eseguire la migrazione dal servizio Riconoscimento vocale personalizzato al servizio riconoscimento vocale
 
-Usare le informazioni in questo articolo per eseguire la migrazione dal Servizio di riconoscimento vocale personalizzato al servizio Voce.
+Usare questo articolo per eseguire la migrazione delle applicazioni dal servizio Riconoscimento vocale personalizzato al servizio di riconoscimento vocale.
 
-Il servizio Riconoscimento vocale personalizzato fa ora parte del servizio Voce. Passa ai servizi di riconoscimento vocale per trarre vantaggio dagli ultimi aggiornamenti qualitativi e delle funzionalità.
+Il servizio Riconoscimento vocale personalizzato fa ora parte del servizio di riconoscimento vocale. Passa al servizio riconoscimento vocale per trarre vantaggio dagli ultimi aggiornamenti qualitativi e delle funzionalità.
 
 ## <a name="migration-for-new-customers"></a>Migrazione per i nuovi clienti
 
-Il modello di determinazione dei prezzi del servizio Voce è più semplice e definito su base oraria.  
+Il modello di determinazione dei prezzi è più semplice, usando un modello di determinazione prezzi basato sull'ora per il servizio di riconoscimento vocale.  
 
 1. Creare una risorsa di Azure in ogni area in cui l'applicazione è disponibile. Il nome della risorsa di Azure è **Voce**. È possibile usare una singola risorsa di Azure per i servizi seguenti nella stessa area, anziché creare risorse distinte:
 
@@ -39,11 +39,11 @@ Il modello di determinazione dei prezzi del servizio Voce è più semplice e def
 
 3. Seguire le guide introduttive e gli esempi di SDK per usare le API corrette. Se si usano le API REST, è necessario anche usare le chiavi di risorsa e gli endpoint corretti.
 
-4. Aggiornare l'applicazione client per l'uso delle API e dei servizi di riconoscimento vocale.
+4. Aggiornare l'applicazione client per usare le API e il servizio Voce.
 
 ## <a name="migration-for-existing-customers"></a>Migrazione per i clienti esistenti
 
-Eseguire la migrazione delle chiavi di risorsa esistenti ai servizi di riconoscimento vocale nel portale di servizi vocali. Seguire questa procedura:
+Eseguire la migrazione delle chiavi di risorsa esistenti al servizio riconoscimento vocale nel portale del servizio di riconoscimento vocale. Seguire questa procedura:
 
 > [!NOTE]
 > La migrazione delle chiavi di risorsa può essere eseguita solo all'interno della stessa area.
@@ -56,10 +56,10 @@ Eseguire la migrazione delle chiavi di risorsa esistenti ai servizi di riconosci
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Prova gratuitamente i servizi vocali](get-started.md).
+* [Prova il servizio di sintesi vocale gratuitamente](get-started.md).
 * Apprendere i concetti del [riconoscimento vocale](./speech-to-text.md).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Informazioni sul servizio Voce](overview.md)
-* [Documentazione di Speech Services e Speech SDK](speech-sdk.md#get-the-sdk)
+* [Documentazione per il servizio riconoscimento vocale e l'SDK vocale](speech-sdk.md#get-the-sdk)

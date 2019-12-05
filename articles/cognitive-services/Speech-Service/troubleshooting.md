@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: jhakulin
-ms.openlocfilehash: 3beda852b3e711ee969b7f80f8f326285cc2cad6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 421b9adf4ae5d2c641484e646bea096716d46cca
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68558883"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815419"
 ---
 # <a name="troubleshoot-the-speech-sdk"></a>Risolvere i problemi di Speech SDK
 
@@ -27,7 +27,7 @@ Questo articolo fornisce informazioni che consentono di risolvere i problemi ris
 
 Inoltre potrebbe essere presente un problema con la chiave di sottoscrizione o il token di autorizzazione. Per altre informazioni, vedere la sezione seguente.
 
-## <a name="error-http-403-forbidden-or-http-401-unauthorized"></a>Errore: HTTP 403 - accesso negato o HTTP 401 - non autorizzato
+## <a name="error-http-403-forbidden-or-http-401-unauthorized"></a>Errore: HTTP 403 operazione non consentita o HTTP 401 utente non autorizzato
 
 Questo errore è causato spesso da problemi di autenticazione. Le richieste di connessione senza un'intestazione `Ocp-Apim-Subscription-Key` o `Authorization` valida vengono rifiutate con lo stato 403 o 401.
 
@@ -107,11 +107,11 @@ Se si immette un token di autorizzazione valido, il comando restituisce la trasc
 
 ---
 
-## <a name="error-http-400-bad-request"></a>Errore: HTTP 400 - Richiesta non valida
+## <a name="error-http-400-bad-request"></a>Errore: HTTP 400 richiesta non valida
 
 Questo errore si verifica in genere quando il corpo della richiesta contiene dati audio non validi. È supportato solo il formato WAV. Controllare anche le intestazioni della richiesta per verificare che siano specificati valori appropriati per `Content-Type` e `Content-Length`.
 
-## <a name="error-http-408-request-timeout"></a>Errore: HTTP 408 - Timeout richiesta
+## <a name="error-http-408-request-timeout"></a>Errore: HTTP 408 timeout richiesta
 
 L'errore molto probabilmente è dovuto al fatto che i dati audio non vengono inviati al servizio. Questo errore potrebbe anche essere causato da problemi di rete.
 

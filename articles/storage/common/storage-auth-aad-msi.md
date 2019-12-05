@@ -9,12 +9,12 @@ ms.date: 11/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 3e24cb2d4b5b82f6878647cdd631bd8ebca16199
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 3bb3b632a184985f9a3a27d0e56e940ec7c30885
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666163"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806585"
 ---
 # <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Autorizzare l'accesso a BLOB e code con Azure Active Directory e identità gestite per le risorse di Azure
 
@@ -36,13 +36,13 @@ Per altre informazioni sulle identità gestite, vedere [identità gestite per le
 
 ## <a name="authenticate-with-the-azure-identity-library"></a>Eseguire l'autenticazione con la libreria di identità di Azure
 
-Un vantaggio della libreria client di Azure Identity è che consente di usare lo stesso codice per autenticare se l'applicazione è in esecuzione nell'ambiente di sviluppo o in Azure. Nel codice in esecuzione nell'ambiente Azure, la libreria client autentica un'identità gestita per le risorse di Azure. Nell'ambiente di sviluppo, l'identità gestita non esiste, pertanto la libreria client autentica l'utente o un'entità servizio a scopo di test.
+La libreria client di identità di Azure fornisce il supporto per l'autenticazione del token di Azure Azure AD per [Azure SDK](https://github.com/Azure/azure-sdk). Le versioni più recenti delle librerie client di archiviazione di Azure per .NET, Java, Python e JavaScript si integrano con la libreria di identità di Azure per fornire un modo semplice e sicuro per acquisire un token OAuth 2,0 per l'autorizzazione delle richieste di archiviazione di Azure.
 
-La libreria client Azure Identity per .NET autentica un'entità di sicurezza. Quando il codice è in esecuzione in Azure, l'entità di sicurezza è un'identità gestita per le risorse di Azure.
+Un vantaggio della libreria client di Azure Identity è che consente di usare lo stesso codice per autenticare se l'applicazione è in esecuzione nell'ambiente di sviluppo o in Azure. La libreria client Azure Identity per .NET autentica un'entità di sicurezza. Quando il codice è in esecuzione in Azure, l'entità di sicurezza è un'identità gestita per le risorse di Azure. Nell'ambiente di sviluppo, l'identità gestita non esiste, pertanto la libreria client autentica l'utente o un'entità servizio a scopo di test.
 
 Dopo l'autenticazione, la libreria client Azure Identity riceve una credenziale token. Questa credenziale del token viene quindi incapsulata nell'oggetto client del servizio creato per eseguire operazioni in archiviazione di Azure. Questa operazione viene gestita automaticamente dalla libreria ottenendo le credenziali del token appropriate.
 
-Per altre informazioni sulla libreria client di Azure Identity, vedere [libreria client di identità di Azure per .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity).
+Per altre informazioni sulla libreria client Azure Identity per .NET, vedere [libreria client di identità di Azure per .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity). Per la documentazione di riferimento per la libreria client di identità di Azure, vedere [spazio dei nomi Azure. Identity](/dotnet/api/azure.identity).
 
 ### <a name="assign-role-based-access-control-rbac-roles-for-access-to-data"></a>Assegnare ruoli di controllo degli accessi in base al ruolo per l'accesso ai dati
 
@@ -50,7 +50,7 @@ Quando un Azure AD entità di sicurezza tenta di accedere ai dati del BLOB o del
 
 ### <a name="authenticate-the-user-in-the-development-environment"></a>Autenticare l'utente nell'ambiente di sviluppo
 
-Quando il codice è in esecuzione nell'ambiente di sviluppo, l'autenticazione può essere gestita automaticamente oppure è possibile che sia necessario un account di accesso del browser, a seconda degli strumenti che si stanno usando. Microsoft Visual Studio supporta Single Sign-On (SSO), in modo che l'account utente Active Azure AD venga usato automaticamente per l'autenticazione. Per ulteriori informazioni su SSO, vedere [Single Sign-on to Applications](../../active-directory/manage-apps/what-is-single-sign-on.md).
+Quando il codice è in esecuzione nell'ambiente di sviluppo, l'autenticazione può essere gestita automaticamente oppure è possibile che sia necessario un account di accesso del browser, a seconda degli strumenti che si stanno usando. Ad esempio, Microsoft Visual Studio supporta Single Sign-On (SSO), in modo che l'account utente Active Azure AD venga usato automaticamente per l'autenticazione. Per ulteriori informazioni su SSO, vedere [Single Sign-on to Applications](../../active-directory/manage-apps/what-is-single-sign-on.md).
 
 Altri strumenti di sviluppo potrebbero richiedere l'accesso tramite un Web browser.
 
@@ -161,6 +161,6 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni sui ruoli RBAC per archiviazione di Azure, vedere [gestire i diritti di accesso ai dati di archiviazione con RBAC](storage-auth-aad-rbac.md).
-- Per informazioni su come autorizzare l'accesso a contenitori e code all'interno delle applicazioni di archiviazione, vedere [Usare Azure AD con applicazioni di archiviazione](storage-auth-aad-app.md).
-- Per informazioni su come eseguire l'interfaccia della riga di comando di Azure e i comandi di PowerShell con Azure AD credenziali, vedere [eseguire l'interfaccia della riga di comando di Azure o i comandi di PowerShell con Azure ad credenziali per accedere ai dati](storage-auth-aad-script.md)
+- [Gestione dei diritti di accesso ai dati di archiviazione con RBAC](storage-auth-aad-rbac.md).
+- [Usare Azure ad con le applicazioni di archiviazione](storage-auth-aad-app.md).
+- [Eseguire l'interfaccia della riga di comando di Azure o i comandi di PowerShell con Azure ad credenziali per accedere ai dati BLOB o Queue](storage-auth-aad-script.md)

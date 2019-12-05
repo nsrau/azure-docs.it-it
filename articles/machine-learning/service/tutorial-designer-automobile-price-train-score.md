@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: ee08ba61aec23078227c40b92771d1728040c4cf
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3d0efbaec6905d0d24d9dc1c310d472958011960
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228462"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702057"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione (anteprima)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -55,7 +55,7 @@ Se è già disponibile un'area di lavoro di Azure Machine Learning con un'edizio
 
 1. Selezionare **Designer** (Finestra di progettazione).
 
-    ![Screenshot dell'area di lavoro visiva che mostra come accedere alla finestra di progettazione](./media/tutorial-designer-automobile-price-train-score/launch-visual-interface.png)
+    ![Screenshot dell'area di lavoro visiva che mostra come accedere alla finestra di progettazione](./media/tutorial-designer-automobile-price-train-score/launch-designer.png)
 
 1. Selezionare **Easy-to-use prebuilt modules** (Moduli predefiniti facili da usare).
 

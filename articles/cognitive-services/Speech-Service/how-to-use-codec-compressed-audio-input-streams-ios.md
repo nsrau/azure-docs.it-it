@@ -1,7 +1,7 @@
 ---
 title: Flusso audio compresso di codec con l'SDK di riconoscimento vocale in iOS
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come eseguire lo streaming di audio compresso in servizi vocali di Azure con l'SDK di riconoscimento vocale in iOS.
+description: Informazioni su come trasmettere l'audio compresso al servizio riconoscimento vocale con l'SDK di riconoscimento vocale in iOS.
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 1d78c690fd07eb974418f0ea17d71d1f394d863d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 2089f4191ddd57fa8dc19862bd195756c166f2d4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109575"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805859"
 ---
 # <a name="how-to-use-codec-compressed-audio-input-with-the-speech-sdk-on-ios"></a>Procedura: usare l'input audio compresso di codec con l'SDK di riconoscimento vocale in iOS
 
@@ -32,7 +32,7 @@ Per WAV/PCM, vedere la documentazione sulla voce principale. Al di fuori di WAV/
 - ALEGGE nel contenitore WAV
 - MULAW nel contenitore WAV
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 La gestione dell'audio compresso viene implementata con [GStreamer](https://gstreamer.freedesktop.org). Per motivi di licenza, queste funzioni non possono essere fornite con l'SDK, ma una libreria wrapper che contiene queste funzioni deve essere compilata dagli sviluppatori di applicazioni e fornita con le app che usano l'SDK.
 
@@ -42,7 +42,7 @@ Aprire il progetto in Xcode e compilarlo per la destinazione del **dispositivo i
 
 L'istruzione di compilazione genererà un bundle di Framework dinamico con una libreria dinamica per tutte le architetture necessarie con il nome `GStreamerWrapper.framework`.
 
-Questo Framework deve essere incluso in tutte le app che usano flussi audio compressi con Speech Services SDK.
+Questo Framework deve essere incluso in tutte le app che usano flussi audio compressi con l'SDK del servizio di riconoscimento vocale.
 
 Per eseguire questa operazione, applicare le impostazioni seguenti nel progetto Xcode:
 
@@ -54,7 +54,7 @@ Per eseguire questa operazione, applicare le impostazioni seguenti nel progetto 
 
 ## <a name="example-code-using-codec-compressed-audio-input"></a>Codice di esempio con input audio compresso codec
 
-Per eseguire lo streaming in un formato audio compresso per i servizi di riconoscimento vocale, creare un `SPXPullAudioInputStream` o `SPXPushAudioInputStream`.
+Per trasmettere in streaming un formato audio compresso al servizio riconoscimento vocale, creare un `SPXPullAudioInputStream` o `SPXPushAudioInputStream`.
 
 Nel frammento di codice seguente viene illustrato come creare un `SPXAudioConfiguration` da un'istanza di un `SPXPushAudioInputStream`, specificando MP3 come formato di compressione del flusso.
 
@@ -66,5 +66,5 @@ Il frammento di codice successivo Mostra come i dati audio compressi possono ess
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
+- [Accedere alla versione di prova del servizio Voce](https://azure.microsoft.com/try/cognitive-services/)
 - [Vedere come riconoscere il riconoscimento vocale in Java](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java)

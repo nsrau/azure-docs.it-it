@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 0d233f63879326f05cafb873d2a0243543b00c6b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 85022d52c9513e53da31cc3c962f3a54dd538371
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075719"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815480"
 ---
 # <a name="what-is-text-to-speech"></a>Che cos'è la sintesi vocale?
 
-La sintesi vocale da servizi vocali di Azure è un servizio che consente a applicazioni, strumenti o dispositivi di convertire testo in sintesi vocale naturale. È possibile scegliere tra le voci standard e neurali oppure creare una voce personalizzata univoca per il prodotto o il marchio. 75 e le voci standard sono disponibili in più di 45 lingue e impostazioni locali e 5 voci neurali sono disponibili in 4 lingue e impostazioni locali. Per un elenco completo, vedere [linguaggi supportati](language-support.md#text-to-speech).
+Sintesi vocale dal servizio di riconoscimento vocale consente a applicazioni, strumenti o dispositivi di convertire testo in sintesi vocale naturale, ad esempio. È possibile scegliere tra le voci standard e neurali oppure creare una voce personalizzata univoca per il prodotto o il marchio. 75 e le voci standard sono disponibili in più di 45 lingue e impostazioni locali e 5 voci neurali sono disponibili in 4 lingue e impostazioni locali. Per un elenco completo, vedere [linguaggi supportati](language-support.md#text-to-speech).
 
 La tecnologia sintesi vocale consente agli autori di contenuti di interagire con gli utenti in modi diversi. La sintesi vocale può migliorare l'accessibilità offrendo agli utenti la possibilità di interagire con il contenuto in modo impercettibile. Indipendentemente dal fatto che l'utente abbia problemi visivi, una disabilità di apprendimento o che richiede informazioni di navigazione durante la guida, la sintesi vocale può migliorare un'esperienza esistente. Il riconoscimento vocale è anche un componente aggiuntivo prezioso per bot vocali e assistenti vocali.
 
@@ -31,7 +31,7 @@ Le voci standard vengono create tramite la sintesi parametrica statistica e/o le
 
 ### <a name="neural-voices"></a>Voci neurali
 
-Le voci neurali usano reti neurali profonde per superare i limiti dei sistemi di sintesi vocale tradizionali, in modo da abbinare i modelli di stress e intonazione in linguaggio parlato e sintetizzare le unità di riconoscimento vocale in una voce del computer. La sintesi vocale standard suddivide prosodia in operazioni di analisi linguistica separate e di stime acustiche gestite da modelli indipendenti, che possono comportare una sintesi vocale ovattata. La nostra funzionalità neurale prosodia la stima e la sintesi vocale simultaneamente, il che comporta una voce più fluida e naturale.
+Le voci neurali usano reti neurali profonde per superare i limiti dei sistemi di sintesi vocale tradizionali, in modo da abbinare i modelli di stress e intonazione in linguaggio parlato e sintetizzare le unità di riconoscimento vocale in una voce del computer. La sintesi vocale standard suddivide prosodia in operazioni di analisi linguistica separate e di stime acustiche gestite da modelli indipendenti, che possono comportare una sintesi vocale ovattata. La funzionalità neurale esegue contemporaneamente la previsione della prosodia e la sintesi vocale e genera quindi una voce più fluida e più realistica.
 
 Le voci neurali possono essere usate per rendere più naturali e accattivanti le interazioni con chatbot e gli assistenti vocali, convertire i testi digitali, ad esempio gli e-book in Audiolibri e migliorare i sistemi di navigazione in auto. Con la prosodia naturale e una chiara articolazione di parole, le voci neurali riducono significativamente la fatica in ascolto quando si interagisce con i sistemi di intelligenza artificiale.
 
@@ -69,7 +69,7 @@ Questa tabella elenca le funzionalità di base per sintesi vocale:
 
 | Caso d'uso                                  | SDK | REST  |
 | ----------------------------------------- | --- | ----- |
-| Converte il testo in sintesi vocale.                   | Sì | Sì   |
+| Converte il testo in sintesi vocale.                   | SÌ | SÌ   |
 | Caricare i set di impostazioni per l'adattamento vocale.     | No  | Sì\* |
 | Creare e gestire i modelli di tipo carattere voce.      | No  | Sì\* |
 | Creare e gestire le distribuzioni di tipi di carattere voce. | No  | Sì\* |
@@ -105,7 +105,7 @@ Sono disponibili guide introduttive progettate per l'esecuzione di codice in men
 | Guida introduttiva (REST) | Piattaforma | Informazioni di riferimento sulle API |
 | ----------------- | -------- | ------------- |
 | [C#, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp) | Windows, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Node.JS](quickstart-nodejs-text-to-speech.md) | Finestra, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Node.js](quickstart-nodejs-text-to-speech.md) | Finestra, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Python](quickstart-python-text-to-speech.md) | Finestra, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 
 ## <a name="sample-code"></a>Codice di esempio
@@ -115,7 +115,7 @@ Il codice di esempio per sintesi vocale è disponibile su GitHub. Questi esempi 
 - [Esempi di sintesi vocale (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 - [Text-to-speech samples (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS) (Esempi di sintesi vocale (REST))
 
-## <a name="reference-docs"></a>Documentazione di riferimento
+## <a name="reference-docs"></a>Documenti di riferimento
 
 - [Speech SDK](speech-sdk-reference.md)
 - [Speech Devices SDK](speech-devices-sdk.md)
@@ -125,5 +125,5 @@ Il codice di esempio per sintesi vocale è disponibile su GitHub. Questi esempi 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Ottenere una sottoscrizione di valutazione gratuita per i servizi Voce](get-started.md)
+- [Ricevi una sottoscrizione gratuita per il servizio riconoscimento vocale](get-started.md)
 - [Creare caratteri voce personalizzati](how-to-customize-voice-font.md)

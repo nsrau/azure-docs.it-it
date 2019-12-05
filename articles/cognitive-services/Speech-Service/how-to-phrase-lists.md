@@ -1,7 +1,7 @@
 ---
 title: Elenchi di frasi-servizio vocale
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come fornire ai servizi di riconoscimento vocale un elenco di frasi usando l'oggetto `PhraseListGrammar` per migliorare i risultati del riconoscimento vocale-testo.
+description: Informazioni su come fornire al servizio di riconoscimento vocale un elenco di frasi utilizzando l'oggetto `PhraseListGrammar` per migliorare i risultati del riconoscimento vocale-testo.
 services: cognitive-services
 author: rhurey
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: rhurey
-ms.openlocfilehash: 61d3e4d2de6b8707ee7433815f8002e5d5e3e3d6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 052e02ef562da0637b6b5b9683120f0c397dbfd5
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464537"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805876"
 ---
 # <a name="phrase-lists-for-speech-to-text"></a>Elenchi di frasi per la sintesi vocale
 
-Fornendo ai servizi di sintesi vocale un elenco di frasi, è possibile migliorare l'accuratezza del riconoscimento vocale. Gli elenchi di frasi vengono usati per identificare le frasi note nei dati audio, ad esempio il nome di una persona o una posizione specifica.
+Fornendo al servizio di riconoscimento vocale un elenco di frasi, è possibile migliorare l'accuratezza del riconoscimento vocale. Gli elenchi di frasi vengono usati per identificare le frasi note nei dati audio, ad esempio il nome di una persona o una posizione specifica.
 
 Ad esempio, se si dispone di un comando "Move to" e di una possibile destinazione "Ward" che potrebbe essere pronunciata, è possibile aggiungere una voce "Move to Ward". L'aggiunta di una frase aumenterà la probabilità che, quando viene rilevata l'audio, verrà riconosciuto "sposta in Ward" anziché "sposta verso".
 
@@ -93,7 +93,7 @@ phraseListGrammar.clear();
 ```
 
 > [!NOTE]
-> Le modifiche apportate a un oggetto `PhraseListGrammar` diventano effettive al successivo riconoscimento o dopo una riconnessione ai servizi di riconoscimento vocale.
+> Le modifiche apportate a un oggetto `PhraseListGrammar` diventano effettive al successivo riconoscimento o dopo una riconnessione al servizio di riconoscimento vocale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

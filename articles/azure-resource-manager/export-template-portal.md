@@ -2,13 +2,13 @@
 title: Esporta modello in portale di Azure
 description: Usare portale di Azure per esportare un modello di Azure Resource Manager dalle risorse nella sottoscrizione.
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.openlocfilehash: 9e6a4089758809cbebc6a3c0cd586cb418ca42bf
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.date: 12/03/2019
+ms.openlocfilehash: 74812799ce1ccb428128ea0923d9cda556b9d9ee
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74306789"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815076"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Esportazione di una singola e più risorse in un modello in portale di Azure
 
@@ -33,7 +33,7 @@ A seconda dell'opzione scelta, i modelli esportati hanno qualità differenti.
 | Il modello è uno snapshot dello stato corrente delle risorse. Sono incluse eventuali modifiche manuali apportate dopo la distribuzione. | Il modello Mostra solo lo stato delle risorse al momento della distribuzione. Eventuali modifiche manuali apportate dopo la distribuzione non sono incluse. |
 | È possibile selezionare le risorse da esportare in un gruppo di risorse. | Sono incluse tutte le risorse per una distribuzione specifica. Non è possibile selezionare un subset di tali risorse o aggiungere risorse aggiunte in un momento diverso. |
 | Il modello include tutte le proprietà per le risorse, incluse alcune proprietà che in genere non vengono impostate durante la distribuzione. Potrebbe essere necessario rimuovere o pulire queste proprietà prima di riutilizzare il modello. | Il modello include solo le proprietà necessarie per la distribuzione. Il modello è pronto per l'uso. |
-| Il modello probabilmente non include tutti i parametri necessari per il riutilizzo. La maggior parte dei valori delle proprietà è hardcoded nel modello. Per ridistribuire il modello in altri ambienti, è necessario aggiungere parametri che aumentano la capacità di configurare le risorse.  È anche possibile deselezionare l'opzione **Includi parametri** per poter creare parametri personalizzati. | Il modello include parametri che facilitano la ridistribuzione in ambienti diversi. |
+| Il modello probabilmente non include tutti i parametri necessari per il riutilizzo. La maggior parte dei valori delle proprietà è hardcoded nel modello. Per ridistribuire il modello in altri ambienti, è necessario aggiungere parametri che aumentano la capacità di configurare le risorse.  È possibile deselezionare **Includi parametri** per poter creare parametri personalizzati. | Il modello include parametri che facilitano la ridistribuzione in ambienti diversi. |
 
 Esportare il modello da un gruppo di risorse o una risorsa quando:
 
@@ -63,6 +63,8 @@ Per esportare una o più risorse da un gruppo di risorse:
    ![Mostrare il modello](./media/export-template-portal/show-template.png)
 
    I **parametri di inclusione** sono selezionati per impostazione predefinita.  Quando questa opzione è selezionata, durante la generazione del modello verranno inclusi tutti i parametri del modello. Per creare parametri personalizzati, impostare questa casella di controllo in modo da non includerli.
+
+Il modello esportato viene generato dagli [schemi pubblicati](https://github.com/Azure/azure-resource-manager-schemas/tree/master/schemas) per ogni tipo di risorsa. In alcuni casi lo schema non dispone della versione più recente per un tipo di risorsa. Controllare il modello esportato per assicurarsi che includa le proprietà necessarie. Se necessario, modificare il modello esportato per usare la versione dell'API necessaria.
 
 ## <a name="export-template-from-a-resource"></a>Esportare il modello da una risorsa
 
@@ -107,7 +109,7 @@ Per esportare una risorsa:
 
 1. Selezionare **modello**. Viene visualizzato il modello usato per questa distribuzione ed è disponibile per il download.
 
-   ![Selezionare il modello](./media/export-template-portal/show-template-from-history.png)
+   ![Seleziona il modello](./media/export-template-portal/show-template-from-history.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

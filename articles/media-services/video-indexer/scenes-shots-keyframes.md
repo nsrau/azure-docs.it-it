@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
-ms.openlocfilehash: b24778434596f583be44572612c856fa4e0cecde
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 3740c42c6b6721af4d885f7b63ee4ca4e58f6fa6
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860239"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806711"
 ---
 # <a name="scenes-shots-and-keyframes"></a>Scene, scatti e fotogrammi chiave
 
@@ -38,9 +38,71 @@ Video Indexer determina quando un video viene modificato in base ai segnali visi
 
 Seleziona i frame che meglio rappresentano il tentativo. I fotogrammi chiave sono i fotogrammi rappresentativi selezionati dall'intero video in base alle proprietà estetiche, ad esempio contrasto e stabilità. Video Indexer recupera un elenco di ID di fotogrammi chiave come parte dei metadati dell'immagine, in base ai clienti che possono estrarre l'anteprima del fotogramma chiave. 
 
-I fotogrammi chiave sono associati a scatti nel codice JSON di output. 
+### <a name="extracting-keyframes"></a>Estrazione di fotogrammi chiave
+
+Per estrarre fotogrammi chiave ad alta risoluzione per il video, è necessario innanzitutto caricare e indicizzare il video.
+
+![KeyFrames](./media/scenes-shots-keyframes/extracting-keyframes.png)
+
+#### <a name="with-the-video-indexer-website"></a>Con il sito Web Video Indexer
+
+Per estrarre fotogrammi chiave tramite il sito Web Video Indexer, caricare e indicizzare il video. Al termine del processo di indicizzazione, fare clic sul pulsante **download** e selezionare **elementi (zip)** . In questo modo verrà scaricata la cartella artefatti nel computer. 
+
+![KeyFrames](./media/scenes-shots-keyframes/extracting-keyframes2.png)
+ 
+Decomprimere e aprire la cartella. Nella cartella *_KeyframeThumbnail* , sono disponibili tutti i fotogrammi chiave estratti dal video. 
+
+#### <a name="with-the-video-indexer-api"></a>Con l'API Video Indexer
+
+Per ottenere fotogrammi chiave usando l'API Video Indexer, caricare e indicizzare il video usando la chiamata [upload video](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Upload-Video?) . Al termine del processo di indicizzazione, chiamare [Get video index](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?). Ciò consentirà di ottenere tutte le informazioni che Video Indexer estratte dal contenuto in un file JSON.  
+
+Si otterrà un elenco di ID del fotogramma chiave come parte dei metadati di ogni shot. 
+
+```json
+"shots":[  
+    {  
+      "id":0,
+      "keyFrames":[  
+          {  
+            "id":0,
+            "instances":[  
+                {  
+                  "thumbnailId":"00000000-0000-0000-0000-000000000000",
+                  "start":"0:00:00.209",
+                  "end":"0:00:00.251",
+                  "duration":"0:00:00.042"
+                }
+            ]
+          },
+          {  
+            "id":1,
+            "instances":[  
+                {  
+                  "thumbnailId":"00000000-0000-0000-0000-000000000000",
+                  "start":"0:00:04.755",
+                  "end":"0:00:04.797",
+                  "duration":"0:00:00.042"
+                }
+            ]
+          }
+      ],
+      "instances":[  
+          {  
+            "start":"0:00:00",
+            "end":"0:00:06.34",
+            "duration":"0:00:06.34"
+          }
+      ]
+    },
+
+]
+```
+
+A questo punto sarà necessario eseguire ognuno di questi ID di fotogrammi chiave nella chiamata [Get anteprime](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Thumbnail?) . Ogni immagine del fotogramma chiave verrà scaricata nel computer. 
 
 ## <a name="editorial-shot-type-detection"></a>Rilevamento del tipo di ripresa editoriale
+
+I fotogrammi chiave sono associati a scatti nel codice JSON di output. 
 
 Il tipo di tiro associato a un singolo scatto nel codice JSON di Insights rappresenta il tipo editoriale. Queste caratteristiche di tipo Shot possono risultare utili quando si modificano i video in clip, trailer o quando si cerca uno stile specifico di fotogramma chiave per scopi artistici. I diversi tipi vengono determinati in base all'analisi del primo fotogramma chiave di ogni scatto. Gli scatti sono identificati dalla scala, dalle dimensioni e dalla posizione delle facce visualizzate nel primo fotogramma chiave. 
 
@@ -63,6 +125,7 @@ Caratteristiche aggiuntive:
 
 * Due scatti: Mostra i visi di due persone di dimensioni medie.
 * Più visi: più di due persone.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

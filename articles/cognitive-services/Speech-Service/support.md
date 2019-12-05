@@ -1,7 +1,7 @@
 ---
 title: Opzioni di supporto e Guida-servizio vocale
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come ottenere assistenza e supporto tecnico per domande e problemi quando si creano applicazioni che si integrano con il servizio Voce
+description: Come ottenere assistenza e supporto per domande e problemi quando si creano applicazioni che si integrano con il servizio di riconoscimento vocale
 services: cognitive-services
 author: jhakulin
 manager: nitinme
@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: jhakulin
-ms.openlocfilehash: 925d21d22806ab2854be29b9648aab78138741ec
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 741217cde5068468a7063a64361df8425346b590
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422616"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815445"
 ---
 # <a name="support-and-help-options"></a>Opzioni di supporto tecnico e assistenza
 
-Si sta iniziando a esplorare solo le funzionalità dei servizi di riconoscimento vocale? o si sta per implementare una nuova funzionalità nell'applicazione, di seguito sono elencati i suggerimenti per gli sviluppatori su dove ottenere assistenza.
+Se si sta iniziando a esplorare le funzionalità del servizio Voce o si sta per implementare una nuova funzionalità nell'applicazione, di seguito sono elencati i suggerimenti per gli sviluppatori su dove ottenere assistenza.
 
 > [!div class="checklist"]
-> * È possibile rimanere informati sui nuovi sviluppi in *Servizi cognitivi di Azure* o leggere le ultime novità relative al *servizio Voce*.
+> * È possibile rimanere informati sui nuovi sviluppi dei *Servizi cognitivi di Azure*o trovare le ultime novità relative al *servizio di riconoscimento vocale*.
 > * Le note sulla versione contengono informazioni per tutte le versioni.
 > * Eseguire una ricerca per verificare se la community ha già discusso il problema o se esiste già la documentazione della funzionalità che si vuole implementare.
 > * Se non si riesce a trovare una risposta soddisfacente, si può porre una domanda in *Stack Overflow*.
@@ -31,13 +31,13 @@ Si sta iniziando a esplorare solo le funzionalità dei servizi di riconoscimento
 
 ## <a name="stay-informed"></a>Rimani sempre aggiornato
 
-Le novità su Servizi cognitivi sono raccolte nel[blog sui Servizi cognitivi](https://azure.microsoft.com/blog/topics/cognitive-services/). Per informazioni aggiornate sui servizi vocali, tenere traccia del [Blog di servizi vocali](https://azure.microsoft.com/blog/tag/speech-service/).
+Le novità su Servizi cognitivi sono raccolte nel[blog sui Servizi cognitivi](https://azure.microsoft.com/blog/topics/cognitive-services/). Per le informazioni più aggiornate sul servizio riconoscimento vocale, tenere traccia del [Blog del servizio di riconoscimento vocale](https://azure.microsoft.com/blog/tag/speech-service/).
 
 ## <a name="release-notes"></a>Note sulla versione
 
 Le [Note sulla versione](https://aka.ms/csspeech/whatsnew) vengono aggiornate non appena è disponibile una nuova versione. Le note contengono informazioni su nuove funzionalità, miglioramenti e correzioni di bug.
 
-## <a name="search"></a>Cerca
+## <a name="search"></a>Ricerca
 
 È possibile trovare la risposta necessaria nella documentazione, negli esempi o nelle risposte alle domande poste in [Stack Overflow](https://www.stackoverflow.com).
 
@@ -55,7 +55,7 @@ Dove *{Your Search Terms}* corrisponde alle parole chiave di ricerca.
 
 I clienti di Azure possono creare e gestire le richieste di supporto nel portale di Azure.
 
-* [Portale di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Portale di Azure per il governo degli Stati Uniti](https://portal.azure.us)
 
 ## <a name="post-a-question-to-stack-overflow"></a>Pubblicare una domanda in Stack Overflow

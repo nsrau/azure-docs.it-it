@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18, seo-javascript-october2019
-ms.openlocfilehash: 30bdbf9fa0ea346892622c3e7f24f9f31652a650
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 3ddba414ef1801b812d157ad734847099a8a9f25
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280462"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806185"
 ---
 # <a name="try-the-speech-service-for-free"></a>Provare gratuitamente il Servizio di riconoscimento vocale
 
@@ -32,7 +32,7 @@ In questo articolo si sceglierà una delle opzioni più adatte alle proprie esig
 >
 > Se si usa il livello di servizio gratuito a volume ridotto, è possibile lasciare questa sottoscrizione gratuita anche dopo la scadenza della versione di valutazione gratuita o del credito di servizio.
 >
-> Per altre informazioni, vedere [prezzi di servizi cognitivi-servizi vocali](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> Per altre informazioni, vedere [prezzi di servizi cognitivi-servizio di riconoscimento vocale](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ## <a name="try-the-speech-service-without-credit-card-info"></a>Prova il servizio di riconoscimento vocale senza informazioni sulla carta di credito
 
@@ -83,7 +83,7 @@ Per aggiungere una risorsa del servizio vocale (gratuita o a pagamento) al propr
    - Scegliere l' [area](regions.md) in cui verrà utilizzata la risorsa.
    - Scegliere un piano tariffario gratuito (F0) o a pagamento (S0). Per informazioni complete su prezzi e quote di utilizzo per ogni livello, selezionare **Visualizza dettagli prezzi completi**.
    - Creare un nuovo gruppo di risorse per questa sottoscrizione di riconoscimento vocale o assegnarla a un gruppo di risorse esistente. I gruppi di risorse consentono di mantenere organizzate le diverse sottoscrizioni di Azure.
-   - Selezionare **Create**. Verrà visualizzata la panoramica della distribuzione e i messaggi sullo stato di avanzamento della distribuzione.
+   - Selezionare **Create** (Crea). Verrà visualizzata la panoramica della distribuzione e i messaggi sullo stato di avanzamento della distribuzione.
 
 Sono necessari alcuni minuti per distribuire la nuova risorsa di riconoscimento vocale. Al termine della distribuzione, selezionare **Vai alla risorsa** e nel riquadro di spostamento a sinistra selezionare **chiavi** per visualizzare le chiavi di sottoscrizione al servizio di riconoscimento vocale. Ogni sottoscrizione dispone di due chiavi, entrambi utilizzabili nell'applicazione. Per copiare e incollare rapidamente una chiave nell'editor di codice o in un altro percorso, selezionare il pulsante copia accanto a ogni chiave, passare a Windows per incollare il contenuto degli Appunti nella posizione desiderata.
 

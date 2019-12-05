@@ -1,7 +1,7 @@
 ---
 title: Flusso audio compresso di codec con l'SDK vocale-servizio di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come eseguire lo streaming di audio compresso in servizi vocali di Azure con l'SDK di riconoscimento vocale. Disponibile per C++, C#e Java per Linux, Java in Android e Objective-C in iOS.
+description: Informazioni su come trasmettere l'audio compresso al servizio riconoscimento vocale con l'SDK di riconoscimento vocale. Disponibile per C++, C#e Java per Linux, Java in Android e Objective-C in iOS.
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: amishu
-ms.openlocfilehash: 668964c597b8d748220cbeec68e0ba68300cb406
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 36e4506ea290d6109e1d1ae874b7e0f7c11bf50d
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464355"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805825"
 ---
 # <a name="using-codec-compressed-audio-input-with-the-speech-sdk"></a>Uso dell'input audio compresso di codec con Speech SDK
 
@@ -43,7 +43,7 @@ sudo apt install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugin
 
 ## <a name="example-code-using-codec-compressed-audio-input"></a>Codice di esempio con input audio compresso codec
 
-Per eseguire lo streaming in un formato audio compresso per i servizi di riconoscimento vocale, creare `PullAudioInputStream` o `PushAudioInputStream`. Quindi, creare un `AudioConfig` da un'istanza della classe Stream, specificando il formato di compressione del flusso.
+Per trasmettere in streaming un formato audio compresso al servizio riconoscimento vocale, creare `PullAudioInputStream` o `PushAudioInputStream`. Quindi, creare un `AudioConfig` da un'istanza della classe Stream, specificando il formato di compressione del flusso.
 
 Si supponga di disporre di una classe di flusso di input denominata `myPushStream` e che usi OPUS/OGG. Il codice potrebbe essere simile al seguente:
 

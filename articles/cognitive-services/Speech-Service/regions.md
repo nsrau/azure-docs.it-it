@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 478a62eaddcf3b9b831812a0930ff10c1adce99d
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 409ce8b904997f2ab75f70b2138ec5b1e70a0e69
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072450"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816657"
 ---
-# <a name="speech-service-supported-regions"></a>Aree supportate dal servizio Voce
+# <a name="speech-service-supported-regions"></a>Aree supportate del servizio riconoscimento vocale
 
 Il servizio Voce consente alle applicazioni di eseguire operazioni di riconoscimento e sintesi vocale, ovvero conversione di audio in testo e viceversa, e anche di traduzione vocale. Il servizio è disponibile in più aree con endpoint univoci per Speech SDK e le API REST.
 
@@ -32,7 +32,7 @@ In [Speech SDK](speech-sdk.md) le aree vengono specificate sotto forma di string
 
 Speech SDK è disponibile in queste aree per il **riconoscimento vocale**, **la sintesi vocale**e la **traduzione**:
 
-| Area           | Parametro Speech SDK | Portale di personalizzazione del servizio Voce    |
+| Area geografica           | Parametro Speech SDK | Portale di personalizzazione del servizio Voce    |
 | ---------------- | -------------------- | ------------------------------ |
 | Stati Uniti occidentali          | `westus`             | https://westus.cris.ai         |
 | Stati Uniti occidentali 2        | `westus2`            | https://westus2.cris.ai        |
@@ -43,9 +43,9 @@ Speech SDK è disponibile in queste aree per il **riconoscimento vocale**, **la 
 | Stati Uniti centro-meridionali | `southcentralus`     | https://southcentralus.cris.ai |
 | India centrale    | `centralindia`       | https://centralindia.cris.ai   |
 | Asia orientale        | `eastasia`           | https://eastasia.cris.ai       |
-| Asia sudorientale   | `southeastasia`      | https://southeastasia.cris.ai  |
+| Asia sud-orientale   | `southeastasia`      | https://southeastasia.cris.ai  |
 | Giappone orientale       | `japaneast`          | https://japaneast.cris.ai      |
-| Corea del Sud centrale    | `koreacentral`       | https://koreacentral.cris.ai   |
+| Corea centrale    | `koreacentral`       | https://koreacentral.cris.ai   |
 | Australia orientale   | `australiaeast`      | https://australiaeast.cris.ai  |
 | Canada centrale   | `canadacentral`      | https://canadacentral.cris.ai  |
 | Europa settentrionale     | `northeurope`        | https://northeurope.cris.ai    |
@@ -57,10 +57,10 @@ Speech SDK è disponibile in queste aree per il **riconoscimento vocale**, **la 
 
 Le aree disponibili per il **riconoscimento finalità** tramite Speech SDK sono le seguenti:
 
-| Regione globale | Area           | Parametro Speech SDK |
+| Regione globale | Area geografica           | Parametro Speech SDK |
 | ------------- | ---------------- | -------------------- |
 | Asia          | Asia orientale        | `eastasia`           |
-| Asia          | Asia sudorientale   | `southeastasia`      |
+| Asia          | Asia sud-orientale   | `southeastasia`      |
 | Australia     | Australia orientale   | `australiaeast`      |
 | Europa        | Europa settentrionale     | `northeurope`        |
 | Europa        | Europa occidentale      | `westeurope`         |
@@ -78,7 +78,7 @@ Questo è un sottoinsieme delle aree di pubblicazione supportate per il [servizi
 
 [Speech SDK](speech-sdk.md) supporta le funzionalità di **Assistente vocale** in queste aree:
 
-| Area         | Parametro Speech SDK |
+| Area geografica         | Parametro Speech SDK |
 | -------------- | -------------------- |
 | Stati Uniti occidentali        | `westus`             |
 | Stati Uniti occidentali 2      | `westus2`            |
@@ -86,7 +86,7 @@ Questo è un sottoinsieme delle aree di pubblicazione supportate per il [servizi
 | Stati Uniti orientali 2      | `eastus2`            |
 | Europa occidentale    | `westeurope`         |
 | Europa settentrionale   | `northeurope`        |
-| Asia sudorientale | `southeastasia`      |
+| Asia sud-orientale | `southeastasia`      |
 
 ## <a name="rest-apis"></a>API REST
 

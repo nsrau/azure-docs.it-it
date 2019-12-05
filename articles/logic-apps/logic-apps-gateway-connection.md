@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 11/06/2019
-ms.openlocfilehash: 5adb342b733563fd0b062dd263a4fdd83259d166
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 0e2dcec15566749b58c439b68532829b67716754
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792065"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815102"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Connettersi a origini dati locali da App per la logica di Azure
 
@@ -70,7 +70,7 @@ Dopo aver installato il gateway in un computer locale, creare la risorsa di Azur
 
 1. Nella casella di ricerca portale di Azure immettere "gateway dati locale" e selezionare **gateway dati locali**.
 
-   ![Trovare "Gateway dati locale"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
+   ![Trovare "Gateway dati locale"](./media/logic-apps-gateway-connection/search-for-on-premises-data-gateway.png)
 
 1. In **gateway dati locali**selezionare **Aggiungi**.
 
@@ -89,7 +89,7 @@ Dopo aver installato il gateway in un computer locale, creare la risorsa di Azur
 
    Di seguito è riportato un esempio che mostra un'installazione del gateway che si trova nella stessa area della risorsa del gateway ed è collegata allo stesso account Azure:
 
-   ![Specificare i dettagli per creare una risorsa del gateway dati](./media/logic-apps-gateway-connection/add-azure-data-gateway-information.png)
+   ![Specificare i dettagli per creare una risorsa del gateway dati](./media/logic-apps-gateway-connection/on-premises-data-gateway-create-connection.png)
 
 <a name="connect-logic-app-gateway"></a>
 
@@ -128,7 +128,7 @@ Per aggiornare le impostazioni per una connessione gateway, è possibile modific
 
 1. Per trovare tutte le connessioni API solo per l'app per la logica, nel menu dell'app per la logica, in **strumenti di sviluppo**, selezionare **connessioni API**.
 
-   ![Nel menu dell'app per la logica selezionare "connessioni API"](./media/logic-apps-gateway-connection/logic-app-find-api-connections.png)
+   ![Nel menu dell'app per la logica selezionare "connessioni API"](./media/logic-apps-gateway-connection/logic-app-api-connections.png)
 
 1. Selezionare la connessione del gateway desiderata, quindi selezionare **Modifica connessione API**.
 
@@ -137,8 +137,8 @@ Per aggiornare le impostazioni per una connessione gateway, è possibile modific
 
 Per trovare tutte le connessioni API associate alla sottoscrizione di Azure:
 
-* Dal menu principale di Azure passare a **Tutti i servizi** > **Web** > **Connessioni API**.
-* In alternativa, dal menu principale di Azure passare a **Tutte le risorse**. Impostare il filtro dei **tipi** su **connessione API**.
+* Dal menu portale di Azure selezionare **tutti i servizi** > **connessioni API** > **Web** .
+* In alternativa, scegliere **tutte le risorse**dal menu portale di Azure. Impostare il filtro dei **tipi** su **connessione API**.
 
 <a name="change-delete-gateway-resource"></a>
 
@@ -146,13 +146,13 @@ Per trovare tutte le connessioni API associate alla sottoscrizione di Azure:
 
 Per creare una risorsa del gateway diversa, collegare l'installazione del gateway a una risorsa del gateway diversa oppure rimuovere la risorsa del gateway, è possibile eliminare la risorsa del gateway senza influire sull'installazione del gateway.
 
-1. Dal menu principale di Azure selezionare **tutte le risorse**. Individuare e selezionare la risorsa del gateway.
+1. Dal menu portale di Azure selezionare tutte le **risorse**oppure cercare e selezionare **tutte le risorse** da qualsiasi pagina. Individuare e selezionare la risorsa del gateway.
 
 1. Se non è già selezionato, nel menu della risorsa del gateway selezionare **Gateway dati locale**. Sulla barra degli strumenti delle risorse del gateway selezionare **Elimina**.
 
    ad esempio:
 
-   ![Eliminare la risorsa del gateway in Azure](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway-resource.png)
+   ![Eliminare la risorsa del gateway in Azure](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway.png)
 
 <a name="faq"></a>
 

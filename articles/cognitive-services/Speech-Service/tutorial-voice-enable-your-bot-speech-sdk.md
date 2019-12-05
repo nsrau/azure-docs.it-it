@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: le voci abilitano il bot con l'SDK vocale"
+title: "Esercitazione: le voci abilitano il bot con l'SDK vocale-servizio di riconoscimento vocale"
 titleSuffix: Azure Cognitive Services
 description: In questa esercitazione si creerà un bot Echo con Microsoft bot-Framework, lo si distribuirà in Azure e lo si registrerà con il canale di sintesi vocale della linea bot-Framework. Si configurerà quindi un'app client di esempio per Windows che consente di comunicare con il bot e ascoltare la risposta.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: dcohen
-ms.openlocfilehash: c95bc7b58f3883fee54aaa8095cb187eaefdb3e0
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: b42314d1c8c1bd734181f02c36ae3f43507e9b79
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73836953"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815213"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Esercitazione: abilitare il bot tramite l'SDK vocale
 
-È ora possibile usare la potenza dei servizi di riconoscimento vocale per abilitare facilmente una chat bot.
+È ora possibile usare la potenza del servizio riconoscimento vocale per abilitare con facilità un bot di chat.
 
 In questa esercitazione si creerà un bot Echo con Microsoft bot-Framework, lo si distribuirà in Azure e lo si registrerà con il canale di sintesi vocale della linea bot-Framework. Si configurerà quindi un'app client di esempio per Windows che consente di comunicare con il bot e ascoltare la risposta.
 
@@ -39,7 +39,7 @@ Al termine di questo esercizio, sarà possibile configurare un sistema che funzi
 ![diagramma-Tag](media/tutorial-voice-enable-your-bot-speech-sdk/diagram.png "Flusso del canale vocale")
 
 > [!NOTE]
-> Per la procedura descritta in questa esercitazione non è necessario un servizio a pagamento. Un nuovo utente di Azure potrà usare i crediti della sottoscrizione di valutazione gratuita di Azure e il livello gratuito dei servizi di riconoscimento vocale per completare questa esercitazione.
+> Per la procedura descritta in questa esercitazione non è necessario un servizio a pagamento. Un nuovo utente di Azure potrà usare i crediti della sottoscrizione di valutazione gratuita di Azure e il livello gratuito del servizio di riconoscimento vocale per completare questa esercitazione.
 
 Contenuto dell'esercitazione:
 > [!div class="checklist"]
@@ -58,12 +58,12 @@ Per completare questa esercitazione, è necessario eseguire le operazioni seguen
 - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) o versione successiva
 - [.NET Core SDK](https://dotnet.microsoft.com/download) versione 2,1 o successiva
 - Un account Azure. [Iscriviti](https://azure.microsoft.com/free/ai/)gratuitamente.
-- Un account [GitHub](https://github.com/)
+- Account [GitHub](https://github.com/)
 - [Git per Windows](https://git-scm.com/download/win)
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-L'app client che verrà creata in questa esercitazione usa alcuni servizi di Azure. Per ridurre il tempo di round trip per le risposte dal bot, è necessario assicurarsi che questi servizi si trovino nella stessa area di Azure. In questa sezione verrà creato un gruppo di risorse nell'area **Stati Uniti occidentali** . Questo gruppo di risorse verrà usato durante la creazione di singole risorse per bot-Framework, il canale di riconoscimento vocale direct line e i servizi di riconoscimento vocale.
+L'app client che verrà creata in questa esercitazione usa alcuni servizi di Azure. Per ridurre il tempo di round trip per le risposte dal bot, è necessario assicurarsi che questi servizi si trovino nella stessa area di Azure. In questa sezione verrà creato un gruppo di risorse nell'area **Stati Uniti occidentali** . Questo gruppo di risorse verrà usato durante la creazione di singole risorse per bot-Framework, il canale di riconoscimento vocale della linea diretta e il servizio di riconoscimento vocale.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Nel percorso di spostamento a sinistra selezionare **gruppi di risorse**. Fare quindi clic su **Aggiungi** per aggiungere un nuovo gruppo di risorse.
@@ -71,8 +71,8 @@ L'app client che verrà creata in questa esercitazione usa alcuni servizi di Azu
    * Impostare la **sottoscrizione** per la **versione di valutazione gratuita** . è anche possibile usare una sottoscrizione esistente.
    * Immettere un nome per il **gruppo di risorse**. Si consiglia **SpeechEchoBotTutorial-ResourceGroup**.
    * Dall'elenco a discesa **Region** selezionare **Stati Uniti occidentali**.
-1. Fare clic su **Verifica e crea**. Verrà visualizzato un banner che ha **superato la convalida**di lettura.
-1. Fai clic su **Crea**. La creazione del gruppo di risorse potrebbe richiedere alcuni minuti.
+1. Fare clic su **Rivedi e crea**. Verrà visualizzato un banner che ha **superato la convalida**di lettura.
+1. Fare clic su **Create**(Crea). La creazione del gruppo di risorse potrebbe richiedere alcuni minuti.
 1. Come per le risorse che verranno create più avanti in questa esercitazione, è consigliabile aggiungere questo gruppo di risorse al dashboard per semplificare l'accesso. Se si vuole aggiungere questo gruppo di risorse, fare clic sull'icona Aggiungi in alto a destra nel dashboard.
 
 ### <a name="choosing-an-azure-region"></a>Scelta di un'area di Azure
@@ -89,13 +89,13 @@ Per altre informazioni sulle aree, vedere [località di Azure](https://azure.mic
 
 Ora che si dispone di un gruppo di risorse nell'area **Stati Uniti occidentali** , il passaggio successivo consiste nel creare singole risorse per ogni servizio che verrà usato in questa esercitazione.
 
-### <a name="create-a-speech-services-resource"></a>Creare una risorsa di servizi vocali
+### <a name="create-a-speech-service-resource"></a>Creare una risorsa del servizio vocale
 
 Seguire queste istruzioni per creare una risorsa vocale:
 
 1. Passare alla [portale di Azure](https://portal.azure.com) e selezionare **Crea una risorsa** nel percorso di spostamento a sinistra.
 2. Nella barra di ricerca digitare **Speech**.
-3. Selezionare **sintesi vocale**, quindi fare clic su **Crea**.
+3. Selezionare **Riconoscimento vocale** e quindi fare clic su **Crea**.
 4. Verrà richiesto di fornire alcune informazioni:
    * Assegnare un **nome**alla risorsa. Si consiglia **di SpeechEchoBotTutorial-Speech**
    * Per **Subscription (sottoscrizione**), verificare che sia selezionata la **versione di valutazione gratuita** .
@@ -107,7 +107,7 @@ Seguire queste istruzioni per creare una risorsa vocale:
 
 A questo punto, verificare che il gruppo di risorse (**SpeechEchoBotTutorial-ResourceGroup**) disponga di una risorsa vocale:
 
-| NOME | TIPO  | PERCORSO |
+| NOME | TIPO  | POSIZIONE |
 |------|-------|----------|
 | SpeechEchoBotTutorial-sintesi vocale | Servizi cognitivi | Stati Uniti occidentali |
 
@@ -117,7 +117,7 @@ Il passaggio successivo consiste nel creare un piano di servizio app. Un piano d
 
 1. Passare alla [portale di Azure](https://portal.azure.com) e selezionare **Crea una risorsa** nel percorso di spostamento a sinistra.
 2. Nella barra di ricerca digitare **piano di servizio app**. Individuare e selezionare la scheda del **piano di servizio app** nei risultati della ricerca.
-3. Fai clic su **Crea**.
+3. Fare clic su **Create**(Crea).
 4. Verrà richiesto di fornire alcune informazioni:
    * Impostare la **sottoscrizione** per la **versione di valutazione gratuita** . è anche possibile usare una sottoscrizione esistente.
    * Per **gruppo di risorse**selezionare **SpeechEchoBotTutorial-ResourceGroup**.
@@ -125,12 +125,12 @@ Il passaggio successivo consiste nel creare un piano di servizio app. Un piano d
    * Per **sistema operativo**selezionare **Windows**.
    * Per **area**selezionare **Stati Uniti occidentali**.
    * Per piano **tariffario**, assicurarsi che sia selezionata l'opzione **standard S1** . Deve corrispondere al valore predefinito. In caso contrario, assicurarsi di impostare il **sistema operativo** su **Windows** come descritto in precedenza.
-5. Fare clic su **Verifica e crea**. Verrà visualizzato un banner che ha **superato la convalida**di lettura.
-6. Fai clic su **Crea**. La creazione del gruppo di risorse potrebbe richiedere alcuni minuti.
+5. Fare clic su **Rivedi e crea**. Verrà visualizzato un banner che ha **superato la convalida**di lettura.
+6. Fare clic su **Create**(Crea). La creazione del gruppo di risorse potrebbe richiedere alcuni minuti.
 
 A questo punto, verificare che il gruppo di risorse (**SpeechEchoBotTutorial-ResourceGroup**) disponga di due risorse:
 
-| NOME | TIPO  | PERCORSO |
+| NOME | TIPO  | POSIZIONE |
 |------|-------|----------|
 | SpeechEchoBotTutorial-AppServicePlan | Piano di servizio app | Stati Uniti occidentali |
 | SpeechEchoBotTutorial-sintesi vocale | Servizi cognitivi | Stati Uniti occidentali |
@@ -166,7 +166,7 @@ L' [emulatore di bot Framework](https://github.com/microsoft/botframework-emulat
 1. Installare la versione 4.3.0 o successiva dell' [emulatore di bot Framework](https://github.com/Microsoft/BotFramework-Emulator/releases/latest)
 2. Avviare l'emulatore di bot Framework e aprire il bot:
    * **File** -> **Open bot**.
-3. Immettere l'URL per il bot. Ad esempio:
+3. Immettere l'URL per il bot. ad esempio:
 
    ```
    http://localhost:3978/api/messages
@@ -207,7 +207,7 @@ Il passaggio successivo consiste nel distribuire Echo bot in Azure. Ci sono alcu
 1. Il browser predefinito dovrebbe aprirsi e visualizzare una pagina che legge: "il bot è pronto!".
 1. A questo punto, controllare il gruppo di risorse **SpeechEchoBotTutorial-ResourceGroup** nel portale di Azure e verificare che siano disponibili tre risorse:
 
-| NOME | TIPO  | PERCORSO |
+| NOME | TIPO  | POSIZIONE |
 |------|-------|----------|
 | EchoBot20190805125647 | Servizio app | Stati Uniti occidentali |
 | SpeechEchoBotTutorial-AppServicePlan | Piano di servizio app | Stati Uniti occidentali |
@@ -221,7 +221,7 @@ Il passaggio successivo consiste nel distribuire Echo bot in Azure. Ci sono alcu
 2. Nel percorso di spostamento a sinistra, in **Impostazioni**, fare clic su **configurazione**.
 3. Selezionare la scheda **Impostazioni generali** .
 4. Individuare l'interruttore per i **socket Web** e impostarlo **su on**.
-5. Fare clic su **Save**.
+5. Fare clic su **Salva**
 
 > [!TIP]
 > È possibile utilizzare i controlli nella parte superiore della pagina del servizio app Azure per arrestare o riavviare il servizio. Questo potrebbe essere utile per la risoluzione dei problemi.
@@ -235,7 +235,7 @@ Ora che è stato creato un servizio di app Azure per ospitare il bot, il passagg
 
 1. Il primo passaggio consiste nel creare una nuova risorsa per la registrazione. Nel [portale di Azure](https://portal.azure.com) fare clic su **Crea una risorsa**.
 2. Nella barra di ricerca digitare **bot**, dopo aver visualizzato i risultati, selezionare **bot Channels Registration**.
-3. Fai clic su **Crea**.
+3. Fare clic su **Create**(Crea).
 4. Verrà richiesto di fornire alcune informazioni:
    * Per **nome bot**immettere **SpeechEchoBotTutorial-BotRegistration**.
    * Per **sottoscrizione**selezionare **versione di valutazione gratuita**.
@@ -249,11 +249,11 @@ Ora che è stato creato un servizio di app Azure per ospitare il bot, il passagg
 
 A questo punto, controllare il gruppo di risorse **SpeechEchoBotTutorial-ResourceGroup** nel portale di Azure. A questo punto dovrebbero essere visualizzate quattro risorse:
 
-| NOME | TIPO  | PERCORSO |
+| NOME | TIPO  | POSIZIONE |
 |------|-------|----------|
 | EchoBot20190805125647 | Servizio app | Stati Uniti occidentali |
 | SpeechEchoBotTutorial-AppServicePlan | Piano di servizio app | Stati Uniti occidentali |
-| SpeechEchoBotTutorial-BotRegistration | Registrazione canali bot | Globale |
+| SpeechEchoBotTutorial-BotRegistration | Bot Channels Registration | Globale |
 | SpeechEchoBotTutorial-sintesi vocale | Servizi cognitivi | Stati Uniti occidentali |
 
 > [!IMPORTANT]
@@ -268,11 +268,11 @@ A questo punto è giunto il momento di registrare il bot con il canale di sintes
    * Cercare **altri canali**, trovare e fare clic su **voce diretta linea**.
    * Esaminare il testo nella pagina denominata **Configure Direct Line Speech**, quindi espandere il menu a discesa con l'etichetta "cognitive Service account".
    * Selezionare la risorsa vocale creata in precedenza (ad esempio, **SpeechEchoBotTutorial-Speech**) dal menu per associare il bot alla chiave di sottoscrizione vocale.
-   * Fare clic su **Save**.
+   * Fare clic su **Salva**
 
 1. Nella finestra di spostamento a sinistra fare clic su **Impostazioni**.
    * Selezionare la casella **Abilita endpoint di streaming**. Questa operazione è necessaria per abilitare un protocollo di comunicazione basato su Web socket tra il bot e il canale di riconoscimento vocale diretto.
-   * Fare clic su **Save**.
+   * Fare clic su **Salva**
 
 > [!TIP]
 > Per altre informazioni, vedere [connettere un bot alla linea vocale diretta](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0). Questa pagina include informazioni aggiuntive e problemi noti.
@@ -295,7 +295,7 @@ Prima di procedere, verificare che il microfono e le relatori siano abilitati e 
 
 Se viene ricevuto un messaggio di errore nella finestra principale dell'app, usare questa tabella per identificare e risolvere il problema:
 
-| Tipi di errore | Quali operazioni è necessario eseguire? |
+| Errore | Come si deve procedere? |
 |-------|----------------------|
 |Errore AuthenticationFailure: l'aggiornamento di WebSocket non è riuscito con un errore di autenticazione (401). Verificare la chiave di sottoscrizione corretta (o il token di autorizzazione) e il nome dell'area| Nella pagina delle impostazioni dell'app verificare di aver immesso correttamente la chiave di sottoscrizione vocale e la relativa area.<br>Verificare che la chiave vocale e l'area della chiave siano state immesse correttamente. |
 |Errore ConnectionFailure: la connessione è stata chiusa dall'host remoto. Codice di errore: 1011. Dettagli errore: non è stato possibile connettersi al bot prima di inviare un messaggio | Assicurarsi di aver [selezionato la casella "Abilita endpoint di streaming"](#register-the-direct-line-speech-channel) e/o i [ **socket Web** attivati in attivato](#enable-web-sockets) .<br>Verificare che il servizio app Azure sia in esecuzione. In caso contrario, provare a riavviare il servizio app.|
@@ -420,13 +420,13 @@ Se non si intende continuare a usare echo-bot distribuito in questa esercitazion
 > [!div class="nextstepaction"]
 > [Creare un'app client personalizzata con l'SDK di riconoscimento vocale](quickstart-voice-assistant-csharp-uwp.md)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * Distribuzione in un' [area di Azure nelle vicinanze](https://azure.microsoft.com/global-infrastructure/locations/) per visualizzare il miglioramento del tempo di risposta del bot
 * Distribuzione in un' [area di Azure che supporta le voci TTS neurali di qualità elevata](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices)
 * Prezzi associati al canale vocale direct line:
   * [Prezzi del servizio bot](https://azure.microsoft.com/pricing/details/bot-service/)
-  * [Servizi Voce](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
+  * [Servizio di riconoscimento vocale](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
 * Compilazione e distribuzione di un bot abilitato per la voce:
   * Creare un [bot bot-Framework](https://dev.botframework.com/). Esegui la registrazione con il [canale vocale Direct Line](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0) e [Personalizza il bot per la voce](https://docs.microsoft.com/azure/bot-service/directline-speech-bot?view=azure-bot-service-4.0)
   * Esplora le [soluzioni bot-Framework](https://microsoft.github.io/botframework-solutions/index)esistenti: crea un [assistente virtuale](https://microsoft.github.io/botframework-solutions/overview/virtual-assistant-solution/) ed [estendilo per indirizzare il discorso alla riga](https://microsoft.github.io/botframework-solutions/clients-and-channels/tutorials/enable-speech/1-intro/)

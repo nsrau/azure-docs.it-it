@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 75edb385a86be849ec7c165759d3b451eab804f6
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: fec81e843753656d651c6d5d0b73077a964be9d4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828518"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807443"
 ---
 # <a name="azure-service-fabric-security"></a>Sicurezza di Azure Service Fabric 
 
@@ -166,7 +166,7 @@ Per consentire all'applicazione di accedere ai segreti, includere il certificato
 ```
 ## <a name="authenticate-service-fabric-applications-to-azure-resources-using-managed-service-identity-msi"></a>Autenticare le applicazioni di Service Fabric per le risorse di Azure usando l'identità del servizio gestita
 
-Per informazioni sulle identità gestite per le risorse di Azure, vedere [Informazioni sulle identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#how-does-it-work).
+Per informazioni sulle identità gestite per le risorse di Azure, vedere [Informazioni sulle identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work).
 I cluster di Azure Service Fabric sono ospitati in set di scalabilità di macchine virtuali, che supportano l'[identità del servizio gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-managed-identities-for-azure-resources).
 Per ottenere un elenco dei servizi per cui è possibile usare tale identità del servizio gestita per l'autenticazione, vedere [Servizi di Azure che supportano l'autenticazione di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-azure-ad-authentication).
 
@@ -217,7 +217,7 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 Si [consiglia di implementare una configurazione standard del settore che sia ampiamente nota e ben collaudata, ad esempio le linee di base della sicurezza Microsoft, anziché creare manualmente una baseline](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines). un'opzione per il provisioning di questi nei set di scalabilità di macchine virtuali consiste nell'usare il gestore estensioni DSC (Desired state Configuration) di Azure per configurare le macchine virtuali in linea, in modo che eseguano il software di produzione.
 
 ## <a name="azure-firewall"></a>Firewall di Azure
-[Azure firewall è un servizio di sicurezza di rete gestito e basato sul cloud che protegge le risorse della rete virtuale di Azure. Si tratta di un firewall completamente con stato come servizio con disponibilità elevata incorporata e scalabilità illimitata del cloud. ](https://docs.microsoft.com/azure/firewall/overview); in questo modo è possibile limitare il traffico HTTP/S in uscita a un elenco specificato di nomi di dominio completi (FQDN), inclusi i caratteri jolly. Questa funzionalità non richiede la terminazione SSL. Si consiglia di usare i [tag FQDN del firewall di Azure](https://docs.microsoft.com/azure/firewall/fqdn-tags) per gli aggiornamenti di Windows e di abilitare il traffico di rete verso gli endpoint di Microsoft Windows Update possono attraversare il firewall. [Distribuire il firewall di Azure con un modello](https://docs.microsoft.com/azure/firewall/deploy-template) fornisce un esempio per la definizione del modello di risorsa Microsoft. Network/azureFirewalls. Le regole del firewall comuni alle applicazioni Service Fabric consentono di eseguire le operazioni seguenti per la rete virtuale dei cluster:
+Il [firewall di Azure è un servizio di sicurezza di rete gestito e basato sul cloud che protegge le risorse della rete virtuale di Azure. Si tratta di un firewall completamente con stato come servizio con disponibilità elevata incorporata e scalabilità illimitata del cloud.](https://docs.microsoft.com/azure/firewall/overview) in questo modo è possibile limitare il traffico HTTP/S in uscita a un elenco specificato di nomi di dominio completi (FQDN), inclusi i caratteri jolly. Questa funzionalità non richiede la terminazione SSL. Si consiglia di usare i [tag FQDN del firewall di Azure](https://docs.microsoft.com/azure/firewall/fqdn-tags) per gli aggiornamenti di Windows e di abilitare il traffico di rete verso gli endpoint di Microsoft Windows Update possono attraversare il firewall. [Distribuire il firewall di Azure con un modello](https://docs.microsoft.com/azure/firewall/deploy-template) fornisce un esempio per la definizione del modello di risorsa Microsoft. Network/azureFirewalls. Le regole del firewall comuni alle applicazioni Service Fabric consentono di eseguire le operazioni seguenti per la rete virtuale dei cluster:
 
 - \* download.microsoft.com
 - *servicefabric.azure.com
@@ -263,7 +263,7 @@ Per impostazione predefinita, Windows Defender Antivirus è installato in Window
 > Se non si usa Windows Defender, fare riferimento alla documentazione dell'antimalware in uso per informazioni sulle regole di configurazione. Windows Defender non è supportato in Linux.
 
 ## <a name="platform-isolation"></a>Isolamento piattaforma
-Per impostazione predefinita, alle applicazioni Service Fabric viene concesso l'accesso al Runtime Service Fabric stesso, che si manifesta in forme diverse: le [variabili di ambiente](service-fabric-environment-variables-reference.md) che puntano a percorsi di file nell'host corrispondente ai file dell'applicazione e dell'infrastruttura, endpoint di comunicazione tra processi che accetta richieste specifiche dell'applicazione e il certificato client che l'infrastruttura prevede che l'applicazione usi per l'autenticazione. Nell'eventualità che il servizio ospiti un codice non attendibile, è consigliabile disabilitare questo accesso al runtime di SF, a meno che non sia necessario esplicitamente. L'accesso al runtime viene rimosso usando la dichiarazione seguente nella sezione policies del manifesto dell'applicazione: 
+Per impostazione predefinita, alle applicazioni Service Fabric viene concesso l'accesso al Runtime Service Fabric stesso, che si manifesta in forme diverse: [variabili di ambiente](service-fabric-environment-variables-reference.md) che puntano a percorsi di file nell'host corrispondente ai file dell'applicazione e dell'infrastruttura, un endpoint di comunicazione tra processi che accetta richieste specifiche dell'applicazione e il certificato client che l'infrastruttura prevede che l'applicazione usi per l'autenticazione. Nell'eventualità che il servizio ospiti un codice non attendibile, è consigliabile disabilitare questo accesso al runtime di SF, a meno che non sia necessario esplicitamente. L'accesso al runtime viene rimosso usando la dichiarazione seguente nella sezione policies del manifesto dell'applicazione: 
 
 ```xml
 <ServiceManifestImport>
@@ -276,8 +276,8 @@ Per impostazione predefinita, alle applicazioni Service Fabric viene concesso l'
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Creare un cluster nelle macchine virtuali o nei computer che eseguono Windows Server: [Creazione del cluster di Service Fabric per Windows Server](service-fabric-cluster-creation-for-windows-server.md).
-* Creare un cluster nelle macchine virtuali o nei computer che eseguono Linux: [Creare un cluster Linux](service-fabric-cluster-creation-via-portal.md).
+* Creare un cluster in macchine virtuali o computer che eseguono Windows Server: [Service Fabric la creazione di cluster per Windows Server](service-fabric-cluster-creation-for-windows-server.md).
+* Creare un cluster nelle VM o nei computer che eseguono Linux: [creare un cluster Linux](service-fabric-cluster-creation-via-portal.md).
 * Informazioni sulle [opzioni di supporto di Service Fabric](service-fabric-support.md).
 
 [Image1]: ./media/service-fabric-best-practices/generate-common-name-cert-portal.png

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 577a76b628e40b7651345698a46cba255b16a828
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b2d02ed5a9fb2cb10e4cf18fe7d878da5b032fe0
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464553"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816394"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparare i dati per Riconoscimento vocale personalizzato
 
@@ -25,11 +25,11 @@ Che tu stia testando per verificare l'accuratezza del riconoscimento vocale Micr
 
 In questa tabella sono elencati i tipi di dati accettati, quando è necessario utilizzare ogni tipo di dati e la quantità consigliata. Non tutti i tipi di dati sono necessari per creare un modello. I requisiti dei dati variano a seconda che si stia creando un test o un training di un modello.
 
-| Tipo di dati | Usato per il test | Quantità | Usato per il training | Quantità |
+| Tipo di dati | Usato per il test | Quantità consigliata | Usato per il training | Quantità consigliata |
 |-----------|-----------------|----------|-------------------|----------|
-| [Audio](#audio-data-for-testing) | SÌ<br>Usato per l'ispezione visiva | 5 + file audio | No | n/a |
+| [Audio](#audio-data-for-testing) | SÌ<br>Usato per l'ispezione visiva | 5 + file audio | No | N/a |
 | [Trascrizioni audio + con etichetta umana](#audio--human-labeled-transcript-data-for-testingtraining) | SÌ<br>Utilizzato per valutare l'accuratezza | 0,5-5 ore di audio | SÌ | da 1 a 1.000 ore di audio |
-| [Testo correlato](#related-text-data-for-training) | No | n/a | SÌ | 1-200 MB di testo correlato |
+| [Testo correlato](#related-text-data-for-training) | No | N/a | SÌ | 1-200 MB di testo correlato |
 
 I file devono essere raggruppati per tipo in un set di dati e caricati come file zip. Ogni set di dati può contenere solo un singolo tipo di dati.
 

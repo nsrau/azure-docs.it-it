@@ -8,12 +8,12 @@ ms.reviewer: tomersh26
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.openlocfilehash: dd2b3bd584bb39810e0a5c9acde1a961330c273d
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 51683e529f832e06efbe8eb71466f3b27d95fcb1
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74093761"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819134"
 ---
 # <a name="integrate-azure-data-explorer-with-azure-data-factory"></a>Integrare Esplora dati di Azure con Azure Data Factory
 
@@ -90,7 +90,7 @@ Vedere la tabella seguente per un confronto tra l'attività di copia e i comandi
 
 Nella tabella seguente sono elencate le autorizzazioni necessarie per diversi passaggi dell'integrazione con Azure Data Factory.
 
-| Passaggio | Operazione | Livello minimo di autorizzazioni | note |
+| Passaggio | Operazione | Livello minimo di autorizzazioni | Note |
 |---|---|---|---|
 | **Creare un servizio collegato** | Navigazione nel database | *visualizzatore database* <br>L'utente che ha eseguito l'accesso con ADF deve essere autorizzato a leggere i metadati del database. | L'utente può specificare il nome del database manualmente. |
 | | Test della connessione | *monitoraggio database* o inserimento di *tabelle* <br>L'entità servizio deve essere autorizzata a eseguire comandi `.show` a livello di database o a livello di tabella. | <ul><li>TestConnection verifica la connessione al cluster e non al database. Questa operazione può essere eseguita anche se il database non esiste.</li><li>Le autorizzazioni di amministratore della tabella non sono sufficienti.</li></ul>|
@@ -99,32 +99,109 @@ Nella tabella seguente sono elencate le autorizzazioni necessarie per diversi pa
 |   | Importa schema | *visualizzatore database* <br>L'entità servizio deve essere autorizzata a leggere i metadati del database. | Quando ADX è l'origine di una copia tabulare in tabulare, ADF importerà automaticamente lo schema, anche se l'utente non ha importato lo schema in modo esplicito. |
 | **ADX come sink** | Creazione di un mapping di colonna per nome | *Monitoraggio database* <br>L'entità servizio deve essere autorizzata a eseguire i comandi `.show` a livello di database. | <ul><li>Tutte le operazioni obbligatorie funzioneranno con l'inserimento di *tabelle*.</li><li> Alcune operazioni facoltative possono avere esito negativo.</li></ul> |
 |   | <ul><li>Creare un mapping CSV nella tabella</li><li>Elimina il mapping</li></ul>| inserimento di *tabelle* o *amministratore di database* <br>L'entità servizio deve essere autorizzata a apportare modifiche a una tabella. | |
-|   | Inserire dati | inserimento di *tabelle* o *amministratore di database* <br>L'entità servizio deve essere autorizzata a apportare modifiche a una tabella. | | 
+|   | Inserimento di dati | inserimento di *tabelle* o *amministratore di database* <br>L'entità servizio deve essere autorizzata a apportare modifiche a una tabella. | | 
 | **ADX come origine** | Esegui query | *visualizzatore database* <br>L'entità servizio deve essere autorizzata a leggere i metadati del database. | |
 | **Comando kusto** | | In base al livello di autorizzazione di ogni comando. |
 
-## <a name="performance"></a>Prestazioni 
+## <a name="performance"></a>Performance 
 
 Se Esplora dati di Azure è l'origine e si usa l'attività di ricerca, copia o comando che contiene una query in cui, fare riferimento alle [procedure consigliate](/azure/kusto/query/best-practices) per le prestazioni e alla [documentazione di ADF per l'attività di copia](/azure/data-factory/copy-activity-performance).
   
 Questa sezione illustra l'uso dell'attività di copia in cui Azure Esplora dati è il sink. La velocità effettiva stimata per il sink di Azure Esplora dati è 11-13 MBps. La tabella seguente illustra in dettaglio i parametri che influiscono sulle prestazioni del sink di Azure Esplora dati.
 
-| . | note |
+| Parametro | Note |
 |---|---|
 | **Prossimità geografica dei componenti** | Inserire tutti i componenti nella stessa area:<ul><li>archivi dati di origine e sink.</li><li>Runtime di integrazione di ADF.</li><li>Il cluster ADX.</li></ul>Assicurarsi che almeno il runtime di integrazione si trovi nella stessa area del cluster ADX. |
 | **Numero di DIUs** | 1 VM per ogni 4 DIUs usato da ADF. <br>L'aumento del valore di DIUs sarà utile solo se l'origine è un archivio basato su file con più file. Ogni macchina virtuale elaborerà quindi un file diverso in parallelo. Quindi, la copia di un singolo file di grandi dimensioni avrà una latenza maggiore rispetto alla copia di più file più piccoli.|
 |**Quantità e SKU del cluster ADX** | Il numero elevato di nodi ADX aumenterà il tempo di elaborazione dell'inserimento.|
-| **Parallelismo** | Per copiare una quantità molto elevata di dati da un database, partizionare i dati e quindi usare un ciclo ForEach che copia ogni partizione in parallelo o usare la [copia bulk dal database al modello di Esplora dati di Azure](data-factory-template.md). Nota: **le impostazioni** > **grado di parallelismo** nell'attività di copia non è pertinente per ADX. |
+| **Parallelism** | Per copiare una quantità molto elevata di dati da un database, partizionare i dati e quindi usare un ciclo ForEach che copia ogni partizione in parallelo o usare la [copia bulk dal database al modello di Esplora dati di Azure](data-factory-template.md). Nota: **le impostazioni** > **grado di parallelismo** nell'attività di copia non è pertinente per ADX. |
 | **Complessità dell'elaborazione dei dati** | La latenza varia in base al formato del file di origine, al mapping delle colonne e alla compressione.|
 | **Macchina virtuale che esegue il runtime di integrazione** | <ul><li>Per la copia di Azure, le macchine virtuali ADF e gli SKU del computer non possono essere modificati.</li><li> Per la copia da locale ad Azure, determinare che la macchina virtuale che ospita il runtime di integrazione self-hosted è sufficientemente sicura.</li></ul>|
 
-## <a name="monitor-activity-progress"></a>Monitorare lo stato dell'attività
+## <a name="tips-and-common-pitfalls"></a>Suggerimenti e trappole comuni
+
+### <a name="monitor-activity-progress"></a>Monitorare lo stato dell'attività
 
 * Quando si monitora lo stato di avanzamento dell'attività, la proprietà *scrittura dati* può essere molto più grande della proprietà *lettura dati* perché i *dati letti* vengono calcolati in base alle dimensioni del file binario, mentre i *dati scritti* vengono calcolati in base alle dimensioni in memoria, dopo la deserializzazione e la decompressione dei dati.
 
 * Quando si monitora lo stato dell'attività, è possibile osservare che i dati vengono scritti nel sink di Esplora dati di Azure. Quando si esegue una query sulla tabella di Esplora dati di Azure, si noterà che i dati non sono stati ricevuti. Questo è dovuto al fatto che durante la copia in Azure Esplora dati sono presenti due fasi. 
     * La prima fase legge i dati di origine, li suddivide in blocchi da 900 MB e carica ogni blocco in un BLOB di Azure. La prima fase viene visualizzata dalla visualizzazione dello stato di avanzamento dell'attività di ADF. 
     * La seconda fase inizia dopo il caricamento di tutti i dati nei BLOB di Azure. I nodi del motore di Azure Esplora dati scaricano i BLOB e inseriscono i dati nella tabella di sink. I dati vengono quindi visualizzati nella tabella di Esplora dati di Azure.
+
+### <a name="failure-to-ingest-csv-files-due-to-improper-escaping"></a>Errore di inserimento dei file CSV a causa di una fuga non corretta
+
+Azure Esplora dati prevede che i file CSV siano allineati con [RFC 4180](https://www.ietf.org/rfc/rfc4180.txt).
+Prevede:
+* I campi che contengono caratteri che richiedono l'escape (ad esempio "e le nuove righe) devono iniziare e terminare con un carattere **"** senza spazi vuoti. Tutti **i** caratteri *all'interno* del campo vengono preceduti da un carattere di escape usando un valore Double **"** character ( **" "** ). Ad esempio, _"Hello", "World" "_ " è un file CSV valido con un singolo record con un solo colonna o un campo con il contenuto _Hello, "World"_ .
+* Tutti i record nel file devono avere lo stesso numero di colonne e campi.
+
+Azure Data Factory consente il carattere barra rovesciata (Escape). Se si genera un file CSV con un carattere barra rovesciata usando Azure Data Factory, l'inserimento del file in Azure Esplora dati avrà esito negativo.
+
+#### <a name="example"></a>Esempio
+
+I valori di testo seguenti: Hello, "World"<br/>
+DEF ABC<br/>
+"ABC\D" EF<br/>
+"ABC DEF<br/>
+
+Dovrebbe essere visualizzato in un file CSV appropriato come segue: "Hello," "World" ""<br/>
+"ABC DEF"<br/>
+"" "ABC DEF"<br/>
+"" "ABC\D" "EF"<br/>
+
+Usando il carattere di escape predefinito (barra rovesciata), il file CSV seguente non funzionerà con Azure Esplora dati: "Hello, \"World\""<br/>
+"ABC DEF"<br/>
+"\"ABC DEF"<br/>
+"\"ABC\D\"EF"<br/>
+
+### <a name="nested-json-objects"></a>Oggetti JSON annidati
+
+Quando si copia un file JSON in Esplora dati di Azure, tenere presente quanto segue:
+* Le matrici non sono supportate.
+* Se la struttura JSON contiene tipi di dati oggetto, Azure Data Factory rende Flat gli elementi figlio dell'oggetto e tenta di eseguire il mapping di ogni elemento figlio a una colonna diversa nella tabella di Esplora dati di Azure. Se si vuole eseguire il mapping dell'intero elemento oggetto a una singola colonna in Azure Esplora dati:
+    * Inserire l'intera riga JSON in un'unica colonna dinamica in Esplora dati di Azure.
+    * Modificare manualmente la definizione della pipeline usando l'editor JSON di Azure Data Factory. Nei **mapping**
+       * Rimuovere i mapping multipli creati per ogni elemento figlio e aggiungere un singolo mapping che esegue il mapping del tipo di oggetto alla colonna della tabella.
+       * Dopo la parentesi quadra di chiusura, aggiungere una virgola seguita da:<br/>
+       `"mapComplexValuesToString": true`.
+
+### <a name="specify-additionalproperties-when-copying-to-azure-data-explorer"></a>Specificare AdditionalProperties durante la copia in Azure Esplora dati
+
+> [!NOTE]
+> Questa funzionalità è attualmente disponibile modificando manualmente il payload JSON. 
+
+Aggiungere una singola riga sotto la sezione "sink" dell'attività di copia come indicato di seguito:
+
+```json
+"sink": {
+    "type": "AzureDataExplorerSink",
+    "additionalProperties": "{\"tags\":\"[\\\"drop-by:account_FiscalYearID_2020\\\"]\"}"
+},
+```
+
+L'escape del valore potrebbe risultare complesso. Usare il frammento di codice seguente come riferimento:
+
+```csharp
+static void Main(string[] args)
+{
+       Dictionary<string, string> additionalProperties = new Dictionary<string, string>();
+       additionalProperties.Add("ignoreFirstRecord", "false");
+       additionalProperties.Add("csvMappingReference", "Table1_mapping_1");
+       IEnumerable<string> ingestIfNotExists = new List<string> { "Part0001" };
+       additionalProperties.Add("ingestIfNotExists", JsonConvert.SerializeObject(ingestIfNotExists));
+       IEnumerable<string> tags = new List<string> { "ingest-by:Part0001", "ingest-by:IngestedByTest" };
+       additionalProperties.Add("tags", JsonConvert.SerializeObject(tags));
+       var additionalPropertiesForPayload = JsonConvert.SerializeObject(additionalProperties);
+       Console.WriteLine(additionalPropertiesForPayload);
+       Console.ReadLine();
+}
+```
+
+Valore stampato:
+
+```json
+{"ignoreFirstRecord":"false","csvMappingReference":"Table1_mapping_1","ingestIfNotExists":"[\"Part0001\"]","tags":"[\"ingest-by:Part0001\",\"ingest-by:IngestedByTest\"]"}
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 7630659deeece7fbf8d0ca1fd00b539a8de83b0e
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 0f28d984cfc29e67c3b5c3a90137ee09868b471c
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072491"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806029"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Eseguire il training di un modello per Riconoscimento vocale personalizzato
 
@@ -34,7 +34,7 @@ Se si riscontrano problemi di riconoscimento con il modello, l'uso di trascrizio
 > [!IMPORTANT]
 > Se non è stato caricato un set di dati, vedere [preparare e testare i dati](how-to-custom-speech-test-data.md). In questo documento vengono fornite istruzioni per il caricamento dei dati e le linee guida per la creazione di set di dati di alta qualità.
 
-## <a name="train-and-evaluate-a-model"></a>Eseguire il training e valutare un modello
+## <a name="train-and-evaluate-a-model"></a>Eseguire il training di un modello e valutarlo
 
 Il primo passaggio per eseguire il training di un modello consiste nel caricare i dati di training. Usare [preparare e testare i dati](how-to-custom-speech-test-data.md) per istruzioni dettagliate per preparare le trascrizioni con etichetta umana e il testo correlato (espressioni e pronunce). Dopo aver caricato i dati di training, seguire queste istruzioni per avviare il training del modello:
 

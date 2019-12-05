@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfb4b7d2cb34855208eb54c6d30b29e4bbff636b
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 0c903e3378e06734a8785531c1a16c695d4b6c21
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766617"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74814946"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementare la sincronizzazione dell'hash delle password con il servizio di sincronizzazione Azure AD Connect
 Questo articolo contiene le informazioni necessarie per sincronizzare le password utente da un'istanza di Active Directory locale a un'istanza di Azure Active Directory (Azure AD) basata sul cloud.
@@ -127,7 +127,8 @@ Per supportare password temporanee in Azure AD per gli utenti sincronizzati, è 
 
 `Set-ADSyncAADCompanyFeature  -ForcePasswordResetOnLogonFeature $true`
 
-Avvertenza: se si impone a un utente di modificare la password all'accesso successivo, è necessario modificare la password nello stesso momento.  AD Connect non preleverà il flag di modifica Force password da solo, ma è supplementare per la modifica della password rilevata che si verifica durante la sincronizzazione degli hash delle password.
+> [!NOTE]
+> Per forzare l'utente a modificare la password all'accesso successivo è necessario modificare la password nello stesso momento.  AD Connect non preleverà il flag di modifica Force password da solo; è supplementare per la modifica della password rilevata che si verifica durante la sincronizzazione dell'hash delle password.
 
 > [!CAUTION]
 > Se non si Abilita la reimpostazione della password self-service (SSPR) in Azure AD gli utenti avranno un'esperienza confusa quando reimpostano la password in Azure AD e quindi tenteranno di accedere Active Directory con la nuova password, perché la nuova password non è valida in Active Directory . È consigliabile usare questa funzionalità solo quando SSPR e il writeback delle password sono abilitati nel tenant.

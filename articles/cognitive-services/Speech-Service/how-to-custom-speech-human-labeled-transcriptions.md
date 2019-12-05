@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 1eeb2e7ccf5c365fedd02a8de4c6b442dd3d5bc8
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 81b4ffc8f77673e52bb78f891e3de618b67e0d1b
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075806"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806063"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Come creare trascrizioni con etichetta umana
 
@@ -27,9 +27,9 @@ Per migliorare il riconoscimento è necessario un ampio esempio di dati di trasc
 
 Le trascrizioni con etichetta umana per l'audio in lingua inglese devono essere fornite come testo normale, usando solo caratteri ASCII. Evitare l'uso di caratteri di punteggiatura Latino-1 o Unicode. Questi caratteri vengono spesso aggiunti inavvertitamente quando si copia il testo da un'applicazione di elaborazione di testo o si eliminano dati dalle pagine Web. Se questi caratteri sono presenti, assicurarsi di aggiornarli con la sostituzione ASCII appropriata.
 
-Di seguito sono disponibili alcuni esempi:
+Di seguito vengono indicati alcuni esempi:
 
-| Caratteri da evitare | Sostituzione | note |
+| Caratteri da evitare | Sostituzione | Note |
 | ------------------- | ------------ | ----- |
 | "Hello World" | "Hello world" | I contrassegni di virgolette di apertura e di chiusura sono stati sostituiti con caratteri ASCII appropriati. |
 | John ' s Day | John ' s Day | L'apostrofo è stato sostituito con il carattere ASCII appropriato. |
@@ -82,9 +82,9 @@ Di seguito sono riportati alcuni esempi di normalizzazione eseguita automaticame
 
 Le trascrizioni con etichetta umana per l'audio cinese mandarino devono essere codificate in UTF-8 con un marcatore dell'ordine dei byte. Evitare l'uso di caratteri di punteggiatura a mezza larghezza. Questi caratteri possono essere inclusi inavvertitamente quando si preparano i dati in un programma di elaborazione di testi o si eliminano dati dalle pagine Web. Se questi caratteri sono presenti, assicurarsi di aggiornarli con la sostituzione a larghezza completa appropriata.
 
-Di seguito sono disponibili alcuni esempi:
+Di seguito vengono indicati alcuni esempi:
 
-| Caratteri da evitare | Sostituzione   | note |
+| Caratteri da evitare | Sostituzione   | Note |
 | ------------------- | -------------- | ----- |
 | "你好" | "你好" | Le virgolette di apertura e di chiusura sono state sostituite con i caratteri appropriati. |
 | 需要什么帮助? | 需要什么帮助？| Il punto interrogativo è stato sostituito con il carattere appropriato. |
@@ -162,7 +162,7 @@ Di seguito sono riportati alcuni esempi di normalizzazione eseguita automaticame
 | ¡Eine Frage!     | eine frage               |
 | wir, haben       | wir haben                |
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 - [Preparare e testare i dati](how-to-custom-speech-test-data.md)
 - [Esaminare i dati](how-to-custom-speech-inspect-data.md)

@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: erhopf
-ms.openlocfilehash: f04ad388922ad7f73bf4409f9a846291cbb08da3
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 651a30bbcba7b4d4f5d00765c651be73953cd748
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74774009"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815507"
 ---
 # <a name="what-is-speech-to-text"></a>Che cos'è il riconoscimento vocale?
 
-Riconoscimento vocale da servizi vocali di Azure, noto anche come riconoscimento vocale, consente la trascrizione in tempo reale dei flussi audio in testo che le applicazioni, gli strumenti o i dispositivi possono utilizzare, visualizzare e agire come input del comando. Questo servizio è basato sulla stessa tecnologia di riconoscimento utilizzata da Microsoft per i prodotti Cortana e Office e funziona senza interruzioni con la traduzione e la sintesi vocale. Per un elenco completo delle lingue di sintesi vocale disponibili, vedere [linguaggi supportati](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text).
+Il riconoscimento vocale del servizio riconoscimento vocale, noto anche come riconoscimento vocale, consente la trascrizione in tempo reale dei flussi audio in testo che le applicazioni, gli strumenti o i dispositivi possono utilizzare, visualizzare e agire come input del comando. Questo servizio è basato sulla stessa tecnologia di riconoscimento utilizzata da Microsoft per i prodotti Cortana e Office e funziona senza interruzioni con la traduzione e la sintesi vocale. Per un elenco completo delle lingue di sintesi vocale disponibili, vedere [linguaggi supportati](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text).
 
 Per impostazione predefinita, il servizio riconoscimento vocale usa il modello di linguaggio universale. Questo modello è stato sottoposto a training usando i dati di proprietà di Microsoft e viene distribuito nel cloud. È ideale per gli scenari di conversazione e di dettatura. Se si usa il riconoscimento vocale per il riconoscimento e la trascrizione in un ambiente univoco, è possibile creare ed eseguire il training di modelli acustici, linguistici e di pronuncia personalizzati destinati a un ambiente rumoroso o una terminologica specifica del settore.
 
@@ -54,7 +54,7 @@ Se si preferisce usare il servizio REST di riconoscimento vocale, vedere [API RE
 
 ## <a name="tutorials-and-sample-code"></a>Esercitazioni e codice di esempio
 
-Dopo aver usato i servizi Voce, provare l'esercitazione che illustra come riconoscere le finalità dai contenuti vocali con Speech SDK e LUIS.
+Dopo avere avuto la possibilità di usare il servizio di riconoscimento vocale, provare l'esercitazione in cui viene illustrato come riconoscere gli Intent dalla voce con l'SDK di riconoscimento vocale e LUIS.
 
 - [Esercitazione: riconoscere gli Intent dalla sintesi vocale con l'SDK vocale e LUIS,C#](how-to-recognize-intents-from-speech-csharp.md)
 
@@ -65,7 +65,7 @@ Il codice di esempio per l'SDK di riconoscimento vocale è disponibile su GitHub
 
 ## <a name="customization"></a>Personalizzazione
 
-Oltre al modello di base standard usato dai servizi di riconoscimento vocale, è possibile personalizzare i modelli in base alle esigenze con i dati disponibili, per superare gli ostacoli al riconoscimento vocale, ad esempio lo stile parlato, il vocabolario e il rumore di fondo, vedere [riconoscimento vocale personalizzato](how-to-custom-speech.md)
+Oltre al modello di base standard utilizzato dal servizio di riconoscimento vocale, è possibile personalizzare i modelli in base alle esigenze con i dati disponibili, per superare gli ostacoli al riconoscimento vocale, ad esempio lo stile parlato, il vocabolario e il rumore di fondo, vedere [riconoscimento vocale personalizzato](how-to-custom-speech.md)
 
 > [!NOTE]
 > Le opzioni di personalizzazione variano in base alla lingua o alle impostazioni locali (vedere [lingue supportate](supported-languages.md)).
@@ -75,10 +75,10 @@ Oltre al modello di base standard usato dai servizi di riconoscimento vocale, è
 > [!WARNING]
 > Il riconoscimento vocale Bing è stato ritirato il 15 ottobre 2019.
 
-Se le applicazioni, gli strumenti o i prodotti usano le API riconoscimento vocale Bing o Riconoscimento vocale personalizzato, sono state create guide che consentono di eseguire la migrazione ai servizi di riconoscimento vocale.
+Se le applicazioni, gli strumenti o i prodotti usano le API riconoscimento vocale Bing o Riconoscimento vocale personalizzato, sono state create guide che consentono di eseguire la migrazione al servizio di riconoscimento vocale.
 
-- [Eseguire la migrazione dal riconoscimento vocale Bing ai servizi di riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech)
-- [Eseguire la migrazione da Riconoscimento vocale personalizzato ai servizi di riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service)
+- [Eseguire la migrazione dal riconoscimento vocale Bing al servizio riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech)
+- [Eseguire la migrazione da Riconoscimento vocale personalizzato al servizio riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service)
 
 ## <a name="reference-docs"></a>Documenti di riferimento
 
@@ -90,5 +90,5 @@ Se le applicazioni, gli strumenti o i prodotti usano le API riconoscimento vocal
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Ottieni gratuitamente una chiave di sottoscrizione per i servizi Voce](get-started.md)
+- [Ottenere gratuitamente una chiave di sottoscrizione per i servizi di riconoscimento vocale](get-started.md)
 - [Ottenere l'SDK di riconoscimento vocale](speech-sdk.md)

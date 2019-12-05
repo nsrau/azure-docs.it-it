@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 8aa6a8bfb690b00ee21980f4aa64d950abec2f3c
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: d30195cb9aceac0e785f01ce8c2ce78d7a9d4da7
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74152671"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805774"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>Esercitazione: configurare RingCentral per il provisioning utenti automatico
 
@@ -31,7 +31,7 @@ Questa esercitazione descrive i passaggi da eseguire in RingCentral e Azure Acti
 >
 > Questo connettore è attualmente disponibile in anteprima pubblica. Per altre informazioni sulle condizioni per l'utilizzo di Microsoft Azure relative alle funzionalità di anteprima, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
@@ -94,7 +94,7 @@ Prima di configurare RingCentral per il provisioning utenti automatico con Azure
 Questa sezione illustra i passaggi per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in RingCentral in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 > [!TIP]
-> È anche possibile scegliere di abilitare la Single Sign-On basata su SAML per RingCentral, seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on di RingCentral](https://docs.microsoft.comazure/active-directory/saas-apps/ringcentral-tutorial). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
+> È anche possibile scegliere di abilitare la Single Sign-On basata su SAML per RingCentral, seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on di RingCentral](ringcentral-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
 
 > [!NOTE]
 > Per altre informazioni sull'endpoint SCIM di RingCentral, vedere le informazioni di [riferimento sulle API RingCentral](https://developers.ringcentral.com/api-reference).
@@ -125,7 +125,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Fare clic su **Save**.
+7. Fare clic su **Salva**
 
 8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a RingCentral**.
 
@@ -151,7 +151,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio Azure ad provisioning su RingCentral.
 
-Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere [Esercitazione: creazione di report sul provisioning automatico degli account utente](../manage-apps/check-status-user-account-provisioning.md).
+Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

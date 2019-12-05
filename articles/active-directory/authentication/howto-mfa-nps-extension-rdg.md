@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ec402cf2c741d88d230e5734485bf9eb0dd1b03
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: c0eafc12f9207ca93651363316c06eeadb7c8436
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381822"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74813191"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrare l'infrastruttura Gateway Desktop remoto con Azure MFA usando l'estensione NPS (Network Policy Server, Server dei criteri di rete) e Azure AD
 
@@ -59,7 +59,7 @@ Quando l'estensione NPS per Azure è integrata con Server dei criteri di rete e 
 1. Il Server dei criteri di rete in cui è installata l'estensione invia un messaggio di autorizzazione di accesso RADIUS per i criteri di autorizzazione connessioni Desktop remoto al server Gateway Desktop remoto.
 1. All'utente viene concesso l'accesso alla risorsa di rete richiesta tramite Gateway Desktop remoto.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Questa sezione illustra in modo dettagliato i prerequisiti necessari per l'integrazione di Azure MFA con Gateway Desktop remoto. Prima di iniziare, è necessario che siano soddisfatti i prerequisiti seguenti.  
 
@@ -193,7 +193,7 @@ I criteri di autorizzazione connessioni Desktop remoto specificano i requisiti p
 
    ![Immettere il nome o l'indirizzo IP del server NPS](./media/howto-mfa-nps-extension-rdg/image10.png)
   
-1. Fare clic su **Add**.
+1. Fare clic su **Aggiungi**.
 1. Nella finestra di dialogo **Segreto condiviso** immettere un segreto condiviso e quindi fare clic su **OK**. Assicurarsi di registrare il segreto condiviso e di archiviare il record in modo sicuro.
 
    >[!NOTE]
@@ -233,7 +233,7 @@ Per garantire il tempo necessario per convalidare le credenziali degli utenti, e
 
 ### <a name="verify-connection-request-policies"></a>Verificare i criteri di richiesta di connessione
 
-Per impostazione predefinita, quando si configura Gateway Desktop remoto per l'uso di un archivio centrale di criteri per i criteri di autorizzazione connessioni, Gateway Desktop remoto viene configurato per inoltrare richieste di criteri di autorizzazione connessioni al server NPS. Il server NPS in cui è installata l'estensione per Azure MFA elabora la richiesta di accesso RADIUS. I passaggi seguenti mostrano come verificare i criteri di richiesta di connessione predefiniti.
+Per impostazione predefinita, quando si configura Gateway Desktop remoto per l'uso di un archivio centrale di criteri per i criteri di autorizzazione connessioni, Gateway Desktop remoto viene configurato per inoltrare richieste di criteri di autorizzazione connessioni al server NPS. Il server NPS in cui è installata l'estensione per Azure MFA elabora la richiesta di accesso RADIUS. I passaggi seguenti mostrano come verificare i criteri di richiesta di connessione predefiniti.  
 
 1. Nella console Server dei criteri di rete (locale) in Gateway Desktop remoto espandere **Criteri** e selezionare **Criteri di richiesta di connessione**.
 1. Fare doppio clic su **CRITERI DI AUTORIZZAZIONE GATEWAY DI SERVIZI TERMINAL**.
@@ -243,6 +243,9 @@ Per impostazione predefinita, quando si configura Gateway Desktop remoto per l'u
    ![Configurare le impostazioni di autenticazione che specificano il gruppo di server](./media/howto-mfa-nps-extension-rdg/image15.png)
 
 1. Fare clic su **Annulla**.
+
+>[!NOTE]
+> Per ulteriori informazioni sulla creazione di un criterio di richiesta di connessione, vedere l'articolo configurare la documentazione relativa ai [criteri di richiesta di connessione](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-crp-configure#add-a-connection-request-policy) per lo stesso. 
 
 ## <a name="configure-nps-on-the-server-where-the-nps-extension-is-installed"></a>Configurare Server dei criteri di rete nel server in cui è installata l'estensione NPS
 
@@ -286,7 +289,7 @@ Tenere presente che il Server dei criteri di rete con l'estensione per Azure MFA
    ![Duplica la connessione ad altri criteri di accesso ai server](./media/howto-mfa-nps-extension-rdg/image19.png)
 
 1. Fare clic con il pulsante destro del mouse su **Copia di Connessioni ad altri server di accesso remoto** e scegliere **Proprietà**.
-1. Nella finestra di dialogo **Copia di Connessioni ad altri server di accesso** immettere un nome appropriato, ad esempio **RDG_CAP** in _Nome criterio_. Selezionare **Criterio attivato** e fare clic su **Concedi accesso**. Facoltativamente, in **Tipo di server di accesso alla rete** selezionare **Gateway Desktop remoto** oppure lasciare l'impostazione **Non specificato**.
+1. Nella finestra di dialogo **Copia di Connessioni ad altri server di accesso** immettere un nome appropriato, ad esempio _RDG_CAP_ in **Nome criterio**. Selezionare **Criterio attivato** e fare clic su **Concedi accesso**. Facoltativamente, in **Tipo di server di accesso alla rete** selezionare **Gateway Desktop remoto** oppure lasciare l'impostazione **Non specificato**.
 
    ![Assegnare un nome al criterio, abilitare e concedere l'accesso](./media/howto-mfa-nps-extension-rdg/image21.png)
 

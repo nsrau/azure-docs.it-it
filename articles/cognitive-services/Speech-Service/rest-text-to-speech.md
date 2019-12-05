@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 9fa0157bd458d2de028cab8ff9c836761e99562f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 779df2794267a1cb62d9918fc718da02e94c48cb
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73481214"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816616"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST di sintesi vocale
 
-I servizi di riconoscimento vocale consentono di [convertire il testo in sintesi vocale](#convert-text-to-speech) e [ottenere un elenco di voci supportate](#get-a-list-of-voices) per un'area usando un set di API REST. Ogni endpoint disponibile è associato a un'area. È necessaria una chiave di sottoscrizione per l'endpoint/area che si prevede di usare.
+Il servizio riconoscimento vocale consente di [convertire il testo in sintesi vocale](#convert-text-to-speech) e [ottenere un elenco di voci supportate](#get-a-list-of-voices) per un'area usando un set di API REST. Ogni endpoint disponibile è associato a un'area. È necessaria una chiave di sottoscrizione per l'endpoint/area che si prevede di usare.
 
 L'API REST Sintesi vocale supporta voci neurali e standard, ognuna delle quali supporta a sua volta una lingua e una lingua regionale specifiche, identificate dalle impostazioni locali.
 
@@ -41,23 +41,23 @@ L'endpoint `voices/list` consente di ottenere un elenco completo delle voci per 
 
 ### <a name="regions-and-endpoints"></a>Aree ed endpoint
 
-| Region | Endpoint |
+| Area geografica | Endpoint |
 |--------|----------|
 | Australia orientale | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Brasile meridionale | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Canada centrale | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Stati Uniti centrali | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Asia orientale | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Stati Uniti orientali | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Stati Uniti Orientali | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Stati Uniti orientali 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Francia centrale | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | India centrale | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Giappone orientale | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Corea del Sud centrale | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Corea centrale | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Stati Uniti centro-settentrionali | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Europa settentrionale | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Stati Uniti centro-meridionali | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Asia sudorientale | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Asia sud-orientale | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Regno Unito meridionale | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Europa occidentale | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Stati Uniti occidentali | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -67,9 +67,9 @@ L'endpoint `voices/list` consente di ottenere un elenco completo delle voci per 
 
 Questa tabella elenca le intestazioni obbligatorie e facoltative per le richieste di sintesi vocale.
 
-| Intestazione | Descrizione | Obbligatoria / Facoltativa |
+| Intestazione | Description | Obbligatoria / Facoltativa |
 |--------|-------------|---------------------|
-| `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | Obbligatorio |
+| `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | Obbligatoria |
 
 ### <a name="request-body"></a>Corpo della richiesta
 
@@ -135,11 +135,11 @@ Questa risposta è stata troncata per illustrare la struttura di una risposta.
 
 Il codice di stato HTTP di ogni risposta indica esito positivo o errori comuni.
 
-| Stato codice HTTP | Descrizione | Possibile motivo |
+| Stato codice HTTP | Description | Possibile motivo |
 |------------------|-------------|-----------------|
-| 200 | OK | La richiesta è stata completata. |
+| 200 | OK | Richiesta completata correttamente. |
 | 400 | Bad Request | Un parametro obbligatorio è mancante, vuoto o Null. In alternativa, il valore passato a un parametro obbligatorio o facoltativo non è valido. Un problema comune è la lunghezza eccessiva dell'intestazione. |
-| 401 | Non autorizzata | La richiesta non è autorizzata. Assicurarsi che la chiave di sottoscrizione o il token sia valido e nell'area corretta. |
+| 401 | Non autorizzato | La richiesta non è autorizzata. Assicurarsi che la chiave di sottoscrizione o il token sia valido e nell'area corretta. |
 | 429 | Troppe richieste | È stata superata la quota o la frequenza di richieste consentite per la sottoscrizione. |
 | 502 | Gateway non valido | Problema di rete o lato server. Può anche indicare intestazioni non valide. |
 
@@ -158,16 +158,16 @@ Queste aree sono supportate per la trascrizione vocale usando l'API REST. Assicu
 
 Questa tabella elenca le intestazioni obbligatorie e facoltative per le richieste di sintesi vocale.
 
-| Intestazione | Descrizione | Obbligatoria / Facoltativa |
+| Intestazione | Description | Obbligatoria / Facoltativa |
 |--------|-------------|---------------------|
-| `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | Obbligatorio |
-| `Content-Type` | Specifica il tipo di contenuto per il testo specificato. Valore accettato: `application/ssml+xml`. | Obbligatorio |
-| `X-Microsoft-OutputFormat` | Specifica il formato di output audio. Per un elenco completo dei valori accettati, vedere [output audio](#audio-outputs). | Obbligatorio |
-| `User-Agent` | Il nome applicazione. Il valore specificato deve essere inferiore a 255 caratteri. | Obbligatorio |
+| `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | Obbligatoria |
+| `Content-Type` | Specifica il tipo di contenuto per il testo specificato. Valore accettato: `application/ssml+xml`. | Obbligatoria |
+| `X-Microsoft-OutputFormat` | Specifica il formato di output audio. Per un elenco completo dei valori accettati, vedere [output audio](#audio-outputs). | Obbligatoria |
+| `User-Agent` | Il nome applicazione. Il valore specificato deve essere inferiore a 255 caratteri. | Obbligatoria |
 
 ### <a name="audio-outputs"></a>Output audio
 
-Questo è un elenco dei formati audio supportati che vengono inviati in ogni richiesta come intestazione `X-Microsoft-OutputFormat`. Ognuno incorpora una velocità in bit e il tipo di codifica. I servizi di riconoscimento vocale supportano output audio a 24 kHz, 16 kHz e 8 kHz.
+Questo è un elenco dei formati audio supportati che vengono inviati in ogni richiesta come intestazione `X-Microsoft-OutputFormat`. Ognuno incorpora una velocità in bit e il tipo di codifica. Il servizio di riconoscimento vocale supporta gli output audio a 24 kHz, 16 kHz e 8 kHz.
 
 |||
 |-|-|
@@ -218,11 +218,11 @@ Vedere le guide introduttive per esempi specifici della lingua:
 
 Il codice di stato HTTP di ogni risposta indica esito positivo o errori comuni.
 
-| Stato codice HTTP | Descrizione | Possibile motivo |
+| Stato codice HTTP | Description | Possibile motivo |
 |------------------|-------------|-----------------|
 | 200 | OK | La richiesta ha avuto esito positivo; il corpo della risposta è un file audio. |
 | 400 | Bad Request | Un parametro obbligatorio è mancante, vuoto o Null. In alternativa, il valore passato a un parametro obbligatorio o facoltativo non è valido. Un problema comune è la lunghezza eccessiva dell'intestazione. |
-| 401 | Non autorizzata | La richiesta non è autorizzata. Assicurarsi che la chiave di sottoscrizione o il token sia valido e nell'area corretta. |
+| 401 | Non autorizzato | La richiesta non è autorizzata. Assicurarsi che la chiave di sottoscrizione o il token sia valido e nell'area corretta. |
 | 413 | Entità della richiesta troppo grande | La lunghezza dell'input SSML è maggiore di 1024 caratteri. |
 | 415 | Tipo di supporto non supportato | È possibile che sia stato specificato il `Content-Type` errato. `Content-Type` deve essere impostato su `application/ssml+xml`. |
 | 429 | Troppe richieste | È stata superata la quota o la frequenza di richieste consentite per la sottoscrizione. |
@@ -232,6 +232,6 @@ Se lo stato HTTP è `200 OK`, il corpo della risposta contiene un file audio nel
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
+- [Accedere alla versione di prova del servizio Voce](https://azure.microsoft.com/try/cognitive-services/)
 - [Personalizzare modelli acustici](how-to-customize-acoustic-models.md)
 - [Personalizzare modelli linguistici](how-to-customize-language-model.md)

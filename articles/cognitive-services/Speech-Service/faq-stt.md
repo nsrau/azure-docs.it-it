@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/17/2019
+ms.date: 12/4/2019
 ms.author: panosper
-ms.openlocfilehash: 277d8e3fe8f54b8e95d8acc93d26100d3ac64db1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 575dda47b5e6fc0d70ef80dfd7a1baba0f63be2d
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74110712"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74814845"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Domande frequenti sul Servizio di riconoscimento vocale
 
 Se in questo documento non sono presenti risposte alle domande di proprio interesse, vedere le [altre opzioni di supporto](support.md).
 
-## <a name="general"></a>General
+## <a name="general"></a>Informazioni di carattere generale
 
 **D: Qual è la differenza tra un modello di base e un modello di riconoscimento vocale personalizzato?**
 
@@ -65,39 +65,6 @@ I set di dati precedente e nuovo devono essere combinati in un unico file ZIP (p
 
 Se è stato adattato e distribuito un modello con baseline V1.0, tale distribuzione rimarrà invariata. I clienti possono rimuovere le autorizzazioni del modello distribuito, riadattarlo utilizzando la versione più recente della linea di base e ridistribuirlo.
 
-**D: Che cosa è necessario fare se serve una concorrenza più elevata per il modello distribuito rispetto a ciò che viene offerto nel portale?**
-
-**R**: È possibile aumentare le prestazioni del modello in incrementi di 20 richieste simultanee.
-
-Se è necessaria una scala più elevata, contattare il [supporto vocale](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text) .
-
-Per aumentare la concorrenza per un ***modello personalizzato***, sono necessarie le informazioni seguenti:
-
-- Area in cui viene distribuito il modello.
-- ID dell'endpoint del modello distribuito:
-  - Si è arrivati al [portale di riconoscimento vocale personalizzato](https://aka.ms/customspeech),
-  - Accedi (se necessario),
-  - Selezionare il progetto e la distribuzione,
-  - Selezionare l'endpoint per cui è necessario l'incremento della concorrenza,
-  - Copiare il `Endpoint ID`.
-
-Per aumentare la concorrenza per un ***modello di base***, sono necessarie le informazioni seguenti:
-
-- Area del servizio
-
-e uno
-
-- un token di accesso per la sottoscrizione (vedere [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)),
-
-oppure
-
-- ID risorsa per la sottoscrizione:
-  - Passare alla [portale di Azure](https://portal.azure.com),
-  - Selezionare `Cognitive Services` nella casella di ricerca.
-  - dai servizi visualizzati selezionare il servizio di riconoscimento vocale per il quale si desidera aumentare la concorrenza,
-  - Visualizza la `Properties` per il servizio,
-  - Copiare il `Resource ID`completo.
-
 **D: È possibile scaricare il modello ed eseguirlo in locale?**
 
 **R**: Non è possibile scaricare i modelli ed eseguirli in locale.
@@ -116,6 +83,41 @@ oppure
 
 > [!IMPORTANT]
 > In caso di altri problemi di privacy che impediscono l'uso del Servizio di riconoscimento vocale personalizzato, contattare uno dei canali di supporto.
+
+## <a name="increasing-concurrency"></a>Aumento della concorrenza
+
+**D: Che cosa è necessario fare se serve una concorrenza più elevata per il modello distribuito rispetto a ciò che viene offerto nel portale?**
+
+**R**: È possibile aumentare le prestazioni del modello in incrementi di 20 richieste simultanee.
+
+Con le informazioni necessarie, creare una richiesta di supporto nel [portale di supporto di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Non pubblicare le informazioni in alcun canale pubblico (GitHub, StackOverflow,...) indicato nella [pagina del supporto tecnico](support.md).
+
+Per aumentare la concorrenza per un ***modello personalizzato***, sono necessarie le informazioni seguenti:
+
+- Area in cui viene distribuito il modello.
+- ID dell'endpoint del modello distribuito:
+  - Si è arrivati al [portale di riconoscimento vocale personalizzato](https://aka.ms/customspeech),
+  - Accedi (se necessario),
+  - Selezionare il progetto e la distribuzione,
+  - Selezionare l'endpoint per cui è necessario l'incremento della concorrenza,
+  - Copiare il `Endpoint ID`.
+
+Per aumentare la concorrenza per un ***modello di base***, sono necessarie le informazioni seguenti:
+
+- Area del servizio
+
+e
+
+- un token di accesso per la sottoscrizione (vedere [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)),
+
+Oppure
+
+- ID risorsa per la sottoscrizione:
+  - Passare alla [portale di Azure](https://portal.azure.com),
+  - Selezionare `Cognitive Services` nella casella di ricerca.
+  - dai servizi visualizzati selezionare il servizio di riconoscimento vocale per il quale si desidera aumentare la concorrenza,
+  - Visualizza la `Properties` per il servizio,
+  - Copiare il `Resource ID`completo.
 
 ## <a name="importing-data"></a>Importazione di dati
 
@@ -195,5 +197,5 @@ Le esperienze di sintesi vocale integrate in Office 365, ad esempio la dettatura
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Risoluzione dei problemi](troubleshooting.md)
+- [risoluzione dei problemi](troubleshooting.md)
 - [Note sulla versione](releasenotes.md)

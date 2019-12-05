@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 12/03/2019
 ms.author: juliako
-ms.openlocfilehash: a1fd37b65c3449e7000db6189c8c71def1f96b0a
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: beb44c469aa8a03430cd5cb5a162966855aad448
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790048"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815392"
 ---
 # <a name="upload-and-index-your-videos"></a>Caricare e indicizzare i video  
 
@@ -88,9 +88,9 @@ Un URL che viene usato per notificare al cliente (con una richiesta POST) gli ev
 Usare questo parametro se registrazioni non elaborate o esterne contengono rumore di fondo. Questo parametro si usa per configurare il processo di indicizzazione. È possibile specificare i valori seguenti:
 
 - `AudioOnly`: indicizzare ed estrarre informazioni dettagliate usando solo l'audio (ignorando il video)
+- `VideoOnly`-indicizzare ed estrarre informazioni dettagliate usando solo video (ignorando l'audio)
 - `Default`: indicizzare ed estrarre informazioni dettagliate usando audio e video
 - `DefaultWithNoiseReduction`: indicizzare ed estrarre informazioni dettagliate sia dall'audio che dal video, applicando gli algoritmi di riduzione del rumore al flusso audio
-- `VideoOnly`-indicizzare ed estrarre informazioni dettagliate solo con video 
 
 Il prezzo dipende dall'opzione di indicizzazione selezionata.  
 
@@ -128,7 +128,7 @@ Dopo aver copiato questo codice nella piattaforma di sviluppo, sarà necessario 
 
     Per ottenere la chiave API, passare a questo flusso:
 
-    * Passa a https://api-portal.videoindexer.ai/
+    * Passare a https://api-portal.videoindexer.ai/.
     * Login
     * Passa a **prodotti** -> **autorizzazione** -> **sottoscrizione di autorizzazione**
     * Copiare la **chiave primaria**

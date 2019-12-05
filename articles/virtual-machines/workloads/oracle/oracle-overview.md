@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
-ms.openlocfilehash: 71caa6730e3a00f3aa80329d6b87d2531fdd8049
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 6ab41182d59f8c96edfca4854aad5f9a13f53436
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891469"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806610"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Panoramica delle applicazioni e delle soluzioni Oracle in Azure
 
@@ -42,7 +42,7 @@ Eseguire applicazioni aziendali in Azure nei sistemi operativi Oracle supportati
 
 * Oracle WebLogic Server 12.1.2
 
-* Oracle Linux (UEK) 6,8, 6,9, 6,10, 7,3, 7,4, 7,5 e 7,6
+* Oracle Linux con Unbreakable Enterprise kernel (UEK) 6,8, 6,9, 6,10, 7,3, 7,4, 7,5 e 7,6 
 
 ## <a name="high-availability-and-disaster-recovery-options"></a>Opzioni di disponibilità elevata e ripristino di emergenza
 
@@ -91,3 +91,5 @@ La distribuzione di applicazioni Oracle in Azure si basa su un modello "Bring yo
 * Altre informazioni sulla distribuzione di [Immagini di macchine virtuali Oracle](oracle-vm-solutions.md) nell'infrastruttura di Azure.
 
 * Altre informazioni su come [collegare Azure con OCI](oracle-oci-overview.md).
+
+* Vedere la [sessione Panoramica di Oracle in Azure](https://myignite.techcommunity.microsoft.com/sessions/82915) da Ignite 2019. 

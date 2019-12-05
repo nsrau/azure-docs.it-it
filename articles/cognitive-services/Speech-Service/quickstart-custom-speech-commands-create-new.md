@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: 80eb0a2018ece23de80e8eb9c4a68c149b590440
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 5c90c91791af8a9a16039e9650765bd24433ff38
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111360"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815825"
 ---
 # <a name="quickstart-create-a-custom-command-preview"></a>Guida introduttiva: creare un comando personalizzato (anteprima)
 
 In questo articolo si apprenderà come creare e testare un'applicazione di comandi personalizzati ospitata.
 L'applicazione rileverà un enunciato come "accendere la TV" e rispondere con un semplice messaggio "OK, acceso il televisore".
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Sottoscrizione vocale. [Prova il servizio di riconoscimento vocale gratuitamente](~/articles/cognitive-services/speech-service/get-started.md).
 
@@ -78,10 +78,10 @@ A questo punto è possibile creare un comando. Verrà ora usato un esempio che a
 
 Un comando è un set di:
 
-| Gruppo            | DESCRIZIONE                                                                                                                 |
+| Group            | Description                                                                                                                 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | Frasi di esempio | Espressioni di esempio che l'utente può pronunciare per attivare questo comando                                                                 |
-| parametri       | Informazioni necessarie per completare il comando                                                                                |
+| parameters       | Informazioni necessarie per completare il comando                                                                                |
 | Regole di completamento | Azioni da intraprendere per completare il comando. Ad esempio, per rispondere all'utente o comunicare con un altro servizio Web |
 | Regole avanzate   | Regole aggiuntive per la gestione di situazioni più specifiche o complesse                                                              |
 
@@ -102,13 +102,13 @@ Aggiungere ora una regola di completamento per rispondere all'utente che indica 
 > [!div class="mx-imgBorder"]
 > ![creare una regola di completamento](media/custom-speech-commands/create-basic-completion-response-rule.png)
 
-| Impostazione    | Valore consigliato                        | DESCRIZIONE                                        |
+| Impostazione    | Valore consigliato                        | Description                                        |
 | ---------- | -------------------------------------- | -------------------------------------------------- |
 | Nome regola  | "ConfirmationResponse"                 | Nome che descrive lo scopo della regola          |
-| Condizioni | nessuno                                   | Condizioni che determinano quando la regola può essere eseguita    |
-| Actions    | SpeechResponse "OK, accendere la TV" | Azione da eseguire quando la condizione della regola è true |
+| Condizioni | Nessuno                                   | Condizioni che determinano quando la regola può essere eseguita    |
+| Azioni    | SpeechResponse "OK, accendere la TV" | Azione da eseguire quando la condizione della regola è true |
 
-## <a name="try-it-out"></a>Prova
+## <a name="try-it-out"></a>Provare il servizio
 
 Testare il comportamento usando il pannello test chat.
 

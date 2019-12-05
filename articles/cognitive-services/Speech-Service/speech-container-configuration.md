@@ -1,7 +1,7 @@
 ---
 title: Configurare i contenitori di sintesi vocale
 titleSuffix: Azure Cognitive Services
-description: Servizi vocali fornisce ogni contenitore con un Framework di configurazione comune, in modo che sia possibile configurare e gestire facilmente le impostazioni di archiviazione, registrazione e telemetria e sicurezza per i contenitori.
+description: Il servizio riconoscimento vocale fornisce a ogni contenitore un Framework di configurazione comune, che consente di configurare e gestire facilmente le impostazioni di archiviazione, registrazione e telemetria e di sicurezza per i contenitori.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.author: dapine
-ms.openlocfilehash: f68bf989202c209f89ea273fee8d7610a49415ed
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 34b4664ec13f7ba1871433e37d86170b2207a17a
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075749"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816567"
 ---
 # <a name="configure-speech-service-containers"></a>Configurare i contenitori di servizi vocali
 
@@ -50,9 +50,9 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 - Portale di Azure: Panoramica **del discorso** , con etichetta `Endpoint`
 
-| obbligatori | Nome | Tipo di dati | DESCRIZIONE |
+| Obbligatoria | name | Tipo di dati | Description |
 | -------- | ---- | --------- | ----------- |
-| Sì | `Billing` | String | URI dell'endpoint di fatturazione. Per ulteriori informazioni su come ottenere l'URI di fatturazione, vedere [raccolta dei parametri obbligatori](speech-container-howto.md#gathering-required-parameters). Per altre informazioni e per un elenco completo degli endpoint a livello di area, vedere [Nomi di sottodomini personalizzati per Servizi cognitivi](../cognitive-services-custom-subdomains.md). |
+| SÌ | `Billing` | Stringa | URI dell'endpoint di fatturazione. Per ulteriori informazioni su come ottenere l'URI di fatturazione, vedere [raccolta dei parametri obbligatori](speech-container-howto.md#gathering-required-parameters). Per altre informazioni e per un elenco completo degli endpoint a livello di area, vedere [Nomi di sottodomini personalizzati per Servizi cognitivi](../cognitive-services-custom-subdomains.md). |
 
 ## <a name="eula-setting"></a>Impostazione Eula
 
@@ -78,10 +78,10 @@ I contenitori di sintesi vocale standard non usano i montaggi di input o output 
 
 La sintassi esatta della posizione di montaggio host varia a seconda del sistema operativo host. Inoltre, il percorso di montaggio del [computer host](speech-container-howto.md#the-host-computer) potrebbe non essere accessibile a causa di un conflitto tra le autorizzazioni utilizzate dall'account del servizio docker e le autorizzazioni del percorso di montaggio dell'host.
 
-| Facoltativo | Nome | Tipo di dati | DESCRIZIONE |
+| Facoltativo | name | Tipo di dati | Description |
 | -------- | ---- | --------- | ----------- |
-| Non consentito | `Input` | String | I contenitori di sintesi vocale standard non lo usano. I contenitori di riconoscimento vocale personalizzati utilizzano i [montaggi del volume](#volume-mount-settings).                                                                                    |
-| Facoltativo | `Output` | String | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output` |
+| Non consentito | `Input` | Stringa | I contenitori di sintesi vocale standard non lo usano. I contenitori di riconoscimento vocale personalizzati utilizzano i [montaggi del volume](#volume-mount-settings).                                                                                    |
+| Facoltativo | `Output` | Stringa | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output` |
 
 ## <a name="volume-mount-settings"></a>Impostazioni di montaggio del volume
 
@@ -115,7 +115,7 @@ Gli esempi seguenti usano le impostazioni di configurazione per illustrare come 
 
 Sostituire {_nome_argomento_} con i propri valori:
 
-| Placeholder | Valore | Formato o esempio |
+| Placeholder | Value | Formato o esempio |
 | ----------- | ----- | ----------------- |
 | **{API_KEY}** | Chiave dell'endpoint della risorsa `Speech` nella pagina chiavi di `Speech` di Azure.   | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`                                                                                  |
 | **{ENDPOINT_URI}** | Il valore dell'endpoint di fatturazione è disponibile nella pagina Panoramica di Azure `Speech`. | Vedere [raccolta di parametri obbligatori](speech-container-howto.md#gathering-required-parameters) per esempi espliciti. |
@@ -123,7 +123,7 @@ Sostituire {_nome_argomento_} con i propri valori:
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
-> È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore. In caso contrario, il contenitore non si avvia. Per altre informazioni, vedere[Fatturazione](#billing-configuration-setting).
+> È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore e avviarlo; altrimenti il contenitore non si avvia. Per altre informazioni, vedere[Fatturazione](#billing-configuration-setting).
 > Il valore di ApiKey è la **chiave** della pagina delle chiavi delle risorse vocali di Azure.
 
 ## <a name="speech-container-docker-examples"></a>Esempi di Docker del contenitore vocale

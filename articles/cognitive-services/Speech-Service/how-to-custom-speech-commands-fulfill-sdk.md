@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: 2da8ef2c29bd6afdaf49e000bf964d119f1e99f1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 39e0a512e42dd861c0ee2c833501c7594204cb8b
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74110083"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806151"
 ---
 # <a name="how-to-fulfill-commands-on-the-client-with-the-speech-sdk-preview"></a>Procedura: eseguire l'evasione dei comandi sul client con l'SDK di riconoscimento vocale (anteprima)
 
@@ -26,10 +26,10 @@ In questo articolo verranno illustrate le operazioni seguenti:
 - Definire e inviare un payload JSON personalizzato dall'applicazione comandi personalizzati
 - Ricevere e visualizzare il contenuto del payload JSON personalizzato da un' C# applicazione client UWP Speech SDK
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-- Una chiave di sottoscrizione di Azure per servizi vocali
+- Una chiave di sottoscrizione di Azure per il servizio riconoscimento vocale
   - [Ottenerne uno](get-started.md) gratuitamente o crearlo nel [portale di Azure](https://portal.azure.com)
 - App comandi personalizzati creata in precedenza
   - [Guida introduttiva: creare un comando personalizzato con parametri (anteprima)](./quickstart-custom-speech-commands-create-parameters.md)
@@ -49,11 +49,11 @@ Questo articolo descrive in modo dettagliato come creare un'applicazione client 
    > [!div class="mx-imgBorder"]
    > ![regola di completamento dell'attività di invio](media/custom-speech-commands/fulfill-sdk-completion-rule.png)
 
-   | Impostazione | Valore consigliato | DESCRIZIONE |
+   | Impostazione | Valore consigliato | Description |
    | ------- | --------------- | ----------- |
    | Nome regola | UpdateDeviceState | Nome che descrive lo scopo della regola |
    | Condizioni | Parametro obbligatorio-`OnOff` e `SubjectDevice` | Condizioni che determinano quando la regola può essere eseguita |
-   | Actions | `SendActivity` (vedere di seguito) | Azione da eseguire quando la condizione della regola è true |
+   | Azioni | `SendActivity` (vedere di seguito) | Azione da eseguire quando la condizione della regola è true |
 
    > [!div class="mx-imgBorder"]
    > payload dell'attività di invio ![](media/custom-speech-commands/fulfill-sdk-send-activity-action.png)
@@ -131,7 +131,7 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 };
 ```
 
-## <a name="try-it-out"></a>Prova
+## <a name="try-it-out"></a>Provare il servizio
 
 1. Avviare l'applicazione
 1. Selezionare Abilita microfono

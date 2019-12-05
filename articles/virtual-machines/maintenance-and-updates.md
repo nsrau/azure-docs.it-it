@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: shants
-ms.openlocfilehash: 8e522b49c53dd40a4438755520481383984c1e01
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 45dba8de8ef735bdb9df102ac367e6a1653bf481
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535886"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807086"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Manutenzione per macchine virtuali in Azure
 
@@ -29,7 +29,7 @@ Gli aggiornamenti influiscono raramente sulle macchine virtuali ospitate. Quando
 
 Questa pagina descrive come Azure esegue entrambi i tipi di manutenzione. Per altre informazioni sugli eventi non pianificati (interruzioni), vedere [gestire la disponibilità delle macchine virtuali per Windows](./windows/manage-availability.md) o l'articolo corrispondente per [Linux](./linux/manage-availability.md).
 
-All'interno di una macchina virtuale è possibile ricevere notifiche sulla manutenzione imminente [usando eventi pianificati per Windows](/windows/scheduled-events.md) o per [Linux](/linux/scheduled-events.md).
+All'interno di una macchina virtuale è possibile ricevere notifiche sulla manutenzione imminente [usando eventi pianificati per Windows](./windows/scheduled-events.md) o per [Linux](./linux/scheduled-events.md).
 
 
 
@@ -43,7 +43,7 @@ La manutenzione con mantenimento della memoria funziona per più del 90% delle V
 
 Per queste operazioni di manutenzione che non richiedono un riavvio viene applicato un dominio di errore alla volta. Si fermano se ricevono segnali di avviso di integrità. 
 
-Questi tipi di aggiornamenti possono interessare alcune applicazioni. Quando si esegue la migrazione in tempo reale della macchina virtuale in un host diverso, alcuni carichi di lavoro sensibili potrebbero presentare una lieve riduzione delle prestazioni nei pochi minuti che portano alla pausa della macchina virtuale. Per preparare la manutenzione della macchina virtuale e ridurre l'effetto durante la manutenzione di Azure, provare a [usare eventi pianificati per Windows](/windows/scheduled-events.md) o [Linux](/linux/scheduled-events.md) per tali applicazioni. 
+Questi tipi di aggiornamenti possono interessare alcune applicazioni. Quando si esegue la migrazione in tempo reale della macchina virtuale in un host diverso, alcuni carichi di lavoro sensibili potrebbero presentare una lieve riduzione delle prestazioni nei pochi minuti che portano alla pausa della macchina virtuale. Per preparare la manutenzione della macchina virtuale e ridurre l'effetto durante la manutenzione di Azure, provare a [usare eventi pianificati per Windows](./windows/scheduled-events.md) o [Linux](./linux/scheduled-events.md) per tali applicazioni. 
 
 È disponibile anche una funzionalità di controllo della manutenzione, in versione di anteprima pubblica, che può aiutare a gestire la manutenzione che non richiede un riavvio. È necessario usare [host dedicati di Azure](./linux/dedicated-hosts.md) o una [macchina virtuale isolata](../security/fundamentals/isolation-choices.md). Il controllo di manutenzione offre la possibilità di ignorare gli aggiornamenti della piattaforma e di applicare gli aggiornamenti a propria scelta in un intervallo di 35 giorni. Per altre informazioni, vedere [controllare gli aggiornamenti con il controllo di manutenzione e l'interfaccia della](maintenance-control-cli.md)riga di comando di Azure.
 

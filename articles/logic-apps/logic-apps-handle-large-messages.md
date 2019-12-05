@@ -6,13 +6,13 @@ ms.suite: integration
 author: shae-hurst
 ms.author: shhurst
 ms.topic: article
-ms.date: 4/27/2018
-ms.openlocfilehash: e583bf53021d772db54c30ed5a4c9ea2a029e093
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 12/03/2019
+ms.openlocfilehash: 8c2e857808b0638fbba54cfe9a623ba3fd764119
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792013"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815095"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Gestire messaggi di grandi dimensioni con la suddivisione in blocchi in App per la logica di Azure
 
@@ -39,6 +39,9 @@ In caso contrario, quando si tenta di accedere ad output di contenuti di grandi 
 I servizi che comunicano con App per la logica di Azure possono avere un proprio limite di dimensione dei messaggi. Tale limite è spesso inferiore rispetto al limite di App per la logica di Azure. Ad esempio, supponendo che supporti la suddivisione in blocchi, un connettore può considerare un messaggio di 30 MB come di grandi dimensioni, diversamente da App per la logica di Azure. Per rispettare il limite del connettore, App per la logica di Azure divide qualsiasi messaggio di dimensioni superiori a 30 MB in blocchi più piccoli.
 
 Per i connettori che supportano la suddivisione in blocchi, il protocollo di suddivisione in blocchi sottostante è invisibile agli utenti finali. Tuttavia, non tutti i connettori supportano la suddivisione in blocchi; pertanto, questi connettori generano errori di runtime quando i messaggi in arrivo superano i limiti di dimensione dei connettori.
+
+> [!NOTE]
+> Per le azioni che usano la suddivisione in blocchi, non è possibile passare il corpo del trigger o usare espressioni come `@triggerBody()?['Content']` in tali azioni. Al contrario, per il contenuto del file di testo o JSON, è possibile provare a usare l' [azione **compose** ](../logic-apps/logic-apps-perform-data-operations.md#compose-action) o [creare una variabile](../logic-apps/logic-apps-create-variables-store-values.md) per gestire tale contenuto. Se il corpo del trigger contiene altri tipi di contenuto, ad esempio i file multimediali, è necessario eseguire altri passaggi per gestire tale contenuto.
 
 <a name="set-up-chunking"></a>
 

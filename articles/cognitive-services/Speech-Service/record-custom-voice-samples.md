@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 47e1f8bf178723a5d4be323f24724214a67499e2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b5cf375b1e5e4c09617dc6ae74513d303a9a6a4a
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559199"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816668"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Esempi di campioni vocali per la creazione di una voce personalizzata
 
@@ -32,7 +32,7 @@ Per creare una registrazione vocale di livello professionale, è necessario fare
 
 In un progetto di registrazione di voce personalizzata, sono coinvolti quattro ruoli di base:
 
-Role|Scopo
+Ruolo|Finalità
 -|-
 Speaker        |La voce di questa persona costituirà la base della voce personalizzata.
 Tecnico di registrazione  |Controlla gli aspetti tecnici della registrazione e fa funzionare le apparecchiature di registrazione.
@@ -104,7 +104,7 @@ In base alle norme sul copyright, la lettura di un testo protetto da copyright d
 
 È possibile tuttavia evitare completamente questi problemi. Sono disponibili molte origini di testo che si possono usare senza licenza né autorizzazione.
 
-|Origine del testo|DESCRIZIONE|
+|Origine del testo|Description|
 |-|-|
 |[CMU Arctic corpus](http://festvox.org/cmu_arctic/)|Circa 1100 frasi selezionate da testi non protetti da copyright per l'uso specifico in progetti di sintesi vocale. Si tratta di un punto di partenza eccellente.|
 |Testi non più protetti<br>da copyright|Si tratta in genere di testi pubblicati prima del 1923. Per l'inglese, sul sito [Project Gutenberg](https://www.gutenberg.org/) sono disponibili decine di migliaia di tali testi. Può essere opportuno, tuttavia, concentrarsi su testi più recenti perché la lingua si avvicina di più all'inglese moderno.|
@@ -191,7 +191,7 @@ Registrare cinque secondi di silenzio prima che la prima registrazione acquisisc
 Ascoltare con attenzione, usando le cuffie, la prestazione dello speaker. Verificare che la dizione sia buona, ma naturale, che la pronuncia sia corretta e che non siano presenti suoni non desiderati. Non esitare a chiedere allo speaker di registrare nuovamente un'espressione che non soddisfa gli standard.
 
 > [!TIP]
-> Quando si usa un gran numero di espressioni, una singola espressione potrebbe non avere un effetto evidente sulla voce personalizzata risultante. Può risultare pertanto più vantaggioso prendere nota di eventuali espressioni con problemi, escluderle dal set di dati e scoprire com'è la voce personalizzata risultante. È sempre possibile tornare nello studio e registrare i campioni mancanti in un secondo momento.
+> Quando si usa un gran numero di espressioni, una singola espressione potrebbe non avere un effetto evidente sulla voce personalizzata risultante. Potrebbe essere più opportuno prendere nota di eventuali espressioni con problemi, escluderle dal set di dati e vedere come si scopre la voce personalizzata. È sempre possibile tornare a studio e registrare i campioni mancanti in un secondo momento.
 
 Prendere nota del numero del take o del time code per ogni espressione. Chiedere al tecnico se può contrassegnare ogni espressione nei metadati o nel foglio della segnalazione della registrazione.
 

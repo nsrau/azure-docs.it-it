@@ -1,7 +1,7 @@
 ---
 title: Informazioni sull'SDK dei dispositivi vocali-servizio riconoscimento vocale
 titleSuffix: Azure Cognitive Services
-description: Introduzione a Speech Devices SDK. Il servizio Voce è compatibile con una vasta gamma di dispositivi e sorgenti audio. Speech Devices SDK è una libreria pre-ottimizzata abbinata a kit dedicati per lo sviluppo di matrici di microfoni.
+description: Introduzione a Speech Devices SDK. Il servizio di riconoscimento vocale funziona con un'ampia gamma di dispositivi e origini audio. Speech Devices SDK è una libreria pre-ottimizzata abbinata a kit dedicati per lo sviluppo di matrici di microfoni.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,24 +10,24 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 31d1a60cc6c1316dcfccb4f9ba2571708fddd991
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 7f6793cab3d2d7cc54252bae3a7393f836256bdd
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072388"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815541"
 ---
 # <a name="about-the-speech-devices-sdk"></a>Informazioni su Speech Devices SDK
 
-I [servizi di riconoscimento vocale](overview.md) funzionano con una vasta gamma di dispositivi e origini audio. Ora è possibile portare le applicazioni vocali a un livello superiore con hardware e software abbinati. Speech Devices SDK è una libreria pre-ottimizzata abbinata a kit dedicati per lo sviluppo di matrici di microfoni.
+Il [servizio di riconoscimento vocale](overview.md) funziona con un'ampia gamma di dispositivi e origini audio. Ora è possibile portare le applicazioni vocali a un livello superiore con hardware e software abbinati. Speech Devices SDK è una libreria pre-ottimizzata abbinata a kit dedicati per lo sviluppo di matrici di microfoni.
 
 Speech Devices SDK consente di:
 
 - Testare rapidamente nuovi scenari vocali.
-- Integra in modo più semplice i servizi di riconoscimento vocale basati sul cloud nel tuo dispositivo.
+- Integrare più facilmente il servizio Voce basato sul cloud nel dispositivo.
 - Creare un'esperienza utente eccezionale per i clienti.
 
-Speech Devices SDK è integrato con [Speech SDK](speech-sdk.md). Usa l'SDK di riconoscimento vocale per inviare l'audio elaborato dall'algoritmo di elaborazione audio avanzata dall'array microfonico del dispositivo ai servizi di [riconoscimento vocale](overview.md). Usa inoltre l'audio multicanale per fornire un servizio più preciso di [riconoscimento vocale](speech-to-text.md) in campo lontano tramite eliminazione del rumore e dell'eco, beamforming e riduzione dell'effetto riverbero.
+Speech Devices SDK è integrato con [Speech SDK](speech-sdk.md). Usa Speech SDK per inviare audio elaborato dall'algoritmo di elaborazione audio avanzata dalla matrice di microfoni del dispositivo al [servizio Voce](overview.md). Usa inoltre l'audio multicanale per fornire un servizio più preciso di [riconoscimento vocale](speech-to-text.md) in campo lontano tramite eliminazione del rumore e dell'eco, beamforming e riduzione dell'effetto riverbero.
 
 È anche possibile usare l'SDK per i dispositivi vocali per compilare dispositivi di ambiente con una [parola chiave personalizzata](speech-devices-sdk-create-kws.md) , in modo che il suggerimento che avvia un'interazione utente sia univoco per il marchio.
 
@@ -54,4 +54,4 @@ L'applicazione è compilata con il pacchetto Speech SDK ed Eclipse Java IDE (v4.
 > [!div class="nextstepaction"]
 > [Scegliere il dispositivo vocale](get-speech-devices-sdk.md)
 > [!div class="nextstepaction"]
-> [Ricevi gratuitamente una chiave di sottoscrizione del servizio vocale](get-started.md)
+> [Ottenere gratuitamente una chiave di sottoscrizione per i servizi di riconoscimento vocale](get-started.md)

@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: vaidyas
 ms.reviewer: larryfr
 ms.date: 11/22/2019
-ms.openlocfilehash: 9fba3221656405f2bf2b1654b43d687f1915cca6
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: d35f0bbc057c97ed4f8b6429c0573fa6bcf3742f
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74542394"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807375"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Distribuire un modello di Machine Learning in funzioni di Azure (anteprima)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -234,7 +234,7 @@ A questo punto, l'app per le funzioni inizia a caricare l'immagine.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni su come configurare l'app per le funzioni nella documentazione di [funzioni](https://docs.microsoft.com/azure/azure-functions/functions-create-function-linux-custom-imag) .
+* Informazioni su come configurare l'app per le funzioni nella documentazione di [funzioni](/azure/azure-functions/functions-create-function-linux-custom-image) .
 * Altre informazioni sull'archiviazione BLOB attiva i [binding dell'archiviazione BLOB di Azure](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
 * [Distribuire il modello nel servizio app Azure](how-to-deploy-app-service.md).
 * [Usare un modello di Machine Learning distribuito come servizio Web](how-to-consume-web-service.md)
