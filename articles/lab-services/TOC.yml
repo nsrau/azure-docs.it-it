@@ -68,6 +68,8 @@
           href: devtest-lab-configure-cost-management.md
         - name: Inviare notifiche di arresto automatico
           href: devtest-lab-auto-shutdown.md
+        - name: Impostare l'avvio automatico per le macchine virtuali del lab
+          href: devtest-lab-auto-startup-vm.md
         - name: Ridimensionare il lab
           href: devtest-lab-scale-lab.md
         - name: Gestire basi di macchie virtuali
@@ -193,6 +195,8 @@
           href: add-artifact-repository.md
         - name: Specificare artefatti obbligatori
           href: devtest-lab-mandatory-artifacts.md
+        - name: Risolvere i problemi relativi all'applicazione di artefatti
+          href: devtest-lab-troubleshoot-apply-artifacts.md
     - name: Integrazione con integrazione continua/distribuzione continua
       items:
         - name: Integrare lab nella pipeline CI/CD di Azure Pipelines
