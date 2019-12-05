@@ -21,6 +21,8 @@
   items:
     - name: Distribuire FarmBeats
       href: prepare-for-deployment.md
+    - name: Gestire gli utenti
+      href: manage-users.md
     - name: Gestire aziende agricole
       href: manage-farms.md
     - name: Recuperare dati dai sensori

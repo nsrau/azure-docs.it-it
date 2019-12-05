@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.topic: landing-page
 ms.date: 10/3/2018
 ms.author: genli
-ms.openlocfilehash: d7ceb3acb1d2e3d174f3b665ec6210d3ddac9970
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: bdb459a69557269a20d36f05acc2da502064efb9
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059155"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851350"
 ---
 # <a name="troubleshooting-azure-virtual-machines"></a>Risoluzione dei problemi delle macchine virtuali di Azure
 
 ## <a name="tools-for-troubleshooting"></a>Strumenti per la risoluzione dei problemi
 
-- [Console seriale](serial-console-windows.md)
+- [Console seriale](serial-console-overview.md)
 - [Diagnostica di avvio](boot-diagnostics.md)
 - [VM Windows: collegare il disco del sistema operativo a un'altra VM per la risoluzione di problemi](troubleshoot-recovery-disks-portal-windows.md)
 - [VM Linux: collegare il disco del sistema operativo a un'altra VM per la risoluzione di problemi](troubleshoot-recovery-disks-portal-linux.md)
@@ -46,7 +46,7 @@ ms.locfileid: "71059155"
 
 **Errori di avvio di VM**
 
-* [Errori di avvio di BitLocker](troubleshoot-bitlocker-boot-error.md) 
+* [Errori di avvio di BitLocker](troubleshoot-bitlocker-boot-error.md)
 * [All'avvio viene indicato il controllo in corso del file system](troubleshoot-check-disk-boot-error.md)
 * [Errori con schermata blu](troubleshoot-common-blue-screen-error.md)
 * [L'avvio della VM si blocca su un messaggio analogo a "Preparazione di Windows](troubleshoot-vm-boot-configure-update.md)
