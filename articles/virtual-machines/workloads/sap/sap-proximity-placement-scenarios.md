@@ -1,5 +1,5 @@
 ---
-title: Gruppi di posizionamento di prossimità di Azure per la latenza di rete ottimale con le applicazioni SAP | Microsoft Docs
+title: Gruppi di posizionamento di prossimità di Azure per le applicazioni SAP | Microsoft Docs
 description: Descrive gli scenari di distribuzione SAP con i gruppi di posizionamento di prossimità di Azure
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: deffcb81a4f66783fedc89c3e21ea46b15ad1c64
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: cef5058936a45badd700a573611c82398ca4d546
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720004"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805706"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Gruppi di posizionamento di prossimità di Azure per la latenza di rete ottimale con le applicazioni SAP
 Le applicazioni SAP basate sull'architettura SAP NetWeaver o SAP S/4HANA sono sensibili alla latenza di rete tra il livello applicazione SAP e il livello database SAP. Questa distinzione è il risultato della maggior parte della logica di business in esecuzione a livello di applicazione. Poiché il livello dell'applicazione SAP esegue la logica di business, emette query al livello del database a una frequenza elevata, a una frequenza di migliaia o decine di migliaia al secondo. Nella maggior parte dei casi, la natura di queste query è semplice. Spesso possono essere eseguite a livello di database in microsecondi di 500 o meno.

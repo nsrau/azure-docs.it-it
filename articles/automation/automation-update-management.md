@@ -4,17 +4,17 @@ description: Questo articolo descrive come usare la soluzione Gestione aggiornam
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
-ms.date: 05/22/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 12/03/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 66acb1284f0814eec91715284259272a065dbae2
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 06d7ede1e9b91832f908c87a22cca37ec2866365
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72690901"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806542"
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
@@ -132,7 +132,7 @@ La soluzione è costituita dalle risorse seguenti. Le risorse vengono aggiunte a
 
 Dopo aver abilitato questa soluzione, qualsiasi computer Windows direttamente connesso all'area di lavoro Log Analytics viene configurato automaticamente come ruolo di lavoro ibrido per runbook per supportare i runbook che fanno parte di questa soluzione.
 
-Ogni computer Windows gestito dalla soluzione è elencato nella pagina dei **gruppi di ruoli di lavoro ibridi** come **gruppo di ruoli di lavoro ibridi per il sistema** per l'account di Automazione. Le soluzioni usano la convenzione di denominazione *FQDN_GUID nome host* . Non è possibile applicare runbook a questi gruppi nell'account. Se si prova, il tentativo ha esito negativo. Questi gruppi sono destinati solo al supporto della soluzione di gestione.
+Ogni computer Windows gestito dalla soluzione è elencato nella pagina dei **gruppi di ruoli di lavoro ibridi** come **gruppo di ruoli di lavoro ibridi per il sistema** per l'account di Automazione. Le soluzioni usano il *nome host FQDN_GUID* convenzione di denominazione. Non è possibile applicare runbook a questi gruppi nell'account. Se si prova, il tentativo ha esito negativo. Questi gruppi sono destinati solo al supporto della soluzione di gestione.
 
 È possibile aggiungere i computer Windows a un gruppo di ruoli di lavoro ibridi per runbook nell'account di Automazione per supportare i runbook di Automazione, se si usa lo stesso account sia per la soluzione che per l'appartenenza al gruppo di ruoli di lavoro ibridi per runbook. Questa funzionalità è stata aggiunta alla versione 7.2.12024.0 del ruolo di lavoro ibrido per runbook.
 
@@ -195,7 +195,7 @@ Si consiglia di utilizzare gli indirizzi elencati durante la definizione delle e
 
 Seguire le istruzioni riportate in [connettere i computer senza accesso a Internet](../azure-monitor/platform/gateway.md) per configurare i computer che non hanno accesso a Internet.
 
-## <a name="view-update-assessments"></a>Visualizza valutazioni aggiornamenti
+## <a name="view-update-assessments"></a>Visualizzare la valutazione degli aggiornamenti
 
 Selezionare **Gestione aggiornamenti** nell'account di Automazione per visualizzare lo stato dei computer.
 

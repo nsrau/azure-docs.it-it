@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 70f4f4163a143354cd1fe5adf031c4d9cd87a46e
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 16e79043db80b69d2a2ca7d0a90e6d4921c15b22
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278665"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806508"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gestire gli aggiornamenti per più macchine virtuali
 
@@ -25,7 +25,7 @@ ms.locfileid: "74278665"
 - Pianificare l'installazione degli aggiornamenti necessari
 - Esaminare i risultati della distribuzione per verificare che gli aggiornamenti siano stati applicati correttamente a tutte le macchine virtuali per cui è abilitata la soluzione Gestione aggiornamenti
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per usare Gestione aggiornamenti è necessario:
 
@@ -37,7 +37,7 @@ Per usare Gestione aggiornamenti è necessario:
 
 Gestione aggiornamenti è supportata nei sistemi operativi seguenti:
 
-|Sistema operativo  |note  |
+|Sistema operativo  |Note  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Supporta solo le valutazioni degli aggiornamenti.         |
 |Windows Server 2008 R2 SP1 e versioni successive     |È necessario Windows PowerShell 4.0 o versioni successive. ([Scaricare WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))</br> Windows PowerShell 5.1 è consigliato per la sua maggiore affidabilità. ([Scaricare WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))         |
@@ -99,11 +99,11 @@ Gli agenti installati in macchine virtuali e computer raccolgono i dati sugli ag
 
 La tabella seguente descrive le origini connesse supportate da questa soluzione:
 
-| Origine connessa | Supportato | DESCRIZIONE |
+| Origine connessa | Supportato | Description |
 | --- | --- | --- |
-| Agenti di Windows |Sì |Gestione aggiornamenti raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Windows e quindi avvia l'installazione degli aggiornamenti necessari. |
-| Agenti Linux |Sì |Gestione aggiornamenti raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Linux e quindi avvia l'installazione degli aggiornamenti necessari nelle distribuzioni supportate. |
-| Gruppo di gestione di Operations Manager |Sì |Gestione aggiornamenti raccoglie informazioni sugli aggiornamenti del sistema dagli agenti in un gruppo di gestione connesso. |
+| Agenti Windows |SÌ |Gestione aggiornamenti raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Windows e quindi avvia l'installazione degli aggiornamenti necessari. |
+| Agenti Linux |SÌ |Gestione aggiornamenti raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Linux e quindi avvia l'installazione degli aggiornamenti necessari nelle distribuzioni supportate. |
+| Gruppo di gestione di Operations Manager |SÌ |Gestione aggiornamenti raccoglie informazioni sugli aggiornamenti del sistema dagli agenti in un gruppo di gestione connesso. |
 | Account di archiviazione di Azure |No |Archiviazione di Azure non include informazioni sugli aggiornamenti del sistema. |
 
 ### <a name="collection-frequency"></a>Frequenza della raccolta
@@ -119,6 +119,10 @@ La visualizzazione nel dashboard dei dati aggiornati dei computer gestiti può r
 ## <a name="schedule-an-update-deployment"></a>Pianificare la distribuzione degli aggiornamenti
 
 Per installare gli aggiornamenti, pianificare una distribuzione che rispetti la pianificazione dei rilasci e l'intervallo di servizio. È possibile scegliere i tipi di aggiornamento da includere nella distribuzione. È possibile ad esempio includere gli aggiornamenti critici o della sicurezza ed escludere gli aggiornamenti cumulativi.
+
+>[!NOTE]
+>Quando si pianifica una distribuzione degli aggiornamenti, viene creata una risorsa di [pianificazione](shared-resources/schedules.md) collegata al Runbook **patch-MicrosoftOMSComputers** che gestisce la distribuzione degli aggiornamenti nei computer di destinazione. Se si elimina la risorsa Schedule dal portale di Azure o si usa PowerShell dopo aver creato la distribuzione, la distribuzione degli aggiornamenti pianificati viene interrotta e viene visualizzato un errore quando si tenta di riconfigurarla dal portale. È possibile eliminare la risorsa Schedule solo eliminando la pianificazione di distribuzione corrispondente.
+>
 
 Per pianificare una nuova distribuzione di aggiornamenti per una o più macchine virtuali, selezionare **Pianifica la distribuzione di aggiornamenti** in **Gestione aggiornamenti**.
 
@@ -144,7 +148,7 @@ Nel riquadro **Nuova distribuzione di aggiornamenti** specificare le informazion
   - Service Pack
   - Aggiornamenti della definizione
   - Strumenti
-  - aggiornamenti
+  - Aggiornamenti
 
 - **Includi/Escludi aggiornamenti**: apre la pagina **Includi/Escludi**. Gli aggiornamenti da includere o escludere si trovano in schede separate. Per ulteriori informazioni sulla gestione dell'inclusione, vedere [pianificare una distribuzione degli aggiornamenti](automation-tutorial-update-management.md#schedule-an-update-deployment).
 
@@ -159,7 +163,7 @@ Nel riquadro **Nuova distribuzione di aggiornamenti** specificare le informazion
 
 - **Controllo riavvio:** questa impostazione determina come vengono gestiti i riavvii per la distribuzione degli aggiornamenti.
 
-   |Opzione|DESCRIZIONE|
+   |Opzione|Description|
    |---|---|
    |Riavvia se necessario| **(Impostazione predefinita)** Se necessario, viene eseguito il riavvio se la finestra di manutenzione lo consente.|
    |Riavvia sempre|Il computer viene riavviato indipendentemente dal fatto che il riavvio sia richiesto o no. |

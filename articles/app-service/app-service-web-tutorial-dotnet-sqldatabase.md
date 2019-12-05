@@ -1,26 +1,17 @@
 ---
-title: Creare un'app ASP.NET con il database SQL - Servizio app di Azure | Microsoft Docs
+title: 'Esercitazione: App ASP.NET con database SQL'
 description: Informazioni su come distribuire un'app C# ASP.NET con un database SQL Server in Azure.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2f815d99c32c2dcaa1fd35d00110b27a90f53ab4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2a0b3994af48372b8ed0a3c6eaecf4289d0980c1
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73471229"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671386"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Esercitazione: Creare un'app ASP.NET in Azure con un database SQL
 

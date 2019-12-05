@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 12/03/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64b7add9ddb1734d763c46e93d6788ce21a2c321
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 26299ca12071b521fc825a0b1ab1425f24af67e0
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150886"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803598"
 ---
 # <a name="conditional-access-block-access-by-location"></a>Accesso condizionale: bloccare l'accesso in base alla località
 
@@ -25,7 +25,7 @@ Con la condizione location nell'accesso condizionale, è possibile controllare l
 ## <a name="define-locations"></a>Definire le posizioni
 
 1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
-1. Passare a **Azure Active Directory** > **l'accesso condizionale**.
+1. Passare a **Azure Active Directory** **sicurezza** >  > **l'accesso condizionale**.
 1. Scegliere **nuova posizione**.
 1. Assegnare un nome al percorso.
 1. Scegliere **intervalli IP** se si conoscono gli intervalli di indirizzi IPv4 accessibili esternamente specifici che costituiscono la località o i **paesi/aree geografiche**.
@@ -35,10 +35,10 @@ Con la condizione location nell'accesso condizionale, è possibile controllare l
 
 Altre informazioni sulla condizione di posizione nell'accesso condizionale sono disponibili nell'articolo, [Qual è la condizione di posizione in Azure Active Directory accesso condizionale](location-condition.md)
 
-## <a name="create-a-conditional-access-policy"></a>Creare un criterio di accesso condizionale
+## <a name="create-a-conditional-access-policy"></a>Creare criteri di accesso condizionale
 
 1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
-1. Passare a **Azure Active Directory** > **l'accesso condizionale**.
+1. Passare a **Azure Active Directory** **sicurezza** >  > **l'accesso condizionale**.
 1. Selezionare **Nuovi criteri**.
 1. Assegnare un nome al criterio. È consigliabile che le organizzazioni creino uno standard significativo per i nomi dei propri criteri.
 1. In **assegnazioni**selezionare **utenti e gruppi** .

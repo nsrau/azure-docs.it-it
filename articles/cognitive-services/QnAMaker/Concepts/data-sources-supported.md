@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: diberry
-ms.openlocfilehash: a1fcc1bec5db3ad64dc045cf5e1a449fce808132
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: dc948629784254c9153f7f48ead7ff253e5f4453
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721216"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806389"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Origini dati per i contenuti QnA Maker
 
@@ -27,10 +27,10 @@ QnA Maker estrae automaticamente coppie di domande e risposte da contenuto semis
 
 La tabella seguente riepiloga i tipi di contenuto e di formato di file supportati da QnA Maker.
 
-|Tipo di origine|Content Type| Esempi|
+|Tipo di origine|Content Type| esempi|
 |--|--|--|
 |URL|Domande frequenti<br> (con struttura piatta, a sezioni o con collegamenti ad altre pagine)<br>Pagine del supporto <br> (singola pagina di procedure dettagliate, articoli sulla risoluzione dei problemi e così via).|[Domande frequenti semplici](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), <br>[domande frequenti con collegamenti](https://www.microsoft.com/en-us/software-download/faq),<br> [domande frequenti con home page degli argomenti](https://www.microsoft.com/Licensing/servicecenter/Help/Faq.aspx)<br>[articolo del supporto tecnico](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
-|PDF/DOC|domande frequenti,<br> manuale del prodotto,<br> brochure,<br> documento,<br> volantino,<br> guida di supporto,<br> file domanda-risposta strutturato,<br> e così via.|[File domanda-risposta strutturato](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Sample Product Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Sample semi-structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Esempio white paper. pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf),<br>[Esempio di multi-turn. docx](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)|
+|PDF/DOC|domande frequenti,<br> manuale del prodotto,<br> brochure,<br> documento,<br> volantino,<br> guida di supporto,<br> file domanda-risposta strutturato,<br> e così via.|[File domanda-risposta strutturato](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/structured.docx),<br> [Sample Product Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Sample semi-structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Esempio white paper. pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf),<br>[Esempio di multi-turn. docx](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)|
 |\* Excel|File domanda-risposta strutturato<br> (tra cui RTF, supporto HTML)|[Sample QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
 |\* TXT/TSV|File domanda-risposta strutturato|[Esempio chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
 
@@ -171,7 +171,7 @@ Una volta importato il file, la coppia di domande e risposte si trova nella Know
 
 L'importazione di una Knowledge Base sostituisce il contenuto della Knowledge Base esistente. L'importazione richiede un file TSV strutturato che contiene informazioni sull'origine dei dati. Queste informazioni consentono a QnA Maker di raggruppare le coppie domanda/risposta e di attribuirle a una specifica origine dati.
 
-| Domanda  | Risposta  | Source| Metadati (1 chiave: 1 valore) |          
+| Domanda  | Risposta  | Source (Sorgente)| Metadati (1 chiave: 1 valore) |          
 |-----------|---------|----|---------------------|
 | Question1 | Answer1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 | Editoriale|    `Key:Value`       |
@@ -190,15 +190,15 @@ Se si aggiunge o modifica il contenuto direttamente nella Knowledge base, utiliz
 
 Di seguito è riportato l'elenco dei formati Markdown che è possibile usare in QnA Maker: 
 
-|Scopo|Format|Markdown di esempio|Rendering<br>come visualizzato in chat bot|
+|Finalità|Format|Markdown di esempio|Rendering<br>come visualizzato in chat bot|
 |--|--|--|--|
 Nuova riga tra due frasi.|`\n\n`|`How can I create a bot with \n\n QnA Maker?`|![formattare la nuova riga tra due frasi](../media/qnamaker-concepts-datasources/format-newline.png)|
 |Intestazioni da H1 a H6, il numero di `#` indica l'intestazione. 1 `#` è H1.|`\n# text \n## text \n### text \n####text \n#####text` |`## Creating a bot \n ...text.... \n### Important news\n ...text... \n### Related Information\n ....text...`<br><br>`\n# my h1 \n## my h2\n### my h3 \n#### my h4 \n##### my h5`|![formattare con le intestazioni Markdown](../media/qnamaker-concepts-datasources/format-headers.png)<br>![formattare con le intestazioni Markdown da H1 a H5](../media/qnamaker-concepts-datasources/format-h1-h5.png)|
-|Corsivo |`*text*`|`How do I create a bot with *QnA Maker*?`|![formattare con corsivo](../media/qnamaker-concepts-datasources/format-italics.png)|
+|corsivo |`*text*`|`How do I create a bot with *QnA Maker*?`|![formattare con corsivo](../media/qnamaker-concepts-datasources/format-italics.png)|
 |Stringa (in grassetto)|`**text**`|`How do I create a bot with **QnA Maker**?`|![formato con contrassegno forte per grassetto](../media/qnamaker-concepts-datasources/format-strong.png)|
 |URL per il collegamento|`[text](https://www.my.com)`|`How do I create a bot with [QnA Maker](https://www.qnamaker.ai)?`|![formato per URL (collegamento ipertestuale)](../media/qnamaker-concepts-datasources/format-url.png)|
 |\* URL per l'immagine pubblica|`![text](https://www.my.com/image.png)`|`How can I create a bot with ![QnAMaker](https://review.docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/media/qnamaker-how-to-key-management/qnamaker-resource-list.png)`|![formato dell'URL dell'immagine pubblica ](../media/qnamaker-concepts-datasources/format-image-url.png)|
-|Barrato|`~~text~~`|`some ~~questoins~~ questions need to be asked`|![formato per barrato](../media/qnamaker-concepts-datasources/format-strikethrough.png)|
+|barrato|`~~text~~`|`some ~~questoins~~ questions need to be asked`|![formato per barrato](../media/qnamaker-concepts-datasources/format-strikethrough.png)|
 |Grassetto e corsivo|`***text***`|`How can I create a ***QnA Maker*** bot?`|![formato per grassetto e corsivo](../media/qnamaker-concepts-datasources/format-bold-italics.png)|
 |URL grassetto per il collegamento|`[**text**](https://www.my.com)`|`How do I create a bot with [**QnA Maker**](https://www.qnamaker.ai)?`|![formattare l'URL in grassetto](../media/qnamaker-concepts-datasources/format-bold-url.png)|
 |URL corsivo per il collegamento|`[*text*](https://www.my.com)`|`How do I create a bot with [*QnA Maker*](https://www.qnamaker.ai)?`|![formato per l'URL corsivo](../media/qnamaker-concepts-datasources/format-url-italics.png)|
@@ -213,8 +213,8 @@ Se si vuole aggiungere contenuto usando le API della Knowledge base di aggiornam
 
 | Mantieni HTML  | Rappresentazione nella richiesta API  | Rappresentazione in KB |
 |-----------|---------|-------------------------|
-| Sì | \&lt; br\&gt; | &lt;BR&gt; |
-| Sì | \&lt; H3\&gt; header\&lt;/H3\&gt; | &lt;intestazione&gt;H3&lt;/H3&gt; |
+| SÌ | \&lt; br\&gt; | &lt;BR&gt; |
+| SÌ | \&lt; H3\&gt; header\&lt;/H3\&gt; | &lt;intestazione&gt;H3&lt;/H3&gt; |
 
 Inoltre, CR LF (\r\n) viene convertito in \n nella KB. LF (\n) viene mantenuto così com'è. Se si vuole eseguire l'escape di qualsiasi sequenza di escape come \t o \n, è possibile usare la barra rovesciata, ad esempio:'\\\\r\\\\n'' è\\\\t'
 
@@ -239,6 +239,6 @@ Il controllo della versione per i dati viene fornito tramite la [funzionalità i
 > [!div class="nextstepaction"]
 > [Configurare un servizio QnA Maker](../How-To/set-up-qnamaker-service-azure.md)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedi anche 
 
 [Panoramica di QnA Maker](../Overview/overview.md)

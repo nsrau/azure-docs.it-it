@@ -1,5 +1,5 @@
 ---
-title: Che cos'è la trascrizione delle conversazioni (anteprima)-servizio di riconoscimento vocale
+title: Che cos'è la trascrizione delle conversazioni (anteprima)? -Servizio di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
 description: La trascrizione delle conversazioni è una soluzione di sintesi vocale che combina il riconoscimento vocale, l'identificazione del relatore e l'attribuzione di frasi a ogni altoparlante (anche noto come "diare") per fornire la trascrizione in tempo reale e/o asincrona di qualsiasi conversazione.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 0c15b053028bd707159a632c98faaea8b9954a9b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 07e3e498a3bd2693b72079a8a731c3d139414c90
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075840"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806287"
 ---
 # <a name="what-is-conversation-transcription-preview"></a>Che cos'è la trascrizione delle conversazioni (anteprima)?
 
-La trascrizione delle conversazioni è una soluzione di [sintesi vocale](speech-to-text.md) che combina il riconoscimento vocale, l'identificazione del relatore e l'attribuzione di frasi a ogni altoparlante (anche noto come " _diare_") per fornire in tempo reale e/o asincrono trascrizione di qualsiasi conversazione. La trascrizione delle conversazioni distingue gli speaker in una conversazione per determinare chi ha detto cosa e quando e rende più semplice per gli sviluppatori l'aggiunta di riconoscimento vocale alle applicazioni che eseguono la messa in funzione del MultiSpeaker.
+La trascrizione delle conversazioni è una soluzione di [sintesi vocale](speech-to-text.md) che combina il riconoscimento vocale, l'identificazione del relatore e l'attribuzione di frasi a ogni altoparlante (anche noto come " _diare_") per fornire la trascrizione in tempo reale e/o asincrona di qualsiasi conversazione. La trascrizione delle conversazioni distingue gli speaker in una conversazione per determinare chi ha detto cosa e quando e rende più semplice per gli sviluppatori l'aggiunta di riconoscimento vocale alle applicazioni che eseguono la messa in funzione del MultiSpeaker.
 
-## <a name="key-features"></a>Funzionalità principali
+## <a name="key-features"></a>Caratteristiche principali
 
 - **Timestamp** : ogni espressione speaker ha un timestamp, in modo che sia possibile trovare facilmente il momento in cui è stata pronunciata una frase.
 - **Trascrizioni leggibili** : la formattazione e la punteggiatura sono state aggiunte automaticamente per garantire che il testo corrisponda esattamente a quanto detto.
@@ -44,7 +44,7 @@ Per rendere le riunioni inclusive per tutti gli utenti, ad esempio i partecipant
 
 I partecipanti alla riunione possono concentrarsi sulla riunione e lasciare la trascrizione delle conversazioni. I partecipanti possono partecipare attivamente alla riunione e proseguire rapidamente con i passaggi successivi, usando la trascrizione anziché prendere nota e potenzialmente mancare qualcosa durante la riunione.
 
-## <a name="how-it-works"></a>Funzionamento
+## <a name="how-it-works"></a>Come funziona
 
 Si tratta di una panoramica di alto livello del funzionamento della trascrizione delle conversazioni.
 
@@ -71,7 +71,7 @@ I dati audio sono batch elaborati per restituire l'identificatore e la trascrizi
 
 I dati audio vengono elaborati in tempo reale per restituire l'identificatore e la trascrizione del altoparlante. Inoltre, viene creata una richiesta per ottenere una trascrizione ad alta precisione tramite l'elaborazione asincrona. Selezionare questa modalità se l'applicazione ha bisogno di trascrizione in tempo reale, ma richiede anche una trascrizione di accuratezza più elevata da usare in seguito alla conversazione o alla riunione.
 
-## <a name="language-support"></a>Supporto per le lingue
+## <a name="language-support"></a>Supporto delle lingue
 
 Attualmente, la trascrizione delle conversazioni supporta "en-US" e "zh-CN" nelle aree seguenti: *centralus* e *eastasia*. Se è necessario un supporto aggiuntivo per le impostazioni locali, contattare la [funzionalità di trascrizione delle conversazioni](mailto:CTSFeatureCrew@microsoft.com).
 

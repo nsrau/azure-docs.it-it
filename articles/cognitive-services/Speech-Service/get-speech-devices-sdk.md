@@ -1,7 +1,7 @@
 ---
 title: Ottenere Speech Devices SDK
 titleSuffix: Azure Cognitive Services
-description: Il servizio Voce è compatibile con una vasta gamma di dispositivi e sorgenti audio. Ora è possibile portare le applicazioni vocali a un livello superiore con hardware e software abbinati. In questo articolo si apprenderà come ottenere l'accesso all'SDK per i dispositivi vocali e iniziare a sviluppare.
+description: Il servizio di riconoscimento vocale funziona con un'ampia gamma di dispositivi e origini audio. Ora è possibile portare le applicazioni vocali a un livello superiore con hardware e software abbinati. In questo articolo si apprenderà come ottenere l'accesso all'SDK per i dispositivi vocali e iniziare a sviluppare.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: b60c8735833c3012523c5cc0d7eea6a50e9d10b6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: cdf447239da2f99c208ebd555f3d68e0302699b8
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559680"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806236"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>Ottenere Speech Devices SDK di Servizi cognitivi
 
@@ -23,7 +23,7 @@ Speech Devices SDK è una libreria presintonizzata progettata per funzionare con
 
 ## <a name="choose-a-development-kit"></a>Scegliere un kit di sviluppo
 
-|Dispositivi|Specifiche|DESCRIZIONE|Scenari|
+|Dispositivi|Specifiche|Description|Scenari|
 |--|--|--|--|
 |[Roobo smart audio Dev Kit](https://ddk.roobo.com)</br>[Configurare](speech-devices-sdk-roobo-v1.md) / [Guida introduttiva](speech-devices-sdk-android-quickstart.md)![Roobo smart audio Dev Kit](media/speech-devices-sdk/device-roobo-v1.jpg)|7 mic Array, ARM SOC, WIFI, audio out, IO. </br>[Android](speech-devices-sdk-android-quickstart.md)|Il primo SDK per dispositivi vocali per adattare Microsoft MIC array e front processing SDK per lo sviluppo di scenari di traduzione e sintesi vocale di alta qualità|Trascrizione delle conversazioni, Smart speaker, agente vocale, indossabile|
 |[Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)</br>[Configurare](https://docs.microsoft.com/azure/Kinect-dk/set-up-azure-kinect-dk) / [Guida introduttiva](speech-devices-sdk-windows-quickstart.md)![di Azure Kinect dk](media/speech-devices-sdk/device-azure-kinect-dk.jpg)|7 fotocamere RGB e profondità della matrice MIC. </br>[Windows](speech-devices-sdk-windows-quickstart.md)/[Linux](speech-devices-sdk-linux-quickstart.md)|Kit per sviluppatori con sensori di intelligenza artificiale avanzati per la creazione di sofisticati modelli di visione artificiale e riconoscimento vocale. Combina una fotocamera di livello superiore e una fotocamera di profondità con una videocamera e un sensore di orientamento, il tutto in un piccolo dispositivo con più modalità, opzioni e SDK per gestire una gamma di tipi di calcolo.|Trascrizione di conversazioni, Robotica, compilazione intelligente|

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 12/03/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 892171f3e275ebc405bc7a228185ebfabc61acfb
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: cc0d22e2e6478c265ba9219ae4df5d5ddb34d481
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164835"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803887"
 ---
 # <a name="conditional-access-require-mfa-for-all-users"></a>Accesso condizionale: richiedere l'autenticazione a più fattori per tutti gli utenti
 
@@ -39,12 +39,12 @@ I criteri di accesso condizionale sono strumenti avanzati, quindi è consigliabi
 
 Le organizzazioni possono avere molte applicazioni cloud in uso. Non tutte le applicazioni possono richiedere la stessa sicurezza. Ad esempio, le applicazioni per le retribuzioni e la partecipazione possono richiedere l'autenticazione a più fattori, ma la caffetteria probabilmente no. Gli amministratori possono scegliere di escludere applicazioni specifiche dal criterio.
 
-## <a name="create-a-conditional-access-policy"></a>Creare un criterio di accesso condizionale
+## <a name="create-a-conditional-access-policy"></a>Creare criteri di accesso condizionale
 
 La procedura seguente consente di creare un criterio di accesso condizionale per richiedere che i ruoli amministrativi assegnati eseguano la funzionalità di autenticazione a più fattori.
 
 1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
-1. Passare a **Azure Active Directory** > **l'accesso condizionale**.
+1. Passare a **Azure Active Directory** **sicurezza** >  > **l'accesso condizionale**.
 1. Selezionare **Nuovi criteri**.
 1. Assegnare un nome al criterio. È consigliabile che le organizzazioni creino uno standard significativo per i nomi dei propri criteri.
 1. In **assegnazioni**selezionare **utenti e gruppi** .

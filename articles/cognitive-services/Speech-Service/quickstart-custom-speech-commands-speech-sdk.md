@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: 890d2200a8047bc12c99eed97277e11776806def
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: da90e1fb8ab6241cbe0bfa583e1b4a3fbe338ad8
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111167"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74812969"
 ---
 # <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>Guida introduttiva: connettersi a un'applicazione di comandi personalizzati con Speech SDK (anteprima)
 
@@ -26,21 +26,21 @@ In questo articolo verranno illustrate le operazioni seguenti:
 - Pubblicare un'applicazione di comandi personalizzati e ottenere un identificatore dell'applicazione (ID app)
 - Creare un'app client con l'SDK di riconoscimento vocale per consentire la comunicazione con l'applicazione dei comandi personalizzati
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questo articolo, è necessaria un'applicazione comandi personalizzata. Se non è ancora stata creata un'applicazione Commands personalizzata, è possibile farlo nelle guide introduttive precedenti:
 
 - [Guida introduttiva: creare un comando personalizzato (anteprima)](./quickstart-custom-speech-commands-create-new.md)
 - [Guida introduttiva: creare un comando personalizzato con parametri (anteprima)](./quickstart-custom-speech-commands-create-parameters.md)
 
-Sono necessari anche:
+Altri requisiti:
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-- Una chiave di sottoscrizione di Azure per i servizi Voce. [Ottenerne uno](get-started.md) gratuitamente o crearlo nel [portale di Azure](https://portal.azure.com)
+- Una chiave di sottoscrizione di Azure per il servizio Voce. [Ottenerne uno](get-started.md) gratuitamente o crearlo nel [portale di Azure](https://portal.azure.com)
 
 ## <a name="optional-get-started-fast"></a>Facoltativo: iniziare rapidamente
 
-Questa Guida introduttiva descrive in modo dettagliato come creare un'applicazione client per la connessione all'app comandi personalizzata. Se si preferisce iniziare subito, il codice sorgente completo e pronto per la compilazione usato in questa guida di avvio rapido è disponibile nella cartella [ negli ](https://aka.ms/csspeech/samples)esempi di SDK Speech`quickstart`.
+Questa Guida introduttiva descrive in modo dettagliato come creare un'applicazione client per la connessione all'app comandi personalizzata. Se si preferisce iniziare subito, il codice sorgente completo e pronto per la compilazione usato in questa guida di avvio rapido è disponibile nella cartella `quickstart` negli [esempi di SDK Speech](https://aka.ms/csspeech/samples).
 
 ## <a name="step-1-publish-custom-commands-application"></a>Passaggio 1: pubblicare l'applicazione comandi personalizzati
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 1dc119f0f5949b37603bbc1100a4d89d4f420fd6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: bd5f9fc787a6299e8d7c14f4b99f6f4d59cf78af
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033445"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819073"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrazione ad Archiviazione Premium con Azure Site Recovery
 
@@ -65,7 +65,7 @@ Questi sono i requisiti di Azure per questo scenario di migrazione:
 * Una rete virtuale di Azure a cui le macchine virtuali di Azure possano connettersi quando vengono create in fase di failover. La rete virtuale di Azure deve trovarsi nella stessa area dell'insieme di esecuzione di Site Recovery.
 * Un account di archiviazione Standard di Azure in cui archiviare i log delle repliche. Può essere lo stesso account di archiviazione dei dischi delle macchine virtuali di cui viene eseguita la migrazione.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Conoscere i componenti dello scenario di migrazione pertinenti nella sezione precedente.
 * Pianificare il tempo di inattività dopo avere letto le informazioni sul [failover in Site Recovery](../../site-recovery/site-recovery-failover.md).
@@ -79,7 +79,7 @@ Questi sono i requisiti di Azure per questo scenario di migrazione:
 1. Aprire il [portale di Azure](https://portal.azure.com).
 2. Selezionare **Crea una risorsa** > **Gestione** > **Backup e Site Recovery (OMS)** . In alternativa, è possibile selezionare **Sfoglia** > **Insieme di credenziali dei servizi di ripristino** > **Aggiungi**.
    >[!NOTE]
-   >Backup e Site Recovery in precedenza faceva parte della ![suite OMS](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand).
+   >Backup e Site Recovery in precedenza faceva parte della [suite OMS](/azure/azure-monitor/terminology#april-2018---retirement-of-operations-management-suite-brand).
 1. Specificare un'area in cui verranno replicate le macchine virtuali. Per eseguire la migrazione nella stessa area, selezionare l'area in cui si trovano le VM di origine e gli account di archiviazione di origine. 
 
 ### <a name="step-2-choose-your-protection-goals"></a>Passaggio 2: Scegliere gli obiettivi della protezione 
@@ -205,7 +205,7 @@ Site Recovery creerà un'istanza di una macchina virtuale di tipo uguale o simil
 
 3. **Pulire l'infrastruttura di Azure Site Recovery**. Se Site Recovery non è più necessario, è possibile rimuovere l'infrastruttura. Eliminare gli elementi replicati, il server di configurazione e i criteri di ripristino, quindi eliminare l'insieme di credenziali di Azure Site Recovery.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 * [Monitorare e risolvere i problemi di protezione per le macchine virtuali e i server fisici](../../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
 * [Forum di Microsoft Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)
@@ -215,7 +215,7 @@ Site Recovery creerà un'istanza di una macchina virtuale di tipo uguale o simil
 Per scenari specifici per la migrazione di macchine virtuali, controllare le risorse seguenti:
 
 * [Eseguire la migrazione di macchine virtuali di Azure tra account di archiviazione](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
-* [Creazione e caricamento di un disco rigido virtuale con Windows Server in Azure](upload-generalized-managed.md)
+* [Creare e caricare un disco rigido virtuale Windows Server in Azure](upload-generalized-managed.md)
 * [Migrazione di macchine virtuali da Amazon AWS a Microsoft Azure](https://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Inoltre, controllare le seguenti risorse per altre informazioni su Archiviazione di Azure e sulle macchine virtuali di Azure:

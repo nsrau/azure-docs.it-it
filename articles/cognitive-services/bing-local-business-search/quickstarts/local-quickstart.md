@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 04/26/2019
-ms.author: rosh
-ms.openlocfilehash: 439f775fb6124c847631467caabe3f48cfa6b645
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.date: 11/29/2019
+ms.author: aahi
+ms.openlocfilehash: 2265471001896652a4ce35dbf8bd84aca50000fb
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326702"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665679"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>Guida introduttiva: Inviare una query all'API Bing Local Business Search in C#
 
@@ -34,7 +34,7 @@ Questa applicazione di esempio recupera i dati di risposta locali dall'API per l
 
 Il codice seguente crea `WebRequest`, imposta l'intestazione della chiave di accesso e aggiunge una stringa di query per "restaurant in Bellevue".  Quindi, invia la richiesta e assegna la risposta a una stringa per contenere il testo JSON.
 
-```
+```csharp
     // Replace the accessKey string value with your valid access key.
     const string accessKey = "enter key here";
 
@@ -60,7 +60,7 @@ L'API Bing Local Business Search restituisce i risultati della ricerca localizza
 3. Sostituire il valore di accessKey con una chiave di accesso valida per la sottoscrizione.
 4. Eseguire il programma.
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Text;

@@ -9,12 +9,12 @@ author: v-miegge
 ms.author: ramakoni
 ms.reviewer: ''
 ms.date: 09/27/2019
-ms.openlocfilehash: 29edd7da42a5eb4586cd52cc0f913a56e199a5ba
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e1638c9779ca50507a1ce30dd3bbc9c18248964a
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73808272"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807069"
 ---
 # <a name="azure-sql-database-importexport-service-takes-a-long-time-to-import-or-export-a-database"></a>Il servizio importazione/esportazione del database SQL di Azure richiede molto tempo per l'importazione o l'esportazione di un database
 
@@ -22,7 +22,7 @@ Quando si usa il servizio di importazione/esportazione del database SQL di Azure
 
 ## <a name="azure-sql-database-importexport-service"></a>Servizio di importazione/esportazione del database SQL di Azure
 
-Il servizio di importazione/esportazione del database SQL di Azure è un servizio Web basato su REST eseguito in ogni data center di Azure. Questo servizio viene chiamato quando si usa l'opzione [Importa database](https://docs.microsoft.com/azure/sql-database/sql-database-import#import-from-a-bacpac-file-in-the-azure-portal) o [Esporta](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-the-azure-portal) per spostare il database SQL nel portale di Azure. Il servizio fornisce servizi di accodamento delle richieste e di calcolo gratuiti per eseguire importazioni ed esportazioni tra un database SQL di Azure e l'archiviazione BLOB di Azure.
+Il servizio di importazione/esportazione del database SQL di Azure è un servizio Web basato su REST eseguito in ogni data center di Azure. Questo servizio viene chiamato quando si usa l'opzione [Importa database](sql-database-import.md#using-azure-portal) o [Esporta](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-the-azure-portal) per spostare il database SQL nel portale di Azure. Il servizio fornisce servizi di accodamento delle richieste e di calcolo gratuiti per eseguire importazioni ed esportazioni tra un database SQL di Azure e l'archiviazione BLOB di Azure.
 
 Le operazioni di importazione ed esportazione non rappresentano un backup fisico tradizionale del database, bensì un backup logico del database che utilizza un formato BACPAC speciale. Il formato BACPAC consente di evitare di dover usare un formato fisico che può variare tra le versioni di Microsoft SQL Server e il database SQL di Azure. Pertanto, è possibile utilizzarlo per ripristinare in modo sicuro il database in un database di SQL Server e in un database SQL.
 
@@ -39,7 +39,7 @@ Se le esportazioni di database vengono usate solo per il ripristino da eliminazi
 
 * [Esportare in un file BACPAC tramite l'utilità SqlPackage](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-the-sqlpackage-utility).
 * [Esportare in un file BACPAC usando SQL Server Management Studio (SSMS)](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-sql-server-management-studio-ssms).
-* Eseguire l'importazione o l'esportazione BACPAC direttamente nel codice usando l'API Microsoft SQL Server Data-Tier Application Framework (DacFx). Per ulteriori informazioni, vedere:
+* Eseguire l'importazione o l'esportazione BACPAC direttamente nel codice usando l'API Microsoft SQL Server Data-Tier Application Framework (DacFx). Per altre informazioni, vedere:
   * [Esportare un'applicazione livello dati](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
   * [Spazio dei nomi Microsoft. SqlServer. Dac](https://docs.microsoft.com/dotnet/api/microsoft.sqlserver.dac)
   * [Scarica DACFx](https://www.microsoft.com/download/details.aspx?id=55713)

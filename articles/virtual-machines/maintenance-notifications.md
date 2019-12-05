@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: ee7a03f27ab03feadedb7ac8441675a90468655c
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: ab8ef516e5434ac5a9cde9324798d8dd1706a04e
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535808"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807409"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Gestione delle notifiche di manutenzione pianificata
 
@@ -80,7 +80,7 @@ La manutenzione Self-Service non è consigliata per le distribuzioni che usano i
 
 **R:** Le macchine virtuali distribuite in un set di disponibilità o nei set di scalabilità di macchine virtuali riconoscono i domini di aggiornamento. Quando si esegue la manutenzione, Azure rispetta il vincolo dei domini di aggiornamento e non riavvia le macchine virtuali da domini di aggiornamento diversi (nello stesso set di disponibilità).  Azure attende anche almeno 30 minuti prima di passare al gruppo successivo di macchine virtuali. 
 
-Per altre informazioni sulla disponibilità elevata, vedere [disponibilità per le macchine virtuali in Azure](/linux/availability.md).
+Per altre informazioni sulla disponibilità elevata, vedere [disponibilità per le macchine virtuali in Azure](./linux/availability.md).
 
 **D: Come si ricevono le notifiche relative alla manutenzione pianificata?**
 
@@ -92,7 +92,7 @@ Per altre informazioni sulla disponibilità elevata, vedere [disponibilità per 
 
 **D: È possibile sapere con esattezza quando la macchina virtuale verrà coinvolta?**
 
-**R:** Quando si imposta la pianificazione, viene definita una finestra temporale di alcuni giorni. La sequenza esatta dei server (e delle VM) entro questa finestra è tuttavia sconosciuta. I clienti che vogliono conoscere l'ora esatta per le proprie macchine virtuali possono usare gli [eventi pianificati](/linux/scheduled-events.md), eseguire query dalla macchina virtuale e ricevere una notifica 15 minuti prima del riavvio di una macchina virtuale.
+**R:** Quando si imposta la pianificazione, viene definita una finestra temporale di alcuni giorni. La sequenza esatta dei server (e delle VM) entro questa finestra è tuttavia sconosciuta. I clienti che vogliono conoscere l'ora esatta per le proprie macchine virtuali possono usare gli [eventi pianificati](./linux/scheduled-events.md), eseguire query dalla macchina virtuale e ricevere una notifica 15 minuti prima del riavvio di una macchina virtuale.
 
 **D: Quanto tempo sarà necessario per riavviare la macchina virtuale?**
 

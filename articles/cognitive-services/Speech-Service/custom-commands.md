@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 62210bf480d09ce2a256a44b7554ac53aa06eb0c
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: dd3e27aefe03ee30e721fcbb915d9ad4b3821618
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579694"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806304"
 ---
 # <a name="custom-commands-preview"></a>Comandi personalizzati (anteprima)
 
@@ -45,20 +45,20 @@ Sono disponibili guide introduttive progettate per l'esecuzione di codice in men
 
 Il codice di esempio per la creazione di un assistente vocale con comandi personalizzati (anteprima) è disponibile in GitHub.
 
-* [Esempi di Assistente vocale (SDK)](https://aka.ms/csspeech/samples)
+* [Voice assistant samples (SDK)](https://aka.ms/csspeech/samples) (Esempi di assistente vocale - SDK)
 
 ## <a name="customization"></a>Personalizzazione
 
-Gli assistenti vocali creati usando i servizi di riconoscimento vocale di Azure possono usare la gamma completa di opzioni di personalizzazione disponibili per la selezione [vocale](speech-to-text.md) [, la sintesi vocale e](text-to-speech.md)la selezione di [parole chiave personalizzate](speech-devices-sdk-create-kws.md).
+Gli assistenti vocali creati con il servizio di riconoscimento vocale possono usare l'intera gamma di opzioni di personalizzazione disponibili per la scelta [vocale](speech-to-text.md) [, la sintesi vocale e](text-to-speech.md)la [selezione di parole chiave personalizzate](speech-devices-sdk-create-kws.md).
 
 > [!NOTE]
 > Le opzioni di personalizzazione variano in base alla lingua o alle impostazioni locali (vedere [lingue supportate](supported-languages.md)).
 
-## <a name="reference-docs"></a>Documentazione di riferimento
+## <a name="reference-docs"></a>Documenti di riferimento
 
 * [Speech SDK](speech-sdk-reference.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Ottieni gratuitamente una chiave di sottoscrizione per i servizi Voce](get-started.md)
+* [Ottenere gratuitamente una chiave di sottoscrizione per i servizi di riconoscimento vocale](get-started.md)
 * [Ottenere l'SDK di riconoscimento vocale](speech-sdk.md)

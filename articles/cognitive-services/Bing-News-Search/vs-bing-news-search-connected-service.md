@@ -3,19 +3,19 @@ title: Connettersi all'API Ricerca notizie Bing tramite Servizi connessi in Visu
 titleSuffix: Azure Cognitive Services
 description: Usando la Ricerca notizie Bing, è possibile abilitare le app e i servizi per sfruttare la potenza di un motore di ricerca senza annunci con ambito Web.
 services: cognitive-services
-author: ghogen
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 06/18/2019
-ms.author: ghogen
-ms.openlocfilehash: 0a8a4f69c94f217cb40146b022adf2b2d56c8d42
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 11/29/2019
+ms.author: aahi
+ms.openlocfilehash: 2afe9a66d9f0ebecaef9626ef6caf9fc30f20841
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111506"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74771071"
 ---
 # <a name="tutorial-connect-to-bing-news-search-api-with-connected-services-in-visual-studio-and-c"></a>Esercitazione: Connettersi all'API Ricerca notizie Bing tramite Servizi connessi in Visual Studio e C#
 
@@ -268,4 +268,4 @@ Quando il gruppo di risorse non è più necessario, è possibile eliminarlo. In 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'API ricerca notizie Bing, vedere le [informazioni relative a Ricerca notizie Bing](index.yml).
+Per altre informazioni sull'API ricerca notizie Bing, vedere le [informazioni relative a Ricerca notizie Bing](search-the-web.md).

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 1d8e473afa2c8e7c0abf58e2dbc9caea030f2f5f
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: c8c849cb83ecb1db5e972c660d94c795092c458e
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554977"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806012"
 ---
 # <a name="what-is-custom-speech"></a>Che cos'è Riconoscimento vocale personalizzato?
 
@@ -23,13 +23,13 @@ ms.locfileid: "74554977"
 
 ## <a name="whats-in-custom-speech"></a>Quali sono i Riconoscimento vocale personalizzato?
 
-Prima di poter eseguire qualsiasi operazione con Riconoscimento vocale personalizzato, saranno necessari un account Azure e una sottoscrizione di servizi vocali. Una volta ottenuto un account, è possibile preparare i dati, eseguire il training e testare i modelli, controllare la qualità del riconoscimento, valutare l'accuratezza e infine distribuire e usare il modello di riconoscimento vocale personalizzato.
+Prima di poter eseguire qualsiasi operazione con Riconoscimento vocale personalizzato, saranno necessari un account Azure e una sottoscrizione al servizio vocale. Una volta ottenuto un account, è possibile preparare i dati, eseguire il training e testare i modelli, controllare la qualità del riconoscimento, valutare l'accuratezza e infine distribuire e usare il modello di riconoscimento vocale personalizzato.
 
 In questo diagramma vengono evidenziati i componenti che costituiscono il [portale di riconoscimento vocale personalizzato](https://aka.ms/customspeech). Usare i collegamenti seguenti per ulteriori informazioni su ogni passaggio.
 
 ![Vengono evidenziati i diversi componenti che costituiscono il portale di Riconoscimento vocale personalizzato.](./media/custom-speech/custom-speech-overview.png)
 
-1. [Sottoscrivere e creare un progetto](#set-up-your-azure-account) : creare un account Azure e sottoscrivere i servizi di riconoscimento vocale. Questa sottoscrizione unificata consente di accedere a sintesi vocale, sintesi vocale, traduzione vocale e il [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech). Quindi, usando la sottoscrizione di servizi vocali, creare il primo progetto Riconoscimento vocale personalizzato.
+1. [Sottoscrivere e creare un progetto](#set-up-your-azure-account) : creare un account Azure e sottoscrivere il servizio di riconoscimento vocale. Questa sottoscrizione unificata consente di accedere a sintesi vocale, sintesi vocale, traduzione vocale e il [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech). Quindi, usando la sottoscrizione al servizio vocale, creare il primo progetto Riconoscimento vocale personalizzato.
 
 2. [Carica i dati di test](how-to-custom-speech-test-data.md) : carica i dati di test (file audio) per valutare l'offerta di sintesi vocale di Microsoft per le applicazioni, gli strumenti e i prodotti.
 
@@ -43,14 +43,14 @@ In questo diagramma vengono evidenziati i componenti che costituiscono il [porta
 
 ## <a name="set-up-your-azure-account"></a>Configurare l'account Azure
 
-Per poter usare il [portale riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech) per creare un modello personalizzato, è necessaria una sottoscrizione di servizi vocali. Seguire queste istruzioni per creare una sottoscrizione di servizi vocali standard: [creare una sottoscrizione vocale](get-started.md#try-the-speech-service-using-a-new-azure-account).
+Prima di poter usare il [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech) per creare un modello personalizzato, è necessaria una sottoscrizione al servizio di riconoscimento vocale. Seguire queste istruzioni per creare una sottoscrizione del servizio vocale standard: [creare una sottoscrizione vocale](get-started.md#try-the-speech-service-using-a-new-azure-account).
 
 > [!NOTE]
 > Assicurarsi di creare sottoscrizioni standard (S0), le sottoscrizioni della versione di valutazione gratuita (F0) non sono supportate.
 
-Dopo aver creato un account Azure e una sottoscrizione di servizi vocali, è necessario accedere al [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech) e connettere la sottoscrizione.
+Dopo aver creato un account Azure e una sottoscrizione al servizio vocale, è necessario accedere al [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech) e connettere la sottoscrizione.
 
-1. Ottenere la chiave di sottoscrizione di servizi vocali dal portale di Azure.
+1. Ottenere la chiave di sottoscrizione del servizio vocale dalla portale di Azure.
 2. Accedere al [portale di riconoscimento vocale personalizzato](https://aka.ms/custom-speech).
 3. Selezionare la sottoscrizione in cui è necessario lavorare e creare un progetto vocale.
 4. Se si vuole modificare la sottoscrizione, usare l'icona a **cremagliera** che si trova nella parte superiore dello spostamento.

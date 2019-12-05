@@ -10,18 +10,18 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: edb8f25ff1e4fa01e905c3ae5c7d0ec7ab58f8bb
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 571d4cd395cd0cec0982fedf267a88143fd73872
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705944"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805740"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurare un'app Java Linux per il servizio app Azure
 
 Il servizio app Azure in Linux consente agli sviluppatori Java di creare, distribuire e ridimensionare rapidamente le applicazioni Web in pacchetto Tomcat, WildFly o Java Standard Edition (SE) in un servizio basato su Linux completamente gestito. Distribuire le applicazioni con i plug-in Maven dalla riga di comando o in editor come IntelliJ, Eclipse o Visual Studio Code.
 
-Questa guida fornisce i concetti chiave e le istruzioni per gli sviluppatori Java che usano un contenitore Linux incorporato nel servizio app. Se non si è mai usato app Azure servizio, seguire prima l'esercitazione [introduttiva](quickstart-java.md) su Java e [Java con PostgreSQL](tutorial-java-enterprise-postgresql-app.md) .
+Questa guida fornisce i concetti chiave e le istruzioni per gli sviluppatori Java che usano un contenitore Linux incorporato nel servizio app. Se non si è mai usato app Azure servizio, seguire prima l'[esercitazione introduttiva su Java](quickstart-java.md) e [Java con PostgreSQL](tutorial-java-enterprise-postgresql-app.md).
 
 ## <a name="deploying-your-app"></a>Distribuzione dell'app
 
@@ -58,7 +58,7 @@ Se l'applicazione usa [Logback](https://logback.qos.ch/) o [Log4j](https://loggi
 
 Le immagini Java predefinite sono basate sul sistema operativo [alpino Linux](https://alpine-linux.readthedocs.io/en/latest/getting_started.html) . Usare Gestione pacchetti `apk` per installare gli strumenti o i comandi per la risoluzione dei problemi.
 
-### <a name="flight-recorder"></a>Utilità traccia eventi
+### <a name="flight-recorder"></a>Flight Recorder
 
 Per tutte le immagini Java Linux nel servizio app è installato Zulu Flight Recorder, in modo che sia possibile connettersi facilmente a JVM e avviare una registrazione del profiler o generare un dump dell'heap.
 
@@ -247,6 +247,9 @@ Potrebbe essere necessaria una configurazione aggiuntiva per la crittografia del
 - [PostgreSQL](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
 - [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
 - [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
+- [MongoDB](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
+- [Cassandra](https://docs.datastax.com/developer/java-driver/4.3/)
+
 
 #### <a name="manually-initialize-and-load-the-key-store"></a>Inizializzare e caricare manualmente l'archivio chiavi
 
@@ -301,8 +304,8 @@ Il servizio app Linux instrada le richieste in ingresso alla porta 80, in modo c
 - [SparkJava](http://sparkjava.com/documentation#embedded-web-server)
 - [Micronaut](https://docs.micronaut.io/latest/guide/index.html#runningSpecificPort)
 - [Esegui Framework](https://www.playframework.com/documentation/2.6.x/ConfiguringHttps#Configuring-HTTPS)
-- [VertX](https://vertx.io/docs/vertx-core/java/#_start_the_server_listening)
-- [Quark](https://quarkus.io/guides/application-configuration-guide)
+- [Vertx](https://vertx.io/docs/vertx-core/java/#_start_the_server_listening)
+- [Quarkus](https://quarkus.io/guides/application-configuration-guide)
 
 ## <a name="data-sources"></a>Origini dati
 
@@ -616,7 +619,7 @@ I passaggi seguenti illustrano i requisiti per la connessione del servizio app e
 
 6. Usare l'interfaccia della riga di comando di Azure per aggiungere impostazioni al servizio app che contengono le informazioni di connessione al database. Sostituire `<resource group>` e `<webapp name>` con i valori usati dal servizio app. Sostituire `<database server name>`, `<database name>`, `<admin name>`e `<admin password>` con le informazioni di connessione al database. È possibile ottenere il servizio app e le informazioni sul database dal portale di Azure.
 
-    **PostgreSQL**
+    **PostgreSQL:**
 
     ```bash
     az webapp config appsettings set \
@@ -628,7 +631,7 @@ I passaggi seguenti illustrano i requisiti per la connessione del servizio app e
             DATABASE_SERVER_ADMIN_PASSWORD=<admin password>
     ```
 
-    **MySQL**
+    **MySQL:**
 
     ```bash
     az webapp config appsettings set \

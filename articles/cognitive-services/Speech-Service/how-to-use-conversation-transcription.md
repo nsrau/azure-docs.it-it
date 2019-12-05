@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: weixu
-ms.openlocfilehash: 4ee597f96d28b43b9c69d1515634aadde2f0ab7c
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 93f0117096a5601632ccced6b698e84a0714bbd4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608052"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805808"
 ---
 # <a name="real-time-conversation-transcription-preview"></a>Trascrizione di conversazioni in tempo reale (anteprima)
 
-L'API **ConversationTranscriber** dell'SDK vocale consente di trascrivere riunioni e altre conversazioni con la possibilità di aggiungere, rimuovere e identificare più partecipanti tramite lo streaming di audio ai servizi vocali usando `PullStream` o `PushStream`. Questo argomento richiede informazioni su come usare la sintesi vocale con l'SDK di riconoscimento vocale (versione 1.8.0 o successiva). Per ulteriori informazioni, vedere la pagina relativa ai [servizi di riconoscimento vocale](overview.md).
+L'API **ConversationTranscriber** dell'SDK vocale consente di trascrivere riunioni e altre conversazioni con la possibilità di aggiungere, rimuovere e identificare più partecipanti tramite lo streaming di audio al servizio di riconoscimento vocale usando `PullStream` o `PushStream`. Questo argomento richiede informazioni su come usare la sintesi vocale con l'SDK di riconoscimento vocale (versione 1.8.0 o successiva). Per ulteriori informazioni, vedere la pagina relativa ai [servizi di riconoscimento vocale](overview.md).
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -37,7 +37,7 @@ Speech Device SDK fornisce codice di esempio in Java per l'acquisizione audio in
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Sottoscrizione di servizi vocali. Se non si dispone [di una sottoscrizione di valutazione vocale, è possibile ottenerne una](https://azure.microsoft.com/try/cognitive-services/) .
+Sottoscrizione del servizio vocale. Se non si dispone [di una sottoscrizione di valutazione vocale, è possibile ottenerne una](https://azure.microsoft.com/try/cognitive-services/) .
 
 ## <a name="create-voice-signatures"></a>Creare firme vocali
 

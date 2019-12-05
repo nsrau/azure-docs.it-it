@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: a954118cd0697213674bb9981f0d94100488fb38
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5427e9f996fb77d455aa8064fc7cb1c65e1fcf7e
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464513"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805978"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>Preparare i dati per creare una voce personalizzata
 
-Quando si è pronti per creare una voce di sintesi vocale personalizzata per l'applicazione, il primo passaggio consiste nel raccogliere le registrazioni audio e gli script associati per avviare il training del modello vocale. Il servizio usa questi dati per creare una voce univoca ottimizzata in modo da corrispondere alla voce nelle registrazioni. Dopo aver eseguito il training della voce, è possibile iniziare a sintetizzare la sintesi vocale nelle applicazioni.
+Quando si è pronti per creare una voce di sintesi vocale personalizzata per l'applicazione, il primo passaggio consiste nel raccogliere le registrazioni audio e gli script associati per avviare il training del modello vocale. Il servizio di riconoscimento vocale usa questi dati per creare una voce univoca ottimizzata in modo da corrispondere alla voce nelle registrazioni. Dopo aver eseguito il training della voce, è possibile iniziare a sintetizzare la sintesi vocale nelle applicazioni.
 
 È possibile iniziare con una piccola quantità di dati per creare un modello di prova. Tuttavia, maggiore è il numero di dati forniti, più naturale sarà il suono della voce personalizzata. Prima di poter eseguire il training di un modello vocale di sintesi vocale, sono necessarie registrazioni audio e le trascrizioni del testo associate. In questa pagina, verranno esaminati i tipi di dati, il modo in cui vengono usati e come gestirli.
 
@@ -77,7 +77,7 @@ Il file di trascrizione è un file di testo normale. Usare queste linee guida pe
 | Proprietà | Value |
 | -------- | ----- |
 | Formato file | Testo normale (con estensione txt) |
-| Formato di codifica | ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE o UTF-16-BE. Per le codifiche zh-CN, ANSI/ASCII e UTF-8 non sono supportate. |
+| Formato di codifica. | ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE o UTF-16-BE. Per le codifiche zh-CN, ANSI/ASCII e UTF-8 non sono supportate. |
 | N. di espressioni per riga | **Uno** -ogni riga del file di trascrizione deve contenere il nome di uno dei file audio, seguito dalla trascrizione corrispondente. Il nome del file deve essere separato dalla trascrizione mediante un carattere di tabulazione (\t). |
 | Dimensione massima dei file | 2048 MB |
 
@@ -122,7 +122,7 @@ Le trascrizioni devono essere preparate alle specifiche elencate in questa tabel
 | -------- | ----- |
 | Formato file | Testo normale (con estensione txt), raggruppati in un file con estensione zip |
 | Nome file | USA lo stesso nome del file audio corrispondente |
-| Formato di codifica | Solo UTF-8-BOM |
+| Formato di codifica. | Solo UTF-8-BOM |
 | N. di espressioni per riga | Senza limiti |
 | Dimensione massima dei file | 2048 MB |
 

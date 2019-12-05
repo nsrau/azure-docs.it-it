@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 72029d1d56c9d561e629cc750244fd7de8ec113a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cec3131d791d591375fd87d1c080294c9034a815
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73507176"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806219"
 ---
 # <a name="about-direct-line-speech"></a>Informazioni sul discorso diretto sulla linea
 
@@ -35,7 +35,7 @@ Per una guida completa e dettagliata sulla creazione di un semplice assistente v
 
 Sono inoltre disponibili guide introduttive progettate per l'esecuzione di codice in meno di 10 minuti. Questa tabella include un elenco di guide introduttive per Assistente vocale organizzate in base alla lingua.
 
-| Guida introduttiva | Piattaforma | Informazioni di riferimento sulle API |
+| Avvio rapido | Piattaforma | Informazioni di riferimento sulle API |
 |------------|----------|---------------|
 | C#, UWP | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
 | Java | Windows, macOS, Linux | [Browse](https://aka.ms/csspeech/javaref) |
@@ -45,26 +45,26 @@ Sono inoltre disponibili guide introduttive progettate per l'esecuzione di codic
 
 Il codice di esempio per la creazione di un assistente vocale è disponibile su GitHub. Questi esempi coprono l'applicazione client per la connessione all'assistente in diversi linguaggi di programmazione più diffusi.
 
-* [Esempi di Assistente vocale (SDK)](https://aka.ms/csspeech/samples)
+* [Voice assistant samples (SDK)](https://aka.ms/csspeech/samples) (Esempi di assistente vocale - SDK)
 * [Esercitazione: abilitare l'Assistente vocale con l'SDK di riconoscimento vocale,C#](tutorial-voice-enable-your-bot-speech-sdk.md)
 
 ## <a name="customization"></a>Personalizzazione
 
-Gli assistenti vocali creati usando i servizi di riconoscimento vocale di Azure possono usare la gamma completa di opzioni di personalizzazione disponibili per la selezione [vocale](speech-to-text.md) [, la sintesi vocale e](text-to-speech.md)la selezione di [parole chiave personalizzate](speech-devices-sdk-create-kws.md).
+Gli assistenti vocali creati con il servizio di riconoscimento vocale possono usare la gamma completa di opzioni di personalizzazione disponibili per la scelta [vocale](speech-to-text.md) [, sintesi vocale e](text-to-speech.md)selezione di [parole chiave personalizzate](speech-devices-sdk-create-kws.md).
 
 > [!NOTE]
 > Le opzioni di personalizzazione variano in base alla lingua o alle impostazioni locali (vedere [lingue supportate](supported-languages.md)).
 
 Il riconoscimento diretto della linea e la relativa funzionalità associata per gli assistenti vocali costituiscono un complemento ideale per la [soluzione Virtual Assistant e il modello Enterprise](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Sebbene la comunicazione diretta diretta possa funzionare con qualsiasi bot compatibile, queste risorse forniscono una linea di base riutilizzabile per le esperienze di alta qualità, nonché le competenze e i modelli di supporto più comuni per iniziare rapidamente.
 
-## <a name="reference-docs"></a>Documentazione di riferimento
+## <a name="reference-docs"></a>Documenti di riferimento
 
 * [Speech SDK](speech-sdk-reference.md)
 * [Servizio Azure Bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Ottieni gratuitamente una chiave di sottoscrizione per i servizi Voce](get-started.md)
+* [Ottenere gratuitamente una chiave di sottoscrizione per i servizi di riconoscimento vocale](get-started.md)
 * [Ottenere l'SDK di riconoscimento vocale](speech-sdk.md)
 * [Creare e distribuire un bot di base](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 * [Ottenere la soluzione Virtual Assistant e il modello Enterprise](https://github.com/Microsoft/AI)

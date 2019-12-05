@@ -1,7 +1,7 @@
 ---
 title: Flusso audio compresso di codec con Speech SDK in Android
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come eseguire lo streaming di audio compresso in servizi vocali di Azure con l'SDK di riconoscimento vocale in Android.
+description: Informazioni su come trasmettere l'audio compresso al servizio riconoscimento vocale con l'SDK di riconoscimento vocale in Android.
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: amishu
-ms.openlocfilehash: 76a4b010dd54a9cc6224432adf615814520ef4fd
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 01135229167dde3784137ab1b06dfc931766a2e0
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109912"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805842"
 ---
 # <a name="how-to-use-codec-compressed-audio-input-with-the-speech-sdk-on-android"></a>Procedura: usare l'input audio compresso di codec con l'SDK di riconoscimento vocale in Android
 
@@ -133,7 +133,7 @@ Una volta creato l'oggetto condiviso (libgstreamer_android. so), lo sviluppatore
 
 ## <a name="example-code-using-codec-compressed-audio-input"></a>Codice di esempio con input audio compresso codec
 
-Per eseguire lo streaming in un formato audio compresso per i servizi di riconoscimento vocale, creare `PullAudioInputStream` o `PushAudioInputStream`. Quindi, creare un `AudioConfig` da un'istanza della classe Stream, specificando il formato di compressione del flusso.
+Per trasmettere in streaming un formato audio compresso al servizio riconoscimento vocale, creare `PullAudioInputStream` o `PushAudioInputStream`. Quindi, creare un `AudioConfig` da un'istanza della classe Stream, specificando il formato di compressione del flusso.
 
 Si supponga di disporre di una classe di flusso di input denominata `myPullStream` e che usi OPUS/OGG. Il codice potrebbe essere simile al seguente:
 
@@ -159,5 +159,5 @@ String text = result.getText();
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
+- [Accedere alla versione di prova del servizio Voce](https://azure.microsoft.com/try/cognitive-services/)
 - [Vedere come riconoscere il riconoscimento vocale in Java](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java)

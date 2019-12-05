@@ -18,16 +18,16 @@ ms.author: abpati
 ms.reviewer: navyasri.canumalla
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 148b9a4a890b22db63f03c673f5d779547a589e1
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 0aada339ab68eeb7f29eeb815611a8e434e6a998
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74485029"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803649"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-python"></a>Supporto Active Directory Federation Services in MSAL per Python
 
-Active Directory Federation Services (AD FS) in Windows Server consente di aggiungere l'autenticazione e l'autorizzazione basate su OpenID Connect e OAuth 2,0 alle app usando Microsoft Authentication Library (MSAL) per Python. Usando la libreria MSAL per Python, l'app è in grado di autenticare gli utenti direttamente con AD FS. Per ulteriori informazioni sugli scenari, vedere [ad FS scenari per gli sviluppatori](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers).
+Active Directory Federation Services (AD FS) in Windows Server consente di aggiungere l'autenticazione e l'autorizzazione basate su OpenID Connect e OAuth 2,0 alle app usando Microsoft Authentication Library (MSAL) per Python. Usando la libreria MSAL per Python, l'app è in grado di autenticare gli utenti direttamente con AD FS. Per ulteriori informazioni sugli scenari, vedere [ad FS scenari per gli sviluppatori](/windows-server/identity/ad-fs/ad-fs-development).
 
 Esistono in genere due modi per eseguire l'autenticazione rispetto a AD FS:
 

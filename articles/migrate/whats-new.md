@@ -4,15 +4,15 @@ description: Informazioni sulle novità e gli aggiornamenti recenti del servizio
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 11/18/2019
+ms.date: 11/30/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b3b8e24e7d84e492aeaba64573b6e909707bc5a5
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 63b6783a2f36d5bc9e84ce8291e7025b27359b6c
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185766"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666087"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novità di Azure Migrate
 

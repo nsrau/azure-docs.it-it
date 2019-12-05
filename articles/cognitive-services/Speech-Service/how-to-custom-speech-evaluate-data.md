@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 77dc50df7b46aeb6ddfddf92710d576f85492471
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: f710b8bfdd4dcfd3b7a63aa0b457036ab7037016
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801537"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806097"
 ---
 # <a name="evaluate-custom-speech-accuracy"></a>Valuta Riconoscimento vocale personalizzato accuratezza
 
@@ -29,11 +29,11 @@ Lo standard di settore per misurare l'accuratezza del modello è la *frequenza d
 
 Le parole identificate in modo errato rientrano in tre categorie:
 
-* Inserimento (I): Parole erroneamente aggiunte nella trascrizione di ipotesi
-* Eliminazione (D): Parole non rilevate nella trascrizione dell'ipotesi
-* Sostituzioni: Parole sostituite tra riferimento ed ipotesi
+* Inserimento (I): parole erroneamente aggiunte nella trascrizione di ipotesi
+* Eliminazione (D): parole che non sono state rilevate nella trascrizione dell'ipotesi
+* Sostituzioni: parole sostituite tra i riferimenti e le ipotesi
 
-Di seguito è riportato un esempio:
+Ecco un esempio:
 
 ![Esempio di parole erroneamente identificate](./media/custom-speech/custom-speech-dis-words.png)
 

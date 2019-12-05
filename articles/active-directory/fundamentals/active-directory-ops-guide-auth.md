@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 6b9d5eb3adb8cad963ec513d327d237e73f94878
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 40e0ba21d472097e34938878ddc1fa0c47b30417
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535587"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803734"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guida di riferimento per le operazioni di gestione dell'autenticazione Azure Active Directory
 
@@ -51,7 +51,7 @@ Quando si esamina l'elenco, è possibile che sia necessario assegnare un proprie
 - [Assegnazione dei ruoli di amministratore in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal)
 - [Governance in Azure](https://docs.microsoft.com/azure/security/governance-in-azure)
 
-## <a name="credentials-management"></a>Gestione delle credenziali
+## <a name="credentials-management"></a>Gestione di credenziali
 
 ### <a name="password-policies"></a>Criteri per la password
 
@@ -363,7 +363,7 @@ L'accesso a attività di accesso, controlli ed eventi di rischio per Azure AD è
 - [Ottenere dati con l'API di creazione report di Azure AD con i certificati](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-with-certificates)
 - [Microsoft Graph per Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-graph-getting-started)
 - [Informazioni di riferimento sull'API di gestione di Office 365](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference)
-- [Come usare il pacchetto di contenuto Azure Active Directory Power BI](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-power-bi-content-pack-how-to)
+- [Come usare il pacchetto di contenuto Azure Active Directory Power BI](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
 
 ## <a name="summary"></a>Summary
 

@@ -4,12 +4,12 @@ description: Funzionalità Ripristino istantaneo di Azure e domande frequenti pe
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: c87dc98ddd1d5799f3363d7574063ef752fd8239
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 7a962ff42125b262f6ec6673f75b0afd2954de24
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172337"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806372"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Ottenere prestazioni migliori per backup e ripristino con la funzionalità Ripristino istantaneo di Backup di Azure
 
@@ -21,7 +21,7 @@ Il nuovo modello per Ripristino istantaneo offre i miglioramenti delle funzional
 
 * Possibilità di usare snapshot acquisiti durante il processo di backup disponibili per il ripristino senza attendere il completamento del trasferimento dei dati all'insieme di credenziali. Riduce il tempo di attesa per la copia degli snapshot nell'insieme di credenziali prima di attivare il ripristino.
 * Riduce i tempi di backup e ripristino conservando gli snapshot in locale per due giorni per impostazione predefinita. Questo valore predefinito di memorizzazione dello snapshot è configurabile con qualsiasi valore compreso tra 1 e 5 giorni.
-* Supporto di dischi con dimensioni fino a 4 TB. Il ridimensionamento dei dischi non è consigliato da backup di Azure. Per iscriversi a una versione di anteprima pubblica limitata del supporto per dischi di backup su disco di Azure con dimensioni maggiori di 4 TB e fino a 30 TB, vedere [backup di macchine virtuali con dimensioni del disco fino a 30 TB](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
+* Supporta dimensioni del disco fino a 32 TB. Il ridimensionamento dei dischi non è consigliato da backup di Azure.
 * Supporta SDD Standard dischi insieme a dischi HDD Standard e dischi di SSD Premium.
 * Possibilità di usare gli account di archiviazione originali di macchine virtuali non gestite (per disco) durante il ripristino. Questa possibilità vale anche quando i dischi della macchina virtuale sono distribuiti negli account di archiviazione. Le operazioni di ripristino per un'ampia gamma di configurazioni di macchine virtuali vengono velocizzate.
 * Per il backup delle macchine virtuali che usano archiviazione Premium, con il ripristino immediato è consigliabile allocare lo spazio disponibile del *50%* dello spazio di archiviazione totale allocato, che è necessario **solo** per il primo backup. Il 50% di spazio disponibile non è un requisito per i backup dopo il completamento del primo backup.
@@ -65,7 +65,7 @@ Nella portale di Azure è possibile visualizzare un campo aggiunto nel pannello 
 
 ![Funzionalità Ripristino istantaneo](./media/backup-azure-vms/instant-restore-capability.png)
 
-### <a name="using-powershell"></a>Tramite PowerShell
+### <a name="using-powershell"></a>Con PowerShell
 
 >[!NOTE]
 > Da AZ PowerShell versione 1.6.0 in poi, è possibile aggiornare il periodo di conservazione degli snapshot di ripristino istantaneo nei criteri usando PowerShell

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: vs-azure
 ms.date: 01/22/2018
-ms.openlocfilehash: 888f3b1a53ba2e31195e3b9d577a475df441e972
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 49b3b5890fe38f6c635e7ba420a1adf5d778de0f
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683012"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703926"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Esercitazione: Creare una data factory con Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -543,7 +543,7 @@ Per pubblicare entità in un progetto di Data factory di Azure usando il file di
 Al momento della distribuzione, i valori del file di configurazione vengono usati per impostare i valori per le proprietà nei file JSON prima che le entità vengano distribuite nel servizio Azure Data Factory.   
 
 ## <a name="use-azure-key-vault"></a>Usare l'Insieme di credenziali delle chiavi di Azure
-Non è consigliabile ed è spesso contrario ai criteri di sicurezza eseguire il commit di dati sensibili come le stringhe di connessione nel repository del codice. Per altre informazioni sull'archiviazione di informazioni riservate in Azure Key Vault e sul relativo uso durante la pubblicazione di entità di Data Factory, vedere l'esempio di [ADF Secure Publish](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFSecurePublish) in GitHub. L'estensione Secure Publish per Visual Studio permette di archiviare i segreti in Key Vault, mentre in servizi collegati o configurazioni di distribuzione vengono specificati solo riferimenti a tali segreti. I riferimenti vengono risolti quando si pubblicano entità di Data Factory di Azure. È possibile eseguire il commit di questi file al repository di origine senza esporre i segreti.
+Non è consigliabile ed è spesso contrario ai criteri di sicurezza eseguire il commit di dati sensibili come le stringhe di connessione nel repository del codice. Per altre informazioni sull'archiviazione di informazioni riservate in Azure Key Vault e sul relativo uso durante la pubblicazione di entità di Data Factory, vedere l'esempio di [ADF Secure Publish](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFSecurePublish) in GitHub. L'estensione Secure Publish per Visual Studio permette di archiviare i segreti in Key Vault, mentre in servizi collegati o configurazioni di distribuzione vengono specificati solo riferimenti a tali segreti. I riferimenti vengono risolti quando si pubblicano entità di Data Factory di Azure. È possibile eseguire il commit di questi file al repository di origine senza esporre i segreti.
 
 ## <a name="summary"></a>Summary
 In questa esercitazione è stata creata un'istanza di Azure Data Factory per elaborare i dati eseguendo lo script Hive in un cluster Hadoop di HDInsight. È stato usato l'editor di Data Factory nel portale di Azure per eseguire questa procedura:  

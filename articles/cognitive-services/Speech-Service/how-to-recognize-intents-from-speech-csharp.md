@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: wolfma
-ms.openlocfilehash: 1c61f8c0fe1c2a04d390567cc0bc94f22bc5e897
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 554a7cbd79dbb6e1306686600474f727c99defed
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74110152"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805893"
 ---
 # <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Come riconoscere gli Intent dalla voce vocale usando l'SDK di riconoscimento vocale perC#
 
@@ -35,7 +35,7 @@ In questa guida si userà l'SDK per la sintesi vocale per C# sviluppare un'appli
 > - Riconoscere la sintesi vocale da un file
 > - Usare riconoscimento asincrono continuo basato su eventi
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa guida, assicurarsi di disporre degli elementi seguenti:
 
@@ -44,11 +44,11 @@ Prima di iniziare questa guida, assicurarsi di disporre degli elementi seguenti:
 
 ## <a name="luis-and-speech"></a>LUIS e riconoscimento vocale
 
-LUIS si integra con i servizi Voce per distinguere le finalità dai contenuti vocali. Non è necessaria una sottoscrizione ai servizi Voce, LUIS è sufficiente.
+LUIS si integra con il servizio di riconoscimento vocale per distinguere le finalità dai contenuti vocali. Non è necessaria una sottoscrizione al servizio di riconoscimento vocale, LUIS è sufficiente.
 
 LUIS usa tre tipi di chiave:
 
-| Tipo di chiave  | Scopo                                               |
+| Tipo di chiave  | Finalità                                               |
 | --------- | ----------------------------------------------------- |
 | Creazione | Consente di creare e modificare a livello di codice app LUIS |
 | Starter   | Testa l'applicazione LUIS usando solo testo   |
@@ -56,7 +56,7 @@ LUIS usa tre tipi di chiave:
 
 Per questa guida, è necessario il tipo di chiave dell'endpoint. Questa guida usa l'app di esempio Home Automation LUIS, che è possibile creare seguendo la Guida introduttiva [usare l'app di automazione domestica predefinita](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) . Se è stata creata un'app LUIS personalizzata, è possibile invece usare quest'ultima.
 
-Quando si crea un'app LUIS, viene generata automaticamente una chiave di avvio in modo da testare l'app usando le query di testo. Questa chiave non Abilita l'integrazione dei servizi vocali e non funzionerà con questa guida. Creare una risorsa LUIS nel dashboard di Azure e assegnarla all'app LUIS. È possibile usare il livello di abbonamento gratuito per questa guida.
+Quando si crea un'app LUIS, viene generata automaticamente una chiave di avvio in modo da testare l'app usando le query di testo. Questa chiave non Abilita l'integrazione del servizio vocale e non funzionerà con questa guida. Creare una risorsa LUIS nel dashboard di Azure e assegnarla all'app LUIS. È possibile usare il livello di abbonamento gratuito per questa guida.
 
 Dopo aver creato la risorsa LUIS nel dashboard di Azure, accedere al [portale LUIS](https://www.luis.ai/home), scegliere l'applicazione nella pagina **App personali**, quindi passare alla pagina **Gestione** dell'app. Infine, selezionare **Chiavi ed endpoint** nella barra laterale.
 
@@ -128,7 +128,7 @@ Le sezioni seguenti includono una discussione del codice.
 In primo luogo, è necessario creare una configurazione per il riconoscimento vocale dalla chiave e dall'area dell'endpoint LUIS. È possibile usare le configurazioni del riconoscimento vocale per creare sistemi di riconoscimento per le diverse funzionalità di Speech SDK. La configurazione di riconoscimento vocale specifica in diversi modi la sottoscrizione da usare. In questo caso, usare `FromSubscription`, che accetta la chiave e l'area della sottoscrizione.
 
 > [!NOTE]
-> Usare la chiave e l'area della sottoscrizione LUIS, non di una sottoscrizione dei servizi Voce.
+> Usare la chiave e l'area della sottoscrizione LUIS, non una sottoscrizione del servizio vocale.
 
 Creare un sistema di riconoscimento delle finalità tramite `new IntentRecognizer(config)`. La configurazione conosce già quale sottoscrizione usare, non serve specificare nuovamente la chiave di sottoscrizione e l'endpoint quando si crea un sistema di riconoscimento.
 
@@ -138,7 +138,7 @@ Ora importare il modello dalla app LUIS tramite `LanguageUnderstandingModel.From
 
 Per aggiungere le finalità, è necessario specificare tre argomenti: il modello LUIS (che è stato creato e denominato `model`), il nome della finalità e un ID finalità. La differenza tra l'ID e il nome è come indicato di seguito.
 
-| Argomento `AddIntent()`&nbsp; | Scopo |
+| Argomento `AddIntent()`&nbsp; | Finalità |
 | --------------------------- | ------- |
 | `intentName` | Il nome delle finalità va in base a quanto definito nell'app LUIS. Questo valore deve corrispondere esattamente al nome finalità LUIS. |
 | `intentID` | ID assegnato a una finalità riconosciuta da Speech SDK. Questo valore può essere un qualsiasi valore; non è necessario che corrisponda al nome finalità come definito nell'app LUIS. Se più finalità vengono gestite tramite lo stesso codice, ad esempio, è possibile usare per queste lo stesso ID. |

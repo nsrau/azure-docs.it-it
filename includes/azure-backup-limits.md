@@ -1,27 +1,27 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: file di inclusione
+description: file di inclusione
 services: backup
-author: rayne-wiselman
+author: dcurwin
 ms.service: backup
 ms.topic: include
 ms.date: 12/07/2018
-ms.author: raynew
+ms.author: dacurwin
 ms.custom: include file
-ms.openlocfilehash: 9e9c09c1825f5c8383a708e8bd343146396f878e
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: ca6c57b139b195b94dc7171336cfcc34d18b1872
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67180547"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74829164"
 ---
 I limiti seguenti si applicano ai Backup di Azure.
 
 | **Limite** | **Default** |
 | --- | --- |
-| Server o computer che possono essere registrati in un insieme di credenziali. | Windows Server/client Windows/System Center Data Protection Manager: 50. <br/><br/> Macchine virtuali IaaS: 1.000.  |
+| Server o computer che possono essere registrati in un insieme di credenziali. | Windows Server/Windows client/System Center Data Protection Manager: 50. <br/><br/> VM IaaS: 1.000.  |
 | Dimensioni di un'origine dati nell'archivio dell'insieme di credenziali. |54.400-GB massimo. Il limite non si applica al backup della macchina virtuale IaaS. |
 | Insiemi di credenziali di backup in una sottoscrizione di Azure. |insiemi di credenziali 500 per area. |
-| Pianificare i backup giornalieri. |Windows Server/Client: Tre giorni.<br/> System Center DPM: Due al giorno. <br/> Macchine virtuali IaaS: Una volta al giorno.  |
+| Pianificare i backup giornalieri. |Windows Server/client: tre giorni.<br/> System Center DPM: due al giorno. <br/> Macchine virtuali IaaS: una volta al giorno.  |
 | Dischi dati collegati a una macchina virtuale di Azure per il backup. | 16 |
-| Singolo disco dati collegato alla macchina virtuale di Azure per il backup.| 4\.095 GB|
+| Singolo disco dati collegato alla macchina virtuale di Azure per il backup.| 32 TB|

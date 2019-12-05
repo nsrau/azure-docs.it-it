@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: f3ad58c4094e9f39bcf9782b7b98e351e9d7809b
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: a1c2049d7355ab946dbf426ec71f7f6178b8f153
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058138"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819096"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Risolvere i problemi di attivazione della macchina virtuale Windows di Azure
 
@@ -26,7 +26,7 @@ Se si verificano problemi durante l'attivazione della macchina virtuale (VM) Win
 
 ## <a name="understanding-azure-kms-endpoints-for-windows-product-activation-of-azure-virtual-machines"></a>Informazioni sugli endpoint del servizio di gestione delle chiavi di Azure per l'attivazione del prodotto Windows di macchine virtuali di Azure
 
-Azure usa endpoint diversi per l'attivazione del servizio di gestione delle chiavi, a seconda dell'area del cloud in cui risiede la macchina virtuale. Quando si usa questa guida alla risoluzione dei problemi, usare l'endpoint del servizio di gestione delle chiavi appropriato applicabile alla propria area.
+Azure Usa endpoint diversi per l'attivazione del servizio di gestione delle chiavi (Key Management Services) in base all'area cloud in cui risiede la macchina virtuale. Quando si usa questa guida alla risoluzione dei problemi, usare l'endpoint del servizio di gestione delle chiavi appropriato applicabile alla propria area.
 
 * Aree del cloud pubblico di Azure: kms.core.windows.net:1688
 * Aree del cloud nazionale cinese 21Vianet di Azure: kms.core.chinacloudapi.cn:1688
@@ -37,7 +37,7 @@ Azure usa endpoint diversi per l'attivazione del servizio di gestione delle chia
 
 Quando si cerca di attivare una VM Windows di Azure, si riceve un messaggio di errore simile all'esempio seguente:
 
-**Errore: 0xC004F074 Servizio gestione licenze software: impossibile attivare il computer. Impossibile contattare un servizio di gestione delle chiavi. Per altre informazioni, vedere il registro eventi applicazioni.**
+**Errore: 0xC004F074 software LicensingService ha segnalato che non è stato possibile attivare il computer. Impossibile contattare ManagementService chiave (KMS). Per ulteriori informazioni, consultare il registro eventi dell'applicazione.**
 
 ## <a name="cause"></a>Causa
 
@@ -87,7 +87,7 @@ Per la macchina virtuale creata da un'immagine personalizzata, è necessario con
     Invoke-Expression "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
 
-    Il comando dovrebbe restituire: nome del computer del Servizio di gestione delle chiavi impostato su kms.core.windows.net:1688.
+    Il comando restituirà: nome del computer del Servizio di gestione delle chiavi impostato su kms.core.windows.net:1688.
 
 4. Usando Psping verificare di avere la connettività al server di gestione delle chiavi. Passare alla cartella in cui si è estratto il download Pstools.zip e quindi eseguire quanto segue:
   
@@ -112,7 +112,7 @@ Per la macchina virtuale creata da un'immagine personalizzata, è necessario con
     
     **Attivazione di Windows (R), ServerDatacenter Edition (12345678-1234-1234-1234-12345678)...  Il prodotto è stato attivato correttamente.**
 
-## <a name="faq"></a>Domande frequenti 
+## <a name="faq"></a>FAQ 
 
 ### <a name="i-created-the-windows-server-2016-from-azure-marketplace-do-i-need-to-configure-kms-key-for-activating-the-windows-server-2016"></a>Windows Server 2016 è stato creato da Azure Marketplace. È necessario configurare una chiave del servizio di gestione delle chiavi per attivare Windows Server 2016? 
 
@@ -130,6 +130,6 @@ Sì.
  
 Se il periodo di prova è scaduto e Windows non è ancora attivato, Windows Server 2008 R2 e le versioni successive di Windows visualizzeranno altre notifiche sull'attivazione. Lo sfondo del desktop rimane nero e Windows Update installerà solo gli aggiornamenti della sicurezza e quelli critici, ma non quelli facoltativi. Vedere la sezione Notifications (Notifiche) alla fine della pagina [Licensing Conditions](https://technet.microsoft.com/library/ff793403.aspx) (Condizioni di licenza).   
 
-## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
+## <a name="need-help-contact-support"></a>Opzioni per Contattare il supporto tecnico.
 
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 10/09/2019
 ms.author: lcozzens
-ms.openlocfilehash: 36cfe79f5c2735e6d6737d471430deb989905cdc
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: f1fd1c21789c272bf8deae72ef64f2bbb1c6b3cb
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185049"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707445"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Guida introduttiva: Creare un'app .NET Framework con Configurazione app di Azure
 
@@ -112,7 +112,7 @@ In questa guida di avvio rapido si incorpora Configurazione app di Azure in un'a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida di avvio rapido è stato creato un nuovo archivio di Configurazione app, che è stato usato con un'app console .NET Framework. Il valore `AppSettings` di `ConfiguratoinManager` non verrà modificato dopo l'avvio dell'applicazione. La libreria del provider di configurazione .NET Standard di Configurazione app può tuttavia essere usata anche in un'app .NET Framework. Per informazioni su come abilitare l'app .NET Framework per aggiornare in modo dinamico le impostazioni di configurazione, continuare con l'esercitazione successiva.
+In questa guida di avvio rapido è stato creato un nuovo archivio di Configurazione app, che è stato usato con un'app console .NET Framework. Il valore `AppSettings` di `ConfigurationManager` non verrà modificato dopo l'avvio dell'applicazione. La libreria del provider di configurazione .NET Standard di Configurazione app può tuttavia essere usata anche in un'app .NET Framework. Per informazioni su come abilitare l'app .NET Framework per aggiornare in modo dinamico le impostazioni di configurazione, continuare con l'esercitazione successiva.
 
 > [!div class="nextstepaction"]
 > [Abilitare la configurazione dinamica](./enable-dynamic-configuration-dotnet.md)

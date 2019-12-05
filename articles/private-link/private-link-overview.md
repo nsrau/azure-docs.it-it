@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: allensu
-ms.openlocfilehash: e33fce7b3fc19d6dfa83f95b6a9bcb43588945d1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 03fdd67adf5df440cafe4e7411064437b8ef89ac
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228080"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671553"
 ---
 # <a name="what-is-azure-private-link-preview"></a>Che cos'è Collegamento privato di Azure? (Anteprima)
 Collegamento privato di Azure consente di accedere ai servizi PaaS di Azure, ad esempio Archiviazione di Azure, Azure Cosmos DB e Database SQL, e ai servizi di clienti/partner ospitati in Azure tramite un [endpoint privato](private-endpoint-overview.md) nella rete virtuale. Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, impedendone l'esposizione alla rete Internet pubblica. È anche possibile creare un proprio [servizio Collegamento privato](private-link-service-overview.md) nella rete virtuale e distribuirlo privatamente ai clienti. Collegamento privato di Azure offre un'esperienza di configurazione e utilizzo coerente per i servizi PaaS di Azure, i servizi di proprietà dei clienti e quelli condivisi dei partner.
@@ -38,11 +38,11 @@ Collegamento privato di Azure offre i vantaggi descritti di seguito.
 ## <a name="availability"></a>Disponibilità 
  La tabella seguente elenca i servizi Collegamento privato e le aree in cui sono disponibili. 
 
-|Scenario  |Servizi supportati   |Aree disponibili | Stato   |
-|---------|---------|---------|---------|
-|Collegamento privato per servizi di proprietà dei clienti|Servizi Collegamento privato dietro Load Balancer Standard | Tutte le aree pubbliche  |  Anteprima  |
-|Collegamento privato per servizi PaaS di Azure   | Archiviazione di Azure        |  Tutte le aree pubbliche      | Anteprima         |
-|  | Azure Data Lake Storage Gen2        |  Tutte le aree pubbliche      | Anteprima         |
+|Scenario  |Servizi supportati  |Aree disponibili | Stato  |
+|:---------|:-------------------|:-----------------|:--------|
+|Collegamento privato per servizi di proprietà dei clienti|Servizi Collegamento privato dietro Load Balancer Standard | Tutte le aree pubbliche  | Anteprima  |
+|Collegamento privato per servizi PaaS di Azure   | Archiviazione di Azure        |  Tutte le aree pubbliche      | Anteprima <br/> [Altre informazioni](/azure/storage/common/storage-private-endpoints)  |
+|  | Azure Data Lake Storage Gen2        |  Tutte le aree pubbliche      | Anteprima <br/> [Altre informazioni](/azure/storage/common/storage-private-endpoints)  |
 |  |  database SQL di Azure         | Tutte le aree pubbliche      |   Anteprima      |
 ||Azure SQL Data Warehouse| Tutte le aree pubbliche |Anteprima|
 ||Azure Cosmos DB| Stati Uniti centro-occidentali, Stati Uniti occidentali, Stati Uniti centro-settentrionali |Anteprima|
