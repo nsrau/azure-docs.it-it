@@ -1,5 +1,5 @@
 ---
-title: API authentication and authorization - Azure Time Series Insights | Microsoft Docs
+title: Autenticazione e autorizzazione dell'API-Azure Time Series Insights | Microsoft Docs
 description: Questo articolo descrive come configurare l'autenticazione e l'autorizzazione per un'applicazione personalizzata che chiama l'API Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
@@ -21,64 +21,64 @@ ms.locfileid: "74327898"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticazione e autorizzazione per l'API Azure Time Series Insights
 
-This document describes how to register an app in Azure Active Directory using the new Azure Active Directory blade. Apps registered in Azure Active Directory enable users to authenticate to and be authorized to use the Azure Time Series Insight API associated with a Time Series Insights environment.
+Questo documento descrive come registrare un'app in Azure Active Directory usando il nuovo pannello Azure Active Directory. Le app registrate in Azure Active Directory consentono agli utenti di eseguire l'autenticazione a ed essere autorizzati a usare l'API Azure Time Series Insight associata a un ambiente Time Series Insights.
 
 ## <a name="service-principal"></a>Entità servizio
 
-The following sections describe how to configure an application to access the Time Series Insights API on behalf of an app. The application may then query or publish reference data in the Time Series Insights environment using its own application credentials through Azure Active Directory.
+Le sezioni seguenti descrivono come configurare un'applicazione per accedere all'API Time Series Insights per conto di un'app. L'applicazione può quindi eseguire query o pubblicare dati di riferimento nell'ambiente Time Series Insights usando le proprie credenziali dell'applicazione tramite Azure Active Directory.
 
-## <a name="summary-and-best-practices"></a>Summary and best practices
+## <a name="summary-and-best-practices"></a>Riepilogo e procedure consigliate
 
-The Azure Active Directory app registration flow involves three main steps.
+Il flusso di registrazione dell'app Azure Active Directory prevede tre passaggi principali.
 
-1. [Register an application](#azure-active-directory-app-registration) in Azure Active Directory.
-1. Authorize the application to have [data access to the Time Series Insights environment](#granting-data-access).
-1. Use the **Application ID** and **Client Secret** to acquire a token from `https://api.timeseries.azure.com/` in your [client app](#client-app-initialization). Il token può quindi essere usato per chiamare l'API Time Series Insights.
+1. [Registrare un'applicazione](#azure-active-directory-app-registration) in Azure Active Directory.
+1. Autorizzare l'applicazione ad [accedere ai dati dell'ambiente Time Series Insights](#granting-data-access).
+1. Usare l' **ID applicazione** e il **segreto client** per acquisire un token da `https://api.timeseries.azure.com/` nell' [app client](#client-app-initialization). Il token può quindi essere usato per chiamare l'API Time Series Insights.
 
-Per **step 3**, separating your application's and your user credentials allows you to:
+Al **passaggio 3**, la separazione delle credenziali dell'applicazione e dell'utente consente di:
 
-* Assign permissions to the app identity that are distinct from your own permissions. Tali autorizzazioni sono in genere limitate alle operazioni necessarie per l'app. For example, you can allow the app to read data only from a particular Time Series Insights environment.
-* Isolate the app's security from the creating user's authentication credentials by using a **Client Secret** or security certificate. As a result, the application's credentials are not dependent on a specific user's credentials. If the user's role changes, the application does not necessarily require new credentials or further configuration. If the user changes their password, all access to the application doesn't require new credentials or keys.
-* Run an unattended script using a **Client Secret** or security certificate rather than a specific user's credentials (requiring them to be present).
-* Use a security certificate rather than a password to secure access to your Azure Time Series Insights API.
+* Assegnare le autorizzazioni all'identità dell'app che sono diverse dalle proprie autorizzazioni. Tali autorizzazioni sono in genere limitate alle operazioni necessarie per l'app. Ad esempio, è possibile consentire all'app di leggere i dati solo da un particolare ambiente Time Series Insights.
+* Isolare la sicurezza dell'app dalla creazione delle credenziali di autenticazione dell'utente usando un **segreto client** o un certificato di sicurezza. Di conseguenza, le credenziali dell'applicazione non dipendono dalle credenziali di un utente specifico. Se il ruolo dell'utente cambia, l'applicazione non richiede necessariamente nuove credenziali o una configurazione aggiuntiva. Se l'utente modifica la password, per tutti gli accessi all'applicazione non sono necessarie nuove credenziali o chiavi.
+* Eseguire uno script automatico usando un **segreto client** o un certificato di sicurezza, anziché le credenziali di un utente specifico (che devono essere presenti).
+* Usare un certificato di sicurezza anziché una password per proteggere l'accesso all'API Azure Time Series Insights.
 
 > [!IMPORTANT]
-> Follow the principle of **Separation of Concerns** (described for this scenario above) when configuring your Azure Time Series Insights security policy.
+> Per configurare i criteri di sicurezza Azure Time Series Insights, seguire il principio della **separazione delle problematiche** (descritte per questo scenario).
 
 > [!NOTE]
-> * The article focuses on a single-tenant application where the application is intended to run in only one organization.
-> * You'll typically use single-tenant applications for line-of-business applications that run in your organization.
+> * L'articolo è incentrato su un'applicazione a tenant singolo in cui l'applicazione deve essere eseguita solo in un'organizzazione.
+> * In genere si usano applicazioni a tenant singolo per le applicazioni line-of-business in esecuzione nell'organizzazione.
 
-## <a name="detailed-setup"></a>Detailed setup
+## <a name="detailed-setup"></a>Installazione dettagliata
 
-### <a name="azure-active-directory-app-registration"></a>Azure Active Directory app registration
+### <a name="azure-active-directory-app-registration"></a>Registrazione dell'app Azure Active Directory
 
 [!INCLUDE [Azure Active Directory app registration](../../includes/time-series-insights-aad-registration.md)]
 
-### <a name="granting-data-access"></a>Granting data access
+### <a name="granting-data-access"></a>Concessione dell'accesso ai dati
 
-1. For the Time Series Insights environment, select **Data Access Policies** and select **Add**.
+1. Per l'ambiente di Time Series Insights, selezionare **criteri di accesso ai dati** e selezionare **Aggiungi**.
 
-   [![Add new data access policy to the Time Series Insights environment](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png#lightbox)
+   [![aggiungere nuovi criteri di accesso ai dati all'ambiente Time Series Insights](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png#lightbox)
 
-1. In the **Select User** dialog box, paste either the **Application Name** or the **Application ID** from the Azure Active Directory app registration section.
+1. Nella finestra di dialogo **Seleziona utente** incollare il nome dell' **applicazione** o l' **ID dell'applicazione** nella sezione relativa alla registrazione dell'app Azure Active Directory.
 
-   [![Find an application in the Select User dialog box](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png#lightbox)
+   [![trovare un'applicazione nella finestra di dialogo Seleziona utente](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png#lightbox)
 
-1. Select the role. Select **Reader** to query data or **Contributor** to query data and change reference data. Selezionare **OK**.
+1. Selezionare il ruolo. Selezionare **Reader** per eseguire query sui dati o sul **collaboratore** per eseguire query sui dati e modificare i dati di riferimento. Selezionare **OK**.
 
-   [![Pick Reader or Contributor in the Select User Role dialog box](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png#lightbox)
+   [![scegliere Reader o collaboratore nella finestra di dialogo Seleziona ruolo utente](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png#lightbox)
 
-1. Save the policy by selecting **OK**.
+1. Salvare il criterio selezionando **OK**.
 
    > [!TIP]
-   > For advanced data access options, read [granting data access](./time-series-insights-data-access.md).
+   > Per le opzioni avanzate di accesso ai dati, vedere [concessione dell'accesso ai dati](./time-series-insights-data-access.md).
 
-### <a name="client-app-initialization"></a>Client app initialization
+### <a name="client-app-initialization"></a>Inizializzazione dell'app client
 
-1. Use the **Application ID** and **Client Secret** (Application Key) from the Azure Active Directory app registration section to acquire the token on behalf of the application.
+1. Usare l' **ID applicazione** e il **segreto client** (chiave applicazione) dalla sezione registrazione app Azure Active Directory per acquisire il token per conto dell'applicazione.
 
-    In C#, the following code can acquire the token on behalf of the application. Per un esempio completo, vedere [Eseguire query sui dati tramite C#](time-series-insights-query-data-csharp.md).
+    In C#il codice seguente può acquisire il token per conto dell'applicazione. Per un esempio completo, vedere [Eseguire query sui dati tramite C#](time-series-insights-query-data-csharp.md).
 
     ```csharp
     // Enter your Active Directory tenant domain name
@@ -101,56 +101,56 @@ Per **step 3**, separating your application's and your user credentials allows y
 
 1. Il token può quindi essere passato nell'intestazione `Authorization` quando l'applicazione chiama l'API Time Series Insights.
 
-## <a name="common-headers-and-parameters"></a>Common headers and parameters
+## <a name="common-headers-and-parameters"></a>Intestazioni e parametri comuni
 
-This section describes common HTTP request headers and parameters used to make queries against the Time Series Insights GA and Preview APIs. API-specific requirements are covered in greater detail in the [Time Series Insights REST API reference documentation](https://docs.microsoft.com/rest/api/time-series-insights/).
+Questa sezione descrive le intestazioni e i parametri della richiesta HTTP comuni usati per eseguire query sulle API Time Series Insights GA e Preview. I requisiti specifici dell'API sono trattati più dettagliatamente nella [documentazione di riferimento dell'API REST di Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/).
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticazione
 
-To perform authenticated queries against the [Time Series Insights REST APIs](https://docs.microsoft.com/rest/api/time-series-insights/), a valid OAuth 2.0 bearer token must be passed in the [Authorization header](/rest/api/apimanagement/2019-01-01/authorizationserver/createorupdate) using a REST client of your choice (Postman, JavaScript, C#). 
+Per eseguire query autenticate sulle [API REST di Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/), è necessario passare un bearer token OAuth 2,0 valido nell' [intestazione Authorization](/rest/api/apimanagement/2019-01-01/authorizationserver/createorupdate) usando un client REST di propria scelta (postazione, JavaScript, C#). 
 
 > [!IMPORTANT]
-> The token must be issued exactly to the `https://api.timeseries.azure.com/` resource (also known as the "audience" of the token).
-> * Your [Postman](https://www.getpostman.com/) **AuthURL** with therefore conform to: `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
+> Il token deve essere emesso esattamente con la risorsa `https://api.timeseries.azure.com/` (nota anche come "audience" del token).
+> * Il [](https://www.getpostman.com/) **AuthUrl** di pubblicazione con è quindi conforme a: `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
 
 > [!TIP]
-> See the hosted Azure Time Series Insights [client SDK sample visualization](https://tsiclientsample.azurewebsites.net/) to see how to authenticate with the Time Series Insights APIs programmatically using the [JavaScript Client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) along with charts and graphs.
+> Per informazioni su come eseguire l'autenticazione con le API di Time Series Insights a livello di codice tramite [JavaScript client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) insieme a grafici e grafici, vedere la visualizzazione dell'esempio hosted Azure Time Series Insights [client SDK](https://tsiclientsample.azurewebsites.net/) .
 
 ### <a name="http-headers"></a>Intestazioni HTTP
 
-Required request headers:
+Intestazioni richieste obbligatorie:
 
-- `Authorization` for authentication and authorization, a valid OAuth 2.0 Bearer token must be passed in the Authorization header. The token must be issued exactly to the `https://api.timeseries.azure.com/` resource (also known as the "audience" of the token).
+- `Authorization` per l'autenticazione e l'autorizzazione, è necessario passare un token di porta OAuth 2,0 valido nell'intestazione dell'autorizzazione. Il token deve essere emesso esattamente con la risorsa `https://api.timeseries.azure.com/` (nota anche come "audience" del token).
 
-Optional request headers:
+Intestazioni di richiesta facoltative:
 
-- `Content-type` - only `application/json` is supported.
-- `x-ms-client-request-id` - a client request ID. Service records this value. Allows the service to trace operation across services.
-- `x-ms-client-session-id` - a client session ID. Service records this value. Allows the service to trace a group of related operations across services.
-- `x-ms-client-application-name` - name of the application that generated this request. Service records this value.
+- `application/json` solo `Content-type` è supportato.
+- `x-ms-client-request-id`: ID richiesta client. Il servizio registra questo valore. Consente al servizio di tracciare l'operazione tra i servizi.
+- `x-ms-client-session-id`: ID sessione client. Il servizio registra questo valore. Consente al servizio di tracciare un gruppo di operazioni correlate tra i servizi.
+- `x-ms-client-application-name`: nome dell'applicazione che ha generato la richiesta. Il servizio registra questo valore.
 
-Response headers:
+Intestazioni risposta:
 
-- `Content-type` - only `application/json` is supported.
-- `x-ms-request-id` - server-generated request ID. Can be used to contact Microsoft to investigate a request.
+- `application/json` solo `Content-type` è supportato.
+- ID richiesta generato dal server `x-ms-request-id`. Può essere usato per contattare Microsoft per esaminare una richiesta.
 
-### <a name="http-parameters"></a>HTTP parameters
+### <a name="http-parameters"></a>Parametri HTTP
 
-Required URL query string parameters:
+Parametri della stringa di query dell'URL necessario:
 
 - `api-version=2016-12-12`
 - `api-version=2018-11-01-preview`
 
-Optional URL query string parameters:
+Parametri della stringa di query dell'URL facoltativo:
 
-- `timeout=<timeout>` – server-side timeout for the request execution. Applicable only to the [Get Environment Events](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) and [Get Environment Aggregates](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) APIs. Timeout value should be in ISO 8601 duration format, for example `"PT20S"` and should be in the range `1-30 s`. Il valore predefinito è `30 s`.
+- `timeout=<timeout>`: timeout lato server per l'esecuzione della richiesta. Applicabile solo alle API [Get Environment Events](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) e [Get Environment Aggregates](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) . Il valore di timeout deve essere nel formato di durata ISO 8601, ad esempio `"PT20S"` e deve essere compreso nell'intervallo `1-30 s`. Il valore predefinito è `30 s`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- For sample code that calls the GA Time Series Insights API, see [Query data using C#](./time-series-insights-query-data-csharp.md).
+- Per il codice di esempio che chiama l'API Time Series Insights GA, vedere [eseguire C#query sui dati usando ](./time-series-insights-query-data-csharp.md).
 
-- For Preview Time Series Insights API code samples, see [Query Preview data using C#](./time-series-insights-update-query-data-csharp.md).
+- Per l'anteprima Time Series Insights esempi di codice dell'API, vedere [eseguire C#query sui dati di anteprima usando ](./time-series-insights-update-query-data-csharp.md).
 
 - Per informazioni di riferimento sull'API, vedere il [riferimento all'API di query](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api).
 
-- Learn how to [create a service principal](../active-directory/develop/howto-create-service-principal-portal.md).
+- Informazioni su come [creare un'entità servizio](../active-directory/develop/howto-create-service-principal-portal.md).

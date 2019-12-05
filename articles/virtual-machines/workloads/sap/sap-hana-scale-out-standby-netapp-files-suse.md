@@ -86,7 +86,7 @@ Prima di iniziare, vedere le note e i documenti SAP seguenti:
 * [SAP Hana nei sistemi NetApp con NFS (Network File System)](https://www.netapp.com/us/media/tr-4435.pdf): una guida alla configurazione che contiene informazioni su come configurare SAP HANA utilizzando Azure NFS by NetApp
 
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Un metodo per ottenere la disponibilità elevata di HANA consiste nel configurare il failover automatico dell'host. Per configurare il failover automatico dell'host, aggiungere una o più macchine virtuali al sistema HANA e configurarle come nodi standby. Quando si verifica un errore nel nodo attivo, il nodo standby assume automaticamente il valore. Nella configurazione presentata con macchine virtuali di Azure si ottiene il failover automatico usando [NFS in Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/).  
 
@@ -231,7 +231,7 @@ Nelle istruzioni successive si presuppone che siano già stati creati il gruppo 
 
    b. Selezionare il set di disponibilità creato in precedenza per SAP HANA.  
 
-   C. Selezionare la subnet della rete virtuale di Azure client. Selezionare [rete accelerata](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).  
+   c. Selezionare la subnet della rete virtuale di Azure client. Selezionare [rete accelerata](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).  
 
    Quando si distribuiscono le macchine virtuali, il nome dell'interfaccia di rete viene generato automaticamente. In queste istruzioni per semplicità si farà riferimento alle interfacce di rete generate automaticamente, che sono collegate alla subnet della rete virtuale di Azure client come **hanadb1-client**, **hanadb2-client**e **hanadb3-client**. 
 
@@ -245,7 +245,7 @@ Nelle istruzioni successive si presuppone che siano già stati creati il gruppo 
 
     b. Nel riquadro sinistro selezionare **macchine virtuali**. Filtrare sul nome della macchina virtuale (ad esempio, **hanadb1**), quindi selezionare la macchina virtuale.  
 
-    C. Nel riquadro **Panoramica** selezionare **Arresta** per deallocare la macchina virtuale.  
+    c. Nel riquadro **Panoramica** selezionare **Arresta** per deallocare la macchina virtuale.  
 
     d. Selezionare **rete**e quindi collegare l'interfaccia di rete. Nell'elenco a discesa **Connetti interfaccia di rete** selezionare le interfacce di rete già create per le subnet `storage` e `hana`.  
     
@@ -508,7 +508,7 @@ Configurare e preparare il sistema operativo seguendo questa procedura:
      Flags: rw,noatime,vers=<b>4.1</b>,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.2.4,local_lock=none,addr=10.23.1.4
     </code></pre>
 
-## <a name="installation"></a>Installare  
+## <a name="installation"></a>Installazione  
 
 In questo esempio per la distribuzione di SAP HANA nella configurazione con scalabilità orizzontale con il nodo standby con Azure, è stato usato HANA 2,0 SP4.  
 
@@ -681,7 +681,7 @@ In questo esempio per la distribuzione di SAP HANA nella configurazione con scal
     echo b > /proc/sysrq-trigger
    </code></pre>
 
-   C. Monitorare il sistema per il completamento del failover. Al termine del failover, acquisire lo stato, che dovrebbe essere simile al seguente:  
+   c. Monitorare il sistema per il completamento del failover. Al termine del failover, acquisire lo stato, che dovrebbe essere simile al seguente:  
 
     <pre><code>
     # Check the instance status
@@ -758,7 +758,7 @@ In questo esempio per la distribuzione di SAP HANA nella configurazione con scal
         | hanadb3 | yes    | info   |          |        |         0 |         1 | default  | default  | master 3   | master     | standby     | master      | standby | worker  | default | default |
     </code></pre>
 
-   C. Riavviare l'istanza di HANA in **hanadb1** , ovvero nella stessa macchina virtuale in cui è stato terminato il server dei nomi. Il nodo **hanadb1** si riunirà all'ambiente e manterrà il relativo ruolo standby.  
+   c. Riavviare l'istanza di HANA in **hanadb1** , ovvero nella stessa macchina virtuale in cui è stato terminato il server dei nomi. Il nodo **hanadb1** si riunirà all'ambiente e manterrà il relativo ruolo standby.  
 
    <pre><code>
     hn1adm@hanadb1:/usr/sap/HN1/HDB03> HDB start
