@@ -1,17 +1,17 @@
 ---
 title: Query di JOIN SQL per Azure Cosmos DB
-description: Informazioni sulla sintassi SQL di JOIN per Azure Cosmos DB.
+description: Informazioni su come unire più tabelle in Azure Cosmos DB per eseguire query sui dati
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: d78904fde53da0e800a69d2148a9c4e3acf57307
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 38e80f1597a08b8db7cbfa852d1bcf38ac768b1f
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494411"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871143"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Join in Azure Cosmos DB
 
@@ -101,7 +101,7 @@ Verrà ora esaminata la seguente clausola FROM: `<from_source1> JOIN <from_sourc
   > [!NOTE]
   > Viene generato un prodotto incrociato tra `<from_source2>` e `<from_source3>` perché entrambi hanno come ambito lo stesso elemento `<from_source1>`.  Sono state create 4 (2x2) tuple con valore A, 0 tuple con valore B (1 x 0) e 2 (2x1) tuple con valore C.  
   
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
 
 Gli esempi seguenti illustrano il funzionamento della clausola JOIN. Prima di eseguire questi esempi, caricare i [dati della famiglia](sql-query-getting-started.md#upload-sample-data)di esempio. Nell'esempio seguente, il risultato è vuoto, perché il prodotto incrociato di ogni elemento dall'origine e un set vuoto è vuoto:
 
@@ -254,6 +254,6 @@ I risultati sono:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Attività iniziali](sql-query-getting-started.md)
+- [Introduzione](sql-query-getting-started.md)
 - [Esempi relativi a Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmosdb-dotnet)
 - [Sottoquery](sql-query-subquery.md)

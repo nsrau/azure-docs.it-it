@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 9146430f512b065553d4c5362af8655eb01c1206
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: d14b81075d1e1f98449ef655c3e00f172c7f407b
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74530964"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873778"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali di Azure tra aree di Azure
 
@@ -89,12 +89,11 @@ Windows Server 2019 | Supportato per Server Core, server con esperienza desktop.
 Windows Server 2016  | Server Core supportato, server con esperienza desktop.
 Windows Server 2012 R2 | Supportato.
 Windows Server 2012 | Supportato.
-Windows Server 2008 R2 con SP1/SP2 | Supportato.<br/><br/> Dalla versione 9.30. x. x (prevista versione a partire dal 2019 novembre) dell'estensione del servizio Mobility per le macchine virtuali di Azure, è necessario installare un aggiornamento di Windows [servicing stack (SSU)](https://support.microsoft.com/help/4490628) e [SHA-2](https://support.microsoft.com/help/4474419) in computer che eseguono Windows Server 2008 R2 SP1/SP2.  SHA-1 non è supportato dal 2019 settembre e se la firma del codice SHA-2 non è abilitata, l'estensione dell'agente non verrà installata o aggiornata come previsto. Altre informazioni sull' [aggiornamento e sui requisiti di SHA-2](https://aka.ms/SHA-2KB).
-Windows Server 2008 con SP2 | Dalla versione 9.30. x. x (prevista versione a partire dal 2019 novembre) dell'estensione del servizio Mobility per le macchine virtuali di Azure, è necessario installare un aggiornamento di Windows [servicing stack (SSU)](https://support.microsoft.com/help/4493730) e [SHA-2](https://support.microsoft.com/help/4474419) in computer che eseguono Windows Server 2008 con SP2.  SHA-1 non è supportato dal 2019 settembre e se la firma del codice SHA-2 non è abilitata, l'estensione dell'agente non verrà installata o aggiornata come previsto. Altre informazioni sull' [aggiornamento e sui requisiti di SHA-2](https://aka.ms/SHA-2KB).
+Windows Server 2008 R2 con SP1/SP2 | Supportato.<br/><br/> Dalla versione [9,30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) dell'estensione del servizio Mobility per le macchine virtuali di Azure, è necessario installare un aggiornamento di Windows [servicing stack (SSU)](https://support.microsoft.com/help/4490628) e un [aggiornamento SHA-2](https://support.microsoft.com/help/4474419) nei computer che eseguono Windows Server 2008 R2 SP1/SP2.  SHA-1 non è supportato dal 2019 settembre e se la firma del codice SHA-2 non è abilitata, l'estensione dell'agente non verrà installata o aggiornata come previsto. Altre informazioni sull' [aggiornamento e sui requisiti di SHA-2](https://aka.ms/SHA-2KB).
 Windows 10 (x64) | Supportato.
 Windows 8.1 (x64) | Supportato.
 Windows 8 (x64) | Supportato.
-Windows 7 (x64) con SP1 e versioni successive | Dalla versione 9.30. x. x (prevista versione a partire dal 2019 novembre) dell'estensione del servizio Mobility per le macchine virtuali di Azure, è necessario installare un aggiornamento di Windows [servicing stack (SSU)](https://support.microsoft.com/help/4490628) e [SHA-2](https://support.microsoft.com/help/4474419) in computer che eseguono Windows 7 con SP1.  SHA-1 non è supportato dal 2019 settembre e se la firma del codice SHA-2 non è abilitata, l'estensione dell'agente non verrà installata o aggiornata come previsto. Altre informazioni sull' [aggiornamento e sui requisiti di SHA-2](https://aka.ms/SHA-2KB).
+Windows 7 (x64) con SP1 e versioni successive | Dalla versione [9,30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) dell'estensione del servizio Mobility per le macchine virtuali di Azure, è necessario installare un aggiornamento di Windows [servicing stack (SSU)](https://support.microsoft.com/help/4490628) e un [aggiornamento SHA-2](https://support.microsoft.com/help/4474419) nei computer che eseguono Windows 7 con SP1.  SHA-1 non è supportato dal 2019 settembre e se la firma del codice SHA-2 non è abilitata, l'estensione dell'agente non verrà installata o aggiornata come previsto. Altre informazioni sull' [aggiornamento e sui requisiti di SHA-2](https://aka.ms/SHA-2KB).
 
 
 

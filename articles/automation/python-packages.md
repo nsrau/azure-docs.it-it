@@ -4,17 +4,17 @@ description: Questo articolo descrive come gestire pacchetti Python 2 in Automaz
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 02/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f98b1454ff59eae62bcab7792fd7fd742babfb23
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: f20865b92df2a197410f209cf921c5e573723286
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478223"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850194"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Gestire pacchetti Python 2 in Automazione di Azure
 
@@ -30,17 +30,17 @@ Nella pagina **Aggiungi pacchetto Python 2** selezionare un pacchetto locale da 
 
 ![Aggiungere un pacchetto Python](media/python-packages/upload-package.png)
 
-Dopo aver importato un pacchetto, viene elencato nella **pacchetti di Python 2** pagina nell'Account di automazione. Se è necessario rimuovere un pacchetto, selezionare il pacchetto da eliminare e scegliere **Elimina** nella pagina dei pacchetti.
+Una volta importato, un pacchetto viene elencato nella pagina **Python 2 packages** dell'account di automazione. Se è necessario rimuovere un pacchetto, selezionare il pacchetto da eliminare e scegliere **Elimina** nella pagina dei pacchetti.
 
 ![Elenco di pacchetti](media/python-packages/package-list.png)
 
-## <a name="import-packages-with-dependencies"></a>Importare i pacchetti con dipendenze
+## <a name="import-packages-with-dependencies"></a>Importa pacchetti con dipendenze
 
-Automazione di Azure non viene risolto le dipendenze per i pacchetti python durante il processo di importazione. Esistono due modi per importare un pacchetto con tutte le relative dipendenze. Solo uno dei seguenti passaggi deve essere usata per importare i pacchetti nell'Account di automazione.
+Automazione di Azure non risolve le dipendenze per i pacchetti Python durante il processo di importazione. Esistono due modi per importare un pacchetto con tutte le relative dipendenze. Per importare i pacchetti nell'account di automazione è necessario usare solo uno dei passaggi seguenti.
 
-### <a name="manually-download"></a>Scaricare manualmente
+### <a name="manually-download"></a>Scarica manualmente
 
-In un Windows 64-bit computer con [Python 2.7](https://www.python.org/downloads/release/latest/python2) e [pip](https://pip.pypa.io/en/stable/) installato, eseguire il comando seguente per scaricare un pacchetto e tutte le relative dipendenze:
+In un computer Windows a 64 bit con [Python 2.7](https://www.python.org/downloads/release/latest/python2) e [PIP](https://pip.pypa.io/en/stable/) installato, eseguire il comando seguente per scaricare un pacchetto e tutte le relative dipendenze:
 
 ```cmd
 C:\Python27\Scripts\pip2.7.exe download -d <output dir> <package name>
@@ -50,7 +50,7 @@ Una volta scaricati i pacchetti, è possibile importarli nell'account di automaz
 
 ### <a name="runbook"></a>Runbook
 
-Importare il runbook python [pacchetti di Python 2 di importazione da pypi nell'account di automazione di Azure](https://gallery.technet.microsoft.com/scriptcenter/Import-Python-2-packages-57f7d509) dalla raccolta nell'Account di automazione. Verificare che le impostazioni di esecuzione viene impostate su **Azure** e avviare il runbook con i parametri. Il runbook richiede un Account runas per l'Account di automazione da usare. Per ogni parametro, assicurarsi che si avvia con il commutatore come mostrato nell'elenco e immagine seguenti:
+Importare i pacchetti Python Runbook [Import Python 2 da pypi nell'account di automazione di Azure](https://gallery.technet.microsoft.com/scriptcenter/Import-Python-2-packages-57f7d509) dalla raccolta all'account di automazione. Verificare che le impostazioni esecuzione test siano impostate su **Azure** e avviare runbook con i parametri. Per il corretto funzionamento dell'account di automazione, Runbook richiede un account RunAs. Per ogni parametro assicurarsi di avviarlo con l'opzione come illustrato nell'elenco e nell'immagine seguenti:
 
 * -s \<subscriptionId\>
 * -g \<resourceGroup\>
@@ -59,13 +59,13 @@ Importare il runbook python [pacchetti di Python 2 di importazione da pypi nell'
 
 ![Elenco di pacchetti](media/python-packages/import-python-runbook.png)
 
-Il runbook consente di specificare quali creare il pacchetto da scaricare, ad esempio, `Azure` (il quarto parametro) verrà scaricati tutti i moduli di Azure e tutte le relative dipendenze, ovvero circa 105.
+Runbook consente di specificare il pacchetto da scaricare, ad esempio `Azure` (il quarto parametro) scaricherà tutti i moduli di Azure e tutte le relative dipendenze, ovvero circa 105.
 
-Una volta completato il runbook è possibile controllare la **pacchetti di Python 2** pagina **risorse condivise** nell'Account di automazione per verificare che essi del pacchetto è stato importato correttamente.
+Una volta completato il Runbook, è possibile controllare la pagina dei **pacchetti Python 2** in **risorse condivise** nell'account di automazione per verificare che il pacchetto sia stato importato correttamente.
 
 ## <a name="use-a-package-in-a-runbook"></a>Usare un pacchetto in un runbook
 
-Dopo aver importato un pacchetto, è possibile utilizzarlo in un runbook. L'esempio seguente usa il [ pacchetto di utilità di Automazione di Azure](https://github.com/azureautomation/azure_automation_utility). Questo pacchetto rende più semplice l'uso di Python con Automazione di Azure. Per usare il pacchetto, seguendo le istruzioni nel repository GitHub aggiungerlo al runbook tramite `from azure_automation_utility import get_automation_runas_credential`, ad esempio, per importare la funzione per il recupero dell'account RunAs.
+Dopo aver importato un pacchetto, è ora possibile utilizzarlo in un Runbook. L'esempio seguente usa il [ pacchetto di utilità di Automazione di Azure](https://github.com/azureautomation/azure_automation_utility). Questo pacchetto rende più semplice l'uso di Python con Automazione di Azure. Per usare il pacchetto, seguendo le istruzioni nel repository GitHub aggiungerlo al runbook tramite `from azure_automation_utility import get_automation_runas_credential`, ad esempio, per importare la funzione per il recupero dell'account RunAs.
 
 ```python
 import azure.mgmt.resource

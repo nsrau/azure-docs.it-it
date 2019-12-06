@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/23/2019
 ms.author: v-miegge
-ms.openlocfilehash: 83ee78d369af7fe99de8e7236fe1eb0bc63a942f
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 4839ce7a0188c782656fd3a4c42cbdd116b165e9
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301750"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849378"
 ---
 # <a name="data-to-collect-when-you-open-a-case-for-microsoft-azure-automation"></a>Dati da raccogliere quando si apre un caso per Automazione di Microsoft Azure
 
@@ -55,8 +55,8 @@ Oltre agli elementi elencati in [4034605](https://support.microsoft.com/help/403
 1. Esportare i registri eventi seguenti nel formato EVTX:
 
    * Sistema
-   * Applicazione
-   * Security
+   * Richiesta
+   * Sicurezza
    * Operations Manager
    * Microsoft-SMA/operativo
 
@@ -106,4 +106,4 @@ Oltre agli elementi in "raccolta dati di base", raccogliere le informazioni segu
 
 Per ulteriori informazioni in qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [Forum MSDN Azure e stack overflow](https://azure.microsoft.com/support/forums/).
 
-In alternativa, archiviare un evento imprevisto del supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**.
+In alternativa, archiviare un evento imprevisto del supporto tecnico di Azure. Accedere al sito del [supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Richiedi supporto**.
