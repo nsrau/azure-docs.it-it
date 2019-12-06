@@ -1,17 +1,17 @@
 ---
 title: Sottoquery SQL per Azure Cosmos DB
-description: Informazioni sulle sottoquery SQL e i casi d'uso comuni in Azure Cosmos DB
+description: Informazioni sulle sottoquery SQL e sui casi d'uso comuni e sui diversi tipi di sottoquery in Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: cea9963f5073834a24ede44306eb89414909fc83
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 42d9e8b190747a3ffaf0e46ea1eddda33d09bb24
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003486"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870565"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Esempi di sottoquery SQL per Azure Cosmos DB
 
@@ -23,16 +23,16 @@ Questo articolo descrive le sottoquery SQL e i casi d'uso comuni in Azure Cosmos
 
 Esistono due tipi principali di sottoquery:
 
-* **Correlato**: Sottoquery che fa riferimento a valori della query esterna. La sottoquery viene valutata una volta per ogni riga elaborata dalla query esterna.
-* **Non correlato**: Sottoquery indipendente dalla query esterna. Può essere eseguito autonomamente senza basarsi sulla query esterna.
+* **Correlato**: una sottoquery che fa riferimento a valori della query esterna. La sottoquery viene valutata una volta per ogni riga elaborata dalla query esterna.
+* **Non correlato**: una sottoquery indipendente dalla query esterna. Può essere eseguito autonomamente senza basarsi sulla query esterna.
 
 > [!NOTE]
 > Azure Cosmos DB supporta solo sottoquery correlate.
 
 Le sottoquery possono essere ulteriormente classificate in base al numero di righe e colonne restituite. Sono disponibili tre tipi:
-* **Tabella**: Restituisce più righe e più colonne.
-* **Multivalore**: Restituisce più righe e una singola colonna.
-* **Scalare**: Restituisce una singola riga e una singola colonna.
+* **Table**: restituisce più righe e più colonne.
+* **Multi-value**: restituisce più righe e una singola colonna.
+* **Scalar**: restituisce una singola riga e una singola colonna.
 
 Le query SQL in Azure Cosmos DB restituiscono sempre una singola colonna (un semplice valore o un documento complesso). In Azure Cosmos DB sono pertanto applicabili solo sottoquery multivalore e scalare. È possibile utilizzare una sottoquery multivalore solo nella clausola FROM come espressione relazionale. È possibile utilizzare una sottoquery scalare come espressione scalare nella clausola SELECT o WHERE oppure come espressione relazionale nella clausola FROM.
 
@@ -79,7 +79,7 @@ Si supponga che un solo elemento nella matrice dei tag corrisponda al filtro e c
 
 Le sottoquery consentono di ottimizzare le query con espressioni costose, ad esempio funzioni definite dall'utente (UDF), stringhe complesse o espressioni aritmetiche. È possibile utilizzare una sottoquery insieme a un'espressione di JOIN per valutare l'espressione una sola volta, ma farvi riferimento più volte.
 
-La query seguente esegue due volte `GetMaxNutritionValue` la funzione definita dall'utente:
+La query seguente esegue il `GetMaxNutritionValue` UDF due volte:
 
 ```sql
 SELECT c.id, udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue
@@ -109,7 +109,7 @@ JOIN (SELECT udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue) m
 WHERE m.MaxNutritionValue > 100
 ```
 
-L'approccio non è limitato alle funzioni definite dall'utente. Si applica a qualsiasi espressione potenzialmente costosa. Ad esempio, è possibile adottare lo stesso approccio con la funzione `avg`matematica:
+L'approccio non è limitato alle funzioni definite dall'utente. Si applica a qualsiasi espressione potenzialmente costosa. Ad esempio, è possibile adottare lo stesso approccio con la funzione matematica `avg`:
 
 ```sql
 SELECT TOP 1000 c.id, AvgNutritionValue
@@ -126,22 +126,22 @@ Si consideri, ad esempio, questo set di dati di riferimento:
 
 | **Unità** | **Nome**            | **Moltiplicatore** | **Unità di base** |
 | -------- | ------------------- | -------------- | ------------- |
-| ng       | Nanogrammo            | 1.00 E-09       | Gram          |
-| μg       | Microgrammi           | 1.00 E-06       | Gram          |
-| mg       | Milligrammo           | 1.00 E-03       | Gram          |
-| g        | Gram                | 1.00 E + 00       | Gram          |
-| kg       | Chilogrammo            | 1.00 E + 03       | Gram          |
-| gruppo       | Megagrammo            | 1.00 E + 06       | Gram          |
-| GG       | Gigagram            | 1.00 E + 09       | Gram          |
-| nJ       | Nanojoule           | 1.00 E-09       | Joule         |
-| µJ       | Microjoule          | 1.00 E-06       | Joule         |
-| mJ       | Millijoule          | 1.00 E-03       | Joule         |
-| U        | Joule               | 1.00 E + 00       | Joule         |
-| kJ       | Kilojoule           | 1.00 E + 03       | Joule         |
-| MJ       | Megajoule           | 1.00 E + 06       | Joule         |
-| GJ       | Gigajoule           | 1.00 E + 09       | Joule         |
-| Cal      | Calorie             | 1.00 E + 00       | calorie       |
-| kcal     | Calorie             | 1.00 E + 03       | calorie       |
+| ng       | Nanogrammo            | 1.00 e-09       | Gram          |
+| μg       | Microgrammi           | 1.00 e-06       | Gram          |
+| mg       | Milligrammo           | 1.00 e-03       | Gram          |
+| g        | Gram                | 1.00 e + 00       | Gram          |
+| kg       | Chilogrammo            | 1.00 e + 03       | Gram          |
+| Gruppo       | Megagrammo            | 1.00 e + 06       | Gram          |
+| GG       | Gigagram            | 1.00 e + 09       | Gram          |
+| nJ       | Nanojoule           | 1.00 e-09       | Joule         |
+| µJ       | Microjoule          | 1.00 e-06       | Joule         |
+| mJ       | Millijoule          | 1.00 e-03       | Joule         |
+| J        | Joule               | 1.00 e + 00       | Joule         |
+| kJ       | Kilojoule           | 1.00 e + 03       | Joule         |
+| MJ       | Megajoule           | 1.00 e + 06       | Joule         |
+| GJ       | Gigajoule           | 1.00 e + 09       | Joule         |
+| Cal      | Calorie             | 1.00 e + 00       | calorie       |
+| kcal     | Calorie             | 1.00 e + 03       | calorie       |
 | IU       | Unità internazionali |                |               |
 
 
@@ -351,7 +351,7 @@ WHERE count_mg > 20
 
 ## <a name="exists-expression"></a>Espressione EXISTs
 
-Azure Cosmos DB supporta le espressioni EXISTs. Si tratta di una sottoquery scalare aggregata incorporata nell'API SQL Azure Cosmos DB. EXISTs è un'espressione booleana che accetta un'espressione di sottoquery e restituisce true se la sottoquery restituisce qualsiasi riga. In caso contrario, restituisce false.
+Azure Cosmos DB supporta le espressioni EXISTs. Si tratta di una sottoquery scalare aggregata incorporata nell'API SQL Azure Cosmos DB. EXISTs è un'espressione booleana che accetta un'espressione di sottoquery e restituisce true se la sottoquery restituisce qualsiasi riga. Negli altri casi, viene restituito false.
 
 Poiché l'API SQL Azure Cosmos DB non distingue tra le espressioni booleane e qualsiasi altra espressione scalare, è possibile utilizzare EXISTs nelle clausole SELECT e WHERE. Questo è diverso da T-SQL, in cui un'espressione booleana, ad esempio EXISTs, BETWEEN e IN, è limitata al filtro.
 
@@ -366,9 +366,9 @@ Se la parola chiave VALUE nella sottoquery precedente viene omessa, la query res
 SELECT EXISTS (SELECT undefined) 
 ```
 
-La sottoquery includerà l'elenco dei valori nell'elenco selezionato in un oggetto. Se l'elenco selezionato non contiene valori, la sottoquery restituirà il singolo valore '{}'. Questo valore è definito, pertanto EXISTs restituisce true.
+La sottoquery includerà l'elenco dei valori nell'elenco selezionato in un oggetto. Se l'elenco selezionato non contiene valori, la sottoquery restituirà il valore singolo '{}'. Questo valore è definito, pertanto EXISTs restituisce true.
 
-### <a name="example-rewriting-array_contains-and-join-as-exists"></a>Esempio: Riscrittura di ARRAY_CONTAINS e JOIN come EXISTs
+### <a name="example-rewriting-array_contains-and-join-as-exists"></a>Esempio: riscrittura ARRAY_CONTAINS e JOIN come EXISTs
 
 Un caso d'uso comune di ARRAY_CONTAINS consiste nel filtrare un documento in base all'esistenza di un elemento in una matrice. In questo caso, viene verificato se la matrice di tag contiene un elemento denominato "Orange".
 
@@ -386,9 +386,9 @@ FROM food f
 WHERE EXISTS(SELECT VALUE t FROM t IN f.tags WHERE t.name = 'orange')
 ```
 
-Inoltre, ARRAY_CONTAINS può verificare solo se un valore è uguale a qualsiasi elemento all'interno di una matrice. Se sono necessari filtri più complessi sulle proprietà della matrice, usare JOIN.
+Inoltre, ARRAY_CONTAINS possibile verificare solo se un valore è uguale a qualsiasi elemento all'interno di una matrice. Se sono necessari filtri più complessi sulle proprietà della matrice, usare JOIN.
 
-Si consideri la query seguente che filtra in base `nutritionValue` alle unità e alle proprietà nella matrice: 
+Si consideri la query seguente che filtra in base alle unità e `nutritionValue` proprietà nella matrice: 
 
 ```sql
 SELECT VALUE c.description

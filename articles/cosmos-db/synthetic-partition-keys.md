@@ -1,17 +1,17 @@
 ---
 title: Creare una chiave di partizione sintetica in Azure Cosmos DB per distribuire uniformemente dati e carico di lavoro.
-description: Informazioni su come usare le chiavi di partizione sintetica nei contenitori di Azure Cosmos
+description: Informazioni su come usare le chiavi di partizione sintetiche nei contenitori di Azure Cosmos per distribuire i dati e il carico di lavoro in modo uniforme tra le chiavi di partizione
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 12/03/2019
 author: markjbrown
 ms.author: mjbrown
-ms.openlocfilehash: 8b4e2b8abac39f3268e0da7838acd566f40fdccc
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 093610777b150c90ad55f1ce18337f1de8b17219
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754808"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870497"
 ---
 # <a name="create-a-synthetic-partition-key"></a>Creare una chiave di partizione sintetica
 
@@ -44,15 +44,15 @@ Negli scenari in tempo reale è possibile disporre di migliaia di elementi in un
 
 Un'altra strategia possibile per distribuire il carico di lavoro in modo più uniforme consiste nell'aggiungere un numero casuale alla fine del valore della chiave di partizione. Quando gli elementi vengono distribuiti secondo questa modalità, è possibile eseguire operazioni di scrittura parallele tra le partizioni.
 
-Ad esempio se una chiave di partizione rappresenta una data. È possibile scegliere un numero casuale compreso tra 1 e 400 e concatenarlo come suffisso alla data. Questo metodo genera valori di chiave di partizione come  `2018-08-09.1`, `2018-08-09.2` e così via, tramite  `2018-08-09.400`. Poiché per la chiave di partizione si usano valori casuali, le operazioni di scrittura giornaliere sul contenitore vengono distribuite uniformemente tra più partizioni. Questo metodo comporta un parallelismo e una velocità effettiva complessiva migliori.
+Ad esempio se una chiave di partizione rappresenta una data. È possibile scegliere un numero casuale compreso tra 1 e 400 e concatenarlo come suffisso alla data. Questo metodo genera valori di chiave di partizione come `2018-08-09.1`,`2018-08-09.2`e così via, tramite `2018-08-09.400`. Poiché per la chiave di partizione si usano valori casuali, le operazioni di scrittura giornaliere sul contenitore vengono distribuite uniformemente tra più partizioni. Questo metodo comporta un parallelismo e una velocità effettiva complessiva migliori.
 
 ## <a name="use-a-partition-key-with-pre-calculated-suffixes"></a>Usare una chiave di partizione con suffissi pre-calcolati 
 
 La strategia di suffisso casuale può migliorare significativamente la velocità effettiva di scrittura, ma è difficile leggere un elemento specifico. Non si conosce il valore del suffisso usato quando è stato scritto l'elemento. Per semplificare la lettura di singoli elementi, utilizzare la strategia suffissi pre-calcolati. Anziché utilizzare un numero casuale per distribuire gli elementi tra le partizioni, utilizzare un numero calcolato in base a un elemento che si desidera eseguire una query.
 
-Si consideri l'esempio precedente, in cui un contenitore utilizza una data come chiave di partizione. Si supponga ora che ogni elemento disponga di un attributo  `Vehicle-Identification-Number` (`VIN`) a cui si vuole accedere. Inoltre, si supponga di eseguire spesso query per trovare gli elementi in base alla `VIN`, oltre alla data. Prima che l'applicazione scriva l'elemento nel contenitore, è possibile calcolare un suffisso hash in base al numero identificativo del veicolo e aggiungerlo alla data della chiave di partizione. Il calcolo potrebbe generare un numero compreso tra 1 e 400 distribuito in modo uniforme. Questo risultato è simile ai risultati prodotti dal metodo di strategia dei suffissi casuali. Il valore chiave di partizione è la data concatenata con il risultato calcolato.
+Si consideri l'esempio precedente, in cui un contenitore utilizza una data come chiave di partizione. Si supponga ora che ogni elemento disponga di un attributo `Vehicle-Identification-Number` (`VIN`) a cui si vuole accedere. Inoltre, si supponga di eseguire spesso query per trovare gli elementi in base alla `VIN`, oltre alla data. Prima che l'applicazione scriva l'elemento nel contenitore, è possibile calcolare un suffisso hash in base al numero identificativo del veicolo e aggiungerlo alla data della chiave di partizione. Il calcolo potrebbe generare un numero compreso tra 1 e 400 distribuito in modo uniforme. Questo risultato è simile ai risultati prodotti dal metodo di strategia dei suffissi casuali. Il valore chiave di partizione è la data concatenata con il risultato calcolato.
 
-Con questa strategia le operazioni di scrittura vengono distribuite uniformemente tra i valori di chiave di partizione e tra tutte le partizioni. È possibile leggere facilmente un elemento e una data particolari, perché è possibile calcolare il valore della chiave di partizione per un `Vehicle-Identification-Number` specifico. Il vantaggio di questo metodo è che è possibile evitare di creare una singola chiave di partizione a caldo, ovvero una chiave di partizione che accetta tutto il carico di lavoro. 
+Con questa strategia le operazioni di scrittura vengono distribuite uniformemente tra i valori di chiave di partizione e tra tutte le partizioni. È possibile leggere facilmente un elemento e una data particolari, perché è possibile calcolare il valore della chiave di partizione per un `Vehicle-Identification-Number`specifico. Il vantaggio di questo metodo è che è possibile evitare di creare una singola chiave di partizione a caldo, ovvero una chiave di partizione che accetta tutto il carico di lavoro. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

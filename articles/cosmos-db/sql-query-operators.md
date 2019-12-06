@@ -1,17 +1,17 @@
 ---
 title: Operatori di query SQL per Azure Cosmos DB
-description: Informazioni sugli operatori SQL per Azure Cosmos DB.
+description: Informazioni sugli operatori SQL come l'uguaglianza, il confronto e gli operatori logici supportati da Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 899355ad7331a3df8cd5d647a573dc15e3a0bb14
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: f3efe4bee749f0d3132206ca68a33a60f0e16b81
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003392"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870939"
 ---
 # <a name="operators-in-azure-cosmos-db"></a>Operatori in Azure Cosmos DB
 
@@ -21,19 +21,19 @@ Questo articolo illustra in dettaglio i vari operatori supportati da Azure Cosmo
 
 La tabella seguente illustra il risultato dei confronti di uguaglianza nell'API SQL tra due tipi JSON qualsiasi.
 
-| **Op** | **Undefined** | **Null** | **Boolean** | **Number** | **String** | **Object** | **Array** |
+| **Op** | **Undefined** | **Null** | **Boolean** | **Number** | **Stringa** | **Object** | **Array** |
 |---|---|---|---|---|---|---|---|
-| **Undefined** | Non definita | Non definita | Non definita | Non definita | Non definita | Non definita | Non definita |
-| **Null** | Non definita | **Ok** | Non definita | Non definita | Non definita | Non definita | Non definita |
-| **Boolean** | Non definita | Non definita | **Ok** | Non definita | Non definita | Non definita | Non definita |
-| **Number** | Non definita | Non definita | Non definita | **Ok** | Non definita | Non definita | Non definita |
-| **String** | Non definita | Non definita | Non definita | Non definita | **Ok** | Non definita | Non definita |
-| **Object** | Non definita | Non definita | Non definita | Non definita | Non definita | **Ok** | Non definita |
-| **Array** | Non definita | Non definita | Non definita | Non definita | Non definita | Non definita | **Ok** |
+| **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
+| **Null** | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined | Undefined |
+| **Boolean** | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined |
+| **Number** | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined |
+| **Stringa** | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined |
+| **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined |
+| **Array** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** |
 
-Per gli operatori di confronto `>`, `>=`ad `!=`esempio `<`,, `<=`, e, il confronto tra i tipi o tra due oggetti `Undefined`o matrici produce.  
+Per gli operatori di confronto, ad esempio `>`, `>=`, `!=`, `<`e `<=`, il confronto tra i tipi o tra due oggetti o matrici produce `Undefined`.  
 
-Se il risultato dell'espressione scalare è `Undefined`, l'elemento non è incluso nel risultato, perché `Undefined` non è `true`uguale a.
+Se il risultato dell'espressione scalare è `Undefined`, l'elemento non è incluso nel risultato perché `Undefined` non è uguale `true`.
 
 ## <a name="logical-and-or-and-not-operators"></a>Operatori logici (AND, OR e NOT)
 
@@ -41,38 +41,38 @@ Gli operatori logici funzionano con valori booleani. Le tabelle seguenti illustr
 
 **Operator OR**
 
-| Oppure | True | False | Non definita |
+| Oppure | Vero | Falso | Undefined |
 | --- | --- | --- | --- |
-| True |True |True |True |
-| False |True |False |Non definita |
-| Non definita |True |Non definita |Non definita |
+| Vero |Vero |Vero |Vero |
+| Falso |Vero |Falso |Undefined |
+| Undefined |Vero |Undefined |Undefined |
 
 **Operatore AND**
 
-| AND | True | False | Non definita |
+| AND | Vero | Falso | Undefined |
 | --- | --- | --- | --- |
-| True |True |False |Non definita |
-| False |False |False |False |
-| Non definita |Non definita |False |Non definita |
+| Vero |Vero |Falso |Undefined |
+| Falso |Falso |Falso |Falso |
+| Undefined |Undefined |Falso |Undefined |
 
 **Operatore NOT**
 
 | NOT |  |
 | --- | --- |
-| True |False |
-| False |True |
-| Non definita |Non definita |
+| Vero |Falso |
+| Falso |Vero |
+| Undefined |Undefined |
 
 
-## <a name="-operator"></a>operatore *
+## <a name="-operator"></a>* (operatore)
 
-L'operatore speciale * proietta l'intero elemento così com'è. Quando usato, deve essere l'unico campo proiettato. Una query come `SELECT * FROM Families f` è valida, ma `SELECT VALUE * FROM Families f` e `SELECT *, f.id FROM Families f` non sono validi.
+L'operatore speciale * proietta l'intero elemento così com'è. Quando usato, deve essere l'unico campo proiettato. Una query come `SELECT * FROM Families f` è valida, ma `SELECT VALUE * FROM Families f` e `SELECT *, f.id FROM Families f` non sono valide.
 
-## <a name="-and--operators"></a>? e? Operatori
+## <a name="-and--operators"></a>? e? operatori
 
 È possibile usare gli operatori ternari (?) e COALESCE (??) per compilare espressioni condizionali, come nei linguaggi di C# programmazione come e JavaScript. 
 
-È possibile usare? operatore per costruire nuove proprietà JSON in tempo reale. Ad esempio, la query seguente classifica i livelli di livello `elementary` in `other`o:
+È possibile usare? operatore per costruire nuove proprietà JSON in tempo reale. Ad esempio, la query seguente classifica i livelli di grado in `elementary` o `other`:
 
 ```sql
      SELECT (c.grade < 5)? "elementary": "other" AS gradeLevel

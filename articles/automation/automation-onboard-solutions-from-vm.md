@@ -2,19 +2,19 @@
 title: Eseguire l'onboarding delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario da una macchina virtuale di Azure
 description: Informazioni su come eseguire l'onboarding in una macchina virtuale di Azure delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario, che fanno parte di Automazione di Azure.
 services: automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 0069d2e8ccd3b4f65ced8b6e18ce568689f81e14
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 8dd69b1cf4ac8874175cff84d3c2b9fc5e323922
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374417"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849684"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Eseguire l'onboarding delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario da una macchina virtuale di Azure
 
@@ -26,7 +26,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="enable-the-solutions"></a>Abilitare le soluzioni
 
-Passare a una macchina virtuale esistente. In **Operazioni** selezionare **Gestione degli aggiornamenti**, **Inventario** o **Rilevamento modifiche**. La macchina virtuale può esistere in qualsiasi area indipendentemente dalla posizione dell'account di automazione. Quando si carica una soluzione da una macchina virtuale, è necessario disporre dell'autorizzazione `Microsoft.OperationalInsights/workspaces/read` per determinare se la macchina virtuale viene caricata in un'area di lavoro. Per informazioni sulle autorizzazioni aggiuntive necessarie in generale, vedere [autorizzazioni necessarie per l'onboarding dei computer](automation-role-based-access-control.md#onboarding).
+Passare a una macchina virtuale esistente. In **Operazioni** selezionare **Gestione degli aggiornamenti**, **Inventario** o **Rilevamento modifiche**. La macchina virtuale può esistere in qualsiasi area indipendentemente dalla posizione dell'account di automazione. Quando si carica una soluzione da una macchina virtuale, è necessario avere l'autorizzazione `Microsoft.OperationalInsights/workspaces/read` per determinare se la macchina virtuale viene caricata in un'area di lavoro. Per informazioni sulle autorizzazioni aggiuntive necessarie in generale, vedere [autorizzazioni necessarie per l'onboarding dei computer](automation-role-based-access-control.md#onboarding).
 
 Per abilitare la soluzione solo per la macchina virtuale, assicurarsi che sia selezionata l'opzione **Enable for this VM** (Abilita per questa macchina virtuale). Per eseguire l'onboarding di più macchine virtuali nella soluzione, selezionare **Enable for VMs in this subscription** (Abilita per le macchine virtuali in questa sottoscrizione) e quindi selezionare **Click to select machines to enable** (Fare clic per selezionare le macchine virtuali da abilitare). Per informazioni su come eseguire l'onboarding di più macchine virtuali contemporaneamente, vedere [Eseguire l'onboarding delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario](automation-onboard-solutions-from-automation-account.md).
 

@@ -4,17 +4,17 @@ description: Un webhook che consente a un client di avviare un Runbook in Automa
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 153e910ea85ae843c6d4db51e709b58e441f6761
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: bc03425a64486e449b4df93ea187435a1e893dda
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061441"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849599"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Avviare un runbook di Automazione di Azure con un webhook
 
@@ -30,14 +30,14 @@ Un *webhook* consente di avviare un Runbook specifico in Automazione di Azure tr
 
 La tabella seguente descrive le proprietà che devono essere configurate per un webhook.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--- |:--- |
-| Name |È possibile specificare un nome qualsiasi per un webhook dal momento che non viene esposto al client. Il nome viene usato solo per consentire all'utente di identificare il runbook in Automazione di Azure. <br> Come procedura consigliata è opportuno assegnare al webhook un nome correlato al client in cui verrà usato. |
+| name |È possibile specificare un nome qualsiasi per un webhook dal momento che non viene esposto al client. Il nome viene usato solo per consentire all'utente di identificare il runbook in Automazione di Azure. <br> Come procedura consigliata è opportuno assegnare al webhook un nome correlato al client in cui verrà usato. |
 | URL |L'URL del webhook è l'indirizzo univoco che viene chiamato da un client con HTTP POST per avviare il Runbook collegato al webhook. Viene generato automaticamente al momento della creazione del webhook. Non è possibile specificare un URL personalizzato. <br> <br> L'URL contiene un token di sicurezza che consente al runbook di essere richiamato da un sistema di terze parti senza un'autenticazione aggiuntiva. Per questo motivo, deve essere considerato come una password. Per motivi di sicurezza, è possibile visualizzare l'URL solo nel portale di Azure al momento della creazione del webhook. Prendere nota dell'URL e conservarlo in un luogo sicuro per usi futuri. |
-| Data scadenza |Analogamente a un certificato, un webhook ha una data di scadenza oltre la quale non può più essere usato. La data di scadenza può essere modificata dopo la creazione del webhook, a condizione che quest'ultimo non sia scaduto. |
-| Enabled |Un webhook viene abilitato per impostazione predefinita nel momento in cui viene creato. Se viene disabilitato, nessun client sarà in grado di usarlo. È possibile impostare la proprietà **Enabled** quando si crea il webhook o in qualsiasi momento successivo. |
+| Expiration date |Analogamente a un certificato, un webhook ha una data di scadenza oltre la quale non può più essere usato. La data di scadenza può essere modificata dopo la creazione del webhook, a condizione che quest'ultimo non sia scaduto. |
+| Attivato |Un webhook viene abilitato per impostazione predefinita nel momento in cui viene creato. Se viene disabilitato, nessun client sarà in grado di usarlo. È possibile impostare la proprietà **Enabled** quando si crea il webhook o in qualsiasi momento successivo. |
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parameters
 
 Un webhook può definire valori per parametri di Runbook usati quando il Runbook viene avviato dal webhook. Il webhook deve includere valori per tutti i parametri obbligatori del Runbook e può includere valori per i parametri facoltativi. Un valore di parametro configurato per un webhook può essere modificato anche dopo aver creato il webhook. Se esistono più webhook collegati a un singolo Runbook, ognuno di essi potrà usare valori di parametri diversi.
 
@@ -47,7 +47,7 @@ Quando avvia un runbook con un webhook, un client non può eseguire l'override d
 
 Di seguito sono elencate le proprietà dell'oggetto **$WebhookData**:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--- |:--- |
 | WebhookName |Nome del webhook. |
 | RequestHeader |Tabella hash contenente le intestazioni della richiesta POST in ingresso. |
@@ -80,7 +80,7 @@ Passare quindi il seguente valore JSON nell'interfaccia utente per il parametro 
 > [!NOTE]
 > I valori di tutti i parametri di input vengono registrati con il processo di Runbook. Qualsiasi input fornito dal client nella richiesta del webhook verrà quindi registrato e sarà disponibile per chiunque abbia accesso al processo di automazione.  Per questo motivo è consigliabile procedere con cautela quando si includono dati sensibili nelle chiamate di webhook.
 
-## <a name="security"></a>Security
+## <a name="security"></a>Sicurezza
 
 La sicurezza di un webhook si basa sulla privacy dell'URL che contiene un token di sicurezza che consente di richiamarlo. Automazione di Azure non esegue alcuna autenticazione per la richiesta, purché venga inviata all'URL corretto. Per questo motivo, non è consigliabile usare i webhook per i Runbook che eseguono funzioni sensibili senza usare una modalità alternativa di convalida della richiesta.
 
@@ -113,10 +113,10 @@ http://<Webhook Server>/token?=<Token Value>
 
 Il client riceve uno dei codici restituiti seguenti dalla richiesta POST.
 
-| Codice | Testo | Descrizione |
+| Codice | Testo | Description |
 |:--- |:--- |:--- |
 | 202 |Accepted |La richiesta è stata accettata e il Runbook è stato accodato. |
-| 400 |Richiesta errata |La richiesta non è stata accettata per uno dei motivi seguenti: <ul> <li>Il webhook è scaduto.</li> <li>Il webhook è disabilitato.</li> <li>Il token nell'URL non è valido.</li>  </ul> |
+| 400 |Bad Request |La richiesta non è stata accettata per uno dei motivi seguenti: <ul> <li>Il webhook è scaduto.</li> <li>Il webhook è disabilitato.</li> <li>Il token nell'URL non è valido.</li>  </ul> |
 | 404 |Non trovato |La richiesta non è stata accettata per uno dei motivi seguenti: <ul> <li>Il webhook non è stato trovato.</li> <li>Il runbook non è stato trovato.</li> <li>L'account non è stato trovato.</li>  </ul> |
 | 500 |Internal Server Error |L'URL è valido, ma si è verificato un errore. Inviare di nuovo la richiesta. |
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 791821fbfe5854c27b7e3e6927a56a66ac1f1dc2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b91e235824085977f1570e664b43d028a905407b
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819093"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74869800"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Accedere ad Azure Cosmos DB dalle reti virtuali (VNet)
 
@@ -39,6 +39,12 @@ Quando vengono aggiunte regole di accesso al firewall IP o alla rete virtuale, s
 ### <a name="my-requests-started-getting-blocked-when-i-enabled-service-endpoint-to-azure-cosmos-db-on-the-subnet-what-happened"></a>Le richieste hanno iniziato a bloccarsi dopo aver abilitato l'endpoint del servizio ad Azure Cosmos DB nella subnet. Che cosa è successo?
 
 Dopo aver abilitato l'endpoint di servizio per Azure Cosmos DB in una subnet, l'origine del traffico che raggiunge l'account passa dall'indirizzo IP pubblico alla rete virtuale e alla subnet. Se l'account Azure Cosmos dispone solo di un firewall basato su protocollo IP, il traffico dalla subnet del servizio abilitato non corrisponderebbe alle regole del firewall IP e pertanto sarebbe rifiutato. Esaminare i passaggi per eseguire facilmente la migrazione dal firewall basato su protocollo IP per il controllo di accesso basato sulla rete virtuale.
+
+### <a name="are-additional-rbac-permissions-needed-for-azure-cosmos-accounts-with-vnet-service-endpoints"></a>Sono necessarie autorizzazioni RBAC aggiuntive per gli account Azure Cosmos con gli endpoint del servizio VNET?
+
+Dopo aver aggiunto gli endpoint di servizio di VNET a un account Azure Cosmos, per apportare modifiche alle impostazioni dell'account, è necessario accedere all'azione `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` per tutti i reti virtuali configurati nell'account Azure Cosmos. Questa azione è necessaria perché il processo di autorizzazione viene convalidato per le azioni corrispondenti al database e alle risorse della rete virtuale prima di valutare le proprietà.
+ 
+L'autorizzazione convalida le azioni anche se l'utente non specifica gli ACL VNET usando l'interfaccia della riga di comando di Azure. Attualmente, il piano di controllo dell'account Azure Cosmos supporta l'impostazione dello stato completo dell'account Azure Cosmos. Uno dei parametri per le chiamate del piano di controllo è `virtualNetworkRules`. Se questo parametro non è specificato, l'interfaccia della riga di comando di Azure esegue una chiamata Get database per recuperare il `virtualNetworkRules` e usa questo valore nella chiamata di aggiornamento.
 
 ### <a name="do-the-peered-virtual-networks-also-have-access-to-azure-cosmos-account"></a>Anche le reti virtuali con peering hanno accesso all'account Azure Cosmos? 
 Solo la rete virtuale e le subnet aggiunte all'account Azure Cosmos possono avere accesso. Le reti virtuali con peering non possono accedere all'account fino a quando le subnet all'interno delle reti virtuali con peering non vengono aggiunte all'account.

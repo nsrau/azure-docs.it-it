@@ -1,17 +1,17 @@
 ---
 title: Espressioni scalari in Azure Cosmos DB query SQL
-description: Informazioni sulla sintassi di espressione scalare SQL per Azure Cosmos DB.
+description: Informazioni sulla sintassi di espressione scalare SQL per Azure Cosmos DB. Questo articolo descrive anche come combinare espressioni scalari in espressioni complesse usando gli operatori.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: c35ad65a584f8ee95142e9bc85a58b5b6cd99744
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: f8c98915ad3b682af00492acc7bc51672ec874a8
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003543"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870735"
 ---
 # <a name="scalar-expressions-in-azure-cosmos-db-sql-queries"></a>Espressioni scalari in Azure Cosmos DB query SQL
 
@@ -63,7 +63,7 @@ La [clausola SELECT](sql-query-select.md) supporta le espressioni scalari. Un'es
   
 - `<scalar_expression>'['"property_name"|array_index']'`  
   
-   Rappresenta un valore della proprietà con il nome `property_name` o l'elemento di matrice `array_index` con indice di una matrice. Se l'indice della proprietà o matrice non esiste o si fa riferimento all'indice della proprietà o matrice per un valore che non è un oggetto o una matrice, l'espressione restituisce un valore non definito.  
+   Rappresenta un valore della proprietà con il nome `property_name` o l'elemento di matrice con indice `array_index` di una matrice. Se l'indice della proprietà o matrice non esiste o si fa riferimento all'indice della proprietà o matrice per un valore che non è un oggetto o una matrice, l'espressione restituisce un valore non definito.  
   
 - `unary_operator <scalar_expression>`  
   
@@ -97,7 +97,7 @@ La [clausola SELECT](sql-query-select.md) supporta le espressioni scalari. Un'es
   
    Rappresenta un valore del nome di parametro specificato. I nomi di parametro devono avere un singolo carattere \@ come primo carattere.  
   
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
   
   Quando si chiama una funzione scalare predefinita o definita dall'utente, è necessario definire tutti gli argomenti. Se uno degli argomenti non è definito, la funzione non verrà chiamata e il risultato sarà indefinito.  
   
@@ -105,7 +105,7 @@ La [clausola SELECT](sql-query-select.md) supporta le espressioni scalari. Un'es
   
   Quando si crea una matrice, qualsiasi valore di elemento a cui viene assegnato un valore **non definito** verrà ignorato e non incluso nell'oggetto creato. Ciò causa la sostituzione dell'elemento da parte dell'elemento definito successivo in modo tale che la matrice creata non abbia indici ignorati.  
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
 
 ```sql
     SELECT ((2 + 11 % 7)-2)/3

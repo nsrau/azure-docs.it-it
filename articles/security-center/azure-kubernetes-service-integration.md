@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 4fc0654aab1c68888e86dc95de658bc69a01e02d
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 2a5d01978d8a4883d760e7ecf84afa381dfd563d
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123971"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74868559"
 ---
 # <a name="azure-kubernetes-services-integration-with-security-center-preview"></a>Integrazione dei servizi Kubernetes di Azure con il Centro sicurezza (anteprima)
 Azure Kubernetes Service (AKS) è il servizio gestito di Microsoft per lo sviluppo, la distribuzione e la gestione di applicazioni in contenitori. 
@@ -41,7 +41,7 @@ L'utilizzo combinato dei due servizi fornisce:
 
 * Protezione **avanzata dell'ambiente** : il Centro sicurezza monitora costantemente la configurazione dei cluster Kubernetes e genera raccomandazioni sulla sicurezza che riflettono gli standard di settore.
 
-* **Protezione** in fase di esecuzione: tramite l'analisi continua delle origini AKS seguenti, il Centro sicurezza avvisa l'utente di minacce e attività dannose rilevate a livello di cluster host *e* AKS (per altre informazioni, vedere [servizio contenitore di Azure). ](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-)):
+* **Protezione** in fase di esecuzione: tramite l'analisi continua delle fonti AKS seguenti, il Centro sicurezza avvisa l'utente di minacce e attività dannose rilevate a livello di cluster host *e* AKS (per altre informazioni, vedere [rilevamento delle minacce per i contenitori di Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-)):
     * Eventi di sicurezza non elaborati, ad esempio i dati di rete e la creazione di processi
     * Log di controllo di Kubernetes
 

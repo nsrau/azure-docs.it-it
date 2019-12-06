@@ -1,18 +1,18 @@
 ---
 title: LOG10 in linguaggio di query Azure Cosmos DB
-description: Informazioni sulla funzione di sistema SQL LOG10 in Azure Cosmos DB.
+description: Informazioni sulla funzione di sistema SQL LOG10 in Azure Cosmos DB per restituire il logaritmo in base 10 dell'espressione numerica specificata
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 56f1e96e7d4ee1b5f38ee7392665e17819ae554b
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 5950a2a40a78716a76e49fcdaeb3129948b6a0e1
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349726"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871058"
 ---
 # <a name="log10-azure-cosmos-db"></a>LOG10 (Azure Cosmos DB)
  Restituisce il logaritmo in base 10 dell'espressione numerica specificata.  
@@ -32,11 +32,11 @@ LOG10 (<numeric_expr>)
   
   Restituisce un'espressione numerica.  
   
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
   
   Le funzioni LOG10 e POWER sono inversamente correlate tra loro. Ad esempio, 10 ^ LOG10(n) = n.  
   
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
   
   Nell'esempio seguente viene dichiarata una variabile e restituito il valore LOG10 della variabile specificata (100).  
   

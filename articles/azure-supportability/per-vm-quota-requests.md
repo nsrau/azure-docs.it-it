@@ -7,16 +7,16 @@ ms.date: 06/07/2019
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: ccd0c88c95ae9a752ef8ea2387bbde4f8559bc68
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 280561126186e4c70399b3a1ddd177ff4eb54400
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74531785"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850041"
 ---
 # <a name="standard-quota-per-vm-series-vcpu-limit-increase"></a>Quota standard: aumento del limite di vCPU per serie di VM
 
-Gestione risorse supporta due tipi di quote vCPU per le macchine virtuali. **Le macchine virtuali con pagamento in base al consumo e le istanze di VM riservate** usano la quota standard. Le **macchine virtuali con priorità bassa** usano una quota con priorità bassa. La quota vCPU standard per le istanze con pagamento in base al consumo e le VM riservate viene applicata a due livelli per ogni sottoscrizione in ogni area
+Gestione risorse supporta due tipi di quote vCPU per le macchine virtuali. **Le macchine virtuali con pagamento in base al consumo e le istanze di VM riservate** usano la quota standard. Le **VM spot** usano la quota spot. La quota vCPU standard per le istanze con pagamento in base al consumo e le VM riservate viene applicata a due livelli per ogni sottoscrizione in ogni area
 
 Il primo livello è il **limite di vCPU regionale totale** (in tutte le serie di VM) e il secondo livello è il **limite di vCPU per serie di VM** , ad esempio la serie dv3 vCPU. Ogni volta che viene distribuita una nuova VM, la somma dell'utilizzo di vCPU nuovo ed esistente per tale serie di macchine virtuali non deve superare la quota di vCPU approvata per la serie di VM specifica. Inoltre, il numero totale di vCPU nuovo ed esistente distribuito in tutte le serie di macchine virtuali non deve superare la quota vCPU regionale totale approvata per la sottoscrizione. Se una di queste quote viene superata, la distribuzione della macchina virtuale non sarà possibile.
 È possibile richiedere un aumento del limite di quota vCPU per la serie di macchine virtuali da portale di Azure. Un aumento della quota della serie di VM aumenta automaticamente il limite di vCPU regionale totale per la stessa quantità. 
@@ -25,7 +25,7 @@ Per altre informazioni sulle quote vCPU standard, vedere la pagina delle [quote 
 
 Altre informazioni su come aumentare il limite di vCPU a livello di area per la quota standard [qui](https://docs.microsoft.com/azure/azure-supportability/regional-quota-requests). 
 
-Altre informazioni su come **aumentare i limiti di vCPU di VM con priorità bassa** [qui](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
+Altre informazioni su come **aumentare i limiti di vCPU della VM spot** [qui](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
 
 È possibile richiedere un aumento del **limite di quota di vCPU standard per ogni serie di VM** tramite il pannello **Guida e supporto** oppure il pannello **utilizzi e quota** nel portale.
 
@@ -63,7 +63,7 @@ Seguire le istruzioni riportate di seguito per creare una richiesta di supporto 
 
    ![Dettagli quota DM](./media/resource-manager-core-quotas-request/1-7.png)
 
-8. Per il percorso selezionato selezionare **tipo** di valore come **"standard"** . È possibile richiedere sia i tipi di quota standard che quelli con priorità bassa da un singolo caso di supporto tramite supporto per più selezioni nel campo **tipo** . Altre informazioni su come **aumentare i limiti di quota con priorità bassa** nella **pagina > di <** .
+8. Per il percorso selezionato selezionare **tipo** di valore come **"standard"** . È possibile richiedere i tipi di quota standard e spot da un singolo caso di supporto tramite supporto per più selezioni nel campo **tipo** . Altre informazioni sull' **aumento dei limiti di quota spot** nella [pagina](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot)
 
    ![Famiglia SKU](./media/resource-manager-core-quotas-request/1-8.png)
 
@@ -111,7 +111,7 @@ Seguire le istruzioni riportate di seguito per creare una richiesta di supporto 
 
    ![Pannello Problema della quota](./media/resource-manager-core-quotas-request/1-1-6.png)
 
-7. Per il percorso selezionato selezionare **tipo** di valore come **"standard"** . È possibile richiedere sia i tipi di quota standard che quelli con priorità bassa da un singolo caso di supporto tramite supporto per più selezioni nel campo **tipo** . Altre informazioni su come **aumentare i limiti di vCPU con priorità bassa** in questa [pagina](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
+7. Per il percorso selezionato selezionare **tipo** di valore come **"standard"** . È possibile richiedere sia i tipi di quota standard che quelli con priorità bassa da un singolo caso di supporto tramite supporto per più selezioni nel campo **tipo** . Altre informazioni su come **aumentare i limiti di vCPU** in questa [pagina](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot).
 
    ![Serie SKU selezionata](./media/resource-manager-core-quotas-request/1-1-7.png)
    

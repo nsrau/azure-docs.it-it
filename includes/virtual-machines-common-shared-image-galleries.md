@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: file di inclusione
+description: file di inclusione
 services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 4d64d556c96d29556ee36179623ff8cc24532b48
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 067ac0f7f000f749f61d302db4c5c6b856e698a2
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74085251"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74875538"
 ---
 Raccolta immagini condivise è un servizio che consente di creare struttura e organizzazione in base alle immagini gestite. Le raccolte di immagini condivise forniscono:
 
@@ -31,7 +31,7 @@ Se si dispone di un numero elevato di immagini gestite che è necessario gestire
 
 La funzionalità Raccolta di immagini condivise presenta più tipi di risorse:
 
-| Risorsa | DESCRIZIONE|
+| Gruppi | Description|
 |----------|------------|
 | **Immagine gestita** | Un'immagine di base che può essere usata da sola o usata per creare una **versione dell'immagine** in una raccolta di immagini. Le immagini gestite vengono create da VM [generalizzate](#generalized-and-specialized-images) . Un'immagine gestita è un tipo speciale di disco rigido virtuale che può essere usato per creare più macchine virtuali e può ora essere sfruttato per creare versioni di immagini condivise. |
 | **Snapshot** | Copia di un disco rigido virtuale che può essere utilizzato per creare una **versione dell'immagine**. Gli snapshot possono essere ricavati da una VM [specializzata](#generalized-and-specialized-images) (uno che non è stato generalizzato), quindi usati singolarmente o con snapshot di dischi dati, per creare una versione di immagine specializzata.
@@ -49,7 +49,7 @@ Le definizioni di immagine sono un raggruppamento logico per le versioni di un'i
 
 Esistono tre parametri per ogni definizione di immagine usati in combinazione- **autore**, **offerta** e **SKU**. Questi vengono usati per trovare una definizione di immagine specifica. È possibile avere versioni delle immagini che condividono uno o due, ma non tutti e tre i valori.  Di seguito, un esempio di tre definizioni di immagini con i relativi valori:
 
-|Definizione delle immagini|Autore|Offerta|Sku|
+|Definizione delle immagini|Editore|Offerta|SKU|
 |---|---|---|---|
 |myImage1|Contoso|Finanza|Back-end|
 |myImage2|Contoso|Finanza|Front-end|
@@ -94,13 +94,13 @@ Le aree di origine sono elencate nella tabella seguente. Tutte le aree pubbliche
 | Aree di origine        |                   |                    |                    |
 | --------------------- | ----------------- | ------------------ | ------------------ |
 | Australia centrale     | Cina orientale        | India meridionale        | Europa occidentale        |
-| Australia centrale 2   | Cina orientale 2      | Asia sudorientale     | Regno Unito meridionale           |
+| Australia centrale 2   | Cina orientale 2      | Asia sud-orientale     | Regno Unito meridionale           |
 | Australia orientale        | Cina settentrionale       | Giappone orientale         | Regno Unito occidentale            |
-| Australia sudorientale   | Cina settentrionale 2     | Giappone occidentale         | Dipartimento della difesa Stati Uniti centrali     |
-| Brasile meridionale          | Asia orientale         | Corea del Sud centrale      | Dipartimento della difesa Stati Uniti orientali        |
-| Canada centrale        | Stati Uniti Orientali           | Corea del Sud meridionale        | Governo degli Stati Uniti - Arizona     |
-| Canada orientale           | Stati Uniti orientali 2         | Stati Uniti centro-settentrionali   | Governo degli Stati Uniti - Texas       |
-| India centrale         | Stati Uniti orientali 2 EUAP    | Europa settentrionale       | Governo degli Stati Uniti - Virginia    |
+| Australia sud-orientale   | Cina settentrionale 2     | Giappone occidentale         | US DoD (area centrale)     |
+| Brasile meridionale          | Asia orientale         | Corea centrale      | US DoD (area orientale)        |
+| Canada centrale        | Stati Uniti Orientali           | Corea meridionale        | US Gov Arizona     |
+| Canada orientale           | Stati Uniti orientali 2         | Stati Uniti centro-settentrionali   | US Gov Texas       |
+| India centrale         | Stati Uniti orientali 2 EUAP    | Europa settentrionale       | US Gov Virginia    |
 | Stati Uniti centrali            | Francia centrale    | Stati Uniti centro-meridionali   | India occidentale         |
 | Stati Uniti centrali EUAP       | Francia meridionale      | Stati Uniti centro-occidentali    | Stati Uniti occidentali            |
 |                       |                   |                    | Stati Uniti occidentali 2          |
@@ -113,10 +113,11 @@ Per la distribuzione delle risorse tramite le raccolte di immagini condivise son
 - 100 raccolte di immagini condivise, per sottoscrizione, per area
 - 1\.000 definizioni di immagine, per sottoscrizione, per area
 - 10.000 versioni dell'immagine, per sottoscrizione, per area
+- I dischi collegati all'immagine devono essere di dimensioni minori o uguali a 1 TB
 
 Per altre informazioni, vedere [controllare l'utilizzo delle risorse rispetto ai limiti](https://docs.microsoft.com/azure/networking/check-usage-against-limits) per esempi su come controllare l'utilizzo corrente.
  
-## <a name="scaling"></a>Ridimensionamento
+## <a name="scaling"></a>Scalabilità
 Raccolta di immagini condivise consente di specificare il numero di repliche delle immagini che si desidera vengano conservate da Azure. Questa possibilità è particolarmente utile in scenari di distribuzione di più macchine virtuali, poiché le distribuzioni di macchine virtuali possono essere estese a diverse repliche, riducendo le possibilità che il processo di creazione di istanze venga limitato a causa dell'overload di una singola replica.
 
 Con la raccolta di immagini condivise, è ora possibile distribuire fino a una macchina virtuale di 1.000 istanze in un set di scalabilità di macchine virtuali (fino a 600 con le immagini gestite). Le repliche di immagini offrono prestazioni, affidabilità e coerenza migliori per la distribuzione.  È possibile impostare un numero di repliche diverso in ogni area di destinazione, in base alle esigenze di scalabilità per l'area. Poiché ogni replica è una copia completa dell'immagine, questo consente di ridimensionare le distribuzioni in modo lineare con ogni replica aggiuntiva. Sebbene non siano state riconoscite due immagini o aree, di seguito sono riportate le linee guida generali su come usare le repliche in un'area:
@@ -143,14 +144,14 @@ Le aree in cui la versione di immagini condivise viene replicata possono essere 
 
 ![Immagine che mostra come replicare le immagini](./media/shared-image-galleries/replication.png)
 
-## <a name="access"></a>Access
+## <a name="access"></a>Accesso
 
 Poiché la raccolta di immagini condivise, la definizione di immagine e la versione dell'immagine sono tutte risorse, possono essere condivise usando i controlli RBAC nativi di Azure predefiniti. Utilizzando il controllo degli accessi in base al ruolo è possibile condividere queste risorse con altri utenti, entità servizio e gruppi. È anche possibile condividere l'accesso a utenti esterni al tenant in cui sono stati creati. Una volta che un utente ha accesso alla versione dell'immagine condivisa, può distribuire una VM o un set di scalabilità di macchine virtuali.  Di seguito è riportata la matrice di condivisione che consente all'utente di riconoscere a cosa ha accesso:
 
-| Condivisi con l'utente     | Raccolta di immagini condivise | Definizione delle immagini | Versione dell'immagine |
+| Condivisi con l'utente     | Raccolta immagini condivisa | Definizione delle immagini | Versione dell'immagine |
 |----------------------|----------------------|--------------|----------------------|
-| Raccolta di immagini condivise | Sì                  | Sì          | Sì                  |
-| Definizione delle immagini     | No                   | Sì          | Sì                  |
+| Raccolta immagini condivisa | SÌ                  | SÌ          | SÌ                  |
+| Definizione delle immagini     | No                   | SÌ          | SÌ                  |
 
 Per un'esperienza ottimale, è consigliabile condividere a livello di raccolta. Non è consigliabile condividere le singole versioni dell'immagine. Per altre informazioni su RBAC, vedere [gestire l'accesso alle risorse di Azure con RBAC](../articles/role-based-access-control/role-assignments-portal.md).
 
@@ -161,17 +162,17 @@ Non sono previsti addebiti aggiuntivi per l'uso del servizio Raccolta di immagin
 - Costi di archiviazione per le versioni di immagini condivise. Il costo dipende dal numero di repliche della versione dell'immagine e dal numero di aree in cui la versione viene replicata. Ad esempio, se si dispone di 2 immagini ed entrambe vengono replicate in 3 aree, si verrà modificati per 6 dischi gestiti in base alla relativa dimensione. Per ulteriori informazioni, vedere [Managed disks prezzi](https://azure.microsoft.com/pricing/details/managed-disks/).
 - Addebiti per l'uscita di rete per la replica della prima versione immagine dall'area di origine alle aree replicate. Le repliche successive vengono gestite all'interno dell'area, quindi non sono previsti addebiti aggiuntivi. 
 
-## <a name="updating-resources"></a>Aggiornamento di risorse
+## <a name="updating-resources"></a>Aggiornamento delle risorse
 
 Una volta creato, è possibile apportare alcune modifiche alle risorse della raccolta immagini. Sono limitati a:
  
 Raccolta di immagini condivise:
-- DESCRIZIONE
+- Description
 
 Definizione delle immagini:
 - VCPU consigliati
 - Memoria consigliata
-- DESCRIZIONE
+- Description
 - Data di scadenza
 
 Versione immagine:
@@ -186,7 +187,7 @@ Gli SDK seguenti supportano la creazione di raccolte di immagini condivise:
 
 - [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
 - [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
-- [Node.JS](https://docs.microsoft.com/javascript/api/@azure/arm-compute)
+- [Node.js](https://docs.microsoft.com/javascript/api/@azure/arm-compute)
 - [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
 - [Go](https://docs.microsoft.com/azure/go/)
 
@@ -197,7 +198,7 @@ Gli SDK seguenti supportano la creazione di raccolte di immagini condivise:
 - [Creare una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-create/)
 - [Creare una definizione dell'immagine in una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [Creare una versione dell'immagine in una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
-- [Creare una macchina virtuale da una versione dell'immagine](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
+- [Creare una macchina virtuale dalla versione dell'immagine](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti 
 

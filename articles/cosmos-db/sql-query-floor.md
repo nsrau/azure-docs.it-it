@@ -1,18 +1,18 @@
 ---
 title: PIANO in Azure Cosmos DB linguaggio di query
-description: Informazioni sul piano della funzione di sistema SQL in Azure Cosmos DB.
+description: Informazioni sulla funzione di sistema di SQL FLOOR in Azure Cosmos DB per restituire l'intero più grande minore o uguale all'espressione numerica specificata
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 94bcb6794dce9ccc22001e6d0e0e3e71d133ac42
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 8faf223a4871f6f109f9d133716989b1bcfdee08
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351195"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871177"
 ---
 # <a name="floor-azure-cosmos-db"></a>PIANO (Azure Cosmos DB)
  Restituisce il valore integer più alto, minore di o uguale all'espressione numerica specificata.  
@@ -32,7 +32,7 @@ FLOOR (<numeric_expr>)
   
   Restituisce un'espressione numerica.  
   
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
   
   L'esempio seguente mostra valori numerici positivi, negativi e zero con la funzione `FLOOR`.  
   

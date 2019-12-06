@@ -5,17 +5,17 @@ keywords: powershell dsc, Desired State Configuration, powershell dsc azure
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 08/21/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d9d16d9d9967af5bf8f9e13406e13d5637325f52
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: e9552adad1f15422eb60c34f2548324aeb03ee74
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243359"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849565"
 ---
 # <a name="composing-dsc-configurations-in-azure-automation-state-configuration-dsc-using-composite-resources"></a>Creazione di configurazioni DSC in Desired State Configuration (DSC) di Automazione di Azure usando risorse composite
 
@@ -41,11 +41,11 @@ Prima di poter assegnare una configurazione costituita da risorse composite nel 
 
 Dopo averla salvata, la configurazione viene inoltrata per essere compilata. Lo stato del processo di visualizzazione viene visualizzato come per una qualsiasi configurazione importata. Per altre informazioni, vedere [Visualizzazione di un processo di compilazione](automation-dsc-getting-started.md#viewing-a-compilation-job).
 
-Se la compilazione è stata completata, la nuova configurazione viene visualizzata nella scheda **Configurazioni compilate**. Se è visibile in questa scheda, può essere assegnata a un nodo gestito seguendo la procedura descritta in [Riassegnazione di un nodo a una diversa configurazione di nodo](automation-dsc-getting-started.md#reassigning-a-node-to-a-different-node-configuration).
+Quando la compilazione viene completata correttamente, la nuova configurazione viene visualizzata nella scheda **configurazioni compilate** . Una volta visibile in questa scheda, può essere assegnato a un nodo gestito usando la procedura descritta in [riassegnazione di un nodo a una configurazione del nodo diversa](automation-dsc-getting-started.md#reassigning-a-node-to-a-different-node-configuration).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per iniziare, vedere [Introduzione a Configurazione stato di Automazione di Azure](automation-dsc-getting-started.md)
+- Per iniziare, vedere [Introduzione alla configurazione dello stato di Automazione di Azure](automation-dsc-getting-started.md)
 - Per informazioni sull'onboarding dei nodi, vedere [Onboarding di computer per la gestione tramite Configurazione stato di Automazione di Azure](automation-dsc-onboarding.md)
 - Per informazioni sulla compilazione di configurazioni DSC da assegnare ai nodi di destinazione, vedere [Compilazione di configurazioni in Configurazione stato di Automazione di Azure](automation-dsc-compile.md)
 - Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Azure Automation State Configuration cmdlets](/powershell/module/azurerm.automation/#automation) (Cmdlet per Configurazione stato di Automazione di Azure)

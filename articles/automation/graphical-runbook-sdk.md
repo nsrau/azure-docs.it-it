@@ -4,17 +4,17 @@ description: Questo articolo descrive come usare l'SDK per il runbook grafico di
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 07/20/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e4229079a1fa50295eef85b42f91bbc1b4a21fc3
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: a06c190931fdd0f49132f815b153c08ece68c9f3
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478596"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849548"
 ---
 # <a name="use-the-azure-automation-graphical-runbook-sdk"></a>Usare l'SDK per il runbook grafico di Automazione di Azure
 

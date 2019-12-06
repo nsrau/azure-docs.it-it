@@ -1,25 +1,25 @@
 ---
 title: Query con parametri in Azure Cosmos DB
-description: Informazioni sulle query con parametri SQL
+description: Informazioni sul modo in cui le query con parametri SQL forniscono una gestione efficace e l'escape dell'input dell'utente e impediscono l'esposizione accidentale dei dati tramite SQL injection.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: tisande
-ms.openlocfilehash: 45c1344c32e35f60f35ba8ed105e912d92574cce
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: e15a8236723c1efd80f27f2d253e9bbc44af4b0b
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003600"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870820"
 ---
 # <a name="parameterized-queries-in-azure-cosmos-db"></a>Query con parametri in Azure Cosmos DB
 
 Cosmos DB supporta le query con parametri espressi dalla nota @ Notation. SQL con parametri fornisce una gestione efficace e l'escape dell'input dell'utente e impedisce l'esposizione accidentale dei dati tramite SQL injection.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
 
-Ad esempio, è possibile scrivere una query che accetta `lastName` e `address.state` come parametri ed eseguirla per diversi valori di `lastName` e `address.state` in base all'input dell'utente.
+È ad esempio possibile scrivere una query che accetta `lastName` e `address.state` come parametri ed eseguirla per diversi valori di `lastName` e `address.state` in base all'input dell'utente.
 
 ```sql
     SELECT *

@@ -7,12 +7,12 @@ ms.reviewer: oflipman
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: eddfb9a8f2e3c034e50dc3bc1cdf4983a6163079
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 4a95804bcff3653df42186907f03d0bc27a603ea
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667846"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74869715"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>Creare un cluster e un database di Azure Esplora dati usando un modello di Azure Resource Manager
 
@@ -71,7 +71,7 @@ In questo articolo viene usato un [modello di avvio rapido esistente](https://ra
               "tier": "Standard",
               "capacity": 2
           },
-          "apiVersion": "2019-05-15",
+          "apiVersion": "2019-09-07",
           "location": "[parameters('location')]",
           "tags": {
             "Created By": "GitHub quickstart template"
@@ -80,7 +80,7 @@ In questo articolo viene usato un [modello di avvio rapido esistente](https://ra
       {
           "name": "[concat(parameters('clusters_kustocluster_name'), '/', parameters('databases_kustodb_name'))]",
           "type": "Microsoft.Kusto/clusters/databases",
-          "apiVersion": "2019-05-15",
+          "apiVersion": "2019-09-07",
           "location": "[parameters('location')]",
           "dependsOn": [
               "[resourceId('Microsoft.Kusto/clusters', parameters('clusters_kustocluster_name'))]"

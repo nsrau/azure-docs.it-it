@@ -4,17 +4,17 @@ description: Gli asset di tipo variabile sono valori disponibili per tutti i run
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3fe008d20ab43636b59861bcc5a7914ba0fca17e
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: e56a1c9a158974266b810d31a0e9bb898262761a
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910056"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849429"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Asset di tipo variabile in Automazione di Azure
 
@@ -41,17 +41,17 @@ Quando si crea una variabile con il portale di Azure, è necessario selezionare 
 
 Di seguito è riportato un elenco dei tipi di variabile disponibili in Automazione:
 
-* String
+* Stringa
 * Integer
-* DateTime
-* Boolean
+* Data e ora
+* boolean
 * Null
 
 ## <a name="azurerm-powershell-cmdlets"></a>Cmdlet di PowerShell AzureRM
 
 Per AzureRM, per creare e gestire asset di credenziali di automazione con Windows PowerShell, vengono usati i cmdlet della tabella seguente. Vengono forniti come parte del [modulo AzureRM. Automation](/powershell/azure/overview), disponibile per l'uso nei manuali operativi di automazione e nelle configurazioni DSC.
 
-| Cmdlets | Descrizione |
+| Cmdlets | Description |
 |:---|:---|
 |[Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable)|Recupera il valore di una variabile esistente.|
 |[New-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/New-AzureRmAutomationVariable)|Crea una nuova variabile e ne imposta il valore.|
@@ -62,7 +62,7 @@ Per AzureRM, per creare e gestire asset di credenziali di automazione con Window
 
 Le attività nella tabella seguente vengono usate per accedere alle variabili in un Runbook e le configurazioni DSC. La differenza tra i cmdlet Get-AzureRmAutomationVariable e Get-AutomationVariable è stata chiarita sopra all'inizio di questo documento.
 
-| Attività | Descrizione |
+| Attività | Description |
 |:---|:---|
 |Get-AutomationVariable|Recupera il valore di una variabile esistente.|
 |Set-AutomationVariable|Imposta il valore di una variabile esistente.|
@@ -72,7 +72,7 @@ Le attività nella tabella seguente vengono usate per accedere alle variabili in
 
 Le funzioni nella tabella seguente vengono usate per accedere e recuperare le variabili in un runbook di Python2.
 
-|Funzioni Python2|Descrizione|
+|Funzioni Python2|Description|
 |:---|:---|
 |automationassets.get_automation_variable|Recupera il valore di una variabile esistente. |
 |automationassets.set_automation_variable|Imposta il valore di una variabile esistente. |

@@ -4,17 +4,17 @@ description: Questo articolo descrive l'integrazione del controllo del codice so
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 44ab9688471a87e6db3712cc61b8abb194d54ac3
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: fcb3885446e534a2a6a5153545fd39fb14a02776
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886521"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850160"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integrazione del controllo del codice sorgente in Automazione di Azure
 
@@ -45,16 +45,16 @@ Scegliere **Tipo di controllo del codice sorgente** e fare clic su **Autentica**
 
 Inserire le informazioni nella pagina **Riepilogo del Controllo del codice sorgente** e fare clic su **Salva**. La tabella seguente fornisce una descrizione dei campi disponibili.
 
-|Proprietà  |Descrizione  |
+|Proprietà  |Description  |
 |---------|---------|
 |Nome del controllo del codice sorgente     | Nome descrittivo per il controllo del codice sorgente. *Questo nome deve contenere solo lettere e numeri.*        |
 |Tipo di controllo del codice sorgente     | Specifica del tipo di controllo del codice sorgente. Le opzioni disponibili sono:</br> GitHub</br>Azure Repos (git)</br> Azure Repos (TFVC)        |
 |Repository     | Nome del repository o del progetto. Vengono restituiti i primi 200 repository. Per cercare un repository, digitare il nome nel campo e fare clic **su Cerca in GitHub**.|
-|Ramo     | Ramo da cui eseguire il pull dei file di origine. La destinazione del ramo non è disponibile per il tipo di controllo del codice sorgente TFVC.          |
+|Branch     | Ramo da cui eseguire il pull dei file di origine. La destinazione del ramo non è disponibile per il tipo di controllo del codice sorgente TFVC.          |
 |Percorso della cartella     | Cartella che contiene il manuali operativi da sincronizzare. Esempio:/runbooks </br>*Vengono sincronizzati solo manuali operativi nella cartella specificata. La ricorsione non è supportata.*        |
 |Sincronizzazione automatica<sup>1</sup>     | Attiva o disattiva la sincronizzazione automatica quando viene eseguito un commit nel repository del controllo del codice sorgente         |
 |Pubblica runbook     | Se impostato **su on**, dopo la sincronizzazione di manuali operativi dal controllo del codice sorgente verranno pubblicati automaticamente.         |
-|Descrizione     | Campo di testo in cui fornire altri dettagli        |
+|Description     | Campo di testo in cui fornire altri dettagli        |
 
 <sup>1</sup> per abilitare la sincronizzazione automatica quando si configura l'integrazione del controllo del codice sorgente con Azure Repos, è necessario essere un amministratore di progetto.
 
@@ -93,7 +93,7 @@ Controllo del codice sorgente richiede alcune autorizzazioni minime per i token 
 
 Per altre informazioni sulla creazione di un token di accesso personale in GitHub, vedere [creazione di un token di accesso personale per la riga di comando](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
 
-|Scope  |Descrizione  |
+|Scope  |Description  |
 |---------|---------|
 |**repo**     |         |
 |repo:status     | Accedere allo stato del commit         |

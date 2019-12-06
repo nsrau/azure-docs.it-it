@@ -4,17 +4,17 @@ description: Questo articolo illustra come inviare lo stato del processo e i flu
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ff455ed355d4412bcf042208d2fd1e7a2a11b965
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: d2433e8193026b8aaa3cbf29eb1411c7449a4953
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186773"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849735"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Inviare lo stato e i flussi del processo dall'automazione ai log di monitoraggio di Azure
 
@@ -68,7 +68,7 @@ Per trovare il *nome* dell'account di Automazione, nel portale di Azure selezion
 
 Dopo aver eseguito questo script, potrebbe essere necessaria un'ora prima di iniziare a visualizzare i record nei log di monitoraggio di Azure per la scrittura di nuovi JobLogs o JobStreams.
 
-Per visualizzare i log, eseguire la query seguente in ricerca log di log Analytics:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Per visualizzare i log, eseguire la query seguente in ricerca log di log Analytics: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>Verificare la configurazione
 
@@ -89,7 +89,7 @@ La diagnostica di automazione di Azure crea due tipi di record nei log di monito
 
 ### <a name="job-logs"></a>Log del processo
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 | --- | --- |
 | TimeGenerated |Data e ora di esecuzione del processo del runbook. |
 | RunbookName_s |Il nome del runbook. |
@@ -97,9 +97,9 @@ La diagnostica di automazione di Azure crea due tipi di record nei log di monito
 | Tenant_g | GUID che identifica il tenant del chiamante. |
 | JobId_g |Il GUID che rappresenta l'ID del processo del runbook. |
 | ResultType |Lo stato del processo di runbook. I valori possibili sono:<br>- Nuovo<br>-Creato<br>- Avviato<br>- Interrotto<br>- Sospeso<br>- Non riuscito<br>- Completato |
-| Category | La classificazione del tipo di dati. Per Automazione, il valore è JobLogs. |
+| Categoria | La classificazione del tipo di dati. Per Automazione, il valore è JobLogs. |
 | OperationName | Specifica il tipo di operazione eseguita in Azure. Per Automazione, il valore è Job. |
-| Resource | Nome dell'account di Automazione |
+| Gruppi | Nome dell'account di Automazione |
 | SourceSystem | Modalità di registrazione dei dati raccolti da monitoraggio di Azure. È sempre *Azure* per la diagnostica di Azure. |
 | ResultDescription |Descrive lo stato del risultato del processo di runbook. I valori possibili sono:<br>- Processo avviato<br>- Processo non riuscito<br>- Processo completato |
 | CorrelationId |Il GUID che rappresenta l'ID di correlazione del processo di runbook. |
@@ -111,7 +111,7 @@ La diagnostica di automazione di Azure crea due tipi di record nei log di monito
 
 
 ### <a name="job-streams"></a>Flussi del processo
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 | --- | --- |
 | TimeGenerated |Data e ora di esecuzione del processo del runbook. |
 | RunbookName_s |Il nome del runbook. |
@@ -120,9 +120,9 @@ La diagnostica di automazione di Azure crea due tipi di record nei log di monito
 | Tenant_g | GUID che identifica il tenant del chiamante. |
 | JobId_g |Il GUID che rappresenta l'ID del processo del runbook. |
 | ResultType |Lo stato del processo di runbook. I valori possibili sono:<br>- In corso |
-| Category | La classificazione del tipo di dati. Per Automazione, il valore è JobStreams. |
+| Categoria | La classificazione del tipo di dati. Per Automazione, il valore è JobStreams. |
 | OperationName | Specifica il tipo di operazione eseguita in Azure. Per Automazione, il valore è Job. |
-| Resource | Nome dell'account di Automazione |
+| Gruppi | Nome dell'account di Automazione |
 | SourceSystem | Modalità di registrazione dei dati raccolti da monitoraggio di Azure. È sempre *Azure* per la diagnostica di Azure. |
 | ResultDescription |Include il flusso di output dal runbook. |
 | CorrelationId |Il GUID che rappresenta l'ID di correlazione del processo di runbook. |
@@ -144,7 +144,7 @@ Uno dei clienti più importanti chiede di poter inviare un messaggio di posta el
 Per creare una regola di avviso, è necessario creare prima di tutto una ricerca nei log per trovare i record del processo del runbook che dovranno richiamare l'avviso. Fare clic su pulsante **Avviso** per creare e configurare la regola di avviso.
 
 1. Nella pagina Panoramica dell'area di lavoro Log Analytics fare clic su **Visualizza log**.
-2. Creare una query di ricerca dei log per l'avviso digitando i criteri di ricerca seguenti nel campo query: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`  È anche possibile raggruppare per RunbookName usando: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
+2. Creare una query di ricerca log per l'avviso digitando quanto segue nel campo della query: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")` È anche possibile raggruppare in base al valore RunbookName usando: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    Se sono stati configurati log da più account di Automazione o sottoscrizioni nell'area di lavoro, è possibile raggruppare gli avvisi per sottoscrizione o account di Automazione. Si può trovare il nome dell'account di automazione nel campo Risorsa nella ricerca di JobLogs.
 3. Per aprire la schermata **Crea regola** fare clic su **+ Nuova regola di avviso** nella parte superiore della pagina. Per altre informazioni sulle opzioni per la configurazione dell'avviso, vedere [Avvisi di log in Azure](../azure-monitor/platform/alerts-unified-log.md).

@@ -4,17 +4,17 @@ description: Descrive come eseguire la migrazione di runbook e Integration Pack 
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: eb5a77668cce96ef45a960908612b502f1520e25
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: b34554798130d9741318e0f518c32a41f82a17e3
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477596"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849667"
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Migrazione da Orchestrator ad Automazione di Azure (Beta)
 I runbook in [System Center Orchestrator](https://technet.microsoft.com/library/hh237242.aspx) si basano su attività di Integration Pack scritte appositamente per Orchestrator, mentre i runbook di Automazione di Azure si basano su Windows PowerShell.  [Runbook grafici](automation-runbook-types.md#graphical-runbooks) di Automazione di Azure hanno un aspetto simile ai runbook di Orchestrator con attività che rappresentano i cmdlet di PowerShell, i runbook figlio e gli asset.
@@ -34,7 +34,7 @@ Di seguito è illustrato il processo di base per la conversione di runbook di Or
 ## <a name="service-management-automation"></a>Service Management Automation
 [Service Management Automation](https://technet.microsoft.com/library/dn469260.aspx) (SMA) archivia ed esegue i runbook nel data center locale come Orchestrator e usa gli stessi moduli di integrazione di Automazione di Azure. [Runbook Converter](#runbook-converter) converte i runbook di Orchestrator in runbook grafici, che non sono supportati in SMA.  È comunque possibile installare il [modulo delle attività standard](#standard-activities-module) e i [moduli di integrazione di System Center Orchestrator](#system-center-orchestrator-integration-modules) in SMA, ma in tal caso è necessario [riscrivere i runbook](https://technet.microsoft.com/library/dn469262.aspx) manualmente.
 
-## <a name="hybrid-runbook-worker"></a>ruolo di lavoro ibrido per runbook
+## <a name="hybrid-runbook-worker"></a>Ruolo di lavoro ibrido per runbook
 I runbook in Orchestrator sono archiviati in un server di database e vengono eseguiti in server runbook, tutti contenuti nel data center locale.  I runbook in Automazione di Azure sono archiviati nel cloud Azure e possono essere eseguiti nel data center locale tramite un computer [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md).  Questo è il modo in cui verranno eseguiti in genere i runbook convertiti da Orchestrator poiché sono designati per l'esecuzione in server locali.
 
 ## <a name="integration-pack-converter"></a>Integration Pack Converter
@@ -42,7 +42,7 @@ Integration Pack Converter converte gli Integration Pack creati mediante [Orches
 
 Quando si esegue Integration Pack Converter, viene visualizzata una procedura guidata che consente di selezionare un file Integration Pack (con estensione oip).  La procedura guidata elenca quindi le attività incluse nell'Integration Pack e consente di selezionare quella da sottoporre a migrazione.  Al termine della procedura guidata, viene creato un modulo di integrazione che include un cmdlet corrispondente per ogni attività dell'Integration Pack originale.
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parameters
 Tutte le proprietà di un'attività dell'Integration Pack vengono convertite in parametri del cmdlet corrispondente nel modulo di integrazione.  I cmdlet di Windows PowerShell dispongono di un set di [parametri comuni](https://technet.microsoft.com/library/hh847884.aspx) che possono essere usati con tutti i cmdlet.  Con il parametro -Verbose ad esempio un cmdlet restituisce informazioni dettagliate sul proprio funzionamento.  Nessun cmdlet può usare un parametro con lo stesso nome di un parametro comune.  Se un'attività dispone di una proprietà con lo stesso nome del parametro comune, la procedura guidata chiederà di specificare un altro nome per il parametro.
 
 ### <a name="monitor-activities"></a>Attività di monitoraggio
@@ -96,7 +96,7 @@ ConvertFrom-SCORunbook -RunbookPath "c:\runbooks\MyRunbooks.ois_export" -Module 
 ### <a name="log-files"></a>File di log
 Runbook Converter crea i file di log seguenti nello stesso percorso del runbook convertito.  Se i file esistono già, verranno sovrascritti con le informazioni dell'ultima conversione.
 
-| File | Sommario |
+| File | Contenuti |
 |:--- |:--- |
 | Runbook Converter - Progress.log |Passaggi dettagliati della conversione, comprese le informazioni per ogni attività convertita correttamente e gli avvisi per ogni attività non convertita. |
 | Runbook Converter - Summary.log |Riepilogo dell'ultima conversione, compresi eventuali avvisi e attività di follow-up da eseguire, ad esempio la creazione di una variabile necessaria per il runbook convertito. |

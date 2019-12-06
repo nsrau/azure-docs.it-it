@@ -4,17 +4,17 @@ description: Viene descritto come creare e recuperare messaggi di output e di er
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: df0842635d13180951f8d79a598fe0708ca64b8a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: af199439fedddaef5b1bd3b219a60db697fb25ab
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850529"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849650"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Output di runbook e messaggi in automazione di Azure
 
@@ -22,11 +22,11 @@ La maggior parte dei runbook di Automazione Azure ha una forma di output. L'outp
 
 La tabella seguente include una breve descrizione di ogni flusso e il relativo comportamento nel portale di Azure per un runbook pubblicato e per il [test di un runbook](automation-testing-runbook.md). Nelle sezioni successive vengono specificati ulteriori dettagli su ogni flusso.
 
-| Flusso | DESCRIZIONE | Pubblicato | Test |
+| Flusso | Description | Pubblicato | Test |
 |:--- |:--- |:--- |:--- |
 | Output |Gli oggetti devono essere utilizzati da altri runbook. |Scrivere la cronologia dei processi. |Visualizzata nel pannello Output del Test. |
 | Avviso |Messaggio di avviso destinato all'utente. |Scrivere la cronologia dei processi. |Visualizzata nel pannello Output del Test. |
-| Tipi di errore |Messaggio di errore previsto per l'utente. A differenza di un'eccezione, il runbook continua dopo un messaggio di errore per impostazione predefinita. |Scrivere la cronologia dei processi. |Visualizzata nel pannello Output del Test. |
+| Errore |Messaggio di errore previsto per l'utente. A differenza di un'eccezione, il runbook continua dopo un messaggio di errore per impostazione predefinita. |Scrivere la cronologia dei processi. |Visualizzata nel pannello Output del Test. |
 | Dettagliato |Messaggi che includono informazioni generali o di debug. |Scritti nella cronologia del processo solo se è attivata la registrazione dettagliata per il runbook. |Viene visualizzata nel pannello Output del Test solo se $VerbosePreference è impostata su Continue nel runbook. |
 | Avanzamento |Record generati automaticamente prima e dopo ogni attività del runbook. Il runbook non dovrebbe tentare di creare i propri record di stato di avanzamento, dato che sono destinati a un utente interattivo. |Scritti nella cronologia processo solo se lo stato di avanzamento della registrazione è attivata per il runbook. |Non sono visualizzati nel pannello Output del Test. |
 | Debug |Messaggi destinati a un utente interattivo. Non devono essere utilizzati nei runbook. |Non scritti nella cronologia del processo. |Non scritti nel pannello Output del Test. |
@@ -170,19 +170,19 @@ Windows PowerShell utilizza [le variabili di preferenza](https://technet.microso
 
 La tabella seguente elenca le variabili di preferenza che possono essere utilizzate nei runbook con i relativi valori validi e predefiniti. Questa tabella include solo i valori validi in un runbook. Gli altri valori sono validi per le variabili di preferenza, se utilizzate in Windows PowerShell al di fuori di automazione di Azure.
 
-| Variabile | Default Value | Valori validi |
+| Variabile | Default value | Valori validi |
 |:--- |:--- |:--- |
-| WarningPreference |Continue |Arresto<br>Continue<br>SilentlyContinue |
-| ErrorActionPreference |Continue |Arresto<br>Continue<br>SilentlyContinue |
-| VerbosePreference |SilentlyContinue |Arresto<br>Continue<br>SilentlyContinue |
+| WarningPreference |Continua |Interrompi<br>Continua<br>SilentlyContinue |
+| ErrorActionPreference |Continua |Interrompi<br>Continua<br>SilentlyContinue |
+| VerbosePreference |SilentlyContinue |Interrompi<br>Continua<br>SilentlyContinue |
 
 Nella tabella seguente è elencato il comportamento dei valori delle variabili di preferenza valide nei runbook.
 
-| Valore | Comportamento |
+| Value | Comportamento |
 |:--- |:--- |
-| Continue |Registra il messaggio e continua l'esecuzione del runbook. |
+| Continua |Registra il messaggio e continua l'esecuzione del runbook. |
 | SilentlyContinue |Continua l'esecuzione del runbook senza registrazione del messaggio. Questo valore fa in modo che il messaggio venga ignorato. |
-| Arresto |Registra il messaggio e sospende il runbook. |
+| Interrompi |Registra il messaggio e sospende il runbook. |
 
 ## <a name="runbook-output"></a>Recupero di messaggi e output di runbook
 
@@ -218,7 +218,7 @@ Get-AzAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
 
 ### <a name="graphical-authoring"></a>Creazione grafica
 
-Per i runbook grafici, è disponibile una registrazione aggiuntiva sotto forma di traccia a livello di attività. Sono disponibili due livelli di traccia: di base e dettagliata. Nella traccia di base sono indicate l'ora di inizio e di fine di ogni attività del runbook, oltre a informazioni relative a eventuali ulteriori tentativi di esecuzione dell'attività. Alcuni esempi sono il numero di tentativi e l'ora di inizio dell'attività. Nella traccia dettagliata sono indicate le informazioni della traccia di base e i dati di input e output di ogni attività. Attualmente i record di traccia vengono scritti usando il flusso dettagliato. Per questa ragione è necessario abilitare la registrazione dettagliata quando si abilita la traccia. Per i runbook grafici con la traccia attivata non è necessario registrare record di avanzamento. La traccia di base svolge la stessa funzione e offre maggiori informazioni.
+Per i runbook grafici, è disponibile una registrazione aggiuntiva sotto forma di traccia a livello di attività. Sono disponibili due livelli di traccia: base e dettagliato. Nella traccia di base sono indicate l'ora di inizio e di fine di ogni attività del runbook, oltre a informazioni relative a eventuali ulteriori tentativi di esecuzione dell'attività. Alcuni esempi sono il numero di tentativi e l'ora di inizio dell'attività. Nella traccia dettagliata sono indicate le informazioni della traccia di base e i dati di input e output di ogni attività. Attualmente i record di traccia vengono scritti usando il flusso dettagliato. Per questa ragione è necessario abilitare la registrazione dettagliata quando si abilita la traccia. Per i runbook grafici con la traccia attivata non è necessario registrare record di avanzamento. La traccia di base svolge la stessa funzione e offre maggiori informazioni.
 
 ![Visualizzazione dei flussi dei processi di creazione grafica](media/automation-runbook-output-and-messages/job-streams-view-blade.png)
 

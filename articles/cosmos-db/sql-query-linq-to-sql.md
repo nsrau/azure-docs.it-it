@@ -1,17 +1,17 @@
 ---
 title: LINQ to SQL traduzione in Azure Cosmos DB
-description: Mapping di query LINQ a Azure Cosmos DB query SQL.
+description: Informazioni sugli operatori LINQ supportati e sul modo in cui le query LINQ vengono mappate alle query SQL in Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: ad6dcf7307955300a781a7a649b6ac76b3c69589
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: d8dd6392cf22852a10c1dc2600edcbc647f3c510
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003554"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871160"
 ---
 # <a name="linq-to-sql-translation"></a>Traduzione LINQ in SQL
 
@@ -23,7 +23,7 @@ Il provider di query supporta le seguenti espressioni scalari:
 
 - Valori costanti, inclusi i valori costanti dei tipi di dati primitivi al momento della valutazione della query.
   
-- Espressioni di indice di proprietà/matrici che fanno riferimento alla proprietà di un oggetto o di un elemento di matrice. Esempio:
+- Espressioni di indice di proprietà/matrici che fanno riferimento alla proprietà di un oggetto o di un elemento di matrice. ad esempio:
   
   ```
     family.Id;
@@ -58,21 +58,21 @@ Il provider di query supporta le seguenti espressioni scalari:
 
 Il provider LINQ incluso in SQL .NET SDK supporta gli operatori seguenti:
 
-- **Select**: Le proiezioni vengono convertite in SQL SELECT, inclusa la costruzione di oggetti.
-- **Where**: I filtri vengono convertiti in SQL dove e supportano `&&`la `||`conversione tra `!` , e per gli operatori SQL
+- **Select**: le proiezioni vengono convertite in SQL SELECT, inclusa la costruzione di oggetti.
+- **Dove**: i filtri vengono convertiti in SQL dove e supportano la conversione tra `&&`, `||`e `!` agli operatori SQL
 - **SelectMany**: consente la rimozione di matrici nella clausola SQL JOIN. Usare per concatenare o annidare espressioni per filtrare gli elementi della matrice.
-- **OrderBy** e **OrderByDescending**: Tradurre in ORDER BY con ASC o DESC.
+- **OrderBy** e **OrderByDescending**: translate in order by con ASC o DESC.
 - Operatori di aggregazione **Count**, **Sum**, **Min**, **Max** e **Average** e relativi equivalenti asincroni **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync** e **AverageAsync**.
-- **CompareTo**: trasla in confronti di intervallo. Utilizzato comunemente per le stringhe, poiché non sono confrontabili in .NET.
-- **Take**: Viene convertito in SQL TOP per limitare i risultati di una query.
-- **Funzioni matematiche**: Supporta la conversione da `Abs`.NET `Acos`, `Asin`, `Atan` ,,`Cos` ,,`Exp`, ,`Log`, ,,`Pow` `Floor` `Ceiling` `Log10` `Round`, `Sign`, ,`Sin` ,`Tan`enelle funzioni predefinite di SQLequivalenti.`Truncate` `Sqrt`
-- **Funzioni stringa**: Supporta la conversione da `Concat`.NET `Contains`, `Count`, `EndsWith` ,,`Replace` ,,`Reverse`, ,`SubString`, ,,`ToUpper` `StartsWith``IndexOf` `ToLower` `TrimEnd` e`TrimStart` alle funzioni predefinite di SQL equivalenti.
-- **Funzioni di matrice**: Supporta la conversione da `Concat`.NET `Contains`, e `Count` alle funzioni predefinite di SQL equivalenti.
-- **Funzioni di estensione geospaziale**: Supporta la conversione da metodi `Distance`Stub `IsValid` `IsValidDetailed`,, e `Within` alle funzioni predefinite di SQL equivalenti.
-- **Funzione di estensione della funzione definita dall'utente**: Supporta la conversione dal metodo `UserDefinedFunctionProvider.Invoke` Stub alla funzione definita dall'utente corrispondente.
-- **Miscellaneous**: Supporta la conversione `Coalesce` di operatori condizionali e. Può tradurre `Contains` in stringa Contains, ARRAY_CONTAINS o SQL in, a seconda del contesto.
+- **CompareTo**: converte in confronti di intervallo. Utilizzato comunemente per le stringhe, poiché non sono confrontabili in .NET.
+- **Take**: converte in SQL top per limitare i risultati di una query.
+- **Funzioni matematiche**: supporta la conversione da .NET `Abs`, `Acos`, `Asin`, `Atan`, `Ceiling`, `Cos`, `Exp`, `Floor`, `Log`, `Log10`, `Pow`, `Round`, `Sign`, `Sin`, `Sqrt`, `Tan`e `Truncate` alle funzioni predefinite SQL equivalenti.
+- **String Functions**: supporta la conversione da .NET `Concat`, `Contains`, `Count`, `EndsWith`,`IndexOf`, `Replace`, `Reverse`, `StartsWith`, `SubString`, `ToLower`, `ToUpper`, `TrimEnd`e `TrimStart` alle funzioni predefinite di SQL equivalenti.
+- **Funzioni di matrice**: supporta la conversione da .NET `Concat`, `Contains`e `Count` alle funzioni predefinite di SQL equivalenti.
+- **Funzioni di estensione geospaziale**: supporta la conversione da metodi stub `Distance`, `IsValid`, `IsValidDetailed`e `Within` alle funzioni predefinite di SQL equivalenti.
+- **Funzione di estensione della funzione definita dall'utente**: supporta la conversione dal metodo stub `UserDefinedFunctionProvider.Invoke` alla funzione corrispondente definita dall'utente.
+- **Varie**: supporta la conversione di operatori `Coalesce` e condizionali. Può tradurre `Contains` IN una stringa contenente, ARRAY_CONTAINS o SQL IN, a seconda del contesto.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
 
 Negli esempi seguenti viene illustrato il modo in cui alcuni degli operatori di query LINQ standard vengono convertiti in Cosmos DB query.
 
@@ -192,7 +192,7 @@ La sintassi è `input.Where(x => f(x))`, dove `f` è un'espressione scalare che 
 
 ### <a name="concatenation"></a>Concatenazione
 
-La sintassi è `input(.|.SelectMany())(.Select()|.Where())*`. Una query concatenata può iniziare con una `SelectMany` query facoltativa, seguita `Select` da `Where` più operatori OR.
+La sintassi è `input(.|.SelectMany())(.Select()|.Where())*`. Una query concatenata può iniziare con una query `SelectMany` facoltativa, seguita da più operatori `Select` o `Where`.
 
 **Concatenazione, esempio 1:**
 
@@ -264,7 +264,7 @@ La sintassi è `input(.|.SelectMany())(.Select()|.Where())*`. Una query concaten
 
 ### <a name="nesting"></a>Annidamento
 
-La sintassi è `input.SelectMany(x=>x.Q())` dove `Q` è un `Select`operatore `SelectMany`, o `Where` .
+La sintassi è `input.SelectMany(x=>x.Q())` in cui `Q` è un operatore `Select`, `SelectMany`o `Where`.
 
 Una query nidificata applica la query interna a ogni elemento del contenitore esterno. Una funzionalità importante è che la query interna può fare riferimento ai campi degli elementi nel contenitore esterno, ad esempio un self-join.
 

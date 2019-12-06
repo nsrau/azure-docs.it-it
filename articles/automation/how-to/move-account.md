@@ -4,17 +4,17 @@ description: Questo articolo descrive come spostare l'account di automazione in 
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8187e4c6f2c7dc721c178bad50b6c3ada2a65367
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 2d1c747a52a1e8dedd0b5ba411b673eee463a2b6
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717235"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849582"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Spostare l'account di automazione di Azure in un'altra sottoscrizione
 
@@ -88,13 +88,13 @@ Remove-AzureRmActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_V
 
 ## <a name="unlink-your-workspace"></a>Scollega l'area di lavoro
 
-Nella portale di Azure selezionare > **risorse** > correlate all' **account di automazione** **area di lavoro collegata**. Selezionare **Scollega area di lavoro** per scollegare l'area di lavoro dall'account di automazione.
+Nella portale di Azure selezionare account di **automazione** > **risorse correlate** > **area di lavoro collegata**. Selezionare **Scollega area di lavoro** per scollegare l'area di lavoro dall'account di automazione.
 
 ![Scollegare un'area di lavoro da un account di automazione](../media/move-account/unlink-workspace.png)
 
 ## <a name="move-your-automation-account"></a>Spostare l'account di automazione
 
-Dopo aver rimosso gli elementi precedenti, è possibile continuare a rimuovere l'account di automazione e il relativo manuali operativi. Nella portale di Azure passare al gruppo di risorse dell'account di automazione. Selezionare **Sposta** > **spostamento in un'altra sottoscrizione**.
+Dopo aver rimosso gli elementi precedenti, è possibile continuare a rimuovere l'account di automazione e il relativo manuali operativi. Nella portale di Azure passare al gruppo di risorse dell'account di automazione. Selezionare **sposta** > **Sposta in un'altra sottoscrizione**.
 
 ![Pagina del gruppo di risorse, passare a un'altra sottoscrizione](../media/move-account/move-resources.png)
 
@@ -113,7 +113,7 @@ Passare all'account di automazione nella nuova sottoscrizione e selezionare **ac
 Selezionare ogni account RunAs. Nella pagina **Proprietà** selezionare **Elimina** per eliminare l'account RunAs.
 
 > [!NOTE]
-> Se non si dispone delle autorizzazioni per creare o visualizzare gli account RunAs, verrà visualizzato il messaggio seguente: `You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.`Per informazioni sulle autorizzazioni necessarie per configurare un account RunAs, vedere [autorizzazioni necessarie per configurare gli account RunAs](../manage-runas-account.md#permissions).
+> Se non si dispone delle autorizzazioni per creare o visualizzare gli account RunAs, verrà visualizzato il messaggio seguente: `You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.` per informazioni sulle autorizzazioni necessarie per configurare un account RunAs, vedere [autorizzazioni necessarie per configurare gli account RunAs](../manage-runas-account.md#permissions).
 
 Una volta eliminati gli account RunAs, selezionare **Crea** in **account RunAs di Azure**. Nella pagina **Aggiungi account RunAs di Azure** selezionare **Crea** per creare l'account RunAs e l'entità servizio. Ripetere i passaggi precedenti con l' **account RunAs classico di Azure**.
 
@@ -125,19 +125,19 @@ Dopo aver ricreato gli account RunAs, verranno riabilitate le soluzioni rimosse 
 
 I computer caricati con le soluzioni saranno visibili quando si è connessi all'area di lavoro Log Analytics esistente.
 
-Per attivare la soluzione di **avvio/arresto di macchine virtuali** durante gli orari di indisponibilità, è necessario ridistribuire la soluzione. In **risorse correlate**selezionare **Avvia/arresta macchine virtuali** > **altre informazioni su e abilitare la creazione della soluzione** > per avviare la distribuzione.
+Per attivare la soluzione di **avvio/arresto di macchine virtuali** durante gli orari di indisponibilità, è necessario ridistribuire la soluzione. In **risorse correlate**selezionare **Avvia/arresta macchine virtuali** > ulteriori informazioni **su e abilitare la soluzione** > **creare** per avviare la distribuzione.
 
 Nella pagina **Aggiungi soluzione** scegliere l'area di lavoro log Analytics e l'account di automazione.
 
 ![Menu Aggiungi soluzione](../media/move-account/add-solution-vm.png)
 
-Per istruzioni dettagliate sulla configurazione della soluzione, vedere [avviare/arrestare VM durante gli orari di indisponibilità in automazione di Azure](../automation-solution-vm-management.md).
+Per istruzioni dettagliate sulla configurazione della soluzione, vedere [avvio/arresto di macchine virtuali durante gli orari di minore attività soluzione in automazione di Azure](../automation-solution-vm-management.md).
 
 ## <a name="post-move-verification"></a>Verifica post-spostamento
 
 Al termine dello spostamento, controllare l'elenco seguente di attività da verificare:
 
-|Capacità|Test|Collegamento per la risoluzione dei problemi|
+|Funzionalità|Test|Collegamento per la risoluzione dei problemi|
 |---|---|---|
 |Runbook|Un Runbook può essere eseguito correttamente e connettersi alle risorse di Azure.|[Risolvere i problemi dei runbook](../troubleshoot/runbooks.md)
 |Controllo del codice sorgente|È possibile eseguire una sincronizzazione manuale sul repository del controllo del codice sorgente.|[Integrazione del controllo del codice sorgente](../source-control-integration.md)|

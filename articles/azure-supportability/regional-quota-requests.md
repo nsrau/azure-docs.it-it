@@ -7,16 +7,16 @@ ms.date: 06/07/2019
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 6c2d7dc64bca00ce664dc470e7c4405d69b49779
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 132cf6ccfec5af9951f5dc6d6a3c6d3c81363d81
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74531527"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850007"
 ---
 # <a name="standard-quota-regional-vcpu-limit-increase"></a>Quota standard: aumento del limite di vCPU a livello di area 
 
-Gestione risorse supporta due tipi di quote vCPU per le macchine virtuali. Le **macchine virtuali con pagamento in base al** consumo e le **istanze di VM riservate** usano la quota standard. Le **macchine virtuali con priorità bassa** usano una quota con priorità bassa. 
+Gestione risorse supporta due tipi di quote vCPU per le macchine virtuali. Le **macchine virtuali con pagamento in base al** consumo e le **istanze di VM riservate** usano la quota standard. Le **VM spot** usano la quota spot. 
 
 La quota vCPU standard per le istanze con pagamento in base al consumo e VM riservate viene applicata a due livelli per ogni sottoscrizione in ogni area.
  
@@ -26,7 +26,7 @@ Quando viene creata una nuova sottoscrizione, la vCPU locale totale predefinita 
 
 Per altre informazioni sulle quote vCPU standard, vedere la pagina delle [quote vCPU della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) e la pagina relativa ai [limiti di sottoscrizione e servizio di Azure](https://aka.ms/quotalimits) .
 
-Altre informazioni su come **aumentare i limiti di vCPU di VM con priorità bassa** [qui](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
+Altre informazioni su come **aumentare i limiti di vCPU della VM spot** [qui](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
 
 È possibile richiedere un aumento del **limite di vCPU regionale totale delle VM standard** tramite il pannello **Guida e supporto** oppure il pannello **utilizzi e quota** nel portale.
 

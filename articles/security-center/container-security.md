@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 31e45906dfeafcd2af1651347dde9dc6d3c6fb7c
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 9cb4f6ec7331a2d0eb03beb2680c882484b69541
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769218"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74868491"
 ---
 # <a name="container-security-in-security-center"></a>Sicurezza del contenitore nel centro sicurezza
 
@@ -59,8 +59,7 @@ Per informazioni dettagliate sulle raccomandazioni del Centro sicurezza, vedere 
 
 Il Centro sicurezza fornisce il rilevamento delle minacce in tempo reale per gli ambienti in contenitori e genera avvisi per le attività sospette. È possibile usare queste informazioni per risolvere rapidamente i problemi di sicurezza e migliorare la sicurezza dei contenitori.
 
-Le minacce vengono rilevate a livello di host e del cluster AKS. Per informazioni complete, vedere [servizio contenitore di Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-).
-
+Le minacce vengono rilevate a livello di host e del cluster AKS. Per informazioni dettagliate, vedere [rilevamento delle minacce per i contenitori di Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-).
 
 ## <a name="to-view-the-security-posture-of-your-container-related-resources"></a>Per visualizzare il comportamento di sicurezza delle risorse correlate al contenitore
 1.  Aprire la pagina di **calcolo delle app &** del Centro sicurezza.
