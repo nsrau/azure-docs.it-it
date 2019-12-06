@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3f2a60367a8b76464611878e850fff0c4ba8803
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: ab7c38d23cb1f05e07488810640aeb791ded3d4a
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381393"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847389"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>Risoluzione dei problemi relativi alla registrazione di informazioni di sicurezza combinate (anteprima)
 
@@ -35,16 +35,16 @@ Gli eventi registrati per la registrazione combinata si trovano nella categoria 
 
 La tabella seguente elenca tutti gli eventi di controllo generati dalla registrazione combinata:
 
-| Attività | Stato | Motivo | DESCRIZIONE |
+| Attività | Status | Motivo | Description |
 | --- | --- | --- | --- |
-| L'utente ha registrato tutte le informazioni di sicurezza necessarie | Operazione completata | L'utente ha registrato tutte le informazioni di sicurezza necessarie. | Questo evento si verifica quando un utente ha completato correttamente la registrazione.|
+| L'utente ha registrato tutte le informazioni di sicurezza necessarie | Success | L'utente ha registrato tutte le informazioni di sicurezza necessarie. | Questo evento si verifica quando un utente ha completato correttamente la registrazione.|
 | L'utente ha registrato tutte le informazioni di sicurezza necessarie | Esito negativo | Registrazione delle informazioni di sicurezza annullata dall'utente. | Questo evento si verifica quando un utente annulla la registrazione dalla modalità di interruzione.|
-| Info di sicurezza registrate dall'utente | Operazione completata | *Metodo*registrato dall'utente. | Questo evento si verifica quando un utente registra un singolo metodo. Il *Metodo* può essere l'app di autenticazione, il telefono, l'indirizzo di posta elettronica, le domande di sicurezza, la password dell'app, il telefono alternativo e così via.| 
-| Informazioni di sicurezza rivedute dall'utente | Operazione completata | L'utente ha rivisto le informazioni di sicurezza. | Questo evento si verifica quando un utente seleziona l' **aspetto corretto** nella pagina di verifica delle informazioni di sicurezza.|
+| Info di sicurezza registrate dall'utente | Success | *Metodo*registrato dall'utente. | Questo evento si verifica quando un utente registra un singolo metodo. Il *Metodo* può essere l'app di autenticazione, il telefono, l'indirizzo di posta elettronica, le domande di sicurezza, la password dell'app, il telefono alternativo e così via.| 
+| Informazioni di sicurezza rivedute dall'utente | Success | L'utente ha rivisto le informazioni di sicurezza. | Questo evento si verifica quando un utente seleziona l' **aspetto corretto** nella pagina di verifica delle informazioni di sicurezza.|
 | Informazioni di sicurezza rivedute dall'utente | Esito negativo | L'utente non è riuscito a esaminare le informazioni di sicurezza. | Questo evento si verifica quando un utente seleziona l' **aspetto corretto** nella pagina di verifica delle informazioni di sicurezza, ma si verifica un errore nel back-end.|
-| Informazioni di sicurezza eliminate dall'utente | Operazione completata | *Metodo*eliminato dall'utente. | Questo evento si verifica quando un utente elimina un singolo metodo. Il *Metodo* può essere l'app di autenticazione, il telefono, l'indirizzo di posta elettronica, le domande di sicurezza, la password dell'app, il telefono alternativo e così via.|
+| Informazioni di sicurezza eliminate dall'utente | Success | *Metodo*eliminato dall'utente. | Questo evento si verifica quando un utente elimina un singolo metodo. Il *Metodo* può essere l'app di autenticazione, il telefono, l'indirizzo di posta elettronica, le domande di sicurezza, la password dell'app, il telefono alternativo e così via.|
 | Informazioni di sicurezza eliminate dall'utente | Esito negativo | L'utente non è riuscito a eliminare il *Metodo*. | Questo evento si verifica quando un utente tenta di eliminare un metodo, ma il tentativo non riesce per qualche motivo. Il *Metodo* può essere l'app di autenticazione, il telefono, l'indirizzo di posta elettronica, le domande di sicurezza, la password dell'app, il telefono alternativo e così via.|
-| Informazioni di sicurezza predefinite modificate dall'utente | Operazione completata | L'utente ha modificato le informazioni di sicurezza predefinite per il *Metodo*. | Questo evento si verifica quando un utente modifica il metodo predefinito. Il *Metodo* può essere una notifica dell'app Authenticator, un codice dell'app o del token di autenticazione, chiamare + x Xxxxxxxxxx, scrivere un codice per + x xxxxxxxxx e così via.|
+| Informazioni di sicurezza predefinite modificate dall'utente | Success | L'utente ha modificato le informazioni di sicurezza predefinite per il *Metodo*. | Questo evento si verifica quando un utente modifica il metodo predefinito. Il *Metodo* può essere una notifica dell'app Authenticator, un codice dell'app o del token di autenticazione, chiamare + x Xxxxxxxxxx, scrivere un codice per + x xxxxxxxxx e così via.|
 | Informazioni di sicurezza predefinite modificate dall'utente | Esito negativo | L'utente non è riuscito a modificare le informazioni di sicurezza predefinite per il *Metodo*. | Questo evento si verifica quando un utente tenta di modificare il metodo predefinito, ma il tentativo non riesce per qualche motivo. Il *Metodo* può essere una notifica dell'app Authenticator, un codice dell'app o del token di autenticazione, chiamare + x Xxxxxxxxxx, scrivere un codice per + x xxxxxxxxx e così via.|
 
 ## <a name="troubleshooting-interrupt-mode"></a>Risoluzione dei problemi relativi alla modalità di interrupt
@@ -73,7 +73,7 @@ Se come amministratore si vuole reimpostare le impostazioni Multi-Factor Authent
 
 I passaggi seguenti consentono di eseguire il rollback di un utente o di un gruppo di utenti.
 
-#### <a name="prerequisites"></a>prerequisiti
+#### <a name="prerequisites"></a>Prerequisiti
 
 1. Installare i moduli di Azure AD PowerShell appropriati. In una finestra di PowerShell eseguire questi comandi per installare i moduli:
 
@@ -144,7 +144,7 @@ I passaggi seguenti consentono di eseguire il rollback di un utente o di un grup
    }
    ```
 
-#### <a name="rollback"></a>Rollback
+#### <a name="rollback"></a>Ripristino dello stato precedente
 
 In una finestra di PowerShell eseguire il comando seguente, specificando lo script e i percorsi dei file utente. Immettere le credenziali di amministratore globale, quando richieste. Lo script genererà il risultato dell'operazione di aggiornamento di ogni utente.
 

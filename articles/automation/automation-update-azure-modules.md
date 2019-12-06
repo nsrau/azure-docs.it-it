@@ -4,17 +4,17 @@ description: L'articolo descrive in che modo è ora possibile aggiornare i modul
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 06/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 23475fb77210eeea0568bb996529c81458db9c6c
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 76514e620f044b78b992db2b88733e69dbabf135
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382769"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850636"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Come aggiornare i moduli di Azure PowerShell in Automazione di Azure
 
@@ -38,11 +38,11 @@ Se si sviluppano gli script in locale, è consigliabile avere in locale le stess
 
 Di seguito sono riportate alcune considerazioni di cui tenere conto quando si usa questo processo per aggiornare i moduli di Azure:
 
-* Questo runbook supporta l'aggiornamento dei moduli **Azure** e **AzureRm** per impostazione predefinita. Questo runbook supporta anche l'aggiornamento di **AZ** modules. Per altre informazioni sull'aggiornamento `Az` dei moduli con questo Runbook, vedere il file Leggimi relativo all'aggiornamento dei moduli di [Azure Runbook](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md) . Quando si usano i `Az` moduli nell'account di automazione è necessario prendere in considerazione altri fattori importanti, per altre informazioni, vedere uso di [AZ Modules nell'account di automazione](az-modules.md).
+* Questo runbook supporta l'aggiornamento dei moduli **Azure** e **AzureRm** per impostazione predefinita. Questo runbook supporta anche l'aggiornamento di **AZ** modules. Per altre informazioni sull'aggiornamento dei moduli di `Az` con questo Runbook, vedere il [file Leggimi relativo all'aggiornamento dei moduli di Azure Runbook](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md) . Quando si usano i moduli `Az` nell'account di automazione, è necessario prendere in considerazione altri fattori importanti, per altre informazioni, vedere uso di [AZ Modules nell'account di automazione](az-modules.md).
 
 * Prima di avviare il runbook, assicurarsi che l'Account di automazione disponga di una [credenziale dell'account RunAs di Azure](manage-runas-account.md).
 
-* È possibile usare questo codice come uno script di PowerShell normale invece che con Runbook: basta accedere ad Azure usando prima il comando [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) , quindi passare `-Login $false` allo script.
+* È possibile usare questo codice come uno script di PowerShell normale invece che con un Runbook: basta accedere ad Azure usando prima il comando [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) , quindi passare `-Login $false` allo script.
 
 * Per usare questo runbook nel cloud sovrano, usare il parametro `AzureRmEnvironment` per inviare l'ambiente corretto al runbook.  I valori accettabili sono **AzureCloud**, **AzureChinaCloud**, **AzureGermanCloud** e **AzureUSGovernment**. Questi valori possono essere recuperati tramite `Get-AzureRmEnvironment | select Name`. Se non si passa un valore a questo parametro, l'impostazione predefinita del runbook sarà il cloud pubblico di Azure **AzureCloud**.
 

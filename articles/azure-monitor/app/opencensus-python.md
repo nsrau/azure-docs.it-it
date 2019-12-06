@@ -8,18 +8,18 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: ca34a92dc69cb500efb55f575420d47607cd1a46
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 2114e60b5ed684063ed100279ea19f561bd335ea
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132218"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849786"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Configurare monitoraggio di Azure per l'applicazione Python (anteprima)
 
 Monitoraggio di Azure supporta la traccia distribuita, la raccolta delle metriche e la registrazione delle applicazioni Python tramite l'integrazione con [OpenCensus](https://opencensus.io). Questo articolo illustra il processo di configurazione di OpenCensus per Python e l'invio dei dati di monitoraggio a monitoraggio di Azure.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 - Installazione di Python. Questo articolo usa [Python 3.7.0](https://www.python.org/downloads/), anche se le versioni precedenti potrebbero funzionare con modifiche minime.
@@ -38,13 +38,13 @@ Prima di tutto è necessario creare una risorsa Application Insights in monitora
 
 1. Viene visualizzata una finestra di configurazione. Usare la tabella seguente per compilare i campi di input.
 
-   | Impostazione        | Valore           | DESCRIZIONE  |
+   | Impostazione        | Value           | Description  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valore univoco globale | Nome che identifica l'app che si sta monitorando |
    | **Gruppo di risorse**     | myResourceGroup      | Nome del nuovo gruppo di risorse per ospitare i dati Application Insights |
    | **Località** | Stati Uniti Orientali | Una località nelle vicinanze o vicino alla posizione in cui è ospitata l'app |
 
-1. Selezionare **Create**.
+1. Selezionare **Create** (Crea).
 
 ## <a name="instrument-with-opencensus-python-sdk-for-azure-monitor"></a>Instrumentare con OpenCensus Python SDK per monitoraggio di Azure
 
@@ -131,7 +131,7 @@ L'SDK usa tre utilità di esportazione di monitoraggio di Azure per inviare dive
 
 6. Per informazioni dettagliate sulla correlazione dei dati di telemetria nei dati di traccia, esaminare la [correlazione di telemetria](https://docs.microsoft.com/azure/azure-monitor/app/correlation#telemetry-correlation-in-opencensus-python)di OpenCensus.
 
-### <a name="metrics"></a>Metrica
+### <a name="metrics"></a>Metriche
 
 1. Prima di tutto, è necessario generare alcuni dati sulle metriche locali. Verrà creata una metrica semplice per tenere traccia del numero di volte in cui l'utente preme INVIO.
 
@@ -268,7 +268,7 @@ L'SDK usa tre utilità di esportazione di monitoraggio di Azure per inviare dive
     90
     ```
 
-3. Sebbene l'immissione di valori sia utile a scopo dimostrativo, in definitiva si vuole creare i dati delle metriche in monitoraggio di Azure. Modificare il codice del passaggio precedente in base all'esempio di codice seguente:
+3. Sebbene l'immissione di valori sia utile a scopo dimostrativo, in definitiva si vuole creare i dati di log in monitoraggio di Azure. Modificare il codice del passaggio precedente in base all'esempio di codice seguente:
 
     ```python
     import logging
@@ -295,7 +295,53 @@ L'SDK usa tre utilità di esportazione di monitoraggio di Azure per inviare dive
 
 4. L'utilità di esportazione invierà i dati di log a monitoraggio di Azure. È possibile trovare i dati in `traces`.
 
-5. Per informazioni dettagliate su come arricchire i log con i dati del contesto di traccia, vedere OpenCensus Python [logs Integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#logs-correlation).
+5. Per formattare i messaggi di log, è possibile usare `formatters` nell' [API di registrazione](https://docs.python.org/3/library/logging.html#formatter-objects)Python incorporata.
+
+    ```python
+    import logging
+    from opencensus.ext.azure.log_exporter import AzureLogHandler
+    
+    logger = logging.getLogger(__name__)
+    
+    format_str = '%(asctime)s - %(levelname)-8s - %(message)s'
+    date_format = '%Y-%m-%d %H:%M:%S'
+    formatter = logging.Formatter(format_str, date_format)
+    # TODO: replace the all-zero GUID with your instrumentation key.
+    handler = AzureLogHandler(
+        connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
+    
+    def valuePrompt():
+        line = input("Enter a value: ")
+        logger.warning(line)
+    
+    def main():
+        while True:
+            valuePrompt()
+    
+    if __name__ == "__main__":
+        main()
+    ```
+
+6. È anche possibile aggiungere dimensioni personalizzate ai log. Verranno visualizzate come coppie chiave-valore in `customDimensions` di monitoraggio di Azure.
+> [!NOTE]
+> Per il corretto funzionamento di questa funzionalità, è necessario passare un dizionario come argomento ai log. eventuali altre strutture di dati verranno ignorate. Per mantenere la formattazione della stringa, archiviarli in un dizionario e passarli come argomenti.
+
+    ```python
+    import logging
+    
+    from opencensus.ext.azure.log_exporter import AzureLogHandler
+    
+    logger = logging.getLogger(__name__)
+    # TODO: replace the all-zero GUID with your instrumentation key.
+    logger.addHandler(AzureLogHandler(
+        connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
+    )
+    logger.warning('action', {'key-1': 'value-1', 'key-2': 'value2'})
+    ```
+
+7. Per informazioni dettagliate su come arricchire i log con i dati del contesto di traccia, vedere OpenCensus Python [logs Integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#logs-correlation).
 
 ## <a name="view-your-data-with-queries"></a>Visualizzare i dati con le query
 
@@ -325,7 +371,7 @@ Per informazioni più dettagliate su come usare le query e i log, vedere [log in
 * [Mappa delle applicazioni](./../../azure-monitor/app/app-map.md)
 * [Monitoraggio delle prestazioni end-to-end](./../../azure-monitor/learn/tutorial-performance.md)
 
-### <a name="alerts"></a>Alerts
+### <a name="alerts"></a>Avvisi
 
 * [Test di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md): creare test per verificare che il sito sia visibile sul Web.
 * [Diagnostica intelligente](../../azure-monitor/app/proactive-diagnostics.md): questi test vengono eseguiti automaticamente e non è quindi necessario effettuare alcuna operazione per configurarli. Se l'app ha una frequenza insolita di richieste non riuscite, verrà comunicato automaticamente.

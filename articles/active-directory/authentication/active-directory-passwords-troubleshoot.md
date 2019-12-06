@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b72f0675569ea6f683e8e1f8d2e4bc468f82c71f
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: a22c0cc922e021edc37dfbb2d89fdd20c77b2c87
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382043"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848766"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Risolvere i problemi di reimpostazione della password self-service
 
@@ -25,7 +25,7 @@ In caso di problemi di reimpostazione della password self-service in Azure Activ
 
 ## <a name="troubleshoot-self-service-password-reset-errors-that-a-user-might-see"></a>Risolvere i problemi di reimpostazione della password self-service visualizzati dall'utente
 
-| Tipi di errore | Dettagli | Dettagli tecnici |
+| Errore | Dettagli | Dettagli tecnici |
 | --- | --- | --- |
 | TenantSSPRFlagDisabled = 9 | Non è possibile reimpostare la password in questo momento perché l'amministratore ha disabilitato la reimpostazione delle password per l'organizzazione. Non c'è alcuna azione aggiuntiva da eseguire per risolvere questa situazione. Contattare l'amministratore e chiedere di abilitare questa funzionalità. Per altre informazioni, vedere [Password di Azure AD dimenticata](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password#common-problems-and-their-solutions). | SSPR_0009: è stato rilevato che la reimpostazione della password non è stata abilitata dall'amministratore. Contattare l'amministratore e richiedere l'abilitazione della reimpostazione delle password per l'organizzazione. |
 | WritebackNotEnabled = 10 |Non è possibile reimpostare la password in questo momento perché l'amministratore non ha abilitato un servizio necessario per l'organizzazione. Non c'è alcuna azione aggiuntiva da eseguire per risolvere questa situazione. Contattare l'amministratore e chiedere di controllare la configurazione dell'organizzazione. Per altre informazioni su questo servizio necessario, vedere [Configurare il writeback delle password](howto-sspr-writeback.md). | SSPR_0010: è stato rilevato che il writeback delle password non è abilitato. Contattare l'amministratore e richiedere l'abilitazione del writeback delle password. |
@@ -38,7 +38,7 @@ In caso di problemi di reimpostazione della password self-service in Azure Activ
 
 ## <a name="troubleshoot-the-password-reset-configuration-in-the-azure-portal"></a>Risolvere problemi relativi alla configurazione della funzione di reimpostazione della password nel portale di Azure
 
-| Tipi di errore | Soluzione |
+| Errore | Soluzione |
 | --- | --- |
 | Non viene visualizzata la sezione **Reimpostazione password** in Azure AD nel portale di Azure. | Questo problema può verificarsi se non si dispone di una licenza di Azure AD assegnata all'amministratore che esegue l'operazione. <br> <br> Assegnare una licenza all'account amministratore in questione. È possibile seguire i passaggi illustrati nell'articolo [Assegnare e verificare le licenze e risolvere i relativi problemi](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).|
 | Non è possibile visualizzare un'opzione di configurazione specifica. | Molti elementi dell'interfaccia utente rimangono nascosti finché non sono necessari. Provare ad abilitare tutte le opzioni che si desidera visualizzare. |
@@ -46,14 +46,14 @@ In caso di problemi di reimpostazione della password self-service in Azure Activ
 
 ## <a name="troubleshoot-password-reset-reporting"></a>Risolvere i problemi di segnalazione relativi alla reimpostazione della password
 
-| Tipi di errore | Soluzione |
+| Errore | Soluzione |
 | --- | --- |
 | Nella categoria degli eventi di controllo **Self-Service Password Management** (Gestione delle password self-service) non viene visualizzato alcun tipo di attività di gestione della password. | Questo problema può verificarsi se non si dispone di una licenza di Azure AD assegnata all'amministratore che esegue l'operazione. <br> <br> Per risolvere il problema, assegnare una licenza all'account amministratore in questione. Seguire i passaggi illustrati nell'articolo [Assegnare e verificare le licenze e risolvere i relativi problemi](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses). |
 | Le registrazioni utente vengono visualizzate più volte. | Attualmente, quando un utente effettua la registrazione, ogni singolo dato inserito viene registrato come un evento distinto. <br> <br> Per aggregare i dati e avere più flessibilità nelle modalità di visualizzazione, è possibile scaricare il report e aprire i dati come tabella pivot in Excel.
 
 ## <a name="troubleshoot-the-password-reset-registration-portal"></a>Risolvere i problemi relativi al portale di registrazione per la reimpostazione della password
 
-| Tipi di errore | Soluzione |
+| Errore | Soluzione |
 | --- | --- |
 | La directory non è abilitata per la reimpostazione della password. **L'amministratore non ha abilitato l'utente all'uso di questa funzionalità.** | Impostare il flag **Reimpostazione password self-service abilitata** su **Selezionato** o **Tutto** e quindi fare clic su **Salva**. |
 | L'utente non dispone di una licenza Azure AD assegnata. **L'amministratore non ha abilitato l'utente all'uso di questa funzionalità.** | Questo problema può verificarsi se non si dispone di una licenza di Azure AD assegnata all'amministratore che esegue l'operazione. <br> <br> Per risolvere il problema, assegnare una licenza all'account amministratore in questione. Seguire i passaggi illustrati nell'articolo [Assegnare e verificare le licenze e risolvere i relativi problemi](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).|
@@ -61,7 +61,7 @@ In caso di problemi di reimpostazione della password self-service in Azure Activ
 
 ## <a name="troubleshoot-the-password-reset-portal"></a>Risolvere i problemi relativi al portale di reimpostazione della password
 
-| Tipi di errore | Soluzione |
+| Errore | Soluzione |
 | --- | --- |
 | La directory non è abilitata per la reimpostazione della password. | Impostare il flag **Reimpostazione password self-service abilitata** su **Selezionato** o **Tutto** e quindi fare clic su **Salva**. |
 | L'utente non dispone di una licenza Azure AD assegnata. | Questo problema può verificarsi se non si dispone di una licenza di Azure AD assegnata all'amministratore che esegue l'operazione. <br> <br> Per risolvere il problema, assegnare una licenza all'account amministratore in questione. Seguire i passaggi illustrati nell'articolo [Assegnare e verificare le licenze e risolvere i relativi problemi](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses). |
@@ -79,7 +79,7 @@ In caso di problemi di reimpostazione della password self-service in Azure Activ
 
 ## <a name="troubleshoot-password-writeback"></a>Risolvere i problemi relativi al writeback delle password
 
-| Tipi di errore | Soluzione |
+| Errore | Soluzione |
 | --- | --- |
 | Il servizio di reimpostazione della password non si avvia in locale. Viene visualizzato l'errore 6800 nel log eventi dell'applicazione del computer che esegue Azure AD Connect. <br> <br> Dopo l'onboarding, gli utenti federati, con autenticazione pass-through o con sincronizzazione dell'hash delle password non possono reimpostare le password. | Quando il writeback delle password è abilitato, il motore di sincronizzazione chiama la libreria di writeback per eseguire la configurazione, ovvero l'onboarding, comunicando con il servizio di onboarding cloud. Gli eventuali errori che si verificano durante l'onboarding o durante l'avvio dell'endpoint Windows Communication Foundation (WCF) per il writeback delle password si riflettono nel log eventi del computer che esegue Azure AD Connect. <br> <br> Se è stato configurato il writeback, durante il riavvio del servizio Azure AD Sync (ADSync) viene avviato l'endpoint WCF. Se tuttavia l'avvio dell'endpoint non riesce, il servizio di sincronizzazione viene avviato e viene registrato l'evento 6800. La presenza di questo evento indica che l'endpoint di writeback delle password non è stato avviato. I dettagli del log per questo evento 6800 insieme alle voci del log eventi generate dal componente PasswordResetService indicano i motivi per cui non è possibile avviare l'endpoint. Esaminare gli errori nel log eventi e provare a riavviare Azure AD Connect se il writeback delle password continua a non funzionare. Se il problema persiste, provare a disabilitare e quindi riabilitare il writeback delle password.
 | Quando un utente prova a reimpostare una password o a sbloccare un account con il writeback delle password abilitato, l'operazione non riesce. <br> <br> Dopo l'esecuzione dell'operazione di sblocco, nel log eventi di Azure AD Connect viene inoltre visualizzato un evento simile a: "Il motore di sincronizzazione ha restituito un errore hr=800700CE, messaggio=Il nome o l'estensione del file sono troppo lunghi". | Trovare l'account Active Directory per Azure AD Connect e reimpostare la password in modo che non contenga più di 256 caratteri. Aprire quindi **Synchronization Service** dal menu **Start**. Passare a **Connettori** e trovare **Active Directory Connector**. Selezionare il connettore e quindi **Proprietà**. Passare alla pagina **Credenziali** e immettere la nuova password. Fare clic su **OK** per chiudere la pagina. |
@@ -97,7 +97,7 @@ Una procedura consigliata per la risoluzione dei problemi relativi al writeback 
 
 ### <a name="if-the-source-of-the-event-is-adsync"></a>Se l'origine dell'evento è ADSync
 
-| Codice | Nome o messaggio | DESCRIZIONE |
+| Codice | Nome o messaggio | Description |
 | --- | --- | --- |
 | 6329 | BAIL: MMS(4924) 0x80230619 - Una restrizione impedisce la modifica della password in quella corrente specificata. | Questo evento si verifica quando il servizio di writeback delle password cerca di impostare una password nella directory locale che non soddisfa i requisiti di validità, cronologia, complessità o filtro del dominio. <br> <br> Se è prevista una validità minima della password e di recente la password è stata modificata in tale intervallo di tempo, non sarà possibile modificarla di nuovo finché non si raggiunge il periodo di validità specificato nel dominio. A scopo di test, è consigliabile impostare la validità minima su 0. <br> <br> Se sono abilitati i requisiti per la cronologia delle password, sarà necessario selezionare una password che non sia stata usata nelle ultime *N* volte, dove *N* è l'impostazione relativa alla cronologia delle password. Se si seleziona una password che è stata usata nelle ultime *N* volte, si verifica un errore. A scopo di test, è consigliabile impostare la cronologia delle password su 0. <br> <br> Se abilitati, tutti i requisiti di complessità della password vengono applicati quando l'utente tenta di modificare o reimpostare la password. <br> <br> Se sono abilitati i filtri delle password e un utente sceglie una password che non soddisfa i criteri di filtro, l'operazione di reimpostazione o di modifica non riuscirà. |
 | 6329 | MMS(3040): admaexport.cpp(2837): il server non contiene il controllo dei criteri della password LDAP. | Questo problema si verifica se il controllo LDAP_SERVER_POLICY_HINTS_OID (1.2.840.113556.1.4.2066) non è abilitato nei controller di dominio. Per usare la funzionalità di writeback delle password, è necessario abilitare il controllo. A tale scopo, i controller di dominio devono essere in Windows Server 2008R2 o versioni successive. |
@@ -105,7 +105,7 @@ Una procedura consigliata per la risoluzione dei problemi relativi al writeback 
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>Se l'origine dell'evento è PasswordResetService
 
-| Codice | Nome o messaggio | DESCRIZIONE |
+| Codice | Nome o messaggio | Description |
 | --- | --- | --- |
 | 31001 | PasswordResetStart | Questo evento indica che il servizio locale ha rilevato una richiesta di reimpostazione della password per un utente federato, con autenticazione pass-through o con sincronizzazione dell'hash delle password originata dal cloud. Si tratta del primo evento di ogni operazione di writeback per la reimpostazione della password. |
 | 31002 | PasswordResetSuccess | Questo evento indica che un utente ha selezionato una nuova password durante un'operazione di reimpostazione della password. È stato determinato che la password soddisfa i requisiti aziendali per le password. La password è stata scritta correttamente nell'ambiente Active Directory locale. |
@@ -167,7 +167,7 @@ Il punto di errore più comune è che il firewall e/o le porte proxy e i timeout
 
 Per Azure AD Connect versione 1.1.443.0 e successive, è necessario l'accesso HTTPS in uscita agli indirizzi seguenti:
 
-* \*. passwordreset.microsoftonline.com
+* \*.passwordreset.microsoftonline.com
 * \*.servicebus.windows.net
 
 Per una maggiore granularità, fare riferimento all'elenco degli [intervalli di indirizzi IP dei data center di Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653) che viene aggiornato ogni mercoledì e reso effettivo il lunedì successivo.

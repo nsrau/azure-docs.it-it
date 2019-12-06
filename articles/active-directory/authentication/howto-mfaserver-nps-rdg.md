@@ -1,22 +1,22 @@
 ---
-title: Gateway Desktop remoto e Server Azure MFA tramite RADIUS - Azure Active Directory
+title: RDG e server di autenticazione a più fattori di Azure con Azure Active Directory RADIUS
 description: Questa è la pagina di Azure Multi-factor authentication che sarà utile per la distribuzione di Gateway Desktop remoto (RD) e Server Azure Multi-Factor Authentication tramite RADIUS.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a129030e8071dc590562ca5ca203d8d735f0449e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9ef90ce9e6d3849a4c778326b02040f0b1fc764a
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052547"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848018"
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Gateway Desktop remoto e server Azure Multi-Factor Authentication utilizzando RADIUS
 
@@ -27,7 +27,7 @@ Dato che l'autenticazione di Windows per Servizi terminal non è supportata per 
 Installare il server Multi-Factor Authentication in un server separato, che trasmetterà tramite proxy la richiesta RADIUS al server dei criteri di rete nel server Gateway Desktop remoto. Dopo aver convalidato il nome utente e la password, il server dei criteri di rete restituisce una risposta al server Multi-Factor Authentication. Il server MFA esegue quindi il secondo fattore dell'autenticazione e restituisce un risultato al gateway.
 
 > [!IMPORTANT]
-> A partire dal 1 ° luglio 2019, Microsoft non offrirà non è più Server MFA per le nuove distribuzioni. Nuovi clienti che si vuole richiedere l'autenticazione mfa agli utenti devono usare Azure multi-Factor Authentication basato sul cloud. I clienti esistenti che hanno attivato il Server MFA prima del 1 ° luglio sarà in grado di scaricare la versione più recente, gli aggiornamenti futuri e generare le credenziali di attivazione come di consueto.
+> A partire dal 1 ° luglio 2019, Microsoft non offrirà più il server multi-factor authentication per le nuove distribuzioni. I nuovi clienti che desiderano richiedere l'autenticazione a più fattori dagli utenti devono usare Azure Multi-Factor Authentication basato sul cloud. I clienti esistenti che hanno attivato il server di autenticazione a più fattori prima del 1 ° luglio potranno scaricare la versione più recente, gli aggiornamenti futuri e generare le credenziali di attivazione come di consueto.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -82,7 +82,7 @@ Il Server Azure Multi-Factor Authentication è configurato come proxy RADIUS tra
 3. Passare alla scheda **Destinazione** e selezionare il pulsante di opzione **Server RADIUS**.
 4. Selezionare **Aggiungi** e immettere l'indirizzo IP, il segreto condiviso e le porte del server dei criteri di rete. Se non si usa un server dei criteri di rete centrale, il client RADIUS e la destinazione RADIUS saranno uguali. Il segreto condiviso deve corrispondere a quello impostato nella sezione client RADIUS del server dei criteri di rete.
 
-![Autenticazione RADIUS nel Server MFA](./media/howto-mfaserver-nps-rdg/radius.png)
+![Autenticazione RADIUS nel server multi-factor authentication](./media/howto-mfaserver-nps-rdg/radius.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

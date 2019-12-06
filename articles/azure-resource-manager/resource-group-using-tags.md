@@ -2,21 +2,42 @@
 title: Contrassegnare le risorse per l'organizzazione logica
 description: Mostra come applicare i tag per organizzare le risorse Azure per la fatturazione e la gestione.
 ms.topic: conceptual
-ms.date: 10/30/2019
-ms.openlocfilehash: f3fca2030d33ba5a52d43924ff542801d435e4de
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.date: 12/04/2019
+ms.openlocfilehash: c0a34204b5eb7080c6444e69def9d82d0193783b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484270"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850602"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Usare tag per organizzare le risorse di Azure
 
-[!INCLUDE [resource-manager-governance-tags](../../includes/resource-manager-governance-tags.md)]
+I tag vengono applicati alle risorse di Azure per organizzarli in modo logico in una tassonomia. Ogni tag è costituito da una coppia di nome e valore. Ad esempio, è possibile applicare il nome "Environment" e il valore "Production" a tutte le risorse nell'ambiente di produzione.
 
-Per applicare tag alle risorse, l'utente deve avere accesso in scrittura a quel tipo di risorsa. Per applicare tag a tutti i tipi di risorse, usare il ruolo [Collaboratore](../role-based-access-control/built-in-roles.md#contributor). Per applicare tag a un solo tipo di risorsa, usare il ruolo di collaboratore per tale risorsa. Ad esempio, per applicare tag a macchine virtuali, usare il ruolo di [Collaboratore Macchina virtuale](../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
+Dopo aver applicato i tag, è possibile recuperare tutte le risorse nella sottoscrizione che hanno un nome e un valore di tag corrispondenti. I tag permettono di recuperare risorse correlate da gruppi di risorse diversi. Questo approccio può risultare utile per l'organizzazione delle risorse per la fatturazione o la gestione.
+
+La tassonomia deve prendere in considerazione una strategia di assegnazione di tag dei metadati self-service, oltre a una strategia di assegnazione di tag automatica per ridurre il carico di lavoro degli utenti e aumentare l'accuratezza.
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
+
+## <a name="limitations"></a>Limitazioni
+
+Ai tag si applicano le limitazioni seguenti:
+
+* Non tutti i tipi di risorse supportano i tag. Per determinare se è possibile applicare un tag a un tipo di risorsa, vedere [Supporto dei tag per le risorse di Azure](tag-support.md).
+* Ogni risorsa o gruppo di risorse può avere un massimo di 50 coppie nome/valore di tag. Se è necessario applicare più tag rispetto al numero massimo consentito, usare una stringa JSON per il valore del tag. La stringa JSON può contenere diversi valori applicati a un singolo nome di tag. Un gruppo di risorse può contenere molte risorse, ognuna con 50 coppie nome/valore di tag.
+* Il nome del tag è limitato a 512 caratteri e il valore del tag è limitato a 256 caratteri. Per gli account di archiviazione, il nome del tag è limitato a 128 caratteri e il valore a 256 caratteri.
+* Le macchine virtuali generalizzate non supportano i tag.
+* I tag applicati al gruppo di risorse non vengono ereditati dalle risorse in tale gruppo di risorse.
+* Non è possibile applicare tag alle risorse classiche, ad esempio Servizi cloud.
+* I nomi dei tag non possono contenere i caratteri seguenti: `<`, `>`, `%`, `&`, `\`, `?`, `/`
+
+   > [!NOTE]
+   > Attualmente le zone DNS di Azure e i servizi di gestione traffico non consentono l'uso di spazi nel tag. 
+
+## <a name="required-access"></a>Accesso richiesto
+
+Per applicare tag alle risorse, l'utente deve avere accesso in scrittura a quel tipo di risorsa. Per applicare tag a tutti i tipi di risorse, usare il ruolo [Collaboratore](../role-based-access-control/built-in-roles.md#contributor). Per applicare tag a un solo tipo di risorsa, usare il ruolo di collaboratore per tale risorsa. Ad esempio, per applicare tag a macchine virtuali, usare il ruolo di [Collaboratore Macchina virtuale](../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
 ## <a name="policies"></a>Criteri
 
@@ -25,8 +46,6 @@ Per applicare tag alle risorse, l'utente deve avere accesso in scrittura a quel 
 [!INCLUDE [Tag policies](../../includes/azure-policy-samples-general-tags.md)]
 
 ## <a name="powershell"></a>PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Per visualizzare i tag esistenti per un *gruppo di risorse*, usare:
 

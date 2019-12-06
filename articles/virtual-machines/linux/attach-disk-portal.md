@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 9b0602f526991be37b7a9cce1d621dc2138dec48
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 3071effeb2d5eeaafc48fd742559b093a0517c1c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279142"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851673"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Usare il portale per collegare un disco dati a una macchina virtuale Linux 
 In questo articolo viene illustrato come collegare dischi nuovi o esistenti a una macchina virtuale Linux tramite il portale di Azure. È possibile anche [collegare un disco dati a una macchina virtuale Windows nel portale di Azure](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -33,10 +33,9 @@ Prima di collegare i dischi alla macchina virtuale, leggere i seguenti suggerime
 
 
 ## <a name="find-the-virtual-machine"></a>Trovare la macchina virtuale
-1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Nel menu a sinistra fare clic su **Macchine virtuali**.
-3. Selezionare la macchina virtuale dall'elenco.
-4. Nella pagina Macchine virtuali fare clic su **Dischi** in **Informazioni di base**.
+1. Passare alla [portale di Azure](https://portal.azure.com/) per trovare la macchina virtuale. Cercare e selezionare **macchine virtuali**.
+2. Scegliere la VM dall'elenco.
+3. Nella barra laterale della pagina **macchine virtuali** , in **Impostazioni**, scegliere **dischi**.
    
     ![Aprire le impostazioni del disco](./media/attach-disk-portal/find-disk-settings.png)
 
@@ -73,7 +72,7 @@ Prima di collegare i dischi alla macchina virtuale, leggere i seguenti suggerime
 4. Dopo che Azure collega il disco alla macchina virtuale, esso viene elencato nella sezione Impostazioni disco della macchina virtuale in **Dischi dei dati**.
 
 ## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Connettersi alla VM Linux per montare il nuovo disco
-È necessario SSH nella macchina virtuale per partizionare, formattare e montare il nuovo disco in modo che la macchina virtuale di Linux possa usarlo. Per altre informazioni, vedere [Come usare SSH con Linux in Azure](mac-create-ssh-keys.md). Nell'esempio seguente viene eseguito il collegamento a una macchina virtuale con la voce DNS pubblica di *mypublicdns.westus.cloudapp.azure.com* con il nome utente *azureuser*: 
+È necessario SSH nella macchina virtuale per partizionare, formattare e montare il nuovo disco in modo che la macchina virtuale di Linux possa usarlo. Per altre informazioni, vedere [How to use SSH with Linux on Azure](mac-create-ssh-keys.md) (Come usare SSH con Linux in Azure). Nell'esempio seguente viene eseguito il collegamento a una macchina virtuale con la voce DNS pubblica di *mypublicdns.westus.cloudapp.azure.com* con il nome utente *azureuser*: 
 
 ```bash
 ssh azureuser@mypublicdns.westus.cloudapp.azure.com

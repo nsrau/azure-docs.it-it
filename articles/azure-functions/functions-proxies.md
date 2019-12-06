@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: dffdffdfa80d940c4a50d0a6630c665164f24d5c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 09e4616bc7cbb4361ad067ed64984ed95e9a20c5
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230447"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849191"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Usare i proxy di Funzioni di Azure
 
@@ -25,7 +25,7 @@ Questo articolo illustra come configurare e usare i proxy in Funzioni di Azure. 
 
 In questa sezione viene descritto come creare un proxy nel portale Funzioni.
 
-1. Aprire il [Portale di Azure] e passare all'app per le funzioni.
+1. Aprire il [Azure portal] e passare all'app per le funzioni.
 2. Nel riquadro sinistro selezionare **Nuovo proxy**.
 3. Dare un nome al proxy.
 4. Configurare l'endpoint esposto in questa app per le funzioni, specificando il **Modello di route** e i **Metodi HTTP**. Questi parametri si comportano in base alle regole dei [trigger HTTP].
@@ -184,7 +184,7 @@ I proxy leggono tutte le stringhe all'esterno di un file JSON, utilizzando \ com
 L'oggetto requestOverrides definisce le modifiche apportate alla richiesta quando viene chiamata la risorsa back-end. L'oggetto viene definito dalle proprietà seguenti:
 
 * **backend.request.method**: il metodo HTTP usato per chiamare il back-end.
-* **backend.request.querystring.\<ParameterName\>** : un parametro di stringa di query che può essere impostato per la chiamata al back-end. Sostituire *\<ParameterName\>* con il nome del parametro che si desidera impostare. Se viene generata una stringa vuota, il parametro non viene incluso nella richiesta al back-end.
+* **backend.request.querystring.\<ParameterName\>** : un parametro di stringa di query che può essere impostato per la chiamata al back-end. Sostituire *\<ParameterName\>* con il nome del parametro che si desidera impostare. Si noti che se viene specificata una stringa vuota, il parametro è ancora incluso nella richiesta back-end.
 * **backend.request.headers.\<HeaderName\>** : un'intestazione che può essere impostata per la chiamata al back-end. Sostituire *\<HeaderName\>* con il nome dell'intestazione che si desidera impostare. Se viene fornita una stringa vuota, il parametro non viene incluso nella richiesta al back-end.
 
 I valori possono fare riferimento alle impostazioni dell'applicazione e ai parametri della richiesta del client originale.
@@ -243,7 +243,7 @@ Un esempio di configurazione apparirà come segue:
 > [!NOTE] 
 > In questo esempio il corpo della risposta viene impostato direttamente, quindi non sono necessarie proprietà `backendUri`. L'esempio illustra come usare i proxy di Funzioni di Azure per le API di simulazione.
 
-[Portale di Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [Trigger HTTP]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response

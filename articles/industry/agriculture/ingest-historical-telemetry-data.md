@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 27aec53fd2e92e19f1c749e833217fb8b5deae57
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 0ab2ba2c49dd0d0f946358c8f52a6daaf7428dd1
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672565"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851418"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Inserire dati di telemetria cronologici
 
@@ -27,7 +27,7 @@ Sarà inoltre necessario abilitare l'accesso ai partner come indicato nei passag
 
 È necessario abilitare l'integrazione dei partner nell'istanza di Azure FarmBeats. Questo passaggio crea un client che avrà accesso alla FarmBeats di Azure come partner del dispositivo e fornisce i valori seguenti che sono necessari nei passaggi successivi.
 
-- Endpoint API: URL dell'hub dati, ad esempio https://<datahub>. azurewebsites.net
+- Endpoint API: URL dell'hub dati, ad esempio https://\<datahub >. azurewebsites. NET
 - ID tenant
 - ID client
 - Client Secret
@@ -75,7 +75,7 @@ Attenersi ai passaggi seguenti per generarli:
 - /**sensore-sensore corrisponde** a un sensore fisico che registra i valori. Un sensore è in genere connesso a un dispositivo con un ID dispositivo.  
 
 
-|        Modello di dispositivo   |  Suggerimenti   |
+|        Modello dispositivo   |  Suggerimenti   |
 | ------- | -------             |
 |     Tipo (nodo, gateway)        |          1 stella      |
 |          Produttore            |         2 stelle     |
@@ -87,7 +87,7 @@ Attenersi ai passaggi seguenti per generarli:
 |    **Dispositivo**             |                      |
 |   DeviceModelId     |     ID del modello di dispositivo associato  |
 |  hardwareId          | ID univoco per il dispositivo, ad esempio l'indirizzo MAC e così via.
-|  reportingInterval        |   Intervallo di Reporting in secondi
+|  ReportingInterval        |   Intervallo di Reporting in secondi
 |  Località            |  Latitudine del dispositivo (da-90 a + 90)/Longitude (-180 a 180)/Elevation (in metri)   
 |ParentDeviceId       |    ID del dispositivo padre a cui è connesso il dispositivo. Ad esempio, un nodo connesso a un gateway. Un nodo avrà parentDeviceId come gateway.  |
 |    name            | Nome per identificare la risorsa. I partner del dispositivo devono inviare un nome coerente con il nome del dispositivo sul lato del partner. Se il nome del dispositivo partner è definito dall'utente, lo stesso nome definito dall'utente deve essere propagato a FarmBeats.|
@@ -119,7 +119,7 @@ Per ulteriori informazioni sugli oggetti, vedere [spavalderia](https://aka.ms/Fa
 
 **Richiesta API per la creazione di metadati**
 
-Per eseguire una richiesta API, combinare il metodo HTTP (POST), l'URL del servizio API, l'URI di una risorsa per eseguire una query, inviare i dati per creare o eliminare una richiesta e aggiungere una o più intestazioni di richiesta HTTP. L'URL del servizio API è l'endpoint dell'API, ad esempio l'URL dell'hub dati (https://<yourdatahub>. azurewebsites.net)  
+Per eseguire una richiesta API, combinare il metodo HTTP (POST), l'URL del servizio API, l'URI di una risorsa per eseguire una query, inviare i dati per creare o eliminare una richiesta e aggiungere una o più intestazioni di richiesta HTTP. L'URL del servizio API è l'endpoint dell'API, ad esempio l'URL dell'hub dati (https://\<yourdatahub >. azurewebsites. NET)  
 
 **Autenticazione**:
 
@@ -135,11 +135,33 @@ Usando le credenziali sopra riportate, il chiamante può richiedere un token di 
 headers = *{"Authorization": "Bearer " + access_token, …}*
 ```
 
+Di seguito è riportato un codice Python di esempio che fornisce il token di accesso, che può essere usato per le chiamate API successive a FarmBeats: 
+
+```python
+import azure 
+
+from azure.common.credentials import ServicePrincipalCredentials 
+import adal 
+#FarmBeats API Endpoint 
+ENDPOINT = "https://<yourdatahub>.azurewebsites.net" [Azure website](https://<yourdatahub>.azurewebsites.net)
+CLIENT_ID = "<Your Client ID>"   
+CLIENT_SECRET = "<Your Client Secret>"   
+TENANT_ID = "<Your Tenant ID>" 
+AUTHORITY_HOST = 'https://login.microsoftonline.com' 
+AUTHORITY = AUTHORITY_HOST + '/' + TENANT_ID 
+#Authenticating with the credentials 
+context = adal.AuthenticationContext(AUTHORITY) 
+token_response = context.acquire_token_with_client_credentials(ENDPOINT, CLIENT_ID, CLIENT_SECRET) 
+#Should get an access token here 
+access_token = token_response.get('accessToken') 
+```
+
+
 **Intestazioni di richiesta http**:
 
 Di seguito sono riportate le intestazioni di richiesta più comuni che è necessario specificare quando si effettua una chiamata API a FarmBeats Data Hub:
 
-- Content-Type: Application/JSON
+- Content-Type: application/json
 - Autorizzazione: Bearer < Access-token >
 - Accept: Application/JSON
 
@@ -271,6 +293,26 @@ Ora che sono stati creati i dispositivi e i sensori in FarmBeats, è possibile i
 **Inviare un messaggio di telemetria come client**
 
 Una volta stabilita una connessione come client EventHub, è possibile inviare messaggi al EventHub come JSON.  
+
+Di seguito è riportato un codice Python di esempio che invia dati di telemetria come client a un hub eventi specificato:
+
+```python
+import azure
+from azure.eventhub import EventHubClient, Sender, EventData, Receiver, Offset
+EVENTHUBCONNECTIONSTRING = "<EventHub Connection String provided by customer>"
+EVENTHUBNAME = "<EventHub Name provided by customer>"
+
+write_client = EventHubClient.from_connection_string(EVENTHUBCONNECTIONSTRING, eventhub=EVENTHUBNAME, debug=False)
+sender = write_client.add_sender(partition="0")
+write_client.run()
+for i in range(5):
+    telemetry = "<Canonical Telemetry message>"
+    print("Sending telemetry: " + telemetry)
+    sender.send(EventData(telemetry))
+write_client.stop()
+
+```
+
 Convertire il formato dei dati cronologici del sensore in un formato canonico che Azure FarmBeats riconosce. Il formato del messaggio canonico è il seguente:  
 
 ```json

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: effa03f042b44890fccd474128e75bd1c0f782a3
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: f9f38c160a72b6c414cdde7d29e4056a4068cdc6
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381994"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848817"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Autenticazione basata su certificati di Azure Active Directory in Android
 
@@ -42,7 +42,7 @@ Questa funzionalità è disponibile in anteprima nei piani di Office 365 US Gove
 | OneDrive |![Segno di spunta che significa supporto per questa applicazione][1] |
 | Outlook |![Segno di spunta che significa supporto per questa applicazione][1] |
 | Power BI |![Segno di spunta che significa supporto per questa applicazione][1] |
-| Skype for Business Online |![Segno di spunta che significa supporto per questa applicazione][1] |
+| Skype for Business |![Segno di spunta che significa supporto per questa applicazione][1] |
 | Word / Excel / PowerPoint |![Segno di spunta che significa supporto per questa applicazione][1] |
 | Yammer |![Segno di spunta che significa supporto per questa applicazione][1] |
 

@@ -3,16 +3,16 @@ title: Comprendere il funzionamento degli avvisi delle metriche in Monitoraggio 
 description: È disponibile una panoramica delle operazioni eseguibili con gli avvisi delle metriche e del relativo funzionamento in Monitoraggio di Azure.
 author: rboucher
 ms.author: robb
-ms.date: 11/18/2019
+ms.date: 12/5/2019
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: aa54b9ce23ffab266ed6403e3525ae1290d99cec
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 8f84b5641b79514ffed493302f246ecc51a20a87
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74775722"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850058"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendere il funzionamento degli avvisi delle metriche in Monitoraggio di Azure
 
@@ -125,7 +125,7 @@ Questa regola monitora se l'utilizzo medio della CPU negli ultimi 5 minuti super
 
 ## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Monitoraggio su larga scala mediante gli avvisi delle metriche in Monitoraggio di Azure
 
-Fino a questo punto abbiamo visto che un solo avviso di metrica può essere usato per monitorare una o molte serie temporali di metriche correlate a una singola risorsa di Azure. Spesso si ha l'esigenza di applicare la stessa regola di avviso a molte risorse. Monitoraggio di Azure supporta anche il monitoraggio di più risorse con una regola di avviso per la metrica. Questa funzionalità è attualmente supportata solo nelle macchine virtuali. Un singolo avviso per la metrica, inoltre, può monitorare le risorse in una sola area di Azure.
+Fino a questo punto abbiamo visto che un solo avviso di metrica può essere usato per monitorare una o molte serie temporali di metriche correlate a una singola risorsa di Azure. Spesso si ha l'esigenza di applicare la stessa regola di avviso a molte risorse. Monitoraggio di Azure supporta anche il monitoraggio di più risorse con una regola di avviso per la metrica. Questa funzionalità è attualmente supportata solo per le macchine virtuali, i database di SQL Server, i pool elastici di SQL Server e i dispositivi perimetrali di data box. Un singolo avviso per la metrica, inoltre, può monitorare le risorse in una sola area di Azure.
 
 È possibile specificare l'ambito del monitoraggio con un singolo avviso per la metrica in uno dei tre modi seguenti:
 

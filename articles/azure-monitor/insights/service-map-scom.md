@@ -1,5 +1,5 @@
 ---
-title: Integrazione di Monitoraggio di Azure per le macchine virtuali con System Center Operations Manager | Microsoft Docs
+title: Integrare Monitoraggio di Azure per le macchine virtuali map con Operations Manager | Microsoft Docs
 description: Monitoraggio di Azure per le macchine virtuali individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue il mapping delle comunicazioni tra i servizi. Questo articolo illustra l'uso della funzionalità mappa per creare automaticamente diagrammi applicazioni distribuite in Operations Manager.
 ms.service: azure-monitor
 ms.subservice: ''
@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 07/12/2019
-ms.openlocfilehash: 3523756e89506e90407090db105fdced5853d9d9
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: f1acf3c1574fd94606d75c6250dedd40a9c7ea4d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553971"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849820"
 ---
-# <a name="system-center-operations-manager-integration-with-azure-monitor-for-vms-map-feature"></a>Integrazione di System Center Operations Manager con la funzionalità mappa Monitoraggio di Azure per le macchine virtuali
+# <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Integrare System Center Operations Manager con la funzionalità mappa Monitoraggio di Azure per le macchine virtuali
 
-In Monitoraggio di Azure per le macchine virtuali, è possibile visualizzare i componenti dell'applicazione individuati in macchine virtuali Windows e Linux in esecuzione in Azure o nell'ambiente in uso. Grazie a questa integrazione tra la funzionalità map e System Center Operations Manager, è possibile creare automaticamente diagrammi applicazioni distribuite in Operations Manager basati sulle mappe delle dipendenze dinamiche in Monitoraggio di Azure per le macchine virtuali. 
+In Monitoraggio di Azure per le macchine virtuali, è possibile visualizzare i componenti dell'applicazione individuati in macchine virtuali Windows e Linux in esecuzione in Azure o nell'ambiente in uso. Grazie a questa integrazione tra la funzionalità map e System Center Operations Manager, è possibile creare automaticamente diagrammi applicazioni distribuite in Operations Manager basati sulle mappe delle dipendenze dinamiche in Monitoraggio di Azure per le macchine virtuali. Questo articolo descrive come configurare il gruppo di gestione di System Center Operations Manager per supportare questa funzionalità.
 
 >[!NOTE]
 >Se è già stata eseguita la distribuzione di Mapping dei servizi, è possibile visualizzare le mappe in Monitoraggio di Azure per le macchine virtuali, che include funzionalità aggiuntive per monitorare l'integrità e le prestazioni delle macchine virtuali. La funzionalità di mapping di Monitoraggio di Azure per le macchine virtuali è progettata per sostituire la soluzione Mapping dei servizi autonoma. Per altre informazioni, vedere [Descrizione di Monitoraggio di Azure per le macchine virtuali](vminsights-overview.md).

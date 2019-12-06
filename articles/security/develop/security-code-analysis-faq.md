@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: b28d02dd0ca375451f6ff75b1253ae8874bf2ab4
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: de76467cc741a65a851e5f3a7ec424d0326aebb2
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828239"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851520"
 ---
 # <a name="frequently-asked-questions"></a>Domande frequenti
 Hai domande? Per ulteriori informazioni, vedere le domande frequenti seguenti.
@@ -30,7 +30,7 @@ No. L'estensione non è disponibile per il download e l'installazione di Visual 
 
 ### <a name="do-i-have-to-run-microsoft-security-code-analysis-with-my-build"></a>È necessario eseguire l'analisi del codice di sicurezza Microsoft con la compilazione? 
 
-È possibile. Dipende dal tipo di strumento di analisi. Il codice sorgente può essere l'unico elemento necessario o l'output di compilazione potrebbe essere necessario.
+Forse. Dipende dal tipo di strumento di analisi. Il codice sorgente può essere l'unico elemento necessario o l'output di compilazione potrebbe essere necessario.
 
 Ad esempio, Credential scanner (CredScan) analizza i file all'interno della struttura di cartelle del repository di codice. A causa di questa analisi, è possibile eseguire il CredScan e pubblicare le attività di compilazione dei log di analisi della sicurezza in una compilazione autonoma per ottenere risultati.
 
@@ -88,7 +88,7 @@ Le attività di compilazione possono scaricare i pacchetti NuGet degli strumenti
 
 Al momento dell'installazione, le attività di compilazione di sicurezza fornite dall'estensione diventano disponibili per tutti gli utenti dell'organizzazione. Quando si crea o si modifica una pipeline di Azure, queste attività sono disponibili nell'elenco di raccolta delle attività di compilazione. In caso contrario, l'installazione dell'estensione nell'organizzazione di Azure DevOps non ha alcun effetto. L'installazione non modifica le impostazioni dell'account, le impostazioni del progetto o le pipeline.
 
-### <a name="does-installing-the-extension-modify-my-existing-azure-pipelines"></a>L'installazione dell'estensione comporta la modifica delle pipeline di Azure esistenti? 
+### <a name="does-installing-the-extension-modify-my-existing-azure-pipelines"></a>L'installazione dell'estensione consente di modificare la Azure Pipelines esistente? 
 
 No. L'installazione dell'estensione rende disponibili le attività di compilazione della sicurezza per l'aggiunta alle pipeline. È ancora necessario aggiungere o aggiornare le definizioni di compilazione, in modo che gli strumenti possano funzionare con il processo di compilazione.
 
@@ -154,7 +154,7 @@ Esempi di regole di eliminazione valide:
 
 Le risorse seguenti consentono di gestire in modo sicuro i segreti e accedere a informazioni sensibili dalle applicazioni:
 
- - [Insieme di credenziali delle chiavi di Azure](../../key-vault/index.yml)
+ - [Insieme di credenziali chiave Azure](../../key-vault/index.yml)
  - [Azure Active Directory (Azure AD)](../../sql-database/sql-database-aad-authentication.md)
  - [Azure AD identità del servizio gestita (MSI)](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
  - [Identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md)
@@ -184,7 +184,7 @@ Un ricercatore di contenuti viene definito come segue:
 
   ![XML che mostra la configurazione dello scanner di credenziali](./media/security-tools/6-credscan-customsearchers.png)
 
-### <a name="roslyn-analyzers"></a>Analizzatori Roslyn
+### <a name="roslyn-analyzers"></a>Analizzatori di Roslyn
 
 #### <a name="what-are-common-errors-when-using-the-roslyn-analyzers-task"></a>Quali sono gli errori comuni quando si usa l'attività degli analizzatori Roslyn?
 
@@ -192,7 +192,7 @@ Un ricercatore di contenuti viene definito come segue:
 
 Messaggio di errore completo:
 
-"Errore: il progetto è stato ripristinato con Microsoft. NETCore. app versione *x.* x. x, ma con le impostazioni correnti, verrebbe invece usata la versione *y. y. y* . Per risolvere questo problema, assicurarsi che le stesse impostazioni vengano usate per il ripristino e per le operazioni successive, ad esempio la compilazione o la pubblicazione. Questo problema si verifica in genere se la proprietà RuntimeIdentifier viene impostata durante la compilazione o la pubblicazione ma non durante il ripristino.
+"Errore: il progetto è stato ripristinato con Microsoft. NETCore. app versione *x.* x. x, ma con le impostazioni correnti, verrebbe invece usata la versione *y. y. y* . To resolve this issue, make sure the same settings are used for restore and for subsequent operations such as build or publish. Typically this issue can occur if the RuntimeIdentifier property is set during build or publish but not during restore" (Il progetto è stato ripristinato tramite Microsoft.NETCore.App versione 2.0.0, ma con le impostazioni correnti avrebbe dovuto essere usata la versione 2.0.6. Per risolvere il problema, assicurarsi che vengano usate le stesse impostazioni per il comando restore e per operazioni successive, quali build o publish. Questo problema si presenta, in genere, se la proprietà RuntimeIdentifier viene impostata durante l'operazione build o publish ma non durante restore).
 
 Poiché le attività di analizzatore Roslyn vengono eseguite come parte della compilazione, l'albero di origine nel computer di compilazione deve essere in uno stato compilabile.
 
@@ -222,9 +222,6 @@ L'attività di compilazione degli analizzatori Roslyn deve eseguire una query su
 
 Se è necessaria assistenza aggiuntiva, il supporto per l'analisi del codice di sicurezza Microsoft è disponibile dal lunedì al venerdì dalle 9:00 alle 5:00 ora solare Pacifico.
 
-  - Onboarding: per iniziare, contattare i responsabili dell'account tecnico.
+- Onboarding: fare riferimento alla [documentazione sull'onboarding](security-code-analysis-onboard.md)
   
-  - Supporto: inviare un messaggio di posta elettronica al [supporto Microsoft Security Analysis code](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request).
-
-  >[!NOTE] 
-  >È possibile che non si disponga di una relazione di supporto a pagamento con Microsoft. In alternativa, è possibile che si disponga di un'offerta di supporto che impedisce di acquistare servizi dal catalogo Phoenix. Se una di queste condizioni è vera, visitare i [servizi di supporto Home page](https://www.microsoft.com/enterprise/services/support) per altre informazioni.
+- Supporto: inviare un messaggio di posta elettronica al [supporto Microsoft Security Analysis code](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request)

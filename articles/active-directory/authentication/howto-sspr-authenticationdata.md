@@ -1,22 +1,22 @@
 ---
-title: Requisiti dei dati di SSPR AD Azure - Azure Active Directory
+title: Requisiti dei dati di SSPR Azure AD-Azure Active Directory
 description: Requisiti dei dati per la Reimpostazione self-service delle password e informazioni su come soddisfarli
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a0d7edb6c7faafcad55e827c2d9e3d2eeea40f5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c1c00d0f4ba365442762df6e041f02ea0a39f099
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60358031"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847304"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Distribuire la reimpostazione della password senza richiedere la registrazione dell'utente finale
 
@@ -47,7 +47,7 @@ Quando l'utente verifica il numero di cellulare, anche il campo Telefono in Info
 
 L'amministratore globale può impostare manualmente le informazioni di contatto per l'autenticazione per l'utente come illustrato nello screenshot seguente.
 
-![Informazioni su un utente l'autenticazione di contatto in Azure AD][Contact]
+![Informazioni di contatto per l'autenticazione di un utente in Azure AD][Contact]
 
 Se il campo Telefono è popolato e l'opzione Cellulare è abilitata nei criteri SSPR, il numero verrà visualizzato nella pagina di registrazione per la reimpostazione della password e durante il flusso di lavoro di reimpostazione della password.
 
@@ -164,7 +164,7 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 * [Panoramica del writeback delle password](howto-sspr-writeback.md)
 * [Come creare un report sull'attività relativa alla reimpostazione della password self-service](howto-sspr-reporting.md)
 * [Informazioni sulle opzioni della reimpostazione della password self-service](concept-sspr-howitworks.md)
-* [Come risolvere i problemi di reimpostazione della password self-service](active-directory-passwords-troubleshoot.md)
+* [Credo che qualcosa sia rotto. Ricerca per categorie risolvere i problemi di SSPR?](active-directory-passwords-troubleshoot.md)
 * [Altre informazioni non illustrate altrove](active-directory-passwords-faq.md)
 
 [Contact]: ./media/howto-sspr-authenticationdata/user-authentication-contact-info.png "Gli amministratori globali possono modificare informazioni di contatto per l'autenticazione di un utente"

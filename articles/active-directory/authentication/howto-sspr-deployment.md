@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9f340ad12fbf26190a17bc4df97bfc95473093c
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: bc2c68c53a7c03d1de08e5cde528f27aa61b0096
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381296"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847270"
 ---
 # <a name="deploy-azure-ad-self-service-password-reset"></a>Distribuire la reimpostazione della password self-service di Azure AD
 
@@ -31,7 +31,7 @@ Consentire agli utenti di registrarsi rapidamente distribuendo SSPR insieme a un
 
 Prima di distribuire SSPR, è possibile che le organizzazioni desiderino determinare il numero di richieste di reimpostazione della password correlate help desk eseguite nel tempo e il costo medio di ogni chiamata. Possono usare questi dati dopo la distribuzione per mostrare il valore che SSPR sta portando all'organizzazione.  
 
-## <a name="how-sspr-works"></a>Funzionamento di SSPR
+## <a name="how-sspr-works"></a>Funzionamento della reimpostazione della password self-service
 
 1. Quando un utente tenta di reimpostare una password, deve verificare il metodo o i metodi di autenticazione precedentemente registrati per dimostrare la propria identità.
 1. Quindi, l'utente immette una nuova password.
@@ -56,19 +56,19 @@ L'esperienza di registrazione combinata non richiede che le organizzazioni conse
 
 Le impostazioni seguenti sono necessarie per abilitare SSPR insieme ai valori consigliati.
 
-| Area | Impostazione | Valore |
+| Area | Impostazione | Value |
 | --- | --- | --- |
 | **Proprietà di SSPR** | Reimpostazione password self-service abilitata | Gruppo **selezionato** per Pilot/ **All** per la produzione |
 | **Metodi di autenticazione** | Metodi di autenticazione necessari per la registrazione | Sempre 1 più del necessario per la reimpostazione |
 |   | Metodi di autenticazione necessari per la reimpostazione | Uno o due |
-| **Registrazione** | Richiedere agli utenti di registrarsi all'accesso | Sì |
+| **Registrazione** | Richiedere agli utenti di registrarsi all'accesso | SÌ |
 |   | Numero di giorni prima che agli utenti venga chiesto di riconfermare le informazioni di autenticazione | 90 – 180 giorni |
-| **Notifiche** | Inviare notifiche agli utenti al momento della reimpostazione della password | Sì |
-|   | Inviare una notifica a tutti gli amministratori quando altri amministratori reimpostano le proprie password | Sì |
-| **Personalizzazione** | Personalizzare il collegamento al supporto tecnico | Sì |
-|   | Indirizzo di posta elettronica o URL del supporto tecnico personalizzato | Sito di supporto o indirizzo di posta elettronica |
-| **Integrazione locale** | Eseguire il writeback delle password in Active Directory locale | Sì |
-|   | Consenti agli utenti di sbloccare l'account senza reimpostare la password | Sì |
+| **Notifiche** | Inviare notifiche agli utenti al momento della reimpostazione della password | SÌ |
+|   | Inviare una notifica a tutti gli amministratori quando altri amministratori reimpostano le proprie password | SÌ |
+| **Personalizzazione** | Personalizza collegamento al supporto tecnico | SÌ |
+|   | Indirizzo di posta elettronica o URL del supporto tecnico | Sito di supporto o indirizzo di posta elettronica |
+| **Integrazione locale** | Eseguire il writeback delle password in Active Directory locale | SÌ |
+|   | Consenti agli utenti di sbloccare l'account senza reimpostare la password | SÌ |
 
 ### <a name="sspr-properties-recommendations"></a>Raccomandazioni sulle proprietà di SSPR
 
@@ -90,7 +90,7 @@ Impostare **Richiedi agli utenti di registrarsi all'accesso** a **Sì**. Questa 
 
 Impostare il **numero di giorni prima che agli utenti venga richiesto di riconfermare le informazioni di autenticazione** a un intervallo compreso tra **90** e **180** giorni, a meno che l'organizzazione non abbia bisogno di un intervallo di tempo più breve.
 
-### <a name="notifications-settings"></a>Impostazioni notifiche
+### <a name="notifications-settings"></a>Impostazioni delle notifiche
 
 Configurare la reimpostazione della **password invia notifiche agli utenti** e **Invia notifiche a tutti gli amministratori quando altri amministratori reimpostano la propria password** su **Sì**. Se **si seleziona Sì, si** aumenta la sicurezza garantendo che gli utenti siano consapevoli della reimpostazione della password e che tutti gli amministratori siano consapevoli quando un amministratore modifica una password. Se gli utenti o gli amministratori ricevono una notifica di questo tipo e non hanno avviato la modifica, possono segnalare immediatamente una potenziale violazione della sicurezza.
 
@@ -183,7 +183,7 @@ Ai gruppi che si intende implementare deve essere assegnata la licenza Azure AD 
 
 Per informazioni sull'assegnazione delle licenze ai gruppi di utenti, vedere l'articolo assegnare le [licenze agli utenti in base all'appartenenza al gruppo in Azure Active Directory](../users-groups-roles/licensing-groups-assign.md).
 
-### <a name="configure-sspr"></a>Configurare SSPR
+### <a name="configure-sspr"></a>Configurare la reimpostazione della password self-service
 
 #### <a name="enable-groups-for-sspr"></a>Abilitare i gruppi per SSPR
 
@@ -225,7 +225,7 @@ Ruoli necessari per gestire le funzionalità associate alla reimpostazione della
 
 Per consentire al team di supporto di avere esito positivo, è possibile creare domande frequenti in base alle domande ricevute dagli utenti. La tabella seguente contiene scenari di supporto comuni.
 
-| Scenari | DESCRIZIONE |
+| Scenari | Description |
 | --- | --- |
 | Nessun metodo di autenticazione registrato disponibile per l'utente | Un utente sta tentando di reimpostare la password, ma non dispone di alcun metodo di autenticazione registrato disponibile (ad esempio, ha lasciato il telefono cellulare a casa e non può accedere alla posta elettronica) |
 | L'utente non riceve un SMS o una chiamata sul proprio ufficio o telefono cellulare | Un utente sta provando a verificare la propria identità tramite il testo o la chiamata ma non riceve un testo/chiamata. |

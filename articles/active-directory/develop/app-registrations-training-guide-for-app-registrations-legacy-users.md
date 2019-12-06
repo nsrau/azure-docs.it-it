@@ -2,29 +2,25 @@
 title: Guida alla formazione per la transizione da Registrazioni app (legacy) alla nuova esperienza Registrazioni app nel portale di Azure
 description: Introduzione alla nuova esperienza di registrazione delle app nel portale di Azure
 services: active-directory
-documentationcenter: ''
 author: archieag
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: aragra
 ms.reviewer: lenalepa, keyam
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01d543262a9eb358643c0860b24ac4306d2c5edf
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 2f49cac5c8c49fb5c53d3320cb0ab52e0f61acda
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927101"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74844261"
 ---
-# <a name="transitioning-from-app-registrations-legacy-to-the-new-app-registrations-experience-in-the-azure-portal"></a>Transizione da Registrazioni app (legacy) alla nuova esperienza Registrazioni app nel portale di Azure
+# <a name="transitioning-from-app-registrations-legacy-to-the-new-app-registrations-experience-in-the-azure-portal"></a>Passaggio da Registrazioni app (legacy) alla nuova esperienza Registrazioni app nel portale di Azure
 
 È possibile trovare molti miglioramenti nella nuova esperienza [registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) nel portale di Azure. Se si ha familiarità con l'esperienza di Registrazioni app (legacy) nell'portale di Azure, usare questa guida alla formazione per iniziare a usare la nuova esperienza.
 
@@ -47,7 +43,7 @@ Il nuovo elenco di app mostra le applicazioni registrate tramite l'esperienza di
 
 Il nuovo elenco di app non contiene una colonna di **tipo applicazione** perché una singola registrazione dell'app può essere di diversi tipi. L'elenco include due colonne aggiuntive: **create on** e **Certificates & Secrets**. **Certificati & segreti** Mostra lo stato delle credenziali registrate nell'app. Gli stati includono **Current**, **scadenza**imminente e **scaduto**.
 
-## <a name="new-app-registration"></a>Nuova registrazione per l'app
+## <a name="new-app-registration"></a>Registrazione nuova applicazione
 
 Nell'esperienza legacy, per registrare un'app è necessario fornire: **nome**, **tipo di applicazione**e **URL di accesso/URI di reindirizzamento**. Le app create sono Azure AD solo applicazioni a tenant singolo. Sono supportati solo account aziendali dalla directory in cui è stata registrata l'app.
 
@@ -67,7 +63,7 @@ L'esperienza Legacy ha una pagina delle **Proprietà** . I campi delle **Proprie
 - **URL della Home page**
 - **URL di disconnessione**
 - **URL delle condizioni per il servizio**
-- **URL informativa sulla privacy**
+- **URL dell'informativa sulla privacy**
 - **Tipo di applicazione**
 - **Multi-tenant**
 

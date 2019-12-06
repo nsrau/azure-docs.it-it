@@ -10,23 +10,23 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 1307e6cfca0debe7623eb775c69527a74584033d
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 4313a1d644750c0961298bbee3ae211946de360a
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74011997"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849769"
 ---
-# <a name="list-entity"></a>Entità elenco 
+# <a name="list-entity"></a>Entità elenco
 
-Le entità elenco rappresentano un set chiuso e fisso di parole correlate insieme ai relativi sinonimi. LUIS non individua valori aggiuntivi per le entità elenco. Usare la funzione **consigliata** per visualizzare i suggerimenti per le nuove parole in base all'elenco corrente. Se sono presenti più entità elenco con lo stesso valore, ogni entità viene restituita nella query endpoint. 
+Le entità elenco rappresentano un set chiuso e fisso di parole correlate insieme ai relativi sinonimi. LUIS non individua valori aggiuntivi per le entità elenco. Usare la funzione **consigliata** per visualizzare i suggerimenti per le nuove parole in base all'elenco corrente. Se sono presenti più entità elenco con lo stesso valore, ogni entità viene restituita nella query endpoint.
 
-Un'entità elenco non è stata acquisita dal computer. Si tratta di una corrispondenza di testo esatta. LUIS contrassegna eventuali corrispondenze a un elemento in qualsiasi elenco come un'entità nella risposta. 
+Un'entità elenco non è stata acquisita dal computer. Si tratta di una corrispondenza di testo esatta. LUIS contrassegna eventuali corrispondenze a un elemento in qualsiasi elenco come un'entità nella risposta.
 
 **L'entità è una scelta ottimale quando i dati di testo:**
 
 * Sono un set noto.
-* Non cambia spesso. Se è necessario modificare spesso l'elenco o si desidera che l'elenco si espanda in modo automatico, è preferibile usare un'entità semplice con boosting con un elenco di frasi. 
+* Non cambia spesso. Se è necessario modificare spesso l'elenco o si desidera che l'elenco si espanda in modo automatico, è preferibile usare un'entità semplice con boosting con un elenco di frasi.
 * Il set non supera i [limiti](luis-boundaries.md) massimi di LUIS per questo tipo di entità.
 * Il testo nell'espressione è una corrispondenza esatta con un sinonimo o il nome canonico. LUIS non usa l'elenco di là delle corrispondenze esatte del testo. Le corrispondenze fuzzy, senza distinzione tra maiuscole e minuscole, stemming, plurali e altre varianti non vengono risolte con un'entità List. Per gestire le variazioni, è consigliabile usare un [criterio](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) con la sintassi del testo facoltativo.
 
@@ -54,7 +54,7 @@ Un'entità elenco non è stata acquisita dal computer. Si tratta di una corrispo
               "avacado"
           ]
       }
-  ]  
+  ]
   ```
 
 ## <a name="example-json-response"></a>Risposta JSON di esempio
@@ -130,13 +130,13 @@ Si tratta del codice JSON se `verbose=true` è impostato nella stringa di query:
 }
 ```
 
-* * * 
+* * *
 
-|Oggetto dati|Nome dell'entità|Valore|
+|Oggetto dati|Nome dell'entità|Value|
 |--|--|--|
 |Elenca entità|`Cities`|`paris`|
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa [esercitazione](luis-quickstart-intent-and-list-entity.md)si apprenderà come usare un' **entità list** per estrarre corrispondenze esatte del testo da un elenco di elementi noti. 
+In questa [esercitazione](tutorial-list-entity.md)si apprenderà come usare un' **entità list** per estrarre corrispondenze esatte del testo da un elenco di elementi noti.
