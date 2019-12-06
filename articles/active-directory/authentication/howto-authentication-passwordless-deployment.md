@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b6f07e1dd8e9252d2b6e00b85a47ba2e19f8bd8
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 0eb8398decd1a447d0676195d6369cdc7e791e40
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603465"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848494"
 ---
 # <a name="complete-a-passwordless-authentication-deployment"></a>Completare una distribuzione di autenticazione non con password
 
@@ -129,7 +129,7 @@ Prendere in considerazione le esigenze aziendali e i casi di utilizzo per ogni m
 
 Nella tabella seguente vengono illustrati i casi d'uso da implementare durante il progetto.
 
-| Area | Descrizione |
+| Area | Description |
 | --- | --- |
 | **Accedere** | L'accesso senza password è disponibile da un dispositivo aziendale o personale all'interno o all'esterno della rete aziendale. |
 | **Controllo** | I dati di utilizzo sono disponibili agli amministratori per il controllo quasi in tempo reale. <br> I dati di utilizzo vengono scaricati nei sistemi aziendali almeno ogni 29 giorni oppure viene usato lo strumento SIEM. |
@@ -210,7 +210,7 @@ Azure AD aggiunge voci ai log di controllo nei casi seguenti:
 
 Nella tabella seguente vengono forniti alcuni esempi di scenari di Reporting tipici.
 
-|   | per gestire i rischi. | Aumentare la produttività | Governance e conformità |
+|   | per gestire i rischi. | Aumenta la produttività | Governance e conformità |
 | --- | --- | --- | --- |
 | **Tipi di report** | Metodi di autenticazione-utenti registrati per la registrazione di sicurezza combinata | Metodi di autenticazione: utenti registrati per la notifica dell'app | Accessi: verificare chi accede al tenant e come |
 | **Azioni potenziali** | Utenti di destinazione non ancora registrati | Guidare l'adozione di Microsoft Authenticator app o chiavi di sicurezza | Revocare l'accesso o applicare criteri di sicurezza aggiuntivi per gli amministratori |
@@ -245,7 +245,7 @@ Seguire i passaggi allineati al metodo scelto di seguito.
 
 ### <a name="required-administrative-roles"></a>Ruoli amministrativi richiesti
 
-| Ruolo Azure AD | Descrizione |
+| Ruolo Azure AD | Description |
 | --- | --- |
 | Amministratore dell'autenticazione | Ruolo con privilegi minimi in grado di implementare e gestire i metodi di autenticazione |
 | Utente | Ruolo con privilegi minimi per la configurazione dell'app Authenticator nel dispositivo o per la registrazione del dispositivo chiave di sicurezza per l'accesso Web o Windows 10. |

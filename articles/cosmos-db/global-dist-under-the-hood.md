@@ -1,18 +1,18 @@
 ---
 title: Distribuzione globale con Azure Cosmos DB - informazioni sul funzionamento
 description: In questo articolo vengono forniti i dettagli tecnici relativi alla distribuzione globale di Azure Cosmos DB
-author: dharmas-cosmos
+author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.author: dharmas
+ms.date: 12/02/2019
+ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: ce943fbed0774667100f6de4c60f91c0b02de6c3
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: a46a69476a2ad6550bc7b3a533fd09565d461db3
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615353"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872129"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Distribuzione globale dei dati con Azure Cosmos DB - informazioni sul funzionamento
 
@@ -32,13 +32,13 @@ Come illustrato nell'immagine seguente, i dati all'interno di un contenitore ven
 
 ![partizioni fisiche](./media/global-dist-under-the-hood/distribution-of-resource-partitions.png)
 
-Una partizione fisica viene implementata da un gruppo di repliche, denominato *set*di repliche. Ogni computer ospita centinaia di repliche che corrispondono a diverse partizioni fisiche all'interno di un set fisso di processi, come illustrato nell'immagine precedente. Le repliche corrispondenti alle partizioni fisiche vengono posizionate in modo dinamico e con carico bilanciato nei computer all'interno di un cluster e nei data center all'interno di un'area.  
+Una partizione fisica viene implementata da un gruppo di repliche, denominato *set di repliche*. Ogni computer ospita centinaia di repliche che corrispondono a diverse partizioni fisiche all'interno di un set fisso di processi, come illustrato nell'immagine precedente. Le repliche corrispondenti alle partizioni fisiche vengono posizionate in modo dinamico e con carico bilanciato nei computer all'interno di un cluster e nei data center all'interno di un'area.  
 
 Una replica appartiene in modo univoco a un tenant di Azure Cosmos DB. Ogni replica ospita un'istanza del [motore di database](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) di Cosmos DB, che gestisce le risorse, nonché gli indici associati. Il motore di database di Cosmos opera su un sistema di tipi basato su una sequenza di record Atom (ARS). Il motore è indipendente dal concetto di schema, sfocando il limite tra la struttura e i valori dell'istanza dei record. Cosmos DB consente di ottenere la completa indipendenza dallo schema attraverso un'efficiente indicizzazione automatica di tutti gli elementi dopo all'inserimento, consentendo agli utenti di eseguire una query dei dati distribuiti a livello globale senza dover gestire schemi o indici.
 
 Il motore di database di Cosmos è costituito da componenti che includono l'implementazione di diverse primitive di coordinamento, runtime del linguaggio, query processor e i sottosistemi di archiviazione e indicizzazione responsabili dell'archiviazione transazionale e dell'indicizzazione dei dati. rispettivamente. Per garantire durabilità e disponibilità elevata, il motore di database conserva i dati e l'indice nelle unità SSD e ne esegue la replica, rispettivamente tra le istanze del motore di database all'interno dei set di repliche. I tenant più grandi corrispondono a una scala più elevata di velocità effettiva e archiviazione e hanno più repliche o entrambi. Ogni componente del sistema è completamente asincrono: nessun thread si blocca mai e ognuno esegue operazioni di breve durata senza incorrere in eventuali opzioni di thread non necessarie. Limitazione di frequenza e congestione sono sottoposte a plumbing nell'intero stack dal controllo di ammissione a tutti i percorsi I/O. Cosmos Database Engine è progettato per sfruttare la concorrenza con granularità fine e per garantire una velocità effettiva elevata e operare all'interno di quantità di risorse di sistema parsimoniose.
 
-La distribuzione globale di Cosmos DB si basa su due astrazioni chiave, ovvero *set* di repliche e *set di partizioni*. Un set di repliche è un "mattoncino" modulare per il coordinamento e un set di partizioni è una sovrapposizione dinamica di una o più partizioni fisiche distribuite geograficamente. Per comprendere il funzionamento della distribuzione globale, è necessario comprendere queste due chiavi di astrazioni. 
+La distribuzione globale di Cosmos DB si basa su due astrazioni chiave, ovvero *set di repliche* e *set di partizioni*. Un set di repliche è un "mattoncino" modulare per il coordinamento e un set di partizioni è una sovrapposizione dinamica di una o più partizioni fisiche distribuite geograficamente. Per comprendere il funzionamento della distribuzione globale, è necessario comprendere queste due chiavi di astrazioni. 
 
 ## <a name="replica-sets"></a>Set di repliche
 
@@ -54,7 +54,7 @@ Un gruppo di partizioni fisiche, una per ogni configurata con le aree del databa
 
 ![Set di partizioni](./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png)
 
-È possibile considerare un set di partizioni come un "super set di repliche" geograficamente disperso, composto da più set di repliche che dispongono dello stesso numero di chiavi. Analogamente a un set di repliche, l'appartenenza a un set di partizioni è anche dinamica, ma varia in base alle operazioni implicite di gestione delle partizioni fisiche per aggiungere/rimuovere nuove partizioni da e verso un determinato set di partizioni (ad esempio, quando si aumenta la velocità effettiva in un contenitore, aggiungere/rimuovere un'area nel database Cosmos o quando si verificano errori. Poiché ogni partizione (di un set di partizioni) gestisce l'appartenenza al set di partizioni all'interno del proprio set di repliche, l'appartenenza è completamente decentralizzata e a disponibilità elevata. Durante la riconfigurazione di un set di partizioni, viene specificata anche la topologia della sovrapposizione tra le partizioni fisiche. La topologia viene selezionata in modo dinamico in base al livello di coerenza, alla distanza geografica e alla larghezza di banda di rete disponibile tra le partizioni fisiche di origine e di destinazione.  
+È possibile considerare un set di partizioni come un "super set di repliche" geograficamente disperso, composto da più set di repliche che dispongono dello stesso numero di chiavi. Analogamente a un set di repliche, l'appartenenza a un set di partizioni è anche dinamica, ma varia in base alle operazioni implicite di gestione delle partizioni fisiche per aggiungere/rimuovere nuove partizioni da e verso un determinato set di partizioni (ad esempio, quando si aumenta la velocità effettiva in un contenitore, si aggiunge o rimuove un'area nel database Cosmos o quando si verificano errori). Poiché ogni partizione (di un set di partizioni) gestisce l'appartenenza al set di partizioni all'interno del proprio set di repliche, l'appartenenza è completamente decentralizzata e a disponibilità elevata. Durante la riconfigurazione di un set di partizioni, viene specificata anche la topologia della sovrapposizione tra le partizioni fisiche. La topologia viene selezionata in modo dinamico in base al livello di coerenza, alla distanza geografica e alla larghezza di banda di rete disponibile tra le partizioni fisiche di origine e di destinazione.  
 
 Il servizio consente di configurare i database Cosmos con una singola area di scrittura o con più aree di scrittura e, a seconda della selezione, i set di partizioni sono configurati per accettare le scritture esattamente in una o tutte le aree. Il sistema usa un protocollo di consenso annidato e a due livelli: un livello opera all'interno delle repliche di un set di repliche di una partizione fisica accettando le scritture; l'altro opera a livello di un set di partizioni per fornire garanzie di ordinamento complete per tutte scritture sulle quali è stato eseguito il commit all'interno del set di partizioni. Questo consenso, annidato e a più livelli, è fondamentale per l'implementazione dei rigorosi contratti di servizio per la disponibilità elevata, nonché per l'implementazione di modelli di coerenza offerti ai client da Cosmos DB.  
 
@@ -69,7 +69,7 @@ Vengono usati orologi con vettori codificati (contenenti l'ID dell'area e la log
 Per i database Cosmos configurati con più aree di scrittura, il sistema offre agli sviluppatori una serie di criteri di risoluzione dei conflitti automatica e flessibile, che include: 
 
 - **Last-Write-WINS (LWW)** , che, per impostazione predefinita, usa una proprietà timestamp definita dal sistema (basata sul protocollo di clock della sincronizzazione temporale). Cosmos DB consente anche di specificare qualsiasi altra proprietà numerica personalizzata da usare per la risoluzione dei conflitti.  
-- **Criteri di risoluzione dei conflitti definiti dall'applicazione (personalizzati)** (espressa tramite le procedure di merge), progettata per la riconciliazione della semantica definita dall'applicazione dei conflitti. Queste procedure vengono richiamate quando viene rilevato un conflitto tra scrittura e scrittura a cura di una transazione di database, sul lato server. Il sistema fornisce una garanzia esatta per l'esecuzione di una procedura di merge come parte del protocollo di impegno. Sono disponibili [diversi esempi di risoluzione dei conflitti](how-to-manage-conflicts.md) per la riproduzione.  
+- **Criteri di risoluzione dei conflitti definiti dall'applicazione** (espressi tramite procedure di merge), progettati per la riconciliazione semantica definita dall'applicazione dei conflitti. Queste procedure vengono richiamate quando viene rilevato un conflitto tra scrittura e scrittura a cura di una transazione di database, sul lato server. Il sistema fornisce una garanzia esatta per l'esecuzione di una procedura di merge come parte del protocollo di impegno. Sono disponibili [diversi esempi di risoluzione dei conflitti](how-to-manage-conflicts.md) per la riproduzione.  
 
 ## <a name="consistency-models"></a>Modelli di coerenza
 

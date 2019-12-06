@@ -2,18 +2,18 @@
 title: Risolvere gli errori con Gestione aggiornamenti
 description: Informazioni su come risolvere i problemi relativi a Gestione aggiornamenti.
 services: automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 2aebcf05cbc818997943ed3bab19fb1fd8a83592
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: a42b05239ae1ddf8909e288486694bf57595b195
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786050"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849242"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Risoluzione dei problemi con Gestione aggiornamenti
 
@@ -21,7 +21,7 @@ Questo articolo illustra le soluzioni ai problemi che possono verificarsi quando
 
 Per l'agente di lavoro ibrido è disponibile uno strumento di risoluzione dei problemi dell'agente per determinare il problema sottostante. Per altre informazioni sullo strumento di risoluzione dei problemi, vedere [Risolvere i problemi dell'agente di aggiornamento](update-agent-issues.md). Per tutti gli altri problemi, utilizzare le seguenti linee guida per la risoluzione dei problemi.
 
-Se si verificano problemi durante il tentativo di caricare la soluzione in una macchina virtuale (VM), controllare il **Operations Manager** registro in **registri applicazioni e servizi** nel computer locale per gli eventi con ID evento 4502 e dettagli evento contenenti **Microsoft. EnterpriseManagement. HealthService. AzureAutomation. HybridAgent**.
+Se si verificano problemi durante il tentativo di caricare la soluzione in una macchina virtuale (VM), controllare il **Operations Manager** registro in **registri applicazioni e servizi** nel computer locale per gli eventi con ID evento 4502 e dettagli evento che contengono **Microsoft. EnterpriseManagement. HealthService. AzureAutomation. HybridAgent**.
 
 Nella sezione seguente vengono evidenziati i messaggi di errore specifici e le possibili risoluzioni per ciascuno di essi. Per altri problemi di onboarding, vedere risolvere i problemi di caricamento della [soluzione](onboarding.md).
 
@@ -68,7 +68,7 @@ Potrebbe essere necessario registrare nuovamente e reinstallare il ruolo di lavo
   | where OperationCategory == 'Data Collection Status'
   | sort by TimeGenerated desc
   ```
-  Se si ottiene un risultato `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota`, viene definita una quota per l'area di lavoro che è stata raggiunta e che ha interrotto il salvataggio dei dati. Nell'area di lavoro passare a **utilizzo e costi stimati**  > **gestione del volume di dati** e verificare la quota o rimuoverla.
+  Se si ottiene un risultato `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota`, viene definita una quota per l'area di lavoro che è stata raggiunta e che ha interrotto il salvataggio dei dati. Nell'area di lavoro passare a **utilizzo e costi stimati** > **gestione del volume di dati** e verificare la quota o rimuoverla.
 
 * Se questi passaggi non consentono di risolvere il problema, seguire la procedura illustrata in [distribuire un ruolo di lavoro ibrido per Runbook Windows](../automation-windows-hrw-install.md) per reinstallare il ruolo di lavoro ibrido per Windows. In alternativa, per Linux, [distribuire un ruolo di lavoro ibrido per Runbook di Linux](../automation-linux-hrw-install.md).
 
@@ -108,7 +108,7 @@ The components for the 'Update Management' solution have been enabled, and now t
 
 ### <a name="cause"></a>Causa
 
-Questo errore può verificarsi per i motivi seguenti:
+Le cause di questo errore sono le seguenti:
 
 - È in corso il blocco della comunicazione con l'account di automazione.
 - La VM da caricare potrebbe provenire da un computer clonato che non è stato preparata con Sysprep con il Microsoft Monitoring Agent (MMA) installato.
@@ -187,7 +187,7 @@ Questo errore può verificarsi per uno dei motivi seguenti:
 
 ### <a name="resolution"></a>Risoluzione
 
-Quando applicabile, usare i [gruppi dinamici](../automation-update-management-groups.md) per le distribuzioni degli aggiornamenti. Inoltre
+Quando applicabile, usare i [gruppi dinamici](../automation-update-management-groups.md) per le distribuzioni degli aggiornamenti. Inoltre:
 
 * Verificare che il computer esista ancora e che sia raggiungibile. Se non esiste, modificare la distribuzione e rimuovere il computer.
 * Vedere la sezione relativa alla [pianificazione della rete](../automation-update-management.md#ports) per un elenco di porte e indirizzi necessari per gestione aggiornamenti, quindi verificare che il computer soddisfi questi requisiti.

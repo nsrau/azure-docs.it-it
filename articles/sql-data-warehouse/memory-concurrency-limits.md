@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 10/04/2019
+ms.date: 12/04/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 3611e61b303997a4291f4436403bb0a95e647e65
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: dfdaef0002f068dc4c9044e979b169de779cf6d5
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686029"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851282"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Limiti di memoria e concorrenza per Azure SQL Data Warehouse
 Visualizzare i limiti di memoria e concorrenza allocati ai livelli di prestazione e alle classi di risorse in Azure SQL Data Warehouse.  
@@ -50,13 +50,13 @@ I livelli di servizio sono compresi tra DW100c e DW30000c.
 Il livello di servizio massimo è DW30000c, che include 60 nodi di calcolo e una distribuzione per ogni nodo di calcolo. Ad esempio, un data warehouse da 600 TB a DW30000c elabora circa 10 TB per ogni nodo di calcolo.
 
 ## <a name="concurrency-maximums-for-workload-groups"></a>Valori massimi di concorrenza per i gruppi del carico di lavoro
-Con l'introduzione dei gruppi del carico di lavoro-LINK TBD, il concetto di slot di concorrenza non è più applicabile.  Le risorse per ogni richiesta vengono allocate in base a una percentuale e specificate nella definizione del gruppo di carico di lavoro.  Tuttavia, anche con la rimozione degli slot di concorrenza, sono necessarie quantità minime di risorse per le query in base al livello di servizio.  La tabella seguente definisce la quantità minima di risorse necessarie per query tra i livelli di servizio e la concorrenza associata che è possibile ottenere. 
+Con l'introduzione dei [gruppi del carico di lavoro](sql-data-warehouse-workload-isolation.md), il concetto di slot di concorrenza non viene più applicato.  Le risorse per ogni richiesta vengono allocate in base a una percentuale e specificate nella definizione del gruppo di carico di lavoro.  Tuttavia, anche con la rimozione degli slot di concorrenza, sono necessarie quantità minime di risorse per le query in base al livello di servizio.  La tabella seguente definisce la quantità minima di risorse necessarie per query tra i livelli di servizio e la concorrenza associata che è possibile ottenere. 
 
-|Contratto|Numero massimo di query simultanee|Supporto minimo% per REQUEST_MIN_RESOURCE_GRANT_PERCENT|
+|Livello di servizio|Numero massimo di query simultanee|Supporto minimo per REQUEST_MIN_RESOURCE_GRANT_PERCENT|
 |---|---|---|
 |DW100c|4|25%|
 |DW200c|8|12,5%|
-|DW300c|12|8|
+|DW300c|12|8%|
 |DW400c|16|6,25%|
 |DW500c|20|5%|
 |DW1000c|32|3%|
@@ -79,7 +79,7 @@ Affinché ogni query abbia risorse sufficienti per operare in modo efficace, SQL
 
 La tabella seguente illustra il numero massimo di query simultanee e di slot di concorrenza per ogni [classe di risorse statica](resource-classes-for-workload-management.md).  
 
-| Contratto | Numero massimo di query simultanee | Slot di concorrenza disponibili | Slot usati da staticrc10 | Slot usati da staticrc20 | Slot usati da staticrc30 | Slot usati da staticrc40 | Slot usati da staticrc50 | Slot usati da staticrc60 | Slot usati da staticrc70 | Slot usati da staticrc80 |
+| Livello di servizio | Numero massimo di query simultanee | Slot di concorrenza disponibili | Slot usati da staticrc10 | Slot usati da staticrc20 | Slot usati da staticrc30 | Slot usati da staticrc40 | Slot usati da staticrc50 | Slot usati da staticrc60 | Slot usati da staticrc70 | Slot usati da staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100c        |  4                         |    4                        | 1         | 2          | 4          | 4          | 4         |  4         |  4         |  4         |
 | DW200c        |  8                         |    8                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |  8        |
@@ -102,7 +102,7 @@ La tabella seguente illustra il numero massimo di query simultanee e di slot di 
 
 La tabella seguente illustra il numero massimo di query simultanee e di slot di concorrenza per ogni [classe di risorse dinamica](resource-classes-for-workload-management.md). Le classi di risorse dinamiche usano un'allocazione percentuale di memoria 3-10-22-70 per le classi di risorse XLarge di piccole e medie dimensioni in tutti i livelli di servizio.
 
-| Contratto | Numero massimo di query simultanee | Slot di concorrenza disponibili | Slot utilizzati da smallrc | Slot utilizzati da mediumrc | Slot utilizzati da largerc | Slot utilizzati da xlargerc |
+| Livello di servizio | Numero massimo di query simultanee | Slot di concorrenza disponibili | Slot utilizzati da smallrc | Slot utilizzati da mediumrc | Slot utilizzati da largerc | Slot utilizzati da xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
 | DW100c        |  4                         |    4                        | 1                     |  1                     |  1                    |   2                    |
 | DW200c        |  8                         |    8                        | 1                     |  1                     |  1                    |   5                    |

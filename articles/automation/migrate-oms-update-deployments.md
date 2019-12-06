@@ -4,17 +4,17 @@ description: Questo articolo descrive come eseguire la migrazione delle distribu
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 07/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2cc05dc0970211b066d9e431cc7aba06cbd126eb
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 08b3f11f3e44c6580df9942aab2a890115c79ba3
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478297"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849497"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>Eseguire la migrazione delle distribuzioni di aggiornamenti di OMS in Azure
 
@@ -57,9 +57,9 @@ Si apre il riquadro **Nuova distribuzione di aggiornamenti**. Specificare i valo
 
 Per i computer da aggiornare, selezionare la ricerca salvata usata per la distribuzione di OMS esistente.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 | --- | --- |
-|NOME |Nome univoco che identifica la distribuzione degli aggiornamenti. |
+|name |Nome univoco che identifica la distribuzione degli aggiornamenti. |
 |Sistema operativo| Selezionare **Linux** o **Windows**.|
 |Computer da aggiornare |Selezionare una ricerca salvata o un gruppo importato, oppure scegliere Computer dall'elenco a discesa e selezionare i singoli computer. Se si sceglie**Computer**, l'idoneità del computer è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE**.</br> Per altre informazioni sui diversi metodi di creazione di gruppi di computer nei log di Monitoraggio di Azure, vedere [Gruppi di computer nei log di Monitoraggio di Azure](../azure-monitor/platform/computer-groups.md) |
 |Classificazioni degli aggiornamenti|Selezionare tutte le classificazioni degli aggiornamenti necessarie. CentOS non supporta questa operazione per impostazione predefinita.|

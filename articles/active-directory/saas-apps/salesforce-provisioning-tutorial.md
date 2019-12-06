@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d87f935f503098757e4efe402b37958283431b6e
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 32f3c439460ddc61dbf08fc4e8d7b7a000aa20f9
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120544"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849174"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Esercitazione: Configurare Salesforce per il provisioning utenti automatico
 
 Questa esercitazione descrive le procedure da eseguire in Salesforce e Azure AD per effettuare automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a Salesforce.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
-* Tenant di Azure Active Directory
+* Un tenant di Azure Active Directory
 * Tenant di Salesforce.com
 
 > [!IMPORTANT]
@@ -40,7 +40,7 @@ Se si usa un ambiente Salesforce Sandbox, vedere l' [Esercitazione: Integrazione
 
 ## <a name="assigning-users-to-salesforce"></a>Assegnazione di utenti a Salesforce
 
-Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle "assegnazioni". Nel contesto del provisioning automatico degli account utente, vengono sincronizzati solo gli utenti e i gruppi che sono stati "assegnati" a un'applicazione in Azure AD.
+Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle "assegnazioni". Nel contesto del provisioning automatico degli account utente vengono sincronizzati solo gli utenti e i gruppi che sono stati "assegnati" a un'applicazione in Azure AD.
 
 Prima di configurare e abilitare il servizio di provisioning, è necessario stabilire quali utenti o gruppi in Azure AD devono accedere all'app Salesforce. Dopo aver deciso, è possibile assegnare questi utenti all'app Salesforce seguendo le istruzioni riportate in [Assegnare un utente o un gruppo a un'app aziendale](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
 
@@ -117,7 +117,7 @@ In questa sezione viene descritto come abilitare il provisioning utenti degli ac
 
 Viene avviata la sincronizzazione iniziale di tutti gli utenti e/o i gruppi assegnati a Salesforce nella sezione Utenti e gruppi. Notare che la sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti per tutto il tempo che il servizio è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai log delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio di provisioning sull'app Salesforce.
 
-Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere [Esercitazione: creazione di report sul provisioning automatico degli account utente](../manage-apps/check-status-user-account-provisioning.md).
+Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="common-issues"></a>Problemi comuni
 * Se si verificano problemi nell'autorizzazione dell'accesso a Salesforce, verificare quanto segue:
@@ -129,6 +129,7 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 * **SalesforceDuplicateUserName:** Non è possibile eseguire il provisioning dell'utente perché contiene un Salesforce.com ' username ' duplicato in un altro tenant di Salesforce.com.  In Salesforce.com i valori per l'attributo ' username ' devono essere univoci in tutti i tenant di Salesforce.com.  Per impostazione predefinita, il userPrincipalName di un utente in Azure Active Directory diventa il nome utente in Salesforce.com.   Sono disponibili due opzioni.  Un'opzione consiste nell'individuare e rinominare l'utente con ' username ' duplicato nell'altro tenant Salesforce.com, se si amministra anche tale tenant.  L'altra opzione consiste nel rimuovere l'accesso dall'utente Azure Active Directory al tenant Salesforce.com con cui è integrata la directory. Questa operazione verrà ritentata al successivo tentativo di sincronizzazione. 
 * **SalesforceRequiredFieldMissing:** Salesforce richiede che determinati attributi siano presenti nell'utente per la creazione o l'aggiornamento dell'utente. Nell'utente manca uno degli attributi obbligatori. Assicurarsi che gli attributi, ad esempio posta elettronica e alias, siano popolati in tutti gli utenti di cui si vuole eseguire il provisioning in Salesforce. È possibile definire l'ambito degli utenti che non dispongono di questi attributi usando [filtri di ambito basati su attributi](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 * Il mapping predefinito degli attributi per il provisioning in Salesforce include l'espressione SingleAppRoleAssignments per eseguire il mapping di appRoleAssignments in Azure AD a ProfileName in Salesforce. Assicurarsi che gli utenti non dispongano di più assegnazioni di ruolo app in Azure AD perché il mapping degli attributi supporta solo il provisioning di un ruolo. 
+* Salesforce richiede che gli aggiornamenti della posta elettronica vengano approvati manualmente prima di essere modificati. Di conseguenza, è possibile che vengano visualizzate più voci nei log di provisioning per aggiornare l'indirizzo di posta elettronica dell'utente (fino a quando la modifica della posta elettronica non è stata approvata).
 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive

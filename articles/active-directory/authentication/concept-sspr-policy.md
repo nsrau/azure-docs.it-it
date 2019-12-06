@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5af0c2ecde539c9737249e4251f7eab276affb9c
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: b95ea51db4f0c6bcdbfa905ff8b57a5a330411e6
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381926"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848545"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Restrizioni e criteri password in Azure Active Directory
 
@@ -81,7 +81,7 @@ La tabella seguente descrive le impostazioni dei criteri password applicate agli
 
 | Proprietà | Requisiti |
 | --- | --- |
-| Caratteri consentiti |<ul><li>A-Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ "();</li> <li>spazio vuoto</li></ul> |
+| Caratteri consentiti |<ul><li>A-Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li> <li>spazio vuoto</li></ul> |
 | Caratteri non consentiti | Caratteri Unicode. |
 | Restrizioni per le password |<ul><li>Un minimo di 8 caratteri e un massimo di 256 caratteri.</li><li>è necessario soddisfare tre dei quattro requisiti seguenti:<ul><li>Caratteri minuscoli.</li><li>Caratteri maiuscoli.</li><li>Numeri (da 0 a 9).</li><li>Simboli (vedere le restrizioni per le password elencate sopra).</li></ul></li></ul> |
 | Durata scadenza password (validità massima password) |<ul><li>Valore predefinito: **90** giorni.</li><li>Il valore può essere configurato con il cmdlet `Set-MsolPasswordPolicy` del modulo di Azure Active Directory per Windows PowerShell.</li></ul> |
@@ -149,7 +149,7 @@ Per iniziare, è necessario [scaricare e installare il modulo di Azure AD PowerS
    Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration
    ```
 
-   * Per impostare le password di tutti gli utenti di un'organizzazione in modo che non scadano mai, eseguire il cmdlet seguente:
+   * Per impostare le password di tutti gli utenti di un'organizzazione in modo che non scadano mai, eseguire il seguente cmdlet:
 
    ```powershell
    Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration

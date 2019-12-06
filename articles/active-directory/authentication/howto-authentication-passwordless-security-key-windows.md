@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05230e39175e71f4eec2c99cd6cbd2f44f05df30
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: ce2b420c2124c86610058ce2f31cd6d7bf620a97
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766362"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848460"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-preview"></a>Abilitare la chiave di sicurezza senza password accedere ai dispositivi Windows 10 (anteprima)
 
@@ -80,7 +80,7 @@ Per specificare come destinazione gruppi di dispositivi specifici per abilitare 
    1. Tipo di profilo: personalizzato
    1. Impostazioni URI OMA personalizzate:
       1. Nome: attivare le chiavi di sicurezza di FIDO per l'accesso a Windows
-      1. URI OMA:./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
+      1. OMA-URI: ./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
       1. Tipo di dati: integer
       1. Valore: 1
 1. Questo criterio può essere assegnato a utenti, dispositivi o gruppi specifici. Altre informazioni sono disponibili nell'articolo [assegnare profili utente e dispositivo in Microsoft Intune](https://docs.microsoft.com/intune/device-profile-assign).

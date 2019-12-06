@@ -4,17 +4,17 @@ description: Questo articolo illustra la procedura per creare, testare e usare l
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1cdea358daa3bd0f9e738a0454613ea774a0e6dc
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 0dcfcfe5bc6e59eeb4ccb7272ed3f68edc9c4172
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146655"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850398"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Creare un account di Automazione di Azure autonomo
 
@@ -35,10 +35,10 @@ Con questi account già creati è possibile iniziare rapidamente la compilazione
 
 Per creare o aggiornare un account di Automazione e completare le attività descritte in questo articolo, è necessario disporre dei privilegi e delle autorizzazioni seguenti:
 
-* Per creare un account di automazione, l'account utente di Azure AD deve essere aggiunto a un ruolo con autorizzazioni equivalenti al ruolo Proprietario per le risorse**Microsoft. Automation**. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo in Automazione di Azure](automation-role-based-access-control.md).
-* Nel portale di Azure, in **Azure Active Directory** > **gestire** > **le impostazioni utente**, se **registrazioni app** è impostata su **Sì**, gli utenti non amministratori nel tenant di Azure ad possono [registrare Active Applicazioni di directory](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). Se l'opzione **Registrazioni per l'app** è impostata su **No**, l'utente che esegue questa azione deve essere un amministratore globale in Azure AD.
+* Per creare un account di automazione, è necessario aggiungere l'account utente Azure AD a un ruolo con autorizzazioni equivalenti al ruolo proprietario per **Microsoft.** Risorse di automazione. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo in Automazione di Azure](automation-role-based-access-control.md).
+* Nel portale di Azure, in **Azure Active Directory** > **Gestisci** **le impostazioni utente** > , se **registrazioni app** è impostata su **sì**, gli utenti non amministratori nel tenant di Azure ad possono [registrare Active Directory applicazioni](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). Se l'opzione **Registrazioni per l'app** è impostata su **No**, l'utente che esegue questa azione deve essere un amministratore globale in Azure AD.
 
-Se l'utente non è membro dell'istanza di Active Directory della sottoscrizione prima dell'aggiunta al ruolo di amministratore globale/coamministratore della sottoscrizione, viene aggiunto ad Active Directory come guest. In questo scenario, viene visualizzato questo messaggio nella pagina **Aggiungi account di Automazione**: "Non si hanno le autorizzazioni per aprire il file."
+Se l'utente non è membro dell'istanza di Active Directory della sottoscrizione prima dell'aggiunta al ruolo di amministratore globale/coamministratore della sottoscrizione, viene aggiunto ad Active Directory come guest. In questo scenario, viene visualizzato questo messaggio nella pagina **Aggiungi account di Automazione**: "Le autorizzazioni non sono sufficienti per creare."
 
 Gli utenti inizialmente aggiunti al ruolo di amministratore globale o coamministratore possono essere rimossi dall'istanza di Active Directory della sottoscrizione e quindi aggiunti nuovamente al ruolo utente completo in Active Directory.
 
@@ -68,7 +68,7 @@ Per creare un account di Automazione di Azure nel portale di Azure, seguire ques
    >
    > ![Avviso per Aggiungi account di Automazione](media/automation-create-standalone-account/create-account-without-perms.png)
 
-1. Nella casella **Nome** del riquadro **Aggiungi account di Automazione** immettere un nome per il nuovo account di Automazione. Dopo che è stato scelto, questo nome non può essere modificato. *I nomi degli account di Automazione devono essere univoci in ogni area e gruppo di risorse. I nomi per gli account di Automazione che sono stati eliminati potrebbero non essere subito disponibili.*
+1. Nella casella **Nome** del riquadro **Aggiungi account di Automazione** immettere un nome per il nuovo account di Automazione. Dopo che è stato scelto, questo nome non può essere modificato. *I nomi degli account di automazione sono univoci per ogni area e gruppo di risorse. I nomi degli account di automazione eliminati potrebbero non essere immediatamente disponibili.*
 1. Se sono disponibili più sottoscrizioni, nella casella **Sottoscrizione** specificare la sottoscrizione che si vuole usare per il nuovo account.
 1. In **Gruppo di risorse** immettere o selezionare un gruppo di risorse nuovo o esistente.
 1. In **Località** selezionare una località per il data center di Azure.
@@ -88,7 +88,7 @@ Per creare un account di Automazione di Azure nel portale di Azure, seguire ques
 
 Quando la creazione dell'account di Automazione viene completata, vengono create automaticamente diverse risorse. Dopo la creazione, è possibile eliminare questi runbook in tutta sicurezza, se non li si vuole mantenere. Gli account RunAs possono essere usati per l'autenticazione dell'account in un runbook e devono essere lasciati, a meno che non se ne crei un altro o non ce ne sia bisogno. La tabella seguente offre un riepilogo delle risorse per l'account RunAs.
 
-| Risorsa | Descrizione |
+| Gruppi | Description |
 | --- | --- |
 | Runbook AzureAutomationTutorial |Runbook grafico di esempio che illustra come eseguire l'autenticazione con l'account RunAs. Il runbook ottiene tutte le risorse di Resource Manager. |
 | Runbook AzureAutomationTutorialScript |Runbook di PowerShell di esempio che illustra come eseguire l'autenticazione con l'account RunAs. Il runbook ottiene tutte le risorse di Resource Manager. |

@@ -1,17 +1,17 @@
 ---
 title: Costanti SQL in Azure Cosmos DB
-description: Informazioni sulle costanti SQL in Azure Cosmos DB
+description: Informazioni sulla modalità di utilizzo delle costanti di query SQL in Azure Cosmos DB per rappresentare un valore di dati specifico
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
-ms.openlocfilehash: 41cafeb76b7b9481a78ffcff179676d0aa7bf6fd
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: cca62c358037dbe99fd16746ee081b1540161df2
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002037"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873421"
 ---
 # <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB costanti di query SQL  
 
@@ -25,7 +25,7 @@ ms.locfileid: "71002037"
 |**Null**|Singolo valore: **null**|  
 |**Boolean**|Valori: **false**, **true**.|  
 |**Number**|Un numero a virgola mobile e precisione doppia, standard IEEE 754.|  
-|**String**|Una sequenza di zero o più caratteri Unicode. Le stringhe devono essere racchiuse tra virgolette singole o doppie.|  
+|**Stringa**|Una sequenza di zero o più caratteri Unicode. Le stringhe devono essere racchiuse tra virgolette singole o doppie.|  
 |**Array**|Una sequenza di zero o più elementi. Ogni elemento può essere un valore di qualsiasi tipo di dati scalari, ad eccezione di **undefined**.|  
 |**Object**|Un set non ordinato di zero o più coppie nome/valore. Il nome è una stringa Unicode, il valore può essere di qualsiasi tipo di dati scalare, tranne **Undefined**.|  
   

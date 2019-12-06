@@ -4,17 +4,17 @@ description: Descrive i diversi metodi per avviare un runbook in automazione di 
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 01/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 64d9246284be58c8378ab102db25ab7e5220c9eb
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: e7341a8c270d16497430a70c2a1b21354a775787
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477957"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850449"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbook figlio in Automazione di Azure
 
@@ -67,7 +67,7 @@ $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 
 È possibile usare il cmdlet [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) per avviare un runbook come descritto nella sezione relativa all'[avvio di un runbook con Windows PowerShell](start-runbooks.md#start-a-runbook-with-powershell). Sono disponibili due modalità di utilizzo di questo cmdlet.  In una modalità, il cmdlet restituisce l'ID del processo quando viene creato il processo figlio per il runbook figlio.  Nell'altra modalità, abilitata specificando il parametro **-wait**, il cmdlet attende il termine del processo figlio e restituisce l'output dal runbook figlio.
 
-Il processo di un runbook figlio avviato con un cmdlet viene eseguito in un processo separato dal runbook padre. Questo comportamento produce più processi rispetto all'avvio del runbook inline e li rende più difficili da monitorare. Il runbook padre può avviare più runbook figlio in modo asincrono senza attendere il completamento di ognuno. Per questa stessa tipologia di esecuzione parallela che chiama l’inline del runbook figlio, il runbook padre dovrà usare la [parola chiave parallela](automation-powershell-workflow.md#parallel-processing).
+Il processo di un runbook figlio avviato con un cmdlet viene eseguito in un processo separato dal runbook padre. Questo comportamento comporta più processi rispetto all'avvio di Runbook inline e li rende più difficili da rilevare. L'elemento padre può avviare più di un Runbook figlio in modo asincrono senza attendere il completamento di ognuno di essi. Per questa stessa tipologia di esecuzione parallela che chiama l’inline del runbook figlio, il runbook padre dovrà usare la [parola chiave parallela](automation-powershell-workflow.md#parallel-processing).
 
 L'output dei runbook figlio non viene restituito al runbook padre in modo affidabile a causa della temporizzazione. È anche possibile che alcune variabili come $VerbosePreference, $WarningPreference e altre variabili non vengano propagate ai runbook figlio. Per evitare questi problemi, è possibile avviare i runbook figlio come processi di automazione separati usando il cmdlet `Start-AzureRmAutomationRunbook` con l'opzione `-Wait`. In questo modo viene bloccato il runbook padre fino al completamento del runbook figlio.
 
@@ -117,7 +117,7 @@ Nella tabella seguente vengono riepilogate le differenze tra i due metodi per ch
 | Processo |I runbook figlio vengono eseguiti nello stesso processo dell’elemento padre. |Viene creato un processo separato per il runbook figlio. |
 | Esecuzione |Il runbook padre attende il completamento del runbook figlio prima di continuare. |Il runbook padre continua subito dopo l'avvio del runbook figlio *o* attende il completamento del processo figlio. |
 | Output |Il runbook padre può ottenere output direttamente dal runbook figlio. |Il runbook padre deve recuperare l'output dal processo del runbook figlio *o* può ottenere direttamente l'output dal runbook figlio. |
-| Parametri |I valori per i parametri di runbook figlio vengono specificati separatamente e possono utilizzare qualsiasi tipo di dati. |I valori dei parametri dei runbook figlio devono essere raggruppati in un'unica tabella hash. Questa tabella hash può contenere solo tipi di dati semplici, matrice e oggetto che usano la serializzazione JSON. |
+| parameters |I valori per i parametri di runbook figlio vengono specificati separatamente e possono utilizzare qualsiasi tipo di dati. |I valori dei parametri dei runbook figlio devono essere raggruppati in un'unica tabella hash. Questa tabella hash può contenere solo tipi di dati semplici, matrice e oggetto che usano la serializzazione JSON. |
 | Account di automazione |Il runbook padre può utilizzare solo runbook figlio nello stesso account di automazione. |I runbook padre possono usare un runbook figlio di qualsiasi account di automazione della stessa sottoscrizione di Azure e anche di una sottoscrizione diversa a cui si ha una connessione. |
 | Pubblicazione |Il runbook figlio deve essere pubblicato prima della pubblicazione del runbook padre. |Il runbook figlio deve essere pubblicato prima che il runbook padre venga avviato. |
 

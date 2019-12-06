@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 17100769bac2e7af08e0bcba6ca2eb129b621013
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: de59edc2e2c702993efd6187a590264d9aac16a7
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037523"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74841932"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Creare una macchina virtuale da un'immagine gestita
 
@@ -29,8 +29,7 @@ Prima di creare una nuova macchina virtuale, è necessario [creare un'immagine d
 
 ## <a name="use-the-portal"></a>Usare il portale
 
-1. Aprire il [portale di Azure](https://portal.azure.com).
-2. Nel menu a sinistra selezionare **Tutte le risorse**. È possibile ordinare le risorse per **tipo** per individuare facilmente le immagini.
+1. Passare alla [portale di Azure](https://portal.azure.com) per trovare un'immagine gestita. Cercare e selezionare le **Immagini**.
 3. Selezionare l'immagine che si intende usare dall'elenco. Si apre la pagina **Panoramica** delle immagini.
 4. Scegliere **Crea macchina virtuale** dal menu.
 5. Immettere le informazioni relative alla macchina virtuale. Il nome utente e la password immessi in questa posizione verranno usati per accedere alla macchina virtuale. Al termine, selezionare **OK**. È possibile creare la nuova macchina virtuale in un gruppo di risorse esistente o scegliere **Crea nuovo** per creare un nuovo gruppo di risorse per archiviare la macchina virtuale.

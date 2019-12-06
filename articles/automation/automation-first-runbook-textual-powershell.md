@@ -5,17 +5,17 @@ keywords: Azure PowerShell, esercitazione sugli script di PowerShell, automazion
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 11/27/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ae9daaf797d3d82200ee094b63bad1f5c1ff68cc
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: f950a2fed2fbd355fc99453f09b655463e67102d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743811"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850874"
 ---
 # <a name="my-first-powershell-runbook"></a>Il primo runbook PowerShell
 
@@ -99,7 +99,7 @@ Il runbook creato è ancora in modalità bozza. È necessario pubblicarlo prima 
 1. Chiudere la finestra Flussi e la pagina dei processi per tornare alla pagina MyFirstRunbook-PowerShell.
 1. In **Dettagli** fare clic su **Processi** per aprire la pagina dei processi per questo runbook. In questa pagina sono elencati tutti i processi creati da questo runbook. Dovrebbe essere elencato un solo processo, perché il processo è stato eseguito una sola volta.
 
-   ![Elenco processi](media/automation-first-runbook-textual-powershell/runbook-control-job-tile.png)
+   ![Elenco dei processi](media/automation-first-runbook-textual-powershell/runbook-control-job-tile.png)
 
 1. È possibile fare clic su questo processo per aprire lo stesso pannello visualizzato quando è stato avviato il runbook. Questa azione consente di tornare indietro nel tempo e visualizzare i dettagli di tutti i processi creati per un runbook particolare.
 
@@ -163,7 +163,7 @@ Il runbook è stato testato e pubblicato, ma finora non esegue alcuna attività 
 1. Fare clic su **Riquadro di test** in modo da testare il runbook.
 1. Fare clic su **Avvia** per avviare il test. Al termine verrà visualizzato un output simile al seguente, con le informazioni di base sull'account. Questo output conferma che l'account RunAs è valido.
 
-   ![Esegui autenticazione](media/automation-first-runbook-textual-powershell/runbook-auth-output.png)
+   ![Autentica](media/automation-first-runbook-textual-powershell/runbook-auth-output.png)
 
 ## <a name="add-code-to-start-a-virtual-machine"></a>Aggiungere il codice per avviare una macchina virtuale
 

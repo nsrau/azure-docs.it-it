@@ -4,17 +4,17 @@ description: Questo articolo descrive come compilare configurazioni Desired Stat
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6d3cca9d8954d9ac158d88b393c46672da3faa19
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: fdea8ed9a9e59a169a6ffb525ed286eb7d1ada53
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231724"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850908"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilazione di configurazioni DSC in Configurazione stato di Automazione di Azure
 
@@ -124,7 +124,7 @@ Per informazioni sul passaggio di PSCredentials come parametri, vedere [Asset cr
 
 ### <a name="compiling-configurations-in-azure-automation-that-contain-composite-resources"></a>Compilazione di configurazioni in automazione di Azure che contengono risorse composite
 
-Le **risorse composite** consentono di usare le configurazioni DSC come risorse annidate in una configurazione. Questo consente di applicare più configurazioni a un'unica risorsa. Per informazioni sulle [risorse composite](/powershell/scripting/dsc/resources/authoringresourcecomposite), vedere **Risorse composite: uso di una configurazione DSC come risorsa**.
+Le **risorse composite** consentono di usare le configurazioni DSC come risorse annidate in una configurazione. Questo consente di applicare più configurazioni a un'unica risorsa. Per informazioni sulle **risorse composite**, vedere [Risorse composite: uso di una configurazione DSC come risorsa](/powershell/scripting/dsc/resources/authoringresourcecomposite).
 
 > [!NOTE]
 > Per consentire la compilazione corretta delle configurazioni contenenti **risorse composite** , è necessario prima di tutto assicurarsi che tutte le risorse DSC su cui si basa il composito vengano prima importate in automazione di Azure.
@@ -189,9 +189,9 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 ### <a name="working-with-assets-in-azure-automation-during-compilation"></a>Uso di asset in automazione di Azure durante la compilazione
 
-I riferimenti agli asset sono gli stessi in Configurazione stato di Automazione di Azure e nei runbook. Per altre informazioni, vedere quanto segue:
+I riferimenti agli asset sono gli stessi in Configurazione stato di Automazione di Azure e nei runbook. Per altre informazioni, vedere gli argomenti seguenti:
 
-- [Certificati](automation-certificates.md)
+- [Certificates](automation-certificates.md)
 - [Connessioni](automation-connections.md)
 - [Credenziali](automation-credentials.md)
 - [Variabili](automation-variables.md)
@@ -289,7 +289,7 @@ Import-AzureRmAutomationDscNodeConfiguration -AutomationAccountName 'MyAutomatio
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per iniziare, vedere [Introduzione a Configurazione stato di Automazione di Azure](automation-dsc-getting-started.md)
+- Per iniziare, vedere [Introduzione alla configurazione dello stato di Automazione di Azure](automation-dsc-getting-started.md)
 - Per informazioni sulla compilazione di configurazioni DSC da assegnare ai nodi di destinazione, vedere [Compilazione di configurazioni in Configurazione stato di Automazione di Azure](automation-dsc-compile.md)
 - Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Azure Automation State Configuration cmdlets](/powershell/module/azurerm.automation/#automation) (Cmdlet per Configurazione stato di Automazione di Azure)
 - Per informazioni sui prezzi, vedere [Prezzi di Configurazione stato di Automazione di Azure](https://azure.microsoft.com/pricing/details/automation/)

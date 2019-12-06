@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 4324d33a9da66c5f49645e1c8014bd5f57d37bd9
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: a2c1ba1d4cd2dfdbf2a94005c539e70705486ba4
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837736"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851095"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Distribuire un servizio Web di Azure Machine Learning Studio (classico)
 
@@ -65,7 +65,7 @@ Nei passaggi seguenti è descritta la distribuzione di un esperimento predittivo
 
 Ora che l'esperimento predittivo è stato preparato, è possibile distribuirlo come nuovo servizio Web di Azure (basato su Resource Manager). Usando il servizio Web, gli utenti possono inviare dati al modello che poi restituirà le stime.
 
-Per distribuire l'esperimento predittivo, fare clic su **Esegui** nella parte inferiore dell'area di disegno dell'esperimento. Al termine dell'esecuzione dell'esperimento, fare clic su **Deploy Web Service** (Distribuisci servizio Web) e selezionare **Deploy Web Service New[Nuovo]Nuovo**).  Verrà visualizzata la pagina distribuzione del portale del servizio Web Machine Learning Studio (classico).
+Per distribuire l'esperimento predittivo, fare clic su **Esegui** nella parte inferiore dell'area di disegno dell'esperimento. Al termine dell'esecuzione dell'esperimento, fare clic su **Deploy Web Service** (Distribuisci servizio Web) e selezionare **Deploy Web Service New** (Distribuisci servizio Web [Nuovo]).  Verrà visualizzata la pagina distribuzione del portale del servizio Web Machine Learning Studio (classico).
 
 > [!NOTE] 
 > Per distribuire un nuovo servizio Web è necessario disporre delle autorizzazioni sufficienti nella sottoscrizione a cui si sta distribuendo il servizio Web. Per altre informazioni, vedere [Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning](manage-new-webservice.md). 
@@ -121,7 +121,7 @@ Per ulteriori informazioni sull'accesso a un servizio Web Machine Learning Studi
 
 ### <a name="manage-your-new-web-service"></a>Gestire il nuovo servizio Web
 
-È possibile gestire il nuovo portale dei servizi Web Machine Learning Studio (classico). Dalla [pagina principale del portale](https://services.azureml-test.net/) fare clic su **Web Services** (Servizi Web). Nella pagina dei servizi Web è possibile eliminare o copiare un servizio. Per monitorare un servizio specifico, fare clic sul servizio e quindi su **Dashboard**. Per monitorare i processi batch associati al servizio Web, fare clic su **Batch Request Log**(Log richieste batch).
+È possibile gestire i nuovi servizi Web usando il portale dei servizi Web Machine Learning Studio (classico). Dalla [pagina principale del portale](https://services.azureml.net/) fare clic su **Web Services** (Servizi Web). Nella pagina dei servizi Web è possibile eliminare o copiare un servizio. Per monitorare un servizio specifico, fare clic sul servizio e quindi su **Dashboard**. Per monitorare i processi batch associati al servizio Web, fare clic su **Batch Request Log**(Log richieste batch).
 
 ### <a id="multi-region"></a> Distribuire il nuovo servizio Web in più aree
 
@@ -139,7 +139,7 @@ I prezzi sono specifici per ogni area, quindi è necessario definire un piano di
 6. Nell'elenco a discesa **Resource Group** (Gruppo di risorse) selezionare un gruppo di risorse per il piano. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 7. In **Plan Name** (Nome piano) digitare il nome del piano.
 8. In **Plan Options**(Opzioni piano) selezionare il livello di fatturazione per il nuovo piano.
-9. Fai clic su **Crea**.
+9. Fare clic su **Create**(Crea).
 
 #### <a name="deploy-the-web-service-to-another-region"></a>Eseguire la distribuzione del servizio Web in un'altra area
 

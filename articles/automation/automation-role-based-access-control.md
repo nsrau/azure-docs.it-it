@@ -5,17 +5,17 @@ keywords: controllo degli accessi in base al ruolo di Automazione, controllo deg
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9b2bcdf3d74c6946b8c9f0dacaeabf28d9c76f94
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 0ee524768f46de965b1755f2cfffdf9e2034bec8
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477725"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850789"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Controllo degli accessi in base al ruolo in Automazione di Azure
 
@@ -47,7 +47,7 @@ Nelle tabelle seguenti vengono descritte le autorizzazioni specifiche assegnate 
 
 Un proprietario può gestire tutto, compresi gli accessi. La tabella seguente illustra le autorizzazioni concesse per il ruolo:
 
-|Azioni|DESCRIZIONE|
+|Azioni|Description|
 |---|---|
 |Microsoft.Automation/automationAccounts/|Può creare e gestire ogni tipo di risorsa.|
 
@@ -73,7 +73,7 @@ Un lettore può visualizzare tutte le risorse in un account di Automazione, ma n
 
 ### <a name="automation-operator"></a>Operatore di automazione
 
-Il ruolo Operatore di automazione può creare e gestire i processi, oltre che leggere le proprietà e i nomi, per tutti i runbook in un account di Automazione.  Note: se si vuole controllare l'accesso dell'operatore ai singoli runbook, non impostare questo ruolo e usare invece i ruoli "Operatore processo di automazione" e "Operatore runbook di automazione" in combinazione. La tabella seguente illustra le autorizzazioni concesse per il ruolo:
+Il ruolo Operatore di automazione può creare e gestire i processi, oltre che leggere le proprietà e i nomi, per tutti i runbook in un account di Automazione.  Nota: se si vuole controllare l'accesso dell'operatore ai singoli runbook, non impostare questo ruolo e usare invece i ruoli "Operatore processo di automazione" e "Operatore runbook di automazione" in combinazione. La tabella seguente illustra le autorizzazioni concesse per il ruolo:
 
 |**Actions**  |**Descrizione**  |
 |---------|---------|
@@ -100,7 +100,7 @@ Il ruolo Operatore di automazione può creare e gestire i processi, oltre che le
 
 ### <a name="automation-job-operator"></a>Operatore processo di automazione
 
-Viene concesso un ruolo Operatore processo di automazione nell'ambito dell'account di Automazione. In questo modo vengono concesse all'operatore le autorizzazioni per creare e gestire i processi per tutti i runbook nell'account. La tabella seguente illustra le autorizzazioni concesse per il ruolo:
+Viene concesso un ruolo Operatore processo di automazione nell'ambito dell'account di Automazione. Questo consente all'operatore le autorizzazioni per creare e gestire i processi per tutti manuali operativi nell'account. La tabella seguente illustra le autorizzazioni concesse per il ruolo:
 
 |**Actions**  |**Descrizione**  |
 |---------|---------|
@@ -118,7 +118,7 @@ Viene concesso un ruolo Operatore processo di automazione nell'ambito dell'accou
 
 ### <a name="automation-runbook-operator"></a>Operatore runbook di automazione
 
-Un ruolo Operatore runbook di automazione viene concesso nell'ambito del runbook. Un ruolo Operatore runbook di automazione può visualizzare il nome e le proprietà del runbook.  Questo ruolo, combinato con il ruolo "Operatore processo di automazione" consente all'operatore anche di creare e gestire i processi per il runbook. La tabella seguente illustra le autorizzazioni concesse per il ruolo:
+Un ruolo Operatore runbook di automazione viene concesso nell'ambito del runbook. Un ruolo Operatore runbook di automazione può visualizzare il nome e le proprietà del runbook.  Questo ruolo combinato con il ruolo "operatore processo di automazione" consente all'operatore anche di creare e gestire i processi per il Runbook. La tabella seguente illustra le autorizzazioni concesse per il ruolo:
 
 |**Actions**  |**Descrizione**  |
 |---------|---------|
@@ -157,7 +157,7 @@ Un ruolo Lettore di Log Analytics può visualizzare ed eseguire ricerche in tutt
 |---------|---------|
 |*/lettura|Legge risorse di tutti i tipi, eccetto i segreti.|
 |Microsoft.OperationalInsights/workspaces/analytics/query/action|Gestire le query nei log di monitoraggio di Azure.|
-|Microsoft.OperationalInsights/workspaces/search/action|Cercare i dati di log di monitoraggio di Azure.|
+|Microsoft.OperationalInsights/workspaces/search/action|Cerca i dati di log di monitoraggio di Azure.|
 |Microsoft.Support/*|Crea e gestisce ticket di supporto.|
 |**Non azioni**| |
 |Microsoft.OperationalInsights/workspaces/sharedKeys/read|Non può leggere le chiavi di accesso condivise.|
@@ -180,11 +180,11 @@ Un ruolo Monitoraggio del ruolo Collaboratore può leggere tutti i dati di monit
 |Microsoft.Insights/Metrics/*|Metriche per una risorsa.|
 |Microsoft.Insights/Register/Action|Registra il provider Microsoft.Insights.|
 |Microsoft.Insights/webtests/*|Gestisce i test Web di Application Insights.|
-|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Gestire i pacchetti di soluzione di monitoraggio di Azure i log.|
-|Microsoft.OperationalInsights/workspaces/savedSearches/*|Gestire le ricerche log salvate di monitoraggio di Azure.|
+|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Gestisci pacchetti di soluzioni dei log di monitoraggio di Azure.|
+|Microsoft.OperationalInsights/workspaces/savedSearches/*|Gestire le ricerche salvate nei log di monitoraggio di Azure.|
 |Microsoft.OperationalInsights/workspaces/search/action|Cercare aree di lavoro di Log Analytics.|
 |Microsoft.OperationalInsights/workspaces/sharedKeys/action|Elencare chiavi per un'area di lavoro Log Analytics.|
-|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Gestire le configurazioni di monitoraggio di Azure log archiviazione insight.|
+|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Gestire i log di monitoraggio di Azure configurazioni di analisi dell'archiviazione.|
 |Microsoft.Support/*|Crea e gestisce ticket di supporto.|
 |Microsoft.WorkloadMonitor/workloads/*|Gestisce i carichi di lavoro.|
 
@@ -208,7 +208,7 @@ Un amministratore Accesso utenti può gestire l'accesso degli utenti alle risors
 |Microsoft.Authorization/*|Gestire l'autorizzazione|
 |Microsoft.Support/*|Creare e gestire ticket di supporto|
 
-## <a name="onboarding"></a>Onboarding
+## <a name="onboarding"></a>Implementazione
 
 Le tabelle seguenti illustrano le autorizzazioni minime necessarie per l'onboarding delle macchine virtuali per le soluzioni Rilevamento modifiche o Gestione aggiornamenti.
 
@@ -231,10 +231,10 @@ Le tabelle seguenti illustrano le autorizzazioni minime necessarie per l'onboard
 |Controllo dello stato di onboarding - Leggere la soluzione      | Microsoft.OperationalInsights/workspaces/intelligencepacks/read          | Soluzione         |
 |Controllo dello stato di onboarding - Leggere la VM      | Microsoft.Compute/virtualMachines/read         | Macchina virtuale         |
 |Controllo dello stato di onboarding - Leggere l'account      | Microsoft.Automation/automationAccounts/read  |  Account di Automazione   |
-| Controllo dell'area di lavoro di Onboarding per la macchina virtuale<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Sottoscrizione         |
-| Registrare il provider di Log Analitica |Microsoft.Insights/register/action | Sottoscrizione|
+| Verifica dell'area di lavoro di onboarding per la VM<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Sottoscrizione         |
+| Registrare il provider di Log Analytics |Microsoft.Insights/register/action | Sottoscrizione|
 
-<sup>1</sup> questa autorizzazione è necessaria per eseguire l'onboarding tramite l'esperienza del portale della macchina virtuale.
+<sup>1</sup> questa autorizzazione è necessaria per l'onboarding tramite l'esperienza del portale VM.
 
 ### <a name="onboarding-from-automation-account"></a>Onboarding dall'account di Automazione
 
@@ -252,7 +252,7 @@ Le tabelle seguenti illustrano le autorizzazioni minime necessarie per l'onboard
 |Creare/Modificare una ricerca salvata     | Microsoft.OperationalInsights/workspaces/write        | Area di lavoro        |
 |Creare/Modificare una configurazione di ambito     | Microsoft.OperationalInsights/workspaces/write        | Area di lavoro        |
 |Collegare una soluzione a una configurazione di ambito      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Soluzione         |
-| Registrare il provider di Log Analitica |Microsoft.Insights/register/action | Sottoscrizione|
+| Registrare il provider di Log Analytics |Microsoft.Insights/register/action | Sottoscrizione|
 |**Passaggio 2: Caricare più VM**     |         |         |
 |Pannello VMOnboarding - Creare un'estensione MMA     | Microsoft.Compute/virtualMachines/write           | Macchina virtuale        |
 |Creare/Modificare una ricerca salvata     | Microsoft.OperationalInsights/workspaces/write           | Area di lavoro        |

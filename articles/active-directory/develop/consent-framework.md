@@ -3,27 +3,23 @@ title: Framework di consenso di Azure Active Directory
 titleSuffix: Microsoft identity platform
 description: Informazioni sul framework di consenso in Azure Active Directory e sul suo uso per semplificare lo sviluppo di applicazioni client native e Web multi-tenant.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/30/2018
 ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af5b60901e57392aaea504f96572801a878d707c
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: e850b58274a98fd18b84114552bbf7835a27417c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803850"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843377"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Framework di consenso di Azure Active Directory
 

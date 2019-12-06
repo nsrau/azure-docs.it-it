@@ -1,18 +1,18 @@
 ---
 title: Funzioni matematiche nel linguaggio di query Azure Cosmos DB
-description: Informazioni sulle funzioni matematiche di sistema SQL in Azure Cosmos DB.
+description: Informazioni sulle funzioni matematiche di Azure Cosmos DB per eseguire un calcolo in base ai valori di input forniti come argomenti e restituire un valore numerico.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: fe4a84db3f2cbcfc2d9841caf520404afec2a297
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: a04867d356aaf2f55dbe900d2e35b42f74206851
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349664"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873268"
 ---
 # <a name="mathematical-functions-azure-cosmos-db"></a>Funzioni matematiche (Azure Cosmos DB)  
 
@@ -45,11 +45,11 @@ Le funzioni matematiche predefinite supportate seguenti eseguono un calcolo, in 
 |[SIGN](sql-query-sign.md)|[SIN](sql-query-sin.md)|[SQRT](sql-query-sqrt.md)|
 |[SQUARE](sql-query-square.md)|[TAN](sql-query-tan.md)|[TRUNC](sql-query-trunc.md)||  
   
-Tutte le funzioni matematiche, ad eccezione di RAND, sono funzioni deterministiche. Ciò significa che restituiscono gli stessi risultati ogni volta che vengono chiamate con un set specifico di valori di input.
+Tutte le funzioni matematiche, ad eccezione di RAND, sono deterministiche, ovvero restituiscono sempre lo stesso risultato ogni volta che vengono chiamate con un set specifico di valori di input.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Funzioni di sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduzione a Azure Cosmos DB](introduction.md)
 - [Funzioni definite dall'utente](sql-query-udfs.md)
-- [Aggregati](sql-query-aggregates.md)
+- [Aggregazioni](sql-query-aggregates.md)

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d6a87b5797ea5c8f4ac116d6df9e6a48204f1fd
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: b448e6ce7c8b4522d5e7bdbafb39eccca982fdee
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381907"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848511"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Metodi di autenticazione utilizzo & Insights (anteprima)
 
@@ -33,7 +33,7 @@ I ruoli seguenti possono accedere all'utilizzo e alle informazioni dettagliate:
 
 Non è necessaria alcuna licenza aggiuntiva per accedere all'utilizzo e alle informazioni dettagliate. Le informazioni sulle licenze per la reimpostazione della password self-service (SSPR) e Multi-Factor Authentication di Azure sono reperibili nel [sito dei prezzi Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-## <a name="how-it-works"></a>Funzionamento
+## <a name="how-it-works"></a>Come funziona
 
 Per accedere all'utilizzo del metodo di autenticazione e alle informazioni dettagliate:
 
@@ -65,7 +65,7 @@ Se si fa clic sugli **utenti registrati**, **gli utenti abilitati**o i riquadri 
 
 Il report Dettagli registrazione Mostra le informazioni seguenti per ogni utente:
 
-- Nome
+- name
 - Nome utente
 - Stato della registrazione (tutti, registrato, non registrato)
 - Stato abilitato (tutti, abilitato, non abilitato)
@@ -80,7 +80,7 @@ Se si fa clic sulle registrazioni o si reimpostano i grafici, è possibile visua
 
 Il report dettagli Reset Mostra gli eventi di registrazione e reimpostazione degli ultimi 30 giorni, tra cui:
 
-- Nome
+- name
 - Nome utente
 - Funzionalità (tutti, registrazione, reimpostazione)
 - Metodo di autenticazione (notifica dell'app, codice dell'app, telefonata, telefonata, SMS, posta elettronica, domande di sicurezza)

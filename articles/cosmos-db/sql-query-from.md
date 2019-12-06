@@ -1,29 +1,29 @@
 ---
 title: Clausola FROM in Azure Cosmos DB
-description: Informazioni sulla clausola SQL FROM per Azure Cosmos DB
+description: Informazioni sulla sintassi SQL ed esempio per la clausola FROM per Azure Cosmos DB. Questo articolo illustra anche esempi per definire l'ambito dei risultati e ottenere gli elementi secondari usando la clausola FROM.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: 79bb17277a041f71c095ed724737012f9501f16f
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 4f6d7580ea7ff0e8968c0c3ce4b3ca6111c86ac8
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72327002"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873370"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>Clausola FROM in Azure Cosmos DB
 
-La clausola FROM (`FROM <from_specification>`) è facoltativa, a meno che l'origine non venga filtrata o proiettata più avanti nella query. Una query come `SELECT * FROM Families` enumera l'intero contenitore `Families`. È anche possibile usare la radice identificatore speciale per il contenitore invece di usare il nome del contenitore.
+La clausola FROM (`FROM <from_specification>`) è facoltativa, a meno che l'origine non sia filtrata o proiettata più avanti nella query. Una query come `SELECT * FROM Families` enumera l'intero contenitore di `Families`. È anche possibile usare la radice identificatore speciale per il contenitore invece di usare il nome del contenitore.
 
 La clausola FROM applica le regole seguenti per ogni query:
 
-* È possibile effettuare l'aliasing del contenitore, come in `SELECT f.id FROM Families AS f` o semplicemente in `SELECT f.id FROM Families f`. Qui `f` è l'alias per `Families`. COME è una parola chiave facoltativa per l' [alias](sql-query-aliasing.md) dell'identificatore.  
+* È possibile effettuare l'aliasing del contenitore, come in `SELECT f.id FROM Families AS f` o semplicemente in `SELECT f.id FROM Families f`. `f` è l'alias per `Families`. COME è una parola chiave facoltativa per l' [alias](sql-query-aliasing.md) dell'identificatore.  
 
-* Una volta eseguito l'aliasing, non è possibile associare il nome di origine originale. Ad esempio, `SELECT Families.id FROM Families f` è sintatticamente non valido perché l'identificatore `Families` è stato associato a un alias e non è più possibile risolverlo.  
+* Una volta eseguito l'aliasing, non è possibile associare il nome di origine originale. Ad esempio, `SELECT Families.id FROM Families f` non è sintatticamente valido perché l'identificatore `Families` è stato associato a un alias e non è più possibile risolverlo.  
 
-* Tutte le proprietà a cui viene fatto riferimento devono essere complete per evitare qualsiasi binding ambiguo in assenza di una rigida aderenza allo schema. Ad esempio, `SELECT id FROM Families f` è sintatticamente non valido perché la proprietà `id` non è associata.
+* Tutte le proprietà a cui viene fatto riferimento devono essere complete per evitare qualsiasi binding ambiguo in assenza di una rigida aderenza allo schema. Ad esempio, `SELECT id FROM Families f` non è sintatticamente valido perché la proprietà `id` non è associata.
 
 ## <a name="syntax"></a>Sintassi
   
@@ -147,7 +147,7 @@ I risultati sono:
     ]
 ```
 
-Nella query precedente è stata usata una matrice come origine, ma è anche possibile usare un oggetto come origine. La query considera qualsiasi valore JSON valido e definito nell'origine per l'inclusione nel risultato. Nell'esempio seguente viene escluso `Families` che non hanno un valore `address.state`.
+Nella query precedente è stata usata una matrice come origine, ma è anche possibile usare un oggetto come origine. La query considera qualsiasi valore JSON valido e definito nell'origine per l'inclusione nel risultato. Nell'esempio seguente vengono escluse `Families` che non dispongono di un valore `address.state`.
 
 ```sql
     SELECT *

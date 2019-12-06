@@ -1,24 +1,24 @@
 ---
 title: Ridimensionare la velocità effettiva per i contenitori di Azure Cosmos DB
-description: In questo articolo viene descritto come Azure Cosmos DB ridimensiona la velocità effettiva in modo elastico
-author: dharmas-cosmos
+description: Questo articolo descrive in che modo Azure Cosmos DB scala la velocità effettiva tra aree diverse in cui viene effettuato il provisioning dell'account Azure Cosmos.
+author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.author: dharmas
+ms.date: 12/02/2019
+ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 29a92f04a1d36004fa082bfafe2310f9e0e3e5c6
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 440f23afcd08326261be30432ad1f0ecb16f55fd
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467609"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873506"
 ---
 # <a name="globally-scale-provisioned-throughput"></a>Ridimensionamento a livello globale della velocità effettiva sottoposta a provisioning 
 
 In Azure Cosmos DB la velocità effettiva con provisioning viene rappresentata come unità richiesta al secondo (UR/s o il formato plurale UR). Le UR misurano il costo delle operazioni sia lettura che di scrittura sul contenitore Cosmos, come illustrato nell'immagine seguente:
 
-![Unità richiesta](./media/scaling-throughput/request-unit-charge-of-read-and-write-operations.png)
+![Unità di richiesta](./media/scaling-throughput/request-unit-charge-of-read-and-write-operations.png)
 
 È possibile effettuare il provisioning delle unità richiesta in un contenitore Cosmos o in un database Cosmos. Le UR di cui è stato effettuato il provisioning in un contenitore sono disponibili esclusivamente per le operazioni eseguite su tale contenitore. Le unità richiesta con provisioning in un database sono condivise tra tutti i contenitori all'interno del database (ad eccezione di eventuali contenitori esclusivamente assegnati a unità di richiesta).
 
@@ -34,7 +34,7 @@ Supponendo che un contenitore Cosmos sia configurato con le UR *' R '* e che ci 
 
 - Se l'account Cosmos è configurato con più aree di scrittura, le UR totali sono disponibili a livello globale nel contenitore = *R* x (*N*+ 1). Viene effettuato automaticamente il provisioning delle UR *R* aggiuntive per elaborare i conflitti di aggiornamento e il traffico anti-entropia tra le aree.
 
-La scelta del [modello di coerenza](consistency-levels.md) influisca anche sulla velocità effettiva. È possibile ottenere circa 2x velocità effettiva di lettura per i livelli di coerenza più flessibili (ad esempio, *sessione*, *prefisso coerente* e coerenza *finale* ) rispetto ai livelli di coerenza più avanzati (ad esempio, decadimento delimitato o   *coerenza assoluta* ).
+La scelta del [modello di coerenza](consistency-levels.md) influisca anche sulla velocità effettiva. È possibile ottenere circa 2x velocità effettiva di lettura per i livelli di coerenza più flessibili (ad esempio, *sessione*, *prefisso coerente* e coerenza *finale* ) rispetto ai livelli di coerenza più avanzati (ad *esempio,* decadimento ristretto *o coerenza* assoluta).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

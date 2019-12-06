@@ -5,17 +5,17 @@ keywords: powershell dsc, configurazione dello stato desiderato, powershell dsc 
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5ed18f8a8bbd8bd323dec54ca3f700c7ce168dde
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 787cade13a0636bb25afa1d4043a977f512484f9
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231638"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850891"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Panoramica di Configurazione stato di Automazione di Azure
 
@@ -41,11 +41,11 @@ Dal portale di Azure o da PowerShell è possibile gestire tutte le configurazion
 
 I nodi gestiti con Configurazione stato di Automazione di Azure inviano dati dettagliati sullo stato dei report al server di pull predefinito. È possibile configurare Configurazione stato di Automazione di Azure per inviare questi dati all'area di lavoro Log Analytics. Per informazioni su come inviare i dati sullo stato della configurazione dello stato nell'area di lavoro Log Analytics, vedere [inoltrare i dati dei report di configurazione dello stato di automazione di Azure ai log di monitoraggio](automation-dsc-diagnostics.md)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Quando si usa la configurazione dello stato di automazione di Azure (DSC), considerare i requisiti seguenti.
 
-### <a name="operating-system-requirements"></a>Requisiti del sistema operativo
+### <a name="operating-system-requirements"></a>Requisiti per il sistema operativo
 
 Per i nodi che eseguono Windows sono supportate le versioni seguenti:
 
@@ -53,12 +53,12 @@ Per i nodi che eseguono Windows sono supportate le versioni seguenti:
 - Windows Server 2016
 - Windows Server 2012 R2
 - Windows Server 2012
-- Windows Server 2008 R2 SP1,
-- Windows 10
+- Windows Server 2008 R2 SP1
+- Windows 10
 - Windows 8.1
 - Windows 7
 
-Lo SKU del prodotto [Microsoft Hyper-V Server](/windows-server/virtualization/hyper-v/hyper-v-server-2016) autonomo non contiene un'implementazione della configurazione dello stato desiderato, quindi non può essere gestito da PowerShell DSC o dalla configurazione dello stato di automazione di Azure.
+Lo SKU del prodotto autonomo [Microsoft Hyper-V Server](/windows-server/virtualization/hyper-v/hyper-v-server-2016) non contiene un'implementazione di DSC, di conseguenza non può essere gestito da PowerShell DSC o da Configurazione stato di Automazione di Azure.
 
 Per i nodi che eseguono Linux, sono supportate le distribuzioni/versioni seguenti:
 
@@ -111,7 +111,7 @@ Se è disponibile un account di Automazione definito per un'area specifica, è p
 | Giappone orientale |jpe-jobruntimedata-prod-su1.azure-automation.net</br>jpe-agentservice-prod-1.azure-automation.net |
 | Australia sud-orientale |ase-jobruntimedata-prod-su1.azure-automation.net</br>ase-agentservice-prod-1.azure-automation.net |
 | Regno Unito meridionale | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
-| Governo degli Stati Uniti - Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
+| US Gov Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
 
 Per un elenco degli indirizzi IP di area invece dei nomi di area, scaricare il file XML degli [indirizzi IP dei data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653) dall'Area download Microsoft.
 
@@ -124,7 +124,7 @@ Per un elenco degli indirizzi IP di area invece dei nomi di area, scaricare il f
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per iniziare, vedere [Introduzione a Configurazione stato di Automazione di Azure](automation-dsc-getting-started.md)
+- Per iniziare, vedere [Introduzione alla configurazione dello stato di Automazione di Azure](automation-dsc-getting-started.md)
 - Per informazioni sull'onboarding dei nodi, vedere [Onboarding di computer per la gestione tramite Configurazione stato di Automazione di Azure](automation-dsc-onboarding.md)
 - Per informazioni sulla compilazione di configurazioni DSC da assegnare ai nodi di destinazione, vedere [Compilazione di configurazioni in Configurazione stato di Automazione di Azure](automation-dsc-compile.md)
 - Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Azure Automation State Configuration cmdlets](/powershell/module/azurerm.automation/#automation) (Cmdlet per Configurazione stato di Automazione di Azure)

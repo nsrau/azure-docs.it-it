@@ -1,18 +1,18 @@
 ---
 title: PIÙ basso nel linguaggio di query Azure Cosmos DB
-description: Informazioni sulla funzione di sistema SQL più in basso in Azure Cosmos DB.
+description: Informazioni sulla funzione di sistema SQL più bassa in Azure Cosmos DB per restituire un'espressione stringa dopo la conversione dei dati in caratteri maiuscoli in caratteri minuscoli
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 3a9c122ef65772458b832d3b1651e7e63e42985e
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 8f7cd864d90b8ab17a180a00a7a6d4bb683da9be
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349697"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873302"
 ---
 # <a name="lower-azure-cosmos-db"></a>INFERIORE (Azure Cosmos DB)
  Restituisce un'espressione stringa dopo la conversione di dati in caratteri maiuscoli in caratteri minuscoli.  
@@ -32,7 +32,7 @@ LOWER(<str_expr>)
   
   Restituisce un'espressione di stringa.  
   
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
   
   Nell'esempio seguente viene illustrato come utilizzare `LOWER` in una query.  
   

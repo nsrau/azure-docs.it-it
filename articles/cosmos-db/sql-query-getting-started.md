@@ -1,17 +1,17 @@
 ---
 title: Introduzione alle query SQL in Azure Cosmos DB
-description: Introduzione alle query SQL
+description: Informazioni su come usare le query SQL per eseguire query sui dati da Azure Cosmos DB. È possibile caricare i dati di esempio in un contenitore Azure Cosmos DB ed eseguire query su di essi.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: tisande
-ms.openlocfilehash: 8de5140d0146ccbb18f41867e1c716aa2f3897b7
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 1d24261edea843fa928ad00e3ce7babcb84acd3b
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001900"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873336"
 ---
 # <a name="getting-started-with-sql-queries"></a>Introduzione alle query SQL
 
@@ -52,7 +52,7 @@ Il codice seguente crea due semplici elementi JSON sulle famiglie. Gli elementi 
 }
 ```
 
-Il secondo elemento usa `givenName` e `familyName` invece di `firstName` e `lastName`.
+Il secondo elemento USA `givenName` e `familyName` invece di `firstName` e `lastName`.
 
 ```json
 {
@@ -88,7 +88,7 @@ Il secondo elemento usa `givenName` e `familyName` invece di `firstName` e `last
 
 Provare alcune query sui dati JSON per comprendere alcuni aspetti chiave del linguaggio di query SQL di Azure Cosmos DB.
 
-La query seguente restituisce gli elementi in cui `id` il campo `AndersenFamily`corrisponde a. Poiché si tratta di `SELECT *` una query, l'output della query è l'elemento JSON completo. Per ulteriori informazioni sulla sintassi SELECT, vedere [istruzione SELECT](sql-query-select.md). 
+La query seguente restituisce gli elementi in cui il campo `id` corrisponde a `AndersenFamily`. Poiché si tratta di una query `SELECT *`, l'output della query è l'elemento JSON completo. Per ulteriori informazioni sulla sintassi SELECT, vedere [istruzione SELECT](sql-query-select.md). 
 
 ```sql
     SELECT *
@@ -118,7 +118,7 @@ I risultati della query sono:
     }]
 ```
 
-La query seguente riformatta l'output JSON in una forma diversa. La query proietta un nuovo oggetto `Family` JSON con due `Name` campi selezionati e `City`, quando la città degli indirizzi corrisponde allo stato. "NY, NY" corrisponde a questo caso.
+La query seguente riformatta l'output JSON in una forma diversa. La query proietta un nuovo oggetto `Family` JSON con due campi selezionati, `Name` e `City`, quando la città degli indirizzi corrisponde allo stato. "NY, NY" corrisponde a questo caso.
 
 ```sql
     SELECT {"Name":f.id, "City":f.address.city} AS Family
@@ -137,7 +137,7 @@ I risultati della query sono:
     }]
 ```
 
-La query seguente restituisce tutti i nomi di elementi figlio specificati nella famiglia le `id` cui `WakefieldFamily`corrispondenze, ordinate per città.
+Con la query seguente vengono restituiti tutti i nomi degli elementi figlio della famiglia il cui `id` corrisponde `WakefieldFamily`, ordinati per città.
 
 ```sql
     SELECT c.givenName
@@ -156,11 +156,11 @@ I risultati sono:
     ]
 ```
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 Negli esempi precedenti vengono illustrati diversi aspetti del linguaggio di query di Cosmos DB:  
 
-* Poiché l'API SQL funziona sui valori JSON, gestisce le entità a forma di albero invece di righe e colonne. È possibile fare riferimento ai nodi della struttura ad albero in qualsiasi profondità arbitraria, ad esempio `Node1.Node2.Node3…..Nodem`, in modo simile al riferimento in due parti di `<table>.<column>` in ANSI SQL.
+* Poiché l'API SQL funziona sui valori JSON, gestisce le entità a forma di albero invece di righe e colonne. È possibile fare riferimento ai nodi della struttura ad albero in qualsiasi profondità arbitraria, ad esempio `Node1.Node2.Node3…..Nodem`, in modo analogo al riferimento in due parti di `<table>.<column>` in ANSI SQL.
 
 * Poiché il linguaggio di query funziona con dati senza schema, è necessario associare il sistema di tipi dinamicamente. La stessa espressione potrebbe produrre tipi differenti per elementi differenti. Il risultato di una query è un valore JSON valido, ma non è garantito che sia di uno schema fisso.  
 

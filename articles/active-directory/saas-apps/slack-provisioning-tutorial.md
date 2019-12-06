@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a90151679b71364d93446d1acc46a461d2a9d8f9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 4cd8e483d6c189e311fdb1925ad0f2effc2affe1
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278173"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849148"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Esercitazione: Configurare Slack per il provisioning utenti automatico
 
 Questa esercitazione descrive le procedure da eseguire in Slack e Azure AD per effettuare automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a Slack.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
@@ -66,19 +66,19 @@ Questa sezione illustra la connessione di Azure AD all'API per il provisioning d
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-   ![Provisioning in Slack](./media/slack-provisioning-tutorial/Slack1.PNG)
+   ![Provisioning in Slack](./media/slack-provisioning-tutorial/slack1.png)
 
 5. Nella sezione **Credenziali amministratore** fare clic su **Autorizza**. Verrà aperta una finestra di dialogo di autorizzazione di Slack in una nuova finestra del browser.
 
 6. Nella nuova finestra accedere a Slack con l'account di amministratore di team. Nella finestra di dialogo di autorizzazione risultante selezionare il team Slack per cui si vuole abilitare il provisioning e quindi **Authorize** (Autorizza). Al termine, tornare al portale di Azure per completare la configurazione del provisioning.
 
-    ![Finestra di dialogo di autorizzazione](./media/slack-provisioning-tutorial/Slack3.PNG)
+    ![Finestra di dialogo di autorizzazione](./media/slack-provisioning-tutorial/slackauthorize.png)
 
 7. Nel portale di Azure fare clic su **Test connessione** per verificare che Azure AD possa connettersi all'app Slack. Se la connessione non riesce, verificare che l'account Slack abbia autorizzazioni di amministratore di team e ripetere il passaggio "Authorize" (Autorizza).
 
 8. Immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning nel campo **Messaggio di posta elettronica di notifica** e selezionare la casella di controllo seguente.
 
-9. Fare clic su **Save**.
+9. Fare clic su **Salva**
 
 10. Nella sezione Mapping selezionare **Synchronize Azure Active Directory Users to Slack** (Sincronizza utenti di Azure Active Directory in Slack).
 
@@ -86,7 +86,7 @@ Questa sezione illustra la connessione di Azure AD all'API per il provisioning d
 
 12. Per abilitare il servizio di provisioning di Azure AD per Slack, impostare **Stato del provisioning** su **Sì** nella sezione **Impostazioni**.
 
-13. Fare clic su **Save**.
+13. Fare clic su **Salva**
 
 Verrà avviata la sincronizzazione iniziale di tutti gli utenti e/o i gruppi assegnati a Slack nella sezione Utenti e gruppi. Si noti che la sincronizzazione iniziale richiederà più tempo delle sincronizzazioni successive, eseguite circa ogni 10 minuti fintanto che è in esecuzione il servizio. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio di provisioning sull'app Slack.
 
@@ -102,11 +102,11 @@ Facoltativamente, è possibile abilitare il provisioning di oggetti gruppo da Az
 
 3. Nella sezione **Mapping degli attributi** esaminare gli attributi gruppo che verranno sincronizzati da Azure AD a Slack. Si noti che gli attributi selezionati come proprietà **corrispondenti** verranno usati per trovare le corrispondenze con i gruppi in Slack per le operazioni di aggiornamento. 
 
-4. Fare clic su **Save**.
+4. Fare clic su **Salva**
 
 Verrà così eseguita la sincronizzazione completa da Azure AD a Slack di tutti gli oggetti gruppo assegnati a Slack nella sezione **Utenti e gruppi**. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai log delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio di provisioning sull'app Slack.
 
-Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere [Esercitazione: creazione di report sul provisioning automatico degli account utente](../manage-apps/check-status-user-account-provisioning.md).
+Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Limitazioni dei connettori
 

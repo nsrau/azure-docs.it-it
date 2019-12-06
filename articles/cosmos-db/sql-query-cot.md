@@ -1,18 +1,18 @@
 ---
 title: LETTIno in linguaggio Azure Cosmos DB query
-description: Informazioni sulla funzione di culla della funzione di sistema SQL in Azure Cosmos DB.
+description: Informazioni sul modo in cui la funzione di sistema SQL della cotangente (COT) in Azure Cosmos DB restituisce la cotangente trigonometrica dell'angolo specificato, in radianti, nell'espressione numerica specificata.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: d980319730e69fdcb529272ba1b8fb48d2b5b230
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: f049d1295eef3e6a45abeaafe8c22d376f90abe1
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351241"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871500"
 ---
 # <a name="cot-azure-cosmos-db"></a>LETTIno (Azure Cosmos DB)
  Restituisce la cotangente trigonometrica dell'angolo specificato, espresso in radianti, nell'espressione numerica specificata.  
@@ -32,7 +32,7 @@ COT(<numeric_expr>)
   
   Restituisce un'espressione numerica.  
   
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
   
   Nell'esempio seguente viene calcolato il `COT` dell'angolo specificato.  
   

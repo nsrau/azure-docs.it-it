@@ -4,17 +4,17 @@ description: Gli asset di connessione di Automazione di Azure contengono le info
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 01/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 90b2234607ad120c43e241fe4ae5222fe285803e
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 621441afaa9bef08a8ebf3b0af082c6a17c77b1b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001651"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850432"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Asset di connessione in Automazione di Azure
 
@@ -23,7 +23,7 @@ Un asset di connessione di Automazione contiene le informazioni necessarie per l
 Quando si crea una connessione, è necessario specificare un *tipo di connessione*. Il tipo di connessione è un modello che definisce un set di proprietà. La connessione definisce i valori per ogni proprietà definita nel rispettivo tipo di connessione. I tipi di connessione vengono aggiunti ad Automazione di Azure nei moduli di integrazione oppure creati con l'[API di Automazione di Azure](/previous-versions/azure/reference/mt163818(v=azure.100)) se il modulo di integrazione include un tipo di connessione e viene importato nell'account di Automazione. In caso contrario, sarà necessario creare un file di metadati per specificare un tipo di connessione di Automazione.  Per ulteriori informazioni, vedere [Moduli di integrazione](automation-integration-modules.md).
 
 >[!NOTE]
->Gli asset sicuri in Automazione di Azure includono credenziali, certificati, connessioni e variabili crittografate. Questi asset vengono crittografati e archiviati in Automazione di Azure usando una chiave univoca generata per ogni account di automazione. Questa chiave è archiviata in un Key Vault gestito dal sistema. Prima di archiviare un asset sicuro, la chiave viene caricata da Key Vault e quindi usata per crittografare l'asset. Questo processo è gestito dall'Automazione di Azure.
+>Gli asset sicuri in Automazione di Azure includono credenziali, certificati, connessioni e variabili crittografate. Questi asset vengono crittografati e archiviati in Automazione di Azure usando una chiave univoca generata per ogni account di automazione. Questa chiave è archiviata in un Key Vault gestito dal sistema. Prima di archiviare un asset sicuro, la chiave viene caricata da Key Vault e quindi usata per crittografare l'asset. Questo processo è gestito da Automazione di Azure.
 
 ## <a name="connection-types"></a>Tipi di connessione
 
@@ -39,7 +39,7 @@ Nella maggior parte dei casi non è necessario creare una risorsa di connessione
 
 I cmdlet della tabella seguente vengono usati per creare e gestire connessioni di automazione con Windows PowerShell. Sono inclusi nel [modulo Azure PowerShell](/powershell/azure/overview) , disponibile per l'uso nei runbook di Automazione e nelle configurazioni DSC.
 
-|Cmdlet|Descrizione|
+|Cmdlet|Description|
 |:---|:---|
 |[Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection)|Recupera una connessione. Include una tabella hash con i valori dei campi della connessione.|
 |[New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection)|Crea una nuova connessione.|
@@ -50,7 +50,7 @@ I cmdlet della tabella seguente vengono usati per creare e gestire connessioni d
 
 Le attività incluse nella tabella seguente vengono usate per accedere alle connessioni in un Runbook o configurazione DSC.
 
-|Attività|Descrizione|
+|Attività|Description|
 |---|---|
 |[Get-AutomationConnection](/powershell/module/servicemanagement/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|Ottiene una connessione da usare. Restituisce una tabella hash con le proprietà della connessione.|
 
@@ -61,7 +61,7 @@ Le attività incluse nella tabella seguente vengono usate per accedere alle conn
 ## <a name="python2-functions"></a>Funzioni Python2
 La funzione nella tabella seguente viene usata per accedere alle connessioni in un runbook Python2.
 
-| Funzione | Descrizione |
+| Funzione | Description |
 |:---|:---|
 | automationassets.get_automation_connection | Recupera una connessione. Restituisce un dizionario con le proprietà della connessione. |
 

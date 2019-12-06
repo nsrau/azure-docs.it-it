@@ -4,17 +4,17 @@ description: Questo articolo descrive le impostazioni di Windows Update configur
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 10/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 813d34f9c07e6c2909c483f040d4f3bf09b3ad24
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 804f42121293e142cf77ad73c4aab36e62e3242d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72690851"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850415"
 ---
 # <a name="configure-windows-update-settings-for-update-management"></a>Configurare le impostazioni di Windows Update per Gestione aggiornamenti
 
@@ -43,11 +43,11 @@ Set-ItemProperty -Path $AutoUpdatePath -Name NoAutoUpdate -Value 1
 
 ## <a name="configure-reboot-settings"></a>Configurare le impostazioni di riavvio
 
-Le chiavi del registro di sistema elencate in [configurazione di aggiornamenti automatici modificando il registro](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) di sistema e le [chiavi del registro di sistema usate per gestire il riavvio](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) possono causare il riavvio dei computer, anche se si specifica **mai il riavvio** nelle impostazioni di **distribuzione degli aggiornamenti** . È necessario configurare queste chiavi del registro di sistema in modo da adattarle al proprio ambiente.
+Le chiavi del registro di sistema elencate in [Configuring aggiornamenti automatici modificando il registro](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) di sistema e le [chiavi del registro di sistema usate per gestire il riavvio](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) possono causare il riavvio dei computer, anche se non si specifica **mai il riavvio** nelle impostazioni di **distribuzione degli aggiornamenti** . È necessario configurare queste chiavi del registro di sistema in modo da adattarle al proprio ambiente.
 
 ## <a name="enable-updates-for-other-microsoft-products"></a>Abilitare gli aggiornamenti per altri prodotti Microsoft
 
-Per impostazione predefinita, Windows Update fornisce aggiornamenti solo per Windows. Se si Abilita l'impostazione **Invia aggiornamenti per altri prodotti Microsoft quando si aggiorna Windows** , si ricevono anche gli aggiornamenti per altri prodotti, incluse le patch di sicurezza per Microsoft SQL Server e altri prodotti software Microsoft. Non è possibile configurare questa opzione tramite Criteri di gruppo. Eseguire il comando di PowerShell seguente nei sistemi in cui si desidera abilitare altri aggiornamenti Microsoft. Gestione aggiornamenti conforme a questa impostazione.
+Per impostazione predefinita, Windows Update offre soltanto gli aggiornamenti per Windows. Se si Abilita l'impostazione **Invia aggiornamenti per altri prodotti Microsoft quando si aggiorna Windows** , si ricevono anche gli aggiornamenti per altri prodotti, incluse le patch di sicurezza per Microsoft SQL Server e altri prodotti software Microsoft. Non è possibile configurare questa opzione tramite Criteri di gruppo. Eseguire il comando di PowerShell seguente nei sistemi in cui si desidera abilitare altri aggiornamenti Microsoft. Gestione aggiornamenti conforme a questa impostazione.
 
 ```powershell
 $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")

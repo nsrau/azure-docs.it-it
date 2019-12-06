@@ -1,17 +1,17 @@
 ---
 title: Creare un contenitore in Azure Cosmos DB
-description: Informazioni su come creare un contenitore in Azure Cosmos DB
+description: Informazioni su come creare un contenitore in Azure Cosmos DB usando portale di Azure, .NET, Java, Python, node. js e altri SDK.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 911f56cef58e5d9c161a3ba947850bcfff073200
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 4eaa2974817bfcd8bef83e5139d75a2d4c2ec107
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242417"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873710"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Creare un contenitore in Azure Cosmos
 
@@ -31,7 +31,7 @@ Questo articolo illustra i diversi modi disponibili per creare un contenitore di
    * Immettere un ID contenitore.
    * Immettere una chiave di partizione.
    * Immettere una velocità effettiva da sottoporre a provisioning (ad esempio, 1000 UR).
-   * Scegliere **OK**.
+   * Selezionare **OK**.
 
     ![Screenshot del riquadro Esplora dati con il nuovo contenitore evidenziato](./media/how-to-create-container/partitioned-collection-create-sql.png)
 
@@ -47,7 +47,7 @@ Questo articolo illustra i diversi modi disponibili per creare un contenitore di
    * Immettere un ID contenitore.
    * Immettere una chiave di partizione.
    * Immettere una velocità effettiva da sottoporre a provisioning (ad esempio, 1000 UR).
-   * Scegliere **OK**.
+   * Selezionare **OK**.
 
     ![Screenshot dell'API Azure Cosmos DB per MongoDB, finestra di dialogo Aggiungi contenitore](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
 
@@ -63,7 +63,7 @@ Questo articolo illustra i diversi modi disponibili per creare un contenitore di
    * Immettere un nome per la tabella.
    * Immettere le proprietà e specificare una chiave primaria.
    * Immettere una velocità effettiva da sottoporre a provisioning (ad esempio, 1000 UR).
-   * Scegliere **OK**.
+   * Selezionare **OK**.
 
     ![Screenshot dell'API Cassandra con la finestra di dialogo Aggiungi tabella](./media/how-to-create-container/partitioned-collection-create-cassandra.png)
 
@@ -83,7 +83,7 @@ Questo articolo illustra i diversi modi disponibili per creare un contenitore di
    * Selezionare una capacità di archiviazione **Illimitata**.
    * Immettere una chiave di partizione per i vertici.
    * Immettere una velocità effettiva da sottoporre a provisioning (ad esempio, 1000 UR).
-   * Scegliere **OK**.
+   * Selezionare **OK**.
 
     ![Screenshot dell'API Gremlin con la finestra di dialogo Aggiungi Graph](./media/how-to-create-container/partitioned-collection-create-gremlin.png)
 
@@ -97,7 +97,7 @@ Questo articolo illustra i diversi modi disponibili per creare un contenitore di
 
    * Immettere un ID tabella.
    * Immettere una velocità effettiva da sottoporre a provisioning (ad esempio, 1000 UR).
-   * Scegliere **OK**.
+   * Selezionare **OK**.
 
     ![Screenshot dell'API Tabella con la finestra di dialogo Aggiungi tabella](./media/how-to-create-container/partitioned-collection-create-table.png)
 
@@ -116,7 +116,7 @@ Per un elenco di tutti gli esempi dell'interfaccia della riga di comando di Azur
 * [Creare un grafo Gremlin con interfaccia della riga di comando di Azure](./scripts/cli/gremlin/create.md)
 * [Creare una tabella di API Tabella con l'interfaccia della riga di comando](./scripts/cli/table/create.md)
 
-## Creare un contenitore usando PowerShell<a id="ps-sql"></a><a id="ps-mongodb"><a id="ps-cassandra"></a><a id="ps-gremlin"><a id="ps-table"></a>
+## Creare un contenitore usando PowerShell<a id="ps-sql"> </a><a id="ps-mongodb"><a id="ps-cassandra"></a><a id="ps-gremlin"><a id="ps-table"></a>
 
 I collegamenti seguenti illustrano come creare risorse contenitore per Azure Cosmos DB usando PowerShell.
 

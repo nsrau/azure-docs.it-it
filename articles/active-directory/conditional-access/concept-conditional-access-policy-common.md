@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf338ad0c555038cd99c3604d69ab80371d6ea22
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: e3d85850fb18b80490bba44b293ece7765124133
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74804975"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74846114"
 ---
 # <a name="common-conditional-access-policies"></a>Criteri comuni di accesso condizionale
 
@@ -44,4 +44,5 @@ Altre informazioni sugli account di accesso di emergenza e sul motivo per cui so
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Simulare il comportamento di accesso usando lo strumento di What If dell'accesso condizionale](troubleshoot-conditional-access-what-if.md)
+- [Simulare il comportamento di accesso usando lo strumento di What If dell'accesso condizionale.](troubleshoot-conditional-access-what-if.md)
+- [Utilizzare la modalità solo report per l'accesso condizionale per determinare l'effetto delle nuove decisioni sui criteri.](concept-conditional-access-report-only.md)

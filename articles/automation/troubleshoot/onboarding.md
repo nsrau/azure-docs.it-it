@@ -2,18 +2,18 @@
 title: Risoluzione degli errori di onboarding di Gestione aggiornamenti, Rilevamento modifiche e Inventario
 description: Informazioni su come risolvere problemi di onboarding delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario
 services: automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 8b4ee999bb23abdcea3411720bde244b2da4e89f
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 0371c59ae63389bc3f7f0132260b0d98f496086c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516411"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849310"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Risoluzione di problemi di onboarding delle soluzioni
 
@@ -21,7 +21,7 @@ Durante l'onboarding di soluzioni quali Gestione aggiornamenti, Rilevamento modi
 
 ## <a name="known-issues"></a>Problemi noti
 
-### <a name="node-rename"></a>Scenario: Per rinominare un nodo registrato, è necessario annullare la registrazione o la registrazione
+### <a name="node-rename"></a>Scenario: per rinominare un nodo registrato, è necessario annullare la registrazione o la registrazione
 
 #### <a name="issue"></a>Problema
 
@@ -36,7 +36,7 @@ La ridenominazione dei nodi registrati non aggiorna il nome del nodo in automazi
 Annullare la registrazione del nodo dalla configurazione dello stato di automazione di Azure e quindi registrarlo di nuovo.  I report pubblicati nel servizio prima del momento non saranno più disponibili.
 
 
-### <a name="resigning-cert"></a>Scenario: La ripetizione della firma dei certificati tramite proxy HTTPS non è supportata
+### <a name="resigning-cert"></a>Scenario: la nuova firma dei certificati tramite il proxy HTTPS non è supportata
 
 #### <a name="issue"></a>Problema
 
@@ -48,11 +48,11 @@ Automazione di Azure non supporta la ripetizione della firma dei certificati usa
 
 #### <a name="resolution"></a>Risoluzione
 
-Non esiste alcuna soluzione per questo problema.
+non è disponibile alcuna soluzione alternativa per questo problema.
 
 ## <a name="general-errors"></a>Errori generali
 
-### <a name="missing-write-permissions"></a>Scenario: Esito negativo dell'onboarding con messaggio Non è possibile abilitare la soluzione
+### <a name="missing-write-permissions"></a>Scenario: l'onboarding ha esito negativo con il messaggio. Impossibile abilitare la soluzione
 
 #### <a name="issue"></a>Problema
 
@@ -72,9 +72,9 @@ Questo errore è causato da autorizzazioni errate o mancanti nella macchina virt
 
 #### <a name="resolution"></a>Risoluzione
 
-Assicurarsi di disporre delle autorizzazioni corrette per eseguire l'onboarding della macchina virtuale. Verificare quali [autorizzazioni sono necessarie per eseguire l'onboarding delle macchine virtuali](../automation-role-based-access-control.md#onboarding) e ripetere l'operazione. Se viene visualizzato l'errore `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, assicurarsi di disporre dell' `Microsoft.OperationalInsights/workspaces/read` autorizzazione per essere in grado di verificare se la macchina virtuale è stata caricata in un'area di lavoro.
+Assicurarsi di disporre delle autorizzazioni corrette per eseguire l'onboarding della macchina virtuale. Verificare quali [autorizzazioni sono necessarie per eseguire l'onboarding delle macchine virtuali](../automation-role-based-access-control.md#onboarding) e ripetere l'operazione. Se viene visualizzato il messaggio di errore `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, assicurarsi di disporre dell'autorizzazione `Microsoft.OperationalInsights/workspaces/read` per essere in grado di rilevare se la macchina virtuale è caricata in un'area di lavoro.
 
-### <a name="diagnostic-logging"></a>Scenario: Il caricamento non riesce con il messaggio: Impossibile configurare l'account di automazione per la registrazione diagnostica
+### <a name="diagnostic-logging"></a>Scenario: l'onboarding ha esito negativo con il messaggio-Impossibile configurare l'account di automazione per la registrazione diagnostica
 
 #### <a name="issue"></a>Problema
 
@@ -126,9 +126,9 @@ Per poter distribuire la soluzione, è necessario provare a modificare i criteri
   * Ridefinendo la destinazione dei criteri per una risorsa specifica (ad esempio un account di Automazione di Azure specifico).
   * Modificando il set di risorse per il quale il criterio specifico è stato configurato per negare l'autorizzazione.
 
-Controllare le notifiche nell'angolo superiore destro della portale di Azure o passare al gruppo di risorse contenente l'account di automazione e selezionare distribuzioni in **Impostazioni** per visualizzare la distribuzione non riuscita. Per altre informazioni su Criteri di Azure, vedere: [Panoramica dei criteri di Azure](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
+Controllare le notifiche nell'angolo superiore destro della portale di Azure o passare al gruppo di risorse contenente l'account di automazione e selezionare **distribuzioni** in **Impostazioni** per visualizzare la distribuzione non riuscita. Per altre informazioni sui criteri di Azure, vedere [Informazioni su Criteri di Azure](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
 
-### <a name="unlink"></a>Scenario: Errori durante il tentativo di scollegare un'area di lavoro
+### <a name="unlink"></a>Scenario: errori durante il tentativo di scollegare un'area di lavoro
 
 #### <a name="issue"></a>Problema
 
@@ -155,8 +155,8 @@ Una volta rimosse le soluzioni, è possibile scollegare l'area di lavoro. È imp
 * Gestione degli aggiornamenti
   * Rimuovere le distribuzioni di aggiornamenti (pianificazioni) dall'account di automazione
 * Avviare/arrestare VM durante gli orari di minore attività
-  * Rimuovere i blocchi sui componenti della soluzione nell'account di automazione in **Impostazioni** > **blocchi**.
-  * Per ulteriori passaggi per la rimozione della soluzione di avvio/arresto di macchine virtuali durante gli orari di indisponibilità, vedere [rimuovere la macchina virtuale di avvio/arresto durante gli orari](../automation-solution-vm-management.md##remove-the-solution)di indisponibilità.
+  * Rimuovere i blocchi sui componenti della soluzione nell'account di automazione in **impostazioni** > **blocchi**.
+  * Per ulteriori passaggi per rimuovere la soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività vedere, [rimuovere la soluzione avvia/arresta macchina virtuale durante gli orari](../automation-solution-vm-management.md##remove-the-solution)di indisponibilità.
 
 ## <a name="mma-extension-failures"></a>Errori delle estensioni di MMA
 
@@ -168,7 +168,7 @@ L'installazione dell'estensione MMA o dell'agente di Log Analytics per Linux pu�
 
 La sezione seguente descrive i vari problemi che è possibile riscontrare durante l'onboarding che provoca un errore nella distribuzione dell'estensione MMA.
 
-### <a name="webclient-exception"></a>Scenario: È stata generata un'eccezione durante una richiesta WebClient
+### <a name="webclient-exception"></a>Scenario: è stata generata un'eccezione durante una richiesta WebClient
 
 L'estensione MMA della macchina virtuale non può comunicare con le risorse esterne e la distribuzione non riesce.
 
@@ -196,7 +196,7 @@ Alcune cause possibili di questo errore sono:
 
 Assicurarsi di avere le porte e gli indirizzi aperti per la comunicazione. Per un elenco di porte e indirizzi, vedere [Planning your network](../automation-hybrid-runbook-worker.md#network-planning) (Pianificazione della rete).
 
-### <a name="transient-environment-issue"></a>Scenario: Installazione non riuscita a causa di problemi di ambiente temporanei
+### <a name="transient-environment-issue"></a>Scenario: installazione non riuscita a causa di problemi di ambiente temporanei
 
 L'installazione dell'estensione Microsoft Monitoring Agent non è riuscita durante la distribuzione a causa di un'altra installazione o azione che blocca l'installazione
 
@@ -227,7 +227,7 @@ Alcune cause possibili di questo errore sono:
 
 Si tratta di un problema di per sé temporaneo. Ritentare la distribuzione per installare l'estensione.
 
-### <a name="installation-timeout"></a>Scenario: Timeout dell'installazione
+### <a name="installation-timeout"></a>Scenario: timeout dell'installazione
 
 L'installazione dell'estensione MMA non è stata completata a causa di un timeout.
 
@@ -253,4 +253,4 @@ Se il problema riscontrato non è presente in questo elenco o se non si riesce a
 
 * Ottieni risposte dagli esperti di Azure tramite i [forum di Azure](https://azure.microsoft.com/support/forums/)
 * Collegarsi a [@AzureSupport](https://twitter.com/azuresupport), l'account Microsoft Azure ufficiale per il miglioramento dell'esperienza dei clienti che mette in contatto la community di Azure con le risorse corrette: risposte, supporto ed esperti.
-* Se è necessaria un'assistenza maggiore, è possibile inviare una richiesta al supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**.
+* Se è necessaria un'assistenza maggiore, è possibile inviare una richiesta al supporto tecnico di Azure. Accedere al sito del [supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Richiedi supporto**.

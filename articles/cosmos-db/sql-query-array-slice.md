@@ -1,18 +1,18 @@
 ---
-title: ARRAY_SLICE in linguaggio di query Azure Cosmos DB
-description: Informazioni sulla funzione di sistema SQL ARRAY_SLICE in Azure Cosmos DB.
+title: ARRAY_SLICE nel linguaggio di query Azure Cosmos DB
+description: Informazioni sul modo in cui la funzione di sistema SQL Slice della matrice in Azure Cosmos DB restituisce parte di un'espressione di matrice
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 1df4177bb8b56bc98977af0f5180e8df5affb257
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 3c65886eabfa87f729e18fb854aca6662d1d6fac
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348557"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871789"
 ---
 # <a name="array_slice-azure-cosmos-db"></a>ARRAY_SLICE (Azure Cosmos DB)
  Restituisce parte di un'espressione di matrice.
@@ -37,7 +37,7 @@ ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])
   
   Restituisce un'espressione di matrice.  
   
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
   
   Nell'esempio seguente viene illustrato come ottenere sezioni diverse di una matrice utilizzando `ARRAY_SLICE`.  
   

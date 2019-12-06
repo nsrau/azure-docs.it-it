@@ -1,30 +1,26 @@
 ---
-title: Le condizioni del servizio e informativa sulla privacy per le app | Azure
+title: Condizioni per il servizio e informativa sulla privacy per le app | Azure
 description: Informazioni su come configurare le condizioni per l'utilizzo del servizio e l'informativa sulla privacy per le app registrate per l'uso di Azure AD.
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a01b50573405964b09339d03e84c62dbdd8582
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 9ca59120bcfadc6c75e3687be84a0e70f97fc3c2
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482857"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842808"
 ---
-# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procedura: Configurare le condizioni del servizio e informativa sulla privacy per un'app
+# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procedura: configurare le condizioni del servizio e l'informativa sulla privacy per un'app
 
 Gli sviluppatori che creano e gestiscono app integrate con Azure Active Directory (Azure AD) e account Microsoft devono includere collegamenti alle condizioni per l'utilizzo del servizio e all'informativa sulla privacy dell'app. Le condizioni per l'utilizzo del servizio e l'informativa sulla privacy vengono presentate agli utenti tramite l'esperienza di consenso dell'utente e consentono agli utenti di sapere che possono considerare attendibile l'app. Le condizioni per l'utilizzo del servizio e l'informativa sulla privacy sono particolarmente importanti per le app multi-tenant rivolte all'utente, ovvero le app che vengono usate da più directory o sono disponibili per qualsiasi account Microsoft.
 
@@ -44,7 +40,7 @@ Gli esempi seguenti mostrano l'esperienza di consenso dell'utente quanto le cond
 
 Prima di aggiungere collegamenti ai documenti delle condizioni per l'utilizzo del servizio e dell'informativa sulla privacy, assicurarsi che gli URL rispettino queste linee guida.
 
-| Linee guida     | Descrizione                           |
+| Linee guida     | Description                           |
 |---------------|---------------------------------------|
 | Format        | URL valido                             |
 | Schemi validi | HTTP e HTTPS<br/>Si consiglia HTTPS |
@@ -60,16 +56,16 @@ Quando le condizioni per l'utilizzo del servizio e l'informativa sulla privacy s
 * [Con il codice JSON dell'oggetto app](#app-object-json)
 * [Con la versione beta dell'API REST MSGraph](#msgraph-beta-rest-api)
 
-### <a name="azure-portal"></a>Nel portale di Azure
-Seguire questi passaggi nel portale di Azure.
+### <a name="azure-portal"></a>Uso della portale di Azure
+Seguire questa procedura nella portale di Azure.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Passare alla sezione **Registrazioni per l'app** e selezionare l'app.
-3. Aprire il **Branding** riquadro.
+3. Aprire il riquadro **personalizzazione** .
 4. Completare i campi **URL delle condizioni d'uso** e **URL dell'informativa sulla privacy**.
 5. Salvare le modifiche.
 
-    ![Proprietà dell'App contiene termini di servizio e la privacy URL di istruzione](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
+    ![Le proprietà dell'app contengono le condizioni per l'utilizzo e gli URL dell'informativa](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>Con il codice JSON dell'oggetto app
 

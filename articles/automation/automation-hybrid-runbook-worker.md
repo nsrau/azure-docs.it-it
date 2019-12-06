@@ -4,17 +4,17 @@ description: Questo articolo fornisce informazioni sull'installazione e l'uso di
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c10905c283619e6008dbe6ab8c4e721888b8b786
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 7329d32c01f005f4f5a727f80c6af0b58982b41f
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743809"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850262"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatizzare le risorse nel centro dati o nel cloud usando i ruoli di lavoro ibridi per runbook
 
@@ -34,7 +34,7 @@ Il processo per installare un ruolo di lavoro ibrido per runbook dipende del sis
 
 Per installare e configurare un ruolo di lavoro ibrido per runbook di Windows, è possibile usare due metodi. Il metodo consigliato consiste nell'usare un runbook di Automazione per automatizzare completamente il processo necessario di configurazione di un computer Windows. Il secondo metodo prevede l'esecuzione di una procedura dettagliata per installare e configurare il ruolo manualmente. Per i computer Linux si esegue uno script Python per installare l'agente nel computer.
 
-|OS  |Tipi distribuzione  |
+|Sistema operativo  |Tipi distribuzione  |
 |---------|---------|
 |Windows     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[Manuale](automation-windows-hrw-install.md#manual-deployment)        |
 |Linux     | [Python](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)        |
@@ -146,7 +146,7 @@ Per un elenco degli indirizzi IP di area invece dei nomi di area, scaricare il f
 
 Oltre agli indirizzi e alle porte standard che il ruolo di lavoro ibrido per runbook richiede, per Gestione aggiornamenti sono necessari gli indirizzi specifici seguenti. La comunicazione verso questi indirizzi avviene sulla porta 443.
 
-|Azure Public  |Azure Government  |
+|Azure Public  |Azure per enti pubblici  |
 |---------|---------|
 |*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |

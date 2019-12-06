@@ -2,7 +2,6 @@
 title: Linee guida per gli sviluppatori per l'accesso condizionale Azure Active Directory
 description: Linee guida per gli sviluppatori e scenari per Azure AD l'accesso condizionale
 services: active-directory
-keywords: ''
 author: rwike77
 manager: CelesteDG
 ms.author: ryanwi
@@ -11,17 +10,15 @@ ms.date: 02/28/2019
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91947c243b521e970a89152f76abe9a99142b89d
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 69fcb50cb8273fa9e6606e1d071249ed17c78786
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374012"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843734"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Linee guida per gli sviluppatori per l'accesso condizionale Azure Active Directory
 
@@ -79,7 +76,7 @@ Un'app può prevedere che i loro utenti soddisfino tutti i criteri impostati per
 
 Per le diverse topologie di app, i criteri di accesso condizionale vengono valutati quando viene stabilita la sessione. Poiché i criteri di accesso condizionale operano per la granularità di app e servizi, il punto in cui viene richiamato dipende molto dallo scenario che si sta tentando di eseguire.
 
-Quando l'app tenta di accedere a un servizio con criteri di accesso condizionale, è possibile che si verifichi una richiesta di accesso condizionale. Questa richiesta è codificata nel parametro `claims` che è presente in una risposta da Azure AD. Ecco un esempio del parametro della richiesta: 
+Quando l'app tenta di accedere a un servizio con criteri di accesso condizionale, è possibile che si verifichi una richiesta di accesso condizionale. Questa richiesta è codificata nel parametro `claims` che si trova in una risposta da Azure AD. Ecco un esempio del parametro della richiesta: 
 
 ```
 claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
@@ -114,7 +111,7 @@ La richiesta di token iniziale per l'API Web 1 non comporta la richiesta all'ute
 Azure AD restituisce una risposta HTTP con alcuni dati interessanti:
 
 > [!NOTE]
-> In questo caso si tratta di una descrizione dell'errore di autenticazione a più fattori, ma è disponibile un'ampia gamma di `interaction_required` per quanto riguarda l'accesso condizionale.
+> In questo caso si tratta di una descrizione dell'errore di autenticazione a più fattori, ma è disponibile un'ampia gamma di `interaction_required` possibile riguardo all'accesso condizionale.
 
 ```
 HTTP 400; Bad Request
@@ -146,7 +143,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 ![App che accede a più servizi e richiede un nuovo token](./media/conditional-access-dev-guide/app-accessing-multiple-services-new-token.png)
 
-Se l'app usa la libreria ADAL, in caso di errore di acquisizione del token viene sempre eseguito un nuovo tentativo in modo interattivo. Quando si verifica questa richiesta interattiva, l'utente finale ha la possibilità di conformarsi all'accesso condizionale. Questo vale a meno che la richiesta non sia un `AcquireTokenSilentAsync` o `PromptBehavior.Never` nel qual caso l'app deve eseguire una richiesta ```AcquireToken``` interattiva per fornire all'utente finale l'opportunità di conformarsi ai criteri.
+Se l'app usa la libreria ADAL, in caso di errore di acquisizione del token viene sempre eseguito un nuovo tentativo in modo interattivo. Quando si verifica questa richiesta interattiva, l'utente finale ha la possibilità di conformarsi all'accesso condizionale. Questo vale a meno che la richiesta non sia un `AcquireTokenSilentAsync` o `PromptBehavior.Never` nel qual caso l'app deve eseguire una richiesta di ```AcquireToken``` interattiva per fornire all'utente finale l'opportunità di conformarsi ai criteri.
 
 ## <a name="scenario-single-page-app-spa-using-adaljs"></a>Scenario: App a pagina singola che usa ADAL.js
 
@@ -154,7 +151,7 @@ In questo scenario viene illustrato il caso in cui è presente un'app a singola 
 
 In ADAL.js ci sono poche funzioni che ottengono token: `login()`, `acquireToken(...)`, `acquireTokenPopup(…)` e `acquireTokenRedirect(…)`.
 
-* `login()` Ottiene un token ID tramite una richiesta di accesso interattiva ma non ottiene i token di accesso per qualsiasi servizio (inclusa un'API Web protetta dall'accesso condizionale).
+* `login()` ottiene un token ID tramite una richiesta di accesso interattiva ma non ottiene i token di accesso per qualsiasi servizio (inclusa un'API Web protetta con accesso condizionale).
 * È quindi possibile usare `acquireToken(…)` per ottenere automaticamente un token di accesso, senza visualizzazione dell'interfaccia utente in nessun caso.
 * `acquireTokenPopup(…)` e `acquireTokenRedirect(…)` vengono entrambi usati per richiedere in modo interattivo un token per una risorsa, quindi l'interfaccia utente di accesso viene sempre visualizzata.
 
@@ -162,7 +159,7 @@ Quando un'app necessita di un token di accesso per chiamare un'API Web, viene es
 
 ![Diagramma di flusso per le app a pagina singola che usano ADAL](./media/conditional-access-dev-guide/spa-using-adal-scenario.png)
 
-Esaminiamo un esempio con lo scenario di accesso condizionale. L'utente finale è appena arrivato nel sito e non ha una sessione. Si esegue una chiamata a `login()` e si ottiene un token ID senza autenticazione a più fattori. L'utente preme quindi un pulsante che comporta una richiesta di dati dall'app a un'API Web. L'app tenta di eseguire una chiamata `acquireToken()`, ma ha esito negativo perché l'utente non ha ancora eseguito l'autenticazione a più fattori e deve essere conforme ai criteri di accesso condizionale.
+Esaminiamo un esempio con lo scenario di accesso condizionale. L'utente finale è appena arrivato nel sito e non ha una sessione. Si esegue una chiamata a `login()` e si ottiene un token ID senza autenticazione a più fattori. L'utente preme quindi un pulsante che comporta una richiesta di dati dall'app a un'API Web. L'app tenta di eseguire una chiamata `acquireToken()` ma ha esito negativo perché l'utente non ha ancora eseguito l'autenticazione a più fattori e deve essere conforme ai criteri di accesso condizionale.
 
 Azure AD invia la risposta HTTP seguente:
 

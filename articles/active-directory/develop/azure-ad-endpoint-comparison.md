@@ -2,26 +2,23 @@
 title: Perché eseguire l'aggiornamento alla piattaforma di identità Microsoft (v 2.0) | Azure
 description: Conoscere le differenze tra l'endpoint della piattaforma Microsoft Identity (v 2.0) e l'endpoint Azure Active Directory (Azure AD) v 1.0 e i vantaggi dell'aggiornamento alla versione 2.0.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5a000d08afb3afba06d82aae4414e87b61e502f
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 882b4a8bfe951212d2d1fe081d16b25641dfa4d4
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533048"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843887"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Perché eseguire l'aggiornamento a Microsoft Identity Platform (v 2.0)?
 
@@ -89,7 +86,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-Qui il parametro **scope** indica per quali risorse e autorizzazioni l'app richiede l'autorizzazione. La risorsa desiderata è ancora presente nella richiesta: è inclusa in ognuno dei valori del parametro di ambito. L'uso del parametro scope in questo modo consente all'endpoint della piattaforma di identità Microsoft di essere più conforme alla specifica OAuth 2,0 e si allinea più strettamente con le comuni procedure di settore. Consente inoltre alle app di eseguire autorizzazioni [incrementali](#incremental-and-dynamic-consent) , richiedendo solo le autorizzazioni quando l'applicazione le richiede, anziché prima.
+Qui il parametro **scope** indica per quali risorse e autorizzazioni l'app richiede l'autorizzazione. La risorsa desiderata è ancora presente nella richiesta: è inclusa in ognuno dei valori del parametro di ambito. L'uso del parametro scope in questo modo consente all'endpoint della piattaforma di identità Microsoft di essere più conforme alla specifica OAuth 2,0 e si allinea più strettamente con le comuni procedure di settore. Consente inoltre alle app di eseguire [autorizzazioni incrementali](#incremental-and-dynamic-consent), richiedendo solo le autorizzazioni quando l'applicazione le richiede, anziché prima.
 
 ## <a name="well-known-scopes"></a>Ambiti conosciuti
 

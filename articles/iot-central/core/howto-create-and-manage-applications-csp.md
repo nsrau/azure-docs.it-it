@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 1588a27453dbc223e6aa1dd993905d274e5e1242
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: d74bd67dedb70308061e54c05d23a4bb63adc8f8
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480330"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851333"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>Creare e gestire un'applicazione IoT Central di Azure dal portale CSP
 
@@ -69,7 +69,7 @@ Se non si ha una sottoscrizione di Azure, è possibile crearne una nel Centro pe
 
 Per altre informazioni, vedere la documentazione sulle [sottoscrizioni di Azure](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing).
 
-## <a name="region"></a>Area
+## <a name="region"></a>Area geografica
 
 Scegliere la regione o l'area [geografica](https://azure.microsoft.com/global-infrastructure/geographies/) in cui si vuole creare l'applicazione IoT Central di Azure. In genere, è consigliabile scegliere l'area più vicina fisicamente ai dispositivi per ottenere prestazioni ottimali.
 
@@ -87,7 +87,7 @@ Per altre informazioni, vedere [aree di Azure](https://azure.microsoft.com/globa
 
 Per la nuova applicazione Azure IoT Central è possibile scegliere uno dei modelli di applicazione disponibili. Un modello di applicazione può contenere elementi predefiniti, ad esempio modelli di dispositivi e dashboard, che facilitano i primi passi.
 
-| Modello di applicazione | DESCRIZIONE |
+| Modello di applicazione | Description |
 | -------------------- | ----------- |
 | Applicazione personalizzata   | Crea un'applicazione vuota per l'utente da popolare con i propri modelli di dispositivi e dispositivi. |
 | Esempio Contoso       | Crea un'applicazione che include un modello di dispositivo per un dispositivo connesso semplice. Usare questo modello per iniziare a esplorare Azure IoT Central. |

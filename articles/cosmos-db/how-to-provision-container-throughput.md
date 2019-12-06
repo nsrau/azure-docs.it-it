@@ -1,23 +1,23 @@
 ---
 title: Effettuare il provisioning della velocità effettiva per un contenitore in Azure Cosmos DB
-description: Informazioni su come effettuare il provisioning della velocità effettiva a livello di contenitore in Azure Cosmos DB
+description: Informazioni su come effettuare il provisioning della velocità effettiva a livello di contenitore in Azure Cosmos DB usando portale di Azure, CLI, PowerShell e vari altri SDK.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 12/12/2019
 ms.author: mjbrown
-ms.openlocfilehash: 0b48652f7b181f1254a4b20af75b83593c2aba05
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: ed6a55c8b6049f16e96a4a95ecf3ef125db908d7
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74147602"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872044"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>Effettuare il provisioning della velocità effettiva in un contenitore di Azure Cosmos
 
 Questo articolo illustra come effettuare il provisioning della velocità effettiva per un contenitore (raccolta, grafo o tabella) in Azure Cosmos DB. È possibile effettuare il provisioning della velocità effettiva per un singolo contenitore oppure [effettuare il provisioning della velocità effettiva per un database](how-to-provision-database-throughput.md) e condividerlo tra i contenitori all'interno del database. Il provisioning della velocità effettiva per un contenitore può essere effettuato usando il portale di Azure, l'interfaccia della riga di comando di Azure o gli SDK di Azure Cosmos DB.
 
-## <a name="azure-portal"></a>portale di Azure
+## <a name="azure-portal"></a>Portale di Azure
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
@@ -49,7 +49,7 @@ Per creare un contenitore con una velocità effettiva dedicata, vedere
 > Usare l'API SQL di Cosmos SDK per effettuare il provisioning della velocità effettiva per tutte le API Cosmos DB ad eccezione dell'API Cassandra.
 
 ### <a id="dotnet-most"></a>API SQL, MongoDB, Gremlin e Tabella
-### <a name="net-v2-sdk"></a>.Net V2 SDK
+### <a name="net-v2-sdk"></a>.NET V2 SDK
 
 ```csharp
 // Create a container with a partition key and provision throughput of 400 RU/s
@@ -63,7 +63,7 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 400 });
 ```
 
-### <a name="net-v3-sdk"></a>.NET V3 SDK
+### <a name="net-v3-sdk"></a>.Net V3 SDK
 [!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/ContainerDocsSampleCode.cs?name=ContainerCreateWithThroughput)]
 
 ## <a name="javascript-sdk"></a>JavaScript SDK

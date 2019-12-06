@@ -1,32 +1,27 @@
 ---
 title: Autenticazione negoziata in Android | Azure
+titlesuffix: Microsoft identity platform
 description: Panoramica dell'autenticazione negoziata & autorizzazione per Android nella piattaforma di identità Microsoft
 services: active-directory
-documentationcenter: ''
 author: shoatman
-manager: nadima
-editor: ''
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2019
 ms.author: shoatman
 ms.custom: aaddev
-ms.reviewer: shoatman
+ms.reviewer: shoatman, hahamil, brianmel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a535cbefc3520cbf0c0fc14fbcfd0dd9ebd92ac
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: f5204ad71efa2587341600d2c5c1e5195d15445e
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175648"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843717"
 ---
-# <a name="brokered-auth-in-android"></a>Autenticazione negoziata in Android
-
-## <a name="introduction"></a>Introduzione
+# <a name="brokered-authentication-in-android"></a>Autenticazione negoziata in Android
 
 È necessario usare uno dei broker di autenticazione Microsoft per partecipare al Single Sign-on (SSO) a livello di dispositivo e per soddisfare i criteri di accesso condizionale dell'organizzazione. L'integrazione con un broker offre i vantaggi seguenti:
 
@@ -52,9 +47,9 @@ Il diagramma seguente illustra la relazione tra l'app, Microsoft Authentication 
 
 Broker: le app di hosting possono essere installate dal proprietario del dispositivo dall'App Store (in genere Google Play Store) in qualsiasi momento. Tuttavia, alcune API (risorse) sono protette dai criteri di accesso condizionale che richiedono che i dispositivi siano:
 
-- registrata (aggiunta all'area di lavoro) e/o
-- registrato nella gestione dei dispositivi o
-- registrato in Protezione app di Intune
+- Registrata (aggiunta all'area di lavoro) e/o
+- Registrato nella gestione dei dispositivi o
+- Registrato in Protezione app di Intune
 
 Se per un dispositivo non è già installata un'app broker, MSAL indica all'utente di installarne una non appena l'app tenta di ottenere un token in modo interattivo. L'app dovrà quindi guidare l'utente attraverso i passaggi per rendere il dispositivo conforme ai criteri richiesti.
 

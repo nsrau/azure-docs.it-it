@@ -4,17 +4,17 @@ description: Questo articolo fornisce informazioni sull'installazione di un ruol
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8e497d18e39a199f34ff76b11b0e6c2c213f35fb
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 01dcb30fca2819bc4cf85ea624de5735cc84801b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129845"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850823"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuire un ruolo di lavoro ibrido per runbook di Linux
 
@@ -56,7 +56,7 @@ I requisiti minimi per un ruolo di lavoro ibrido per runbook di Linux sono i seg
 | **Pacchetto facoltativo** | **Descrizione** | **Versione minima**|
 | PowerShell Core | Per eseguire i runbook di PowerShell, PowerShell deve essere installato. Vedere [installazione di PowerShell Core in Linux](/powershell/scripting/install/installing-powershell-core-on-linux) per informazioni su come installarlo.  | 6.0.0 |
 
-### <a name="installation"></a>Installare
+### <a name="installation"></a>Installazione
 
 Prima di procedere, prendere nota dell'area di lavoro Log Analytics a cui è collegato l'account di Automazione. Prendere anche nota della chiave primaria per l'account di Automazione. È possibile trovare entrambi nel portale di Azure, selezionando l'account di Automazione, **Area di lavoro** per l'ID dell'area di lavoro e selezionando **Chiavi** per la chiave primaria. Per informazioni sulle porte e sugli indirizzi necessari per il ruolo di lavoro ibrido per runbook, vedere [Configurazione della rete](automation-hybrid-runbook-worker.md#network-planning).
 

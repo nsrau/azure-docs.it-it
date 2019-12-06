@@ -3,17 +3,17 @@ title: Connettere un dispositivo DevKit all'applicazione Azure IoT Central | Mic
 description: In qualità di sviluppatore di dispositivi, informazioni su come connettere un dispositivo MXChip DevKit di Azure all'applicazione IoT Central di Azure usando le Plug and Play.
 author: liydu
 ms.author: liydu
-ms.date: 08/17/2019
+ms.date: 12/03/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: jeffya
-ms.openlocfilehash: 178f518ed7ab24fc0d3678f77ae75933a7163b58
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 32dd3fa1fc137d786174e47d842f762c2a479d64
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930139"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848976"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application-preview-features"></a>Connettere un dispositivo MXChip DevKit all'applicazione IoT Central di Azure (funzionalità di anteprima)
 
@@ -25,7 +25,7 @@ Questo articolo illustra come eseguire le operazioni seguenti:
 - Preparare il dispositivo e connetterlo all'applicazione IoT Central.
 - Visualizzare i dati di telemetria e le proprietà dal dispositivo in IoT Central.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare i passaggi descritti in questo articolo, sono necessarie le risorse seguenti:
 
@@ -34,9 +34,21 @@ Per completare i passaggi descritti in questo articolo, sono necessarie le risor
 
 ## <a name="get-device-connection-details"></a>Ottenere i dettagli della connessione del dispositivo
 
-Nell'applicazione IoT Central di Azure selezionare la scheda **Amministrazione** e selezionare **connessione del dispositivo**. Prendere nota dell' **ID ambito** e della **chiave primaria** (in **Visualizza collegamento chiavi** ). Assicurarsi che l' **approvazione automatica** sia abilitata.
+1. Nell'applicazione IoT Central di Azure selezionare la scheda **modelli di dispositivo** e selezionare **nuovo**. Nella sezione di **usare un modello di dispositivo preconfigurato**scegliere MXChip Internet **DevKit** dall'elenco. E scegliere **Avanti: personalizzare** e **creare**.
 
-![Dettagli connessione gruppo di dispositivi](media/howto-connect-devkit/device-group-connection-details.png)
+    ![Modello di dispositivo per MXChip Internet DevKit](media/howto-connect-devkit/device-template.png)
+
+1. Selezionare la scheda **dispositivi** , nell'elenco dispositivi selezionare **MXChip DevKit** e selezionare **nuovo** per creare un nuovo dispositivo dal modello di dispositivo.
+
+    ![Nuovo dispositivo](media/howto-connect-devkit/new-device.png)
+
+1. Nella finestra popup immettere l' **ID del dispositivo** come `SampleDevKit` e il nome del **dispositivo** come `MXChip IoT DevKit - Sample`. Verificare che l'opzione **Simulated** sia disattivata. Selezionare quindi **Crea**.
+
+    ![ID e nome del dispositivo](media/howto-connect-devkit/device-id-name.png)
+
+1. Fare clic sul dispositivo appena creato e selezionare **Connetti**. Prendere nota dell' **ambito ID**, dell' **ID dispositivo** e della **chiave primaria**.
+
+    ![Informazioni di connessione del dispositivo](media/howto-connect-devkit/device-connection-info.png)
 
 ## <a name="prepare-the-device"></a>Preparare il dispositivo
 
@@ -61,7 +73,7 @@ Nell'applicazione IoT Central di Azure selezionare la scheda **Amministrazione**
 
     - Nome della rete Wi-Fi (SSID).
     - Password della rete Wi-Fi.
-    - I dettagli della connessione: l' **ID del dispositivo** che è possibile scegliere se stessi e l' **ID ambito** e la **chiave primaria del gruppo** di firma di accesso condiviso di cui si è preso nota in precedenza.
+    - Dettagli connessione: immettere l' **ID del dispositivo**, l' **ambito ID** e la **chiave primaria SAS** di cui si è preso nota in precedenza.
 
     > [!NOTE]
     > Attualmente, il DevKit Internet delle cose può connettersi solo a 2,4 GHz Wi-Fi, a 5 GHz non è supportato a causa di limitazioni hardware.
@@ -86,7 +98,7 @@ Nell'applicazione IoT Central selezionare scheda **dispositivi** , selezionare i
 
 ## <a name="review-the-code"></a>Esaminare il codice
 
-Per esaminare il codice o modificarlo e compilarlo, passare al [repository GitHub del codice di esempio MXChip DevKit](https://github.com/MXCHIP/IoTDevKit/tree/master/pnp).
+Per esaminare il codice o modificarlo e compilarlo, vedere gli [esempi di codice](https://docs.microsoft.com/samples/azure-samples/mxchip-iot-devkit-pnp/sample/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

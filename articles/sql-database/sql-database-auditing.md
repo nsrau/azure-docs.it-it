@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: e7d79b15b6f55d925713e4ef7e49df391e087162
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 58a446baaf15facab3a85d4d83defdeb5e6d2ef9
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687700"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851486"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introduzione al controllo del database SQL
 
@@ -154,9 +154,9 @@ Se si sceglie di scrivere i log di controllo su Hub eventi:
 Se si sceglie di scrivere i log di controllo in un account di archiviazione di Azure, esistono diversi metodi che è possibile usare per visualizzare i log:
 
 > [!NOTE] 
-> Il controllo in una replica di sola lettura viene abilitato automaticamente. Per ulteriori informazioni sulla gerarchia della cartella di archiviazione, le convenzioni di denominazione e il formato di log, vedere il [formato del registro di controllo del database SQL](sql-database-audit-log-format.md). 
+> Il controllo sulle [repliche di sola lettura](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out) viene abilitato automaticamente. Per ulteriori informazioni sulla gerarchia delle cartelle di archiviazione, le convenzioni di denominazione e il formato di log, vedere il [formato del registro di controllo del database SQL](sql-database-audit-log-format.md). 
 
-- I log di controllo vengono aggregati nell'account selezionato durante la configurazione. È possibile esplorare i log di controllo con uno strumento come [Azure Storage Explorer](https://storageexplorer.com/). Nell'archiviazione di Azure, i log del controllo vengono salvati come raccolta di file BLOB in un contenitore denominato **sqldbauditlogs**. Per ulteriori informazioni sulla gerarchia della cartella di archiviazione, le convenzioni di denominazione e il formato di log, vedere il [formato del registro di controllo del database SQL](https://go.microsoft.com/fwlink/?linkid=829599).
+- I log di controllo vengono aggregati nell'account selezionato durante la configurazione. È possibile esplorare i log di controllo con uno strumento come [Azure Storage Explorer](https://storageexplorer.com/). Nell'archiviazione di Azure, i log del controllo vengono salvati come raccolta di file BLOB in un contenitore denominato **sqldbauditlogs**. Per ulteriori informazioni sulla gerarchia delle cartelle di archiviazione, le convenzioni di denominazione e il formato di log, vedere il [formato del registro di controllo del database SQL](https://go.microsoft.com/fwlink/?linkid=829599).
 
 - Usare il [portale di Azure](https://portal.azure.com).  Aprire il database corrispondente. Nella parte superiore della pagina **Controllo** del database fare clic su **Visualizza log di controllo**.
 

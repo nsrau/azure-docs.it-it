@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: allensu
-ms.openlocfilehash: 90710176ec16d1c565e24ff7df56b0b838f2699e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: e54aa00df9efa60cce0fd6fa1da32720f2947b12
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229412"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851197"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Connettersi privatamente a un account Azure Cosmos usando il collegamento privato di Azure
 
@@ -19,11 +19,11 @@ Endpoint privato di Azure è il blocco predefinito fondamentale per il collegame
 
 In questo articolo si apprenderà come creare una VM in una rete virtuale di Azure e un account Azure Cosmos con un endpoint privato usando il portale di Azure. Quindi, è possibile accedere in modo sicuro all'account Azure Cosmos dalla macchina virtuale.
 
-## <a name="sign-in-to-azure"></a>Accedere ad Azure
+## <a name="sign-in-to-azure"></a>Accedere a Azure
 
 Accedere al [portale di Azure.](https://portal.azure.com)
 
-## <a name="create-a-vm"></a>Creare una macchina virtuale
+## <a name="create-a-vm"></a>Creare una VM
 
 ### <a name="create-the-virtual-network"></a>Creare la rete virtuale
 
@@ -33,38 +33,38 @@ In questa sezione si creerà una rete virtuale e la subnet per ospitare la macch
 
 1. In **Crea rete virtuale** immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | Value |
     | ------- | ----- |
-    | Nome | Immettere *MyVirtualNetwork*. |
+    | name | Immettere *MyVirtualNetwork*. |
     | Spazio degli indirizzi | Immettere *10.1.0.0/16*. |
-    | sottoscrizione | Selezionare la propria sottoscrizione.|
-    | Resource group | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare **OK**. |
-    | Location | Selezionare **Stati Uniti centro-occidentali**.|
+    | Sottoscrizione | Selezionare la propria sottoscrizione.|
+    | Gruppo di risorse | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare **OK**. |
+    | Località | Selezionare **Stati Uniti centro-occidentali**.|
     | Subnet - Nome | Immettere *mySubnet*. |
     | Subnet - Intervallo di indirizzi | Immettere *10.1.0.0/24*. |
     |||
 
 1. Lasciare le altre impostazioni sui valori predefiniti e selezionare **Crea**.
 
-### <a name="create-the-virtual-machine"></a>Creazione della macchina virtuale
+### <a name="create-the-virtual-machine"></a>Creare la macchina virtuale
 
 1. Sul lato superiore sinistro della schermata nella portale di Azure selezionare **Crea una risorsa** > **calcolo** > **macchina virtuale**.
 
 1. In **Creare una macchina virtuale - Informazioni di base**, immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | Value |
     | ------- | ----- |
     | **DETTAGLI DEL PROGETTO** | |
-    | sottoscrizione | Selezionare la propria sottoscrizione. |
-    | Resource group | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.  |
+    | Sottoscrizione | Selezionare la propria sottoscrizione. |
+    | Gruppo di risorse | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.  |
     | **DETTAGLI DELL'ISTANZA** |  |
     | Nome macchina virtuale | Immettere *myVm*. |
-    | Area | Selezionare **Stati Uniti centro-occidentali**. |
+    | Area geografica | Selezionare **Stati Uniti centro-occidentali**. |
     | Opzioni di disponibilità | Lasciare l'impostazione predefinita **Nessuna ridondanza dell'infrastruttura necessaria**. |
-    | Image | Selezionare **Windows Server 2019 Datacenter**. |
-    | Dimensione | Lasciare l'impostazione predefinita **DS1 Standard v2**. |
+    | Immagine | Selezionare **Windows Server 2019 Datacenter**. |
+    | Dimensioni | Lasciare l'impostazione predefinita **DS1 Standard v2**. |
     | **ACCOUNT AMMINISTRATORE** |  |
-    | Nome utente | Immettere un nome utente a scelta. |
+    | Username | Immettere un nome utente a scelta. |
     | Password | Immettere una password a propria scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Confirm Password | Immettere nuovamente la password. |
     | **REGOLE PORTA IN INGRESSO** |  |
@@ -79,9 +79,9 @@ In questa sezione si creerà una rete virtuale e la subnet per ospitare la macch
 
 1. In **Creare una macchina virtuale - Rete**, selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | Value |
     | ------- | ----- |
-    | rete virtuale | Lasciare l'impostazione predefinita **MyVirtualNetwork**.  |
+    | Rete virtuale | Lasciare l'impostazione predefinita **MyVirtualNetwork**.  |
     | Spazio degli indirizzi | Lasciare l'impostazione predefinita **10.1.0.0/24**.|
     | Subnet | Lasciare l'impostazione predefinita **mySubnet (10.1.0.0/24)** .|
     | IP pubblico | Lasciare l'impostazione predefinita **(nuovo) myVm-ip**. |
@@ -129,9 +129,6 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
 ## <a name="access-the-azure-cosmos-account-privately-from-the-vm"></a>Accedere all'account Azure Cosmos privatamente dalla macchina virtuale
 
 In questa sezione si effettuerà la connessione privata all'account Azure Cosmos usando l'endpoint privato. 
-
-> [!IMPORTANT]
-> Per la configurazione DNS per l'account Azure Cosmos è necessaria una modifica manuale del file hosts per includere il nome di dominio completo dell'account specifico. Negli scenari di produzione il server DNS viene configurato per l'uso degli indirizzi IP privati. Per lo scopo dimostrativo, tuttavia, è possibile usare le autorizzazioni di amministratore per la macchina virtuale e modificare il file di `c:\Windows\System32\Drivers\etc\hosts` (in Windows) o il file di `/etc/hosts` (in Linux) per includere l'indirizzo IP e il mapping DNS.
 
 1. Per includere l'indirizzo IP e il mapping DNS, accedere alla macchina virtuale *myVM*, aprire il file `c:\Windows\System32\Drivers\etc\hosts` e includere le informazioni DNS del passaggio precedente nel formato seguente:
 

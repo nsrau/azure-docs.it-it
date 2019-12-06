@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/18/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26744791dd3abe732f56f69ca05dd7c781755e9b
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 077032e4fe3886d5bf9a678dffdffca1a5802091
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167985"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848409"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurare le impostazioni di Azure Multi-Factor Authentication
 
@@ -26,11 +26,11 @@ Questo articolo offre informazioni utili per gestire le impostazioni di Azure Mu
 
 ![Portale di Azure - Impostazioni di Azure AD Multi-Factor Authentication](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
 
-## <a name="settings"></a>Settings
+## <a name="settings"></a>Impostazioni
 
 Alcune di queste impostazioni si applicano al server MFA, ad Azure MFA o a entrambi.
 
-| Funzionalità | DESCRIZIONE |
+| Funzionalità | Description |
 | ------- | ----------- |
 | Blocco dell'account | Blocca temporaneamente gli account nel servizio di autenticazione a più fattori se si verificano troppi tentativi di autorizzazione negata di seguito. Questa funzionalità si applica solo agli utenti che effettuano l'autenticazione tramite PIN (server MFA). |
 | [Blocca/Sblocca utenti](#block-and-unblock-users) | Utilizzato per impedire a utenti specifici di ricevere richieste di Multi-Factor Authentication. Eventuali tentativi di autenticazione per gli utenti bloccati vengono negati automaticamente. Gli utenti restano bloccati per 90 giorni dal momento in cui vengono bloccati. |
@@ -38,13 +38,13 @@ Alcune di queste impostazioni si applicano al server MFA, ad Azure MFA o a entra
 | [Notifiche](#notifications) | Abilita le notifiche degli eventi dal server MFA. |
 | [Token OATH](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Funzionalità usata in ambienti Azure MFA basati sul cloud per gestire i token OATH per gli utenti. |
 | [Impostazioni telefonata](#phone-call-settings) | Permette di configurare le impostazioni correlate a chiamate telefoniche e messaggi di saluto per gli ambienti cloud e locali. |
-| Providers | Mostra tutti i provider di autenticazione esistenti che possono essere stati associati all'account. Non è stato possibile creare nuovi provider di autenticazione fino al 1° settembre 2018 |
+| Provider | Mostra tutti i provider di autenticazione esistenti che possono essere stati associati all'account. Non è stato possibile creare nuovi provider di autenticazione fino al 1° settembre 2018 |
 
 ## <a name="manage-mfa-server"></a>Gestisci il server MFA
 
 Le impostazioni in questa sezione sono valide solo per il server MFA.
 
-| Funzionalità | DESCRIZIONE |
+| Funzionalità | Description |
 | ------- | ----------- |
 | Impostazioni del server | Permette di scaricare il server MFA e di generare le credenziali di attivazione per inizializzare l'ambiente |
 | [Bypass monouso](#one-time-bypass) | Permette a un utente di eseguire l'autenticazione senza completare la verifica in due passaggi per un periodo di tempo limitato. |
@@ -64,7 +64,7 @@ Usare la funzionalità per _bloccare/sbloccare utenti_ per evitare che gli utent
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
 2. Passare a **Azure Active Directory** > **sicurezza** > **autenticazione** a più fattori > **Blocca/Sblocca utenti**.
 3. Selezionare **Aggiungi** per bloccare un utente.
-4. Selezionare il **Gruppo di replica**. Immettere il nome utente per l'utente bloccato come **nome utente\@Domain.com**. Immettere un commento nel campo**Motivo**.
+4. Selezionare il **Gruppo di replica**. Immettere il nome utente per l'utente bloccato come **nome utente\@Domain.com**. Immettere un commento nel campo **motivo** .
 5. Selezionare **Aggiungi** per completare il blocco dell'utente.
 
 ### <a name="unblock-a-user"></a>Sbloccare un utente
@@ -75,7 +75,7 @@ Usare la funzionalità per _bloccare/sbloccare utenti_ per evitare che gli utent
 4. Immettere un commento nel campo **Motivo dello sblocco**.
 5. Selezionare **Sblocca** per completare lo sblocco dell'utente.
 
-## <a name="fraud-alert"></a>Avviso di illecito
+## <a name="fraud-alert"></a>Avviso sulle frodi
 
 Configurare la funzionalità di _avviso di illecito_ in modo che gli utenti possano segnalare i tentativi illeciti di accedere alle proprie risorse. Gli utenti possono segnalare i tentativi illeciti usando l'app per dispositivi mobili o il telefono.
 
@@ -163,7 +163,7 @@ Script di esempio per la creazione di messaggi personalizzati.
 | Conferma illecito | È stato inviato un avviso di illecito. Per sbloccare l'account, contattare il help desk IT dell'azienda. |
 | Messaggio introduttivo illecito (standard) | Grazie per aver usato il sistema di verifica dell'accesso Microsoft. Premere il tasto cancelletto per completare la verifica. Se la verifica non è stata avviata, è possibile che qualcuno stia tentando di accedere all'account. Premere zero libbre per inviare un avviso di illecito. Questo invierà una notifica al team IT dell'azienda e bloccherà ulteriori tentativi di verifica. |
 | È stato inviato un avviso di illecito. | Per sbloccare l'account, contattare il help desk IT dell'azienda. |
-| Activation | Grazie per aver usato il sistema di verifica dell'accesso Microsoft. Premere il tasto cancelletto per completare la verifica. |
+| Attivazione | Grazie per aver usato il sistema di verifica dell'accesso Microsoft. Premere il tasto cancelletto per completare la verifica. |
 | Tentativo di autenticazione negato | Verifica negata. |
 | Nuovo tentativo (standard) | Grazie per aver usato il sistema di verifica dell'accesso Microsoft. Premere il tasto cancelletto per completare la verifica. |
 | Messaggio introduttivo (standard) | Grazie per aver usato il sistema di verifica dell'accesso Microsoft. Premere il tasto cancelletto per completare la verifica. |
@@ -171,7 +171,7 @@ Script di esempio per la creazione di messaggi personalizzati.
 | Messaggio introduttivo illecito (PIN) | Grazie per aver usato il sistema di verifica dell'accesso Microsoft.  Per completare la verifica, immettere il PIN seguito dal tasto cancelletto. Se la verifica non è stata avviata, è possibile che qualcuno stia tentando di accedere all'account. Premere zero libbre per inviare un avviso di illecito. Questo invierà una notifica al team IT dell'azienda e bloccherà ulteriori tentativi di verifica. |
 | Nuovo tentativo (PIN) | Grazie per aver usato il sistema di verifica dell'accesso Microsoft. Per completare la verifica, immettere il PIN seguito dal tasto cancelletto. |
 | Richiesta di estensione dopo le cifre | Se si è già in questa estensione, premere il tasto cancelletto per continuare. |
-| Autenticazione negata | Non è possibile eseguire l'accesso in questo momento. Riprovare più tardi. |
+| Autenticazione negata | Non è possibile eseguire l'accesso in questo momento. Riprova più tardi. |
 | Messaggio introduttivo di attivazione (standard) | Grazie per aver usato il sistema di verifica dell'accesso Microsoft. Premere il tasto cancelletto per completare la verifica. |
 | Tentativo di attivazione (standard) | Grazie per aver usato il sistema di verifica dell'accesso Microsoft. Premere il tasto cancelletto per completare la verifica. |
 | Messaggio introduttivo di attivazione (PIN) | Grazie per aver usato il sistema di verifica dell'accesso Microsoft. Per completare la verifica, immettere il PIN seguito dal tasto cancelletto. |
@@ -219,7 +219,7 @@ Le impostazioni per password delle app, IP attendibili, opzioni di verifica e me
 
 Gli intervalli di indirizzi IP attendibili possono essere privati o pubblici.
 
-## <a name="app-passwords"></a>Password dell'app
+## <a name="app-passwords"></a>Password app
 
 Alcune applicazioni, come Office 2010 o versioni precedenti e Apple Mail precedenti a iOS 11 non supportano la verifica in due passaggi e non sono configurate per accettare una seconda verifica. Per usare queste applicazioni servirsi della funzionalità _password dell'app_. È possibile usare una password dell'app al posto della password tradizionali per consentire a un'app di ignorare la verifica in due passaggi e continuare a lavorare.
 
@@ -233,7 +233,7 @@ L'autenticazione moderna è supportata per i client di Microsoft Office 2013 e v
 Quando si usano le password dell'app, prendere in considerazione questi punti importanti:
 
 * Le password dell'app vengono immesse solo una volta per ogni applicazione. Gli utenti non sono tenuti a tenerne traccia o a immetterle ogni volta.
-* La password effettiva viene generata in automatico e non viene fornita dall'utente. Per un utente malintenzionato indovinare una password generata automaticamente è più difficile e quindi la sicurezza è maggiore.
+* La password effettiva viene generata automaticamente e non viene fornita dall'utente. Per un utente malintenzionato indovinare una password generata automaticamente è più difficile e quindi la sicurezza è maggiore.
 * Il limite è di 40 password per utente.
 * Le applicazioni che memorizzano le password nella cache e le usano in scenari locali possono potrebbero non funzionare perché la password dell'app non è nota all'esterno dell'account aziendale o dell'istituto di istruzione. Un esempio di questo scenario è rappresentato dai messaggi di posta elettronica di Exchange in locale, mentre la posta archiviata si trova nel cloud. In questo scenario non funziona la stessa password.
 * Dopo l'abilitazione di Multi-Factor Authentication per un account utente, le password dell'app possono essere usate con la maggior parte dei client non basati su browser, ad esempio Outlook e Microsoft Skype for Business. Le azioni amministrative non possono essere eseguite usando le password dell'app tramite applicazioni non basate su browser, ad esempio Windows PowerShell. Tali azioni non possono essere eseguite anche se l'utente dispone di un account amministrativo. Per eseguire gli script di PowerShell, creare un account di servizio con una password complessa e non abilitare l'account per la verifica in due passaggi.
@@ -289,7 +289,7 @@ Gli utenti possono creare password dell'app durante la registrazione iniziale. A
 
 Gli utenti possono creare password delle app anche dopo la registrazione. Per altre informazioni e procedure dettagliate per gli utenti, vedere [Che cosa sono le password per le app in Azure Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
 
-## <a name="trusted-ips"></a>Provider di identità attendibili
+## <a name="trusted-ips"></a>IP attendibili
 
 La funzionalità _Indirizzi IP attendibili_ di Azure Multi-Factor Authentication viene usata dagli amministratori di un tenant gestito o federato. La funzionalità consente di ignorare la verifica in due passaggi per gli utenti che accedono dalla rete Intranet aziendale. Questa funzionalità è disponibile nella versione completa di Azure Multi-Factor Authentication, ma non nella versione gratuita per amministratori. Per informazioni dettagliate su come ottenere la versione completa di Azure Multi-Factor Authentication, vedere [Azure Multi-Factor Authentication](multi-factor-authentication.md).
 
@@ -300,7 +300,7 @@ Se l'organizzazione distribuisce l'estensione del server dei criteri di rete per
 
 | Tipo di tenant di Azure AD | Opzioni della funzionalità Indirizzi IP attendibili |
 |:--- |:--- |
-| Gestito |**Specific range of IP addresses** (Intervallo di indirizzi IP specifico): gli amministratori possono specificare un intervallo di indirizzi IP che può ignorare la verifica in due passaggi per gli utenti che accedono dalla rete Intranet dell'azienda. È possibile configurare un massimo di 50 intervalli di indirizzi IP attendibili.|
+| Managed Disks |**Specific range of IP addresses** (Intervallo di indirizzi IP specifico): gli amministratori possono specificare un intervallo di indirizzi IP che può ignorare la verifica in due passaggi per gli utenti che accedono dalla rete Intranet dell'azienda. È possibile configurare un massimo di 50 intervalli di indirizzi IP attendibili.|
 | Federato |**All Federated Users** (Tutti gli utenti federati): tutti gli utenti federati che eseguono l'accesso dall'interno dell'organizzazione possono ignorare la verifica in due passaggi. Gli utenti ignorano la verifica usando un'attestazione emessa da Active Directory Federation Services (AD FS).<br/>**Specific range of IP addresses** (Intervallo di indirizzi IP specifico): gli amministratori possono specificare un intervallo di indirizzi IP che può ignorare la verifica in due passaggi per gli utenti che accedono dalla rete Intranet dell'azienda. |
 
 Il bypass degli indirizzi IP attendibili funziona solo dall'interno della rete Intranet aziendale. Se si seleziona l'opzione **All Federated Users** (Tutti gli utenti federati) solo tutti gli utenti federati e un utente accede dall'esterno della rete Intranet aziendale, tale utente deve eseguire l'autenticazione con la verifica in due passaggi. Il processo è lo stesso anche se l'utente presenta un'attestazione AD FS. 
@@ -323,7 +323,7 @@ Indipendentemente dal fatto che la funzionalità Indirizzi IP attendibili sia di
 4. Immettere un nome per la località.
 5. Selezionare **Contrassegna come posizione attendibile**.
 6. Immettere l'intervallo di indirizzi IP nella notazione CIDR, ad esempio **192.168.1.1/24**.
-7. Selezionare **Create**.
+7. Selezionare **Create** (Crea).
 
 ### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>Abilitare la funzionalità indirizzi IP attendibili tramite l'accesso condizionale
 
@@ -368,7 +368,7 @@ Indipendentemente dal fatto che la funzionalità Indirizzi IP attendibili sia di
 
 Quando gli utenti registrano i propri account per Azure Multi-Factor Authentication, scelgono il metodo di verifica preferito tra le opzioni abilitate. Le linee guida per il processo di registrazione dell'utente sono disponibili in [Configurare l'account per la verifica in due passaggi](../user-help/multi-factor-authentication-end-user-first-time.md).
 
-| Metodo | DESCRIZIONE |
+| Metodo | Description |
 |:--- |:--- |
 | Chiamata al telefono |Invia una chiamata vocale automatizzata. Per l’autenticazione, l'utente risponde alla chiamata e preme # sul tastierino telefonico. Il numero di telefono non viene sincronizzato con Active Directory locale. |
 | SMS al telefono |Invia un messaggio di testo contenente un codice di verifica. All'utente viene richiesto di immettere il codice di verifica nell'interfaccia di accesso. Questo processo è denominato SMS unidirezionale. L'SMS bidirezionale significa che l'utente deve disporre il testo in un codice specifico. L'SMS bidirezionale è deprecato e non è supportato a partire dal 14 novembre 2018. Gli amministratori devono abilitare un altro metodo per gli utenti che in precedenza usavano SMS bidirezionali.|
@@ -382,7 +382,7 @@ Quando gli utenti registrano i propri account per Azure Multi-Factor Authenticat
 3. Selezionare **Multi-Factor Authentication**.
 4. In Multi-Factor Authentication selezionare **Impostazioni servizio**.
 5. Nella pagina **Impostazioni servizio**, in **Opzioni di verifica** selezionare o deselezionare i metodi da mettere a disposizione per gli utenti.
-6. Fare clic su **Save**.
+6. Fare clic su **Salva**
 
 Altre informazioni sull'uso dei metodi di autenticazione sono disponibili nell'articolo [Cosa si intende per metodi di autenticazione?](concept-authentication-methods.md).
 

@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 11/04/2019
+ms.date: 12/04/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 558a6e3faa207e15000657a17bec99a7b1ac99e4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d8c3e3c272ce12200ab7506fd7c9759a8cb3aa64
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685936"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851741"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Gestione del carico di lavoro con le classi di risorse in Azure SQL Data Warehouse
 
@@ -24,7 +24,7 @@ Indicazioni per l'uso delle classi di risorse per gestire la memoria e la concor
 
 ## <a name="what-are-resource-classes"></a>Che cosa sono le classi di risorse
 
-La capacità di prestazioni di una query è determinata dalla classe di risorse dell'utente.  Le classi di risorse sono limiti delle risorse predeterminati in Azure SQL Data Warehouse che regolano le risorse di calcolo e la concorrenza per l'esecuzione delle query. Le classi di risorse consentono di gestire il carico di lavoro impostando limiti sul numero di query eseguite contemporaneamente e sulle risorse di calcolo assegnate a ogni query.  C'è un compromesso tra memoria e concorrenza.
+La capacità di prestazioni di una query è determinata dalla classe di risorse dell'utente.  Le classi di risorse sono limiti delle risorse predeterminati in Azure SQL Data Warehouse che regolano le risorse di calcolo e la concorrenza per l'esecuzione delle query. Le classi di risorse consentono di configurare le risorse per le query impostando limiti sul numero di query eseguite contemporaneamente e sulle risorse di calcolo assegnate a ogni query.  C'è un compromesso tra memoria e concorrenza.
 
 - Le classi di risorse di piccole dimensioni riducono la memoria massima per ogni query, ma aumentano la concorrenza.
 - Le classi di risorse più grandi aumentano la quantità massima di memoria per query, ma riducono la concorrenza.
@@ -65,14 +65,18 @@ Le classi di risorse dinamiche vengono implementate con i ruoli predefiniti del 
 - largerc
 - xlargerc
 
-L'allocazione di memoria per ogni classe di risorse è la seguente, **indipendentemente dal livello di servizio**.  Sono elencate anche le query di concorrenza minime.  Per alcuni livelli di servizio è possibile raggiungere più della concorrenza minima.
+L'allocazione di memoria per ogni classe di risorse è la seguente. 
 
-| Classe di risorse | Percentuale di memoria | Numero minimo di query simultanee |
-|:--------------:|:-----------------:|:----------------------:|
-| smallrc        | 3%                | 32                     |
-| mediumrc       | 10%               | 10                     |
-| largerc        | 22%               | 4                      |
-| xlargerc       | 70%               | 1                      |
+| Livello di servizio  | smallrc           | mediumrc               | largerc                | xlargerc               |
+|:--------------:|:-----------------:|:----------------------:|:----------------------:|:----------------------:|
+| DW100c         | 25%               | 25%                    | 25%                    | 70%                    |
+| DW200c         | 12,5%             | 12,5%                  | 22%                    | 70%                    |
+| DW300c         | 8%                | 10%                    | 22%                    | 70%                    |
+| DW400c         | 6,25%             | 10%                    | 22%                    | 70%                    |
+| DW500c         | 20%               | 10%                    | 22%                    | 70%                    |
+| Compreso dw1000c<br> DW30000c | 3%       | 10%                    | 22%                    | 70%                    |
+
+
 
 ### <a name="default-resource-class"></a>Classe di risorse predefinita
 
@@ -105,6 +109,8 @@ Le operazioni seguenti sono regolate dalle classi di risorse:
 
 > [!NOTE]  
 > Le istruzioni SELECT per le viste a gestione dinamica (DMV) o altre viste del sistema non sono regolate da nessuno dei limiti di concorrenza. È possibile monitorare il sistema indipendentemente dal numero di query in esecuzione nel sistema.
+>
+>
 
 ### <a name="operations-not-governed-by-resource-classes"></a>Operazioni non regolate dalle classi di risorse
 
@@ -177,7 +183,12 @@ Gli utenti possono essere membri di più classi di risorse. Quando un utente app
 - Le classi di risorse dinamiche hanno la precedenza sulle classi di risorse statiche. Ad esempio, se un utente è membro sia di mediumrc (dinamica) sia di staticrc80 (statica), le query vengono eseguite con mediumrc.
 - Le classi di risorse più grandi hanno la precedenza sulle classi di risorse più piccole. Ad esempio, se un utente è membro di mediumrc e largerc, le query vengono eseguite con largerc. Analogamente, se un utente è membro sia di staticrc20, sia di statirc80, le query vengono eseguite con allocazioni di risorse staticrc80.
 
-## <a name="recommendations"></a>Consigli
+## <a name="recommendations"></a>Raccomandazioni
+
+>[!NOTE]
+>Si consiglia di sfruttare le funzionalità di gestione del carico di lavoro (isolamento, [classificazione](sql-data-warehouse-workload-classification.md) e [importanza](sql-data-warehouse-workload-importance.md)del[carico di lavoro](sql-data-warehouse-workload-isolation.md)) per un maggiore controllo sul carico di lavoro e prestazioni prevedibili  
+>
+>
 
 Si consiglia di creare un utente dedicato all'esecuzione di un tipo specifico di query o di un'operazione di caricamento. Assegnare a tale utente una classe di risorse permanente anziché modificare la classe di risorse su base frequente. Le classi di risorse statiche consentono un maggiore controllo generale sul carico di lavoro, quindi è consigliabile usare classi di risorse statiche prima di prendere in considerazione le classi di risorse dinamiche.
 
@@ -229,12 +240,12 @@ Ecco lo scopo della stored procedure:
 >
 >Ad esempio, in DW100c, la concessione di memoria massima disponibile è 1 GB e se lo schema della tabella è sufficientemente ampio per superare il requisito di 1 GB.
 
-### <a name="usage-example"></a>Esempio di utilizzo
+### <a name="usage-example"></a>Esempio di uso
 
 Sintassi:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`
   
-1. @DWU: specificano un parametro NULL per estrarre il DWU corrente dal database DW o fornire qualsiasi DWU supportato nel formato ' DW100c '
+1. @DWU: specificare un parametro NULL per estrarre il DWU corrente dal database DW o fornire qualsiasi DWU supportato nel formato ' DW100c '
 2. @SCHEMA_NAME: Fornire un nome di schema della tabella
 3. @TABLE_NAME: Fornire un nome di tabella
 

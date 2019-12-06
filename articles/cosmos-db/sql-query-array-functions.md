@@ -1,18 +1,18 @@
 ---
 title: Funzioni di matrice nel linguaggio di query Azure Cosmos DB
-description: Informazioni sulle funzioni di sistema di array SQL in Azure Cosmos DB.
+description: Informazioni sul modo in cui le funzioni di matrice consentono di eseguire operazioni sulle matrici in Azure Cosmos DB
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: f970ed03ef5a9ccbfb9664a6c2d9db424ee96ed1
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: a0256470892d634361498f1632027aff562c7761
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348681"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871806"
 ---
 # <a name="array-functions-azure-cosmos-db"></a>Funzioni di matrice (Azure Cosmos DB)
 
@@ -33,4 +33,4 @@ Le funzioni scalari seguenti eseguono un'operazione su un valore di input di mat
 - [Funzioni di sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduzione a Azure Cosmos DB](introduction.md)
 - [Funzioni definite dall'utente](sql-query-udfs.md)
-- [Aggregati](sql-query-aggregates.md)
+- [Aggregazioni](sql-query-aggregates.md)

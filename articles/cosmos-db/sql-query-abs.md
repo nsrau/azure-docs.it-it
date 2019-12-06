@@ -1,18 +1,18 @@
 ---
 title: ABS nel linguaggio di query Azure Cosmos DB
-description: Informazioni sulla funzione di sistema SQL ABS in Azure Cosmos DB.
+description: Informazioni sul modo in cui la funzione di sistema SQL Absolute (ABS) in Azure Cosmos DB restituisce il valore positivo dell'espressione numerica specificata
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 12/02/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 480c5ffcfaccfac5061e53612a2ee57235cfa626
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 70648dcf28d760c3a81c0cb426cd9b2d3ce96fff
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348749"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871857"
 ---
 # <a name="abs-azure-cosmos-db"></a>ABS (Azure Cosmos DB)
  Restituisce il valore assoluto (positivo) dell'espressione numerica specificata.  
@@ -32,9 +32,9 @@ ABS (<numeric_expr>)
   
   Restituisce un'espressione numerica.  
   
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
   
-  Nell'esempio seguente vengono illustrati i risultati dell'utilizzo della funzione `ABS` su tre numeri diversi.  
+  Nell'esempio seguente vengono illustrati i risultati dell'utilizzo della funzione `ABS` in tre numeri diversi.  
   
 ```sql
 SELECT ABS(-1) AS abs1, ABS(0) AS abs2, ABS(1) AS abs3 

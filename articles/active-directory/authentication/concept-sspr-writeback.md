@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 758d7122a991309504c5cac18b9aaf1268808887
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 151e7b2ab091959c8b6c08d366318a49987aefd9
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420652"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848528"
 ---
 # <a name="what-is-password-writeback"></a>Che cos'è il writeback delle password?
 
@@ -29,9 +29,9 @@ Il writeback delle password è supportato in ambienti che usano:
 * [Autenticazione pass-through](../hybrid/how-to-connect-pta.md)
 
 > [!WARNING]
-> Il writeback delle password non funzionerà più per i clienti che usano Azure AD Connect 1.0.8641.0 e versioni precedenti dopo il [ritiro del Servizio di controllo di accesso di Azure il 7 novembre 2018](../develop/active-directory-acs-migration.md). A partire da tale data, Azure AD Connect 1.0.8641.0 e versioni precedenti non consentiranno più il writeback delle password perché per questa funzionalità dipendono dal Servizio di controllo di accesso di Azure.
+> Per i clienti che usano Azure AD Connect 1.0.8641.0 e versioni precedenti, il writeback delle password non funzionerà più dopo il [ritiro del Servizio di controllo di accesso di Azure in data 7 novembre 2018](../develop/active-directory-acs-migration.md). A partire da tale data, Azure AD Connect 1.0.8641.0 e versioni precedenti non consentiranno più il writeback delle password perché per questa funzionalità dipendono dal Servizio di controllo di accesso di Azure.
 >
-> Per evitare interruzioni del servizio, eseguire l'aggiornamento da una versione precedente di Azure AD Connect a una versione più recente. Vedere l'articolo [Azure AD Connect: Eseguire l'aggiornamento da una versione precedente alla versione più recente](../hybrid/how-to-upgrade-previous-version.md).
+> Per evitare un'interruzione del servizio, eseguire l'aggiornamento da una versione precedente di Azure AD Connect a una più recente. Vedere l'articolo [Azure AD Connect: Eseguire l'aggiornamento da una versione precedente alla versione più recente](../hybrid/how-to-upgrade-previous-version.md).
 >
 
 Il writeback delle password offre:

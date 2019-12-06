@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: af24a6b6d165ba60a0d88a4ddf74a4f18836e813
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 0572a18e530eaff2b5a2d8aa8ced5af26f762aa8
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111766"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873931"
 ---
 # <a name="get-started-with-azcopy"></a>Introduzione ad AzCopy
 
@@ -70,10 +70,10 @@ Per informazioni dettagliate sulla documentazione di riferimento per ogni comand
 
 Usare questa tabella come guida:
 
-| Tipo di archiviazione | Metodo di autorizzazione attualmente supportato |
+| Tipo di risorse di archiviazione | Metodo di autorizzazione attualmente supportato |
 |--|--|
 |**Archiviazione BLOB** | Firma di accesso condiviso Azure AD & |
-|**Archiviazione BLOB (spazio dei nomi gerarchica)** | Firma di accesso condiviso Azure AD & |
+|**Archiviazione BLOB (spazio dei nomi gerarchico)** | Firma di accesso condiviso Azure AD & |
 |**Archiviazione file** | Solo SAS |
 
 ### <a name="option-1-use-azure-active-directory"></a>Opzione 1: usare Azure Active Directory
@@ -98,8 +98,8 @@ Questi ruoli possono essere assegnati all'entità di sicurezza in uno di questi 
 
 - Contenitore (file system)
 - Account di archiviazione
-- Resource group
-- sottoscrizione
+- Gruppo di risorse
+- Sottoscrizione
 
 Per informazioni su come verificare e assegnare i ruoli, vedere [concedere l'accesso ai dati di Accodamento e BLOB di Azure con RBAC nel portale di Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
@@ -254,7 +254,7 @@ azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/
 
 Per altre informazioni sui token SAS e su come ottenerne uno, vedere [uso delle firme di accesso condiviso (SAS)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview).
 
-## <a name="transfer-files"></a>Trasferimenti di file
+## <a name="transfer-files"></a>Trasferire i file
 
 Dopo aver autenticato l'identità o ottenuto un token di firma di accesso condiviso, è possibile iniziare a trasferire i file.
 

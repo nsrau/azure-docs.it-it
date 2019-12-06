@@ -1,25 +1,25 @@
 ---
 title: Aliasing in Azure Cosmos DB
-description: Informazioni sui valori di aliasing in Azure Cosmos DB query SQL
+description: Informazioni su come usare l'aliasing in Azure Cosmos DB query SQL per distinguere due proprietà con lo stesso nome
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 3b17cbc7710647b1e1875025a1db1849034ec1dc
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 74849eec4c5808a584894321269c49c41f0b8a5c
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002079"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873472"
 ---
 # <a name="aliasing-in-azure-cosmos-db"></a>Aliasing in Azure Cosmos DB
 
 È possibile eseguire l'aliasing esplicito dei valori nelle query. Se una query ha due proprietà con lo stesso nome, usare l'aliasing per rinominare una o entrambe le proprietà in modo che siano ambiguità nel risultato previsto.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
 
-La parola chiave AS utilizzata per l'aliasing è facoltativa, come illustrato nell'esempio seguente quando si proietta il secondo `NameInfo`valore come:
+La parola chiave AS utilizzata per l'aliasing è facoltativa, come illustrato nell'esempio seguente quando si proietta il secondo valore come `NameInfo`:
 
 ```sql
     SELECT 

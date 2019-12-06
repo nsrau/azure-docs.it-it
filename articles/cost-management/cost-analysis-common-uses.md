@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/16/2019
+ms.date: 12/04/2019
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: adwise
 ms.custom: ''
-ms.openlocfilehash: 01087f3e40e278490abb87d0ab3b7b6ab5052b6b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4798b6908069af229c2bed4a2e5f38fa60e0d554
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74219481"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849106"
 ---
 # <a name="common-cost-analysis-uses"></a>Uso di analisi dei costi comuni
 
@@ -64,6 +64,8 @@ Esaminare i costi giornalieri e mensili può essere utile per comprendere meglio
 ## <a name="view-costs-for-a-specific-tag"></a>Visualizzare i costi per un tag specifico
 
 Molti utenti di Azure applicano i tag alle risorse, ad esempio un centro di costo o un ambiente di sviluppo (produzione e test), per classificare meglio i costi. I tag vengono visualizzati come dimensione nell'analisi dei costi. È possibile usare la dimensione per ottenere informazioni dettagliate sulle categorizzazioni personalizzate per l'assegnazione di tag.
+
+Il supporto per i tag si applica all'uso segnalato *dopo* l'applicazione del tag alla risorsa. I tag non vengono applicati retroattivamente per i rollup dei costi.
 
 1. Nella portale di Azure passare all'analisi dei costi per l'ambito. Ad esempio: **Gestione costi + fatturazione** > **Gestione costi** > l' **analisi dei costi**.
 1. Selezionare **Group by** per il tag.

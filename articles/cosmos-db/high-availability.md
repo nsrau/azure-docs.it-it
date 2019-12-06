@@ -1,18 +1,18 @@
 ---
 title: Disponibilità elevata in Azure Cosmos DB
-description: In questo articolo viene descritto come Azure Cosmos DB garantisce disponibilità elevata
+description: Questo articolo descrive il modo in cui Azure Cosmos DB garantisce la disponibilità elevata tramite la replica trasparente dei dati in tutte le aree associate all'account Azure Cosmos
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: ab6544e4535f2d2c2e88284f61251f177d457a84
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 1dab10592c8a34bc9df4425785e6dae95e44f219
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146672"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872095"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Disponibilità elevata con Azure Cosmos DB
 
@@ -78,7 +78,7 @@ Questa funzionalità è disponibile nelle aree di Azure seguenti:
 
 * Regno Unito meridionale
 * Asia sud-orientale 
-* East US
+* Stati Uniti Orientali
 * Stati Uniti orientali 2 
 * Stati Uniti centrali
 * Europa occidentale
@@ -89,15 +89,15 @@ Questa funzionalità è disponibile nelle aree di Azure seguenti:
 
 Nella tabella seguente sono riepilogate le funzionalità di disponibilità elevata di diverse configurazioni di account: 
 
-|Indicatore KPI  |Singola area senza zone di disponibilità (non AZ)  |Area singola con zone di disponibilità (AZ)  |Scritture in più aree con zone di disponibilità (AZ, 2 Regions): impostazione consigliata |
+|KPI  |Singola area senza zone di disponibilità (non AZ)  |Area singola con zone di disponibilità (AZ)  |Scritture in più aree con zone di disponibilità (AZ, 2 Regions): impostazione consigliata |
 |---------|---------|---------|---------|
 |SLA sulla disponibilità di scrittura     |   99,99%      |    99,99%     |  99,999%  |
 |SLA per la disponibilità di lettura   |   99,99%      |   99,99%      |  99,999%       |
 |Prezzo  |  Tariffa di fatturazione per area singola |  Frequenza di fatturazione della zona di disponibilità in una singola area |  Frequenza di fatturazione per più aree       |
 |Errori zona-perdita di dati   |  Perdita di dati  |   Nessuna perdita di dati |   Nessuna perdita di dati  |
 |Errori zona-disponibilità |  Perdita di disponibilità  | Nessuna perdita di disponibilità  |  Nessuna perdita di disponibilità  |
-|Latenza lettura    |  Area geografica    |   Area geografica   |    Basso  |
-|Latenza di scrittura    |   Area geografica   |  Area geografica    |   Basso   |
+|Latenza lettura    |  Area geografica    |   Area geografica   |    Basse  |
+|Latenza di scrittura    |   Area geografica   |  Area geografica    |   Basse   |
 |Interruzione a livello di area-perdita di dati    |   Perdita di dati      |  Perdita di dati       |   Perdita di dati <br/><br/> Quando si usa la coerenza con obsolescenza associata con più master e più aree, la perdita di dati è limitata al decadimento delimitato configurato per l'account. <br/><br/> È possibile evitare la perdita di dati durante un'interruzione a livello di area configurando la coerenza assoluta con più aree. Questa opzione presenta compromessi che influiscano sulla disponibilità e sulle prestazioni.      |
 |Interruzione a livello di area: disponibilità  |  Perdita di disponibilità       |  Perdita di disponibilità       |  Nessuna perdita di disponibilità  |
 |Velocità effettiva    |  Velocità effettiva con provisioning X ur/s      |  Velocità effettiva con provisioning X ur/s       |  velocità effettiva con provisioning di 2X ur/s <br/><br/> Questa modalità di configurazione richiede due volte la quantità di velocità effettiva rispetto a una singola area con zone di disponibilità perché sono presenti due aree geografiche.   |
@@ -106,7 +106,7 @@ Nella tabella seguente sono riepilogate le funzionalità di disponibilità eleva
 > Per abilitare il supporto per la zona di disponibilità per un account Azure Cosmos a più aree, è necessario che nell'account siano abilitate le Scritture multimaster.
 
 
-È possibile abilitare la ridondanza della zona quando si aggiunge un'area a account Azure Cosmos nuovi o esistenti. Per abilitare la ridondanza della zona nell'account Azure Cosmos, è necessario impostare `isZoneRedundant` il `true` flag su per una posizione specifica. È possibile impostare questo flag nella proprietà Locations. Ad esempio, il frammento di codice PowerShell seguente abilita la ridondanza della zona per l'area Asia sud-orientale:
+È possibile abilitare la ridondanza della zona quando si aggiunge un'area a account Azure Cosmos nuovi o esistenti. Per abilitare la ridondanza della zona nell'account Azure Cosmos, è necessario impostare il flag di `isZoneRedundant` su `true` per una posizione specifica. È possibile impostare questo flag nella proprietà Locations. Ad esempio, il frammento di codice PowerShell seguente abilita la ridondanza della zona per l'area Asia sud-orientale:
 
 ```powershell
 $locations = @( 
@@ -128,7 +128,7 @@ az cosmosdb create \
   --enable-multiple-write-locations
 ```
 
-È possibile abilitare zone di disponibilità usando portale di Azure quando si crea un account Azure Cosmos. Quando si crea un account, assicurarsi di abilitare la **ridondanza geografica**, le Scritture in più **aree**e scegliere un'area in cui zone di disponibilità sono supportati: 
+È possibile abilitare zone di disponibilità usando portale di Azure quando si crea un account Azure Cosmos. Quando si crea un account, assicurarsi di abilitare la **ridondanza geografica**, le **Scritture**in più aree e scegliere un'area in cui zone di disponibilità sono supportati: 
 
 ![Abilitare zone di disponibilità usando portale di Azure](./media/high-availability/enable-availability-zones-using-portal.png) 
 
@@ -146,7 +146,7 @@ az cosmosdb create \
 
 Successivamente si possono leggere gli articoli seguenti:
 
-* [Compromessi nella disponibilità e nelle prestazioni per vari livelli di coerenza](consistency-levels-tradeoffs.md)
+* [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md) (Compromessi nella disponibilità e nelle prestazioni per vari livelli di coerenza)
 * [Ridimensionamento a livello globale della velocità effettiva sottoposta a provisioning](scaling-throughput.md)
 * [Distribuzione globale - Informazioni sul funzionamento](global-dist-under-the-hood.md)
 * [Livelli di coerenza in Azure Cosmos DB](consistency-levels.md)

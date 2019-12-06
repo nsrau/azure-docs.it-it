@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20e9f0b9a993d2a8af9b9d91399fdd49f9a06eaa
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: f1cc696e6351281ec9bd84cc6611d81d9148cda1
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381839"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848426"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Protezione delle risorse cloud con Azure Multi-Factor Authentication e AD FS
 
@@ -44,7 +44,7 @@ Per proteggere le risorse cloud, configurare una regola attestazioni in modo che
 7. Selezionare **Riferimenti dei metodi di autenticazione** come Tipo di attestazione in ingresso.
 8. Selezionare **Pass-through di tutti i valori attestazione**.
     ![Aggiunta guidata regole attestazione di trasformazione](./media/howto-mfa-adfs/configurewizard.png)
-9. Fare clic su **Finish**(Fine). Chiudere la console di gestione di ADFS.
+9. Fare clic su **Finish** (Fine). Chiudere la console di gestione di ADFS.
 
 ## <a name="trusted-ips-for-federated-users"></a>Indirizzi IP attendibili per utenti federati
 
@@ -58,8 +58,8 @@ Per prima cosa è necessario configurare le attestazioni ADFS. Creare due regole
 
 1. Aprire il componente di gestione di ADFS.
 2. A sinistra selezionare **Attendibilità componente**.
-3. Fare clic con il pulsante destro del mouse su **Microsoft Office piattaforma Identity 365** e selezionare **modifica regole attestazione...** 
-   ![console ADFS-modifica regole attestazione](./media/howto-mfa-adfs/trustedip1.png)
+3. Fare clic su **piattaforma delle identità di Microsoft Office 365** e selezionare **Modifica regole attestazione...** 
+   ![Console ADFS - Modifica regole attestazione](./media/howto-mfa-adfs/trustedip1.png)
 4. In regole di trasformazione rilascio fare clic su **Aggiungi regola.** 
    ![aggiungere una regola attestazioni](./media/howto-mfa-adfs/trustedip2.png)
 5. Nell'Aggiunta guidata regole attestazione di trasformazione selezionare **Applicare la funzione di pass-through o di filtro a un'attestazione in ingresso** dall'elenco a discesa e fare clic su **Avanti**.
@@ -67,7 +67,7 @@ Per prima cosa è necessario configurare le attestazioni ADFS. Creare due regole
 6. Nella casella Nome regola attestazione assegnare un nome alla regola. Ad esempio: InternoReteAziend.
 7. Nell'elenco a discesa accanto a Tipo di attestazione in ingresso selezionare **All'interno della rete aziendale**.
    ![l'aggiunta all'interno dell'attestazione della rete aziendale](./media/howto-mfa-adfs/trustedip4.png)
-8. Fare clic su **Finish**(Fine).
+8. Fare clic su **Finish** (Fine).
 9. In Regole di trasformazione rilascio fare clic su **Aggiungi regola**.
 10. Nell'Aggiunta guidata regole attestazione di trasformazione selezionare **Inviare attestazioni mediante una regola personalizzata** dall'elenco a discesa e fare clic su **Avanti**.
 11. Nella casella sotto a Nome regola attestazione: specificare di *mantenere gli utenti connessi*.
@@ -76,7 +76,7 @@ Per prima cosa è necessario configurare le attestazioni ADFS. Creare due regole
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
     ![Creare un'attestazione personalizzata per impedire agli utenti di eseguire l'accesso](./media/howto-mfa-adfs/trustedip5.png)
-13. Fare clic su **Finish**(Fine).
+13. Fare clic su **Finish** (Fine).
 14. Fare clic su **Apply**.
 15. Fare clic su **OK**.
 16. Chiudere Gestione ADFS.

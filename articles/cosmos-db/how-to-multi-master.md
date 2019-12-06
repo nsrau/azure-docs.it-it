@@ -1,17 +1,17 @@
 ---
 title: Come configurare funzionalità multimaster in Azure Cosmos DB
-description: Informazioni su come configurare funzionalità multimaster nelle applicazioni in Azure Cosmos DB.
+description: Informazioni su come configurare la funzionalità multimaster per le applicazioni usando SDK diversi in Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/03/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: e86cacbd76a70c8b114d65a77ff013d32327a2d0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 654baed649093add2aa62f4ba81bf6ce7c3e0df5
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093111"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873642"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Configurare funzionalità multimaster nelle applicazioni che usano Azure Cosmos DB
 
@@ -112,6 +112,6 @@ Leggere gli articoli seguenti:
 * [Livelli di coerenza in Azure Cosmos DB](consistency-levels.md)
 * [Scegliere il livello di coerenza ottimale in Azure Cosmos DB](consistency-levels-choosing.md)
 * [Compromessi tra coerenza, disponibilità e prestazioni in Azure Cosmos DB](consistency-levels-tradeoffs.md)
-* [Compromessi nella disponibilità e nelle prestazioni per vari livelli di coerenza](consistency-levels-tradeoffs.md)
+* [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md) (Compromessi nella disponibilità e nelle prestazioni per vari livelli di coerenza)
 * [Ridimensionamento a livello globale della velocità effettiva sottoposta a provisioning](scaling-throughput.md)
 * [Distribuzione globale: dietro le quinte](global-dist-under-the-hood.md)

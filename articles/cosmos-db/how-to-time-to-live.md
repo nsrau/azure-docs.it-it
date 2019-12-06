@@ -1,17 +1,17 @@
 ---
 title: Informazioni su come configurare e gestire la durata (TTL) in Azure Cosmos DB
-description: Informazioni su come configurare e gestire la durata (TTL) in Azure Cosmos DB
+description: Informazioni su come configurare e gestire la durata (TTL) in un contenitore e un elemento in Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 8bae2db08a5279225eba7492c63706dc9fc3df02
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 51022956ad32059771b8d56f0ae177fb5165b450
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819506"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873608"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurare la durata (TTL) in Azure Cosmos DB
 

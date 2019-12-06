@@ -1,23 +1,23 @@
 ---
 title: Indicizzazione in Azure Cosmos DB
-description: Informazioni sull'indicizzazione in Azure Cosmos DB.
+description: Informazioni sul funzionamento dell'indicizzazione in Azure Cosmos DB, diversi tipi di indici, ad esempio intervallo, spaziale e indici compositi supportati.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: thweiss
-ms.openlocfilehash: d679208914eb7d1f74bfaec77fbcff196909a2f4
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 65186262095560d7ae54d32b218d1c01f1fb921d
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299795"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873625"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indicizzazione in Azure Cosmos DB-Panoramica
 
 Azure Cosmos DB è un database indipendente dallo schema che consente di eseguire l'iterazione dell'applicazione senza dover gestire lo schema o la gestione degli indici. Per impostazione predefinita, Azure Cosmos DB indicizza automaticamente ogni proprietà per tutti gli elementi nel [contenitore](databases-containers-items.md#azure-cosmos-containers) senza dover definire alcuno schema o configurare indici secondari.
 
-Lo scopo di questo articolo è spiegare come Azure Cosmos DB indicizza i dati e come vengono usati gli indici per migliorare le prestazioni di esecuzione delle query. È consigliabile eseguire questa sezione prima di esplorare come personalizzare i criteri di [indicizzazione](index-policy.md).
+Lo scopo di questo articolo è spiegare come Azure Cosmos DB indicizza i dati e come usa gli indici per migliorare le prestazioni delle query. È consigliabile eseguire questa sezione prima di esplorare come personalizzare i criteri di [indicizzazione](index-policy.md).
 
 ## <a name="from-items-to-trees"></a>Da elementi a alberi
 
@@ -90,7 +90,7 @@ L'indice di **intervallo** è basato su una struttura di tipo albero ordinata. I
    ```sql
    SELECT * FROM container c WHERE c.property > 'value'
    ```
-  (funziona per `>`, `<`, `>=`, `<=`, `!=`)
+  (funziona per `>`, `<`, `>=`, `<=``!=`)
 
 - Verifica della presenza di una proprietà:
 
@@ -120,7 +120,7 @@ Gli indici di intervallo possono essere utilizzati in valori scalari (stringa o 
 
 ### <a name="spatial-index"></a>Indice spaziale
 
-Gli indici **spaziali** consentono di eseguire query efficienti su oggetti geospaziali quali punti, linee, poligoni e multipoligoni. Queste query usano le parole chiave ST_DISTANCE, ST_WITHIN, ST_INTERSECTS. Di seguito sono riportati alcuni esempi che usano il tipo di indice spaziale:
+Gli indici **spaziali** consentono di eseguire query efficienti su oggetti geospaziali quali punti, linee, poligoni e multipoligoni. Queste query usano parole chiave ST_DISTANCE, ST_WITHIN ST_INTERSECTS. Di seguito sono riportati alcuni esempi che usano il tipo di indice spaziale:
 
 - Query di distanza geospaziale:
 
@@ -146,13 +146,13 @@ Gli indici spaziali possono essere usati in oggetti [GeoJSON](geospatial.md) for
 
 Gli indici **compositi** aumentano l'efficienza quando si eseguono operazioni su più campi. Il tipo di indice composito viene usato per:
 
-- query `ORDER BY` su più proprietà:
+- `ORDER BY` query su più proprietà:
 
 ```sql
  SELECT * FROM container c ORDER BY c.property1, c.property2
 ```
 
-- Esegue una query con un filtro e `ORDER BY`. Queste query possono utilizzare un indice composto se la proprietà Filter viene aggiunta alla clausola `ORDER BY`.
+- Esegue una query con un filtro e un `ORDER BY`. Queste query possono utilizzare un indice composto se la proprietà Filter viene aggiunta alla clausola `ORDER BY`.
 
 ```sql
  SELECT * FROM container c WHERE c.property1 = 'value' ORDER BY c.property1, c.property2
@@ -173,18 +173,18 @@ Finché un predicato del filtro USA sul tipo di indice, il motore di query lo va
 
 ## <a name="querying-with-indexes"></a>Esecuzione di query con indici
 
-I percorsi estratti durante l'indicizzazione dei dati facilitano la ricerca dell'indice durante l'elaborazione di una query. Associando la clausola `WHERE` di una query con l'elenco dei percorsi indicizzati, è possibile identificare molto rapidamente gli elementi che corrispondono al predicato della query.
+I percorsi estratti durante l'indicizzazione dei dati facilitano la ricerca dell'indice durante l'elaborazione di una query. Abbinando la clausola `WHERE` di una query con l'elenco dei percorsi indicizzati, è possibile identificare molto rapidamente gli elementi che corrispondono al predicato della query.
 
 Si consideri, ad esempio, la query seguente: `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. Il predicato della query (filtraggio per gli elementi, dove qualsiasi località ha "Francia" come paese) corrisponderà al percorso evidenziato in rosso sotto:
 
 ![Corrispondenza di un percorso specifico all'interno di un albero](./media/index-overview/matching-path.png)
 
 > [!NOTE]
-> Una clausola `ORDER BY` che ordina in base a una singola proprietà necessita *sempre* di un indice di intervallo e avrà esito negativo se il percorso a cui fa riferimento non ne ha uno. Analogamente, una query `ORDER BY` per la quale Orders by multiple properties necessita *sempre* di un indice composto.
+> Una clausola `ORDER BY` che Orders by a una singola proprietà necessita *sempre* di un indice di intervallo e avrà esito negativo se il percorso a cui fa riferimento non ne ha uno. Analogamente, un `ORDER BY` query per la quale Orders by multiple properties necessita *sempre* di un indice composto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Altre informazioni sull'indicizzazione sono disponibili negli articoli seguenti:
 
-- [Criterio di indicizzazione](index-policy.md)
+- [Criteri di indicizzazione](index-policy.md)
 - [Come gestire i criteri di indicizzazione](how-to-manage-indexing-policy.md)

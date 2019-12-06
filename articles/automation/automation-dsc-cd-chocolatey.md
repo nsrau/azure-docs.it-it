@@ -4,19 +4,19 @@ description: Distribuzione continua in DevOps con Gestione pacchetti di Azure Au
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f4512b79873d7f770b32a452a02c53bc5575bdac
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: ddbf652c35c4f1504e3253838a983fd0f6039401
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243596"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850364"
 ---
-# <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Esempio di utilizzo: distribuzione continua in Macchine virtuali tramite Configurazione stato di Automazione e Chocolatey
+# <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Esempio di utilizzo: distribuzione continua in Macchine virtuali di Microsoft Azure tramite Automation DSC e Chocolatey
 
 In un ambiente DevOps sono disponibili molti strumenti utili in diversi punti della pipeline di integrazione continua. Automation DSC (State Configuration) per Azure è una nuova aggiunta alle opzioni disponibili per i team DevOps. Questo articolo illustra come configurare la distribuzione continua per un computer Windows. La tecnica può essere facilmente estesa per includere nel ruolo, ad esempio un sito Web, tutti i computer Windows necessari, estendendola quindi anche ad altri ruoli.
 
@@ -54,11 +54,11 @@ A partire dall'alto, si scrive il codice, si compila e si eseguono i test e quin
 Chocolatey può gestire diversi tipi di pacchetti di installazione, ad esempio MSI, MSU, ZIP. Se le funzionalità native di Chocolatey non sono del tutto soddisfacenti, si può sempre ricorrere alle potenzialità complete di PowerShell per eseguire l'installazione effettiva. Inserire il pacchetto in una posizione raggiungibile, ovvero un repository di pacchetti. Questo esempio di utilizzo usa una cartella pubblica in un account di archiviazione BLOB di Azure, ma può trovarsi anche in un'altra posizione. Chocolatey funziona in modalità nativa con i server NuGet e alcuni altri per la gestione dei metadati dei pacchetti. [Questo articolo](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) descrive le opzioni. Questo esempio di utilizzo usa NuGet. Nuspec sono i metadati relativi ai pacchetti. I Nuspec vengono "compilati" in NuPkg e archiviati in un server NuGet. Quando la configurazione richiede un pacchetto in base al nome e fa riferimento a un server NuGet, la risorsa DSC di Chocolatey, che ora si trova nella VM, estrae il pacchetto e lo installa automaticamente. È anche possibile richiedere una versione specifica di un pacchetto.
 
 Nella parte in basso dell'immagine è presente un modello di Resource Manager di Azure. In questo esempio di utilizzo, l'estensione VM registra la macchina virtuale con il server di pull di Automation DSC per Azure come nodo. La configurazione viene archiviata nel server di pull.
-In realtà viene archiviata due volte, cioè una volta come testo normale e una volta compilata come file MOF, un'indicazione per coloro che hanno familiarità con questi elementi. Nel portale il file MOF è una "configurazione di nodi", invece di una semplice "configurazione". Poiché l'artefatto è associato a un nodo, quest'ultimo riconoscerà la propria configurazione. I dettagli che seguono illustrano come assegnare la configurazione di nodi al nodo.
+In realtà, viene archiviato due volte: una volta come testo normale e una volta compilato come file MOF (per coloro che conoscono tali elementi). Nel portale il file MOF è una "configurazione del nodo", anziché semplicemente "Configuration". Poiché l'artefatto è associato a un nodo, quest'ultimo riconoscerà la propria configurazione. I dettagli che seguono illustrano come assegnare la configurazione di nodi al nodo.
 
 È probabile che ci si stia già occupando della sezione iniziale o la maggior parte di essa. La creazione del Nuspec, la relativa compilazione e archiviazione in un server NuGet non è un'operazione impegnativa e si stanno già gestendo le VM. L'esecuzione del passaggio successivo della distribuzione continua richiede la configurazione del server di pull (una volta), la registrazione dei nodi con il server (una volta) e la creazione e archiviazione della configurazione nel server (inizialmente). In seguito, man mano che i pacchetti vengono aggiornati e distribuiti nel repository, aggiornare la configurazione e la configurazione di nodi nel server di pull, ripetendola se necessario.
 
-Il procedimento funziona anche se non si inizia con un modello di Resource Manager. Sono disponibili cmdlet di PowerShell progettati per facilitare la registrazione delle VM con il server di pull e tutto il resto. Per altri dettagli, vedere questo articolo: [Onboarding di computer per la gestione tramite Configurazione stato di Automazione di Azure](automation-dsc-onboarding.md).
+Il procedimento funziona anche se non si inizia con un modello di Resource Manager. Sono disponibili cmdlet di PowerShell progettati per facilitare la registrazione delle VM con il server di pull e tutto il resto. Per altre informazioni dettagliate, vedere l'articolo [Caricamento di computer per la gestione con Automation DSC per Azure](automation-dsc-onboarding.md).
 
 ## <a name="step-1-setting-up-the-pull-server-and-automation-account"></a>Passaggio 1: Configurazione del server di pull e dell'account di automazione
 
@@ -71,7 +71,7 @@ New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location M
 
 È possibile inserire l'account di automazione in una qualsiasi delle aree seguenti (dette anche località): Stati Uniti orientali 2, Stati Uniti centro-meridionali, US Gov Virginia, Europa occidentale, Asia sud-orientale, Giappone orientale, India centrale e Australia sud-orientale, Canada centrale ed Europa settentrionale.
 
-## <a name="step-2-vm-extension-tweaks-to-the-resource-manager-template"></a>Passaggio 2: Modifiche dell'estensione della macchina virtuale nel modello di Resource Manager
+## <a name="step-2-vm-extension-tweaks-to-the-resource-manager-template"></a>Passaggio 2: Modifiche dell'estensione VM nel modello di Resource Manager
 
 I dettagli per la registrazione della VM, usando l'estensione VM di PowerShell DSC, sono disponibili in questo [modello di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/dsc-extension-azure-automation-pullserver).
 Questo passaggio registra la nuova VM con il server di pull nell'elenco di nodi DSC. Parte di tale registrazione consiste nella specifica della configurazione da applicare ai nodi. Questa configurazione di nodi non deve essere già presente nel server di pull e questa operazione può quindi essere eseguita per la prima volta nel passaggio 4. In questo passaggio 2 è tuttavia necessario definire il nome del nodo e della configurazione. In questo esempio di utilizzo, il nodo è 'isvbox' e la configurazione è 'ISVBoxConfig'. Pertanto il nome della configurazione di nodi da specificare in DeploymentTemplate.json è 'ISVBoxConfig.isvbox'.
@@ -86,7 +86,7 @@ Passare alla risorsa desiderata e fare clic sul pulsante "Deploy to Azure Automa
 Un'altra tecnica aggiunta di recente al portale di Azure consente di inserire nuovi moduli o aggiornare quelli esistenti. Fare clic sulla risorsa Account di automazione, sul riquadro Asset e infine sul riquadro Moduli. L'icona Esplora raccolta consente di visualizzare l'elenco dei moduli nella raccolta, eseguire il drill-down dei dettagli e infine di eseguire l'importazione in Account di automazione. Questo è un ottimo modo per mantenere aggiornati i moduli periodicamente. La funzionalità di importazione verifica le dipendenze con altri moduli per garantire che rimangano sincronizzati.
 
 In alternativa, è disponibile l'approccio manuale. La struttura di cartelle di un modulo di integrazione di PowerShell per un computer Windows è leggermente diversa da quella prevista da Automation DSC per Azure,
-perciò richiede alcune modifiche da parte dell'utente. Non è un'operazione difficile e viene eseguita una sola volta per risorsa, a meno che non si voglia aggiornarla in futuro. Per altre informazioni sulla creazione di moduli di integrazione di PowerShell, vedere questo articolo: [Authoring Integration Modules for Azure Automation](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/) (Creazione di moduli di integrazione per Automazione di Azure)
+perciò richiede alcune modifiche da parte dell'utente. Ma non è difficile e viene eseguita una sola volta per ogni risorsa, a meno che non si desideri aggiornarla in futuro. Per altre informazioni sulla creazione di moduli di integrazione di PowerShell, vedere questo articolo: [creazione di moduli di integrazione per automazione di Azure](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
 - Installare il modulo necessario nella workstation, come indicato di seguito:
   - Installare [Windows Management Framework versione 5](https://aka.ms/wmf5latest) (non necessario per Windows 10).
@@ -203,7 +203,7 @@ Il codice sorgente completo per questo esempio di utilizzo si trova in [questo p
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per una panoramica, vedere [Configurazione dello stato di Automazione di Azure ](automation-dsc-overview.md)
+- Per una panoramica, vedere [Automation DSC di Azure](automation-dsc-overview.md)
 - Per iniziare, vedere [Introduzione alla configurazione dello stato di Automazione di Azure](automation-dsc-getting-started.md)
 - Per informazioni sulla compilazione di configurazioni DSC da assegnare ai nodi di destinazione, vedere [Compilazione di configurazioni in Configurazione stato di Automazione di Azure](automation-dsc-compile.md)
 - Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Azure Automation State Configuration cmdlets](/powershell/module/azurerm.automation/#automation) (Cmdlet per Configurazione stato di Automazione di Azure)

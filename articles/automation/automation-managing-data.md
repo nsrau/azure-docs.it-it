@@ -4,17 +4,17 @@ description: Questo articolo contiene più argomenti per la gestione di un ambie
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9de5909ddca5fd36f3fafcb79e2a4ad519402c9c
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: da1b151a150dfbf602593451d3d68043352b73eb
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476591"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850772"
 ---
 # <a name="managing-azure-automation-data"></a>Gestione dei dati di Automazione di Azure
 Questo articolo contiene più argomenti per la gestione di un ambiente di Automazione di Azure.
@@ -26,10 +26,10 @@ Automazione di Azure elimina automaticamente e rimuove definitivamente i process
 
 La tabella seguente riepiloga i criteri di conservazione per diverse risorse.
 
-| Data | Criterio |
+| Dati | Policy |
 |:--- |:--- |
 | Account |Rimosso definitivamente 90 giorni dopo l'eliminazione dell'account da parte di un utente. |
-| Asset |Rimosso definitivamente 90 giorni dopo l'eliminazione dell'asset da parte di un utente o 90 giorni dopo l'eliminazione dell'account che include l'asset da parte di un utente. |
+| asset |Rimosso definitivamente 90 giorni dopo l'eliminazione dell'asset da parte di un utente o 90 giorni dopo l'eliminazione dell'account che include l'asset da parte di un utente. |
 | Moduli |Rimossi definitivamente 90 giorni dopo l'eliminazione del modulo da parte di un utente o 90 giorni dopo l'eliminazione dell'account che include il modulo da parte di un utente. |
 | Runbook |Rimossi definitivamente 90 giorni dopo l'eliminazione della risorsa da parte di un utente o 90 giorni dopo l'eliminazione dell'account che include la risorsa da parte di un utente. |
 | Processi |Eliminati e rimossi definitivamente 90 giorni dopo l'ultima modifica, ad esempio dopo il completamento, l'arresto o la sospensione del processo. |
@@ -39,9 +39,9 @@ La tabella seguente riepiloga i criteri di conservazione per diverse risorse.
 
 I criteri di conservazione sono applicabili a tutti gli utenti e non è attualmente possibile personalizzarli.
 
-Tuttavia, se si desidera conservare i dati per un periodo di tempo più lungo, è possibile inoltrare runbook i log di processo per i log di monitoraggio di Azure.  Per altre informazioni, esaminare [inoltrare dati dei processi di automazione di Azure per i log di monitoraggio di Azure](automation-manage-send-joblogs-log-analytics.md).   
+Tuttavia, se è necessario conservare i dati per un periodo di tempo più lungo, è possibile inviare i log del processo di Runbook ai log di monitoraggio di Azure.  Per altre informazioni, vedere [trasmettere i dati dei processi di automazione di Azure ai log di monitoraggio di Azure](automation-manage-send-joblogs-log-analytics.md).   
 
-## <a name="backing-up-azure-automation"></a>Backup di Automazione di Azure
+## <a name="backing-up-azure-automation"></a>Backup di automazione di Azure
 Quando si elimina un account di automazione in Microsoft Azure, vengono eliminati tutti gli oggetti presenti nell'account, ad esempio Runbook, moduli, configurazioni, impostazioni, processi e asset. Non sarà possibile ripristinare gli oggetti dopo l'eliminazione dell'account.  È possibile usare le informazioni seguenti per eseguire il backup dei contenuti dell'account di Automazione prima di eliminarlo. 
 
 ### <a name="runbooks"></a>Runbook
@@ -50,7 +50,7 @@ Quando si elimina un account di automazione in Microsoft Azure, vengono eliminat
 ### <a name="integration-modules"></a>Moduli di integrazione
 Non è possibile esportare i moduli di integrazione da Automazione di Azure.  È necessario assicurare che siano disponibili all'esterno dell'account di Automazione.
 
-### <a name="assets"></a>Asset
+### <a name="assets"></a>asset
 Non è possibile esportare [asset](/previous-versions/azure/dn939988(v=azure.100)) da Automazione di Azure.  Usando il portale di Azure, è necessario annotare i dettagli di variabili, credenziali, certificati, connessioni e pianificazioni.  È quindi necessario creare manualmente eventuali asset usati dai Runbook importati in un altro account di Automazione.
 
 È possibile usare i [cmdlet di Azure](https://docs.microsoft.com/powershell/module/azurerm.automation#automation) per recuperare i dettagli di asset non crittografati e salvarli come riferimento futuro o creare asset equivalenti in un altro account di Automazione.
@@ -67,7 +67,7 @@ Replica geografica, standard negli account di automazione di Azure, backup dei d
 
 Nella tabella seguente vengono illustrate le associazioni di aree primarie e secondarie disponibili:
 
-| Primaria | Secondario |
+| Primario | Secondario |
 | --- | --- |
 | Stati Uniti centro-meridionali |Stati Uniti centro-settentrionali |
 | Stati Uniti orientali 2 |Stati Uniti centrali |

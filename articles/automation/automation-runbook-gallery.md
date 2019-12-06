@@ -4,17 +4,17 @@ description: I runbook e i moduli di Microsoft e della community sono disponibil
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 86eebf33f870780871e4c873936e491772c73b63
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 94910d0f42ad6b208cac54dd2826cbd2d917504b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231619"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850721"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Raccolte di runbook e moduli per l'automazione di Azure
 
@@ -50,7 +50,7 @@ Il [PowerShell Gallery](https://www.powershellgallery.com/packages) offre un'amp
 
 ### <a name="adding-a-powershell-runbook-to-the-gallery"></a>Aggiunta di un Runbook di PowerShell alla raccolta
 
-Microsoft consiglia di aggiungere manuali operativi al PowerShell Gallery che si ritiene utile ad altri clienti. Il PowerShell Gallery accetta i moduli di PowerShell e gli script di PowerShell. Per aggiungere un Runbook, è possibile [caricarlo nell'PowerShell Gallery](/powershell/scripting/gallery/how-to/publishing-packages/publishing-a-package).
+Microsoft consiglia di aggiungere manuali operativi al PowerShell Gallery che si ritiene utile ad altri clienti. PowerShell Gallery accetta moduli e script PowerShell. Per aggiungere un Runbook, è possibile [caricarlo nell'PowerShell Gallery](/powershell/scripting/gallery/how-to/publishing-packages/publishing-a-package).
 
 > [!NOTE]
 > Manuali operativi grafici non supportati in PowerShell Gallery.
@@ -71,7 +71,7 @@ I moduli di PowerShell contengono cmdlet che è possibile usare all'interno dei 
 
    * Nome modulo
    * Tag
-   * Autore
+   * Creare
    * Nome della risorsa cmdlet/DSC
 
 5. Cercare il modulo desiderato e selezionarlo per visualizzarne i dettagli.

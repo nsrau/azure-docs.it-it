@@ -4,17 +4,17 @@ description: Come impostare computer per la gestione con Configurazione stato di
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: cf95a66cf68cf0b33444a17cf762bae79db4b50c
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 80038cf5fba18eca4fbbe1405df2a76cfc84e2db
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243424"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850330"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Onboarding di computer per la gestione tramite Configurazione stato di Automazione di Azure
 
@@ -60,7 +60,7 @@ In **Registrazione** immettere i [valori di Gestione configurazione locale per P
 
 ![onboarding](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
 
-### <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
+### <a name="azure-resource-manager-templates"></a>Modelli di Azure Resource Manager
 
 Le macchine virtuali di Azure possono essere distribuite e caricate in Configurazione stato di Automazione di Azure tramite modelli di Azure Resource Manager. Per un modello di esempio che carica una macchina virtuale esistente nella configurazione dello stato di automazione di Azure, vedere [server gestito dal servizio di configurazione dello stato desiderato](https://azure.microsoft.com/resources/templates/101-automation-configuration/) .
 Se si gestisce un set di scalabilità di macchine virtuali, vedere il modello di esempio [configurazione del set di scalabilità di VM gestito da automazione di Azure](https://azure.microsoft.com/resources/templates/201-vmss-automation-dsc/).
@@ -325,7 +325,7 @@ La ripetizione della registrazione può essere eseguita così' come è stato reg
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per iniziare, vedere [Introduzione a Configurazione stato di Automazione di Azure](automation-dsc-getting-started.md)
+- Per iniziare, vedere [Introduzione alla configurazione dello stato di Automazione di Azure](automation-dsc-getting-started.md)
 - Per informazioni sulla compilazione di configurazioni DSC da assegnare ai nodi di destinazione, vedere [Compilazione di configurazioni in Configurazione stato di Automazione di Azure](automation-dsc-compile.md)
 - Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Azure Automation State Configuration cmdlets](/powershell/module/az.automation#automation) (Cmdlet per Configurazione stato di Automazione di Azure)
 - Per informazioni sui prezzi, vedere [Prezzi di Configurazione stato di Automazione di Azure](https://azure.microsoft.com/pricing/details/automation/)

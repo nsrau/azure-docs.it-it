@@ -4,17 +4,17 @@ description: Questo articolo descrive come gestire account RunAs con PowerShell 
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fd7e94261d8302224b0e31e5f4ac46978dfa812f
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: ae73188fa8818c84806709dc7518e3d5760ae187
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72690869"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849531"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gestire account RunAs di Automazione di Azure
 
@@ -407,7 +407,7 @@ Per testare immediatamente il processo di rinnovo, attenersi alla procedura segu
 
 ## <a name="limiting-run-as-account-permissions"></a>Limitazione delle autorizzazioni dell'account RunAs
 
-Per controllare la destinazione dell'automazione sulle risorse in Azure, è possibile eseguire lo script [Update-AutomationRunAsAccountRoleAssignments. ps1](https://aka.ms/AA5hug8) in PowerShell Gallery per modificare l'entità servizio dell'account RunAs esistente per creare e usare un ruolo personalizzato definizione. Questo ruolo disporrà delle autorizzazioni per tutte le risorse eccetto [Key Vault](https://docs.microsoft.com/azure/key-vault/).
+Per controllare la destinazione dell'automazione sulle risorse in Azure, è possibile eseguire lo script [Update-AutomationRunAsAccountRoleAssignments. ps1](https://aka.ms/AA5hug8) in PowerShell Gallery per modificare l'entità servizio dell'account RunAs esistente per creare e usare una definizione di ruolo personalizzata. Questo ruolo disporrà delle autorizzazioni per tutte le risorse eccetto [Key Vault](https://docs.microsoft.com/azure/key-vault/).
 
 > [!IMPORTANT]
 > Dopo aver eseguito lo script di `Update-AutomationRunAsAccountRoleAssignments.ps1`, manuali operativi che accedono all'insieme di credenziali delle credenziali tramite l'uso degli account RunAs non funzionerà più. È necessario esaminare manuali operativi nell'account per le chiamate all'insieme di credenziali delle credenziali di Azure.
@@ -422,7 +422,7 @@ $roleDefinition.NotActions.Add("Microsoft.Compute/*")
 $roleDefinition | Set-AzureRMRoleDefinition
 ```
 
-Per determinare se l'entità servizio usata dall'account RunAs si trova nel **collaboratore** o in una definizione di ruolo personalizzata, passare all'account di automazione e in **Impostazioni account**selezionare account **RunAs**  > **account RunAs di Azure**. In **ruolo** è presente la definizione di ruolo utilizzata.
+Per determinare se l'entità servizio usata dall'account RunAs si trova nel **collaboratore** o in una definizione di ruolo personalizzata, passare all'account di automazione e in **Impostazioni account**selezionare account **RunAs** > **account RunAs di Azure**. In **ruolo** è presente la definizione di ruolo utilizzata.
 
 [![](media/manage-runas-account/verify-role.png "Verify the Run As Account role")](media/manage-runas-account/verify-role-expanded.png#lightbox)
 
@@ -435,7 +435,7 @@ Se si vuole consentire ad automazione di Azure di gestire Key Vault e l'entità 
 * Concedere le autorizzazioni all'Key Vault
 * Impostare i criteri di accesso
 
-È possibile usare lo script [extend-AutomationRunAsAccountRoleAssignmentToKeyVault. ps1](https://aka.ms/AA5hugb) nel PowerShell Gallery per assegnare le autorizzazioni dell'account RunAs all'insieme di credenziali delle chiavi oppure visitare [concedere alle applicazioni l'accesso a un](../key-vault/key-vault-group-permissions-for-apps.md) insieme di credenziali delle chiavi per ulteriori informazioni sulle impostazioni autorizzazioni per l'insieme di credenziali delle credenziali.
+È possibile usare lo script [extend-AutomationRunAsAccountRoleAssignmentToKeyVault. ps1](https://aka.ms/AA5hugb) nel PowerShell Gallery per assegnare le autorizzazioni dell'account RunAs all'insieme di credenziali delle chiavi oppure visitare [concedere alle applicazioni l'accesso a un](../key-vault/key-vault-group-permissions-for-apps.md) insieme di credenziali delle chiavi per altre informazioni sulle impostazioni autorizzazioni per l'insieme di credenziali delle chiavi.
 
 ## <a name="misconfiguration"></a>Errore di configurazione
 

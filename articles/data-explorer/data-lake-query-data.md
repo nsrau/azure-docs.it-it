@@ -7,12 +7,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: b0056df16dccaf1dc7e94aad1a2c6c262ffd89ee
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 1299ca9192481c1cc914732d47823c1d8cbd0fae
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383368"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849072"
 ---
 # <a name="query-data-in-azure-data-lake-using-azure-data-explorer-preview"></a>Eseguire query sui dati in Azure Data Lake usando Esplora dati di Azure (anteprima)
 
@@ -21,20 +21,15 @@ Azure Data Lake Storage è una soluzione data Lake altamente scalabile ed econom
 Azure Esplora dati si integra con l'archiviazione BLOB di Azure e Azure Data Lake Storage Gen2, offrendo accesso rapido, memorizzato nella cache e indicizzato ai dati nel Lake. È possibile analizzare ed eseguire query sui dati nel lago senza inserimenti prima in Azure Esplora dati. È anche possibile eseguire query su dati di Lake native inseriti e non inseriti simultaneamente.  
 
 > [!TIP]
-> Per ottimizzare le prestazioni delle query è necessario inserire i dati in Esplora dati di Azure. La possibilità di eseguire query sui dati in Azure Data Lake Storage Gen2 senza inserimento precedente deve essere utilizzata solo per i dati cronologici o per i dati raramente sottoposti a query.
+> Per ottimizzare le prestazioni delle query è necessario inserire i dati in Esplora dati di Azure. La possibilità di eseguire query sui dati in Azure Data Lake Storage Gen2 senza inserimento precedente deve essere utilizzata solo per i dati cronologici o per i dati raramente sottoposti a query. [Ottimizzare le prestazioni delle query in Lake](#optimize-your-query-performance) per ottenere risultati ottimali.
  
-## <a name="optimize-query-performance-in-the-lake"></a>Ottimizzare le prestazioni delle query nel Lake 
-
-* Partizionare i dati per migliorare le prestazioni e ottimizzare i tempi di esecuzione delle query.
-* Comprimi i dati per migliorare le prestazioni (gzip per la compressione ottimale, LZ4 per prestazioni ottimali).
-* Usare l'archiviazione BLOB di Azure o Azure Data Lake Storage Gen2 con la stessa area del cluster di Azure Esplora dati. 
 
 ## <a name="create-an-external-table"></a>Creare una tabella esterna
 
  > [!NOTE]
  > Gli account di archiviazione attualmente supportati sono archiviazione BLOB di Azure o Azure Data Lake Storage Gen2. I formati di dati attualmente supportati sono JSON, CSV, TSV e txt.
 
-1. Usare il `.create external table` comando per creare una tabella esterna in Azure Esplora dati. Altri comandi della tabella esterna, `.show`ad `.drop`esempio, `.alter` e, sono documentati nei [comandi della tabella esterna](/azure/kusto/management/externaltables).
+1. Usare il comando `.create external table` per creare una tabella esterna in Esplora dati di Azure. Altri comandi della tabella esterna, ad esempio `.show`, `.drop`e `.alter` sono documentati in [comandi della tabella esterna](/azure/kusto/management/externaltables).
 
     ```Kusto
     .create external table ArchivedProducts(
@@ -50,7 +45,7 @@ Azure Esplora dati si integra con l'archiviazione BLOB di Azure e Azure Data Lak
     > * È previsto un miglioramento delle prestazioni con il partizionamento più granulare. Ad esempio, le query su tabelle esterne con partizioni giornaliere avranno prestazioni migliori rispetto alle query con tabelle partizionate mensili.
     > * Quando si definisce una tabella esterna con partizioni, la struttura di archiviazione dovrebbe essere identica.
 Se, ad esempio, la tabella è definita con una partizione DateTime nel formato AAAA/MM/GG (impostazione predefinita), il percorso del file di archiviazione URI deve essere *container1/aaaa/mm/gg/all_exported_blobs*. 
-    > * Se la tabella esterna è partizionata in base a una colonna DateTime, includere sempre un filtro temporale per un intervallo chiuso nella query (ad esempio, la query `ArchivedProducts | where Timestamp between (ago(1h) .. 10m)` deve avere prestazioni migliori rispetto a questo (intervallo aperto) uno `ArchivedProducts | where Timestamp > ago(1h)` -). 
+    > * Se la tabella esterna è partizionata in base a una colonna DateTime, includere sempre un filtro temporale per un intervallo chiuso nella query (ad esempio, la query `ArchivedProducts | where Timestamp between (ago(1h) .. 10m)`-deve avere prestazioni migliori rispetto a questo (intervallo aperto) uno-`ArchivedProducts | where Timestamp > ago(1h)`). 
 
 1. La tabella esterna è visibile nel riquadro sinistro dell'interfaccia utente Web
 
@@ -60,7 +55,7 @@ Se, ad esempio, la tabella è definita con una partizione DateTime nel formato A
 
 È possibile creare una tabella esterna con formato JSON. Per altre informazioni, vedere [comandi della tabella esterna](/azure/kusto/management/externaltables)
 
-1. Usare il `.create external table` comando per creare una tabella denominata *ExternalTableJson*:
+1. Usare il comando `.create external table` per creare una tabella denominata *ExternalTableJson*:
 
     ```kusto
     .create external table ExternalTableJson (rownumber:int, rowguid:guid) 
@@ -91,7 +86,7 @@ Se, ad esempio, la tabella è definita con una partizione DateTime nel formato A
  
 ## <a name="query-an-external-table"></a>Eseguire query su una tabella esterna
  
-Per eseguire una query su una tabella esterna `external_table()` , utilizzare la funzione e specificare il nome della tabella come argomento della funzione. Il resto della query è il linguaggio di query kusto standard.
+Per eseguire una query su una tabella esterna, usare la funzione `external_table()` e specificare il nome della tabella come argomento della funzione. Il resto della query è il linguaggio di query kusto standard.
 
 ```Kusto
 external_table("ArchivedProducts") | take 100
@@ -102,7 +97,7 @@ external_table("ArchivedProducts") | take 100
 
 ### <a name="query-an-external-table-with-json-format"></a>Eseguire query su una tabella esterna con formato JSON
 
-Per eseguire una query su una tabella esterna con formato JSON `external_table()` , usare la funzione e specificare il nome della tabella e il nome del mapping come argomenti della funzione. Nella query seguente, se *MappingName* non è specificato, verrà usato un mapping creato in precedenza.
+Per eseguire una query su una tabella esterna con formato JSON, usare la funzione `external_table()` e specificare il nome della tabella e il nome del mapping come argomenti della funzione. Nella query seguente, se *MappingName* non è specificato, verrà usato un mapping creato in precedenza.
 
 ```kusto
 external_table(‘ExternalTableJson’, ‘mappingName’)
@@ -110,7 +105,7 @@ external_table(‘ExternalTableJson’, ‘mappingName’)
 
 ## <a name="query-external-and-ingested-data-together"></a>Eseguire query su dati esterni e inseriti insieme
 
-È possibile eseguire query su tabelle esterne e tabelle dati inserite all'interno della stessa query. L' [`join`](/azure/kusto/query/joinoperator) utente [`union`](/azure/kusto/query/unionoperator) o la tabella esterna con dati aggiuntivi da Esplora dati di Azure, da SQL Server o da altre origini. Usare un [`let( ) statement`](/azure/kusto/query/letstatement) oggetto per assegnare un nome abbreviato a un riferimento a una tabella esterna.
+È possibile eseguire query su tabelle esterne e tabelle dati inserite all'interno della stessa query. È [`join`](/azure/kusto/query/joinoperator) o [`union`](/azure/kusto/query/unionoperator) la tabella esterna con dati aggiuntivi da Esplora dati di Azure, da SQL Server o da altre origini. Usare un [`let( ) statement`](/azure/kusto/query/letstatement) per assegnare un nome abbreviato a un riferimento a una tabella esterna.
 
 Nell'esempio seguente, *Products* è una tabella di dati inserita e *ArchivedProducts* è una tabella esterna che contiene i dati nel Azure Data Lake storage Gen2:
 
@@ -231,6 +226,37 @@ Questa query usa il partizionamento, che consente di ottimizzare le prestazioni 
 ![Esegui rendering query partizionata](media/data-lake-query-data/taxirides-with-partition.png)
   
 È possibile scrivere query aggiuntive da eseguire nella tabella esterna *TaxiRides* e ottenere ulteriori informazioni sui dati. 
+
+## <a name="optimize-your-query-performance"></a>Ottimizzare le prestazioni delle query
+
+Ottimizzare le prestazioni delle query nel lago usando le seguenti procedure consigliate per eseguire query sui dati esterni. 
+ 
+### <a name="data-format"></a>Formato dati
+ 
+Usa un formato a colonne per le query analitiche a partire da:
+* È possibile leggere solo le colonne attinenti a una query. 
+* Le tecniche di codifica della colonna possono ridurre significativamente le dimensioni dei dati.  
+Azure Esplora dati supporta formati a colonne parquet e ORC. Il formato parquet è consigliato a causa dell'implementazione ottimizzata. 
+ 
+### <a name="azure-region"></a>Area di Azure 
+ 
+Verificare che i dati esterni si trovino nella stessa area di Azure in cui si trova il cluster di Azure Esplora dati. Ciò consente di ridurre i tempi di recupero dei dati e dei costi.
+ 
+### <a name="file-size"></a>Dimensioni complete
+ 
+Le dimensioni ottimali del file sono pari a centinaia di MB (fino a 1 GB) per ogni file. Evitare molti file di piccole dimensioni che richiedono un sovraccarico non necessario, ad esempio un processo di enumerazione dei file più lento e un uso limitato del formato a colonne. Si noti che il numero di file deve essere maggiore del numero di core CPU nel cluster di Azure Esplora dati. 
+ 
+### <a name="compression"></a>Compressione
+ 
+Usare la compressione per ridurre la quantità di dati recuperati dall'archiviazione remota. Per il formato parquet, usare il meccanismo di compressione parquet interno che comprime i gruppi di colonne separatamente, consentendo così di leggerli separatamente. Per convalidare l'uso del meccanismo di compressione, verificare che i file siano denominati come segue: "<filename>. gz. parquet" o "<filename>. Snapper. parquet" invece di "<filename>. parquet. gz"). 
+ 
+### <a name="partitioning"></a>Partizionamento
+ 
+Organizzare i dati usando partizioni "cartella" che consentono alla query di ignorare i percorsi irrilevanti. Quando si pianifica il partizionamento, prendere in considerazione le dimensioni dei file e i filtri comuni nelle query come timestamp o ID tenant.
+ 
+### <a name="vm-size"></a>Dimensioni VM
+ 
+Selezionare SKU VM con più core e una velocità effettiva di rete superiore (la memoria è meno importante). Per altre informazioni, vedere [selezionare lo SKU di VM corretto per il cluster di Esplora dati di Azure](manage-cluster-choose-sku.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

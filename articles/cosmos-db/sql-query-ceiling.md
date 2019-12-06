@@ -1,18 +1,18 @@
 ---
 title: LIMITE massimo nel linguaggio di query Azure Cosmos DB
-description: Informazioni sul limite della funzione di sistema SQL in Azure Cosmos DB.
+description: Informazioni sul modo in cui la funzione di sistema di SQL CEILING in Azure Cosmos DB restituisce il valore principale dell'arcotangente di y/x, espresso in radianti
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 7056cfd1773e0d98fa134c9fdec3ad6a43af1bcf
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 18462b152b698e7c6bc4c6c1e59511b4bacaa611
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351105"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873438"
 ---
 # <a name="ceiling-azure-cosmos-db"></a>CEILING (Azure Cosmos DB)
  Restituisce il più piccolo valore integer maggiore di o uguale all'espressione numerica specificata.  
@@ -32,7 +32,7 @@ CEILING (<numeric_expr>)
   
   Restituisce un'espressione numerica.  
   
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
   
   L'esempio seguente mostra valori numerici positivi, negativi e zero con la funzione `CEILING`.  
   

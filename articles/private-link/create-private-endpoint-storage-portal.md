@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: cfe0caaf199821358f8a66ac65ae75c38336c725
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bd3e33fde3f4249064bfbe1973ee95f680630673
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228084"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851163"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Connettersi privatamente a un account di archiviazione usando un endpoint privato di Azure
 Endpoint privato di Azure è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con risorse di collegamento privato.
@@ -20,11 +20,11 @@ Endpoint privato di Azure è il blocco predefinito fondamentale per il collegame
 In questa Guida introduttiva si apprenderà come creare una VM in una rete virtuale di Azure, un account di archiviazione con un endpoint privato usando il portale di Azure. Quindi, è possibile accedere in modo sicuro all'account di archiviazione dalla macchina virtuale.
 
 
-## <a name="sign-in-to-azure"></a>Accedere ad Azure
+## <a name="sign-in-to-azure"></a>Accedere a Azure
 
 Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
-## <a name="create-a-vm"></a>Creare una macchina virtuale
+## <a name="create-a-vm"></a>Creare una VM
 In questa sezione si creeranno la rete virtuale e la subnet per ospitare la macchina virtuale usata per accedere alla risorsa di collegamento privato (un account di archiviazione in questo esempio).
 
 ### <a name="create-the-virtual-network"></a>Creare la rete virtuale
@@ -34,38 +34,38 @@ In questa sezione si creeranno la rete virtuale e la subnet per ospitare la macc
 1. Nella parte superiore sinistra della schermata, selezionare **Crea una risorsa** > **Rete** > **Rete virtuale**.
 1. In **Crea rete virtuale** immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | Value |
     | ------- | ----- |
-    | Nome | Immettere *MyVirtualNetwork*. |
+    | name | Immettere *MyVirtualNetwork*. |
     | Spazio degli indirizzi | Immettere *10.1.0.0/16*. |
-    | sottoscrizione | Selezionare la propria sottoscrizione.|
-    | Resource group | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare **OK**. |
-    | Location | Selezionare **Stati Uniti centro-occidentali**.|
+    | Sottoscrizione | Selezionare la propria sottoscrizione.|
+    | Gruppo di risorse | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare **OK**. |
+    | Località | Selezionare **Stati Uniti centro-occidentali**.|
     | Subnet - Nome | Immettere *mySubnet*. |
     | Subnet - Intervallo di indirizzi | Immettere *10.1.0.0/24*. |
     |||
 1. Lasciare le altre impostazioni sui valori predefiniti e selezionare **Crea**.
 
 
-### <a name="create-virtual-machine"></a>Creare una macchina virtuale
+### <a name="create-virtual-machine"></a>Crea macchina virtuale
 
 1. Sul lato superiore sinistro della schermata nella portale di Azure selezionare **Crea una risorsa** > **calcolo** > **macchina virtuale**.
 
 1. In **Creare una macchina virtuale - Informazioni di base**, immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | Value |
     | ------- | ----- |
     | **DETTAGLI DEL PROGETTO** | |
-    | sottoscrizione | Selezionare la propria sottoscrizione. |
-    | Resource group | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.  |
+    | Sottoscrizione | Selezionare la propria sottoscrizione. |
+    | Gruppo di risorse | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.  |
     | **DETTAGLI DELL'ISTANZA** |  |
     | Nome macchina virtuale | Immettere *myVm*. |
-    | Area | Selezionare **Stati Uniti centro-occidentali**. |
+    | Area geografica | Selezionare **Stati Uniti centro-occidentali**. |
     | Opzioni di disponibilità | Lasciare l'impostazione predefinita **Nessuna ridondanza dell'infrastruttura necessaria**. |
-    | Image | Selezionare **Windows Server 2019 Datacenter**. |
-    | Dimensione | Lasciare l'impostazione predefinita **DS1 Standard v2**. |
+    | Immagine | Selezionare **Windows Server 2019 Datacenter**. |
+    | Dimensioni | Lasciare l'impostazione predefinita **DS1 Standard v2**. |
     | **ACCOUNT AMMINISTRATORE** |  |
-    | Nome utente | Immettere un nome utente a scelta. |
+    | Username | Immettere un nome utente a scelta. |
     | Password | Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Confirm Password | Reimmettere la password. |
     | **REGOLE PORTA IN INGRESSO** |  |
@@ -80,9 +80,9 @@ In questa sezione si creeranno la rete virtuale e la subnet per ospitare la macc
 
 1. In **Creare una macchina virtuale - Rete**, selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | Value |
     | ------- | ----- |
-    | rete virtuale | Lasciare l'impostazione predefinita **MyVirtualNetwork**.  |
+    | Rete virtuale | Lasciare l'impostazione predefinita **MyVirtualNetwork**.  |
     | Spazio degli indirizzi | Lasciare l'impostazione predefinita **10.1.0.0/24**.|
     | Subnet | Lasciare l'impostazione predefinita **mySubnet (10.1.0.0/24)** .|
     | IP pubblico | Lasciare l'impostazione predefinita **(nuovo) myVm-ip**. |
@@ -101,15 +101,15 @@ In questa sezione verrà creato un account di archiviazione privato utilizzando 
 
 1. In **create storage account-Nozioni di base**immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | Value |
     | ------- | ----- |
     | **DETTAGLI DEL PROGETTO** | |
-    | sottoscrizione | Selezionare la propria sottoscrizione. |
-    | Resource group | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.|
+    | Sottoscrizione | Selezionare la propria sottoscrizione. |
+    | Gruppo di risorse | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.|
     | **DETTAGLI DELL'ISTANZA** |  |
     | Nome dell'account di archiviazione  | Immettere *mystorageaccount*. Se il nome è già usato, creare un nome univoco. |
-    | Area | Selezionare **Stati Uniti centro-occidentali**. |
-    | Prestazioni| Lasciare l'impostazione predefinita **Standard**. |
+    | Area geografica | Selezionare **Stati Uniti centro-occidentali**. |
+    | Performance| Lasciare l'impostazione predefinita **Standard**. |
     | Tipo di account | Lasciare la risorsa di **archiviazione predefinita (utilizzo generico v2)** . |
     | Replica | Selezionare **archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)** . |
     |||
@@ -119,16 +119,16 @@ In questa sezione verrà creato un account di archiviazione privato utilizzando 
 5. In **creare un account di archiviazione-rete**selezionare **Aggiungi endpoint privato**. 
 6. In **Crea endpoint privato**immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | Value |
     | ------- | ----- |
     | **DETTAGLI DEL PROGETTO** | |
-    | sottoscrizione | Selezionare la propria sottoscrizione. |
-    | Resource group | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.|
-    |Location|Selezionare **Stati Uniti centro-occidentali**.|
-    |Nome|Immettere *myPrivateEndpoint*.  |
+    | Sottoscrizione | Selezionare la propria sottoscrizione. |
+    | Gruppo di risorse | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.|
+    |Località|Selezionare **Stati Uniti centro-occidentali**.|
+    |name|Immettere *myPrivateEndpoint*.  |
     |Sottorisorsa di archiviazione|Lasciare il **BLOB**predefinito. |
     | **RETE** |  |
-    | rete virtuale  | Selezionare *MyVirtualNetwork* dal gruppo di risorse *myResourceGroup*. |
+    | Rete virtuale  | Selezionare *MyVirtualNetwork* dal gruppo di risorse *myResourceGroup*. |
     | Subnet | Selezionare  *mySubnet*. |
     | **INTEGRAZIONE DNS PRIVATO**|  |
     | Integra con la zona DNS privato  | Lasciare l'impostazione predefinita **Sì**. |
@@ -169,9 +169,6 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
 ## <a name="access-storage-account-privately-from-the-vm"></a>Accedere a un account di archiviazione privatamente dalla macchina virtuale
 
 In questa sezione si effettuerà la connessione privata con l'account di archiviazione usando l'endpoint privato.
-
-> [!IMPORTANT]
-> Per la configurazione DNS per l'archiviazione è necessaria una modifica manuale del file hosts per includere il nome di dominio completo dell'account specifico. modificare il file seguente usando le autorizzazioni di amministratore per Windows: c:\Windows\System32\Drivers\etc\hosts o Linux/hosts include le informazioni DNS per l'account del passaggio precedente nel formato seguente [indirizzo IP privato] myaccount.blob.core.windows.net
 
 1. Nel desktop remoto di  *myVM* aprire PowerShell.
 2. Immettere `nslookup mystorageaccount.blob.core.windows.net` verrà visualizzato un messaggio simile al seguente:

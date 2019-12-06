@@ -4,17 +4,17 @@ description: Questo articolo descrive come implementare la logica di gestione de
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ed6620333382a1e43ee1b38a009c91e8d7038233
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: cb4f6827f58b882b8b1ae0ef8c093a09e090f17a
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476942"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850704"
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Gestione degli errori nei runbook grafici di Automazione di Azure
 
@@ -28,9 +28,9 @@ Durante l'esecuzione possono verificarsi errori PowerShell di tipo fatale o non 
 
 * **Errore irreversibile**: errore grave durante l'esecuzione, che arresta completamente il comando o l'esecuzione dello script. Gli esempi includono cmdlet inesistenti, errori di sintassi che impediscono l'esecuzione di un cmdlet o altri errori irreversibili.
 
-* **Errore non irreversibile**: errore non grave che consente di continuare comunque l'esecuzione. Gli esempi includono errori operativi come errori di file non trovati e problemi relativi alle autorizzazioni.
+* **Errore non irreversibili**: errore non grave che consente di continuare comunque l'esecuzione. Gli esempi includono errori operativi come errori di file non trovati e problemi relativi alle autorizzazioni.
 
-I runbook grafici di Automazione di Azure sono stati migliorati con la capacità di includere la gestione degli errori. È ora possibile trasformare le eccezioni in errori non irreversibili e creare collegamenti di errori tra le attività. Questo processo consente a un autore di runbook di rilevare gli errori e gestire condizioni realizzate o impreviste.  
+I runbook grafici di Automazione di Azure sono stati migliorati con la capacità di includere la gestione degli errori. È ora possibile trasformare le eccezioni in errori non irreversibili e creare collegamenti di errori tra le attività. Questo processo consente a un autore di Runbook di rilevare gli errori e gestire condizioni realizzate o impreviste.  
 
 ## <a name="when-to-use-error-handling"></a>Quando usare la gestione degli errori
 

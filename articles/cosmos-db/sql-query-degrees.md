@@ -1,18 +1,18 @@
 ---
 title: GRADI nel linguaggio di query Azure Cosmos DB
-description: Informazioni sui gradi delle funzioni di sistema SQL in Azure Cosmos DB.
+description: Informazioni sulla funzione di sistema di SQL in Azure Cosmos DB per restituire l'angolo corrispondente in gradi per un angolo specificato in radianti
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: d8c2109c2c11f137b1966741a95d1d0c02895016
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 5f432f5ef57c8eccc0cf629f00d2231364785b9a
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351189"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871330"
 ---
 # <a name="degrees-azure-cosmos-db"></a>GRADI (Azure Cosmos DB)
  Restituisce l'angolo corrispondente in gradi di un angolo specificato in radianti.  
@@ -32,7 +32,7 @@ DEGREES (<numeric_expr>)
   
   Restituisce un'espressione numerica.  
   
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
   
   L'esempio seguente restituisce il numero di gradi di un angolo di PI/2 radianti.  
   

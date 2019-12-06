@@ -1,34 +1,34 @@
 ---
-title: Quota con priorità bassa | Microsoft Docs
-description: Richieste di quota con priorità bassa
+title: Quota spot | Microsoft Docs
+description: Richieste di quota spot
 author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 11/19/2019
 ms.topic: article
 ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 49ac478330cf73dff050a3edcc15933692fa6448
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 09c9d7940314b691e6351353e6a0076510fdcb13
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535171"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850568"
 ---
-# <a name="low-priority-quota-limit-increase-for-all-vm-series"></a>Quota con priorità bassa: aumento del limite per tutte le serie di macchine virtuali
+# <a name="spot-quota-limit-increase-for-all-vm-series"></a>Quota spot: aumento del limite per tutte le serie di macchine virtuali
 
-Le macchine virtuali con priorità bassa offrono un modello diverso di utilizzo di Azure, con un costo inferiore per consentire ad Azure di rimuovere una macchina virtuale in base alle esigenze per le distribuzioni di istanze di macchine virtuali con pagamento in base al consumo o riservate. Per altre informazioni sulle macchine virtuali con priorità bassa, vedere [qui](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority).
+Le VM spot forniscono un modello diverso di utilizzo di Azure, con un costo inferiore per consentire ad Azure di rimuovere una macchina virtuale in base alle esigenze per le distribuzioni con pagamento in base al consumo o per le istanze di VM riservate. Per altre informazioni sulle macchine virtuali, vedere [qui](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot).
 
-Gestione risorse supporta due tipi di quote vCPU per le macchine virtuali. **Le macchine virtuali con pagamento in base al consumo e le istanze di VM riservate** usano la quota standard. Le **macchine virtuali con priorità bassa** usano una quota con priorità bassa. 
+Gestione risorse supporta due tipi di quote vCPU per le macchine virtuali. **Le macchine virtuali con pagamento in base al consumo e le istanze di VM riservate** usano la quota standard. Le **VM spot** usano la quota spot. 
 
-Per il tipo di **quota con priorità bassa** , gestione risorse le quote vCPU vengono applicate a tutte le serie di macchine virtuali disponibili come singolo limite a livello di area.
+Per il tipo di **quota spot** , gestione risorse le quote vCPU vengono applicate a tutte le serie di macchine virtuali disponibili come singolo limite a livello di area.
 
-Ogni volta che viene distribuita una nuova macchina virtuale con priorità bassa, la somma dell'utilizzo di vCPU nuovo ed esistente per tutte le istanze di macchine virtuali con priorità bassa non deve superare il limite di quota vCPU per priorità bassa approvato. Se viene superata la quota con priorità bassa, la distribuzione di macchine virtuali con priorità bassa non sarà consentita. È possibile richiedere un aumento del limite di quota di vCPU con priorità bassa da portale di Azure. 
+Ogni volta che viene distribuita una nuova macchina virtuale spot, la somma dell'utilizzo di vCPU nuovo ed esistente per tutte le istanze di VM spot non deve superare il limite di quota vCPU di punti approvati. Se la quota spot viene superata, la distribuzione della macchina virtuale spot non sarà consentita. È possibile richiedere un aumento del limite di quota vCPU di spot da portale di Azure. 
 
 Per altre informazioni sulle quote vCPU standard, vedere la pagina delle quote vCPU della macchina virtuale e la pagina relativa ai limiti di sottoscrizione e servizio di Azure. Altre informazioni su come aumentare il limite di vCPU a livello di area per la quota standard in questa [pagina](https://docs.microsoft.com/azure/azure-supportability/regional-quota-requests).
 
-È ora possibile richiedere un aumento **dei limiti di quota con priorità bassa per tutte le serie di macchine virtuali** tramite il pannello **Guida e supporto** oppure il pannello **utilizzi e quota** nel portale.
+È ora possibile richiedere un aumento **dei limiti di quota spot per tutte le serie di macchine virtuali** tramite il pannello **Guida e supporto** oppure il pannello **utilizzi e quota** nel portale.
 
-## <a name="request-low-priority-quota-limit-increase-for-all-vm-series-per-subscription-using-the-help--support-blade"></a>Richiedere un aumento del limite di quota con priorità bassa per tutte le serie di VM per ogni sottoscrizione usando il pannello Guida e supporto
+## <a name="request-spot-quota-limit-increase-for-all-vm-series-per-subscription-using-the-help--support-blade"></a>Richiedere un aumento del limite di quota per tutte le serie di VM per ogni sottoscrizione usando il pannello Guida e supporto
 
 Seguire le istruzioni riportate di seguito per creare una richiesta di supporto tramite il pannello "Guida e supporto" di Azure disponibile nel portale di Azure.
 
@@ -63,7 +63,7 @@ Seguire le istruzioni riportate di seguito per creare una richiesta di supporto 
 
 ![Specificare i dettagli](./media/resource-manager-core-quotas-request/3-7.png)
 
-8. Per il percorso selezionato selezionare **tipo** di valore come **"priorità bassa"** . È possibile richiedere sia i tipi di quota standard che quelli con priorità bassa da un singolo caso di supporto tramite supporto per più selezioni nel campo **tipo** . Altre informazioni sull' **aumento della quota standard per ogni serie di VM** in questa [pagina](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests).
+8. Per il percorso selezionato selezionare **tipo** di valore come **"spot"** . È possibile richiedere i tipi di quota standard e spot da un singolo caso di supporto tramite supporto per più selezioni nel campo **tipo** . Altre informazioni sull' **aumento della quota standard per ogni serie di VM** in questa [pagina](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests).
 
 ![Specificare i dettagli](./media/resource-manager-core-quotas-request/3-8.png)
 
@@ -77,7 +77,7 @@ Seguire le istruzioni riportate di seguito per creare una richiesta di supporto 
 
 11. Dopo aver immesso la quota desiderata, fare clic su **Salva e continua** nel pannello Dettagli quota per continuare con la creazione della richiesta di supporto.
 
-## <a name="request-low-priority-quota-limit-increase-for-all-vm-series-per-subscription-using-usages--quota-blade"></a>Richiedi un aumento del limite di quota con priorità bassa per tutte le serie di VM per ogni sottoscrizione usando gli utilizzi e il pannello quota
+## <a name="request-spot-quota-limit-increase-for-all-vm-series-per-subscription-using-usages--quota-blade"></a>Richiedere l'aumento del limite di quota per le singole serie di VM per ogni sottoscrizione usando gli utilizzi e il pannello quota
 
 Seguire le istruzioni riportate di seguito per creare una richiesta di supporto tramite il pannello "utilizzo e quota" di Azure disponibile nel portale di Azure.
 
@@ -107,7 +107,7 @@ Seguire le istruzioni riportate di seguito per creare una richiesta di supporto 
 
   ![Compilare i moduli](./media/resource-manager-core-quotas-request/3-2-6.png)
  
-7.  Per il percorso selezionato selezionare **tipo** di valore come **"priorità bassa".** È possibile richiedere sia i tipi di quota standard che quelli con priorità bassa da un singolo caso di supporto tramite supporto per più selezioni nel campo **tipo** . Altre informazioni sull' **aumento della quota standard per ogni serie di VM** in questa [pagina](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests).
+7.  Per il percorso selezionato selezionare **tipo** di valore come **"spot".** È possibile richiedere i tipi di quota standard e spot da un singolo caso di supporto tramite supporto per più selezioni nel campo **tipo** . Altre informazioni sull' **aumento della quota standard per ogni serie di VM** in questa [pagina](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests).
 
   ![Compilare i moduli](./media/resource-manager-core-quotas-request/3-2-7.png)
  
@@ -120,4 +120,5 @@ Seguire le istruzioni riportate di seguito per creare una richiesta di supporto 
   ![Compilare i moduli](./media/resource-manager-core-quotas-request/3-2-9.png)
  
 10. Dopo aver immesso la quota desiderata, fare clic su **Salva e continua** nel pannello Dettagli quota per continuare con la creazione della richiesta di supporto.
+
 

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa0158b99d10b426efb02ca31cef2bc0053a976f
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 6c2ccfc2219c063a9cef25f82cef33f446993a02
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74404683"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848375"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrare l'infrastruttura VPN con Azure MFA usando l'estensione Server dei criteri di rete per Azure
 
@@ -72,7 +72,7 @@ Quando l'estensione Server dei criteri di rete per Azure è integrata con Server
 7. Dopo che il tentativo di connessione è stato autenticato e autorizzato, il Server dei criteri di rete in cui è installata l'estensione invia un messaggio di *autorizzazione di accesso* RADIUS al server VPN, ovvero al client RADIUS.
 8. All'utente viene concesso l'accesso alla porta virtuale nel server VPN e viene stabilito un tunnel VPN crittografato.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Questa sezione illustra in dettaglio i prerequisiti che devono essere completati prima di poter integrare l'autenticazione a più fattori con la VPN. Prima di iniziare, è necessario che siano soddisfatti i prerequisiti seguenti:
 
@@ -244,7 +244,7 @@ In questa sezione si configura il server VPN per l'uso dell'autenticazione RADIU
 
     b. Per **Segreto condiviso** selezionare **Cambia** e immettere la password segreta condivisa creata e registrata in precedenza.
 
-    C. Nella casella **timeout (secondi)** immettere un valore pari a **30**.  
+    c. Nella casella **timeout (secondi)** immettere un valore pari a **30**.  
     Il valore di timeout è necessario per concedere tempo sufficiente per il completamento del secondo fattore di autenticazione.
 
     ![Finestra Aggiungi server RADIUS che configura il timeout](./media/howto-mfa-nps-extension-vpn/image16.png)
@@ -424,7 +424,7 @@ Nel server in cui è installata l'estensione Server dei criteri di rete per Azur
 
 ![Esempio Visualizzatore eventi riquadro Log AuthZ](./media/howto-mfa-nps-extension-vpn/image46.png)
 
-## <a name="troubleshooting-guide"></a>Guida per la risoluzione dei problemi
+## <a name="troubleshooting-guide"></a>Guida alla risoluzione dei problemi
 
 Se la configurazione non funziona come previsto, iniziare la risoluzione dei problemi verificando che l'utente sia configurato per l'uso di Azure MFA. Chiedere all'utente di connettersi al [portale di Azure](https://portal.azure.com). Se viene richiesta l'autenticazione secondaria ed possibile eseguire correttamente l'autenticazione, è possibile eliminare una configurazione errata di Multi-Factor Authentication come un problema.
 

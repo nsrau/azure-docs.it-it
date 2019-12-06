@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 08/16/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e88669b5453069d9f6bb64e803adc65baf8afc6b
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 5b19c80378aa40a7f791a3eb61130b013217ddee
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420667"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848579"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funzionamento: reimpostazione self-service della password di Azure AD
 
@@ -57,8 +57,8 @@ Leggere i passaggi seguenti per informazioni sulla logica alla base della pagina
 Se è abilitata la reimpostazione della password self-service, è necessario selezionare almeno una delle opzioni seguenti per i metodi di autenticazione. Queste opzioni sono a volte denominate "attività di controllo". È consigliabile **scegliere due o più metodi di autenticazione** in modo che gli utenti abbiano una maggiore flessibilità nel caso in cui non siano in grado di accedere a uno di questi in un dato momento. Altre informazioni sui metodi elencati di seguito sono disponibili nell'articolo informazioni sui [metodi di autenticazione](concept-authentication-methods.md).
 
 * Notifica dell'app per dispositivi mobili
-* Codice dell'app per dispositivi mobili
-* Email
+* Codice app per dispositivi mobili
+* Indirizzo di posta elettronica
 * Cellulare
 * Telefono ufficio
 * Domande di sicurezza
@@ -127,7 +127,7 @@ Esempio:
 L'abilitazione di questa opzione richiede che un utente completi la registrazione di reimpostazione della password se effettua l'accesso a tutte le applicazioni con Azure AD. Questo flusso di lavoro include le applicazioni seguenti:
 
 * Office 365
-* portale di Azure
+* Portale di Azure
 * Pannello di accesso
 * Applicazioni federate
 * Applicazioni personalizzate che usano Azure AD

@@ -1,17 +1,17 @@
 ---
 title: Effettuare il provisioning della velocità effettiva per il database in Azure Cosmos DB
-description: Informazioni su come effettuare il provisioning della velocità effettiva a livello di database in Azure Cosmos DB
+description: Informazioni su come effettuare il provisioning della velocità effettiva a livello di database in Azure Cosmos DB usando portale di Azure, CLI, PowerShell e vari altri SDK.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 64a8bc9f4c9f5192dad22cb55cb4d2c4816d4fa5
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 8b64d933057b3ddb07f5f99889c7d7c23c74f545
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575150"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873659"
 ---
 # <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>Effettuare il provisioning della velocità effettiva in un database in Azure Cosmos DB
 
@@ -48,7 +48,7 @@ Per creare un database con velocità effettiva condivisa, vedere.
 
 ### <a id="dotnet-all"></a>Tutte le API
 
-### <a name="net-v2-sdk"></a>.Net V2 SDK
+### <a name="net-v2-sdk"></a>.NET V2 SDK
 
 ```csharp
 //set the throughput for the database

@@ -1,17 +1,17 @@
 ---
 title: Esecuzione di query SQL in Azure Cosmos DB
-description: Informazioni sull'esecuzione di query SQL in Azure Cosmos DB
+description: Informazioni su come creare una query SQL ed eseguirla in Azure Cosmos DB. Questo articolo descrive come creare ed eseguire una query SQL usando l'API REST, .NET SDK, JavaScript SDK e diversi altri SDK.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: c42732df1bcfa8649c89899febc364bb1f5f9b5a
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 70eb81b6d13c57a7ebc131244c7aa318cb2b2fd4
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999922"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871262"
 ---
 # <a name="azure-cosmos-db-sql-query-execution"></a>Esecuzione di query SQL Azure Cosmos DB
 
@@ -23,9 +23,9 @@ Gli esempi seguenti illustrano come creare una query e inviarla a un account del
 
 Cosmos DB offre un modello di programmazione aperto RESTful su HTTP. Il modello di risorse è costituito da un set di risorse in un account di database, che una sottoscrizione di Azure effettua il provisioning. L'account di database è costituito da un set di *database*, ognuno dei quali può contenere più *contenitori*, che a loro volta contengono *elementi*, funzioni definite dall'utente e altri tipi di risorse. Ogni risorsa Cosmos DB è indirizzabile usando un URI logico e stabile. Un set di risorse viene definito *feed*. 
 
-Il modello di interazione di base con queste risorse è tramite i verbi `GET`http `PUT` `POST`,, e `DELETE`, con le proprie interpretazioni standard. Usare `POST` per creare una nuova risorsa, eseguire una stored procedure o emettere una query Cosmos DB. Le query sono sempre operazioni di sola lettura senza nessun effetto collaterale.
+Il modello di interazione di base con queste risorse è tramite i verbi HTTP `GET`, `PUT`, `POST`e `DELETE`con le proprie interpretazioni standard. Usare `POST` per creare una nuova risorsa, eseguire una stored procedure o emettere una query di Cosmos DB. Le query sono sempre operazioni di sola lettura senza nessun effetto collaterale.
 
-Negli esempi seguenti viene illustrato `POST` un oggetto per una query dell'API SQL sugli elementi di esempio. La query ha un semplice filtro sulla proprietà JSON `name` . Le `x-ms-documentdb-isquery` intestazioni and Content-Type `application/query+json` : indicano che l'operazione è una query. Sostituire `mysqlapicosmosdb.documents.azure.com:443` con l'URI per l'account Cosmos DB.
+Gli esempi seguenti illustrano un `POST` per una query API SQL sugli elementi di esempio. La query dispone di un filtro semplice per la proprietà `name` JSON. Le intestazioni `x-ms-documentdb-isquery` e Content-Type: `application/query+json` indicano che l'operazione è una query. Sostituire `mysqlapicosmosdb.documents.azure.com:443` con l'URI dell'account di Cosmos DB.
 
 ```json
     POST https://mysqlapicosmosdb.documents.azure.com:443/docs HTTP/1.1
@@ -143,15 +143,15 @@ I risultati sono:
     }
 ```
 
-Se i risultati di una query non possono essere inseriti in una singola pagina, l'API REST restituisce un token `x-ms-continuation-token` di continuazione tramite l'intestazione della risposta. I client possono impaginare i risultati includendo l'intestazione nei risultati successivi. È anche possibile controllare il numero di risultati per pagina tramite l' `x-ms-max-item-count` intestazione Number.
+Se i risultati di una query non possono essere inseriti in una singola pagina, l'API REST restituisce un token di continuazione tramite l'intestazione della risposta `x-ms-continuation-token`. I client possono impaginare i risultati includendo l'intestazione nei risultati successivi. È anche possibile controllare il numero di risultati per pagina tramite l'intestazione del numero di `x-ms-max-item-count`.
 
 Se una query include una funzione di aggregazione come COUNT, la pagina di query può restituire un valore parzialmente aggregato su una sola pagina di risultati. I client devono eseguire un'aggregazione di secondo livello su questi risultati per produrre i risultati finali. Ad esempio, sommare i conteggi restituiti nelle singole pagine per restituire il conteggio totale.
 
-Per gestire i criteri di coerenza dei dati per le query `x-ms-consistency-level` , usare l'intestazione come in tutte le richieste API REST. La coerenza di sessione richiede anche l'eco `x-ms-session-token` dell'intestazione del cookie più recente nella richiesta di query. I criteri di indicizzazione del contenitore sulla quale è stata eseguita la query possono influenzare anche la coerenza dei risultati della query. Con le impostazioni predefinite dei criteri di indicizzazione per i contenitori, l'indice è sempre aggiornato con il contenuto dell'elemento e i risultati della query corrispondono alla coerenza scelta per i dati. Per ulteriori informazioni, vedere [Azure Cosmos DB livelli di coerenza] [livelli di coerenza].
+Per gestire i criteri di coerenza dei dati per le query, usare l'intestazione `x-ms-consistency-level` come in tutte le richieste API REST. La coerenza di sessione richiede anche l'eco dell'ultima intestazione del cookie `x-ms-session-token` nella richiesta di query. I criteri di indicizzazione del contenitore sulla quale è stata eseguita la query possono influenzare anche la coerenza dei risultati della query. Con le impostazioni predefinite dei criteri di indicizzazione per i contenitori, l'indice è sempre aggiornato con il contenuto dell'elemento e i risultati della query corrispondono alla coerenza scelta per i dati. Per ulteriori informazioni, vedere [Azure Cosmos DB livelli di coerenza] [livelli di coerenza].
 
-Se i criteri di indicizzazione configurati nel contenitore non supportano la query specificata, il server Azure Cosmos DB restituisce 400 "richiesta non valida". Questo messaggio di errore restituisce per le query con percorsi esclusi in modo esplicito dall'indicizzazione. È possibile specificare l' `x-ms-documentdb-query-enable-scan` intestazione per consentire alla query di eseguire un'analisi quando un indice non è disponibile.
+Se i criteri di indicizzazione configurati nel contenitore non supportano la query specificata, il server Azure Cosmos DB restituisce 400 "richiesta non valida". Questo messaggio di errore restituisce per le query con percorsi esclusi in modo esplicito dall'indicizzazione. È possibile specificare l'intestazione `x-ms-documentdb-query-enable-scan` per consentire alla query di eseguire un'analisi quando un indice non è disponibile.
 
-È possibile ottenere metriche dettagliate sull'esecuzione di query impostando l' `x-ms-documentdb-populatequerymetrics` intestazione su `true`. Per altre informazioni, vedere [metriche di query SQL per Azure Cosmos DB](sql-api-query-metrics.md).
+È possibile ottenere metriche dettagliate sull'esecuzione di query impostando l'intestazione `x-ms-documentdb-populatequerymetrics` su `true`. Per altre informazioni, vedere [metriche di query SQL per Azure Cosmos DB](sql-api-query-metrics.md).
 
 ## <a name="c-net-sdk"></a>C# (.NET SDK)
 
@@ -217,7 +217,7 @@ Nell'esempio seguente vengono confrontate due proprietà per verificarne l'uguag
     }
 ```
 
-Nell'esempio seguente vengono illustrati i join, espressi `SelectMany`tramite LINQ.
+Nell'esempio seguente vengono illustrati i join, espressi tramite LINQ `SelectMany`.
 
 ```csharp
     foreach (var pet in client.CreateDocumentQuery(containerLink,
@@ -241,9 +241,9 @@ Nell'esempio seguente vengono illustrati i join, espressi `SelectMany`tramite LI
     }
 ```
 
-Il client .NET scorre automaticamente tutte le pagine dei risultati delle query nei `foreach` blocchi, come illustrato nell'esempio precedente. Le opzioni di query introdotte nella sezione [API REST](#REST-API) sono disponibili anche in .NET SDK, usando le `FeedOptions` classi `CreateDocumentQuery` e `FeedResponse` nel metodo. È possibile controllare il numero di pagine usando l' `MaxItemCount` impostazione.
+Il client .NET scorre automaticamente tutte le pagine dei risultati delle query nei blocchi di `foreach`, come illustrato nell'esempio precedente. Le opzioni di query introdotte nella sezione [API REST](#REST-API) sono disponibili anche in .NET SDK, usando le classi `FeedOptions` e `FeedResponse` nel metodo `CreateDocumentQuery`. È possibile controllare il numero di pagine usando l'impostazione `MaxItemCount`.
 
-È anche possibile controllare in modo esplicito il `IDocumentQueryable` paging creando `IQueryable` usando l'oggetto, quindi leggendo `ResponseContinuationToken` i valori e passandoli come `RequestContinuationToken` in `FeedOptions`. È possibile impostare `EnableScanInQuery` per abilitare le analisi quando la query non è supportata dai criteri di indicizzazione configurati. Per i contenitori partizionati, è possibile `PartitionKey` usare per eseguire la query su una singola partizione, anche se Azure Cosmos DB possibile estrarla automaticamente dal testo della query. È possibile utilizzare `EnableCrossPartitionQuery` per eseguire query su più partizioni.
+È anche possibile controllare in modo esplicito il paging creando `IDocumentQueryable` usando l'oggetto `IQueryable`, quindi leggendo i valori di `ResponseContinuationToken` e passandoli come `RequestContinuationToken` in `FeedOptions`. È possibile impostare `EnableScanInQuery` per abilitare le analisi quando la query non è supportata dai criteri di indicizzazione configurati. Per i contenitori partizionati, è possibile usare `PartitionKey` per eseguire la query su una singola partizione, sebbene Azure Cosmos DB possa estrarla automaticamente dal testo della query. È possibile utilizzare `EnableCrossPartitionQuery` per eseguire query su più partizioni.
 
 Per altri esempi di .NET con query, vedere gli [esempi di Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3) in GitHub.
 

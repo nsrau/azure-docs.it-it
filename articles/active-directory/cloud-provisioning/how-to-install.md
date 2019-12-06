@@ -1,5 +1,5 @@
 ---
-title: Installazione dell'agente di provisioning Azure AD Connect
+title: Installazione di Azure AD Connect agente di provisioning cloud
 description: Questo argomento descrive in modo dettagliato come installare l'agente di provisioning.
 services: active-directory
 author: billmath
@@ -11,14 +11,14 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cf479d4962f6d7aa9a0ba43b48f99bd67566fb6
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 11e3b2a113d46ff3d8799927f56fa66601c94ed5
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74794484"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74846233"
 ---
-# <a name="install-azure-ad-connect-provisioning-agent"></a>Installare Azure AD Connect agente di provisioning
+# <a name="install-azure-ad-connect-cloud-provisioning-agent"></a>Installare Azure AD Connect agente di provisioning cloud
 In questo documento viene illustrato il processo di installazione per l'agente di provisioning di Azure AD Connect e come configurarlo inizialmente nel portale di Azure.
 
 >[!IMPORTANT]

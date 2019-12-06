@@ -1,18 +1,18 @@
 ---
 title: ATN2 in linguaggio di query Azure Cosmos DB
-description: Informazioni sulla funzione di sistema SQL ATN2 in Azure Cosmos DB.
+description: Informazioni sul modo in cui la funzione di sistema ATN2 SQL in Azure Cosmos DB restituisce il valore principale dell'arcotangente di y/x, espresso in radianti
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 43bf2f6e27d093b72560b87349150268e0f58a60
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 11321ef9d7b81af279b04e0e435b19c645cf3bcf
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350205"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871653"
 ---
 # <a name="atn2-azure-cosmos-db"></a>ATN2 (Azure Cosmos DB)
  Restituisce il valore principale dell'arcotangente di y/x, espresso in radianti.  
@@ -32,7 +32,7 @@ ATN2(<numeric_expr>, <numeric_expr>)
   
   Restituisce un'espressione numerica.  
   
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
   
   L'esempio seguente calcola l'arcotangente per i componenti x e y specificati.  
   

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e91a82442b2d436736719d629f70c8dec0e5a6c
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: ccffe8d104792d9723c1541466067de3ea2c2e66
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558545"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848392"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Pianificazione di una distribuzione di Azure Multi-Factor Authentication basata sul cloud
 
@@ -288,11 +288,11 @@ Lo scopo di questa impostazione è stabilire cosa fare quando un utente non è r
 | La chiave non esiste | Non registrato | La richiesta di autenticazione a più fattori non è riuscita |
 | Il valore è impostato su true/not set | Non registrato | La richiesta di autenticazione a più fattori non è riuscita |
 | Chiave impostata su false | Non registrato | Autenticazione senza autenticazione a più fattori |
-| La chiave è impostata su false o true | Registrati | Eseguire l'autenticazione con l'autenticazione a più fattori |
+| La chiave è impostata su false o true | Registrazione eseguita | Eseguire l'autenticazione con l'autenticazione a più fattori |
 
 ### <a name="integrate-with-active-directory-federation-services"></a>Integrazione con Active Directory Federation Services
 
-Se l'organizzazione è federata con Azure AD, è possibile usare [multi-factor authentication di Azure per proteggere le risorse ad FS](multi-factor-authentication-get-started-adfs.md), sia in locale che nel cloud. Autenticazione a più fattori di Azure consente di ridurre le password e fornire un modo più sicuro per l'autenticazione. A partire da Windows Server 2016, è ora possibile configurare l'autenticazione a più fattori di Azure per l'autenticazione principale.
+Se l'organizzazione è federata con Azure AD, è possibile usare [multi-factor authentication di Azure per proteggere le risorse ad FS](multi-factor-authentication-get-started-adfs.md), sia in locale che nel cloud. Autenticazione a più fattori di Azure consente di ridurre le password e fornire un modo più sicuro per l'autenticazione. A partire da Windows Server 2016, è possibile configurare autenticazione a più Fattori di Azure per l'autenticazione principale.
 
 A differenza di quanto accade con AD FS in Windows Server 2012 R2, l'adapter multi-factor authentication di Azure AD FS 2016 si integra direttamente con Azure AD e non richiede un server di autenticazione a più fattori locale di Azure. La scheda multi-factor authentication di Azure è incorporata in Windows Server 2016 e non è necessaria un'installazione aggiuntiva.
 

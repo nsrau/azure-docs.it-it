@@ -7,12 +7,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 18c6499afe450a0387b0d9f0f13ee4378e0a21a9
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 42f52581d8f2f80deb5d6250ed54ab64fc1ba4d3
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173833"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849055"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-excel"></a>Visualizzare i dati con Azure Esplora dati Connector per Excel
 
@@ -23,7 +23,7 @@ Il connettore Azure Esplora dati Excel native offre la possibilità di esportare
 ## <a name="define-kusto-query-as-an-excel-data-source-and-load-the-data-to-excel"></a>Definire una query kusto come origine dati di Excel e caricare i dati in Excel
 
 1. Aprire **Microsoft Excel**.
-1. Nella scheda **dati** selezionare **Ottieni dati** > **da** > Azure**Esplora dati**.
+1. Nella scheda **dati** selezionare **Ottieni dati** > **da Azure** > **da Azure Esplora dati**.
 
     ![Ottenere dati da Esplora dati di Azure](media/excel-connector/get-data-from-adx.png)
 
@@ -31,7 +31,7 @@ Il connettore Azure Esplora dati Excel native offre la possibilità di esportare
 
     ![Finestra di Esplora dati di Azure (kusto)](media/excel-connector/adx-connection-window.png)
     
-    |Campo   |Descrizione |
+    |Campo   |Description |
     |---------|---------|
     |**Cluster**   |   Nome del cluster (obbligatorio)      |    
     |**Database**     |    Nome del database      |    
@@ -39,7 +39,7 @@ Il connettore Azure Esplora dati Excel native offre la possibilità di esportare
     
     **Opzioni avanzate:**
 
-     |Campo   |Descrizione |
+     |Campo   |Description |
     |---------|---------|
     |**Limita il numero di record del risultato della query**     |     Limitare il numero di record caricati in Excel  |    
     |**Limita dimensioni dati risultati query (byte)**    |    Limitare le dimensioni dei dati      |   
@@ -61,7 +61,7 @@ Una volta caricati i dati in Excel ed è disponibile nel foglio di Excel, è pos
 
     ![Crea tabella pivot](media/excel-connector/create-pivot-table.png)
 
-1. Nel riquadro **campi tabella pivot** selezionare le colonne della tabella pertinente per creare tabelle di riepilogo. Nell'esempio seguente sono stati selezionati EventID e **state** .
+1. Nel riquadro **campi tabella pivot** selezionare le colonne della tabella pertinente per creare tabelle di riepilogo. Nell'esempio seguente sono stati selezionati **eventId** e **state** .
     
     ![Selezione campi tabella pivot](media/excel-connector/pivot-table-pick-fields.png)
 
@@ -75,3 +75,6 @@ Una volta caricati i dati in Excel ed è disponibile nel foglio di Excel, è pos
 
 1. Consente di creare dashboard completi per il monitoraggio dei dati.
 
+## <a name="next-steps"></a>Passaggi successivi
+
+[Visualizzare i dati usando una query kusto di Azure Esplora dati importata in Microsoft Excel](excel-blank-query.md)

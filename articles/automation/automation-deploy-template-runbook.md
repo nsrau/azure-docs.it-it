@@ -4,18 +4,18 @@ description: Come distribuire un modello di Azure Resource Manager archiviato in
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: powershell, runbook, json, automazione di azure
-ms.openlocfilehash: d9fab97c8c42c7ff7993c3d7203deb8a58a10bc9
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 922a4e8d98405de9e2b8420da4abf0e157011546
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476702"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850925"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Distribuire un modello di Azure Resource Manager in un runbook PowerShell di Automazione di Azure
 
@@ -238,7 +238,7 @@ Il runbook ottiene il modello di Resource Manager e lo usa per distribuire un nu
 Get-AzureRmStorageAccount
 ```
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 L'operazione è terminata. Sarà ora possibile usare Automazione di Azure, Archiviazione di Azure e modelli di Resource Manager per distribuire tutte le risorse di Azure.
 

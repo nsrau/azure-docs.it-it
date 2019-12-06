@@ -4,17 +4,17 @@ description: La creazione grafica consente di creare Runbook per Automazione di 
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6d7626706951cc522dce9c6d70251455e64300bc
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 82a06510bd9d1e0de2b38260773cb4848156bf12
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476681"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850296"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Creazione grafica in Automazione di Azure
 
@@ -44,11 +44,11 @@ Il canvas è l'area in cui vengono progettati i Runbook. È possibile aggiungere
 
 Il controllo Library consente di selezionare [attività](#activities) da aggiungere al Runbook. È possibile aggiungerle al canvas, dove vengono connesse ad altre attività. Il canvas include quattro sezioni descritte nella tabella seguente:
 
-| `Section` | Description |
+| Sezione | Description |
 |:--- |:--- |
 | Cmdlets |Include tutti i cmdlet che possono essere usati nel Runbook. I cmdlet sono organizzati per modulo. Saranno disponibili tutti i moduli installati nell'account di Automazione. |
 | Runbook |Include i runbook dell'account di Automazione. Questi runbook possono essere aggiunti al canvas per essere usati come runbook figlio. Vengono visualizzati solo i runbook dello stesso tipo di memoria centrale come il runbook in corso di modifica; per i runbook grafici vengono visualizzati solo i runbook basati su PowerShell, mentre per i runbook grafici del flusso di lavoro PowerShell vengono visualizzati solo i runbook basati sul flusso di lavoro PowerShell. |
-| Asset |Include gli [asset di automazione](/previous-versions/azure/dn939988(v=azure.100)) dell'account di automazione che è possibile usare nel Runbook. Quando si aggiunge un asset a un runbook, viene aggiunta un'attività flusso di lavoro che ottiene l'asset selezionato. Nel caso di attività di variabile, è possibile selezionare se aggiungere un'attività per ottenere la variabile o per impostarla. |
+| asset |Include gli [asset di automazione](/previous-versions/azure/dn939988(v=azure.100)) dell'account di automazione che è possibile usare nel Runbook. Quando si aggiunge un asset a un runbook, viene aggiunta un'attività flusso di lavoro che ottiene l'asset selezionato. Nel caso di attività di variabile, è possibile selezionare se aggiungere un'attività per ottenere la variabile o per impostarla. |
 | Runbook Control |Include attività di controllo di Runbook che è possibile usare nel Runbook corrente. Una *giunzione* accetta più input e attende che vengano completati tutti prima di continuare il flusso di lavoro. Un'attività *codice* esegue una o più righe del codice PowerShell o del flusso di lavoro PowerShell a seconda del tipo di runbook grafico. È possibile usare questa attività per il codice personalizzato o per funzionalità difficili da ottenere con altre attività. |
 
 ### <a name="configuration-control"></a>Controllo Configuration
@@ -322,15 +322,15 @@ Verrà aperto il controllo **Input e output**, in cui è possibile modificare un
 
 Ogni parametro di input è definito dalle proprietà descritte nella tabella seguente:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--- |:--- |
-| Name |Nome univoco del parametro. Può contenere solo caratteri alfanumerici e non può contenere spazi. |
+| name |Nome univoco del parametro. Può contenere solo caratteri alfanumerici e non può contenere spazi. |
 | Description |Descrizione facoltativa del parametro di input. |
 | Type |Tipo di dati previsto per il valore del parametro. Il portale di Azure visualizzerà un controllo appropriato per il tipo di dati per ogni parametro quando viene richiesto l'input. |
-| Mandatory |Specifica se è necessario specificare un valore per il parametro. Non è possibile avviare il Runbook se non si specifica un valore per ogni parametro obbligatorio che non dispone di un valore predefinito. |
-| Default Value |Specifica quale valore viene usato per il parametro se non ne viene specificato uno. Può essere Null o un valore specifico. |
+| Obbligatorio |Specifica se è necessario specificare un valore per il parametro. Non è possibile avviare il Runbook se non si specifica un valore per ogni parametro obbligatorio che non dispone di un valore predefinito. |
+| Default value |Specifica quale valore viene usato per il parametro se non ne viene specificato uno. Può essere Null o un valore specifico. |
 
-### <a name="runbook-output"></a>Output del Runbook
+### <a name="runbook-output"></a>Output del runbook
 
 I dati creati da un'attività che non dispone di un collegamento in uscita verranno salvati nell'[output del runbook](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages). L'output viene salvato con il processo di Runbook ed è disponibile per un Runbook padre quando il Runbook viene usato come Runbook figlio.
 

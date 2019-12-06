@@ -6,16 +6,16 @@ author: antvgski
 manager: igorstan
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 12/04/2019
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f05e54a3dd4b69fff2bc7d122391d145b222b295
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 49a250a43c7b2654e1317981c853b0117fa0cf28
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692561"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851792"
 ---
 # <a name="database-collation-support-for-azure-sql-data-warehouse"></a>Supporto delle regole di confronto del database per Azure SQL Data Warehouse
 
@@ -100,5 +100,9 @@ Se, ad esempio, si desidera modificare le regole di confronto predefinite in mai
 *   SQL_EBCDIC277_2_CP1_CS_AS
 
 ## <a name="checking-the-current-collation"></a>Verifica delle regole di confronto correnti
-Per verificare le regole di confronto correnti per il database, è possibile eseguire il seguente frammento T-SQL: SELECT DATABASEPROPERTYEX (DB_NAME (),' Collation ') AS Collation; Quando viene passato ' Collation ' come parametro Property, la funzione DatabasePropertyEx restituisce le regole di confronto correnti per il database specificato. Altre informazioni sulla funzione DatabasePropertyEx sono disponibili su MSDN.
+Per verificare le regole di confronto correnti per il database, è possibile eseguire il seguente frammento T-SQL:
+```sql
+SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;
+```
+Quando viene passato ' Collation ' come parametro Property, la funzione DatabasePropertyEx restituisce le regole di confronto correnti per il database specificato. Altre informazioni sulla funzione DatabasePropertyEx sono disponibili su MSDN.
 

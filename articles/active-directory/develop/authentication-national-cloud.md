@@ -3,27 +3,23 @@ title: Autenticazione con Azure Active Directory nei cloud nazionali
 titleSuffix: Microsoft identity platform
 description: Informazioni sugli endpoint di registrazione e autenticazione delle app per i cloud nazionali.
 services: active-directory
-documentationcenter: ''
 author: negoe
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: negoe
 ms.reviewer: negoe,CelesteDG
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70f1f80744043893dd7206bc6388b8e080c07d0f
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 5501b9ceff8659233d1021ad03549eea524ddd78
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803895"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843921"
 ---
 # <a name="national-clouds"></a>Cloud nazionali
 

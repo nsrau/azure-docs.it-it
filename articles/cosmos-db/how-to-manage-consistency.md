@@ -1,17 +1,17 @@
 ---
 title: Informazioni su come gestire la coerenza in Azure Cosmos DB
-description: Informazioni su come gestire la coerenza in Azure Cosmos DB
+description: Informazioni su come configurare e gestire i livelli di coerenza in Azure Cosmos DB usando portale di Azure, .NET SDK, Java SDK e diversi altri SDK
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: bc5554e2d56987e969894ba57052d548e1499938
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 46c4c4afe737fd11c2e711a23a3355f48dbd6231
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093312"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872078"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Gestire i livelli di coerenza in Azure Cosmos DB
 
@@ -231,7 +231,7 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>Monitorare la metrica del decadimento ristretto probabilistico (Probabilistic Bounded Staleness, PBS)
 
-Com'è la coerenza finale? Per il caso medio, è possibile offrire un decadimento ristretto rispetto alla cronologia delle versioni e al tempo. La metrica del decadimento ristretto probabilistico ([**Probabilistic Bounded Staleness, PBS)** ](https://pbs.cs.berkeley.edu/) cerca di quantificare la probabilità di decadimento e la mostra come metrica. Per visualizzare la metrica PBS, passare all'account Azure Cosmos nel portale di Azure. Aprire il riquadro **Metriche** e selezionare la scheda **Coerenza**. Esaminare il grafico denominato **Probabilità di letture con coerenza assoluta in base al carico di lavoro (vedere PBS)** .
+Com'è la coerenza finale? Per il caso medio, è possibile offrire un decadimento ristretto rispetto alla cronologia delle versioni e al tempo. La metrica del decadimento ristretto probabilistico ([**Probabilistic Bounded Staleness, PBS)** ](https://pbs.cs.berkeley.edu/) cerca di quantificare la probabilità di decadimento e la mostra come metrica. Per visualizzare la metrica PBS, passare all'account Azure Cosmos nel portale di Azure. Aprire il riquadro **metriche** e selezionare la scheda **coerenza** . esaminare il grafo denominato **probabilità di letture fortemente coerenti in base al carico di lavoro (vedere PBS)** .
 
 ![Grafico PBS nel portale di Azure](./media/how-to-manage-consistency/pbs-metric.png)
 

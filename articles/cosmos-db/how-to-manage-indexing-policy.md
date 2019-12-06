@@ -1,21 +1,21 @@
 ---
 title: Gestire i criteri di indicizzazione in Azure Cosmos DB
-description: Informazioni su come gestire i criteri di indicizzazione in Azure Cosmos DB
+description: Informazioni su come gestire i criteri di indicizzazione, includere o escludere una proprietà dall'indicizzazione, come definire l'indicizzazione con diversi Azure Cosmos DB SDK
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 12/02/2019
 ms.author: thweiss
-ms.openlocfilehash: 46d0124eb701b0c2d779a96c8efd50ba43e8fc07
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 3b98975df194af4625087e1beb556efb2a347f43
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034442"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872061"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gestire i criteri di indicizzazione in Azure Cosmos DB
 
-In Azure Cosmos DB, i dati vengono indicizzati seguendo i [criteri di indicizzazione](index-policy.md) definiti per ogni contenitore. I criteri di indicizzazione predefiniti per i contenitori appena creati applicano gli indici di intervallo per qualsiasi stringa o numero. Questo criterio può essere sostituito con i criteri di indicizzazione personalizzati.
+In Azure Cosmos DB, i dati vengono indicizzati seguendo i [criteri di indicizzazione](index-policy.md) definiti per ogni contenitore. I criteri di indicizzazione predefiniti per i contenitori appena creati applicano indici di intervallo per qualsiasi stringa o numero. Questo criterio può essere sostituito con i criteri di indicizzazione personalizzati.
 
 ## <a name="indexing-policy-examples"></a>Esempi di criteri di indicizzazione
 
@@ -42,7 +42,7 @@ Di seguito sono riportati alcuni esempi di criteri di indicizzazione visualizzat
     }
 ```
 
-Questo criterio di indicizzazione è equivalente a quello riportato di seguito, che imposta manualmente i valori predefiniti ```kind```, ```dataType``` e ```precision```. Queste proprietà non sono più necessarie per impostare in modo esplicito ed è possibile ometterle completamente dal criterio di indicizzazione (come illustrato nell'esempio precedente).
+Questo criterio di indicizzazione è equivalente a quello riportato di seguito, che imposta manualmente ```kind```, ```dataType```e ```precision``` sui rispettivi valori predefiniti. Queste proprietà non sono più necessarie per impostare in modo esplicito ed è possibile ometterle completamente dal criterio di indicizzazione (come illustrato nell'esempio precedente).
 
 ```json
     {
@@ -96,7 +96,7 @@ Questo criterio di indicizzazione è equivalente a quello riportato di seguito, 
     }
 ```
 
-Questo criterio di indicizzazione è equivalente a quello riportato di seguito, che imposta manualmente i valori predefiniti ```kind```, ```dataType``` e ```precision```. Queste proprietà non sono più necessarie per impostare in modo esplicito ed è possibile ometterle completamente dal criterio di indicizzazione (come illustrato nell'esempio precedente).
+Questo criterio di indicizzazione è equivalente a quello riportato di seguito, che imposta manualmente ```kind```, ```dataType```e ```precision``` sui rispettivi valori predefiniti. Queste proprietà non sono più necessarie per impostare in modo esplicito ed è possibile ometterle completamente dal criterio di indicizzazione (come illustrato nell'esempio precedente).
 
 ```json
     {
@@ -370,7 +370,7 @@ Per creare un contenitore con criteri di indicizzazione personalizzati, vedere [
 
 ## <a name="use-the-net-sdk-v2"></a>Usare .NET SDK v2
 
-L'oggetto `DocumentCollection` di [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) espone una proprietà `IndexingPolicy` che consente di modificare il `IndexingMode` e aggiungere o rimuovere `IncludedPaths` e `ExcludedPaths`.
+L'oggetto `DocumentCollection` di [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) espone una proprietà `IndexingPolicy` che consente di modificare la `IndexingMode` e aggiungere o rimuovere `IncludedPaths` e `ExcludedPaths`.
 
 ```csharp
 // Retrieve the container's details
@@ -400,7 +400,7 @@ long indexTransformationProgress = container.IndexTransformationProgress;
 
 ## <a name="use-the-net-sdk-v3"></a>Usare .NET SDK V3
 
-L'oggetto `ContainerProperties` di [.NET SDK V3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) (vedere [questa Guida introduttiva](create-sql-api-dotnet.md) in merito all'utilizzo) espone una proprietà `IndexingPolicy` che consente di modificare il `IndexingMode` e aggiungere o rimuovere `IncludedPaths` e `ExcludedPaths`.
+L'oggetto `ContainerProperties` di [.NET SDK V3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) (vedere [questa Guida introduttiva](create-sql-api-dotnet.md) per quanto riguarda l'utilizzo) espone una proprietà `IndexingPolicy` che consente di modificare la `IndexingMode` e aggiungere o rimuovere `IncludedPaths` e `ExcludedPaths`.
 
 ```csharp
 // Retrieve the container's details
@@ -676,4 +676,4 @@ response = client.ReplaceContainer(containerPath, container)
 Altre informazioni sull'indicizzazione sono disponibili negli articoli seguenti:
 
 - [Panoramica dell'indicizzazione](index-overview.md)
-- [Criterio di indicizzazione](index-policy.md)
+- [Criteri di indicizzazione](index-policy.md)

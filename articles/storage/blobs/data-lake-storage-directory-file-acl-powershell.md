@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/24/2019
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 71f90fb361e8fc45ee2ce8672990965fca801a49
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 5eac6b112b46d1b2c80321bdeeee7f4e1fc5f4ac
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533938"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873914"
 ---
 # <a name="use-powershell-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>Usare PowerShell per file & ACL in Azure Data Lake Storage Gen2 (anteprima)
 
@@ -371,14 +371,17 @@ Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse |
 
 Nella tabella seguente viene illustrato il modo in cui i cmdlet utilizzati per Data Lake Storage Gen1 vengono mappati ai cmdlet di per Data Lake Storage Gen2.
 
-|Cmdlet Data Lake Storage Gen1| Cmdlet Data Lake Storage Gen2|
-|--------|---------|
-|Get-AzDataLakeStoreChildItem|Get-AzDataLakeGen2ChildItem|
-|Get-AzDataLakeStoreItem <br>Get-AzDataLakeStoreItemAclEntry<br>Get-AzDataLakeStoreItemOwner<br>Get-AzDataLakeStoreItemPermission<br>Get-AzDataLakeStoreItemContent<br>New-AzDataLakeStoreItem|Get-AzDataLakeGen2Item|
-|Get-AzDataLakeStoreItemContent|New-AzDataLakeGen2Item|
-|Move-AzDataLakeStoreItem|Move-AzDataLakeGen2Item|
-|Remove-AzDataLakeStoreItem|Remove-AzDataLakeGen2Item|
-|Set-AzDataLakeStoreItemOwner <br>Set-AzDataLakeStoreItemPermission<br>Set-AzDataLakeStoreItemPermission<br>Set-AzDataLakeStoreItemAcl|Update-AzDataLakeGen2Item|
+|Cmdlet Data Lake Storage Gen1| Cmdlet Data Lake Storage Gen2| Note |
+|--------|---------|-----|
+|Get-AzDataLakeStoreChildItem|Get-AzDataLakeGen2ChildItem|Per impostazione predefinita, il cmdlet Get-AzDataLakeGen2ChildItem elenca solo gli elementi figlio di primo livello. Il parametro-Recurse elenca gli elementi figlio in modo ricorsivo. |
+|Get-AzDataLakeStoreItem<br>Get-AzDataLakeStoreItemAclEntry<br>Get-AzDataLakeStoreItemOwner<br>Get-AzDataLakeStoreItemPermission|Get-AzDataLakeGen2Item|Gli elementi di output del cmdlet Get-AzDataLakeGen2Item hanno proprietà di queste proprietà: ACL, proprietario, gruppo, autorizzazione.|
+|Get-AzDataLakeStoreItemContent|Get-AzDataLakeGen2FileContent|Il cmdlet Get-AzDataLakeGen2FileContent Scarica il contenuto del file nel file locale.|
+|Move-AzDataLakeStoreItem|Move-AzDataLakeGen2Item||
+|New-AzDataLakeStoreItem|New-AzDataLakeGen2Item|Questo cmdlet carica il nuovo contenuto del file da un file locale.|
+|Set-AzDataLakeStoreItemOwner<br>Set-AzDataLakeStoreItemPermission<br>Set-AzDataLakeStoreItemAcl|Update-AzDataLakeGen2Item|Il cmdlet Update-AzDataLakeGen2Item aggiorna un solo elemento e non in modo ricorsivo. Se si vuole aggiornare in modo ricorsivo, elencare gli elementi usando il cmdlet Get-AzDataLakeStoreChildItem, quindi eseguire la pipeline al cmdlet Update-AzDataLakeGen2Item.|
+|Test-AzDataLakeStoreItem|Get-AzDataLakeGen2Item|Il cmdlet Get-AzDataLakeGen2Item segnalerà un errore se l'elemento non esiste.|
+
+
 
 ## <a name="see-also"></a>Vedi anche
 

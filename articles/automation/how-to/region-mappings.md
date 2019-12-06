@@ -4,27 +4,27 @@ description: Questo articolo descrive i mapping consentiti tra un account di aut
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cd4500b4ef6492f0b6499bb1e9aa1a773313e860
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 965d6b206bb64e90fe59798ce0c37ccf029117f5
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498376"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849514"
 ---
 # <a name="workspace-mappings"></a>Mapping dell'area di lavoro
 
-Quando si abilitano soluzioni come Gestione aggiornamenti, Rilevamento modifiche e inventario o la soluzione di avvio/arresto di macchine virtuali durante gli orari di indisponibilità, sono supportate solo alcune aree per collegare un'area di lavoro Log Analytics e un account di automazione. Questo mapping si applica solo all'account di automazione e all'area di lavoro Log Analytics. Le risorse che inviano report all'account di automazione o all'area di lavoro Log Analytics possono risiedere in altre aree.
+Quando si abilitano soluzioni come Gestione aggiornamenti, Rilevamento modifiche e inventario o la soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività, sono supportate solo determinate aree per collegare un'area di lavoro di Log Analytics e un account di automazione. Questo mapping si applica solo all'account di automazione e all'area di lavoro Log Analytics. Le risorse che inviano report all'account di automazione o all'area di lavoro Log Analytics possono risiedere in altre aree.
 
 ## <a name="supported-mappings"></a>Mapping supportati
 
 La tabella seguente mostra i mapping supportati:
 
-|**Area dell'area di lavoro di Log Analytics**|**Area di Automazione di Azure**|
+|**Area dell'area di lavoro Log Analytics**|**Area di Automazione di Azure**|
 |---|---|
 |**Stati Uniti**||
 |EastUS<sup>1</sup>|EastUS2|
@@ -49,7 +49,7 @@ La tabella seguente mostra i mapping supportati:
 
 ## <a name="unlink-workspace"></a>Unlink workspace (Scollega area di lavoro)
 
-Se si decide di non voler più integrare l'account di automazione con un'area di lavoro di Log Analytics, è possibile scollegare l'account direttamente dall'portale di Azure. Prima di procedere, è necessario prima di tutto rimuovere le Gestione aggiornamenti, Rilevamento modifiche e inventario oppure le VM di avvio/arresto durante gli orari di indisponibilità se vengono usate. Se non vengono rimossi, non sarà possibile continuare questo processo. Vedere l'articolo relativo alla soluzione specifica importata per comprendere i passaggi necessari per la rimozione.
+Se si decide di non voler più integrare l'account di automazione con un'area di lavoro di Log Analytics, è possibile scollegare l'account direttamente dall'portale di Azure. Prima di procedere, è necessario prima rimuovere la Gestione aggiornamenti, Rilevamento modifiche e l'inventario oppure le soluzioni Avvio/Arresto di macchine virtuali durante gli orari di minore attività se vengono usate. Se non vengono rimossi, non sarà possibile continuare questo processo. Vedere l'articolo relativo alla soluzione specifica importata per comprendere i passaggi necessari per la rimozione.
 
 Dopo la rimozione di queste soluzioni è possibile eseguire i passaggi seguenti per scollegare l'account di automazione.
 
@@ -66,7 +66,7 @@ Se è stata usata la soluzione di gestione degli aggiornamenti, facoltativamente
 
 * Aggiornare le pianificazioni - Ogni elemento avrà un nome corrispondente alle distribuzioni di aggiornamenti create.
 
-* Gruppi di lavoro ibridi creati per la soluzione. ognuno verrà denominato in modo `machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8`analogo a.
+* Gruppi di lavoro ibridi creati per la soluzione. ognuno verrà denominato in modo analogo a `machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8`).
 
 Se è stata usata la soluzione per avviare/arrestare VM durante gli orari di minore attività, facoltativamente è consigliabile rimuovere gli elementi seguenti che non sono più necessari dopo la rimozione della soluzione.
 
@@ -89,4 +89,4 @@ Gestione aggiornamenti e Rilevamento modifiche e inventario:
 
 Avviare/arrestare VM durante gli orari di minore attività
 
-* [Distribuire le VM di avvio/arresto durante gli orari di indisponibilità](../automation-solution-vm-management.md)
+* [Distribuisci Avvio/Arresto di macchine virtuali durante gli orari di minore attività](../automation-solution-vm-management.md)

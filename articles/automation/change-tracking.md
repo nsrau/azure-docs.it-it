@@ -4,18 +4,18 @@ description: La soluzione Rilevamento modifiche consente di identificare le modi
 services: automation
 ms.service: automation
 ms.subservice: change-inventory-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0fc0aeab4e9603995130392e3560325ccaba1ffc
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 1fd800062c4a8362919b1818550b2fca9fa3eb88
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886814"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850551"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Rilevare le modifiche nell'ambiente in uso con la soluzione di rilevamento modifiche
 
@@ -95,11 +95,11 @@ Seguire questa procedura per configurare il rilevamento dei file in computer Lin
 2. Nella pagina **Rilevamento modifiche** selezionare **File Linux** e quindi fare clic su **+ Aggiungi** per aggiungere un nuovo file da rilevare.
 3. In **Aggiungi file Linux per Rilevamento modifiche** immettere le informazioni per il file o la directory da rilevare e fare clic su **Salva**.
 
-|Proprietà  |Descrizione  |
+|Proprietà  |Description  |
 |---------|---------|
-|Enabled     | Determina se l'impostazione viene applicata.        |
-|Item Name     | Nome descrittivo del file da rilevare.        |
-|Gruppo     | Nome del gruppo per il raggruppamento logico dei file.        |
+|Attivato     | Determina se l'impostazione viene applicata.        |
+|Nome elemento     | Nome descrittivo del file da rilevare.        |
+|Group     | Nome del gruppo per il raggruppamento logico dei file.        |
 |Immettere il percorso     | Percorso in cui cercare il file. Ad esempio: "/etc/*.conf"       |
 |Tipo di percorso     | Tipo di elemento da rilevare, i valori possibili sono File e Directory.        |
 |Ricorsione     | Determina se viene usata la ricorsione per la ricerca dell'elemento da rilevare.        |
@@ -118,11 +118,11 @@ Seguire questa procedura per configurare il rilevamento dei file in computer Win
 2. Nella pagina **Rilevamento modifiche** selezionare **File Windows** e quindi fare clic su **+ Aggiungi** per aggiungere un nuovo file da rilevare.
 3. In **Aggiungi file Windows per Rilevamento modifiche** immettere le informazioni per il file da rilevare e fare clic su **Salva**.
 
-|Proprietà  |Descrizione  |
+|Proprietà  |Description  |
 |---------|---------|
-|Enabled     | Determina se l'impostazione viene applicata.        |
-|Item Name     | Nome descrittivo del file da rilevare.        |
-|Gruppo     | Nome del gruppo per il raggruppamento logico dei file.        |
+|Attivato     | Determina se l'impostazione viene applicata.        |
+|Nome elemento     | Nome descrittivo del file da rilevare.        |
+|Group     | Nome del gruppo per il raggruppamento logico dei file.        |
 |Immettere il percorso     | Percorso in cui cercare il file, ad esempio "c:\temp\\\*.txt"<br>È anche possibile usare le variabili di ambiente, ad esempio "%winDir%\System32\\\*.*"       |
 |Ricorsione     | Determina se viene usata la ricorsione per la ricerca dell'elemento da rilevare.        |
 |Caricare il contenuto del file per tutte le impostazioni| Attivare o disattivare il caricamento del contenuto del file per le modifiche rilevate. Opzioni disponibili: **True** o **False**.|
@@ -150,11 +150,11 @@ Seguire questa procedura per configurare il rilevamento delle chiavi del Registr
 2. Nella pagina **Rilevamento modifiche** selezionare **Registro di sistema di Windows** e quindi fare clic su **+ Aggiungi** per aggiungere una nuova chiave del Registro di sistema da rilevare.
 3. In **Aggiungi Registro di sistema di Windows per Rilevamento modifiche** immettere le informazioni per la chiave da rilevare e fare clic su **Salva**.
 
-|Proprietà  |Descrizione  |
+|Proprietà  |Description  |
 |---------|---------|
-|Enabled     | Determina se l'impostazione viene applicata.        |
-|Item Name     | Nome descrittivo della chiave del Registro di sistema da rilevare.        |
-|Gruppo     | Nome del gruppo per il raggruppamento logico delle chiavi del Registro di sistema.        |
+|Attivato     | Determina se l'impostazione viene applicata.        |
+|Nome elemento     | Nome descrittivo della chiave del Registro di sistema da rilevare.        |
+|Group     | Nome del gruppo per il raggruppamento logico delle chiavi del Registro di sistema.        |
 |Chiave del Registro di sistema di Windows   | Percorso in cui cercare la chiave del Registro di sistema. Ad esempio: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ## <a name="limitations"></a>Limitazioni
@@ -200,7 +200,7 @@ La tabella seguente illustra i limiti dell'elemento di rilevamento per ogni macc
 |Registro|250||
 |Software Windows|250|Non include hotfix software|
 |Pacchetti Linux|1250||
-|Servizi|250||
+|Services|250||
 |Daemon|250||
 
 L'utilizzo medio dei dati di Log Analytics per un computer con Rilevamento modifiche e Inventario è di circa 40 MB al mese. Questo valore è solo un'approssimazione ed è soggetto a modifiche, in base all'ambiente in uso. È consigliabile monitorare l'ambiente per visualizzare l'esatta quantità di dati usati.
@@ -221,7 +221,7 @@ L'agente rileva solo le modifiche e di conseguenza le prestazioni sono ottimizza
 Lo scopo del monitoraggio delle modifiche alle chiavi del Registro di sistema è di eseguire il pinpoint dei punti di estensibilità dove è possibile che vengano attivati codice di terze parti e malware. L'elenco seguente mostra le chiavi del Registro di sistema preconfigurate. Queste chiavi sono configurate, ma non abilitate. Per tenere traccia di queste chiavi del Registro di sistema, è necessario abilitarle una per una.
 
 > [!div class="mx-tdBreakAll"]
-> |Chiave del Registro | Scopo |
+> |Chiave del Registro | Finalità |
 > |---------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Monitora le voci di avvio automatico che si collegano direttamente in Esplora risorse e che in genere funzionano in-process con Explorer.exe.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup` | Monitora gli script eseguiti all'avvio.
@@ -245,7 +245,7 @@ Lo scopo del monitoraggio delle modifiche alle chiavi del Registro di sistema è
 
 I seguenti indirizzi sono necessari e specifici per Rilevamento modifiche. La comunicazione verso questi indirizzi avviene sulla porta 443.
 
-|Azure Public  |Azure Government  |
+|Azure Public  |Azure per enti pubblici  |
 |---------|---------|
 |*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
@@ -272,7 +272,7 @@ Oltre ai dettagli forniti nel portale, è possibile eseguire ricerche nei log. C
 
 La tabella seguente contiene esempi di ricerche log per i record di modifica raccolti da questa soluzione:
 
-|Query  |Descrizione  |
+|Query  |Description  |
 |---------|---------|
 |ConfigurationData<br>&#124; where   ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"<br>&#124; where SvcState == "Stopped"<br>&#124; summarize arg_max(TimeGenerated, *) by SoftwareName, Computer         | Mostra i record dell'inventario più recenti per i servizi Windows che sono stati impostati su Auto (Automatico) ma sono stati segnalati come Stopped (Interrotto)<br>I risultati sono limitati al record più recente per SoftwareName e Computer      |
 |ConfigurationChange<br>&#124; where ConfigChangeType == "Software" and ChangeCategory == "Removed"<br>&#124; order by TimeGenerated desc|Mostra i record di modifica per il software rimosso|
@@ -301,7 +301,7 @@ Dopo aver impostato tutti i parametri e la logica, è possibile applicare l'avvi
 
 Anche se la generazione di un avviso relativo alle modifiche apportate al file hosts è una buona applicazione della funzione di generazione degli avvisi per i dati di Rilevamento modifiche e inventario, esistono molti altri casi in cui è utile generare avvisi, come illustrato dalle query di esempio riportate nella sezione seguente.
 
-|Query  |Descrizione  |
+|Query  |Description  |
 |---------|---------|
 |ConfigurationChange <br>&#124; where ConfigChangeType == "Files" and FileSystemPath contains " c:\\windows\\system32\\drivers\\"|Utile per tenere traccia delle modifiche ai file di sistema critici|
 |ConfigurationChange <br>&#124; where FieldsChanged contains "FileContentChecksum" and FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"|Utile per tenere traccia delle modifiche ai file di configurazione importanti|

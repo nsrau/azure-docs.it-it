@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/11/2019
+ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: d8a2c456c725a3170bc940bf17dec6b0c4ad2c3e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a60691222c6f5f31a5b5c97df029790c1fd690ed
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584535"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873879"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Monitorare le esecuzioni e le metriche dell'esperimento di Azure ML
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,12 +34,12 @@ Migliorare il processo di creazione del modello tenendo traccia degli esperiment
 
 Le metriche seguenti possono essere aggiunte a un'esecuzione durante il training di un esperimento. Per visualizzare un elenco più dettagliato di cosa è possibile monitorare in un'esecuzione, vedere la [documentazione di riferimento della classe Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
 
-|Tipo| Funzione Python | Note|
+|Type| Funzione Python | Note|
 |----|:----|:----|
 |Valori scalari |Funzione:<br>`run.log(name, value, description='')`<br><br>Esempio:<br>run.log("accuracy", 0.95) |Registrare un valore numerico o stringa per l'esecuzione con il nome specificato. La registrazione di una metrica per un'esecuzione fa sì che tale metrica venga archiviata nel record esecuzione nell'esperimento.  È possibile registrare la stessa metrica più volte all'interno di un'esecuzione. Il risultato verrà considerato un vettore di tale metrica.|
 |Elenchi|Funzione:<br>`run.log_list(name, value, description='')`<br><br>Esempio:<br>run.log_list("accuracies", [0.6, 0.7, 0.87]) | Registrare un elenco di valori per l'esecuzione con il nome specificato.|
 |Riga|Funzione:<br>`run.log_row(name, description=None, **kwargs)`<br>Esempio:<br>run.log_row("Y over X", x=1, y=0.4) | L'uso di *log_row* crea una metrica con più colonne come descritto in kwargs. Ogni parametro denominato genera una colonna con il valore specificato.  *log_row* può essere chiamato una volta per registrare una tupla arbitraria o più volte in un ciclo per generare una tabella completa.|
-|Tabella|Funzione:<br>`run.log_table(name, value, description='')`<br><br>Esempio:<br>run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]}) | Registrare un oggetto dizionario per l'esecuzione con il nome specificato. |
+|Table|Funzione:<br>`run.log_table(name, value, description='')`<br><br>Esempio:<br>run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]}) | Registrare un oggetto dizionario per l'esecuzione con il nome specificato. |
 |Immagini|Funzione:<br>`run.log_image(name, path=None, plot=None)`<br><br>Esempio:<br>`run.log_image("ROC", plt)` | Registrare un'immagine per il record esecuzione. Usare log_image per registrare un file di immagine o un tracciato matplotlib per l'esecuzione.  Queste immagini saranno visibili e confrontabili nel record esecuzione.|
 |Assegnare un tag a un'esecuzione|Funzione:<br>`run.tag(key, value=None)`<br><br>Esempio:<br>run.tag("selected", "yes") | Assegnare all'esecuzione una chiave stringa e un valore di stringa facoltativo.|
 |Caricare un file o una directory|Funzione:<br>`run.upload_file(name, path_or_stream)`<br> <br> Esempio:<br>run.upload_file("best_model.pkl", "./model.pkl") | Caricare un file per il record esecuzione. Consente di eseguire automaticamente il file di acquisizione nella directory di output specificata, che per impostazione predefinita corrisponde a "./outputs" per la maggior parte dei tipi di esecuzione.  Usare upload_file solo quando è necessario caricare altri file o non è specificata una directory di output. È consigliabile aggiungere `outputs` al nome, in modo che venga caricato nella directory outputs. È possibile elencare tutti i file associati a questo record esecuzione chiamando `run.get_file_names()`|
@@ -232,6 +232,25 @@ L'articolo [avviare, monitorare e annullare le esecuzioni di training](how-to-ma
 
 ## <a name="view-run-details"></a>Visualizzare i dettagli dell'esecuzione
 
+### <a name="view-activequeued-runs-from-the-browser"></a>Visualizzare le esecuzioni attive/in coda dal browser
+
+Le destinazioni di calcolo usate per eseguire il training di modelli sono una risorsa condivisa. Di conseguenza, possono avere più esecuzioni in coda o attive in un determinato momento. Per visualizzare le esecuzioni per una destinazione di calcolo specifica dal browser, seguire questa procedura:
+
+1. In [Azure Machine Learning Studio](https://ml.azure.com/)selezionare l'area di lavoro e quindi selezionare __calcolo__ dal lato sinistro della pagina.
+
+1. Selezionare __Training Clusters__ per visualizzare un elenco di destinazioni di calcolo usate per il training. Quindi selezionare il cluster.
+
+    ![Selezionare il cluster di training](./media/how-to-track-experiments/select-training-compute.png)
+
+1. Selezionare __esecuzioni__. Viene visualizzato l'elenco delle esecuzioni che usano questo cluster. Per visualizzare i dettagli per un'esecuzione specifica, usare il collegamento nella colonna __Esegui__ . Per visualizzare i dettagli dell'esperimento, usare il collegamento nella colonna __esperimento__ .
+
+    ![Selezionare le esecuzioni per il cluster di training](./media/how-to-track-experiments/show-runs-for-compute.png)
+    
+    > [!TIP]
+    > Un'esecuzione può contenere esecuzioni figlio, quindi un processo di training può generare più voci.
+
+Una volta completata l'esecuzione, questa non viene più visualizzata in questa pagina. Per visualizzare le informazioni sulle esecuzioni completate, visitare la sezione __esperimenti__ di studio e selezionare l'esperimento ed eseguirlo. Per ulteriori informazioni, vedere la sezione [metrica esecuzione query](#queryrunmetrics) .
+
 ### <a name="monitor-run-with-jupyter-notebook-widget"></a>Monitorare l'esecuzione con il widget Jupyter notebook
 Quando si usa il metodo **ScriptRunConfig** per inviare le esecuzioni, è possibile controllare lo stato di avanzamento dell'esecuzione con un [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py). Come per l'invio dell'esecuzione, il widget è asincrono e fornisce aggiornamenti in tempo reale ogni 10-15 secondi finché non viene completato il processo.
 
@@ -267,10 +286,11 @@ print(run.get_portal_url())
 
 Per visualizzare ulteriori dettagli di una pipeline, fare clic sulla pipeline che si desidera esplorare nella tabella. verrà eseguito il rendering dei grafici in un popup da Azure Machine Learning Studio.
 
-### <a name="get-log-results-upon-completion"></a>Risultati del recupero dei log dopo il completamento
+### <a name="get-log-results-upon-completion"></a>Ottenere i risultati del log dopo il completamento
 
 Il training e il monitoraggio del modello si verificano in background, pertanto è possibile eseguire altre attività durante l'attesa. È anche possibile attendere il completamento del training del modello prima di eseguire altro codice. Quando si usa **ScriptRunConfig**, è possibile usare ```run.wait_for_completion(show_output = True)``` per visualizzare quando viene completato il training del modello. Il flag ```show_output``` fornisce output dettagliato. 
 
+<a id="queryrunmetrics"></a>
 
 ### <a name="query-run-metrics"></a>Eseguire query sulle metriche di esecuzione
 

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a76aa0ca7cbda3f2db564c220ba12fec60f60509
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 60a7bf9690b4f50c771afc4745bbc2e5377adbba
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381871"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848477"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Abilitare l'accesso senza password con l'app Microsoft Authenticator (anteprima)
 
@@ -29,7 +29,7 @@ Anziché visualizzare la richiesta di una password dopo l'immissione di un nome 
 > [!NOTE]
 > Questa funzionalità è stata rilevata nell'app Microsoft Authenticator da marzo 2017, quindi è possibile che, quando il criterio è abilitato per una directory, gli utenti possano riscontrare immediatamente questo flusso e visualizzare un messaggio di errore se non sono stati abilitati dai criteri. Tenere presente queste informazioni e preparare gli utenti per questa modifica.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Multi-Factor Authentication di Azure, con notifiche push consentite come metodo di verifica 
 - Accertarsi che sia installata la versione più recente di Microsoft Authenticator nei dispositivi che eseguono iOS 8.0 o versione successiva oppure Android 6.0 o versione successiva.

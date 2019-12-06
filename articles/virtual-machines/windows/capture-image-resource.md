@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 5557028304d0e2bd5940dd9b01dddf525806d0c6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 01619027ddc79530dc9541584efa9a3e518f5136
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033673"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842059"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Creare un'immagine gestita di una macchina virtuale generalizzata in Azure
 
@@ -70,9 +70,9 @@ Per generalizzare la VM Windows, seguire questa procedura:
 
 ## <a name="create-a-managed-image-in-the-portal"></a>Creare un'immagine gestita nel portale 
 
-1. Aprire il [portale di Azure](https://portal.azure.com).
+1. Passare alla [portale di Azure](https://portal.azure.com) per gestire l'immagine della macchina virtuale. Cercare e selezionare **macchine virtuali**.
 
-2. Nel menu a sinistra selezionare **Macchine virtuali** e quindi scegliere la VM dall'elenco.
+2. Selezionare la VM dall'elenco.
 
 3. Nella pagina **Macchina virtuale** della VM, nel menu superiore, selezionare **Acquisisci**.
 
@@ -80,7 +80,7 @@ Per generalizzare la VM Windows, seguire questa procedura:
 
 4. Per il campo **Nome** accettare il nome già popolato oppure immettere un nome che si vuole usare per l'immagine.
 
-5. In **Gruppo di risorse** selezionare **Crea nuovo** e immettere un nome oppure selezionare **Usa esistente** e scegliere un gruppo di risorse da usare dall'elenco a discesa.
+5. Per **gruppo di risorse**selezionare **Crea nuovo** e immettere un nome oppure selezionare un gruppo di risorse da usare dall'elenco a discesa.
 
 6. Per eliminare la VM di origine dopo che l'immagine è stata creata, selezionare **Elimina automaticamente questa macchina virtuale dopo aver creato l'immagine**.
 
@@ -88,7 +88,7 @@ Per generalizzare la VM Windows, seguire questa procedura:
 
 8. Selezionare **Crea** per creare l'immagine.
 
-9. Dopo averla creata, l'immagine sarà disponibile come risorsa di tipo **Immagine** nell'elenco delle risorse del gruppo.
+Dopo averla creata, l'immagine sarà disponibile come risorsa di tipo **Immagine** nell'elenco delle risorse del gruppo.
 
 
 
@@ -218,7 +218,7 @@ Per creare un'immagine gestita da uno snapshot di una VM generalizzata, seguire 
 
 ## <a name="create-an-image-from-a-vm-that-uses-a-storage-account"></a>Creare un'immagine da una macchina virtuale che usa un account di archiviazione
 
-Per creare un'immagine gestita da una macchina virtuale che non usa Managed disks, è necessario l'URI del disco rigido virtuale del sistema operativo nell'account di archiviazione, nel formato seguente: https://*mystorageaccount*. blob.core.windows.net/*vhdcontainer*/*vhdfilename. vhd* . In questo esempio il disco rigido virtuale si trova in *mystorageaccount* in un contenitore denominato *vhdcontainer* e il nome file del disco rigido virtuale è *vhdfilename.vhd*.
+Per creare un'immagine gestita da una macchina virtuale che non usa Managed disks, è necessario l'URI del disco rigido virtuale del sistema operativo nell'account di archiviazione, nel formato seguente: https://*mystorageaccount*. blob.core.windows.net/*vhdcontainer*/*vhdfilename. vhd*. In questo esempio il disco rigido virtuale si trova in *mystorageaccount* in un contenitore denominato *vhdcontainer* e il nome file del disco rigido virtuale è *vhdfilename.vhd*.
 
 
 1.  Creare alcune variabili.

@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 41a2b1a7d9aa5089ba2ee73cd3c5c5c5e31f5225
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 0518b13ea228b4834a095a9bf126b131e70a5f45
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607677"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851554"
 ---
 # <a name="quotas-and-service-plans-for-azure-spring-cloud"></a>Quote e piani di servizio per Azure Spring cloud
 
@@ -23,15 +23,14 @@ Questo articolo descrive in dettaglio le quote del servizio offerte durante il p
 
 Durante il periodo di anteprima, Azure Spring cloud offre un solo livello di servizio.
 
-Gruppi | Amount
+Gruppi | Importo
 ------- | -------
-vCPU | 4
-Memoria | 8 Gbyte
-Sottoscrizione di Azure Spring cloud | 1
-Istanze del servizio cloud Spring di Azure per area per sottoscrizione | 2
-Totale istanze app per ogni istanza di servizio cloud di Azure Spring | 50
+vCPU | 4 per istanza del servizio
+Memoria | 8 GByte per istanza di servizio
+Istanze del servizio Azure Spring Cloud per area e per sottoscrizione | 10
+Numero totale di istanze di app per ogni istanza del servizio Azure Spring Cloud | 500
 Totale istanze app per applicazione Spring | 20
-Volumi permanenti | 10 x 50 Gbyte
+Volumi permanenti | 10 x 50 GByte
 
 Quando si raggiunge una quota, viene visualizzato un errore 400 che indica che la quota supera il limite per la sottoscrizione della *sottoscrizione* nell'area geografica in *cui è stato creato il servizio cloud Spring di Azure*.
 

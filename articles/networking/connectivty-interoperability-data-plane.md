@@ -1,5 +1,5 @@
 ---
-title: 'Interoperabilità nelle funzionalità di connettività back-end di Azure: Analisi del piano dati | Microsoft Docs'
+title: 'Interoperabilità nelle funzionalità di connettività back-end di Azure: analisi del piano dati | Microsoft Docs'
 description: Questo articolo illustra l'analisi del piano dati dell'installazione test che è possibile usare per analizzare l'interoperabilità tra ExpressRoute, una VPN da sito a sito e il peering reti virtuali in Azure.
 documentationcenter: na
 services: networking
@@ -10,16 +10,16 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: f4d94536a8c1b509e0ce435a764e69984b5d415e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 11c964bedce7a8b979434b888d756c2121d06a60
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60425543"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873829"
 ---
-# <a name="interoperability-in-azure-back-end-connectivity-features-data-plane-analysis"></a>Interoperabilità nelle funzionalità di connettività back-end di Azure: Analisi del piano dati
+# <a name="interoperability-in-azure-back-end-connectivity-features-data-plane-analysis"></a>Interoperabilità nelle funzionalità di connettività back-end di Azure: analisi del piano dati
 
-Questo articolo illustra l'analisi del piano dati dell'[installazione test][Setup]. È anche possibile esaminare la [configurazione dell'installazione test][Configuration] e l'[analisi del piano di controllo][Control-Analysis] dell'installazione test.
+Questo articolo descrive l'analisi del piano dati della [configurazione di test][Setup]. È anche possibile esaminare la [configurazione dell'installazione di test][Configuration] e l' [analisi del piano di controllo][Control-Analysis] della configurazione del test.
 
 L'analisi del piano dati esamina il percorso seguito dai pacchetti che passano da una rete locale (LAN o rete virtuale) a un'altra all'interno di una topologia. Il percorso dei dati tra due reti locali non è necessariamente simmetrico. In questo articolo viene pertanto analizzato un percorso di inoltro da una rete locale a un'altra distinta dal percorso inverso.
 
@@ -40,7 +40,7 @@ Il peering reti virtuali emula la funzionalità di bridge di rete tra le due ret
 L'immagine seguente è la rappresentazione grafica della connessione tra la rete virtuale dell'hub e la rete virtuale spoke dal punto di vista di Azure Network Watcher:
 
 
-[![1]][1]
+![1][1]
 
 ### <a name="path-to-the-branch-vnet"></a>Percorso della rete virtuale del ramo
 
@@ -60,11 +60,11 @@ In questo traceroute il primo hop è il gateway VPN in Gateway VPN di Azure dell
 
 L'immagine seguente è la rappresentazione grafica della connessione tra la rete virtuale dell'hub e la rete virtuale del ramo dal punto di vista di Network Watcher:
 
-[![2]][2]
+![2][2]
 
 Per la stessa connessione, la figura seguente mostra la visualizzazione griglia in Network Watcher:
 
-[![3]][3]
+![3][3]
 
 ### <a name="path-to-on-premises-location-1"></a>Percorso della rete locale Location 1
 
@@ -302,7 +302,7 @@ Network Watcher offre solo una visualizzazione basata su Azure. Per una prospett
 
 L'immagine seguente è la visualizzazione della topologia della connettività dalla macchina virtuale della rete locale Location 1 alla macchina virtuale nella rete virtuale dell'hub via ExpressRoute:
 
-[![4]][4]
+![4][4]
 
 Come indicato in precedenza, l'installazione test usa una VPN da sito a sito come connettività di backup per ExpressRoute tra la rete locale Location 1 e la rete virtuale dell'hub. Per testare il percorso dati di backup, indurre un errore di collegamento di ExpressRoute tra il router perimetrale del cliente primario della rete locale Location 1 e il router MSEE corrispondente, arrestando l'interfaccia perimetrale del cliente rivolta verso il router MSEE:
 
@@ -318,7 +318,7 @@ Come indicato in precedenza, l'installazione test usa una VPN da sito a sito com
 
 L'immagine seguente è la visualizzazione della topologia della connettività dalla macchina virtuale della rete locale Location 1 alla macchina virtuale nella rete virtuale dell'hub attraverso la connettività VPN da sito a sito quando la connettività ExpressRoute non è attiva:
 
-[![5]][5]
+![5][5]
 
 ### <a name="path-to-the-spoke-vnet"></a>Percorso della rete virtuale spoke
 
@@ -356,7 +356,7 @@ Di seguito è indicato l'output traceroute dalla rete locale Location 1 a una ma
 
 ### <a name="path-to-on-premises-location-2"></a>Percorso della rete locale Location 2
 
-Come descritto nell'[analisi del piano di controllo][Control-Analysis], la rete locale Location 1 non ha visibilità sulla rete locale Location 2 in base alla configurazione di rete. I risultati del ping seguenti ne sono una conferma: 
+Come illustrato nell'analisi del [piano di controllo][Control-Analysis], la posizione locale 1 non ha visibilità sulla posizione locale 2 per la configurazione di rete. I risultati del ping seguenti ne sono una conferma: 
 
     C:\Users\rb>ping 10.1.31.10
     
@@ -420,7 +420,7 @@ Di seguito è indicato l'output traceroute dalla rete locale Location 2 a una ma
 
 ### <a name="path-to-the-branch-vnet-on-premises-location-1-and-the-remote-vnet"></a>Percorso della rete virtuale del ramo, della rete locale Location 1 e della rete virtuale remota
 
-Come descritto nell'[analisi del piano di controllo][Control-Analysis], la rete locale Location 1 non ha visibilità sulla rete virtuale del ramo, sulla rete locale Location 1 o sulla rete virtuale remota in base alla configurazione di rete. 
+Come illustrato nell'analisi del [piano di controllo][Control-Analysis], il percorso locale 1 non ha visibilità per il ramo VNet, per la posizione locale 1 o per la VNet remota per la configurazione di rete. 
 
 ## <a name="data-path-from-the-remote-vnet"></a>Percorso dei dati dalla rete virtuale remota
 
@@ -454,7 +454,7 @@ Di seguito è indicato l'output traceroute dalla rete virtuale remota a una macc
 
 ### <a name="path-to-the-branch-vnet-and-on-premises-location-2"></a>Percorso della rete virtuale del ramo e della rete locale Location 2
 
-Come descritto nell'[analisi del piano di controllo][Control-Analysis], la rete virtuale remota non ha visibilità sulla rete virtuale del ramo o sulla rete locale Location 2 in base alla configurazione di rete. 
+Come illustrato nell'analisi del [piano di controllo][Control-Analysis], il VNet remoto non ha visibilità per il ramo VNet o la posizione locale 2 per la configurazione di rete. 
 
 ### <a name="path-to-on-premises-location-1"></a>Percorso della rete locale Location 1
 
@@ -476,7 +476,7 @@ Di seguito è indicato l'output traceroute dalla rete virtuale remota a una macc
 
 ###  <a name="site-to-site-vpn-over-expressroute"></a>VPN da sito a sito con ExpressRoute
 
-È possibile configurare una VPN da sito a sito con il peering Microsoft ExpressRoute per scambiare privatamente i dati tra la rete locale e le reti virtuali di Azure. Con questa configurazione, i dati possono essere scambiati garantendone riservatezza, autenticità e integrità. Lo scambio di dati è anche impossibile da riprodurre. Per altre informazioni su come configurare una VPN IPSec da sito a sito in modalità tunnel con il peering Microsoft ExpressRoute, vedere [Configurare una VPN da sito a sito tramite peering ExpressRoute Microsoft][S2S-Over-ExR]. 
+È possibile configurare una VPN da sito a sito con il peering Microsoft ExpressRoute per scambiare privatamente i dati tra la rete locale e le reti virtuali di Azure. Con questa configurazione, i dati possono essere scambiati garantendone riservatezza, autenticità e integrità. Lo scambio di dati è anche impossibile da riprodurre. Per altre informazioni su come configurare una VPN IPsec da sito a sito in modalità tunnel usando il peering Microsoft ExpressRoute, vedere la [pagina relativa alla connessione VPN da sito a sito tramite il peering Microsoft ExpressRoute][S2S-Over-ExR]. 
 
 La limitazione principale per la configurazione di una VPN da sito a sito che usa il peering Microsoft è rappresentata dalla velocità effettiva. La velocità effettiva nel tunnel IPSec è limitata dalla capacità del gateway VPN. La velocità effettiva del gateway VPN è inferiore alla velocità effettiva di ExpressRoute. In questo scenario, usando il tunnel IPSec per il traffico a sicurezza elevata e il peering privato per tutti gli altri tipi di traffico è possibile ottimizzare l'uso della larghezza di banda di ExpressRoute.
 
@@ -484,13 +484,13 @@ La limitazione principale per la configurazione di una VPN da sito a sito che us
 
 ExpressRoute funge da coppia di circuiti ridondanti per garantire la disponibilità elevata. È possibile configurare la connettività ExpressRoute con ridondanza geografica in diverse aree di Azure. Come dimostrato nell'installazione test, in un'area di Azure è anche possibile usare una VPN da sito a sito per creare un percorso di failover per la connettività di ExpressRoute. Quando gli stessi prefissi vengono annunciati sia in ExpressRoute che in una VPN da sito a sito, Azure dà la priorità a ExpressRoute. Per evitare il routing asimmetrico tra ExpressRoute e la VPN da sito a sito, la configurazione di rete locale deve fare lo stesso, preferendo la connettività di ExpressRoute rispetto alla connettività VPN da sito a sito.
 
-Per altre informazioni su come configurare connessioni coesistenti per ExpressRoute e VPN da sito a sito, vedere [Configurare connessioni coesistenti da sito a sito ed ExpressRoute usando PowerShell][ExR-S2S-CoEx].
+Per altre informazioni su come configurare le connessioni coesistenti per ExpressRoute e una VPN da sito a sito, vedere [ExpressRoute e coesistenza da sito a sito][ExR-S2S-CoEx].
 
 ## <a name="extend-back-end-connectivity-to-spoke-vnets-and-branch-locations"></a>Estendere la connettività back-end a reti virtuali spoke e del ramo
 
 ### <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>Connettività della rete virtuale spoke tramite il peering reti virtuali
 
-L'architettura di rete virtuale dell'hub e spoke è molto diffusa. L'hub è una rete virtuale in Azure che funge da punto centrale di connettività tra le reti virtuali spoke e la rete locale. Gli spoke sono reti virtuali che eseguono il peering con l'hub e che è possibile usare per isolare i carichi di lavoro. Il traffico scorre tra il data center locale e l'hub attraverso una connessione VPN o ExpressRoute. Per altre informazioni sull'architettura, vedere [Implementare una topologia di rete hub-spoke in Azure][Hub-n-Spoke].
+L'architettura di rete virtuale dell'hub e spoke è molto diffusa. L'hub è una rete virtuale in Azure che funge da punto centrale di connettività tra le reti virtuali spoke e la rete locale. Gli spoke sono reti virtuali che eseguono il peering con l'hub e che è possibile usare per isolare i carichi di lavoro. Il traffico scorre tra il data center locale e l'hub attraverso una connessione VPN o ExpressRoute. Per altre informazioni sull'architettura, vedere [implementare una topologia di rete hub-spoke in Azure][Hub-n-Spoke].
 
 Nel peering reti virtuali all'interno di un'area, le reti virtuali spoke possono usare i gateway di rete virtuale dell'hub (gateway ExpressRoute e VPN) per comunicare con le reti remote.
 
@@ -498,7 +498,7 @@ Nel peering reti virtuali all'interno di un'area, le reti virtuali spoke possono
 
 È possibile far comunicare tra loro le reti virtuali del ramo in aree diverse e le reti virtuali tramite una rete virtuale dell'hub. La soluzione di Azure nativa per questa configurazione è la connettività VPN da sito a sito tramite una rete VPN. In alternativa, è possibile usare un'appliance virtuale di rete per il routing nell'hub.
 
-Per altre informazioni, vedere [Che cos'è un Gateway VPN?][VPN] e [Distribuire appliance virtuali di rete con disponibilità elevata][Deploy-NVA].
+Per altre informazioni, vedere [che cos'è il gateway VPN][VPN] e distribuire un'appliance virtuale di rete [a disponibilità elevata][Deploy-NVA].
 
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -510,11 +510,11 @@ Vedere le [domande frequenti su ExpressRoute][ExR-FAQ] per:
 
 
 <!--Image References-->
-[1]: ./media/backend-interoperability/HubVM-SpkVM.jpg "Visualizzazione di Network Watcher della connettività da una rete virtuale dell'hub a una rete virtuale spoke"
-[2]: ./media/backend-interoperability/HubVM-BranchVM.jpg "Visualizzazione di Network Watcher della connettività da una rete virtuale dell'hub a una rete virtuale del ramo"
-[3]: ./media/backend-interoperability/HubVM-BranchVM-Grid.jpg "Visualizzazione griglia di Network Watcher della connettività da una rete virtuale dell'hub a una rete virtuale del ramo"
-[4]: ./media/backend-interoperability/Loc1-HubVM.jpg "Visualizzazione di Monitoraggio prestazioni rete della connettività dalla macchina virtuale della rete Location 1 alla rete virtuale dell'hub tramite ExpressRoute 1"
-[5]: ./media/backend-interoperability/Loc1-HubVM-S2S.jpg "Visualizzazione di Monitoraggio prestazioni rete della connettività dalla macchina virtuale della rete Location 1 alla rete virtuale dell'hub tramite VPN da sito a sito"
+[1]: ./media/backend-interoperability/HubVM-SpkVM.jpg "Visualizzazione Network Watcher della connettività da un hub VNet a una VNet spoke"
+[2]: ./media/backend-interoperability/HubVM-BranchVM.jpg "Visualizzazione Network Watcher della connettività da un hub VNet a un ramo VNet"
+[3]: ./media/backend-interoperability/HubVM-BranchVM-Grid.jpg "Visualizzazione griglia Network Watcher della connettività da un hub VNet a un ramo VNet"
+[4]: ./media/backend-interoperability/Loc1-HubVM.jpg "Visualizzazione Monitoraggio prestazioni rete della connettività dalla macchina virtuale location 1 all'hub VNet tramite ExpressRoute 1"
+[5]: ./media/backend-interoperability/Loc1-HubVM-S2S.jpg "Visualizzazione Monitoraggio prestazioni rete della connettività dalla macchina virtuale location 1 alla VNet Hub tramite una VPN da sito a sito"
 
 <!--Link References-->
 [Setup]: https://docs.microsoft.com/azure/networking/connectivty-interoperability-preface

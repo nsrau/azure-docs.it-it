@@ -2,28 +2,24 @@
 title: Azure Active Directory Authentication Library | Documentazione Microsoft
 description: Azure AD Authentication Library (ADAL) consente agli sviluppatori di applicazioni client di autenticare facilmente gli utenti in Active Directory locale o nel cloud e quindi di ottenere token di accesso per proteggere le chiamate API.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 2e4fc79a-0285-40be-8c77-65edee408a22
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2018
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53ddbdfc4efe5b8a7e58911c54994e9c7f6374e4
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: c391120ccf9fafd4ca51489d7849e838d77a1dbf
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131181"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74845502"
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Azure Active Directory Authentication Library
 
@@ -40,7 +36,7 @@ Azure Active Directory Authentication Library (ADAL) versione 1.0 consente agli 
 
 ## <a name="microsoft-supported-client-libraries"></a>Librerie client supportate da Microsoft
 
-| Piattaforma | Libreria | Scaricare | Codice sorgente | Esempio | riferimento
+| Piattaforma | Library | Download | Codice sorgente | Esempio | Riferimento
 | --- | --- | --- | --- | --- | --- |
 | .NET Client, Windows Store, UWP, Xamarin iOS e Android |ADAL .NET v3 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) | [App desktop](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-dotnet) |[Riferimento](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory?view=azure-dotnet) |
 | .NET Client, Windows Store, Windows Phone 8.1 |ADAL .NET v2 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/2.28.4) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/releases/tag/v2.28.4) | [App desktop](https://github.com/AzureADQuickStarts/NativeClient-DotNet/releases/tag/v2.X) | |
@@ -53,7 +49,7 @@ Azure Active Directory Authentication Library (ADAL) versione 1.0 consente agli 
 
 ## <a name="microsoft-supported-server-libraries"></a>Librerie server supportate da Microsoft
 
-| Piattaforma | Libreria | Scaricare | Codice sorgente | Esempio | riferimento
+| Piattaforma | Library | Download | Codice sorgente | Esempio | Riferimento
 | --- | --- | --- | --- | --- | --- |
 | .NET |OWIN per AzureAD|[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/dev/src/Microsoft.Owin.Security.ActiveDirectory) |[Applicazione MVC](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-webapp-dotnet) | |
 | .NET |OWIN per OpenIDConnect |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/dev/src/Microsoft.Owin.Security.OpenIdConnect) |[App Web](https://github.com/AzureADSamples/WebApp-OpenIDConnect-DotNet) | |

@@ -4,17 +4,17 @@ description: Descrizione ed esempi delle attività più comuni in Configurazione
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f943aac4a91217983963fac6f8d0b2b3ba6895a1
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 9fce9a769dd6d88c9926913d22716666284938c1
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243621"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850959"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Introduzione a Configurazione stato di Automazione di Azure
 
@@ -176,7 +176,7 @@ Ogni volta che Configurazione stato di Automazione di Azure esegue una verifica 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. A sinistra fare clic su **Tutte le risorse** e quindi fare clic sul nome dell'account di Automazione.
 1. Nel pannello **Account di automazione** fare clic su **Configurazione stato (DSC)** in **Gestione della configurazione**.
-1. Nella pagina **Configurazione stato (DSC)** fare clic sulla scheda **Nodi**. Qui è possibile visualizzare la panoramica di Configurazione stato e i dettagli di ogni nodo.
+1. Nella pagina **configurazione stato (DSC)** fare clic sulla scheda **nodi** . Qui è possibile visualizzare la panoramica dello stato della configurazione e i dettagli per ogni nodo.
 
    ![Screenshot della pagina Nodi](./media/automation-dsc-getting-started/NodesTab.png)
 

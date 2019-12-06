@@ -1,17 +1,17 @@
 ---
 title: Clausola limite OFFSET in Azure Cosmos DB
-description: Informazioni sulla clausola limite di OFFSET per Azure Cosmos DB.
+description: Informazioni su come usare la clausola di limite di OFFSET per ignorare e prendere alcuni valori durante l'esecuzione di query in Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: 7aae56783f83f13b50321c88d69f07d910e589dd
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 68515c51862ada0b1aa794c09b3a6730504a57ee
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326882"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873251"
 ---
 # <a name="offset-limit-clause-in-azure-cosmos-db"></a>Clausola limite OFFSET in Azure Cosmos DB
 
@@ -37,7 +37,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 
 ## <a name="remarks"></a>Osservazioni
   
-  Nella clausola limite OFFSET sono necessari sia il numero di OFFSET che il numero di limiti. Se viene utilizzata una clausola `ORDER BY` facoltativa, il set di risultati viene prodotto facendo ignorare i valori ordinati. In caso contrario, la query restituirà un ordine fisso di valori. Attualmente questa clausola è supportata solo per le query all'interno di una singola partizione. le query tra partizioni non le supportano ancora.
+  Nella clausola limite OFFSET sono necessari sia il numero di OFFSET che il numero di limiti. Se viene utilizzata una clausola di `ORDER BY` facoltativa, il set di risultati viene prodotto facendo ignorare i valori ordinati. In caso contrario, la query restituirà un ordine fisso di valori. Attualmente questa clausola è supportata solo per le query all'interno di una singola partizione. le query tra partizioni non le supportano ancora.
 
 ## <a name="examples"></a>esempi
 
