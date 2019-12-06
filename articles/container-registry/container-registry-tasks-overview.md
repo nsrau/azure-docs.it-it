@@ -3,12 +3,12 @@ title: Panoramica delle Attività del Registro Azure Container
 description: Introduzione alle attività di ACR, una suite di funzionalità in Azure Container Registry che fornisce la compilazione, la gestione e l'applicazione di patch di immagini del contenitore sicure e automatizzate nel cloud.
 ms.topic: article
 ms.date: 09/05/2019
-ms.openlocfilehash: b4710591dfd78f0633d5071c78d80e300349f498
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 96997f963f0bcb319d5318e2dd88a6e1e21fb36b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456147"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74840766"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizzare le compilazioni e la manutenzione delle immagini del contenitore con le attività ACR
 
@@ -52,16 +52,19 @@ Per informazioni su come usare le attività rapide, vedere la prima esercitazion
 
 ## <a name="trigger-task-on-source-code-update"></a>Attività trigger sull'aggiornamento del codice sorgente
 
-Attivare una compilazione dell'immagine del contenitore o un'attività in più passaggi quando viene eseguito il commit del codice o una richiesta pull eseguita o aggiornata a un repository git in GitHub o Azure DevOps. Ad esempio, configurare un'attività di compilazione con il comando dell'interfaccia della riga di comando di Azure [AZ ACR task create][az-acr-task-create] specificando un repository git e, facoltativamente, un Branch e Dockerfile. Quando il team aggiorna il codice nel repository, un webhook creato da un'attività ACR attiva una compilazione dell'immagine del contenitore definita nel repository. 
+Attivare una compilazione dell'immagine del contenitore o un'attività in più passaggi quando viene eseguito il commit del codice o una richiesta pull eseguita o aggiornata a un repository git pubblico o privato in GitHub o Azure DevOps. Ad esempio, configurare un'attività di compilazione con il comando dell'interfaccia della riga di comando di Azure [AZ ACR task create][az-acr-task-create] specificando un repository git e, facoltativamente, un Branch e Dockerfile. Quando il team aggiorna il codice nel repository, un webhook creato da un'attività ACR attiva una compilazione dell'immagine del contenitore definita nel repository. 
 
 Le attività ACR supportano i trigger seguenti quando si imposta un repository Git come contesto dell'attività:
 
 | Trigger | Abilitato per impostazione predefinita |
 | ------- | ------------------ |
-| Commit | Sì |
+| Commit | SÌ |
 | Richiesta pull | No |
 
-Per configurare il trigger, è necessario fornire all'attività un token di accesso personale (PAT) per impostare il webhook nel repository GitHub o Azure DevOps.
+Per configurare un trigger di aggiornamento del codice sorgente, è necessario fornire all'attività un token di accesso personale (PAT) per impostare il webhook nel repository GitHub pubblico o privato o Azure DevOps.
+
+> [!NOTE]
+> Attualmente, le attività ACR non supportano i trigger di richiesta commit o pull nei repository di GitHub Enterprise.
 
 Per informazioni su come attivare compilazioni in caso di commit del codice sorgente, vedere la seconda esercitazione su Attività del Registro Azure Container, [Automatizzare la compilazione di immagini dei contenitori con Attività del Registro Azure Container](container-registry-tutorial-build-task.md).
 
@@ -113,22 +116,25 @@ Altre informazioni sulle attività in più passaggi in [Run multi-step build, te
 
 La tabella seguente mostra alcuni esempi di percorsi di contesto supportati per ACR Tasks:
 
-| Posizione contesto | DESCRIZIONE | Esempio |
+| Posizione contesto | Description | Esempio |
 | ---------------- | ----------- | ------- |
 | File system locale | File contenuti in una directory nel file System locale. | `/home/user/projects/myapp` |
-| Ramo master GitHub | File nel master (o altra impostazione predefinita) di un repository GitHub.  | `https://github.com/gituser/myapp-repo.git` |
-| Ramo GitHub | Ramo specifico di un repository GitHub.| `https://github.com/gituser/myapp-repo.git#mybranch` |
-| Sottocartella di GitHub | File all'interno di una sottocartella in un repository GitHub. Esempio mostra la combinazione di una specifica di Branch e sottocartella. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
-| Sottocartella DevOps di Azure | File all'interno di una sottocartella in un repository di Azure. Esempio mostra la combinazione di specifiche di Branch e sottocartelle. | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
+| Ramo master GitHub | File nel ramo master (o un altro valore predefinito) di un repository GitHub pubblico o privato.  | `https://github.com/gituser/myapp-repo.git` |
+| Ramo GitHub | Ramo specifico di un repository GitHub pubblico o privato.| `https://github.com/gituser/myapp-repo.git#mybranch` |
+| Sottocartella di GitHub | File all'interno di una sottocartella in un repository GitHub pubblico o privato. Esempio mostra la combinazione di una specifica di Branch e sottocartella. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
+| Sottocartella DevOps di Azure | File all'interno di una sottocartella in un repository di Azure pubblico o privato. Esempio mostra la combinazione di specifiche di Branch e sottocartelle. | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
 | File tarball remoto | File in un archivio compresso in un server Web remoto. | `http://remoteserver/myapp.tar.gz` |
+
+> [!NOTE]
+> Quando si usa un repository git privato come contesto per un'attività, è necessario fornire un token di accesso personale (PAT).
 
 ## <a name="image-platforms"></a>Piattaforme immagine
 
 Per impostazione predefinita, le attività ACR compilano immagini per il sistema operativo Linux e l'architettura amd64. Specificare il tag `--platform` per compilare immagini Windows o immagini Linux per altre architetture. Specificare il sistema operativo e, facoltativamente, un'architettura supportata nel formato del sistema operativo/architettura, ad esempio `--platform Linux/arm`. Per le architetture ARM, è possibile specificare facoltativamente una variante nel formato sistema operativo/architettura/variante (ad esempio, `--platform Linux/arm64/v8`):
 
-| SO | Architettura|
+| Sistema operativo | Architecture|
 | --- | ------- | 
-| Linux | amd64<br/>ARM<br/>arm64<br/>386 |
+| Linux | amd64<br/>arm<br/>arm64<br/>386 |
 | Windows | amd64 |
 
 ## <a name="view-task-logs"></a>Visualizzare i log delle attività

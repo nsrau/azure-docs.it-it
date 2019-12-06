@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 2969791204474a7d73493ce6397c52255f7eab4a
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: a1fd99ee595c4ae91ccd06aa41fa421ca8fcc074
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151302"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851701"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Rispondere agli eventi dell'hub IoT usando Griglia di eventi per attivare le azioni
 
@@ -23,7 +23,7 @@ L'hub IoT di Azure si integra con Griglia di eventi di Azure per poter inviare l
 
 ![Architettura di Griglia di eventi di Azure](./media/iot-hub-event-grid/event-grid-functional-model.png)
 
-## <a name="regional-availability"></a>Disponibilità internazionale
+## <a name="regional-availability"></a>Disponibilità a livello di area
 
 L'integrazione di Griglia di eventi è disponibile per gli hub IoT situati nelle aree in cui Griglia di eventi è supportata. Per l'elenco aggiornato delle aree, vedere [Introduzione a Griglia di eventi di Azure](../event-grid/overview.md).
 
@@ -31,7 +31,7 @@ L'integrazione di Griglia di eventi è disponibile per gli hub IoT situati nelle
 
 L'hub IoT pubblica i tipi di eventi seguenti:
 
-| Tipo evento | DESCRIZIONE |
+| Tipo evento | Description |
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | Pubblicato quando un dispositivo viene registrato in un hub IoT. |
 | Microsoft.Devices.DeviceDeleted | Pubblicato quando un dispositivo viene eliminato da un hub IoT. |
@@ -184,13 +184,11 @@ Per filtrare i messaggi prima dell'invio dei dati di telemetria, è possibile ag
 
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Limitazioni per gli eventi correlati a dispositivi connessi e disconnessi
 
-Per ricevere eventi correlati a dispositivi connessi e disconnessi, è necessario aprire il collegamento D2C o C2D per il dispositivo. Se il dispositivo usa il protocollo MQTT, l'hub IoT mantiene aperto il collegamento C2D. Per AMQP, è possibile aprire il collegamento C2D chiamando l' [API di ricezione asincrona](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet).
+Per ricevere gli eventi dello stato di connessione del dispositivo, un dispositivo deve eseguire un'operazione di invio dei dati di telemetria di tipo ' 2C ' o ' C2D Receive message ' con l'hub Internet. Si noti tuttavia che se un dispositivo usa il protocollo AMQP per connettersi all'hub Internet, è consigliabile eseguire un'operazione di "messaggio di ricezione C2D", altrimenti le notifiche dello stato di connessione potrebbero essere ritardate di pochi minuti. Se il dispositivo usa il protocollo MQTT, l'hub IoT mantiene aperto il collegamento C2D. Per AMQP, è possibile aprire il collegamento C2D chiamando l' [API asincrona Receive](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet), per l'SDK dell' C# hub Internet o il [client del dispositivo per AMQP](iot-hub-amqp-support.md#device-client).
 
 Il collegamento D2C è aperto se si inviano dati di telemetria. 
 
-Se la connessione del dispositivo è tremolante, il che significa che il dispositivo si connette e si disconnette di frequente, non verrà inviato ogni singolo stato di connessione, ma verrà pubblicato lo stato dell' *ultimo* collegamento, che è finalmente coerente. Se, ad esempio, il dispositivo si trova inizialmente nello stato connesso, quindi la connettività viene riattivata per alcuni secondi e quindi si torna nello stato connesso. Non verrà pubblicato alcun nuovo evento dello stato di connessione del dispositivo dopo lo stato di connessione iniziale. 
-
-In caso di interruzione del servizio dell'hub IoT, lo stato di connessione del dispositivo viene pubblicato al termine dell'interruzione. Se il dispositivo si disconnette durante il periodo di interruzione, l'evento di dispositivo disconnesso viene pubblicato entro 10 minuti.
+Se la connessione del dispositivo è tremolante, il che significa che il dispositivo si connette e si disconnette di frequente, non verrà inviato ogni singolo stato di connessione, ma lo stato della connessione corrente verrà pubblicato in uno snapshot periodico finché lo sfarfallio continuerà. La ricezione dello stesso evento dello stato di connessione con numeri di sequenza diversi o eventi di stato della connessione diversi significa che è stata apportata una modifica allo stato di connessione del dispositivo.
 
 ## <a name="tips-for-consuming-events"></a>Suggerimenti per l'utilizzo di eventi
 
@@ -206,7 +204,7 @@ Le applicazioni che gestiscono gli eventi dell'hub IoT devono seguire queste pro
 
 * [Try the IoT Hub events tutorial (Provare l'esercitazione sugli eventi dell'hub IoT)](../event-grid/publish-iot-hub-events-to-logic-apps.md)
 
-* [Informazioni sull'ordinamento di eventi di connessione e disconnessione dispositivi](iot-hub-how-to-order-connection-state-events.md).
+* [Informazioni sull'ordinamento di eventi di connessione e disconnessione dispositivi](iot-hub-how-to-order-connection-state-events.md)
 
 * [Altre informazioni su Griglia di eventi](../event-grid/overview.md)
 

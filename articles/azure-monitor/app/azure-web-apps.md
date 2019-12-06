@@ -6,13 +6,13 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/04/2019
-ms.openlocfilehash: e4fc00d3889d10dddb9ec147a19f06a7211f53be
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 12/04/2019
+ms.openlocfilehash: 86a94cfdbd2c1755907bc13aa698fba92f5ce649
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230306"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850075"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorare le prestazioni del Servizio app di Azure
 
@@ -37,7 +37,9 @@ Esistono due modi per abilitare il monitoraggio dell'applicazione per le applica
 > [!NOTE]
 > Se vengono rilevati sia il monitoraggio basato su agente che la strumentazione manuale basata su SDK, verranno rispettate solo le impostazioni di strumentazione manuale. Ciò consente di impedire l'invio di dati duplicati. Per altre informazioni, vedere la [sezione relativa alla risoluzione dei problemi](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting) di seguito.
 
-## <a name="enable-agent-based-monitoring-for-net-applications"></a>Abilitare il monitoraggio basato su agenti per le applicazioni .NET
+## <a name="enable-agent-based-monitoring"></a>Abilita monitoraggio basato su agenti
+
+# <a name="nettabnet"></a>[.NET](#tab/net)
 
 > [!NOTE]
 > La combinazione di APPINSIGHTS_JAVASCRIPT_ENABLED e urlCompression non è supportata. Per ulteriori informazioni, vedere la spiegazione nella [sezione risoluzione dei problemi](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
@@ -73,7 +75,7 @@ Esistono due modi per abilitare il monitoraggio dell'applicazione per le applica
 
     * Per l'elenco delle impostazioni del processore di telemetria del campionamento adattivo supportato, è possibile consultare il [codice](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/master/src/ServerTelemetryChannel/AdaptiveSamplingTelemetryProcessor.cs) e la [documentazione associata](https://docs.microsoft.com/azure/azure-monitor/app/sampling).
 
-## <a name="enable-agent-based-monitoring-for-net-core-applications"></a>Abilitare il monitoraggio basato su agenti per le applicazioni .NET Core
+# <a name="net-coretabnetcore"></a>[.NET Core](#tab/netcore)
 
 Sono supportate le versioni seguenti di .NET Core: ASP.NET Core 2,0, ASP.NET Core 2,1, ASP.NET Core 2,2
 
@@ -94,11 +96,27 @@ La destinazione del Framework completo da .NET Core, la distribuzione autonoma e
 
     ![Scegliere le opzioni per ogni piattaforma](./media/azure-web-apps/choose-options-new-net-core.png)
 
-## <a name="enable-client-side-monitoring-for-net-applications"></a>Abilitare il monitoraggio lato client per le applicazioni .NET
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+
+Nell'app Web del servizio app in **impostazioni** > **selezionare Application Insights** > **Abilita**. Il monitoraggio basato sull'agente node. js è attualmente in anteprima.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Le applicazioni Web basate sul servizio app Java non supportano attualmente il monitoraggio automatico degli agenti e delle estensioni. Per abilitare il monitoraggio per l'applicazione Java, è necessario [instrumentare manualmente l'applicazione](https://docs.microsoft.com/azure/azure-monitor/app/java-get-started).
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Le applicazioni Web basate sul servizio app Python non supportano attualmente il monitoraggio automatico di agenti/estensioni. Per abilitare il monitoraggio per l'applicazione Python, è necessario [instrumentare manualmente l'applicazione](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python).
+
+---
+
+## <a name="enable-client-side-monitoring"></a>Abilitare il monitoraggio lato client
+
+# <a name="nettabnet"></a>[.NET](#tab/net)
 
 Il monitoraggio lato client è il consenso esplicito per ASP.NET. Per abilitare il monitoraggio lato client:
 
-* Selezionare **impostazioni** > * * * * Impostazioni applicazione * * * *
+* Selezionare **impostazioni** >** **dell'applicazione delle impostazioni** **
    * In Impostazioni applicazione aggiungere un nuovo nome e **valore**per l' **impostazione dell'app** :
 
      Nome: `APPINSIGHTS_JAVASCRIPT_ENABLED`
@@ -111,7 +129,7 @@ Il monitoraggio lato client è il consenso esplicito per ASP.NET. Per abilitare 
 
 Per disabilitare il monitoraggio lato client, rimuovere la coppia chiave/valore associata dalle impostazioni dell'applicazione oppure impostare il valore su false.
 
-## <a name="enable-client-side-monitoring-for-net-core-applications"></a>Abilitare il monitoraggio lato client per le applicazioni .NET Core
+# <a name="net-coretabnetcore"></a>[.NET Core](#tab/netcore)
 
 Il monitoraggio lato client è **abilitato per impostazione predefinita** per le app .NET Core con la **raccolta consigliata**, indipendentemente dal fatto che sia presente l'impostazione dell'app ' APPINSIGHTS_JAVASCRIPT_ENABLED '.
 
@@ -128,6 +146,20 @@ Se per qualche motivo si desidera disabilitare il monitoraggio lato client:
 
 ![Screenshot dell'interfaccia utente delle impostazioni dell'applicazione](./media/azure-web-apps/appinsights-javascript-disabled.png)
 
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+
+Per abilitare il monitoraggio lato client per l'applicazione Node. js, è necessario [aggiungere manualmente l'SDK JavaScript sul lato client all'applicazione](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Per abilitare il monitoraggio lato client per l'applicazione Java, è necessario [aggiungere manualmente l'SDK JavaScript sul lato client all'applicazione](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Per abilitare il monitoraggio lato client per l'applicazione Python, è necessario [aggiungere manualmente l'SDK JavaScript sul lato client all'applicazione](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
+
+---
+
 ## <a name="automate-monitoring"></a>Automatizzare il monitoraggio
 
 Per abilitare la raccolta di dati di telemetria con Application Insights, è necessario impostare solo le impostazioni dell'applicazione:
@@ -136,7 +168,7 @@ Per abilitare la raccolta di dati di telemetria con Application Insights, è nec
 
 ### <a name="application-settings-definitions"></a>Definizioni delle impostazioni dell'applicazione
 
-|Nome impostazione app |  Definizione | Valore |
+|Nome impostazione app |  Definizione | Value |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | Estensione principale, che controlla il monitoraggio in fase di esecuzione. | `~2` |
 |XDT_MicrosoftApplicationInsights_Mode |  Solo in modalità predefinita sono abilitate le funzionalità essenziali per garantire prestazioni ottimali. | `default` o `recommended`. |
@@ -317,17 +349,17 @@ A partire dalla versione 2.8.9 viene utilizzata l'estensione del sito preinstall
 
 Se l'aggiornamento viene eseguito da una versione precedente alla 2.5.1, verificare che le DLL di ApplicationInsigths vengano rimosse dalla cartella bin dell'applicazione, [vedere la procedura di risoluzione dei problemi](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Di seguito è riportata la guida dettagliata alla risoluzione dei problemi per il monitoraggio di estensioni/agenti per le applicazioni .NET e .NET Core in esecuzione in app Azure Services.
 
 > [!NOTE]
-> Le applicazioni Java e node. js sono supportate solo nei servizi app Azure tramite strumentazione manuale basata su SDK, quindi i passaggi seguenti non si applicano a questi scenari.
+> Le applicazioni Java sono supportate solo nei servizi app Azure tramite strumentazione manuale basata su SDK e pertanto i passaggi seguenti non si applicano a questi scenari.
 
 1. Verificare che l'applicazione venga monitorata tramite `ApplicationInsightsAgent`.
     * Verificare che `ApplicationInsightsAgent_EXTENSION_VERSION` impostazione dell'app sia impostata su un valore pari a "~ 2".
 2. Verificare che l'applicazione soddisfi i requisiti da monitorare.
-    * Passare a `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
+    * Passare a `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`.
 
     ![Screenshot della pagina dei risultati di https://yoursitename.scm.azurewebsites/applicationinsights](./media/azure-web-apps/app-insights-sdk-status.png)
 

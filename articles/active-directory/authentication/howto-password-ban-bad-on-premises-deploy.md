@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e1d53d63b40ad62a4d21cbad22a67e9e9781b1f
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: f98373fe8eab07519e665ab1eddfd7a9ce6b7e22
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381708"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847867"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Distribuire la protezione delle password di Azure AD
 
@@ -32,7 +32,7 @@ Durante la fase di controllo, molte organizzazioni scoprono che:
 * Spesso gli utenti usano password non sicure.
 * Devono informare gli utenti sulla modifica imminente dell'applicazione della sicurezza, sulla possibile incidenza su di essi e su come scegliere password più sicure.
 
-È anche possibile che la convalida delle password più avanzata influisca sull'automazione della distribuzione del controller di dominio Active Directory esistente. È consigliabile che almeno una promozione del controller di dominio e un'abbassamento di livello del controller di dominio si verifichino durante la valutazione del periodo di controllo, in modo da individuare in anticipo tali problemi.  Per altre informazioni, vedere:
+È anche possibile che la convalida delle password più avanzata influisca sull'automazione della distribuzione del controller di dominio Active Directory esistente. È consigliabile che almeno una promozione del controller di dominio e un'abbassamento di livello del controller di dominio si verifichino durante la valutazione del periodo di controllo, in modo da individuare in anticipo tali problemi.  Per scoprire di più, vedi:
 
 * [Ntdsutil. exe non è in grado di impostare una password per la modalità di ripristino di servizi directory debole](howto-password-ban-bad-on-premises-troubleshoot.md##ntdsutilexe-fails-to-set-a-weak-dsrm-password)
 * [La promozione della replica del controller di dominio non riesce a causa di una password della modalità ripristino servizi directory debole](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password)
@@ -96,7 +96,7 @@ Il diagramma seguente illustra il modo in cui i componenti di base di Azure AD l
 
 È consigliabile esaminare il funzionamento del software prima di distribuirlo. Vedere [panoramica concettuale di Azure ad Password Protection](concept-password-ban-bad-on-premises.md).
 
-### <a name="download-the-software"></a>Scaricare il software
+### <a name="download-the-software"></a>Scarica il software
 
 Per la protezione Azure AD password sono disponibili due programmi di installazione necessari. Sono disponibili nell' [area download Microsoft](https://www.microsoft.com/download/details.aspx?id=57071).
 
@@ -302,7 +302,7 @@ Per la protezione Azure AD password sono disponibili due programmi di installazi
 
    È possibile installare il servizio DC Agent in un computer che non è ancora un controller di dominio. In questo caso, il servizio verrà avviato ed eseguito ma rimarrà inattivo fino a quando il computer non viene promosso a controller di dominio.
 
-   È possibile automatizzare l'installazione del software utilizzando le procedure MSI standard. Ad esempio:
+   È possibile automatizzare l'installazione del software utilizzando le procedure MSI standard. ad esempio:
 
    `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`
 
@@ -340,7 +340,7 @@ Non sono previsti requisiti aggiuntivi per distribuire la password di protezione
 
 Le modifiche/set di password non vengono elaborate e rese permanente nei controller di dominio di sola lettura (RODC). Vengono quindi trasmessi ai controller di dominio scrivibili. Quindi, non è necessario installare il software dell'agente controller di dominio in RODC.
 
-## <a name="high-availability"></a>disponibilità elevata
+## <a name="high-availability"></a>Disponibilità elevata
 
 Il problema di disponibilità principale per la protezione delle password è la disponibilità dei server proxy quando i controller di dominio in una foresta tentano di scaricare nuovi criteri o altri dati da Azure. Ogni agente del controller di dominio usa un semplice algoritmo di tipo Round Robin per decidere quale server proxy chiamare. L'agente ignora i server proxy che non rispondono. Per la maggior parte delle distribuzioni di Active Directory completamente connesse con una replica corretta dello stato di directory e di cartella SYSVOL, due server proxy sono sufficienti per garantire la disponibilità. Ciò comporta il download tempestivo dei nuovi criteri e di altri dati. Ma è possibile distribuire altri server proxy.
 
@@ -350,4 +350,4 @@ La progettazione del software dell'agente di controller di dominio attenua i nor
 
 Ora che sono stati installati i servizi necessari per Azure AD la protezione con password nei server locali, [eseguire la configurazione post-installazione e raccogliere le informazioni di report](howto-password-ban-bad-on-premises-operations.md) per completare la distribuzione.
 
-[Panoramica concettuale della password di protezione di Azure AD](concept-password-ban-bad-on-premises.md)
+[Panoramica dei concetti relativi alla protezione password di Azure AD](concept-password-ban-bad-on-premises.md)

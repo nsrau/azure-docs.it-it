@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c3e22b34dbb770af2b4a719f8b4eaf040b724c47
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 963bc909b69962cded0a50d717e3a653d3d69769
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695437"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851469"
 ---
 # <a name="about-microsoft-security-code-analysis"></a>Informazioni sull'analisi del codice di sicurezza Microsoft
 
@@ -75,7 +75,7 @@ Le password e altri segreti archiviati nel codice sorgente rappresentano un prob
 
 Microsoft Security Risk Detection (MSRD) è un servizio basato sul cloud per i test fuzzy. Identifica i bug di sicurezza sfruttabili nel software. Questo servizio richiede una sottoscrizione e un'attivazione separate. Per ulteriori informazioni, vedere il [centro per sviluppatori MSRD](https://docs.microsoft.com/security-risk-detection/).
 
-### <a name="roslyn-analyzers"></a>Analizzatori Roslyn
+### <a name="roslyn-analyzers"></a>Analizzatori di Roslyn
 
 Gli analizzatori Roslyn sono uno strumento integrato del compilatore Microsoft per l'analisi statica del C# codice gestito e Visual Basic. Per altre informazioni, vedere [analizzatori basati su Roslyn](https://docs.microsoft.com/dotnet/standard/analyzers/).
 
@@ -112,6 +112,6 @@ Con l'attività di compilazione post-analisi, è possibile inserire un'interruzi
 
 Per istruzioni su come caricare e installare Microsoft Security Code Analysis, vedere la [Guida all'onboarding e all'installazione](security-code-analysis-onboard.md).
 
-Per ulteriori informazioni sulla configurazione delle attività di compilazione, vedere la [Guida alla configurazione](security-code-analysis-customize.md).
+Per ulteriori informazioni sulla configurazione delle attività di compilazione, vedere la guida alla [configurazione](security-code-analysis-customize.md) o la [Guida alla configurazione di YAML](yaml-configuration.md).
 
 Per altre domande sull'estensione e sugli strumenti offerti, vedere la [pagina delle domande frequenti](security-code-analysis-faq.md).

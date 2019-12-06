@@ -1,22 +1,22 @@
 ---
-title: Autenticazione basata su certificati in iOS - Azure Active Directory
+title: Autenticazione basata su certificati in iOS-Azure Active Directory
 description: Informazioni sugli scenari supportati e i requisiti per configurare l'autenticazione basata su certificati nelle soluzioni con i dispositivi iOS
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
 ms.date: 01/15/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cda1b1c2a484f3aa627b8b9cf486528d13f27be8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d2f9e7d71ab660c4df6f65d6bebe1d3854086bdd
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60416001"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848800"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Autenticazione basata su certificati di Azure Active Directory in iOS
 
@@ -35,16 +35,16 @@ Questa funzionalità è disponibile in anteprima nei piani di Office 365 US Gove
 
 | App | Supporto |
 | --- | --- |
-| App Azure Information Protection |![Segno di spunta per indicare il supporto per questa applicazione][1] |
-| Portale aziendale Intune |![Segno di spunta per indicare il supporto per questa applicazione][1] |
-| Microsoft Teams |![Segno di spunta per indicare il supporto per questa applicazione][1] |
-| OneNote |![Segno di spunta per indicare il supporto per questa applicazione][1] |
-| OneDrive |![Segno di spunta per indicare il supporto per questa applicazione][1] |
-| Outlook |![Segno di spunta per indicare il supporto per questa applicazione][1] |
-| Power BI |![Segno di spunta per indicare il supporto per questa applicazione][1] |
-| Skype for Business Online |![Segno di spunta per indicare il supporto per questa applicazione][1] |
-| Word / Excel / PowerPoint |![Segno di spunta per indicare il supporto per questa applicazione][1] |
-| Yammer |![Segno di spunta per indicare il supporto per questa applicazione][1] |
+| App Azure Information Protection |![Segno di spunta che significa supporto per questa applicazione][1] |
+| Portale aziendale Intune |![Segno di spunta che significa supporto per questa applicazione][1] |
+| Microsoft Teams |![Segno di spunta che significa supporto per questa applicazione][1] |
+| OneNote |![Segno di spunta che significa supporto per questa applicazione][1] |
+| OneDrive |![Segno di spunta che significa supporto per questa applicazione][1] |
+| Outlook |![Segno di spunta che significa supporto per questa applicazione][1] |
+| Power BI |![Segno di spunta che significa supporto per questa applicazione][1] |
+| Skype for Business |![Segno di spunta che significa supporto per questa applicazione][1] |
+| Word / Excel / PowerPoint |![Segno di spunta che significa supporto per questa applicazione][1] |
+| Yammer |![Segno di spunta che significa supporto per questa applicazione][1] |
 
 ## <a name="requirements"></a>Requisiti
 

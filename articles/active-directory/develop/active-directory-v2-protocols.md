@@ -2,28 +2,24 @@
 title: Informazioni sui protocolli di autorizzazione supportati dalla piattaforma di identità Microsoft | Azure
 description: Guida ai protocolli OAuth 2,0 e OpenID Connect supportati dall'endpoint della piattaforma di identità Microsoft.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 5fb4fa1b-8fc4-438e-b3b0-258d8c145f22
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 446d7178973c1d43d55ff89c429b05c2a10118ba
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 50f2b4d5da2cdda35de0adc5dc646065f2b64a41
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835284"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74844703"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Protocolli della piattaforma di identità Microsoft
 
@@ -64,19 +60,19 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 
 Dove `{tenant}` può assumere uno dei quattro diversi valori:
 
-| Value | Descrizione |
+| Value | Description |
 | --- | --- |
 | `common` | Consente agli utenti con account Microsoft e account aziendali o dell'istituto d'istruzione di Azure AD di accedere all'applicazione. |
 | `organizations` | Consente solo agli utenti con account aziendali o dell'istituto d'istruzione di Azure AD di accedere all'applicazione. |
 | `consumers` | Consente solo agli utenti con account Microsoft personali (MSA) di accedere all'applicazione. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` o `contoso.onmicrosoft.com` | Consente solo agli utenti con account aziendali o dell'istituto d'istruzione di un determinato tenant di Azure AD di accedere all'applicazione. È possibile usare il nome di dominio descrittivo del tenant di Azure AD o l'identificatore GUID. |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` oppure `contoso.onmicrosoft.com` | Consente solo agli utenti con account aziendali o dell'istituto d'istruzione di un determinato tenant di Azure AD di accedere all'applicazione. È possibile usare il nome di dominio descrittivo del tenant di Azure AD o l'identificatore GUID. |
 
 Per informazioni su come interagire con questi endpoint, scegliere un tipo di app specifico nella sezione [Protocolli](#protocols) e seguire i collegamenti per altre informazioni.
 
 > [!TIP]
 > Qualsiasi app registrata in Azure AD può usare l'endpoint della piattaforma di identità Microsoft, anche se non eseguono l'accesso agli account personali.  In questo modo, è possibile eseguire la migrazione delle applicazioni esistenti a Microsoft Identity Platform e [MSAL](reference-v2-libraries.md) senza ricreare l'applicazione.  
 
-## <a name="tokens"></a>token
+## <a name="tokens"></a>Token
 
 L'implementazione della piattaforma di identità Microsoft di OAuth 2,0 e OpenID Connect fanno ampio uso dei token di connessione, inclusi i token di connessione rappresentati come token JWT. Un token di connessione è un token di sicurezza leggero che consente al "portatore" di accedere a una risorsa protetta. In questo senso, per "portatore" si intende qualsiasi parte che sia in grado di presentare il token. Sebbene un'entità debba eseguire prima l'autenticazione con la piattaforma di identità Microsoft per ricevere il bearer token, se non vengono eseguite le operazioni necessarie per proteggere il token nella trasmissione e nell'archiviazione, è possibile intercettarlo e usarlo da parte di un'entità non intenzionale. Molti token di sicurezza hanno meccanismi integrati per prevenire l'uso non autorizzato, ma i token di connessione ne sono sprovvisti e devono essere trasportati su un canale protetto, ad esempio Transport Layer Security (HTTPS). Se un token di connessione viene trasmesso senza protezione, un utente malintenzionato può usare un attacco man-in-the-middle per acquisire il token e usarlo per l'accesso non autorizzato a una risorsa protetta. Gli stessi principi di sicurezza si applicano quando un token di connessione viene archiviato o memorizzato nella cache per un uso futuro. Assicurarsi sempre che l'app trasmetta e archivi i token di connessione in modo sicuro. Per altre considerazioni sulla sicurezza dei token di connessione, vedere la [sezione 5 della specifica RFC 6750](https://tools.ietf.org/html/rfc6750).
 

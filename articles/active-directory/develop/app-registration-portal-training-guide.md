@@ -1,31 +1,27 @@
 ---
-title: Transizione dal portale di registrazione delle applicazioni alla nuova esperienza Registrazioni app nel portale di Azure
+title: Passaggio dal portale di registrazione delle applicazioni alla nuova esperienza Registrazioni app nel portale di Azure
 titleSuffix: Microsoft identity platform
 description: Introduzione alla nuova esperienza di registrazione delle app nel portale di Azure
 services: active-directory
-documentationcenter: ''
 author: archieag
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/8/2019
 ms.author: aragra
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e9c09ce2d997c58e2725c411fff0b87a0f5071b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 93af32e99e725a72c20c05690b2a96c74082e2ff
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013034"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74844517"
 ---
-# <a name="transitioning-from-application-registration-portal-to-the-new-app-registrations-experience-in-the-azure-portal"></a>Transizione dal portale di registrazione delle applicazioni alla nuova esperienza Registrazioni app nel portale di Azure
+# <a name="transitioning-from-application-registration-portal-to-the-new-app-registrations-experience-in-the-azure-portal"></a>Passaggio dal portale di registrazione delle applicazioni alla nuova esperienza Registrazioni app nel portale di Azure
 
 Sono stati apportati numerosi miglioramenti alla nuova esperienza [registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) nel portale di Azure. Se si ha familiarità con l'esperienza del portale di registrazione delle applicazioni (apps.dev.microsoft.com) per la registrazione o la gestione di applicazioni convergenti, denominate esperienza precedente, questa guida alla formazione consente di iniziare a usare la nuova esperienza.
 
@@ -55,7 +51,7 @@ Sono stati apportati numerosi miglioramenti alla nuova esperienza [registrazioni
 
 -   Il nuovo elenco di app include due colonne aggiuntive: **create sulla** colonna e sui **certificati & colonna Secrets** che mostra lo stato (corrente, scadenza imminente o scaduta) delle credenziali registrate nell'app.
 
-## <a name="new-app-registration"></a>Nuova registrazione per l'app
+## <a name="new-app-registration"></a>Registrazione nuova applicazione
 
 Nell'esperienza precedente, per registrare un'app convergente, è necessario specificare solo un nome. Le app create sono state registrate come app convergenti che supportano tutte le directory dell'organizzazione (multi-tenant) e gli account Microsoft personali.  Questa operazione non può essere modificata tramite la vecchia esperienza, rendendo difficile la creazione di app che supportano solo account aziendali (multi-tenant o tenant singolo). [Altre informazioni sui tipi di account supportati](v2-supported-account-types.md)
 
@@ -87,12 +83,12 @@ Nella nuova esperienza, i **segreti dell'applicazione** sono stati rinominati in
 ## <a name="platformsauthentication-reply-urlsredirect-uris"></a>Piattaforme/autenticazione: URL di risposta/URI di Reindirizzamento
 Nell'esperienza precedente, un'app aveva una sezione Platforms per l'API Web, nativa e Web per configurare gli URL di reindirizzamento, l'URL di disconnessione e il flusso implicito.
 
-Nella nuova esperienza, gli URL di risposta sono reperibili nella sezione relativa all'autenticazione di un'app\'s. Vengono inoltre definiti URI di reindirizzamento e il formato degli URI di reindirizzamento è stato modificato. È necessario che siano associati a un tipo di app (Web o client pubblico-mobile e desktop). [Altre informazioni](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
+Nella nuova esperienza, gli URL di risposta sono reperibili nella sezione relativa all'autenticazione di un'app\'s. Vengono inoltre definiti URI di reindirizzamento e il formato degli URI di reindirizzamento è stato modificato. È necessario che siano associati a un tipo di app (Web o client pubblico-mobile e desktop). [Ulteriori informazioni](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
 
 Le API Web sono configurate nella pagina esporre un'API.
 
 > [!NOTE] 
-> Provare la nuova esperienza di impostazioni di autenticazione in cui è possibile configurare le impostazioni per l'applicazione in base alla piattaforma o al dispositivo di destinazione. [Altre informazioni](quickstart-configure-app-access-web-apis.md#configure-platform-settings-for-your-application)
+> Provare la nuova esperienza di impostazioni di autenticazione in cui è possibile configurare le impostazioni per l'applicazione in base alla piattaforma o al dispositivo di destinazione. [Ulteriori informazioni](quickstart-configure-app-access-web-apis.md#configure-platform-settings-for-your-application)
 
 ## <a name="microsoft-graph-permissionsapi-permissions"></a>Autorizzazioni Microsoft Graph/autorizzazioni API
 
@@ -103,7 +99,7 @@ Le API Web sono configurate nella pagina esporre un'API.
 
 -   L'esperienza precedente non disponeva di un pulsante **Concedi autorizzazioni** . Nella nuova esperienza è disponibile una sezione di consenso alla concessione con un pulsante di **autorizzazione Concedi amministratore** nella sezione autorizzazioni API di un'app. Solo un amministratore può concedere il consenso e questo pulsante è abilitato solo per gli amministratori. Quando un amministratore seleziona il pulsante di **autorizzazione Concedi amministratore** , viene concesso il consenso dell'amministratore a tutte le autorizzazioni richieste.
 
-## <a name="profile"></a>profilo
+## <a name="profile"></a>Profilo
 Nell'esperienza precedente, il profilo aveva il logo, l'URL della Home page, l'URL delle condizioni di servizio e la configurazione URL dell'informativa sulla privacy. Nella nuova esperienza sono disponibili nella pagina personalizzazione.
 
 ## <a name="application-manifest"></a>Manifesto dell'applicazione

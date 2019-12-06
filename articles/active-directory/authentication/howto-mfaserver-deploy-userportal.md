@@ -1,22 +1,22 @@
 ---
-title: Portale per gli utenti per il Server MFA di Azure - Azure Active Directory
+title: Portale utenti per il server di autenticazione a più fattori di Azure-Azure Active Directory
 description: Introduzione ad Azure MFA e al portale utenti.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f6feceff234bed51bcf6adf34f51313fa348d77
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 886e6a33428d672a40eae821e035d0b5b7f25578
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056043"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848171"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portale utenti per il server Azure Multi-Factor Authentication
 
@@ -29,14 +29,14 @@ Gli utenti accedono al portale utenti con il nome utente e la password normali, 
 A seconda dell'ambiente, è possibile distribuire il portale utenti nello stesso server in cui è in esecuzione il server Azure Multi-Factor Authentication o in un altro server con connessione Internet.
 
 > [!IMPORTANT]
-> A partire dal 1 ° luglio 2019, Microsoft non offrirà non è più Server MFA per le nuove distribuzioni. Nuovi clienti che si vuole richiedere l'autenticazione mfa agli utenti devono usare Azure multi-Factor Authentication basato sul cloud. I clienti esistenti che hanno attivato il Server MFA prima del 1 ° luglio sarà in grado di scaricare la versione più recente, gli aggiornamenti futuri e generare le credenziali di attivazione come di consueto.
+> A partire dal 1 ° luglio 2019, Microsoft non offrirà più il server multi-factor authentication per le nuove distribuzioni. I nuovi clienti che desiderano richiedere l'autenticazione a più fattori dagli utenti devono usare Azure Multi-Factor Authentication basato sul cloud. I clienti esistenti che hanno attivato il server di autenticazione a più fattori prima del 1 ° luglio potranno scaricare la versione più recente, gli aggiornamenti futuri e generare le credenziali di attivazione come di consueto.
 
-![Nella pagina di accesso portale utenti del Server MFA](./media/howto-mfaserver-deploy-userportal/portal.png)
+![Pagina di accesso al portale utenti del server multi-factor authentication](./media/howto-mfaserver-deploy-userportal/portal.png)
 
 > [!NOTE]
 > Il portale utenti è disponibile unicamente con il server Multi-Factor Authentication. Se si usa Multi-Factor Authentication nel cloud, gli utenti possono vedere gli articoli [Configurare l'account per la verifica in due passaggi](../user-help/multi-factor-authentication-end-user-first-time.md) o [Gestire le impostazioni per la verifica in due passaggi](../user-help/multi-factor-authentication-end-user-manage-settings.md).
 
-## <a name="install-the-web-service-sdk"></a>Installare l'SDK del servizio Web
+## <a name="install-the-web-service-sdk"></a>Installare SDK servizio Web
 
 In entrambi gli scenari, se l'SDK del servizio Web Azure Multi-Factor Authentication **non** è già installato nel server Azure Multi-Factor Authentication (MFA), seguire questa procedura:
 
@@ -92,7 +92,7 @@ Se l'organizzazione fa uso dell'app Microsoft Authenticator come uno dei metodi 
 
 Per installare il portale utenti su un server diverso dal server Azure Multi-Factor Authentication, è necessario eseguire questi passaggi:
 
-1. **Aprire il server Multi-Factor Authentication**, passare al percorso di installazione, ad esempio C:\Programmi\Multi-Factor Authentication Server, e copiare il file **MultiFactorAuthenticationUserPortalSetup64** in una posizione accessibile per il server con connessione Internet in cui verrà installato.
+1. **Aprire il server Multi-Factor Authentication**, passare al percorso di installazione, ad esempio C:\Program Files\Multi-Factor Authentication Server, e copiare il file **MultiFactorAuthenticationUserPortalSetup64** in una posizione accessibile per il server con connessione Internet in cui verrà installato.
 2. **Nel server Web con connessione Internet** eseguire il file di installazione MultiFactorAuthenticationUserPortalSetup64 come amministratore, modificare il sito se necessario ed eventualmente sostituire il nome della directory virtuale con un nome breve.
 3. Associare un certificato SSL al sito in IIS.
 
@@ -118,7 +118,7 @@ Il portale utenti è ora installato. È necessario configurare il server Azure M
 
 1. Nella console del server Azure Multi-Factor Authentication fare clic sull'icona del **portale utenti**. Nella scheda Impostazioni immettere l'URL del portale utenti nella casella di testo **URL portale utenti**. Se la funzionalità di posta elettronica è stata abilitata, questo URL viene incluso nei messaggi di posta elettronica inviati agli utenti quando vengono importati nel server Azure Multi-Factor Authentication.
 2. Scegliere le impostazioni che si desidera utilizzare nel portale utenti. Ad esempio, se gli utenti sono autorizzati a scegliere i relativi metodi di autenticazione, verificare che sia selezionata l'opzione **Consenti agli utenti di selezionare il metodo**.
-3. Specificare gli amministratori nella scheda **Amministratori**. È possibile creare autorizzazioni amministrative granulari usando le caselle di controllo e i menu a discesa nelle caselle Aggiungi/Modifica.
+3. Definire gli utenti che devono essere amministratori nella scheda **amministratori** . È possibile creare autorizzazioni amministrative granulari usando le caselle di controllo e i menu a discesa nelle caselle Aggiungi/modifica.
 
 Configurazione facoltativa:
 
@@ -130,7 +130,7 @@ Configurazione facoltativa:
 
 Il server Azure Multi-Factor Authentication offre diverse opzioni per il portale utenti. La tabella seguente include un elenco di queste opzioni e una spiegazione dell'uso a cui sono destinate.
 
-| Impostazioni del portale utenti | Descrizione |
+| Impostazioni del portale utenti | Description |
 |:--- |:--- |
 | URL portale utenti | Immettere l'URL in cui viene ospitato il portale. |
 | Autenticazione primaria | Specificare il tipo di autenticazione da usare quando si accede al portale. Autenticazione di Windows, Radius o LDAP. |
@@ -146,15 +146,15 @@ Il server Azure Multi-Factor Authentication offre diverse opzioni per il portale
 | Abilitazione della registrazione | Abilita la registrazione nel portale utenti. I file di log si trovano in: C:\Programmi\Multi-Factor Authentication Server\Logs. |
 
 > [!IMPORTANT]
-> A partire da marzo del 2019 le opzioni telefonata non sarà disponibile per gli utenti Server MFA nei tenant gratuiti/versione di valutazione AD Azure. Messaggi SMS non sono interessati da questa modifica. Chiamata telefonica continuerà a essere disponibile per gli utenti a pagamento di tenant di Azure AD. Questa modifica interessa solo i tenant gratuiti/versione di valutazione AD Azure.
+> A partire da marzo 2019, le opzioni per le telefonate non saranno disponibili per gli utenti del server multi-factor authentication in tenant Azure AD gratuiti/di valutazione. Questa modifica non ha alcun effetto sui messaggi SMS. La telefonata continuerà a essere disponibile per gli utenti in tenant Azure AD a pagamento. Questa modifica ha effetto solo sui tenant di Azure AD gratuiti/di valutazione.
 
 Queste impostazioni diventano visibili all'utente nel portale dopo la relativa abilitazione e l'accesso al portale utenti.
 
-![Gestire l'account del Server MFA usando il portale utenti](./media/howto-mfaserver-deploy-userportal/portalsettings.png)
+![Gestire l'account del server multi-factor authentication usando il portale per gli utenti](./media/howto-mfaserver-deploy-userportal/portalsettings.png)
 
 ### <a name="self-service-user-enrollment"></a>Registrazione utente in modalità self-service
 
-Se si vuole che gli utenti accedano e si registrino, è necessario selezionare le opzioni **Consenti agli utenti di accedere** e **Consenti registrazione utente** nella scheda Impostazioni. Tenere presente che le impostazioni selezionate influiscono sull'esperienza di accesso degli utenti.
+Se si vuole che gli utenti accedano e si registrino, è necessario selezionare le opzioni **Consenti agli utenti di accedere** e **Consenti registrazione utente** nella scheda Impostazioni. tenere presente che le impostazioni selezionate influiscono sull'esperienza di accesso dell'utente.
 
 Quando ad esempio un utente accede per la prima volta al portale utenti, viene visualizzata la pagina di configurazione degli utenti di Azure Multi-Factor Authentication. A seconda della configurazione di Azure Multi-Factor Authentication, l'utente potrebbe essere in grado di selezionare il metodo di autenticazione.
 
@@ -166,7 +166,7 @@ Se l'utente deve usare un PIN quando esegue l'autenticazione, la pagina richiede
 
 Se si seleziona il metodo di verifica tramite SMS o questo metodo è stato preconfigurato, la pagina richiede il numero di telefono cellulare. Se l'utente deve usare un PIN quando esegue l'autenticazione, la pagina richiede anche di immettere un PIN.  Dopo aver immesso il numero di telefono e il PIN (se applicabile), l'utente fa clic sul pulsante **Invia SMS per autenticare utente corrente**. Azure Multi-Factor Authentication esegue la verifica tramite SMS al cellulare dell'utente. L'utente riceve l'SMS con un passcode monouso, quindi risponde al messaggio con tale passcode monouso e il proprio PIN (se applicabile).
 
-![Verifica del portale utenti tramite SMS](./media/howto-mfaserver-deploy-userportal/text.png)
+![Verifica del portale utenti con SMS](./media/howto-mfaserver-deploy-userportal/text.png)
 
 Se si seleziona il metodo di verifica tramite app per dispositivi mobili, la pagina richiede all'utente di installare l'app Microsoft Authenticator nel dispositivo e di generare un codice di attivazione. Dopo aver installato l'app, l'utente fa clic sul pulsante Genera codice di attivazione.
 

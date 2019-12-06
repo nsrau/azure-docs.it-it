@@ -1,20 +1,21 @@
 ---
-title: Creare avvisi relativi alle prestazioni usando monitoraggio di Azure per i contenitori | Microsoft Docs
-description: Questo articolo descrive come usare monitoraggio di Azure per i contenitori per creare avvisi personalizzati in base alle query di log per l'utilizzo della memoria e della CPU.
+title: Creare avvisi sulle prestazioni per il monitoraggio di Azure per i contenitori | Microsoft Docs
+description: Questo articolo descrive come creare avvisi personalizzati in base alle query di log per l'utilizzo della memoria e della CPU da monitoraggio di Azure per i contenitori.
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 04/26/2019
-ms.openlocfilehash: dd92f5aedd1fbc51531730e6a7826322570cd1b1
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 66baa3095744c8b486430d587b992ba507d87733
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195010"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74841626"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Come configurare gli avvisi per i problemi di prestazioni in monitoraggio di Azure per i contenitori
+
 Monitoraggio di Azure per i contenitori monitora le prestazioni dei carichi di lavoro del contenitore distribuiti nelle istanze di contenitore di Azure o nei cluster Kubernetes gestiti ospitati nel servizio Azure Kubernetes (AKS).
 
 Questo articolo descrive come abilitare gli avvisi per le situazioni seguenti:
@@ -30,6 +31,7 @@ Per segnalare un utilizzo elevato della CPU o della memoria o di spazio su disco
 Se non si ha familiarità con gli avvisi di monitoraggio di Azure, vedere [Panoramica degli avvisi in Microsoft Azure prima di](../platform/alerts-overview.md) iniziare. Per altre informazioni sugli avvisi che usano le query di log, vedere [avvisi del log in monitoraggio di Azure](../platform/alerts-unified-log.md). Per altre informazioni sugli avvisi delle metriche, vedere la pagina relativa agli [avvisi delle metriche in monitoraggio di Azure](../platform/alerts-metric-overview.md).
 
 ## <a name="resource-utilization-log-search-queries"></a>Query di ricerca log di utilizzo risorse
+
 Le query in questa sezione supportano ogni scenario di avviso. Sono usati nel passaggio 7 della sezione [Create alert](#create-an-alert-rule) di questo articolo.
 
 La query seguente calcola l'utilizzo medio della CPU come media di utilizzo della CPU dei nodi membri ogni minuto.  
@@ -278,7 +280,8 @@ InsightsMetrics
 ```
 
 ## <a name="create-an-alert-rule"></a>Creare una regola di avviso
-Seguire questa procedura per creare un avviso del log in monitoraggio di Azure usando una delle regole di ricerca dei log fornite in precedenza.  
+
+Seguire questa procedura per creare un avviso del log in monitoraggio di Azure usando una delle regole di ricerca dei log fornite in precedenza. Per creare usando un modello di Azure Resource Manager, vedere [esempi di creazione di avvisi di log con il modello di risorsa di Azure](../platform/alerts-log.md#sample-log-alert-creation-using-azure-resource-template).
 
 >[!NOTE]
 >La procedura seguente per creare una regola di avviso per l'utilizzo delle risorse del contenitore richiede di passare a una nuova API per gli avvisi del log, come descritto in [Switch API preferenza for log alerts](../platform/alerts-log-api-switch.md).
@@ -299,7 +302,7 @@ Seguire questa procedura per creare un avviso del log in monitoraggio di Azure u
     1. Per configurare un avviso per l'utilizzo della CPU o della memoria del contenitore, in **Aggregate on**selezionare **containerName**. Per configurare l'avviso per nodo cluster su disco basso, selezionare **ClusterId**.
     1. Nella sezione **valutato in base** a impostare il valore del **periodo** su **60 minuti**. La regola viene eseguita ogni 5 minuti e restituisce i record creati nell'ultima ora dall'ora corrente. Impostazione del periodo di tempo su un'ampia finestra account per la potenziale latenza dei dati. Garantisce inoltre che la query restituisca dati per evitare un falso negativo in cui l'avviso non viene mai attivato.
 
-9. Selezionare **fine** per completare la regola di avviso.
+9. Selezionare **per completare** la regola di avviso.
 10. Immettere un nome nel campo **Nome regola di avviso** . Specificare una **Descrizione** che fornisca dettagli sull'avviso. E selezionare un livello di gravità appropriato dalle opzioni fornite.
 11. Per attivare immediatamente la regola di avviso, accettare il valore predefinito per **Abilita regola al momento della creazione**.
 12. Selezionare un **gruppo di azioni** esistente o creare un nuovo gruppo. Questo passaggio garantisce che vengano eseguite le stesse azioni ogni volta che viene attivato un avviso. Configurare in base alle modalità di gestione degli eventi imprevisti da parte del team operativo IT o DevOps.

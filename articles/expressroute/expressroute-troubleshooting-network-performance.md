@@ -1,5 +1,5 @@
 ---
-title: 'Risolvere i problemi di prestazioni delle reti virtuali: Azure | Microsoft Docs'
+title: 'Risolvere i problemi relativi alle prestazioni del collegamento di rete: Azure'
 description: Questa pagina fornisce un metodo standardizzato di test delle prestazioni dei collegamenti di rete di Azure.
 services: expressroute
 author: tracsman
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
-ms.openlocfilehash: 9ec310ffaa9d2bb297abde9341bf7b6c2dc763b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bb68919fba731caa32dcca3f4c991b8881afc6f9
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60883317"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74869647"
 ---
 # <a name="troubleshooting-network-performance"></a>Risoluzione dei problemi di prestazioni di rete
 ## <a name="overview"></a>Panoramica
@@ -28,7 +28,7 @@ Questo documento mostra come testare la latenza di rete e la larghezza di banda 
 
 ## <a name="network-components"></a>Componenti di rete
 Prima di approfondire la risoluzione dei problemi, esaminiamo alcuni componenti e termini comuni. Attraverso questa discussione verrà preso in esame ogni componente della catena end-to-end che fornisce connettività in Azure.
-[![1]][1]
+![1][1]
 
 In generale, descriverò tre domini di routing di rete principali:
 
@@ -59,7 +59,7 @@ La maggior parte dei problemi di rete può essere analizzata e isolata usando st
 Ho incluso tutti questi strumenti e questi metodi in un modulo PowerShell (AzureCT) che è possibile installare e usare.
 
 ### <a name="azurect---the-azure-connectivity-toolkit"></a>AzureCT: Azure Connectivity Toolkit
-Il modulo PowerShell di AzureCT include due componenti: [Availability Testing][Availability Doc] (Test della disponibilità) e [Performance Testing][Performance Doc] (Test delle prestazioni). Poiché questo documento tratta solo il Performance Testing (Test delle prestazioni), occorre concentrarsi sui due comandi del Link Performance (Prestazioni dei collegamenti) inclusi in questo modulo PowerShell.
+Il modulo AzureCT di PowerShell prevede due componenti che [testano la disponibilità][Availability Doc] e [test delle prestazioni][Performance Doc]. Poiché questo documento tratta solo il Performance Testing (Test delle prestazioni), occorre concentrarsi sui due comandi del Link Performance (Prestazioni dei collegamenti) inclusi in questo modulo PowerShell.
 
 L'uso di questo kit di strumenti per il Performance Testing (Test delle prestazioni) include tre passaggi fondamentali. 1) Installare il modulo PowerShell, 2) Installare le applicazioni di supporto iPerf e PSPing 3) Eseguire il test delle prestazioni.
 
@@ -93,7 +93,7 @@ L'uso di questo kit di strumenti per il Performance Testing (Test delle prestazi
 
     Il formato di output di PowerShell è simile a questo:
 
-    [![4]][4]
+    ![4][4]
 
     I risultati dettagliati di tutti i test iPerf e PSPing si trovano in singoli file di testo nella directory degli strumenti di AzureCT in "C:\ACTTools".
 
@@ -118,7 +118,7 @@ Non dimenticare inoltre di esaminare gli altri livelli del modello OSI. È facil
 ## <a name="advanced-expressroute-troubleshooting"></a>Risoluzione avanzata dei problemi di ExpressRoute
 Se non si conoscono i perimetri del cloud, l'isolamento dei componenti di Azure può essere difficile. Quando si usa ExpressRoute, il perimetro è un componente di rete denominato Microsoft Enterprise Edge (MSEE). **Quando si usa ExpressRoute**, MSEE è il primo punto di contatto nella rete di Microsoft e l'ultimo hop fuori dalla rete Microsoft. Quando si crea un oggetto di connessione tra il gateway della rete virtuale e il circuito ExpressRoute, si sta effettivamente eseguendo una connessione a MSEE. Riconoscere MSEE come primo o ultimo hop (a seconda della direzione in cui si sta procedendo) è fondamentale per isolare i problemi di Azure Network, per dimostrare che il problema risiede in Azure o più a valle nella WAN o nella rete aziendale. 
 
-[![2]][2]
+![2][2]
 
 >[!NOTE]
 > Si noti che MSEE non si trova nel cloud di Azure. ExpressRoute si trova effettivamente ai margini della rete Microsoft, non proprio in Azure. Una volta che si è connessi a un MSEE con ExpressRoute, si è connessi alla rete Microsoft, dalla quale si può quindi accedere a qualsiasi servizio cloud, come Office 365 (con Peering Microsoft) o Azure (con Peering Microsoft e/o privato).
@@ -130,7 +130,7 @@ Se due reti virtuali (VNet A e B nel diagramma) sono connesse allo **stesso** ci
 ### <a name="test-plan"></a>Piano di test
 1. Eseguire il test di Get-LinkPerformance tra VM1 e VM2. Questo test consente di comprendere se il problema è locale o meno. Se questo test produce risultati accettabili di latenza e larghezza di banda, è possibile contrassegnare la rete virtuale locale come corretta.
 2. Supponendo che il traffico della rete virtuale locale sia corretto, eseguire il test Get-LinkPerformance tra VM1 e VM3. Questo test esegue la connessione attraverso la rete Microsoft fino a MSEE e di nuovo verso Azure. Se questo test produce risultati accettabili di latenza e larghezza di banda, è possibile contrassegnare la rete di Azure come corretta.
-3. Se Azure viene escluso, è possibile eseguire una sequenza analoga di test sulla rete aziendale. Se anche questi test hanno esito positivo, è giunto il momento di collaborare con il proprio provider di servizi o ISP per eseguire la diagnosi della connessione della rete WAN. Esempio: Eseguire il test tra due filiali o tra il desktop e un server del data center. A seconda di ciò che si sta testando, trovare gli endpoint (server, PC e così via) che possono verificare tale percorso.
+3. Se Azure viene escluso, è possibile eseguire una sequenza analoga di test sulla rete aziendale. Se anche questi test hanno esito positivo, è giunto il momento di collaborare con il proprio provider di servizi o ISP per eseguire la diagnosi della connessione della rete WAN. Esempio: Eseguire il test tra due filiali, o tra il desktop e un server del data center. A seconda di ciò che si sta testando, trovare gli endpoint (server, PC e così via) che possono verificare tale percorso.
 
 >[!IMPORTANT]
 > È fondamentale che per ogni test si prenda nota dell'ora del giorno in cui si esegue il test e che si registrino i risultati in una posizione comune (ad esempio OneNote o Excel). Ciascuna esecuzione dei test deve avere un output identico, in modo da poter confrontare i dati risultanti dalle esecuzioni dei test e da non avere "buchi" nei dati. La coerenza tra più test è la ragione principale per cui utilizzo AzureCT nella risoluzione dei problemi. Il *trucco* non sta negli scenari di caricamento esatti caricati, ma nel fatto di ottenere un *output di dati e test coerenti* da tutti i test. Registrare l'ora e avere dati coerenti ogni volta è particolarmente utile se in seguito si scopre che il problema è sporadico. Occorre essere accurati all'inizio della raccolta di dati, in modo da evitare di ripetere per ore i test degli stessi scenari (l'ho imparato a mie spese molti anni fa).
@@ -144,7 +144,7 @@ Per problemi di rete aziendale, il reparto IT interno o un provider di servizi d
 
 Per quel che riguarda la WAN, la condivisione dei risultati del test con il provider di servizi o l'ISP può aiutarli a tenere tutto sotto controllo e impedire che riprendano alcuni dei test già effettuati. Non occorre offendersi se decidessero di verificare di persona i risultati già ottenuti. "Fidati, ma controlla" è un buon motto quando si tratta di risolvere i problemi dai risultati forniti da altre persone.
 
-Con Azure, una volta isolato il problema nel modo più preciso possibile, è necessario esaminare la [Documentazione di Microsoft Azure] [ Network Docs] e quindi, se ancora necessario, [aprire un ticket di supporto][Ticket Link].
+Con Azure, dopo aver isolato il problema nel modo più dettagliato possibile, è possibile esaminare la [documentazione della rete di Azure][Network Docs] e, se ancora necessario, [aprire un ticket di supporto][Ticket Link].
 
 ## <a name="references"></a>Riferimenti
 ### <a name="latencybandwidth-expectations"></a>Aspettative in termini di latenza e larghezza di banda
@@ -160,7 +160,7 @@ Configurazione di test:
  - Un circuito ExpressRoute Premium da 10 Gbps nella posizione identificata con Peering privato abilitato.
  - Una rete virtuale di Azure con un gateway UltraPerformance nella regione specificata.
  - Una macchina virtuale DS5v2 che esegue Windows Server 2016 sulla rete virtuale. La macchina virtuale non è stata aggiunta a un dominio ed è stata generata dall'immagine di Azure predefinita (nessuna ottimizzazione o personalizzazione) con AzureCT installato.
- - Tutti i test sono stati eseguiti usando il comando Get-LinkPerformance di AzureCT, con un test di carico di 5 minuti per ciascuna delle sei esecuzioni dei test. Ad esempio:
+ - Tutti i test sono stati eseguiti usando il comando Get-LinkPerformance di AzureCT, con un test di carico di 5 minuti per ciascuna delle sei esecuzioni dei test. ad esempio:
 
     ```powershell
     Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 300
@@ -169,7 +169,7 @@ Configurazione di test:
  - I dati della colonna "Latenza" provengono dal test senza carico (un test di latenza TCP senza iPerf in esecuzione).
  - I dati della colonna "Massima larghezza di banda" provengono dal test di carico del flusso di 16 TCP con una dimensione della finestra di 1 Mb.
 
-[![3]][3]
+![3][3]
 
 ### <a name="latencybandwidth-results"></a>Risultati di latenza e larghezza di banda
 >[!IMPORTANT]
@@ -179,27 +179,27 @@ Configurazione di test:
 
 | | | | | | |
 |-|-|-|-|-|-|
-|ExpressRoute<br/>Località|Azure<br/>Region|Distanza<br/>stimata (km)|Latenza|1 Sessione<br/>Larghezza di banda|Massima<br/>Larghezza di banda|
+|ExpressRoute<br/>Località|Azure<br/>Area geografica|Distanza<br/>stimata (km)|Latency|1 Sessione<br/>Larghezza di banda|Massima<br/>Larghezza di banda|
 | Seattle | Stati Uniti occidentali 2        |    191 km |   5 ms | 262,0 Mbit/sec |  3,74 Gbit/sec |
 | Seattle | Stati Uniti occidentali          |  1\.094 km |  18 ms |  82,3 Mbit/sec |  3,70 Gbit/sec |
 | Seattle | Stati Uniti centrali       |  2\.357 km |  40 ms |  38,8 Mbit/sec |  2,55 Gbit/sec |
 | Seattle | Stati Uniti centro-meridionali |  2\.877 km |  51 ms |  30,6 Mbit/sec |  2,49 Gbit/sec |
 | Seattle | Stati Uniti centro-settentrionali |  2\.792 km |  55 ms |  27,7 Mbit/sec |  2,19 Gbit/sec |
 | Seattle | Stati Uniti orientali 2        |  3\.769 km |  73 ms |  21,3 Mbit/sec |  1,79 Gbit/sec |
-| Seattle | Stati Uniti orientali          |  3\.699 km |  74 ms |  21,1 Mbit/sec |  1,78 Gbit/sec |
+| Seattle | Stati Uniti Orientali          |  3\.699 km |  74 ms |  21,1 Mbit/sec |  1,78 Gbit/sec |
 | Seattle | Giappone orientale       |  7\.705 km | 106 ms |  14,6 Mbit/sec |  1,22 Gbit/sec |
 | Seattle | Regno Unito meridionale         |  7\.708 km | 146 ms |  10,6 Mbit/sec |   896 Mbit/sec |
 | Seattle | Europa occidentale      |  7\.834 km | 153 ms |  10,2 Mbit/sec |   761 Mbit/sec |
-| Seattle | Australia orientale   | 12\.484 km | 165 ms |   9,4 Mbit/sec |   794 Mbit/sec |
-| Seattle | Asia sud-orientale   | 12\.989 km | 170 ms |   9,2 Mbit/sec |   756 Mbit/sec |
-| Seattle | Brasile meridionale *   | 10\.930 km | 189 ms |   8,2 Mbit/sec |   699 Mbit/sec |
-| Seattle | India meridionale      | 12\.918 km | 202 ms |   7,7 Mbit/sec |   634 Mbit/sec |
+| Seattle | Australia orientale   | 12.484 km | 165 ms |   9,4 Mbit/sec |   794 Mbit/sec |
+| Seattle | Asia sud-orientale   | 12.989 km | 170 ms |   9,2 Mbit/sec |   756 Mbit/sec |
+| Seattle | Brasile meridionale *   | 10.930 km | 189 ms |   8,2 Mbit/sec |   699 Mbit/sec |
+| Seattle | India meridionale      | 12.918 km | 202 ms |   7,7 Mbit/sec |   634 Mbit/sec |
 
 \* La latenza in Brasile è un buon esempio in cui la distanza in linea d'aria differisce notevolmente dalla distanza in fibra ottica. Mentre la latenza dovrebbe normalmente essere di circa 160 ms, è di 189 ms. Questa differenza rispetto alle mie aspettative potrebbe indicare un problema di rete da qualche parte, ma molto probabilmente la fibra ottica in Brasile non va in linea retta e percorre circa 1.000 km in più per arrivare da Seattle.
 
 ## <a name="next-steps"></a>Passaggi successivi
-1. Scaricare Azure Connectivity Toolkit da GitHub all'indirizzo [https://aka.ms/AzCT][ACT]
-2. Seguire le istruzioni per il [test delle prestazioni dei collegamenti][Performance Doc]
+1. Scaricare Azure Connectivity Toolkit da GitHub all' [https://aka.ms/AzCT][ACT]
+2. Seguire le istruzioni per il [test delle prestazioni di collegamento][Performance Doc]
 
 <!--Image References-->
 [1]: ./media/expressroute-troubleshooting-network-performance/network-components.png "Componenti di rete di Azure"

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98668fc836aa21bdd14831c4a801557cdab5a202
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 24fa03fe12f584e9da32b547f0d8128e5ff28803
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381670"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847729"
 ---
 # <a name="azure-ad-password-protection-operational-procedures"></a>procedure operative della password di protezione di Azure AD
 
@@ -32,7 +32,7 @@ Seguire le indicazioni fornite nell'articolo [Configurazione dell'elenco persona
 1. Impostare **Enable Password Protection on Windows Server Active Directory** (Abilita la password di protezione in Windows Server Active Directory) su **Sì**
 1. Come indicato nella [Guida alla distribuzione](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy), è consigliabile impostare inizialmente **Modalità** su **Controllo**
    * Dopo avere familiarizzato con la funzione, è possibile impostare **Modalità** su **Applicato**
-1. Fare clic su **Save**
+1. Fare clic su **Salva**.
 
 ![Abilitazione dei componenti della password di protezione di Azure AD nel portale di Azure](./media/howto-password-ban-bad-on-premises-operations/authentication-methods-password-protection-on-prem.png)
 

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50dc1d11b2a642e6569a74cb9052e09663f333d2
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: fdb24bcd79f1766a52f290fd6fe0e6e5bf17e7c9
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74404086"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847950"
 ---
 # <a name="advanced-scenarios-with-azure-mfa-server-and-third-party-vpn-solutions"></a>Scenari avanzati con server di autenticazione a più fattori di Azure e soluzioni VPN di terze parti
 
@@ -28,7 +28,7 @@ Azure server Multi-Factor Authentication (server di autenticazione a più fattor
 ## <a name="cisco-asa-vpn-appliance-and-azure-mfa-server"></a>Appliance VPN Cisco ASA e server di autenticazione a più fattori di Azure
 Il server di autenticazione a più fattori di Azure si integra con l'appliance VPN Cisco® ASA per fornire sicurezza aggiuntiva per Cisco AnyConnect® gli accessi VPN e il portale.  È possibile usare il protocollo LDAP o RADIUS.  Selezionare una delle opzioni seguenti per scaricare le guide dettagliate per la configurazione.
 
-| Guida alla configurazione | DESCRIZIONE |
+| Guida alla configurazione | Description |
 | --- | --- |
 | [Configurazione del dispositivo VPN Cisco ASA con Anyconnect e Azure MFA per LDAP](https://download.microsoft.com/download/A/2/0/A201567C-C3DE-4227-AF89-4567A470899E/Cisco_ASA_Azure_MFA_LDAP.docx) | Integrare il dispositivo VPN Cisco ASA con Azure MFA tramite LDAP |
 | [Configurazione del dispositivo VPN Cisco ASA con Anyconnect e Azure MFA per RADIUS](https://download.microsoft.com/download/4/5/7/4579C1CF-35B0-4FBE-8A1A-B49CB2CC0382/Cisco_ASA_Azure_MFA_RADIUS.docx) | Integrare il dispositivo VPN Cisco ASA con Azure MFA tramite RADIUS |
@@ -36,7 +36,7 @@ Il server di autenticazione a più fattori di Azure si integra con l'appliance V
 ## <a name="citrix-netscaler-ssl-vpn-and-azure-mfa-server"></a>VPN SSL Citrix NetScaler e server di autenticazione a più fattori di Azure
 Il server di autenticazione a più fattori di Azure si integra con il dispositivo VPN SSL Citrix NetScaler per fornire sicurezza aggiuntiva per gli accessi VPN SSL Citrix NetScaler e l'accesso al portale.  È possibile usare il protocollo LDAP o RADIUS.  Selezionare una delle opzioni seguenti per scaricare le guide dettagliate per la configurazione.
 
-| Guida alla configurazione | DESCRIZIONE |
+| Guida alla configurazione | Description |
 | --- | --- |
 | [Configurazione del dispositivo VPN SSL Citrix NetScaler e Azure MFA per LDAP](https://download.microsoft.com/download/2/4/E/24E1E722-72DF-471F-A88A-D1338DB1AF83/Citrix_NS_Azure_MFA_LDAP.docx) | Integrare il dispositivo VPN SSL Citrix NetScaler con Azure MFA tramite LDAP |
 | [Configurazione del dispositivo VPN SSL Citrix NetScaler e Azure MFA per RADIUS](https://download.microsoft.com/download/1/A/4/1A482764-4A63-45C2-A5EC-2B673ACCDD12/Citrix_NS_Azure_MFA_RADIUS.docx) | Integrare il dispositivo VPN SSL Citrix NetScaler con Azure MFA tramite RADIUS |
@@ -44,7 +44,7 @@ Il server di autenticazione a più fattori di Azure si integra con il dispositiv
 ## <a name="juniperpulse-secure-ssl-vpn-appliance-and-azure-mfa-server"></a>Appliance VPN SSL Juniper/Pulse Secure e server di autenticazione a più fattori di Azure
 Il server di autenticazione a più fattori di Azure si integra con il dispositivo VPN SSL Juniper/Pulse Secure per fornire sicurezza aggiuntiva per gli accessi VPN SSL/Pulse Secure e l'accesso al portale.  È possibile usare il protocollo LDAP o RADIUS.  Selezionare una delle opzioni seguenti per scaricare le guide dettagliate per la configurazione.
 
-| Guida alla configurazione | DESCRIZIONE |
+| Guida alla configurazione | Description |
 | --- | --- |
 | [Configurazione del client VPN SSA Juniper/Pulse Secure e Azure MFA per LDAP](https://download.microsoft.com/download/6/5/8/6587B418-75B1-4FCB-84D4-984BC479309E/JuniperPulse_Azure_MFA_LDAP.docx) | Integrare il client VPN SSL Juniper/Pulse Secure con Azure MFA tramite LDAP |
 | [Configurazione del client VPN SSA Juniper/Pulse Secure e Azure MFA per RADIUS](https://download.microsoft.com/download/7/9/A/79AB3DAD-4799-4379-B1DA-B95ABDF231DC/JuniperPulse_Azure_MFA_RADIUS.docx) | Integrare il client VPN SSL Juniper/Pulse Secure con Azure MFA tramite RADIUS |

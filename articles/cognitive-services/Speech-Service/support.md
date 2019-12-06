@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: jhakulin
-ms.openlocfilehash: 741217cde5068468a7063a64361df8425346b590
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 16729c23483e715177a7c73b3fc5c9bda6ee41a4
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815445"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872282"
 ---
 # <a name="support-and-help-options"></a>Opzioni di supporto tecnico e assistenza
 
@@ -62,7 +62,7 @@ I clienti di Azure possono creare e gestire le richieste di supporto nel portale
 
 Stack Overflow è il canale da scegliere per le domande correlate allo sviluppo. In questo canale, membri della community e membri dei team Microsoft sono direttamente coinvolti nell'assistenza agli utenti per la risoluzione dei problemi.
 
-Se non si riesce a trovare una risposta al problema tramite la ricerca, inviare una nuova domanda a Stack Overflow usando il tag [Microsoft-cognitive-Speech](https://stackoverflow.com/questions/tagged/microsoft-cognitive-speech) .
+Se non si riesce a trovare una risposta al problema tramite la ricerca, inviare una nuova domanda a Stack Overflow usando il tag [Microsoft-cognitive + Speech](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech) .
 
 > [!TIP]
 > I post di Stack Overflow seguenti contengono suggerimenti su come porre domande e su come aggiungere codice sorgente. Se ci si attiene a queste linee guida, aumenta la probabilità che i membri della community valutino le domande e rispondano rapidamente:  

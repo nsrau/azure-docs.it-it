@@ -1,5 +1,5 @@
 ---
-title: Altre informazioni sui parametri a discesa della cartella di lavoro di monitoraggio di Azure | Microsoft docs
+title: Parametri elenco a discesa cartella di lavoro di monitoraggio di Azure
 description: Semplifica la creazione di report complessi con cartelle di lavoro predefinite e personalizzate contenenti parametri a discesa
 services: azure-monitor
 author: mrbullwinkle
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 20a1c5f4b4ef12f81e801769a2ee1b5f08860e38
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: df30b71e6ec9e982988ed75b187db08255e24b61
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73165212"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872877"
 ---
 # <a name="workbook-drop-down-parameters"></a>Parametri elenco a discesa cartella di lavoro
 

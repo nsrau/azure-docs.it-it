@@ -2,28 +2,23 @@
 title: Informazioni su come fornire attestazioni facoltative all'app Azure AD
 titleSuffix: Microsoft identity platform
 description: Una guida per l'aggiunta di attestazioni personalizzate o aggiuntive ai token SAML 2.0 e JSON Web (JWT) rilasciati da Azure Active Directory.
-documentationcenter: na
 author: rwike77
-services: active-directory
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/03/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b74e680979ccbcc94f8a49e993c6d64797ab80b1
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: a1364a491122ae15f86bec98afbfd4e5110e8e07
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803415"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74844720"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Procedura: fornire attestazioni facoltative all'app Azure AD
 
@@ -35,7 +30,7 @@ Le attestazioni facoltative possono essere usate per:
 - Modificare il comportamento di determinate attestazioni che Azure AD restituisce nei token.
 - Aggiungere e accedere ad attestazioni personalizzate per l'applicazione.
 
-Per gli elenchi di attestazioni standard, vedere la documentazione relativa ai [token di accesso e alle](access-tokens.md) attestazioni [token ID](id-tokens.md) . 
+Per gli elenchi di attestazioni standard, vedere la documentazione relativa ai [token di accesso e alle](access-tokens.md) attestazioni [id_token](id-tokens.md) . 
 
 Mentre le attestazioni facoltative sono supportate nei token di formato v 1.0 e v 2.0, oltre che nei token SAML, forniscono la maggior parte del valore durante il passaggio dalla versione 1.0 alla versione 2.0. Uno degli obiettivi dell'endpoint della [piattaforma di identità Microsoft v 2.0](active-directory-appmodel-v2-overview.md) è costituito da dimensioni di token inferiori per garantire prestazioni ottimali da parte dei client. Di conseguenza, diverse attestazioni incluse in precedenza nei token ID e di accesso non sono più presenti nei token v2.0 e devono essere richieste espressamente per ogni applicazione.
 
@@ -218,9 +213,9 @@ In questa sezione vengono illustrate le opzioni di configurazione in attestazion
 
 2. Abilitare le attestazioni di appartenenza al gruppo modificando il groupMembershipClaim
 
-   I valori validi sono:
+   I valori validi sono
 
-   - Tutti
+   - "All"
    - SecurityGroup
    - DistributionList
    - DirectoryRole
@@ -260,14 +255,14 @@ In questa sezione vengono illustrate le opzioni di configurazione in attestazion
    | **nome** | Deve essere "groups" |
    | **origine** | Non usato. Omettere o specificare null |
    | **essenziale** | Non usato. Omettere o specificare false |
-   | **AdditionalProperties** | Elenco di proprietà aggiuntive.  Le opzioni valide sono "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles" |
+   | **additionalProperties:** | Elenco di proprietà aggiuntive.  Le opzioni valide sono "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles" |
 
-   In additionalProperties è necessario solo uno dei "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name".  Se è presente più di un oggetto, viene usato il primo e tutti gli altri vengono ignorati.
+   In additionalProperties è necessario solo un "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name".  Se è presente più di un oggetto, viene usato il primo e tutti gli altri vengono ignorati.
 
    Per alcune applicazioni sono necessarie informazioni sul gruppo relative all'utente nell'attestazione del ruolo.  Per modificare il tipo di attestazione in da un'attestazione di gruppo a un'attestazione di ruolo, aggiungere "emit_as_roles" alle proprietà aggiuntive.  I valori del gruppo verranno emessi nell'attestazione del ruolo.
 
    > [!NOTE]
-   > Se viene usato "emit_as_roles", tutti i ruoli applicazione configurati che l'utente è assegnato non verranno visualizzati nell'attestazione del ruolo
+   > Se viene utilizzato "emit_as_roles", qualsiasi ruolo applicazione configurato per l'assegnazione dell'utente non verrà visualizzato nell'attestazione del ruolo
 
 **Esempi:** Creare gruppi come nomi di gruppo nei token di accesso OAuth in formato dnsDomainName\sAMAccountName
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 12/05/2019
 ms.author: diberry
-ms.openlocfilehash: 06b16af941004f6506b43fb36b4d79297b403595
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: de078399a29af1c7eb2ae3fb237e1550ccaeacfa
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73486927"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872299"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Usare i prompt di completamento per creare più turni di una conversazione
 
@@ -30,7 +30,7 @@ Per informazioni sul funzionamento della funzionalità multifunzione, vedere il 
 
 Non è possibile rispondere ad alcune domande in una sola volta. Quando si progettano le conversazioni dell'applicazione client (chat bot), un utente potrebbe porre una domanda che deve essere filtrata o perfezionata per determinare la risposta corretta. Questo flusso viene fatto attraverso le domande possibili presentando all'utente *richieste di completamento*.
 
-Quando un utente pone una domanda, QnA Maker restituisce la risposta _e_ tutte le richieste di completamento. Questa risposta consente di presentare le domande successive come scelte. 
+Quando un utente pone una domanda, QnA Maker restituisce la risposta _e_ tutte le richieste di completamento. Questa risposta consente di presentare le domande successive come scelte.
 
 ## <a name="example-multi-turn-conversation-with-chat-bot"></a>Esempio di conversazione a più turni con chat bot
 
@@ -38,7 +38,7 @@ Con la multifunzione, un bot di chat gestisce una conversazione con un utente pe
 
 ![Una finestra di dialogo a più turni con prompt che guidano l'utente attraverso una conversazione](../media/conversational-context/conversation-in-bot.png)
 
-Nell'immagine precedente, un utente ha avviato una conversazione immettendo **il mio account**. La Knowledge base include tre coppie di domande e risposte collegate. Per perfezionare la risposta, l'utente seleziona una delle tre scelte disponibili nella Knowledge base. La domanda (#1) include tre richieste di completamento, che vengono presentate in chat bot come tre opzioni (#2). 
+Nell'immagine precedente, un utente ha avviato una conversazione immettendo **il mio account**. La Knowledge base include tre coppie di domande e risposte collegate. Per perfezionare la risposta, l'utente seleziona una delle tre scelte disponibili nella Knowledge base. La domanda (#1) include tre richieste di completamento, che vengono presentate in chat bot come tre opzioni (#2).
 
 Quando l'utente seleziona un'opzione (#3), viene visualizzato l'elenco successivo di opzioni di perfezionamento (#4). Questa sequenza continua (#5) fino a quando l'utente non determina la risposta finale corretta (#6).
 
@@ -49,13 +49,13 @@ Dopo la pubblicazione della KB, è possibile selezionare il pulsante **Crea bot*
 
 ## <a name="create-a-multi-turn-conversation-from-a-documents-structure"></a>Creare una conversazione a più turni dalla struttura di un documento
 
-Quando si crea una Knowledge base, nella sezione **popolare la KB** viene visualizzata la casella di controllo **Consenti estrazione a più turni da URL, file con estensione PDF o docx** . 
+Quando si crea una Knowledge base, nella sezione **popolare la KB** viene visualizzata la casella di controllo **Consenti estrazione a più turni da URL, file con estensione PDF o docx** .
 
 ![Casella di controllo per l'abilitazione dell'estrazione a più turni](../media/conversational-context/enable-multi-turn.png)
 
-Quando si seleziona questa opzione, QnA Maker estrae la gerarchia presente nella struttura del documento. La gerarchia viene convertita in per completare le richieste e la radice della gerarchia funge da QnA padre. In alcuni documenti la radice della gerarchia non contiene contenuto che può fungere da risposta, è possibile fornire il testo di risposta predefinito da usare come testo di risposta sostitutivo per estrarre tali gerarchie.   
+Quando si seleziona questa opzione, QnA Maker estrae la gerarchia presente nella struttura del documento. La gerarchia viene convertita in per completare le richieste e la radice della gerarchia funge da QnA padre. In alcuni documenti la radice della gerarchia non contiene contenuto che può fungere da risposta, è possibile fornire il testo di risposta predefinito da usare come testo di risposta sostitutivo per estrarre tali gerarchie.
 
-La struttura a più turni può essere dedotta solo da URL, file PDF o file DOCX. Per un esempio di struttura, visualizzare un'immagine di un [file PDF Manuale dell'utente di Microsoft Surface](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf). 
+La struttura a più turni può essere dedotta solo da URL, file PDF o file DOCX. Per un esempio di struttura, visualizzare un'immagine di un [file PDF Manuale dell'utente di Microsoft Surface](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf).
 
 ![! [Esempio di struttura in un manuale dell'utente] (.. /media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
 
@@ -63,18 +63,20 @@ La struttura a più turni può essere dedotta solo da URL, file PDF o file DOCX.
 
 Se si sta creando un documento a più turni, tenere presenti le linee guida seguenti:
 
-* Usare le intestazioni e le sottointestazioni per indicare la gerarchia. Ad esempio, è possibile denotare il QnA padre e H2 per indicare la QnA che deve essere eseguita come richiesta. Utilizzare dimensioni di intestazione ridotte per indicare la gerarchia successiva. Non usare lo stile, il colore o un altro meccanismo per implicare la struttura nel documento, QnA Maker non estrae i prompt a più turni. 
+* Usare le intestazioni e le sottointestazioni per indicare la gerarchia. Ad esempio, è possibile denotare il QnA padre e H2 per indicare la QnA che deve essere eseguita come richiesta. Utilizzare dimensioni di intestazione ridotte per indicare la gerarchia successiva. Non usare lo stile, il colore o un altro meccanismo per implicare la struttura nel documento, QnA Maker non estrae i prompt a più turni.
 
-* Non terminare un'intestazione con un punto interrogativo, `?`. 
+* Il primo carattere dell'intestazione deve essere in maiuscolo. 
+
+* Non terminare un'intestazione con un punto interrogativo, `?`.
 
 * È possibile utilizzare il [documento di esempio](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx) come esempio per creare un documento a più turni.
 
 ### <a name="adding-files-to-a-multi-turn-kb"></a>Aggiunta di file a un KB a più turni
 
-Quando si aggiunge un documento gerarchico, QnA Maker determina le richieste di completamento dalla struttura per creare il flusso di conversazione. 
+Quando si aggiunge un documento gerarchico, QnA Maker determina le richieste di completamento dalla struttura per creare il flusso di conversazione.
 
-1. In QnA Maker selezionare una Knowledge Base esistente creata con **Consenti estrazione a più turni da URL, file con estensione PDF o docx.** abilitato. 
-1. Passare alla pagina **Impostazioni** , selezionare il file o l'URL da aggiungere. 
+1. In QnA Maker selezionare una Knowledge Base esistente creata con **Consenti estrazione a più turni da URL, file con estensione PDF o docx.** abilitato.
+1. Passare alla pagina **Impostazioni** , selezionare il file o l'URL da aggiungere.
 1. **Salvare ed** eseguire il training della Knowledge base.
 
 > [!Caution]
@@ -83,13 +85,13 @@ Quando si aggiunge un documento gerarchico, QnA Maker determina le richieste di 
 
 ## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>Creare una Knowledge base con prompt a più turni con l'API di creazione
 
-È possibile creare un Knowledge case con i prompt a più turni usando il [QnA Maker creare un'API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). I prompt vengono aggiunti nella matrice `prompts` della proprietà `context`. 
+È possibile creare un Knowledge case con i prompt a più turni usando il [QnA Maker creare un'API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). I prompt vengono aggiunti nella matrice `prompts` della proprietà `context`.
 
 ## <a name="show-questions-and-answers-with-context"></a>Mostra domande e risposte con il contesto
 
-Ridurre le coppie di domande e risposte visualizzate solo a quelle con conversazioni contestuali. 
+Ridurre le coppie di domande e risposte visualizzate solo a quelle con conversazioni contestuali.
 
-Selezionare Visualizza **Opzioni**, quindi selezionare Mostra **contesto**. Nell'elenco vengono visualizzate coppie di domande e risposte che contengono richieste di completamento. 
+Selezionare Visualizza **Opzioni**, quindi selezionare Mostra **contesto**. Nell'elenco vengono visualizzate coppie di domande e risposte che contengono richieste di completamento.
 
 ![Filtrare le coppie di domande e risposte per conversazioni contestuali](../media/conversational-context/filter-question-and-answers-by-context.png)
 
@@ -97,11 +99,11 @@ Il contesto a più turni viene visualizzato nella prima colonna.
 
 ![! [Colonna "Context (PREVIEW)"] (.. /media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
 
-Nell'immagine precedente, **#1** indica il testo in grassetto nella colonna, che indica la domanda corrente. La domanda padre è l'elemento principale della riga. Eventuali domande che seguono sono le coppie di domande e risposte collegate. Questi elementi sono selezionabili, in modo che sia possibile passare immediatamente agli altri elementi di contesto. 
+Nell'immagine precedente, **#1** indica il testo in grassetto nella colonna, che indica la domanda corrente. La domanda padre è l'elemento principale della riga. Eventuali domande che seguono sono le coppie di domande e risposte collegate. Questi elementi sono selezionabili, in modo che sia possibile passare immediatamente agli altri elementi di contesto.
 
 ## <a name="add-an-existing-question-and-answer-pair-as-a-follow-up-prompt"></a>Aggiungere una coppia domanda-risposta esistente come richiesta di completamento
 
-La domanda originale, **My account**, presenta richieste di completamento, ad esempio **account e accesso**. 
+La domanda originale, **My account**, presenta richieste di completamento, ad esempio **account e accesso**.
 
 ![Risposte e richieste di completamento per gli account e l'accesso](../media/conversational-context/detected-and-linked-follow-up-prompts.png)
 
@@ -111,31 +113,31 @@ Aggiungere una richiesta di completamento a una coppia di domande e risposte esi
 1. Nella riga per la **disconnessione**selezionare **Aggiungi richiesta di completamento**nella colonna **risposta** .
 1. Nei campi della finestra popup della **richiesta di completamento** immettere i valori seguenti:
 
-    |Campo|Valore|
+    |Campo|Value|
     |--|--|
     |Testo visualizzato|Immettere **Disattiva il dispositivo**. Si tratta di un testo personalizzato da visualizzare nel prompt di completamento.|
     |Solo contesto| Selezionare questa casella di controllo. Viene restituita una risposta solo se la domanda specifica il contesto.|
     |Collegamento a risposta|Immettere **usare la schermata di accesso** per trovare la coppia di domande e risposte esistente.|
 
 
-1.  Viene restituita una corrispondenza. Selezionare questa risposta come completamento, quindi selezionare **Salva**. 
+1.  Viene restituita una corrispondenza. Selezionare questa risposta come completamento, quindi selezionare **Salva**.
 
     ![Pagina relativa alla richiesta di completamento (anteprima)](../media/conversational-context/search-follow-up-prompt-for-existing-answer.png)
 
 1. Dopo aver aggiunto la richiesta di completamento, selezionare **Salva e** Esegui il training nella parte superiore dello spostamento.
-  
-### <a name="edit-the-display-text"></a>Modificare il testo visualizzato 
 
-Quando viene creata una richiesta di completamento e viene immessa una coppia di domande e risposte esistente come **collegamento per rispondere**, è possibile immettere un nuovo **testo visualizzato**. Questo testo non sostituisce la domanda esistente e non aggiunge una nuova domanda alternativa. È separata da tali valori. 
+### <a name="edit-the-display-text"></a>Modificare il testo visualizzato
+
+Quando viene creata una richiesta di completamento e viene immessa una coppia di domande e risposte esistente come **collegamento per rispondere**, è possibile immettere un nuovo **testo visualizzato**. Questo testo non sostituisce la domanda esistente e non aggiunge una nuova domanda alternativa. È separata da tali valori.
 
 1. Per modificare il testo visualizzato, cercare e selezionare la domanda nel campo di **contesto** .
-1. Nella riga relativa a tale domanda selezionare la richiesta di completamento nella colonna risposta. 
+1. Nella riga relativa a tale domanda selezionare la richiesta di completamento nella colonna risposta.
 1. Selezionare il testo visualizzato che si desidera modificare e quindi scegliere **modifica**.
 
     ![Comando modifica per il testo visualizzato](../media/conversational-context/edit-existing-display-text.png)
 
-1. Nella finestra popup della **richiesta di completamento** modificare il testo visualizzato esistente. 
-1. Al termine della modifica del testo visualizzato, selezionare **Salva**. 
+1. Nella finestra popup della **richiesta di completamento** modificare il testo visualizzato esistente.
+1. Al termine della modifica del testo visualizzato, selezionare **Salva**.
 1. Nella barra di spostamento superiore, **salvare e**eseguire il training.
 
 
@@ -143,12 +145,12 @@ Quando viene creata una richiesta di completamento e viene immessa una coppia di
 
 Quando si aggiunge una nuova coppia di domande e risposte alla Knowledge base, ogni coppia deve essere collegata a una domanda esistente come richiesta di completamento.
 
-1. Nella barra degli strumenti della Knowledge base cercare e selezionare la coppia domanda-risposta esistente per gli **account e l'accesso**. 
+1. Nella barra degli strumenti della Knowledge base cercare e selezionare la coppia domanda-risposta esistente per gli **account e l'accesso**.
 
-1. Nella colonna **risposta** per questa domanda selezionare **Aggiungi richiesta di completamento**. 
-1. In **prompt di completamento (anteprima)** creare una nuova richiesta di completamento immettendo i valori seguenti: 
+1. Nella colonna **risposta** per questa domanda selezionare **Aggiungi richiesta di completamento**.
+1. In **prompt di completamento (anteprima)** creare una nuova richiesta di completamento immettendo i valori seguenti:
 
-    |Campo|Valore|
+    |Campo|Value|
     |--|--|
     |Testo visualizzato|*Creare un account di Windows*. Testo personalizzato da visualizzare nel prompt di completamento.|
     |Solo contesto|Selezionare questa casella di controllo. Questa risposta viene restituita solo se la domanda specifica il contesto.|
@@ -158,9 +160,9 @@ Quando si aggiunge una nuova coppia di domande e risposte alla Knowledge base, o
     ![Crea una nuova domanda e una risposta di richiesta](../media/conversational-context/create-child-prompt-from-parent.png)
 
 
-1. Selezionare **Crea nuovo**e quindi fare clic su **Salva**. 
+1. Selezionare **Crea nuovo**e quindi fare clic su **Salva**.
 
-    Questa azione crea una nuova coppia di domande e risposte e collega la domanda selezionata come richiesta di completamento. La colonna **context** , per entrambe le domande, indica una relazione di richiesta di completamento. 
+    Questa azione crea una nuova coppia di domande e risposte e collega la domanda selezionata come richiesta di completamento. La colonna **context** , per entrambe le domande, indica una relazione di richiesta di completamento.
 
 1. Selezionare Visualizza **Opzioni**, quindi selezionare Mostra [**contesto (anteprima)** ](#show-questions-and-answers-with-context).
 
@@ -184,7 +186,7 @@ Se non si Abilita la funzionalità multiturn, viene restituita la risposta, ma n
 
 ## <a name="a-json-request-to-return-an-initial-answer-and-follow-up-prompts"></a>Richiesta JSON per restituire una risposta iniziale e richieste di completamento
 
-Usare l'oggetto `context` vuoto per richiedere la risposta alla domanda dell'utente e includere le richieste di completamento. 
+Usare l'oggetto `context` vuoto per richiedere la risposta alla domanda dell'utente e includere le richieste di completamento.
 
 ```JSON
 {
@@ -198,7 +200,7 @@ Usare l'oggetto `context` vuoto per richiedere la risposta alla domanda dell'ute
 
 ## <a name="a-json-response-to-return-an-initial-answer-and-follow-up-prompts"></a>Risposta JSON per restituire una risposta iniziale e richieste di completamento
 
-Nella sezione precedente è stata richiesta una risposta ed eventuali richieste di completamento per gli **account e l'accesso**. La risposta include le informazioni sulla richiesta, che si trovano in *Answers [0]. Context*e il testo da visualizzare all'utente. 
+Nella sezione precedente è stata richiesta una risposta ed eventuali richieste di completamento per gli **account e l'accesso**. La risposta include le informazioni sulla richiesta, che si trovano in *Answers [0]. Context*e il testo da visualizzare all'utente.
 
 ```JSON
 {
@@ -263,7 +265,7 @@ Nella sezione precedente è stata richiesta una risposta ed eventuali richieste 
 }
 ```
 
-La matrice `prompts` fornisce il testo nella proprietà `displayText` e il valore di `qnaId`. È possibile visualizzare queste risposte come le opzioni visualizzate successive nel flusso di conversazione e quindi inviare di nuovo il `qnaId` selezionato a QnA Maker nella richiesta seguente. 
+La matrice `prompts` fornisce il testo nella proprietà `displayText` e il valore di `qnaId`. È possibile visualizzare queste risposte come le opzioni visualizzate successive nel flusso di conversazione e quindi inviare di nuovo il `qnaId` selezionato a QnA Maker nella richiesta seguente.
 
 <!--
 
@@ -275,7 +277,7 @@ The `promptsToDelete` array provides the ...
 
 Compilare l'oggetto `context` per includere il contesto precedente.
 
-Nella richiesta JSON seguente la domanda corrente è *usare Windows Hello per eseguire l'accesso* e la domanda precedente è costituita da *account e accesso*. 
+Nella richiesta JSON seguente la domanda corrente è *usare Windows Hello per eseguire l'accesso* e la domanda precedente è costituita da *account e accesso*.
 
 ```JSON
 {
@@ -289,7 +291,7 @@ Nella richiesta JSON seguente la domanda corrente è *usare Windows Hello per es
     "previousUserQuery": "accounts and signing in"
   }
 }
-``` 
+```
 
 ##  <a name="a-json-response-to-return-a-non-initial-answer-and-follow-up-prompts"></a>Risposta JSON per restituire una risposta non iniziale e richieste di completamento
 
@@ -353,16 +355,16 @@ La risposta JSON QnA Maker _GenerateAnswer_ include le richieste di completament
 
 ## <a name="query-the-knowledge-base-with-the-qna-maker-id"></a>Eseguire una query sulla Knowledge base con l'ID QnA Maker
 
-Se si compila un'applicazione personalizzata usando la funzionalità a più turni. Nella risposta della domanda iniziale vengono restituiti tutti i prompt di completamento e il `qnaId` associato. Ora che si dispone dell'ID, è possibile passarlo nel corpo della richiesta di completamento della richiesta. Se il corpo della richiesta contiene il `qnaId`e l'oggetto context, che contiene le proprietà QnA Maker precedenti, GenerateAnswer restituirà la domanda esatta in base all'ID, anziché usare l'algoritmo di classificazione per trovare la risposta in base al testo della domanda. 
+Se si compila un'applicazione personalizzata usando la funzionalità a più turni. Nella risposta della domanda iniziale vengono restituiti tutti i prompt di completamento e il `qnaId` associato. Ora che si dispone dell'ID, è possibile passarlo nel corpo della richiesta di completamento della richiesta. Se il corpo della richiesta contiene il `qnaId`e l'oggetto context, che contiene le proprietà QnA Maker precedenti, GenerateAnswer restituirà la domanda esatta in base all'ID, anziché usare l'algoritmo di classificazione per trovare la risposta in base al testo della domanda.
 
 
 ## <a name="display-order-is-supported-in-the-update-api"></a>L'ordine di visualizzazione è supportato nell'API di aggiornamento
 
-Il [testo visualizzato e l'ordine di visualizzazione](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto), restituiti nella risposta JSON, sono supportati per la modifica da parte dell' [API di aggiornamento](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). 
+Il [testo visualizzato e l'ordine di visualizzazione](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto), restituiti nella risposta JSON, sono supportati per la modifica da parte dell' [API di aggiornamento](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).
 
 ## <a name="add-or-delete-multi-turn-prompts-with-the-update-api"></a>Aggiungere o eliminare richieste a più turni con l'API di aggiornamento
 
-È possibile aggiungere o eliminare richieste a più turni usando l' [API di aggiornamento QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  I prompt vengono aggiunti nella matrice di `promptsToAdd` della proprietà `context` e nella matrice di `promptsToDelete`. 
+È possibile aggiungere o eliminare richieste a più turni usando l' [API di aggiornamento QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  I prompt vengono aggiunti nella matrice di `promptsToAdd` della proprietà `context` e nella matrice di `promptsToDelete`.
 
 ## <a name="export-knowledge-base-for-version-control"></a>Esporta Knowledge base per il controllo della versione
 

@@ -1,5 +1,5 @@
 ---
-title: Creare report interattivi con le visualizzazioni di cartelle di lavoro di monitoraggio di Azure | Microsoft docs
+title: Visualizzazioni delle cartelle di lavoro di monitoraggio di Azure
 description: Informazioni su tutti i componenti delle visualizzazioni delle cartelle di lavoro di monitoraggio di Azure, tra cui testo, grafici, griglie, alberi e grafici.
 services: azure-monitor
 author: mrbullwinkle
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: d878e8b5dd49ba517f85ebb74332bc6a245c33ca
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: bcc60c0f934111f779e3fdedc399881acb16f208
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73165056"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872792"
 ---
 # <a name="azure-monitor-workbook-visualizations"></a>Visualizzazioni delle cartelle di lavoro di monitoraggio di Azure
 
@@ -149,7 +149,7 @@ Questo è il modo in cui i riquadri appariranno in modalità di lettura:
 
 ![Screenshot della visualizzazione Riepilogo dei riquadri](./media/workbooks-visualizations/tiles-read-mode.png)
 
-## <a name="trees"></a>Alberi
+## <a name="trees"></a>Trees
 
 Le cartelle di lavoro supportano le visualizzazioni gerarchiche tramite griglie di albero. Gli alberi consentono di espandere alcune righe nel livello successivo per un'esperienza di drill-down.
 
@@ -197,7 +197,7 @@ Nell'esempio seguente vengono illustrate le metriche di integrità del contenito
 | `Show the expander on` | Colonna in cui visualizzare l'espansore della struttura ad albero. È normale che le griglie dell'albero nascondano il proprio ID e il campo ID padre perché non sono leggibili. Al contrario, l'espansore viene visualizzato in un campo con un valore più leggibile, ad esempio il nome dell'entità |
 | `Expand the top level of the tree` | Se questa opzione è selezionata, la griglia dell'albero verrà espansa al livello superiore. Utile se si desidera visualizzare ulteriori informazioni per impostazione predefinita |
 
-## <a name="graphs"></a>Grafici
+## <a name="graphs"></a>Grafi
 
 Le cartelle di lavoro supportano la visualizzazione di grafici arbitrari basati sui dati dei log per mostrare le relazioni tra le entità di monitoraggio.
 

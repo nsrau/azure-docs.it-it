@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55ef15bd1fe922aa44227d2fea3d882d4320146f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d3b05c45d218c0f85817b4b5023ac22401879f81
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786721"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847219"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opzioni di creazione di rapporti per la gestione delle password di Azure AD
 
@@ -81,7 +81,7 @@ Vengono visualizzati i seguenti tipi di attività nella categoria degli eventi d
 * [Reimpostare la password (amministratore)](#activity-type-reset-password-by-admin): indica che un amministratore ha eseguito una reimpostazione della password per conto di un utente dal portale di Azure.
 * [Reimpostare la password (self-service)](#activity-type-reset-password-self-service): indica che un utente ha reimpostato correttamente la propria password nel [portale di reimpostazione delle password di Azure AD](https://passwordreset.microsoftonline.com).
 * [Stato di avanzamento dell'attività di reimpostazione della password self-service](#activity-type-self-serve-password-reset-flow-activity-progress): indica ogni passaggio specifico seguito da un utente (come il passaggio dell'attività di controllo dell'autenticazione per la reimpostazione della password) come parte del processo di reimpostazione della password.
-* [Sbloccare l'account utente (self-service)](#activity-type-unlock-a-user-account-self-service)): indica che un utente ha sbloccato correttamente l'account Active Directory senza reimpostare la password dal [portale di reimpostazione della password Azure ad](https://passwordreset.microsoftonline.com) usando la funzionalità Active Directory dello sblocco dell'account senza reimpostazione.
+* [Sbloccare l'account utente (self-service)](#activity-type-unlock-a-user-account-self-service)): indica che un utente ha sbloccato correttamente l'account Active Directory senza reimpostare la password dal [portale di reimpostazione della password Azure ad](https://passwordreset.microsoftonline.com) usando la funzionalità Active Directory di sblocco dell'account senza reimpostazione.
 * [Utente registrato per la reimpostazione della password self-service](#activity-type-user-registered-for-self-service-password-reset): indica che un utente ha registrato tutte le informazioni necessarie per essere in grado di reimpostare la password in conformità con i criteri di reimpostazione della password del tenant attualmente specificati.
 
 ### <a name="activity-type-blocked-from-self-service-password-reset"></a>Tipo di attività: Bloccato dalla reimpostazione self-service delle password

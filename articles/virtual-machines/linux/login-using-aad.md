@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
-ms.openlocfilehash: a67d3a9fb74b1a4f07fc4995c268bb40a84834f7
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 74de621f88d9af65f8894319729f902bf11e57ce
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035938"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873013"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Anteprima: accedere a una macchina virtuale Linux in Azure usando l'autenticazione Azure Active Directory
 
@@ -48,7 +48,7 @@ L'uso dell'autenticazione di Azure AD per accedere alle macchine virtuali Linux 
 
 Durante l'anteprima di questa funzionalità sono attualmente supportate le distribuzioni di Linux seguenti:
 
-| Distribuzione | Version |
+| Distribuzione | Versione |
 | --- | --- |
 | CentOS | CentOS 6, CentOS 7 |
 | Debian | Debian 9 |
@@ -67,6 +67,19 @@ Durante l'anteprima di questa funzionalità sono attualmente supportate le aree 
 
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.31 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
+
+## <a name="network-requirements"></a>Requisiti di rete
+
+Per abilitare l'autenticazione Azure AD per le VM Linux in Azure, è necessario assicurarsi che la configurazione di rete delle macchine virtuali consenta l'accesso in uscita agli endpoint seguenti sulla porta TCP 443:
+
+* https://login.microsoftonline.com
+* https://device.login.microsoftonline.com
+* https://pas.windows.net
+* https://management.azure.com
+* https://packages.microsoft.com
+
+> [!NOTE]
+> Attualmente non è possibile configurare i gruppi di sicurezza di rete di Azure per le macchine virtuali abilitate con l'autenticazione Azure AD.
 
 ## <a name="create-a-linux-virtual-machine"></a>Creare una macchina virtuale Linux
 

@@ -1,5 +1,5 @@
 ---
-title: A livello gestire le cartelle di lavoro di monitoraggio di Azure con modelli di Azure Resource Manager | Microsoft docs
+title: Cartelle di lavoro e modelli di Azure Resource Manager di monitoraggio di Azure
 description: Semplifica la creazione di report complessi con cartelle di lavoro di monitoraggio di Azure con parametri predefinite e personalizzate distribuite tramite modelli di Azure Resource Manager
 services: azure-monitor
 author: mrbullwinkle
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: d5e22093fa796a9fbd60dc2bc242f37a6cac7cf0
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: e3d29beab7b1d82f73c706897af9650b68be11f5
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73166109"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872911"
 ---
 # <a name="programmatically-manage-workbooks"></a>Gestire le cartelle di lavoro a livello di codice
 

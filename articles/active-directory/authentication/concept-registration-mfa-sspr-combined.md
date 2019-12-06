@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3221e6424b449066510667f8067e3bc6d8aec12a
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 2b484acc0dc1a92a857f254ed37392ffb29eddb8
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381949"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848630"
 ---
 # <a name="combined-security-information-registration-preview"></a>Registrazione di informazioni di sicurezza combinate (anteprima)
 
@@ -47,17 +47,17 @@ Le pagine del profilo sono localizzate in base alle impostazioni della lingua de
 
 La registrazione combinata supporta le azioni e i metodi di autenticazione seguenti:
 
-|   | Register | Modifica | Elimina |
+|   | Iscriviti | Modifica | Eliminazione |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | Sì (massimo 5) | No | Sì |
-| Altra app di autenticazione | Sì (massimo 5) | No | Sì |
-| Token hardware | No | No | Sì |
-| Telefono | Sì | Sì | Sì |
-| Telefono alternativo | Sì | Sì | Sì |
+| Microsoft Authenticator | Sì (massimo 5) | No | SÌ |
+| Altra app di autenticazione | Sì (massimo 5) | No | SÌ |
+| Token hardware | No | No | SÌ |
+| Telefono | SÌ | SÌ | SÌ |
+| Telefono alternativo | SÌ | SÌ | SÌ |
 | Telefono ufficio | No | No | No |
-| Email | Sì | Sì | Sì |
-| Domande di sicurezza | Sì | No | Sì |
-| Password dell'app | Sì | No | Sì |
+| Indirizzo di posta elettronica | SÌ | SÌ | SÌ |
+| Domande di sicurezza | SÌ | No | SÌ |
+| Password app | SÌ | No | SÌ |
 
 > [!NOTE]
 > Le password dell'app sono disponibili solo per gli utenti che sono stati applicati per Multi-Factor Authentication. Le password dell'app non sono disponibili per gli utenti abilitati per Multi-Factor Authentication tramite criteri di accesso condizionale.
@@ -67,7 +67,7 @@ Gli utenti possono impostare una delle opzioni seguenti come metodo predefinito 
 - Microsoft Authenticator: notifica.
 - App Authenticator o token hardware: codice.
 - Telefonata.
-- Messaggio di testo.
+- SMS.
 
 Continuando ad aggiungere altri metodi di autenticazione per Azure AD, questi metodi saranno disponibili nella registrazione combinata.
 
@@ -95,7 +95,7 @@ Di seguito sono riportati diversi scenari in cui agli utenti potrebbe essere ric
 
 Quando viene applicata la registrazione, agli utenti viene mostrato il numero minimo di metodi necessari per essere conformi ai criteri di Multi-Factor Authentication e SSPR, dal più sicuro al meno sicuro.
 
-Ad esempio:
+ad esempio:
 
 - Un utente è abilitato per SSPR. Il criterio SSPR ha richiesto due metodi per reimpostare e ha abilitato il codice dell'app mobile, la posta elettronica e il telefono.
    - Questo utente è necessario per registrare due metodi.

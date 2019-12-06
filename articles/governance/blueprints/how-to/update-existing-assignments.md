@@ -2,13 +2,13 @@
 title: Aggiornare un'assegnazione esistente dal portale
 description: Informazioni sul meccanismo per l'aggiornamento di un'assegnazione di progetto esistente dal portale nei progetti di Azure.
 ms.date: 11/21/2019
-ms.topic: conceptual
-ms.openlocfilehash: b4cf03d88103b85bc00dbd815816ead2740f2093
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.topic: how-to
+ms.openlocfilehash: 3cce84127475b2f11388b4ad4eb48dedec19cd1d
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406387"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873166"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Come aggiornare un'assegnazione di progetto esistente
 
@@ -16,7 +16,7 @@ Quando viene assegnato un progetto, l'assegnazione può essere aggiornata. Esist
 
 - Aggiungere o rimuovere il [blocco delle risorse](../concepts/resource-locking.md)
 - Modificare il valore dei [parametri dinamici](../concepts/parameters.md#dynamic-parameters)
-- Aggiornare l'assegnazione a una versione **pubblicata** più recente del progetto
+- Aggiornare l'assegnazione a una versione più recente **Pubblicata** del progetto
 
 ## <a name="updating-assignments"></a>Aggiornamento delle assegnazioni
 
@@ -50,7 +50,7 @@ La distribuzione delle assegnazioni aggiornate segue alcune regole importanti. Q
   - Se viene modificata la definizione dell'assegnazione dei criteri, viene creata una nuova assegnazione di criteri.
     Le assegnazioni di criteri distribuite in precedenza vengono mantenute.
   - Se l'artefatto dell'assegnazione dei criteri viene rimosso dal progetto, l'assegnazione di criteri distribuita viene mantenuta.
-- Modelli di Gestione risorse di Azure
+- Modelli di Azure Resource Manager
   - Il modello viene elaborato tramite Resource Manager come **PUT**. Dato che ogni tipo di risorsa gestisce questo tipo di azione in modo diverso, vedere la documentazione per ogni risorsa inclusa per determinare l'impatto di questa azione quando viene eseguita dai progetti.
 
 ## <a name="possible-errors-on-updating-assignments"></a>Possibili errori per l'aggiornamento delle assegnazioni

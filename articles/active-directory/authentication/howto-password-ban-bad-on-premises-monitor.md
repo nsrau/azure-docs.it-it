@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77f1ac530fe4e20fe26f3a6b7d0111b0bd432928
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: c74ea99d3a0e39729bb4d89f012d7b790bf0568b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381684"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847712"
 ---
 # <a name="azure-ad-password-protection-monitoring-and-logging"></a>Monitoraggio e registrazione in Protezione password di Azure AD
 
@@ -235,7 +235,7 @@ La registrazione di testo è disabilitata per impostazione predefinita. Per rend
 
 Il software del servizio agente del controller di dominio installa un oggetto contatore delle prestazioni denominato **protezione password di Azure AD**. Sono attualmente disponibili i contatori delle prestazioni seguenti:
 
-|Nome contatore delle prestazioni | DESCRIZIONE|
+|Nome contatore delle prestazioni | Description|
 | --- | --- |
 |Passwords processed (Password elaborate) |Questo contatore indica il numero totale di password elaborate (accettate o rifiutate) dall'ultimo riavvio.|
 |Passwords accepted (Password accettate) |Questo contatore indica il numero totale di password accettate dall'ultimo riavvio.|
@@ -313,7 +313,7 @@ Gli eventi vengono registrati dai diversi componenti proxy tramite gli intervall
 | --- | --- |
 |Processo di hosting del servizio proxy| 10000-19999|
 |Logica di business di base del servizio proxy| 20000-29999|
-|Cmdlet PowerShell| 30000-39999|
+|Cmdlet di PowerShell| 30000-39999|
 
 ## <a name="proxy-service-text-logging"></a>Registrazione di testo del servizio proxy
 

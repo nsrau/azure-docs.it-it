@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 02/18/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 013a14505f7ac1382bce369e161fdae834f605fc
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 1b9d07099f8de996181948921330ef6744b302a8
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200223"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848647"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Applicare la funzione della password di protezione di Azure AD per Windows Server Active Directory
 
@@ -47,7 +47,7 @@ Molte organizzazioni desiderano eseguire un attento test della protezione Azure 
 
 È importante comprendere i concetti relativi alla progettazione e alle funzioni sottostanti prima di distribuire Azure AD la protezione delle password in un ambiente Active Directory locale. Il diagramma seguente illustra il funzionamento combinato dei componenti di protezione con password:
 
-![Come si integrano i componenti della password di protezione di Azure AD](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
+![Modalità di interazione tra i componenti di protezione password di Azure AD](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
 
 * Il servizio proxy di Protezione password di Azure AD viene eseguito in tutti i computer aggiunti a un dominio nella foresta di Active Directory corrente. Lo scopo principale è quello di inviare le richieste di download dei criteri password dai controller di dominio al Azure AD. Restituisce quindi le risposte da Azure AD al controller di dominio.
 * La DLL del filtro password dell'agente del controller di dominio riceve le richieste di convalida della password utente dal sistema operativo. Li trasmette al servizio agente controller di dominio in esecuzione localmente sul controller di dominio.
@@ -87,7 +87,7 @@ La distribuzione di Azure AD la protezione delle password in una foresta Active 
 
 La foresta Active Directory e tutti i servizi proxy distribuiti in una foresta devono essere registrati con lo stesso tenant. Non è supportata la registrazione di una foresta Active Directory o di tutti i servizi proxy in tale foresta in tenant Azure AD diversi. I sintomi di tale distribuzione configurata in modo errato includono l'impossibilità di scaricare i criteri password.
 
-## <a name="download"></a>Scarica
+## <a name="download"></a>Download
 
 I due programmi di installazione degli agenti necessari per la protezione Azure AD password sono disponibili nell' [area download Microsoft](https://www.microsoft.com/download/details.aspx?id=57071).
 

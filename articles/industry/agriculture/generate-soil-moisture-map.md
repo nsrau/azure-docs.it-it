@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 61deb5361c9857956318f8b9b4ca836fcfa65d48
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: e11f560c2b101d86d41feb3f6c93cffe7c1a748d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73798128"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851452"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>Genera mappa termica di umidità del suolo
 
@@ -30,7 +30,7 @@ Verificare quanto segue:
 - Istanza in esecuzione di Azure FarmBeats.
 - Per la farm sono disponibili almeno tre sensori di umidità del suolo.
 
-## <a name="create-a-farm"></a>Creare una farm
+## <a name="create-a-farm"></a>Creazione di una farm
 
 Una farm è un'area geografica di interesse per la quale si vuole creare un mappa termica di umidità del suolo. È possibile creare una farm usando l' [API Farm](https://aka.ms/FarmBeatsDatahubSwagger) o nell' [interfaccia utente di FarmsBeats Accelerator](manage-farms.md#create-farms)
 
@@ -85,7 +85,7 @@ Seguire questa procedura:
 
 1. Nella pagina **processi** controllare lo stato del **processo** creato nell'ultima procedura.
 2. Quando lo stato del processo è indicato *succeeded*, fare clic su **Maps** nel menu.
-3. Cercare la mappa in base al giorno in cui è stata creata nel formato < Soil-moisture_MyFarm_YYYY-MM-GG >.
+3. Cercare la mappa in base al giorno in cui è stata creata nel formato < > Soil-moisture_MyFarm_YYYY-MM-GG.
 4. Selezionare una mappa nella colonna **nome** . verrà visualizzata una finestra popup con l'anteprima della mappa selezionata.
 5. Selezionare **Download**. La mappa viene scaricata e archiviata nella cartella locale del computer.
 
@@ -93,4 +93,4 @@ Seguire questa procedura:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che è stato generato un mappa termica di umidità del suolo, viene illustrato come [generare il posizionamento dei sensori](generate-maps.md#sensor-placement-maps) e inserire [i dati cronologici di telemetria](ingest-historical-telemetry-data.md). 
+Ora che è stato generato un mappa termica di umidità del suolo, viene illustrato come [generare il posizionamento dei sensori](generate-maps.md#sensor-placement-map) e inserire [i dati cronologici di telemetria](ingest-historical-telemetry-data.md). 

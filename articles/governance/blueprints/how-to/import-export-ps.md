@@ -2,17 +2,17 @@
 title: Importare ed esportare progetti con PowerShell
 description: Informazioni su come usare le definizioni di progetto come codice. Condividere, controllare il codice sorgente e gestirli usando i comandi Export e Import.
 ms.date: 09/03/2019
-ms.topic: conceptual
-ms.openlocfilehash: 2822fd1aea1911ba264113d43595346a612ebc50
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.topic: how-to
+ms.openlocfilehash: fc7b9818072665d79deaf8a456868943e8428730
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406361"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873200"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>Importare ed esportare definizioni di progetto con PowerShell
 
-I progetti di Azure possono essere completamente gestiti tramite portale di Azure. Man mano che le organizzazioni avanzano nell'uso dei progetti, devono iniziare a pensare alle definizioni di progetto come codice gestito. Questo concetto è spesso definito infrastruttura come codice (IaC). Trattare le definizioni del progetto in quanto il codice offre vantaggi aggiuntivi oltre a quelle offerte da portale di Azure. Questi vantaggi includono:
+I progetti di Azure possono essere completamente gestiti tramite portale di Azure. Man mano che le organizzazioni avanzano nell'uso dei progetti, devono iniziare a pensare alle definizioni di progetto come codice gestito. Questo concetto è spesso definito infrastruttura come codice (IaC). Trattare le definizioni del progetto in quanto il codice offre vantaggi aggiuntivi oltre a quelle offerte da portale di Azure. Questi vantaggi comprendono:
 
 - Condivisione delle definizioni del progetto
 - Backup delle definizioni del progetto
@@ -23,7 +23,7 @@ I progetti di Azure possono essere completamente gestiti tramite portale di Azur
 
 Qualunque sia il motivo, la gestione delle definizioni del progetto come codice presenta vantaggi. Questo articolo illustra come usare i comandi `Import-AzBlueprintWithArtifact` e `Export-AzBlueprintWithArtifact` nel modulo [AZ. Blueprint](https://powershellgallery.com/packages/Az.Blueprint/) .
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Questo articolo presuppone una conoscenza professionale moderata dei progetti di Azure. Se non è ancora stato fatto, utilizzare gli articoli seguenti:
 
@@ -31,7 +31,7 @@ Questo articolo presuppone una conoscenza professionale moderata dei progetti di
 - Informazioni sulle [fasi di distribuzione](../concepts/deployment-stages.md) e [il ciclo di vita del progetto](../concepts/lifecycle.md)
 - [Creazione](../create-blueprint-powershell.md) e [gestione](./manage-assignments-ps.md) delle definizioni e delle assegnazioni del progetto con PowerShell
 
-Se il modulo [Az.Blueprint](./manage-assignments-ps.md#add-the-azblueprint-module) non è già installato, seguire le istruzioni contenute in **Aggiungere il modulo Az.Blueprint** per installarlo e convalidarlo da PowerShell Gallery.
+Se il modulo **Az.Blueprint** non è già installato, seguire le istruzioni contenute in [Aggiungere il modulo Az.Blueprint](./manage-assignments-ps.md#add-the-azblueprint-module) per installarlo e convalidarlo da PowerShell Gallery.
 
 ## <a name="folder-structure-of-a-blueprint-definition"></a>Struttura di cartelle di una definizione di progetto
 

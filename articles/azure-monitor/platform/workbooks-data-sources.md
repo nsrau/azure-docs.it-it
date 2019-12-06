@@ -1,5 +1,5 @@
 ---
-title: Creare report interattivi con le cartelle di lavoro di monitoraggio di Azure da più origini dati di Azure. Microsoft docs
+title: Origini dati delle cartelle di lavoro di monitoraggio di Azure | Microsoft docs
 description: Semplifica la creazione di report complessi con cartelle di lavoro di monitoraggio di Azure con parametri predefinite e personalizzate compilate da più origini dati
 services: azure-monitor
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: dd5068da31c3aa863fc56022834a28b60ee15004
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 368da2baaea1be41331d77f4dae1bdd9567b8cc5
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73166200"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872894"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Origini dati delle cartelle di lavoro di monitoraggio di Azure
 

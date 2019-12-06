@@ -2,13 +2,13 @@
 title: Ottenere le modifiche delle risorse
 description: Informazioni su come individuare quando una risorsa è stata modificata, ottenere un elenco delle proprietà modificate e valutare le differenze.
 ms.date: 10/09/2019
-ms.topic: conceptual
-ms.openlocfilehash: 2ed2c0ef8638744aeaa9f31eded14d1716d891ae
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.topic: how-to
+ms.openlocfilehash: 9504ac77fc4a3b03434912cc65284e2001df6e03
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74303997"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873030"
 ---
 # <a name="get-resource-changes"></a>Ottenere le modifiche delle risorse
 
@@ -288,4 +288,4 @@ Per confrontare i risultati, usare la proprietà **changes** in **resourceChange
 
 - Vedere il linguaggio in uso nelle [query Starter](../samples/starter.md).
 - Vedere uso avanzato nelle [query avanzate](../samples/advanced.md).
-- Altre informazioni su come [esplorare le risorse](../concepts/explore-resources.md).
+- Altre informazioni su come [esplorare risorse](../concepts/explore-resources.md).

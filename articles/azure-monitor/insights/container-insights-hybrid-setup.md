@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 10/15/2019
-ms.openlocfilehash: d25b9b3bb155dced973d415b396ebfaa4403b011
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/04/2019
+ms.openlocfilehash: 0d6615d832059a8b58c0d5d52533b8c8c962640d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514615"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74841575"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configurare cluster Kubernetes ibridi con monitoraggio di Azure per i contenitori
 
@@ -85,7 +85,7 @@ Questo metodo include due modelli JSON. Un modello JSON specifica la configurazi
 - **workspaceResourceId** : l'ID di risorsa completo dell'area di lavoro log Analytics.
 - **workspaceRegion** : area in cui viene creata l'area di lavoro, definita anche **percorso** nelle proprietà dell'area di lavoro durante la visualizzazione dalla portale di Azure.
 
-Per identificare prima di tutto l'ID risorsa completo dell'area di lavoro di Log Analytics necessaria per il valore del parametro `workspaceResourceId` nel file **containerSolutionParams. JSON** , seguire questa procedura e quindi eseguire il cmdlet di PowerShell o l'interfaccia della riga di comando di Azure per aggiungere il cmdlet soluzione.
+Per identificare prima di tutto l'ID risorsa completo dell'area di lavoro Log Analytics necessaria per il valore del parametro `workspaceResourceId` nel file **containerSolutionParams. JSON** , seguire questa procedura e quindi eseguire il cmdlet di PowerShell o l'interfaccia della riga di comando di Azure per aggiungere la soluzione.
 
 1. Elencare tutte le sottoscrizioni a cui si ha accesso usando il comando seguente:
 
@@ -282,6 +282,25 @@ Dopo aver distribuito correttamente il grafico, è possibile esaminare i dati pe
 
 >[!NOTE]
 >La latenza di inserimento è circa tra cinque e dieci minuti dall'agente per eseguire il commit nell'area di lavoro di Azure Log Analytics. Lo stato del cluster Mostra il valore **Nessun dato** o **sconosciuto** fino a quando non sono disponibili tutti i dati di monitoraggio necessari in monitoraggio di Azure. 
+
+## <a name="troubleshooting"></a>risoluzione dei problemi
+
+Se si verifica un errore durante il tentativo di abilitare il monitoraggio per il cluster Kubernetes ibrido, copiare lo script di PowerShell [TroubleshootError_nonAzureK8s. ps1](https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/Troubleshoot/TroubleshootError_nonAzureK8s.ps1) e salvarlo in una cartella nel computer. Questo script viene fornito per facilitare il rilevamento e la risoluzione dei problemi rilevati. Di seguito sono riportati i problemi che è stato progettato per rilevare e tentare la correzione:
+
+* L'area di lavoro Log Analytics specificata è valida 
+* L'area di lavoro Log Analytics è configurata con la soluzione monitoraggio di Azure per contenitori. In caso contrario, configurare l'area di lavoro.
+* Il Pod REPLICASET OmsAgent è in esecuzione
+* Il Pod daemonset OmsAgent è in esecuzione
+* Il servizio integrità OmsAgent è in esecuzione 
+* Il Log Analytics ID e la chiave dell'area di lavoro configurati nell'agente in contenitori corrispondono all'area di lavoro con cui è configurata l'analisi.
+* Verificare che tutti i nodi di lavoro Linux abbiano `kubernetes.io/role=agent` etichetta per pianificare il Pod RS. Se non esiste, aggiungerlo.
+* Validate `cAdvisor port: 10255` viene aperto in tutti i nodi del cluster.
+
+Per eseguire con Azure PowerShell, usare i comandi seguenti nella cartella che contiene lo script:
+
+```powershell
+.\TroubleshootError_nonAzureK8s.ps1 - azureLogAnalyticsWorkspaceResourceId </subscriptions/<subscriptionId>/resourceGroups/<resourcegroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName> -kubeConfig <kubeConfigFile>
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

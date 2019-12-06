@@ -6,23 +6,23 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/30/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb90fafb48be1d3389597c6188b0200743f90c3e
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: ed35abd5b9bfb8b9a74d598f1fa93d8f1a985bfb
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74065968"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848273"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Report in Azure Multi-Factor Authentication
 
 Azure Multi-Factor Authentication offre diversi report che possono essere usati dall'utente e dall'organizzazione e ai quali è possibile accedere tramite il portale di Azure. La tabella seguente elenca i report disponibili:
 
-| Report | Location | DESCRIZIONE |
+| Documentazione | Località | Description |
 |:--- |:--- |:--- |
 | Cronologia utenti bloccati | Azure AD > sicurezza > autenticazione a più fattori > Blocca/Sblocca utenti | Consente di visualizzare la cronologia delle richieste di blocco o sblocco degli utenti. |
 | Avvisi di illecito e utilizzo | Azure AD > Accessi | Fornisce informazioni su utilizzo complessivo, riepilogo utenti e dettagli utente; nonché una cronologia degli avvisi di illecito inviati durante l'intervallo di date specificato. |
@@ -104,7 +104,7 @@ I report delle attività di accesso per l'autenticazione a più fattori permetto
       - Utente non trovato
       - Il codice di verifica è già stato usato una volta
 
-**Metodo autenticazione a più fattori:** metodo di autenticazione usato dall'utente per completare l'autenticazione a più fattori. I valori possibili sono:
+**Metodo autenticazione a più fattori:** metodo di autenticazione usato dall'utente per completare l'autenticazione a più fattori. Possibili valori:
 
 - SMS
 - Notifica dell'app per dispositivi mobili
@@ -138,49 +138,49 @@ Identificare gli utenti che non hanno eseguito la registrazione per MFA usando i
 
 La tabella seguente può essere usata per risolvere i problemi di autenticazione a più fattori usando la versione scaricata del report attività di autenticazione a più fattori. Non verranno visualizzati direttamente nella portale di Azure.
 
-| Risultato della chiamata | DESCRIZIONE | Descrizione generale |
+| Risultato della chiamata | Description | Descrizione generale |
 | --- | --- | --- |
 | SUCCESS_WITH_PIN | PIN immesso | L'utente ha immesso un PIN.  Se l'autenticazione ha avuto esito positivo, ha immesso il PIN corretto.  Se l'autenticazione viene negata, è stato immesso un PIN errato o l'utente è impostato sulla modalità standard. |
-| SUCCESS_NO_PIN | Solo # immesso | Se l'utente è impostato sulla modalità PIN e l'autenticazione viene negata, significa che l'utente non ha immesso il PIN e ha immesso solo #.  Se l'utente è impostato sulla modalità standard e l'autenticazione ha esito positivo, significa che l'utente ha immesso solo #, operazione corretta da eseguire in modalità standard. |
-| SUCCESS_WITH_PIN_BUT_TIMEOUT | # Non premuto dopo l'immissione | L'utente non ha inviato alcuna cifra DTMF perché # non è stato immesso.  Le altre cifre immesse non vengono inviate a meno che non venga immesso #, a indicare il completamento della voce. |
-|SUCCESS_NO_PIN_BUT_TIMEOUT | Nessun input telefono-timeout | La chiamata è stata risolta, ma non è stata restituita alcuna risposta.  Ciò indica in genere che la chiamata è stata prelevata dalla segreteria telefonica. |
-| SUCCESS_PIN_EXPIRED | PIN scaduto e non modificato | Il PIN dell'utente è scaduto ed è stato richiesto di modificarlo, ma la modifica del PIN non è stata completata correttamente. |
+| SUCCESS_NO_PIN | Solo # immesso | Se l'utente è impostato in modalità PIN e l'autenticazione viene negata, l'utente non ha immesso il PIN e ha immesso solo #.  Se l'utente è impostato in modalità Standard e l'autenticazione ha esito positivo, l'utente ha immesso solo #, come richiesto in modalità Standard. |
+| SUCCESS_WITH_PIN_BUT_TIMEOUT | # Non premuto dopo l'immissione | L'utente non ha inviato le cifre DTMF poiché # non è stato immesso.  Le altre cifre immesse non vengono inviate a meno che non venga immesso #, a indicare il completamento della voce. |
+|SUCCESS_NO_PIN_BUT_TIMEOUT | Nessun input telefono - Timeout | La chiamata è stata risposta, ma non c'è stata alcuna risposta.  Ciò indica in genere che la chiamata è stata prelevata dalla segreteria telefonica. |
+| SUCCESS_PIN_EXPIRED | PIN scaduto e non modificato | Il PIN dell'utente è scaduto ed è stato richiesto di modificarlo, ma non è stata completata la modifica del PIN. |
 | SUCCESS_USED_CACHE | Cache utilizzata | L'autenticazione è riuscita senza una chiamata di Multi-Factor Authentication perché si è verificata un'autenticazione precedente riuscita per lo stesso nome utente nell'intervallo di tempo della cache configurato. |
-| SUCCESS_BYPASSED_AUTH | Autenticazione ignorata | L'autenticazione ha avuto esito positivo utilizzando un bypass monouso avviato per l'utente.  Per ulteriori informazioni sul bypass, vedere il report Cronologia utenti bypass. |
+| SUCCESS_BYPASSED_AUTH | Autenticazione ignorata | L'autenticazione ha avuto esito positivo mediante un bypass monouso avviato per l'utente.  Per ulteriori informazioni sul bypass, vedere il report Cronologia utenti bypass. |
 | SUCCESS_USED_IP_BASED_CACHE | Cache basata su IP utilizzata | L'autenticazione è riuscita senza una chiamata di Multi-Factor Authentication perché è stata eseguita un'autenticazione precedente riuscita per lo stesso nome utente, tipo di autenticazione, nome dell'applicazione e IP nell'intervallo di tempo della cache configurato. |
 | SUCCESS_USED_APP_BASED_CACHE | Cache basata su app usata | L'autenticazione ha avuto esito positivo senza una chiamata di Multi-Factor Authentication dopo un'autenticazione riuscita precedente per lo stesso nome utente, tipo di autenticazione e nome dell'applicazione all'interno dell'intervallo di tempo della cache configurato. |
 | SUCCESS_INVALID_INPUT | Input telefono non valido | La risposta inviata dal telefono non è valida.  Questo problema può provenire da un computer o un modem fax oppure è possibile che l'utente abbia immesso * come parte del PIN. |
-| SUCCESS_USER_BLOCKED | L'utente è bloccato | Il numero di telefono dell'utente è bloccato.  Un numero bloccato può essere avviato dall'utente durante una chiamata di autenticazione o da un amministratore che usa il portale di Azure. <br> Nota: un numero bloccato è anche un prodotto di un avviso di illecito. |
-| SUCCESS_SMS_AUTHENTICATED | Messaggio di testo autenticato | Per il messaggio di test bidirezionale, l'utente ha risposto correttamente con il proprio codice di accesso monouso (OTP) o OTP + PIN. |
-| SUCCESS_SMS_SENT | Messaggio di testo inviato | Per SMS, è stato inviato il messaggio di testo contenente il codice monouso (OTP).  L'utente immetterà l'OTP o OTP + PIN nell'applicazione per completare l'autenticazione. |
-| SUCCESS_PHONE_APP_AUTHENTICATED | App per dispositivi mobili autenticata | L'utente ha eseguito l'autenticazione tramite l'app per dispositivi mobili. |
-| SUCCESS_OATH_CODE_PENDING | Codice del GIURAmento in sospeso | All'utente è stato richiesto il codice del GIURAmento ma non ha risposto. |
-| SUCCESS_OATH_CODE_VERIFIED | Codice del GIURAmento verificato | Quando richiesto, l'utente ha immesso un codice di GIURAmento valido. |
-| SUCCESS_FALLBACK_OATH_CODE_VERIFIED | Codice del GIURAmento di fallback verificato | All'utente è stata negata l'autenticazione utilizzando il metodo di Multi-Factor Authentication primario, quindi è stato fornito un codice di GIURAmento valido per il fallback. |
-| SUCCESS_FALLBACK_SECURITY_QUESTIONS_ANSWERED | Risposte alle domande di sicurezza di fallback | All'utente è stata negata l'autenticazione utilizzando il metodo di Multi-Factor Authentication primario e quindi ha risposto correttamente alle domande di sicurezza per il fallback. |
+| SUCCESS_USER_BLOCKED | Utente bloccato | Il numero di telefono dell'utente è bloccato.  Un numero bloccato può essere avviato dall'utente durante una chiamata di autenticazione o da un amministratore che usa il portale di Azure. <br> Nota: un numero bloccato è anche un prodotto di un avviso di illecito. |
+| SUCCESS_SMS_AUTHENTICATED | SMS autenticato | Per SMS bidirezionale, l'utente ha risposto correttamente con il passcode monouso (OTP) o OTP + PIN. |
+| SUCCESS_SMS_SENT | SMS inviato | Per SMS, è stato inviato il messaggio SMS contenente il passcode monouso (OTP).  L'utente immetterà l'OTP o OTP + PIN nell'applicazione per completare l'autenticazione. |
+| SUCCESS_PHONE_APP_AUTHENTICATED | App mobile autenticata | L'utente ha eseguito l'autenticazione tramite l'app mobile. |
+| SUCCESS_OATH_CODE_PENDING | Codice OATH in sospeso | All'utente è stato chiesto il codice OATH ma non ha risposto. |
+| SUCCESS_OATH_CODE_VERIFIED | Codice OATH verificato | L'utente ha immesso un codice OATH valido quando richiesto. |
+| SUCCESS_FALLBACK_OATH_CODE_VERIFIED | Codice OATH di fallback verificato | All'utente è stata negata l'autenticazione utilizzando il metodo primario di Multi-Factor Authentication e quindi ha fornito un codice OATH per il fallback. |
+| SUCCESS_FALLBACK_SECURITY_QUESTIONS_ANSWERED | Domande di sicurezza di fallback risposte | All'utente è stata negata l'autenticazione utilizzando il metodo primario di Multi-Factor Authentication e quindi ha risposto correttamente alle domande di sicurezza per il fallback. |
 | FAILED_PHONE_BUSY | Autenticazione già in corso | Multi-Factor Authentication sta già elaborando un'autenticazione per questo utente.  Questa situazione è spesso causata da client RADIUS che inviano più richieste di autenticazione durante lo stesso accesso. |
 | CONFIG_ISSUE | Telefono irraggiungibile | La chiamata è stata tentata, ma non è stato possibile posizionarla o non è stata trovata alcuna risposta.  Sono inclusi il segnale occupato, il segnale di occupato veloce (disconnesso), i tritoni (numero non più nel servizio), il timeout durante la suoneria e così via. |
 | FAILED_INVALID_PHONENUMBER | Formato numero di telefono non valido | Il formato del numero di telefono non è valido.  I numeri di telefono devono essere numerici e devono essere costituiti da 10 cifre per il codice paese + 1 (Stati Uniti & Canada). |
-| FAILED_USER_HUNGUP_ON_US | L'utente ha riagganciato il telefono | L'utente ha risposto al telefono, ma si è bloccato senza premere alcun pulsante. |
-| FAILED_INVALID_EXTENSION | Estensione non valida | L'estensione contiene caratteri non validi.  Sono consentite solo cifre, virgole, * e #.  È possibile utilizzare anche un prefisso @. |
-| FAILED_FRAUD_CODE_ENTERED | Codice illecito immesso | L'utente ha scelto di segnalare le illecite durante la chiamata, causando un'autenticazione negata e un numero di telefono bloccato.| 
-| FAILED_SERVER_ERROR | Non è possibile inserire la chiamata | Il servizio Multi-Factor Authentication non è stato in grado di effettuare la chiamata. |
-| FAILED_SMS_NOT_SENT | Impossibile inviare il messaggio di testo | Impossibile inviare il messaggio di testo.  Autenticazione negata. |
+| FAILED_USER_HUNGUP_ON_US | Chiamata disconnessa da utente | L'utente ha risposto al telefono ma ha riappeso senza premere alcun pulsante. |
+| FAILED_INVALID_EXTENSION | Interno non valido | L'interno contiene caratteri non validi.  Sono consentite solo cifre, virgole, * e #.  È possibile utilizzare anche un prefisso @. |
+| FAILED_FRAUD_CODE_ENTERED | Codice illecito immesso | L'utente ha scelto di segnalare un illecito durante la chiamata, pertanto l'autenticazione è stata negata e il numero di telefono bloccato.| 
+| FAILED_SERVER_ERROR | Impossibile effettuare chiamate | Il servizio Multi-Factor Authentication non è stato in grado di effettuare la chiamata. |
+| FAILED_SMS_NOT_SENT | Impossibile inviare l'SMS. | Impossibile inviare il messaggio di testo.  Autenticazione negata. |
 | FAILED_SMS_OTP_INCORRECT | OTP SMS non corretta | L'utente ha immesso un codice di accesso monouso (OTP) errato dall'SMS ricevuto.  Autenticazione negata. |
 | FAILED_SMS_OTP_PIN_INCORRECT | OTP + PIN SMS non corretti | L'utente ha immesso un codice di accesso monouso (OTP) errato e/o un PIN utente errato.  Autenticazione negata. |
 | FAILED_SMS_MAX_OTP_RETRY_REACHED | Superato il numero massimo di tentativi di OTP SMS | L'utente ha superato il numero massimo di tentativi di accesso singolo (OTP). |
-| FAILED_PHONE_APP_DENIED | App mobile negata | L'utente ha negato l'autenticazione nell'app per dispositivi mobili premendo il pulsante nega. |
-| FAILED_PHONE_APP_INVALID_PIN | PIN dell'app per dispositivi mobili non valido | L'utente ha immesso un PIN non valido durante l'autenticazione nell'app per dispositivi mobili. |
-| FAILED_PHONE_APP_PIN_NOT_CHANGED | PIN app mobile non modificato | L'utente non ha completato correttamente una modifica del PIN richiesta nell'app per dispositivi mobili. |
-| FAILED_FRAUD_REPORTED | Illecito segnalato | L'utente ha segnalato una frode nell'app per dispositivi mobili. |
-| FAILED_PHONE_APP_NO_RESPONSE | Nessuna risposta dell'app mobile | L'utente non ha risposto alla richiesta di autenticazione dell'app per dispositivi mobili. |
-| FAILED_PHONE_APP_ALL_DEVICES_BLOCKED | App per dispositivi mobili tutti i dispositivi bloccati | I dispositivi app per dispositivi mobili per questo utente non rispondono più alle notifiche e sono stati bloccati. |
-| FAILED_PHONE_APP_NOTIFICATION_FAILED | Notifica app mobile non riuscita | Si è verificato un errore durante il tentativo di inviare una notifica all'app per dispositivi mobili sul dispositivo dell'utente. |
-| FAILED_PHONE_APP_INVALID_RESULT | Risultato app mobile non valido | L'app per dispositivi mobili ha restituito un risultato non valido. |
-| FAILED_OATH_CODE_INCORRECT | Codice del GIURAmento errato | L'utente ha immesso un codice di GIURAmento errato.  Autenticazione negata. |
+| FAILED_PHONE_APP_DENIED | App mobile negata | L'utente ha negato l'autenticazione nell'app mobile facendo clic sul pulsante Nega. |
+| FAILED_PHONE_APP_INVALID_PIN | PIN app mobile non valido | L'utente ha immesso un PIN non valido durante l'autenticazione nell'app mobile. |
+| FAILED_PHONE_APP_PIN_NOT_CHANGED | PIN app mobile non modificato | L'utente non ha completato una modifica PIN richiesta nell'app mobile. |
+| FAILED_FRAUD_REPORTED | Illecito segnalato | L'utente ha segnalato un illecito nell'app mobile. |
+| FAILED_PHONE_APP_NO_RESPONSE | Nessuna risposta da app mobile | L'utente non ha risposto alla richiesta di autenticazione dell'app per dispositivi mobili. |
+| FAILED_PHONE_APP_ALL_DEVICES_BLOCKED | Tutti i dispositivi app mobile bloccati | I dispositivi app mobile per l'utente non rispondono più alle notifiche e sono stati bloccati. |
+| FAILED_PHONE_APP_NOTIFICATION_FAILED | Notifica app mobile non riuscita | Si è verificato un errore durante il tentativo di inviare una notifica all'app mobile sul dispositivo dell'utente. |
+| FAILED_PHONE_APP_INVALID_RESULT | Risultato app mobile non valido | L'app mobile ha restituito un risultato non valido. |
+| FAILED_OATH_CODE_INCORRECT | Codice OATH errato | L'utente ha immesso un codice OATH errato.  Autenticazione negata. |
 | FAILED_OATH_CODE_PIN_INCORRECT | Codice del GIURAmento + PIN non corretto | L'utente ha immesso un codice di GIURAmento errato e/o un PIN utente errato.  Autenticazione negata. |
-| FAILED_OATH_CODE_DUPLICATE | Codice del GIURAmento duplicato | L'utente ha immesso un codice di GIURAmento usato in precedenza.  Autenticazione negata. |
-| FAILED_OATH_CODE_OLD | Il codice del GIURAmento non è aggiornato | L'utente ha immesso un codice di GIURAmento che precede un codice del GIURAmento usato in precedenza.  Autenticazione negata. |
+| FAILED_OATH_CODE_DUPLICATE | Codice OATH duplicato | L'utente ha immesso un codice OATH utilizzato in precedenza.  Autenticazione negata. |
+| FAILED_OATH_CODE_OLD | Codice OATH non aggiornato | L'utente ha immesso un codice OATH che precede un codice OATH utilizzato in precedenza.  Autenticazione negata. |
 | FAILED_OATH_TOKEN_TIMEOUT | Timeout risultato codice GIURAmento | L'utente ha impiegato troppo tempo per immettere il codice del GIURAmento e il tentativo di Multi-Factor Authentication si è già verificato il timeout. |
 | FAILED_SECURITY_QUESTIONS_TIMEOUT | Timeout risultati domande di sicurezza | L'utente ha impiegato troppo tempo per immettere risposte alle domande di sicurezza e il tentativo di Multi-Factor Authentication si è già verificato il timeout. |
 | FAILED_AUTH_RESULT_TIMEOUT | Timeout risultati autenticazione | L'utente ha impiegato troppo tempo per completare il tentativo di Multi-Factor Authentication. |

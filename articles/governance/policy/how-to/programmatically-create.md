@@ -2,13 +2,13 @@
 title: Creare criteri a livello di programmazione
 description: Questo articolo illustra la creazione e la gestione dei criteri a livello di codice per criteri di Azure con l'interfaccia della riga di comando di Azure, Azure PowerShell e l'API REST.
 ms.date: 01/31/2019
-ms.topic: conceptual
-ms.openlocfilehash: 98af714e5aaf8e103b81e77c9960589fa0ee6b77
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.topic: how-to
+ms.openlocfilehash: e81f0ca43788d8f36dde0a58d2ecd4b1604fd77e
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463532"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873064"
 ---
 # <a name="programmatically-create-policies"></a>Creare criteri a livello di programmazione
 
@@ -16,7 +16,7 @@ Questo articolo illustra la creazione a livello di codice e la gestione dei crit
 
 Per informazioni sulla conformità, vedere [Ottenere dati sulla conformità](get-compliance-data.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, verificare che i prerequisiti seguenti siano soddisfatti:
 

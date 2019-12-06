@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7176101a1e6c1da54ddd8b5f22b61b91fbc5115a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: cf2ca3bde0cfee97adee8bb875df1522e95b1f53
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74267932"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74869308"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Aggiungere utenti di Collaborazione B2B di Azure Active Directory nel portale di Azure
 
@@ -36,11 +36,11 @@ Assicurarsi che le impostazioni di collaborazione esterna dell'organizzazione si
 Per aggiungere utenti di Collaborazione B2B alla directory, seguire questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come un utente a cui è assegnato un ruolo della directory amministratore limitato o il ruolo di invito Guest.
-2. Nel riquadro di spostamento selezionare **Azure Active Directory**.
+2. Cercare e selezionare **Azure Active Directory** da qualsiasi pagina.
 3. In **Gestisci** selezionare **Utenti**.
 4. Selezionare **Nuovo utente guest**.
 
-   ![Mostra la posizione dell'opzione Nuovo utente guest nell'interfaccia utente](./media/add-users-administrator/NewGuestUser-Directory.png) 
+   ![Mostra la posizione dell'opzione Nuovo utente guest nell'interfaccia utente](./media/add-users-administrator/new-guest-user-in-all-users.png) 
  
    > [!NOTE]
    > L'opzione **Nuovo utente guest** è disponibile anche nella pagina **Relazioni aziendali**. In **Azure Active Directory**, nell'area **Gestisci**, selezionare **Relazioni aziendali**.
@@ -67,11 +67,11 @@ Dopo aver inviato l'invito, l'account utente viene automaticamente aggiunto alla
 Se è necessario aggiungere manualmente gli utenti di collaborazione B2B a un gruppo, attenersi alla procedura seguente:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore di Azure AD.
-2. Nel riquadro di spostamento selezionare **Azure Active Directory**.
+2. Cercare e selezionare **Azure Active Directory** da qualsiasi pagina.
 3. In **Gestisci** selezionare **Gruppi**.
 4. Selezionare un gruppo o fare clic su **Nuovo gruppo** per crearne uno nuovo. È consigliabile indicare nella descrizione del gruppo che il gruppo contiene utenti guest B2B.
 5. Selezionare **Membri**. 
-6. Eseguire una delle operazioni seguenti:
+6. Eseguire una di queste operazioni:
    - Se l'utente guest esiste già nella directory, cercare l'utente B2B. Selezionare l'utente e quindi fare clic su **Seleziona** per aggiungerlo al gruppo.
    - Se l'utente guest non esiste già nella directory, invitarlo nel gruppo immettendo l'indirizzo di posta elettronica nella casella di ricerca, digitando un messaggio personale facoltativo e quindi facendo clic su **Seleziona**. L'invito viene inviato automaticamente all'utente invitato.
      
@@ -84,7 +84,7 @@ Se è necessario aggiungere manualmente gli utenti di collaborazione B2B a un gr
 Per aggiungere utenti di collaborazione B2B a un'applicazione, seguire questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore di Azure AD.
-2. Nel riquadro di spostamento selezionare **Azure Active Directory**.
+2. Cercare e selezionare **Azure Active Directory** da qualsiasi pagina.
 3. In **Gestisci** selezionare **Applicazioni aziendali** > **Tutte le applicazioni**.
 4. Selezionare l'applicazione a cui aggiungere gli utenti guest.
 5. Nella dashboard applicazione selezionare **Totale utenti** per aprire il riquadro **Utenti e gruppi**.
@@ -93,7 +93,7 @@ Per aggiungere utenti di collaborazione B2B a un'applicazione, seguire questa pr
 
 6. Selezionare **Aggiungi utente**.
 7. In **Aggiungi assegnazione** selezionare **Utenti e gruppi**.
-8. Eseguire una delle operazioni seguenti:
+8. Eseguire una di queste operazioni:
    - Se l'utente guest esiste già nella directory, cercare l'utente B2B. Selezionare l'utente, fare clic su **Seleziona** e quindi fare clic su **Assegna** per aggiungere l'utente all'app.
    - Se l'utente guest non è già presente nella directory, in **Selezionare un membro o invitare un utente esterno** digitare l'indirizzo di posta elettronica dell'utente. Nella finestra di messaggio digitare un messaggio personale facoltativo. Nella finestra di messaggio fare clic su **Invita**.
            
@@ -112,13 +112,13 @@ Per aggiungere utenti di collaborazione B2B a un'applicazione, seguire questa pr
 Se un utente guest non ha ancora riscattato il proprio invito, è possibile inviare di nuovo messaggio di posta elettronica di invito.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore di Azure AD.
-2. Nel riquadro di spostamento selezionare **Azure Active Directory**.
+2. Cercare e selezionare **Azure Active Directory** da qualsiasi pagina.
 3. In **Gestisci** selezionare **Utenti**.
 5. Selezionare l'account utente.
 6. In **Gestisci** selezionare **Profilo**.
 7. Se l'utente non ha ancora accettato l'invito, è disponibile l'opzione **Invia di nuovo l'invito**. Selezionare questo pulsante per inviare di nuovo l'invito.
 
-   ![Opzione Invia di nuovo l'invito nel profilo utente](./media/add-users-administrator/Resend-Invitation.png)
+   ![Opzione Invia di nuovo l'invito nel profilo utente](./media/add-users-administrator/b2b-user-resend-invitation.png)
 
 > [!NOTE]
 > Se si invia di nuovo un invito che originariamente indirizzava l'utente a un'app specifica, tenere presente che il collegamento nel nuovo invito indirizza invece l'utente al pannello di accesso di primo livello.

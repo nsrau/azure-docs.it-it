@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 93c35eb4f69cc4f9b16f669d96c2df53f50bcf84
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 789af25cc37183e9eeae253e1e8529615abdd308
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231183"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849803"
 ---
 # <a name="durable-functions-versions-overview"></a>Panoramica sulle versioni di Durable Functions
 
@@ -55,7 +55,7 @@ Durable Functions 2. x introduce diverse modifiche di rilievo. Le applicazioni D
 Durable Functions 2. x usa un nuovo schema host. JSON. Di seguito sono riportate le modifiche principali da 1. x:
 
 * `"storageProvider"` (e la sottosezione `"azureStorage"`) per la configurazione specifica dell'archiviazione.
-* `"tracking"` per la configurazione del rilevamento e della registrazione.
+* `"tracing"` per la configurazione della traccia e della registrazione.
 * `"notifications"` (e la sottosezione `"eventGrid"`) per la configurazione delle notifiche di griglia di eventi.
 
 Per informazioni dettagliate, vedere la [documentazione di riferimento di Durable Functions host. JSON](durable-functions-bindings.md#durable-functions-2-0-host-json) .

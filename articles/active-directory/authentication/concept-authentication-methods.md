@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 08/16/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a7110ad3e6c9c66179c90c02c1572ee83cb9f15
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: ee0dd0cd83ab27dd728a7572b6fcd69c40bb1b00
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420783"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848749"
 ---
 # <a name="what-are-authentication-methods"></a>Cosa si intende per metodi di autenticazione?
 
@@ -30,18 +30,18 @@ Si consiglia agli amministratori di consentire agli utenti la selezione di un nu
 | --- | --- |
 | Password | Autenticazione a più fattori e SSPR |
 | Domande di sicurezza | Solo SSPR |
-| Indirizzo di posta elettronica | Solo SSPR |
+| Indirizzo e-mail | Solo SSPR |
 | App Microsoft Authenticator | Autenticazione a più fattori e SSPR |
 | Token hardware OATH | Anteprima pubblica per autenticazione a più fattori e SSPR |
-| sms | Autenticazione a più fattori e SSPR |
+| SMS | Autenticazione a più fattori e SSPR |
 | Chiamata vocale | Autenticazione a più fattori e SSPR |
-| Password dell'app | Autenticazione a più fattori solo in alcuni casi |
+| Password app | Autenticazione a più fattori solo in alcuni casi |
 
 ![Metodi di autenticazione in uso nella schermata di accesso](media/concept-authentication-methods/overview-login.png)
 
 |     |
 | --- |
-| I token hardware per multi-factor authentication e SSPR sono funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzionalità in anteprima, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| I token hardware per multi-factor authentication e SSPR sono funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzionalità in anteprima, vedere [Condizioni Supplementari per l'Utilizzo delle Anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 ## <a name="password"></a>Password
@@ -113,7 +113,7 @@ La lunghezza massima di una domanda di sicurezza personalizzata è di 200 caratt
 * È possibile usare qualsiasi set di caratteri per definire domande e risposte, compresi i caratteri Unicode.
 * Il numero di domande definite deve essere maggiore o uguale al numero di domande necessarie per la registrazione.
 
-## <a name="email-address"></a>Indirizzo di posta elettronica
+## <a name="email-address"></a>Indirizzo e-mail
 
 L'indirizzo di posta elettronica è disponibile **solo per la reimpostazione della password di Azure AD in modalità self-service**.
 
@@ -160,7 +160,7 @@ OATH è uno standard aperto che specifica come vengono generati i codici per pas
 
 ![Caricamento dei token del GIURAmento nel pannello token del GIURAmento server di autenticazione a più fattori](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 
-I token hardware OATH sono supportati come parte di un'anteprima pubblica. Per altre informazioni sulle funzionalità in anteprima, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+I token hardware OATH sono supportati come parte di un'anteprima pubblica. Per altre informazioni sulle funzionalità in anteprima, vedere [Condizioni Supplementari per l'Utilizzo delle Anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 Dopo aver acquisito i token, è necessario caricarli in un formato di file con valori delimitati da virgole (CSV) includendo nome dell'entità utente, numero di serie, chiave privata, intervallo di tempo, produttore e modello come illustrato nell'esempio seguente.
 

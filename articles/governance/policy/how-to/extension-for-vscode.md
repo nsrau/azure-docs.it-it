@@ -2,13 +2,13 @@
 title: Estensione di criteri di Azure per Visual Studio Code
 description: Informazioni su come usare l'estensione di criteri di Azure per Visual Studio Code per cercare Gestione risorse alias.
 ms.date: 11/04/2019
-ms.topic: conceptual
-ms.openlocfilehash: cbc0e14ed70fbacc297126aef58cd722d2235a3d
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.topic: how-to
+ms.openlocfilehash: 48ef098cf970b5128185c40c92f8bb02ad8d9698
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072044"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873115"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Usare l'estensione di criteri di Azure per Visual Studio Code
 
@@ -21,7 +21,7 @@ L'estensione di criteri di Azure per Visual Studio Code può essere installata i
 > [!NOTE]
 > Le modifiche apportate localmente ai criteri visualizzati nell'estensione criteri di Azure per Visual Studio Code non vengono sincronizzate con Azure.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare le procedure descritte in questo articolo, sono necessari gli elementi seguenti:
 
@@ -149,7 +149,7 @@ L'estensione criteri di Azure elenca i tipi di criteri e le assegnazioni di crit
 
 Quando si seleziona un criterio o un'assegnazione, tramite l'interfaccia di ricerca o selezionandola in TreeView, l'estensione di criteri di Azure apre il JSON che rappresenta il criterio o l'assegnazione e tutti i relativi valori Gestione risorse proprietà. L'estensione può convalidare lo schema JSON di criteri di Azure aperto.
 
-## <a name="sign-out"></a>Disconnessione
+## <a name="sign-out"></a>Disconnetti
 
 Dalla barra dei menu passare a **visualizza** > **riquadro comandi**e quindi immettere **Azure: disconnettersi**.
 
