@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ada64d6bbce4fe7401bbfc078ba0903a28f06971
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: d31e30991056cc891e63347a2c88e7fc4caeab28
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74795821"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74875442"
 ---
 ### <a name="regions"></a>Quali aree sono disponibili?
 
@@ -59,3 +59,7 @@ Azure Bastion supporta attualmente il layout di tastiera QWERTY en-us nella macc
 
 No. Il routing definito dall'utente non è supportato in una subnet Azure Bastion.
 Per gli scenari che includono Azure Bastion e Firewall di Azure/appliance di rete virtuale nella stessa rete virtuale, non è necessario forzare il traffico da una subnet Azure Bastion a Firewall di Azure, perché la comunicazione tra Azure Bastion e le VM è privata. Per altre informazioni, vedere [Accesso alle VM dietro Firewall di Azure con Bastion](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).
+
+### <a name="filetransfer"></a>Il trasferimento di file è supportato con la sessione RDP di Azure Bastion?
+
+Ci stiamo impegnando ad aggiungere nuove funzionalità. Al momento, il trasferimento di file non è supportato, ma fa parte della nostra roadmap. È possibile condividere commenti e suggerimenti sulle nuove funzionalità nella pagina di [feedback su Azure Bastion](https://feedback.azure.com/forums/217313-networking?category_id=367303).

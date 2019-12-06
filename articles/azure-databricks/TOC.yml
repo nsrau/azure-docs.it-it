@@ -126,9 +126,6 @@
         - name: Inizializzare i nodi di cluster
           href: /azure/databricks/clusters/init-scripts
           maintainContext: true
-        - name: Contenitori personalizzati
-          href: /azure/databricks/clusters/custom-containers
-          maintainContext: true
         - name: Cluster abilitati per GPU
           href: /azure/databricks/clusters/gpu
           maintainContext: true
@@ -226,9 +223,6 @@
       maintainContext: true
     - name: Dati
       items:
-        - name: File system di Databricks (DBFS)
-          href: /azure/databricks/data/databricks-file-system
-          maintainContext: true
         - name: Database e tabelle
           href: /azure/databricks/data/tables
           maintainContext: true
@@ -317,6 +311,9 @@
             - name: File ZIP
               href: /azure/databricks/data/data-sources/zip-files
               maintainContext: true
+        - name: File system di Databricks (DBFS)
+          href: /azure/databricks/data/databricks-file-system
+          maintainContext: true
         - name: FileStore
           href: /azure/databricks/data/filestore
           maintainContext: true
@@ -829,8 +826,8 @@
             - name: Inferenza del modello con TensorFlow
               href: /azure/databricks/applications/deep-learning/inference/resnet-model-inference-tensorflow
               maintainContext: true
-            - name: Ottimizzazione delle prestazioni di inferenza del modello
-              href: /azure/databricks/applications/deep-learning/inference/model-inference-performance
+            - name: Soluzione di riferimento per l'inferenza del modello di immagine distribuita
+              href: /azure/databricks/applications/deep-learning/reference-solutions/images-etl-inference
               maintainContext: true
     - name: MLflow
       items:
@@ -1066,9 +1063,6 @@
             - name: Panoramica delle configurazioni del cluster
               href: /azure/databricks/administration-guide/clusters/index
               maintainContext: true
-            - name: Abilitare i servizi contenitore
-              href: /azure/databricks/administration-guide/clusters/container-services
-              maintainContext: true
             - name: Abilitare Databricks Runtime per Genomica
               href: /azure/databricks/administration-guide/clusters/genomics-runtime
               maintainContext: true
@@ -1137,9 +1131,6 @@
               maintainContext: true
             - name: L'impostazione di configurazione sovrascrive le impostazioni predefinite
               href: /azure/databricks/kb/clusters/conf-overwrites-default-settings
-              maintainContext: true
-            - name: Eseguire librerie JNI in executor a singolo core
-              href: /azure/databricks/kb/clusters/multiple-executors-single-worker
               maintainContext: true
             - name: Sovrascrivere le configurazioni log4j
               href: /azure/databricks/kb/clusters/overwrite-log4j-logs
@@ -1544,6 +1535,9 @@
           items:
             - name: Note sulla versione della piattaforma
               href: /azure/databricks/release-notes/product/index
+              maintainContext: true
+            - name: Dicembre 2019
+              href: /azure/databricks/release-notes/product/2019/december
               maintainContext: true
             - name: Novembre 2019
               href: /azure/databricks/release-notes/product/2019/november

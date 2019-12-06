@@ -87,7 +87,7 @@
           href: deploy-kcd.md
         - name: Configurare criteri password e di blocco dell'account
           href: password-policy.md
-        - name: Abilitare gli eventi di controllo di sicurezza (anteprima)
+        - name: Abilitare gli eventi di controllo di sicurezza
           href: security-audit-events.md
     - name: Aggiungere macchine virtuali al dominio
       items:

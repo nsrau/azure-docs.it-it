@@ -48,13 +48,13 @@
           displayName: 'n-depth, constraint, descriptor, phrase list, entity'
         - name: 3. Ottenere la valutazione da espressioni utente
           href: tutorial-publish-settings.md
-    - name: Compilare app
+    - name: Creare e usare entità
       items:
-        - name: Ottenere dati formattati in modo corretto con le espressioni regolari
-          href: luis-quickstart-intents-regex-entity.md
-        - name: Ottenere corrispondenze esatte del testo con gli elenchi
-          href: luis-quickstart-intent-and-list-entity.md
-        - name: Ottenere dati correlati con i ruoli delle entità
+        - name: Entità di espressione regolare
+          href: tutorial-regex-entity.md
+        - name: Elencare le entità
+          href: tutorial-list-entity.md
+        - name: Ruoli entità
           href: tutorial-entity-roles.md
           displayName: 'roles, geographyV2, context'
         - name: Raggruppare ed estrarre dati correlati con entità composte

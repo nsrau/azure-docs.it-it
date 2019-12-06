@@ -12,10 +12,6 @@
       href: require-tou.md
     - name: Bloccare l'accesso quando viene rilevato un rischio nella sessione
       href: app-sign-in-risk.md
-- name: Esercitazioni
-  items:
-    - name: Eseguire la migrazione di criteri MFA classici
-      href: policy-migration-mfa.md
 - name: Concetti
   expanded: false
   items:
@@ -37,6 +33,8 @@
       href: service-dependencies.md
     - name: Strumento What If
       href: what-if-tool.md
+    - name: Migrazioni dei criteri classici
+      href: policy-migration.md
     - name: Criteri di protezione di base
       href: concept-baseline-protection.md
 - name: Guide alle procedure
@@ -83,7 +81,7 @@
     - name: Controlli della frequenza degli accessi e della persistenza del browser
       href: howto-conditional-access-session-lifetime.md
     - name: Eseguire la migrazione di criteri classici
-      href: policy-migration.md
+      href: policy-migration-mfa.md
     - name: Adozione dell'accesso condizionale
       href: howto-conditional-access-adoption-kit.md
     - name: risoluzione dei problemi
