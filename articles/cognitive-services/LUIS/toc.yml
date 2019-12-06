@@ -60,9 +60,6 @@
         - name: Raggruppare ed estrarre dati correlati con entità composte
           href: luis-tutorial-composite-entity.md
           displayName: roles
-        - name: Ottenere nomi con entità semplici
-          href: luis-quickstart-primary-and-secondary-data.md
-          displayName: roles
     - name: Migliorare l'app
       items:
         - name: Correggere le stime dubbie
