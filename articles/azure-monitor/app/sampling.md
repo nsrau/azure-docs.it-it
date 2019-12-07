@@ -4,16 +4,16 @@ description: Come tenere sotto controllo il volume della telemetria.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: cijothomas
-ms.author: cithomas
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
-ms.openlocfilehash: c124e6c433f83212c0db815a2fd06cfcfdf86253
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 4b0dca1215cfecea5c9943bd27ee8a5c1de45311
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73884724"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893366"
 ---
 # <a name="sampling-in-application-insights"></a>Campionamento in Application Insights
 
@@ -340,9 +340,9 @@ I tipi di dati di telemetria che possono essere inclusi o esclusi dal campioname
 > 
 > 
 
-2. È possibile specificare un `sampler` come parte della configurazione del `Tracer`. Se non viene fornito alcun campionatore esplicito, il ProbabilitySampler verrà usato per impostazione predefinita. Per impostazione predefinita, ProbabilitySampler utilizzerebbe una velocità di 1/10000, ovvero una delle richieste 10000 verrà inviata a Application Insights. Se si desidera specificare una frequenza di campionamento, vedere di seguito.
+2. È possibile specificare un `sampler` come parte della configurazione `Tracer`. Se non viene fornito alcun campionatore esplicito, il ProbabilitySampler verrà usato per impostazione predefinita. Per impostazione predefinita, ProbabilitySampler utilizzerebbe una velocità di 1/10000, ovvero una delle richieste 10000 verrà inviata a Application Insights. Se si desidera specificare una frequenza di campionamento, vedere di seguito.
 
-3. Quando si specifica un campionatore, assicurarsi che il `Tracer` specifichi un campionatore con una frequenza di campionamento compresa tra 0,0 e 1,0 inclusi. Una frequenza di campionamento di 1,0 rappresenta il 100%, vale a dire che tutte le richieste verranno inviate come dati di telemetria a Application Insights.
+3. Quando si specifica un campionatore, verificare che `Tracer` specifichi un campionatore con una frequenza di campionamento compresa tra 0,0 e 1,0 inclusi. Una frequenza di campionamento di 1,0 rappresenta il 100%, vale a dire che tutte le richieste verranno inviate come dati di telemetria a Application Insights.
 
     ```python
     tracer = Tracer(

@@ -1,6 +1,6 @@
 ---
 title: Offuscare i volti con Analisi Servizi multimediali di Azure | Documentazione Microsoft
-description: Questo argomento illustra come offuscare i volti con Analisi Servizi multimediali di Azure.
+description: Azure Media Redactor è un processore di contenuti multimediali Analisi Servizi multimediali di Azure che offre la scalabilità dei volti nel cloud. Questo articolo illustra come offuscare i visi con analisi servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: e350b6ed90324e7ed645d85c046fd74c0a089452
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 6a1b7a76ef1efda51f09ac733b3d434235ff40ef
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69016024"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900307"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Offuscare i volti con Analisi Servizi multimediali di Azure 
 ## <a name="overview"></a>Panoramica
@@ -34,7 +34,7 @@ In aggiunta a una modalità interamente automatica, esiste un flusso di lavoro i
 ### <a name="combined-mode"></a>Modalità combinata
 Questa modalità produce automaticamente un file mp4 offuscato senza alcun input manuale.
 
-| Fase | File Name | Note |
+| Stage | File Name | Note |
 | --- | --- | --- |
 | Asset di input |foo.bar |Video in formato WMV, MOV o MP4 |
 | Configurazione di input |Set di impostazioni di configurazione del processo |{'version':'1.0', 'options': {'mode':'combined'}} |
@@ -49,7 +49,7 @@ Questa modalità produce automaticamente un file mp4 offuscato senza alcun input
 ### <a name="analyze-mode"></a>Modalità analisi
 Nel flusso di lavoro in due passaggi, il passaggio dell' **analisi** usa un input video e produce un file JSON di posizioni di volti e immagini jpg di ogni volto rilevato.
 
-| Fase | File Name | Note |
+| Stage | File Name | Note |
 | --- | --- | --- |
 | Asset di input |foo.bar |Video in formato WMV, MPV o MP4 |
 | Configurazione di input |Set di impostazioni di configurazione del processo |{'version':'1.0', 'options': {'mode':'analyze'}} |
@@ -114,7 +114,7 @@ Gli input includono un elenco di ID da sfocare, il video originale e il file JSO
 
 L'output del passaggio dell'analisi non include il video originale. Il video deve essere caricato nell'asset di input per l'attività della modalità offuscamento ed essere selezionato come file primario.
 
-| Fase | File Name | Note |
+| Stage | File Name | Note |
 | --- | --- | --- |
 | Asset di input |foo.bar |Video in formato WMV, MPV o MP4. Stesso video del passaggio 1. |
 | Asset di input |foo_annotations.json |File di metadati delle annotazioni della prima fase, con modifiche facoltative. |
@@ -145,21 +145,21 @@ Di seguito sono riportati alcuni esempi dei tipi di sfocature.
     {'version':'1.0', 'options': {'Mode': 'Combined', 'BlurType': 'High'}}
 ```
 
-#### <a name="low"></a>Basso
+#### <a name="low"></a>Basse
 
-![Basso](./media/media-services-face-redaction/blur1.png)
+![Basse](./media/media-services-face-redaction/blur1.png)
  
 #### <a name="med"></a>Med
 
 ![Med](./media/media-services-face-redaction/blur2.png)
 
-#### <a name="high"></a>High
+#### <a name="high"></a>Alte
 
-![High](./media/media-services-face-redaction/blur3.png)
+![Alte](./media/media-services-face-redaction/blur3.png)
 
-#### <a name="box"></a>Casella
+#### <a name="box"></a>Box
 
-![Casella](./media/media-services-face-redaction/blur4.png)
+![Box](./media/media-services-face-redaction/blur4.png)
 
 #### <a name="black"></a>Nero
 
@@ -367,7 +367,7 @@ namespace FaceRedaction
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Collegamenti correlati

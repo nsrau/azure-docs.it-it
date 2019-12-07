@@ -7,12 +7,13 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
-ms.openlocfilehash: 5a0a7e59e71e51a109af0f89cbb7ba580b2b97e6
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 21c1380862638ef671b31f0fdec42009d217aca7
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967196"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893213"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la continuità aziendale e il ripristino di emergenza nel servizio Azure Kubernetes
 
@@ -29,13 +30,13 @@ Questo articolo è incentrato su come pianificare la continuità aziendale e il 
 
 ## <a name="plan-for-multiregion-deployment"></a>Pianificare la distribuzione in più aree
 
-**Procedura consigliata**: Quando si distribuiscono più cluster AKS, scegliere le aree in cui è disponibile AKS e usare le aree abbinate.
+**Procedura consigliata**: quando si distribuiscono più cluster AKS, scegliere le aree in cui è disponibile AKS e usare le aree abbinate.
 
 Un cluster del servizio Azure Kubernetes viene distribuito in una singola area. Per proteggere il sistema da un errore dell'area, distribuire l'applicazione in più cluster AKS in aree diverse. Quando si pianifica la posizione in cui distribuire il cluster AKS, prendere in considerazione quanto segue:
 
-* [**Disponibilità area AKS**](https://docs.microsoft.com/azure/aks/quotas-skus-regions#region-availability): Scegliere le aree vicine ai propri utenti. AKS si espande continuamente in nuove aree geografiche.
-* [**Aree abbinate di Azure**](https://docs.microsoft.com/azure/best-practices-availability-paired-regions): Per la propria area geografica, scegliere due aree abbinate tra loro. Le aree abbinate aggiornano gli aggiornamenti della piattaforma e assegnano priorità ai tentativi di ripristino laddove necessario.
-* **Disponibilità del servizio**: Decidere se le aree abbinate devono essere Hot/Hot, Hot/warm o hot/cold. Si desidera eseguire entrambe le aree contemporaneamente, con un'area *pronta* per iniziare a gestire il traffico? Oppure si vuole che un'area abbia tempo per prepararsi a gestire il traffico?
+* [**Disponibilità area AKS**](https://docs.microsoft.com/azure/aks/quotas-skus-regions#region-availability): scegliere le aree vicine agli utenti. AKS si espande continuamente in nuove aree geografiche.
+* [**Aree abbinate di Azure**](https://docs.microsoft.com/azure/best-practices-availability-paired-regions): per l'area geografica, scegliere due aree abbinate tra loro. Le aree abbinate aggiornano gli aggiornamenti della piattaforma e assegnano priorità ai tentativi di ripristino laddove necessario.
+* **Disponibilità del servizio**: decidere se le aree abbinate devono essere Hot/Hot, Hot/warm o hot/cold. Si desidera eseguire entrambe le aree contemporaneamente, con un'area *pronta* per iniziare a gestire il traffico? Oppure si vuole che un'area abbia tempo per prepararsi a gestire il traffico?
 
 La disponibilità e le aree abbinate dell'area AKS sono una considerazione congiunta. Distribuire i cluster del servizio Azure Kubernetes nelle aree abbinate progettate per gestire congiuntamente il ripristino di emergenza nell'area. Ad esempio, AKS è disponibile negli Stati Uniti orientali e negli Stati Uniti occidentali. Queste aree sono abbinate. Scegliere queste due aree quando si sta creando una strategia AKS BC/DR.
 
@@ -43,7 +44,7 @@ Quando si distribuisce l'applicazione, aggiungere un altro passaggio alla pipeli
 
 ## <a name="use-azure-traffic-manager-to-route-traffic"></a>Usare Gestione traffico di Microsoft Azure per indirizzare il traffico
 
-**Procedura consigliata**: Gestione traffico di Azure può indirizzare i clienti al cluster AKS più vicino e all'istanza dell'applicazione. Per ottenere prestazioni e ridondanza ottimali, indirizzare tutto il traffico dell'applicazione attraverso gestione traffico prima di passare al cluster AKS.
+**Procedura consigliata**: gestione traffico di Azure può indirizzare i clienti al cluster AKS più vicino e all'istanza dell'applicazione. Per ottenere prestazioni e ridondanza ottimali, indirizzare tutto il traffico dell'applicazione attraverso gestione traffico prima di passare al cluster AKS.
 
 Se si dispone di più cluster AKS in aree diverse, usare gestione traffico per controllare il flusso del traffico verso le applicazioni in esecuzione in ogni cluster. [Gestione traffico di Microsoft Azure](https://docs.microsoft.com/azure/traffic-manager/) è un servizio di bilanciamento del carico del traffico basato su DNS in grado di distribuire il traffico di rete tra le aree. Usare gestione traffico per indirizzare gli utenti in base al tempo di risposta del cluster o in base all'area geografica.
 
@@ -61,9 +62,15 @@ Per informazioni su come configurare gli endpoint e il routing, vedere [configur
 
 Gestione traffico USA il DNS (livello 3) per definire il traffico. Il [servizio front door di Azure](https://docs.microsoft.com/azure/frontdoor/front-door-overview) fornisce un'opzione di routing http/https (livello 7). Funzionalità aggiuntive del servizio front door di Azure includono la terminazione SSL, il dominio personalizzato, web application firewall, la riscrittura URL e l'affinità di sessione. Esaminare le esigenze di traffico dell'applicazione per determinare la soluzione più adatta.
 
+### <a name="interconnect-regions-with-global-virtual-network-peering"></a>Aree di interconnessione con peering di rete virtuale globale
+
+Se i cluster devono comunicare tra loro, la connessione di entrambe le reti virtuali può essere eseguita tramite il [peering di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). Questa tecnologia interconnette le reti virtuali tra loro garantendo una larghezza di banda elevata attraverso la rete backbone di Microsoft, anche in diverse aree geografiche.
+
+Un prerequisito per eseguire il peering delle reti virtuali in cui sono in esecuzione i cluster AKS consiste nell'usare la Load Balancer standard nel cluster AKS, in modo che i servizi kubernetes siano raggiungibili attraverso il peering di rete virtuale.
+
 ## <a name="enable-geo-replication-for-container-images"></a>Abilitare la replica geografica per le immagini del contenitore
 
-**Procedura consigliata**: Archiviare le immagini del contenitore in Azure Container Registry e la replica geografica del registro di sistema in ogni area AKS.
+**Procedura consigliata**: archiviare le immagini del contenitore in Azure container Registry e replicare geograficamente il registro di sistema in ogni area AKS.
 
 Per distribuire ed eseguire le applicazioni nel servizio Azure Kubernetes, è necessario un modo per archiviare ed eseguire il pull delle immagini del contenitore. Container Registry si integra con AKS, in modo da poter archiviare in modo sicuro le immagini del contenitore o i grafici Helm. Container Registry supporta la replica geografica multimaster per replicare automaticamente le immagini in aree di Azure in tutto il mondo. 
 
@@ -73,15 +80,15 @@ Per migliorare le prestazioni e la disponibilità, usare Container Registry la r
 
 Quando si usa Container Registry la replica geografica per eseguire il pull delle immagini dalla stessa area, i risultati sono:
 
-* **Più veloce**: È possibile effettuare il pull di immagini da connessioni di rete a bassa latenza e ad alta velocità all'interno della stessa area di Azure.
-* **Più affidabile**: Se un'area non è disponibile, il cluster AKS estrae le immagini da un registro contenitori disponibile.
-* **Più economico**: Non vengono applicati addebiti in uscita di rete tra i Data center.
+* **Faster**: è possibile estrarre le immagini da connessioni di rete ad alta velocità e a bassa latenza all'interno della stessa area di Azure.
+* **Più affidabile**: se un'area non è disponibile, il cluster AKS estrae le immagini da un registro contenitori disponibile.
+* **Più economico**: non viene addebitato alcun costo in uscita di rete tra i Data Center.
 
 La replica geografica è una funzionalità dei registri contenitori SKU *Premium* . Per informazioni su come configurare la replica geografica, vedere [container Registry la replica geografica](https://docs.microsoft.com/azure/container-registry/container-registry-geo-replication).
 
 ## <a name="remove-service-state-from-inside-containers"></a>Rimuovere lo stato del servizio dai contenitori
 
-**Procedura consigliata**: Laddove possibile, non archiviare lo stato del servizio all'interno del contenitore. Usare invece una piattaforma distribuita come servizio (PaaS) di Azure che supporta la replica in più aree.
+**Procedura consigliata**: laddove possibile, non archiviare lo stato del servizio all'interno del contenitore. Usare invece una piattaforma distribuita come servizio (PaaS) di Azure che supporta la replica in più aree.
 
 *Lo stato del servizio* si riferisce ai dati in memoria o su disco necessari per il funzionamento di un servizio. Include le strutture di dati e le variabili membro che vengono lette e scritte dal servizio. A seconda di come viene progettato il servizio, lo stato potrebbe includere anche file o altre risorse archiviate sul disco. Ad esempio, lo stato potrebbe includere i file utilizzati da un database per archiviare i dati e i log delle transazioni.
 
@@ -96,7 +103,7 @@ Per compilare applicazioni portabili, vedere le linee guida seguenti:
 
 ## <a name="create-a-storage-migration-plan"></a>Creare un piano di migrazione di archiviazione
 
-**Procedura consigliata**: Se si usa archiviazione di Azure, preparare e testare come eseguire la migrazione dell'archiviazione dall'area primaria all'area di backup.
+**Procedura consigliata**: se si usa archiviazione di Azure, preparare e testare come eseguire la migrazione dell'archiviazione dall'area primaria all'area di backup.
 
 Le applicazioni potrebbero usare archiviazione di Azure per i propri dati. Poiché le applicazioni vengono distribuite in più cluster AKS in aree diverse, è necessario sincronizzare lo spazio di archiviazione. Ecco due modi comuni per replicare l'archiviazione:
 

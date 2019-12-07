@@ -3,18 +3,18 @@ title: Estendere IoT Central di Azure con regole e notifiche personalizzate | Mi
 description: Per gli sviluppatori di soluzioni, configurare un'applicazione IoT Central per inviare notifiche tramite posta elettronica quando un dispositivo smette di inviare dati di telemetria. Questa soluzione USA analisi di flusso di Azure, funzioni di Azure e SendGrid.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/01/2019
+ms.date: 12/02/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 56ff01af6466e90ff4b69cd37c1638265c59b873
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: bdaa08e8c3b104c7269c1fb4169779d98b4e0880
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895865"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895736"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid-preview-features"></a>Estendi IoT Central di Azure con regole personalizzate usando analisi di flusso, funzioni di Azure e SendGrid (funzionalità di anteprima)
 
@@ -32,7 +32,7 @@ In questa guida dettagliata si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per eseguire la procedura descritta in questa guida è necessaria una sottoscrizione di Azure.
+Per completare la procedura descritta in questa guida pratica, è necessaria una sottoscrizione di Azure attiva.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -40,7 +40,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Creare un'applicazione IoT Central nel sito Web di [Azure IOT Central Application Manager](https://aka.ms/iotcentral) con le impostazioni seguenti:
 
-| Impostazione | Valore |
+| Impostazione | Value |
 | ------- | ----- |
 | Piano di pagamento | Pagamento in base al consumo |
 | Modello di applicazione | Analisi in-Store-monitoraggio delle condizioni |
@@ -48,13 +48,13 @@ Creare un'applicazione IoT Central nel sito Web di [Azure IOT Central Applicatio
 | URL | Accettare l'impostazione predefinita o scegliere il prefisso URL univoco |
 | Directory | Tenant di Azure Active Directory |
 | Sottoscrizione di Azure | Sottoscrizione di Azure |
-| Region | Area geografica più vicina |
+| Area geografica | Area geografica più vicina |
 
 Gli esempi e le schermate in questo articolo usano l'area **Stati Uniti** . Scegliere una località vicina e assicurarsi di creare tutte le risorse nella stessa area.
 
 Questo modello di applicazione include due dispositivi termotermostati simulati che inviano dati di telemetria.
 
-### <a name="resource-group"></a>Resource group
+### <a name="resource-group"></a>Gruppo di risorse
 
 Usare il [portale di Azure per creare un gruppo di risorse](https://portal.azure.com/#create/Microsoft.ResourceGroup) denominato **DetectStoppedDevices** per contenere le altre risorse create. Creare le risorse di Azure nello stesso percorso dell'applicazione IoT Central.
 
@@ -62,25 +62,25 @@ Usare il [portale di Azure per creare un gruppo di risorse](https://portal.azure
 
 Usare il [portale di Azure per creare uno spazio dei nomi di hub eventi](https://portal.azure.com/#create/Microsoft.EventHub) con le impostazioni seguenti:
 
-| Impostazione | Valore |
+| Impostazione | Value |
 | ------- | ----- |
-| Name    | Scegliere il nome dello spazio dei nomi |
+| name    | Scegliere il nome dello spazio dei nomi |
 | Piano tariffario | Basic |
 | Sottoscrizione | Sottoscrizione in uso |
-| Resource group | DetectStoppedDevices |
-| Percorso | Stati Uniti orientali |
+| Gruppo di risorse | DetectStoppedDevices |
+| Località | Stati Uniti Orientali |
 | Unità elaborate | 1 |
 
-### <a name="stream-analytics-job"></a>Processo di analisi di flusso
+### <a name="stream-analytics-job"></a>Processo di Analisi di flusso
 
 Usare il [portale di Azure per creare un processo di analisi di flusso](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) con le impostazioni seguenti:
 
-| Impostazione | Valore |
+| Impostazione | Value |
 | ------- | ----- |
-| Name    | Scegliere il nome del processo |
+| name    | Scegliere il nome del processo |
 | Sottoscrizione | Sottoscrizione in uso |
-| Resource group | DetectStoppedDevices |
-| Percorso | Stati Uniti orientali |
+| Gruppo di risorse | DetectStoppedDevices |
+| Località | Stati Uniti Orientali |
 | Ambiente di hosting | Cloud |
 | Unità di streaming | 3 |
 
@@ -88,14 +88,14 @@ Usare il [portale di Azure per creare un processo di analisi di flusso](https://
 
 Usare il [portale di Azure per creare un'app per le funzioni](https://portal.azure.com/#create/Microsoft.FunctionApp) con le impostazioni seguenti:
 
-| Impostazione | Valore |
+| Impostazione | Value |
 | ------- | ----- |
 | Nome app    | Scegliere il nome dell'app per le funzioni |
 | Sottoscrizione | Sottoscrizione in uso |
-| Resource group | DetectStoppedDevices |
-| SO | Windows |
+| Gruppo di risorse | DetectStoppedDevices |
+| Sistema operativo | Windows |
 | Piano di hosting | Piano a consumo |
-| Percorso | Stati Uniti orientali |
+| Località | Stati Uniti Orientali |
 | Stack di runtime | .NET |
 | Archiviazione | Creare un nuovo gruppo di risorse |
 
@@ -103,14 +103,14 @@ Usare il [portale di Azure per creare un'app per le funzioni](https://portal.azu
 
 Usare il [portale di Azure per creare un account SendGrid](https://portal.azure.com/#create/Sendgrid.sendgrid) con le impostazioni seguenti:
 
-| Impostazione | Valore |
+| Impostazione | Value |
 | ------- | ----- |
-| Name    | Scegliere il nome dell'account SendGrid |
+| name    | Scegliere il nome dell'account SendGrid |
 | Password | Creare una password |
 | Sottoscrizione | Sottoscrizione in uso |
-| Resource group | DetectStoppedDevices |
+| Gruppo di risorse | DetectStoppedDevices |
 | Piano tariffario | F1 Gratuito |
-| Informazioni contatto | Fornisci le informazioni necessarie |
+| Informazioni di contatto | Fornisci le informazioni necessarie |
 
 Quando sono state create tutte le risorse necessarie, il gruppo di risorse **DetectStoppedDevices** è simile allo screenshot seguente:
 
@@ -244,7 +244,7 @@ Questa soluzione USA una query di analisi di flusso per rilevare quando un dispo
 1. Nel portale di Azure passare al processo di analisi di flusso, in **topologia processi** selezionare **input**, scegliere **+ Aggiungi input flusso**, quindi scegliere **Hub eventi**.
 1. Usare le informazioni nella tabella seguente per configurare l'input usando l'hub eventi creato in precedenza, quindi scegliere **Salva**:
 
-    | Impostazione | Valore |
+    | Impostazione | Value |
     | ------- | ----- |
     | Alias di input | centraltelemetry |
     | Sottoscrizione | Sottoscrizione in uso |
@@ -254,7 +254,7 @@ Questa soluzione USA una query di analisi di flusso per rilevare quando un dispo
 1. In **topologia processi**selezionare **output**, fare clic su **+ Aggiungi**, quindi scegliere **funzione di Azure**.
 1. Usare le informazioni nella tabella seguente per configurare l'output, quindi scegliere **Salva**:
 
-    | Impostazione | Valore |
+    | Impostazione | Value |
     | ------- | ----- |
     | Alias di output | emailnotification |
     | Sottoscrizione | Sottoscrizione in uso |
@@ -305,7 +305,7 @@ Questa soluzione USA una query di analisi di flusso per rilevare quando un dispo
 1. Selezionare **Salva**.
 1. Per avviare il processo di analisi di flusso, scegliere **Panoramica**, **Avvia**, quindi **ora**, quindi **Avvia**:
 
-    ![Analisi di flusso](media/howto-create-custom-rules/stream-analytics.png)
+    ![Analisi dei flussi](media/howto-create-custom-rules/stream-analytics.png)
 
 ## <a name="configure-export-in-iot-central"></a>Configurare l'esportazione in IoT Central
 
@@ -314,17 +314,17 @@ Nel sito Web di [Azure IOT Central Application Manager](https://aka.ms/iotcentra
 1. Passare alla pagina **esportazione dati** , selezionare **+ nuovo**, quindi **Hub eventi di Azure**.
 1. Usare le impostazioni seguenti per configurare l'esportazione, quindi selezionare **Salva**:
 
-    | Impostazione | Valore |
+    | Impostazione | Value |
     | ------- | ----- |
     | Nome visualizzato | Esporta in hub eventi |
-    | Enabled | Attivato |
+    | Attivato | On |
     | Spazio dei nomi di Hub eventi | Nome dello spazio dei nomi di hub eventi |
     | Hub eventi | centralexport |
-    | Misure | Attivato |
+    | Misurazioni | On |
     | Dispositivi | Off |
     | Modelli di dispositivo | Off |
 
-![Configurazione esportazione dati continui](media/howto-create-custom-rules/cde-configuration.png)
+![Configurazione dell'esportazione continua dei dati](media/howto-create-custom-rules/cde-configuration.png)
 
 Prima di continuare, attendere che lo stato di esportazione sia **in esecuzione** .
 

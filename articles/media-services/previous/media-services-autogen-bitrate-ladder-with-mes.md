@@ -1,6 +1,6 @@
 ---
 title: Usare Media Encoder Standard per generare automaticamente una scala a bitrate-Azure | Microsoft Docs
-description: In questo argomento viene illustrato come usare Media Encoder Standard (MES) per generare automaticamente un bitrate ladder in base alla risoluzione di input e alla velocità in bit. La risoluzione di input e la velocità in bit non vengono mai superate. Ad esempio, se l'input è 720p a 3 Mbps, l'output resterà al massimo a 720p e inizierà a una velocità inferiore a 3 Mbps.
+description: In questo argomento viene illustrato come usare Media Encoder Standard (MES) per generare automaticamente un bitrate ladder in base alla risoluzione di input e alla velocità in bit.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 14575e0c95acf1345fc3358b323083d86d8eedee
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: b7f0b77ba11a0c9c1670ec240caf45fcf61a934d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543545"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896010"
 ---
 #  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Usare Media Encoder Standard per generare automaticamente una scala a bitrate  
 
@@ -40,7 +40,7 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
 
 - Creare un processo di codifica.
 - Ottenere un riferimento al codificatore Media Encoder Standard.
-- Aggiungere un'attività di codifica al processo e specificare l'uso del set di impostazioni **Flusso adattivo**. 
+- Aggiungere un'attività di codifica al processo e specificare l'uso del set di impostazioni per **streaming adattivo**. 
 - Creare un asset di output che contenga l'asset codificato.
 - Aggiungere un gestore eventi per controllare l'avanzamento del processo.
 - Inviare il processo.
@@ -174,7 +174,7 @@ Questa sezione mostra tre esempi dei livelli di output prodotti da MES in seguit
 ### <a name="example-1"></a>Esempio 1
 L'origine con altezza "1080" e una frequenza frame "29.970" produce 6 livelli video:
 
-|Livello|Altezza|Larghezza|Bitrate (Kbps)|
+|Livello|Altezza:|Larghezza|Bitrate (Kbps)|
 |---|---|---|---|
 |1|1080|1920|6780|
 |2|720|1280|3520|
@@ -186,7 +186,7 @@ L'origine con altezza "1080" e una frequenza frame "29.970" produce 6 livelli vi
 ### <a name="example-2"></a>Esempio 2
 L'origine con altezza "720" e una frequenza frame "23.970" produce 5 livelli video:
 
-|Livello|Altezza|Larghezza|Bitrate (Kbps)|
+|Livello|Altezza:|Larghezza|Bitrate (Kbps)|
 |---|---|---|---|
 |1|720|1280|2940|
 |2|540|960|1850|
@@ -197,7 +197,7 @@ L'origine con altezza "720" e una frequenza frame "23.970" produce 5 livelli vid
 ### <a name="example-3"></a>Esempio 3
 L'origine con altezza "360" e una frequenza frame "29.970" produce 3 livelli video:
 
-|Livello|Altezza|Larghezza|Bitrate (Kbps)|
+|Livello|Altezza:|Larghezza|Bitrate (Kbps)|
 |---|---|---|---|
 |1|360|640|700|
 |2|270|480|440|
@@ -205,7 +205,7 @@ L'origine con altezza "360" e una frequenza frame "29.970" produce 3 livelli vid
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Vedere anche

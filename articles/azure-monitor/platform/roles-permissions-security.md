@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 424d57c59dea11a49faf7a7bb32d85772ef4de8c
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: d223c3483becdc8ba44bc14ec16150cf1b001943
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305164"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894547"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Ruoli, autorizzazioni e sicurezza in monitoraggio di Azure
 
@@ -71,7 +71,7 @@ a \*utente deve essere concessa anche l'autorizzazione ListKeys per la risorsa d
 ## <a name="monitoring-permissions-and-custom-rbac-roles"></a>Autorizzazioni per il monitoraggio e ruoli personalizzati nel Controllo degli accessi in base al ruolo
 Se i precedenti ruoli predefiniti non soddisfano le esigenze esatte del team, è possibile [creare un ruolo personalizzato nel Controllo degli accessi in base al ruolo](../../role-based-access-control/custom-roles.md) con autorizzazioni più granulari. Di seguito sono riportate le più comuni operazioni nel Controllo degli accessi in base al ruolo di monitoraggio di Azure con le relative descrizioni.
 
-| Operazione | DESCRIZIONE |
+| Operazione | Description |
 | --- | --- |
 | Microsoft.Insights/ActionGroups/[Read, Write, Delete] |Gruppi di azioni di lettura, scrittura ed eliminazione. |
 | Microsoft.Insights/ActivityLogAlerts/[Read, Write, Delete] |Avvisi del log attività di lettura, scrittura ed eliminazione. |
@@ -116,7 +116,7 @@ New-AzRoleDefinition -Role $role
 I dati sul monitoraggio dei dati, in particolare i file di registro, possono contenere informazioni sensibili, come indirizzi IP o nomi utente. I dati sul monitoraggio di Azure sono forniti in tre forme base:
 
 1. Registro attività, che descrive tutte le azioni del piano di controllo nella sottoscrizione di Azure.
-2. Log di diagnostica, cioè log generati da una risorsa.
+2. log delle risorse, che sono log generati da una risorsa.
 3. Metriche, generate dalle risorse.
 
 Tutti e tre questi tipi di dati possono essere archiviati in un account di archiviazione o trasmessi a un hub eventi, che sono entrambi risorse di Azure di scopo generico. Poiché si tratta di risorse di scopo generico, la creazione, l'eliminazione e l'accesso sono operazioni privilegiate e riservate agli amministratori. Si consiglia di usare le procedure seguenti con le risorse relative al monitoraggio per evitare un uso improprio:
@@ -182,7 +182,7 @@ Monitoraggio di Azure deve accedere alle risorse di Azure per fornire i servizi 
 ### <a name="secured-storage-accounts"></a>Account di archiviazione protetti 
 
 I dati di monitoraggio vengono spesso scritti in un account di archiviazione. È possibile assicurarsi che i dati copiati in un account di archiviazione non siano accessibili da utenti non autorizzati. Per una maggiore sicurezza, è possibile bloccare l'accesso alla rete per consentire solo alle risorse autorizzate e ai servizi Microsoft attendibili di accedere a un account di archiviazione limitando un account di archiviazione all'uso di "reti selezionate".
-![Finestra di dialogo delle impostazioni di Archiviazione di Azure](./media/roles-permissions-security/secured-storage-example.png): Monitoraggio di Azure viene considerato uno di tali "servizi Microsoft attendibili". Se si consente a tali servizi Microsoft attendibili di accedere alla risorsa di archiviazione protetta, Monitoraggio di Azure potrà accedere all'account di archiviazione protetto abilitando la scrittura dei log di diagnostica, log attività e metriche di Monitoraggio di Azure nell'account di archiviazione in queste condizioni protette. Ciò consentirà anche a Log Analytics di leggere i log dalla risorsa di archiviazione protetta.   
+![finestra di dialogo Impostazioni di archiviazione di Azure](./media/roles-permissions-security/secured-storage-example.png) monitoraggio di Azure è considerato uno dei servizi Microsoft attendibili se si consente ai servizi Microsoft attendibili di accedere all'archiviazione protetta, monitoraggio di Azure avrà accesso all'account di archiviazione protetto. Abilitazione della scrittura di log delle risorse di monitoraggio di Azure, log attività e metriche nell'account di archiviazione in base a queste condizioni protette. Ciò consentirà anche a Log Analytics di leggere i log dalla risorsa di archiviazione protetta.   
 
 
 Per altre informazioni, vedere [Sicurezza di rete di Archiviazione di Azure](../../storage/common/storage-network-security.md)

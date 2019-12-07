@@ -1,6 +1,6 @@
 ---
 title: Gestire gli endpoint di streaming con il portale di Azure | Microsoft Docs
-description: Questo argomento illustra come gestire gli endpoint di streaming mediante il portale di Azure.
+description: Questo articolo illustra come gestire gli endpoint di streaming con il portale di Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 1775bbb2913f6b1a985ca7ec9e89bafed42fd0e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57ec22cb02512577f8737718cae9175403fb5603
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61129712"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900890"
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Gestire gli endpoint di streaming con il portale di Azure 
 
@@ -75,7 +75,7 @@ Per informazioni dettagliate su queste proprietà, vedere [StreamingEndpoint](ht
 È possibile configurare un endpoint di streaming eseguendo le operazioni seguenti:
 
 1. Selezionare l'endpoint di streaming che si desidera configurare.
-2. Fare clic su **Impostazioni**.
+2. Fare clic su **Settings**.
 
 Seguirà una breve descrizione dei campi.
 
@@ -102,7 +102,7 @@ Dopo essere stata attivata, la configurazione di **Controllo di accesso**, **Nom
 > [!IMPORTANT]
 > L'integrazione di Servizi multimediali di Azure con la rete CDN di Azure è implementata nella **rete CDN di Azure da Verizon** per gli endpoint di streaming standard. Gli endpoint di streaming Premium possono essere configurati usando tutti **i provider e i livelli di prezzo della rete CDN di Azure**. Per altre informazioni sulle funzionalità della rete CDN di Azure, vedere la [Panoramica della rete per la distribuzione di contenuti (rete CDN) di Azure](../../cdn/cdn-overview.md).
  
-### <a name="additional-considerations"></a>Ulteriori considerazioni
+### <a name="additional-considerations"></a>Considerazione aggiuntive
 
 * Quando la rete CDN è abilitata per un endpoint di streaming, i client non possono richiedere il contenuto direttamente dall'origine. Se è necessario testare il contenuto con o senza la rete CDN, è possibile creare un altro endpoint di streaming per la rete CDN.
 * Il nome host dell'endpoint di streaming rimane invariato dopo l'abilitazione della rete CDN. Non è necessario apportare modifiche al flusso di lavoro di Servizi multimediali dopo l'abilitazione della rete CDN. Ad esempio, se il nome host dell'endpoint di streaming è strasbourg.streaming.mediaservices.windows.net, dopo avere abilitato la rete CDN, viene usato lo stesso identico nome host.
@@ -120,6 +120,6 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

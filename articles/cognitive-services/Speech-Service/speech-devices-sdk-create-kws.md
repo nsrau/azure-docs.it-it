@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: erhopf
-ms.openlocfilehash: 15a0e27f3f96eda27182e8437dc95d047f56e260
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 42bcc336bfeb325a08c3d65438d66690c0b35100
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815303"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896456"
 ---
 # <a name="create-a-custom-keyword-by-using-the-speech-service"></a>Creare una parola chiave personalizzata usando il servizio di riconoscimento vocale
 
@@ -50,17 +50,29 @@ Prima di poter usare una parola chiave personalizzata, è necessario creare una 
 
 1. Passare a [speech studio](https://aka.ms/sdsdk-speechportal) e **accedere** oppure, se non si dispone ancora di una sottoscrizione vocale, scegliere [**Crea una sottoscrizione**](https://go.microsoft.com/fwlink/?linkid=2086754).
 
-1. Nella pagina della [parola chiave Custom](https://aka.ms/sdsdk-wakewordportal) Digitare la parola chiave scelta e fare clic su **Aggiungi parola chiave**. Sono disponibili alcune [linee guida](#choose-an-effective-keyword) che consentono di scegliere una parola chiave efficace. Il supporto è attualmente limitato al linguaggio en-US.
+1. Nella pagina della [parola chiave Custom](https://aka.ms/sdsdk-wakewordportal) creare un **nuovo progetto**. 
 
-    ![Immettere la parola chiave](media/speech-devices-sdk/custom-kws-portal-enter-keyword.png)
+1. Immettere un **nome**, una **Descrizione**facoltativa e selezionare la lingua. Sarà necessario un progetto per lingua e il supporto è attualmente limitato al linguaggio en-US.
 
-1. Il portale creerà ora le pronunce candidate per la parola chiave. Ascoltare ogni candidato facendo clic sui pulsanti di riproduzione e rimuovere i controlli accanto a tutte le pronunce non corrette. Una volta selezionate solo le pronunce valide, selezionare **Submit (Invia** ) per iniziare a generare la parola chiave. Se si desidera modificare la parola chiave, rimuovere prima di tutto quella esistente facendo clic sul pulsante Elimina visualizzato sul lato destro della riga al passaggio del mouse.
+    ![Descrivere il progetto di parola chiave](media/custom-keyword/custom-kws-portal-new-project.png)
 
-    ![Esaminare la parola chiave](media/speech-devices-sdk/custom-kws-portal-review-keyword.png)
+1. Selezionare il progetto dall'elenco. 
 
-1. La generazione del modello potrebbe richiedere fino a un minuto. Verrà quindi richiesto di scaricare il file.
+    ![Selezionare il progetto di parola chiave](media/custom-keyword/custom-kws-portal-project-list.png)
 
-    ![Scaricare la parola chiave](media/speech-devices-sdk/custom-kws-portal-download-keyword.png)
+1. Per avviare un nuovo modello di parola chiave, fare clic su **Train Model**.
+
+1. Immettere un **nome** per il modello di parola chiave e una **Descrizione** facoltativa e digitare la **parola chiave** desiderata, quindi fare clic su **Avanti**. Sono disponibili alcune [linee guida](#choose-an-effective-keyword) che consentono di scegliere una parola chiave efficace.
+
+    ![Immettere la parola chiave](media/custom-keyword/custom-kws-portal-new-model.png) 
+
+1. Il portale creerà ora le pronunce candidate per la parola chiave. Ascoltare ogni candidato facendo clic sui pulsanti di riproduzione e rimuovere i controlli accanto a tutte le pronunce non corrette. Una volta selezionate solo le pronunce valide, fare clic su **Train** per iniziare a generare la parola chiave. 
+
+    ![Esaminare la parola chiave](media/custom-keyword/custom-kws-portal-choose-prons.png) 
+
+1. Potrebbero essere necessari fino a dieci minuti per la generazione del modello. L'elenco delle parole chiave verrà modificato da **elaborazione** **a completata** quando il modello è completo. È quindi possibile scaricare il file.
+
+    ![Esaminare la parola chiave](media/custom-keyword/custom-kws-portal-download-model.png) 
 
 1. Salvare il file ZIP nel computer. Questo file sarà necessario per distribuire la parola chiave personalizzata nel dispositivo.
 

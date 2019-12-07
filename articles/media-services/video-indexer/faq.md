@@ -1,7 +1,7 @@
 ---
 title: Domande frequenti su Video Indexer - Azure
 titleSuffix: Azure Media Services
-description: Ottenere risposte a domande frequenti relative a Video Indexer.
+description: Questo articolo fornisce le risposte alle domande frequenti su servizi multimediali di Azure Video Indexer.
 services: media-services
 author: Juliako
 manager: femila
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 95f2af1b192564290551f9ed31f0fe158b4536f6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: fc5457fd44bd27731cad6269ee95aed838a3d755
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838239"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892788"
 ---
 # <a name="frequently-asked-questions"></a>Domande frequenti
 
@@ -23,7 +23,7 @@ Questo articolo contiene le risposte alle domande frequenti relative a Video Ind
 
 ## <a name="general-questions"></a>Domande generali
 
-### <a name="what-is-video-indexer"></a>Informazioni su Video Indexer
+### <a name="what-is-video-indexer"></a>Che cos'è Video Indexer?
 
 Video Indexer è un servizio di intelligenza artificiale che fa parte di Servizi multimediali di Microsoft Azure. Video Indexer fornisce un'orchestrazione di più modelli di Machine Learning che consentono di estrarre facilmente informazioni molto dettagliate da un video. Per fornire informazioni avanzate e accurate, Video Indexer si serve di più canali del video: audio, parlato e oggetti visivi. Le informazioni dettagliate di Video Indexer possono essere usate in diversi modi, ad esempio per migliorare l'individuabilità e l'accessibilità dei contenuti, creare nuove opportunità di monetizzazione o sviluppare nuove esperienze che usano le informazioni dettagliate. Video Indexer fornisce un'interfaccia basata sul Web per il test, la configurazione e la personalizzazione dei modelli nell'account. Gli sviluppatori possono usare un'API basata su REST per integrare Video Indexer nel sistema di produzione. 
 

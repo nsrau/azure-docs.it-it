@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/4/2019
 ms.author: robb
 ms.subservice: autoscale
-ms.openlocfilehash: 14e2f79383aa45125ce6955f3611a75ece1df10d
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 410c182075d0aa288ad05195958c396f1a357ff1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74152944"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893570"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Risoluzione dei problemi di scalabilità automatica di Azure
  
@@ -115,7 +115,7 @@ Come per qualsiasi servizio supportato da monitoraggio di Azure, è possibile us
 
 ![Impostazioni di diagnostica di ridimensionamento automatico](media/autoscale-troubleshoot/diagnostic-settings.png)
 
-L'immagine precedente mostra le impostazioni di diagnostica di ridimensionamento automatico portale di Azure. Qui è possibile selezionare la scheda log di diagnostica e abilitare la raccolta e il routing dei log. È anche possibile eseguire la stessa azione usando l'API REST, l'interfaccia della riga di comando, PowerShell, i modelli Gestione risorse per le impostazioni di diagnostica scegliendo il tipo di risorsa *Microsoft. Insights/AutoscaleSettings*. 
+L'immagine precedente mostra le impostazioni di diagnostica di ridimensionamento automatico portale di Azure. Qui è possibile selezionare la scheda log di diagnostica/risorse e abilitare la raccolta e il routing dei log. È anche possibile eseguire la stessa azione usando l'API REST, l'interfaccia della riga di comando, PowerShell, i modelli Gestione risorse per le impostazioni di diagnostica scegliendo il tipo di risorsa *Microsoft. Insights/AutoscaleSettings*. 
 
 ## <a name="troubleshooting-using-autoscale-logs"></a>Risoluzione dei problemi usando i log di scalabilità automatica 
 

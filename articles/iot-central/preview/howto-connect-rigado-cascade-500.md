@@ -9,13 +9,13 @@ ms.custom:
 - iot-p0-scenario
 ms.author: avneets
 author: avneet723
-ms.date: 10/19/2019
-ms.openlocfilehash: 4559bb87369309882ebdaa0d3b408786feb586b5
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.date: 11/27/2019
+ms.openlocfilehash: 164fc4eef245a2b9ea610179c3cf2e78b7b1b389
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73896034"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895693"
 ---
 # <a name="connect-a-rigado-cascade-500-gateway-device-to-your-azure-iot-central-application"></a>Connettere un dispositivo gateway RIGADO Cascade 500 all'applicazione IoT Central di Azure
 
@@ -28,7 +28,7 @@ Il gateway Cascade 500 Internet è un'offerta hardware di RIGADO inclusa nell'am
 
 Cascade 500 è pre-Certified for Azure Plug and Play (PnP), che consente ai generatori di soluzioni di caricare facilmente il dispositivo nelle soluzioni end-to-end. Il gateway Cascade consente di connettersi in modalità wireless a diversi sensori di monitoraggio delle condizioni che si trovano in prossimità del dispositivo gateway. Questi sensori possono essere caricati in IoT Central tramite il dispositivo gateway.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per eseguire questa guida dettagliata, sono necessarie le risorse seguenti:
 
 * Un dispositivo RIGADO Cascade 500. Per ulteriori informazioni, visitare [RIGADO](https://www.rigado.com/).

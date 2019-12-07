@@ -1,5 +1,5 @@
 ---
-title: Trasformare dati tramite l'attività Hadoop Pig in Azure Data Factory
+title: Trasformare i dati usando l'attività Pig di Hadoop
 description: Informazioni su come usare l'attività Pig in una data factory di Azure per eseguire query Pig in un cluster HDInsight su richiesta o nel proprio cluster HDInsight.
 services: data-factory
 documentationcenter: ''
@@ -11,15 +11,15 @@ ms.date: 01/16/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 85478c128e2a61ed6a3f4da5cacdcb425038c639
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3ee9da39745458fc24190e72bda15acfc23503dc
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683844"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893859"
 ---
 # <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Trasformare dati tramite l'attività Hadoop Pig in Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-pig-activity.md)
 > * [Versione corrente](transform-data-using-hadoop-pig.md)
 
@@ -56,12 +56,12 @@ Se non si ha familiarità con Azure Data Factory, leggere l'[Introduzione ad Azu
 ```
 ## <a name="syntax-details"></a>Dettagli sintassi
 
-| Proprietà            | Descrizione                              | Obbligatorio |
+| Proprietà            | Description                              | Obbligatoria |
 | ------------------- | ---------------------------------------- | -------- |
-| name                | Nome dell'attività                     | Sì      |
+| name                | Nome dell'attività                     | SÌ      |
 | description         | Testo descrittivo per lo scopo dell'attività | No       |
-| type                | Per l'attività Hive, il tipo di attività è HDinsightPig | Sì      |
-| linkedServiceName   | Riferimento al cluster HDInsight registrato come servizio collegato in Data Factory. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md). | Sì      |
+| type                | Per l'attività Hive, il tipo di attività è HDinsightPig | SÌ      |
+| linkedServiceName   | Riferimento al cluster HDInsight registrato come servizio collegato in Data Factory. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md). | SÌ      |
 | scriptLinkedService | Riferimento a un servizio collegato di Archiviazione di Azure usato per archiviare lo script Pig da eseguire. Se non si specifica questo servizio collegato, viene usato il servizio collegato Archiviazione di Azure definito nel servizio collegato HDInsight. | No       |
 | scriptPath          | Specificare il percorso del file di script archiviato nel servizio Archiviazione di Azure indicato da scriptLinkedService. Il nome del file distingue tra maiuscole e minuscole. | No       |
 | getDebugInfo        | Specifica quando i file di log vengono copiati nell'Archiviazione di Azure usata dal cluster HDInsight (o) indicata da scriptLinkedService. Valori consentiti: None, Always o Failure. Valore predefinito: None. | No       |

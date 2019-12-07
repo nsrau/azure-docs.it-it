@@ -1,5 +1,5 @@
 ---
-title: 'Destinazioni di calcolo: dove eseguire il training e distribuire i modelli'
+title: Che cosa sono le destinazioni di calcolo
 titleSuffix: Azure Machine Learning
 description: Definire il punto in cui si desidera eseguire il training o distribuire il modello con Azure Machine Learning.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: 75e789ac1f9c161bc67ba90062be39f986f5b140
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: dd4ac07ddf94bd7fc12a2673ce76fb0b9f4d2ccb
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580595"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901419"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Che cosa sono le destinazioni di calcolo in Azure Machine Learning? 
 
@@ -67,6 +67,6 @@ Una destinazione di calcolo *non gestita non* è gestita da Azure Machine Learni
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile passare agli argomenti seguenti:
+Scopri come:
 * [Configurare una destinazione di calcolo per il training del modello](how-to-set-up-training-targets.md)
 * [Distribuire il modello in una destinazione di calcolo](how-to-deploy-and-where.md)

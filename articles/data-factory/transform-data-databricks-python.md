@@ -1,5 +1,5 @@
 ---
-title: Trasformare i dati con databricks Python-Azure
+title: Trasformare i dati con Python di databricks
 description: Informazioni su come elaborare o trasformare i dati eseguendo un'attività Python di Databricks.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: maghan
 manager: craigg
-ms.openlocfilehash: 47654e8183dab120376f94df63d7664ead5dd580
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 1acc484b8843fc1fe1acae5759a24f923396e003
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683943"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893944"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Trasformare i dati eseguendo un'attività Python in Azure Databricks
 
@@ -62,14 +62,14 @@ Ecco la definizione JSON di esempio di un'attività Python di Databricks:
 
 La tabella seguente fornisce le descrizioni delle proprietà JSON usate nella definizione JSON:
 
-|Proprietà|Descrizione|obbligatori|
+|Proprietà|Description|Obbligatoria|
 |---|---|---|
-|Nome|Nome dell'attività nella pipeline.|Sì|
-|Descrizione|Testo che descrive l'attività.|No|
-|type|Per l'attività Python di Databricks il tipo di attività è DatabricksSparkPython.|Sì|
-|linkedServiceName|Nome del servizio collegato Databricks su cui è in esecuzione l'attività Python. Per informazioni su questo servizio collegato, vedere l'articolo  [Servizi collegati di calcolo](compute-linked-services.md) .|Sì|
-|pythonFile|L'URI del file Python da eseguire. Sono supportati solo i percorsi DBFS.|Sì|
-|parameters|Parametri della riga di comando che verranno passati al file Python. È una matrice di stringhe.|No|
+|name|Nome dell'attività nella pipeline.|SÌ|
+|description|Testo che descrive l'attività.|No|
+|type|Per l'attività Python di Databricks il tipo di attività è DatabricksSparkPython.|SÌ|
+|linkedServiceName|Nome del servizio collegato Databricks su cui è in esecuzione l'attività Python. Per informazioni su questo servizio collegato, vedere l'articolo  [Servizi collegati di calcolo](compute-linked-services.md) .|SÌ|
+|pythonFile|L'URI del file Python da eseguire. Sono supportati solo i percorsi DBFS.|SÌ|
+|Parametri|Parametri della riga di comando che verranno passati al file Python. È una matrice di stringhe.|No|
 |libraries|Un elenco di librerie da installare nel cluster che eseguirà il processo. Può essere una matrice di <stringa, oggetto>|No|
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Librerie supportate per le attività di databricks

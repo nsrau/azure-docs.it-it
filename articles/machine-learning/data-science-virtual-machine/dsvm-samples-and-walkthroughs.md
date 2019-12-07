@@ -1,5 +1,5 @@
 ---
-title: Procedure dettagliate & esempi
+title: Programmi di esempio & procedure dettagliate di ML
 titleSuffix: Azure Data Science Virtual Machine
 description: Con questi esempi e procedure dettagliate, viene illustrato come gestire le attività e gli scenari comuni con i Data Science Virtual Machine.
 keywords: strumenti di analisi scientifica dei dati, macchina virtuale per l'analisi scientifica dei dati, strumenti per l'analisi scientifica dei dati, analisi scientifica dei dati per Linux
@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: ad58adb85077a27bce65595738ffdbd92bace9bd
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: d064e940997d13e51be4fd38e9f678b778ce31f4
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802445"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900055"
 ---
 # <a name="samples-on-azure-data-science-virtual-machines"></a>Esempi sulle macchine virtuali di Data Science di Azure
 
@@ -28,7 +28,7 @@ Le macchine virtuali di Data Science di Azure (Dsvm) includono un set completo d
 Per eseguire questi esempi, è necessario avere effettuato il provisioning di un Data Science Virtual Machine. Vedere le guide introduttive per [Windows](./provision-vm.md) e [Ubuntu](./dsvm-ubuntu-intro.md).
 
 ## <a name="available-samples"></a>Esempi disponibili
-| Categoria di esempi | Descrizione | Località |
+| Categoria di esempi | Description | Località |
 | ------------- | ------------- | ------------- |
 | Linguaggio di programmazione di R  | Gli esempi illustrano scenari come la connessione con gli archivi dati cloud basati su Azure e la modalità di confronto tra R e Microsoft Machine Learning Server Open Source. Spiegano inoltre come rendere operativo i modelli in Microsoft Machine Learning Server e SQL Server. <br/> [Linguaggio di programmazione di R](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
 | Linguaggio di programmazione di Python  | Gli esempi illustrano scenari come la connessione con gli archivi dati cloud basati su Azure e come usare Azure Machine Learning.  <br/> [Linguaggio di programmazione di Python](#python-language) | <br/>`~notebooks` <br/><br/>|
@@ -39,7 +39,7 @@ Per eseguire questi esempi, è necessario avere effettuato il provisioning di un
 | Microsoft Cognitive Toolkit <br/>   | Esempi di apprendimento approfondito pubblicati dal team di Cognitive Toolkit in Microsoft.  <br/> [Cognitive Toolkit](#cntk) | <br/> `~notebooks/DeepLearningTools/CNTK/Tutorials`<br/><br/> Linux:<br/> `~notebooks/CNTK`<br/> <br/>|
 | Caffe2 | Esempi di apprendimento avanzato che usano reti neurali basate su Caffe2. Diversi notebook consentono di acquisire familiarità con Caffe2 e come utilizzarlo in modo efficace. Gli esempi includono la pre-elaborazione di immagini e la creazione di set di dati. Includono anche la regressione e come usare i modelli con training. <br/> [Caffe2](#caffe2) | <br/>`~notebooks/Deep_learning_frameworks/caffe2`<br/><br/> |
 | H2O   | Esempi basati su Python che usano H2O per scenari di problemi reali. <br/> [H2O](#h2o) | <br/>`~notebooks/h2o`<br/><br/> |
-| Linguaggio di programmazione di SparkML  | Esempi che usano le funzionalità di Apache Spark MLLib Toolkit tramite pySpark e MMLSpark: Microsoft Machine Learning per Apache Spark su Apache Spark 2. x.  <br/> [Linguaggio di programmazione di SparkML](#sparkml) | <br/>`~notebooks/SparkML/pySpark`<br/>`~notebooks/MMLSpark`<br/><br/>  |
+| Linguaggio di programmazione di SparkML  | Esempi che usano le funzionalità di Apache Spark MLLib Toolkit tramite pySpark e MMLSpark: Microsoft Machine Learning per Apache Spark in Apache Spark 2. x.  <br/> [Linguaggio di programmazione di SparkML](#sparkml) | <br/>`~notebooks/SparkML/pySpark`<br/>`~notebooks/MMLSpark`<br/><br/>  |
 | XGBoost | Esempi di Machine Learning standard in XGBoost per scenari come la classificazione e la regressione. <br/> [XGBoost](#xgboost) | <br/>Windows:<br/>`\dsvm\samples\xgboost\demo`<br/><br/> |
 
 <br/>

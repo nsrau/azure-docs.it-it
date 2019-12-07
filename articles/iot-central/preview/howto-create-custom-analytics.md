@@ -3,18 +3,18 @@ title: Estendi IoT Central di Azure con analisi personalizzate | Microsoft Docs
 description: Per gli sviluppatori di soluzioni, configurare un'applicazione IoT Central per eseguire analisi e visualizzazioni personalizzate. Questa soluzione USA Azure Databricks.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/01/2019
+ms.date: 12/02/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: a29cae2fabe1542a7498bca19dc0a6e147d1d024
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 59fb0dfbc44746853f25437e8e13a1cbc317e151
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895150"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895550"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks-preview-features"></a>Estendi IoT Central di Azure con analisi personalizzate con Azure Databricks (funzionalità di anteprima)
 
@@ -31,7 +31,7 @@ In questa guida dettagliata si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per eseguire la procedura descritta in questa guida è necessaria una sottoscrizione di Azure.
+Per completare la procedura descritta in questa guida pratica, è necessaria una sottoscrizione di Azure attiva.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -39,7 +39,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Creare un'applicazione IoT Central nel sito Web di [Azure IOT Central Application Manager](https://aka.ms/iotcentral) con le impostazioni seguenti:
 
-| Impostazione | Valore |
+| Impostazione | Value |
 | ------- | ----- |
 | Piano di pagamento | Pagamento in base al consumo |
 | Modello di applicazione | Analisi in-Store-monitoraggio delle condizioni |
@@ -47,13 +47,13 @@ Creare un'applicazione IoT Central nel sito Web di [Azure IOT Central Applicatio
 | URL | Accettare l'impostazione predefinita o scegliere il prefisso URL univoco |
 | Directory | Tenant di Azure Active Directory |
 | Sottoscrizione di Azure | Sottoscrizione di Azure |
-| Region | Area geografica più vicina |
+| Area geografica | Area geografica più vicina |
 
 Gli esempi e le schermate in questo articolo usano l'area **Stati Uniti** . Scegliere una località vicina e assicurarsi di creare tutte le risorse nella stessa area.
 
 Questo modello di applicazione include due dispositivi termotermostati simulati che inviano dati di telemetria.
 
-### <a name="resource-group"></a>Resource group
+### <a name="resource-group"></a>Gruppo di risorse
 
 Usare il [portale di Azure per creare un gruppo di risorse](https://portal.azure.com/#create/Microsoft.ResourceGroup) denominato **IoTCentralAnalysis** per contenere le altre risorse create. Creare le risorse di Azure nello stesso percorso dell'applicazione IoT Central.
 
@@ -61,25 +61,25 @@ Usare il [portale di Azure per creare un gruppo di risorse](https://portal.azure
 
 Usare il [portale di Azure per creare uno spazio dei nomi di hub eventi](https://portal.azure.com/#create/Microsoft.EventHub) con le impostazioni seguenti:
 
-| Impostazione | Valore |
+| Impostazione | Value |
 | ------- | ----- |
-| Name    | Scegliere il nome dello spazio dei nomi |
+| name    | Scegliere il nome dello spazio dei nomi |
 | Piano tariffario | Basic |
 | Sottoscrizione | Sottoscrizione in uso |
-| Resource group | IoTCentralAnalysis |
-| Percorso | Stati Uniti orientali |
+| Gruppo di risorse | IoTCentralAnalysis |
+| Località | Stati Uniti Orientali |
 | Unità elaborate | 1 |
 
 ### <a name="azure-databricks-workspace"></a>Area di lavoro Azure Databricks
 
 Usare il [portale di Azure per creare un servizio Azure Databricks](https://portal.azure.com/#create/Microsoft.Databricks) con le impostazioni seguenti:
 
-| Impostazione | Valore |
+| Impostazione | Value |
 | ------- | ----- |
 | Nome dell'area di lavoro    | Scegliere il nome dell'area di lavoro |
 | Sottoscrizione | Sottoscrizione in uso |
-| Resource group | IoTCentralAnalysis |
-| Percorso | Stati Uniti orientali |
+| Gruppo di risorse | IoTCentralAnalysis |
+| Località | Stati Uniti Orientali |
 | Piano tariffario | Standard |
 
 Quando sono state create le risorse necessarie, il gruppo di risorse **IoTCentralAnalysis** è simile allo screenshot seguente:
@@ -108,13 +108,13 @@ Nel sito Web di [Azure IOT Central Application Manager](https://aka.ms/iotcentra
 1. Passare alla pagina **esportazione dati** , selezionare **+ nuovo**, quindi **Hub eventi di Azure**.
 1. Usare le impostazioni seguenti per configurare l'esportazione, quindi selezionare **Salva**:
 
-    | Impostazione | Valore |
+    | Impostazione | Value |
     | ------- | ----- |
     | Nome visualizzato | Esporta in hub eventi |
-    | Enabled | Attivato |
+    | Attivato | On |
     | Spazio dei nomi di Hub eventi | Nome dello spazio dei nomi di hub eventi |
     | Hub eventi | centralexport |
-    | Misure | Attivato |
+    | Misurazioni | On |
     | Dispositivi | Off |
     | Modelli di dispositivo | Off |
 
@@ -132,17 +132,17 @@ Nell'elenco delle attività comuni della pagina **Azure Databricks** selezionare
 
 Usare le informazioni nella tabella seguente per creare il cluster:
 
-| Impostazione | Valore |
+| Impostazione | Value |
 | ------- | ----- |
-| Nome cluster | centralanalysis |
-| Modalità cluster | Standard |
-| Versione Databricks Runtime | 5,5 LTS (scala 2,11, Spark 2.4.3) |
+| Cluster Name | centralanalysis |
+| Cluster Mode | Standard |
+| Databricks Runtime Version | 5,5 LTS (scala 2,11, Spark 2.4.3) |
 | Versione di Python | 3 |
-| Enable Autoscaling (Abilita la scalabilità automatica) | No |
+| Abilita la scalabilità automatica | No |
 | Termina dopo minuti di inattività | 30 |
-| Tipo di lavoro | Standard_DS3_v2 |
+| Worker Type | Standard_DS3_v2 |
 | Ruoli di lavoro | 1 |
-| Tipo di driver | Uguale al ruolo di lavoro |
+| Driver Type | Same as worker |
 
 La creazione di un cluster può richiedere alcuni minuti, attendere il completamento della creazione del cluster prima di continuare.
 

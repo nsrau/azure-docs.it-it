@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: d9967b6f1177281759dd66122ffd0183bb2b813d
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: e3a9b733b055469e22d3b107c0f9f49b768756c4
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74775834"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895253"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Azure Storage Explorer
 
@@ -98,7 +98,7 @@ Le finestre di dialogo di accesso vuote si verificano spesso quando Active Direc
 1. Sulla barra degli strumenti verticale sinistra aprire **Impostazioni**. Nel pannello impostazioni passare ad **applicazione** > **Accedi**. Abilitare l' **accesso tramite il flusso di codice del dispositivo**.
 2. Aprire la finestra di dialogo **Connetti** (tramite l'icona a forma di spina sulla barra verticale a sinistra o selezionando **Aggiungi account** nel pannello account).
 3. Scegliere l'ambiente a cui si vuole accedere.
-4. Selezionare **Sign in (accedi**).
+4. Selezionare **Accedi**.
 5. Seguire le istruzioni visualizzate.
 
 Se non è possibile accedere all'account che si vuole usare perché il browser predefinito è già connesso a un altro account, effettuare una delle operazioni seguenti:
@@ -301,7 +301,7 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 
 Questi pacchetti sono i requisiti più comuni per Storage Explorer in Linux:
 
-* [Runtime di .NET Core 2,0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* [Runtime di .NET Core 2,2](https://docs.microsoft.com/en-us/dotnet/core/install/dependencies?tabs=netcore22&pivots=os-linux)
 * `libgconf-2-4`
 * `libgnome-keyring0` oppure `libgnome-keyring-dev`
 * `libgnome-keyring-common`
@@ -309,7 +309,7 @@ Questi pacchetti sono i requisiti più comuni per Storage Explorer in Linux:
 > [!NOTE]
 > Storage Explorer versione 1.7.0 e versioni precedenti richiedono .NET Core 2,0. Se è installata una versione più recente di .NET Core, è necessario applicare una [patch Storage Explorer](#patching-storage-explorer-for-newer-versions-of-net-core). Se si esegue Storage Explorer 1.8.0 o versione successiva, si dovrebbe essere in grado di usare fino a .NET Core 2,2. Le versioni successive a 2,2 non sono state verificate per funzionare in questo momento.
 
-# <a name="ubuntu-1904tab1904"></a>[Ubuntu 19,04](#tab/1904)
+# <a name="ubuntu-1904tab1904"></a>[Ubuntu 19.04](#tab/1904)
 
 1. Scaricare Storage Explorer.
 2. Installare il [runtime di .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current).
@@ -318,7 +318,7 @@ Questi pacchetti sono i requisiti più comuni per Storage Explorer in Linux:
    sudo apt-get install libgconf-2-4 libgnome-keyring0
    ```
 
-# <a name="ubuntu-1804tab1804"></a>[Ubuntu 18,04](#tab/1804)
+# <a name="ubuntu-1804tab1804"></a>[Ubuntu 18.04](#tab/1804)
 
 1. Scaricare Storage Explorer.
 2. Installare il [runtime di .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current).

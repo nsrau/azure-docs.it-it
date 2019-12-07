@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82c1a536bb86f0b3a4fe6a24af00379686ccc292
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: c8337d18b5c6b484e45e6cefaec98e2684155a02
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73641495"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900430"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizzazione dei mapping degli attributi per il provisioning degli utenti per le applicazioni SaaS in Azure Active Directory
 
@@ -78,12 +78,12 @@ Insieme a questa proprietà, i mapping degli attributi supportano anche gli attr
   - **Solo durante la creazione** : applicare questo mapping solo alle azioni di creazione dell'utente.
 
 ## <a name="matching-users-in-the-source-and-target--systems"></a>Corrispondenza degli utenti nei sistemi di origine e di destinazione
-Il servizio di provisioning di Azure AD può essere distribuito in Greenfield (gli utenti non vengono chiusi nel sistema di destinazione) e Brownfield (gli utenti già esistono negli scenari di sistema di destinazione). Per supportare entrambi gli scenari, il servizio di provisioning usa il concetto di attributo/i corrispondente. Gli attributi corrispondenti consentono di determinare come identificare in modo univoco un utente nell'origine e associare l'utente nella destinazione. Nell'ambito della pianificazione della distribuzione, identificare l'attributo che può essere usato per identificare in modo univoco un utente nei sistemi di origine e di destinazione. Aspetti da considerare:
+Il servizio Azure AD provisioning può essere distribuito in scenari "Greenfield" (dove gli utenti non vengono chiusi nel sistema di destinazione) e in scenari "Brownfield" (dove gli utenti esistono già nel sistema di destinazione). Per supportare entrambi gli scenari, il servizio di provisioning usa il concetto di attributi corrispondenti. Gli attributi corrispondenti consentono di determinare come identificare in modo univoco un utente nell'origine e associare l'utente nella destinazione. Nell'ambito della pianificazione della distribuzione, identificare l'attributo che può essere usato per identificare in modo univoco un utente nei sistemi di origine e di destinazione. Aspetti da considerare:
 
 - **Gli attributi corrispondenti devono essere univoci:** I clienti spesso utilizzano attributi come userPrincipalName, mail o ID oggetto come attributo corrispondente.
 - **È possibile utilizzare più attributi come attributi corrispondenti:** È possibile definire più attributi da valutare quando si abbinano gli utenti e l'ordine in cui vengono valutati (definito come precedenza corrispondente nell'interfaccia utente). Se, ad esempio, si definiscono tre attributi come attributi corrispondenti e un utente viene associato in modo univoco dopo aver valutato i primi due attributi, il servizio non valuterà il terzo attributo. Il servizio valuterà gli attributi corrispondenti nell'ordine specificato e arresterà la valutazione quando viene trovata una corrispondenza.  
 - **Non è necessario che il valore nell'origine e nella destinazione corrisponda esattamente a** quanto segue: Il valore nella destinazione può essere una funzione semplice del valore nell'origine. Quindi, è possibile che sia presente un attributo emailAddress nell'origine e userPrincipalName nella destinazione e corrisponda a una funzione dell'attributo emailAddress che sostituisce alcuni caratteri con un valore costante.  
-- **La corrispondenza basata su una combinazione di attributi non è supportata:** La maggior parte delle applicazioni non supporta l'esecuzione di query in base a due proprietà e conseguenza non è possibile trovare una corrispondenza in base a una combinazione di attributi. È possibile valutare le singole proprietà dopo l'altra.
+- **La corrispondenza basata su una combinazione di attributi non è supportata:** La maggior parte delle applicazioni non supporta l'esecuzione di query in base a due proprietà. Pertanto, non è possibile trovare una corrispondenza in base a una combinazione di attributi. È possibile valutare le singole proprietà dopo l'altra.
 - **Tutti gli utenti devono avere un valore per almeno un attributo corrispondente:** Se si definisce un attributo corrispondente, tutti gli utenti devono disporre di un valore per tale attributo nel sistema di origine. Se, ad esempio, si definisce userPrincipalName come attributo corrispondente, tutti gli utenti devono disporre di un userPrincipalName. Se si definisce più attributi corrispondenti (ad esempio extensionAttribute1 e mail), non tutti gli utenti devono avere lo stesso attributo corrispondente. Un utente può avere un extensionAttribute1 ma non un messaggio di posta elettronica, mentre un altro utente può avere la posta elettronica ma non extensionAttribute1. 
 - **L'applicazione di destinazione deve supportare l'applicazione di filtri all'attributo corrispondente:** Gli sviluppatori di applicazioni consentono di filtrare un subset di attributi nell'API utente o gruppo. Per le applicazioni nella raccolta, si garantisce che il mapping predefinito degli attributi sia per un attributo di cui l'API dell'applicazione di destinazione supporta il filtraggio. Quando si modifica l'attributo corrispondente predefinito per l'applicazione di destinazione, controllare la documentazione dell'API di terze parti per assicurarsi che l'attributo possa essere filtrato in base a.  
 
@@ -134,7 +134,61 @@ Quando si modifica l'elenco degli attributi supportati, vengono fornite le propr
 - **Espressione API** : non usare, a meno che non sia stato richiesto dalla documentazione per un connettore di provisioning specifico, ad esempio la giornata lavorativa.
 - **Attributo oggetto a cui si fa riferimento** : se è un attributo di tipo riferimento, questo menu consente di selezionare la tabella e l'attributo nell'applicazione di destinazione che contiene il valore associato all'attributo. Ad esempio, in presenza di un attributo denominato "Reparto" il cui valore archiviato fa riferimento a un oggetto in una tabella "Reparti" separata, sarà necessario selezionare "Reparti.Nome". Le tabelle di riferimento e i campi ID primari supportati per un'applicazione specifica sono preconfigurati e attualmente non possono essere modificati usando il portale di Azure, ma possono essere modificati usando il [API Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
-Per aggiungere un nuovo attributo, scorrere fino alla fine dell'elenco degli attributi supportati, completare i campi sopra con gli input indicati e quindi selezionare **Aggiungi attributo**. Selezionare **Salva** dopo aver aggiunto gli attributi. Sarà quindi necessario ricaricare la scheda **provisioning** per rendere disponibili i nuovi attributi nell'editor mapping attributi.
+#### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>Provisioning di un attributo di estensione personalizzato in un'applicazione conforme a SCIM
+SCIM RFC definisce uno schema di utenti e gruppi di base, consentendo allo schema anche le estensioni per soddisfare le esigenze dell'applicazione. Per aggiungere un attributo personalizzato a un'applicazione SCIM:
+   1. Accedere al portale di [Azure Active Directory](https://aad.portal.azure.com), selezionare **applicazioni aziendali**, selezionare l'applicazione e quindi selezionare **provisioning**.
+   2. In **mapping**selezionare l'oggetto (utente o gruppo) per il quale si vuole aggiungere un attributo personalizzato.
+   3. Nella parte inferiore della pagina selezionare **Mostra opzioni avanzate**.
+   4. Selezionare * * Modifica elenco attributi per *applicazione*.
+   5. Nella parte inferiore dell'elenco di attributi immettere le informazioni sull'attributo personalizzato nei campi specificati. Quindi selezionare **Aggiungi attributo**.
+
+Per le applicazioni SCIM, il nome dell'attributo deve seguire il modello illustrato nell'esempio riportato di seguito. "CustomExtensionName" e "CustomAttribute" possono essere personalizzati in base ai requisiti dell'applicazione, ad esempio: urn: IETF: params: SCIM: schemas: Extension: 2.0: CustomExtensionName: CustomAttribute
+
+Queste istruzioni sono valide solo per le applicazioni abilitate per SCIM. Le applicazioni, ad esempio ServiceNow e Salesforce, non sono integrate con Azure AD usando SCIM e pertanto non richiedono questo spazio dei nomi specifico quando si aggiunge un attributo personalizzato.
+
+Gli attributi personalizzati non possono essere attributi referenziali o attributi multivalore. Gli attributi di estensione multivalore personalizzati sono attualmente supportati solo per le applicazioni nella raccolta.  
+ 
+**Rappresentazione di esempio di un utente con un attributo di estensione:**
+
+```json
+   {
+     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User",
+      "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+      "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User"],
+     "userName":"bjensen",
+     "externalId":"bjensen",
+     "name":{
+       "formatted":"Ms. Barbara J Jensen III",
+       "familyName":"Jensen",
+       "givenName":"Barbara"
+     },
+     "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+     "employeeNumber": "701984",
+     "costCenter": "4130",
+     "organization": "Universal Studios",
+     "division": "Theme Park",
+     "department": "Tour Operations",
+     "manager": {
+       "value": "26118915-6090-4610-87e4-49d8ca9f808d",
+       "$ref": "../Users/26118915-6090-4610-87e4-49d8ca9f808d",
+       "displayName": "John Smith"
+     }
+   },
+     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:CustomAttribute:User": {
+     "CustomAttribute": "701984",
+   },
+   "meta": {
+     "resourceType": "User",
+     "created": "2010-01-23T04:56:22Z",
+     "lastModified": "2011-05-13T04:42:34Z",
+     "version": "W\/\"3694e05e9dff591\"",
+     "location":
+ "https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646"
+   }
+ }
+```
+
+
 ## <a name="provisioning-a-role-to-a-scim-app"></a>Provisioning di un ruolo in un'app SCIM
 Attenersi alla procedura seguente per eseguire il provisioning dei ruoli per un utente nell'applicazione. Si noti che la descrizione seguente è specifica per le applicazioni SCIM personalizzate. Per le applicazioni della raccolta, ad esempio Salesforce e ServiceNow, usare i mapping dei ruoli predefiniti. I punti elenco seguenti descrivono come trasformare l'attributo AppRoleAssignments nel formato previsto dall'applicazione.
 

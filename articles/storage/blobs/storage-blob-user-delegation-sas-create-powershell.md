@@ -1,20 +1,21 @@
 ---
-title: Creare una firma di accesso condiviso di delega utente per un contenitore o un BLOB con PowerShell (anteprima)-archiviazione di Azure
-description: Informazioni su come creare una firma di accesso condiviso usando le credenziali Azure Active Directory in archiviazione di Azure con PowerShell.
+title: Usare PowerShell per creare una firma di accesso condiviso di delega utente per un contenitore o un BLOB
+titleSuffix: Azure Storage
+description: Informazioni su come creare una firma di accesso condiviso dell'utente (anteprima) con Azure Active Directory credenziali usando PowerShell.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 08/29/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 0164c97adf720a618179908298223c54bf48824e
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 5f4947921a77f2bc94d1810c9b1d1951431d3d71
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673331"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892516"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell-preview"></a>Creare una firma di accesso condiviso di delega utente per un contenitore o un BLOB con PowerShell (anteprima)
 
@@ -31,7 +32,7 @@ Per usare PowerShell per creare una firma di accesso condiviso di delega utente,
 1. Disinstallare eventuali installazioni precedenti di Azure PowerShell:
 
     - Rimuovere da Windows eventuali installazioni precedenti di Azure PowerShell usando l'impostazione **App e funzionalità** in **Impostazioni**.
-    - Rimuovere tutti i moduli di `%Program Files%\WindowsPowerShell\Modules`Azure da.
+    - Rimuovere tutti i moduli di **Azure** da `%Program Files%\WindowsPowerShell\Modules`.
 
 1. Assicurarsi di avere la versione più recente di PowerShellGet installata. Aprire una finestra di Windows PowerShell ed eseguire i seguenti comandi per installare la versione più recente:
 
@@ -86,7 +87,7 @@ Se non si dispone di autorizzazioni sufficienti per assegnare i ruoli di control
 
 Nell'esempio seguente viene assegnato il ruolo di **collaboratore dati BLOB di archiviazione** , che include l'azione **Microsoft. storage/storageAccounts/blobServices/generateUserDelegationKey** . L'ambito del ruolo è a livello dell'account di archiviazione.
 
-Ricordarsi di sostituire i valori segnaposto tra parentesi angolari con valori personalizzati:
+È necessario ricordare di sostituire i valori segnaposto tra parentesi uncinate con i valori personalizzati:
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `
@@ -104,7 +105,7 @@ Poiché l'intervallo massimo di validità della chiave di delega utente è di 7 
 
 Per creare una firma di accesso condiviso di delega utente per un contenitore o un BLOB con Azure PowerShell, creare prima di tutto un nuovo oggetto di contesto di archiviazione di Azure, specificando il parametro `-UseConnectedAccount`. Il parametro `-UseConnectedAccount` specifica che il comando crea l'oggetto di contesto nell'account Azure AD con cui è stato effettuato l'accesso.
 
-Ricordarsi di sostituire i valori segnaposto tra parentesi angolari con valori personalizzati:
+È necessario ricordare di sostituire i valori segnaposto tra parentesi uncinate con i valori personalizzati:
 
 ```powershell
 $ctx = New-AzStorageContext -StorageAccountName <storage-account> -UseConnectedAccount
@@ -158,7 +159,7 @@ https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?sv=2018-
 
 Per revocare una firma di accesso condiviso di delega utente da Azure PowerShell, chiamare il comando **Revoke-AzStorageAccountUserDelegationKeys** . Questo comando revoca tutte le chiavi di delega utente associate all'account di archiviazione specificato. Eventuali firme di accesso condiviso associate a tali chiavi vengono invalidate.
 
-Ricordarsi di sostituire i valori segnaposto tra parentesi angolari con valori personalizzati:
+È necessario ricordare di sostituire i valori segnaposto tra parentesi uncinate con i valori personalizzati:
 
 ```powershell
 Revoke-AzStorageAccountUserDelegationKeys -ResourceGroupName <resource-group> `

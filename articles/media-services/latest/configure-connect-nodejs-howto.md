@@ -1,6 +1,6 @@
 ---
 title: Connettersi all'API di servizi multimediali di Azure V3-node. js
-description: Informazioni su come connettersi all'API di servizi multimediali V3 con node. js.
+description: Questo articolo illustra come connettersi all'API di servizi multimediali V3 con node. js.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 5361a820da0caa336ccc95ae657407889443268c
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 0381a2e2b8fd2a8b60e7cb702e0336a5678df057
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048426"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896108"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Connettersi a servizi multimediali V3 API-Node. js
 
 Questo articolo illustra come connettersi a node. js SDK di servizi multimediali di Azure v3 usando il metodo di accesso dell'entità servizio.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Installare [Node.js](https://nodejs.org/en/download/).
 - [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md). Assicurarsi di ricordare il nome del gruppo di risorse e il nome dell'account di servizi multimediali.
@@ -54,7 +54,7 @@ Questo articolo illustra come connettersi a node. js SDK di servizi multimediali
 
 È necessario specificare i pacchetti seguenti:
 
-|Pacchetto|DESCRIZIONE|
+|Pacchetto|Description|
 |---|---|
 |`azure-arm-mediaservices`|SDK di servizi multimediali di Azure. <br/>Per assicurarsi di usare il pacchetto di servizi multimediali di Azure più recente, selezionare [NPM install Azure-ARM-MediaServices](https://www.npmjs.com/package/azure-arm-mediaservices/).|
 |`azure-storage`|SDK di archiviazione. Usato quando si caricano file in asset.|
@@ -123,7 +123,7 @@ npm install
 node index.js
 ```
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Concetti relativi ai Servizi multimediali](concepts-overview.md)
 - [Installazione di NPM tramite azure-arm-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/)

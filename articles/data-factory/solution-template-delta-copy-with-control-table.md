@@ -1,5 +1,5 @@
 ---
-title: Copia Delta da un database tramite una tabella di controllo con Azure Data Factory
+title: Copia Delta da un database tramite una tabella di controllo
 description: Informazioni su come usare un modello di soluzione per la copia incrementale solo delle righe nuove o aggiornate da un database con Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/24/2018
-ms.openlocfilehash: c9ab1d005cf71dbe03546ce5b6014f616a872f8d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 22723033b59fafc0b9dfd1ae4fc08e5f6e9145ed
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684219"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896223"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Copia Delta da un database con una tabella di controllo
 
@@ -36,7 +36,7 @@ Questo modello recupera innanzitutto il valore limite precedente e lo confronta 
 Il modello contiene quattro attività:
 - **Lookup** Recupera il vecchio valore limite massimo, che viene archiviato in una tabella di controllo esterna.
 - Un'altra attività di **ricerca** Recupera il valore del limite massimo corrente dal database di origine.
-- **Copia** solo le modifiche apportate al database di origine nell'archivio di destinazione. La query che identifica le modifiche nel database di origine è simile a' SELECT * FROM Data_Source_Table WHERE TIMESTAMP_Column > "Last High-Watermark" e TIMESTAMP_Column < = "Current High-Watermark" ".
+- **Copia** solo le modifiche apportate al database di origine nell'archivio di destinazione. La query che identifica le modifiche nel database di origine è simile a' SELECT * FROM Data_Source_Table dove TIMESTAMP_Column > "ultimo limite massimo" e TIMESTAMP_Column < = "limite massimo corrente".
 - **SqlServerStoredProcedure** scrive il valore di limite massimo corrente in una tabella di controllo esterna per la copia Delta la volta successiva.
 
 Il modello definisce cinque parametri:

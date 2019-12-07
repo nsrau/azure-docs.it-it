@@ -1,6 +1,6 @@
 ---
 title: Connettersi all'API di servizi multimediali di Azure V3-.NET
-description: Informazioni su come connettersi all'API di servizi multimediali V3 con .NET.
+description: Questo articolo illustra come connettersi all'API di servizi multimediali V3 con .NET.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
-ms.openlocfilehash: b2cfe8014e6ffbd7a6d5449192acde9780a2d303
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b8f4de1a5b9d8216ae2442631f5f9135c3c72d0b
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122893"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74899903"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Connettersi all'API di servizi multimediali V3-.NET
 
@@ -38,14 +38,14 @@ Questo articolo illustra come connettersi a servizi multimediali di Azure V3 .NE
 1. Scegliere **nuovo** > **progetto**dal menu **file** . 
 1. Creare un'applicazione console **.NET Core** .
 
-L'app di esempio in questo argomento è `netcoreapp2.0`destinata a. Il codice USA ' Async Main ', disponibile a partire da C# 7,1. Per altri dettagli, vedere questo [Blog](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) .
+L'app di esempio in questo argomento, targets `netcoreapp2.0`. Il codice USA ' Async Main ', disponibile a partire da C# 7,1. Per altri dettagli, vedere questo [Blog](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) .
 
 ## <a name="add-required-nuget-packages"></a>Aggiungere i pacchetti NuGet necessari
 
-1. In Visual Studio selezionare **strumenti** >  > **Gestione pacchetti NuGet** **console di gestione NuGet**.
-2. Nella finestra **console di gestione pacchetti** usare `Install-Package` il comando per aggiungere i pacchetti NuGet seguenti. Ad esempio `Install-Package Microsoft.Azure.Management.Media`.
+1. In Visual Studio selezionare **strumenti** > **gestione pacchetti NuGet** > **console di gestione NuGet**.
+2. Nella finestra **console di gestione pacchetti** usare `Install-Package` comando per aggiungere i pacchetti NuGet seguenti. Ad esempio `Install-Package Microsoft.Azure.Management.Media`.
 
-|Pacchetto|Descrizione|
+|Pacchetto|Description|
 |---|---|
 |`Microsoft.Azure.Management.Media`|SDK di servizi multimediali di Azure. <br/>Per assicurarsi di usare il pacchetto di servizi multimediali di Azure più recente, controllare [Microsoft. Azure. Management. Media](https://www.nuget.org/packages/Microsoft.Azure.Management.Media).|
 |`Microsoft.Rest.ClientRuntime.Azure.Authentication`|ADAL Authentication Library per Azure SDK per NET|
@@ -57,20 +57,20 @@ L'app di esempio in questo argomento è `netcoreapp2.0`destinata a. Il codice US
 
 ### <a name="create-appsettingsjson"></a>Creare appSettings. JSON
 
-1. Vai a**file di testo** **generale** > .
+1. Go go **generale** > **file di testo**.
 1. Assegnare al file il nome "appSettings. JSON".
 1. Impostare la proprietà "copia in directory di output" del file JSON su "copia se più recente" (in modo che l'applicazione sia in grado di accedervi al momento della pubblicazione).
 
 ### <a name="set-values-in-appsettingsjson"></a>Impostare i valori in appSettings. JSON
 
-Eseguire il `az ams account sp create` comando come descritto in [accedere alle API](access-api-cli-how-to.md). Il comando restituisce JSON che è necessario copiare in "appSettings. JSON".
+Eseguire il comando `az ams account sp create` come descritto in [accedere alle API](access-api-cli-how-to.md). Il comando restituisce JSON che è necessario copiare in "appSettings. JSON".
  
 ## <a name="add-configuration-file"></a>Aggiungere un file di configurazione
 
 Per praticità, aggiungere un file di configurazione responsabile della lettura dei valori da "appSettings. JSON".
 
 1. Aggiungere una nuova classe. cs al progetto. Denominarlo `ConfigWrapper`. 
-1. Incollare il codice seguente in questo file (in questo esempio si presuppone che lo spazio `ConsoleApp1`dei nomi sia).
+1. Incollare il codice seguente in questo file (in questo esempio si presuppone che lo spazio dei nomi sia `ConsoleApp1`).
 
 ```csharp
 using System;
@@ -228,9 +228,9 @@ namespace ConsoleApp1
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esercitazione: Caricare, codificare ed eseguire lo streaming dei video - .NET](stream-files-tutorial-with-api.md) 
-- [Esercitazione: Eseguire lo streaming live con Servizi multimediali v3 - .NET](stream-live-tutorial-with-api.md)
-- [Esercitazione: Analizzare i video con Servizi multimediali v3 - .NET](analyze-videos-tutorial-with-api.md)
+- [Esercitazione: caricare, codificare e trasmettere in streaming video-.NET](stream-files-tutorial-with-api.md) 
+- [Esercitazione: flusso live con servizi multimediali V3-.NET](stream-live-tutorial-with-api.md)
+- [Esercitazione: analizzare i video con servizi multimediali V3-.NET](analyze-videos-tutorial-with-api.md)
 - [Creare un input del processo da un file locale - .NET](job-input-from-local-file-how-to.md)
 - [Creare un input del processo da un URL HTTPS - .NET](job-input-from-http-how-to.md)
 - [Codificare con una trasformazione personalizzata - .NET](customize-encoder-presets-how-to.md)
@@ -240,7 +240,7 @@ namespace ConsoleApp1
 - [Creare filtri con Servizi multimediali - .NET](filters-dynamic-manifest-dotnet-howto.md)
 - [Esempi di video on-demand avanzato di Funzioni di Azure v2 con Servizi multimediali v3](https://aka.ms/ams3functions)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Riferimento .NET](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
 * Per altri esempi di codice, vedere il repository degli [esempi di .NET SDK](https://github.com/Azure-Samples/media-services-v3-dotnet) .

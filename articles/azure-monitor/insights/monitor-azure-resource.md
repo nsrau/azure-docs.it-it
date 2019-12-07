@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 230b79a5062262a85d3090e15ed52d67c38ed3e9
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 5a46de9fa17790cb93ce7d5a2af8008d34d4dc35
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928465"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888785"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Monitoraggio delle risorse di Azure con monitoraggio di Azure
 Quando le applicazioni e i processi aziendali critici si basano sulle risorse di Azure, è opportuno monitorarle per la disponibilità, le prestazioni e il funzionamento. Questo articolo descrive i dati di monitoraggio generati dalle risorse di Azure e come è possibile usare le funzionalità di monitoraggio di Azure per analizzare e generare avvisi su questi dati.
@@ -52,7 +52,7 @@ Non sono previsti costi di monitoraggio di Azure per la raccolta e l'esportazion
 ## <a name="monitoring-data"></a>Dati di monitoraggio
 Le risorse in Azure generano [log](../platform/data-platform-logs.md) e [metriche](../platform/data-platform-metrics.md) illustrate nel diagramma seguente. Fare riferimento alla documentazione per ogni servizio di Azure per i dati specifici che generano ed eventuali soluzioni o informazioni aggiuntive fornite.
 
-![Overview](media/monitor-azure-resource/logs-metrics.png)
+![Panoramica](media/monitor-azure-resource/logs-metrics.png)
 
 
 
@@ -90,8 +90,8 @@ Seguire la procedura descritta in [creare un'impostazione di diagnostica per rac
 ## <a name="monitoring-in-the-azure-portal"></a>Monitoraggio nel portale di Azure
  È possibile accedere ai dati di monitoraggio per la maggior parte delle risorse di Azure dal menu della risorsa nel portale di Azure. In questo modo sarà possibile accedere ai dati di una singola risorsa usando gli strumenti standard di monitoraggio di Azure. Alcuni servizi di Azure forniranno opzioni diverse, quindi è necessario fare riferimento alla documentazione per tale servizio per altre informazioni. Usare il menu **monitoraggio di Azure** per analizzare i dati di tutte le risorse monitorate. 
 
-### <a name="overview"></a>Overview
-Molti servizi includeranno i dati di monitoraggio nella pagina **Panoramica** come una rapida occhiata al proprio funzionamento. Questa operazione sarà in genere basata su un subset di metriche della piattaforma archiviate nelle metriche di monitoraggio di Azure. Altre opzioni di monitoraggio saranno in genere disponibili in una sezione di **monitoraggio** dei servizi. menu.
+### <a name="overview"></a>Panoramica
+Molti servizi includeranno i dati di monitoraggio nella pagina **Panoramica** come una rapida occhiata al proprio funzionamento. Questa operazione sarà in genere basata su un subset di metriche della piattaforma archiviate nelle metriche di monitoraggio di Azure. Altre opzioni di monitoraggio saranno in genere disponibili in una sezione di **monitoraggio** dei servizi. .
 
 ![Pagina di panoramica](media/monitor-azure-resource/overview-page.png)
 
@@ -101,15 +101,15 @@ Alcuni servizi forniranno strumenti oltre le funzionalità standard di monitorag
 
 Se un servizio ha una visione di monitoraggio di Azure, è possibile accedervi dal **monitoraggio** nel menu di ogni risorsa. Accedere a tutte le informazioni e alle soluzioni dal menu **monitoraggio di Azure** .
 
-![Informazioni dettagliate](media/monitor-azure-resource/insights.png)
+![Informazioni approfondite](media/monitor-azure-resource/insights.png)
 
-### <a name="metrics"></a>Metrica
+### <a name="metrics"></a>Metriche
 Analizzare le metriche nella portale di Azure usando [Esplora metriche](../platform/metrics-getting-started.md) , disponibile dalla voce di menu **metrica** per la maggior parte dei servizi. Questo strumento consente di usare singole metriche o combinare più per identificare le correlazioni e le tendenze. 
 
 - Per le nozioni di base sull'uso di Esplora metriche, vedere [Introduzione ad Azure Esplora metriche](../platform/metrics-getting-started.md) .
 - Vedere [funzionalità avanzate di Azure Esplora metriche](../platform/metrics-charts.md) per le funzionalità avanzate di Esplora metriche, ad esempio l'uso di più metriche e l'applicazione di filtri e suddivisione.
 
-![Metrica](media/monitor-azure-resource/metrics.png)
+![Metriche](media/monitor-azure-resource/metrics.png)
 
 
 ### <a name="activity-log"></a>Log attività 
@@ -118,7 +118,7 @@ Consente di visualizzare le voci nel log attività del portale di Azure con il f
 - Vedere [visualizzare e recuperare gli eventi del log attività di Azure](../platform/activity-log-view.md) per informazioni dettagliate sulla visualizzazione del log attività e il recupero di voci con diversi metodi.
 - Vedere la documentazione per il servizio di Azure per gli eventi specifici che vengono registrati.
 
-![Log di attività](media/monitor-azure-resource/activity-log.png)
+![Log attività](media/monitor-azure-resource/activity-log.png)
 
 ### <a name="azure-monitor-logs"></a>Log di Monitoraggio di Azure
 I log di monitoraggio di Azure consolidano i log e le metriche da più servizi e altre origini dati per l'analisi con uno strumento di query potente. Come descritto in precedenza, creare un'impostazione di diagnostica per raccogliere metriche della piattaforma, log attività e log delle risorse in un'area di lavoro Log Analytics in monitoraggio di Azure.
@@ -146,7 +146,7 @@ Includere i dati di monitoraggio raccolti dalla risorsa in un'applicazione perso
 - Per informazioni dettagliate sull'accesso alle metriche dall'API REST di monitoraggio di Azure, vedere [procedura dettagliata sull'API REST di monitoraggio di Azure](../platform/rest-api-walkthrough.md) .
 - Vedere [API REST di azure log Analytics](https://dev.loganalytics.io/) per informazioni sull'accesso ai dati di log di monitoraggio di Azure tramite una query di Log da Azure PowerShell.
 
-## <a name="alerts"></a>Alerts
+## <a name="alerts"></a>Avvisi
 Gli [avvisi](../platform/alerts-overview.md) inviano notifiche in modo proattivo e potenzialmente intervenire quando si trovano condizioni importanti nei dati di monitoraggio. Si crea una regola di avviso che definisce una destinazione per l'avviso, le condizioni per stabilire se creare un avviso e le azioni da intraprendere in risposta.
 
 Per diversi tipi di regole di avviso vengono usati tipi diversi di dati di monitoraggio.
@@ -164,4 +164,4 @@ Usare gli **avvisi** dal menu di una risorsa per visualizzare gli avvisi e gesti
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni dettagliate sui log delle risorse per i diversi servizi di Azure [, vedere servizi, schemi e categorie supportati per i log di diagnostica di Azure](../platform/diagnostic-logs-schema.md) .  
+* Per informazioni dettagliate sui log delle risorse per i diversi servizi di Azure [, vedere servizi, schemi e categorie supportati per i log delle risorse di Azure](../platform/diagnostic-logs-schema.md) .  

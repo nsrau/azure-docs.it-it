@@ -1,6 +1,6 @@
 ---
 title: Configurare criteri di autorizzazione di una chiave simmetrica tramite il portale di Azure | Microsoft Docs
-description: Informazioni su come configurare i criteri di autorizzazione per una chiave simmetrica.
+description: Questo articolo illustra come configurare i criteri di autorizzazione per una chiave simmetrica.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: b046ce5a8647abe601a6327667241d98445ce1e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 64f5afdc8eb24758fac6faa0cc6d1e4e1002b5db
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61130563"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895856"
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>Configurare i criteri di autorizzazione di una chiave simmetrica
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## <a name="overview"></a>Panoramica
- Servizi multimediali di Azure consente di distribuire flussi MPEG-DASH, Smooth Streaming e HTTP Live Streaming (HLS) protetti con Advanced Encryption Standard (AES) tramite chiavi di crittografia a 128 bit o [Digital Rights Management (DRM) PlayReady](https://www.microsoft.com/playready/overview/). Servizi multimediali consente anche di recapitare flussi DASH crittografati con Widevine DRM. Sia per PlayReady che per Widevine la crittografia avviene in base alla specifica di crittografia comune (ISO/IEC 23001-7 CENC).
+ Servizi multimediali di Azure consente di distribuire flussi MPEG-DASH, Smooth Streaming e HTTP Live Streaming (HLS) protetti con Advanced Encryption Standard (AES) tramite chiavi di crittografia a 128 bit o [Digital Rights Management (DRM) PlayReady](https://www.microsoft.com/playready/overview/). Servizi multimediali consente anche di distribuire flussi DASH crittografati con DRM Widevine. Sia per PlayReady che per Widevine la crittografia avviene in base alla specifica di crittografia comune (ISO/IEC 23001-7 CENC).
 
 Servizi multimediali offre anche un servizio di distribuzione di chiavi/licenze dal quale i client possono ottenere chiavi AES o licenze PlayReady/Widevine per riprodurre contenuti crittografati.
 
@@ -33,13 +33,13 @@ Questo articolo illustra come usare il Portale di Azure per configurare i criter
 
 Quando un lettore richiede un flusso impostato per la crittografia dinamica, Servizi multimediali usa la chiave configurata per crittografare dinamicamente i contenuti tramite crittografia DRM o AES. Per decrittografare il flusso, il lettore richiede la chiave dal servizio di distribuzione delle chiavi. Per determinare se l'utente è autorizzato a ottenere la chiave, il servizio valuta i criteri di autorizzazione specificati per la chiave.
 
-Se si prevede di usare più chiavi simmetriche o si desidera specificare un URL per il servizio di distribuzione di chiavi/licenze diverso dal servizio di distribuzione delle chiavi di Servizi multimediali, usare le API REST o l'SDK di Servizi multimediali per .NET. Per altre informazioni, vedere:
+Se si prevede di usare più chiavi simmetriche o si desidera specificare un URL per il servizio di distribuzione di chiavi/licenze diverso dal servizio di distribuzione delle chiavi di Servizi multimediali, usare le API REST o l'SDK di Servizi multimediali per .NET. Per scoprire di più, vedi:
 
 * [Configurare criteri di autorizzazione di una chiave simmetrica tramite l'SDK di Servizi multimediali per .NET](media-services-dotnet-configure-content-key-auth-policy.md)
 * [Configurare criteri di autorizzazione di una chiave simmetrica tramite le API REST di Servizi multimediali](media-services-rest-configure-content-key-auth-policy.md)
 
 ### <a name="some-considerations-apply"></a>Considerazioni applicabili
-* Quando viene creato l'account di Servizi multimediali, viene aggiunto all'account un endpoint di streaming predefinito con stato "Arrestato". Per avviare lo streaming dei contenuti e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, lo stato dell'endpoint di streaming deve essere "In esecuzione". 
+* Quando viene creato l'account di Servizi multimediali, viene aggiunto all'account un endpoint di streaming predefinito con stato "Arrestato". Per avviare lo streaming dei contenuti e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming deve avere lo stato "In esecuzione". 
 * L'asset deve contenere un set di file MP4 o Smooth Streaming a velocità in bit adattiva. Per altre informazioni, vedere l'articolo relativo alla [codifica di un asset](media-services-encode-asset.md).
 * Il servizio di distribuzione delle chiavi memorizza nella cache l'oggetto ContentKeyAuthorizationPolicy e gli oggetti correlati (opzioni e restrizioni) per 15 minuti. È possibile creare un oggetto ContentKeyAuthorizationPolicy e specificare l'uso di una restrizione del token, testarlo e quindi aggiornare i criteri alla restrizione aperta. Per aggiornare i criteri alla restrizione aperta sono richiesti circa 15 minuti.
 * L'endpoint di streaming di Servizi multimediali imposta il valore dell'intestazione CORS Access-Control-Allow-Origin nella risposta preliminare come carattere jolly "\*". Questo valore funziona bene con la maggior parte dei lettori, tra cui Azure Media Player, Roku, JW Player e altri. Tuttavia, alcuni lettori che usano dash.js non funzionano perché, con la modalità delle credenziali impostata su "include", XMLHttpRequest in dash.js non consente il carattere jolly "\*" come valore di Access-Control-Allow-Origin. Come soluzione alternativa a questa limitazione in dash.js, se si ospita il client da un singolo dominio, Servizi multimediali può specificare tale dominio nell'intestazione della risposta preliminare. Per assistenza, aprire un ticket di supporto tramite il portale di Azure.
@@ -83,7 +83,7 @@ Quando si protegge il contenuto con PlayReady, è necessario includere nei crite
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 [open_policy]: ./media/media-services-portal-configure-content-key-auth-policy/media-services-protect-content-with-open-restriction.png

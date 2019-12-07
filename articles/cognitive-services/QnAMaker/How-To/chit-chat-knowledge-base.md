@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 418324ea0d50cb2f8ff4a30018a31e7807d52eac
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: a9a14056e6be62fc1c1b5e542c1a3acceb738eac
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73602588"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901202"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Aggiungere chit chat a una knowledge base
 
@@ -31,7 +31,7 @@ Per la query utente di `When is your birthday?`, ogni personalità ha una rispos
 <!-- added quotes so acrolinx doesn't score these sentences -->
 |Personalità|Esempio|
 |--|--|
-|Professional|Age non è effettivamente applicabile all'utente.|
+|Professionale|Age non è effettivamente applicabile all'utente.|
 |Gentile|Non ho realmente un tempo.|
 |Spiritoso|Sono privo di età.|
 |Occuparsi|Non ho un periodo di tempo.|
@@ -39,14 +39,14 @@ Per la query utente di `When is your birthday?`, ogni personalità ha una rispos
 ||
 
 
-## <a name="language-support"></a>Supporto per le lingue
+## <a name="language-support"></a>Supporto delle lingue
 
 I set di dati Chit-Chat sono supportati nelle seguenti lingue:
 
-|Lingua|
+|Linguaggio|
 |--|
 |Cinese|
-|Inglese|
+|Italiano|
 |Francese|
 |Germania|
 |Italiano|
@@ -72,7 +72,7 @@ Quando si modifica la KB, si noterà una nuova origine per le chit chat, basata 
 Per visualizzare i metadati, selezionare Visualizza **Opzioni** sulla barra degli strumenti e quindi selezionare **Mostra metadati**.
 
 ## <a name="add-additional-chit-chat-questions-and-answers"></a>Aggiungere ulteriori domande e risposte alle chit chat
-È possibile aggiungere nuove QnA chit chat che non sono nel set predefinito. Assicurarsi che non venga duplicata una coppia di QnA già inclusa nel set di chit chat. Quando si aggiunge una nuova QnA chit chat, viene aggiunta al provider di origine **Editoriale.** Per assicurarsi che il classificatore riconosca che si tratta di una chit chat, aggiungere la coppia chiave/valore dei metadati "Editoriale: chit chat", come illustrato nell'immagine seguente:
+È possibile aggiungere nuove QnA chit chat che non sono nel set predefinito. Assicurarsi che non venga duplicata una coppia di QnA già inclusa nel set di chit chat. Quando si aggiunge una nuova QnA chit chat, viene aggiunta al provider di origine **Editoriale.** Per assicurarsi che il Ranker riconosca che si tratta di una Chit-Chat, aggiungere la coppia chiave/valore dei metadati "Editorial: chiacchiere", come illustrato nell'immagine seguente:
    
 ![! [Aggiungere Chit-Chat QnAs] (.. /media/qnamaker-how-to-chit-chat/add-new-chit-chat.png)](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png#lightbox)
 
@@ -86,6 +86,6 @@ Selezionare la KB e passare alla pagina **Impostazioni**. L'origine di una chit 
 > [!div class="nextstepaction"]
 > [Importare una knowledge base](../Tutorials/migrate-knowledge-base.md)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedi anche 
 
 [Panoramica di QnA Maker](../Overview/overview.md)

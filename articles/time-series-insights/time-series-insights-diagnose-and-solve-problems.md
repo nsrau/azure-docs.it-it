@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 10/10/2019
+ms.date: 12/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ca38ebb015552042591fb4cc6b7edfe99527e79f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: ff723f490a3f6d34f652e0b21e5f6e0b16f0a841
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007057"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900237"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnosticare e risolvere i problemi nell'ambiente Time Series Insights
 
@@ -38,9 +38,9 @@ Azure Time Series Insights supporta solo dati in formato JSON. Per alcuni esempi
 
 ### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>Causa B: manca un'autorizzazione necessaria per la chiave dell'origine evento
 
-* Per un hub IoT in Hub IoT di Azure è necessario indicare la chiave con le autorizzazioni di **connessione al servizio**. Entrambi i criteri **iothubowner** o **service** funzioneranno perché entrambi dispongono delle autorizzazioni di **connessione al servizio**.
+* Per un hub IoT in Hub IoT di Azure è necessario indicare la chiave con le autorizzazioni di **connessione al servizio**. Selezionare i criteri **iothubowner** o **Service** perché entrambi hanno autorizzazioni di **connessione al servizio** .
 
-   [autorizzazioni di connessione del servizio Hub![](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png#lightbox)
+   [autorizzazioni di connessione del servizio Hub ![](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png#lightbox)
 
 * Per un hub eventi in Hub eventi di Azure è necessario indicare la chiave che dispone delle autorizzazioni di **ascolto**. Entrambi i criteri **read** o **manage** funzioneranno in quanto entrambi dispongono delle autorizzazioni di **ascolto**.
 
@@ -50,13 +50,17 @@ Azure Time Series Insights supporta solo dati in formato JSON. Per alcuni esempi
 
 Quando si registra un hub IoT o un hub eventi, è importante impostare il gruppo di consumer che si desidera usare per leggere i dati. Questo gruppo *non può essere condiviso*. Se viene condiviso, l'hub IoT o l'hub eventi sottostante disconnette automaticamente in modo casuale uno dei lettori. Specificare un gruppo di consumer univoco per la lettura dei dati da parte di Time Series Insights.
 
+### <a name="cause-d-the-environment-has-just-been-provisioned"></a>Motivo D: è stato appena eseguito il provisioning dell'ambiente
+
+I dati verranno visualizzati in Esplora Time Series Insights entro pochi minuti dall'ambiente e i relativi dati verranno creati per la prima volta.
+
 ## <a name="problem-some-data-is-shown-but-data-is-missing"></a>Problema: alcuni dati vengono visualizzati, ma mancano i dati
 
 Quando i dati vengono visualizzati solo parzialmente e sembrano essere in ritardo, è necessario considerare diverse possibilità.
 
 ### <a name="cause-a-your-environment-is-being-throttled"></a>Cause A: l'ambiente viene limitato
 
-La limitazione delle richieste è un problema comune quando gli ambienti vengono sottoposti a provisioning dopo che è stata creata un'origine evento che contiene dati. Hub IoT di Azure e Hub eventi di Azure archiviano i dati per un massimo di sette giorni. Time Series Insights inizia sempre con l'evento meno recente nell'origine evento (First-In, First-Out o *FIFO*).
+La [limitazione](time-series-insights-environment-mitigate-latency.md) è un problema comune quando viene eseguito il provisioning degli ambienti dopo la creazione di un'origine evento con dati. Hub IoT di Azure e Hub eventi di Azure archiviano i dati per un massimo di sette giorni. Time Series Insights inizia sempre con l'evento meno recente nell'origine evento (First-In, First-Out o *FIFO*).
 
 Se ad esempio nell'origine evento sono presenti 5 milioni di eventi quando ci si connette a un S1, un ambiente Time Series Insights a unità singola, Time Series Insights legge circa 1 milione di eventi al giorno. Potrebbe sembrare che Time Series Insights riscontri cinque giorni di latenza. Quello che accade in effetti è che l'ambiente viene limitato nelle richieste.
 
@@ -69,7 +73,7 @@ La limitazione viene applicata in base alla capacità e al tipo di SKU dell'ambi
 
 Il diagramma seguente mostra un ambiente Time Series Insights con uno SKU S1 e una capacità pari a 3. È consentito l'ingresso di 3 milioni di eventi al giorno.
 
-[capacità corrente dello SKU dell'ambiente![](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
+[capacità corrente dello SKU dell'ambiente ![](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
 
 Si supponga, ad esempio, che un ambiente inserisca messaggi da un hub eventi. La velocità di ingresso giornaliera è pari a circa 67.000 messaggi. Questa velocità si traduce approssimativamente in 46 messaggi al minuto. 
 

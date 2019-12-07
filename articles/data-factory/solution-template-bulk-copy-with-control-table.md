@@ -1,5 +1,5 @@
 ---
-title: Eseguire una copia bulk da un database tramite una tabella di controllo con Azure Data Factory
+title: Eseguire una copia bulk da un database tramite una tabella di controllo
 description: Informazioni su come usare un modello di soluzione per copiare dati in blocco da un database usando una tabella di controllo esterna per archiviare un elenco di partizioni di tabelle di origine usando Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/14/2018
-ms.openlocfilehash: b651721e9b833c02e4789c79ff5ad0b49ce31343
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3f50a6067eb38e920c32079c140785f397ee6698
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684288"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896265"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>Eseguire una copia bulk da un database con una tabella di controllo
 
@@ -37,14 +37,14 @@ Il modello contiene tre attività:
 
 Il modello definisce cinque parametri:
 - *Control_Table_Name* è la tabella di controllo esterna, in cui è archiviato l'elenco delle partizioni per il database di origine.
-- *Control_Table_Schema_PartitionID* è il nome del nome della colonna nella tabella di controllo esterno che archivia ogni ID di partizione. Verificare che l'ID partizione sia univoco per ogni partizione nel database di origine.
+- *Control_Table_Schema_PartitionID* è il nome del nome della colonna nella tabella del controllo esterno che archivia ogni ID di partizione. Verificare che l'ID partizione sia univoco per ogni partizione nel database di origine.
 - *Control_Table_Schema_SourceTableName* è la tabella di controllo esterna che archivia ogni nome di tabella dal database di origine.
 - *Control_Table_Schema_FilterQuery* è il nome della colonna nella tabella di controllo esterno in cui è archiviata la query di filtro per ottenere i dati da ogni partizione nel database di origine. Se, ad esempio, i dati sono stati partizionati in base all'anno, la query archiviata in ogni riga potrebbe essere simile a' Select * from DataSource where LastModifytime > ='' 2015-01-01 00:00:00'' and LastModifytime < ='' 2015-12-31 23:59:59.999'''.
 - *Data_Destination_Folder_Path* è il percorso in cui i dati vengono copiati nell'archivio di destinazione. Questo parametro è visibile solo se la destinazione scelta è archiviazione basata su file. Se si sceglie SQL Data Warehouse come archivio di destinazione, questo parametro non è obbligatorio. I nomi delle tabelle e dello schema in SQL Data Warehouse, tuttavia, devono essere uguali a quelli del database di origine.
 
 ## <a name="how-to-use-this-solution-template"></a>Come usare questo modello di soluzione
 
-1. Creare una tabella di controllo in SQL Server o nel database SQL di Azure per archiviare l'elenco delle partizioni del database di origine per la copia bulk. Nell'esempio seguente sono presenti cinque partizioni nel database di origine. Per la *datasource_table*sono disponibili tre partizioni e due sono per il *project_table*. La colonna *LastModifytime* viene utilizzata per partizionare i dati nella tabella *datasource_table* dal database di origine. La query usata per leggere la prima partizione è' Select * from datasource_table where LastModifytime > ='' 2015-01-01 00:00:00'' and LastModifytime < ='' 2015-12-31 23:59:59.999'''. È possibile usare una query simile per leggere i dati da altre partizioni.
+1. Creare una tabella di controllo in SQL Server o nel database SQL di Azure per archiviare l'elenco delle partizioni del database di origine per la copia bulk. Nell'esempio seguente sono presenti cinque partizioni nel database di origine. Sono disponibili tre partizioni per la *datasource_table*e due per l' *project_table*. La colonna *LastModifytime* viene utilizzata per partizionare i dati nella tabella *datasource_table* dal database di origine. La query usata per leggere la prima partizione è' Select * from datasource_table where LastModifytime > ='' 2015-01-01 00:00:00'' and LastModifytime < ='' 2015-12-31 23:59:59.999'''. È possibile usare una query simile per leggere i dati da altre partizioni.
 
      ```sql
             Create table ControlTableForTemplate

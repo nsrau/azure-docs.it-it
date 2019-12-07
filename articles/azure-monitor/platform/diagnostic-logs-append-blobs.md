@@ -1,6 +1,6 @@
 ---
-title: Prepararsi per la modifica del formato ai log di diagnostica del Monitoraggio di Azure
-description: Descrive l'effetto e come aggiornare gli strumenti per gestire i nuovi log di diagnostica di Azure modificati per l'uso dei BLOB di Accodamento il 1 ° novembre 2018.
+title: Preparare la modifica del formato ai log delle risorse di monitoraggio di Azure
+description: Descrive l'effetto e come aggiornare gli strumenti per gestire i nuovi log delle risorse di Azure che sono stati modificati per l'uso dei BLOB di Accodamento il 1 ° novembre 2018.
 author: johnkemnetz
 services: monitoring
 ms.service: azure-monitor
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 5e71f4c590e4eafea5a2c6ad52b8df8c7dcf3814
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: dc7fd8916f356414437d4def21f26f0b651ee76f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307062"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893519"
 ---
-# <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Prepararsi per la modifica del formato ai log di diagnostica del Monitoraggio di Azure memorizzati in un account di archiviazione
+# <a name="prepare-for-format-change-to-azure-monitor-resource-logs-archived-to-a-storage-account"></a>Preparare la modifica del formato ai log delle risorse di monitoraggio di Azure archiviati in un account di archiviazione
 
 > [!WARNING]
-> Se si stanno inviando [log di diagnostica di risorsa di Azure o le metriche a un account di archiviazione con le impostazioni di diagnostica di risorsa](./../../azure-monitor/platform/archive-diagnostic-logs.md) oppure [i log attività per un account di archiviazione con profili di log](./../../azure-monitor/platform/archive-activity-log.md), il formato dei dati nell'account di archiviazione verrà modificato in righe JSON il 1° novembre 2018. Le impostazioni di seguito descrivono l'impatto della modifica e come aggiornare gli strumenti per gestire il nuovo formato. 
+> Se si inviano i [log delle risorse di Azure o le metriche a un account di archiviazione usando le impostazioni di diagnostica delle risorse](./../../azure-monitor/platform/archive-diagnostic-logs.md) o i [log attività in un account di archiviazione usando i profili di log](./../../azure-monitor/platform/archive-activity-log.md), il formato dei dati nell'account di archiviazione verrà modificato in righe JSON il 1 ° novembre 2018. Le impostazioni di seguito descrivono l'impatto della modifica e come aggiornare gli strumenti per gestire il nuovo formato. 
 >
 > 
 
@@ -31,13 +31,13 @@ Monitoraggio di Azure offre una funzionalità che consente di inviare dati di di
 * Se si configura un'impostazione di diagnostica tra ora e il 1° novembre, continuerà a inviare i dati nel formato corrente fino a quella data.
 * Questa modifica verrà eseguita in una volta sola, in tutte le aree di cloud pubblico. La modifica non si verificherà ancora nei Microsoft Azure gestiti da 21Vianet, Azure Germania o cloud di Azure per enti pubblici.
 * Questa modifica interessa i tipi di dati seguenti:
-  * [I log di diagnostica di risorse Azure](archive-diagnostic-logs.md) ([vedere l'elenco delle risorse qui](diagnostic-logs-schema.md))
+  * [Log](archive-diagnostic-logs.md) delle risorse di Azure ([vedere l'elenco di risorse qui](diagnostic-logs-schema.md))
   * [Metriche delle risorse di Azure esportate da impostazioni di diagnostica](diagnostic-settings.md)
   * [Dati del log attività Azure esportati tramite i profili di log](archive-activity-log.md)
 * Questa modifica non interessa:
   * Log dei flussi di rete
-  * Log di servizio di Azure non ancora resi disponibili tramite Monitoraggio di Azure (ad esempio, i log di diagnostica del Servizio app di Azure, i log di analisi di archiviazione)
-  * Routing dei log di diagnostica Azure e i log attività ad altre destinazioni (hub eventi, Log Analytics)
+  * I log dei servizi di Azure non sono ancora disponibili tramite monitoraggio di Azure (ad esempio, log delle risorse del servizio app Azure, log di analisi archiviazione)
+  * Routing dei log attività e dei log delle risorse di Azure ad altre destinazioni (hub eventi, Log Analytics)
 
 ### <a name="how-to-see-if-you-are-impacted"></a>Come verificare se si è coinvolti dalla modifica
 
@@ -135,6 +135,6 @@ Gli strumenti personalizzati devono essere aggiornati per gestire il formato cor
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni sull'[archiviazione dei log di diagnostica di risorsa a un account di archiviazione](./../../azure-monitor/platform/archive-diagnostic-logs.md)
+* Informazioni sull' [archiviazione dei log delle risorse delle risorse in un account di archiviazione](./../../azure-monitor/platform/archive-diagnostic-logs.md)
 * Informazioni sull'[archiviazione dei dati del log attività a un account di archiviazione](./../../azure-monitor/platform/archive-activity-log.md)
 

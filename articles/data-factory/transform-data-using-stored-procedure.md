@@ -1,5 +1,5 @@
 ---
-title: Trasformare i dati usando l'attività stored procedure in Azure Data Factory
+title: Trasformare i dati tramite l'attività stored procedure
 description: Illustra l'uso dell'attività stored procedure di SQL Server per richiamare una stored procedure in un database SQL di Azure o in Data Warehouse da una pipeline di Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -10,15 +10,15 @@ ms.date: 11/27/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 5ebb2b9cdcbef59e07476dbebd289bb4402ca5fa
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 59bfdc5d2d57b2c05a2c7676d83d8771142ca285
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683714"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893774"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Trasformare dati tramite l'attività stored procedure di SQL Server in Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-stored-proc-activity.md)
 > * [Versione corrente](transform-data-using-stored-procedure.md)
 
@@ -29,8 +29,8 @@ Le attività di trasformazione dei dati in una [pipeline](concepts-pipelines-act
 
 È possibile usare l'attività stored procedure per richiamare una stored procedure in uno dei seguenti archivi dati presenti in azienda o in una macchina virtuale di Azure: 
 
-- Database SQL di Azure
-- Azure SQL Data Warehouse
+- database SQL di Azure
+- SQL Data Warehouse di Azure
 - Database di SQL Server.  Se si usa SQL Server, è necessario installare Runtime di integrazione (self-hosted) nello stesso computer che ospita il database o in un computer separato che ha accesso al database. Runtime di integrazione (self-hosted) è un componente che connette in modo sicuro e gestito origini dati presenti in locale o in macchine virtuali di Azure ai servizi cloud. Per i dettagli, vedere l'articolo [Runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md).
 
 > [!IMPORTANT]
@@ -65,22 +65,22 @@ Di seguito è riportato il formato JSON per la definizione di un'attività di St
 
 La tabella seguente illustra queste proprietà JSON:
 
-| Proprietà                  | Descrizione                              | Obbligatorio |
+| Proprietà                  | Description                              | Obbligatoria |
 | ------------------------- | ---------------------------------------- | -------- |
-| name                      | Nome dell'attività                     | Sì      |
+| name                      | Nome dell'attività                     | SÌ      |
 | description               | Testo descrittivo per lo scopo dell'attività | No       |
-| type                      | Per l'attività stored procedure, il tipo di attività corrisponde a **SqlServerStoredProcedure** | Sì      |
-| linkedServiceName         | Riferimento al **database SQL di Azure**, ad **Azure SQL Data Warehouse** o a **SQL Server** registrato come servizio collegato in Data Factory. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md). | Sì      |
-| storedProcedureName       | Specificare il nome della stored procedure da richiamare. | Sì      |
+| type                      | Per l'attività stored procedure, il tipo di attività corrisponde a **SqlServerStoredProcedure** | SÌ      |
+| linkedServiceName         | Riferimento al **database SQL di Azure**, ad **Azure SQL Data Warehouse** o a **SQL Server** registrato come servizio collegato in Data Factory. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md). | SÌ      |
+| storedProcedureName       | Specificare il nome della stored procedure da richiamare. | SÌ      |
 | storedProcedureParameters | Specificare i valori dei parametri della stored procedure. Usare `"param1": { "value": "param1Value","type":"param1Type" }` per passare i valori dei parametri e i tipi nativi corrispondenti supportati dall'origine dati. Se per un parametro è necessario passare Null, usare `"param1": { "value": null }` (tutte lettere minuscole). | No       |
 
 ## <a name="parameter-data-type-mapping"></a>Mapping dei tipi di dati dei parametri
 Il tipo di dati specificato per il parametro è il tipo di Azure Data Factory che esegue il mapping al tipo di dati nell'origine dati in uso. È possibile trovare i mapping dei tipi di dati per l'origine dati nell'area connettori. Alcuni esempi sono
 
-| Origine dati          | Mapping dei tipi di dati |
+| origine dati          | Mapping dei tipi di dati |
 | ---------------------|-------------------|
-| Azure SQL Data Warehouse | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
-| Database SQL di Azure   | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#data-type-mapping-for-azure-sql-database | 
+| SQL Data Warehouse di Azure | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
+| database SQL di Azure   | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#data-type-mapping-for-azure-sql-database | 
 | Oracle               | https://docs.microsoft.com/azure/data-factory/connector-oracle#data-type-mapping-for-oracle |
 | SQL Server           | https://docs.microsoft.com/azure/data-factory/connector-sql-server#data-type-mapping-for-sql-server |
 

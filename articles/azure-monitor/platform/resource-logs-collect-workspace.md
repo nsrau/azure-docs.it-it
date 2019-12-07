@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 92de47041791c8b6c540844adb62391268b81c34
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 83b91be52694076373d950e0ad785ef22671ef4f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200510"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894523"
 ---
 # <a name="collect-azure-resource-logs-in-log-analytics-workspace-in-azure-monitor"></a>Raccogliere i log delle risorse di Azure nell'area di lavoro Log Analytics in monitoraggio di Azure
 I [log delle risorse](resource-logs-overview.md) in Azure forniscono dati avanzati e frequenti sul funzionamento interno di una risorsa di Azure. Questo articolo descrive come raccogliere i log delle risorse in un'area di lavoro Log Analytics che consente di analizzarli con altri dati di monitoraggio raccolti nei log di monitoraggio di Azure con potenti query di log e anche per sfruttare altre funzionalità di monitoraggio di Azure, ad esempio gli avvisi e Visualizzazioni. 
@@ -53,12 +53,12 @@ La tabella AzureDiagnostics sarà simile alla seguente:
 
 | ResourceProvider    | Categoria     | A  | b  | C  | D  | E  | F  | G  | H  | I  |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
-| Microsoft. Service1 | AuditLogs    | X1 | Y1 | Z1 |    |    |    |    |    |    |
-| Microsoft. Service1 | ErrorLogs    |    |    |    | Q1 | W1 | E1 |    |    |    |
-| Microsoft. Service2 | AuditLogs    |    |    |    |    |    |    | J1 | K1 | L1 |
-| Microsoft. Service1 | ErrorLogs    |    |    |    | Q2 | W2 | E2 |    |    |    |
-| Microsoft. Service2 | AuditLogs    |    |    |    |    |    |    | J3 | K3 | L3 |
-| Microsoft. Service1 | AuditLogs    | X5 | Y5 | Z5 |    |    |    |    |    |    |
+| Microsoft. Service1 | AuditLogs    | X1 | Y1 | z1 |    |    |    |    |    |    |
+| Microsoft. Service1 | ErrorLogs    |    |    |    | q1 | W1 | E1 |    |    |    |
+| Microsoft. Service2 | AuditLogs    |    |    |    |    |    |    | j1 | k1 | L1 |
+| Microsoft. Service1 | ErrorLogs    |    |    |    | q2 | W2 | E2 |    |    |    |
+| Microsoft. Service2 | AuditLogs    |    |    |    |    |    |    | j3 | k3 | L3 |
+| Microsoft. Service1 | AuditLogs    | X5 | Y5 | z5 |    |    |    |    |    |    |
 | ... |
 
 ### <a name="resource-specific"></a>Specifico della risorsa
@@ -70,24 +70,24 @@ L'esempio precedente comporterebbe la creazione di tre tabelle:
 
     | Provider di risorse | Categoria | A | b | C |
     | -- | -- | -- | -- | -- |
-    | Service1 | AuditLogs | X1 | Y1 | Z1 |
-    | Service1 | AuditLogs | X5 | Y5 | Z5 |
+    | Service1 | AuditLogs | X1 | Y1 | z1 |
+    | Service1 | AuditLogs | X5 | Y5 | z5 |
     | ... |
 
 - Tabella *Service1ErrorLogs* come segue:  
 
     | Provider di risorse | Categoria | D | E | F |
     | -- | -- | -- | -- | -- | 
-    | Service1 | ErrorLogs |  Q1 | W1 | E1 |
-    | Service1 | ErrorLogs |  Q2 | W2 | E2 |
+    | Service1 | ErrorLogs |  q1 | W1 | E1 |
+    | Service1 | ErrorLogs |  q2 | W2 | E2 |
     | ... |
 
 - Tabella *Service2AuditLogs* come segue:  
 
     | Provider di risorse | Categoria | G | H | I |
     | -- | -- | -- | -- | -- |
-    | Service2 | AuditLogs | J1 | K1 | L1|
-    | Service2 | AuditLogs | J3 | K3 | L3|
+    | Service2 | AuditLogs | j1 | k1 | L1|
+    | Service2 | AuditLogs | j3 | k3 | L3|
     | ... |
 
 
@@ -110,7 +110,7 @@ Continua a guardare il Blog sugli [aggiornamenti di Azure per gli](https://azure
 ### <a name="column-limit-in-azurediagnostics"></a>Limite di colonne in AzureDiagnostics
 È previsto un limite di proprietà di 500 per qualsiasi tabella nei log di monitoraggio di Azure. Una volta raggiunto questo limite, le righe contenenti dati con qualsiasi proprietà al di fuori della prima 500 verranno eliminate in fase di inserimento. La tabella *AzureDiagnostics* è particolarmente soggetta a questo limite, perché include le proprietà per tutti i servizi di Azure che scrivono.
 
-Se si raccolgono i log di diagnostica da più servizi, _AzureDiagnostics_ può superare questo limite e i dati verranno persi. Fino a quando tutti i servizi di Azure non supportano la modalità specifica della risorsa, è necessario configurare le risorse per la scrittura in più aree di lavoro per ridurre la possibilità di raggiungere il limite di 500 colonne.
+Se si raccolgono i log delle risorse da più servizi, _AzureDiagnostics_ può superare questo limite e i dati verranno persi. Fino a quando tutti i servizi di Azure non supportano la modalità specifica della risorsa, è necessario configurare le risorse per la scrittura in più aree di lavoro per ridurre la possibilità di raggiungere il limite di 500 colonne.
 
 ### <a name="azure-data-factory"></a>Data factory di Azure
 Azure Data Factory, a causa di un set di log molto dettagliato, è un servizio noto per la scrittura di un numero elevato di colonne e che può causare il superamento del limite di _AzureDiagnostics_ . Per tutte le impostazioni di diagnostica configurate prima che venisse abilitata la modalità specifica della risorsa, sarà presente una nuova colonna creata per ogni parametro utente con nome univoco per ogni attività. Verranno create altre colonne a causa della natura dettagliata degli input e degli output delle attività.
