@@ -1,19 +1,19 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: file di inclusione
+description: file di inclusione
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 11/06/2019
+ms.date: 12/05/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 345822847ddd60794cd912ccb52c14f6e240cd66
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 80c961c1aa4da199fa87b97bc8e0a37e60c2235f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075428"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74903153"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>I criteri IPsec/IKE personalizzati sono supportati in tutti gli SKU del gateway VPN di Azure?
 I criteri IPsec/IKE personalizzati sono supportati in tutti gli SKU di Azure, ad eccezione dello SKU Basic.
@@ -35,7 +35,7 @@ La tabella seguente riporta l'elenco degli algoritmi di crittografia e dei tipi 
 | Crittografia IPsec | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, None      |
 | Integrità IPsec  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                            |
 | Gruppo PFS        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, None                              |
-| Durata associazione di sicurezza QM   | Secondi (intero; **min. 300**/valore predefinito di 27000 secondi)<br>Kilobyte (intero; **min 1024**/valore predefinito di 102400000 KB)           |
+| Durata associazione di sicurezza in modalità rapida   | Secondi (intero; **min. 300**/valore predefinito di 27000 secondi)<br>Kilobyte (intero; **min 1024**/valore predefinito di 102400000 KB)           |
 | Selettore di traffico | UsePolicyBasedTrafficSelectors ($True/$False; valore predefinito: $False)                 |
 |                  |                                                                               |
 
@@ -110,7 +110,7 @@ Le connessioni IKEv1 possono essere create in tutti gli SKU di tipo VPN RouteBas
 Sì. Il transito tra le connessioni IKEv1 e IKEv2 è supportato.
 
 ### <a name="can-i-have-ikev1-site-to-site-connections-on-basic-skus-of-routebased-vpn-type"></a>È possibile avere connessioni da sito a sito IKEv1 per SKU di base di tipo VPN RouteBased?
-No. Tutti gli SKU VPN RouteBased ad eccezione degli SKU di base del tipo VPN basato su Route supportano le connessioni IKEv1 per la connessione da sito a sito.
+No. Lo SKU Basic non supporta questa operazione.
 
 ### <a name="can-i-change-the-connection-protocol-type-after-the-connection-is-created-ikev1-to-ikev2-and-vice-versa"></a>È possibile modificare il tipo di protocollo di connessione dopo la creazione della connessione (IKEv1 a IKEv2 e viceversa)?
 No. Una volta creata la connessione, non è possibile modificare i protocolli IKEv1/IKEv2. È necessario eliminare e ricreare una nuova connessione con il tipo di protocollo desiderato.
