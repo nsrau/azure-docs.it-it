@@ -10,40 +10,37 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/15/2019
+ms.date: 12/5/2019
 ms.author: raiye
-ms.openlocfilehash: fd4936357035d8163130064bd6f0600c9d2b08bb
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 027fb5176ecf1fdb32119c933d1b44eaf9f82bb8
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150005"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894636"
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamenti sono sempre disponibili per la [famiglia][family-explain] specifica in cui sono stati introdotti.
 
 ## <a name="november-2019-guest-os"></a>Sistema operativo guest di novembre 2019
 
->[!NOTE]
->Il sistema operativo guest di novembre è in corso di implementazione nelle macchine virtuali del servizio cloud configurate per gli aggiornamenti automatici. Una volta completata l'implementazione, questa versione sarà resa disponibile per gli aggiornamenti manuali tramite i file di configurazione e il portale di Azure. Le patch seguenti sono incluse nel sistema operativo guest di novembre. L'elenco è soggetto a variazioni.
-
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
-|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  2,92  |  12 nov, 2019  |
-|  Rel 19-11   |  [4525233]  |  Windows Security   |  2,92  |  12 nov, 2019  |
-|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  3,79  |  12 nov, 2019  |
-|  Rel 19-11   |  [4525253]  |  Windows Security   |  3,79  |  12 nov, 2019  |
-|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  4,72  |  12 nov, 2019  |
-|  Rel 19-11   |  [4525250]  |  Windows Security   |  4,72  |  12 nov, 2019  |
-|  Rel 19-11   |  [4525236]  |  Aggiornamento cumulativo più recente   |  5,37  |  12 nov, 2019  |
-|  Rel 19-11   |  [4523205]  |  Aggiornamento cumulativo più recente   |  6,13  |  12 nov, 2019  |
-|  Rel 19-11   |  [4519976]  |  Non-sicurezza   |  2,92  |  8 ottobre 2019  |
-|  Rel 19-11   |  [4520007]  |  Non-sicurezza   |  3,79  |  8 ottobre 2019  |
-|  Rel 19-11   |  [4521857]  |  ServicingStackUpdate   |  3,79  |  8 ottobre 2019  |
-|  Rel 19-11   |  [4520005]  |  Non-sicurezza   |  4,72  |  8 ottobre 2019  |
-|  Rel 19-11   |  [4521864]  |  ServicingStackUpdate   |  4,72  |  8 ottobre 2019  |
-|  Rel 19-11   |  [4521858]  |  ServicingStackUpdate   |  5,37  |  8 ottobre 2019  |
-|  Rel 19-11   |  [4521862]  |  ServicingStackUpdate   |  6,13  |  8 ottobre 2019  |
+|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  [2,92]  |  12 nov, 2019  |
+|  Rel 19-11   |  [4525233]  |  Windows Security   |  [2,92]  |  12 nov, 2019  |
+|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  [3,79]  |  12 nov, 2019  |
+|  Rel 19-11   |  [4525253]  |  Windows Security   |  [3,79]  |  12 nov, 2019  |
+|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  [4,72]  |  12 nov, 2019  |
+|  Rel 19-11   |  [4525250]  |  Windows Security   |  [4,72]  |  12 nov, 2019  |
+|  Rel 19-11   |  [4525236]  |  Aggiornamento cumulativo più recente   |  [5,37]  |  12 nov, 2019  |
+|  Rel 19-11   |  [4523205]  |  Aggiornamento cumulativo più recente   |  [6,13]  |  12 nov, 2019  |
+|  Rel 19-11   |  [4519976]  |  Non-sicurezza   |  [2,92]  |  8 ottobre 2019  |
+|  Rel 19-11   |  [4520007]  |  Non-sicurezza   |  [3,79]  |  8 ottobre 2019  |
+|  Rel 19-11   |  [4521857]  |  ServicingStackUpdate   |  [3,79]  |  8 ottobre 2019  |
+|  Rel 19-11   |  [4520005]  |  Non-sicurezza   |  [4,72]  |  8 ottobre 2019  |
+|  Rel 19-11   |  [4521864]  |  ServicingStackUpdate   |  [4,72]  |  8 ottobre 2019  |
+|  Rel 19-11   |  [4521858]  |  ServicingStackUpdate   |  [5,37]  |  8 ottobre 2019  |
+|  Rel 19-11   |  [4521862]  |  ServicingStackUpdate   |  [6,13]  |  8 ottobre 2019  |
 
 [4525106]: https://support.microsoft.com/kb/4525106
 [4525233]: https://support.microsoft.com/kb/4525233
@@ -60,6 +57,11 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [4521864]: https://support.microsoft.com/kb/4521864
 [4521858]: https://support.microsoft.com/kb/4521858
 [4521862]: https://support.microsoft.com/kb/4521862
+[6,13]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5,37]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4,72]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3,79]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2,92]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
 
 
 ## <a name="october-2019-guest-os"></a>Sistema operativo guest di ottobre 2019
@@ -165,15 +167,15 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 |  Rel 19-08   |  [4512486]  |  Windows Security   |  [2,89]  |  13 agosto, 2019  |
 |  Rel 19-08   |  [4512489]  |  Windows Security   |  [4,69]  |  13 agosto, 2019  |
 |  Rel 19-08   |  [4511872]  |  Internet Explorer    |  [2,89], [3,76], [4,69]  |  15 agosto 2019  |
-|  Rel 19-08   |  [4507449]  |  Non-sicurezza   |  [2,89]  |  9 luglio 2019  |
+|  Rel 19-08   |  [4507449]  |  Non-sicurezza   |  [2,89]  |  09 luglio 2019  |
 |  Rel 19-08   |  [4507000]  |  Non sicurezza di 4.5.2 .NET   |  [3,76]  |  12 agosto 2019  |
 |  Rel 19-08   |  [4507002]  |  .NET 3,5 non-sicurezza   |  [3,76]  |  12 agosto 2019  |
-|  Rel 19-08   |  [4507462]  |  Non-sicurezza   |  [3,76]  |  9 luglio 2019  |
+|  Rel 19-08   |  [4507462]  |  Non-sicurezza   |  [3,76]  |  09 luglio 2019  |
 |  Rel 19-08   |  [4506999]  |  Non sicurezza di 4.5.2 .NET    |  [4,69]  |  12 agosto 2019  |
 |  Rel 19-08   |  [4507005]  |  .NET 3,5 non-sicurezza    |  [4,69]  |  12 agosto 2019  |
-|  Rel 19-08   |  [4507448]  |  Non-sicurezza   |  [4,69]  |  9 luglio 2019  |
-|  Rel 19-08   |  [4509091]  |  Aggiornamento dello stack di manutenzione   |  [5,34]  |  9 luglio 2019  |
-|  Rel 19-08   |  [4509095]  |  Aggiornamento dello stack di manutenzione   |  [6,1]  |  9 luglio 2019  |
+|  Rel 19-08   |  [4507448]  |  Non-sicurezza   |  [4,69]  |  09 luglio 2019  |
+|  Rel 19-08   |  [4509091]  |  Aggiornamento dello stack di manutenzione   |  [5,34]  |  09 luglio 2019  |
+|  Rel 19-08   |  [4509095]  |  Aggiornamento dello stack di manutenzione   |  [6,1]  |  09 luglio 2019  |
 |  Rel 19-08   |  [4512937]  |  Aggiornamento dello stack di manutenzione   |  [6,1]  |  29 luglio 2019  |
 |  Rel 19-08   |  [4507004]  |  Non sicurezza di .NET 3.5.1    |  [2,89]  |  12 agosto 2019  |
 |  Rel 19-08   |  [4504418]  |  Aggiornamento dello stack di manutenzione   |  [3,76], [4,69]  |  11 luglio 2019  |
@@ -214,19 +216,19 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
-|  Rel 19-07   |  [4507434]  |  Internet Explorer   |  2,88, 3,75, 4,68  |  9 luglio 2019  |
-|  Rel 19-07   |  [4506966]  |  Sicurezza 4.5.2 .NET   |  2,88  |  9 luglio 2019  |
-|  Rel 19-07   |  [4506976]  |  Sicurezza di .NET 3.5.1   |  2,88  |  9 luglio 2019  |
-|  Rel 19-07   |  [4507456]  |  Windows Security   |  2,88  |  9 luglio 2019  |
-|  Rel 19-07   |  [4506965]  |  Sicurezza 4.5.2 .NET   |  3,75  |  9 luglio 2019  |
-|  Rel 19-07   |  [4506974]  |  Sicurezza di .NET 3,5   |  3,75  |  9 luglio 2019  |
-|  Rel 19-07   |  [4507464]  |  Windows Security   |  3,75  |  9 luglio 2019  |
-|  Rel 19-07   |  [4506964]  |  Sicurezza 4.5.2 .NET   |  4,68  |  9 luglio 2019  |
-|  Rel 19-07   |  [4506977]  |  Sicurezza di .NET 3,5   |  4,68  |  9 luglio 2019  |
-|  Rel 19-07   |  [4507457]  |  Windows Security   |  4,68  |  9 luglio 2019  |
-|  Rel 19-07   |  [4507460]  |  Windows Security   |  5,33  |  9 luglio 2019  |
-|  Rel 19-07   |  [4506998]  |  .NET 3,5 & sicurezza 4.7.2   |  6.9  |  9 luglio 2019  |
-|  Rel 19-07   |  [4507469]  |  Windows Security   |  6.9  |  9 luglio 2019  |
+|  Rel 19-07   |  [4507434]  |  Internet Explorer   |  2,88, 3,75, 4,68  |  09 luglio 2019  |
+|  Rel 19-07   |  [4506966]  |  Sicurezza 4.5.2 .NET   |  2,88  |  09 luglio 2019  |
+|  Rel 19-07   |  [4506976]  |  Sicurezza di .NET 3.5.1   |  2,88  |  09 luglio 2019  |
+|  Rel 19-07   |  [4507456]  |  Windows Security   |  2,88  |  09 luglio 2019  |
+|  Rel 19-07   |  [4506965]  |  Sicurezza 4.5.2 .NET   |  3,75  |  09 luglio 2019  |
+|  Rel 19-07   |  [4506974]  |  Sicurezza di .NET 3,5   |  3,75  |  09 luglio 2019  |
+|  Rel 19-07   |  [4507464]  |  Windows Security   |  3,75  |  09 luglio 2019  |
+|  Rel 19-07   |  [4506964]  |  Sicurezza 4.5.2 .NET   |  4,68  |  09 luglio 2019  |
+|  Rel 19-07   |  [4506977]  |  Sicurezza di .NET 3,5   |  4,68  |  09 luglio 2019  |
+|  Rel 19-07   |  [4507457]  |  Windows Security   |  4,68  |  09 luglio 2019  |
+|  Rel 19-07   |  [4507460]  |  Windows Security   |  5,33  |  09 luglio 2019  |
+|  Rel 19-07   |  [4506998]  |  .NET 3,5 & sicurezza 4.7.2   |  6.9  |  09 luglio 2019  |
+|  Rel 19-07   |  [4507469]  |  Windows Security   |  6.9  |  09 luglio 2019  |
 |  N/D  |  [4503537]  |  Giugno '19 aggiornamento dello stack di manutenzione per (server 2016)   |  5,33  |  14 maggio 2019  |
 |  N/D  |  [4504369]  |  Giugno '19 aggiornamento dello stack di manutenzione per (server 2019)   |  6.9  |  14 maggio 2019  |
 |  N/D  |  [4503292]  |  Giugno '19 non-sicurezza (Server 2008 R2)   |  2,88  |  20 maggio 2019  |
@@ -260,7 +262,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | --- | --- | --- | --- | --- |
 |  Rel 19-06   |  [4503327]  |  Sicurezza di Windows 10   |  6.8  |  11 giugno 2019  |
 |  Rel 19-06   |  [4503267]  |  Sicurezza di Windows 10   |  5,32  |  11 giugno 2019  |
-|  Rel 19-06   |  [4503290]  |  Windows Security   |  4,67  |  11 giugno 2019  |
+|  Rel 19-06   |  [4503290]  |  Windows Security   |  4.67  |  11 giugno 2019  |
 |  Rel 19-06   |  [4503263]  |  Windows Security   |  3,74  |  11 giugno 2019  |
 |  Rel 19-06   |  [4503269]  |  Windows Security   |  2.87  |  11 giugno 2019  |
 |  Rel 19-06   |  [4494174]  |  Aggiornamento microcodice   |  6.8  |  11 giugno 2019  |
@@ -272,10 +274,10 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 |  N/D  |  [4495596]  |  Maggio '19 .NET 4,5 senza sicurezza  |  2.87  |  20 maggio 2019  |
 |  N/D  |  [4499171]  |  Maggio '19 non-sicurezza  |  3,74  |  14 maggio 2019  |
 |  N/D  |  [4495602]  |  Maggio '19 .NET 3,5 senza sicurezza  |  3,74  |  14 maggio 2019  |
-|  N/D  |  [4495594]  |  Maggio '19 .NET 4. x non-sicurezza  |  4,67  |  14 maggio 2019  |
-|  N/D  |  [4499151]  |  Maggio '19 non-sicurezza  |  4,67  |  14 maggio 2019  |
-|  N/D  |  [4495608]  |  Maggio '19 .NET 3,5 senza sicurezza  |  4,67  |  14 maggio 2019  |
-|  N/D  |  [4495592]  |  Maggio '19 4.5.2 .NET non-Security  |  4,67  |  14 maggio 2019  |
+|  N/D  |  [4495594]  |  Maggio '19 .NET 4. x non-sicurezza  |  4.67  |  14 maggio 2019  |
+|  N/D  |  [4499151]  |  Maggio '19 non-sicurezza  |  4.67  |  14 maggio 2019  |
+|  N/D  |  [4495608]  |  Maggio '19 .NET 3,5 senza sicurezza  |  4.67  |  14 maggio 2019  |
+|  N/D  |  [4495592]  |  Maggio '19 4.5.2 .NET non-Security  |  4.67  |  14 maggio 2019  |
 |  N/D  |  [4495610]  |  Maggio '19 .NET 4,8 cumulativo  |  6.8  |  14 maggio 2019  |
 |  N/D  |  [4495618]  |  Maggio '19 .NET 4,8 cumulativo  |  6.8  |  14 maggio 2019  |
 |  N/D  |  [4501226]  |  Aggiornamenti del fuso orario dell'ora legale per il Marocco e l'autorità palestinese  |  2,87, 3,74, 4,67  |  23 maggio, 2019  |
@@ -962,7 +964,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | Rel 17-03 |  [4012213] |Unico aggiornamento di qualità della sicurezza del mese di marzo 2017 per Windows 8.1 e Windows Server 2012 R2 |4.40 |14 marzo 2017 |
 | Rel 17-03 |  [4012214] |Unico aggiornamento di qualità della sicurezza del mese di marzo 2017 per Windows Server 2012|3.47 |14 marzo 2017 |
 | Rel 17-03 |  [4012204] |Aggiornamento della sicurezza per Internet Explorer |2.60, 3.47, 4.40, 5.5 |14 marzo 2017 |
-| N/D |  [4012864] |Modifiche dell'ora legale in Windows per il Cipro del Nord, la Mongolia e la regione russa di Saratov |2.60, 3.47, 4.40 |14 marzo 2017 |
+| N/D |  [4012864] |Modifiche dell'ora legale in Windows per Cipro, la Mongolia e la regione russa di Saratov |2.60, 3.47, 4.40 |14 marzo 2017 |
 | N/D |  [3212646] |Rollup di qualità mensile per la sicurezza di gennaio 2017 per Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.60 |14 marzo 2017 |
 | N/D |  [3205409] |Rollup di qualità mensile per la sicurezza di dicembre 2016 per Windows Server 2012 |3.47 |14 marzo 2017 |
 | N/D |  [3205401] |Rollup di qualità mensile per la sicurezza di dicembre 2016 per Windows 8.1 e Windows Server 2012 R2 |4.40 |14 marzo 2017 |
@@ -1272,7 +1274,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | MS15-052 |[3050514] |La vulnerabilità nel kernel di Windows potrebbe consentire il bypass della funzionalità di sicurezza |4.20, 3.27, 2.39 |12 maggio 2015 |
 | MS15-053 |[3057263] |Le vulnerabilità nel motore di script JScript e VBScript potrebbero consentire il bypass della funzionalità di sicurezza |4.20, 3.27, 2.39 |12 maggio 2015 |
 | MS15-054 |[3051768] |La vulnerabilità nel formato file di Microsoft Management Console potrebbe consentire un attacco Denial of Service |4.20, 3.27, 2.39 |12 maggio 2015 |
-| MS15-055 |[3061518] |Una vulnerabilità in Schannel potrebbe consentire il bypass della funzionalità di sicurezza e situazioni di Information Discosure, ovvero la divulgazioni delle informazioni importanti |4.20, 3.27, 2.39 |12 maggio 2015 |
+| MS15-055 |[3061518] |Una vulnerabilità in Schannel potrebbe consentire il bypass della funzionalità di sicurezza e situazioni di Information Disclosure, ovvero la divulgazioni delle informazioni importanti |4.20, 3.27, 2.39 |12 maggio 2015 |
 | MS15-032 |[3038314] |Aggiornamento cumulativo della sicurezza per Internet Explorer |4.20, 3.27, 2.39 |17 aprile 2015 |
 | MS15-035 |[3046306] |La vulnerabilità nel componente grafico Microsoft potrebbe consentire l'esecuzione di codice in modalità remota |4.20, 3.27, 2.39 |17 aprile 2015 |
 | MS15-037 |[3046269] |La vulnerabilità nell’utilità di pianificazione attività di Windows potrebbe consentire l'elevazione dei privilegi |4.20, 3.27, 2.39 |17 aprile 2015 |

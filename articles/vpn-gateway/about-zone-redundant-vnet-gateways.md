@@ -6,14 +6,14 @@ author: cherylmc
 Customer intent: As someone with a basic network background, I want to understand zone-redundant gateways.
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 12/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: d076e2b0057f0ba666fa47ffd0b3d7d1fcc14631
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: c13e7b507291d7671ac861fc7a8683c87be947a1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725589"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896657"
 ---
 # <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>Informazioni sui gateway di rete virtuale con ridondanza della zona in zone di disponibilità di Azure
 
@@ -39,21 +39,9 @@ Per distribuire i gateway in una zona specifica, si usano i gateway a livello di
 
 ## <a name="gwskus"></a>SKU del gateway
 
-I gateway con ridondanza della zona e a livello di zona sono disponibili come nuove SKU del gateway. Sono state aggiunte nuove SKU del gateway di rete virtuale nelle aree di Azure AZ. Queste SKU sono simili alle SKU esistenti corrispondenti per ExpressRoute e Gateway VPN, ad eccezione del fatto che sono specifiche dei gateway con ridondanza della zona e a livello di zona.
+I gateway con ridondanza della zona e a livello di zona sono disponibili come nuove SKU del gateway. Sono state aggiunte nuove SKU del gateway di rete virtuale nelle aree di Azure AZ. Queste SKU sono simili alle SKU esistenti corrispondenti per ExpressRoute e Gateway VPN, ad eccezione del fatto che sono specifiche dei gateway con ridondanza della zona e a livello di zona. È possibile identificare questi SKU per "AZ" nel nome dello SKU.
 
-Le nuove SKU del gateway sono:
-
-### <a name="vpn-gateway"></a>Gateway VPN
-
-* VpnGw1AZ
-* VpnGw2AZ
-* VpnGw3AZ
-
-### <a name="expressroute"></a>ExpressRoute
-
-* ErGw1AZ
-* ErGw2AZ
-* ErGw3AZ
+Per informazioni sugli SKU del gateway, vedere SKU del [gateway VPN](vpn-gateway-about-vpngateways.md#gwsku) e [SKU del gateway ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md#gwsku).
 
 ## <a name="pipskus"></a>SKU dell'indirizzo IP pubblico
 
@@ -96,6 +84,6 @@ La migrazione dei gateway di rete virtuale esistenti in gateway con ridondanza d
 
 La coesistenza di gateway VPN ed ExpressRoute nella stessa rete virtuale è supportata. Tuttavia è consigliabile riservare un intervallo di indirizzi IP /27 per la subnet del gateway.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 [Creare un gateway di rete virtuale con ridondanza della zona](create-zone-redundant-vnet-gateway.md)

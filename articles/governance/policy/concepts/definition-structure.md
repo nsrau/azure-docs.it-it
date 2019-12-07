@@ -3,12 +3,12 @@ title: Dettagli della struttura delle definizioni dei criteri
 description: Viene descritto come vengono usate le definizioni dei criteri per stabilire le convenzioni per le risorse di Azure nell'organizzazione.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: 93b03622f03c095a61291f4a6d25284e5052c35a
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 2126415c3ae7ecb14a47c79dacd67aee656cd745
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555186"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894296"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -566,7 +566,7 @@ Tutte le [funzioni di modello di gestione risorse](../../../azure-resource-manag
 
 Le funzioni seguenti sono disponibili per l'uso in una regola dei criteri, ma sono diverse da quelle usate in un modello di Azure Resource Manager:
 
-- addDays (dateTime, numberOfDaysToAdd)
+- addDays(dateTime, numberOfDaysToAdd)
   - **DateTime**: [Required] stringa stringa nel formato DateTime universale ISO 8601' aaaa-mm-ggThh: mm: SS. fffffffZ '
   - **numberOfDaysToAdd**: [Required] numero intero di giorni da aggiungere
 - utcNow (): diversamente da un modello di Gestione risorse, può essere usato all'esterno di defaultValue.
@@ -597,6 +597,31 @@ Questo esempio di regola dei criteri usa la `resourceGroup` funzione risorsa per
 Usare gli alias delle proprietà per accedere alle proprietà specifiche per un tipo di risorsa. Gli alias consentono di limitare le condizioni o i valori consentiti per una proprietà su una risorsa. Ogni alias esegue il mapping ai percorsi in versioni di API diverse per un tipo di risorsa specificato. Durante la valutazione dei criteri, il motore dei criteri ottiene il percorso della proprietà per la versione API specificata.
 
 L'elenco degli alias è in costante crescita. Per scoprire quali alias sono attualmente supportati da Criteri di Azure usare uno dei metodi seguenti:
+
+- Estensione di criteri di Azure per Visual Studio Code (scelta consigliata)
+
+  Usare l' [estensione di criteri di Azure per Visual Studio Code](../how-to/extension-for-vscode.md) per visualizzare e individuare gli alias per le proprietà delle risorse.
+
+  ![Estensione di criteri di Azure per Visual Studio Code](../media/extension-for-vscode/extension-hover-shows-property-alias.png)
+
+- Diagramma risorse di Azure
+
+  Usare l'operatore `project` per visualizzare l' **alias** di una risorsa.
+
+  ```kusto
+  Resources
+  | where type=~'microsoft.storage/storageaccounts'
+  | limit 1
+  | project aliases
+  ```
+  
+  ```azurecli-interactive
+  az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+  ```
+  
+  ```azurepowershell-interactive
+  Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+  ```
 
 - Azure PowerShell
 

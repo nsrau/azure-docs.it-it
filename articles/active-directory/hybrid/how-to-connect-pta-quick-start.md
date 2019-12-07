@@ -16,14 +16,14 @@ ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba5455680647b90b113d31c55816a2e0b0131b33
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1fe38b434c4e54b375b22d76c573d3bbe88b0e16
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60243613"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74889941"
 ---
-# <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticazione pass-through di Azure Active Directory: Avvio rapido
+# <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticazione pass-through di Azure Active Directory - Avvio rapido
 
 ## <a name="deploy-azure-ad-pass-through-authentication"></a>Distribuire l'autenticazione pass-through di Azure AD
 
@@ -68,7 +68,7 @@ Accertarsi che siano soddisfatti i prerequisiti seguenti.
      Se il firewall applica regole in base agli utenti di origine, aprire queste porte per il traffico proveniente da servizi di Windows in esecuzione come servizi di rete.
    - Se il firewall o il proxy consente l'inserimento di DNS nell'elenco elementi consentiti, aggiungere le connessioni a **\*.msappproxy.net** e **\*.servicebus.windows.net** all'elenco elementi consentiti. In caso contrario, è necessario consentire l'accesso agli [intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653), che vengono aggiornati ogni settimana.
    - Gli agenti di autenticazione devono poter accedere a **login.windows.net** e **login.microsoftonline.net** per la registrazione iniziale. Aprire il firewall anche per questi URL.
-   - La convalida del certificato, sbloccare questi URL: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80**, e **www \.microsoft.com:80**. Poiché vengono usati per la convalida del certificato con altri prodotti Microsoft, questi URL potrebbero essere già sbloccati.
+   - Per la convalida del certificato, sbloccare gli URL seguenti: **mscrl.Microsoft.com:80**, **CRL.Microsoft.com:80**, **OCSP.msocsp.com:80**e **www\.Microsoft.com:80**. Poiché vengono usati per la convalida del certificato con altri prodotti Microsoft, questi URL potrebbero essere già sbloccati.
 
 ## <a name="step-2-enable-the-feature"></a>Passaggio 2: Abilitare la funzionalità
 
@@ -98,7 +98,7 @@ Seguire queste istruzioni per verificare che l'autenticazione pass-through sia s
 4. Verificare che la funzionalità **Autenticazione pass-through** sia impostata su **Abilitato**.
 5. Selezionare **Autenticazione pass-through**. Il riquadro **Autenticazione pass-through** elenca i server in cui sono stati installati gli agenti di autenticazione.
 
-![Interfaccia di amministrazione di Azure Active Directory: riquadro di Azure AD Connect](./media/how-to-connect-pta-quick-start/pta7.png)
+![Interfaccia di amministrazione di Azure Active Directory: riquadro Azure AD Connect](./media/how-to-connect-pta-quick-start/pta7.png)
 
 ![Interfaccia di amministrazione di Azure Active Directory: riquadro Autenticazione pass-through](./media/how-to-connect-pta-quick-start/pta8.png)
 
@@ -111,13 +111,13 @@ Se si prevede di distribuire l'autenticazione pass-through in un ambiente di pro
 >[!IMPORTANT]
 >Negli ambienti di produzione è consigliabile disporre di almeno 3 agenti di autenticazione in esecuzione nel proprio tenant. Esiste un limite di sistema di 40 agenti di autenticazione per ogni tenant. E come procedura ottimale, considerare tutti i server che eseguono gli agenti di autenticazione come sistemi di livello 0 (vedere [riferimento](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 
-L'installazione di più agenti di autenticazione pass-through assicura la disponibilità elevata, ma non deterministica bilanciamento del carico tra gli agenti di autenticazione. Per determinare quanti agenti di autenticazione, è necessario per il tenant, prendere in considerazione il carico massimo e medio di richieste di accesso che si desidera vedere nel tenant. Come benchmark, un singolo agente di autenticazione può gestire da 300 a 400 autenticazioni al secondo in un server standard con CPU a 4 core e 16 GB di RAM.
+L'installazione di più agenti di autenticazione pass-through garantisce la disponibilità elevata, ma non il bilanciamento del carico deterministico tra gli agenti di autenticazione. Per determinare il numero di agenti di autenticazione necessari per il tenant, prendere in considerazione il carico massimo e medio delle richieste di accesso che si prevede di visualizzare nel tenant. Come benchmark, un singolo agente di autenticazione può gestire da 300 a 400 autenticazioni al secondo in un server standard con CPU a 4 core e 16 GB di RAM.
 
 Per stimare il traffico di rete, usare le indicazioni seguenti relative al dimensionamento:
 - Ogni richiesta ha una dimensione di payload di (0.5K + 1K * num_of_agents) byte. Ad esempio, i dati da Azure AD per l'agente di autenticazione. In questo caso, "num_of_agents" indica il numero di agenti di autenticazione registrati nel tenant.
 - Ogni risposta ha una dimensione di payload di 1 KB. Ad esempio, i dati dall'agente di autenticazione ad Azure AD.
 
-Nella maggior parte dei clienti, tre agenti di autenticazione in totale sono sufficienti per la capacità e disponibilità elevata. È consigliabile installare gli agenti di autenticazione vicino ai controller di dominio per migliorare la latenza di accesso.
+Per la maggior parte dei clienti, tre agenti di autenticazione in totale sono sufficienti per la disponibilità elevata e la capacità. È consigliabile installare gli agenti di autenticazione vicino ai controller di dominio per migliorare la latenza di accesso.
 
 Per iniziare, seguire queste istruzioni per scaricare il software dell'agente di autenticazione:
 
@@ -145,25 +145,25 @@ In secondo luogo è possibile creare ed eseguire uno script di distribuzione aut
         $User = "<username>"
         $PlainPassword = '<password>'
         $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
-        $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
+        $cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $User, $SecurePassword
 3. Passare a **C:\Programmi\Microsoft Azure AD Connect Authentication Agent** ed eseguire lo script seguente usando l'oggetto `$cred` creato:
 
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 >[!IMPORTANT]
->Se è installato un agente di autenticazione in una macchina virtuale, è possibile clonare la macchina virtuale per la configurazione di un altro agente di autenticazione. Questo metodo è **supportato**.
+>Se un agente di autenticazione è installato in una macchina virtuale, non è possibile clonare la macchina virtuale per configurare un altro agente di autenticazione. Questo metodo non è **supportato**.
 
-## <a name="step-5-configure-smart-lockout-capability"></a>Passaggio 5: Configurare la funzionalità di blocco Smart
+## <a name="step-5-configure-smart-lockout-capability"></a>Passaggio 5: configurare la funzionalità di blocco intelligente
 
-Blocco Smart consente di bloccare gli attori dannosi che tentano di indovinare le password degli utenti o utilizzando metodi di attacchi di forza bruta a parteciparvi. Configurando le impostazioni di blocco Smart in Azure AD e / o le impostazioni di blocco appropriata di un'istanza locale di Active Directory, gli attacchi è possibile filtrare prima che raggiungano Active Directory. Lettura [questo articolo](../authentication/howto-password-smart-lockout.md) per altre informazioni su come configurare le impostazioni di blocco Smart nel tenant per proteggere gli account utente.
+Il blocco Smart consente di bloccare gli attori malintenzionati che tentano di indovinare le password degli utenti o l'uso di metodi di forza bruta per ottenere. Configurando le impostazioni di blocco Smart in Azure AD e/o le impostazioni di blocco appropriate in locale Active Directory, è possibile filtrare gli attacchi prima che raggiungano Active Directory. Leggere [questo articolo](../authentication/howto-password-smart-lockout.md) per altre informazioni su come configurare le impostazioni di blocco intelligente nel tenant per proteggere gli account utente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Eseguire la migrazione da AD FS all'autenticazione pass-through](https://aka.ms/adfstoptadp): una guida dettagliata per la migrazione da AD FS (o altre tecnologie federative) per l'autenticazione pass-through.
-- [Blocco intelligente](../authentication/howto-password-smart-lockout.md): informazioni su come configurare la funzionalità di blocco intelligente nel tenant per proteggere gli account utente.
-- [Limitazioni correnti](how-to-connect-pta-current-limitations.md): informazioni sugli scenari supportati e non supportati con l'autenticazione pass-through.
-- [Approfondimento tecnico](how-to-connect-pta-how-it-works.md): informazioni sul funzionamento dell'autenticazione pass-through.
-- [Domande frequenti](how-to-connect-pta-faq.md): risposte alle domande frequenti.
-- [Risolvere i problemi](tshoot-connect-pass-through-authentication.md): informazioni su come risolvere i problemi comuni relativi alla funzionalità di autenticazione pass-through.
-- [Approfondimento sulla sicurezza](how-to-connect-pta-security-deep-dive.md): informazioni tecniche sulla funzionalità Autenticazione pass-through.
-- [Seamless SSO di Azure AD](how-to-connect-sso.md): altre informazioni su questa funzionalità complementare.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): come usare il forum di Azure Active Directory per inviare richieste di nuove funzionalità.
+- [Blocco smart](../authentication/howto-password-smart-lockout.md): apprendere come configurare la funzionalità di blocco smart nel tenant per proteggere gli account utente.
+- [Limitazioni correnti](how-to-connect-pta-current-limitations.md): informazioni su quali scenari sono supportati con l'autenticazione pass-through e quali non lo sono.
+- [Approfondimento tecnico](how-to-connect-pta-how-it-works.md): comprendere come funziona l'autenticazione pass-through.
+- [Domande frequenti](how-to-connect-pta-faq.md): risposte alle domande più frequenti.
+- [Risoluzione dei problemi](tshoot-connect-pass-through-authentication.md): informazioni su come risolvere i problemi comuni con la funzionalità di autenticazione pass-through.
+- [Approfondimento sulla sicurezza](how-to-connect-pta-security-deep-dive.md): ottenere informazioni tecniche sulla funzionalità di autenticazione pass-through.
+- [Accesso Single Sign-On facile di Azure AD](how-to-connect-sso.md): ottenere altre informazioni su questa funzionalità complementare.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): usare il forum di Azure Active Directory per inviare richieste di nuove funzionalità.

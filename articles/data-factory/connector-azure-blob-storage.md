@@ -1,5 +1,5 @@
 ---
-title: Copiare e trasformare i dati nell'archiviazione BLOB di Azure usando Data Factory
+title: Copiare e trasformare i dati nell'archivio BLOB di Azure
 description: Informazioni su come copiare dati da e verso l'archiviazione BLOB e trasformare i dati nell'archiviazione BLOB usando Data Factory.
 author: linda33wj
 manager: craigg
@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 45fb61ee624ae5ab159f097c233907be7ec35c98
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 9116fca28c48803db613eb36fbbbbf4223e6abcb
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075650"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74891117"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copiare e trasformare i dati nell'archiviazione BLOB di Azure usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -45,7 +45,7 @@ Per l'attività di copia, questo connettore di archiviazione BLOB supporta:
 >[!IMPORTANT]
 >Se si Abilita l'opzione **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione** nelle impostazioni del firewall di archiviazione di Azure e si vuole usare il runtime di integrazione di Azure per connettersi all'archiviazione BLOB, è necessario usare [l'autenticazione dell'identità gestita](#managed-identity).
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Inizia oggi stesso
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -70,10 +70,10 @@ Il connettore BLOB di Azure supporta i seguenti tipi di autenticazione. Vedere l
 
 Per usare l'autenticazione basata sulla chiave dell'account di archiviazione, sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | obbligatori |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà tipo deve essere impostata su **AzureBlobStorage** (consigliato) o **AzureStorage** (vedere le note sottostanti). |Sì |
-| connectionString | Specificare le informazioni necessarie per connettersi all'archiviazione per la proprietà connectionString. <br/>Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. È anche possibile inserire la chiave dell'account in Azure Key Vault e rimuovere la configurazione di `accountKey` dalla stringa di connessione. Vedere gli esempi seguenti e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. |Sì |
+| type | La proprietà tipo deve essere impostata su **AzureBlobStorage** (consigliato) o **AzureStorage** (vedere le note sottostanti). |SÌ |
+| connectionString | Specificare le informazioni necessarie per connettersi all'archiviazione per la proprietà connectionString. <br/>Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. È anche possibile inserire la chiave dell'account in Azure Key Vault e rimuovere la configurazione di `accountKey` dalla stringa di connessione. Vedere gli esempi seguenti e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. |SÌ |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non diversamente specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 >[!NOTE]
@@ -147,10 +147,10 @@ Una firma di accesso condiviso fornisce accesso delegato controllato alle risors
 
 Per usare l'autenticazione basata sulla firma di accesso condiviso, sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | obbligatori |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà tipo deve essere impostata su **AzureBlobStorage** (consigliato) o **AzureStorage** (vedere le note sottostanti). |Sì |
-| sasUri | Specificare l'URI della firma di accesso condiviso per le risorse di archiviazione come BLOB o contenitore. <br/>Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. È anche possibile inserire il token SAS in Azure Key Vault per sfruttare la rotazione automatica e rimuovere la parte del token. Vedere gli esempi seguenti e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. |Sì |
+| type | La proprietà tipo deve essere impostata su **AzureBlobStorage** (consigliato) o **AzureStorage** (vedere le note sottostanti). |SÌ |
+| sasUri | Specificare l'URI della firma di accesso condiviso per le risorse di archiviazione come BLOB o contenitore. <br/>Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. È anche possibile inserire il token SAS in Azure Key Vault per sfruttare la rotazione automatica e rimuovere la parte del token. Vedere gli esempi seguenti e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. |SÌ |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare Azure Integration Runtime o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non diversamente specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 >[!NOTE]
@@ -231,13 +231,13 @@ Per usare l'autenticazione basata su entità servizio, eseguire la procedura seg
 
 Per un servizio collegato ad Archiviazione BLOB di Azure sono supportate queste proprietà:
 
-| Proprietà | DESCRIZIONE | obbligatori |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **AzureBlobStorage**. |Sì |
-| serviceEndpoint | Specificare l'endpoint del servizio di Archiviazione BLOB di Azure con il criterio `https://<accountName>.blob.core.windows.net/`. |Sì |
-| servicePrincipalId | Specificare l'ID client dell'applicazione. | Sì |
-| servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
-| tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. Recuperarle passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Sì |
+| type | La proprietà type deve essere impostata su: **AzureBlobStorage**. |SÌ |
+| serviceEndpoint | Specificare l'endpoint del servizio di Archiviazione BLOB di Azure con il criterio `https://<accountName>.blob.core.windows.net/`. |SÌ |
+| servicePrincipalId | Specificare l'ID client dell'applicazione. | SÌ |
+| servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | SÌ |
+| tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. Recuperarle passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | SÌ |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non diversamente specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 >[!NOTE]
@@ -271,7 +271,7 @@ Per un servizio collegato ad Archiviazione BLOB di Azure sono supportate queste 
 
 Una data factory può essere associata a un'[identità gestita per le risorse di Azure](data-factory-service-identity.md), che rappresenta la data factory specifica. È possibile usare direttamente questa identità gestita per l'autenticazione dell'archiviazione BLOB in modo analogo all'uso della propria entità servizio. Consente alla factory designata di accedere e copiare i dati da/nella risorsa di archiviazione BLOB.
 
-Per informazioni generali, vedere autenticazione dell' [accesso ad archiviazione di Azure tramite Azure Active Directory](../storage/common/storage-auth-aad.md) per l'autenticazione di archiviazione di Azure. Per usare l'autenticazione di identità gestite per le risorse di Azure, seguire questa procedura:
+Per informazioni generali sull'autenticazione per l'archiviazione di Azure, vedere [Autenticare l'accesso all'archiviazione di Azure tramite Azure Active Directory](../storage/common/storage-auth-aad.md). Per usare l'autenticazione di identità gestite per le risorse di Azure, seguire questa procedura:
 
 1. [Recuperare data factory informazioni sull'identità gestita](data-factory-service-identity.md#retrieve-managed-identity) copiando il valore di "ID applicazione dell'identità del servizio" generato insieme alla Factory.
 
@@ -281,14 +281,14 @@ Per informazioni generali, vedere autenticazione dell' [accesso ad archiviazione
     - **Come sink**, in Controllo di accesso (IAM), concedere almeno il ruolo **Collaboratore dei dati dei BLOB di archiviazione**.
 
 >[!IMPORTANT]
->Se si usa la polibase per caricare i dati da un BLOB (come origine o come gestione temporanea) in SQL Data Warehouse, quando si usa l'autenticazione di identità gestita per il BLOB, assicurarsi di seguire anche i passaggi 1 e 2 in [questa guida](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) a 1) registrare il server di database SQL con Azure Active Directory (Azure AD) e 2) assegnare il ruolo di collaboratore dati BLOB di archiviazione al server del database SQL. il resto viene gestito da Data Factory. Se l'archiviazione BLOB è configurata con un endpoint di rete virtuale di Azure, per usare la polibase per il caricamento dei dati, è necessario usare l'autenticazione di identità gestita come richiesto da polibase.
+>Se si usa la funzione polibase per caricare i dati da un BLOB (come origine o come gestione temporanea) in SQL Data Warehouse, quando si usa l'autenticazione di identità gestita per BLOB, assicurarsi di seguire anche i passaggi 1 e 2 in [questa guida](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) a 1) registrare il server di database sql con Azure Active Directory (Azure ad) e 2) assegnare il ruolo di collaboratore dati BLOB di archiviazione al server di database il resto viene gestito da Data Factory. Se l'archiviazione BLOB è configurata con un endpoint di rete virtuale di Azure, per usare la polibase per il caricamento dei dati, è necessario usare l'autenticazione di identità gestita come richiesto da polibase.
 
 Per un servizio collegato ad Archiviazione BLOB di Azure sono supportate queste proprietà:
 
-| Proprietà | DESCRIZIONE | obbligatori |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **AzureBlobStorage**. |Sì |
-| serviceEndpoint | Specificare l'endpoint del servizio di Archiviazione BLOB di Azure con il criterio `https://<accountName>.blob.core.windows.net/`. |Sì |
+| type | La proprietà type deve essere impostata su: **AzureBlobStorage**. |SÌ |
+| serviceEndpoint | Specificare l'endpoint del servizio di Archiviazione BLOB di Azure con il criterio `https://<accountName>.blob.core.windows.net/`. |SÌ |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non diversamente specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 > [!NOTE]
@@ -312,7 +312,7 @@ Per un servizio collegato ad Archiviazione BLOB di Azure sono supportate queste 
 }
 ```
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di dati](concepts-datasets-linked-services.md). 
 
@@ -320,10 +320,10 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Le proprietà seguenti sono supportate per il BLOB di Azure in impostazioni `location` nel set di dati basato sul formato:
 
-| Proprietà   | DESCRIZIONE                                                  | obbligatori |
+| Proprietà   | Description                                                  | Obbligatoria |
 | ---------- | ------------------------------------------------------------ | -------- |
-| type       | La proprietà Type del percorso nel set di dati deve essere impostata su **AzureBlobStorageLocation**. | Sì      |
-| Contenitore  | Contenitore BLOB.                                          | Sì      |
+| type       | La proprietà Type del percorso nel set di dati deve essere impostata su **AzureBlobStorageLocation**. | SÌ      |
+| Contenitore  | Contenitore BLOB.                                          | SÌ      |
 | folderPath | Percorso della cartella nel contenitore specificato. Se si vuole usare il carattere jolly per filtrare la cartella, ignorare questa impostazione e specificare nelle impostazioni dell'origine dell'attività. | No       |
 | fileName   | Nome del file nel contenitore specificato + folderPath. Se si vuole usare il carattere jolly per filtrare i file, ignorare questa impostazione e specificare nelle impostazioni dell'origine dell'attività. | No       |
 
@@ -359,9 +359,9 @@ Le proprietà seguenti sono supportate per il BLOB di Azure in impostazioni `loc
 >[!NOTE]
 >Il modello di set di dati seguente è ancora supportato così com'è per la compatibilità con le versioni precedenti. Si consiglia di usare il nuovo modello menzionato nella sezione precedente in futuro e l'interfaccia utente di creazione di ADF ha cambiato la generazione del nuovo modello.
 
-| Proprietà | DESCRIZIONE | obbligatori |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su **AzureBlob**. |Sì |
+| type | La proprietà type del set di dati deve essere impostata su **AzureBlob**. |SÌ |
 | folderPath | Percorso del contenitore e della cartella nell'archivio BLOB. <br/><br/>Il filtro con caratteri jolly è supportato per il percorso escluso il nome del contenitore. I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero caratteri o a un carattere singolo). Usare `^` come carattere di escape se il nome effettivo della cartella include caratteri jolly o questo carattere di escape. <br/><br/>Esempi: myblobcontainer/myblobfolder/. Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). |Sì per l'attività Copy/Lookup, no per l'attività GetMetadata |
 | fileName | **Filtro con nome o carattere jolly** per i BLOB nell'elemento "folderPath" specificato. Se non si specifica alcun valore per questa proprietà, il set di dati punta a tutti i BLOB nella cartella. <br/><br/>Per un filtro, i caratteri jolly consentiti sono: `*` (corrispondenza di zero o più caratteri) e `?` (corrispondenza di zero caratteri o di un carattere singolo).<br/>- Esempio 1: `"fileName": "*.csv"`<br/>- Esempio 2: `"fileName": "???20180427.txt"`<br/>Usare `^` per il carattere escape se il nome effettivo del file include caratteri jolly o escape.<br/><br/>Quando fileName non è specificato per un set di dati di output e **preserveHierarchy** non è specificato nel sink dell'attività, l'attività di copia genera automaticamente il nome del BLOB con il modello seguente: "*Data. [ GUID ID esecuzione attività]. [GUID se FlattenHierarchy]. [format se configurato]. [compressione se configurata]* ", ad esempio" Data. 0a405f8a-93ff-4C6F-B3BE-f69616f1df7a. txt. gz "; Se si copia da un'origine tabulare usando il nome della tabella anziché la query, il modello del nome è " *[nome tabella]. [ formato]. [compressione se configurata]* ", ad esempio" MyTable. csv ". |No |
 | modifiedDatetimeStart | Filtro file basato sull'attributo: data Ultima modifica. I file vengono selezionati se l'ora dell'ultima modifica è inclusa nell'intervallo di tempo tra `modifiedDatetimeStart` e `modifiedDatetimeEnd`. L'ora viene applicata con il fuso orario UTC e il formato "2018-12-01T05:00:00Z". <br/><br/> Tenere presente che le prestazioni complessive dello spostamento dei dati saranno influenzate dall'abilitazione di questa impostazione quando si desidera eseguire il filtro file da grandi quantità di file. <br/><br/> Le proprietà possono essere NULL che significa che al set di dati non verrà applicato alcun filtro di attributi di file.  Quando `modifiedDatetimeStart` ha un valore datetime ma `modifiedDatetimeEnd` è NULL, vengono selezionati i file il cui ultimo attributo modificato è maggiore o uguale al valore datetime.  Quando `modifiedDatetimeEnd` ha un valore datetime ma `modifiedDatetimeStart` è NULL vengono selezionati i file il cui ultimo attributo modificato è minore del valore datetime.| No |
@@ -412,9 +412,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Le proprietà seguenti sono supportate per il BLOB di Azure in `storeSettings` impostazioni in origine copia basata sul formato:
 
-| Proprietà                 | DESCRIZIONE                                                  | obbligatori                                      |
+| Proprietà                 | Description                                                  | Obbligatoria                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | La proprietà Type in `storeSettings` deve essere impostata su **AzureBlobStorageReadSetting**. | Sì                                           |
+| type                     | La proprietà Type in `storeSettings` deve essere impostata su **AzureBlobStorageReadSetting**. | SÌ                                           |
 | ricorsiva                | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Si noti che quando la proprietà recursive è impostata su true e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink. I valori consentiti sono **true** (predefinito) e **false**. | No                                            |
 | wildcardFolderPath       | Il percorso della cartella con caratteri jolly nel contenitore specificato configurato nel set di dati per filtrare le cartelle di origine. <br>I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero caratteri o a un carattere singolo). Usare `^` come carattere di escape se il nome effettivo della cartella include caratteri jolly o questo carattere di escape. <br>Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | No                                            |
 | wildcardFileName         | Nome file con caratteri jolly nel contenitore specificato + folderPath/wildcardFolderPath per filtrare i file di origine. <br>I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero caratteri o a un carattere singolo). Usare `^` come carattere di escape se il nome effettivo della cartella include caratteri jolly o questo carattere di escape.  Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | Sì se `fileName` non è specificato nel DataSet |
@@ -471,9 +471,9 @@ Le proprietà seguenti sono supportate per il BLOB di Azure in `storeSettings` i
 >[!NOTE]
 >Il modello di origine della copia seguente è ancora supportato così com'è per la compatibilità con le versioni precedenti. Si consiglia di usare il nuovo modello menzionato in precedenza e l'interfaccia utente di creazione di ADF ha cambiato la generazione del nuovo modello.
 
-| Proprietà | DESCRIZIONE | obbligatori |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **BlobSource**. |Sì |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **BlobSource**. |SÌ |
 | ricorsiva | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Si noti che quando la proprietà recursive è impostata su true e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink.<br/>I valori consentiti sono **true** (predefinito) e **false**. | No |
 | maxConcurrentConnections | Numero di connessioni simultanee per la connessione all'archivio di archiviazione. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No |
 
@@ -515,9 +515,9 @@ Le proprietà seguenti sono supportate per il BLOB di Azure in `storeSettings` i
 
 Le proprietà seguenti sono supportate per il BLOB di Azure in `storeSettings` impostazioni nel sink di copia basato sul formato:
 
-| Proprietà                 | DESCRIZIONE                                                  | obbligatori |
+| Proprietà                 | Description                                                  | Obbligatoria |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | La proprietà Type in `storeSettings` deve essere impostata su **AzureBlobStorageWriteSetting**. | Sì      |
+| type                     | La proprietà Type in `storeSettings` deve essere impostata su **AzureBlobStorageWriteSetting**. | SÌ      |
 | copyBehavior             | Definisce il comportamento di copia quando l'origine è costituita da file di un archivio dati basato su file.<br/><br/>I valori consentiti sono i seguenti:<br/><b>- PreserveHierarchy (predefinito)</b>: mantiene la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><b>- FlattenHierarchy</b>: tutti i file della cartella di origine si trovano nel primo livello della cartella di destinazione. I nomi dei file di destinazione vengono generati automaticamente. <br/><b>- MergeFiles</b>: unisce tutti i file della cartella di origine in un solo file. Se viene specificato il nome del file o del BLOB , il nome del file unito sarà il nome specificato. In caso contrario, verrà usato un nome di file generato automaticamente. | No       |
 | maxConcurrentConnections | Numero di connessioni simultanee per la connessione all'archivio di archiviazione. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No       |
 
@@ -561,9 +561,9 @@ Le proprietà seguenti sono supportate per il BLOB di Azure in `storeSettings` i
 >[!NOTE]
 >Il modello di sink di copia seguente è ancora supportato così com'è per la compatibilità con le versioni precedenti. Si consiglia di usare il nuovo modello menzionato in precedenza e l'interfaccia utente di creazione di ADF ha cambiato la generazione del nuovo modello.
 
-| Proprietà | DESCRIZIONE | obbligatori |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del sink dell'attività di copia deve essere impostata su **BlobSink**. |Sì |
+| type | La proprietà type del sink dell'attività di copia deve essere impostata su **BlobSink**. |SÌ |
 | copyBehavior | Definisce il comportamento di copia quando l'origine è costituita da file di un archivio dati basato su file.<br/><br/>I valori consentiti sono i seguenti:<br/><b>- PreserveHierarchy (predefinito)</b>: mantiene la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><b>- FlattenHierarchy</b>: tutti i file della cartella di origine si trovano nel primo livello della cartella di destinazione. I nomi dei file di destinazione vengono generati automaticamente. <br/><b>- MergeFiles</b>: unisce tutti i file della cartella di origine in un solo file. Se viene specificato il nome del file o del BLOB , il nome del file unito sarà il nome specificato. In caso contrario, verrà usato un nome di file generato automaticamente. | No |
 | maxConcurrentConnections | Numero di connessioni simultanee per la connessione all'archivio di archiviazione. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No |
 

@@ -1,6 +1,6 @@
 ---
 title: Usare Azure Media Content Moderator per rilevare possibili contenuti pornografici e per adulti | Microsoft Docs
-description: La moderazione video consente di rilevare nei video contenuti potenzialmente pornografici e per adulti.
+description: Il processore di contenuti multimediali di Azure Media Content Moderator aiuta a rilevare contenuti potenziali per adulti e di video.
 services: media-services
 documentationcenter: ''
 author: sanjeev3
@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: eb16f5e1e72e5a9379ad530ab9677adba2ccbbcd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8560df6120dd773e13dbfc7427d9a16e6f6c83b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61465678"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896007"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Usare Azure Media Content Moderator per rilevare eventuali contenuti pornografici e per adulti 
 
@@ -31,7 +31,7 @@ Il processore di contenuti multimediali **Azure Media Content Moderator** è att
 Questo articolo illustra nel dettaglio **Azure Media Content Moderator** e spiega come usare questa funzionalità con Media Services SDK per .NET.
 
 ## <a name="content-moderator-input-files"></a>File di input di Content Moderator
-File video. Attualmente sono supportati i seguenti formati: MP4, MOV e WMV.
+File video. Attualmente sono supportati i formati seguenti: MP4, MOV e WMV.
 
 ## <a name="content-moderator-output-files"></a>File di output di Content Moderator
 L'output moderato in formato JSON include scatti e fotogrammi chiave rilevati automaticamente. I fotogrammi chiave vengono restituiti con punteggi di attendibilità per eventuali contenuti pornografici o per adulti. Includono anche un flag booleano che indica se è consigliabile una revisione. Il flag di revisione consigliata viene assegnato in base ai valori delle soglie interne relative ai punteggi di contenuti pornografici o per adulti.
@@ -44,7 +44,7 @@ L'output JSON include gli elementi seguenti:
 
 ### <a name="root-json-elements"></a>Elementi JSON radice
 
-| Elemento | Descrizione |
+| Elemento | Description |
 | --- | --- |
 | version |Versione di Content Moderator. |
 | timescale |"Scatti" al secondo del video. |
@@ -57,7 +57,7 @@ L'output JSON include gli elementi seguenti:
 
 ### <a name="fragments-json-elements"></a>Elementi JSON dei frammenti
 
-|Elemento|Descrizione|
+|Elemento|Description|
 |---|---|
 | start |Ora di inizio del primo evento in "tick". |
 | duration |Lunghezza del frammento in "tick". |
@@ -66,7 +66,7 @@ L'output JSON include gli elementi seguenti:
 
 ### <a name="events-json-elements"></a>Elementi JSON degli eventi
 
-|Elemento|Descrizione|
+|Elemento|Description|
 |---|---|
 | reviewRecommended | `true` o `false` a seconda che le soglie interne vengano superate da **adultScore** o **racyScore**. |
 | adultScore | Punteggio di attendibilità per eventuali contenuti per adulti, su una scala compresa tra 0,00 e 0,99. |
@@ -220,7 +220,7 @@ The following example of a Content Moderator JSON output was truncated.
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Collegamenti correlati

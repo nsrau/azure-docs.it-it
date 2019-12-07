@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 818ebbf15cdbc985c7a1cc14597dc538e62894cf
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: c0b30ecb9bc2b029141e528139f2b8a308c3a8dd
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793385"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892839"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Servizio metadati di Azure: eventi pianificati per macchine virtuali Linux
 
@@ -76,7 +76,7 @@ Il servizio eventi pianificati è un servizio con versione. Le versioni sono obb
 
 | Versione | Tipo di versione | Aree | Note sulla versione | 
 | - | - | - | - | 
-| 2017-11-01 | Disponibilità generale | Tutto | <li> Aggiunta del supporto per la rimozione di una macchina virtuale con priorità bassa ' preemptive '<br> | 
+| 2017-11-01 | Disponibilità generale | Tutto | <li> Aggiunta del supporto per la rimozione della macchina virtuale spot ' preemptive '<br> | 
 | 2017-08-01 | Disponibilità generale | Tutto | <li> È stato rimosso il carattere di sottolineatura all'inizio dei nomi delle risorse per le macchine virtuali IaaS<br><li>Requisito dell'intestazione dei metadati applicato per tutte le richieste | 
 | 2017-03-01 | Preview | Tutto | <li>Versione iniziale
 
@@ -129,7 +129,7 @@ Nel caso in cui siano presenti eventi pianificati, la risposta contiene una matr
 |Proprietà  |  Description |
 | - | - |
 | EventId | Identificatore globalmente univoco per l'evento. <br><br> Esempio: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | Impatto che l'evento causa. <br><br> Valori: <br><ul><li> `Freeze`: è pianificata una sospensione della macchina virtuale per alcuni secondi. La connettività CPU e di rete potrebbe essere sospesa, ma non si verifica alcun effetto sulla memoria o sui file aperti.<li>`Reboot`: è pianificato un riavvio della macchina virtuale. La memoria non permanente andrà persa. <li>`Redeploy`: è pianificato uno spostamento della macchina virtuale in un altro nodo. I dischi temporanei andranno persi. <li>`Preempt`: è in corso l'eliminazione della macchina virtuale con priorità bassa (i dischi temporanei vengono persi).|
+| EventType | Impatto che l'evento causa. <br><br> Valori: <br><ul><li> `Freeze`: è pianificata una sospensione della macchina virtuale per alcuni secondi. La connettività CPU e di rete potrebbe essere sospesa, ma non si verifica alcun effetto sulla memoria o sui file aperti.<li>`Reboot`: è pianificato un riavvio della macchina virtuale. La memoria non permanente andrà persa. <li>`Redeploy`: è pianificato uno spostamento della macchina virtuale in un altro nodo. I dischi temporanei andranno persi. <li>`Preempt`: è in corso l'eliminazione della macchina virtuale spot. i dischi temporanei andranno perduti.|
 | ResourceType | Tipo di risorsa interessata dall'evento. <br><br> Valori: <ul><li>`VirtualMachine`|
 | resources| Elenco di risorse interessate dall'evento. L'elenco contiene sicuramente i computer al massimo di un [dominio di aggiornamento](manage-availability.md), ma potrebbe non contenere tutti i computer del dominio. <br><br> Esempio: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Stato dell'evento. <br><br> Valori: <ul><li>`Scheduled`: l'avvio dell'evento è pianificato in seguito al tempo specificato nella proprietà `NotBefore`.<li>`Started`: l'evento si è avviato.</ul> Lo stato `Completed` o simile non viene mai restituito. Al termine dell'evento, quest'ultimo non viene più restituito.

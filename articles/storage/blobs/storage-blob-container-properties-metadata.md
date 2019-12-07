@@ -1,18 +1,19 @@
 ---
-title: Gestire proprietà e metadati per un contenitore BLOB con .NET-archiviazione di Azure
+title: Usare .NET per gestire proprietà e metadati per un contenitore BLOB
+titleSuffix: Azure Storage
 description: Informazioni su come impostare e recuperare le proprietà di sistema e archiviare metadati personalizzati nei contenitori BLOB nell'account di archiviazione di Azure usando la libreria client .NET.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 07/10/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: d63c78fedb8dbd48655d36fecc3544fd512072e3
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 17ed10d424d606091bd2b7d6f3e325955c48a5a2
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673365"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894199"
 ---
 # <a name="manage-container-properties-and-metadata-with-net"></a>Gestire le proprietà e i metadati del contenitore con .NET
 
@@ -20,11 +21,11 @@ I contenitori BLOB supportano le proprietà di sistema e i metadati definiti dal
 
 ## <a name="about-properties-and-metadata"></a>Informazioni su proprietà e metadati
 
-- **Proprietà di sistema**: Sono presenti proprietà di sistema in ogni risorsa di archiviazione BLOB. Alcune di esse possono essere lette o impostate, mentre altre sono di sola lettura. Anche se in modo non esplicito, alcune proprietà di sistema corrispondono a specifiche intestazioni HTTP standard. La libreria client di archiviazione di Azure per .NET gestisce queste proprietà.
+- **Proprietà di sistema**: sono presenti proprietà di sistema in ogni risorsa di archiviazione BLOB. Alcune di esse possono essere lette o impostate, mentre altre sono di sola lettura. Anche se in modo non esplicito, alcune proprietà di sistema corrispondono a specifiche intestazioni HTTP standard. La libreria client di archiviazione di Azure per .NET gestisce queste proprietà.
 
-- **Metadati definiti dall'utente**: I metadati definiti dall'utente sono costituiti da una o più coppie nome/valore specificate per una risorsa di archiviazione BLOB. È possibile usare i metadati per archiviare valori aggiuntivi con la risorsa. I valori di metadati sono solo per le proprie esigenze e non influiscono sul comportamento della risorsa.
+- **Metadati definiti dall'utente**: i metadati definiti dall'utente sono costituiti da una o più coppie nome/valore specificate per una risorsa di archiviazione BLOB. È possibile usare i metadati per archiviare valori aggiuntivi con la risorsa. I valori di metadati sono solo per le proprie esigenze e non influiscono sul comportamento della risorsa.
 
-Il recupero dei valori di proprietà e metadati per una risorsa di archiviazione BLOB è un processo in due passaggi. Prima di leggere questi valori, è necessario recuperarli in modo esplicito chiamando il metodo **FetchAttributes** o **FetchAttributesAsync**. L'eccezione a questa regola è che i metodi Exists e **ExistsAsync** chiamano il metodo **FetchAttributes** appropriato dietro le quinte. Quando si chiama uno di questi metodi, non è necessario chiamare anche **FetchAttributes**.
+Il recupero dei valori di proprietà e metadati per una risorsa di archiviazione BLOB è un processo in due passaggi. Prima di leggere questi valori, è necessario recuperarli in modo esplicito chiamando il metodo **FetchAttributes** o **FetchAttributesAsync**. L'eccezione a questa regola è che i metodi **Exists** e **ExistsAsync** chiamano il metodo **FetchAttributes** appropriato dietro le quinte. Quando si chiama uno di questi metodi, non è necessario chiamare anche **FetchAttributes**.
 
 > [!IMPORTANT]
 > Se si ritiene che la proprietà o i valori dei metadati per una risorsa di archiviazione non siano stati popolati, verificare che il codice chiami il metodo **FetchAttributes** o **FetchAttributesAsync**.
@@ -127,7 +128,7 @@ public static async Task ReadContainerMetadataAsync(CloudBlobContainer container
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Operazione Get Container Properties](/rest/api/storageservices/get-container-properties)
 - [Operazione di impostazione dei metadati del contenitore](/rest/api/storageservices/set-container-metadata)

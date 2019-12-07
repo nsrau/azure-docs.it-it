@@ -1,6 +1,6 @@
 ---
 title: Implementare lo streaming del failover con Servizi multimediali di Azure | Microsoft Docs
-description: Questo argomento descrive come implementare uno scenario di streaming con failover.
+description: Questo articolo illustra come implementare uno scenario di streaming di failover con servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: ea5238df50ff050140453ce655ea041669f6080c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 195f7f089b84e1665f4dd078a7da141d531c2185
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051645"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887182"
 ---
-# <a name="implement-failover-streaming-with-media-services"></a>Implementare il failover di streaming con servizi multimediali 
+# <a name="implement-failover-streaming-with-media-services"></a>Implementare lo streaming del failover con servizi multimediali 
 
 Questa procedura dettagliata illustra come copiare il contenuto (BLOB) da un asset all'altro per gestire la ridondanza dello streaming on demand. Questo scenario è utile se si desidera configurare la rete di distribuzione dei contenuti di Azure affinché esegua il failover tra due data center, in caso di interruzione in uno di essi. In questa procedura dettagliata viene usato l'SDK dei Servizi multimediali di Azure, l'API REST di Servizi multimediali di Microsoft Azure e l'SDK di Archiviazione di Azure per dimostrare queste attività:
 
@@ -52,7 +52,7 @@ Si applicano le considerazioni seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 * Due account di Servizi multimediali in una sottoscrizione di Azure nuova o esistente. Vedere l'articolo relativo alla [creazione di un account di Servizi multimediali](media-services-portal-create-account.md).
-* Sistema operativo: Windows 7, Windows 2008 R2 o Windows 8.
+* Sistemi operativi: Windows 7, Windows 2008 R2 o Windows 8.
 * .NET Framework 4.5 o .NET Framework 4.
 * Visual Studio 2010 SP1 o versioni successive (Professional, Premium, Ultimate o Express).
 
@@ -62,7 +62,7 @@ In questa sezione si crea e si configura un progetto di applicazione console in 
 1. Usare Visual Studio per creare una nuova soluzione contenente il progetto di applicazione console in C#. Immettere **HandleRedundancyForOnDemandStreaming** come nome e quindi fare clic su **OK**.
 2. Creare la cartella **SupportFiles** allo stesso livello del file di progetto **HandleRedundancyForOnDemandStreaming.csproj**. Nella cartella **SupportFiles** creare le cartelle **OutputFiles** e **MP4Files**. Copiare un file con estensione .mp4 nella cartella **MP4Files**. (In questo esempio, viene usato il file **BigBuckBunny.mp4**.) 
 3. Usare **NuGet** per aggiungere riferimenti alle DLL correlate a Servizi multimediali. Nel **menu principale di Visual Studio** scegliere **STRUMENTI** > **Library Package Manager (Gestione pacchetti libreria)**  >  **Console di Gestione pacchetti**. Nella finestra della console digitare **Install-Package windowsazure.mediaservices** e premere Invio.
-4. Aggiungere gli altri riferimenti richiesti per il progetto: System.Configuration, System.Runtime.Serialization e System.Web.
+4. Aggiungere gli altri riferimenti necessari per il progetto: System.Configuration, System.Runtime.Serialization e System.Web.
 5. Sostituire le istruzioni **using** aggiunte per impostazione predefinita al file **Programs.cs** con le seguenti:
    
         using System;
@@ -936,6 +936,6 @@ In questa sezione, si crea la possibilità di gestire la ridondanza.
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

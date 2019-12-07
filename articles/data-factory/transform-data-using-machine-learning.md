@@ -1,5 +1,5 @@
 ---
-title: Creare pipeline di dati predittivi usando Azure Data Factory
+title: Creare pipeline di dati predittivi
 description: Informazioni su come creare una pipeline predittiva mediante Azure Machine Learning - Attività di esecuzione batch in Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,15 +11,15 @@ ms.date: 02/20/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 24568940a0f6e550ae0fe7658b81ba1c3b3d3556
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: dc2104495f231a316a1354100ecc105e8fda5bb4
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683774"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893842"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Creare pipeline predittive tramite Azure Machine Learning e Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-azure-ml-batch-execution-activity.md)
 > * [Versione corrente](transform-data-using-machine-learning.md)
 
@@ -124,12 +124,12 @@ Il frammento JSON seguente definisce un'attività Esecuzione batch di Azure Mach
 }
 ```
 
-| Proprietà          | Descrizione                              | Obbligatorio |
+| Proprietà          | Description                              | Obbligatoria |
 | :---------------- | :--------------------------------------- | :------- |
-| name              | Nome dell'attività nella pipeline     | Sì      |
+| name              | Nome dell'attività nella pipeline     | SÌ      |
 | description       | Testo che descrive l'attività.  | No       |
-| type              | Per l'attività U-SQL di Data Lake Analytics, il tipo di attività è **AzureMLBatchExecution**. | Sì      |
-| linkedServiceName | Servizi collegati al servizio collegato di Azure Machine Learning. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md). | Sì      |
+| type              | Per l'attività U-SQL di Data Lake Analytics, il tipo di attività è **AzureMLBatchExecution**. | SÌ      |
+| linkedServiceName | Servizi collegati al servizio collegato di Azure Machine Learning. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md). | SÌ      |
 | webServiceInputs  | Coppie valore, chiave, che eseguono il mapping dei nomi di input dei servizi Web di Azure Machine Learning. La chiave deve corrispondere ai parametri di input definiti nel servizio Web pubblicato di Azure Machine Learning. Il valore è una coppia di proprietà FilePath e dei servizi collegati di archiviazione di Azure che specifica i percorsi BLOB di input. | No       |
 | webServiceOutputs | Coppie valore, chiave, che eseguono il mapping dei nomi di output dei servizi Web di Azure Machine Learning. La chiave deve corrispondere ai parametri di output definiti nel servizio Web pubblicato di Azure Machine Learning. Il valore è una coppia di proprietà FilePath e dei servizi collegati di archiviazione di Azure che specifica i percorsi BLOB di output. | No       |
 | globalParameters  | Coppie di valore, chiave da passare all'endpoint del servizio Esecuzione batch di Azure Machine Learning Studio. Le chiavi devono corrispondere ai nomi dei parametri dei servizi Web definiti nel servizio Web pubblicato di Azure Machine Learning Studio. I valori vengono passati nella proprietà GlobalParameters della richiesta di esecuzione batch di Azure Machine Learning Studio | No       |

@@ -10,12 +10,12 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
-ms.openlocfilehash: a7c64284c958fa8b3ec89c2b27515fe167a04011
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2e162b30a0227c5f04c74dae01413177d1623235
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811156"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901235"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>Diagnostica per la risoluzione dei problemi delle prestazioni di scalabilità SQL
 
@@ -30,7 +30,7 @@ Ogni livello di servizio del database SQL di Azure ha limiti di velocità di gen
 
 I tipi di attesa seguenti (in [sys. dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql/)) descrivono i motivi per cui la frequenza dei log può essere limitata alla replica di calcolo primaria:
 
-|Tipo di attesa    |Descrizione                         |
+|Tipo di attesa    |Description                         |
 |-------------          |------------------------------------|
 |RBIO_RG_STORAGE        | Si verifica quando la velocità di generazione del log del nodo di calcolo primario di un database iperscala viene limitata a causa del consumo di log ritardato nei server di paging.         |
 |RBIO_RG_DESTAGE        | Si verifica quando viene limitata una velocità di generazione del log del nodo di calcolo di un database iperscalare a causa del consumo di log ritardato da parte dell'archiviazione dei log a lungo termine.         |
@@ -44,13 +44,14 @@ Le repliche di calcolo non memorizzano nella cache una copia completa del databa
  
 Quando viene eseguita una lettura in una replica di calcolo, se i dati non esistono nel pool di buffer o nella cache RBPEX locale, viene eseguita una chiamata di funzione GetPage (pageId, LSN) e la pagina viene recuperata dal server di paging corrispondente. Le letture dai server della pagina sono letture remote e sono quindi più lente delle letture del RBPEX locale. Quando si risolvono i problemi di prestazioni correlati all'i/o, è necessario essere in grado di indicare il numero di IOs eseguiti tramite letture del server della pagina remota relativamente più lente.
 
-Diversi DMV ed eventi estesi contengono colonne e campi che specificano il numero di letture remote da un server di pagine che possono essere confrontate con le letture totali. 
+Diversi DMV ed eventi estesi contengono colonne e campi che specificano il numero di letture remote da un server di pagine che possono essere confrontate con le letture totali. Archivio query acquisisce anche le letture remote come parte delle statistiche del tempo di esecuzione della query.
 
-- Le colonne delle letture del server della pagina del report sono disponibili nell'esecuzione DMV, ad esempio:
+- Le colonne delle letture del server della pagina del report sono disponibili nelle viste del catalogo e DMV di esecuzione, ad esempio:
     - [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql/)
     - [sys.dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql/)
     - [sys.dm_exec_procedure_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-procedure-stats-transact-sql/)
-    - [sys. dm_exec_trigger_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-trigger-stats-transact-sql/)
+    - [sys.dm_exec_trigger_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-trigger-stats-transact-sql/)
+    - [sys.query_store_runtime_stats](/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql/)
 - Le letture del server di paging vengono aggiunte agli eventi estesi seguenti:
     - sql_statement_completed
     - sp_statement_completed
@@ -59,7 +60,7 @@ Diversi DMV ed eventi estesi contengono colonne e campi che specificano il numer
     - scan_stopped
     - query_store_begin_persist_runtime_stat
     - query-store_execution_runtime_info
-- ActualPageServerReads/ActualPageServerReadAheads vengono aggiunti al piano di query XML per i piani effettivi. Ad esempio:
+- ActualPageServerReads/ActualPageServerReadAheads vengono aggiunti al piano di query XML per i piani effettivi. ad esempio:
 
 `<RunTimeCountersPerThread Thread="8" ActualRows="90466461" ActualRowsRead="90466461" Batches="0" ActualEndOfScans="1" ActualExecutions="1" ActualExecutionMode="Row" ActualElapsedms="133645" ActualCPUms="85105" ActualScans="1" ActualLogicalReads="6032256" ActualPhysicalReads="0" ActualPageServerReads="0" ActualReadAheads="6027814" ActualPageServerReadAheads="5687297" ActualLobLogicalReads="0" ActualLobPhysicalReads="0" ActualLobPageServerReads="0" ActualLobReadAheads="0" ActualLobPageServerReadAheads="0" />`
 

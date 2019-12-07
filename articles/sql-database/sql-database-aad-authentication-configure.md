@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 11/06/2019
-ms.openlocfilehash: 5830e0b7ee49a7d954dbdb3f897ee7ac5901c6a5
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 76ca8a5d781c22279ccad633cc7c5bc98d645df8
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74421771"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901416"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configurare e gestire l'autenticazione di Azure Active Directory con SQL
 
@@ -26,7 +26,7 @@ Questo articolo illustra come creare e popolare Azure AD e quindi usare Azure AD
 > Questo articolo è applicabile al server SQL di Azure e ai database SQL e di SQL Data Warehouse creati nel server SQL di Azure. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse.
 
 > [!IMPORTANT]  
-> La connessione a SQL Server in esecuzione su una macchina virtuale di Azure non è supportata con un account Azure Active Directory. Usare un account Active Directory di dominio.
+> La connessione a SQL Server in esecuzione in una VM di Azure non è supportata con un account Azure Active Directory. Usare un account Active Directory di dominio.
 
 ## <a name="create-and-populate-an-azure-ad"></a>Creare e popolare un'istanza di Azure AD
 
@@ -138,7 +138,7 @@ L'istanza gestita deve avere le autorizzazioni per leggere Azure AD per eseguire
 
    La pagina Amministratore di Active Directory mostra tutti i membri e i gruppi di Active Directory. Gli utenti e i gruppi non disponibili (in grigio) non possono essere selezionati, perché non sono supportati come amministratori di Azure AD. Vedere l'elenco degli amministratori supportati in [Funzionalità e limitazioni di Azure AD](sql-database-aad-authentication.md#azure-ad-features-and-limitations). Il controllo degli accessi in base al ruolo (RBAC) si applica solo al portale di Azure e non viene propagato a SQL Server.
 
-    ![add-admin](./media/sql-database-aad-authentication/add-admin.png)
+    ![Aggiungere Azure Active Directory amministratore](./media/sql-database-aad-authentication/add-azure-active-directory-admin.png)
 
 8. Nella parte superiore della pagina Amministratore di Active Directory scegliere **Salva**.
 
@@ -190,7 +190,7 @@ Per eseguire il provisioning di un amministratore di Azure AD, eseguire i comand
 
 Cmdlet usati per il provisioning e la gestione di Azure AD amministratore per l'istanza gestita di SQL:
 
-| Nome del cmdlet | DESCRIZIONE |
+| Nome del cmdlet | Description |
 | --- | --- |
 | [Set-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) |Effettua il provisioning di un amministratore Azure AD per l'istanza gestita di SQL nella sottoscrizione corrente. (Deve essere dalla sottoscrizione corrente)|
 | [Remove-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlinstanceactivedirectoryadministrator) |Rimuove un amministratore Azure AD per l'istanza gestita di SQL nella sottoscrizione corrente. |
@@ -214,11 +214,11 @@ Il comando seguente rimuove l'amministratore di Azure AD per l'istanza gestita d
 Remove-AzSqlInstanceActiveDirectoryAdministrator -ResourceGroupName "ResourceGroup01" -InstanceName "ManagedInstanceName01" -Confirm -PassThru
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 È anche possibile eseguire il provisioning di un amministratore Azure AD per l'istanza gestita di SQL chiamando i comandi CLI seguenti:
 
-| Comando | DESCRIZIONE |
+| Comando | Description |
 | --- | --- |
 |[AZ SQL mi ad-admin create](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-create) | Effettua il provisioning di un amministratore Azure Active Directory per l'istanza gestita di SQL. (Deve essere dalla sottoscrizione corrente) |
 |[AZ SQL mi ad-admin Delete](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-delete) | Rimuove un amministratore Azure Active Directory per l'istanza gestita di SQL. |
@@ -236,13 +236,15 @@ Per ulteriori informazioni sui comandi dell'interfaccia della riga di comando, v
 
 Le due procedure seguenti illustrano come eseguire il provisioning di un amministratore di Azure Active Directory per il server SQL Azure usando il portale di Azure e PowerShell.
 
-### <a name="azure-portal"></a>portale di Azure
+### <a name="azure-portal"></a>Portale di Azure
 
-1. Nell'angolo in alto a destra del [portale di Azure](https://portal.azure.com/) scegliere la connessione per visualizzare un elenco a discesa delle possibili directory di Active Directory. Scegliere la directory corretta come directory predefinita di Azure AD. Questo passaggio collega la directory di Active Directory associata alla sottoscrizione con il server SQL di Azure, assicurando che la stessa sottoscrizione venga usata per Azure AD e per SQL Server. Il server SQL di Azure può ospitare il database SQL di Azure o Azure SQL Data Warehouse. ![choose-ad][8]
+1. Nell'angolo in alto a destra del [portale di Azure](https://portal.azure.com/) scegliere la connessione per visualizzare un elenco a discesa delle possibili directory di Active Directory. Scegliere la directory corretta come directory predefinita di Azure AD. Questo passaggio collega la directory di Active Directory associata alla sottoscrizione con il server SQL di Azure, assicurando che la stessa sottoscrizione venga usata per Azure AD e per SQL Server. Il server SQL di Azure può ospitare il database SQL di Azure o Azure SQL Data Warehouse.
 
-2. Nel banner a sinistra selezionare **All services** (Tutti i servizi) e il tipo di filtro in **SQL server**. Selezionare **SQL server**.
+    ![choose-ad][8]
 
-    ![sqlservers.png](media/sql-database-aad-authentication/sqlservers.png)
+2. Cercare e selezionare **SQL Server**.
+
+    ![Cercare e selezionare SQL Server](media/sql-database-aad-authentication/search-for-and-select-sql-servers.png)
 
     >[!NOTE]
     > In questa pagina, prima di selezionare **SQL Server** è possibile selezionare la **stella** accanto al nome per *aggiungere ai preferiti* la categoria e aggiungere **SQL Server**alla barra di navigazione sinistra.
@@ -251,11 +253,11 @@ Le due procedure seguenti illustrano come eseguire il provisioning di un amminis
 
 4. Nella pagina **Amministratore di Active Directory** selezionare **Imposta amministratore**.
 
-    ![Active Directory: selezione](./media/sql-database-aad-authentication/select-active-directory.png)  
+    ![Server SQL impostati Active Directory amministratore](./media/sql-database-aad-authentication/sql-servers-set-active-directory-admin.png)  
 
 5. Nella pagina **Aggiungi amministratore** cercare un utente, selezionare l'utente o il gruppo da impostare come amministratore e quindi scegliere **Seleziona**. La pagina Amministratore di Active Directory mostra tutti i membri e i gruppi di Active Directory. Gli utenti e i gruppi non disponibili (in grigio) non possono essere selezionati, perché non sono supportati come amministratori di Azure AD. (Vedere l'elenco degli amministratori supportati nella sezione **funzionalità e limitazioni del Azure ad** di [usare l'autenticazione Azure Active Directory per l'autenticazione con il Database SQL o SQL data warehouse](sql-database-aad-authentication.md)). Il controllo degli accessi in base al ruolo (RBAC) si applica solo al portale e non viene propagato ai SQL Server.
 
-    ![Selezionare l'amministratore](./media/sql-database-aad-authentication/select-admin.png)  
+    ![Selezionare Azure Active Directory amministratore](./media/sql-database-aad-authentication/select-azure-active-directory-admin.png)  
 
 6. Nella parte superiore della pagina **Amministratore di Active Directory** scegliere **SALVA**.
 
@@ -279,13 +281,13 @@ Per eseguire i cmdlet di PowerShell, è necessario che Azure PowerShell sia inst
 
 Cmdlet usati per il provisioning e la gestione di Azure AD amministratore per il database SQL di Azure e Azure SQL Data Warehouse:
 
-| Nome del cmdlet | DESCRIZIONE |
+| Nome del cmdlet | Description |
 | --- | --- |
 | [Set-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlserveractivedirectoryadministrator) |Esegue il provisioning di un amministratore di Azure Active Directory per il server di Azure SQL o per Azure SQL Data Warehouse. (Deve essere dalla sottoscrizione corrente) |
 | [Remove-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |Rimuove un amministratore di Azure Active Directory per il server di Azure SQL o per Azure SQL Data Warehouse. |
 | [Get-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator) |Restituisce informazioni sull'amministratore di Azure Active Directory attualmente configurato per il server di Azure SQL o Azure SQL Data Warehouse. |
 
-Usare il comando Get-Help di PowerShell per visualizzare altre informazioni per ognuno di questi comandi. Ad esempio: `get-help Set-AzSqlServerActiveDirectoryAdministrator`.
+Usare il comando Get-Help di PowerShell per visualizzare altre informazioni per ognuno di questi comandi. Ad esempio `get-help Set-AzSqlServerActiveDirectoryAdministrator`.
 
 Lo script seguente effettua il provisioning di un gruppo di amministratori di Azure AD denominato **DBA_Group** (ID oggetto `40b79501-b343-44ed-9ce7-da4c8cc7353f`) per il server **demo_server** in un gruppo di risorse denominato **Group-23**:
 
@@ -320,11 +322,11 @@ L'esempio seguente illustra come rimuovere un amministratore di Azure AD:
 Remove-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server"
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 È possibile effettuare il provisioning di un amministratore Azure AD chiamando i comandi CLI seguenti:
 
-| Comando | DESCRIZIONE |
+| Comando | Description |
 | --- | --- |
 |[az sql server ad-admin create](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) | Esegue il provisioning di un amministratore di Azure Active Directory per il server di Azure SQL o per Azure SQL Data Warehouse. (Deve essere dalla sottoscrizione corrente) |
 |[az sql server ad-admin delete](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-delete) | Rimuove un amministratore di Azure Active Directory per il server di Azure SQL o per Azure SQL Data Warehouse. |

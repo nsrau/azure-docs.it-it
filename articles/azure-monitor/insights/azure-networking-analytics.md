@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 8a8a2f32de905ab7c12f4886d889b2a6fc20c449
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 5cce4ccd3acd9df896f6c28bd010a92ed4ec1a7a
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899142"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893315"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Soluzioni di monitoraggio di rete di Azure in monitoraggio di Azure
 
@@ -45,7 +45,7 @@ Per usare le soluzioni:
 
 È possibile abilitare la diagnostica e la soluzione corrispondente per uno o per entrambe le soluzioni: gateway applicazione e gruppi di sicurezza di rete.
 
-Se non si abilita la registrazione diagnostica per un tipo specifico di risorsa ma si installa la soluzione, i pannelli del dashboard per quella risorsa sono vuoti e visualizzano un messaggio di errore.
+Se non si Abilita la registrazione delle risorse di diagnostica per un tipo di risorsa specifico, ma si installa la soluzione, i pannelli del dashboard per quella risorsa sono vuoti e visualizzano un messaggio di errore.
 
 > [!NOTE]
 > Nel gennaio 2017, è stato modificato il modo supportato per inviare i log dai gateway applicazione e dai gruppi di sicurezza di rete a un'area di lavoro Log Analytics. Se viene visualizzata la soluzione **Azure Networking Analytics (deprecata)** , fare riferimento ai passaggi di [migrazione dalla vecchia soluzione Networking Analytics](#migrating-from-the-old-networking-analytics-solution) per istruzioni su come procedere.
@@ -100,7 +100,7 @@ Usare le istruzioni seguenti per installare e configurare la soluzione di analis
 
 #### <a name="enable-azure-network-diagnostics-using-powershell"></a>Abilitare la diagnostica di rete di Azure tramite PowerShell
 
-Lo script PowerShell seguente contiene un esempio su come abilitare la registrazione diagnostica per i gateway applicazione.
+Lo script di PowerShell seguente fornisce un esempio di come abilitare la registrazione delle risorse per i gateway applicazione.
 
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
@@ -141,7 +141,7 @@ In una pagina di ricerca di log qualsiasi è possibile visualizzare i risultati 
 > La soluzione Analisi gruppo di sicurezza di rete sta per essere destinata al supporto della community in quanto la relativa funzionalità è stata sostituita da [Analisi del traffico](../../network-watcher/traffic-analytics.md).
 > - La soluzione è ora disponibile in [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/oms-azurensg-solution/) e presto non sarà più disponibile in Azure Marketplace.
 > - Per i clienti esistenti che hanno già aggiunto la soluzione all'area di lavoro, questa continuerà a funzionare senza modifiche.
-> - Microsoft continuerà a supportare l'invio di log di diagnostica dei gruppi di sicurezza di rete all'area di lavoro usando Impostazioni di diagnostica.
+> - Microsoft continuerà a supportare l'invio di log delle risorse NSG all'area di lavoro usando le impostazioni di diagnostica.
 
 I log seguenti sono supportati per i gruppi di sicurezza di rete:
 
@@ -171,7 +171,7 @@ Usare le istruzioni seguenti per installare e configurare la soluzione Azure Net
 
 ### <a name="enable-azure-network-diagnostics-using-powershell"></a>Abilitare la diagnostica di rete di Azure tramite PowerShell
 
-Lo script PowerShell seguente contiene un esempio su come abilitare la registrazione diagnostica per i gruppi di sicurezza di rete
+Lo script di PowerShell seguente fornisce un esempio di come abilitare la registrazione delle risorse per i gruppi di sicurezza di rete
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 33302d7252c56badfed1dc7adea6a4f7cbf961b6
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: f2366d60868dd1db52fd8bfc2149756ed4b1b0d1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048264"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893621"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Esportare il log attività di Azure nell'archiviazione o in hub eventi di Azure
 
@@ -30,10 +30,10 @@ L'archiviazione del log attività in un account di archiviazione è utile se si 
 * **Trasmettere a sistemi di telemetria e registrazione di terze parti** : in futuro, la funzionalità di trasmissione di Hub eventi di Azure diventerà il meccanismo di invio del log attività a soluzioni di analisi dei log e SIEM di terze parti.
 * **Creare una piattaforma di telemetria e registrazione personalizzata** : se si ha già una piattaforma di telemetria personalizzata o si intende crearne una, le caratteristiche di pubblicazione-sottoscrizione altamente scalabili di Hub eventi consentono di inserire il log attività con la massima flessibilità. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="storage-account"></a>Account di archiviazione
-Se si sta archiviando il log attività, è necessario [creare un account di archiviazione](../../storage/common/storage-quickstart-create-account.md) , se non ne è già presente uno. Non usare un account di archiviazione esistente con altri dati non di monitoraggio archiviati, in modo da poter controllare meglio l'accesso ai dati di monitoraggio. Se si archiviano anche log di diagnostica e metriche in un account di archiviazione, è possibile scegliere di usare lo stesso account di archiviazione per conservare tutti i dati di monitoraggio in una posizione centrale.
+Se si sta archiviando il log attività, è necessario [creare un account di archiviazione](../../storage/common/storage-quickstart-create-account.md) , se non ne è già presente uno. Non usare un account di archiviazione esistente con altri dati non di monitoraggio archiviati, in modo da poter controllare meglio l'accesso ai dati di monitoraggio. Se si archiviano anche log e metriche in un account di archiviazione, è possibile scegliere di usare lo stesso account di archiviazione per conservare tutti i dati di monitoraggio in una posizione centrale.
 
 L'account di archiviazione non deve trovarsi nella stessa sottoscrizione della sottoscrizione che emette log, purché l'utente che configura l'impostazione abbia un accesso RBAC appropriato a entrambe le sottoscrizioni.
 > [!NOTE]
@@ -61,7 +61,7 @@ Il profilo di log definisce gli elementi seguenti.
 
 **Durata del mantenimento del log attività in un account di archiviazione.** Un periodo di conservazione di zero giorni significa che i log vengono conservati all'infinito. In caso contrario, il valore può essere un numero qualsiasi di giorni compreso tra 1 e 365.
 
-Se i criteri di conservazione sono impostati, ma la memorizzazione dei log in un account di archiviazione è disabilitata, i criteri di conservazione non hanno alcun effetto. I criteri di conservazione vengono applicati su base giornaliera. Al termine della giornata (UTC), i log relativi a tale giornata che non rientrano più nei criteri di conservazione verranno eliminati. Se, ad esempio, è presente un criterio di conservazione di un giorno, all'inizio della giornata attuale vengono eliminati i log relativi alla giornata precedente a ieri. Il processo di eliminazione inizia a mezzanotte UTC, ma si noti che possono essere necessarie fino a 24 ore per l'eliminazione dei log dall'account di archiviazione.
+Se i criteri di conservazione sono impostati, ma la memorizzazione dei log in un account di archiviazione è disabilitata, i criteri di conservazione non hanno alcun effetto. I criteri di conservazione vengono applicati su base giornaliera. Al termine della giornata (UTC), i log relativi a tale giornata che non rientrano più nei criteri di conservazione verranno eliminati. Se, ad esempio, è presente un criterio di conservazione di un giorno, all'inizio della giornata vengono eliminati i log relativi al giorno precedente. Il processo di eliminazione inizia a mezzanotte UTC, ma si noti che possono essere necessarie fino a 24 ore per l'eliminazione dei log dall'account di archiviazione.
 
 
 > [!IMPORTANT]
@@ -111,13 +111,13 @@ Se esiste già un profilo di log, prima di tutto è necessario rimuovere il prof
     Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
     ```
 
-    | Proprietà | obbligatori | DESCRIZIONE |
+    | Proprietà | Obbligatoria | Description |
     | --- | --- | --- |
-    | Nome |Sì |Nome del profilo di log. |
+    | name |SÌ |Nome del profilo di log. |
     | StorageAccountId |No |ID risorsa dell'account di archiviazione in cui deve essere salvato il log attività. |
     | serviceBusRuleId |No |ID regola del bus di servizio per lo spazio dei nomi del bus di servizio in cui creare gli hub eventi. Si tratta di una stringa con formato: `{service bus resource ID}/authorizationrules/{key name}`. |
-    | Location |Sì |Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. |
-    | RetentionInDays |Sì |Numero di giorni per cui gli eventi devono essere conservati nell'account di archiviazione, tra 1 e 365. Se il valore è zero, i log vengono conservati all'infinito. |
+    | Località |SÌ |Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. |
+    | RetentionInDays |SÌ |Numero di giorni per cui gli eventi devono essere conservati nell'account di archiviazione, tra 1 e 365. Se il valore è zero, i log vengono conservati all'infinito. |
     | Categoria |No |Elenco delimitato da virgole di categorie di eventi che devono essere raccolti. I valori possibili sono _Write_, _Delete_e _Action_. |
 
 ### <a name="example-script"></a>Script di esempio
@@ -154,14 +154,14 @@ Se esiste già un profilo di log, è innanzitutto necessario rimuovere il profil
    az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --service-bus-rule-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUB NAME SPACE>/authorizationrules/RootManageSharedAccessKey"
    ```
 
-    | Proprietà | obbligatori | DESCRIZIONE |
+    | Proprietà | Obbligatoria | Description |
     | --- | --- | --- |
-    | Nome |Sì |Nome del profilo di log. |
-    | storage-account-id |Sì |ID risorsa dell'account di archiviazione in cui salvare i log attività. |
-    | locations |Sì |Elenco delimitato da spazi di aree per cui raccogliere eventi del log attività. È possibile visualizzare un elenco di tutte le aree per la sottoscrizione tramite `az account list-locations --query [].name`. |
-    | days |Sì |Numero di giorni per cui devono essere conservati gli eventi, tra 1 e 365. Se il valore è zero, i log vengono archiviati per un periodo illimitato.  Se è zero, il parametro Enabled deve essere impostato su false. |
-    |enabled | Sì |True o False.  Consente di abilitare o disabilitare i criteri di conservazione.  Se True, il parametro days deve essere un valore maggiore di 0.
-    | Categorie |Sì |Elenco delimitato da spazi di categorie di eventi che devono essere raccolti. I valori possibili sono Write, Delete e Action. |
+    | name |SÌ |Nome del profilo di log. |
+    | storage-account-id |SÌ |ID risorsa dell'account di archiviazione in cui salvare i log attività. |
+    | Località |SÌ |Elenco delimitato da spazi di aree per cui raccogliere eventi del log attività. È possibile visualizzare un elenco di tutte le aree per la sottoscrizione tramite `az account list-locations --query [].name`. |
+    | days |SÌ |Numero di giorni per cui devono essere conservati gli eventi, tra 1 e 365. Se il valore è zero, i log vengono archiviati per un periodo illimitato.  Se è zero, il parametro Enabled deve essere impostato su false. |
+    |enabled | SÌ |True o False.  Consente di abilitare o disabilitare i criteri di conservazione.  Se True, il parametro days deve essere un valore maggiore di 0.
+    | Categorie |SÌ |Elenco delimitato da spazi di categorie di eventi che devono essere raccolti. I valori possibili sono Write, Delete e Action. |
 
 
 
@@ -169,7 +169,7 @@ Se esiste già un profilo di log, è innanzitutto necessario rimuovere il profil
 Indipendentemente dal fatto che venga inviato ad archiviazione di Azure o a hub eventi, i dati del log attività verranno scritti in JSON con il formato seguente.
 
 
-> Il formato dei dati del log attività scritti in un account di archiviazione è stato modificato in righe JSON il 1 ° novembre 2018. Per informazioni dettagliate su questa modifica del formato, vedere [preparare la modifica del formato ai log di diagnostica di monitoraggio di Azure archiviati in un account di archiviazione](diagnostic-logs-append-blobs.md) .
+> Il formato dei dati del log attività scritti in un account di archiviazione è stato modificato in righe JSON il 1 ° novembre 2018. Per informazioni dettagliate su questa modifica del formato, vedere [preparare la modifica del formato ai log delle risorse di monitoraggio di Azure archiviati in un account di archiviazione](diagnostic-logs-append-blobs.md) .
 
 ``` JSON
 {
@@ -228,10 +228,10 @@ Indipendentemente dal fatto che venga inviato ad archiviazione di Azure o a hub 
 ```
 Gli elementi in questo JSON sono descritti nella tabella seguente.
 
-| Nome dell'elemento | DESCRIZIONE |
+| Nome dell'elemento | Description |
 | --- | --- |
 | time |Timestamp del momento in cui l'evento è stato generato dal servizio di Azure che ha elaborato la richiesta corrispondente all'evento. |
-| resourceId |ID risorsa della risorsa interessata. |
+| ResourceId |ID della risorsa interessata. |
 | operationName |Nome dell'operazione. |
 | category |Categoria dell'azione, ad esempio scrittura o lettura. |
 | resultType |Il tipo di risultato, ad esempio operazione riuscita, esito negativo, avvio |
@@ -239,9 +239,9 @@ Gli elementi in questo JSON sono descritti nella tabella seguente.
 | durationMs |Durata dell'operazione in millisecondi |
 | callerIpAddress |Indirizzo IP dell'utente che ha eseguito l'operazione, attestazione UPN o attestazione SPN, a seconda della disponibilità. |
 | correlationId |In genere un GUID in formato stringa. Gli eventi che condividono un elemento correlationId appartengono alla stessa azione. |
-| identity |BLOB JSON che descrive l'autorizzazione e le attestazioni. |
-| autorizzazione |BLOB delle proprietà RBAC dell'evento. In genere include le proprietà "action", "role" e "scope". |
-| necessario |Livello dell'evento. Uno dei valori seguenti: _Critical_, _Error_, _warning_, _Informational_e _verbose_ |
+| identità |BLOB JSON che descrive l'autorizzazione e le attestazioni. |
+| authorization |BLOB delle proprietà RBAC dell'evento. In genere include le proprietà "action", "role" e "scope". |
+| level |Livello dell'evento. Uno dei valori seguenti: _Critical_, _Error_, _warning_, _Informational_e _verbose_ |
 | location |Area in cui si trova la località (o global). |
 | properties |Set di coppie `<Key, Value>` ad esempio Dictionary, che descrivono i dettagli dell'evento. |
 

@@ -5,7 +5,6 @@ services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -14,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 89c98379a8e79d1b00db47021ae737ae471f79b3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 9dff10848c42fd730f0bc77fd325f00cec554c9d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035019"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892873"
 ---
 # <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Creare una raccolta di immagini condivise usando il portale di Azure
 
@@ -31,7 +30,7 @@ La raccolta è una risorsa di primo livello che offre un completo controllo degl
 
 La funzionalità di raccolta di immagini condivise presenta più tipi di risorse. Verranno usate o compilate le seguenti contenute in questo articolo:
 
-| Risorsa | DESCRIZIONE|
+| Gruppi | Description|
 |----------|------------|
 | **Immagine gestita** | Un'immagine di base che può essere usata da sola o usata per creare una **versione dell'immagine** in una raccolta di immagini. Le immagini gestite vengono create da VM [generalizzate](shared-image-galleries.md#generalized-and-specialized-images) . Un'immagine gestita è un tipo speciale di disco rigido virtuale che può essere usato per creare più macchine virtuali e può ora essere sfruttato per creare versioni di immagini condivise. |
 | **Snapshot** | Copia di un disco rigido virtuale che può essere utilizzato per creare una **versione dell'immagine**. Gli snapshot possono essere ricavati da una VM [specializzata](shared-image-galleries.md#generalized-and-specialized-images) (uno che non è stato generalizzato), quindi usati singolarmente o con snapshot di dischi dati, per creare una versione di immagine specializzata.
@@ -88,7 +87,7 @@ Se si desidera eliminare singole risorse, è necessario eliminarle in ordine inv
 - [Creare una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-create/)
 - [Creare una definizione dell'immagine in una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [Creare una versione dell'immagine in una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
-- [Creare una macchina virtuale da una versione dell'immagine](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
+- [Creare una macchina virtuale dalla versione dell'immagine](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
 Per altre informazioni sulle raccolte di immagini condivise, vedere [Panoramica](shared-image-galleries.md). Se si verificano problemi, vedere [Risoluzione dei problemi delle raccolte di immagini condivise](troubleshooting-shared-images.md).
 

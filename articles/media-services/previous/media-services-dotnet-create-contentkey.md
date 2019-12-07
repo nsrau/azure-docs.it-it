@@ -1,6 +1,6 @@
 ---
 title: Creare entità ContentKey mediante .NET
-description: Informazioni su come creare chiavi simmetriche che forniscono l'accesso sicuro agli asset.
+description: Questo articolo illustra come creare chiavi simmetriche che forniscono l'accesso sicuro agli asset.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: ab26be3b9ac5d209cfe8117bdf9e87e0c7e74188
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aebd6dee9314d6e5641988767c024790b6b721f4
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61465576"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887698"
 ---
 # <a name="create-contentkeys-with-net"></a>Creare entità ContentKey mediante .NET 
 > [!div class="op_single_selector"]
@@ -150,6 +150,6 @@ call
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

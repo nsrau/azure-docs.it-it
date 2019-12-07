@@ -1,6 +1,6 @@
 ---
 title: Uso di castLabs per distribuire licenze Widevine a Servizi multimediali di Azure | Microsoft Docs
-description: Questo articolo illustra come usare Servizi multimediali di Azure per distribuire un flusso crittografato in modo dinamico da Servizi multimediali di Azure mediante DRM di PlayReady e Widevine. La licenza per PlayReady viene distribuita dal server licenze PlayReady di Servizi multimediali, mentre la licenza per Widevine viene distribuita dal server licenze castLabs.
+description: Questo articolo illustra come usare Servizi multimediali di Azure per distribuire un flusso crittografato in modo dinamico da Servizi multimediali di Azure mediante DRM di PlayReady e Widevine.
 services: media-services
 documentationcenter: ''
 author: Mingfeiy
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: Juliako
 ms.reviewer: willzhan
-ms.openlocfilehash: 9c61fad333037074f392b019ae61c161673e4008
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: c038480c9a49c96aaba7c7ff7299c8ebea31b81f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "69016683"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887782"
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Uso di castLabs per distribuire licenze Widevine a Servizi multimediali di Azure 
 > [!div class="op_single_selector"]
@@ -56,10 +56,10 @@ castLabs e Servizi multimediali di Azure supportano entrambi il formato di token
 
 La tabella seguente descrive il token JWT usato in Servizi multimediali di Azure. 
 
-| Rilasciato da | Stringa dell'autorità di certificazione rilasciata dal servizio token di sicurezza scelto |
+| Issuer | Stringa dell'autorità di certificazione rilasciata dal servizio token di sicurezza scelto |
 | --- | --- |
 | Destinatari |Stringa dei destinatari rilasciata dal servizio token di sicurezza usato |
-| Attestazioni |Set di attestazioni |
+| Claims |Set di attestazioni |
 | NotBefore |Validità di inizio del token |
 | Expires |Validità di fine del token |
 | SigningCredentials |Chiave condivisa tra il server licenze PlayReady, il server licenze castLabs e il servizio token di sicurezza (STS); può essere una chiave simmetrica o asimmetrica. |
@@ -68,7 +68,7 @@ La tabella seguente descrive il token JWT usato in Servizi multimediali di Azure
 
 La tabella seguente descrive il token JWT usato in castLabs. 
 
-| NOME | Descrizione |
+| name | Description |
 | --- | --- |
 | optData |Stringa JSON contenente informazioni relative all'utente. |
 | crt |Stringa JSON contenente informazioni sull'asset, sulla relativa licenza e sui diritti di riproduzione. |
@@ -118,6 +118,6 @@ Per riprodurre un video crittografato con la crittografia comune (PlayReady e/o 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

@@ -4,15 +4,15 @@ description: Monitorare il sistema e i EventCounters .NET/.NET Core personalizza
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: cithomas
-ms.author: cithomas
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 09/20/2019
-ms.openlocfilehash: 0762819239e8fd71a015f317776a94280806db53
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 1719c917ee2a4c0a11e4a79953a8b67e946d5931
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72677162"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74889125"
 ---
 # <a name="eventcounters-introduction"></a>Introduzione a EventCounters
 
@@ -98,7 +98,7 @@ Nell'esempio seguente viene illustrato come aggiungere o rimuovere i contatori. 
 Per visualizzare le metriche di EventCounter in [Esplora metriche](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts), selezionare Application Insights risorsa e scegliere metriche basate su log come spazio dei nomi metrica. Quindi le metriche EventCounter vengono visualizzate nella categoria PerformanceCounter.
 
 > [!div class="mx-imgBorder"]
-> ![Event contatori segnalati in Application Insights ](./media/event-counters/metrics-explorer-counter-list.png)
+> ![contatori di eventi segnalati in Application Insights](./media/event-counters/metrics-explorer-counter-list.png)
 
 ## <a name="event-counters-in-analytics"></a>Contatori di eventi in Analytics
 
@@ -111,7 +111,7 @@ performanceCounters | summarize avg(value) by name
 ```
 
 > [!div class="mx-imgBorder"]
-> ![Event contatori segnalati in Application Insights ](./media/event-counters/analytics-event-counters.png)
+> ![contatori di eventi segnalati in Application Insights](./media/event-counters/analytics-event-counters.png)
 
 Per ottenere un grafico di un contatore specifico (ad esempio: `ThreadPool Completed Work Item Count`) nel periodo recente, eseguire la query seguente.
 
@@ -123,7 +123,7 @@ performanceCounters
 | render timechart
 ```
 > [!div class="mx-imgBorder"]
-> ![Chat di un singolo contatore in Application Insights ](./media/event-counters/analytics-completeditems-counters.png)
+> ![la chat di un singolo contatore in Application Insights](./media/event-counters/analytics-completeditems-counters.png)
 
 Come altri dati di telemetria, **performanceCounters** contiene anche una colonna `cloud_RoleInstance` che indica l'identità dell'istanza del server host in cui viene eseguita l'app. La query precedente Mostra il valore del contatore per ogni istanza e può essere utilizzata per confrontare le prestazioni delle diverse istanze del server.
 

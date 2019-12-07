@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c487ed02abda652a384f2f295c3edac4b56fc654
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 7e8ce4f2fbdffc46d18a5f94496e9433c01a65fb
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74027236"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900945"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Creare un gruppo dinamico e controllare lo stato
 
@@ -47,10 +47,10 @@ Per esempi di sintassi, proprietà, operatori e valori supportati per una regola
 ## <a name="to-create-a-group-membership-rule"></a>Per creare una regola di appartenenza a un gruppo
 
 1. Accedere al centro di [amministrazione di Azure ad](https://aad.portal.azure.com) con un account che si trova nel ruolo amministratore globale, amministratore di Intune o amministratore utente nel tenant.
-1. Selezionare **Gruppi**.
+1. Cercare e selezionare i **gruppi**.
 1. Selezionare **Tutti i gruppi** e selezionare **Nuovo gruppo**.
 
-   ![Selezionare il comando per aggiungere un nuovo gruppo](./media/groups-create-rule/new-group-creation.png)
+   ![Selezionare il comando per aggiungere un nuovo gruppo](./media/groups-create-rule/create-new-group-azure-active-directory.png)
 
 1. Nella pagina **gruppo** immettere un nome e una descrizione per il nuovo gruppo. Selezionare un **tipo di appartenenza** per utenti o dispositivi e quindi selezionare **Aggiungi query dinamica**. Il generatore regole supporta fino a cinque espressioni. Per aggiungere più di cinque espressioni, è necessario utilizzare la casella di testo.
 
@@ -88,7 +88,7 @@ I seguenti messaggi di stato possono essere visualizzati per lo stato dell'**Ult
 - **In corso**: aggiornamenti in corso.
 - **Sconosciuto**: non è possibile recuperare l'ora dell'ultimo aggiornamento. Il gruppo potrebbe essere nuovo.
 
-Se si verifica un errore durante l'elaborazione della regola di appartenenza per un gruppo specifico, un avviso viene visualizzato nella parte superiore della **Pagina di panoramica** per il gruppo. Se non è possibile elaborare aggiornamenti in sospeso per l'appartenenza dinamica per tutti i gruppi all'interno del tenant per oltre 24 ore, viene visualizzato un avviso nella parte superiore di **Tutti i gruppi** .
+Se si verifica un errore durante l'elaborazione della regola di appartenenza per un gruppo specifico, un avviso viene visualizzato nella parte superiore della **Pagina di panoramica** per il gruppo. Se non è possibile elaborare aggiornamenti di appartenenza dinamici in sospeso per tutti i gruppi nel tenant per più di 24 ore, viene visualizzato un avviso nella parte superiore di **tutti i gruppi**.
 
 ![elaborazione degli avvisi dei messaggi di errore](./media/groups-create-rule/processing-error.png)
 

@@ -1,22 +1,23 @@
 ---
-title: Configurare chiavi gestite dal cliente con Azure Key Vault usando l'interfaccia della riga di comando di Azure-archiviazione di Azure
+title: Usare l'interfaccia della riga di comando di Azure per configurare le chiavi gestite dal cliente
+titleSuffix: Azure Storage
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per configurare chiavi gestite dal cliente con Azure Key Vault per la crittografia di archiviazione di Azure. Le chiavi gestite dal cliente consentono di creare, ruotare, disabilitare e revocare i controlli di accesso.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/03/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: fd3b7767bad104f4074b2460ecba3fe89d5a23e1
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 9b9ec315954f5916339bb006cb020acc28886839
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806627"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895314"
 ---
-# <a name="configure-customer-managed-keys-for-azure-storage-by-using-azure-cli"></a>Configurare chiavi gestite dal cliente per archiviazione di Azure usando l'interfaccia della riga di comando di Azure
+# <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Configurare chiavi gestite dal cliente con Azure Key Vault usando l'interfaccia della riga di comando di Azure
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 

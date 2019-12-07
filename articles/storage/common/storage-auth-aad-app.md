@@ -1,21 +1,22 @@
 ---
-title: Autorizzare l'accesso a BLOB e code con Azure Active Directory da un'applicazione client-archiviazione di Azure
+title: Acquisire un token da Azure AD per autorizzare le richieste da un'applicazione client
+titleSuffix: Azure Storage
 description: Usare Azure Active Directory per eseguire l'autenticazione da un'applicazione client, acquisire un token OAuth 2,0 e autorizzare le richieste all'archivio BLOB di Azure e all'archiviazione code.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 07/18/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ca6b055b5d3702cea4ca1986ad1c81b59f76cee3
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: e05557b0391a1d698dad000aa9df54424588afe0
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299627"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892261"
 ---
-# <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-from-a-client-application"></a>Autorizzare l'accesso a BLOB e code con Azure Active Directory da un'applicazione client
+# <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Acquisire un token da Azure AD per autorizzare le richieste da un'applicazione client
 
 Un vantaggio fondamentale dell'uso di Azure Active Directory (Azure AD) con l'archiviazione BLOB o l'archiviazione di Accodamento di Azure consiste nel fatto che non è più necessario archiviare le credenziali nel codice. È invece possibile richiedere un token di accesso OAuth 2,0 dalla piattaforma di identità Microsoft (in precedenza Azure AD). Azure AD autentica l'entità di sicurezza (un utente, un gruppo o un'entità servizio) che esegue l'applicazione. Se l'autenticazione ha esito positivo, Azure AD restituisce il token di accesso all'applicazione e l'applicazione può usare il token di accesso per autorizzare le richieste all'archivio BLOB di Azure o all'archiviazione code.
 

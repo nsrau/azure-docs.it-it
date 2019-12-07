@@ -1,6 +1,6 @@
 ---
-title: Note sulla versione di Servizi multimediali | Microsoft Docs
-description: Note sulla versione di Servizi multimediali
+title: Note sulla versione di servizi multimediali di Azure | Microsoft Docs
+description: Questo articolo illustra le note sulla versione di Servizi multimediali di Microsoft Azure V2.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,26 +13,26 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: 7c6cac925ad53e08ecc10c828765153c905f1c1d
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: f798a1eff8d9c90a58856a12b84061ece7e3720d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423893"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885672"
 ---
 # <a name="azure-media-services-release-notes"></a>Note sulla versione di Servizi multimediali di Azure
 
 Nelle presenti note sulla versione per Servizi multimediali di Azure vengono riepilogate le modifiche rispetto alle versioni precedenti e i problemi noti.
 
 > [!NOTE]
-> Non saranno aggiunte nuove funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 
-Microsoft invita i clienti a segnalare eventuali problemi e si impegna a risolverli. Per segnalare un problema o rivolgere domande, pubblicare un post nel [forum di MSDN sui Servizi multimediali di Azure]. 
+Microsoft invita i clienti a segnalare eventuali problemi e si impegna a risolverli. Per segnalare un problema o rivolgere domande, pubblicare un post nel [forum MSDN su Servizi multimediali di Microsoft Azure]. 
 
 ## <a name="a-idissuesknown-issues"></a>problemi noti di <a id="issues"/>
 ### <a name="a-idgeneral_issuesmedia-services-general-issues"></a><a id="general_issues"/>Problemi generali di Servizi multimediali
 
-| Problema | DESCRIZIONE |
+| Problema | Description |
 | --- | --- |
 | Nell'API REST non sono disponibili alcune intestazioni HTTP comuni. |Se si sviluppano applicazioni di Servizi multimediali tramite l'API REST, alcuni campi di intestazione HTTP comuni, ad esempio CLIENT-REQUEST-ID, REQUEST-ID e RETURN-CLIENT-REQUEST-ID, non sono supportati. Le intestazioni verranno aggiunte in un futuro aggiornamento. |
 | La codifica percentuale non è consentita. |Servizi multimediali usa il valore della proprietà IAssetFile.Name durante la generazione di URL per i contenuti in streaming (ad esempio, `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`). Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà Name non può contenere i [caratteri riservati per la codifica percentuale](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) seguenti: !*'();:@&=+$,/?%#[]". L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.). |
@@ -44,7 +44,7 @@ Microsoft invita i clienti a segnalare eventuali problemi e si impegna a risolve
 |L'API REST risponde con un messaggio di errore che indica che non è possibile accedere al filtro da questa versione dell'API REST quando si tenta di ottenere un filtro a livello di asset o di account.|Il filtro è stato creato o modificato con una versione API più recente di quella usata per provare a ottenere il filtro. Questo problema può verificarsi se due versioni dell'API vengono usate dal codice o dagli strumenti usati dal cliente.  La soluzione migliore consiste nell'aggiornare il codice o gli strumenti per usare le versioni più recenti o le due API.|
 
 ## <a name="a-idrest_version_historyrest-api-version-history"></a><a id="rest_version_history"/>Cronologia delle versioni dell'API REST
-Per informazioni sulla cronologia delle versioni dell'API REST di Servizi multimediali, vedere [Azure Media Services REST API reference].
+Per informazioni sulla cronologia delle versioni dell'API REST di Servizi multimediali, vedere [Informazioni di riferimento sull'API REST di Servizi multimediali di Azure].
 
 ## <a name="september-2019"></a>Settembre 2019
 
@@ -162,8 +162,8 @@ Quando viene inviata a Media Encoder Standard o a Media Encoder Premium, l'attiv
 > 
 > 
 
-### <a name="a-new-client-manifest-ismc-file-is-generated-in-the-output-asset-when-an-encoding-task-outputs-one-or-more-mp4-files"></a>Un nuovo file manifesto client (con estensione .ismc) viene generato nell'asset di output quando un'attività di codifica restituisce uno o più file MP4.
-A partire dalla versione del servizio più recente, dopo il completamento di un'attività di codifica che genera uno più file MP4, l'asset di output contiene anche un file manifesto client di streaming (con estensione .ismc). Il file con estensione ismc consente di migliorare le prestazioni del flusso dinamico. 
+### <a name="a-new-client-manifest-ismc-file-is-generated-in-the-output-asset-when-an-encoding-task-outputs-one-or-more-mp4-files"></a>Un nuovo file manifesto client (\*.ISMC) viene generato nell'asset di output quando un'attività di codifica restituisce uno o più file MP4.
+A partire dalla versione del servizio più recente, dopo il completamento di un'attività di codifica che genera uno più file MP4, l'asset di output contiene anche un file manifesto client di streaming (\*.ismc). Il file con estensione ismc consente di migliorare le prestazioni del flusso dinamico. 
 
 > [!NOTE]
 > La sintassi del file manifesto client (con estensione .ismc) è riservata per l'uso interno. Sono previste modifiche nelle versioni future. Non modificare o manipolare il contenuto di questo file.
@@ -206,7 +206,7 @@ Le unità riservate di codifica Basic, Standard e Premium sono state rinominate 
 ### <a name="azure-sdk-for-php"></a>Azure SDK per PHP
 Il team di Azure SDK ha pubblicato una nuova versione del pacchetto [Azure SDK per PHP](https://github.com/Azure/azure-sdk-for-php) che contiene aggiornamenti e nuove funzionalità per Servizi multimediali. In particolare, Media Services SDK per PHP supporta ora le funzioni più recenti di [protezione del contenuto](media-services-content-protection-overview.md). Queste funzioni sono la crittografia dinamica con AES e DRM (PlayReady e Widevine) con e senza restrizioni del token. Supporta anche il ridimensionamento delle [unità di codifica](media-services-dotnet-encoding-units.md).
 
-Per altre informazioni, vedere:
+Per scoprire di più, vedi:
 
 * Gli [esempi di codice](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) seguenti consentono di iniziare rapidamente:
   * **vodworkflow_aes.php**: questo file PHP illustra come usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi. Si basa sull'esempio .NET illustrato in [Use AES-128 dynamic encryption and the key delivery service](media-services-protect-with-aes128.md) (Usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi).
@@ -232,7 +232,7 @@ Servizi multimediali offre ora la possibilità di proteggere i flussi live e vid
 
 Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
   
-È possibile usare [Media Services SDK per .NET](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partire dalla versione 3.5.1) o l'API REST per configurare AssetDeliveryConfiguration per l'uso di Widevine. 
+È possibile usare [Media Services .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) a partire dalla versione 3.5.1 o l'API REST per configurare AssetDeliveryConfiguration per l'uso di Widevine. 
 * Servizi multimediali ha aggiunto il supporto per i video Apple ProRes. È ora possibile caricare i file video di origine QuickTime che utilizzano Apple ProRes o altri codec. Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
 * È ora possibile usare Media Encoder Standard per eseguire l'estrazione di clip secondarie e di archivio live. Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 * Sono stati apportati i seguenti aggiornamenti per il filtro. 
@@ -245,7 +245,7 @@ Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/az
 Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
 ## <a id="august_changes_15"></a>Versione di agosto 2015
-* Sono ora disponibili la versione 0.8.0 di Media Services SDK per Java e nuovi esempi. Per altre informazioni, vedere:
+* Sono ora disponibili la versione 0.8.0 di Media Services SDK per Java e nuovi esempi. Per scoprire di più, vedi:
     
 * Azure Media Player è stato aggiornato con il supporto per i flussi multi-audio. Per altre informazioni, vedere [questo post di blog](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/).
 
@@ -474,7 +474,7 @@ Le modifiche seguenti citate in questa sezione sono aggiornamenti inclusi nelle 
 * Entità e proprietà correlate alle notifiche: 
     * JobNotificationSubscription
     * NotificationEndPoint
-    * processo
+    * Processo
 * Asset.Uri 
 * Locator.Name 
 
@@ -555,7 +555,7 @@ Le funzionalità seguenti sono state introdotte nella versione di novembre dell'
   
     * A tutti i metodi è stato aggiunto il supporto asincrono.
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 <!-- Anchors. -->
@@ -563,8 +563,8 @@ Le funzionalità seguenti sono state introdotte nella versione di novembre dell'
 <!-- Images. -->
 
 <!--- URLs. --->
-[forum di MSDN sui Servizi multimediali di Azure]: https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
-[Azure Media Services REST API reference]: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference (Informazioni di riferimento relative all'API REST di Servizi multimediali di Azure)
+[forum MSDN su Servizi multimediali di Microsoft Azure]: https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
+[Informazioni di riferimento sull'API REST di Servizi multimediali di Azure]: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
 [Media Services pricing details]: https://azure.microsoft.com/pricing/details/media-services/
 [Metadati di input]: https://msdn.microsoft.com/library/azure/dn783120.aspx
 [Metadati di output]: https://msdn.microsoft.com/library/azure/dn783217.aspx

@@ -1,6 +1,6 @@
 ---
 title: Usare i lettori esistenti per la riproduzione dei contenuti - Azure | Documentazione Microsoft
-description: Questo argomento elenca i lettori esistenti che è possibile usare per la riproduzione dei propri contenuti.
+description: Questo articolo elenca i lettori esistenti che è possibile usare per riprodurre il contenuto.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 0da8ce396ce07b7c9859fcfccb5cb524c0ce21c1
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: fdcaa7d8eec0065ad9acd76df9918ed7bccc081b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "69015301"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895866"
 ---
 # <a name="playing-your-content-with-existing-players"></a>Riproduzione di contenuti con i lettori esistenti
 Servizi multimediali di Azure supporta molti formati di streaming noti, ad esempio Smooth Streaming, HTTP Live Streaming (HLS) e MPEG-DASH. Questo argomento descrive i lettori esistenti che possono essere usati per testare i propri flussi.
@@ -72,7 +72,7 @@ Per informazioni su come sviluppare i propri lettori, vedere [Sviluppo di lettor
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 [AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png

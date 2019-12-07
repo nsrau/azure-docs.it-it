@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.openlocfilehash: 5739883984d4087d2b2a1bda66c01ff3cfa10eb0
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.custom: hdinsightactive
+ms.date: 12/04/2019
+ms.openlocfilehash: d4263b8b338f057893c9dfcda1541fc338c2577f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122605"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894268"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analizzare i log per Apache Kafka in HDInsight
 
@@ -56,7 +56,7 @@ I passaggi per abilitare i log di monitoraggio di Azure per HDInsight sono gli s
     | summarize AggregatedValue = avg(CounterValue) by Computer, bin(TimeGenerated, 1h)
     ```
 
-* Messaggi in ingresso al secondo:
+* Messaggi in ingresso al secondo: (sostituire `your_kafka_cluster_name` con il nome del cluster.)
 
     ```kusto
     metrics_kafka_CL 
@@ -64,7 +64,7 @@ I passaggi per abilitare i log di monitoraggio di Azure per HDInsight sono gli s
     | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_MessagesInPerSec_Count_value_d) by HostName_s, bin(TimeGenerated, 1h)
     ```
 
-* Byte in ingresso al secondo:
+* Byte in ingresso al secondo: (sostituire `wn0-kafka` con un nome host del nodo di lavoro.)
 
     ```kusto
     metrics_kafka_CL 
@@ -72,7 +72,7 @@ I passaggi per abilitare i log di monitoraggio di Azure per HDInsight sono gli s
     | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesInPerSec_Count_value_d) by bin(TimeGenerated, 1h)
     ```
 
-* Byte in uscita al secondo:
+* Byte in uscita al secondo: sostituire `your_kafka_cluster_name` con il nome del cluster.
 
     ```kusto
     metrics_kafka_CL 
@@ -80,12 +80,9 @@ I passaggi per abilitare i log di monitoraggio di Azure per HDInsight sono gli s
     | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesOutPerSec_Count_value_d) by bin(TimeGenerated, 1h)
     ```
 
-    > [!IMPORTANT]  
-    > Sostituire i valori della query con le informazioni specifiche del cluster. Ad esempio, `ClusterName_s` deve essere impostato sul nome del cluster. `HostName_s` deve essere impostato sul nome di dominio di un nodo del ruolo di lavoro nel cluster.
-
     È anche possibile immettere `*` per cercare tutti i tipi registrati. Questi log sono attualmente disponibili per le query:
 
-    | Tipo di log | Descrizione |
+    | Tipo di log | Description |
     | ---- | ---- |
     | log\_kafkaserver\_CL | Kafka broker server.log |
     | log\_kafkacontroller\_CL | Kafka broker controller.log |

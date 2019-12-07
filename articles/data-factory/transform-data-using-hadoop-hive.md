@@ -1,5 +1,5 @@
 ---
-title: Trasformare i dati usando l'attività Hive di Hadoop in Azure Data Factory
+title: Trasformare i dati usando l'attività hive di Hadoop
 description: Informazioni su come usare l'attività Hive in una data factory di Azure per eseguire query Hive in un cluster HDInsight su richiesta o nel proprio cluster HDInsight.
 services: data-factory
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: c423192624ecc76e839f9fee434956f4d57aefdc
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 84c7ff8268934c771a056e41cd2bf484b8674302
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683903"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893825"
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Trasformare i dati usando l'attività Hive di Hadoop in Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-hive-activity.md)
 > * [Versione corrente](transform-data-using-hadoop-hive.md)
 
@@ -56,14 +56,14 @@ Se non si ha familiarità con Azure Data Factory, leggere l'[Introduzione ad Azu
 }
 ```
 ## <a name="syntax-details"></a>Dettagli sintassi
-| Proprietà            | Descrizione                                                  | Obbligatorio |
+| Proprietà            | Description                                                  | Obbligatoria |
 | ------------------- | ------------------------------------------------------------ | -------- |
-| name                | Nome dell'attività                                         | Sì      |
+| name                | Nome dell'attività                                         | SÌ      |
 | description         | Testo descrittivo per lo scopo dell'attività                | No       |
-| type                | Per l'Attività Hive, il tipo di attività è HDinsightHive        | Sì      |
-| linkedServiceName   | Riferimento al cluster HDInsight registrato come servizio collegato in Data Factory. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md). | Sì      |
+| type                | Per l'Attività Hive, il tipo di attività è HDinsightHive        | SÌ      |
+| linkedServiceName   | Riferimento al cluster HDInsight registrato come servizio collegato in Data Factory. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md). | SÌ      |
 | scriptLinkedService | Riferimento a un servizio collegato Archiviazione di Azure usato per memorizzare lo script Hive da eseguire. Se non si specifica questo servizio collegato, viene usato il servizio collegato Archiviazione di Azure definito nel servizio collegato HDInsight. | No       |
-| scriptPath          | Specificare il percorso del file di script archiviato nel servizio Archiviazione di Azure indicato da scriptLinkedService. Il nome del file distingue tra maiuscole e minuscole. | Sì      |
+| scriptPath          | Specificare il percorso del file di script archiviato nel servizio Archiviazione di Azure indicato da scriptLinkedService. Il nome del file distingue tra maiuscole e minuscole. | SÌ      |
 | getDebugInfo        | Specifica quando i file di log vengono copiati nell'Archiviazione di Azure usata dal cluster HDInsight (o) indicata da scriptLinkedService. Valori consentiti: None, Always o Failure. Valore predefinito: None. | No       |
 | arguments           | Specifica una matrice di argomenti per un processo Hadoop. Gli argomenti vengono passati a ogni attività come argomenti della riga di comando. | No       |
 | defines             | Nei riferimenti all'interno dello script Hive, specificare i parametri come coppie chiave/valore. | No       |

@@ -1,19 +1,20 @@
 ---
-title: Abilitare l'accesso in lettura pubblico per contenitori e BLOB in Archiviazione BLOB di Azure | Microsoft Docs
+title: Gestire l'accesso in lettura pubblico per contenitori e BLOB
+titleSuffix: Azure Storage
 description: Informazioni su come rendere disponibili per l'accesso anonimo contenitori e BLOB e su come accedervi a livello di programmazione.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 09/19/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: d0e3121fe773a9725eb7cfd9e8b14d0ed86f3fbb
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 4d9a54c220861b19d67b07998e609ee72897446a
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673306"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892483"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Gestire l'accesso in lettura anonimo a contenitori e BLOB
 
@@ -23,12 +24,12 @@ L'accesso in lettura pubblico è ideale per scenari in cui si vuole che BLOB spe
 
 ## <a name="grant-anonymous-users-permissions-to-containers-and-blobs"></a>Concedere le autorizzazioni agli utenti anonimi per contenitori e BLOB
 
-Per impostazione predefinita, un contenitore e tutti i BLOB al suo interno possono accedere solo a un utente a cui sono state concesse le autorizzazioni appropriate. Per concedere agli utenti anonimi l'accesso in lettura a un contenitore e ai relativi BLOB, è possibile impostare il livello di accesso pubblico del contenitore. Quando si concede l'accesso pubblico a un contenitore, gli utenti anonimi possono leggere i BLOB in un contenitore accessibile pubblicamente senza autorizzare la richiesta.
+Per impostazione predefinita, un contenitore e i BLOB al suo interno sono accessibili solo a un utente a cui sono state concesse le autorizzazioni appropriate. Per assegnare a utenti anonimi l'accesso in lettura a un contenitore e ai relativi BLOB, è possibile impostare il livello di accesso pubblico del contenitore. Quando si concede l'accesso pubblico a un contenitore, gli utenti anonimi possono leggere i BLOB in un contenitore accessibile pubblicamente senza autorizzare la richiesta.
 
 È possibile configurare un contenitore con le autorizzazioni seguenti:
 
-- **Nessun accesso in lettura pubblico:** È possibile accedere al contenitore e ai relativi BLOB solo dal proprietario dell'account di archiviazione. Questa è l'impostazione predefinita per tutti i nuovi contenitori.
-- **Accesso in lettura pubblico solo per i BLOB:** I BLOB all'interno del contenitore possono essere letti da una richiesta anonima, ma i dati del contenitore non sono disponibili. I client anonimi non possono enumerare i BLOB all'interno del contenitore.
+- **Nessun accesso in lettura pubblico:** solo il proprietario dell'account di archiviazione può accedere al contenitore e ai relativi BLOB. Questa è l'impostazione predefinita per tutti i nuovi contenitori.
+- **Accesso in lettura pubblico solo per i BLOB:** i dati del BLOB all'interno del contenitore possono essere letti tramite richiesta anonima, ma i dati del contenitore non sono disponibili. I client anonimi non possono enumerare i BLOB all'interno del contenitore.
 - **Accesso in lettura pubblico per il contenitore e i relativi BLOB:** Tutti i dati del contenitore e del BLOB possono essere letti da una richiesta anonima. I client possono enumerare i BLOB all'interno del contenitore tramite richiesta anonima, ma non sono in grado di enumerare i contenitori all'interno dell'account di archiviazione.
 
 ### <a name="set-container-public-access-level-in-the-azure-portal"></a>Impostare il livello di accesso pubblico del contenitore nell'portale di Azure

@@ -1,5 +1,5 @@
 ---
-title: Trasformare i dati con il notebook di databricks-Azure
+title: Trasformare i dati con il notebook di databricks
 description: Informazioni su come elaborare o trasformare i dati eseguendo un notebook di Databricks.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 685a7863af74bf90c819453b41078b48ab6d2045
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0768c16562a3931249dbbbc8f836ae14e7d0958b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683920"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893995"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Trasformare i dati eseguendo un notebook di Databricks
 
@@ -57,13 +57,13 @@ Ecco la definizione JSON di esempio di un'attività dei notebook di Databricks:
 
 La tabella seguente fornisce le descrizioni delle proprietà JSON usate nella definizione JSON:
 
-|Proprietà|Descrizione|obbligatori|
+|Proprietà|Description|Obbligatoria|
 |---|---|---|
-|Nome|Nome dell'attività nella pipeline.|Sì|
-|Descrizione|Testo che descrive l'attività.|No|
-|type|Per l'attività dei notebook di Databricks il tipo di attività è DatabricksNotebook.|Sì|
-|linkedServiceName|Nome del servizio collegato Databricks su cui è in esecuzione il notebook di Databricks. Per informazioni su questo servizio collegato, vedere l'articolo  [Servizi collegati di calcolo](compute-linked-services.md) .|Sì|
-|notebookPath|Percorso assoluto del notebook da eseguire nell'area di lavoro di Databricks. Questo percorso deve iniziare con una barra.|Sì|
+|name|Nome dell'attività nella pipeline.|SÌ|
+|description|Testo che descrive l'attività.|No|
+|type|Per l'attività dei notebook di Databricks il tipo di attività è DatabricksNotebook.|SÌ|
+|linkedServiceName|Nome del servizio collegato Databricks su cui è in esecuzione il notebook di Databricks. Per informazioni su questo servizio collegato, vedere l'articolo  [Servizi collegati di calcolo](compute-linked-services.md) .|SÌ|
+|notebookPath|Percorso assoluto del notebook da eseguire nell'area di lavoro di Databricks. Questo percorso deve iniziare con una barra.|SÌ|
 |baseParameters|Matrice di coppie chiave-valore. I parametri base possono essere usati per ogni esecuzione attività. Se il notebook accetta un parametro non specificato, verrà usato il valore predefinito del notebook. Per altre informazioni sui parametri, vedere [Notebook di Databricks](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|No|
 |libraries|Un elenco di librerie da installare nel cluster che eseguirà il processo. Può essere una matrice di \<stringa, oggetto>.|No|
 

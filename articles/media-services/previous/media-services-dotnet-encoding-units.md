@@ -1,6 +1,6 @@
 ---
 title: Ridimensionare l'elaborazione multimediale aggiungendo unità di codifica - Azure | Documentazione Microsoft
-description: Informazioni su come aggiungere unità di codifica mediante .NET
+description: Questo articolo illustra come aggiungere unità di codifica con servizi multimediali di Azure .NET.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: milangada
-ms.openlocfilehash: 9d393e07008d981834d9deb48ded73995366d7e4
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 86fd923c121b9d46109529f75bc3d0d040f1a7a9
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69016574"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887289"
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Come scalare la codifica con .NET SDK
 > [!div class="op_single_selector"]
-> * [Portale](media-services-portal-scale-media-processing.md)
+> * [di Microsoft Azure](media-services-portal-scale-media-processing.md)
 > * [.NET](media-services-dotnet-encoding-units.md)
 > * [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
@@ -57,6 +57,6 @@ Per impostazione predefinita, ogni account di Servizi multimediali può includer
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

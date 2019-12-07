@@ -3,12 +3,12 @@ title: Risolvere gli errori di backup SAP HANA database
 description: Viene descritto come risolvere gli errori comuni che possono verificarsi quando si usa backup di Azure per eseguire il backup di SAP HANA database.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: e8bb1d3328f95b647a788c53afe3ac1455eefa13
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 9958b241c44d619efea2f9ad516a2bd6d4f33d6e
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665339"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892601"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Risolvere i problemi di backup di database SAP HANA in Azure
 
@@ -102,17 +102,19 @@ In più database contenitore per HANA la configurazione standard è SYSTEMDB + 1
 Se si sta proteggendo SAP HANA database 1,0 e si vuole eseguire l'aggiornamento a 2,0, eseguire i passaggi descritti di seguito:
 
 - [Arrestare la protezione](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) con Mantieni i dati per il database DSC precedente.
+- Eseguire l'aggiornamento. Al termine, HANA è ora MDC con un database di sistema e i database tenant
 - Eseguire di nuovo [lo script di pre-registrazione](https://aka.ms/scriptforpermsonhana) con i dettagli corretti di (SID e MDC).
-- Ri-Register Extension (backup-> View Details-> selezionare la relativa VM di Azure-> Re-Register).
+- Ripetere la registrazione dell'estensione per lo stesso computer nel portale di Azure (backup-> View Details-> selezionare la relativa VM di Azure > ripetere la registrazione).
 - Fare clic su riindividuare i database per la stessa macchina virtuale. Questa azione dovrebbe mostrare i nuovi database nel passaggio 2 con i dettagli corretti (SYSTEMDB e tenant DB, non DSC).
-- Proteggi questi nuovi database.
+- Configurare il backup per questi nuovi database.
 
 ## <a name="upgrading-without-an-sid-change"></a>Aggiornamento senza una modifica del SID
 
 Gli aggiornamenti al sistema operativo o SAP HANA che non provocano una modifica del SID possono essere gestiti come indicato di seguito:
 
 - [Arrestare la protezione](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) con Mantieni dati per il database
-- Eseguire di nuovo lo [script di pre-registrazione](https://aka.ms/scriptforpermsonhana)
+- Eseguire l'aggiornamento.
+- Eseguire di nuovo lo [script di pre-registrazione](https://aka.ms/scriptforpermsonhana). In genere, è stato rilevato che il processo di aggiornamento rimuove i ruoli necessari. L'esecuzione dello script di pre-registrazione consentirà di verificare tutti i ruoli necessari.
 - [Riattivare la protezione](sap-hana-db-manage.md#resume-protection-for-an-sap-hana-database) per il database
 
 ## <a name="next-steps"></a>Passaggi successivi

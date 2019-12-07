@@ -1,20 +1,21 @@
 ---
-title: Creare una firma di accesso condiviso di delega utente per un contenitore o BLOB con l'interfaccia della riga di comando di Azure (anteprima)-archiviazione di Azure
-description: Informazioni su come creare una firma di accesso condiviso di delega utente usando Azure Active Directory credenziali in archiviazione di Azure tramite l'interfaccia della riga di comando di Azure
+title: Usare l'interfaccia della riga di comando di Azure per creare una firma di accesso condiviso per un contenitore o un BLOB
+titleSuffix: Azure Storage
+description: Informazioni su come creare una firma di accesso condiviso di delega utente (anteprima) con Azure Active Directory credenziali usando l'interfaccia della riga di comando di Azure.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 077fe69d80ec433d8e37f18e04120102fc8ca390
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 85f49799472c92770cc8a503a5a1be0b496387f7
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673329"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892550"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli-preview"></a>Creare una firma di accesso condiviso di delega utente per un contenitore o BLOB con l'interfaccia della riga di comando di Azure (anteprima)
 
@@ -40,7 +41,7 @@ Se non si dispone di autorizzazioni sufficienti per assegnare i ruoli di control
 
 Nell'esempio seguente viene assegnato il ruolo di **collaboratore dati BLOB di archiviazione** , che include l'azione **Microsoft. storage/storageAccounts/blobServices/generateUserDelegationKey** . L'ambito del ruolo è a livello dell'account di archiviazione.
 
-Ricordarsi di sostituire i valori segnaposto tra parentesi angolari con valori personalizzati:
+È necessario ricordare di sostituire i valori segnaposto tra parentesi uncinate con i valori personalizzati:
 
 ```azurecli-interactive
 az role assignment create \
@@ -57,7 +58,7 @@ Quando si crea una firma di accesso condiviso dell'utente con l'interfaccia dell
 
 Poiché l'intervallo massimo di validità della chiave di delega utente è di 7 giorni dalla data di inizio, è necessario specificare un'ora di scadenza per la firma di accesso condiviso entro 7 giorni dall'ora di inizio. La firma di accesso condiviso non è valida dopo la scadenza della chiave di delega dell'utente. Pertanto, una firma di accesso condiviso con una scadenza superiore a 7 giorni sarà ancora valida solo per 7 giorni.
 
-Quando si crea una firma di accesso condiviso di delega utente, sono necessari i `--auth-mode login` e `--as-user parameters`. Specificare l' *account di accesso* per il parametro `--auth-mode` in modo che le richieste effettuate all'archiviazione di Azure siano autorizzate con le credenziali Azure ad. Specificare il parametro `--as-user` per indicare che la firma di accesso condiviso restituita deve essere una firma di accesso condiviso dell'utente.
+Quando si crea una firma di accesso condiviso di delega utente, è necessario il `--auth-mode login` e il `--as-user parameters`. Specificare l' *account di accesso* per il parametro `--auth-mode` in modo che le richieste effettuate all'archiviazione di Azure siano autorizzate con le credenziali Azure ad. Specificare il parametro `--as-user` per indicare che la firma di accesso condiviso restituita deve essere una firma di accesso condiviso dell'utente.
 
 ### <a name="create-a-user-delegation-sas-for-a-container"></a>Creare una firma di accesso condiviso di delega utente per un contenitore
 
@@ -117,7 +118,7 @@ https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?se=2019-
 
 Per revocare una firma di accesso condiviso di delega utente dall'interfaccia della riga di comando di Azure, chiamare il comando [AZ storage account Revoke-Delegation-Keys](/cli/azure/storage/account#az-storage-account-revoke-delegation-keys) . Questo comando revoca tutte le chiavi di delega utente associate all'account di archiviazione specificato. Eventuali firme di accesso condiviso associate a tali chiavi vengono invalidate.
 
-Ricordarsi di sostituire i valori segnaposto tra parentesi angolari con valori personalizzati:
+È necessario ricordare di sostituire i valori segnaposto tra parentesi uncinate con i valori personalizzati:
 
 ```azurecli-interactive
 az storage account revoke-delegation-keys \

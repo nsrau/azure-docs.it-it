@@ -1,5 +1,5 @@
 ---
-title: Creare un'area di lavoro Azure Databricks in una rete virtuale
+title: Creare un'area di lavoro Azure Databricks nella Guida introduttiva alla rete virtuale
 description: Questo articolo descrive come distribuire Azure Databricks alla rete virtuale.
 services: azure-databricks
 author: mamccrea
@@ -7,19 +7,21 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
-ms.date: 04/02/2019
-ms.openlocfilehash: 69afe2aab3c10707f7160d727b970ad73d59a952
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 12/04/2019
+ms.openlocfilehash: 404aa1d345bb1e30a0fe55d033d49d7dd8ba5a1b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791554"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893432"
 ---
-# <a name="quickstart-create-an-azure-databricks-workspace-in-a-virtual-network"></a>Guida introduttiva: creare un'area di lavoro Azure Databricks in una rete virtuale
+# <a name="quickstart-create-an-azure-databricks-workspace-in-your-own-virtual-network"></a>Guida introduttiva: creare un'area di lavoro Azure Databricks nella propria rete virtuale
 
-Questa Guida introduttiva illustra come creare un'area di lavoro Azure Databricks in una rete virtuale. Si creerà anche un cluster Apache Spark all'interno di tale area di lavoro.
+La distribuzione predefinita di Azure Databricks crea una nuova rete virtuale gestita da databricks. Questa Guida introduttiva illustra come creare un'area di lavoro Azure Databricks nella propria rete virtuale. Si crea anche un cluster Apache Spark all'interno di tale area di lavoro. 
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/).
+Per altre informazioni sui motivi per cui è possibile scegliere di creare un'area di lavoro Azure Databricks nella propria rete virtuale, vedere [distribuire Azure Databricks nella rete virtuale di Azure (VNet Injection)] (/databricks/Administration-Guide/cloud-Configurations/Azure/VNET-Inject).
+
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/databricks/).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -31,14 +33,16 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-a-virtual-network"></a>Crea una rete virtuale
 
-1. Nella portale di Azure selezionare **Crea una risorsa** ** > rete** **rete virtuale** > .
+1. Scegliere **Crea una risorsa** dal menu del portale di Azure. Selezionare quindi rete **> rete virtuale**.
+
+    ![Creare una rete virtuale in portale di Azure](./media/quickstart-create-databricks-workspace-vnet-injection/create-virtual-network-portal.png)
 
 2. In **Crea rete virtuale**applicare le impostazioni seguenti: 
 
     |Impostazione|Valore consigliato|Description|
     |-------|---------------|-----------|
     |name|databricks-avvio rapido|Selezionare un nome per la rete virtuale.|
-    |Spazio degli indirizzi|10.1.0.0/16|Intervallo di indirizzi della rete virtuale nella notazione CIDR.|
+    |Spazio degli indirizzi|10.1.0.0/16|Intervallo di indirizzi della rete virtuale nella notazione CIDR. L'intervallo CIDR deve essere compreso tra/16 e/24|
     |Sottoscrizione|\<Sottoscrizione in uso\>|Selezionare la sottoscrizione di Azure da usare.|
     |Gruppo di risorse|databricks-avvio rapido|Selezionare **Crea nuovo** e immettere un nuovo nome per il gruppo di risorse per l'account.|
     |Località|\<Selezionare l'area più vicina agli utenti\>|Selezionare una posizione geografica in cui è possibile ospitare la rete virtuale. Usare la località più vicina agli utenti.|
@@ -53,7 +57,9 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Creare un'area di lavoro di Azure Databricks
 
-1. Nella portale di Azure selezionare **Crea una risorsa** > **Analytics** > **databricks**.
+1. Scegliere **Crea una risorsa** dal menu del portale di Azure. Quindi selezionare **Analytics > databricks**.
+
+    ![Creare un'area di lavoro Azure Databricks in portale di Azure](./media/quickstart-create-databricks-workspace-vnet-injection/create-databricks-workspace-portal.png)
 
 2. In **Azure Databricks servizio**applicare le impostazioni seguenti:
 
@@ -64,12 +70,12 @@ Accedere al [portale di Azure](https://portal.azure.com/).
     |Gruppo di risorse|databricks-avvio rapido|Selezionare lo stesso gruppo di risorse usato per la rete virtuale.|
     |Località|\<Selezionare l'area più vicina agli utenti\>|Scegliere lo stesso percorso della rete virtuale.|
     |Piano tariffario|Scegliere tra standard o Premium.|Per altre informazioni sui piani tariffari, vedere la [pagina dei prezzi di databricks](https://azure.microsoft.com/pricing/details/databricks/).|
-    |Distribuire Azure Databricks area di lavoro nella rete virtuale|SÌ|Questa impostazione consente di distribuire un'area di lavoro Azure Databricks nella rete virtuale.|
+    |Distribuire Azure Databricks area di lavoro nella rete virtuale (VNet)|SÌ|Questa impostazione consente di distribuire un'area di lavoro Azure Databricks nella rete virtuale.|
     |Rete virtuale|databricks-avvio rapido|Selezionare la rete virtuale creata nella sezione precedente.|
     |Nome della subnet pubblica|subnet pubblica|Usare il nome predefinito della subnet pubblica.|
-    |Intervallo CIDR della subnet pubblica|10.179.64.0/18|L'intervallo CIDR per questa subnet deve essere compreso tra/18 e/26.|
+    |Intervallo CIDR della subnet pubblica|10.179.64.0/18|Utilizzare un intervallo CIDR fino a e includendo/26.|
     |Nome subnet privata|subnet privata|Usare il nome della subnet privata predefinita.|
-    |Intervallo CIDR della subnet privata|10.179.0.0/18|L'intervallo CIDR per questa subnet deve essere compreso tra/18 e/26.|
+    |Intervallo CIDR della subnet privata|10.179.0.0/18|Utilizzare un intervallo CIDR fino a e includendo/26.|
 
     ![Creare un'area di lavoro Azure Databricks in portale di Azure](./media/quickstart-create-databricks-workspace-vnet-injection/create-databricks-workspace.png)
 
@@ -77,7 +83,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
     ![Panoramica di Azure Databricks in portale di Azure](./media/quickstart-create-databricks-workspace-vnet-injection/databricks-overview-portal.png)
 
-    Il gruppo di risorse gestite contiene la posizione fisica dell'account di archiviazione (DBFS), il ruolo di lavoro-SG (gruppo di sicurezza di rete), Workers-VNET (rete virtuale). Si tratta anche della posizione in cui verranno creati le macchine virtuali, il disco, l'indirizzo IP e l'interfaccia di rete. Questo gruppo di risorse è bloccato per impostazione predefinita; Tuttavia, quando un cluster viene avviato nella rete virtuale, viene creata un'interfaccia di rete tra i ruoli di lavoro-VNET nel gruppo di risorse gestite e la rete virtuale "hub".
+    Il gruppo di risorse gestite non è modificabile e non viene usato per creare macchine virtuali. È possibile creare solo macchine virtuali nel gruppo di risorse gestito.
 
     ![Azure Databricks gruppo di risorse gestite](./media/quickstart-create-databricks-workspace-vnet-injection/managed-resource-group.png)
 

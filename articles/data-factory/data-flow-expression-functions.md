@@ -1,24 +1,23 @@
 ---
-title: Funzioni di espressione nella funzionalità flusso di dati di mapping di Azure Data Factory
+title: Funzioni di espressione nel flusso di dati di mapping
 description: Informazioni sulle funzioni di espressione in mapping del flusso di dati.
 author: kromerm
 ms.author: makromer
+manager: anandsub
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: dc742fc625604e71909f49c7453a9215dce71e35
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: f384c440dab06660c95f635dde02ced5b3e54d94
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596972"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896319"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Espressioni di trasformazione dei dati nel flusso di dati di mapping 
 
-
-
-## <a name="expression-functions"></a>Funzioni di espressione
+## <a name="expression-functions"></a>Funzioni per le espressioni
 
 In Data Factory utilizzare il linguaggio delle espressioni della funzionalità del flusso di dati di mapping per configurare le trasformazioni dei dati.
 
@@ -122,7 +121,7 @@ In base a un criterio viene ottenuta la media dei valori di una colonna
 ___
 ### <code>byName</code>
 <code><b>byName(<i>&lt;column name&gt;</i> : string, [<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
-Seleziona un valore di colonna in base al nome nel flusso. È possibile passare un nome di flusso facoltativo come secondo argomento. Se sono presenti più corrispondenze, viene restituita la prima corrispondenza. Se nessuna corrispondenza restituisce un valore NULL. Il valore restituito deve essere di tipo convertito da una delle funzioni di conversione dei tipi (TO_DATE, TO_STRING...).  I nomi di colonna noti in fase di progettazione devono essere risolti solo in base al nome. Gli input calcolati non sono supportati, ma è possibile usare le sostituzioni di parametro
+Seleziona un valore di colonna in base al nome nel flusso. È possibile passare un nome di flusso facoltativo come secondo argomento. Se sono presenti più corrispondenze, viene restituita la prima corrispondenza. Se nessuna corrispondenza restituisce un valore NULL. Il valore restituito deve essere di tipo convertito da una delle funzioni di conversione del tipo (TO_DATE, TO_STRING...).  I nomi di colonna noti in fase di progettazione devono essere risolti solo in base al nome. Gli input calcolati non sono supportati, ma è possibile usare le sostituzioni di parametro
 
 * ``toString(byName('parent'))``
 
@@ -139,7 +138,7 @@ Seleziona un valore di colonna in base al nome nel flusso. È possibile passare 
 ___
 ### <code>byPosition</code>
 <code><b>byPosition(<i>&lt;position&gt;</i> : integer) => any</b></code><br/><br/>
-Seleziona un valore di colonna in base alla relativa posizione (basata su 1) nel flusso. Se la posizione è fuori limite, viene restituito un valore NULL. Il valore restituito deve essere di tipo convertito da una delle funzioni di conversione dei tipi (TO_DATE, TO_STRING...) Gli input calcolati non sono supportati, ma è possibile usare le sostituzioni di parametro
+Seleziona un valore di colonna in base alla relativa posizione (basata su 1) nel flusso. Se la posizione è fuori limite, viene restituito un valore NULL. Il valore restituito deve essere di tipo convertito da una delle funzioni di conversione del tipo (TO_DATE, TO_STRING...) Gli input calcolati non sono supportati, ma è possibile usare le sostituzioni di parametro
 
 * ``toString(byPosition(1))``
 
@@ -1067,7 +1066,7 @@ Accumula gli elementi in una matrice. Il riduttore prevede un riferimento a un a
 ___
 ### <code>regexExtract</code>
 <code><b>regexExtract(<i>&lt;string&gt;</i> : string, <i>&lt;regex to find&gt;</i> : string, [<i>&lt;match group 1-based index&gt;</i> : integral]) => string</b></code><br/><br/>
-Estrae una sottostringa corrispondente per un modello di espressione regolare specificato. L'ultimo parametro identifica il gruppo di corrispondenza e, se omesso, viene usato il valore predefinito 1. Usare ' <regex>' (virgolette indietro) per trovare la corrispondenza con una stringa senza Escape
+Estrae una sottostringa corrispondente per un modello di espressione regolare specificato. L'ultimo parametro identifica il gruppo di corrispondenza e, se omesso, viene usato il valore predefinito 1. Usare '<regex>' (virgolette indietro) per trovare la corrispondenza con una stringa senza Escape
 
 * ``regexExtract('Cost is between 600 and 800 dollars', '(\\d+) and (\\d+)', 2) -> '800'``
 
@@ -1076,7 +1075,7 @@ Estrae una sottostringa corrispondente per un modello di espressione regolare sp
 ___
 ### <code>regexMatch</code>
 <code><b>regexMatch(<i>&lt;string&gt;</i> : string, <i>&lt;regex to match&gt;</i> : string) => boolean</b></code><br/><br/>
-Verifica se la stringa corrisponde al modello di espressione regolare specificato. Usare ' <regex>' (virgolette indietro) per trovare la corrispondenza con una stringa senza Escape
+Verifica se la stringa corrisponde al modello di espressione regolare specificato. Usare '<regex>' (virgolette indietro) per trovare la corrispondenza con una stringa senza Escape
 
 * ``regexMatch('200.50', '(\\d+).(\\d+)') -> true``
 
@@ -1085,7 +1084,7 @@ Verifica se la stringa corrisponde al modello di espressione regolare specificat
 ___
 ### <code>regexReplace</code>
 <code><b>regexReplace(<i>&lt;string&gt;</i> : string, <i>&lt;regex to find&gt;</i> : string, <i>&lt;substring to replace&gt;</i> : string) => string</b></code><br/><br/>
-Sostituire tutte le occorrenze di un modello Regex con un'altra sottostringa nella stringa specificata usare ' <regex>' (virgolette indietro) per trovare la corrispondenza con una stringa senza Escape
+Sostituire tutte le occorrenze di un modello Regex con un'altra sottostringa nella stringa specificata usare '<regex>' (virgolette indietro) per trovare la corrispondenza con una stringa senza Escape
 
 * ``regexReplace('100 and 200', '(\\d+)', 'bojjus') -> 'bojjus and bojjus'``
 

@@ -1,6 +1,6 @@
 ---
 title: Connettersi all'API di servizi multimediali di Azure V3-Python
-description: Informazioni su come connettersi all'API di servizi multimediali V3 con Python.
+description: Questo articolo illustra come connettersi all'API di servizi multimediali V3 con Python.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: juliako
-ms.openlocfilehash: 2ceebd88f4988f23bf9cd32bd827aaca67d70461
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 98a8cdf4120cf56184eb5735249640e3423acdf4
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307866"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888462"
 ---
 # <a name="connect-to-media-services-v3-api---python"></a>Connettersi all'API di servizi multimediali V3-Python
 
@@ -27,7 +27,7 @@ Questo articolo illustra come connettersi a servizi multimediali di Azure V3 Pyt
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Scaricare Python da [Python.org](https://www.python.org/downloads/)
-- Assicurarsi di impostare la `PATH` variabile di ambiente
+- Assicurarsi di impostare la variabile di ambiente `PATH`
 - [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md). Assicurarsi di ricordare il nome del gruppo di risorse e il nome dell'account di servizi multimediali.
 - Seguire i passaggi nell'argomento [Access Apis (API di accesso](access-api-cli-how-to.md) ). Registrare l'ID sottoscrizione, l'ID applicazione (ID client), la chiave di autenticazione (segreto) e l'ID tenant necessario nel passaggio successivo.
 
@@ -38,8 +38,8 @@ Questo articolo illustra come connettersi a servizi multimediali di Azure V3 Pyt
 
 Per usare servizi multimediali di Azure con Python, è necessario installare questi moduli.
 
-* Il `azure-mgmt-resource` modulo, che include i moduli di Azure per Active Directory.
-* Il `azure-mgmt-media` modulo, che include le entità di servizi multimediali.
+* Il modulo `azure-mgmt-resource`, che include i moduli di Azure per Active Directory.
+* Il modulo `azure-mgmt-media`, che include le entità di servizi multimediali.
 
 Aprire uno strumento da riga di comando e usare i comandi seguenti per installare i moduli.
 
@@ -50,7 +50,7 @@ pip3 install azure-mgmt-media==1.1.1
 
 ## <a name="connect-to-the-python-client"></a>Connettersi al client Python
 
-1. Creazione di un file con `.py` estensione
+1. Creare un file con un'estensione `.py`
 1. Aprire il file nell'editor preferito
 1. Aggiungere il codice seguente al file. Il codice importa i moduli richiesti e crea l'oggetto credenziali Active Directory necessario per connettersi a servizi multimediali.
 

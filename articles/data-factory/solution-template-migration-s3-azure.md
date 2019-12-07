@@ -1,5 +1,5 @@
 ---
-title: Migrare i dati da Amazon S3 a Azure Data Lake Storage Gen2 con Azure Data Factory
+title: Migrare i dati da Amazon S3 a Azure Data Lake Storage Gen2
 description: Informazioni su come usare un modello di soluzione per migrare i dati da Amazon S3 usando una tabella di controllo esterna per archiviare un elenco di partizioni in AWS S3 con Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/07/2019
-ms.openlocfilehash: a8591762bf4e8eccd5e1b7d67538674feed720b9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b1e7d15f1c747644c755b1e0bbe3351c626f7c28
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684187"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74890811"
 ---
 # <a name="migrate-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Migrare i dati da Amazon S3 a Azure Data Lake Storage Gen2
 
@@ -38,7 +38,7 @@ La migrazione dei dati in genere richiede la migrazione dei dati cronologici una
 Questo modello (*nome modello: esegue la migrazione dei dati cronologici da AWS S3 a Azure Data Lake storage Gen2*) presuppone che sia stato scritto un elenco di partizioni in una tabella di controllo esterna nel database SQL di Azure. Utilizzerà quindi un'attività di *ricerca* per recuperare l'elenco delle partizioni dalla tabella di controllo esterno, eseguire l'iterazione su ogni partizione e fare in modo che ogni processo di copia ADF copi una partizione alla volta. Al termine di un processo di copia, viene utilizzata l'attività *stored procedure* per aggiornare lo stato della copia di ogni partizione nella tabella del controllo.
 
 Il modello contiene cinque attività:
-- **Lookup** recupera le partizioni che non sono state copiate in Azure Data Lake storage Gen2 da una tabella di controllo esterna. Il nome della tabella è *s3_partition_control_table* e la query per caricare i dati dalla tabella è *"Select PARTITIONPREFIX from s3_partition_control_table where SuccessOrFailure = 0"* .
+- **Lookup** recupera le partizioni che non sono state copiate in Azure Data Lake storage Gen2 da una tabella di controllo esterna. Il nome della tabella è *s3_partition_control_table* e la query per caricare i dati dalla tabella è *"SELECT PARTITIONPREFIX from s3_partition_control_table where SuccessOrFailure = 0"* .
 - **Foreach** Ottiene l'elenco di partizioni dall'attività *Lookup* e scorre ogni partizione nell'attività *TriggerCopy* . È possibile impostare *batchCount* per l'esecuzione simultanea di più processi di copia di ADF. In questo modello è stato impostato 2.
 - **ExecutePipeline** esegue la pipeline *CopyFolderPartitionFromS3* . Il motivo per cui si crea un'altra pipeline per eseguire la copia di ogni processo di copia una partizione è che consente di rieseguire facilmente il processo di copia non riuscito per ricaricare nuovamente la partizione specifica da AWS s3. Tutti gli altri processi di copia che caricano altre partizioni non saranno interessati.
 - **Copy copia** ogni partizione da AWS S3 a Azure Data Lake storage Gen2.
@@ -46,24 +46,24 @@ Il modello contiene cinque attività:
 
 Il modello contiene due parametri:
 - **AWS_S3_bucketName** è il nome del bucket in AWS S3 da cui si desidera eseguire la migrazione dei dati. Se si vuole eseguire la migrazione di dati da più bucket in AWS S3, è possibile aggiungere una colonna nella tabella del controllo esterno per archiviare il nome del bucket per ogni partizione e aggiornare anche la pipeline per recuperare i dati da tale colonna di conseguenza.
-- **Azure_Storage_fileSystem** è il nome del file system in Azure Data Lake storage Gen2 in cui si desidera eseguire la migrazione dei dati.
+- **Azure_Storage_fileSystem** è il nome del file System Azure Data Lake storage Gen2 in cui si desidera eseguire la migrazione dei dati.
 
 ### <a name="for-the-template-to-copy-changed-files-only-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Affinché il modello copi i file modificati solo da Amazon S3 a Azure Data Lake Storage Gen2
 
-Questo modello (*nome modello: copia dati Delta da AWS S3 a Azure Data Lake storage Gen2*) USA LastModifiedTime di ogni file per copiare i file nuovi o aggiornati solo da AWS S3 ad Azure. Tenere presente che se i file o le cartelle sono già stati partizionati con le informazioni TimeSlice come parte del nome del file o della cartella in AWS s3 (ad esempio,/yyyy/mm/DD/file.csv), è possibile passare a questa [esercitazione](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md) per ottenere l'approccio più efficiente per incrementale caricamento di nuovi file. Questo modello presuppone che sia stato scritto un elenco di partizioni in una tabella di controllo esterna nel database SQL di Azure. Utilizzerà quindi un'attività di *ricerca* per recuperare l'elenco delle partizioni dalla tabella di controllo esterno, eseguire l'iterazione su ogni partizione e fare in modo che ogni processo di copia ADF copi una partizione alla volta. Quando ogni processo di copia inizia a copiare i file da AWS S3, si basa sulla proprietà LastModifiedTime per identificare e copiare solo i file nuovi o aggiornati. Al termine di un processo di copia, viene utilizzata l'attività *stored procedure* per aggiornare lo stato della copia di ogni partizione nella tabella del controllo.
+Questo modello (*nome modello: copia dati Delta da AWS S3 a Azure Data Lake storage Gen2*) USA LastModifiedTime di ogni file per copiare i file nuovi o aggiornati solo da AWS S3 ad Azure. Tenere presente che se i file o le cartelle sono già stati partizionati con le informazioni TimeSlice come parte del nome del file o della cartella in AWS s3 (ad esempio,/yyyy/mm/DD/file.csv), è possibile passare a questa [esercitazione](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md) per ottenere un approccio più efficiente per il caricamento incrementale di nuovi file. Questo modello presuppone che sia stato scritto un elenco di partizioni in una tabella di controllo esterna nel database SQL di Azure. Utilizzerà quindi un'attività di *ricerca* per recuperare l'elenco delle partizioni dalla tabella di controllo esterno, eseguire l'iterazione su ogni partizione e fare in modo che ogni processo di copia ADF copi una partizione alla volta. Quando ogni processo di copia inizia a copiare i file da AWS S3, si basa sulla proprietà LastModifiedTime per identificare e copiare solo i file nuovi o aggiornati. Al termine di un processo di copia, viene utilizzata l'attività *stored procedure* per aggiornare lo stato della copia di ogni partizione nella tabella del controllo.
 
 Il modello contiene sette attività:
-- La **ricerca** recupera le partizioni da una tabella di controllo esterna. Il nome della tabella è *s3_partition_delta_control_table* e la query per caricare i dati dalla tabella è *"SELECT DISTINCT PartitionPrefix from s3_partition_delta_control_table"* .
+- La **ricerca** recupera le partizioni da una tabella di controllo esterna. Il nome della tabella è *s3_partition_delta_control_table* e la query per caricare i dati dalla tabella è *"SELECT distinct PartitionPrefix from s3_partition_delta_control_table"* .
 - **Foreach** Ottiene l'elenco di partizioni dall'attività *Lookup* e scorre ogni partizione nell'attività *TriggerDeltaCopy* . È possibile impostare *batchCount* per l'esecuzione simultanea di più processi di copia di ADF. In questo modello è stato impostato 2.
 - **ExecutePipeline** esegue la pipeline *DeltaCopyFolderPartitionFromS3* . Il motivo per cui si crea un'altra pipeline per eseguire la copia di ogni processo di copia una partizione è che consente di rieseguire facilmente il processo di copia non riuscito per ricaricare nuovamente la partizione specifica da AWS s3. Tutti gli altri processi di copia che caricano altre partizioni non saranno interessati.
-- La **ricerca** recupera l'ultima fase di esecuzione del processo di copia dalla tabella del controllo esterno, in modo che i file nuovi o aggiornati possano essere identificati tramite LastModifiedTime. Il nome della tabella è *s3_partition_delta_control_table* e la query per caricare i dati dalla tabella è *"Select Max (JobRunTime) As LastModifiedTime from s3_partition_delta_control_table where PartitionPrefix =' @ {pipeline (). Parameters. prefixStr }' e SuccessOrFailure = 1 "* .
+- La **ricerca** recupera l'ultima fase di esecuzione del processo di copia dalla tabella del controllo esterno, in modo che i file nuovi o aggiornati possano essere identificati tramite LastModifiedTime. Il nome della tabella è *s3_partition_delta_control_table* e la query per caricare i dati dalla tabella è *"Select Max (JobRunTime) as LastModifiedTime from s3_partition_delta_control_table where PartitionPrefix =' @ {pipeline (). Parameters. prefixStr}' and SuccessOrFailure = 1"* .
 - **Copiare** copia i file nuovi o modificati solo per ogni partizione da AWS S3 a Azure Data Lake storage Gen2. La proprietà di *modifiedDatetimeStart* è impostata sull'ultima fase di esecuzione del processo di copia. La proprietà di *modifiedDatetimeEnd* è impostata sul tempo di esecuzione del processo di copia corrente. Tenere presente che l'ora viene applicata al fuso orario UTC.
 - **SqlServerStoredProcedure** aggiorna lo stato di copia di ogni partizione e di esecuzione della copia nella tabella di controllo in caso di esito positivo. La colonna di SuccessOrFailure è impostata su 1.
 - **SqlServerStoredProcedure** aggiorna lo stato di copia di ogni partizione e di esecuzione della copia nella tabella di controllo in caso di errore. La colonna di SuccessOrFailure è impostata su 0.
 
 Il modello contiene due parametri:
 - **AWS_S3_bucketName** è il nome del bucket in AWS S3 da cui si desidera eseguire la migrazione dei dati. Se si vuole eseguire la migrazione di dati da più bucket in AWS S3, è possibile aggiungere una colonna nella tabella del controllo esterno per archiviare il nome del bucket per ogni partizione e aggiornare anche la pipeline per recuperare i dati da tale colonna di conseguenza.
-- **Azure_Storage_fileSystem** è il nome del file system in Azure Data Lake storage Gen2 in cui si desidera eseguire la migrazione dei dati.
+- **Azure_Storage_fileSystem** è il nome del file System Azure Data Lake storage Gen2 in cui si desidera eseguire la migrazione dei dati.
 
 ## <a name="how-to-use-these-two-solution-templates"></a>Come usare questi due modelli di soluzione
 

@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/1/2019
+ms.date: 12/5/2019
 ms.author: raiye
-ms.openlocfilehash: fa6f3e77a49afc5b16d11cb0c7d434f967c7cd53
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c22ed9da2d2947fa4085a4695acd8803964ca757
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500247"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894632"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK
 Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure più recente per i servizi cloud. Queste informazioni sono utili per pianificare il percorso di aggiornamento prima che un sistema operativo guest venga disabilitato. Se si configurano i ruoli per l'uso degli aggiornamenti *automatici* del sistema operativo guest come descritto in [Impostazioni di aggiornamento del sistema operativo guest Azure][Azure Guest OS Update Settings], non è indispensabile leggere questa pagina.
@@ -38,9 +38,12 @@ Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure p
 >
 >
 
-In caso di dubbi su come aggiornare il sistema operativo guest, Vedere [.][cloud updates]
+In caso di dubbi su come aggiornare il sistema operativo guest, Vedere [queste informazioni][cloud updates].
 
 ## <a name="news-updates"></a>Novità e aggiornamenti
+
+###### <a name="december-5-2019"></a>**5 dicembre 2019**
+È stato rilasciato il sistema operativo guest di novembre.
 
 ###### <a name="november-1-2019"></a>**1 novembre 2019**
 È stato rilasciato il sistema operativo guest di ottobre.
@@ -109,17 +112,18 @@ In caso di dubbi su come aggiornare il sistema operativo guest, Vedere [.][cloud
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
+| WA-GUEST-OS-6.13 _201911-01 | 5 dicembre 2019 | Post 6,15 |  
 | WA-GUEST-OS-6.12 _201910-01 | 1 novembre 2019 | Post 6,14 |  
-| WA-GUEST-OS-6.11 _201909-01 | 7 ottobre 2019 | Post 6,13 |  
+|~~WA-GUEST-OS-6.11 _201909-01~~| 7 ottobre 2019 | 5 dicembre 2019 |  
 |~~WA-GUEST-OS-6.10 _201908-01~~| 4 agosto 2019 | 1 novembre 2019  |  
 |~~WA-GUEST-OS-6.9 _201907-0~~|26 luglio 2019 | 7 ottobre 2019 |
 |~~WA-GUEST-OS-6.8 _201906-01~~|8 luglio 2019 |4 agosto 2019 |
 |~~WA-GUEST-OS-6.7 _201905-01~~ |6 giugno 2019 |26 luglio 2019 |
-|~~WA-GUEST-OS-6.6 _201904-01~~ |7 maggio 2019 |8 luglio 2019 |
-|~~WA-GUEST-OS-6.5 _201903-01~~ |26 marzo 2019 |6 giugno 2019 |
-|~~WA-GUEST-OS-6.4 _201902-01~~ |12 marzo 2019 |7 maggio 2019 |
-|~~WA-GUEST-OS-6.3 _201901-01~~ |5 febbraio 2019 |26 marzo 2019 |
-|~~WA-GUEST-OS-6.2 _201812-01~~ |24 gennaio 2019 |12 marzo 2019 |
+|~~WA-GUEST-OS-6.6_201904-01~~ |7 maggio 2019 |8 luglio 2019 |
+|~~WA-GUEST-OS-6.5_201903-01~~ |26 marzo 2019 |6 giugno 2019 |
+|~~WA-GUEST-OS-6.4_201902-01~~ |12 marzo 2019 |7 maggio 2019 |
+|~~WA-GUEST-OS-6.3_201901-01~~ |5 febbraio 2019 |26 marzo 2019 |
+|~~WA-GUEST-OS-6.2_201812-01~~ |24 gennaio 2019 |12 marzo 2019 |
 |~~WA-GUEST-OS-6.1_201811-01~~ |24 gennaio 2019 |5 febbraio 2019 |
 
 ## <a name="family-5-releases"></a>Versioni della famiglia 5
@@ -134,17 +138,18 @@ In caso di dubbi su come aggiornare il sistema operativo guest, Vedere [.][cloud
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
+| WA-GUEST-OS-5.37 _201911-01 | 5 dicembre 2019 | Post 5,39 |  
 | WA-GUEST-OS-5.36 _201910-01 | 1 novembre 2019 | Post 5,38 |  
-| WA-GUEST-OS-5.35 _201909-01 | 7 ottobre 2019 | Post 5,37 |  
-|~~WA-GUEST-OS-5.34 _201908-01~~|  4 agosto 2019  |  Post 5,36 |  
+|~~WA-GUEST-OS-5.35 _201909-01~~| 7 ottobre 2019 | 5 dicembre 2019 |  
+|~~WA-GUEST-OS-5.34 _201908-01~~|  4 agosto 2019  | 1 novembre 2019 |  
 |~~WA-GUEST-OS-5.33 _201907-01~~| 26 luglio 2019 | 7 ottobre 2019 |  
 |~~WA-GUEST-OS-5.32 _201906-01~~|8 luglio 2019 |4 agosto 2019 |
 |~~WA-GUEST-OS-5.31 _201905-01~~ |6 giugno 2019 |26 luglio 2019 |
-|~~WA-GUEST-OS-5.30 _201904-01~~ |7 maggio 2019 |8 luglio 2019 |
-|~~WA-GUEST-OS-5.29 _201903-01~~ |26 marzo 2019 |6 giugno 2019 |
-|~~WA-GUEST-OS-5.28 _201902-01~~ |12 marzo 2019 |7 maggio 2019 |
-|~~WA-GUEST-OS-5.27 _201901-01~~ |5 febbraio 2019 |26 marzo 2019 |
-|~~WA-GUEST-OS-5.26 _201812-01~~ |7 gennaio 2019 |12 marzo 2019 |
+|~~WA-GUEST-OS-5.30_201904-01~~ |7 maggio 2019 |8 luglio 2019 |
+|~~WA-GUEST-OS-5.29_201903-01~~ |26 marzo 2019 |6 giugno 2019 |
+|~~WA-GUEST-OS-5.28_201902-01~~ |12 marzo 2019 |7 maggio 2019 |
+|~~WA-GUEST-OS-5.27_201901-01~~ |5 febbraio 2019 |26 marzo 2019 |
+|~~WA-GUEST-OS-5.26_201812-01~~ |7 gennaio 2019 |12 marzo 2019 |
 |~~WA-GUEST-OS-5.25_201811-01~~ |14 dicembre 2018 |5 febbraio 2019 |
 |~~WA-GUEST-OS-5.24_201810-01~~ |8 novembre 2018 |7 gennaio 2019 |
 |~~WA-GUEST-OS-5.23_201809-01~~ |12 ottobre 2018 |14 dicembre 2018 |
@@ -156,17 +161,18 @@ In caso di dubbi su come aggiornare il sistema operativo guest, Vedere [.][cloud
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
+| WA-GUEST-OS-4.72 _201911-01 | 5 dicembre 2019 | Post 4,74 |  
 | WA-GUEST-OS-4.71 _201910-01 | 1 novembre 2019 | Post 4,73 |  
-| WA-GUEST-OS-4.70 _201909-01 | 7 ottobre 2019 | Post 4,72 |  
+|~~WA-GUEST-OS-4.70 _201909-01~~| 7 ottobre 2019 | 5 dicembre 2019 |  
 |~~WA-GUEST-OS-4.69 _201908-01~~| 4 agosto 2019 | 1 novembre 2019 |  
 |~~WA-GUEST-OS-4.68 _201907-01~~| 26 luglio 2019  | 7 ottobre 2019 |
 |~~WA-GUEST-OS-4.67 _201906-01~~| 8 luglio 2019 |4 agosto 2019 |
 |~~WA-GUEST-OS-4.66 _201905-01~~ |6 giugno 2019 |26 luglio 2019 |
-|~~WA-GUEST-OS-4.65 _201904-01~~ |7 maggio 2019 |8 luglio 2019 |
-|~~WA-GUEST-OS-4.64 _201903-01~~ |26 marzo 2019 |6 giugno 2019 |
-|~~WA-GUEST-OS-4.63 _201902-01~~ |12 marzo 2019 |7 maggio 2019 |
-|~~WA-GUEST-OS-4.62 _201901-01~~ |5 febbraio 2019 |26 marzo 2019 |
-|~~WA-GUEST-OS-4.61 _201812-01~~ |7 gennaio 2019 |12 marzo 2019 |
+|~~WA-GUEST-OS-4.65_201904-01~~ |7 maggio 2019 |8 luglio 2019 |
+|~~WA-GUEST-OS-4.64_201903-01~~ |26 marzo 2019 |6 giugno 2019 |
+|~~WA-GUEST-OS-4.63_201902-01~~ |12 marzo 2019 |7 maggio 2019 |
+|~~WA-GUEST-OS-4.62_201901-01~~ |5 febbraio 2019 |26 marzo 2019 |
+|~~WA-GUEST-OS-4.61_201812-01~~ |7 gennaio 2019 |12 marzo 2019 |
 |~~WA-GUEST-OS-4.60_201811-01~~ |14 dicembre 2018 |5 febbraio 2019 |
 |~~WA-GUEST-OS-4.59_201810-01~~ |8 novembre 2018 |7 gennaio 2019 |
 |~~WA-GUEST-OS-4.58_201809-01~~ |12 ottobre 2018 |14 dicembre 2018 |
@@ -178,17 +184,18 @@ Versione .NET Framework installata: 3.5, 4.5
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
+| WA-GUEST-OS-3.79 _201911-01 | 5 dicembre 2019 | Post 3,81 |  
 | WA-GUEST-OS-3.78 _201910-01 | 1 novembre 2019 | Post 3,80 |  
-| WA-GUEST-OS-3.77 _201909-01 | 7 ottobre 2019 | Post 3,79 |  
+|~~WA-GUEST-OS-3.77 _201909-01~~| 7 ottobre 2019 | 5 dicembre 2019 |  
 |~~WA-GUEST-OS-3.76 _201908-01~~|  4 agosto 2019  |  1 novembre 2019  |  
 |~~WA-GUEST-OS-3,75 _201907-01~~| 26 luglio 2019 | 7 ottobre 2019 |
 |~~WA-GUEST-OS-3.74 _201906-01~~| 8 luglio 2019 |4 agosto 2019 |
 |~~WA-GUEST-OS-3.73 _201905-01~~ |6 giugno 2019 |26 luglio 2019 |
-|~~WA-GUEST-OS-3.72 _201904-01~~ |7 maggio 2019 |8 luglio 2019 |
-|~~WA-GUEST-OS-3.71 _201903-01~~ |26 marzo 2019 |6 giugno 2019 |
-|~~WA-GUEST-OS-3.70 _201902-01~~ |12 marzo 2019 |7 maggio 2019 |
-|~~WA-GUEST-OS-3.69 _201901-01~~ |5 febbraio 2019 |26 marzo 2019 |
-|~~WA-GUEST-OS-3.68 _201812-01~~ |7 gennaio 2019 |12 marzo 2019 |
+|~~WA-GUEST-OS-3.72_201904-01~~ |7 maggio 2019 |8 luglio 2019 |
+|~~WA-GUEST-OS-3.71_201903-01~~ |26 marzo 2019 |6 giugno 2019 |
+|~~WA-GUEST-OS-3.70_201902-01~~ |12 marzo 2019 |7 maggio 2019 |
+|~~WA-GUEST-OS-3.69_201901-01~~ |5 febbraio 2019 |26 marzo 2019 |
+|~~WA-GUEST-OS-3.68_201812-01~~ |7 gennaio 2019 |12 marzo 2019 |
 |~~WA-GUEST-OS-3.67_201811-01~~ |14 dicembre 2018 |5 febbraio 2019 |
 |~~WA-GUEST-OS-3.66_201810-01~~ |8 novembre 2018 |7 gennaio 2019 |
 |~~WA-GUEST-OS-3.65_201809-01~~ |12 ottobre 2018 |14 dicembre 2018 |
@@ -200,17 +207,18 @@ Versione .NET Framework installata: 3.5, 4.5
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
+| WA-GUEST-OS-2.93 _201911-01 | 5 dicembre 2019 | Post 2,94 |  
 | WA-GUEST-OS-2.91 _201910-01 | 1 novembre 2019 | Post 2,93 |  
-| WA-GUEST-OS-2.90 _201909-01 | 7 ottobre 2019 | Post 2,92 |  
+|~~WA-GUEST-OS-2.90 _201909-01~~| 7 ottobre 2019 | 5 dicembre 2019 |  
 |~~WA-GUEST-OS-2.89 _201908-01~~| 4 agosto 2019 | 1 novembre 2019 |  
 |~~WA-GUEST-OS-2.88 _201907-01~~| 26 luglio 2019 | 7 ottobre 2019 |
 |~~WA-GUEST-OS-2.87 _201906-01~~|8 luglio 2019 | 4 agosto 2019 |
 |~~WA-GUEST-OS-2.86 _201905-01~~ |6 giugno 2019 |26 luglio 2019 |
-|~~WA-GUEST-OS-2.85 _201904-01~~ |7 maggio 2019 |8 luglio 2019 |
-|~~WA-GUEST-OS-2.84 _201903-01~~ |26 marzo 2019 |6 giugno 2019 |
-|~~WA-GUEST-OS-2.83 _201902-01~~ |12 marzo 2019 |7 maggio 2019 |
-|~~WA-GUEST-OS-2.82 _201901-01~~ |5 febbraio 2019 |26 marzo 2019 |
-|~~WA-GUEST-OS-2.81 _201812-01~~ |7 gennaio 2019 |12 marzo 2019 |
+|~~WA-GUEST-OS-2.85_201904-01~~ |7 maggio 2019 |8 luglio 2019 |
+|~~WA-GUEST-OS-2.84_201903-01~~ |26 marzo 2019 |6 giugno 2019 |
+|~~WA-GUEST-OS-2.83_201902-01~~ |12 marzo 2019 |7 maggio 2019 |
+|~~WA-GUEST-OS-2.82_201901-01~~ |5 febbraio 2019 |26 marzo 2019 |
+|~~WA-GUEST-OS-2.81_201812-01~~ |7 gennaio 2019 |12 marzo 2019 |
 |~~WA-GUEST-OS-2.80_201811-01~~ |14 dicembre 2018 |5 febbraio 2019 |
 |~~WA-GUEST-OS-2.79_201810-01~~ |8 novembre 2018 |7 gennaio 2019 |
 |~~WA-GUEST-OS-2.78_201809-01~~ |12 ottobre 2018 |14 dicembre 2018 |
@@ -219,7 +227,7 @@ Versione .NET Framework installata: 3.5, 4.5
 L'elenco delle patch incluse in ogni versione del sistema operativo guest mensile è disponibile [qui][patches].
 
 ## <a name="sdk-support"></a>Supporto SDK
-Anche se i [criteri di ritiro per Azure SDK][retire policy sdk] indicano che sono supportate solo le versioni sopra 2,2, le famiglie specifiche del sistema operativo guest consentono di usare versioni precedenti. È sempre necessario usare l’SDK più recente supportato.
+Anche se i [criteri di ritiro per Azure SDK][retire policy sdk] indicano che sono supportate solo le versioni sopra 2,2, le famiglie specifiche del sistema operativo guest consentono di usare versioni precedenti. È sempre necessario usare l'SDK più recente supportato.
 
 | Famiglia del sistema operativo guest | Versioni SDK compatibili |
 | --- | --- |

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e0b87757326b5e2a54a78a38bbcd5bef8e6f5be2
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 42378c4377057902937b718555489636bc5dcbaa
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74119981"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900010"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: usare l'API Graph di Azure AD
 
@@ -33,7 +33,7 @@ In questo articolo si apprenderà come eseguire il caso di utilizzo automatico. 
 >[!IMPORTANT]
 > Per gestire gli utenti in una directory Azure AD B2C, è **necessario** utilizzare il [Azure ad API Graph](../active-directory/develop/active-directory-graph-api-quickstart.md) . Il API Graph Azure AD è diverso dall'API Microsoft Graph. Per altre informazioni, vedere il post di Blog di MSDN [Microsoft Graph o Azure AD Graph](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di poter creare applicazioni o utenti, è necessario un tenant di Azure AD B2C. Se non ne è già presente uno, [creare un tenant Azure Active Directory B2C](tutorial-create-tenant.md).
 
@@ -290,7 +290,7 @@ B2C Get-User <user-object-id>
 B2C Get-User <filter-query-expression>
 ```
 
-Ad esempio:
+ad esempio:
 
 ```cmd
 B2C Get-User 2bcf1067-90b6-4253-9991-7f16449c2d91
@@ -319,7 +319,7 @@ Esaminare il metodo `B2CGraphClient.SendGraphDeleteRequest()` per informazioni d
 
 È possibile eseguire molte altre azioni con l'API Graph di Azure AD, oltre alla gestione degli utenti. Le [informazioni di riferimento sull'API Graph di Azure AD](/previous-versions/azure/ad/graph/api/api-catalog) illustrano i dettagli di ogni azione, insieme a richieste di esempio.
 
-## <a name="use-custom-attributes"></a>Usare gli attributi personalizzati
+## <a name="use-custom-attributes"></a>Usare attributi personalizzati
 
 La maggior parte delle applicazioni consumer deve archiviare alcune informazioni del profilo utente personalizzate. Un modo per eseguire questa operazione consiste nel definire un attributo personalizzato nel tenant di B2C. È quindi possibile trattare tale attributo nello stesso modo in cui si tratta di qualsiasi altra proprietà di un oggetto utente. È possibile aggiornare l'attributo, eliminarlo, eseguire una query in base all'attributo, inviarlo come attestazione in un token di accesso e così via.
 
@@ -332,7 +332,7 @@ B2C Get-B2C-Application
 B2C Get-Extension-Attribute <object-id-in-the-output-of-the-above-command>
 ```
 
-L'output rivela i dettagli di ogni attributo personalizzato. Ad esempio:
+L'output rivela i dettagli di ogni attributo personalizzato. ad esempio:
 
 ```json
 {
@@ -363,6 +363,5 @@ Se si usa `B2CGraphClient`, si ha a disposizione un'applicazione di servizio che
 Quando si incorpora questa funzionalità nella propria applicazione, ricordare alcuni punti chiave per le applicazioni B2C:
 
 * Concedere all'applicazione le autorizzazioni necessarie nel tenant.
-* Attualmente è necessario usare ADAL (non MSAL) per ottenere i token di accesso. È anche possibile inviare direttamente messaggi di protocollo, senza usare una raccolta.
 * Quando si chiama l'API Graph, usare `api-version=1.6`.
 * Quando si creano e aggiornano utenti consumer, sono necessarie alcune proprietà, come illustrato in precedenza.

@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/26/2017
 ms.author: tomfitz
-ms.openlocfilehash: 21f4e0aa339eb0c746f9b9b06f8aaada6c4d4b71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f00a99a31a4543ef45c90a86820e627134d8963
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61043461"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888700"
 ---
 # <a name="work-with-resources-in-the-managed-resource-group-for-azure-managed-application"></a>Usare le risorse nel gruppo di risorse gestite per un'applicazione gestita di Azure
 
 In questo articolo viene descritto come aggiornare le risorse distribuite in un'applicazione gestita. L'editore di un'applicazione gestita ha accesso alle risorse nel gruppo di risorse gestite. Per aggiornare queste risorse, è necessario trovare il gruppo di risorse gestite associato a un'applicazione gestita e quindi accedere alla risorsa in tale gruppo.
 
-Questo articolo presuppone la distribuzione dell'applicazione gestita nel progetto di esempio [Applicazione Web gestita (IaaS) con i servizi di gestione di Azure](https://github.com/Azure/azure-managedapp-samples/tree/master/samples/201-managed-web-app). L'applicazione gestita in questione include una macchina virtuale **Standard_D1_v2**. Se l'applicazione gestita non è stata distribuita, è possibile usare comunque questo articolo per acquisire familiarità con i passaggi necessari per eseguire l'aggiornamento di un gruppo di risorse gestite.
+Questo articolo presuppone la distribuzione dell'applicazione gestita nel progetto di esempio [Applicazione Web gestita (IaaS) con i servizi di gestione di Azure](https://github.com/Azure/azure-managedapp-samples/tree/master/Managed%20Application%20Sample%20Packages/201-managed-web-app). L'applicazione gestita in questione include una macchina virtuale **Standard_D1_v2**. Se l'applicazione gestita non è stata distribuita, è possibile usare comunque questo articolo per acquisire familiarità con i passaggi necessari per eseguire l'aggiornamento di un gruppo di risorse gestite.
 
 La figura seguente mostra l'applicazione gestita distribuita.
 

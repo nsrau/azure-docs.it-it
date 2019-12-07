@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 12/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: acafb9aab756507bb073b3e883ee190c72b4f9f8
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: e5e04716ae67df94428a678f6572738d4ad46232
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006762"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901454"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Creare risorse di Time Series Insights tramite i modelli di Azure Resource Manager
 
@@ -24,9 +24,9 @@ Questo articolo descrive come creare e distribuire Time Series Insights risorse 
 
 Time Series Insights supporta le risorse seguenti:
 
-   | Risorsa | DESCRIZIONE |
+   | Gruppi | Description |
    | --- | --- |
-   | Environment | Un ambiente Time Series Insights è un raggruppamento logico di eventi che vengono letti dai broker di eventi, archiviati e resi disponibili per la query. Per altre informazioni, vedere [pianificare l'ambiente di Azure Time Series Insights](time-series-insights-environment-planning.md) |
+   | Ambiente | Un ambiente Time Series Insights è un raggruppamento logico di eventi che vengono letti dai broker di eventi, archiviati e resi disponibili per la query. Per altre informazioni, vedere [pianificare l'ambiente di Azure Time Series Insights](time-series-insights-environment-planning.md) |
    | Origine evento | Un'origine evento è una connessione a un gestore eventi da cui Time Series Insights legge e inserisce gli eventi nell'ambiente. Le origini eventi attualmente supportate sono hub IoT e hub eventi. |
    | Set di dati di riferimento | I set di dati di riferimento forniscono metadati sugli eventi nell'ambiente. I metadati nei set di dati di riferimento verranno aggiunto agli eventi durante l'ingresso. I set di dati di riferimento sono definiti come risorse dalle relative proprietà chiave evento. I metadati effettivi che costituiscono il set di dati di riferimento vengono caricati o modificati tramite le API del piano dati. |
    | Criterio di accesso | I criteri di accesso concedono le autorizzazioni per eseguire query sui dati, modificare i dati di riferimento nell'ambiente e condividere le prospettive e le query salvate associate all'ambiente. Per altre informazioni, vedere [concedere l'accesso ai dati a un ambiente Time Series Insights usando portale di Azure](time-series-insights-data-access.md) |
@@ -59,7 +59,7 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
 
    * Parametri obbligatori
 
-     | . | DESCRIZIONE |
+     | Parametro | Description |
      | --- | --- |
      | eventHubNamespaceName | Lo spazio dei nomi dello hub eventi di origine. |
      | eventHubName | Il nome dello hub eventi di origine. |
@@ -71,7 +71,7 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
 
    * Parametri facoltativi
 
-     | . | DESCRIZIONE |
+     | Parametro | Description |
      | --- | --- |
      | existingEventHubResourceId | Un ID di risorsa facoltativo di un hub eventi esistente che verrà connesso all'ambiente di Time Series Insights tramite l'origine evento. **NOTA:** l'utente che distribuisce il modello deve disporre delle autorizzazioni necessarie per eseguire l'operazione listkey nell'hub eventi di origine. Se non viene superato alcun valore, verrà creato un nuovo hub eventi dal modello. |
      | environmentDisplayName | Un nome descrittivo facoltativo da visualizzare nelle interfacce degli strumenti o utente al posto del nome dell'ambiente. |
@@ -148,7 +148,7 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
 
 1. Se non esiste, creare un nuovo gruppo di risorse.
 
-   * Se non si dispone di un gruppo di risorse esistente, creare un nuovo gruppo di risorse con il comando **New-AzResourceGroup** . Specificare il nome del gruppo di risorse e la posizione che si vuole usare, Ad esempio:
+   * Se non si dispone di un gruppo di risorse esistente, creare un nuovo gruppo di risorse con il comando **New-AzResourceGroup** . Specificare il nome del gruppo di risorse e la posizione che si vuole usare, ad esempio:
 
      ```powershell
      New-AzResourceGroup -Name MyDemoRG -Location "West US"

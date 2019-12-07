@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: 4fe405d4027535eb6b0211f7a3f997194b8819aa
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 14fc91feb16fb45eee1fe2e757a717e04ef07f99
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580757"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894730"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Che cos'è un'area di lavoro Azure Machine Learning?
 
@@ -69,12 +69,12 @@ Le attività di Machine Learning leggono e/o scrivono elementi nell'area di lavo
 
 È inoltre possibile eseguire le attività di gestione dell'area di lavoro seguenti:
 
-| Attività di gestione dell'area di lavoro   | di Microsoft Azure              | Studio | SDK Python/R SDK       | CLI        |
+| Attività di gestione dell'area di lavoro   | di Microsoft Azure              | Studio | SDK Python/R SDK       | Interfaccia della riga di comando        |
 |---------------------------|---------|---------|------------|------------|
 | Creare un'area di lavoro        | **&check;**     | | **&check;** | **&check;** |
 | Gestisci l'accesso all'area di lavoro    | **&check;**   || |  **&check;**    |
-| Eseguire l'aggiornamento a Enterprise Edition    | **&check;** |  | |     |
-| Creare e gestire risorse di calcolo    |   | **&check;** | **&check;** |  **&check;**   |
+| Eseguire l'aggiornamento a Enterprise Edition    | **&check;** | **&check;**  | |     |
+| Creare e gestire risorse di calcolo    | **&check;**   | **&check;** | **&check;** |  **&check;**   |
 | Creare una VM notebook |   | **&check;** | |     |
 
 

@@ -1,18 +1,18 @@
 ---
 title: Servizi e schemi supportati nei log delle risorse di Azure
-description: Informazioni sullo schema di eventi e i servizi per i log di Diagnostica di Azure.
+description: Informazioni sui servizi e sullo schema di eventi supportati per i log delle risorse di Azure.
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: reference
 ms.date: 10/22/2019
 author: rboucher
 ms.author: robb
-ms.openlocfilehash: 09d1a25b83f405b45bbefd39766c82565ea86925
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: af47195a336739d604f0eb40ce6c5c54e15547cb
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476673"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894080"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Servizi, schemi e categorie supportati per i log delle risorse di Azure
 
@@ -126,7 +126,7 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 |Microsoft. databricks/area di lavoro|clusters|Cluster databricks|
 |Microsoft. databricks/area di lavoro|account|Account databricks|
 |Microsoft. databricks/area di lavoro|jobs|Processi Databricks|
-|Microsoft. databricks/area di lavoro|Notebook|Notebook di Databricks|
+|Microsoft. databricks/area di lavoro|notebook|Notebook di Databricks|
 |Microsoft. databricks/area di lavoro|ssh|SSH di databricks|
 |Microsoft. databricks/area di lavoro|area di lavoro|Area di lavoro di Databricks|
 |Microsoft. databricks/area di lavoro|chiavi private|Segreti di databricks|
@@ -149,9 +149,9 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|Log del server PostgreSQL|
 |Microsoft.DBforPostgreSQL/servers|QueryStoreRuntimeStatistics|Statistiche di runtime Query Store PostgreSQL|
 |Microsoft.DBforPostgreSQL/servers|QueryStoreWaitStatistics|Statistiche attesa Query Store PostgreSQL|
-|Microsoft. DBforPostgreSQL/serversv2|PostgreSQLLogs|Log del server PostgreSQL|
-|Microsoft. DBforPostgreSQL/serversv2|QueryStoreRuntimeStatistics|Statistiche di runtime Query Store PostgreSQL|
-|Microsoft. DBforPostgreSQL/serversv2|QueryStoreWaitStatistics|Statistiche attesa Query Store PostgreSQL|
+|Microsoft.DBforPostgreSQL/serversv2|PostgreSQLLogs|Log del server PostgreSQL|
+|Microsoft.DBforPostgreSQL/serversv2|QueryStoreRuntimeStatistics|Statistiche di runtime Query Store PostgreSQL|
+|Microsoft.DBforPostgreSQL/serversv2|QueryStoreWaitStatistics|Statistiche attesa Query Store PostgreSQL|
 |Microsoft. DesktopVirtualization/Workspaces|Checkpoint|Checkpoint|
 |Microsoft. DesktopVirtualization/Workspaces|Errore|Errore|
 |Microsoft. DesktopVirtualization/Workspaces|Gestione|Gestione|

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 42724ae3619312c2cc172be0e143291cd7fa2a70
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 786aefbd8657046f18042defd71dfcb38528eecf
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261112"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887952"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Monitorare i log di diagnostica di servizi multimediali
 
@@ -49,13 +49,13 @@ Questo articolo illustra come instradare i dati all'account di archiviazione e q
 
    ![Sezione sulle impostazioni di diagnostica](media/media-services-diagnostic-logs/logs02.png)
 1. Impostare il dispositivo di scorrimento **Retention (days)** (Conservazione (giorni)) su 30. Questo dispositivo di scorrimento consente di impostare un numero di giorni per conservare i dati di monitoraggio nell'account di archiviazione. Monitoraggio di Azure elimina automaticamente i dati precedenti al numero di giorni specificato. Se il valore di conservazione è zero giorni, i dati vengono conservati all'infinito.
-1. Fare clic su **Salva**.
+1. Fare clic su **Salva**
 
 Il monitoraggio dei dati nella risorsa viene quindi trasmesso all'account di archiviazione.
 
 ## <a name="route-data-to-the-storage-account-using-the-cli"></a>Indirizzare i dati all'account di archiviazione usando l'interfaccia della riga di comando
 
-Per abilitare l'archiviazione dei log di diagnostica in un account di archiviazione, eseguire il `az monitor diagnostic-settings` comando dell'interfaccia della riga di comando seguente: 
+Per abilitare l'archiviazione dei log di diagnostica in un account di archiviazione, eseguire il comando `az monitor diagnostic-settings` CLI seguente: 
 
 ```cli
 az monitor diagnostic-settings create --name <diagnostic name> \
@@ -73,7 +73,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     }]'
 ```
 
-Esempio:
+ad esempio:
 
 ```cli
 az monitor diagnostic-settings create --name amsv3diagnostic \
@@ -174,7 +174,7 @@ Potrebbe essere necessario attendere fino a cinque minuti prima che l'evento ven
 }
 ```
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Metriche di monitoraggio di Azure](../../azure-monitor/platform/data-platform.md)
 * [Log di diagnostica di monitoraggio di Azure](../../azure-monitor/platform/resource-logs-overview.md)

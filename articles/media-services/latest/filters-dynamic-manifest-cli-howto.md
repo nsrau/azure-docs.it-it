@@ -1,6 +1,6 @@
 ---
 title: Uso dell'interfaccia della riga di comando per la creazione di filtri con Servizi multimediali di Azure | Microsoft Docs
-description: In questo argomento illustra come usare l'interfaccia della riga di comando per creare filtri con Servizi multimediali.
+description: Questo articolo illustra come usare l'interfaccia della riga di comando per creare filtri con servizi multimediali di Azure V3.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,18 +14,18 @@ ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 26350479f0f066f45c143e1a35061b3a409de309
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 74516aa921e45917f327a193a1c972b021c9c8ff
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786484"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896064"
 ---
 # <a name="creating-filters-with-cli"></a>Creazione di filtri con l'interfaccia della riga di comando 
 
 Quando si distribuiscono contenuti ai clienti (flusso di eventi dal vivo o di video on demand), il client potrebbe avere bisogno di una maggiore flessibilità rispetto a quanto descritto nel file manifesto dell'asset predefinito. Servizi multimediali di Azure consente di definire i filtri account e i filtri asset per i propri contenuti. 
 
-Per una descrizione dettagliata di questa funzionalità e scenari in cui viene usato, vedere [manifesti dinamici](filters-dynamic-manifest-overview.md) e [filtri](filters-concept.md).
+Per una descrizione dettagliata di questa funzionalità e degli scenari in cui viene usata, vedere [manifesti](filters-dynamic-manifest-overview.md) e [filtri](filters-concept.md)dinamici.
 
 Questo argomento illustra come configurare un filtro per un asset Video on demand e usare l'interfaccia della riga di comando per Servizi multimediali v3 per creare [filtri account](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) e [filtri asset](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest). 
 
@@ -43,7 +43,7 @@ Questo argomento illustra come configurare un filtro per un asset Video on deman
 Di seguito è riportato l'esempio che definisce le condizioni di selezione di traccia che vengono aggiunte al manifesto finale. Questo filtro include tracce audio EC-3 e tracce video con velocità in bit nell'intervallo 0-1000000.
 
 > [!TIP]
-> Se si intende definire **filtri** in REST, si noti che è necessario includere l'oggetto JSON wrapper "Properties".  
+> Se si prevede di definire i **filtri** in REST, si noti che è necessario includere l'oggetto JSON wrapper "Properties".  
 
 ```json
 [
@@ -78,7 +78,7 @@ Di seguito è riportato l'esempio che definisce le condizioni di selezione di tr
 ]
 ```
 
-## <a name="create-account-filters"></a>Creare filtri account
+## <a name="create-account-filters"></a>Crea filtri account
 
 Il comando [az ams account-filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) seguente crea un filtro account con le selezioni di traccia del filtro [definite in precedenza](#define-a-filter). 
 
@@ -100,11 +100,11 @@ az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-
 
 Vedere anche [Esempi JSON per i filtri](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create-an-asset-filter).
 
-## <a name="associate-filters-with-streaming-locator"></a>Associare i filtri localizzatore di Streaming
+## <a name="associate-filters-with-streaming-locator"></a>Associare filtri a un localizzatore di streaming
 
-È possibile specificare un elenco di filtri di asset o account, si applica anche per il localizzatore di Streaming. Il [creazione dinamica dei pacchetti (Endpoint di Streaming)](dynamic-packaging-overview.md) si applica questo elenco di filtri insieme a quelli del client specifica l'URL. Questa combinazione genera una [manifesto dinamico](filters-dynamic-manifest-overview.md), basata su filtri nell'URL + filtri è specificare nel localizzatore di Streaming. È consigliabile usare questa funzionalità se si desidera applicare i filtri, ma non si desidera esporre i nomi dei filtri nell'URL.
+È possibile specificare un elenco di filtri asset o account applicabili al localizzatore di streaming. Il [Packager dinamico (endpoint di streaming)](dynamic-packaging-overview.md) applica questo elenco di filtri insieme a quelli specificati dal client nell'URL. Questa combinazione genera un [manifesto dinamico](filters-dynamic-manifest-overview.md), basato sui filtri presenti nell'URL e nei filtri specificati nel localizzatore di streaming. Si consiglia di utilizzare questa funzionalità se si desidera applicare filtri, ma non si desidera esporre i nomi dei filtri nell'URL.
 
-Il codice dell'interfaccia della riga seguente viene illustrato come creare un localizzatore di Streaming e specificare `filters`. Si tratta di una proprietà facoltativa che accetta un elenco delimitato da spazi dei nomi dei filtri di asset e/o i nomi di account filtro.
+Il codice CLI seguente mostra come creare un localizzatore di streaming e specificare `filters`. Si tratta di una proprietà facoltativa che accetta un elenco separato da spazi di nomi di filtri di asset e/o nomi di filtri account.
 
 ```azurecli
 az ams streaming-locator create -a amsAccount -g resourceGroup -n streamingLocatorName \
@@ -114,9 +114,9 @@ az ams streaming-locator create -a amsAccount -g resourceGroup -n streamingLocat
                                 
 ```
 
-## <a name="stream-using-filters"></a>Utilizzo dei filtri di Stream
+## <a name="stream-using-filters"></a>Flusso con filtri
 
-Dopo aver definito i filtri, è possibile usarli nell'URL di streaming. È possibile applicare filtri ai protocolli di streaming a bitrate adattivo: Apple HLS (HTTP Live Streaming), MPEG-DASH e Smooth Streaming.
+Dopo aver definito i filtri, è possibile usarli nell'URL di streaming. È possibile applicare filtri ai protocolli di streaming a bitrate adattivo: Apple HTTP Live Streaming (HLS), MPEG-DASH e Smooth Streaming.
 
 Nella tabella seguente sono disponibili alcuni esempi di URL con filtri:
 
@@ -128,8 +128,8 @@ Nella tabella seguente sono disponibili alcuni esempi di URL con filtri:
 
 ## <a name="next-step"></a>Passaggio successivo
 
-[Video in streaming](stream-files-tutorial-with-api.md) 
+[Streaming di video](stream-files-tutorial-with-api.md) 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
-[Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)

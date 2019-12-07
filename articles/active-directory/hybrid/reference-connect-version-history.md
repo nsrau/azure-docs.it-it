@@ -12,12 +12,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 893b617a965b0823b8d630e036d5d5f923647f8f
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 461298e4f195d88ced5015af26226a9f7b12f737
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73944217"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74891780"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Cronologia delle versioni
 Il team di Azure Active Directory (Azure AD) aggiorna regolarmente Azure AD Connect con nuove funzionalità. Le nuove funzionalità potrebbero non essere disponibili in tutti i paesi.
@@ -31,7 +31,7 @@ Argomento |  Dettagli
 --------- | --------- |
 Passaggi da eseguire per l'aggiornamento da Azure AD Connect | Metodi per [eseguire l'aggiornamento da una versione precedente alla versione più recente](how-to-upgrade-previous-version.md) di Azure AD Connect.
 Autorizzazioni necessarie | Per le autorizzazioni necessarie per applicare un aggiornamento, vedere [account e autorizzazioni](reference-connect-accounts-permissions.md#upgrade).
-Scaricare| [Scaricare Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
+Download| [Scaricare Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 >[!NOTE]
 >Il rilascio di una nuova versione di Azure AD Connect è un processo che richiede diversi passaggi di controllo della qualità per garantire la funzionalità operativa del servizio e, durante questo processo, il numero di versione di una nuova versione e lo stato della versione verranno aggiornati per riflettere lo stato più recente.
@@ -70,7 +70,7 @@ In determinate circostanze, i server che sono stati aggiornati automaticamente a
 
 
 ### <a name="release-status"></a>Stato della versione
-9/25/2019: rimosso dal Download manuale fino al completamento dell'analisi degli eventi imprevisti.
+9/25/2019: rilasciato solo per l'aggiornamento automatico.
 
 ### <a name="new-features-and-improvements"></a>Miglioramenti e nuove funzionalità
 - I nuovi strumenti per la risoluzione dei problemi consentono di risolvere i problemi relativi agli scenari di "sincronizzazione dell'utente", "non sincronizzazione del gruppo" o "membri del gruppo non sincronizzati".
@@ -469,18 +469,18 @@ Bloccare l'accesso all'account di Active Directory Domain Services implementando
 *   Rimuovere tutte le voci ACE nell'oggetto specifico, ad eccezione delle voci ACE specifiche di SELF. Le autorizzazioni predefinite devono rimanere inalterate per SELF.
 *   Assegnare le autorizzazioni specifiche seguenti:
 
-digitare     | Nome                          | Access               | Si applica a
+Type     | name                          | Accesso               | Si applica a
 ---------|-------------------------------|----------------------|--------------|
-Consenti    | SYSTEM                        | Controllo completo         | Questo oggetto  |
-Consenti    | Enterprise Admins             | Controllo completo         | Questo oggetto  |
-Consenti    | Domain Admins                 | Controllo completo         | Questo oggetto  |
-Consenti    | Amministratori:                | Controllo completo         | Questo oggetto  |
-Consenti    | Controller di dominio organizzazione | Contenuto elenco        | Questo oggetto  |
-Consenti    | Controller di dominio organizzazione | Leggi tutte le proprietà  | Questo oggetto  |
-Consenti    | Controller di dominio organizzazione | Autorizzazioni di lettura     | Questo oggetto  |
-Consenti    | Utenti autenticati           | Contenuto elenco        | Questo oggetto  |
-Consenti    | Utenti autenticati           | Leggi tutte le proprietà  | Questo oggetto  |
-Consenti    | Utenti autenticati           | Autorizzazioni di lettura     | Questo oggetto  |
+Allow    | SYSTEM                        | Controllo completo         | Questo oggetto  |
+Allow    | Enterprise Admins             | Controllo completo         | Questo oggetto  |
+Allow    | Domain Admins                 | Controllo completo         | Questo oggetto  |
+Allow    | Amministratori                | Controllo completo         | Questo oggetto  |
+Allow    | Controller di dominio organizzazione | Contenuto elenco        | Questo oggetto  |
+Allow    | Controller di dominio organizzazione | Leggi tutte le proprietà  | Questo oggetto  |
+Allow    | Controller di dominio organizzazione | Autorizzazioni di lettura     | Questo oggetto  |
+Allow    | Utenti autenticati           | Contenuto elenco        | Questo oggetto  |
+Allow    | Utenti autenticati           | Leggi tutte le proprietà  | Questo oggetto  |
+Allow    | Utenti autenticati           | Autorizzazioni di lettura     | Questo oggetto  |
 
 Per restringere le impostazioni per l'account di Active Directory Domain Services è possibile eseguire [questo script di PowerShell](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). Lo script di PowerShell consentirà di assegnare le autorizzazioni indicate sopra all'account di Active Directory Domain Services.
 
@@ -765,7 +765,7 @@ A causa del problema, l'opzione **Sincronizza tutti i domini e le unità organiz
 
 #### <a name="new-features-and-improvements"></a>Miglioramenti e nuove funzionalità
 
-* Nelle versioni precedenti la funzionalità [ms-DS-ConsistencyGuid come sourceAnchor](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) è disponibile solo per le nuove distribuzioni. Ora questa funzionalità è disponibile per le distribuzioni esistenti. Più in particolare:
+* Nelle versioni precedenti la funzionalità [ms-DS-ConsistencyGuid come sourceAnchor](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) è disponibile solo per le nuove distribuzioni. Ora questa funzionalità è disponibile per le distribuzioni esistenti. In particolare:
   * Per accedere alla funzionalità, avviare la procedura guidata di Azure AD Connect e scegliere l'opzione *Update Source Anchor* (Aggiorna ancoraggio di origine).
   * Questa opzione è visibile solo per le distribuzioni esistenti che usano objectGuid come attributo sourceAnchor.
   * Quando si configura l'opzione, la procedura guidata controlla lo stato dell'attributo ms-DS-ConsistencyGuid nell'istanza di Active Directory locale. Se l'attributo non è configurato in nessun oggetto utente nella directory, la procedura usa l'attributo ms-DS-ConsistencyGuid come attributo sourceAnchor. Se invece l'attributo è configurato in uno o più oggetti utente nella directory, la procedura deduce che l'attributo è usato da altre applicazioni e non è adatto come attributo sourceAnchor e quindi impedisce la modifica dell'ancoraggio di origine. Se si è certi che l'attributo non è usato dalle applicazioni esistenti, è necessario contattare il supporto tecnico per informazioni su come eliminare l'errore.
@@ -812,9 +812,9 @@ CBool(
     |CertFriendlyName|CertThumbprint|CertExtensionOids|
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
-    |CertVersion|CertSignatureAlgorithmOid|Selezionare|
+    |CertVersion|CertSignatureAlgorithmOid|Seleziona|
     |CertKeyAlgorithmParams|CertHashString|Where|
-    |||With|
+    |||Con|
 
 * Le modifiche seguenti dello schema sono state introdotte per consentire ai clienti di creare regole di sincronizzazione personalizzate per includere nel flusso gli attributi sAMAccountName, domainNetBios e domainFQDN per gli oggetti gruppo e l'attributo distinguishedName per gli oggetti utente:
 
@@ -838,7 +838,7 @@ CBool(
  
 * L'editor delle regole di sincronizzazione è stato aggiornato in modo da usare Join (anziché Provision) come valore predefinito del tipo di collegamento durante la creazione di regole di sincronizzazione.
 
-### <a name="ad-fs-management"></a>Gestione di AD FS.
+### <a name="ad-fs-management"></a>Gestione di AD FS
 
 #### <a name="issues-fixed"></a>Problemi risolti
 
@@ -928,7 +928,7 @@ Servizio di sincronizzazione Azure AD Connect
 * È stato risolto un problema dell'aggiornamento di DirSync locale che non crea un profilo di esecuzione per il connettore di Azure AD.
 * È stato risolto un problema dell'interfaccia utente di Synchronization Service Manager che non risponde durante la configurazione del connettore LDAP generico.
 
-Gestione di AD FS.
+Gestione di AD FS
 * È stato risolto un problema della procedura guidata di Azure AD Connect che ha esito negativo se il nodo primario di AD FS è stato spostato in un altro server.
 
 Desktop SSO
@@ -968,7 +968,7 @@ Servizio di sincronizzazione Azure AD Connect
 * È stato risolto un problema che causava l'errore "l'immagine ha un ancoraggio diverso dall'immagine" da eseguire in un Azure AD Connect Server in modalità di gestione temporanea, dopo aver escluso temporaneamente un oggetto AD locale dalla sincronizzazione e averlo quindi incluso di nuovo per la sincronizzazione.
 * Risolto un problema che causava l'errore "The object located by DN is a phantom" (L'oggetto localizzato da DN è un fantasma) in un server Azure AD Connect in modalità di gestione temporanea, dopo aver escluso temporaneamente un oggetto AD locale dalla sincronizzazione e averlo nuovamente incluso.
 
-Gestione di AD FS.
+Gestione di AD FS
 * Risolto un problema per cui la procedura guidata di Azure AD Connect non aggiornava la configurazione di AD FS e non impostava le attestazioni corrette nel trust della relying party dopo aver configurato un ID di accesso alternativo.
 * Risolto un problema per cui la procedura guidata di Azure AD Connect non era in grado di gestire correttamente i server AD FS con account di servizio configurati usando il formato userPrincipalName invece del formato sAMAccountName.
 
@@ -985,7 +985,7 @@ Servizio di sincronizzazione Azure AD Connect
 * Il cmdlet Get-ADSyncScheduler restituisce ora una nuova proprietà booleana denominata SyncCycleInProgress. Se il valore restituito è true, significa che è in corso un ciclo di sincronizzazione pianificato.
 * La cartella di destinazione per archiviare i log di installazione e configurazione di Azure AD Connect è stata modificata da %localappdata%\AADConnect a %programdata%\AADConnect per migliorare l'accessibilità.
 
-Gestione di AD FS.
+Gestione di AD FS
 * Aggiunto il supporto per l'aggiornamento del certificato SSL Farm AD FS.
 * Aggiunto il supporto per la gestione di AD FS 2016.
 * È ora possibile specificare un gMSA (account del servizio gestito di gruppo) durante l'installazione di AD FS.
@@ -1230,7 +1230,7 @@ Il nome è stato modificato da Azure AD Sync ad Azure AD Connect.
 
 **Nuove funzionalità:**
 
-* [impostazioni rapide](how-to-connect-install-express.md)
+* Installazione mediante le [impostazioni rapide](how-to-connect-install-express.md)
 * È possibile [configurare la farm AD FS](how-to-connect-install-custom.md#configuring-federation-with-ad-fs)
 * È possibile [aggiornare da DirSync](how-to-dirsync-upgrade-get-started.md)
 * [Impedire eliminazioni accidentali](how-to-connect-sync-feature-prevent-accidental-deletes.md)
@@ -1332,4 +1332,4 @@ Data di rilascio: settembre 2014
 **Rilascio iniziale di Azure AD Sync.**
 
 ## <a name="next-steps"></a>Passaggi successivi
-Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).
+Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).

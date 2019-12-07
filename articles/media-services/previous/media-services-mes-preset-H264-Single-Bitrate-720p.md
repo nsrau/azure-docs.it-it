@@ -1,6 +1,6 @@
 ---
 title: Media Encoder Standard a bitrate singolo H.264 con risoluzione 720p preimpostato - Azure | Documentazione Microsoft
-description: Questo argomento fornisce una panoramica del set di impostazioni delle attività **Codec video H.264 a bitrate singolo con risoluzione 720p**.
+description: Questo articolo fornisce una panoramica del set di impostazioni dell'attività Media Encoder Standard "H264 a bitrate singolo 720p".
 author: Juliako
 manager: femila
 editor: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: d43b78b83ca1dcb60dc6afb17424354975681494
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e48f0c614ba7a7b4199e6ddf0050de0ae7db063f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61129597"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74886830"
 ---
 # <a name="h264-single-bitrate-720p"></a>H264 Single Bitrate 720p
 `Media Encoder Standard` definisce un set di impostazioni di codifica che è possibile usare per la creazione di processi di codifica. È possibile usare un `preset name` per specificare il formato in cui codificare il file multimediale oppure creare set di impostazioni basati su JSON o XML personalizzati, con codifica UTF-8 o UTF-16. Dopodiché, occorre trasmettere il set di impostazioni personalizzato al codificatore. Per un elenco di tutti i nomi dei set di impostazioni supportati dal codificatore `Media Encoder Standard`, vedere [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md) (Set di impostazioni di attività per Media Encoder Standard).  

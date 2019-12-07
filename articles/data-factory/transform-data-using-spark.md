@@ -1,5 +1,5 @@
 ---
-title: Trasformare dati tramite l'attività Spark in Azure Data Factory
+title: Trasformare i dati usando l'attività Spark
 description: Informazioni su come trasformare dati tramite l'esecuzione di programmi Spark da una pipeline di Azure Data Factory con l'attività Spark.
 services: data-factory
 documentationcenter: ''
@@ -11,15 +11,15 @@ ms.date: 05/31/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 5f3bb88d3a2e43abe1776a4b46e4ab35490db8ec
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 27dea39a1ebd2be56c86e4327218c62c5378002d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683759"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893757"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Trasformare dati tramite l'attività Spark in Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-spark.md)
 > * [Versione corrente](transform-data-using-spark.md)
 
@@ -58,15 +58,15 @@ Ecco la definizione JSON di esempio di un'attività Spark:
 
 La tabella seguente fornisce le descrizioni delle proprietà JSON usate nella definizione JSON:
 
-| Proprietà              | Descrizione                              | Obbligatorio |
+| Proprietà              | Description                              | Obbligatoria |
 | --------------------- | ---------------------------------------- | -------- |
-| name                  | Nome dell'attività nella pipeline.    | Sì      |
+| name                  | Nome dell'attività nella pipeline.    | SÌ      |
 | description           | Testo che descrive l'attività.  | No       |
-| type                  | Per l'attività Spark il tipo corrisponde a HDInsightSpark. | Sì      |
-| linkedServiceName     | Nome del servizio collegato di HDInsight Spark in cui viene eseguito il programma Spark. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md). | Sì      |
+| type                  | Per l'attività Spark il tipo corrisponde a HDInsightSpark. | SÌ      |
+| linkedServiceName     | Nome del servizio collegato di HDInsight Spark in cui viene eseguito il programma Spark. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md). | SÌ      |
 | SparkJobLinkedService | Il servizio collegato di archiviazione di Azure che contiene il file di processo, le dipendenze e i log di Spark.  Se non si specifica un valore per questa proprietà, viene usato lo spazio di archiviazione associato al cluster HDInsight. Il valore di questa proprietà può essere solo un servizio collegato di Archiviazione di Azure. | No       |
-| rootPath              | Contenitore BLOB di Azure e cartella che contiene il file Spark. Il nome del file distingue tra maiuscole e minuscole. Per informazioni dettagliate sulla struttura della cartella, fare riferimento alla prossima sezione, relativa alla struttura delle cartelle. | Sì      |
-| entryFilePath         | Percorso relativo alla cartella radice del pacchetto/codice Spark. Il file di ingresso deve essere un file Python o un file JAR. | Sì      |
+| rootPath              | Contenitore BLOB di Azure e cartella che contiene il file Spark. Il nome del file distingue tra maiuscole e minuscole. Per informazioni dettagliate sulla struttura della cartella, fare riferimento alla prossima sezione, relativa alla struttura delle cartelle. | SÌ      |
+| entryFilePath         | Percorso relativo alla cartella radice del pacchetto/codice Spark. Il file di ingresso deve essere un file Python o un file JAR. | SÌ      |
 | className             | Classe principale Java/Spark dell'applicazione      | No       |
 | arguments             | Elenco di argomenti della riga di comando del programma Spark. | No       |
 | proxyUser             | Account utente da rappresentare per eseguire il programma Spark | No       |
@@ -78,10 +78,10 @@ I processi Spark sono più estendibili dei processi Pig/Hive. Per i processi Spa
 
 Creare la struttura seguente di cartelle nell'archivio BLOB di Azure a cui fa riferimento il servizio collegato HDInsight. Caricare i file dipendenti nelle sottocartelle appropriate all'interno della cartella radice rappresentata da **entryFilePath**. Ad esempio, caricare i file python nella sottocartella pyFiles e i file jar nella sottocartella jars della cartella radice. In fase di esecuzione, il servizio Data Factory prevede la struttura di cartelle seguente nell'archivio BLOB di Azure:     
 
-| path                  | Descrizione                              | Obbligatorio | Tipo   |
+| path                  | Description                              | Obbligatoria | Type   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
-| `.` (radice)            | Percorso radice del processo Spark nel servizio collegato di archiviazione | Sì      | Cartella |
-| &lt;definito dall'utente &gt; | Percorso che punta al file di ingresso del processo Spark | Sì      | File   |
+| `.` (radice)            | Percorso radice del processo Spark nel servizio collegato di archiviazione | SÌ      | Cartella |
+| &lt;definito dall'utente &gt; | Percorso che punta al file di ingresso del processo Spark | SÌ      | File   |
 | ./jars                | Tutti i file in questa cartella vengono caricati e inseriti nel classpath java del cluster | No       | Cartella |
 | ./pyFiles             | Tutti i file in questa cartella vengono caricati e inseriti nel PYTHONPATH del cluster | No       | Cartella |
 | ./files               | Tutti i file in questa cartella vengono caricati e inseriti nella directory di lavoro executor | No       | Cartella |

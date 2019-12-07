@@ -1,6 +1,6 @@
 ---
 title: Streaming live con Servizi multimediali di Azure per creare flussi a più bitrate | Microsoft Docs
-description: 'Questo argomento descrive come configurare un canale che riceve un flusso live a velocità in bit singola da un codificatore locale e quindi esegue la codifica live in un flusso a velocità in bit adattiva con Servizi multimediali. Il flusso può essere quindi distribuito alle applicazioni di riproduzione client tramite uno o più endpoint di streaming, usando uno dei protocolli di flusso adattivo seguenti: HLS, Smooth Stream o MPEG-DASH.'
+description: Questo argomento descrive come configurare un canale che riceve un flusso live a velocità in bit singola da un codificatore locale e quindi esegue la codifica live in un flusso a velocità in bit adattiva con Servizi multimediali.
 services: media-services
 documentationcenter: ''
 author: anilmur
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: 4131e9b0ec057c16516f5a656debcf7053c2c1fe
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 32a4fde12287e06c12fac9ed13ad7a8889b49fc1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598309"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895924"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Streaming live con Servizi multimediali di Azure per creare flussi a bitrate multipli
 
@@ -342,7 +342,7 @@ La tabella seguente mostra l'associazione tra stati del canale e modalità di fa
 
 ## <a name="need-help"></a>Opzioni per
 
-È possibile aprire un ticket di supporto passando alla [nuova richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+È possibile aprire un ticket di supporto passando a [Nuova richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 ## <a name="next-step"></a>Passaggio successivo
 

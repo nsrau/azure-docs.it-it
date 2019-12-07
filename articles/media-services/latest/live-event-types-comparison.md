@@ -1,6 +1,6 @@
 ---
 title: Tipi di LiveEvent Servizi multimediali di Azure | Microsoft Docs
-description: Questo articolo illustra una tabella dettagliata che confronta i tipi di Live.
+description: In servizi multimediali di Azure, un evento Live può essere uno dei due tipi, la codifica live e il pass-through. Questo articolo illustra una tabella dettagliata che confronta i tipi di evento Live.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 884cf8d913cec038df3b38c8af2ed0a67bd8060d
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 8377c4339b07e0b917e10ed413ffc79baef91fac
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802238"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888394"
 ---
 # <a name="live-event-types-comparison"></a>Confronto tra tipi di eventi live
 
@@ -34,13 +34,13 @@ Nella tabella seguente vengono confrontate le funzionalità dei tipi di evento L
 
 | Funzionalità | Evento live pass-through | Evento live standard o Premium1080p |
 | --- | --- | --- |
-| Input a bitrate singolo codificato in bitrate multipli nel cloud |No |Sì |
+| Input a bitrate singolo codificato in bitrate multipli nel cloud |No |SÌ |
 | Risoluzione video massima per feed di contributo |4K (4096 x 2160 a 60 fotogrammi/sec) |1080p (1920 x 1088 a 30 fotogrammi/sec)|
 | Livelli massimi consigliati per feed di contributo|Fino a 12|Un audio|
 | Livelli massimi nell'output| Uguale all'input|Fino a 6 (vedere di seguito i set di impostazioni di sistema)|
 | Larghezza di banda aggregata massima per feed di contributo|60 Mbps|N/D|
 | Velocità in bit massima per un singolo livello all'interno del contributo |20 Mbps|20 Mbps|
-| Supporto per tracce audio in più lingue|Sì|No|
+| Supporto per tracce audio in più lingue|SÌ|No|
 | Codec video di input supportati |H.264/AVC e H.265/HEVC|H.264/AVC|
 | Codec video di output supportati|Uguale all'input|H.264/AVC|
 | Profondità bit video di input e output supportata|Fino a 10 bit incluso HDR 10/HLG|8 bit|
@@ -51,13 +51,13 @@ Nella tabella seguente vengono confrontate le funzionalità dei tipi di evento L
 | Protocolli di input|RTMP, MP4 frammentato (Smooth Streaming)|RTMP, MP4 frammentato (Smooth Streaming)|
 | Prezzo|Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/) e fare clic sulla scheda "Video live"|Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/) e fare clic sulla scheda "Video live"|
 | Tempo di esecuzione massimo| 24 ore su 24, 365 giorni all'anno, live linear | 24 ore x 365 giorni, linea dinamica (anteprima)|
-| Possibilità di trasferire dati dei sottotitoli CEA 608/708 integrati|Yes|Yes|
+| Possibilità di trasferire dati dei sottotitoli CEA 608/708 integrati|SÌ|SÌ|
 | Supporto per l'inserimento di slate|No|No|
 | Supporto per annunci pubblicitari tramite API| No|No|
-| Supporto per annunci pubblicitari tramite messaggi in banda SCTE-35|Sì|Sì|
-| Possibilità di recuperare brevi fasi di stallo in feed di contributo|Sì|Parziale|
-| Supporto per GOP di input non uniformi|Yes|No - La durate GOP dell’input deve essere fissa|
-| Supporto per input con frequenza dei fotogrammi variabile|Sì|No: l'input deve essere una frequenza di fotogrammi fissa. Sono tollerate lievi variazioni, ad esempio durante scene ad alta velocità. Tuttavia, il feed di contributo non può eliminare la frequenza dei fotogrammi, ad esempio a 15 fotogrammi al secondo.|
+| Supporto per annunci pubblicitari tramite messaggi in banda SCTE-35|SÌ|SÌ|
+| Possibilità di recuperare brevi fasi di stallo in feed di contributo|SÌ|Parziale|
+| Supporto per GOP di input non uniformi|SÌ|No - La durate GOP dell’input deve essere fissa|
+| Supporto per input con frequenza dei fotogrammi variabile|SÌ|No: l'input deve essere una frequenza di fotogrammi fissa. Sono tollerate lievi variazioni, ad esempio durante scene ad alta velocità. Tuttavia, il feed di contributo non può eliminare la frequenza dei fotogrammi, ad esempio a 15 fotogrammi al secondo.|
 | Arresto automatico dell'evento live in caso di perdita del feed di input|No|Dopo 12 ore, se nessun LiveOutput è in esecuzione|
 
 ## <a name="system-presets"></a>Set di impostazioni di sistema
@@ -71,14 +71,14 @@ Le risoluzioni e le velocità in bit contenute nell'output del codificatore Live
 
 Se il feed di contributo è di risoluzione 720p o superiore, il set di impostazioni **Default720p** codifica il feed nei 6 livelli seguenti. Nella tabella riportata di seguito, la velocità in bit è in Kbps, MaxFPS rappresenta il numero massimo di frame consentito (in frame al secondo), il profilo rappresenta il profilo H. 264 utilizzato.
 
-| Bitrate | Larghezza | Altezza | MaxFPS | Profilo |
+| Bitrate | Larghezza | Altezza: | MaxFPS | Profilo |
 | --- | --- | --- | --- | --- |
-| 3500 |1280 |720 |30 |Alto |
-| 2200 |960 |540 |30 |Alto |
-| 1350 |704 |396 |30 |Alto |
-| 850 |512 |288 |30 |Alto |
-| 550 |384 |216 |30 |Alto |
-| 200 |340 |192 |30 |Alto |
+| 3500 |1280 |720 |30 |Alte |
+| 2200 |960 |540 |30 |Alte |
+| 1350 |704 |396 |30 |Alte |
+| 850 |512 |288 |30 |Alte |
+| 550 |384 |216 |30 |Alte |
+| 200 |340 |192 |30 |Alte |
 
 > [!NOTE]
 > Se è necessario personalizzare il set di impostazioni per la codifica live, aprire un ticket di supporto tramite il portale di Azure. È necessario specificare la tabella di risoluzione e la velocità in bit desiderata. Verificare che vi sia un solo livello a 720p e un massimo di 6 livelli. Specificare anche che si richiede un set di impostazioni per un codificatore Live standard.
@@ -88,14 +88,14 @@ Se il feed di contributo è di risoluzione 720p o superiore, il set di impostazi
 
 Se il feed di contributo è di risoluzione 1080p, il set di impostazioni **Default1080p** codifica il feed nei 6 livelli seguenti.
 
-| Bitrate | Larghezza | Altezza | MaxFPS | Profilo |
+| Bitrate | Larghezza | Altezza: | MaxFPS | Profilo |
 | --- | --- | --- | --- | --- |
-| 5500 |1920 |1080 |30 |Alto |
-| 3000 |1280 |720 |30 |Alto |
-| 1600 |960 |540 |30 |Alto |
-| 800 |640 |360 |30 |Alto |
-| 400 |480 |270 |30 |Alto |
-| 200 |320 |180 |30 |Alto |
+| 5500 |1920 |1080 |30 |Alte |
+| 3000 |1280 |720 |30 |Alte |
+| 1600 |960 |540 |30 |Alte |
+| 800 |640 |360 |30 |Alte |
+| 400 |480 |270 |30 |Alte |
+| 200 |320 |180 |30 |Alte |
 
 > [!NOTE]
 > Se è necessario personalizzare il set di impostazioni per la codifica live, aprire un ticket di supporto tramite il portale di Azure. È necessario specificare la tabella di risoluzione e la velocità in bit desiderata. Verificare che sia presente un solo livello a 1080p e al massimo 6 livelli. Specificare anche che si richiede un set di impostazioni per un codificatore Premium1080p Live.

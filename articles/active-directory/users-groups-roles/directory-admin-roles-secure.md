@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e65714f67dde79847bf07efda358a4e1f9ea938d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 87cdd5ff303cbb001e482137df1d4241487fc6d2
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74028447"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900792"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protezione dell'accesso con privilegi per le distribuzioni ibride e cloud in Azure AD
 
@@ -94,7 +94,7 @@ Dopo avere attivato Azure AD Privileged Identity Management:
 
 2. Per selezionare il tenant dove usare Privileged Identity Management, selezionare il nome utente nell'angolo in alto a destra del portale di Azure.
 
-3. Selezionare **Tutti i servizi** e filtrare l'elenco per **Azure AD Privileged Identity Management**.
+3. Nel menu portale di Azure selezionare tutti i **Servizi** e filtrare l'elenco per **Azure ad Privileged Identity Management**.
 
 4. Aprire Privileged Identity Management dall'elenco **Tutti i servizi** e aggiungerlo al dashboard.
 
@@ -261,7 +261,7 @@ Se si usa già Azure AD Privileged Identity Management, modificare gli intervall
 
 #### <a name="determine-exposure-to-password-based-sign-in-protocols-if-using-exchange-online"></a>Determinare l'esposizione a protocolli di accesso basati su password (se si usa Exchange Online)
 
-In passato, i protocolli presupponevano che le combinazioni di nome utente/password fossero incorporate in dispositivi, account di posta elettronica, telefoni e così via. Tuttavia, ora, con il rischio di attacchi informatici nel cloud, è consigliabile identificare ogni potenziale utente che, se le loro credenziali sono state compromesse, potrebbe essere catastrofico per l'organizzazione ed escluderli dalla possibilità di accedere alla propria posta elettronica tramite nome utente e password implementando requisiti di autenticazione avanzata e accesso condizionale. È possibile bloccare [l'autenticazione legacy usando l'accesso condizionale](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication). Per informazioni su [come bloccare l'autenticazione di base](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) tramite Exchnage online, vedere. 
+In passato, i protocolli presupponevano che le combinazioni di nome utente/password fossero incorporate in dispositivi, account di posta elettronica, telefoni e così via. Tuttavia, ora, con il rischio di attacchi informatici nel cloud, è consigliabile identificare ogni potenziale utente che, se le loro credenziali sono state compromesse, potrebbe essere catastrofico per l'organizzazione ed escluderli dalla possibilità di accedere alla propria posta elettronica tramite nome utente e password implementando requisiti di autenticazione avanzata e accesso condizionale. È possibile bloccare [l'autenticazione legacy usando l'accesso condizionale](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication). Per informazioni su [come bloccare l'autenticazione di base](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) tramite Exchange Online, vedere. 
 
 #### <a name="complete-a-roles-review-assessment-for-office-365-roles-if-using-office-365"></a>Completare una valutazione di verifica dei ruoli per i ruoli di Office 365 (se si usa Office 365)
 

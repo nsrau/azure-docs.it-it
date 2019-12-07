@@ -1,7 +1,7 @@
 ---
 title: Codifica di video e audio con servizi multimediali
 titleSuffix: Azure Media Services
-description: Scopri come codificare video e audio con servizi multimediali di Azure.
+description: Questo articolo spiega come codificare video e audio con servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: d3de307b1dadf302004fa9fd02c8cf23e36b3046
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: e9a0a8c8709e41bb7778878f76024263cdc32481
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73574270"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896079"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Codifica di video e audio con servizi multimediali
 
@@ -26,7 +26,7 @@ Il termine codifica in servizi multimediali si applica al processo di conversion
 
 I video vengono in genere recapitati a dispositivi e app tramite [download progressivo](https://en.wikipedia.org/wiki/Progressive_download) o [streaming a bitrate adattivo](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming).
 
-* Per eseguire il download progressivo, è possibile usare servizi multimediali di Azure per convertire un file multimediale digitale (mezzanino) in un file [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) , che contiene video codificati con il codec [H. 264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) e audio che è stato codificato con [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) codec. Questo file MP4 viene scritto in un asset nell'account di archiviazione. È possibile usare le API o gli SDK di archiviazione di Azure, ad esempio l' [API REST di archiviazione](../../storage/common/storage-rest-api-auth.md) o [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md), per scaricare direttamente il file. Se l'asset di output è stato creato con un nome di contenitore specifico nello spazio di archiviazione, usare tale percorso. In caso contrario, è possibile usare servizi multimediali per [elencare gli URL del contenitore di asset](https://docs.microsoft.com/rest/api/media/assets/listcontainersas). 
+* Per eseguire il download progressivo, è possibile usare servizi multimediali di Azure per convertire un file multimediale digitale (mezzanino) in un file [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) , che contiene video codificati con il codec [H. 264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) e audio che è stato codificato con il codec [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) . Questo file MP4 viene scritto in un asset nell'account di archiviazione. È possibile usare le API o gli SDK di archiviazione di Azure, ad esempio l' [API REST di archiviazione](../../storage/common/storage-rest-api-auth.md) o [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md), per scaricare direttamente il file. Se l'asset di output è stato creato con un nome di contenitore specifico nello spazio di archiviazione, usare tale percorso. In caso contrario, è possibile usare servizi multimediali per [elencare gli URL del contenitore di asset](https://docs.microsoft.com/rest/api/media/assets/listcontainersas). 
 * Per preparare il contenuto per la distribuzione tramite streaming a bitrate adattivo, è necessario codificare il file in formato intermedio a più velocità in bit (da alto a basso). Per garantire una transizione normale della qualità, la risoluzione del video viene ridotta quando il bitrate viene ridotto. In questo modo si ottiene una cosiddetta scala di codifica, ovvero una tabella di risoluzioni e bitrate (vedere [scala a bitrate adattivo generato automaticamente](autogen-bitrate-ladder.md)). È possibile usare servizi multimediali per codificare i file in formato intermedio a più velocità in bit. In questo modo, si otterrà un set di file MP4 e file di configurazione del flusso associati scritti in un asset nell'account di archiviazione. È quindi possibile usare la funzionalità di creazione [dinamica dei pacchetti](dynamic-packaging-overview.md) di servizi multimediali per distribuire il video tramite protocolli di streaming, ad esempio [MPEG-Dash](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) e [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming). A questo scopo, è necessario creare un [localizzatore di streaming](streaming-locators-concept.md) e creare URL di streaming corrispondenti ai protocolli supportati, che possono essere quindi passati a dispositivi/app in base alle relative funzionalità.
 
 Il diagramma seguente illustra il flusso di lavoro per la codifica su richiesta con la creazione dinamica dei pacchetti.
@@ -52,7 +52,7 @@ A partire da gennaio 2019, durante la codifica con Media Encoder Standard per pr
 
 Quando si inviano processi per elaborare i video, è necessario indicare a servizi multimediali dove trovare il video di input. Una delle opzioni consiste nel specificare un URL HTTPS come input del processo. Attualmente, servizi multimediali V3 non supporta la codifica di trasferimento Chunked sugli URL HTTPS.
 
-#### <a name="examples"></a>Esempi
+#### <a name="examples"></a>esempi
 
 * [Codificare da un URL HTTPS con .NET](stream-files-dotnet-quickstart.md)
 * [Codificare da un URL HTTPS con REST](stream-files-tutorial-with-rest.md)
@@ -63,7 +63,7 @@ Quando si inviano processi per elaborare i video, è necessario indicare a servi
 
 È possibile archiviare il video di input come asset di Servizi multimediali, nel qual caso si crea un asset di input basato su un file archiviato in locale o nel servizio di Archiviazione BLOB di Azure.
 
-#### <a name="examples"></a>Esempi
+#### <a name="examples"></a>esempi
 
 [Codificare un file locale usando i set di impostazioni predefiniti](job-input-from-local-file-how-to.md)
 
@@ -76,7 +76,7 @@ Quando si codifica un video, è possibile specificare di tagliare o ritagliare a
 > [!TIP]
 > Se si vuole eseguire lo streaming di un sublip del video senza ricodificare il video, è consigliabile usare i [manifesti di pre-filtro con Dynamic Packager](filters-dynamic-manifest-overview.md).
 
-#### <a name="examples"></a>Esempi
+#### <a name="examples"></a>esempi
 
 Vedere gli esempi:
 
@@ -122,7 +122,7 @@ Quando si creano set di impostazioni personalizzati, si applicano le considerazi
 
 Servizi multimediali supporta in modo completo la personalizzazione di tutti i valori nei set di impostazioni per soddisfare le esigenze e i requisiti di codifica specifici. Per esempi che illustrano come personalizzare i set di impostazioni del codificatore, vedere l'elenco seguente:
 
-#### <a name="examples"></a>Esempi
+#### <a name="examples"></a>esempi
 
 - [Personalizzare i set di impostazioni con .NET](customize-encoder-presets-how-to.md)
 - [Personalizzare le impostazioni predefinite con l'interfaccia della riga di comando](custom-preset-cli-howto.md)
@@ -136,7 +136,7 @@ In servizi multimediali V3 i set di impostazioni sono entità fortemente tipizza
 
 Per ridimensionare l'elaborazione di contenuti multimediali, vedere [ridimensionare con CLI](media-reserved-units-cli-how-to.md).
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
+## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback e ottenere aggiornamenti
 
 Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
 
@@ -145,4 +145,4 @@ Consultare l'articolo [Community di Servizi multimediali di Azure](media-service
 * [Caricare, codificare e trasmettere in streaming con servizi multimediali](stream-files-tutorial-with-api.md).
 * [Codificare da un URL HTTPS usando i set di impostazioni predefiniti](job-input-from-http-how-to.md).
 * [Codificare un file locale usando i set di impostazioni predefiniti](job-input-from-local-file-how-to.md).
-* [Creare un set di impostazioni personalizzato per individuare i requisiti specifici per lo scenario o i dispositivi](customize-encoder-presets-how-to.md).
+* [Creare un set di impostazioni personalizzato per i requisiti specifici di uno scenario o un dispositivo](customize-encoder-presets-how-to.md).

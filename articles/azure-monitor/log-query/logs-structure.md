@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/22/2019
-ms.openlocfilehash: 091d7f598a9841ae45b4248ad8a07a355203445a
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 6ce8470da6b444cedb7bff1d14bcc6448b52fe94
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894243"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893638"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Struttura dei log di monitoraggio di Azure
 La possibilità di ottenere rapidamente informazioni dettagliate sui dati tramite una query di [log](log-query-overview.md) è una funzionalità potente di monitoraggio di Azure. Per creare query efficienti e utili, è necessario comprendere alcuni concetti di base, ad esempio dove si trovano i dati desiderati e come sono strutturati. Questo articolo fornisce i concetti di base necessari per iniziare.
@@ -27,7 +27,7 @@ Nell'immagine seguente vengono illustrati esempi di origini dati che scrivono in
 ![Tabelle](media/logs-structure/queries-tables.png)
 
 ## <a name="log-analytics-workspace"></a>Area di lavoro Log Analytics
-Tutti i dati raccolti dai log di monitoraggio di Azure ad eccezione di Application Insights vengono archiviati in un' [area di lavoro di log Analytics](../platform/manage-access.md). È possibile creare una o più aree di lavoro in base ai requisiti specifici. Le [origini dati](../platform/data-sources.md) , ad esempio i log attività e i log di diagnostica delle risorse di Azure, gli agenti nelle macchine virtuali e i dati dalle soluzioni Insights e Monitoring scriveranno i dati in una o più aree di lavoro configurate come parte dell'onboarding. Altri servizi, come il [Centro sicurezza di Azure](/azure/security-center/) e [Azure Sentinel](/azure/sentinel/) , usano anche un'area di lavoro di log Analytics per archiviare i dati in modo che possano essere analizzati usando query di log insieme ai dati di monitoraggio di altre origini.
+Tutti i dati raccolti dai log di monitoraggio di Azure ad eccezione di Application Insights vengono archiviati in un' [area di lavoro di log Analytics](../platform/manage-access.md). È possibile creare una o più aree di lavoro in base ai requisiti specifici. Le [origini dati](../platform/data-sources.md) , ad esempio i log attività e i log delle risorse di risorse di Azure, gli agenti nelle macchine virtuali e i dati dalle soluzioni Insights e Monitoring scriveranno i dati in una o più aree di lavoro configurate come parte dell'onboarding. Altri servizi, come il [Centro sicurezza di Azure](/azure/security-center/) e [Azure Sentinel](/azure/sentinel/) , usano anche un'area di lavoro di log Analytics per archiviare i dati in modo che possano essere analizzati usando query di log insieme ai dati di monitoraggio di altre origini.
 
 Diversi tipi di dati vengono archiviati in tabelle diverse dell'area di lavoro e ogni tabella dispone di un set univoco di proprietà. Un set standard di tabelle viene aggiunto a un'area di lavoro al momento della creazione e le nuove tabelle vengono aggiunte per diverse origini dati, soluzioni e servizi durante l'onboarding. È anche possibile creare tabelle personalizzate usando l' [API dell'agente di raccolta dati](../platform/data-collector-api.md).
 
@@ -43,10 +43,10 @@ union withsource = table *
 | summarize count() by table
 | sort by table asc
 ```
-Per informazioni dettagliate sulle tabelle create, vedere la documentazione per ogni origine dati. Gli esempi includono articoli per le [origini dati di Agent, i](../platform/agent-data-sources.md) [log di diagnostica](../platform/diagnostic-logs-schema.md)e le soluzioni di [monitoraggio](../insights/solutions-inventory.md).
+Per informazioni dettagliate sulle tabelle create, vedere la documentazione per ogni origine dati. Gli esempi includono articoli per le [origini dati di Agent, i](../platform/agent-data-sources.md) [log delle risorse](../platform/diagnostic-logs-schema.md)e le [soluzioni di monitoraggio](../insights/solutions-inventory.md).
 
 ### <a name="workspace-permissions"></a>Autorizzazioni per l'area di lavoro
-Vedere [progettazione di una distribuzione di log di monitoraggio di Azure](../platform/design-logs-deployment.md) per comprendere la strategia di controllo degli accessi e i consigli per fornire l'accesso ai dati in un'area di lavoro. Oltre a concedere l'accesso all'area di lavoro stessa, è possibile limitare l'accesso a singole tabelle [utilizzando il](../platform/manage-access.md#table-level-rbac)controllo degli accessi in base al ruolo.
+Vedere [progettazione di una distribuzione di log di monitoraggio di Azure](../platform/design-logs-deployment.md) per comprendere la strategia di controllo degli accessi e i consigli per fornire l'accesso ai dati in un'area di lavoro. Oltre a concedere l'accesso all'area di lavoro stessa, è possibile limitare l'accesso a singole tabelle utilizzando il [controllo degli accessi in base al ruolo](../platform/manage-access.md#table-level-rbac).
 
 ## <a name="application-insights-application"></a>Applicazione Application Insights
 Quando si crea un'applicazione in Application Insights, viene creata automaticamente un'applicazione corrispondente nei log di monitoraggio di Azure. Non è necessaria alcuna configurazione per la raccolta dei dati e l'applicazione scriverà automaticamente i dati di monitoraggio, ad esempio le visualizzazioni di pagina, le richieste e le eccezioni.
@@ -59,8 +59,8 @@ A differenza di un'area di lavoro Log Analytics, un'applicazione Application Ins
 | browserTimings      | Dati sulle prestazioni del client, ad esempio il tempo impiegato per elaborare i dati in ingresso. |
 | customEvents        | Eventi personalizzati creati dall'applicazione. |
 | customMetrics       | Metriche personalizzate create dall'applicazione. |
-| Dipendenze        | Chiamate dall'applicazione a componenti esterni. |
-| Eccezioni          | Eccezioni generate dal runtime dell'applicazione. |
+| dipendenze        | Chiamate dall'applicazione a componenti esterni. |
+| eccezioni          | Eccezioni generate dal runtime dell'applicazione. |
 | pageViews           | Dati relativi a ogni visualizzazione del sito Web con le informazioni del browser. |
 | performanceCounters | Misurazioni delle prestazioni dalle risorse di calcolo che supportano l'applicazione. |
 | requests            | Dettagli di ogni richiesta dell'applicazione.  |

@@ -1,6 +1,6 @@
 ---
 title: Creare un input del processo di Servizi multimediali di Azure da un URL HTTPS | Microsoft Docs
-description: Questo argomento illustra come creare un input del processo da un URL HTTP(s).
+description: Questo argomento illustra come creare un input del processo di servizi multimediali di Azure da un URL HTTPS.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,19 +11,19 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: juliako
-ms.openlocfilehash: f6eee912bb3bba112bd13969f1a8d9cb5748e387
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a3d4568dd237491f28ae2880bdd78dd236870c3f
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65413821"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74899821"
 ---
 # <a name="create-a-job-input-from-an-https-url"></a>Creare un input del processo da un URL HTTPS
 
-In Servizi multimediali v3, quando si inviano processi per elaborare i video, è necessario indicare a Servizi multimediali dove trovare il video di input. Una delle opzioni consiste nello specificare un URL HTTPS come input del processo, come illustrato in questo esempio. Attualmente AMS v3 non supporta la codifica di trasferimenti in blocchi su URL HTTPS. Per un esempio completo, vedere questo [esempio di GitHub](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
+In Servizi multimediali v3, quando si inviano processi per elaborare i video, è necessario indicare a Servizi multimediali dove trovare il video di input. Una delle opzioni consiste nello specificare un URL HTTPS come input del processo, come illustrato in questo esempio. Si noti che attualmente AMS v3 non supporta la codifica di trasferimenti in blocchi su URL HTTPS. Per un esempio completo, vedere questo [esempio di GitHub](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
 
 > [!TIP]
-> Prima di iniziare lo sviluppo, esaminare [lo sviluppo con le API di servizi multimediali v3](media-services-apis-overview.md) (include informazioni sull'accesso alle API, le convenzioni di denominazione e così via).
+> Prima di iniziare lo sviluppo, vedere [sviluppo con le API di servizi multimediali V3](media-services-apis-overview.md) (include informazioni sull'accesso alle API, alle convenzioni di denominazione e così via).
 
 ## <a name="net-sample"></a>Esempio .NET
 

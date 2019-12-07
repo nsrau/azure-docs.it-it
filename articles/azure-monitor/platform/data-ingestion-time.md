@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 8b40d89920208eaf15e01b3519b667a77baf8671
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: bd6590ebbd33dc5c9b65fc193679f4bf99760c3a
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932573"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894148"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Tempo di inserimento dei dati di log in Monitoraggio di Azure
 Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di clienti che inviano terabyte di dati ogni mese a un ritmo crescente. Spesso sono state poste domande sul tempo necessario affinché i dati di log diventino disponibili dopo la raccolta. Questo articolo illustra i diversi fattori che influiscono su questa latenza.
@@ -40,10 +40,10 @@ Gli agenti e le soluzioni di gestione usano diverse strategie per raccogliere i 
 ### <a name="agent-upload-frequency"></a>Frequenza di caricamento dell'agente
 Per assicurarsi che l'agente di Log Analytics sia leggero, l'agente memorizza nel buffer i log e li carica periodicamente in Monitoraggio di Azure. La frequenza di caricamento varia tra 30 secondi e 2 minuti a seconda del tipo di dati. La maggior parte dei dati viene caricata in meno di 1 minuto. Le condizioni della rete possono influire negativamente sulla latenza di questi dati per raggiungere il punto di inserimento di Monitoraggio di Azure.
 
-### <a name="azure-activity-logs-diagnostic-logs-and-metrics"></a>Log attività, log di diagnostica e metriche di Azure
+### <a name="azure-activity-logs-resource-logs-and-metrics"></a>Log attività, log delle risorse e metriche di Azure
 I dati di Azure richiedono altro tempo prima che siano disponibili nel punto di inserimento di Log Analytics per l'elaborazione:
 
-- I dati dei log di diagnostica richiedono da 2 a 15 minuti, a seconda del servizio di Azure. Vedere la [query più avanti](#checking-ingestion-time) per esaminare questa latenza nell'ambiente
+- I dati dei log delle risorse sono necessari 2-15 minuti, a seconda del servizio di Azure. Vedere la [query più avanti](#checking-ingestion-time) per esaminare questa latenza nell'ambiente
 - L'invio delle metriche della piattaforma Azure al punto di inserimento di Log Analytics richiede 3 minuti.
 - L'invio dei dati dei log attività al punto di inserimento di Log Analytics richiederà circa 10-15 minuti.
 
@@ -58,7 +58,7 @@ Alcune soluzioni non raccolgono i dati da un agente e possono usare un metodo di
 Per determinare la frequenza di raccolta specifica, consultare la documentazione relativa a ciascuna soluzione.
 
 ### <a name="pipeline-process-time"></a>Tempo di elaborazione della pipeline
-Una volta che i record di log vengono inseriti nella pipeline di monitoraggio di Azure (come indicato nella proprietà [_TimeReceived](log-standard-properties.md#_timereceived) ), vengono scritti nell'archiviazione temporanea per assicurare l'isolamento del tenant e per assicurarsi che i dati non vadano perduti. Questo processo richiede in genere altri 5-15 secondi. Alcune soluzioni di gestione implementano algoritmi più pesanti per aggregare i dati e derivare informazioni dettagliate mentre i dati sono in streaming. Ad esempio, Monitoraggio prestazioni rete aggrega i dati in ingresso a intervalli di 3 minuti, aggiungendo di fatto una latenza di 3 minuti. Un altro processo che aggiunge latenza è il processo che gestisce i log personalizzati. In alcuni casi, questo processo potrebbe aggiungere alcuni minuti di latenza ai log che vengono raccolti dai file dall'agente.
+Una volta che i record di log vengono inseriti nella pipeline di monitoraggio di Azure (come indicato nella proprietà [_TimeReceived](log-standard-properties.md#_timereceived) ), vengono scritti nell'archiviazione temporanea per garantire l'isolamento dei tenant e per assicurarsi che i dati non vadano perduti. Questo processo richiede in genere altri 5-15 secondi. Alcune soluzioni di gestione implementano algoritmi più pesanti per aggregare i dati e derivare informazioni dettagliate mentre i dati sono in streaming. Ad esempio, Monitoraggio prestazioni rete aggrega i dati in ingresso a intervalli di 3 minuti, aggiungendo di fatto una latenza di 3 minuti. Un altro processo che aggiunge latenza è il processo che gestisce i log personalizzati. In alcuni casi, questo processo potrebbe aggiungere alcuni minuti di latenza ai log che vengono raccolti dai file dall'agente.
 
 ### <a name="new-custom-data-types-provisioning"></a>Provisioning di nuovi tipi di dati personalizzati
 Quando viene creato un nuovo tipo di dati personalizzati da un [log personalizzato](data-sources-custom-logs.md) o dall'[API dell'agente di raccolta dati](data-collector-api.md), il sistema crea un contenitore di archiviazione dedicato. Questo sovraccarico è occasionale poiché si verifica solo alla prima occorrenza di questo tipo di dati.
@@ -78,9 +78,9 @@ Il tempo di inserimento può variare a seconda delle risorse e delle circostanze
 
 | Passaggio | Proprietà o funzione | Commenti |
 |:---|:---|:---|
-| Record creato nell'origine dati | [TimeGenerated](log-standard-properties.md#timegenerated-and-timestamp) <br>Se l'origine dati non imposta questo valore, verrà impostato sulla stessa ora di _TimeReceived. |
+| Record creato nell'origine dati | [TimeGenerated](log-standard-properties.md#timegenerated-and-timestamp) <br>Se l'origine dati non imposta questo valore, verrà impostato sulla stessa ora _TimeReceived. |
 | Record ricevuto dall'endpoint di inserimento di monitoraggio di Azure | [_TimeReceived](log-standard-properties.md#_timereceived) | |
-| Record archiviato nell'area di lavoro e disponibile per le query | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | |
+| Record archiviato nell'area di lavoro e disponibile per le query | [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) | |
 
 ### <a name="ingestion-latency-delays"></a>Valori della latenza di inserimento
 È possibile misurare la latenza di un record specifico confrontando il risultato della funzione [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) con la proprietà _TimeGenerated_ . Questi dati possono essere usati con varie aggregazioni per individuare il comportamento della latenza di inserimento. Esaminare qualche percentile del tempo di inserimento per ottenere informazioni dettagliate per una grande quantità di dati. 

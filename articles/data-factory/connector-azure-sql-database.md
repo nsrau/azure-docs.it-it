@@ -1,5 +1,5 @@
 ---
-title: Copiare e trasformare i dati nel database SQL di Azure usando Data Factory
+title: Copiare e trasformare i dati nel database SQL di Azure
 description: Informazioni su come copiare dati da e verso il database SQL di Azure e trasformare i dati nel database SQL di Azure usando Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: jingwang
-ms.openlocfilehash: b899d9884a80a882ca03d3d970421227a48a3803
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 8b09bb50df18660ae6fb21febc121d17058be23b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075584"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74891049"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copiare e trasformare i dati nel database SQL di Azure usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare la versione di Azure Data Factory che si sta usando:"]
@@ -48,7 +48,7 @@ Per l'attività di copia, questo connettore del database SQL di Azure supporta l
 > Se si copiano i dati usando Azure Data Factory Integration Runtime, configurare un [firewall di azure SQL Server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) in modo che i servizi di Azure possano accedere al server.
 > Se si copiano i dati usando un runtime di integrazione self-hosted, configurare il firewall di Azure SQL Server per consentire l'intervallo di indirizzi IP appropriato. Questo intervallo include l'IP del computer usato per connettersi al database SQL di Azure.
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Inizia oggi stesso
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -58,10 +58,10 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per un servizio collegato al database SQL di Azure sono supportate queste proprietà:
 
-| Proprietà | DESCRIZIONE | obbligatori |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **type** deve essere impostata su **AzureSqlDatabase**. | Sì |
-| connectionString | Specifica le informazioni necessarie per connettersi all'istanza del database SQL di Azure per la proprietà **connectionString**. <br/>Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in Azure Data Factory. È anche possibile inserire una password o una chiave dell'entità servizio in Azure Key Vault. Se si tratta dell'autenticazione SQL, estrarre la configurazione `password` dalla stringa di connessione. Per ulteriori informazioni, vedere l'esempio JSON che segue la tabella e [archivia le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| type | La proprietà **type** deve essere impostata su **AzureSqlDatabase**. | SÌ |
+| connectionString | Specifica le informazioni necessarie per connettersi all'istanza del database SQL di Azure per la proprietà **connectionString**. <br/>Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in Azure Data Factory. È anche possibile inserire una password o una chiave dell'entità servizio in Azure Key Vault. Se si tratta dell'autenticazione SQL, estrarre la configurazione `password` dalla stringa di connessione. Per ulteriori informazioni, vedere l'esempio JSON che segue la tabella e [archivia le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). | SÌ |
 | servicePrincipalId | Specificare l'ID client dell'applicazione. | Sì, quando si usa l'autenticazione Azure AD con un'entità servizio |
 | servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in Azure Data Factory o [fare riferimento a un segreto archiviato nel Azure Key Vault](store-credentials-in-key-vault.md). | Sì, quando si usa l'autenticazione Azure AD con un'entità servizio |
 | tenant | Specificare le informazioni sul tenant, ad esempio il nome di dominio o l'ID tenant, in cui risiede l'applicazione. Recuperarlo posizionando il puntatore del mouse nell'angolo in alto a destra della portale di Azure. | Sì, quando si usa l'autenticazione Azure AD con un'entità servizio |
@@ -140,7 +140,7 @@ Per usare l'autenticazione token dell'applicazione di Azure AD basata sull'entit
 
 2. Effettuare il [provisioning di un amministratore Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) per il SQL Server di Azure nel portale di Azure, se non è già stato fatto. L'amministratore di Azure AD deve essere un utente o un gruppo di Azure AD, ma non può essere un'entità servizio. Questo passaggio viene eseguito in modo che, nel passaggio successivo, sia possibile usare un'identità di Azure AD per creare un utente di database indipendente per l'entità servizio.
 
-3. [Creare utenti di database indipendente](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) per l'entità servizio. Connettersi al database da o a cui si vogliono copiare i dati usando strumenti come SQL Server Management Studio, con un'identità Azure AD con almeno l'autorizzazione ALTER ANY USER. Eseguire il T-SQL seguente: 
+3. [Creare utenti di database indipendente](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) per l'entità servizio. Connettersi al database da o a cui si vogliono copiare i dati usando strumenti come SQL Server Management Studio, con un'identità Azure AD con almeno l'autorizzazione ALTER ANY USER. Eseguire il comando in T-SQL seguente: 
   
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
@@ -155,7 +155,7 @@ Per usare l'autenticazione token dell'applicazione di Azure AD basata sull'entit
 5. Configurare un servizio collegato del database SQL di Azure in Azure Data Factory.
 
 
-#### <a name="linked-service-example-that-uses-service-principal-authentication"></a>Esempio di servizio collegato che usa l'autenticazione basata su entità servizio
+#### <a name="linked-service-example-that-uses-service-principal-authentication"></a>Esempio di servizio collegato tramite l'autenticazione basata su entità servizio
 
 ```json
 {
@@ -188,9 +188,9 @@ Una data factory può essere associata a un'[identità gestita per le risorse di
 
 Per utilizzare l'autenticazione di identità gestita, attenersi alla seguente procedura.
 
-1. Effettuare il [provisioning di un amministratore Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) per il SQL Server di Azure nel portale di Azure, se non è già stato fatto. L'amministratore Azure AD può essere un utente Azure AD o un gruppo di Azure AD. Se si concede al gruppo un'identità gestita un ruolo di amministratore, ignorare i passaggi 3 e 4. L'amministratore dispone di accesso completo al database.
+1. Effettuare il [provisioning di un amministratore Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) per il SQL Server di Azure nel portale di Azure, se non è già stato fatto. L'amministratore Azure AD può essere un utente Azure AD o un gruppo di Azure AD. Se si concede al gruppo con identità gestita un ruolo di amministratore, ignorare i passaggi 3 e 4. L'amministratore dispone di accesso completo al database.
 
-2. [Creare utenti di database indipendente](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) per l'identità gestita del Azure Data Factory. Connettersi al database da o a cui si vogliono copiare i dati usando strumenti come SQL Server Management Studio, con un'identità Azure AD con almeno l'autorizzazione ALTER ANY USER. Eseguire il T-SQL seguente: 
+2. [Creare utenti di database indipendente](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) per l'identità gestita del Azure Data Factory. Connettersi al database da o a cui si vogliono copiare i dati usando strumenti come SQL Server Management Studio, con un'identità Azure AD con almeno l'autorizzazione ALTER ANY USER. Eseguire il comando in T-SQL seguente: 
   
     ```sql
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
@@ -225,15 +225,15 @@ Per utilizzare l'autenticazione di identità gestita, attenersi alla seguente pr
 }
 ```
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di impostazioni, vedere [Datasets](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services). 
 
 Per il set di dati del database SQL di Azure sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | obbligatori |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **type** del set di dati deve essere impostata su **AzureSqlTable**. | Sì |
+| type | La proprietà **type** del set di dati deve essere impostata su **AzureSqlTable**. | SÌ |
 | schema | Nome dello schema. |No per l'origine, Sì per il sink  |
 | table | Nome della tabella o della vista. |No per l'origine, Sì per il sink  |
 | tableName | Nome della tabella o della vista con schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Per il nuovo carico di lavoro, usare `schema` e `table`. | No per l'origine, Sì per il sink |
@@ -267,9 +267,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati dal database SQL di Azure, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | obbligatori |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **Type** dell'origine dell'attività di copia deve essere impostata su **AzureSqlSource**. Il tipo "sqlSource" è ancora supportato per la compatibilità con le versioni precedenti. | Sì |
+| type | La proprietà **Type** dell'origine dell'attività di copia deve essere impostata su **AzureSqlSource**. Il tipo "sqlSource" è ancora supportato per la compatibilità con le versioni precedenti. | SÌ |
 | sqlReaderQuery | Questa proprietà usa la query SQL personalizzata per leggere i dati. Un esempio è `select * from MyTable`. | No |
 | sqlReaderStoredProcedureName | Nome della stored procedure che legge i dati dalla tabella di origine. L'ultima istruzione SQL deve essere un'istruzione SELECT nella stored procedure. | No |
 | storedProcedureParameters | Parametri per la stored procedure.<br/>I valori consentiti sono coppie nome-valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri stored procedure. | No |
@@ -373,11 +373,11 @@ GO
 
 Per copiare i dati nel database SQL di Azure, nella sezione **sink** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | obbligatori |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **Type** del sink dell'attività di copia deve essere impostata su **AzureSqlSink**. Il tipo "sqlsink" è ancora supportato per la compatibilità con le versioni precedenti. | Sì |
+| type | La proprietà **Type** del sink dell'attività di copia deve essere impostata su **AzureSqlSink**. Il tipo "sqlsink" è ancora supportato per la compatibilità con le versioni precedenti. | SÌ |
 | writeBatchSize | Numero di righe da inserire nella tabella SQL *per batch*.<br/> Il valore consentito è **integer** (numero di righe). Per impostazione predefinita, Azure Data Factory determina in modo dinamico le dimensioni del batch appropriate in base alle dimensioni della riga. | No |
-| writeBatchTimeout | Il tempo di attesa per il completamento dell'operazione di inserimento batch prima del timeout.<br/> Il valore consentito è **timespan**. Un esempio è "00:30:00" (30 minuti). | No |
+| writeBatchTimeout | Tempo di attesa per il completamento dell'operazione di inserimento batch prima del timeout.<br/> Il valore consentito è **timespan**. Un esempio è "00:30:00" (30 minuti). | No |
 | preCopyScript | Specificare una query SQL per l'attività di copia da eseguire prima di scrivere i dati nel database SQL di Azure. Viene richiamata solo una volta per ogni esecuzione della copia. Usare questa proprietà per pulire i dati precaricati. | No |
 | sqlWriterStoredProcedureName | Il nome della stored procedure che definisce come applicare i dati di origine in una tabella di destinazione. <br/>Questa stored procedure viene *richiamata per batch*. Per le operazioni che vengono eseguite una sola volta e non hanno nulla a che fare con i dati di origine, ad esempio DELETE o TRUNCATE, usare la proprietà `preCopyScript`. | No |
 | storedProcedureTableTypeParameterName |Nome del parametro del tipo di tabella specificato nell'stored procedure.  |No |
@@ -583,36 +583,36 @@ Quando i dati vengono copiati da o nel database SQL di Azure, i mapping seguenti
 |:--- |:--- |
 | bigint |Int64 |
 | binary |Byte[] |
-| Bit |Booleano |
+| bit |boolean |
 | char |String, Char[] |
-| date |DateTime |
-| Datetime |DateTime |
-| datetime2 |DateTime |
-| Datetimeoffset |Datetimeoffset |
-| Decimal |Decimal |
+| date |Data e ora |
+| DateTime |Data e ora |
+| datetime2 |Data e ora |
+| Datetimeoffset |DateTimeOffset |
+| DECIMAL |DECIMAL |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
-| Float |Double |
-| immagine |Byte[] |
+| Float |DOUBLE |
+| image |Byte[] |
 | int |Int32 |
-| money |Decimal |
+| money |DECIMAL |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeric |Decimal |
+| numeric |DECIMAL |
 | nvarchar |String, Char[] |
-| real |Single |
+| real |Singolo |
 | rowversion |Byte[] |
-| smalldatetime |DateTime |
+| smalldatetime |Data e ora |
 | smallint |Int16 |
-| smallmoney |Decimal |
-| sql_variant |Object |
+| smallmoney |DECIMAL |
+| sql_variant |Oggetto |
 | text |String, Char[] |
-| time |TimeSpan |
+| time |Intervallo di tempo |
 | timestamp |Byte[] |
 | tinyint |Byte |
-| uniqueidentifier |Guid |
+| uniqueidentifier |GUID |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |Xml |
+| Xml |xml |
 
 >[!NOTE]
 > Per i tipi di dati associati al tipo provvisorio Decimal, Azure Data Factory supporta attualmente la precisione fino a 28. Se i dati hanno una precisione maggiore di 28, provare a eseguire la conversione in una stringa nella query SQL.

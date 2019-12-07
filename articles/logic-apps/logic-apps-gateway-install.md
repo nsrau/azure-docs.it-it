@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
-ms.date: 11/06/2019
-ms.openlocfilehash: 9f933a9ad63af11bcfee7c90f17318f5a237b962
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 12/05/2019
+ms.openlocfilehash: 4fbfb31feb2183e3175a96023cbb3b08c4d18027
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792102"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893681"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installare il gateway dati locale per App per la logica di Azure
 
@@ -86,14 +86,6 @@ Questo articolo illustra come scaricare, installare e configurare il gateway dat
 
 1. [Scaricare ed eseguire il programma di installazione di gateway in un computer locale](https://aka.ms/on-premises-data-gateway-installer).
 
-1. Dopo l'apertura del programma di installazione, fare clic su **Avanti**.
-
-   ![Schermata introduttiva per il programma di installazione del gateway](./media/logic-apps-gateway-install/gateway-intro-screen.png)
-
-1. Selezionare **gateway dati locale (scelta consigliata)** , che è la modalità standard, quindi selezionare **Avanti**.
-
-   ![Selezionare la modalità di esecuzione per il gateway dati](./media/logic-apps-gateway-install/select-gateway-running-mode.png)
-
 1. Verificare i requisiti minimi, tenere il percorso di installazione predefinito, accettare le condizioni per l'utilizzo e quindi selezionare **Installa**.
 
    ![Esaminare i requisiti e accettare le condizioni per l'utilizzo](./media/logic-apps-gateway-install/review-and-accept-terms-of-use.png)
@@ -104,7 +96,7 @@ Questo articolo illustra come scaricare, installare e configurare il gateway dat
 
    L'installazione del gateway può essere collegata a un solo account Azure.
 
-1. Selezionare **registra un nuovo gateway nel computer** > **Avanti**. Questo passaggio registra l'installazione del gateway con il [servizio cloud gateway](#gateway-cloud-service).
+1. Selezionare **Consente di registrare un nuovo gateway in questo computer** > **Avanti**. Questo passaggio registra l'installazione del gateway con il [servizio cloud gateway](#gateway-cloud-service).
 
    ![Registrare il gateway nel computer locale](./media/logic-apps-gateway-install/register-gateway-local-computer.png)
 
@@ -150,7 +142,7 @@ Questo articolo illustra come scaricare, installare e configurare il gateway dat
 Il gateway dati locale dipende dal [bus di servizio di Azure](../service-bus-messaging/service-bus-messaging-overview.md) per la connettività cloud e stabilisce le connessioni in uscita corrispondenti all'area di Azure associata del gateway. Se l'ambiente di lavoro richiede che il traffico attraversi un proxy o un firewall per accedere a Internet, questa restrizione potrebbe impedire la connessione del gateway dati locale al servizio cloud gateway e al bus di servizio di Azure. Il gateway ha diverse impostazioni di comunicazione che è possibile modificare. Per altre informazioni, vedere gli argomenti seguenti:
 
 * [Modificare le impostazioni di comunicazione per il gateway dati locale](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication)
-* [Configurare le impostazioni proxy per il gateway dati locale](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)
+* [Configurare le impostazioni del proxy per il gateway dati locale](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)
 
 <a name="high-availability"></a>
 
@@ -234,7 +226,7 @@ Questi passaggi descrivono cosa accade quando si interagisce con un elemento con
 
 1. I risultati vengono quindi inviati dall'origine dati al gateway e quindi al servizio cloud del gateway. Infine, il servizio cloud del gateway usa i risultati.
 
-### <a name="authentication-to-on-premises-data-sources"></a>Autenticazione alle origini dati locali
+### <a name="authentication-to-on-premises-data-sources"></a>Autenticazione a origini dati locali
 
 Le credenziali archiviate vengono usate per la connessione dal gateway alle origini dati locali. Indipendentemente dall'utente, il gateway usa le credenziali archiviate per connettersi. Potrebbero essere presenti eccezioni di autenticazione per servizi specifici, ad esempio DirectQuery e LiveConnect per Analysis Services in Power BI.
 
@@ -246,7 +238,7 @@ I servizi cloud Microsoft usano [Azure ad](../active-directory/fundamentals/acti
 
 Se non si è un amministratore di dominio, è possibile che non si conosca l'UPN. Per trovare l'UPN per l'account, eseguire il comando `whoami /upn` dalla workstation. Sebbene il risultato appaia come un indirizzo di posta elettronica, il risultato è l'UPN per l'account di dominio locale.
 
-### <a name="synchronize-an-on-premises-active-directory-with-azure-ad"></a>Sincronizzare un Active Directory locale con Azure AD
+### <a name="synchronize-an-on-premises-active-directory-with-azure-ad"></a>Sincronizzare un'istanza di Active Directory locale con Azure AD
 
 Il nome UPN per gli account di Active Directory locali e gli account di Azure AD devono essere uguali. Assicurarsi quindi che ogni account Active Directory locale corrisponda all'account di Azure AD. I servizi cloud conoscono solo gli account in Azure AD. Non è quindi necessario aggiungere un account all'Active Directory locale. Se l'account non esiste in Azure AD, non è possibile usare tale account.
 

@@ -1,6 +1,6 @@
 ---
 title: Progettazione di un sistema di protezione del contenuto con DRM multiplo e controllo di accesso - Servizi multimediali di Azure | Microsoft Docs
-description: Informazioni su come ottenere la licenza per Microsoft Smooth Streaming Client Porting Kit.
+description: Questo articolo fornisce una descrizione dettagliata di come progettare un sistema di protezione del contenuto con DRM multiplo con servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
 author: willzhan
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: ffbf53c0bb0aaf2832afecc2d0df935f04eeff19
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 00ddedf135d13c07e8abe1094dd5366acb0f4ae5
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310322"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896163"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Progettazione di un sistema di protezione del contenuto con DRM multiplo e controllo di accesso 
 
@@ -27,7 +27,7 @@ La progettazione e la creazione di un sottosistema DRM (Digital Rights Managemen
 
 Questo documento è destinato agli ingegneri che utilizzano i sottosistemi DRM di soluzioni multischermo e di streaming online o OTT, ma anche a chiunque sia interessato ai sottosistemi DRM. Il presupposto è che i lettori abbiano familiarità con almeno una delle tecnologie DRM presenti sul mercato, ad esempio PlayReady, Widevine, FairPlay o Adobe Access.
 
-In questo articolo, con DRM multiplo si intendono i tre DRM supportati da Servizi multimediali di Azure: la crittografia comune (CENC) per PlayReady e Widevine, FairPlay e la crittografia con chiave non crittografata AES-128. Una tendenza diffusa nel settore delle soluzioni di streaming online e OTT è rappresentata dall'uso di DRM nativi su varie piattaforme client. Tale tendenza si discosta da quella precedente, che usava una tecnologia DRM singola e il relativo SDK client su varie piattaforme client. Quando si usa la crittografia CENC con DRM nativo multiplo, PlayReady e Widevine vengono crittografati in base alla specifica [Common Encryption (ISO/IEC 23001-7 CENC)](https://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/).
+In questa discussione per DRM multiplo si intendono i tre DRM supportati da Servizi multimediali di Azure: crittografia comune (CENC) per PlayReady e Widevine, FairPlay, nonché la crittografia con chiave non crittografata AES-128. Una tendenza diffusa nel settore delle soluzioni di streaming online e OTT è rappresentata dall'uso di DRM nativi su varie piattaforme client. Tale tendenza si discosta da quella precedente, che usava una tecnologia DRM singola e il relativo SDK client su varie piattaforme client. Quando si usa la crittografia CENC con DRM nativo multiplo, PlayReady e Widevine vengono crittografati in base alla specifica [Common Encryption (ISO/IEC 23001-7 CENC)](https://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/).
 
 I vantaggi offerti dall'uso del DRM multiplo nativo per la protezione del contenuto sono i seguenti:
 
@@ -231,7 +231,7 @@ Usare le informazioni seguenti per la risoluzione dei problemi di implementazion
 
 * Aggiungere autorizzazioni all'applicazione in Azure AD nella scheda **Configura** dell'applicazione. Le autorizzazioni sono obbligatorie per ogni applicazione, indipendentemente dal tipo di versione: locale e distribuita.
 
-    ![Autorizzazioni](./media/design-multi-drm-system-with-access-control/media-services-perms-to-other-apps.png)
+    ![autorizzazioni](./media/design-multi-drm-system-with-access-control/media-services-perms-to-other-apps.png)
 
 * Usare l'autorità di certificazione corretta quando si configura la protezione CENC dinamica.
 
@@ -245,7 +245,7 @@ Usare le informazioni seguenti per la risoluzione dei problemi di implementazion
 
 * Concedere i privilegi delle attestazioni di appartenenza al gruppo. Verificare che nel file manifesto dell'applicazione Azure AD sia presente quanto segue: 
 
-    "groupMembershipClaims": "All"    (il valore predefinito è null)
+    "groupMembershipClaims": "All"    (il valore predefinito è Null)
 
 * Impostare l'oggetto TokenType appropriato quando si creano i requisiti relativi alle restrizioni.
 

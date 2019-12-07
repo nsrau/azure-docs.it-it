@@ -1,6 +1,6 @@
 ---
 title: Servizi multimediali di Azure - Rettifica del protocollo Smooth Streaming (MS-SSTR) per HEVC | Microsoft Docs
-description: Questa specifica descrive il protocollo e il formato per lo streaming live basato sul formato MP4 frammentato con HEVC in Servizi multimediali di Azure. Questa è una rettifica alla documentazione del protocollo Smooth Streaming (MS-SSTR) per includere il supporto dello streaming e dell'inserimento HEVC. In questo articolo vengono specificate solo le modifiche necessarie per usare HEVC, tranne nei casi in cui è riportato "(Nessuna modifica)" per indicare che il testo è stato copiato solo per maggiore chiarezza.
+description: Questa specifica descrive il protocollo e il formato per lo streaming live basato sul formato MP4 frammentato con HEVC in Servizi multimediali di Azure. In questo articolo vengono specificate solo le modifiche necessarie per usare HEVC, tranne nei casi in cui è riportato "(Nessuna modifica)" per indicare che il testo è stato copiato solo per maggiore chiarezza.
 services: media-services
 documentationcenter: ''
 author: johndeu
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: johndeu
-ms.openlocfilehash: e0637b2a015a610f9c3f92809f63a442980b63b1
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 6dd7e0dc7e58f33f952aa5531773a84ebd31a163
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624812"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887867"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Rettifica del protocollo Smooth Streaming (MS-SSTR) per HEVC 
 
@@ -40,7 +40,7 @@ I termini seguenti sono definiti in *[MS-GLOS]* :
 
 I termini seguenti sono specifici di questo documento:
 
->  **ora di composizione:** Data e ora in cui un campione viene presentato al client, come definito in [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695).
+>  **tempo di composizione:** Data e ora in cui un campione viene presentato al client, come definito in [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695).
 > 
 >   **CENC**: Common Encryption, come definito in [ISO/IEC 23001-7] Second Edition.
 > 
@@ -48,15 +48,15 @@ I termini seguenti sono specifici di questo documento:
 
 **frammento:** unità di **contenuto multimediale** scaricabile in modo indipendente che include uno o più **campioni**.
 
->   **HEVC:** High Efficiency Video Coding, come definito in [ISO/IEC 23008-2].
+>   **HEVC:** High Efficiency Video Coding, come definito in [ISO/IEC 23008-2]
 > 
 >   **manifesto:** metadati sulla **presentazione** che consentono a un client di effettuare richieste di **contenuto multimediale**. **contenuto multimediale:** dati audio, video e di testo compressi usati dal client per riprodurre una **presentazione**. **formato multimediale:** formato ben definito per la rappresentazione di audio o video come un **campione** compresso.
 > 
->   **presentazione:** set di tutti i **flussi** e metadati correlati necessari per riprodurre un singolo filmato. **richiesta:** Messaggio HTTP inviato dal client al server, come definito nella risposta [[sul rfc2616]](https://go.microsoft.com/fwlink/?LinkId=90372) **:** Messaggio HTTP inviato dal server al client, come definito in [[sul rfc2616]](https://go.microsoft.com/fwlink/?LinkId=90372)
+>   **presentazione:** set di tutti i **flussi** e metadati correlati necessari per riprodurre un singolo filmato. **richiesta:** Messaggio HTTP inviato dal client al server, come definito nella risposta [[sul rfc2616]](https://go.microsoft.com/fwlink/?LinkId=90372) **:** un messaggio http inviato dal server al client, come definito in [[sul rfc2616]](https://go.microsoft.com/fwlink/?LinkId=90372)
 > 
->   **campione:** l'unità fondamentale più piccola, ad esempio un fotogramma, in cui viene archiviato ed elaborato il **contenuto multimediale**.
+>   **campione:** l'unità fondamentale più piccola (ad esempio un fotogramma) in cui viene archiviato ed elaborato il **contenuto multimediale**.
 > 
->   **MAY, SHOULD, MUST, SHOULD NOT, MUST NOT:** Questi termini (in tutti i limiti) vengono usati come descritto in [[RFC2119]](https://go.microsoft.com/fwlink/?LinkId=90317) tutte le istruzioni di comportamento facoltativo usano May, should o not.
+>   **May, should, must, not deve:** Questi termini (in tutti i limiti) vengono usati come descritto in [[RFC2119]](https://go.microsoft.com/fwlink/?LinkId=90317) tutte le istruzioni di comportamento facoltativo usano May, should o not.
 
 ## <a name="12-references"></a>1.2 Riferimenti
 
@@ -72,23 +72,23 @@ I termini seguenti sono specifici di questo documento:
 >   [ISO/IEC 14496-15] International Organization for Standardization, "Information technology -- Coding of audio-visual objects -- Part 15: Carriage of NAL unit structured video in the ISO Base Media File Format", ISO 14496-15:2015, Edition 3.
 >   <https://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=65216>
 > 
->   [ISO/IEC 23008-2] Information technology -- High efficiency coding and media   delivery in heterogeneous environments -- Part 2: High efficiency video coding: 2013 o edizione più recente <https://standards.iso.org/ittf/PubliclyAvailableStandards/c035424_ISO_IEC_23008-2_2013.zip>
+>   [ISO/IEC 23008-2] Information technology -- High efficiency coding and media   delivery in heterogeneous environments -- Part 2: High efficiency video   coding: 2013 or newest edition   <https://standards.iso.org/ittf/PubliclyAvailableStandards/c035424_ISO_IEC_23008-2_2013.zip>
 > 
 >   [ISO/IEC 23001-7] Information technology — MPEG systems technologies — Part   7: Common encryption in ISO base media file format files, CENC Edition   2:2015 <https://www.iso.org/iso/catalogue_detail.htm?csnumber=65271>
 > 
 >   [RFC-6381] IETF RFC-6381, “The 'Codecs' and 'Profiles' Parameters for   "Bucket" Media Types” <https://tools.ietf.org/html/rfc6381>
 > 
->   [MPEG4-RA] Autorità di registrazione MP4, "MP4REG",[http://www.mp4ra.org](https://go.microsoft.com/fwlink/?LinkId=327787)
+>   [MPEG4-RA] Autorità di registrazione MP4, "MP4REG", [http://www.mp4ra.org](https://go.microsoft.com/fwlink/?LinkId=327787)
 > 
->   RFC2119 Bradner, S., "parole chiave da usare in RFC per indicare i livelli di requisito", BCP 14, RFC 2119, marzo 1997,[https://www.rfc-editor.org/rfc/rfc2119.txt](https://go.microsoft.com/fwlink/?LinkId=90317)
+>   RFC2119 Bradner, S., "parole chiave da usare in RFC per indicare i livelli di requisito", BCP 14, RFC 2119, marzo 1997, [https://www.rfc-editor.org/rfc/rfc2119.txt](https://go.microsoft.com/fwlink/?LinkId=90317)
 
 ### <a name="122-informative-references"></a>1.2.2 Riferimenti informativi 
 
 >   [MS-GLOS] Microsoft Corporation, "*Windows Protocols Master Glossary*."
 > 
->   [RFC3548] Josefsson, S., ed., "base 16, Base32 e Base64 data Encodings", RFC 3548, luglio 2003,[https://www.ietf.org/rfc/rfc3548.txt](https://go.microsoft.com/fwlink/?LinkId=90432)
+>   [RFC3548] Josefsson, S., ed., "base 16, Base32 e Base64 data Encodings", RFC 3548, luglio 2003, [https://www.ietf.org/rfc/rfc3548.txt](https://go.microsoft.com/fwlink/?LinkId=90432)
 > 
->   [RFC5234] Crocker, D., Ed., and Overell, P., "Augmented BNF for Syntax   Specifications: ABNF ", STD 68, RFC 5234, gennaio 2008,[https://www.rfc-editor.org/rfc/rfc5234.txt](https://go.microsoft.com/fwlink/?LinkId=123096)
+>   RFC5234 Crocker, D., ed. e Overell, P., "Augmented BNF for Syntax Specifications: ABNF", STD 68, RFC 5234, January 2008, [https://www.rfc-editor.org/rfc/rfc5234.txt](https://go.microsoft.com/fwlink/?LinkId=123096)
 
 
 ## <a name="13-overview"></a>1.3 Panoramica 
@@ -137,7 +137,7 @@ ProtectionElement deve essere presente quando CENC (Common Encryption) viene app
 
 #### <a name="2223-streamelement"></a>2.2.2.3 StreamElement 
 
->   **StreamTimeScale (variabile):** scala cronologica per i valori di durata e ora in questo flusso, specificati come numero di incrementi in un secondo. Per i flussi HEVC è consigliabile un valore di 90000. Per i flussi audio è consigliabile un valore corrispondente alla frequenza di campionamento della forma d'onda (ad esempio, 44100 o 48000).
+>   **StreamTimeScale (variabile):** scala cronologica per i valori di durata e tempo in questo flusso, specificati come numero di incrementi in un secondo. Per i flussi HEVC è consigliabile un valore di 90000. Per i flussi audio è consigliabile un valore corrispondente alla frequenza di campionamento della forma d'onda (ad esempio, 44100 o 48000).
 
 ##### <a name="22231-streamprotectionelement"></a>2.2.2.3.1 StreamProtectionElement
 
@@ -147,11 +147,11 @@ ProtectionElement deve essere presente quando CENC (Common Encryption) viene app
 
 >   **FourCC (variabile):** codice di quattro caratteri che identifica il formato multimediale usato per ogni campione. L'intervallo di valori seguente è riservato con questi significati semantici:
 > 
-> * "hev1": i campioni video per questp brano usano video HEVC, con il formato descrizione campione 'hev1' specificato in [ISO/IEC-14496-15].
+> * "hev1": i campioni video per questa traccia usano video HEVC, con il formato descrizione campione 'hev1' specificato in [ISO/IEC-14496-15].
 >
-> * "hvc1": Gli esempi video per questa traccia usano il video HEVC, usando il formato di descrizione dell'esempio ' hvc1' specificato in [ISO/IEC-14496-15].
+> * "hvc1": gli esempi video per questa traccia usano il video HEVC usando il formato di descrizione dell'esempio ' hvc1' specificato in [ISO/IEC-14496-15].
 > 
->   **CodecPrivateData (variabile):** dati che indicano parametri specifici del formato multimediale e comuni a tutti i campioni nel brano, rappresentati come stringa di byte con codifica esadecimale. Il formato e il significato semantico delle sequenza di byte varia in base al valore del campo **FourCC** come indicato di seguito:
+>   **CodecPrivateData (variabile):** dati che indicano parametri specifici del formato multimediale e comuni a tutti i campioni nella traccia, rappresentati come stringa di byte con codifica esadecimale. Il formato e il significato semantico delle sequenza di byte varia in base al valore del campo **FourCC** come indicato di seguito:
 > 
 >   * Quando un oggetto Trackelement descrive il video di HEVC, il campo **fourcc** sarà uguale a **"hev1"** o **"hvc1"**
 > 
@@ -175,7 +175,7 @@ ProtectionElement deve essere presente quando CENC (Common Encryption) viene app
 
 ### <a name="223-fragment-request"></a>2.2.3 Richiesta frammento 
 
->   **Nota**: Il formato multimediale predefinito richiesto per **MinorVersion** 2 è hev1' o ' hvc1' è' ISO8' il formato del file multimediale di base ISO di base specificato in [ISO/IEC 14496-12] ISO base media file format Fourth Edition e [ISO/IEC 23001-7] crittografia comune seconda edizione.
+>   **Nota**: il formato multimediale predefinito richiesto per **MinorVersion** 2 è hev1' o ' hvc1' è' ISO8' il formato del file multimediale di base ISO di base specificato in [ISO/IEC 14496-12] ISO base media file format Fourth Edition e [ISO/IEC 23001-7] crittografia comune seconda edizione.
 
 ### <a name="224-fragment-response"></a>2.2.4 Risposta frammento 
 
@@ -203,7 +203,7 @@ ProtectionElement deve essere presente quando CENC (Common Encryption) viene app
 
 >   **TfhdBox** e i campi correlati incapsulano i valori predefiniti per i metadati campione presenti nel frammento. La sintassi del campo **TfhdBox** è un subset limitato della sintassi di Track Fragment Header Box definita in [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695) sezione 8.8.7.
 > 
->   **BaseDataOffset (8 byte):** offset, in byte, dall'inizio del campo **MdatBox** al campo del campione nel campo **MdatBox**. Per segnalare questa limitazione, è necessario impostare il flag default-base-is-moof (0x020000).
+>   **BaseDataOffset (8 byte):** offset, in byte, dall'inizio del campo **MdatBox** al campo campione nel campo **MdatBox**. Per segnalare questa limitazione, è necessario impostare il flag default-base-is-moof (0x020000).
 
 #### <a name="2247-trunbox"></a>2.2.4.7 TrunBox 
 
@@ -305,7 +305,7 @@ ProtectionElement deve essere presente quando CENC (Common Encryption) viene app
 
 >   L'elemento dati Protection System Metadata Description incapsula i metadati specifici di un singolo sistema di protezione contenuto. (Nessuna modifica)
 > 
->   Protection Header Description: metadati di protezione del contenuto che si riferiscono a un singolo sistema di protezione contenuto. Protection Header Description comprende i campi seguenti, specificati nella sezione *2.2.2.2*:
+>   Protection Header Description: metadati di protezione contenuto che si riferiscono a un singolo sistema di protezione contenuto. Protection Header Description comprende i campi seguenti, specificati nella sezione *2.2.2.2*:
 > 
 >   * **SystemID**
 >   * **ProtectionHeaderContent**
@@ -385,7 +385,7 @@ I riquadri seguenti possono essere presenti nelle risposte frammento quando vien
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 [image1]: ./media/media-services-fmp4-live-ingest-overview/media-services-image1.png

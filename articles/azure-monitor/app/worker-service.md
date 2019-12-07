@@ -4,15 +4,15 @@ description: Monitoraggio di app .NET Core/. NET Framework non HTTP con Applicat
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: cijothomas
-ms.author: cithomas
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 09/15/2019
-ms.openlocfilehash: 5f812d5fe1b25358a0bf09ebf879569ae29b33f3
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 386c171e4785fac2c7fa6da39f249e211f4c660c
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131896"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893299"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights per le applicazioni del servizio Worker (applicazioni non HTTP)
 
@@ -24,7 +24,7 @@ Il nuovo SDK non esegue alcuna raccolta di dati di telemetria. Viene invece ripo
 
 Il [Application Insights SDK per il servizio Worker](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) è ideale per le applicazioni non http, indipendentemente da dove o come vengono eseguite. Se l'applicazione è in esecuzione e ha la connettività di rete ad Azure, è possibile raccogliere i dati di telemetria. Il monitoraggio Application Insights è supportato ovunque sia supportato .NET Core. Questo pacchetto può essere usato nel servizio ruolo di [lavoro .net core 3,0](https://devblogs.microsoft.com/aspnet/dotnet-core-workers-in-azure-container-instances)appena introdotto, [attività in background in ASP.NET Core 2.1/2.2](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2), app console (.NET Core/.NET Framework) e così via.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Chiave di strumentazione Application Insights valida. Questa chiave è necessaria per inviare i dati di telemetria a Application Insights. Se è necessario creare una nuova risorsa Application Insights per ottenere una chiave di strumentazione, vedere [creare una risorsa di Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
 
@@ -35,7 +35,7 @@ Chiave di strumentazione Application Insights valida. Questa chiave è necessari
 
 ```xml
     <ItemGroup>
-        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.8.0" />
+        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.8.2" />
     </ItemGroup>
 ```
 
@@ -136,6 +136,7 @@ In genere, `APPINSIGHTS_INSTRUMENTATIONKEY` specifica la chiave di strumentazion
 > Una chiave di strumentazione specificata nel codice prevale sulla variabile di ambiente `APPINSIGHTS_INSTRUMENTATIONKEY`, che prevale su altre opzioni.
 
 ## <a name="aspnet-core-background-tasks-with-hosted-services"></a>ASP.NET Core attività in background con servizi ospitati
+
 In [questo](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2&tabs=visual-studio) documento viene descritto come creare attività di background nell'applicazione ASP.NET Core 2.1/2.2.
 
 L'esempio completo è condiviso [qui](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService)
@@ -308,7 +309,7 @@ Di seguito sono elencati i dati di telemetria completi raccolti automaticamente 
 
 I log emessi tramite `ILogger` di gravità `Warning` o superiore vengono acquisiti automaticamente. Seguire i [documenti di ILogger](ilogger.md#control-logging-level) per personalizzare i livelli di log acquisiti da Application Insights.
 
-### <a name="dependencies"></a>Dependencies
+### <a name="dependencies"></a>Dipendenze
 
 La raccolta delle dipendenze è abilitata per impostazione predefinita. [Questo](asp-net-dependencies.md#automatically-tracked-dependencies) articolo illustra le dipendenze che vengono raccolte automaticamente e contiene anche i passaggi per eseguire il rilevamento manuale.
 
@@ -353,7 +354,7 @@ Si noti che `ApplicationInsightsServiceOptions` in questo SDK si trova nello spa
 
 Impostazioni utilizzate comunemente in `ApplicationInsightsServiceOptions`
 
-|Impostazione | DESCRIZIONE | Default
+|Impostazione | Description | Predefinito
 |---------------|-------|-------
 |EnableQuickPulseMetricStream | Abilita/Disabilita la funzionalità LiveMetrics | true
 |EnableAdaptiveSampling | Abilita/Disabilita il campionamento adattivo | true
@@ -362,7 +363,7 @@ Impostazioni utilizzate comunemente in `ApplicationInsightsServiceOptions`
 
 Per l'elenco più aggiornato, vedere le [impostazioni configurabili in `ApplicationInsightsServiceOptions`](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) .
 
-### <a name="sampling"></a>Campionamento
+### <a name="sampling"></a>campionamento
 
 Il Application Insights SDK per il servizio Worker supporta sia il campionamento a frequenza fissa che quello adattivo. Il campionamento adattivo è abilitato per impostazione predefinita. La configurazione del campionamento per il servizio worker viene eseguita nello stesso modo delle [applicazioni ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/sampling#configuring-adaptive-sampling-for-aspnet-core-applications).
 

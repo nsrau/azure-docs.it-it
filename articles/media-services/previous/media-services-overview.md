@@ -1,6 +1,6 @@
 ---
 title: Panoramica di Servizi multimediali di Azure | Microsoft Docs
-description: Questo argomento fornisce informazioni generali su Servizi multimediali di Azure
+description: Servizi multimediali di Microsoft Azure è una piattaforma estensibile basata sul cloud che consente agli sviluppatori di creare applicazioni di gestione e distribuzione di contenuti multimediali scalabili. Questo articolo fornisce una panoramica di servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/19/2019
 ms.author: juliako
-ms.openlocfilehash: 7f0a071012685ee192d4f866396a5953d0a4508c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d339fd16b1eef8df367bdcb375a1cb3dc71ddde2
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937261"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895887"
 ---
 # <a name="azure-media-services-overview"></a>Panoramica di Servizi multimediali di Azure 
 
-> [!div class="op_single_selector" title1="Selezionare la versione di servizi multimediali che si sta utilizzando:"]
+> [!div class="op_single_selector" title1="Selezionare la versione di servizi multimediali in uso:"]
 > * [Versione 3](../latest/media-services-overview.md)
 > * [Versione 2](media-services-overview.md)
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 
 Servizi multimediali di Microsoft Azure è una piattaforma estensibile basata sul cloud che consente agli sviluppatori di creare applicazioni scalabili per la distribuzione e gestione di contenuti multimediali. Servizi multimediali si basa su API REST che consentono di caricare, archiviare e codificare contenuti video o audio in modo sicuro, nonché creare pacchetti di tali contenuti per la distribuzione in streaming live e on demand a vari client (ad esempio, TV, PC e dispositivi mobili).
 
@@ -53,12 +53,12 @@ Per creare soluzioni di Servizi multimediali, è possibile usare:
     * Azure Media Services SDK per .NET
     
         * [Pacchetto NuGet](https://www.nuget.org/packages/windowsazure.mediaservices/)
-        * [Codice sorgente di Github](https://github.com/Azure/azure-sdk-for-media-services)
+        * [Codice sorgente GitHub](https://github.com/Azure/azure-sdk-for-media-services)
     * [Azure SDK per Java](https://github.com/Azure/azure-sdk-for-java),
     * [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php),
     * [Servizi multimediali di Azure per Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js). Questa è una versione non Microsoft di Node.js SDK. È gestita da una community e attualmente non copre al 100% le API AMS.
 * Strumenti esistenti:
-    * [Portale di Azure](https://portal.azure.com/)
+    * [Azure portal](https://portal.azure.com/)
     * [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) è un'applicazione Winforms/C# per Windows)
 
 > [!NOTE]
@@ -67,7 +67,7 @@ Per creare soluzioni di Servizi multimediali, è possibile usare:
 
 ## <a name="code-samples"></a>Esempi di codice
 
-Gli esempi di codice sono disponibili nella raccolta **Esempi di codice per Azure**: [Esempi di codice per Servizi multimediali di Azure](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
+Gli esempi di codice sono disponibili nella raccolta di **Esempi di codice per Azure**: [Esempi di codice per Servizi multimediali di Azure](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
 
 ## <a name="concepts"></a>Concetti
 
@@ -77,7 +77,7 @@ Per i concetti relativi ai Servizi multimediali di Azure, vedere [Concetti su Se
 
 Per informazioni dettagliate, vedere [Scenari supportati e disponibilità di Servizi multimediali nei data center](scenarios-and-availability.md).
 
-## <a name="service-level-agreement-sla"></a>Contratto di servizio (SLA)
+## <a name="service-level-agreement-sla"></a>Contratto di servizio
 
 Per altre informazioni, vedere [Contratto di servizio di Microsoft Azure](https://azure.microsoft.com/support/legal/sla/).
 
@@ -87,6 +87,6 @@ Per informazioni sulla disponibilità nei data center, vedere la sezione relativ
 
 [supporto tecnico di Azure](https://azure.microsoft.com/support/options/) fornisce opzioni di supporto per Azure, compreso Servizi multimediali.
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

@@ -3,24 +3,23 @@ title: Copiare dati da SAP BW usando Azure Data Factory
 description: Informazioni su come copiare dati da SAP Business Warehouse in archivi dati di sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.author: jingwang
-ms.openlocfilehash: c2dbacc2fd7906aaf22447dfb39c543206f05392
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 26693219f44d16c8bc20ee94ae0590414ba88f73
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680292"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896339"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Copiare dati da SAP Business Warehouse usando Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-sap-business-warehouse-connector.md)
 > * [Versione corrente](connector-sap-business-warehouse.md)
 
@@ -56,7 +55,7 @@ Per usare il connettore SAP Business Warehouse, è necessario:
 >- Tutte le librerie di dipendenza estratte da NetWeaver RFC SDK siano disponibili nella cartella %windir%\system32. In genere la cartella contiene icudt34.dll, icuin34.dll, icuuc34.dll, libicudecnumber.dll, librfc32.dll, libsapucum.dll, sapcrypto.dll, sapcryto_old.dll, sapnwrfc.dll.
 >- Le porte necessarie per la connessione al server SAP siano abilitate nel computer del runtime di integrazione self-hosted. In genere sono le porte 3300 e 3201.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -66,15 +65,15 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di SAP Business Warehouse (BW) sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **SapBw** | Sì |
-| server | Nome del server in cui si trova l'istanza di SAP BW. | Sì |
-| systemNumber | Numero del sistema SAP BW.<br/>Valore consentito: numero decimale a due cifre rappresentato come stringa. | Sì |
-| clientId | ID del client nel sistema SAP BW.<br/>Valore consentito: numero decimale a tre cifre rappresentato come stringa. | Sì |
-| userName | Nome dell'utente che ha accesso al server SAP. | Sì |
-| password | Password per l'utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |Sì |
+| type | La proprietà type deve essere impostata su: **SapBw** | SÌ |
+| server | Nome del server in cui si trova l'istanza di SAP BW. | SÌ |
+| systemNumber | Numero del sistema SAP BW.<br/>Valore consentito: numero decimale a due cifre rappresentato come stringa. | SÌ |
+| clientId | ID del client nel sistema SAP BW.<br/>Valore consentito: numero decimale a tre cifre rappresentato come stringa. | SÌ |
+| userName | Nome dell'utente che ha accesso al server SAP. | SÌ |
+| password | Password per l'utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | SÌ |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |SÌ |
 
 **Esempio:**
 
@@ -134,10 +133,10 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da SAP BW, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su: **SapBwSource** | Sì |
-| query | Specifica la query MDX che consente di leggere i dati dall'istanza di SAP BW. | Sì |
+| type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su: **SapBwSource** | SÌ |
+| query | Specifica la query MDX che consente di leggere i dati dall'istanza di SAP BW. | SÌ |
 
 **Esempio:**
 
@@ -180,27 +179,27 @@ Quando si copiano dati da SAP BW, vengono usati i mapping seguenti tra i tipi di
 | Tipo di dati di SAP BW | Tipo di dati provvisori di Data Factory |
 |:--- |:--- |
 | ACCP | Int |
-| CHAR | String |
-| CLNT | String |
-| CURR | Decimal |
-| CUKY | String |
-| DEC | Decimal |
-| FLTP | Double |
+| CHAR | Stringa |
+| CLNT | Stringa |
+| CURR | DECIMAL |
+| CUKY | Stringa |
+| DEC | DECIMAL |
+| FLTP | DOUBLE |
 | INT1 | Byte |
 | INT2 | Int16 |
 | INT4 | Int |
-| LANG | String |
-| LCHR | String |
+| LANG | Stringa |
+| LCHR | Stringa |
 | LRAW | Byte[] |
 | PREC | Int16 |
-| QUAN | Decimal |
+| QUAN | DECIMAL |
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
-| STRING | String |
-| UNITÀ | String |
-| DATS | String |
-| NUMC | String |
-| TIMS | String |
+| STRING | Stringa |
+| UNITÀ | Stringa |
+| DATS | Stringa |
+| NUMC | Stringa |
+| TIMS | Stringa |
 
 
 ## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca

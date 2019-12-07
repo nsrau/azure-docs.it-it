@@ -1,23 +1,22 @@
 ---
-title: Copiare dati da SAP Business Warehouse tramite Open Hub usando Azure Data Factory
+title: Copiare dati da SAP Business Warehouse tramite l'hub aperto
 description: Informazioni su come copiare dati da SAP Business Warehouse (BW) tramite Open Hub in archivi dati sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.author: jingwang
-ms.openlocfilehash: f4ee4ec40aeecdb902be3cf93beb9ee25350e262
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8048d64eccab26477b83031b96fe810796486668
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680316"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895574"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copiare dati da SAP Business Warehouse tramite Open Hub usando Azure Data Factory
 
@@ -90,7 +89,7 @@ Per usare il connettore SAP Business Warehouse Open Hub, è necessario:
 
 - Creare il tipo SAP Open Hub Destination come **Database Table** (Tabella di database) con l'opzione "Technical Key" (Chiave tecnica) selezionata.  È inoltre consigliabile lasciare deselezionata l'opzione di eliminazione dei dati dalla tabella, anche se questa impostazione non è obbligatoria. Sfruttare DTP (esecuzione diretta o integrazione nella catena di processo esistente) per il trasferimento dei dati dall'oggetto di origine scelto (ad esempio il cubo) nella tabella di destinazione dell'hub aperto.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 
 > [!TIP]
 >
@@ -104,16 +103,16 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di SAP Business Warehouse Open Hub sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type deve essere impostata su: **SapOpenHub** | Sì |
-| server | Nome del server in cui si trova l'istanza di SAP BW. | Sì |
-| systemNumber | Numero del sistema SAP BW.<br/>Valore consentito: numero decimale a due cifre rappresentato come stringa. | Sì |
-| clientId | ID del client nel sistema SAP BW.<br/>Valore consentito: numero decimale a tre cifre rappresentato come stringa. | Sì |
+| type | La proprietà Type deve essere impostata su: **SapOpenHub** | SÌ |
+| server | Nome del server in cui si trova l'istanza di SAP BW. | SÌ |
+| systemNumber | Numero del sistema SAP BW.<br/>Valore consentito: numero decimale a due cifre rappresentato come stringa. | SÌ |
+| clientId | ID del client nel sistema SAP BW.<br/>Valore consentito: numero decimale a tre cifre rappresentato come stringa. | SÌ |
 | Lingua | Lingua usata dal sistema SAP. | No (valore predefinito: **EN**)|
-| userName | Nome dell'utente che ha accesso al server SAP. | Sì |
-| password | Password per l'utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |Sì |
+| userName | Nome dell'utente che ha accesso al server SAP. | SÌ |
+| password | Password per l'utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | SÌ |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |SÌ |
 
 **Esempio:**
 
@@ -146,10 +145,10 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da e in SAP BW Open Hub, impostare la proprietà type del set di dati su **SapOpenHubTable**. Sono supportate le proprietà seguenti.
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su **SapOpenHubTable**.  | Sì |
-| openHubDestinationName | Il nome di Open Hub Destination da cui copiare i dati. | Sì |
+| type | La proprietà type deve essere impostata su **SapOpenHubTable**.  | SÌ |
+| openHubDestinationName | Il nome di Open Hub Destination da cui copiare i dati. | SÌ |
 
 Se si imposta `excludeLastRequest` e `baseRequestId` nel set di dati, è ancora supportata così com'è, mentre si consiglia di usare il nuovo modello in origine attività in futuro.
 
@@ -180,9 +179,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da SAP BW Hub aperto, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **Type** dell'origine dell'attività di copia deve essere impostata su **SapOpenHubSource**. | Sì |
+| type | La proprietà **Type** dell'origine dell'attività di copia deve essere impostata su **SapOpenHubSource**. | SÌ |
 | excludeLastRequest | Se escludere i record dell'ultima richiesta. | No (il valore predefinito è **true**) |
 | baseRequestId | L'ID della richiesta per il caricamento differenziale. Una volta impostata questa proprietà, verranno recuperati solo i dati con requestId **maggiore** del valore di questa proprietà.  | No |
 
@@ -230,14 +229,14 @@ Quando si copiano dati da SAP BW Open Hub, vengono usati i mapping seguenti tra 
 
 | Tipo SAP ABAP | Tipo di dati provvisori di Data Factory |
 |:--- |:--- |
-| C (String) | String |
+| C (String) | Stringa |
 | I (integer) | Int32 |
-| F (Float) | Double |
-| D (Date) | String |
-| T (Time) | String |
-| P (BCD Packed, Currency, Decimal, Qty) | Decimal |
-| N (Numc) | String |
-| X (Binary e Raw) | String |
+| F (Float) | DOUBLE |
+| D (Date) | Stringa |
+| T (Time) | Stringa |
+| P (BCD Packed, Currency, Decimal, Qty) | DECIMAL |
+| N (Numc) | Stringa |
+| X (Binary e Raw) | Stringa |
 
 ## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
 

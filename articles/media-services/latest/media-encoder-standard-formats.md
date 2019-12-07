@@ -1,6 +1,6 @@
 ---
 title: Formati e codec standard del codificatore-Azure
-description: Questo argomento fornisce una panoramica dei formati e dei codec del codificatore standard.
+description: Questo articolo contiene un elenco dei formati di file di importazione ed esportazione più comuni che è possibile usare con StandardEncoderPreset.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: 195bbb70ac5062c6bbf6034e6a6e9abac018c62f
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: f1d4d4f4006702ebe0d057e56cf24a022e73b83e
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677964"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888071"
 ---
 # <a name="standard-encoder-formats-and-codecs"></a>Formati e codec standard del codificatore
 
@@ -29,17 +29,17 @@ Questo articolo contiene un elenco dei formati di file di importazione ed esport
 
 | Formato di file (estensioni di file) | Supportato |
 | --- | --- |
-| FLV (con codec H. 264 e AAC) (.flv) |Sì |
-| MXF    (.mxf) |Sì |
-| GXF    (.gxf) |Yes |
-| MPEG2 PS, MPEG2-TS, 3GP (TS, PS, 3GP, .3gpp, mpg) |Yes |
-| Windows Media Video (WMV) (.wmv) |Yes |
-| AVI (non compresso 8 bit/10 bit) (.avi) |Sì |
-| MP4 (MP4, M4A,. m4v) / ISMV (ISMA, con estensione .ismv) |Yes |
-| [Microsoft Digital Video Recording (DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |Sì |
-| Matroska/WebM (.mkv) |Sì |
-| WAVE/WAV (.wav) |Sì |
-| QuickTime (.mov) |Yes |
+| FLV (con codec H. 264 e AAC) (.flv) |SÌ |
+| MXF    (.mxf) |SÌ |
+| GXF    (.gxf) |SÌ |
+| MPEG2 PS, MPEG2-TS, 3GP (TS, PS, 3GP, .3gpp, mpg) |SÌ |
+| Windows Media Video (WMV) (.wmv) |SÌ |
+| AVI (non compresso 8 bit/10 bit) (.avi) |SÌ |
+| MP4 (MP4, M4A,. m4v) / ISMV (ISMA, con estensione .ismv) |SÌ |
+| [Microsoft Digital Video Recording (DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |SÌ |
+| Matroska/WebM (.mkv) |SÌ |
+| WAVE/WAV (.wav) |SÌ |
+| QuickTime (.mov) |SÌ |
 
 ### <a name="audio-formats-in-input-containers"></a>Formati audio nei contenitori di input
 
@@ -47,7 +47,7 @@ Il codificatore standard supporta il trasporto dei seguenti formati audio nei co
 
 * file MXF, GXF e QuickTime che dispongono di tracce audio con esempi di stereo interleaved o 5.1
 
-oppure
+Oppure
 
 * File MXF, GXF e QuickTime in cui l'audio viene trasportato in tracce PCM separate, ma il mapping del canale (in stereo o 5.1) può essere dedotto dai metadati del file
 
@@ -55,37 +55,37 @@ oppure
 | Codec video di input | Supportato |
 | --- | --- |
 | AVC 8 bit/10 bit, fino a 4:2:2, incluso AVCIntra |4:2:0 e 4:2:2 a 8 bit |
-| Avid DNxHD (in MXF) |Yes |
-| DVCPro/DVCProHD (in MXF) |Yes |
-| Video digitale (DV) (in file AVI) |Sì |
-| JPEG 2000 |Sì |
+| Avid DNxHD (in MXF) |SÌ |
+| DVCPro/DVCProHD (in MXF) |SÌ |
+| Video digitale (DV) (in file AVI) |SÌ |
+| JPEG 2000 |SÌ |
 | MPEG-2 (fino a 422 Profile e High Level; incluse varianti quali XDCAM, XDCAM HD, XDCAM IMX, CableLabs® e D10) |Fino a 422 Profile |
-| MPEG-1 |Yes |
-| FORMATO VC-1/WMV9 |Sì |
+| MPEG-1 |SÌ |
+| FORMATO VC-1/WMV9 |SÌ |
 | Canopus HQ/HQX |No |
-| MPEG-4 parte 2 |Yes |
-| [Theora](https://en.wikipedia.org/wiki/Theora) |Sì |
-| YUV420 non compressi o mezzanine |Sì |
-| Apple ProRes 422 |Sì |
-| Apple ProRes 422 LT |Yes |
-| Apple ProRes 422 HQ |Yes |
-| Apple ProRes Proxy |Sì |
-| Apple ProRes 4444 |Yes |
-| Apple ProRes 4444 XQ |Yes |
+| MPEG-4 parte 2 |SÌ |
+| [Theora](https://en.wikipedia.org/wiki/Theora) |SÌ |
+| YUV420 non compressi o mezzanine |SÌ |
+| Apple ProRes 422 |SÌ |
+| Apple ProRes 422 LT |SÌ |
+| Apple ProRes 422 HQ |SÌ |
+| Apple ProRes Proxy |SÌ |
+| Apple ProRes 4444 |SÌ |
+| Apple ProRes 4444 XQ |SÌ |
 | HEVC/H.265| Main Profile|
 
 ## <a name="input-audio-codecs"></a>Codec audio di input
 | Codec audio di input | Supportato |
 | --- | --- |
-| AAC (AAC-LC, AAC-HE e AAC-HEv2; fino a 5.1) |Sì |
-| MPEG Layer 2 |Sì |
-| MP3 (MPEG-1 Audio Layer 3) |Sì |
-| Windows Media Audio |Sì |
-| WAV/PCM |Yes |
-| [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Sì |
-| [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |Sì |
-| [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Sì |
-| AMR (velocità multipla adattiva) |Sì |
+| AAC (AAC-LC, AAC-HE e AAC-HEv2; fino a 5.1) |SÌ |
+| MPEG Layer 2 |SÌ |
+| MP3 (MPEG-1 Audio Layer 3) |SÌ |
+| Windows Media Audio |SÌ |
+| WAV/PCM |SÌ |
+| [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |SÌ |
+| [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |SÌ |
+| [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |SÌ |
+| AMR (velocità multipla adattiva) |SÌ |
 | AES (SMPTE 331M e 302M, AES3-2003) |No |
 | Dolby® E |No |
 | Dolby® Digital (AC3) |No |

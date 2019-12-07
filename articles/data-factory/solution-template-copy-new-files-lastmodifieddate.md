@@ -1,5 +1,5 @@
 ---
-title: Copia i file nuovi e modificati da LastModifiedDate con Azure Data Factory
+title: Copia i file nuovi e modificati da LastModifiedDate
 description: Informazioni su come usare un modello di soluzione per copiare file nuovi e modificati da LastModifiedDate con Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 3/8/2019
-ms.openlocfilehash: aaa7114113d5f0330d2dc7d656b0d91963931512
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ca752fb75b8e151de925d3b5604a7e7182d82e92
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684224"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896285"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Copia i file nuovi e modificati da LastModifiedDate con Azure Data Factory
 
@@ -34,7 +34,7 @@ Il modello contiene un'attività:
 Il modello definisce quattro parametri:
 -  *FolderPath_Source* è il percorso della cartella in cui è possibile leggere i file dall'archivio di origine. È necessario sostituire il valore predefinito con il percorso della cartella.
 -  *FolderPath_Destination* è il percorso della cartella in cui si desidera copiare i file nell'archivio di destinazione. È necessario sostituire il valore predefinito con il percorso della cartella.
--  *LastModified_From* viene usato per selezionare i file il cui attributo LastModifiedDate è successivo o uguale a questo valore DateTime.  Per selezionare solo i nuovi file, che non sono stati copiati per la prima volta, questo valore DateTime può essere l'ora in cui è stata attivata la pipeline per l'ultima volta. È possibile sostituire il valore predefinito ' 2019-02-01T00:00:00Z ' con la LastModifiedDate prevista nel fuso orario UTC. 
+-  *LastModified_From* viene utilizzato per selezionare i file il cui attributo LastModifiedDate è successivo o uguale a questo valore DateTime.  Per selezionare solo i nuovi file, che non sono stati copiati per la prima volta, questo valore DateTime può essere l'ora in cui è stata attivata la pipeline per l'ultima volta. È possibile sostituire il valore predefinito ' 2019-02-01T00:00:00Z ' con la LastModifiedDate prevista nel fuso orario UTC. 
 -  *LastModified_To* viene usato per selezionare i file il cui attributo LastModifiedDate è precedente a questo valore DateTime. Per selezionare solo i nuovi file, che non sono stati copiati l'ultima volta, questo valore DateTime può essere l'ora corrente.  È possibile sostituire il valore predefinito ' 2019-02-01T00:00:00Z ' con la LastModifiedDate prevista nel fuso orario UTC. 
 
 ## <a name="how-to-use-this-solution-template"></a>Come usare questo modello di soluzione
@@ -61,7 +61,7 @@ Il modello definisce quattro parametri:
 
 6. Selezionare **debug**, scrivere il valore per i **parametri** e fare clic su **fine**.  Nell'immagine seguente vengono impostati i parametri come segue.
    - **FolderPath_Source** =  **/source/**
-   - **FolderPath_Destination** =  **/Destination/**
+   - **FolderPath_Destination** =  **/destination/**
    - **LastModified_From** =  **2019-02-01T00:00:00Z**
    - **LastModified_To** = **2019-03-01T00:00:00Z**
     
@@ -83,7 +83,7 @@ Il modello definisce quattro parametri:
 
 10. Selezionare la **finestra a cascata** per il tipo di trigger, impostare **ogni 15 minuti** come ricorrenza (è possibile passare a qualsiasi intervallo di tempo), quindi selezionare **Avanti**.
 
-    ![Crea trigger](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate10.png)    
+    ![Creare un trigger](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate10.png)    
     
 11. Scrivere il valore per i **parametri di esecuzione del trigger** come segue, quindi fare clic su **fine**.
     - **FolderPath_Source** =  **/source/** .  È possibile sostituire con la cartella nell'archivio dati di origine.

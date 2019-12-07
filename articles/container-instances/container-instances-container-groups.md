@@ -4,12 +4,12 @@ description: Informazioni sui gruppi di contenitori in istanze di contenitore di
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: bba0aa35ef52d498bdb2028c7180f01b6c5f81ec
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: c4d5217fe96ca2669397bb7f2a94c6394c002534
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706320"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896588"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Gruppi di contenitori in Istanze di Azure Container
 
@@ -68,7 +68,9 @@ Per altre informazioni, vedere la proprietà [ResourceRequirements][resource-req
 
 ## <a name="networking"></a>Rete
 
-I gruppi di contenitori condividono un indirizzo IP e uno spazio dei nomi di porta su tale indirizzo IP. Per consentire a client esterni di raggiungere un contenitore all'interno del gruppo, è necessario esporre la porta sull'indirizzo IP e dal contenitore. Poiché i contenitori all'interno del gruppo condividono uno spazio dei nomi di porta, il mapping delle porte non è supportato. I contenitori all'interno di un gruppo possono raggiungere reciprocamente tramite localhost sulle porte esposte, anche se queste porte non sono esposte esternamente all'indirizzo IP del gruppo.
+I gruppi di contenitori possono condividere un indirizzo IP esterno e uno spazio dei nomi di porta su tale indirizzo IP. Per consentire a client esterni di raggiungere un contenitore all'interno del gruppo, è necessario esporre la porta sull'indirizzo IP e dal contenitore. Poiché i contenitori all'interno del gruppo condividono uno spazio dei nomi di porta, il mapping delle porte non è supportato. 
+
+All'interno di un gruppo di contenitori, le istanze dei contenitori possono raggiungere reciprocamente tramite localhost su qualsiasi porta, anche se queste porte non sono esposte esternamente nell'indirizzo IP del gruppo o dal contenitore.
 
 Facoltativamente, distribuire i gruppi di contenitori in una [rete virtuale di Azure][virtual-network] (anteprima) per consentire ai contenitori di comunicare in modo sicuro con altre risorse nella rete virtuale.
 

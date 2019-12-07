@@ -7,14 +7,14 @@ ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
 ms.date: 04/12/2017
-ms.openlocfilehash: 8f70ecc96269783c29c566fb89bd617f034316b1
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 2d2d8d43cb5ee91810d639c4ee8925d185987954
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932681"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893553"
 ---
-# <a name="collect-azure-diagnostic-logs-from-azure-storage"></a>Raccogliere i log di diagnostica di Azure da archiviazione di Azure
+# <a name="collect-azure-resource-logs-from-azure-storage"></a>Raccogliere i log delle risorse di Azure da archiviazione di Azure
 
 Monitoraggio di Azure è in grado di leggere i log per i servizi seguenti che scrivono dati di diagnostica nell'archivio tabelle o nei log di IIS scritti nell'archiviazione BLOB:
 

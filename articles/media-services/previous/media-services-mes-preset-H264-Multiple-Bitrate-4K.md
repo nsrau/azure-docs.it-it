@@ -1,6 +1,6 @@
 ---
 title: Media Encoder Standard a bitrate multipli H.264 con risoluzione 4K preimpostato - Azure | Documentazione Microsoft
-description: Questo argomento offre una panoramica del set di impostazioni di attività **Codec video H.264 a bitrate multipli con risoluzione 4K**.
+description: Questo articolo offre una panoramica del set di impostazioni di attività **4K a più velocità in bit media encoder standard H264** .
 author: Juliako
 manager: femila
 editor: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: e2c5339731267a00e3423e79bc25b9d03d274bfd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cec0fa3bd059cd31d9bd94773b0cce42d0f12a75
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61129585"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887018"
 ---
 # <a name="h264-multiple-bitrate-4k"></a>Codec video H.264 a bitrate multipli con risoluzione 4K
 `Media Encoder Standard` definisce un set di impostazioni di codifica che è possibile usare per la creazione di processi di codifica. È possibile usare un `preset name` per specificare il formato in cui codificare il file multimediale oppure creare set di impostazioni basati su JSON o XML personalizzati, con codifica UTF-8 o UTF-16. Dopodiché, occorre trasmettere il set di impostazioni personalizzato al codificatore. Per un elenco di tutti i nomi dei set di impostazioni supportati dal codificatore `Media Encoder Standard`, vedere [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md) (Set di impostazioni di attività per Media Encoder Standard).  
@@ -32,7 +32,7 @@ ms.locfileid: "61129585"
 >  È necessario ottenere il tipo di unità riservata Premium con codifica 4K. Per altre informazioni, vedere [Come scalare la codifica](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
   
 > [!NOTE]
->  Quando si modificano i valori `Width` e `Height` nei livelli, assicurarsi che le proporzioni rimangano coerenti. Ad esempio:  1920x1080, 1280x720, 1080x576, 640x360. Non è consigliabile usare una combinazione di proporzioni, ad esempio: 1280x720, 720x480, 640x360.  
+>  Quando si modificano i valori `Width` e `Height` nei livelli, assicurarsi che le proporzioni rimangano coerenti. Ad esempio: 1920x1080, 1280x720, 1080x576, 640x360. Non è consigliabile usare una combinazione di proporzioni, ad esempio: 1280x720, 720x480, 640x360.  
   
  XML  
   

@@ -1,7 +1,7 @@
 ---
 title: Gestire un account di Video Indexer
 titleSuffix: Azure Media Services
-description: Questo articolo illustra come gestire un account di Video Indexer connesso ad Azure.
+description: Questo articolo illustra come gestire un account Video Indexer connesso ad Azure.
 services: media-services
 author: Juliako
 manager: femila
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: a8221cdcf7afe82ee969f645d7f459c69519711d
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 4f8491e31747eda9cbe8689ba7db3026df0ff3ad
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838977"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892771"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Gestire un account di Video Indexer connesso ad Azure
 
@@ -56,7 +56,7 @@ La pagina **Impostazioni** consente di impostare la scalabilità automatica dell
 
 La scalabilità automatica non effettua ridimensionamenti al di sotto di una UR o al di sopra del limite predefinito dell'account dei Servizi multimediali. Per aumentare il limite creare una richiesta di servizio. Per informazioni su quote e limitazioni e su come aprire un ticket di supporto, vedere [Quote e limitazioni](../../media-services/previous/media-services-quotas-and-limitations.md).
 
-![Iscrizione](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
+![Iscriviti](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
 
 ## <a name="errors-and-warnings"></a>Errori e avvisi
 
@@ -70,7 +70,7 @@ Se l'account richiede delle rettifiche, vengono visualizzati gli errori e gli av
 
     Assicurarsi che l'account dei Servizi multimediali sottostante abbia l'**Endpoint di streaming** predefinito in stato avviato. Altrimenti, non sarà possibile guardare i video di questo account dei Servizi multimediali o in Video Indexer.
 
-* Unità riservate multimediali 
+* Media Reserved Unit 
 
     È necessario allocare le Unità riservate multimediali nella risorsa dei Servizi multimediali per poter indicizzare i video. Per ottimizzare le prestazioni di indicizzazione, si consiglia di allocare almeno 10 unità riservate S3. Per le informazioni sui prezzi, vedere la sezione delle domande frequenti nella pagina dei [prezzi dei Servizi multimediali](https://azure.microsoft.com/pricing/details/media-services/).   
 

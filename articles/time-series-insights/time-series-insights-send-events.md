@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: cdcd64b5281ce16002720072db3b5f29f1978cac
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 1dfd9a8d2723136ef68d983eb99bf2391fb87879
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014821"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894813"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Inviare eventi a un ambiente Time Series Insights usando un hub eventi
 
@@ -29,14 +29,14 @@ Questo articolo illustra come creare e configurare un hub eventi in hub eventi d
 1. Selezionare l'hub eventi.
 1. Quando si crea un hub eventi, si sta creando uno spazio dei nomi dell'hub eventi. Se non è ancora stato creato un hub eventi nello spazio dei nomi, nel menu, in **entità**, creare un hub eventi.  
 
-    [![elenco di hub eventi](media/send-events/1-event-hub-namespace.png)](media/send-events/1-event-hub-namespace.png#lightbox)
+    [![elenco di hub eventi](media/send-events/tsi-connect-event-hub-namespace.png)](media/send-events/tsi-connect-event-hub-namespace.png#lightbox)
 
 1. Dopo aver creato un hub eventi, selezionarlo nell'elenco degli hub eventi.
 1. Nel menu in **entità**selezionare **Hub eventi**.
 1. Selezionare il nome dell'hub eventi per configurarlo.
 1. In **Panoramica**selezionare **gruppi di consumer**e quindi selezionare **gruppo di consumer**.
 
-    [![creare un gruppo di consumer](media/send-events/2-consumer-group.png)](media/send-events/2-consumer-group.png#lightbox)
+    [![creare un gruppo di consumer](media/send-events/add-event-hub-consumer-group.png)](media/send-events/add-event-hub-consumer-group.png#lightbox)
 
 1. Assicurarsi di creare un gruppo di consumer usato esclusivamente dall'origine evento Time Series Insights.
 
@@ -45,17 +45,17 @@ Questo articolo illustra come creare e configurare un hub eventi in hub eventi d
 
 1. Nel menu, in **Impostazioni**, selezionare **criteri di accesso condiviso**, quindi selezionare **Aggiungi**.
 
-    [![selezionare criteri di accesso condiviso e quindi selezionare il pulsante Aggiungi](media/send-events/3-shared-access-policy.png)](media/send-events/3-shared-access-policy.png#lightbox)
+    [![selezionare criteri di accesso condiviso e quindi selezionare il pulsante Aggiungi](media/send-events/add-shared-access-policy.png)](media/send-events/add-shared-access-policy.png#lightbox)
 
 1. Nel riquadro **Aggiungi nuovi criteri di accesso condiviso** creare un accesso condiviso denominato **MySendPolicy** Usare questi criteri di accesso condiviso per inviare gli eventi negli C# esempi più avanti in questo articolo.
 
-    [![nella casella Nome criterio immettere MySendPolicy](media/send-events/4-shared-access-policy-confirm.png)](media/send-events/4-shared-access-policy-confirm.png#lightbox)
+    [![nella casella Nome criterio immettere MySendPolicy](media/send-events/configure-shared-access-policy-confirm.png)](media/send-events/configure-shared-access-policy-confirm.png#lightbox)
 
 1. In **Claim (attestazione**) selezionare la casella di controllo **Send (Invia** ).
 
 ## <a name="add-a-time-series-insights-instance"></a>Aggiungere un'istanza di Time Series Insights
 
-L'aggiornamento di Time Series Insights usa le istanze per aggiungere dati contestuali ai dati di telemetria in ingresso. I dati sono uniti in fase di query tramite un **ID serie temporale**. L' **ID della serie temporale** per il progetto mulini di esempio usato più avanti in questo articolo è `id`. Per altre informazioni sulle istanze di Time Series Insight e sull'**ID serie temporale**, vedere [Time Series Models](./time-series-insights-update-tsm.md) (Modelli Time Series).
+L'aggiornamento di Time Series Insights usa le istanze per aggiungere dati contestuali ai dati di telemetria in ingresso. I dati sono uniti in fase di query tramite un **ID serie temporale**. L' **ID della serie temporale** per il progetto mulini di esempio usato più avanti in questo articolo è `id`. Per ulteriori informazioni sulle istanze di Time Series Insight e sull' **ID della serie**temporale, vedere [modelli Time Series](./time-series-insights-update-tsm.md).
 
 ### <a name="create-a-time-series-insights-event-source"></a>Creare un'origine evento di Time Series Insights
 
@@ -71,18 +71,18 @@ L'aggiornamento di Time Series Insights usa le istanze per aggiungere dati conte
 
 1. Passare a **criteri di accesso condiviso** > **MySendPolicy**. Copiare il valore per **stringa di connessione-chiave primaria**.
 
-    [![copiare il valore per la stringa di connessione della chiave primaria](media/send-events/5-sample-code-connection-string.png)](media/send-events/5-sample-code-connection-string.png#lightbox)
+    [![copiare il valore per la stringa di connessione della chiave primaria](media/send-events/configure-sample-code-connection-string.png)](media/send-events/configure-sample-code-connection-string.png#lightbox)
 
 1. Passare a https://tsiclientsample.azurewebsites.net/windFarmGen.html. L'URL esegue i dispositivi windmill simulati.
 1. Nella casella **stringa di connessione dell'hub eventi** della pagina Web incollare la stringa di connessione copiata nel campo di [input Windmill](#push-events-to-windmills-sample).
   
-    [![incollare la stringa di connessione della chiave primaria nella casella stringa di connessione dell'hub eventi](media/send-events/6-wind-mill-sim.png)](media/send-events/6-wind-mill-sim.png#lightbox)
+    [![incollare la stringa di connessione della chiave primaria nella casella stringa di connessione dell'hub eventi](media/send-events/configure-wind-mill-sim.png)](media/send-events/configure-wind-mill-sim.png#lightbox)
 
 1. Selezionare **Click to start** (Fare clic per avviare). Il simulatore genera istanza JSON che è possibile usare direttamente.
 
 1. Tornare all'hub eventi nel portale di Azure. Nella pagina **Overview (panoramica** ) vengono visualizzati i nuovi eventi ricevuti dall'hub eventi.
 
-    [![una pagina Panoramica di hub eventi che mostra le metriche per l'hub eventi](media/send-events/7-telemetry.png)](media/send-events/7-telemetry.png#lightbox)
+    [![una pagina Panoramica di hub eventi che mostra le metriche per l'hub eventi](media/send-events/review-windmill-telemetry.png)](media/send-events/review-windmill-telemetry.png#lightbox)
 
 ## <a name="supported-json-shapes"></a>Forme JSON supportate
 

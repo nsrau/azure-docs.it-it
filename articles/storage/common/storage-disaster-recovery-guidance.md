@@ -1,22 +1,23 @@
 ---
-title: Ripristino di emergenza e failover dell'account di archiviazione (anteprima) - Archiviazione di Azure
+title: Ripristino di emergenza e failover dell'account di archiviazione (anteprima)
+titleSuffix: Azure Storage
 description: Archiviazione di Azure supporta il failover dell'account (anteprima) per gli account di archiviazione con ridondanza geografica. Con il failover dell'account, è possibile avviare il processo di failover per l'account di archiviazione se l'endpoint primario non è più disponibile.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d9daff390aa1678c25f4bf9c29b0293d96c43f48
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 7bbad4adce88b8b669c5c5739bfa45b079f321d0
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74775929"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895359"
 ---
-# <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Ripristino di emergenza e failover dell'account di archiviazione (anteprima) in Archiviazione di Azure
+# <a name="disaster-recovery-and-account-failover-preview"></a>Ripristino di emergenza e failover dell'account (anteprima)
 
 Microsoft si impegna per fare in modo che i servizi di Azure siano sempre disponibili. Possono tuttavia verificarsi interruzioni dei servizi non pianificate. Se l'applicazione richiede resilienza, Microsoft consiglia di usare l'archiviazione con ridondanza geografica, in modo che i dati vengano replicati in una seconda area. I clienti dovrebbero anche predisporre un piano di ripristino di emergenza per gestire un'interruzione dei servizi a livello di area. Un parte importante del piano di ripristino di emergenza è la preparazione del failover nell'endpoint secondario qualora l'endpoint primario non sia più disponibile. 
 

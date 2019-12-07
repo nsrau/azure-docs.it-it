@@ -1,7 +1,7 @@
 ---
 title: Usare gli output in tempo reale e di spostamento per creare la riproduzione video su richiesta
 titleSuffix: Azure Media Services
-description: Informazioni su come usare gli output in tempo reale e in tempo reale per registrare flussi live e creare la riproduzione su richiesta.
+description: Questo articolo descrive come usare gli output in tempo reale e di spostamento per registrare i flussi live e creare la riproduzione su richiesta.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 08/27/2019
 ms.author: juliako
-ms.openlocfilehash: acba251a57f39c07d690d0c55665b8914feaf06c
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 4c7618b60e5fd86a9b8b3f22fb3333c00cfdfa61
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186236"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74899791"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>Usare gli output in tempo reale e di spostamento per creare la riproduzione video su richiesta
 
@@ -45,7 +45,7 @@ Anche dopo l'arresto e l'eliminazione dell'evento, gli utenti possono trasmetter
 
 Se la risorsa dell'output Live è stata pubblicata usando un localizzatore di streaming, l'evento Live (fino alla lunghezza della finestra DVR) continuerà a essere visualizzabile fino alla scadenza o all'eliminazione del localizzatore di streaming, a seconda di quale evento si verifica per primo.
 
-Per altre informazioni, vedere:
+Per scoprire di più, vedi:
 
 - [Panoramica dello streaming live](live-streaming-overview.md)
 - [Esercitazione sullo streaming live](stream-live-tutorial-with-api.md)

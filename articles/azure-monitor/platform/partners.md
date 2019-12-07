@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 03/14/2019
-ms.openlocfilehash: 8e04369e3e070054c5095abde29ecca99d071cb8
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 61b43329fcc840bc68f454400a4b5e917f43110c
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74144465"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894595"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrazioni partner del monitoraggio di Azure
 
@@ -63,7 +63,7 @@ Circonus è una piattaforma di monitoraggio e analisi di microservizi per la dis
 
 Unire e automatizzare il cloud con una piattaforma creata per risparmiare tempo e denaro. CloudHealth offre visibilità, ottimizzazione intuitiva e procedure di governance solidissime per la gestione del cloud. La piattaforma CloudHealth consente alle aziende e ai MSPs di massimizzare il ritorno sugli investimenti nel cloud. e di prendere decisioni informate su costi, utilizzo, prestazioni e sicurezza.
 
-[Altre informazioni][cloudhealth-doc]
+[Ulteriori informazioni][cloudhealth-doc]
 
 ## <a name="cloudmonix"></a>CloudMonix
 
@@ -89,7 +89,7 @@ Dynatrace OneAgent si integra con Servizi app e con le VM di Azure per mezzo dei
 
 [Passare alla documentazione.][dynatrace-doc]
 
-## <a name="elastic"></a>Elastic
+## <a name="elastic"></a>Elasticità
 
 ![Logo elastico](./media/partners/elastic.png)
 
@@ -136,11 +136,11 @@ LogRhythm, leader di NextGen SIEM, consente alle organizzazioni su sei continent
 
 Microfocus **ArcSight** dispone di uno Smart Connector per hub eventi di monitoraggio di Azure.
 
-[Altre informazioni](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "Documentazione di ArcSight.")
+[Ulteriori informazioni](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "Documentazione di ArcSight.")
 
 Il **Bridge per operazioni** con Microfocus monitora automaticamente tutte le risorse IT ibride, ovvero qualsiasi dispositivo, sistema operativo, database, applicazione o servizio, indipendentemente da dove viene eseguito e applica AIOps a tutti i tipi di dati, ovvero eventi, metriche, log e dipendenze. Offre una combinazione univoca di monitoraggio di qualità del servizio, associata a analisi approfondite dell'integrità delle applicazioni e include il monitoraggio completo delle prestazioni e della disponibilità dei servizi Microsoft Azure. Operations Bridge consente ai clienti di fornire un unico riquadro di vetro, disponibile su qualsiasi dispositivo con un browser, in modo che sia le aziende che gli stakeholder IT possano comprendere.
 
-Altre informazioni
+Altre informazioni.
 - [Panoramica di OB Suite](https://www.microfocus.com/products/operations-bridge-suite/overview)
 - [Scaricare](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
 - [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) -SiteScope è un componente di Operations Bridge suite.
@@ -178,7 +178,7 @@ OpsGenie agisce come un dispatcher degli avvisi generati da Azure. OpsGenie dete
 
 [Passare alla documentazione.][opsgenie-doc]
 
-## <a name="pagerduty"></a>Pagerduty
+## <a name="pagerduty"></a>PagerDuty
 
 ![Logo di PagerDuty](./media/partners/pagerduty.png)
 
@@ -255,7 +255,7 @@ Turbonomic offre l'automazione dei carichi di lavoro per cloud ibridi, ottimizza
 - [Altre informazioni su Monitoraggio di Azure](../../azure-monitor/overview.md)
 - [Accedere alle metriche mediante l'API REST](rest-api-walkthrough.md)
 - [Trasmettere come flusso il log attività a un servizio di non proprietario di Microsoft](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
-- [Trasmettere come flusso il log di diagnostica a un servizio di non proprietario di Microsoft](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
+- [Trasmettere i log delle risorse a un servizio non Microsoft](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
 
 
 

@@ -1,6 +1,6 @@
 ---
 title: Codici di errore di Servizi multimediali di Azure | Microsoft Docs
-description: Questo argomento fornisce una panoramica dei codici di errore di Servizi multimediali di Azure.
+description: È possibile ricevere codici di errore HTTP dal servizio a seconda di problemi, ad esempio i token di autenticazione che scadono a azioni non supportate in servizi multimediali. Questo articolo fornisce una panoramica dei codici di errore dell'API servizi multimediali V2 di Azure.
 author: Juliako
 manager: femila
 editor: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: f3c362730e7908e88b363659b7fa580b6f2cddf1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f5a2dd68d86a7a38fc7f2942351c42c84742d104
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61217234"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887069"
 ---
 # <a name="azure-media-services-error-codes"></a>Codici di errore di Servizi multimediali di Azure
 Quando si usa Servizi multimediali di Microsoft Azure, è possibile ricevere codici di errore HTTP dal servizio a seconda del problema, ad esempio scadenza dei token di autenticazione o azioni non supportate in Servizi multimediali. Di seguito è riportato un elenco di **codici di errore HTTP** che possono essere restituiti da Servizi multimediali e le cause che li possono generare.  
@@ -65,7 +65,7 @@ La richiesta non è consentita per uno dei motivi seguenti:
   * È stato effettuato un tentativo di sovrascrittura di altre istanze di ContentKey dell'account di Servizi multimediali.
 * Non è stato possibile creare la risorsa a causa di una quota del servizio raggiunta per l'account di Servizi multimediali. Per altre informazioni sulle quote del servizio, vedere [Quote e limitazioni](media-services-quotas-and-limitations.md).
 
-## <a name="404-not-found"></a>404 - Non trovato
+## <a name="404-not-found"></a>404 - Pagina non trovata
 La richiesta non è consentita su una risorsa per uno dei motivi seguenti:
 
 * È stato effettuato un tentativo di aggiornamento di un'entità che non esiste.
@@ -122,6 +122,6 @@ Per gestire questo errore, è consigliabile usare la logica di ripetizione dei t
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

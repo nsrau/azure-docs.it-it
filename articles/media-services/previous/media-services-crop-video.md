@@ -1,6 +1,6 @@
 ---
 title: Questo articolo illustra come ritagliare video con Media Encoder Standard - Azure | Documentazione Microsoft
-description: Questo articolo illustra come ritagliare video con Media Encoder Standard.
+description: Il ritaglio è il processo di selezione di una finestra rettangolare all'interno del fotogramma video per codificare solo i pixel all'interno di quella finestra. Questo articolo illustra come ritagliare i video con Media Encoder Standard.
 services: media-services
 documentationcenter: ''
 author: anilmur
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: 03d68cc3a60abba8b7189a9d03fbc21d7606f736
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 059816284e39c65bb772bd02f066d73da624722f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "69016623"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887765"
 ---
 # <a name="crop-videos-with-media-encoder-standard"></a>Ritagliare video con Media Encoder Standard  
 
@@ -128,7 +128,7 @@ Nell'esempio illustrato nel diagramma:
 
 
 ## <a name="restrictions-on-cropping"></a>Restrizioni relative al ritaglio
-La funzionalità di ritaglio è concepita per essere manuale. Sarà necessario caricare il video di input in uno strumento di editing valido che consenta di selezionare i frame di interesse, posizionare il cursore per determinare gli offset del rettangolo di ritaglio, per determinare il set di impostazioni di codifica ottimale per quel particolare video e così via. Questa funzionalità non è progettata per consentire ad esempio il rilevamento e la rimozione automatici dei bordi neri formato 16:9 e formato 4:3 nel video di input.
+La funzionalità di ritaglio è concepita per essere manuale. È necessario caricare il video di input in uno strumento di modifica appropriato che consente di selezionare i frame di interesse, posizionare il cursore per determinare gli offset per il rettangolo di ritaglio, per determinare il set di impostazioni di codifica ottimizzato per quel particolare video e così via. Questa funzionalità non ha lo scopo di abilitare operazioni quali il rilevamento e la rimozione automatici dei bordi letterbox/pillarbox neri nel video di input.
 
 Alla funzionalità di ritaglio si applicano le limitazioni seguenti. Se queste limitazioni non vengono osservate, l'attività di codifica produrrà errori o un output imprevisto.
 
@@ -137,7 +137,7 @@ Alla funzionalità di ritaglio si applicano le limitazioni seguenti. Se queste l
 3. Il ritaglio si applica a video acquisiti in modalità orizzontale, ovvero non è applicabile a video registrati con uno smartphone con orientamento verticale
 4. Il ritaglio funziona in modo ottimale con video progressivo acquisito con pixel quadrati
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-step"></a>Passaggio successivo

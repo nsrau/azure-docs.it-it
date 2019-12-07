@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: bd3e33fde3f4249064bfbe1973ee95f680630673
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 2a2a96a823867ea7700933c8253a0ba500b0e1cf
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851163"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74899814"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Connettersi privatamente a un account di archiviazione usando un endpoint privato di Azure
 Endpoint privato di Azure è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con risorse di collegamento privato.
@@ -132,7 +132,7 @@ In questa sezione verrà creato un account di archiviazione privato utilizzando 
     | Subnet | Selezionare  *mySubnet*. |
     | **INTEGRAZIONE DNS PRIVATO**|  |
     | Integra con la zona DNS privato  | Lasciare l'impostazione predefinita **Sì**. |
-    | Zona DNS privato  | Lasciare il valore predefinito * * (nuovo) privatelink.blob.core.windows.net * *. |
+    | Zona DNS privato  | Lasciare il valore predefinito **(nuovo) privatelink.blob.Core.Windows.NET**. |
     |||
 7. Selezionare **OK**. 
 8. Selezionare **Rivedi e crea**. Si viene reindirizzati alla pagina **Rivedi e crea** dove Azure convalida la configurazione. 
@@ -151,7 +151,7 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
 
 1. Selezionare **Scarica file RDP**. Azure crea e scarica nel computer un file Remote Desktop Protocol con estensione *.rdp*.
 
-1. Aprire il file con estensione rdp scaricato.
+1. Aprire il file con *estensione RDP scaricato* .
 
     1. Quando richiesto, selezionare **Connetti**.
 

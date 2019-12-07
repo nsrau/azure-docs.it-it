@@ -4,12 +4,12 @@ description: Sintomi, cause e soluzioni per i problemi di Backup di Azure correl
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: c4ee8cbeeec21c4af0cc3a7fd83844bc8c676add
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 23b10bed3b741ec76167eb5a976bf5737d20b173
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172594"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894012"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere i problemi di Backup di Azure: problemi relativi all'agente o all'estensione
 
@@ -22,12 +22,14 @@ Questo articolo illustra le procedure di risoluzione dei problemi che possono es
 **Codice errore**: UserErrorGuestAgentStatusUnavailable <br>
 **Messaggio di errore**: VM Agent unable to communicate with Azure Backup (L'agente delle VM non riesce a comunicare con Backup di Azure)<br>
 
-L'agente di macchine virtuali di Azure potrebbe essere arrestato, obsoleto, in uno stato incoerente o non installato e impedire al servizio backup di Azure di attivare gli snapshot.  
+L'agente di macchine virtuali di Azure potrebbe essere arrestato, obsoleto, in uno stato incoerente o non installato e impedire al servizio backup di Azure di attivare gli snapshot.
 
-- Se l'agente di macchine virtuali è stato arrestato o è in uno stato incoerente, **riavviare l'agente** e ripetere l'operazione di backup (provare a eseguire un backup su richiesta). Per la procedura di riavvio dell'agente, consultare [Macchine virtuali Windows](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) o [Macchine virtuali Linux](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent).
-- Se l'agente di macchine virtuali non è installato o è obsoleto, installare/aggiornare l'agente di macchine virtuali e ripetere l'operazione di backup. Per i passaggi necessari per installare o aggiornare l'agente, vedere [macchine virtuali Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) o [macchine virtuali Linux](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent).  
+- **Aprire il portale di Azure > impostazioni > vm > Pannello proprietà** > assicurarsi che **lo stato** della macchina virtuale sia **in esecuzione** e che **lo stato dell'agente** sia **pronto**. Se l'agente di macchine virtuali è stato arrestato o è in uno stato incoerente, riavviare l'agente<br>
+  - Per le macchine virtuali Windows attenersi alla [seguente procedura](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) per riavviare l'agente guest.<br>
+  - Per le VM Linux, attenersi alla [procedura seguente](https://docs.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) per riavviare l'agente guest.
 
-## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError - Non è possibile comunicare con l'agente delle VM per lo stato dello snapshot
+
+## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError - Non è stato possibile comunicare con l'agente della macchina virtuale per lo stato dello snapshot
 
 **Codice errore**: GuestAgentSnapshotTaskStatusError<br>
 **Messaggio di errore**: Could not communicate with the VM agent for snapshot status (Non è possibile comunicare con l'agente delle VM per lo stato dello snapshot) <br>
@@ -41,6 +43,16 @@ Dopo la registrazione e la pianificazione di una macchina virtuale per il serviz
 **Causa 3: [Non è possibile recuperare lo stato dello snapshot o acquisire uno snapshot](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**
 
 **Causa 4: [Non è possibile aggiornare o caricare l'estensione di backup](#the-backup-extension-fails-to-update-or-load)**
+
+## <a name="usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state"></a>UserErrorVmProvisioningStateFailed-lo stato di provisioning della macchina virtuale non è riuscito
+
+**Codice di errore**: UserErrorVmProvisioningStateFailed<br>
+**Messaggio di errore**: lo stato di provisioning della macchina virtuale non è riuscito<br>
+
+Questo errore si verifica quando uno degli errori di estensione inserisce la macchina virtuale in stato di errore di provisioning.<br>**Aprire il portale di Azure > impostazioni di > VM > estensioni > lo stato delle estensioni** e verificare se tutte le estensioni sono in stato di **provisioning riuscito** .
+
+- Se lo stato dell'estensione VMSnapshot è failed, fare clic con il pulsante destro del mouse sull'estensione non riuscita e rimuoverlo. Attivare un backup ad hoc. le estensioni vengono reinstallate ed è possibile eseguire il processo di backup.  <br>
+- Se un'altra estensione è in stato di errore, può interferire con il backup. Verificare che i problemi relativi all'estensione vengano risolti e ripetere l'operazione di backup.  
 
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached - È stato raggiunto il limite massimo di raccolte di punti di ripristino
 
@@ -65,7 +77,7 @@ Per risolvere il problema, rimuovere il blocco sul gruppo di risorse della macch
 
 Per eseguire un'operazione di backup nelle VM crittografate, è necessario disporre delle autorizzazioni per accedere all'insieme di credenziali delle chiavi. Questa operazione può essere eseguita usando il [portale di Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) o tramite [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection).
 
-## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - Operazione di creazione snapshot non riuscita a causa dell'assenza della connettività di rete nella macchina virtuale
+## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - L'operazione di creazione snapshot non è riuscita perché la connettività di rete è assente nella macchina virtuale
 
 **Codice errore**: ExtensionSnapshotFailedNoNetwork<br>
 **Messaggio di errore**: Snapshot operation failed due to no network connectivity on the virtual machine (Operazione di creazione snapshot non riuscita a causa dell'assenza della connettività di rete nella macchina virtuale)<br>
@@ -87,7 +99,7 @@ Dopo la registrazione e la pianificazione di una macchina virtuale per il serviz
 **Causa 3: [L'agente è installato nella macchina virtuale ma non risponde (per le macchine virtuali Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
 **Causa 4: [L'agente installato nella macchina virtuale non è aggiornato (per le macchine virtuali Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
 
-## <a name="backupoperationfailed--backupoperationfailedv2---backup-fails-with-an-internal-error"></a>BackUpOperationFailed / BackUpOperationFailedV2 - Errore interno di backup
+## <a name="backupoperationfailed--backupoperationfailedv2---backup-fails-with-an-internal-error"></a>BackUpOperationFailed / BackUpOperationFailedV2 - Il backup non è riuscito generando un errore interno
 
 **Codice errore**: BackUpOperationFailed / BackUpOperationFailedV2 <br>
 **Messaggio di errore**: Backup failed with an internal error - Please retry the operation in a few minutes (Errore interno di backup. Attendere qualche minuto prima di ripetere l'operazione) <br>

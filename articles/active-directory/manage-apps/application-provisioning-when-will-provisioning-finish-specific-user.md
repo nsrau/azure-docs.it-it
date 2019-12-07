@@ -16,12 +16,12 @@ ms.date: 09/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25ac9ad5877c6a1408d4045df4d4e1fd8f64ea94
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: ebe362be49995ce2cd1f4c43a5cfbee408396976
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275730"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900397"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Verificare lo stato del provisioning utenti
 
@@ -74,13 +74,13 @@ La tabella seguente riepiloga i tempi di sincronizzazione per gli scenari di pro
 | Configurazione dell'ambito | Utenti, gruppi e membri nell'ambito | Tempo ciclo iniziale | Tempo ciclo incrementale |
 | -------- | -------- | -------- | -------- |
 | Sincronizza solo utenti e gruppi assegnati |  < 1.000 |  < 30 minuti | < 30 minuti |
-| Sincronizza solo utenti e gruppi assegnati |  1\.000 - 10.000 | 142 - 708 minuti | < 30 minuti |
+| Sincronizza solo utenti e gruppi assegnati |  1\.000-10.000 | 142 - 708 minuti | < 30 minuti |
 | Sincronizza solo utenti e gruppi assegnati |   10.000 - 100.000 | 1\.170 - 2.340 minuti | < 30 minuti |
 | Sincronizza tutti gli utenti e i gruppi in Azure AD |  < 1.000 | < 30 minuti  | < 30 minuti |
-| Sincronizza tutti gli utenti e i gruppi in Azure AD |  1\.000 - 10.000 | < 30 - 120 minuti | < 30 minuti |
+| Sincronizza tutti gli utenti e i gruppi in Azure AD |  1\.000-10.000 | < 30 - 120 minuti | < 30 minuti |
 | Sincronizza tutti gli utenti e i gruppi in Azure AD |  10.000 - 100.000  | 713 - 1.425 minuti | < 30 minuti |
 | Sincronizza tutti gli utenti in Azure AD|  < 1.000  | < 30 minuti | < 30 minuti |
-| Sincronizza tutti gli utenti in Azure AD | 1\.000 - 10.000  | 43 - 86 minuti | < 30 minuti |
+| Sincronizza tutti gli utenti in Azure AD | 1\.000-10.000  | 43 - 86 minuti | < 30 minuti |
 
 
 Per l' **utente e i gruppi assegnati alla sincronizzazione**della configurazione, è possibile usare le formule seguenti per determinare il tempo di **ciclo iniziale** minimo e massimo previsto:
@@ -101,6 +101,8 @@ Riepilogo dei fattori che influiscono sul tempo necessario per completare un **c
 - Limitazioni relative al numero e alla frequenza delle richieste implementate dal sistema di destinazione. Alcuni sistemi di destinazione implementano limiti di frequenza e limitazione delle richieste, che possono influito sulle prestazioni durante le operazioni di sincronizzazione di grandi dimensioni. In queste condizioni, un'applicazione che riceve un numero eccessivo di richieste potrebbe ridurre la propria velocità di risposta o interrompere la connessione. Per migliorare le prestazioni, il connettore deve essere regolato in modo da non inviare le richieste di app più velocemente di quanto l'app possa elaborarle. I connettori di provisioning creati da Microsoft sono in grado di eseguire questa regolazione. 
 
 - Numero e dimensione dei gruppi assegnati. La sincronizzazione dei gruppi assegnati richiede più tempo rispetto alla sincronizzazione degli utenti. Il numero e la dimensione dei gruppi assegnati incidono sulle prestazioni. Se in un'applicazione è [abilitato il mapping per la sincronizzazione dell'oggetto del gruppo](customize-application-attributes.md#editing-group-attribute-mappings), in aggiunta agli utenti vengono sincronizzate le proprietà del gruppo, come i nomi e le appartenenze del gruppo. Queste sincronizzazioni aggiuntive richiederanno più tempo rispetto alla sincronizzazione dei soli oggetti utente.
+
+- Se le prestazioni diventano un problema e si tenta di effettuare il provisioning della maggior parte degli utenti e dei gruppi nel tenant, usare i filtri di ambito. I filtri di ambito consentono di ottimizzare i dati che il servizio di provisioning estrae da Azure AD, filtrando gli utenti in base a valori di attributo specifici. Per altre informazioni sui filtri di ambito, vedere [Provisioning dell'applicazione basato su attributi con filtri per la definizione dell'ambito](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning)

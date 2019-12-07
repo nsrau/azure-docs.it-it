@@ -1,20 +1,21 @@
 ---
-title: Progettazione di applicazioni a disponibilità elevata tramite l'archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS o RA-GRS) | Microsoft Docs
-description: Come usare l'archiviazione RA-GZRS o RA-GRS di Azure per progettare un'applicazione a disponibilità elevata sufficientemente flessibile da gestire le interruzioni.
+title: Progettare applicazioni a disponibilità elevata usando l'archiviazione con ridondanza geografica
+titleSuffix: Azure Storage
+description: Informazioni su come usare l'archiviazione con ridondanza geografica e accesso in lettura per progettare un'applicazione a disponibilità elevata sufficientemente flessibile da gestire le interruzioni.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: a6d724f834fb8a4c54cd613c61ca90a77a36bdea
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 8cb644495d99b331ec95eb0a9759be45a65e97a6
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673123"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895330"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>Progettazione di applicazioni a disponibilità elevata tramite l'archiviazione con ridondanza geografica e accesso in lettura
 
@@ -27,7 +28,7 @@ Gli account di archiviazione configurati per la replica con ridondanza geografic
 
 Questo articolo illustra come progettare l'applicazione per gestire un'interruzione nell'area primaria. Se l'area primaria non è più disponibile, l'applicazione può adattarsi a eseguire le operazioni di lettura sull'area secondaria. Prima di iniziare, verificare che l'account di archiviazione sia configurato per RA-GRS o RA-GZRS.
 
-Per sapere quali aree primarie sono associate a quali aree secondarie, vedere [Continuità aziendale e ripristino di emergenza (BCDR): aree geografiche abbinate di Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Per sapere quali aree primarie sono associate a quali aree secondarie, vedere [Continuità aziendale e ripristino di emergenza nelle aree geografiche abbinate di Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 Questo articolo include frammenti di codice e un collegamento a un esempio completo alla fine che è possibile scaricare ed eseguire.
 
@@ -203,11 +204,11 @@ Nella tabella seguente viene illustrato un esempio di ciò che può verificarsi 
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transazione A: <br> Inserimento dell'entità <br> employee nell'area primaria |                                   |                    | Transazione A inserita nell'area primaria,<br> non ancora replicata. |
 | T1       |                                                            | Transazione A <br> replicata<br> nell'area secondaria | T1 | Transazione A replicata nell'area secondaria. <br>Ora ultima sincronizzazione aggiornata.    |
-| T2       | Transazione B:<br>Aggiornamento<br> dell'entità employee<br> nell'area primaria  |                                | T1                 | Transazione B scritta nell'area primaria,<br> non ancora replicata.  |
-| T3       | Transazione C:<br> Aggiornamento <br>amministratore<br>administrator role nell'area<br>primaria |                    | T1                 | Transazione C scritta nell'area primaria,<br> non ancora replicata.  |
+| T2       | Transazione B:<br>Aggiornare<br> dell'entità employee<br> nell'area primaria  |                                | T1                 | Transazione B scritta nell'area primaria,<br> non ancora replicata.  |
+| T3       | Transazione C:<br> Aggiornare <br>administrator<br>administrator role nell'area<br>primaria |                    | T1                 | Transazione C scritta nell'area primaria,<br> non ancora replicata.  |
 | *T4*     |                                                       | Transazione C <br>replicata<br> nell'area secondaria | T1         | Transazione C replicata nell'area secondaria.<br>LastSyncTime non aggiornato perché <br>la transazione B non è stata ancora replicata.|
 | *T5*     | Lettura delle entità <br>dall'area secondaria                           |                                  | T1                 | Si ottiene un valore non aggiornato per l'entità <br> employee perché la transazione B <br> non è stata ancora replicata. Si ottiene il nuovo valore per<br> l'entità administrator role perché C è stata<br> replicata. Ora ultima sincronizzazione non ancora<br> aggiornata perché la transazione B<br> non è stata replicata. È possibile stabilire che<br>l'entità administrator role è incoerente <br>perché la data/ora dell'entità è successiva <br>all'ora dell'ultima sincronizzazione. |
-| *T6*     |                                                      | Transazione B<br> replicata<br> secondario | T6                 | *T6*: tutte le transazioni fino alla C sono <br>state replicate, ora ultima sincronizzazione<br> aggiornata. |
+| *T6*     |                                                      | Transazione B<br> replicata<br> nell'area secondaria | T6                 | *T6*: tutte le transazioni fino alla C sono <br>state replicate, ora ultima sincronizzazione<br> aggiornata. |
 
 In questo esempio presupporre che il client passi alla lettura dell'area secondaria in corrispondenza di T5. Può leggere correttamente l'entità **administrator role** in questa fase, ma l'entità contiene un valore di conteggio degli amministratori che non è coerente con il numero di entità **employee** attualmente contrassegnate come amministratori nell'area secondaria. Il client può semplicemente visualizzare questo valore, con il rischio che si tratti di informazioni incoerenti. In alternativa, il client può determinare che **administrator role** si trova in uno stato potenzialmente incoerente perché gli aggiornamenti non hanno seguito l'ordine e informare l'utente.
 
@@ -219,7 +220,7 @@ Per riconoscere la presenza di dati potenzialmente incoerenti, il client può us
 
 ### <a name="powershell"></a>PowerShell
 
-Per ottenere l'ora dell'ultima sincronizzazione per l'account di archiviazione usando PowerShell, installare un modulo di anteprima di archiviazione di Azure che supporta l'acquisizione di statistiche di replica geografica. Esempio:
+Per ottenere l'ora dell'ultima sincronizzazione per l'account di archiviazione usando PowerShell, installare un modulo di anteprima di archiviazione di Azure che supporta l'acquisizione di statistiche di replica geografica. Per esempio:
 
 ```powershell
 Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force
@@ -266,7 +267,7 @@ static function OnBeforeResponse(oSession: Session) {
 
 Se le soglie per il passaggio dell'applicazione alla modalità di sola lettura sono state impostate come configurabili, sarà più semplice verificare il comportamento con volumi di transazioni non di produzione.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 * Per altre informazioni su come leggere dall'area secondaria, incluso un altro esempio di come è stata impostata la proprietà dell'ora dell'ultima sincronizzazione, vedere [Opzioni di ridondanza di archiviazione di Azure e archiviazione con ridondanza geografica e accesso in lettura](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 

@@ -1,6 +1,6 @@
 ---
 title: Specifica per l'inserimento live di un flusso MP4 frammentato con Servizi multimediali di Azure | Microsoft Docs
-description: Questa specifica descrive il protocollo e il formato per l'inserimento di streaming live basato sul formato MP4 frammentato per Servizi multimediali di Azure. È possibile usare Servizi multimediali di Azure per lo streaming di eventi live e la trasmissione di contenuti in tempo reale usando Azure come piattaforma cloud. Questo documento contiene anche le procedure consigliate per creare meccanismi di inserimento live solidi e altamente ridondanti.
+description: Questa specifica descrive il protocollo e il formato per l'inserimento di streaming live basato sul formato MP4 frammentato per Servizi multimediali di Azure. Questo documento contiene anche le procedure consigliate per creare meccanismi di inserimento live solidi e altamente ridondanti.
 services: media-services
 documentationcenter: ''
 author: cenkdin
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 4e1d41216f99a86a1b04ada882dcae0ff34b823b
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 507afad294e8233ea4de4130795f29925870fcdf
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "69014710"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888054"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Specifica per l'inserimento live di un flusso MP4 frammentato con Servizi multimediali di Azure 
 
 Questa specifica descrive il protocollo e il formato per l'inserimento di streaming live basato sul formato MP4 frammentato per Servizi multimediali di Azure. Servizi multimediali fornisce un servizio di streaming live che può essere usato dai clienti per lo streaming di eventi live e la trasmissione di contenuti in tempo reale usando Azure come piattaforma cloud. Questo documento contiene anche le procedure consigliate per creare meccanismi di inserimento live solidi e altamente ridondanti.
 
-## <a name="1-conformance-notation"></a>1. Nota di conformità
+## <a name="1-conformance-notation"></a>1. notazione di conformità
 Le parole chiave "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY" e "OPTIONAL" usate in questo documento devono essere interpretate come descritto nella specifica RFC 2119.
 
-## <a name="2-service-diagram"></a>2. Diagramma del servizio
+## <a name="2-service-diagram"></a>2. diagramma del servizio
 Il diagramma seguente mostra l'architettura di alto livello del servizio di streaming live in Servizi multimediali:
 
 1. Un codificatore live invia feed live a canali che sono stati creati e di cui è stato effettuato il provisioning tramite Azure Media Services SDK.
@@ -38,7 +38,7 @@ Il diagramma seguente mostra l'architettura di alto livello del servizio di stre
 
 ![Flusso di inserimento][image1]
 
-## <a name="3-bitstream-format--iso-14496-12-fragmented-mp4"></a>3. Formato del flusso di bit: MP4 frammentato ISO 14496-12
+## <a name="3-bitstream-format--iso-14496-12-fragmented-mp4"></a>3. formato bitstream: MP4 frammentato ISO 14496-12
 Il formato di trasmissione per l'inserimento di streaming live descritto in questo documento si basa sullo standard [ISO 14496-12]. Per una spiegazione dettagliata del formato MP4 frammentato e delle estensioni disponibili per i file video on demand e l'inserimento di streaming live, vedere [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).
 
 ### <a name="live-ingest-format-definitions"></a>Definizioni del formato di inserimento live
@@ -53,7 +53,7 @@ L'elenco seguente descrive le definizioni di formato speciali applicabili all'in
 1. La durata del frammento MP4 dovrebbe (SHOULD) essere compresa tra 2 e 6 secondi circa.
 1. I timestamp e gli indici (**TrackFragmentExtendedHeaderBox** `fragment_ absolute_ time` e `fragment_index`) del frammento MP4 dovrebbero (SHOULD) arrivare in ordine crescente. Benché Servizi multimediali sia resiliente alla duplicazione di frammenti, ha una capacità limitata di riordinare i frammenti in base alla sequenza temporale dei contenuti multimediali.
 
-## <a name="4-protocol-format--http"></a>4. Formato del protocollo: HTTP
+## <a name="4-protocol-format--http"></a>4. formato del protocollo: HTTP
 L'inserimento live basato sul formato ISO MP4 frammentato per Servizi multimediali usa una richiesta HTTP POST standard a esecuzione prolungata per trasmettere al servizio dati multimediali codificati in formato MP4 frammentato. Ogni richiesta HTTP POST invia un flusso di bit MP4 frammentato completo ("flusso"), iniziando con le caselle di intestazione (caselle **ftyp**, **Live Server Manifest Box** e **moov**) e continuando con una sequenza di frammenti (caselle **moof** e **mdat**). Per la sintassi dell'URL per la richiesta HTTP POST, vedere la sezione 9.2 di [1]. Un esempio di URL POST è: 
 
     http://customer.channel.mediaservices.windows.net/ingest.isml/streams(720p)
@@ -69,10 +69,10 @@ Di seguito sono elencati i requisiti dettagliati:
 1. Il codificatore non deve (MUST NOT) usare il nome`Events()` come descritto nella sezione 9.2 di [1] per l'inserimento live in Servizi multimediali.
 1. Se la richiesta HTTP POST viene terminata o causa un timeout con errore TCP prima della fine del flusso, il codificatore deve (MUST) inviare un'altra richiesta POST usando una nuova connessione, seguendo i requisiti precedenti. Inoltre, il codificatore deve (MUST) inviare di nuovo i due frammenti MP4 precedenti per ogni traccia nel flusso e riprendere senza introdurre discontinuità nella sequenza temporale dei contenuti multimediali. L'invio degli ultimi due frammenti MP4 per ogni traccia impedisce eventuali perdite di dati. In altre parole, se un flusso contiene una traccia audio e una tracia video e la richiesta POST corrente non riesce, il codificatore deve riconnettersi e inviare gli ultimi due frammenti per la traccia audio, già correttamente inviati in precedenza, e gli ultimi due frammenti per la traccia video, anch'essi già inviati correttamente, in modo da garantire che non si siano verificate perdite di dati. Il codificatore deve (MUST) mantenere un buffer "anticipato" di frammenti di contenuti, che invia di nuovo quando si riconnette.
 
-## <a name="5-timescale"></a>5. Timescale
+## <a name="5-timescale"></a>5. scala cronologica
 [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx) descrive l'utilizzo della scala cronologica per **SmoothStreamingMedia** (sezione 2.2.2.1), **StreamElement** (sezione 2.2.2.3), **StreamFragmentElement** (sezione 2.2.2.6) e **LiveSMIL** (sezione 2.2.7.3.1). Se non è presente un valore di scala cronologica, viene usato il valore predefinito 10.000.000 (10 MHz). Benché le specifiche del formato Smooth Streaming non impediscano l'utilizzo di altri valori di scala cronologica, la maggior parte delle implementazioni dei codificatori usa questo valore predefinito (10 MHz) per generare dati di inserimento Smooth Streaming. A causa della funzionalità di [creazione dinamica dei pacchetti di Servizi multimediali di Azure](media-services-dynamic-packaging-overview.md) , è consigliabile usare un valore di scala cronologica pari a 90 kHz per i flussi video e a 44,1 o 48,1 kHz per i flussi audio. Se vengono usati valori di scala cronologica differenti per flussi diversi, è necessario (MUST) inviare il valore di scala cronologica del livello di flusso. Per altre informazioni, vedere [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).     
 
-## <a name="6-definition-of-stream"></a>6. Definizione di "flusso"
+## <a name="6-definition-of-stream"></a>6. definizione di "Stream"
 Il flusso è l'unità operativa di base nel processo di inserimento live per la composizione di presentazioni live, la gestione del failover di streaming e gli scenari di ridondanza. Il flusso è definito come un flusso di bit MP4 frammentato univoco che può contenere una singola traccia o più tracce. Una presentazione live completa può contenere uno o più flussi, a seconda della configurazione dei codificatori live. Gli esempi seguenti mostrano varie modalità d'uso dei flussi per comporre una presentazione live completa.
 
 **Esempio:** 
@@ -83,7 +83,7 @@ Video: 3000 kbps, 1500 kbps, 750 kbps
 
 Audio: 128 kbps
 
-### <a name="option-1-all-tracks-in-one-stream"></a>Opzione 1: Tutte le tracce in un flusso
+### <a name="option-1-all-tracks-in-one-stream"></a>Opzione 1: tutte le tracce in un flusso
 In questo caso, un unico codificatore genera tutte le tracce audio/video e le aggrega in un flusso di bit MP4 frammentato. Il flusso di bit MP4 frammentato viene quindi inviato tramite una singola connessione HTTP POST. In questo esempio è presente un solo flusso per la presentazione live.
 
 ![Flussi - Una traccia][image2]
@@ -98,10 +98,10 @@ In questo caso, il cliente sceglie di aggregare la traccia audio alla traccia vi
 
 ![Flussi - Tracce audio e video][image4]
 
-### <a name="summary"></a>Riepilogo
-Questo non è un elenco completo di tutte le possibili opzioni di inserimento applicabili all'esempio. In realtà, qualsiasi forma di raggruppamento di tracce in flussi è supportata dal processo di inserimento live. Clienti e fornitori di codificatori possono scegliere le proprie implementazioni in base alla complessità di progettazione, alla capacità del codificatore e a considerazioni sui livelli di ridondanza e failover. Tuttavia, nella maggior parte dei casi è presente solo una traccia audio per l'intera presentazione live. Di conseguenza, è importante garantire l'integrità del flusso di inserimento che contiene la traccia audio. Questa considerazione determina spesso la scelta di inserire la traccia audio in un flusso indipendente (come nell'opzione 2) o di aggregarla alla traccia video con velocità in bit minore (come nell'opzione 3). Inoltre, per ottenere ridondanza e tolleranza di errore migliori, l'invio della stessa traccia audio in due flussi diversi (opzione 2 con tracce audio ridondanti) o l'aggregazione della traccia audio con almeno due delle tracce video con velocità in bit minore (opzione 3 con audio aggregato in almeno due flussi video) rappresenta la scelta consigliata per l'inserimento live in Servizi multimediali.
+### <a name="summary"></a>Summary
+Questo non è un elenco completo di tutte le possibili opzioni di inserimento applicabili all'esempio. In realtà, qualsiasi forma di raggruppamento di tracce in flussi è supportata dal processo di inserimento live. Clienti e fornitori di codificatori possono scegliere le proprie implementazioni in base alla complessità di progettazione, alla capacità del codificatore e a considerazioni sui livelli di ridondanza e failover. Tuttavia, nella maggior parte dei casi è presente solo una traccia audio per l'intera presentazione live. È quindi importante garantire la salubrità del flusso di inserimento che contiene la traccia audio. Questa considerazione spesso comporta l'inserimento della traccia audio in un flusso (come nell'opzione 2) o la relativa aggiunta alla traccia video con velocità in bit più bassa, come nell'opzione 3. Inoltre, per ottenere ridondanza e tolleranza di errore migliori, l'invio della stessa traccia audio in due flussi diversi (opzione 2 con tracce audio ridondanti) o l'aggregazione della traccia audio con almeno due delle tracce video con velocità in bit minore (opzione 3 con audio aggregato in almeno due flussi video) rappresenta la scelta consigliata per l'inserimento live in Servizi multimediali.
 
-## <a name="7-service-failover"></a>7. Failover del servizio
+## <a name="7-service-failover"></a>7. failover del servizio
 Data la particolare natura del live streaming, un buon livello di supporto per il failover è essenziale per garantire la disponibilità del servizio. Servizi multimediali è progettato per gestire errori di diversi tipi, tra cui errori di rete, errori del server e problemi di archiviazione. Se usato insieme a una logica di failover adeguata dal lato del codificatore live, i clienti possono ottenere dal cloud un servizio di streaming live estremamente affidabile.
 
 Questa sezione descrive gli scenari di failover del servizio. In questo caso, l'errore si verifica in un punto qualsiasi all'interno del servizio e si manifesta come errore di rete. Di seguito sono riportati alcuni consigli per implementare il codificatore in modo che sia in grado di gestire il failover del servizio:
@@ -121,7 +121,7 @@ Questa sezione descrive gli scenari di failover del servizio. In questo caso, l'
     d. Gli ultimi due frammenti inviati per ogni traccia devono essere inviati di nuovo e lo streaming deve riprendere senza introdurre discontinuità nella sequenza temporale dei contenuti multimediali. I timestamp del frammento MP4 devono aumentare costantemente, anche con richieste HTTP POST diverse.
 1. Se i dati non vengono inviati a una velocità adeguata alla durata del frammento MP4, il codificatore dovrebbe (SHOULD) terminare la richiesta HTTP POST.  Una richiesta HTTP POST che non invia dati può impedire a Servizi multimediali di disconnettersi rapidamente dal codificatore in caso di aggiornamento del servizio. Per questo motivo, la richiesta HTTP POST per tracce di tipo sparse (segnale dell'annuncio) dovrebbe (SHOULD) avere breve durata e terminare non appena viene inviato il frammento di tipo sparse.
 
-## <a name="8-encoder-failover"></a>8. Failover del codificatore
+## <a name="8-encoder-failover"></a>8. failover del codificatore
 Il failover del codificatore è il secondo tipo di scenario di failover che deve essere affrontato per la distribuzione di un live streaming end-to-end. In questo scenario la condizione di errore avviene sul lato del codificatore. 
 
 ![Failover del codificatore][image5]
@@ -135,7 +135,7 @@ Di seguito è descritto il comportamento previsto in corrispondenza dell'endpoin
 1. Il nuovo flusso deve (MUST) essere semanticamente equivalente al flusso precedente e intercambiabile a livello di intestazione e di frammento.
 1. Il nuovo codificatore deve (MUST) tentare di ridurre al minimo la perdita di dati. I valori `fragment_absolute_time` e `fragment_index` dei frammenti multimediali dovrebbero (SHOULD) aumentare dall'ultimo punto in cui si è interrotto il codificatore. I valori `fragment_absolute_time` e `fragment_index` dovrebbero (SHOULD) aumentare in modo costante ma, se necessario, è possibile introdurre una discontinuità. Poiché Servizi multimediali ignora i frammenti già ricevuti ed elaborati, è preferibile sbagliare inviando di nuovo frammenti già ricevuti piuttosto che introdurre discontinuità nella sequenza temporale dei contenuti. 
 
-## <a name="9-encoder-redundancy"></a>9. Ridondanza del codificatore
+## <a name="9-encoder-redundancy"></a>9. ridondanza del codificatore
 In caso di eventi live critici che richiedono livelli superiori di disponibilità e qualità dell'esperienza, è consigliabile usare codificatori ridondanti di tipo attivo-attivo per ottenere un failover efficiente senza perdita di dati.
 
 ![Ridondanza del codificatore][image6]
@@ -144,12 +144,12 @@ Come mostrato in questo diagramma, due gruppi di codificatori inviano contempora
 
 I requisiti per questo scenario sono molto simili a quelli descritti per il failover del codificatore, ad eccezione del fatto che il secondo set di codificatori viene eseguito contemporaneamente ai codificatori primari.
 
-## <a name="10-service-redundancy"></a>10. Ridondanza del servizio
+## <a name="10-service-redundancy"></a>10. ridondanza del servizio
 Per una distribuzione globale altamente ridondante, è necessario eseguire un backup tra più aree per poter gestire situazioni di emergenza nelle aree interessate. Estendendo la topologia descritta in "Ridondanza del codificatore", i clienti possono scegliere di distribuire un servizio ridondante in un'area diversa associata al secondo set di codificatori. I clienti possono anche usare un provider di rete CDN per distribuire uno strumento di gestione del traffico globale per le due distribuzioni del servizio, in modo da indirizzare correttamente il traffico client. I requisiti per i codificatori sono gli stessi di quelli per il caso di ridondanza del codificatore. L'unica eccezione è che il secondo set di codificatori deve puntare a un endpoint di inserimento live diverso. Il diagramma seguente mostra questa configurazione:
 
 ![Ridondanza del servizio][image7]
 
-## <a name="11-special-types-of-ingestion-formats"></a>11. Tipi speciali di formati di inserimento
+## <a name="11-special-types-of-ingestion-formats"></a>11. tipi speciali di formati di inserimento
 Questa sezione descrive alcuni tipi speciali di formati di inserimento live, progettati per gestire scenari specifici.
 
 ### <a name="sparse-track"></a>Traccia di tipo sparse
@@ -158,7 +158,7 @@ Quando si trasmette una presentazione in streaming live con un'esperienza client
 I passaggi seguenti costituiscono un'implementazione consigliata per l'inserimento di una traccia di tipo sparse:
 
 1. Creare un flusso di bit MP4 frammentato separato contenente solo le tracce di tipo sparse, senza tracce audio/video.
-1. In **Live Server Manifest Box**, come definito nella sezione 6 di [1], usare il parametro *parentTrackName* per specificare il nome della traccia padre. Per altre informazioni, vedere la sezione 4.2.1.2.1.2 di [1].
+1. Nella **casella manifesto del server attivo** come definito nella sezione 6 di [1], usare il parametro *parentTrackName* per specificare il nome della traccia padre. Per ulteriori informazioni, vedere la sezione 4.2.1.2.1.2 in [1].
 1. In **Live Server Manifest Box** **manifestOutput** deve (MUST) essere impostato su **true**.
 1. A causa della natura sparse dell'evento di segnalazione, è consigliabile quanto segue:
    
@@ -187,13 +187,13 @@ Per risolvere questo problema, Servizi multimediali supporta l'inserimento live 
 Di seguito è riportata l'implementazione consigliata per le tracce audio ridondanti:
 
 1. Inviare ogni singola traccia audio in un flusso separato. Inviare inoltre un flusso ridondante per ognuno di questi flussi di traccia audio, in cui il secondo flusso differisca dal primo solo per l'identificatore nell'URL HTTP POST: {protocollo}://{indirizzo server}/{percorso punto di pubblicazione}/Streams({identificatore}).
-1. Usare flussi distinti per inviare le due velocità in bit video più basse. Ciascuno di questi flussi dovrebbe (SHOULD) inoltre contenere una copia di ogni singola traccia audio. Se, ad esempio, sono supportate più lingue, i flussi dovrebbero (SHOULD) contenere tracce audio per ogni lingua.
+1. Usare flussi distinti per inviare le due velocità in bit video più basse. Ognuno di questi flussi deve anche contenere una copia di ogni traccia audio univoca. Ad esempio, quando sono supportate più lingue, questi flussi devono contenere tracce audio per ciascuna lingua.
 1. Usare istanze del server (codificatore) distinte per codificare e inviare i flussi ridondanti citati in (1) e (2). 
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 [image1]: ./media/media-services-fmp4-live-ingest-overview/media-services-image1.png

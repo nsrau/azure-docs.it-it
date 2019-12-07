@@ -1,7 +1,7 @@
 ---
 title: Incorporare Widget Video Indexer nelle applicazioni
 titleSuffix: Azure Media Services
-description: Informazioni su come incorporare Video Indexer widget nell'applicazione.
+description: Questo articolo illustra come incorporare i servizi multimediali di Azure Video Indexer widget nell'applicazione.
 services: media-services
 author: Juliako
 manager: femila
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: 99d6647ab5e7fa8f35cef883dd00ae9fea866370
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: bb0af855a136c83eac7e28287b28046b50a7c124
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839110"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892737"
 ---
 # <a name="embed-video-indexer-widgets-in-your-applications"></a>Incorporare Widget Video Indexer nelle applicazioni
 
@@ -29,7 +29,7 @@ A partire dalla versione 2, l'URL di base del widget include l'area dell'account
 
 Un widget cognitive Insights include tutte le informazioni visive estratte dal processo di indicizzazione video. Il widget cognitive Insights supporta i parametri URL facoltativi seguenti.
 
-|Name|Definizione|Descrizione|
+|name|Definizione|Description|
 |---|---|---|
 |`widgets`|Stringhe separate da virgola|Consente di controllare le informazioni dettagliate di cui si vuole eseguire il rendering. <br/> Esempio: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` esegue il rendering solo delle informazioni dettagliate sull'interfaccia utente per gli utenti e i marchi.<br/>Le opzioni disponibili sono: people, keywords, annotations, brands, sentiments, transcript, search.<br/>Si noti che il parametro `widgets` URL non è supportato nella versione 2.<br/>|
 |`locale`|Un codice di lingua breve|Controlla il linguaggio Insights. Il valore predefinito è `en`. <br/> Esempio: `locale=de`.|
@@ -39,7 +39,7 @@ Un widget cognitive Insights include tutte le informazioni visive estratte dal p
 
 È possibile usare il widget Player per eseguire lo streaming di video usando la velocità in bit adattiva. Il widget Player supporta i parametri URL facoltativi seguenti.
 
-|Name|Definizione|Descrizione|
+|name|Definizione|Description|
 |---|---|---|
 |`t`|Secondi dall'inizio|Consente di avviare la riproduzione del lettore dal punto di tempo specificato.<br/> Esempio: `t=60`.|
 |`captions`|Codice lingua|Recupera la didascalia nella lingua specificata durante il caricamento del widget affinché sia disponibile nel menu **didascalie** .<br/> Esempio: `captions=en-US`.|
@@ -52,9 +52,9 @@ Un widget cognitive Insights include tutte le informazioni visive estratte dal p
 
 È possibile usare il widget editor per creare nuovi progetti e gestire le informazioni dettagliate di un video. Il widget editor supporta i parametri URL facoltativi seguenti.
 
-|Name|Definizione|Descrizione|
+|name|Definizione|Description|
 |---|---|---|
-|`accessToken`<sup>*</sup>|String|Consente di accedere ai video che si trovano solo nell'account usato per incorporare il widget.<br> Il widget dell'Editor richiede il parametro `accessToken`.|
+|`accessToken`<sup>*</sup>|Stringa|Consente di accedere ai video che si trovano solo nell'account usato per incorporare il widget.<br> Il widget dell'Editor richiede il parametro `accessToken`.|
 |`language`|Codice lingua|Controlla la lingua del lettore. Il valore predefinito è `en-US`.<br/>Esempio: `language=de-DE`.|
 |`locale`|Un codice di lingua breve|Controlla il linguaggio Insights. Il valore predefinito è `en`.<br/>Esempio: `language=de`.|
 
@@ -186,7 +186,7 @@ Se si usa un lettore video diverso da Azure Media Player, è necessario modifica
         </video>    
 
 2. Incorporare il widget Cognitive Insights.
-3. Implementare la comunicazione per il lettore facendo in modo che resti in ascolto dell'evento "message". Ad esempio:
+3. Implementare la comunicazione per il lettore facendo in modo che resti in ascolto dell'evento "message". ad esempio:
 
         <script>
     
@@ -247,7 +247,7 @@ Si noti che questa opzione è pertinente solo nei casi in cui è necessario apri
 
 Se si incorpora il lettore Video Indexer, è possibile sceglierne le dimensioni specificando le dimensioni dell'iframe.
 
-Ad esempio:
+ad esempio:
 
 `<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />`
 

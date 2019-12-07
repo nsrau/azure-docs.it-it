@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 2a53debb72cfd5da73c2bceb7993288eb828237a
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/05/2019
+ms.openlocfilehash: 0250810d25b0abb5bf675d8c91f3c0678d895c37
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770527"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893162"
 ---
 # <a name="customize-server-parameters-by-using-azure-cli"></a>Personalizzare i parametri del server usando l'interfaccia della riga di comando
 È possibile elencare, visualizzare e aggiornare i parametri di configurazione per un'istanza di Database di Azure per il server MySQL usando l'utility dell'interfaccia della riga di comando di Azure. Un subset delle configurazioni del motore viene esposto a livello di server e può essere modificato. 
@@ -63,6 +63,9 @@ Per popolare le tabelle di fuso orario nel server, è possibile chiamare la stor
 ```sql
 CALL mysql.az_load_timezone();
 ```
+
+> [!IMPORTANT]
+> È necessario riavviare il server per assicurarsi che le tabelle del fuso orario siano popolate correttamente. Per riavviare il server, usare il [portale di Azure](howto-restart-server-portal.md) o l' [interfaccia](howto-restart-server-cli.md)della riga di comando.
 
 Per visualizzare i valori di fuso orario disponibili, eseguire questo comando:
 

@@ -1,6 +1,6 @@
 ---
 title: Configurare Postman per le chiamate API REST di Servizi multimediali di Azure
-description: Informazioni su come configurare Postman per le chiamate API REST di Servizi multimediali.
+description: Questo articolo illustra come configurare il post, in modo che possa essere usato per chiamare le API REST di servizi multimediali di Azure (AMS).
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2019
+ms.date: 12/05/2019
 ms.author: juliako
-ms.openlocfilehash: 7b4e2d14e8719808db138a4f2607b19cece401a6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: eee46bd8642f5ad4a8d036b9f6bf9a464c0d09f3
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839591"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888105"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Configurare Postman per le chiamate API REST di Servizi multimediali
 
@@ -49,7 +49,7 @@ Clonare un repository di GitHub che contiene i file di raccolta e ambiente Postm
 
 ### <a name="configure-the-environment"></a>Configurare l'ambiente 
 
-1. Aprire l'app **postazione** .
+1. Aprire l'app **Postman**.
 2. A destra dello schermo, selezionare l'opzione **Manage environment** (Gestisci ambiente).
 
     ![Gestire l'ambiente](./media/develop-with-postman/postman-import-env.png)
@@ -80,7 +80,7 @@ Prima di iniziare la modifica delle risorse in servizi multimediali di Microsoft
 
 1. Nella finestra di sinistra dell'app post, selezionare "passaggio 1: ottenere il token di autenticazione AAD".
 2. Selezionare quindi "Get Azure AD Token for Service Principal Authentication" (Ottieni token Azure AD per autenticazione basata su entità servizio).
-3. Fare clic su **Invia**.
+3. Premere **Invia**.
 
     Viene inviata l'operazione **POST** seguente.
 
@@ -92,12 +92,12 @@ Prima di iniziare la modifica delle risorse in servizi multimediali di Microsoft
 
     ![Ottenere il token AAD](./media/develop-with-postman/postman-get-aad-auth-token.png)
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi 
+## <a name="troubleshooting"></a>risoluzione dei problemi 
 
 * Se l'applicazione ha esito negativo con "HTTP 504: Timeout gateway", assicurarsi che la variabile di percorso non sia stata impostata in modo esplicito su un valore diverso da quello previsto per l'account di servizi multimediali. 
 * Se viene ricevuto un errore "account non trovato", verificare anche che la proprietà location nel messaggio JSON Body sia impostata sul percorso in cui si trova l'account di servizi multimediali. 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Caricare file in un account di Servizi multimediali - REST](upload-files-rest-how-to.md)
 - [Creare filtri con Servizi multimediali - REST](filters-dynamic-manifest-rest-howto.md)

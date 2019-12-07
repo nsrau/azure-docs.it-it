@@ -1,22 +1,23 @@
 ---
-title: Usare l'interfaccia della riga di comando di Azure per gestire i diritti di accesso Azure AD ai dati BLOB e di Accodamento con RBAC-archiviazione
-description: Usare l'interfaccia della riga di comando di Azure per assegnare l'accesso a contenitori e code con il controllo degli accessi in base al ruolo (RBAC). Archiviazione di Azure supporta ruoli RBAC predefiniti e personalizzati per l'autenticazione tramite Azure AD.
+title: Usare l'interfaccia della riga di comando di Azure per assegnare un ruolo per l'accesso ai dati
+titleSuffix: Azure Storage
+description: Informazioni su come usare l'interfaccia della riga di comando di Azure per assegnare autorizzazioni a un Azure Active Directory entità di sicurezza con il controllo degli accessi in base al ruolo. Archiviazione di Azure supporta ruoli RBAC predefiniti e personalizzati per l'autenticazione tramite Azure AD.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 07/25/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 606dd88fbad8cbd5c7e24d47dcf71199a25b49a2
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: abe35f3193e2d7ff9a949ca7cd330cb58da2b78c
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673198"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74891969"
 ---
-# <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-azure-cli"></a>Concedere l'accesso ai dati di Accodamento e BLOB di Azure con RBAC usando l'interfaccia della riga di comando
+# <a name="use-azure-cli-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Usare l'interfaccia della riga di comando di Azure per assegnare un ruolo RBAC per l'accesso ai dati BLOB e Queue
 
 Azure Active Directory (Azure AD) autorizza diritti di accesso a risorse protette tramite il [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md). Archiviazione di Azure definisce un set di ruoli RBAC predefiniti che comprende i set comuni di autorizzazioni utilizzate per accedere ai dati di BLOB o di Accodamento.
 
@@ -28,7 +29,7 @@ Questo articolo descrive come usare l'interfaccia della riga di comando di Azure
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-## <a name="determine-resource-scope"></a>Determinare l'ambito della risorsa 
+## <a name="determine-resource-scope"></a>Determinare l'ambito della risorsa
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 

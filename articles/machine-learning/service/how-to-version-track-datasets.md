@@ -11,12 +11,12 @@ author: sihhu
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
 ms.custom: ''
-ms.openlocfilehash: 426a93473b969c166a847374d1b4c039055e92d5
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: d22bfb0743bc18102e665a63f7e36ed75dd39cab
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716105"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900324"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Set di impostazioni di versione e di rilevamento negli esperimenti
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -63,7 +63,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 
 ### <a name="retrieve-a-dataset-by-name"></a>Recuperare un set di dati in base al nome
 
-Per impostazione predefinita, il metodo [get_by_name ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) nella classe `Dataset` restituisce la versione più recente del set di dati registrato con l'area di lavoro. 
+Per impostazione predefinita, il metodo [get_by_name ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) sulla classe `Dataset` restituisce la versione più recente del set di dati registrato con l'area di lavoro. 
 
 Il codice seguente ottiene la versione 1 del set di dati `titanic_ds`.
 
@@ -146,7 +146,24 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 ## <a name="track-datasets-in-experiments"></a>Tenere traccia dei set di impostazioni negli esperimenti
 
-Per ogni esperimento di Machine Learning, è possibile tracciare facilmente i set di dati usati come input tramite l'oggetto `Run` del modello registrato.
+Per ogni esperimento di Machine Learning, è possibile tracciare facilmente i set di dati usati come input tramite l'esperimento `Run` oggetto.
+
+Il codice seguente usa il metodo [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) per tenere traccia dei set di dati di input usati con l'esecuzione dell'esperimento:
+
+```Python
+# get input datasets
+inputs = run.get_details()['inputDatasets']
+input_dataset = inputs[0]['dataset']
+
+# list the files referenced by input_dataset
+input_dataset.to_path()
+```
+
+È anche possibile trovare la `input_datasets` dagli esperimenti usando [Azure Machine Learning Studio](https://ml.azure.com/). 
+
+La figura seguente mostra dove trovare il set di dati di input di un esperimento in Azure Machine Learning Studio. Per questo esempio, passare al riquadro **Experiments (esperimenti** ) e aprire la scheda **Properties (proprietà** ) per un'esecuzione specifica dell'esperimento, `keras-mnist`.
+
+![Set di dati di input](media/how-to-version-datasets/input-datasets.png)
 
 Usare il codice seguente per registrare i modelli con i set di impostazioni:
 
@@ -156,26 +173,7 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-Dopo la registrazione, è possibile visualizzare l'elenco dei modelli registrati con il set di dati usando Python o [Azure Machine Learning Studio](https://ml.azure.com/).
-
-Il codice seguente usa il metodo [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) per tenere traccia dei set di dati di input usati con l'esecuzione dell'esperimento:
-
-```Python
-# get input datasets
-inputs = run.get_details()['inputDatasets']
-train_dataset = inputs[0]['dataset']
-
-# list the files referenced by train_dataset
-train_dataset.to_path()
-```
-
-È anche possibile trovare la `input_datasets` dagli esperimenti usando [Azure Machine Learning Studio](https://ml.azure.com/). 
-
-La figura seguente mostra dove trovare il set di dati di input di un esperimento in Azure Machine Learning Studio. Per questo esempio, passare al riquadro **Experiments (esperimenti** ) e aprire la scheda **Properties (proprietà** ) per un'esecuzione specifica dell'esperimento, `keras-mnist`.
-
-![Set di dati di input](media/how-to-version-datasets/input-datasets.png)
-
-È anche possibile trovare i modelli che hanno usato il set di dati. La vista seguente si trova nel riquadro **set di impostazioni** in **Asset**. Selezionare il set di dati e quindi selezionare la scheda **modelli** per un elenco dei modelli che usano tale set di dati. 
+Dopo la registrazione, è possibile visualizzare l'elenco dei modelli registrati con il set di dati usando Python o [Azure Machine Learning Studio](https://ml.azure.com/). La vista seguente si trova nel riquadro **set di impostazioni** in **Asset**. Selezionare il set di dati e quindi selezionare la scheda **modelli** per un elenco dei modelli registrati con il set di dati. 
 
 ![Modelli di set di dati di input](media/how-to-version-datasets/dataset-models.png)
 

@@ -1,22 +1,23 @@
 ---
-title: Autorizzare l'accesso a BLOB e code con Azure Active Directory e identità gestite per le risorse di Azure-archiviazione di Azure
-description: Archiviazione BLOB e code di Azure supporta l'autorizzazione dell'accesso alle risorse con Azure Active Directory e identità gestite per le risorse di Azure. È possibile usare le identità gestite per le risorse di Azure per autorizzare l'accesso a BLOB e code da applicazioni in esecuzione in macchine virtuali di Azure, app per le funzioni, set di scalabilità di macchine virtuali e altro ancora.
+title: Autorizzare l'accesso ai dati con un'identità gestita
+titleSuffix: Azure Storage
+description: Informazioni su come usare le identità gestite per le risorse di Azure per autorizzare l'accesso ai dati BLOB e di Accodamento da applicazioni in esecuzione in macchine virtuali di Azure, app per le funzioni, set di scalabilità di macchine virtuali e altri.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 11/25/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 3bb3b632a184985f9a3a27d0e56e940ec7c30885
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: c0b07cc001f65ff369f87954779634b8b49ba4ec
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806585"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892052"
 ---
-# <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Autorizzare l'accesso a BLOB e code con Azure Active Directory e identità gestite per le risorse di Azure
+# <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autorizzare l'accesso ai dati BLOB e di Accodamento con le identità gestite per le risorse di Azure
 
 Archiviazione di BLOB e coda di Azure supporta l'autenticazione con [identità gestite di Azure Active Directory per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md). Le identità gestite per le risorse di Azure possono autorizzare l'accesso ai dati BLOB e di accodamento tramite Azure AD credenziali da applicazioni in esecuzione in macchine virtuali di Azure, app per le funzioni, set di scalabilità di macchine virtuali e altri servizi. Usando le identità gestite per le risorse di Azure con l'autenticazione di Azure AD, è possibile evitare di archiviare le credenziali con le applicazioni eseguite nel cloud.  
 

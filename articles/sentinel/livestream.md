@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/26/2019
+ms.date: 12/06/2019
 ms.author: cabailey
-ms.openlocfilehash: e72b9012b41f50b36ba7d92582d0c697e6db0683
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 5b347848c9c6a58a70ab1093a6f9c70b62f3f769
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546855"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900450"
 ---
 # <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Usare la caccia a livestream in Azure Sentinel per rilevare le minacce
 
@@ -70,7 +70,7 @@ Usare la caccia di livestream per creare sessioni interattive che consentono di 
 
 5. Selezionare **Riproduci** sulla barra dei comandi.
     
-    La barra di stato sotto la barra dei comandi indica se il livestream è in esecuzione o è stato sospeso. Nell'esempio seguente, la sessione è in esecuzione:
+    La barra di stato sotto la barra dei comandi indica se la sessione livestream è in esecuzione o sospesa. Nell'esempio seguente, la sessione è in esecuzione:
     
     > [!div class="mx-imgBorder"]
     > ![creare una sessione Livestream da Azure Sentinel Hunting](./media/livestream/livestream-session.png)
@@ -110,7 +110,6 @@ Questa azione consente di aprire la creazione guidata regola, che viene prepopol
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questo articolo si è appreso come usare la caccia a livestream in Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
-
 
 - [Cercare in modo proattivo le minacce](hunting.md)
 - [Usare i notebook per eseguire campagne di caccia automatiche](notebooks.md)

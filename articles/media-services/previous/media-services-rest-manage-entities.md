@@ -1,6 +1,6 @@
 ---
 title: Gestione di entità di Servizi multimediali con REST | Documentazione Microsoft
-description: Informazioni su come gestire entità di Servizi multimediali con l'API REST.
+description: Questo articolo illustra come gestire le entità di servizi multimediali con l'API REST.
 author: juliako
 manager: femila
 editor: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: ffbf30f2bfdf0a175513a8d2b9182b35c39f6aae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ecbca99a65d99cc3b8d842a7b61d858398a80ff
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60761710"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885705"
 ---
 # <a name="managing-media-services-entities-with-rest"></a>Gestione di entità di Servizi multimediali con REST  
 
@@ -34,13 +34,13 @@ Servizi multimediali di Microsoft Azure è un servizio REST basato su OData vers
 Questo argomento illustra come gestire le entità di Servizi multimediali di Azure con REST.
 
 >[!NOTE]
-> A partire dal 1° aprile 2017, tutti i record di processo presenti nell'account e più vecchi di 90 giorni verranno eliminati automaticamente, insieme ai record attività associati, anche se il numero totale di record è inferiore alla quota massima. Ad esempio, il 1° aprile 2017 qualsiasi record di processo nell'account precedente il 31 dicembre 2016 verrà automaticamente eliminato. Se è necessario archiviare le informazioni sul processo o sull'attività, è possibile usare il codice descritto in questo argomento.
+> A partire dall'1 aprile 2017, tutti i record di processo presenti nell'account e più vecchi di 90 giorni verranno eliminati automaticamente, insieme ai record attività associati, anche se il numero totale di record è inferiore alla quota massima. Ad esempio, il 1° aprile 2017 qualsiasi record di processo nell'account precedente il 31 dicembre 2016 verrà automaticamente eliminato. Se è necessario archiviare le informazioni sul processo o sull'attività, è possibile usare il codice descritto in questo argomento.
 
 ## <a name="considerations"></a>Considerazioni  
 
 Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Panoramica dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
 
-## <a name="connect-to-media-services"></a>Connettersi a Servizi multimediali
+## <a name="connect-to-media-services"></a>Connettersi a Servizi Multimediali
 
 Per informazioni su come connettersi all'API AMS, vedere [Accedere all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
@@ -172,6 +172,6 @@ Il seguente esempio illustra come eliminare un localizzatore usato per caricare 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

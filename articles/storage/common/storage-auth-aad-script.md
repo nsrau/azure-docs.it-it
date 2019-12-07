@@ -1,20 +1,21 @@
 ---
-title: Eseguire l'interfaccia della riga di comando di Azure o i comandi di PowerShell con Azure AD credenziali per accedere ai dati di BLOB o Microsoft Docs
+title: Eseguire l'interfaccia della riga di comando di Azure o i comandi di PowerShell con Azure AD credenziali per accedere ai dati BLOB o
+titleSuffix: Azure Storage
 description: L'interfaccia della riga di comando di Azure e PowerShell supportano l'accesso con Azure AD credenziali per eseguire i comandi nei BLOB di archiviazione di Azure e le code. Un token di accesso viene fornito per la sessione e usato per autorizzare la chiamata delle operazioni. Le autorizzazioni dipendono dal ruolo RBAC assegnato alla Azure AD entità di sicurezza.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 07/03/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: e1c7f4531dee8673cc5b6dfe675e4c793144931e
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 07abb9d604c14a5c78a088cb07f57088b84552a6
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671092"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74891865"
 ---
 # <a name="run-azure-cli-or-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>Eseguire l'interfaccia della riga di comando di Azure o i comandi di PowerShell con Azure AD credenziali per accedere ai dati BLOB o
 
@@ -30,16 +31,16 @@ Per informazioni dettagliate sulle autorizzazioni necessarie per ogni operazione
 
 ## <a name="call-cli-commands-using-azure-ad-credentials"></a>Chiamare i comandi dell'interfaccia della riga di comando usando credenziali Azure AD
 
-L'interfaccia della riga `--auth-mode` di comando di Azure supporta il parametro per le operazioni di dati BLOB e Queue
+L'interfaccia della riga di comando di Azure supporta il parametro `--auth-mode` per le operazioni di dati BLOB e Queue:
 
-- Impostare il `--auth-mode` parametro su `login` per accedere usando un'entità di sicurezza Azure ad.
+- Impostare il parametro `--auth-mode` su `login` per accedere usando un'entità di sicurezza Azure AD.
 - Impostare il parametro `--auth-mode` sul valore legacy `key` per tentare di eseguire una query per ottenere una chiave dell'account se non vengono forniti parametri di autenticazione per l'account. 
 
-L'esempio seguente illustra come creare un contenitore in un nuovo account di archiviazione dall'interfaccia della riga di comando di Azure usando le credenziali Azure AD. Ricordarsi di sostituire i valori segnaposto tra parentesi angolari con valori personalizzati: 
+L'esempio seguente illustra come creare un contenitore in un nuovo account di archiviazione dall'interfaccia della riga di comando di Azure usando le credenziali Azure AD. È necessario ricordare di sostituire i valori segnaposto tra parentesi uncinate con i valori personalizzati: 
 
 1. Assicurarsi di aver installato l'interfaccia della riga di comando di Azure versione 2.0.46 o successiva. Eseguire `az --version` per controllare la versione installata.
 
-1. Eseguire `az login` e autenticare nella finestra del browser: 
+1. Eseguire `az login` ed eseguire l'autenticazione nella finestra del browser: 
 
     ```azurecli
     az login
@@ -67,7 +68,7 @@ L'esempio seguente illustra come creare un contenitore in un nuovo account di ar
     > [!IMPORTANT]
     > Le assegnazioni di ruolo RBAC potrebbero richiedere alcuni minuti per la propagazione.
 
-1. Chiamare il comando [AZ Storage container create](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) con il `--auth-mode` parametro impostato su `login` per creare il contenitore usando le credenziali Azure ad:
+1. Chiamare il comando [AZ Storage container create](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) con il parametro `--auth-mode` impostato su `login` per creare il contenitore usando le credenziali Azure ad:
 
     ```azurecli
     az storage container create \ 
@@ -84,7 +85,7 @@ La variabile di ambiente associata al parametro `--auth-mode` è `AZURE_STORAGE_
 
 Per usare Azure PowerShell per accedere ed eseguire operazioni successive sull'archiviazione di Azure usando Azure AD credenziali, creare un contesto di archiviazione per fare riferimento all'account di archiviazione e includere il parametro `-UseConnectedAccount`.
 
-L'esempio seguente illustra come creare un contenitore in un nuovo account di archiviazione da Azure PowerShell usando le credenziali Azure AD. Ricordarsi di sostituire i valori segnaposto tra parentesi angolari con valori personalizzati:
+L'esempio seguente illustra come creare un contenitore in un nuovo account di archiviazione da Azure PowerShell usando le credenziali Azure AD. È necessario ricordare di sostituire i valori segnaposto tra parentesi uncinate con i valori personalizzati:
 
 1. Accedere al proprio account Azure con il comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) :
 
@@ -111,7 +112,7 @@ L'esempio seguente illustra come creare un contenitore in un nuovo account di ar
       -Location $location `
     ```
 
-1. Ottenere il contesto dell'account di archiviazione che specifica il nuovo account di archiviazione chiamando [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext). Quando si agisce su un account di archiviazione, è possibile fare riferimento al contesto anziché passare ripetutamente le credenziali. Includere il `-UseConnectedAccount` parametro per chiamare qualsiasi operazione di dati successiva usando le credenziali Azure ad:
+1. Ottenere il contesto dell'account di archiviazione che specifica il nuovo account di archiviazione chiamando [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext). Quando si agisce su un account di archiviazione, è possibile fare riferimento al contesto anziché passare ripetutamente le credenziali. Includere il parametro `-UseConnectedAccount` per chiamare qualsiasi operazione di dati successiva usando le credenziali Azure AD:
 
     ```powershell
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount

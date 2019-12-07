@@ -1,5 +1,5 @@
 ---
-title: Eseguire pipeline di Azure Machine Learning nelle pipeline Azure Data Factory
+title: Pipeline di esecuzione Azure Machine Learning
 description: Informazioni su come eseguire le pipeline di Azure Machine Learning nelle pipeline di Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -7,15 +7,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/10/2019
-author: djpmsft
 ms.author: daperlov
-ms.openlocfilehash: a257c7d3f288f9a2e1998bf0679b7146b089cb50
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+author: djpmsft
+manager: anandsub
+ms.date: 10/10/2019
+ms.openlocfilehash: b9b7ce4b215e3182279b7ffe16124c466ac0dd25
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683881"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893910"
 ---
 # <a name="execute-azure-machine-learning-pipelines-in-azure-data-factory"></a>Eseguire pipeline di Azure Machine Learning in Azure Data Factory
 
@@ -44,13 +45,13 @@ Eseguire le pipeline di Azure Machine Learning come passaggio nelle pipeline di 
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-Proprietà | Descrizione | Valori consentiti | Obbligatorio
+Proprietà | Description | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
-name | Nome dell'attività nella pipeline | String | Sì
-type | Il tipo di attività è' AzureMLExecutePipeline ' | String | Sì
-linkedServiceName | Servizio collegato da Azure Machine Learning | Riferimento del servizio collegato | Sì
-mlPipelineId | ID della pipeline Azure Machine Learning pubblicata | Stringa (o un'espressione con l'elemento resultType della stringa) | Sì
-experimentname | Nome dell'esperimento di cronologia di esecuzione del Machine Learning esecuzione della pipeline | Stringa (o un'espressione con l'elemento resultType della stringa) | No
+name | Nome dell'attività nella pipeline | Stringa | SÌ
+type | Il tipo di attività è' AzureMLExecutePipeline ' | Stringa | SÌ
+linkedServiceName | Servizio collegato da Azure Machine Learning | Riferimento del servizio collegato | SÌ
+mlPipelineId | ID della pipeline Azure Machine Learning pubblicata | Stringa (o un'espressione con l'elemento resultType della stringa) | SÌ
+Experimentname | Nome dell'esperimento di cronologia di esecuzione del Machine Learning esecuzione della pipeline | Stringa (o un'espressione con l'elemento resultType della stringa) | No
 mlPipelineParameters | Coppie chiave-valore da passare all'endpoint della pipeline di Azure Machine Learning pubblicati. Le chiavi devono corrispondere ai nomi dei parametri della pipeline definiti nella pipeline Machine Learning pubblicata | Oggetto con coppie chiave-valore (o espressione con oggetto resultType) | No
 mlParentRunId | ID esecuzione pipeline Azure Machine Learning padre | Stringa (o un'espressione con l'elemento resultType della stringa) | No
 continueOnStepFailure | Indica se continuare l'esecuzione di altri passaggi nell'Machine Learning esecuzione della pipeline in caso di errore di un passaggio | boolean | No

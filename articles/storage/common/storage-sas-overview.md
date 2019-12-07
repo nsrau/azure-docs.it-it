@@ -1,20 +1,21 @@
 ---
-title: Concedere accesso limitato alle risorse di archiviazione di Azure tramite firme di accesso condiviso (SAS)
+title: Concedere accesso limitato ai dati con firme di accesso condiviso (SAS)
+titleSuffix: Azure Storage
 description: Informazioni sull'uso delle firme di accesso condiviso (SAS) per delegare l'accesso alle risorse di archiviazione di Azure, tra cui BLOB, code, tabelle e file.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 9623152bdea5cc56e6b9bcb7d9911a730fd7a4a4
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: e4a5f83e3f4d26c2321ed1b4c48a385d07e6489d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72382004"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895148"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Concedere accesso limitato alle risorse di archiviazione di Azure tramite firme di accesso condiviso (SAS)
 
@@ -61,7 +62,7 @@ Una firma di accesso condiviso è un URI con fimra che punta a una o più risors
 
 - Con la chiave dell'account di archiviazione. Una firma di accesso condiviso del servizio e una firma di accesso condiviso dell'account sono firmate con la chiave account di archiviazione Per creare una firma di accesso condiviso con la chiave dell'account, un'applicazione deve avere accesso alla chiave dell'account.
 
-### <a name="sas-token"></a>Token SAS
+### <a name="sas-token"></a>Token di firma di accesso condiviso
 
 Il token di firma di accesso condiviso è una stringa generata sul lato client, ad esempio usando una delle librerie client di archiviazione di Azure. Il token di firma di accesso condiviso non viene rilevato in alcun modo da archiviazione di Azure. È possibile creare un numero illimitato di token di firma di accesso condiviso sul lato client. Dopo aver creato una firma di accesso condiviso, è possibile distribuirla alle applicazioni client che richiedono l'accesso alle risorse nell'account di archiviazione.
 

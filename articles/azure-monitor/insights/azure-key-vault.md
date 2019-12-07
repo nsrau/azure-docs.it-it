@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
-ms.openlocfilehash: 8863280407de5d02b53a203b2b6385477aa9f8ae
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 8d9c5f63a00179903c0920912aba642311a354e7
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899219"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74889108"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Soluzione Azure Key Vault Analytics in monitoraggio di Azure
 
@@ -51,7 +51,7 @@ Usare le istruzioni seguenti per installare e configurare la soluzione Insieme d
 8. Fare clic su *Salva* per abilitare la registrazione della diagnostica per log Analytics area di lavoro.
 
 ### <a name="enable-key-vault-diagnostics-using-powershell"></a>Abilitare la diagnostica di Key Vault utilizzando PowerShell
-Il seguente script PowerShell contiene un esempio su come utilizzare `Set-AzDiagnosticSetting` per abilitare la registrazione della diagnostica per Key Vault:
+Lo script di PowerShell seguente fornisce un esempio di come usare `Set-AzDiagnosticSetting` per abilitare la registrazione delle risorse per Key Vault:
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 

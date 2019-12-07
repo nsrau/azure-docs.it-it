@@ -7,22 +7,22 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 05/19/2018
-ms.openlocfilehash: 3ad0bdc2ec5db2f34a3bb6a1b8fda54cf9037483
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 177c110ce9679f3d564918dfac50b3e3f66f84ce
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555690"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893587"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Cosa sono gli avvisi classici in Microsoft Azure?
 
 > [!NOTE]
-> Questo articolo descrive come creare avvisi delle metriche classici di tipo precedente. Monitoraggio di Azure supporta ora [nuovi avvisi delle metriche near real time e una nuova esperienza di avvisi](../../azure-monitor/platform/alerts-overview.md). Per gli avvisi classici è stato [pianificato il ritiro](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement).  
+> Questo articolo descrive come creare avvisi delle metriche classici di tipo precedente. Monitoraggio di Azure supporta ora [nuovi avvisi delle metriche near real time e una nuova esperienza di avvisi](../../azure-monitor/platform/alerts-overview.md). Gli avvisi classici vengono [ritirati](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement), anche se ancora in uso limitato per le risorse che non supportano ancora i nuovi avvisi. 
 >
 
 Gli avvisi consentono di configurare le condizioni sui dati e la notifica di quando le condizioni corrispondono ai dati di monitoraggio più recenti.
 
-## <a name="old-and-new-alerting-capabilities"></a>Vecchie e nuove funzionalità di avviso
+## <a name="old-and-new-alerting-capabilities"></a>Funzionalità per gli avvisi obsolete e nuove
 
 In precedenza Monitoraggio di Azure, Application Insights, Log Analytics e Integrità dei servizi di Azure avevano funzionalità di avviso separate. Con il tempo Azure ha migliorato e combinato sia l'interfaccia utente che i diversi metodi di invio degli avvisi. Il consolidamento è ancora in corso.
 
@@ -54,7 +54,7 @@ Sono disponibili due tipi di avvisi classici, vale a dire gli avvisi delle metri
 
 * **Avvisi classici del log attività**: un avviso di log in streaming che si attiva per una voce di evento del log attività corrispondente ai criteri di filtro. Questi avvisi hanno solo lo stato "Attivato". Il motore degli avvisi applica semplicemente i criteri di filtro a tutti i nuovi eventi. Non esegue una ricerca per trovare voci meno recenti. Questi avvisi possono notificare quando si verifica un nuovo evento imprevisto relativo all'integrità dei servizi o quando un utente o un'applicazione esegue un'operazione nella sottoscrizione, ad esempio "Elimina macchina virtuale."
 
-Per i dati del log di diagnostica disponibili tramite Monitoraggio di Azure, indirizzare i dati in Log Analytics (in precedenza OMS) e usare un avviso di query di Log Analytics. Log Analytics ora usa il [nuovo metodo di avviso](../../azure-monitor/platform/alerts-overview.md) 
+Per i dati dei log delle risorse disponibili tramite monitoraggio di Azure, indirizzare i dati in Log Analytics e usare un avviso di query di log. Log Analytics ora usa il [nuovo metodo di avviso](../../azure-monitor/platform/alerts-overview.md) 
 
 Il diagramma seguente riepiloga le origini dei dati in Monitoraggio di Azure e, a livello concettuale, i modi per avvisare di tali dati.
 

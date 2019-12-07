@@ -3,17 +3,17 @@ title: Modificare le impostazioni dell'applicazione IoT Central di Azure | Micro
 description: Come amministratore, come gestire l'applicazione IoT Central di Azure cambiando il nome dell'applicazione, l'URL, il caricamento dell'immagine e l'eliminazione di un'applicazione
 author: viv-liu
 ms.author: viviali
-ms.date: 10/10/2019
+ms.date: 11/27/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 5d14ed31b41deb0db44ba452470c45d69a0ec781
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 016e356e306468441fc9308d2853f5c44a37379e
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73896060"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895514"
 ---
 # <a name="change-iot-central-application-settings"></a>Modificare le impostazioni dell'applicazione IoT Central
 
@@ -49,7 +49,7 @@ I pacchetti SDK di Azure Resource Manager di IoT Central sono disponibili per No
 
 Per altre informazioni, vedere i repository e i pacchetti di GitHub seguenti:
 
-| Lingua | Repository | Pacchetto |
+| Linguaggio | Repository | Pacchetto |
 | ---------| ---------- | ------- |
 | Nodo | [https://github.com/Azure/azure-sdk-for-node](https://github.com/Azure/azure-sdk-for-node) | [https://www.npmjs.com/package/azure-arm-iotcentral](https://www.npmjs.com/package/azure-arm-iotcentral)
 | Python |[https://github.com/Azure/azure-sdk-for-python](https://github.com/Azure/azure-sdk-for-python) | [https://pypi.org/project/azure-mgmt-iotcentral](https://pypi.org/project/azure-mgmt-iotcentral)

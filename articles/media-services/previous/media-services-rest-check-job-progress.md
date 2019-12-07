@@ -1,6 +1,6 @@
 ---
 title: Come controllare lo stato dei processi mediante l'API REST | Microsoft Docs
-description: Informazioni su come tenere traccia dello stato dei processi.
+description: Questo articolo illustra come controllare lo stato di avanzamento del processo tramite l'API REST di servizi multimediali di Azure V2.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 378a90b712af031f9d89758939afb993cee5aafd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec72b7e7bf4c2b859e8ceecf617c90a4853cb517
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64869500"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901489"
 ---
 # <a name="how-to-check-job-progress"></a>Procedura: Controllare lo stato dei processi
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 
 Quando si esegue un processo, spesso è necessario monitorarne l'avanzamento. È possibile trovare lo stato dell'entità Job mediante la relativa proprietà State. Per altre informazioni sulla proprietà State, vedere [Proprietà dell'entità Job](https://docs.microsoft.com/rest/api/media/operations/job#job_entity_properties).
 
-## <a name="connect-to-media-services"></a>Connettersi a Servizi multimediali
+## <a name="connect-to-media-services"></a>Connettersi a Servizi Multimediali
 
 Per informazioni su come connettersi all'API AMS, vedere [Accedere all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
@@ -65,9 +65,9 @@ Risposta:
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Informazioni generali sull'API REST di Servizi multimediali](media-services-rest-how-to-use.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 05/16/2018
-ms.openlocfilehash: 48ce748a95f58abb060cd6f54ac29c877356f5de
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 0def528e0c432ecbc706622f0b8c29c2d610c663
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555579"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893536"
 ---
 # <a name="azure-monitor-cli-quick-start-samples"></a>Esempi di avvio rapido dell'interfaccia della riga di comando di Monitoraggio di Azure
 Questo articolo illustra i comandi dell'interfaccia della riga di comando di esempio per accedere alle funzionalità di Monitoraggio di Azure. Monitoraggio di Azure consente di ridimensionare automaticamente servizi cloud, macchine virtuali e app Web e di inviare notifiche di avviso o chiamare URL Web in base ai valori dei dati di telemetria configurati.
@@ -160,7 +160,7 @@ Usare le informazioni di questa sezione per lavorare con le impostazioni di diag
 az monitor diagnostic-settings list --resource <target resource ID>
 ```
 
-### <a name="create-a-diagnostic-log-setting"></a>Creare un'impostazione per il log di diagnostica 
+### <a name="create-a-diagnostic-setting"></a>Creare un'impostazione di diagnostica 
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \

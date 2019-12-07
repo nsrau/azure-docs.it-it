@@ -1,24 +1,25 @@
 ---
-title: Usare Azure PowerShell per gestire i diritti di accesso Azure AD ai dati BLOB e di Accodamento con RBAC-archiviazione di Azure
-description: Usare Azure PowerShell per assegnare l'accesso a contenitori e code con il controllo degli accessi in base al ruolo (RBAC). Archiviazione di Azure supporta ruoli RBAC predefiniti e personalizzati per l'autenticazione tramite Azure AD.
+title: Usare PowerShell per assegnare un ruolo RBAC per l'accesso ai dati
+titleSuffix: Azure Storage
+description: Informazioni su come usare PowerShell per assegnare autorizzazioni a un'entità di sicurezza Azure Active Directory con il controllo degli accessi in base al ruolo (RBAC). Archiviazione di Azure supporta ruoli RBAC predefiniti e personalizzati per l'autenticazione tramite Azure AD.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 07/25/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 967e1754ec4be504669e176a5643186d08efb9d4
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 57d30803f20d17ee31c3d42d9a26e04c1b0832b6
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673183"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892018"
 ---
-# <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-powershell"></a>Concedere l'accesso ai dati di Accodamento e BLOB di Azure con RBAC usando PowerShell
+# <a name="use-powershell-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Usare PowerShell per assegnare un ruolo RBAC per l'accesso ai dati BLOB e di Accodamento
 
-Azure Active Directory (Azure AD) autorizza diritti di accesso a risorse protette tramite il [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md). Archiviazione di Azure definisce un set di ruoli di controllo degli accessi in base al ruolo predefiniti che includono un set comune di autorizzazioni usate per accedere a contenitori o code. 
+Azure Active Directory (Azure AD) autorizza diritti di accesso a risorse protette tramite il [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md). Archiviazione di Azure definisce un set di ruoli di controllo degli accessi in base al ruolo predefiniti che includono un set comune di autorizzazioni usate per accedere a contenitori o code.
 
 Quando un ruolo RBAC viene assegnato a un'entità di sicurezza Azure AD, Azure concede l'accesso a tali risorse per l'entità di sicurezza. È possibile definire l'ambito dell'accesso a livello di sottoscrizione, gruppo di risorse, account di archiviazione o singolo contenitore o coda. Un Azure AD entità di sicurezza può essere un utente, un gruppo, un'entità servizio dell'applicazione o un' [identità gestita per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 

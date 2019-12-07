@@ -7,14 +7,14 @@ ms.author: dpalled
 manager: cshankar
 ms.service: time-series-insights
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 386d10c8e4bd7d5f46d2081d5a26371fb37ff30f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 3d611806d31719899d249b29ed4b0ea499280252
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006993"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894921"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>Formato JSON per ottimizzare le prestazioni delle query 
 
@@ -97,15 +97,15 @@ Si consideri il payload JSON seguente inviato all'ambiente Time Series Insights 
 
    | deviceId | messageId | deviceLocation |
    | --- | --- | --- |
-   | FXXX | LINE\_DATA | EU |
+   | FXXX | LINE\_DATA | Europa |
    | FYYY | LINE\_DATA | Stati Uniti |
 
 * Time Series Insights tabella eventi, dopo l'appiattimento:
 
    | deviceId | messageId | deviceLocation | timestamp | series.Flow Rate ft3/s | series.Engine Oil Pressure psi |
    | --- | --- | --- | --- | --- | --- |
-   | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 1.0172575712203979 | 34.7 |
-   | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 2.445906400680542 | 49.2 |
+   | FXXX | LINE\_DATA | Europa | 2018-01-17T01:17:00Z | 1.0172575712203979 | 34.7 |
+   | FXXX | LINE\_DATA | Europa | 2018-01-17T01:17:00Z | 2.445906400680542 | 49.2 |
    | FYYY | LINE\_DATA | Stati Uniti | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22.2 |
 
 > [!NOTE]
@@ -167,8 +167,8 @@ Payload JSON di esempio:
 
    | deviceId | series.tagId | messageId | deviceLocation | type | unit |
    | --- | --- | --- | --- | --- | --- |
-   | FXXX | pumpRate | LINE\_DATA | EU | Velocità del flusso | ft3/s |
-   | FXXX | oilPressure | LINE\_DATA | EU | Pressione dell'olio del motore | psi |
+   | FXXX | pumpRate | LINE\_DATA | Europa | Velocità del flusso | ft3/s |
+   | FXXX | oilPressure | LINE\_DATA | Europa | Pressione dell'olio del motore | psi |
    | FYYY | pumpRate | LINE\_DATA | Stati Uniti | Velocità del flusso | ft3/s |
    | FYYY | oilPressure | LINE\_DATA | Stati Uniti | Pressione dell'olio del motore | psi |
 
@@ -176,10 +176,10 @@ Payload JSON di esempio:
 
    | deviceId | series.tagId | messageId | deviceLocation | type | unit | timestamp | series.value |
    | --- | --- | --- | --- | --- | --- | --- | --- |
-   | FXXX | pumpRate | LINE\_DATA | EU | Velocità del flusso | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 | 
-   | FXXX | oilPressure | LINE\_DATA | EU | Pressione dell'olio del motore | psi | 2018-01-17T01:17:00Z | 34.7 |
-   | FXXX | pumpRate | LINE\_DATA | EU | Velocità del flusso | ft3/s | 2018-01-17T01:17:00Z | 2.445906400680542 | 
-   | FXXX | oilPressure | LINE\_DATA | EU | Pressione dell'olio del motore | psi | 2018-01-17T01:17:00Z | 49.2 |
+   | FXXX | pumpRate | LINE\_DATA | Europa | Velocità del flusso | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 | 
+   | FXXX | oilPressure | LINE\_DATA | Europa | Pressione dell'olio del motore | psi | 2018-01-17T01:17:00Z | 34.7 |
+   | FXXX | pumpRate | LINE\_DATA | Europa | Velocità del flusso | ft3/s | 2018-01-17T01:17:00Z | 2.445906400680542 | 
+   | FXXX | oilPressure | LINE\_DATA | Europa | Pressione dell'olio del motore | psi | 2018-01-17T01:17:00Z | 49.2 |
    | FYYY | pumpRate | LINE\_DATA | Stati Uniti | Velocità del flusso | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
    | FYYY | oilPressure | LINE\_DATA | Stati Uniti | Pressione dell'olio del motore | psi | 2018-01-17T01:18:00Z | 22.2 |
 
