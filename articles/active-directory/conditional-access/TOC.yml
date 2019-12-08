@@ -17,8 +17,6 @@
   items:
     - name: Criteri comuni di accesso condizionale
       href: concept-conditional-access-policy-common.md
-    - name: Impostazioni predefinite di sicurezza
-      href: concept-conditional-access-security-defaults.md
     - name: Componenti dei criteri di accesso condizionale
       href: concept-conditional-access-policies.md
     - name: Condizioni

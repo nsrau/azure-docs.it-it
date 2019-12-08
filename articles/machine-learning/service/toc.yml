@@ -152,7 +152,7 @@
     - name: Usare i dati
       items:
         - name: Recuperare dati da un archivio dati
-          displayName: 'blob, get, fileshare, access storage'
+          displayName: 'blob, get, fileshare, access storage, mount, download'
           href: how-to-access-data.md
         - name: Aggiungere e registrare set di dati
           displayName: 'data, dataset'
