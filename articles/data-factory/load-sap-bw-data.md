@@ -1,22 +1,22 @@
 ---
-title: Caricare i dati da SAP Business Warehouse usando Azure Data Factory
+title: Caricare i dati da SAP Business Warehouse
 description: Usare Azure Data Factory per copiare dati da SAP Business Warehouse (BW)
 services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: craigg
+ms.author: jingwang
+manager: shwang
 ms.reviewer: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.author: jingwang
-ms.openlocfilehash: 0c96ecff27a57b3277e7c8105766059b739d11af
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 7d9c0000964348b7c9c83ccbc2490677614c50cd
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73672658"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931458"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Copiare dati da SAP Business Warehouse usando Azure Data Factory
 
@@ -34,7 +34,7 @@ Questo articolo illustra come usare Azure Data Factory per copiare dati da SAP B
 - Per **l'utente SAP BW sono necessarie le autorizzazioni seguenti**:
 
   - Autorizzazione per le chiamate di funzioni remote (RFC) e SAP BW.
-  - Autorizzazioni per l'attività "Execute" dell'oggetto di autorizzazione **S_SDSAUTH** .
+  - Autorizzazioni per l'attività "Execute" dell'oggetto **S_SDSAUTH** autorizzazione.
 
 - **Un [runtime di integrazione self-hosted](concepts-integration-runtime.md#self-hosted-integration-runtime) con SAP .NET Connector 3,0**. Seguire questa procedura di configurazione:
 
@@ -46,7 +46,7 @@ Questo articolo illustra come usare Azure Data Factory per copiare dati da SAP B
 
 ## <a name="do-a-full-copy-from-sap-bw-open-hub"></a>Eseguire una copia completa da SAP BW Hub aperto
 
-Nella portale di Azure passare al data factory. Selezionare **crea & monitoraggio** per aprire l'interfaccia utente di data factory in una scheda separata.
+Nel portale di Azure accedere alla data factory. Selezionare **crea & monitoraggio** per aprire l'interfaccia utente di data factory in una scheda separata.
 
 1. Nella pagina attività **iniziali** selezionare **copia dati** per aprire lo strumento copia dati.
 
@@ -212,7 +212,7 @@ Se è necessaria una copia cronologica e una copia incrementale o solo una copia
 
    È possibile aumentare il numero di processi di lavoro SAP con esecuzione parallela per il DTP:
 
-   ![creazione-SAP-BW-OHD-Delta3](media/load-sap-bw-data/create-sap-bw-ohd-delta3.png)
+   ![create-sap-bw-ohd-delta3](media/load-sap-bw-data/create-sap-bw-ohd-delta3.png)
 
 2. Pianificare il DTP nelle catene di processi.
 

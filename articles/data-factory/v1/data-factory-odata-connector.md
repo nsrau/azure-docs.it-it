@@ -4,24 +4,23 @@ description: Informazioni su come spostare i dati da origini OData usando Azure 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: de28fa56-3204-4546-a4df-21a21de43ed7
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ea751a18f8a5e5423b3199919ccf440c41595091
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 95f92d4e5616d7754c355610685701a8e089b84e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666676"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931875"
 ---
 # <a name="move-data-from-an-odata-source-using-azure-data-factory"></a>Spostare i dati da un'origine OData usando Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-odata-connector.md)
 > * [Versione 2 (corrente)](../connector-odata.md)
 
@@ -41,10 +40,10 @@ Sono supportati i tipi di autenticazione seguenti:
 * Per accedere al feed OData **cloud**, è possibile usare l'autenticazione anonima, di base (nome utente e password) o l'autenticazione OAuth basata su Azure Active Directory.
 * Per accedere al feed OData **locale**, è possibile usare l'autenticazione anonima, di base (nome utente e password) o l'autenticazione di Windows.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 È possibile creare una pipeline con l'attività di copia che sposta i dati da un'origine OData usando diversi strumenti/API.
 
-Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
+Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md).
 
 È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager modello**, **API .NET**e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
@@ -54,18 +53,18 @@ Se si usano gli strumenti o le API, eseguire la procedura seguente per creare un
 2. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia.
 3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output.
 
-Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di Data Factory.  Per un esempio con definizioni JSON per entità di data factory utilizzate per copiare dati da un'origine OData, vedere la sezione [Esempio JSON: Copiare dati da un'origine OData al BLOB di Azure](#json-example-copy-data-from-odata-source-to-azure-blob) di questo articolo.
+Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory.  Per un esempio con definizioni JSON per entità di data factory utilizzate per copiare dati da un'origine OData, vedere la sezione [Esempio JSON: Copiare dati da un'origine OData al BLOB di Azure](#json-example-copy-data-from-odata-source-to-azure-blob) di questo articolo.
 
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che vengono usate per definire entità di data factory specifiche dell'origine OData:
 
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 La tabella seguente contiene le descrizioni degli elementi JSON specifici del servizio collegato OData.
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 | --- | --- | --- |
-| type |La proprietà type deve essere impostata su: **OData** |Sì |
-| URL |URL del servizio OData. |Sì |
-| authenticationType |Tipo di autenticazione usato per connettersi all'origine OData. <br/><br/> Per OData in cloud, i valori possibili sono Anonymous, Basic e OAuth. Si noti che Azure Data Factory attualmente supporta solo OAuth basato su Azure Active Directory). <br/><br/> Per OData locale, i valori possibili sono Anonima, Di base e Windows. |Sì |
+| type |La proprietà type deve essere impostata su: **OData** |SÌ |
+| url |URL del servizio OData. |SÌ |
+| authenticationType |Tipo di autenticazione usato per connettersi all'origine OData. <br/><br/> Per OData in cloud, i valori possibili sono Anonymous, Basic e OAuth. Si noti che Azure Data Factory attualmente supporta solo OAuth basato su Azure Active Directory). <br/><br/> Per OData locale, i valori possibili sono Anonima, Di base e Windows. |SÌ |
 | Nome utente |Specificare il nome utente se si usa l'autenticazione di base. |Sì (solo se si usa l'autenticazione di base) |
 | password |Specificare la password per l'account utente specificato per il nome utente. |Sì (solo se si usa l'autenticazione di base) |
 | authorizedCredential |Se si usa OAuth, fare clic sul pulsante **Autorizza** nella procedura guidata di copia di Data Factory o nell'Editor e immettere le credenziali. Il valore di questa proprietà viene quindi generato automaticamente. |Sì (solo se si usa l'autenticazione OAuth) |
@@ -146,7 +145,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **ODataResource** , che include il set di dati OData, presenta le proprietà seguenti
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 | --- | --- | --- |
 | path |Percorso della risorsa OData |No |
 
@@ -157,7 +156,7 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano in
 
 Se l'origine è di tipo **RelationalSource** (che comprende OData), nella sezione typeProperties sono disponibili le proprietà seguenti:
 
-| Proprietà | Descrizione | Esempio | Obbligatorio |
+| Proprietà | Description | Esempio | Obbligatoria |
 | --- | --- | --- | --- |
 | query |Usare la query personalizzata per leggere i dati. |"?$select=Name, Description&$top=5" |No |
 
@@ -169,23 +168,23 @@ Come accennato nell'articolo sulle [attività di spostamento dei dati](data-fact
 
 Quando si spostano dati da OData, vengono usati i mapping seguenti tra i tipi OData e i tipi .NET.
 
-| Tipo di dati OData | Tipo di .NET |
+| Tipo di dati OData | Tipo .NET |
 | --- | --- |
 | Edm.Binary |Byte[] |
-| Edm.Boolean |Bool |
+| Edm.Boolean |Booleano |
 | Edm.Byte |Byte[] |
-| Edm.DateTime |DateTime |
-| Edm.Decimal |Decimal |
-| Edm.Double |Double |
-| Edm.Single |Single |
-| Edm.Guid |Guid |
+| Edm.DateTime |Data e ora |
+| Edm.Decimal |DECIMAL |
+| Edm.Double |DOUBLE |
+| Edm.Single |Singolo |
+| Edm.Guid |GUID |
 | Edm.Int16 |Int16 |
 | Edm.Int32 |Int32 |
 | Edm.Int64 |Int64 |
 | Edm.SByte |Int16 |
-| Edm.String |String |
-| Edm.Time |TimeSpan |
-| Edm.DateTimeOffset |Datetimeoffset |
+| Edm.String |Stringa |
+| Edm.Time |Intervallo di tempo |
+| Edm.DateTimeOffset |DateTimeOffset |
 
 > [!Note]
 > Tipi di dati OData complessi. Gli oggetti, ad esempio, non sono supportati.

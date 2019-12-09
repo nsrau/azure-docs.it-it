@@ -1,29 +1,25 @@
 ---
-title: Considerazioni su Novell iOS (Microsoft Authentication Library per .NET)
+title: Considerazioni su Novell iOS (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
 description: Informazioni su considerazioni specifiche quando si usa Novell iOS con Microsoft Authentication Library per .NET (MSAL.NET).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cc4eb0084e0606251d3fbd80d08723701c6a260
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: f04074dfd9055fa4791f6fdce6bcf296aae8ff61
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175627"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921467"
 ---
 # <a name="xamarin-ios-specific-considerations-with-msalnet"></a>Considerazioni specifiche di Novell per iOS con MSAL.NET
 In Novell iOS sono disponibili diverse considerazioni che è necessario tenere in considerazione quando si usa MSAL.NET
@@ -97,7 +93,7 @@ Quando si usa l'API di `WithIosKeychainSecurityGroup()`, MSAL aggiunge automatic
 
 ### <a name="enable-token-cache-sharing-across-ios-applications"></a>Abilitare la condivisione della cache del token tra le applicazioni iOS
 
-Da MSAL 2. x, è possibile specificare un gruppo di accesso a Keychain da usare per la memorizzazione nella cache dei token tra più applicazioni. Questa impostazione consente di condividere la cache dei token tra più applicazioni con lo stesso gruppo di accesso a keychain, inclusi quelli sviluppati con le applicazioni [adal.NET](https://aka.ms/adal-net), MSAL.NET Novell. iOS e le applicazioni iOS native sviluppate con [ ADAL. objc](https://github.com/AzureAD/azure-activedirectory-library-for-objc) o [MSAL. objc](https://github.com/AzureAD/microsoft-authentication-library-for-objc)).
+Da MSAL 2. x, è possibile specificare un gruppo di accesso a Keychain da usare per la memorizzazione nella cache dei token tra più applicazioni. Questa impostazione consente di condividere la cache dei token tra più applicazioni con lo stesso gruppo di accesso a keychain, inclusi quelli sviluppati con le applicazioni [adal.NET](https://aka.ms/adal-net), MSAL.NET Novell. iOS e le applicazioni iOS native sviluppate con [adal. objc](https://github.com/AzureAD/azure-activedirectory-library-for-objc) o [MSAL. objc](https://github.com/AzureAD/microsoft-authentication-library-for-objc)).
 
 La condivisione della cache dei token consente Single Sign-On tra tutte le applicazioni che usano lo stesso gruppo di accesso a keychain.
 

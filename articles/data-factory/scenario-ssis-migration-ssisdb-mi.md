@@ -9,19 +9,18 @@ ms.reviewer: ''
 manager: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 9/12/2019
-ms.openlocfilehash: 6ea9134085812b99d59ad64aa2c9ec1b2ff827d9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 38010e3aaa2d0544dfbfe19135d25250d2b021a2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684392"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929788"
 ---
 # <a name="ssis-migration-with-azure-sql-database-managed-instance-as-the-database-workload-destination"></a>Migrazione SSIS con istanza gestita di database SQL di Azure come destinazione del carico di lavoro del database
 
-Quando si esegue la migrazione dei carichi di lavoro del database da SQL Server locale all'istanza gestita di database SQL di Azure, è necessario avere familiarità con il [servizio migrazione dati di Azure](https://docs.microsoft.com/azure/dms/dms-overview)(DMS) e le [topologie di rete per le migrazioni di istanze gestite del database SQL di Azure utilizzando DMS](https://docs.microsoft.com/azure/dms/resource-network-topologies).
+Quando si esegue la migrazione dei carichi di lavoro del database da SQL Server locale all'istanza gestita di database SQL di Azure, è necessario avere familiarità con il [servizio migrazione dati di Azure](https://docs.microsoft.com/azure/dms/dms-overview)(DMS) e le [topologie di rete per le migrazioni di istanze gestite di database SQL di Azure con DMS](https://docs.microsoft.com/azure/dms/resource-network-topologies).
 
 Questo articolo è incentrato sulla migrazione dei pacchetti di SQL Server Integration Service (SSIS) archiviati nel catalogo SSIS (SSISDB) e SQL Server Agent processi che pianificano le esecuzioni del pacchetto SSIS.
 
@@ -35,7 +34,7 @@ Istanza gestita di database SQL di Azure ha un'utilità di pianificazione nativa
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Data factory di Azure](https://docs.microsoft.com/azure/data-factory/introduction)
+- [Data Factory di Azure](https://docs.microsoft.com/azure/data-factory/introduction)
 - [Azure-SSIS Integration Runtime](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)
 - [Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/dms-overview)
 - [Topologie di rete per le migrazioni di istanze gestite del database SQL di Azure con DMS](https://docs.microsoft.com/azure/dms/resource-network-topologies)

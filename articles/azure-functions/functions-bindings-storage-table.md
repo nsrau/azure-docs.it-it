@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: 77f95cf02b5216f1946283143b828f915b351abc
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1308463694754231aa6d770bf716fd3def219981
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230985"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74925316"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Associazioni di Archiviazione tabelle di Azure per Funzioni di Azure
 
@@ -26,7 +26,7 @@ Le associazioni di archiviazione tabelle sono incluse nel pacchetto NuGet [Micro
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
-## <a name="packages---functions-2x"></a>Pacchetti: Funzioni 2.x
+## <a name="packages---functions-2x-and-higher"></a>Packages-Functions 2. x e versioni successive
 
 Le associazioni di archiviazione tabelle sono incluse nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) versione 3.x. Il codice sorgente del pacchetto si trova nel repository GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables).
 
@@ -105,7 +105,7 @@ public class TableStorage
 
 ### <a name="input---c-example---cloudtable"></a>Input - Esempio C# - CloudTable
 
-Il metodo `IQueryable` non è supportato nel [runtime di Funzioni v2](functions-versions.md). In alternativa, è possibile usare un parametro del metodo `CloudTable` per leggere la tabella tramite Azure Storage SDK. Di seguito è riportato un esempio di una funzione 2.x che esegue una query su una tabella di log di Funzioni di Azure:
+Il metodo `IQueryable` non è supportato nel [runtime di Funzioni v2](functions-versions.md). In alternativa, è possibile usare un parametro del metodo `CloudTable` per leggere la tabella tramite Azure Storage SDK. Di seguito è riportato un esempio di una funzione che esegue una query su una tabella del log di funzioni di Azure:
 
 ```csharp
 using Microsoft.Azure.WebJobs;
@@ -258,7 +258,7 @@ public class Person : TableEntity
 
 ### <a name="input---c-script-example---cloudtable"></a>Input - Esempio di script C# - CloudTable
 
-Il metodo `IQueryable` non è supportato nel [runtime di Funzioni v2](functions-versions.md). In alternativa, è possibile usare un parametro del metodo `CloudTable` per leggere la tabella tramite Azure Storage SDK. Di seguito è riportato un esempio di una funzione 2.x che esegue una query su una tabella di log di Funzioni di Azure:
+`IQueryable` non è supportato nel runtime di funzioni per le [versioni 2. x e successive)](functions-versions.md). In alternativa, è possibile usare un parametro del metodo `CloudTable` per leggere la tabella tramite Azure Storage SDK. Di seguito è riportato un esempio di una funzione che esegue una query su una tabella del log di funzioni di Azure:
 
 ```json
 {
@@ -479,7 +479,7 @@ Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare gli attri
 
 L'account di archiviazione da usare è determinato nell'ordine seguente:
 
-* La proprietà `Table` dell'attributo `Connection`.
+* La proprietà `Connection` dell'attributo `Table`.
 * L'attributo `StorageAccount` applicato allo stesso parametro dell'attributo `Table`.
 * L'attributo `StorageAccount` applicato alla funzione.
 * L'attributo `StorageAccount` applicato alla classe.
@@ -493,16 +493,16 @@ Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `Table`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
 |**type** | N/D | Il valore deve essere impostato su `table`. Questa proprietà viene impostata automaticamente quando si crea l'associazione nel portale di Azure.|
 |**direction** | N/D | Il valore deve essere impostato su `in`. Questa proprietà viene impostata automaticamente quando si crea l'associazione nel portale di Azure. |
 |**nome** | N/D | Nome della variabile che rappresenta la tabella o l'entità nel codice della funzione. | 
 |**tableName** | **TableName** | Nome della tabella.| 
-|**partitionKey** | **PartitionKey** |Facoltativa. Chiave di partizione dell'entità della tabella da leggere. Vedere la sezione [usage](#input---usage) per indicazioni sull'uso di questa proprietà.| 
-|**rowKey** |**RowKey** | Facoltativa. Chiave di riga dell'entità della tabella da leggere. Vedere la sezione [usage](#input---usage) per indicazioni sull'uso di questa proprietà.| 
-|**take** |**Take** | Facoltativa. Numero massimo di entità da leggere in JavaScript. Vedere la sezione [usage](#input---usage) per indicazioni sull'uso di questa proprietà.| 
-|**filter** |**Filter** | Facoltativa. Espressione di filtro OData per l'input della tabella in JavaScript. Vedere la sezione [usage](#input---usage) per indicazioni sull'uso di questa proprietà.| 
+|**partitionKey** | **PartitionKey** |facoltativo. Chiave di partizione dell'entità della tabella da leggere. Vedere la sezione [usage](#input---usage) per indicazioni sull'uso di questa proprietà.| 
+|**rowKey** |**RowKey** | facoltativo. Chiave di riga dell'entità della tabella da leggere. Vedere la sezione [usage](#input---usage) per indicazioni sull'uso di questa proprietà.| 
+|**take** |**Take** | facoltativo. Numero massimo di entità da leggere in JavaScript. Vedere la sezione [usage](#input---usage) per indicazioni sull'uso di questa proprietà.| 
+|**filter** |**Filter** | facoltativo. Espressione di filtro OData per l'input della tabella in JavaScript. Vedere la sezione [usage](#input---usage) per indicazioni sull'uso di questa proprietà.| 
 |**connessione** |**Connection** | Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo il resto del nome. Ad esempio, se si imposta `connection` su "MyStorage", il runtime di Funzioni di Azure cerca un'impostazione dell'app denominata "AzureWebJobsMyStorage". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -538,7 +538,7 @@ Usare un'associazione di output dell'archiviazione tabelle di Azure per scrivere
 Vedere l'esempio specifico per ciascun linguaggio:
 
 * [C#](#output---c-example)
-* [Script C# (.csx)](#output---c-script-example)
+* [Script C# (file con estensione csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
@@ -753,7 +753,7 @@ Per un esempio completo, vedere [Output - esempio in C#](#output---c-example).
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `Table`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
 |**type** | N/D | Il valore deve essere impostato su `table`. Questa proprietà viene impostata automaticamente quando si crea l'associazione nel portale di Azure.|
 |**direction** | N/D | Il valore deve essere impostato su `out`. Questa proprietà viene impostata automaticamente quando si crea l'associazione nel portale di Azure. |
@@ -785,11 +785,11 @@ L'associazione di output dell'archiviazione tabelle supporta gli scenari seguent
 
 ## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
 
-| Binding | riferimento |
+| Associazione | Riferimento |
 |---|---|
-| tabella | [Codici di errore del servizio tabelle](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
+| Table | [Codici di errore del servizio tabelle](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
 | Blob, Table, Queue | [Codici di errore di archiviazione](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
-| Blob, Table, Queue | [Risoluzione dei problemi](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
+| Blob, Table, Queue | [risoluzione dei problemi](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

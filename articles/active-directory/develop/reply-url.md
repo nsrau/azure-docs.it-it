@@ -1,5 +1,5 @@
 ---
-title: Limitazioni e limitazioni dell'URL di risposta/URI di reindirizzamento-piattaforma di identità Microsoft
+title: URI di reindirizzamento & restrizioni URL di risposta-piattaforma di identità Microsoft | Azure
 description: Restrizioni URL di risposta/URL di reindirizzamento & limitazioni
 author: SureshJa
 ms.author: sureshja
@@ -11,12 +11,12 @@ ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9cc6ab0342682bce7befdfe412221ec581312be
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: bfc13c1057f74fb1eb5a41210ffaf166e69bb06e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389604"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920328"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>Restrizioni e limitazioni degli URI di reindirizzamento/URL di risposta
 
@@ -28,15 +28,15 @@ La tabella seguente illustra il numero massimo di URI di reindirizzamento che è
 
 | Account che hanno eseguito l'accesso | Numero massimo di URI di Reindirizzamento | Description |
 |--------------------------|---------------------------------|-------------|
-| Account Microsoft aziendali o dell'Istituto di istruzione nel tenant Azure Active Directory (Azure AD) di qualsiasi organizzazione | 256 | il campo `signInAudience` nel manifesto dell'applicazione è impostato su *AzureADMyOrg* o *AzureADMultipleOrgs* |
-| Account Microsoft personali e account aziendali e dell'Istituto di istruzione | 100 | il campo `signInAudience` nel manifesto dell'applicazione è impostato su *AzureADandPersonalMicrosoftAccount* |
+| Account Microsoft aziendali o dell'Istituto di istruzione nel tenant Azure Active Directory (Azure AD) di qualsiasi organizzazione | 256 | `signInAudience` campo nel manifesto dell'applicazione è impostato su *AzureADMyOrg* o *AzureADMultipleOrgs* |
+| Account Microsoft personali e account aziendali e dell'Istituto di istruzione | 100 | `signInAudience` campo nel manifesto dell'applicazione è impostato su *AzureADandPersonalMicrosoftAccount* |
 
 ## <a name="maximum-uri-length"></a>Lunghezza massima URI
 
 È possibile usare un massimo di 256 caratteri per ogni URI di reindirizzamento aggiunto a una registrazione dell'app.
 
 ## <a name="supported-schemes"></a>Schemi supportati
-Il modello di applicazione Azure AD attualmente supporta sia gli schemi HTTP che HTTPS per le app che firmano gli account Microsoft aziendali o dell'Istituto di istruzione nel tenant Azure Active Directory (Azure AD) di qualsiasi organizzazione. Questo campo `signInAudience` nel manifesto dell'applicazione è impostato su *AzureADMyOrg* o *AzureADMultipleOrgs*. Per le app che consentono di accedere a account Microsoft personali e account aziendali o dell'Istituto di istruzione (`signInAudience` impostati su *AzureADandPersonalMicrosoftAccount*), è consentito solo lo schema HTTPS.
+Il modello di applicazione Azure AD attualmente supporta sia gli schemi HTTP che HTTPS per le app che firmano gli account Microsoft aziendali o dell'Istituto di istruzione nel tenant Azure Active Directory (Azure AD) di qualsiasi organizzazione. Ovvero `signInAudience` campo nel manifesto dell'applicazione è impostato su *AzureADMyOrg* o *AzureADMultipleOrgs*. Per le app che consentono di accedere a account Microsoft personali e account aziendali o dell'Istituto di istruzione, ovvero `signInAudience` impostati su *AzureADandPersonalMicrosoftAccount*, è consentito solo lo schema HTTPS.
 
 > [!NOTE]
 > La nuova esperienza [registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) non consente agli sviluppatori di aggiungere URI con lo schema http nell'interfaccia utente. L'aggiunta di URI HTTP per le app che registrano account aziendali o dell'Istituto di istruzione è supportata solo tramite l'editor del manifesto dell'applicazione. In futuro, le nuove app non saranno in grado di usare gli schemi HTTP nell'URI di reindirizzamento. Tuttavia, le app precedenti che contengono schemi HTTP negli URI di reindirizzamento continueranno a funzionare. Gli sviluppatori devono usare schemi HTTPS negli URI di reindirizzamento.

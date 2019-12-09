@@ -4,25 +4,24 @@ description: Informazioni su come copiare dati da o verso database Oracle locali
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: 3c20aa95-a8a1-4aae-9180-a6a16d64a109
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 822713d67790906c972ad77a748ef8d52b871bc4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 066e32d5ab21f88b170498173606043c54fec586
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682431"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928161"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copiare dati da o verso un database Oracle locale con Azure Data Factory
 
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-onprem-oracle-connector.md)
 > * [Versione 2 (corrente)](../connector-oracle.md)
 
@@ -77,7 +76,7 @@ Il connettore Oracle supporta due versioni di driver:
 
 Se si usa la Copia guidata per creare la pipeline di copia, il tipo di driver viene determinato automaticamente. Per impostazione predefinita, viene usato il driver Microsoft, a meno che la versione del gateway sia inferiore a 2.7 o si selezioni Oracle come sink.
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Inizia oggi stesso
 
 È possibile creare una pipeline con un'attività di copia. La pipeline sposta i dati da o verso un database Oracle locale usando diversi strumenti o API.
 
@@ -100,12 +99,12 @@ Nelle sezioni seguenti sono disponibili informazioni dettagliate sulle propriet�
 
 La tabella seguente descrive gli elementi JSON specifici del servizio collegato Oracle:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 | --- | --- | --- |
-| type |La proprietà **type** deve essere impostata su **OnPremisesOracle**. |Sì |
+| type |La proprietà **type** deve essere impostata su **OnPremisesOracle**. |SÌ |
 | driverType | Specificare il driver da usare per copiare i dati da o verso il database Oracle. I valori consentiti sono **Microsoft** e **ODP** (impostazione predefinita). Per informazioni dettagliate sui driver, vedere [Versioni supportate e installazione](#supported-versions-and-installation). | No |
-| connectionString | Specificare le informazioni necessarie per connettersi all'istanza del database Oracle per la proprietà **connectionString**. | Sì |
-| gatewayName | Nome del gateway usato per connettersi al server Oracle locale. |Sì |
+| connectionString | Specificare le informazioni necessarie per connettersi all'istanza del database Oracle per la proprietà **connectionString**. | SÌ |
+| gatewayName | Nome del gateway usato per connettersi al server Oracle locale. |SÌ |
 
 **Esempio: mediante il driver Microsoft**
 
@@ -151,7 +150,7 @@ Le sezioni di un file JSON del set di dati, tra cui struttura, disponibilità e 
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione **typeProperties** per il set di dati di tipo **OracleTable** presenta le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella nel database Oracle a cui fa riferimento il servizio collegato. |No (se è specificato **oracleReaderQuery** o **OracleSource**) |
 
@@ -170,7 +169,7 @@ Le proprietà disponibili nella sezione **typeProperties** dell'attività varian
 
 Nell'attività di copia con origine di tipo **OracleSource** sono disponibili le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Descrizione | Valori consentiti | Obbligatorio |
+| Proprietà | Description | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | oracleReaderQuery |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio, "select \* from **MyTable**". <br/><br/>Se non specificato, viene eseguita questa istruzione SQL: "select \* from **MyTable**" |No<br />(se è specificato **tableName** nel **set di dati**) |
 
@@ -178,7 +177,7 @@ Nell'attività di copia con origine di tipo **OracleSource** sono disponibili le
 
 **OracleSink** supporta le proprietà seguenti:
 
-| Proprietà | Descrizione | Valori consentiti | Obbligatorio |
+| Proprietà | Description | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | writeBatchTimeout |Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout. |**timespan**<br/><br/> Ad esempio: 00:30:00 (30 minuti) |No |
 | writeBatchSize |Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge il valore di **writeBatchSize**. |Numero intero (numero di righe) |No (valore predefinito: 100) |
@@ -599,27 +598,27 @@ Quando si spostano dati da Oracle, vengono usati i mapping seguenti dal tipo di 
 | --- | --- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(supportato solo in Oracle 10g e versioni successive quando si usa un driver Microsoft) |
-| CHAR |String |
-| CLOB |String |
-| DATE |DateTime |
+| CHAR |Stringa |
+| CLOB |Stringa |
+| DATE |Data e ora |
 | FLOAT |Decimal, String (se la precisione > 28) |
 | INTEGER |Decimal, String (se la precisione > 28) |
 | INTERVAL YEAR TO MONTH |Int32 |
-| INTERVAL DAY TO SECOND |TimeSpan |
-| LONG |String |
+| INTERVAL DAY TO SECOND |Intervallo di tempo |
+| LONG |Stringa |
 | LONG RAW |Byte[] |
-| NCHAR |String |
-| NCLOB |String |
+| NCHAR |Stringa |
+| NCLOB |Stringa |
 | NUMBER |Decimal, String (se la precisione > 28) |
-| NVARCHAR2 |String |
+| NVARCHAR2 |Stringa |
 | RAW |Byte[] |
-| ROWID |String |
-| TIMESTAMP |DateTime |
-| TIMESTAMP WITH LOCAL TIME ZONE |DateTime |
-| TIMESTAMP WITH TIME ZONE |DateTime |
-| UNSIGNED INTEGER |Number |
-| VARCHAR2 |String |
-| XML |String |
+| ROWID |Stringa |
+| TIMESTAMP |Data e ora |
+| TIMESTAMP WITH LOCAL TIME ZONE |Data e ora |
+| TIMESTAMP WITH TIME ZONE |Data e ora |
+| UNSIGNED INTEGER |Numero |
+| VARCHAR2 |Stringa |
+| XML |Stringa |
 
 > [!NOTE]
 > I tipi di dati **INTERVAL YEAR TO MONTH** e **INTERVAL DAY TO SECOND** non sono supportati quando si usa un driver Microsoft.

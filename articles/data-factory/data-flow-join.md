@@ -1,18 +1,19 @@
 ---
-title: Trasformazione join nel flusso di dati del mapping Azure Data Factory
+title: Trasformazione join nel flusso di dati di mapping
 description: Combinare i dati di due origini dati utilizzando la trasformazione join nel flusso di dati di mapping Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/17/2019
-ms.openlocfilehash: 1e9315195ceae435447739055105a66ee81e2a6a
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 09d2c1d063c542583dc11fab0805a9392661426f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122916"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930333"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Trasformazione join nel flusso di dati di mapping
 
@@ -83,7 +84,7 @@ Quando si verificano le trasformazioni join con Anteprima dati in modalità di d
 
 ### <a name="inner-join-example"></a>Esempio di Inner join
 
-Nell'esempio seguente viene illustrata una trasformazione join denominata `JoinMatchedData` che accetta il flusso sinistro `TripData` e il flusso destro `TripFare`.  La condizione di join è l'espressione `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}` che restituisce true se le colonne `hack_license`, `medallion`, `vendor_id`e `pickup_datetime` in ogni flusso corrispondono. Il `joinType` è `'inner'`. È in corso l'abilitazione della trasmissione solo nel flusso di sinistra, quindi `broadcast` ha un valore `'left'`.
+Nell'esempio seguente viene illustrata una trasformazione join denominata `JoinMatchedData` che accetta il flusso sinistro `TripData` e il flusso destro `TripFare`.  La condizione di join è l'espressione `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}` che restituisce true se le colonne `hack_license`, `medallion`, `vendor_id`e `pickup_datetime` in ogni flusso corrispondono. `joinType` è di tipo `'inner'`. È in corso l'abilitazione della trasmissione solo nel flusso di sinistra, quindi `broadcast` ha un valore `'left'`.
 
 In Data Factory UX questa trasformazione è simile all'immagine seguente:
 
@@ -105,7 +106,7 @@ TripData, TripFare
 
 ### <a name="cross-join-example"></a>Esempio di cross join
 
-Nell'esempio seguente viene illustrata una trasformazione join denominata `CartesianProduct` che accetta il flusso sinistro `TripData` e il flusso destro `TripFare`. Questa trasformazione accetta due flussi e restituisce un prodotto cartesiano delle relative righe. La condizione di join è `true()` perché restituisce un prodotto cartesiano completo. Il `joinType` è `cross`. È in corso l'abilitazione della trasmissione solo nel flusso di sinistra, quindi `broadcast` ha un valore `'left'`.
+Nell'esempio seguente viene illustrata una trasformazione join denominata `CartesianProduct` che accetta il flusso sinistro `TripData` e il flusso destro `TripFare`. Questa trasformazione accetta due flussi e restituisce un prodotto cartesiano delle relative righe. La condizione di join è `true()` perché restituisce un prodotto cartesiano completo. `joinType` è di tipo `cross`. È in corso l'abilitazione della trasmissione solo nel flusso di sinistra, quindi `broadcast` ha un valore `'left'`.
 
 In Data Factory UX questa trasformazione è simile all'immagine seguente:
 

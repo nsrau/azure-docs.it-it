@@ -5,18 +5,17 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/18/2018
 author: djpmsft
 ms.author: daperlov
-manager: craigg
-ms.openlocfilehash: 46ea65c09ec9567bb03a524470a3550c9cdfd00e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: anandsub
+ms.openlocfilehash: 0d8418d846d26d4104718df6d0fc66d264ef4a54
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684566"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918832"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Impostare i parametri dei servizi collegati in Azure Data Factory
 
@@ -34,8 +33,8 @@ Per un'introduzione di sette minuti e una dimostrazione di questa funzionalità,
 ## <a name="supported-data-stores"></a>Archivi dati supportati
 
 A questo punto, l'impostazione dei parametri del servizio collegato è supportata nell'interfaccia utente di Data Factory nel portale di Azure per gli archivi dati seguenti. Per tutti gli altri archivi dati, è possibile impostare i parametri del servizio collegato, selezionando l'icona **Codice** sulla scheda **Connessioni** e usando l'editor JSON.
-- Database SQL di Azure
-- Azure SQL Data Warehouse
+- database SQL di Azure
+- SQL Data Warehouse di Azure
 - SQL Server
 - Oracle
 - Cosmos DB

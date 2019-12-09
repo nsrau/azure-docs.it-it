@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: b2782ce39bbc2ca86c63b178535fc6b67b9dadfe
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 65775a9c7a6d66a088eccdfdb22ce7d6b01829d2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231030"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74925395"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Binding dell'archiviazione BLOB di Azure per Funzioni di Azure
 
@@ -33,7 +33,7 @@ Le associazioni di archiviazione BLOB sono incluse nel pacchetto NuGet [Microsof
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
-## <a name="packages---functions-2x"></a>Pacchetti: Funzioni 2.x
+## <a name="packages---functions-2x-and-higher"></a>Packages-Functions 2. x e versioni successive
 
 Le associazioni di archiviazione BLOB sono incluse nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) versione 3.x. Il codice sorgente del pacchetto si trova nel repository GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs).
 
@@ -87,7 +87,7 @@ Per altre informazioni sull'attributo `BlobTrigger`, vedere [Trigger - attributi
 
 # <a name="c-scripttabcsharp-script"></a>[C#Script](#tab/csharp-script)
 
-L'esempio seguente illustra un'associazione di trigger di BLOB in un file *Function. JSON* e il codice che usa l'associazione. La funzione scrive un log quando viene aggiunto o aggiornato un BLOB nel `samples-workitems` [contenitore](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
+L'esempio seguente illustra un'associazione di trigger di BLOB in un file *Function. JSON* e il codice che usa l'associazione. La funzione scrive un log quando viene aggiunto o aggiornato un BLOB nel [contenitore](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) `samples-workitems`.
 
 Ecco i dati di associazione nel file *function.json*:
 
@@ -168,7 +168,7 @@ module.exports = function(context) {
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-L'esempio seguente illustra un'associazione di trigger di BLOB in un file *function.json* e il [codice Python](functions-reference-python.md) che usa l'associazione. La funzione scrive un log quando viene aggiunto o aggiornato un BLOB nel `samples-workitems` [contenitore](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
+L'esempio seguente illustra un'associazione di trigger di BLOB in un file *function.json* e il [codice Python](functions-reference-python.md) che usa l'associazione. La funzione scrive un log quando viene aggiunto o aggiornato un BLOB nel [contenitore](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) `samples-workitems`.
 
 Ecco il file *function.json*:
 
@@ -294,7 +294,7 @@ Nelle [librerie di classi](functions-dotnet-class-library.md) usare i seguenti a
 
 L'account di archiviazione da usare è determinato nell'ordine seguente:
 
-* La proprietà `BlobTrigger` dell'attributo `Connection`.
+* La proprietà `Connection` dell'attributo `BlobTrigger`.
 * L'attributo `StorageAccount` applicato allo stesso parametro dell'attributo `BlobTrigger`.
 * L'attributo `StorageAccount` applicato alla funzione.
 * L'attributo `StorageAccount` applicato alla classe.
@@ -322,7 +322,7 @@ L'attributo `@BlobTrigger` viene usato per fornire l'accesso al BLOB che ha atti
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `BlobTrigger`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
 |**type** | N/D | Il valore deve essere impostato su `blobTrigger`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure.|
 |**direction** | N/D | Il valore deve essere impostato su `in`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. Le eccezioni sono indicate nella sezione [usage](#trigger---usage). |
@@ -757,14 +757,14 @@ L'attributo `@BlobInput` consente di accedere al BLOB che ha attivato la funzion
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `Blob`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
 |**type** | N/D | Il valore deve essere impostato su `blob`. |
 |**direction** | N/D | Il valore deve essere impostato su `in`. Le eccezioni sono indicate nella sezione [usage](#input---usage). |
 |**nome** | N/D | Nome della variabile che rappresenta il BLOB nel codice della funzione.|
 |**path** |**BlobPath** | Percorso del BLOB. |
 |**connessione** |**Connection**| Nome di un'impostazione dell'app che contiene la [stringa di connessione di archiviazione](../storage/common/storage-configure-connection-string.md) da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo il resto del nome. Ad esempio, se si imposta `connection` su "MyStorage", il runtime di Funzioni di Azure cerca un'impostazione dell'app denominata "AzureWebJobsMyStorage". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.<br><br>La stringa di connessione deve essere relativa a un account di archiviazione di uso generico, non a un [account di archiviazione solo BLOB](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
-|N/D | **Accedervi** | Indica se eseguire la lettura o la scrittura. |
+|N/D | **Accedere** | Indica se eseguire la lettura o la scrittura. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -1124,14 +1124,14 @@ Per un esempio completo, vedere [esempio di output](#output---example).
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `Blob`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
 |**type** | N/D | Il valore deve essere impostato su `blob`. |
 |**direction** | N/D | Deve essere impostato su `out` per un'associazione di output. Le eccezioni sono indicate nella sezione [usage](#output---usage). |
 |**nome** | N/D | Nome della variabile che rappresenta il BLOB nel codice della funzione.  Impostare su `$return` per fare riferimento al valore restituito della funzione.|
 |**path** |**BlobPath** | Percorso del contenitore BLOB. |
 |**connessione** |**Connection**| Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo il resto del nome. Ad esempio, se si imposta `connection` su "MyStorage", il runtime di Funzioni di Azure cerca un'impostazione dell'app denominata "AzureWebJobsMyStorage". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.<br><br>La stringa di connessione deve essere relativa a un account di archiviazione di uso generico, non a un [account di archiviazione solo BLOB](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
-|N/D | **Accedervi** | Indica se eseguire la lettura o la scrittura. |
+|N/D | **Accedere** | Indica se eseguire la lettura o la scrittura. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -1166,11 +1166,11 @@ L'attributo `@BlobOutput` consente di accedere al BLOB che ha attivato la funzio
 
 ## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
 
-| Binding |  riferimento |
+| Associazione |  Riferimento |
 |---|---|
 | BLOB | [Codici di errore BLOB](https://docs.microsoft.com/rest/api/storageservices/fileservices/blob-service-error-codes) |
 | Blob, Table, Queue |  [Codici di errore di archiviazione](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
-| Blob, Table, Queue |  [Risoluzione dei problemi](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
+| Blob, Table, Queue |  [risoluzione dei problemi](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

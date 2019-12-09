@@ -2,23 +2,21 @@
 title: Migrare i dati da Amazon S3 a Azure Data Lake Storage Gen2
 description: Informazioni su come usare un modello di soluzione per migrare i dati da Amazon S3 usando una tabella di controllo esterna per archiviare un elenco di partizioni in AWS S3 con Azure Data Factory.
 services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
 ms.reviewer: ''
 manager: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 09/07/2019
-ms.openlocfilehash: b1e7d15f1c747644c755b1e0bbe3351c626f7c28
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: e918fe01426202746f0225d25304b9c1b26cb74b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74890811"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927317"
 ---
 # <a name="migrate-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Migrare i dati da Amazon S3 a Azure Data Lake Storage Gen2
 

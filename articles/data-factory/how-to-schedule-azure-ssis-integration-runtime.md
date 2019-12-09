@@ -12,13 +12,13 @@ ms.date: 8/2/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
-manager: craigg
-ms.openlocfilehash: 0f0ceb9d7ee428571c2d472dd9ed9442f404a090
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: anandsub
+ms.openlocfilehash: 8d7d4c8d7e01c6a4bfa644b84f03f8a2ea5bfd06
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73673790"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928862"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Come avviare e arrestare Azure-SSIS Integration Runtime in base a una pianificazione
 Questo articolo descrive come pianificare l'avvio e l'arresto di Azure-SSIS Integration Runtime (IR) con Azure Data Factory (ADF). Azure-SSIS IR è una risorsa dell'ambiente di calcolo di ADF dedicata all'esecuzione di pacchetti di SQL Server Integration Services (SSIS). All'esecuzione di Azure-SSIS IR è associato un costo. Di conseguenza, è in genere opportuno eseguire il runtime di integrazione solo se si devono eseguire pacchetti SSIS in Azure e arrestarlo quando non è più necessario. Per [avviare o arrestare manualmente il runtime di integrazione](manage-azure-ssis-integration-runtime.md), è possibile usare l'interfaccia utente o l'app di ADF oppure Azure PowerShell.
@@ -69,7 +69,7 @@ Se si crea un terzo trigger programmato per essere eseguito ogni giorno a mezzan
 6. Per **Versione** selezionare **V2**.
 7. Per **Località** selezionare una delle località supportate per la creazione di ADF dall'elenco a discesa.
 8. Selezionare **Aggiungi al dashboard**.     
-9. Fare clic su **Create**.
+9. Fare clic su **Create**(Crea).
 10. Nel dashboard di Azure viene visualizzato il riquadro seguente con lo stato: **deploying Data Factory**. 
 
     ![Riquadro Deploying data factory (Distribuzione della data factory)](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
@@ -88,7 +88,7 @@ Se si crea un terzo trigger programmato per essere eseguito ogni giorno a mezzan
    
 2. Nella casella degli strumenti **Attività** espandere il menu **Generale** e trascinare un'attività **Web** nell'area di progettazione della pipeline. Nella scheda **Generale** della finestra delle proprietà dell'attività modificare il nome dell'attività in **startMyIR**. Passare alla scheda **Impostazioni** e seguire questa procedura.
 
-    1. Per **URL**immettere l'URL seguente per l'API REST che avvia Azure-SSIS IR, sostituendo `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}`e `{integrationRuntimeName}` con i valori effettivi per il runtime di integrazione: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01` in alternativa, è anche possibile copiare & incollare l'ID risorsa del runtime di integrazione dal relativo pagina di monitoraggio nell'interfaccia utente o nell'app ADF per sostituire la parte seguente dell'URL precedente: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}`
+    1. Per **URL**, immettere l'URL seguente per l'API REST che avvia Azure-SSIS IR, sostituendo `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}`e `{integrationRuntimeName}` con i valori effettivi per il runtime di integrazione: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01` in alternativa, è anche possibile copiare & incollare l'ID risorsa del runtime di integrazione dalla relativa pagina di monitoraggio nell'interfaccia utente o nell'app ADF per sostituire la parte seguente dell'URL precedente: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}`
     
        ![ID risorsa del runtime di integrazione SSIS di ADF](./media/how-to-schedule-azure-ssis-integration-runtime/adf-ssis-ir-resource-id.png)
   
@@ -114,7 +114,7 @@ Se si crea un terzo trigger programmato per essere eseguito ogni giorno a mezzan
     1. Per **Ruolo**, selezionare **Collaboratore**. 
     2. In **Assegna accesso a** selezionare **Utente, gruppo o entità servizio di Azure AD**. 
     3. In **Seleziona** cercare il nome di ADF e selezionarlo. 
-    4. Fare clic su **Save**.
+    4. Fare clic su **Salva**
     
    ![Assegnazione del ruolo all'identità gestita di ADF](./media/how-to-schedule-azure-ssis-integration-runtime/adf-managed-identity-role-assignment.png)
 
@@ -227,7 +227,7 @@ Se non si ha già un account di Automazione di Azure, crearne uno seguendo le is
     4. In **Località** selezionare una località per l'account di Automazione di Azure. 
     5. In **Crea un account RunAs di Azure** fare clic su **Sì**. Verrà creata un'entità servizio in Azure Active Directory, a cui viene assegnato il ruolo **Collaboratore** nella sottoscrizione di Azure.
     6. Selezionare **Aggiungi al dashboard** per visualizzare l'account in modo permanente nel dashboard di Azure. 
-    7. Selezionare **Crea**. 
+    7. Selezionare **Create** (Crea). 
 
    ![Nuovo -> Monitoraggio e gestione -> Automazione](./media/how-to-schedule-azure-ssis-integration-runtime/add-automation-account-window.png)
    
@@ -265,7 +265,7 @@ La sezione seguente descrive la procedura per creare un runbook di PowerShell. L
 
     1. In **Nome** immettere **StartStopAzureSsisRuntime**.
     2. In **Tipo di runbook** selezionare **PowerShell**.
-    3. Selezionare **Crea**.
+    3. Selezionare **Create** (Crea).
     
    ![Pulsante Aggiungi runbook](./media/how-to-schedule-azure-ssis-integration-runtime/add-runbook-window.png)
    
@@ -364,7 +364,7 @@ Nella sezione precedente è stato creato un runbook di Automazione di Azure capa
     4. In **Inizia** immettere un'ora di qualche minuto successiva all'ora corrente. 
     5. In **Ricorrenza** selezionare **Ricorrente**. 
     6. In **Ricorre ogni** immettere **1** e selezionare **Giorno**. 
-    7. Selezionare **Crea**. 
+    7. Selezionare **Create** (Crea). 
 
    ![Pianificazione per l'avvio del runtime di integrazione SSIS di Azure](./media/how-to-schedule-azure-ssis-integration-runtime/new-schedule-start.png)
     

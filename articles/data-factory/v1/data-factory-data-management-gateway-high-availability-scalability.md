@@ -4,21 +4,20 @@ description: Questo articolo illustra come è possibile aumentare il numero di i
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: craigg
+manager: anandsub
 editor: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: c3428019fe23e3f206e763249a18e7774bab149b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 25dbb01a4b018a51390be664472aceadea0a9524
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682707"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74932020"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Gateway di gestione dati: disponibilità elevata e scalabilità (anteprima)
 > [!NOTE]
@@ -43,7 +42,7 @@ Questo articolo consente di configurare una soluzione di disponibilità elevata 
 
 Usando il portale di Azure, è possibile monitorare lo stato di questi nodi, per poter decidere se aggiungere o rimuovere un nodo dal gateway logico. 
 
-## <a name="architecture"></a>Architettura 
+## <a name="architecture"></a>Architecture 
 Il diagramma seguente offre una panoramica dell'architettura della funzionalità di scalabilità e disponibilità del gateway di gestione dati: 
 
 ![Gateway di gestione dati: disponibilità elevata e scalabilità](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-high-availability-and-scalability.png)
@@ -184,10 +183,10 @@ Nel portale di Azure è possibile visualizzare lo snapshot in tempo quasi reale 
 
 È possibile abilitare **Impostazioni avanzate** nella pagina **Gateway** per visualizzare le metriche avanzate, ad esempio **Rete (in/out)** , **Ruolo e Stato delle credenziali**, utile nel debug dei problemi del gateway, e **Processi simultanei (in esecuzione/limite)** che può essere modificata/cambiata in base alle esigenze durante l'ottimizzazione delle prestazioni. La tabella seguente contiene le descrizioni delle colonne dell'elenco **Nodi del gateway**:  
 
-Proprietà monitoraggio | Descrizione
+Proprietà monitoraggio | Description
 :------------------ | :---------- 
-Name | Nome del gateway logico e nodi associati al gateway.  
-Stato | Stato del gateway logico e dei nodi del gateway. Esempio: online/offline/Limited/ecc. Per informazioni su questi Stati, vedere la sezione [stato del gateway](#gateway-status) . 
+name | Nome del gateway logico e nodi associati al gateway.  
+Status | Stato del gateway logico e dei nodi del gateway. Esempio: online/offline/Limited/ecc. Per informazioni su questi Stati, vedere la sezione [stato del gateway](#gateway-status) . 
 Versione | Indica la versione del gateway logico e di ogni nodo del gateway. La versione del gateway logico viene determinata in base alla versione della maggior parte dei nodi del gruppo. Se nella configurazione del gateway logico sono presenti nodi con versioni diverse, solo i nodi con lo stesso numero di versione del gateway logico funzionano correttamente. Gli altri sono in modalità limitata e devono essere aggiornati manualmente (solo se l'aggiornamento automatico non riesce). 
 Memoria disponibile | Memoria disponibile in un nodo del gateway. Questo valore è uno snapshot in tempo quasi reale. 
 Uso della CPU | Utilizzo della CPU di un nodo del gateway. Questo valore è uno snapshot in tempo quasi reale. 
@@ -201,23 +200,23 @@ Ruolo | Esistono due tipi di ruoli: dispatcher e ruolo di lavoro. Tutti i nodi s
 
 La tabella seguente indica i possibili stati di un **nodo del gateway**: 
 
-Stato  | Commenti/Scenari
+Status  | Commenti/Scenari
 :------- | :------------------
 Online | Nodo connesso al servizio Data Factory.
 Offline | Il nodo è offline.
 Aggiornamento | È in corso l'aggiornamento automatico del nodo.
-Limitato | La causa è un problema di connettività, ad esempio un problema della porta HTTP 8050, di connettività del bus di servizio o di sincronizzazione delle credenziali. 
+Limitata | La causa è un problema di connettività, ad esempio un problema della porta HTTP 8050, di connettività del bus di servizio o di sincronizzazione delle credenziali. 
 Inactive | Il nodo è in una configurazione diversa da quella della maggior parte degli altri nodi.<br/><br/> Un nodo può essere inattivo quando non riesce a connettersi agli altri nodi. 
 
 
 La tabella seguente indica i possibili stati di un **gateway logico**. Lo stato del gateway dipende dagli stati dei nodi del gateway. 
 
-Stato | Commenti
+Status | Commenti
 :----- | :-------
 Needs Registration (Registrazione necessaria) | Nessun nodo è ancora registrato per questo gateway logico
 Online | I nodi del gateway sono online
 Offline | Nessun nodo nello stato online.
-Limitato | Non tutti i nodi in questo gateway sono in uno stato integro. Questo stato è un avviso indicante che qualche nodo potrebbe essere inattivo. <br/><br/>La causa potrebbe essere un problema di sincronizzazione delle credenziali nel nodo dispatcher/ruolo di lavoro. 
+Limitata | Non tutti i nodi in questo gateway sono in uno stato integro. Questo stato è un avviso indicante che qualche nodo potrebbe essere inattivo. <br/><br/>La causa potrebbe essere un problema di sincronizzazione delle credenziali nel nodo dispatcher/ruolo di lavoro. 
 
 ### <a name="pipeline-activities-monitoring"></a>Monitoraggio di pipeline/attività
 Il portale di Azure offre un'esperienza di monitoraggio della pipeline con dettagli granulari a livello di nodo, ad esempio mostra le attività eseguite in ogni nodo. Queste informazioni possono essere utili per conoscere i problemi di prestazioni in un particolare nodo, ad esempio a causa della limitazione della larghezza di banda. 

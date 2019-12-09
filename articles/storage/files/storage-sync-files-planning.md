@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a732e80549747f7c683a73bf0f16c40d48decea6
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: bb75fd8aafdc886a8753fa2e6be30d9d7f83bb6f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546338"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927871"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -159,14 +159,14 @@ Il clustering di failover di Windows Server è supportato da Sincronizzazione fi
 
 ### <a name="data-deduplication"></a>Deduplicazione dei dati
 **Windows server 2016 e Windows server 2019**   
-La deduplicazione dei dati è supportata nei volumi con la suddivisione in livelli cloud abilitata in Windows Server 2016. L'abilitazione della deduplicazione dati in un volume con la suddivisione in livelli cloud abilitata consente di memorizzare nella cache più file in locale senza effettuare il provisioning di più spazio di archiviazione. 
+La deduplicazione dei dati è supportata nei volumi con cloud a livelli abilitato in Windows Server 2016 e Windows Server 2019. L'abilitazione della deduplicazione dati in un volume con la suddivisione in livelli cloud abilitata consente di memorizzare nella cache più file in locale senza effettuare il provisioning di più spazio di archiviazione. 
 
 Quando la deduplicazione dei dati è abilitata in un volume con la suddivisione in livelli nel cloud abilitata, i file ottimizzati per deduplicazione all'interno del percorso dell'endpoint server verranno suddivisi a livelli in un file normale in base alle impostazioni dei criteri di suddivisione in livelli nel cloud. Una volta a livelli i file ottimizzati per deduplicazione, il processo di deduplicazione dati Garbage Collection verrà eseguito automaticamente per recuperare spazio su disco rimuovendo blocchi non necessari a cui gli altri file del volume non fanno più riferimento.
 
 Si noti che il risparmio del volume si applica solo al server; i dati nella condivisione file di Azure non verranno deduplicati.
 
 > [!Note]  
-> La deduplicazione dei dati e la suddivisione in livelli cloud non sono attualmente supportate nello stesso volume nel server 2019 a causa di un bug che verrà risolto in un aggiornamento futuro.
+> Per supportare la deduplicazione dei dati nei volumi con la suddivisione in livelli nel cloud abilitata in Windows Server 2019, è necessario installare Windows Update [KB4520062](https://support.microsoft.com/help/4520062) ed è necessario sincronizzazione file di Azure versione dell'agente 9.0.0.0 o successiva.
 
 **Windows Server 2012 R2**  
 Sincronizzazione file di Azure non supporta la deduplicazione dei dati e la suddivisione in livelli nel cloud nello stesso volume di Windows Server 2012 R2. Se la deduplicazione dei dati è abilitata in un volume, la suddivisione in livelli cloud deve essere disabilitata. 

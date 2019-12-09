@@ -1,6 +1,6 @@
 ---
-title: App desktop che chiama le API Web (sposta in produzione)-piattaforma di identità Microsoft
-description: Informazioni su come creare un'app desktop che chiama le API Web (passa alla produzione)
+title: Spostare l'app desktop che chiama le API Web nell'ambiente di produzione-piattaforma di identità Microsoft | Azure
+description: Informazioni su come spostare un'app desktop che chiama API Web nell'ambiente di produzione
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -17,16 +17,16 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5331f01c5dc6acf01f567dbe4c332853bf7aa47e
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 81a5e57d0ef37a3a2e758e42f122c8e014c94958
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175560"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919984"
 ---
 # <a name="desktop-app-that-calls-web-apis---move-to-production"></a>App desktop che chiama le API Web-passa all'ambiente di produzione
 
-Questo articolo fornisce informazioni dettagliate per migliorare ulteriormente l'applicazione e spostarla nell'ambiente di produzione.
+Questo articolo fornisce informazioni dettagliate per spostare l'app desktop che chiama le API Web nell'ambiente di produzione.
 
 ## <a name="handling-errors-in-desktop-applications"></a>Gestione degli errori nelle applicazioni desktop
 

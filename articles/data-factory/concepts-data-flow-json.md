@@ -1,18 +1,19 @@
 ---
-title: Uso di JSON in un flusso di dati di mapping in Azure Data Factory
+title: JSON nel flusso di dati di mapping
 description: Azure Data Factory flusso di dati di mapping include funzionalità predefinite per la gestione di documenti JSON con gerarchie
 author: kromerm
 ms.author: makromer
 ms.review: djpmsft
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 08/30/2019
-ms.openlocfilehash: fe412e9e682fb55f1664c546e6b6c5a347527adb
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 153c7a1003c68526c960644bebcc4800e92edc3c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72387352"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928333"
 ---
 # <a name="mapping-data-flow-json-handling"></a>Mapping della gestione JSON del flusso di dati
 
@@ -179,7 +180,7 @@ map([1, 2, 3, 4], #item + 2) => [3, 4, 5, 6]
 map(['a', 'b', 'c', 'd'], #item + '_processed') => ['a_processed', 'b_processed', 'c_processed', 'd_processed']
 ```
 
-### <a name="reduce"></a>ridurre
+### <a name="reduce"></a>reduce
 Accumula gli elementi in una matrice. Per reduce si prevede un riferimento a un accumulatore e un elemento nella prima funzione di espressione come #acc e #item e si prevede che il valore risultante sia #result da utilizzare nella seconda funzione di espressione.
 
 #### <a name="examples"></a>esempi

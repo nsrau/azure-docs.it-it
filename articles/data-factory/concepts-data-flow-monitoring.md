@@ -1,18 +1,19 @@
 ---
-title: Monitoraggio visivo del flusso di dati del mapping Azure Data Factory
+title: Mapping del monitoraggio visivo del flusso di dati
 description: Informazioni su come monitorare visivamente i flussi di dati di Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/07/2019
-ms.openlocfilehash: e522ede7da669f6e684fc9a07adcc506a69e77e9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 93d92286fa9eecbc64229059274cc8f9ed99e21e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74267894"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928269"
 ---
 # <a name="monitor-data-flows"></a>Monitorare i flussi di dati
 
@@ -42,7 +43,7 @@ Quando il flusso di dati viene eseguito in Spark, Azure Data Factory determina i
 
 * Quando si selezionano le singole trasformazioni, si riceveranno ulteriori commenti e suggerimenti sul pannello di destra che mostra le statistiche delle partizioni, i conteggi delle colonne, l'asimmetria (in modo uniforme i dati distribuiti tra le partizioni) e curtosi (come Spiky rappresenta i dati).
 
-* Quando si fa clic sul sink nella visualizzazione del nodo, viene visualizzata la derivazione della colonna. Esistono tre metodi diversi in cui vengono accumulate le colonne lungo il flusso di dati per raggiungere il sink. Vale a dire:
+* Quando si fa clic sul sink nella visualizzazione del nodo, viene visualizzata la derivazione della colonna. Esistono tre metodi diversi in cui vengono accumulate le colonne lungo il flusso di dati per raggiungere il sink. Sono:
 
   * Calcolato: si usa la colonna per l'elaborazione condizionale o all'interno di un'espressione nel flusso di dati, ma non viene visualizzata nel sink
   * Derivato: la colonna è una nuova colonna generata nel flusso, ovvero non è presente nell'origine

@@ -1,5 +1,6 @@
 ---
-title: App desktop che chiama le API Web (acquisizione di un token per l'app)-piattaforma di identità Microsoft
+title: Ottenere il token per le app desktop che chiamano API Web | Azure
+titleSuffix: Microsoft identity platform
 description: Informazioni su come creare un'app desktop che chiama le API Web (acquisendo un token per l'app |)
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce79a2dcbb0d79d84019c350eb4693160c8f7d50
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: e33eed25f79d90bd513e79b23619fd4c575bc874
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175471"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920227"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>App desktop che chiama le API Web-Acquisisci un token
 
@@ -260,7 +261,7 @@ L'host del `end Url` è sempre l'`redirectUri`. Per intercettare la `end Url` è
 
 Per usare `.WithCustomWebUI`, è necessario:
 
-  1. Implementare l'interfaccia `ICustomWebUi` (vedere [qui](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/053a98d16596be7e9ca1ab916924e5736e341fe8/src/Microsoft.Identity.Client/Extensibility/ICustomWebUI.cs#L32-L70). In pratica, è necessario implementare un metodo `AcquireAuthorizationCodeAsync` accettare l'URL del codice di autorizzazione (calcolato da MSAL.NET), consentendo all'utente di eseguire l'interazione con il provider di identità e quindi restituendo l'URL in base al quale avrebbe il provider di identità chiamata all'implementazione (incluso il codice di autorizzazione). In caso di problemi, l'implementazione deve generare un'eccezione `MsalExtensionException` per collaborare con MSAL.
+  1. Implementare l'interfaccia `ICustomWebUi` (vedere [qui](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/053a98d16596be7e9ca1ab916924e5736e341fe8/src/Microsoft.Identity.Client/Extensibility/ICustomWebUI.cs#L32-L70). In sostanza, è necessario implementare un metodo `AcquireAuthorizationCodeAsync` accettare l'URL del codice di autorizzazione (calcolato da MSAL.NET), consentendo all'utente di eseguire l'interazione con il provider di identità e quindi restituendo l'URL in base al quale il provider di identità avrebbe chiamato l'implementazione (incluso il codice di autorizzazione). In caso di problemi, l'implementazione deve generare un'eccezione `MsalExtensionException` per collaborare con MSAL.
   2. Nella chiamata `AcquireTokenInteractive` è possibile usare `.WithCustomUI()` modificatore passando l'istanza dell'interfaccia utente Web personalizzata
 
      ```CSharp
@@ -1108,7 +1109,7 @@ Le classi e le interfacce necessarie per la serializzazione della cache dei toke
 
 Le strategie sono diverse a seconda che si stia scrivendo una serializzazione della cache dei token per un'applicazione client pubblica (desktop) o un'applicazione client riservata (app Web/API Web, app daemon).
 
-Dal momento che MSAL V2. x sono disponibili diverse opzioni, a seconda che si voglia serializzare la cache solo nel formato MSAL.NET (cache di formato unificata comune a MSAL, ma anche attraverso le piattaforme) o se si desidera supportare anche la cache dei token [legacy](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization) serializzazione di ADAL V3.
+Dal momento che MSAL V2. x sono disponibili diverse opzioni, a seconda che si voglia serializzare la cache solo nel formato MSAL.NET (cache di formato unificata comune a MSAL, ma anche attraverso le piattaforme) o se si vuole anche supportare la serializzazione della cache dei token [legacy](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization) di adal V3.
 
 La personalizzazione della serializzazione della cache dei token per condividere lo stato SSO tra ADAL.NET 3. x, ADAL.NET 5. x e MSAL.NET è illustrata nell'esempio seguente: [Active-Directory-DotNet-V1-to-V2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2)
 

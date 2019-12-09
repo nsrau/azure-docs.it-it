@@ -1,5 +1,5 @@
 ---
-title: Proteggere le applicazioni a singola pagina usando il flusso implicito della piattaforma di identità Microsoft | Azure
+title: Proteggere le app a singola pagina con Microsoft Identity Platform implicite Flow | Azure
 description: Creazione di applicazioni Web tramite l'implementazione della piattaforma di identità Microsoft del flusso implicito per le app a singola pagina.
 services: active-directory
 documentationcenter: ''
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64ac4ded3c81ca83762e8665b06e96e3f3caf893
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 8afae9535c190c05bca3153dfbe5279cd4c47968
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74842561"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919223"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Piattaforma di identità Microsoft e flusso di concessione implicita
 

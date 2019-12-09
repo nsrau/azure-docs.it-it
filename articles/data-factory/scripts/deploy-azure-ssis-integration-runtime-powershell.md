@@ -1,21 +1,21 @@
 ---
-title: 'Script di PowerShell: distribuire il runtime di integrazione di Azure SSIS'
+title: Distribuire il runtime di integrazione SSIS di Azure con PowerShell
 description: Questo script di PowerShell consente di creare un runtime di integrazione di Azure SSIS che può eseguire pacchetti SSIS nel cloud.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/12/2017
-author: swinarko
 ms.author: sawinark
-manager: craigg
-ms.openlocfilehash: beba0a8d01d7d10910716f03602116fe7673ffc8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+author: swinarko
+manager: mflasko
+ms.custom: seo-lt-2019
+ms.date: 09/12/2017
+ms.openlocfilehash: c6d9a9299fa25013a440ee6ac45f5eae407225b8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684364"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929812"
 ---
 # <a name="powershell-script---deploy-azure-ssis-integration-runtime"></a>Script di PowerShell: distribuire il runtime di integrazione di Azure SSIS
 
@@ -31,7 +31,7 @@ Questo script di PowerShell di esempio consente di creare un runtime di integraz
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 
-Dopo aver eseguito lo script di esempio, è possibile eseguire il comando seguente per rimuovere il gruppo di risorse e tutte le risorse associate a questo:
+Dopo aver eseguito lo script di esempio, è possibile eseguire il comando seguente per rimuovere il gruppo di risorse e tutte le risorse a esso associate:
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourceGroupName

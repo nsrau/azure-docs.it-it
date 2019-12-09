@@ -9,19 +9,18 @@ ms.reviewer: ''
 manager: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 9/3/2019
-ms.openlocfilehash: 99b7de8c0e24fdbd12742b26394e61c956638525
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 52629b8e2e190cc041116e6f65488480712baf01
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038271"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929800"
 ---
 # <a name="migrate-on-premises-ssis-workloads-to-ssis-in-adf"></a>Eseguire la migrazione di carichi di lavoro SSIS locali a SSIS in ADF
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Quando si esegue la migrazione dei carichi di lavoro del database da SQL Server locali a servizi di database di Azure, ovvero database SQL di Azure o istanza gestita di database SQL di Azure, i carichi di lavoro ETL su SQL Server Integration Services (SSIS) come uno dei valori primari aggiunti sarà anche necessario eseguire la migrazione dei servizi.
 
@@ -42,7 +41,7 @@ Data Migration Assistant (DMA) è uno strumento scaricabile gratuitamente per qu
 ### <a name="four-storage-types-for-ssis-packages"></a>Quattro tipi di archiviazione per i pacchetti SSIS
 
 - Catalogo SSIS (SSISDB). Questo è stato introdotto con SQL Server 2012 e contiene un set di stored procedure, viste e funzioni con valori di tabella usati per l'utilizzo di progetti/pacchetti SSIS.
-- File System.
+- File system.
 - Database di sistema SQL Server (MSDB).
 - Archivio pacchetti SSIS. Si tratta di un livello di gestione dei pacchetti su due sottotipi:
   - MSDB, ovvero un database di sistema in SQL Server usato per archiviare i pacchetti SSIS.
@@ -54,7 +53,7 @@ Ottieni [DMA](https://docs.microsoft.com/sql/dma/dma-overview)ed [Esegui la valu
 
 ## <a name="migration"></a>Migrazione
 
-A seconda dei [tipi di archiviazione](#four-storage-types-for-ssis-packages) dei pacchetti SSIS di origine e della destinazione di migrazione dei carichi di lavoro del database, i passaggi per eseguire la migrazione di **pacchetti SSIS** e **SQL Server Agent processi** che pianificano le esecuzioni di pacchetti SSIS possono variare. Esistono due scenari:
+A seconda dei [tipi di archiviazione](#four-storage-types-for-ssis-packages) dei pacchetti SSIS di origine e della destinazione di migrazione dei carichi di lavoro del database, i passaggi per eseguire la migrazione di **pacchetti SSIS** e **SQL Server Agent processi** che pianificano le esecuzioni di pacchetti SSIS possono variare. Gli scenari sono due:
 
 - [**Istanza gestita di database SQL di Azure** come destinazione del carico di lavoro del database](#azure-sql-database-managed-instance-as-database-workload-destination)
 - [**Database SQL di Azure** come destinazione del carico di lavoro del database](#azure-sql-database-as-database-workload-destination)

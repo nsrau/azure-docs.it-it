@@ -2,23 +2,22 @@
 title: Configurare Azure-SSIS Integration Runtime per il failover del database SQL
 description: Questo articolo descrive come configurare Azure-SSIS Integration Runtime eseguendo il failover e la replica geografica del Database SQL di Azure per il database SSISDB
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: ''
 ms.devlang: powershell
-ms.topic: conceptual
-ms.date: 08/14/2018
 author: swinarko
 ms.author: sawinark
+manager: mflasko
 ms.reviewer: douglasl
-manager: craigg
-ms.openlocfilehash: 6e709a25c6c33a1fc80a110435035b1473d92681
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.topic: conceptual
+ms.custom: seo-lt-2019
+ms.date: 08/14/2018
+ms.openlocfilehash: 92f7d25a9c19409b220b6a71fba87da91e51a415
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681398"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928490"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>Configurare Azure-SSIS Integration Runtime con la replica geografica del Database SQL di Azure e il failover
 
@@ -52,11 +51,11 @@ Questa sezione si applica quando una delle condizioni seguenti è vera:
 
 - Azure-SSIS Integration Runtime fa riferimento all'endpoint del server primario del gruppo di failover. Questo endpoint viene modificato quando si verifica il failover.
 
-  OPPURE
+  Oppure
 
 - Il server di database SQL di Azure è configurato con la regola dell'endpoint servizio di rete virtuale.
 
-  OPPURE
+  Oppure
 
 - Il server di database è un'Istanza gestita di database SQL configurata con una rete virtuale.
 
@@ -80,7 +79,7 @@ Le sezioni seguenti descrivono questi passaggi in modo più dettagliato.
 
 - Se si usa un'installazione personalizzata, potrebbe essere necessario preparare un altro URI di firma di accesso condiviso per il contenitore BLOB in cui è archiviato lo script di installazione personalizzato e i file associati, in modo che continui a essere accessibile durante un'interruzione del servizio. Per altre informazioni, vedere [Personalizzare l'installazione del runtime di integrazione Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md).
 
-### <a name="steps"></a>Passi
+### <a name="steps"></a>Procedure
 
 Seguire questi passaggi per arrestare il runtime di integrazione Azure-SSIS, passare il runtime di integrazione in una nuova area e avviarlo nuovamente.
 
@@ -111,17 +110,17 @@ Quando si verifica un'emergenza di ADF o Azure-SSIS IR nell'area corrente, è po
 
 - Se si usa un'installazione personalizzata, potrebbe essere necessario preparare un altro URI di firma di accesso condiviso per il contenitore BLOB in cui è archiviato lo script di installazione personalizzato e i file associati, in modo che continui a essere accessibile durante un'interruzione del servizio. Per altre informazioni, vedere [Personalizzare l'installazione del runtime di integrazione Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md).
 
-### <a name="steps"></a>Passi
+### <a name="steps"></a>Procedure
 
 Seguire questi passaggi per arrestare il runtime di integrazione Azure-SSIS, passare il runtime di integrazione in una nuova area e avviarlo nuovamente.
 
-1. Eseguire stored procedure per fare in modo che SSISDB sia collegato a **\<new_data_factory_name\>** o **\<new_integration_runtime_name\>** .
+1. Eseguire stored procedure per rendere SSISDB collegato al **\<new_data_factory_name\>** o **\<new_integration_runtime_name\>.**
    
   ```SQL
     EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'
    ```
 
-2. Creare una nuova data factory denominata **\<\>new_data_factory_name** nella nuova area. Per altre informazioni, vedere creare un data factory.
+2. Creare un nuovo data factory denominato **\<new_data_factory_name\>** nella nuova area. Per altre informazioni, vedere creare un data factory.
 
      ```powershell
      Set-AzDataFactoryV2 -ResourceGroupName "new resource group name" `
@@ -130,7 +129,7 @@ Seguire questi passaggi per arrestare il runtime di integrazione Azure-SSIS, pas
      ```
     Per altre informazioni su questo comando di PowerShell, vedere [creare un data factory di Azure con PowerShell](quickstart-create-data-factory-powershell.md)
 
-3. Creare una nuova Azure-SSIS IR denominata **\<\>new_integration_runtime_name** nella nuova area usando Azure PowerShell.
+3. Creare un nuovo Azure-SSIS IR denominato **\<new_integration_runtime_name\>** nella nuova area utilizzando Azure PowerShell.
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName "new resource group name" `

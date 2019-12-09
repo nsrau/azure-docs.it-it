@@ -1,22 +1,21 @@
 ---
-title: Modalità di debug del flusso di dati del mapping Azure Data Factory
+title: Mapping della modalità di debug del flusso di dati
 description: Avviare una sessione di debug interattivo durante la compilazione di flussi di dati
-author: kromerm
 ms.author: makromer
+author: kromerm
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 09/06/2019
-ms.openlocfilehash: c65ed14abb86b3b434e46fbe857487b06e217aad
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 18848695327a374f12fbe5a34d03366b050d8b65
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387362"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928354"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mapping della modalità di debug del flusso di dati
-
-
 
 ## <a name="overview"></a>Panoramica
 

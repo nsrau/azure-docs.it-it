@@ -1,18 +1,19 @@
 ---
-title: Trasformazione della chiave surrogata del flusso di dati Azure Data Factory mapping
+title: Trasformazione della chiave surrogata del flusso di dati mapping
 description: Come utilizzare la trasformazione della chiave surrogata del flusso di dati di Azure Data Factory per generare valori di chiave sequenziale
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 02/12/2019
-ms.openlocfilehash: 144d6298a13d35d94a68b35c443a3a47cefcfc2a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: bab48aa9079c1b8020bb828a6bb91bd244a78cf1
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387172"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930210"
 ---
 # <a name="mapping-data-flow-surrogate-key-transformation"></a>Trasformazione della chiave surrogata del flusso di dati mapping
 

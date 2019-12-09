@@ -2,19 +2,19 @@
 title: Formato testo delimitato in Azure Data Factory
 description: In questo argomento viene descritto come gestire il formato testo delimitato in Azure Data Factory.
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: jingwang
-ms.openlocfilehash: 9a1a019e7dea2f0c71b40530baaffff79d003774
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 77d2daf3fa17632d8a1c633c23815e0035e45481
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74548293"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931266"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Formato testo delimitato in Azure Data Factory
 
@@ -103,7 +103,7 @@ Le proprietà seguenti sono supportate nella sezione ***\*sink\**** dell'attivit
 | Proprietà      | Description                                                  | Obbligatoria                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | type          | Il tipo di formatSettings deve essere impostato su **DelimitedTextWriteSetting**. | SÌ                                                   |
-| FileExtension | Estensione di file utilizzata per assegnare un nome ai file di output, ad esempio `.csv``.txt`. Deve essere specificato quando il `fileName` non è specificato nel set di dati DelimitedText di output. | Sì quando il nome file non è specificato nel set di dati di output |
+| fileExtension | Estensione di file utilizzata per assegnare un nome ai file di output, ad esempio `.csv``.txt`. Deve essere specificato quando il `fileName` non è specificato nel set di dati DelimitedText di output. | Sì quando il nome file non è specificato nel set di dati di output |
 
 ## <a name="mapping-data-flow-properties"></a>Mapping delle proprietà del flusso di dati
 

@@ -5,19 +5,18 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/15/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
-manager: craigg
-ms.openlocfilehash: d36900a1ce05eaf022637a6ef6b866fe0d190b17
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: anandsub
+ms.openlocfilehash: 77019d6a99e41bb5fb9233aa95836bd4bc8dd877
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73672745"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926878"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Aggiungere un runtime di integrazione SSIS di Azure a una rete virtuale
 Quando si usa SQL Server Integration Services (SSIS) in Azure Data Factory, è necessario aggiungere il runtime di integrazione Azure-SSIS a una rete virtuale di Azure negli scenari seguenti: 
@@ -47,7 +46,7 @@ Quando si aggiunge il Azure-SSIS IR a una rete virtuale, tenere presenti le cons
 - Se una rete virtuale Azure Resource Manager è già connessa alla rete locale in un percorso diverso rispetto al Azure-SSIS IR, è possibile creare prima di tutto una [rete virtuale Azure Resource Manager](../virtual-network/quick-create-portal.md##create-a-virtual-network) per aggiungere il Azure-SSIS IR. Configurare quindi una connessione di rete virtuale da Azure Resource Manager a Azure Resource Manager. 
 
 ## <a name="access-to-azure-services"></a>Accesso ai servizi di Azure
-Se i pacchetti SSIS accedono alle risorse del servizio di Azure supportate con gli [endpoint del servizio di rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md) e si vuole proteggere tali risorse per Azure-SSIS IR, è possibile aggiungere i Azure-SSIS IR alla subnet della rete virtuale configurata con la rete virtuale endpoint di servizio. Nel frattempo, aggiungere una regola della rete virtuale alle risorse del servizio di Azure per consentire l'accesso dalla stessa subnet.
+Se i pacchetti SSIS accedono alle risorse del servizio di Azure supportate con gli [endpoint del servizio rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md) e si vuole proteggere tali risorse per Azure-SSIS IR, è possibile aggiungere i Azure-SSIS IR alla subnet della rete virtuale configurata con gli endpoint del servizio rete virtuale. Nel frattempo, aggiungere una regola della rete virtuale alle risorse del servizio di Azure per consentire l'accesso dalla stessa subnet.
 
 ## <a name="hosting-the-ssis-catalog-in-sql-database"></a>Hosting del catalogo SSIS nel database SQL
 Se si ospita il catalogo SSIS nel database SQL di Azure con gli endpoint servizio di rete virtuale, assicurarsi di aggiungere il runtime di integrazione Azure-SSIS alla stessa rete virtuale e subnet.
@@ -118,7 +117,7 @@ Per altre informazioni, vedere [risoluzione dei nomi che usa il proprio server D
 ### <a name="nsg"></a>Configurare un NSG
 Se è necessario implementare un NSG per la subnet usata dal Azure-SSIS IR, consentire il traffico in ingresso e in uscita attraverso le porte seguenti: 
 
-| Direzione | Protocollo di trasporto | Source | Intervallo di porte di origine | Destination | Intervallo di porte di destinazione | Commenti |
+| Direzione | Protocollo di trasporto | Source (Sorgente) | Intervallo di porte di origine | Destinazione | Destination port range | Commenti |
 |---|---|---|---|---|---|---|
 | In ingresso | TCP | BatchNodeManagement | * | VirtualNetwork | 29876, 29877 (se si aggiunge il runtime di integrazione a una rete virtuale Gestione risorse) <br/><br/>10100, 20100, 30100 (se si aggiunge il runtime di integrazione a una rete virtuale classica)| Il servizio Data Factory usa queste porte per comunicare con i nodi del Azure-SSIS IR nella rete virtuale. <br/><br/> Indipendentemente dalla creazione di un NSG a livello di subnet, Data Factory configura sempre un NSG al livello delle schede di interfaccia di rete collegate alle macchine virtuali che ospitano il Azure-SSIS IR. Il gruppo di sicurezza di rete a livello di scheda di interfaccia di rete consente solo il traffico in entrata dagli indirizzi IP di Data Factory nelle porte specificate. Anche se si aprono queste porte al traffico Internet a livello di subnet, il traffico da indirizzi IP che non sono Data Factory indirizzi IP viene bloccato a livello di NIC. |
 | In uscita | TCP | VirtualNetwork | * | AzureCloud | 443 | I nodi del Azure-SSIS IR nella rete virtuale usano questa porta per accedere ai servizi di Azure, ad esempio archiviazione di Azure e hub eventi di Azure. |
@@ -238,7 +237,7 @@ Usare il portale per configurare una rete virtuale classica prima di provare ad 
 
     ![Pulsanti "Controllo di accesso" e "Aggiungi"](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png)
 
-    b. Selezionare **Aggiungi assegnazione di ruolo**.
+    b. Selezionare **Aggiungi assegnazione ruolo**.
 
     c. Nella pagina **Aggiungi assegnazione ruolo** selezionare **collaboratore macchina virtuale classica**per **ruolo**. Nella casella **Seleziona** incollare **ddbf3205-c6bd-46AE-8127-60eb93363864**, quindi selezionare **Microsoft Azure batch** dall'elenco dei risultati della ricerca. 
 

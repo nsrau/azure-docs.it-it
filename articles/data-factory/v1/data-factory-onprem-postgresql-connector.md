@@ -4,24 +4,23 @@ description: Informazioni su come spostare i dati dal database di PostgreSQL med
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: 888d9ebc-2500-4071-b6d1-0f6bd1b5997c
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6d8c63551bd6bcc7a7e00dffa6c2b6d9e0e644db
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 37c83e77cadae002ff701a08c4b36a86f7cab9a0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666082"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929059"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Spostare i dati da PostgreSQL mediante Data factory di Azure
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-onprem-postgresql-connector.md)
 > * [Versione 2 (corrente)](../connector-postgresql.md)
 
@@ -45,10 +44,10 @@ Il gateway è necessario anche se il database PostgreSQL è ospitato in una macc
 ## <a name="supported-versions-and-installation"></a>Versioni supportate e installazione
 Affinché il gateway di gestione dati si connetta al database PostgreSQL, installare il [provider di dati Ngpsql per PostgreSQL](https://go.microsoft.com/fwlink/?linkid=282716) scegliendo una versione tra la 2.0.12 e la 3.1.9 nello stesso sistema del gateway di gestione dati. Sono supportate le versioni di PostgreSQL a partire dalla 7.4.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 È possibile creare una pipeline con l'attività di copia che sposta i dati da un archivio dati PostgreSQL usando diversi strumenti/API.
 
-- Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
+- Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md).
 - Per creare una pipeline, è anche possibile usare gli strumenti seguenti:
   - Visual Studio
   - Azure PowerShell
@@ -64,30 +63,30 @@ Se si usano gli strumenti o le API, eseguire la procedura seguente per creare un
 2. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia.
 3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output.
 
-Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di Data Factory. Per un esempio con le definizioni JSON per le entità di Data Factory usate per copiare dati da un archivio dati PostgreSQL locale, vedere la sezione [Esempio JSON: Copiare dati da PostgreSQL a BLOB di Azure](#json-example-copy-data-from-postgresql-to-azure-blob) di questo articolo.
+Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory. Per un esempio con le definizioni JSON per le entità di Data Factory usate per copiare dati da un archivio dati PostgreSQL locale, vedere la sezione [Esempio JSON: Copiare dati da PostgreSQL a BLOB di Azure](#json-example-copy-data-from-postgresql-to-azure-blob) di questo articolo.
 
 Nelle sezioni seguenti sono disponibili le informazioni dettagliate sulle proprietà JSON che vengono usate per definire entità della Data Factory specifiche di un archivio dati PostgreSQL:
 
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 La tabella seguente contiene le descrizioni degli elementi JSON specifici del servizio collegato PostgreSQL.
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 | --- | --- | --- |
-| type |La proprietà type deve essere impostata su: **OnPremisesPostgreSql** |Sì |
-| server |Nome del server PostgreSQL. |Sì |
-| database |Nome del database PostgreSQL. |Sì |
+| type |La proprietà type deve essere impostata su: **OnPremisesPostgreSql** |SÌ |
+| server |Nome del server PostgreSQL. |SÌ |
+| database |Nome del database PostgreSQL. |SÌ |
 | schema |Nome dello schema nel database. Il nome dello schema fa distinzione tra maiuscole e minuscole. |No |
-| authenticationType |Tipo di autenticazione usato per connettersi al database PostgreSQL. I valori possibili sono: anonima, di base e Windows. |Sì |
+| authenticationType |Tipo di autenticazione usato per connettersi al database PostgreSQL. I valori possibili sono: anonima, di base e Windows. |SÌ |
 | Nome utente |Specificare il nome utente se si usa l'autenticazione di base o Windows. |No |
 | password |Specificare la password per l'account utente specificato per il nome utente. |No |
-| gatewayName |Nome del gateway che il servizio Data factory deve usare per connettersi al database PostgreSQL locale. |Sì |
+| gatewayName |Nome del gateway che il servizio Data factory deve usare per connettersi al database PostgreSQL locale. |SÌ |
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati.
 
 La sezione typeProperties è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **RelationalTable** (che include il set di dati PostgreSQL) presenta le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella nell'istanza del database PostgreSQL a cui fa riferimento il servizio collegato. La proprietà tableName fa distinzione tra maiuscole e minuscole. |No (se la **query** di **RelationalSource** è specificata) |
 
@@ -98,7 +97,7 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano in
 
 Se l'origine è di tipo **RelationalSource** (che comprende PostgreSQL), sono disponibili le proprietà seguenti nella sezione typeProperties:
 
-| Proprietà | Descrizione | Valori consentiti | Obbligatorio |
+| Proprietà | Description | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: `"query": "select * from \"MySchema\".\"MyTable\""`. |No (se **tableName** di **set di dati** è specificato) |
 
@@ -115,7 +114,7 @@ Questo esempio fornisce le definizioni JSON di esempio che è possibile usare pe
 > [!IMPORTANT]
 > Questo esempio fornisce frammenti di codice JSON. Non include istruzioni dettagliate per la creazione della data factory. Le istruzioni dettagliate sono disponibili nell'articolo [Spostare dati tra origini locali e il cloud](data-factory-move-data-between-onprem-and-cloud.md) .
 
-L'esempio include le entità di Data factory seguenti:
+L'esempio include le entità di Data Factory seguenti:
 
 1. Un servizio collegato di tipo [OnPremisesPostgreSql](data-factory-onprem-postgresql-connector.md#linked-service-properties).
 2. Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
@@ -310,41 +309,41 @@ Quando si spostano i dati in PostgreSQL vengono usati i mapping seguenti dal tip
 | bigserial |serial8 |Int64 |
 | bit [(n)] | |Byte[], String |
 | bit varying [ (n) ] |varbit |Byte[], String |
-| boolean |bool |Booleano |
+| boolean |bool |boolean |
 | box | |Byte[], String |
 | bytea | |Byte[], String |
-| carattere [(n)] |char [(n)] |String |
-| variante carattere [(n)] |varchar [(n)] |String |
-| cid | |String |
-| cidr | |String |
+| carattere [(n)] |char [(n)] |Stringa |
+| variante carattere [(n)] |varchar [(n)] |Stringa |
+| cid | |Stringa |
+| cidr | |Stringa |
 | circle | |Byte[], String |
 | date | |DateTime |
-| daterange | |String |
-| double precision |float8 |Double |
+| daterange | |Stringa |
+| double precision |float8 |DOUBLE |
 | inet | |Byte[], String |
-| intarry | |String |
-| int4range | |String |
-| int8range | |String |
-| numero intero |int, int4 |Int32 |
+| intarry | |Stringa |
+| int4range | |Stringa |
+| int8range | |Stringa |
+| integer |int, int4 |Int32 |
 | intervallo [campi] [(p)] | |TimeSpan |
-| json | |String |
+| json | |Stringa |
 | jsonb | |Byte[] |
 | line | |Byte[], String |
 | lseg | |Byte[], String |
 | macaddr | |Byte[], String |
-| money | |Decimal |
-| numerico [(p, s)] |decimale [(p, s)] |Decimal |
-| numrange | |String |
+| money | |DECIMAL |
+| numerico [(p, s)] |decimale [(p, s)] |DECIMAL |
+| numrange | |Stringa |
 | oid | |Int32 |
 | path | |Byte[], String |
 | pg_lsn | |Int64 |
 | point | |Byte[], String |
 | polygon | |Byte[], String |
-| real |float4 |Single |
+| real |float4 |Singolo |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | serial |serial4 |Int32 |
-| text | |String |
+| text | |Stringa |
 
 ## <a name="map-source-to-sink-columns"></a>Eseguire il mapping delle colonne dell'origine alle colonne del sink
 Per informazioni sul mapping delle colonne del set di dati di origine alle colonne del set di dati del sink, vedere [Mapping delle colonne del set di dati in Azure Data Factory](data-factory-map-columns.md).

@@ -1,33 +1,29 @@
 ---
-title: Informazioni sul file di configurazione di Android Microsoft Authentication Library (MSAL)
+title: File di configurazione della libreria di autenticazione Microsoft Android | Azure
 titleSuffix: Microsoft identity platform
 description: Panoramica del file di configurazione di Android Microsoft Authentication Library (MSAL), che rappresenta la configurazione di un'applicazione in Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: shoatman
-manager: nadima
-editor: ''
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/12/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c06bc1ebf3b87f622029e9e875fe478eae7e6a30
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: f643022c85a44b2202fcbd91be50664882c8ba7b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803164"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916827"
 ---
-# <a name="android-microsoft-authentication-library-msal-configuration-file"></a>File di configurazione di Android Microsoft Authentication Library (MSAL)
+# <a name="android-microsoft-authentication-library-configuration-file"></a>File di configurazione della libreria di autenticazione Microsoft Android
 
-MSAL viene fornito con un [file JSON di configurazione predefinito](https://github.com/AzureAD/microsoft-authentication-library-for-android/blob/dev/msal/src/main/res/raw/msal_default_config.json) che è possibile personalizzare per definire il comportamento dell'app client pubblica per elementi quali l'autorità predefinita, le autorità che verranno usate e così via.
+Android Microsoft Authentication Library (MSAL) viene fornito con un [file JSON di configurazione predefinito](https://github.com/AzureAD/microsoft-authentication-library-for-android/blob/dev/msal/src/main/res/raw/msal_default_config.json) che è possibile personalizzare per definire il comportamento dell'app client pubblica per elementi quali l'autorità predefinita, le autorità che verranno usate e così via.
 
 Questo articolo consente di comprendere le diverse impostazioni nel file di configurazione e come specificare il file di configurazione da usare nell'app basata su MSAL.
 
@@ -162,7 +158,7 @@ Per la registrazione sono disponibili le impostazioni globali seguenti:
 
 Specifica il numero di account che possono essere usati all'interno dell'app alla volta. I valori possibili sono:
 
-- `MULTIPLE` (impostazione predefinita)
+- `MULTIPLE` (predefinita)
 - `SINGLE`
 
 La creazione di un `PublicClientApplication` utilizzando una modalità account che non corrisponde a questa impostazione genererà un'eccezione.

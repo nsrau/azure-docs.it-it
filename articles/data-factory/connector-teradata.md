@@ -4,23 +4,22 @@ description: Il connettore Teradata del servizio Data Factory consente di copiar
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 4074c50aa17bf804696060134e37055a18bd0137
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5a41d5653de0d8a9f674009904756892ac343609
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680098"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930926"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Copiare dati da Teradata Vantage usando Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 >
 > * [Versione 1](v1/data-factory-onprem-teradata-connector.md)
 > * [Versione corrente](connector-teradata.md)
@@ -54,7 +53,7 @@ Il runtime di integrazione fornisce un driver Teradata incorporato, a partire da
 
 Per qualsiasi versione del runtime di integrazione self-hosted precedente alla 3,18, installare [.net provider di dati per Teradata](https://go.microsoft.com/fwlink/?LinkId=278886), versione 14 o successiva, nel computer del runtime di integrazione. 
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -64,19 +63,19 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Il servizio collegato Teradata supporta le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type deve essere impostata su **Teradata**. | Sì |
-| connectionString | Specifica le informazioni necessarie per la connessione all'istanza Teradata. Vedere gli esempi seguenti.<br/>È anche possibile inserire una password in Azure Key Vault ed estrarre la configurazione `password` dalla stringa di connessione. Per informazioni dettagliate, vedere [archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) . | Sì |
+| type | La proprietà Type deve essere impostata su **Teradata**. | SÌ |
+| connectionString | Specifica le informazioni necessarie per la connessione all'istanza Teradata. Vedere gli esempi seguenti.<br/>È anche possibile inserire una password in Azure Key Vault ed estrarre la configurazione `password` dalla stringa di connessione. Per informazioni dettagliate, vedere [archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) . | SÌ |
 | Nome utente | Specificare un nome utente per la connessione a Teradata. Si applica quando si utilizza l'autenticazione di Windows. | No |
 | password | Specificare una password per l'account utente specificato per il nome utente. È anche possibile scegliere di [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). <br>Si applica quando si usa l'autenticazione di Windows o si fa riferimento a una password in Key Vault per l'autenticazione di base. | No |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |Sì |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se non diversamente specificato, viene usato il runtime di integrazione di Azure predefinito. |SÌ |
 
 Ulteriori proprietà di connessione che è possibile impostare nella stringa di connessione in base al caso:
 
-| Proprietà | Descrizione | Valore predefinito |
+| Proprietà | Description | Valore predefinito |
 |:--- |:--- |:--- |
-| CharacterSet | Set di caratteri da utilizzare per la sessione. Ad esempio, `CharacterSet=UTF16`.<br><br/>Questo valore può essere un set di caratteri definito dall'utente o uno dei set di caratteri predefiniti seguenti: <br/>-ASCII<br/>-UTF8<br/>-UTF16<br/>- LATIN1252_0A<br/>- LATIN9_0A<br/>- LATIN1_0A<br/>-Shift-JIS (Windows, compatibile con DOS, KANJISJIS_0S)<br/>-EUC (compatibile con UNIX, KANJIEC_0U)<br/>-Mainframe IBM (KANJIEBCDIC5035_0I)<br/>- KANJI932_1S0<br/>-BIG5 (TCHBIG5_1R0)<br/>-GB (SCHGB2312_1T0)<br/>- SCHINESE936_6R0<br/>- TCHINESE950_8R0<br/>- NetworkKorean (HANGULKSC5601_2R4)<br/>- HANGUL949_7R0<br/>- ARABIC1256_6A0<br/>- CYRILLIC1251_2A0<br/>- HEBREW1255_5A0<br/>- LATIN1250_1A0<br/>- LATIN1254_7A0<br/>- LATIN1258_8A0<br/>- THAI874_4A0 | Il valore predefinito è `ASCII`. |
+| CharacterSet | Set di caratteri da utilizzare per la sessione. Ad esempio, `CharacterSet=UTF16`.<br><br/>Questo valore può essere un set di caratteri definito dall'utente o uno dei set di caratteri predefiniti seguenti: <br/>-ASCII<br/>-UTF8<br/>-UTF16<br/>-LATIN1252_0A<br/>-LATIN9_0A<br/>-LATIN1_0A<br/>-Shift-JIS (Windows, compatibile con DOS, KANJISJIS_0S)<br/>-EUC (compatibile con UNIX, KANJIEC_0U)<br/>-Mainframe IBM (KANJIEBCDIC5035_0I)<br/>-KANJI932_1S0<br/>-BIG5 (TCHBIG5_1R0)<br/>-GB (SCHGB2312_1T0)<br/>-SCHINESE936_6R0<br/>-TCHINESE950_8R0<br/>-NetworkKorean (HANGULKSC5601_2R4)<br/>-HANGUL949_7R0<br/>-ARABIC1256_6A0<br/>-CYRILLIC1251_2A0<br/>-HEBREW1255_5A0<br/>-LATIN1250_1A0<br/>-LATIN1254_7A0<br/>-LATIN1258_8A0<br/>-THAI874_4A0 | Il valore predefinito è `ASCII`. |
 | MaxRespSize |Dimensioni massime del buffer di risposta per le richieste SQL, in kilobyte (KB). Ad esempio, `MaxRespSize=‭10485760‬`.<br/><br/>Per il database Teradata versione 16,00 o successiva, il valore massimo è 7361536. Per le connessioni che usano versioni precedenti, il valore massimo è 1048576. | Il valore predefinito è `65536`. |
 
 **Esempio di utilizzo dell'autenticazione di base**
@@ -151,9 +150,9 @@ Questa sezione presenta un elenco delle proprietà supportate dal set di dati Te
 
 Per copiare dati da Teradata, sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type del set di dati deve essere impostata su `TeradataTable`. | Sì |
+| type | La proprietà Type del set di dati deve essere impostata su `TeradataTable`. | SÌ |
 | database | Nome dell'istanza di Teradata. | No (se nell'origine dell'attività è specificato "query") |
 | table | Nome della tabella nell'istanza di Teradata. | No (se nell'origine dell'attività è specificato "query") |
 
@@ -205,9 +204,9 @@ Questa sezione presenta un elenco delle proprietà supportate dall'origine Terad
 
 Per copiare dati da Teradata, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su `TeradataSource`. | Sì |
+| type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su `TeradataSource`. | SÌ |
 | query | Usare la query SQL personalizzata per leggere i dati. Un esempio è `"SELECT * FROM MyTable"`.<br>Quando si Abilita il caricamento partizionato, è necessario associare tutti i parametri di partizione predefiniti corrispondenti nella query. Per esempi, vedere la sezione [copia parallela da Teradata](#parallel-copy-from-teradata) . | No (se è specificata una query nel set di dati) |
 | partitionOptions | Specifica le opzioni di partizionamento dei dati utilizzate per caricare dati da Teradata. <br>Consenti valori: **None** (impostazione predefinita), **hash** e **DynamicRange**.<br>Quando è abilitata un'opzione di partizione (ovvero non `None`), il grado di parallelismo per il caricamento simultaneo di dati da Teradata è controllato dall'impostazione della [`parallelCopies`](copy-activity-performance.md#parallel-copy) sull'attività di copia. | No |
 | partitionSettings | Consente di specificare il gruppo di impostazioni per il partizionamento dei dati. <br>Applicare quando l'opzione partition non è `None`. | No |
@@ -305,11 +304,11 @@ Quando si copiano dati da Teradata, vengono applicati i mapping seguenti. Per in
 | BLOB |Byte[] |
 | Byte |Byte[] |
 | ByteInt |Int16 |
-| Char |String |
-| Clob |String |
-| Data |DateTime |
-| Decimal |Decimal |
-| Double |Double |
+| Char |Stringa |
+| Clob |Stringa |
+| Data |Data e ora |
+| DECIMAL |DECIMAL |
+| DOUBLE |DOUBLE |
 | Graphic |Non supportati. Applica cast esplicito nella query di origine. |
 | Integer |Int32 |
 | Interval Day |Non supportati. Applica cast esplicito nella query di origine. |
@@ -325,21 +324,21 @@ Quando si copiano dati da Teradata, vengono applicati i mapping seguenti. Per in
 | Interval Second |Non supportati. Applica cast esplicito nella query di origine. |
 | Interval Year |Non supportati. Applica cast esplicito nella query di origine. |
 | Interval Year To Month |Non supportati. Applica cast esplicito nella query di origine. |
-| Number |Double |
+| Numero |DOUBLE |
 | Periodo (Data) |Non supportati. Applica cast esplicito nella query di origine. |
 | Periodo (ora) |Non supportati. Applica cast esplicito nella query di origine. |
 | Periodo (ora con fuso orario) |Non supportati. Applica cast esplicito nella query di origine. |
-| Periodo (timestamp) |Non supportati. Applica cast esplicito nella query di origine. |
+| Period (Timestamp) |Non supportati. Applica cast esplicito nella query di origine. |
 | Periodo (timestamp con fuso orario) |Non supportati. Applica cast esplicito nella query di origine. |
 | SmallInt |Int16 |
-| Time |TimeSpan |
-| Time With Time Zone |TimeSpan |
-| Timestamp |DateTime |
-| Timestamp With Time Zone |DateTime |
+| Durata |Intervallo di tempo |
+| Time With Time Zone |Intervallo di tempo |
+| Timestamp |Data e ora |
+| Timestamp With Time Zone |Data e ora |
 | VarByte |Byte[] |
-| VarChar |String |
+| VarChar |Stringa |
 | VarGraphic |Non supportati. Applica cast esplicito nella query di origine. |
-| Xml |Non supportati. Applica cast esplicito nella query di origine. |
+| xml |Non supportati. Applica cast esplicito nella query di origine. |
 
 
 ## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca

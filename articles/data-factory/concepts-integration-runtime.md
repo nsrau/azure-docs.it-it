@@ -1,23 +1,23 @@
 ---
-title: Runtime di integrazione in Azure Data Factory
+title: Runtime di integrazione
 description: Informazioni sul runtime di integrazione in Azure Data Factory.
 services: data-factory
 documentationcenter: ''
+ms.author: abnarain
 author: nabhishek
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 05/31/2019
-ms.author: abnarain
-ms.openlocfilehash: 0b137edbfb5ca439d4ba15614225ec0973511763
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 40660c0397f8b7fd7c370e2e0f697cae26b9bb48
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74218802"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927158"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Runtime di integrazione in Azure Data Factory
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per fornire le seguenti funzionalità di integrazione di dati in diversi ambienti di rete:
@@ -53,7 +53,7 @@ Un runtime di integrazione di Azure è in grado di eseguire queste operazioni:
 
 - Esecuzione di flussi di dati in Azure 
 - Eseguire attività di copia tra archivi dati cloud
-- Invio delle seguenti attività di trasformazione nella rete pubblica: databricks notebook/attività jar/Python, attività hive HDInsight, attività Pig HDInsight, attività HDInsight MapReduce, attività HDInsight Spark, attività di streaming HDInsight, computer Attività di esecuzione batch di formazione, attività Machine Learning aggiornamento risorse, attività stored procedure, Data Lake Analytics attività U-SQL, attività personalizzata .NET, attività Web, attività ricerca e attività Ottieni metadati.
+- Invio delle seguenti attività di trasformazione nella rete pubblica: databricks Notebook/Jar/Python attività, attività hive di HDInsight, attività Pig HDInsight, attività HDInsight MapReduce, attività HDInsight Spark, attività di streaming HDInsight, attività di esecuzione batch Machine Learning, attività di Machine Learning aggiornamento risorse, attività stored procedure, attività Data Lake Analytics U-SQL, attività personalizzata .NET, attività Web, attività ricerca e attività Ottieni metadati.
 
 ### <a name="azure-ir-network-environment"></a>Ambiente di rete del runtime di integrazione di Azure
 Azure Integration Runtime supporta la connessione a archivi dati e servizi di calcolo con endpoint accessibili pubblicamente. Usare un runtime di integrazione self-hosted per l'ambiente di rete virtuale Azure.
@@ -121,7 +121,7 @@ Se si sceglie di usare la **risoluzione automatica Azure IR** che è l'impostazi
 
 - Per l'attività di copia, Azure Data Factory farà del proprio meglio per rilevare automaticamente il sink e l'archivio dati di origine per scegliere la località migliore nella stessa area, se disponibile, o nell'area più vicina nella stessa area geografica, oppure, se non rilevabile, per usare l'area della data factory come alternativa.
 
-- Per l'esecuzione di attività di ricerca/GetMetadata/Delete (note anche come attività della pipeline), l'invio di attività di trasformazione (note anche come attività esterne) e la creazione di operazioni (test della connessione, esplorazione delle cartelle e elenco di tabelle, dati di anteprima), ADF utilizzerà il runtime di integrazione nell'area data factory.
+- Per l'esecuzione dell'attività Lookup/GetMetadata/Delete (nota anche come attività Pipeline), l'invio di attività di trasformazione (note anche come attività esterne) e la creazione di operazioni (test connection, browse Folder List e Table list, Preview data), ADF utilizzerà il runtime di integrazione nell'area data factory.
 
 - Per il flusso di dati, ADF utilizzerà il runtime di integrazione nell'area data factory. 
 

@@ -4,20 +4,19 @@ description: Informazioni su come copiare dati da Marketo in archivi dati sink s
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 173cd477aaf257eab7c5130e12bbd7417b6f073d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 74d56d553c4049a98b4401c66b27ae33e31da5c0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680709"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927125"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Copiare dati da Marketo tramite Azure Data Factory (anteprima)
 
@@ -40,7 +39,7 @@ Azure Data Factory offre un driver predefinito per consentire la connettività, 
 >[!NOTE]
 >Il connettore Marketo è basato sull'API REST di Marketo. Tenere presente che Marketo presenta un [limite di richieste simultanee](https://developers.marketo.com/rest-api/) sul lato servizio. Se si verificano errori, ad esempio durante il tentativo di usare l'API REST con il superamento di 20 secondi del limite di velocità massimo pari a 100 (errore 606) oppure con il raggiungimento del limite di accessi simultanei pari a 10 (errore 615), è consigliabile ridurre le esecuzioni delle attività di copia simultanee per diminuire il numero di richieste inviate al servizio.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -50,12 +49,12 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di Marketo sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su **Marketo** | Sì |
-| endpoint | Endpoint del server Marketo (ad esempio 123-ABC-321.mktorest.com).  | Sì |
-| clientId | ID client del servizio Marketo.  | Sì |
-| clientSecret | Segreto client del servizio Marketo. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| type | La proprietà type deve essere impostata su **Marketo** | SÌ |
+| endpoint | Endpoint del server Marketo (ad esempio 123-ABC-321.mktorest.com).  | SÌ |
+| clientId | ID client del servizio Marketo.  | SÌ |
+| clientSecret | Segreto client del servizio Marketo. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | SÌ |
 | useEncryptedEndpoints | Specifica se gli endpoint dell'origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No |
 | useHostVerification | Specifica se è necessario che il nome host nel certificato del server corrisponda al nome host del server per la connessione tramite SSL. Il valore predefinito è true.  | No |
 | usePeerVerification | Specifica se verificare l'identità del server durante la connessione tramite SSL. Il valore predefinito è true.  | No |
@@ -85,9 +84,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Marketo, impostare la proprietà type del set di dati su **MarketoObject**. Sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type del set di dati deve essere impostata su: **MarketoObject** | Sì |
+| type | La proprietà Type del set di dati deve essere impostata su: **MarketoObject** | SÌ |
 | tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
@@ -115,9 +114,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Marketo, impostare il tipo di origine nell'attività di copia su **MarketoSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **MarketoSource** | Sì |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **MarketoSource** | SÌ |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM Activitiy_Types"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**

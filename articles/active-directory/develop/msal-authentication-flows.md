@@ -1,29 +1,25 @@
 ---
-title: Flussi di autenticazione (Microsoft Authentication Library)
+title: Flussi di autenticazione MSAL | Azure
 titleSuffix: Microsoft identity platform
 description: Informazioni sui flussi di autenticazione e sulle concessioni usate da Microsoft Authentication Library (MSAL).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/16/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55d618a24b957fedb6fc2af3e75b7a7d2bd23d96
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2c818b7d7508555e1233d4ef954502728f65abfb
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473815"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917200"
 ---
 # <a name="authentication-flows"></a>Flussi di autenticazione
 
@@ -34,7 +30,7 @@ Questo articolo descrive i diversi flussi di autenticazione forniti da Microsoft
 | [Interattivo](#interactive) | Ottiene il token tramite un processo interattivo che richiede all'utente le credenziali tramite un browser o una finestra popup. | [App desktop](scenario-desktop-overview.md), [app per dispositivi mobili](scenario-mobile-overview.md) |
 | [Concessione implicita](#implicit-grant) | Consente all'app di ottenere i token senza eseguire uno scambio di credenziali del server back-end. Ciò consente all'app di eseguire l'accesso dell'utente, gestire la sessione e ottenere i token per altre API Web, tutto all'interno del codice JavaScript del client.| [Applicazioni a singola pagina (SPA)](scenario-spa-overview.md) |
 | [Codice di autorizzazione](#authorization-code) | Usato nelle app installate in un dispositivo per ottenere l'accesso alle risorse protette, ad esempio le API Web. In questo modo è possibile aggiungere l'accesso e l'API alle app desktop e per dispositivi mobili. | [App desktop](scenario-desktop-overview.md), [app per dispositivi mobili](scenario-mobile-overview.md), [app Web](scenario-web-app-call-api-overview.md) | 
-| [Per conto di](#on-behalf-of) | Un'applicazione richiama un servizio o un'API Web, che a sua volta deve chiamare un altro servizio o un'API Web. Lo scopo è di propagare l'identità utente delegato e le autorizzazioni attraverso la catena di richieste. | [API Web](scenario-web-api-call-api-overview.md) |
+| [On-behalf-of](#on-behalf-of) | Un'applicazione richiama un servizio o un'API Web, che a sua volta deve chiamare un altro servizio o un'API Web. Lo scopo è di propagare l'identità utente delegato e le autorizzazioni attraverso la catena di richieste. | [API Web](scenario-web-api-call-api-overview.md) |
 | [Credenziali del client](#client-credentials) | Consente di accedere alle risorse ospitate sul Web tramite l'identità di un'applicazione. Utilizzato comunemente per le interazioni tra server che devono essere eseguite in background, senza interazione immediata con un utente. | [App daemon](scenario-daemon-overview.md) |
 | [Codice del dispositivo](#device-code) | Consente agli utenti di accedere a dispositivi con vincoli di input, ad esempio una Smart TV, un dispositivo Internet o una stampante. | [App desktop/per dispositivi mobili](scenario-desktop-acquire-token.md#command-line-tool-without-web-browser) |
 | [Autenticazione integrata di Windows](scenario-desktop-acquire-token.md#integrated-windows-authentication) | Consente alle applicazioni in un dominio o in un Azure Active Directory (Azure AD) di acquisire un token automaticamente (senza alcuna interazione dell'interfaccia utente da parte dell'utente).| [App desktop/per dispositivi mobili](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
@@ -42,9 +38,9 @@ Questo articolo descrive i diversi flussi di autenticazione forniti da Microsoft
 
 ## <a name="how-each-flow-emits-tokens-and-codes"></a>Modo in cui ogni flusso emette token e codici
  
-A seconda del modo in cui viene compilato il client, può usare uno o più dei flussi di autenticazione supportati dalla piattaforma di identità Microsoft.  Questi flussi possono produrre un'ampia gamma di token (token ID, token di aggiornamento, token di accesso) e codici di autorizzazione e richiedono token diversi per consentirne il funzionamento. Questo grafico prosegue con una panoramica:
+A seconda del modo in cui viene compilato il client, può usare uno o più dei flussi di autenticazione supportati dalla piattaforma di identità Microsoft.  Questi flussi possono produrre un'ampia gamma di token (id_tokens, token di aggiornamento, token di accesso) e codici di autorizzazione e richiedono token diversi per consentirne il funzionamento. Questo grafico fornisce una panoramica:
  
-|Flusso | Richiede | id_token | token di accesso | token di aggiornamento | codice di autorizzazione | 
+|Flusso | Obbligatorio | id_token | token di accesso | token di aggiornamento | codice di autorizzazione | 
 |-----|----------|----------|--------------|---------------|--------------------|
 |[Flusso del codice di autorizzazione](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
 |[Flusso implicito](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
@@ -54,7 +50,7 @@ A seconda del modo in cui viene compilato il client, può usare uno o più dei f
 |[Flusso del codice del dispositivo](v2-oauth2-device-code.md) | | x| x| x| |
 |[Credenziali del client](v2-oauth2-client-creds-grant-flow.md) | | | x (solo app)| | |
  
-I token emessi tramite la modalità implicita hanno una limitazione di lunghezza perché vengono passati di nuovo al browser tramite l'URL (dove `response_mode` è `query` o `fragment`).  Alcuni browser hanno un limite per le dimensioni dell'URL che possono essere inseriti nella barra del browser e hanno esito negativo quando è troppo lungo.  Di conseguenza, questi token non hanno attestazioni `groups` o `wids`.
+I token emessi tramite la modalità implicita hanno una limitazione di lunghezza perché vengono passati di nuovo al browser tramite l'URL (dove `response_mode` è `query` o `fragment`).  Alcuni browser hanno un limite per le dimensioni dell'URL che possono essere inseriti nella barra del browser e hanno esito negativo quando è troppo lungo.  Di conseguenza, questi token non dispongono di attestazioni `groups` o `wids`.
 
 ## <a name="interactive"></a>Interattività
 
@@ -63,7 +59,7 @@ MSAL supporta la possibilità di richiedere all'utente in modo interattivo le cr
 ![Diagramma del flusso interattivo](media/msal-authentication-flows/interactive.png)
 
 Per ulteriori informazioni sull'utilizzo di MSAL.NET per acquisire in modo interattivo i token su piattaforme specifiche, vedere:
-- [Novell Android](msal-net-xamarin-android-considerations.md)
+- [Xamarin Android](msal-net-xamarin-android-considerations.md)
 - [Novell iOS](msal-net-xamarin-ios-considerations.md)
 - [Piattaforma UWP (Universal Windows Platform)](msal-net-uwp-considerations.md)
 

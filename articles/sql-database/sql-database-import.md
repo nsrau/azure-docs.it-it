@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/20/2019
-ms.openlocfilehash: 4d6997475099420319c52abbbce34b2756e215ed
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 8d147248245ca06c145c68ee8ca9cfd02015aa9c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687657"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929139"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>Guida introduttiva: importare un file BACPAC in un database nel database SQL di Azure
 
@@ -43,19 +43,19 @@ La migrazione di un database in un' [istanza gestita](sql-database-managed-insta
 
 1. Per importare da un file BACPAC in un nuovo database singolo usando il portale di Azure, aprire la pagina del server di database appropriata e quindi fare clic su **Importa database** sulla barra degli strumenti.  
 
-   ![Importazione database 1](./media/sql-database-import/import1.png)
+   ![Importazione database 1](./media/sql-database-import/sql-server-import-database.png)
 
 1. Selezionare l'account di archiviazione e il contenitore per il file BACPAC e quindi selezionare il file BACPAC da cui eseguire l'importazione.
 
 1. Specificare la nuova dimensione del database (generalmente uguale all'origine) e specificare le credenziali dell'istanza SQL Server di destinazione. Per un elenco di valori possibili per un nuovo database SQL di Azure, vedere [Create Database](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) (Creare database).
 
-   ![Importazione database 2](./media/sql-database-import/import2.png)
+   ![Importazione database 2](./media/sql-database-import/sql-server-import-database-settings.png)
 
 1. Fare clic su **OK**.
 
 1. Per monitorare lo stato di avanzamento dell'importazione, aprire la pagina del server del database e in **Impostazioni** selezionare **Cronologia importazioni/esportazioni**. Se l'operazione ha esito positivo, l'importazione visualizzerà lo stato **Completato**.
 
-   ![Stato di importazione del database](./media/sql-database-import/import-status.png)
+   ![Stato di importazione del database](./media/sql-database-import/sql-server-import-database-history.png)
 
 1. Per verificare che il database sia attivo sul server di database, selezionare **Database SQL** e verificare che il nuovo database sia **Online**.
 

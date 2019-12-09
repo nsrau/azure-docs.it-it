@@ -1,23 +1,22 @@
 ---
-title: 'Risolvere i problemi di esecuzione del pacchetto in SSIS Integration Runtime '
+title: Risolvere i problemi di esecuzione del pacchetto in SSIS Integration Runtime
 description: Questo articolo fornisce indicazioni per la risoluzione dei problemi relativi all'esecuzione di pacchetti SSIS in SSIS Integration Runtime
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/15/2019
-author: wenjiefu
 ms.author: wenjiefu
+author: wenjiefu
 ms.reviewer: sawinark
-manager: craigg
-ms.openlocfilehash: 9692c754e59eba02d3d483d44430150107d703a4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+manager: shwang
+ms.custom: seo-lt-2019
+ms.date: 04/15/2019
+ms.openlocfilehash: c0aa33cce8dc163722557b1ef868cf0de8bea8fe
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217531"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928740"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Risolvere i problemi di esecuzione del pacchetto in SSIS Integration Runtime
 
@@ -31,7 +30,7 @@ Usare il catalogo SSIS (SSISDB) per controllare i log di dettaglio per l'esecuzi
 
 ## <a name="common-errors-causes-and-solutions"></a>Errori comuni, cause e soluzioni
 
-### <a name="error-message-connection-timeout-expired-or-the-service-has-encountered-an-error-processing-your-request-please-try-again"></a>Messaggio di errore: "timeout di connessione scaduto" o "il servizio ha rilevato un errore durante l'elaborazione della richiesta. Riprovare ".
+### <a name="error-message-connection-timeout-expired-or-the-service-has-encountered-an-error-processing-your-request-please-try-again"></a>Messaggio di errore: "timeout di connessione scaduto" o "il servizio ha rilevato un errore durante l'elaborazione della richiesta. Riprovare".
 
 Ecco le possibili cause e le azioni consigliate:
 * L'origine dati o la destinazione è sottoposto a overload. Controllare il carico sull'origine dati o sulla destinazione e verificare se la capacità è sufficiente. Ad esempio, se è stato usato il database SQL di Azure, valutare la possibilità di aumentare le prestazioni in caso di timeout del database.
@@ -156,7 +155,7 @@ Una delle possibili cause è che il runtime di integrazione self-hosted non è i
   * Il log di esecuzione è disponibile nel [report di SSMS](https://docs.microsoft.com/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017#reports) o nella cartella dei log specificata nell'attività di esecuzione del pacchetto SSIS.
   * vNet può essere usato anche per accedere ai dati locali come alternativa. Altre informazioni sono disponibili in [aggiungere un runtime di integrazione SSIS di Azure a una rete virtuale](join-azure-ssis-integration-runtime-virtual-network.md)
 
-### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-ssis-executor-exit-code--1n-loglocation-ssistelemetryexecutionlog-effectiveintegrationruntime--executionduration--durationinqueue--integrationruntimequeue--"></a>Messaggio di errore: "stato attività di gestione temporanea: non riuscito. Errore dell'attività di gestione temporanea: ErrorCode: 2906, ErrorMessage: esecuzione del pacchetto non riuscita., output: {"OperationErrorMessages": "codice di uscita di SSIS Executor:-1. \ n", "LogLocation": "...\\SSISTelemetry\\ExecutionLog\\...", " effectiveIntegrationRuntime ":"... "," executionDuration ":...," durationInQueue ": {" integrationRuntimeQueue ":...}}"
+### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-ssis-executor-exit-code--1n-loglocation-ssistelemetryexecutionlog-effectiveintegrationruntime--executionduration--durationinqueue--integrationruntimequeue--"></a>Messaggio di errore: "stato attività di gestione temporanea: non riuscito. Errore dell'attività di gestione temporanea: ErrorCode: 2906, ErrorMessage: esecuzione del pacchetto non riuscita. output: {"OperationErrorMessages": "codice di uscita di SSIS Executor:-1. \ n", "LogLocation": "...\\SSISTelemetry\\ExecutionLog\\...", "effectiveIntegrationRuntime": "...", "executionDuration":..., "durationInQueue": {"integrationRuntimeQueue":...}} "
 
 Verificare che Visual C++ Runtime sia installato nel computer del runtime di integrazione self-hosted. Per informazioni più dettagliate, vedere [configurare il runtime di integrazione self-hosted come proxy per Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-self-hosted-ir)
 

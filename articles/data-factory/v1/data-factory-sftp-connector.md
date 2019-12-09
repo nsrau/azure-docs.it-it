@@ -4,23 +4,22 @@ description: Informazioni su come spostare dati da un server SFTP locale o cloud
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1a75b3af46d79cc7a028fa5d36ef1653b1619e8d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3f78934fb11dd4f9e34bf27d565d471d47f250b4
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682336"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928183"
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Spostare dati da un server SFTP usando Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-sftp-connector.md)
 > * [Versione 2 (corrente)](../connector-sftp.md)
 
@@ -39,22 +38,22 @@ Data Factory supporta attualmente solo lo spostamento di dati da un server SFTP 
 
 Quando si copiano dati da un server SFTP locale, è necessario installare un gateway di gestione dati nella VM di Azure o nell'ambiente locale. Per informazioni dettagliate sul gateway, vedere [Gateway di gestione dati](data-factory-data-management-gateway.md). Vedere l'articolo sullo [spostamento di dati tra sedi locali e cloud](data-factory-move-data-between-onprem-and-cloud.md) per istruzioni dettagliate sulla configurazione e sull'uso del gateway.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 È possibile creare una pipeline con l'attività di copia che sposta i dati da un'origine SFTP usando diversi strumenti/API.
 
-- Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
+- Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md).
 
 - È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager modello**, **API .NET**e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia. Per esempi JSON per copiare dati da server SFTP all'archivio BLOB di Azure, vedere la sezione [Esempio JSON: copiare i dati dal server SFTP in BLOB di Azure](#json-example-copy-data-from-sftp-server-to-azure-blob) di questo articolo.
 
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 La tabella seguente contiene le descrizioni degli elementi JSON specifici del servizio collegato FTP.
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 | --- | --- | --- |
-| type | La proprietà type deve essere impostata su `Sftp`. |Sì |
-| host | Nome o indirizzo IP del server SFTP. |Sì |
+| type | La proprietà type deve essere impostata su `Sftp`. |SÌ |
+| host | Nome o indirizzo IP del server SFTP. |SÌ |
 | port |Porta su cui è in ascolto il server SFTP. Il valore predefinito è 21 |No |
-| authenticationType |Specificare il tipo di autenticazione. Valori consentiti: **Base**, **SshPublicKey**. <br><br> Fare riferimento alle sezioni [Uso dell'autenticazione di base](#using-basic-authentication) e [Uso dell'autenticazione con chiave pubblica SSH](#using-ssh-public-key-authentication) rispettivamente per vedere altre proprietà ed esempi JSON. |Sì |
+| authenticationType |Specificare il tipo di autenticazione. Valori consentiti: **Base**, **SshPublicKey**. <br><br> Fare riferimento alle sezioni [Uso dell'autenticazione di base](#using-basic-authentication) e [Uso dell'autenticazione con chiave pubblica SSH](#using-ssh-public-key-authentication) rispettivamente per vedere altre proprietà ed esempi JSON. |SÌ |
 | skipHostKeyValidation | Specificare se si desidera ignorare la convalida tramite della chiave host. | No. Il valore predefinito è: falso |
 | hostKeyFingerprint | Specificare le impronte digitali della chiave host. | Sì se `skipHostKeyValidation` è impostato su falso.  |
 | gatewayName |Nome del gateway di gestione dati per connettersi a un server SFTP locale. | Sì se si copiano i dati da un server SFTP locale. |
@@ -64,10 +63,10 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 
 Per usare l'autenticazione di base, impostare `authenticationType` come `Basic` e specificare le proprietà seguenti oltre a quelle generiche del connettore SFTP introdotte nell'ultima sezione:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 | --- | --- | --- |
-| Nome utente | Utente che ha accesso al server SFTP. |Sì |
-| password | Password per l'utente (nome utente). | Sì |
+| Nome utente | Utente che ha accesso al server SFTP. |SÌ |
+| password | Password per l'utente (nome utente). | SÌ |
 
 #### <a name="example-basic-authentication"></a>Esempio: autenticazione di base
 ```json
@@ -114,9 +113,9 @@ Per usare l'autenticazione di base, impostare `authenticationType` come `Basic` 
 
 Per usare l'autenticazione con chiave pubblica SSH, impostare `authenticationType` su `SshPublicKey` e specificare le proprietà seguenti oltre a quelle generiche del connettore SFTP presentate nell'ultima sezione:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 | --- | --- | --- |
-| Nome utente |Utente che ha accesso al server SFTP |Sì |
+| Nome utente |Utente che ha accesso al server SFTP |SÌ |
 | privateKeyPath | Specificare un percorso assoluto al file di chiave privato a cui il gateway può accedere. | Specificare `privateKeyPath` o `privateKeyContent`. <br><br> Applicare solo se si copiano i dati da un server SFTP locale. |
 | privateKeyContent | Una stringa serializzata del contenuto di chiave privata. La copia guidata può leggere il file di chiave privata ed estrarre automaticamente il contenuto della chiave privata. Se si usa un qualsiasi altro strumento/SDK, usare la proprietà privateKeyPath. | Specificare `privateKeyPath` o `privateKeyContent`. |
 | passPhrase | Specificare la passphrase o la password per decrittografare la chiave privata se il file della chiave è protetto da una passphrase. | Sì se il file della chiave privata è protetto da una passphrase. |
@@ -170,9 +169,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati. Fornisce informazioni specifiche del tipo di set di dati. La sezione typeProperties per un set di dati di tipo **FileShare** presenta le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 | --- | --- | --- |
-| folderPath |Sottopercorso alla cartella. Usare il carattere di escape "\" per i caratteri speciali nella stringa. Per ottenere alcuni esempi, vedere Servizio collegato di esempio e definizioni del set di dati.<br/><br/>È possibile combinare questa proprietà con **partitionBy** per ottenere percorsi di cartelle basati su data e ora di inizio/fine delle sezioni. |Sì |
+| folderPath |Sottopercorso alla cartella. Usare il carattere di escape "\" per i caratteri speciali nella stringa. Per ottenere alcuni esempi, vedere Servizio collegato di esempio e definizioni del set di dati.<br/><br/>È possibile combinare questa proprietà con **partitionBy** per ottenere percorsi di cartelle basati su data e ora di inizio/fine delle sezioni. |SÌ |
 | fileName |Specificare il nome del file in **folderPath** se si vuole che la tabella faccia riferimento a un file specifico nella cartella. Se non si specifica alcun valore per questa proprietà, la tabella punta a tutti i file nella cartella.<br/><br/>Quando fileName non viene specificato per un set di dati di output, il nome del file generato sarà nel formato seguente: <br/><br/>`Data.<Guid>.txt` (ad esempio: data. 0a405f8a-93ff-4C6F-B3BE-f69616f1df7a. txt |No |
 | fileFilter |Specificare un filtro da usare per selezionare un sottoinsieme di file in folderPath anziché tutti i file.<br/><br/>I valori consentiti sono: `*` (più caratteri) e `?` (carattere singolo).<br/><br/>Esempi 1: `"fileFilter": "*.log"`<br/>Esempio 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> fileFilter è applicabile per un set di dati di input FileShare. Questa proprietà non è supportata con HDFS. |No |
 | partitionedBy |partitionedBy può essere usato per specificare un valore folderPath dinamico e un nome file per i dati di una serie temporale. Ad esempio, folderPath con parametri per ogni ora di dati. |No |
@@ -230,7 +229,7 @@ L'esempio seguente fornisce le definizioni JSON di esempio che è possibile usar
 > [!IMPORTANT]
 > Questo esempio fornisce frammenti di codice JSON. Non include istruzioni dettagliate per la creazione della data factory. Le istruzioni dettagliate sono disponibili nell'articolo [Spostare dati tra origini locali e il cloud](data-factory-move-data-between-onprem-and-cloud.md) .
 
-L'esempio include le entità di Data factory seguenti:
+L'esempio include le entità di Data Factory seguenti:
 
 * Un servizio collegato di tipo [sftp](#linked-service-properties).
 * Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
@@ -411,7 +410,7 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 ## <a name="performance-and-tuning"></a>Ottimizzazione delle prestazioni
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 Vedere gli articoli seguenti:
 
 * [Esercitazione dell'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate della creazione di una pipeline con un'attività di copia.

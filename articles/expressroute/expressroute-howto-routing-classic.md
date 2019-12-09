@@ -5,24 +5,24 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 12/06/2019
 ms.author: cherylmc
-ms.openlocfilehash: 814a73900b05b66d1bacc946b9f994135d3fc9f6
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 05602538f206032d924b39a7dd8f4325c48a5224
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083451"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931383"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Creare e modificare il peering per un circuito ExpressRoute (versione classica)
 > [!div class="op_single_selector"]
-> * [Portale di Azure](expressroute-howto-routing-portal-resource-manager.md)
+> * [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
-> * [Interfaccia della riga di comando di Azure](howto-routing-cli.md)
+> * [interfaccia della riga di comando di Azure](howto-routing-cli.md)
 > * [Video - Peering privato](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
 > * [Video - Peering pubblico](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
 > * [Video - Peering Microsoft](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
-> * [PowerShell (classic)](expressroute-howto-routing-classic.md) (PowerShell (classico))
+> * [PowerShell (classico)](expressroute-howto-routing-classic.md)
 > 
 
 Questo articolo descrive le procedure per creare e gestire la configurazione di peering/routing per un circuito ExpressRoute usando PowerShell e il modello di distribuzione classico. La procedura seguente mostra anche come controllare lo stato e aggiornare, eliminare o effettuare il deprovisioning dei peering per un circuito ExpressRoute. Per un circuito ExpressRoute è possibile configurare uno, due o tutti e tre i peering (peering privato di Azure, peering pubblico di Azure e peering Microsoft). È possibile configurare i peering nell'ordine desiderato. assicurandosi, tuttavia, di completare la configurazione di un peering per volta. 
@@ -42,40 +42,7 @@ Queste istruzioni si applicano solo ai circuiti creati con provider di servizi c
 
 ### <a name="download-the-latest-powershell-cmdlets"></a>Scaricare i cmdlet di PowerShell più recenti
 
-Installare le versioni più recenti dei moduli di PowerShell per Gestione dei servizi di Azure e il modulo ExpressRoute. Quando si usa l'esempio seguente, si noti che il numero di versione (in questo esempio, 5.1.1) verrà modificato quando vengono rilasciate versioni più recenti dei cmdlet.
-
-```powershell
-Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
-Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
-```
-
-Per istruzioni dettagliate sulla configurazione del computer per l'uso con i moduli di Azure PowerShell, vedere [Getting started with Azure PowerShell cmdlets](/powershell/azure/overview) (Introduzione ai cmdlet di Azure PowerShell).
-
-### <a name="sign-in"></a>Accedi
-
-Per accedere al proprio account di Azure, usare gli esempi seguenti:
-
-1. Aprire la console di PowerShell con diritti elevati e connettersi all'account.
-
-   ```powershell
-   Connect-AzAccount
-   ```
-2. Controllare le sottoscrizioni per l'account.
-
-   ```powershell
-   Get-AzSubscription
-   ```
-3. Se sono disponibili più sottoscrizioni, selezionare la sottoscrizione da usare.
-
-   ```powershell
-   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
-   ```
-
-4. Successivamente, utilizzare il cmdlet seguente per aggiungere la sottoscrizione di Azure a PowerShell per il modello di distribuzione classico.
-
-   ```powershell
-   Add-AzureAccount
-   ```
+[!INCLUDE [classic powershell install instructions](../../includes/expressroute-poweshell-classic-install-include.md)]
 
 ## <a name="azure-private-peering"></a>Peering privato di Azure
 
@@ -335,7 +302,7 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
    * Advertised prefixes: è necessario fornire un elenco di tutti i prefissi che si intende pubblicizzare nella sessione BGP. Sono accettati solo prefissi di indirizzi IP pubblici. Per inviare un set di prefissi, è possibile creare un elenco con valori delimitati da virgole. Questi prefissi devono essere intestati all'utente in un registro RIR o IRR.
    * Customer ASN: se si annunciano prefissi registrati al numero AS di peering, è possibile specificare il numero AS a cui sono registrati. **Facoltativo**.
    * Routing Registry Name: è possibile specificare il registro RIR/IRR in cui sono registrati il numero AS e i prefissi.
-   * Un hash MD5, se si sceglie di usarne uno. **Facoltativo.**
+   * Hash MD5, se si sceglie di usarne uno. **Facoltativo.**
      
    Per configurare il peering Microsoft per il circuito, eseguire il cmdlet seguente:
  

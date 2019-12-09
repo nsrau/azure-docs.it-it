@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: b09e5366584e9974e67d47d34f22a3483be14f7a
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 5b473af780bdd68b8fc0dd3dc0430c4f4fd3255b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805757"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927651"
 ---
 # <a name="hyperscale-service-tier"></a>Livello di servizio Hyperscale
 
@@ -196,25 +196,25 @@ Se si vuole creare un database con iperscalabilità in un'area non elencata come
 
 Per richiedere la possibilità di creare database con iperscalabilità in aree non elencate:
 
-1. Passare al pannello [Guida e supporto di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+1. Dal menu portale di Azure scegliere Guida e **supporto tecnico**oppure cercare e selezionare **Guida e supporto** da qualsiasi pagina.
 
-2. Fare clic su [ **nuova richiesta di supporto**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+2. In [Guida e supporto di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)selezionare [**nuova richiesta di supporto**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-    ![Pannello Guida e supporto tecnico di Azure](media/sql-database-service-tier-hyperscale/request-screen-1.png)
+3. Per **tipo di problema**selezionare **limiti per servizio e sottoscrizione (quote)** .
 
-3. Per **tipo di problema**selezionare **limiti per servizio e sottoscrizione (quote)**
+4. Scegliere la sottoscrizione da usare per creare i database.
 
-4. Scegliere la sottoscrizione da usare per creare i database
+5. Per **tipo di quota**selezionare **database SQL**.
 
-5. Per **tipo di quota**selezionare **database SQL**
+    ![Pannello Guida e supporto tecnico di Azure](media/sql-database-service-tier-hyperscale/new-support-request-screen.png)
 
-6. Fare clic su **Avanti: soluzioni**
+6. Fare clic su **Avanti: soluzioni**.
 
-1. Fare clic su **specificare i dettagli**
+7. Fare clic su **specificare i dettagli**.
 
     ![Dettagli del problema](media/sql-database-service-tier-hyperscale/request-screen-2.png)
 
-8. Scegliere il **tipo di quota del database SQL**: **altra richiesta di quota**
+8. Scegliere il **tipo di quota del database SQL**: **altra richiesta di quota**.
 
 9. Compilare il modello seguente:
 
@@ -227,11 +227,11 @@ Per richiedere la possibilità di creare database con iperscalabilità in aree n
     > Numero di TB stimato 
     >
 
-10. Scegliere **Severity C** (Gravità C).
+10. Scegliere **gravità C**.
 
 11. Scegliere il metodo di contatto appropriato e specificare i dettagli.
 
-12. Fare clic su **Salva** e **continua**
+12. Fare clic su **Salva** e **continua**.
 
 ## <a name="known-limitations"></a>Limitazioni note
 Queste sono le limitazioni correnti per il livello di servizio con iperscalabilità di GA.  Si sta lavorando attivamente per rimuovere il maggior numero possibile di limitazioni.
@@ -240,7 +240,7 @@ Queste sono le limitazioni correnti per il livello di servizio con iperscalabili
 | :---- | :--------- |
 | Il riquadro Gestisci backup per un server logico non mostra che i database iperscalari verranno filtrati da SQL Server  | L'iperscalabilità ha un metodo separato per la gestione dei backup e, di conseguenza, le impostazioni di conservazione a lungo termine e di conservazione dei backup temporizzate non vengono applicate/non sono valide. Di conseguenza i database Hyperscale non compaiono nel riquadro Gestisci backup. |
 | Ripristino temporizzato | Quando viene eseguita la migrazione di un database nel livello di servizio iperscalabile, il ripristino fino a un punto nel tempo precedente alla migrazione non è supportato.|
-| Ripristino del database non iperscalabile in Hypserscale e viceversa | Non è possibile ripristinare un database iperscalabile in un database non iperscalabile, né ripristinare un database senza iperscalabilità in un database con iperscalabilità.|
+| Ripristinare un database non iperscalabile in iperscalabilità e viceversa | Non è possibile ripristinare un database iperscalabile in un database non iperscalabile, né ripristinare un database senza iperscalabilità in un database con iperscalabilità.|
 | Se un database contiene uno o più file di dati di dimensioni superiori a 1 TB, la migrazione non riesce | In alcuni casi, potrebbe essere possibile aggirare questo problema compattando i file di grandi dimensioni in modo che siano inferiori a 1 TB. Se si esegue la migrazione di un database usato durante il processo di migrazione, assicurarsi che non ci siano file con dimensioni maggiori di 1 TB. Utilizzare la query seguente per determinare le dimensioni dei file di database. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | Istanza gestita | Istanza gestita di database SQL di Azure attualmente non è supportato con i database con iperscalabilità. |
 | Pool elastici |  I pool elastici non sono attualmente supportati con l'iperscalabilità del database SQL.|
@@ -251,7 +251,8 @@ Queste sono le limitazioni correnti per il livello di servizio con iperscalabili
 | Copia del database | Non è ancora possibile usare la copia del database per creare un nuovo database in Azure SQL iperscalabile. |
 | Integrazione di Transparent Data Encryption/AKV | La crittografia Transparent database con Azure Key Vault (in genere denominata Bring-your-own-key o BYOK) non è ancora supportata per l'iperscalabilità del database SQL di Azure, ma Transparent Data Encryption con chiavi gestite dal servizio è completamente supportato. |
 |Funzionalità di database intelligenti | Ad eccezione dell'opzione "forza piano", tutte le altre opzioni di ottimizzazione automatica non sono ancora supportate in iperscalabilità: le opzioni potrebbero sembrare abilitate, ma non verranno eseguite raccomandazioni o azioni. |
-| Compatta database | DBCC SHRINKDATABASE o DBCC SHRINKFILE non è attualmente supportato con i database con scalabilità orizzontale di Azure SQL. |
+| Compatta database | DBCC SHRINKDATABASE o DBCC SHRINKFILE non è attualmente supportato per i database con iperscalabilità. |
+| Verifica dell'integrità del database | DBCC CHECKDB non è attualmente supportato per i database con iperscalabilità. Per informazioni dettagliate sulla gestione dell'integrità dei dati nel database SQL di Azure, vedere [integrità dei dati nel database SQL di Azure](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) . |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

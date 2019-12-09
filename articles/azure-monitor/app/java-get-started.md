@@ -1,5 +1,5 @@
 ---
-title: Analisi di app Web Java con Azure Application Insights | Documentazione Microsoft
+title: Analisi di app Web Java con applicazione Azure Insights
 description: 'Application Performance Monitoring per app Web Java con Application Insights. '
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: 28fbb5fcfba2b346d0519dec79e538b1e513b7dd
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 0686cea590ca26096b443dba21b05dc3335c7add
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817136"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927264"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Introduzione ad Application Insights in un progetto Web Java
 
@@ -124,7 +124,7 @@ Il file di configurazione può risiedere in qualsiasi percorso accessibile all'a
 ### <a name="alternative-ways-to-set-the-instrumentation-key"></a>Modi alternativi per impostare la chiave di strumentazione
 Application Insights SDK cerca la chiave nell'ordine seguente.
 
-1. Proprietà di sistema:-DAPPINSIGHTS_INSTRUMENTATIONKEY = iKey
+1. Proprietà di sistema:-DAPPINSIGHTS_INSTRUMENTATIONKEY = your_ikey
 2. Variabile di ambiente: APPINSIGHTS_INSTRUMENTATIONKEY
 3. File di configurazione: ApplicationInsights.xml
 

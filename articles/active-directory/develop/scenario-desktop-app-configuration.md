@@ -1,6 +1,6 @@
 ---
-title: App desktop che chiama le API Web (configurazione del codice)-piattaforma di identità Microsoft
-description: Informazioni su come creare un'app desktop che chiama le API Web (configurazione del codice dell'app)
+title: Configurare un'app desktop che chiama API Web-piattaforma di identità Microsoft | Azure
+description: Informazioni su come configurare il codice di un'app desktop che chiama API Web
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6baf7d21748b5b524745f26302e70612dab29a8d
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 0d31a70ebc63a5e9a16e0da00623bd5855f0a7d1
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175429"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920260"
 ---
 # <a name="desktop-app-that-calls-web-apis---code-configuration"></a>App desktop che chiama API Web-configurazione del codice
 

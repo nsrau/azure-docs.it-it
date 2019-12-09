@@ -1,23 +1,22 @@
 ---
-title: Copiare dati da SAP ECC usando Azure Data Factory
+title: Copiare dati da SAP ECC
 description: Informazioni su come copiare dati da SAP ECC in archivi dati di sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 09/02/2019
-ms.author: jingwang
-ms.openlocfilehash: 526f85ca4b8854a36232c75a55847a73a8d372cc
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: f875d8f4603a8f51b8b8fed2438e6f3a30c87aeb
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680305"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931181"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Copiare dati da SAP ECC usando Azure Data Factory
 
@@ -62,7 +61,7 @@ In genere, SAP ECC espone entità tramite i servizi OData mediante il gateway SA
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Inizia oggi stesso
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -72,10 +71,10 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato SAP ECC sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| `type` | È necessario impostare la proprietà `type` su `SapEcc`. | Sì |
-| `url` | URL del servizio SAP ECC OData. | Sì |
+| `type` | La proprietà `type` deve essere impostata su `SapEcc`. | SÌ |
+| `url` | URL del servizio SAP ECC OData. | SÌ |
 | `username` | Nome utente usato per la connessione a SAP ECC. | No |
 | `password` | Password in testo non crittografato utilizzata per la connessione a SAP ECC. | No |
 | `connectVia` | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se non si specifica un runtime, viene usato il runtime di integrazione di Azure predefinito. | No |
@@ -111,9 +110,9 @@ Per copiare dati da SAP ECC, impostare la proprietà `type` del set di dati su `
 
 Sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| `path` | Percorso dell'entità SAP ECC OData. | Sì |
+| `path` | Percorso dell'entità SAP ECC OData. | SÌ |
 
 ### <a name="example"></a>Esempio
 
@@ -144,10 +143,10 @@ Per copiare dati da SAP ECC, impostare la proprietà `type` nella sezione `sourc
 
 Nella sezione `source` dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| `type` | La proprietà `type` della sezione `source` dell'attività di copia deve essere impostata su `SapEccSource`. | Sì |
-| `query` | Opzioni di query OData per filtrare i dati. Ad esempio:<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>Il connettore SAP ECC copia i dati dall'URL combinato:<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>Per altre informazioni, vedere [OData URL components](https://www.odata.org/documentation/odata-version-3-0/url-conventions/) (Componenti dell'URL di OData). | No |
+| `type` | La proprietà `type` della sezione `source` dell'attività di copia deve essere impostata su `SapEccSource`. | SÌ |
+| `query` | Opzioni di query OData per filtrare i dati. ad esempio:<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>Il connettore SAP ECC copia i dati dall'URL combinato:<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>Per altre informazioni, vedere [OData URL components](https://www.odata.org/documentation/odata-version-3-0/url-conventions/) (Componenti dell'URL di OData). | No |
 
 ### <a name="example"></a>Esempio
 

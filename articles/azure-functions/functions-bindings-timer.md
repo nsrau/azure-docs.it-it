@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: 143a05944799ff04f9c21384f85a4b00cc65b750
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: de36f760fb637ad02446265927e7df7aa91b2abf
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74545738"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928386"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Trigger timer per Funzioni di Azure 
 
@@ -26,7 +26,7 @@ Il trigger timer è disponibile nel pacchetto NuGet [Microsoft.Azure.WebJobs.Ext
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-## <a name="packages---functions-2x"></a>Pacchetti: Funzioni 2.x
+## <a name="packages---functions-2x-and-higher"></a>Packages-Functions 2. x e versioni successive
 
 Il trigger timer è disponibile nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) versione 3.x. Il codice sorgente del pacchetto si trova nel repository GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/).
 
@@ -327,7 +327,7 @@ Se si condividono gli account di archiviazione tra app per le funzioni non distr
 
 | Versione di Funzioni | Impostazione                                              |
 | ----------------- | ---------------------------------------------------- |
-| 2.x               | variabile di ambiente `AzureFunctionsWebHost__hostid` |
+| 2. x (e versioni successive)  | La variabile di ambiente `AzureFunctionsWebHost__hostid` |
 | 1.x               | `id` in *host. JSON*                                  |
 
 È possibile omettere il valore di identificazione o impostare manualmente la configurazione di identificazione di ogni app per le funzioni su un valore diverso.

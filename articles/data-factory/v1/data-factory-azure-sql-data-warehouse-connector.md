@@ -4,24 +4,23 @@ description: Informazioni su come copiare dati da e in Azure SQL Data Warehouse 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: d90fa9bd-4b79-458a-8d40-e896835cfd4a
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d0306d891b327422383120ef322ece407829f7ed
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 18f30af4595a7679d5c3ef56763e992d54fae536
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683048"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928080"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Copiare dati da e in Azure SQL Data Warehouse tramite Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-azure-sql-data-warehouse-connector.md)
 > * [Versione 2 (corrente)](../connector-azure-sql-data-warehouse.md)
 
@@ -48,7 +47,7 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 ## <a name="supported-authentication-type"></a>Tipo di autenticazione supportato
 È supportato il connettore Azure SQL Data Warehouse per l'autenticazione di base.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 È possibile creare una pipeline con l'attività di copia che sposta i dati da e verso un Azure SQL Data Warehouse usando diversi strumenti/API.
 
 Il modo più semplice di creare una pipeline che copia i dati in/da Azure SQL Data Warehouse consiste nell'usare la procedura Copia di dati guidata. Vedere [Esercitazione: Caricare i dati in SQL Data Warehouse con Data Factory](../../sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md) per una procedura dettagliata rapida per creare una pipeline usando la procedura guidata Copia dati.
@@ -62,17 +61,17 @@ Se si usano gli strumenti o le API, eseguire la procedura seguente per creare un
 3. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia. Nell'esempio citato nel passaggio precedente, si crea un set di dati per specificare un contenitore BLOB e la cartella che contiene i dati di input. Si crea anche un altro set di dati per specificare la tabella SQL in Azure SQL Data Warehouse che contiene i dati copiati dall'archiviazione BLOB. Per le proprietà del set di dati specifiche per Azure SQL Data Warehouse, vedere la sezione sulle [proprietà del set di dati](#dataset-properties).
 4. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output. Nell'esempio indicato in precedenza si usa BlobSource come origine e SqlDWSink come sink per l'attività di copia. Analogamente, se si esegue la copia da Azure SQL Data Warehouse nell'archiviazione BLOB di Azure, si usa SqlDWSource e BlobSink nell'attività di copia. Per le proprietà dell'attività di copia specifiche per Azure SQL Data Warehouse, vedere la sezione sulle [proprietà dell'attività di copia](#copy-activity-properties). Per informazioni dettagliate su come usare un archivio dati come origine o come sink, fare clic sul collegamento nella sezione precedente per l'archivio dati.
 
-Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di Data Factory. Per esempi con definizioni JSON per entità di data factory utilizzate per copiare i dati da e verso un Azure SQL Data Warehouse, vedere la sezione degli [esempi JSON](#json-examples-for-copying-data-to-and-from-sql-data-warehouse) in questo articolo.
+Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory. Per esempi con definizioni JSON per entità di data factory utilizzate per copiare i dati da e verso un Azure SQL Data Warehouse, vedere la sezione degli [esempi JSON](#json-examples-for-copying-data-to-and-from-sql-data-warehouse) in questo articolo.
 
 Le sezioni seguenti riportano le informazioni dettagliate sulle proprietà JSON che vengono usate per definire entità di data factory specifiche di un Azure SQL Data Warehouse:
 
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 La tabella seguente fornisce la descrizione degli elementi JSON specifici del servizio collegato di Azure SQL Data Warehouse
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 | --- | --- | --- |
-| type |La proprietà del tipo deve essere impostata su: **AzureSqlDW** |Sì |
-| connectionString |Specificare le informazioni necessarie per connettersi all'istanza di Azure SQL Data Warehouse per la proprietà connectionString. È supportata solo l'autenticazione di base. |Sì |
+| type |La proprietà del tipo deve essere impostata su: **AzureSqlDW** |SÌ |
+| connectionString |Specificare le informazioni necessarie per connettersi all'istanza di Azure SQL Data Warehouse per la proprietà connectionString. È supportata solo l'autenticazione di base. |SÌ |
 
 > [!IMPORTANT]
 > Configurare il [firewall del database SQL di Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) e il server di database in modo da [consentire ai servizi di Azure di accedere al server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Se si copiano dati in Azure SQL Data Warehouse dall'esterno di Azure e da origini dati locali con gateway di data factory, configurare anche un intervallo di indirizzi IP appropriato per il computer che invia dati ad Azure SQL Data Warehouse.
@@ -82,9 +81,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 La sezione typeProperties è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione **typeProperties** per il set di dati di tipo **AzureSqlDWTable** presenta le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 | --- | --- | --- |
-| tableName |Nome della tabella o della visualizzazione nell'istanza del database SQL Data Warehouse di Azure a cui fa riferimento il servizio collegato. |Sì |
+| tableName |Nome della tabella o della visualizzazione nell'istanza del database SQL Data Warehouse di Azure a cui fa riferimento il servizio collegato. |SÌ |
 
 ## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, fare riferimento all'articolo [Creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output e criteri.
@@ -97,7 +96,7 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano in
 ### <a name="sqldwsource"></a>SqlDWSource
 In caso di origine di tipo **SqlDWSource**, nella sezione **typeProperties** sono disponibili le proprietà seguenti:
 
-| Proprietà | Descrizione | Valori consentiti | Obbligatorio |
+| Proprietà | Description | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | sqlReaderQuery |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: selezionare * da MyTable. |No |
 | sqlReaderStoredProcedureName |Nome della stored procedure che legge i dati dalla tabella di origine. |Nome della stored procedure. L'ultima istruzione SQL deve essere un'istruzione SELECT nella stored procedure. |No |
@@ -143,10 +142,10 @@ GO
 ### <a name="sqldwsink"></a>SqlDWSink
 **SqlDWSink** supporta le proprietà seguenti:
 
-| Proprietà | Descrizione | Valori consentiti | Obbligatorio |
+| Proprietà | Description | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | sqlWriterCleanupScript |Specificare una query da eseguire nell'attività di copia per pulire i dati di una sezione specifica. Per informazioni dettagliate, vedere la sezione relativa alla [ripetibilità](#repeatability-during-copy). |Istruzione di query. |No |
-| allowPolyBase |Indica se usare PolyBase, quando applicabile, invece del meccanismo BULKINSERT. <br/><br/> **L'uso di PolyBase è il modo consigliato per caricare dati in SQL Data Warehouse.** Per informazioni su vincoli e dettagli, vedere la sezione [Usare PolyBase per caricare dati in Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) . |True <br/>False (impostazione predefinita) |No |
+| allowPolyBase |Indica se usare PolyBase, quando applicabile, invece del meccanismo BULKINSERT. <br/><br/> **L'uso di PolyBase è il modo consigliato per caricare dati in SQL Data Warehouse.** Per informazioni su vincoli e dettagli, vedere la sezione [Usare PolyBase per caricare dati in Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) . |Vero <br/>False (impostazione predefinita) |No |
 | polyBaseSettings |Gruppo di proprietà che è possibile specificare quando la proprietà **allowPolybase** è impostata su **true**. |&nbsp; |No |
 | rejectValue |Specifica il numero o la percentuale di righe che è possibile rifiutare prima che la query abbia esito negativo. <br/><br/>Per altre informazioni sulle opzioni di rifiuto di PolyBase, vedere la sezione **Arguments** (Argomenti) in [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) . |0 (impostazione predefinita), 1, 2, … |No |
 | rejectType |Indica se l'opzione rejectValue viene specificata come valore letterale o come percentuale. |Value (impostazione predefinita), Percentage |No |
@@ -307,8 +306,8 @@ Data Factory crea la tabella nell'archivio di destinazione con lo stesso nome de
 | SmallInt | SmallInt |
 | TinyInt | TinyInt |
 | Bit | Bit |
-| Decimal | Decimal |
-| Numeric | Decimal |
+| DECIMAL | DECIMAL |
+| Numeric | DECIMAL |
 | Float | Float |
 | Money | Money |
 | Real | Real |
@@ -316,20 +315,20 @@ Data Factory crea la tabella nell'archivio di destinazione con lo stesso nome de
 | Binary | Binary |
 | Varbinary | Varbinary (fino a 8000) |
 | Data | Data |
-| DateTime | DateTime |
+| Data e ora | Data e ora |
 | DateTime2 | DateTime2 |
-| Time | Time |
-| Datetimeoffset | Datetimeoffset |
+| Durata | Durata |
+| DateTimeOffset | DateTimeOffset |
 | SmallDateTime | SmallDateTime |
-| Text | Varchar (fino a 8000) |
+| Testo | Varchar (fino a 8000) |
 | NText | NVarChar (fino a 4000) |
-| Image | VarBinary (fino a 8000) |
+| Immagine | VarBinary (fino a 8000) |
 | UniqueIdentifier | UniqueIdentifier |
 | Char | Char |
 | NChar | NChar |
 | VarChar | VarChar (fino a 8000) |
 | NVarChar | NVarChar (fino a 4000) |
-| Xml | Varchar (fino a 8000) |
+| xml | Varchar (fino a 8000) |
 
 [!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -347,36 +346,36 @@ Il mapping è uguale al [mapping del tipo di dati di SQL Server per ADO.NET](htt
 | --- | --- |
 | bigint |Int64 |
 | binary |Byte[] |
-| bit |Booleano |
+| bit |boolean |
 | char |String, Char[] |
-| date |DateTime |
-| DateTime |DateTime |
-| datetime2 |DateTime |
-| Datetimeoffset |Datetimeoffset |
-| Decimal |Decimal |
+| date |Data e ora |
+| DateTime |Data e ora |
+| datetime2 |Data e ora |
+| Datetimeoffset |DateTimeOffset |
+| DECIMAL |DECIMAL |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
-| Float |Double |
-| immagine |Byte[] |
+| Float |DOUBLE |
+| image |Byte[] |
 | int |Int32 |
-| money |Decimal |
+| money |DECIMAL |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeric |Decimal |
+| numeric |DECIMAL |
 | nvarchar |String, Char[] |
-| real |Single |
+| real |Singolo |
 | rowversion |Byte[] |
-| smalldatetime |DateTime |
+| smalldatetime |Data e ora |
 | smallint |Int16 |
-| smallmoney |Decimal |
+| smallmoney |DECIMAL |
 | sql_variant |Object * |
 | text |String, Char[] |
-| time |TimeSpan |
+| time |Intervallo di tempo |
 | timestamp |Byte[] |
 | tinyint |Byte |
-| uniqueidentifier |Guid |
+| uniqueidentifier |GUID |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |Xml |
+| Xml |xml |
 
 È anche possibile eseguire il mapping delle colonne del set di dati di origine alle colonne del set di dati sink nella definizione dell'attività di copia. Per altre informazioni, vedere [Mapping delle colonne del set di dati in Azure Data Factory](data-factory-map-columns.md).
 

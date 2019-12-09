@@ -6,12 +6,12 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: d27058ed0ff3044d98d8428b3065b02e2c24c451
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c4e3ce148b3cc2db9681bd9c7a7ba0e33335d2cc
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231056"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74925767"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Associazioni del bus di servizio di Azure per Funzioni di Azure
 
@@ -25,12 +25,12 @@ Le associazioni del bus di servizio sono incluse nel pacchetto NuGet [Microsoft.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## <a name="packages---functions-2x"></a>Pacchetti: Funzioni 2.x
+## <a name="packages---functions-2x-and-higher"></a>Packages-Functions 2. x e versioni successive
 
 Le associazioni del bus di servizio sono incluse nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus) versione 3.x. Il codice sorgente per il pacchetto si trova nel repository GitHub [Azure-Functions-ServiceBus-Extension](https://github.com/Azure/azure-functions-servicebus-extension) .
 
 > [!NOTE]
-> La versione 2. x non crea l'argomento o la sottoscrizione configurata nell'istanza di `ServiceBusTrigger`. La versione 2. x si basa su [Microsoft. Azure. ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) e non gestisce la gestione delle code.
+> Nelle versioni 2. x e successive non viene creato l'argomento o la sottoscrizione configurata nell'istanza di `ServiceBusTrigger`. Queste versioni sono basate su [Microsoft. Azure. ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) che non gestisce la gestione delle code.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -43,7 +43,7 @@ Usare il trigger di bus di servizio per rispondere a messaggi da una coda o da u
 Vedere l'esempio specifico per ciascun linguaggio:
 
 * [C#](#trigger---c-example)
-* [Script C# (.csx)](#trigger---c-script-example)
+* [Script C# (file con estensione csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [Java](#trigger---java-example)
 * [JavaScript](#trigger---javascript-example)
@@ -138,7 +138,7 @@ let Run(myQueueItem: string, log: ILogger) =
     log.LogInformation(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
 ```
 
-### <a name="trigger---java-example"></a>Trigger - esempio Java
+### <a name="trigger---java-example"></a>Trigger - Esempio Java
 
 La funzione Java seguente usa l'annotazione `@ServiceBusQueueTrigger` dalla [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime) per descrivere la configurazione per un trigger della coda del bus di servizio. La funzione acquisisce il messaggio inserito nella coda e lo aggiunge ai log.
 
@@ -308,7 +308,7 @@ Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare gli attri
 
 L'account per il bus di servizio da usare è determinato nell'ordine seguente:
 
-* La proprietà `ServiceBusTrigger` dell'attributo `Connection`.
+* La proprietà `Connection` dell'attributo `ServiceBusTrigger`.
 * L'attributo `ServiceBusAccount` applicato allo stesso parametro dell'attributo `ServiceBusTrigger`.
 * L'attributo `ServiceBusAccount` applicato alla funzione.
 * L'attributo `ServiceBusAccount` applicato alla classe.
@@ -318,7 +318,7 @@ L'account per il bus di servizio da usare è determinato nell'ordine seguente:
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `ServiceBusTrigger`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
 |**type** | N/D | Il valore deve essere impostato su "serviceBusTrigger". Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure.|
 |**direction** | N/D | Il valore deve essere impostato su "in". Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
@@ -327,7 +327,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**topicName**|**topicName**|Nome dell'argomento da monitorare. Impostare questa proprietà solo quando si monitora un argomento, non una coda.|
 |**subscriptionName**|**SubscriptionName**|Nome della sottoscrizione da monitorare. Impostare questa proprietà solo quando si monitora un argomento, non una coda.|
 |**connessione**|**Connection**|Nome di un'impostazione dell'app che contiene la stringa di connessione del bus di servizio da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo la parte restante del nome. Ad esempio, se si imposta `connection` su "MyServiceBus", il runtime di Funzioni di Azure cerca un'impostazione dell'app denominata "AzureWebJobsMyServiceBus". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione del bus di servizio predefinita nell'impostazione dell'app denominata "AzureWebJobsServiceBus".<br><br>Per ottenere una stringa di connessione, seguire i passaggi indicati in [Ottenere le credenziali di gestione](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). La stringa di connessione deve essere relativa a uno spazio dei nomi del bus di servizio e non limitata a una coda o un argomento specifico. |
-|**accessRights**|**Accedervi**|Diritti di accesso per la stringa di connessione. I valori disponibili sono `manage` e `listen`. Il valore predefinito è `manage`, che indica che `connection` dispone dell'autorizzazione **Gestisci**. Se si usa una stringa di connessione priva dell'autorizzazione **Gestisci**, impostare `accessRights` su "listen". In caso contrario, il runtime di Funzioni potrebbe non riuscire a eseguire operazioni che richiedono diritti di gestione. In Funzioni di Azure versione 2.x questa proprietà non è disponibile perché la versione più recente di Storage SDK non supporta le operazioni di gestione.|
+|**accessRights**|**Accedere**|Diritti di accesso per la stringa di connessione. I valori disponibili sono `manage` e `listen`. Il valore predefinito è `manage`, che indica che `connection` dispone dell'autorizzazione **Gestisci**. Se si usa una stringa di connessione priva dell'autorizzazione **Gestisci**, impostare `accessRights` su "listen". In caso contrario, il runtime di Funzioni potrebbe non riuscire a eseguire operazioni che richiedono diritti di gestione. In funzioni di Azure versione 2. x e successive questa proprietà non è disponibile perché la versione più recente di storage SDK non supporta le operazioni di gestione.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -340,7 +340,7 @@ In C# e nello script C# è possibile usare i tipi di parametro seguenti per il m
 * Un tipo personalizzato: se il messaggio contiene JSON, Funzioni di Azure tenta di deserializzare i dati JSON.
 * `BrokeredMessage`: fornisce il messaggio deserializzato con il metodo [BrokeredMessage. GetBody\<t > ()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) .
 
-Questi parametri sono per le versioni di Funzioni di Azure 1.x. Per le versioni 2.x, usare [ `Message` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) invece di `BrokeredMessage`.
+Questi parametri sono per funzioni di Azure versione 1. x; per 2. x e versioni successive, usare [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) anziché `BrokeredMessage`.
 
 In JavaScript accedere al messaggio della coda o dell'argomento usando `context.bindings.<name from function.json>`. Il messaggio del bus di servizio viene passato alla funzione come stringa o oggetto JSON.
 
@@ -358,7 +358,7 @@ Il valore `maxAutoRenewDuration` può essere configurato in *host.json*, che ese
 
 Il trigger del bus di servizio fornisce diverse [proprietà di metadati](./functions-bindings-expressions-patterns.md#trigger-metadata). Queste proprietà possono essere usate come parte delle espressioni di associazione in altre associazioni o come parametri nel codice. Queste sono le proprietà della classe [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).
 
-|Proprietà|digitare|DESCRIZIONE|
+|Proprietà|Type|Description|
 |--------|----|-----------|
 |`DeliveryCount`|`Int32`|Il numero di recapiti.|
 |`DeadLetterSource`|`string`|La coda di messaggi non recapitabili.|
@@ -386,7 +386,7 @@ Usare l'associazione di output del bus di servizio di Azure per inviare messaggi
 Vedere l'esempio specifico per ciascun linguaggio:
 
 * [C#](#output---c-example)
-* [Script C# (.csx)](#output---c-script-example)
+* [Script C# (file con estensione csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [Java](#output---java-example)
 * [JavaScript](#output---javascript-example)
@@ -494,7 +494,7 @@ let Run(myTimer: TimerInfo, log: ILogger, outputSbQueue: byref<string>) =
     outputSbQueue = message
 ```
 
-### <a name="output---java-example"></a>Output - esempio Java
+### <a name="output---java-example"></a>Output - Esempio Java
 
 L'esempio seguente illustra una funzione Java che invia un messaggio alla coda di un bus di servizio `myqueue` quando la funzione viene attivata da una richiesta HTTP.
 
@@ -665,21 +665,21 @@ Per un esempio completo, vedere [Output - esempio in C#](#output---c-example).
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `ServiceBus`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
 |**type** | N/D | Il valore deve essere impostato su "serviceBus". Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure.|
-|**direction** | N/D | Il valore deve essere impostato su "out". Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
+|**direction** | N/D | Deve essere impostato su "out". Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
 |**nome** | N/D | Nome della variabile che rappresenta la coda o l'argomento nel codice della funzione. Impostare su "$return" per fare riferimento al valore restituito della funzione. |
 |**queueName**|**QueueName**|Nome della coda.  Impostare questa proprietà solo se si inviano messaggi della coda, non dell'argomento.
 |**topicName**|**topicName**|Nome dell'argomento da monitorare. Impostare questa proprietà solo se si inviano messaggi dell'argomento, non della coda.|
 |**connessione**|**Connection**|Nome di un'impostazione dell'app che contiene la stringa di connessione del bus di servizio da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo la parte restante del nome. Ad esempio, se si imposta `connection` su "MyServiceBus", il runtime di Funzioni di Azure cerca un'impostazione dell'app denominata "AzureWebJobsMyServiceBus". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione del bus di servizio predefinita nell'impostazione dell'app denominata "AzureWebJobsServiceBus".<br><br>Per ottenere una stringa di connessione, seguire i passaggi indicati in [Ottenere le credenziali di gestione](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). La stringa di connessione deve essere relativa a uno spazio dei nomi del bus di servizio e non limitata a una coda o un argomento specifico.|
-|**accessRights**|**Accedervi**|Diritti di accesso per la stringa di connessione. I valori disponibili sono `manage` e `listen`. Il valore predefinito è `manage`, che indica che `connection` dispone dell'autorizzazione **Gestisci**. Se si usa una stringa di connessione priva dell'autorizzazione **Gestisci**, impostare `accessRights` su "listen". In caso contrario, il runtime di Funzioni potrebbe non riuscire a eseguire operazioni che richiedono diritti di gestione. In Funzioni di Azure versione 2.x questa proprietà non è disponibile perché la versione più recente di Storage SDK non supporta le operazioni di gestione.|
+|**accessRights**|**Accedere**|Diritti di accesso per la stringa di connessione. I valori disponibili sono `manage` e `listen`. Il valore predefinito è `manage`, che indica che `connection` dispone dell'autorizzazione **Gestisci**. Se si usa una stringa di connessione priva dell'autorizzazione **Gestisci**, impostare `accessRights` su "listen". In caso contrario, il runtime di Funzioni potrebbe non riuscire a eseguire operazioni che richiedono diritti di gestione. In funzioni di Azure versione 2. x e successive questa proprietà non è disponibile perché la versione più recente di storage SDK non supporta le operazioni di gestione.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Output - uso
 
-In Funzioni di Azure 1.x il runtime crea la coda se inesistente e se il parametro `accessRights` è stato impostato su `manage`. In Funzioni versione 2.x la coda o l'argomento deve esistere già. Se si specifica una coda o un argomento inesistente, la funzione non viene eseguita. 
+In Funzioni di Azure 1.x il runtime crea la coda se inesistente e se il parametro `accessRights` è stato impostato su `manage`. Nelle funzioni versione 2. x e successive la coda o l'argomento deve esistere già. Se si specifica una coda o un argomento che non esiste, la funzione avrà esito negativo. 
 
 In C# e nello script C# è possibile usare i tipi di parametro seguenti per l'associazione di output:
 
@@ -687,7 +687,7 @@ In C# e nello script C# è possibile usare i tipi di parametro seguenti per l'as
 * `out string`: se il valore del parametro è null quando la funzione termina, Funzioni di Azure non crea un messaggio.
 * `out byte[]`: se il valore del parametro è null quando la funzione termina, Funzioni di Azure non crea un messaggio.
 * `out BrokeredMessage`: se il valore del parametro è null quando la funzione viene chiusa, funzioni non crea un messaggio (per le funzioni 1. x)
-* `out Message`: se il valore del parametro è null quando la funzione viene chiusa, funzioni non crea un messaggio (per functions 2. x)
+* `out Message`: se il valore del parametro è null quando la funzione viene chiusa, funzioni non crea un messaggio (per le funzioni 2. x e versioni successive)
 * `ICollector<T>` o `IAsyncCollector<T>`: per la creazione di più messaggi. Quando si chiama il metodo `Add` viene creato un messaggio.
 
 Quando si utilizzano C# le funzioni:
@@ -702,16 +702,16 @@ Per inviare un messaggio a una coda abilitata per la sessione inC# lingue divers
 
 ## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
 
-| Binding | riferimento |
+| Associazione | Riferimento |
 |---|---|
-| BUS DI SERVIZIO | [Codici di errore del bus di servizio](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-exceptions) |
-| BUS DI SERVIZIO | [Limiti del bus di servizio](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas) |
+| Bus di servizio | [Codici di errore del bus di servizio](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-exceptions) |
+| Bus di servizio | [Limiti del bus di servizio](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas) |
 
 <a name="host-json"></a>  
 
 ## <a name="hostjson-settings"></a>impostazioni host.json
 
-Questa sezione descrive le impostazioni di configurazione globali disponibili per questa associazione nella versione 2.x. Il file host.json di esempio seguente contiene solo le impostazioni della versione 2.x per questa associazione. Per altre informazioni sulle impostazioni di configurazione globali nella versione 2.x, vedere [Informazioni di riferimento su host.json per Funzioni di Azure versione 2.x](functions-host-json.md).
+Questa sezione descrive le impostazioni di configurazione globali disponibili per questa associazione nelle versioni 2. x e successive. Il file host. JSON di esempio riportato di seguito contiene solo le impostazioni per questa associazione. Per altre informazioni sulle impostazioni di configurazione globali, vedere informazioni di [riferimento su host. JSON per la versione di funzioni di Azure](functions-host-json.md).
 
 > [!NOTE]
 > Per informazioni di riferimento su host.json in Funzioni 1.x, vedere [Informazioni di riferimento su host.json per Funzioni di Azure 1.x](functions-host-json-v1.md).
@@ -732,7 +732,7 @@ Questa sezione descrive le impostazioni di configurazione globali disponibili pe
 }
 ```
 
-|Proprietà  |Default | DESCRIZIONE |
+|Proprietà  |Predefinito | Description |
 |---------|---------|---------|
 |maxAutoRenewDuration|00:05:00|La durata massima entro il quale il blocco del messaggio verrà rinnovato automaticamente.|
 |autoComplete|true|Indica se il trigger deve contrassegnare immediatamente come completato (completamento automatico) oppure attendere che venga eseguita la chiamata a complete.|

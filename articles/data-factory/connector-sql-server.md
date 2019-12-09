@@ -1,25 +1,26 @@
 ---
-title: Copiare dati da e verso SQL Server tramite Azure Data Factory
+title: Copiare dati da e verso SQL Server
 description: Informazioni su come spostare i dati da e verso SQL Server database locale o in una VM di Azure usando Azure Data Factory.
 services: data-factory
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/24/2019
-ms.author: jingwang
-ms.openlocfilehash: 24a9450b63ba4ed68c9c68e5054e6b02ecf7e0d0
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 8fa4f3b7dfbebb65b1ae60791027eb5fd31a24fb
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075581"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931032"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Copiare dati da e verso SQL Server tramite Azure Data Factory
+
 > [!div class="op_single_selector" title1="Selezionare la versione di Azure Data Factory che si sta usando:"]
 > * [Versione 1](v1/data-factory-sqlserver-connector.md)
 > * [Versione corrente](connector-sql-server.md)
@@ -48,11 +49,11 @@ In particolare, il connettore SQL Server supporta:
 >[!NOTE]
 >SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) non è attualmente supportata da questo connettore. Per aggirare il lavoro, è possibile utilizzare un [connettore ODBC generico](connector-odbc.md) e un driver ODBC SQL Server. Attenersi a [queste linee guida per il](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=sql-server-2017) download del driver ODBC e le configurazioni della stringa di connessione.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Inizia oggi stesso
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -62,12 +63,12 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato SQL Server sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | obbligatori |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su **SqlServer**. | Sì |
-| connectionString |Specificare le informazioni di **ConnectionString** necessarie per connettersi al database di SQL Server usando l'autenticazione SQL o l'autenticazione di Windows. Vedere gli esempi seguenti.<br/>Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in Azure Data Factory. È anche possibile inserire una password in Azure Key Vault. Se si tratta dell'autenticazione SQL, estrarre la configurazione `password` dalla stringa di connessione. Per ulteriori informazioni, vedere l'esempio JSON che segue la tabella e [archivia le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). |Sì |
+| type | La proprietà type deve essere impostata su **SqlServer**. | SÌ |
+| connectionString |Specificare le informazioni di **ConnectionString** necessarie per connettersi al database di SQL Server usando l'autenticazione SQL o l'autenticazione di Windows. Vedere gli esempi seguenti.<br/>Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in Azure Data Factory. È anche possibile inserire una password in Azure Key Vault. Se si tratta dell'autenticazione SQL, estrarre la configurazione `password` dalla stringa di connessione. Per ulteriori informazioni, vedere l'esempio JSON che segue la tabella e [archivia le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). |SÌ |
 | userName |Specificare un nome utente se si usa l'autenticazione di Windows. Ad esempio, **nomedominio\\nomeutente**. |No |
-| Password |Specificare una password per l'account utente specificato per il nome utente. Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in Azure Data Factory. In alternativa, è possibile [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |No |
+| password |Specificare una password per l'account utente specificato per il nome utente. Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in Azure Data Factory. In alternativa, è possibile [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |No |
 | connectVia | Questo [runtime di integrazione](concepts-integration-runtime.md) viene usato per connettersi all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 >[!TIP]
@@ -149,15 +150,15 @@ Per il servizio collegato SQL Server sono supportate le proprietà seguenti:
 }
 ```
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui [set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati SQL Server.
 
 Per copiare dati da e in un database di SQL Server, sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | obbligatori |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su **SqlServerTable**. | Sì |
+| type | La proprietà type del set di dati deve essere impostata su **SqlServerTable**. | SÌ |
 | schema | Nome dello schema. |No per l'origine, Sì per il sink  |
 | table | Nome della tabella o della vista. |No per l'origine, Sì per il sink  |
 | tableName | Nome della tabella o della vista con schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Per il nuovo carico di lavoro, usare `schema` e `table`. | No per l'origine, Sì per il sink |
@@ -191,9 +192,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per definire
 
 Per copiare dati da un database SQL Server, impostare il tipo di origine nell'attività di copia su **SqlSource**. Nella sezione source dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | obbligatori |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **SqlSource**. | Sì |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **SqlSource**. | SÌ |
 | sqlReaderQuery |Usare la query SQL personalizzata per leggere i dati. Un esempio è `select * from MyTable`. |No |
 | sqlReaderStoredProcedureName |Questa proprietà definisce il nome della stored procedure che legge i dati dalla tabella di origine. L'ultima istruzione SQL deve essere un'istruzione SELECT nella stored procedure. |No |
 | storedProcedureParameters |Questi parametri sono relativi alla stored procedure.<br/>I valori consentiti sono coppie nome-valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri stored procedure. |No |
@@ -297,9 +298,9 @@ GO
 
 Per copiare dati da SQL Server, impostare il tipo di sink nell'attività di copia su **SqlSink**. Nella sezione sink dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | obbligatori |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del sink dell'attività di copia deve essere impostata su **SqlSink**. | Sì |
+| type | La proprietà type del sink dell'attività di copia deve essere impostata su **SqlSink**. | SÌ |
 | writeBatchSize |Numero di righe da inserire nella tabella SQL *per batch*.<br/>I valori consentiti sono integer per il numero di righe. Per impostazione predefinita, Azure Data Factory determina in modo dinamico le dimensioni del batch appropriate in base alle dimensioni della riga. |No |
 | writeBatchTimeout |Questa proprietà specifica il tempo di attesa per l'operazione di inserimento batch da completare prima del timeout.<br/>I valori consentiti sono per l'intervallo di tempo. Un esempio è "00:30:00" per 30 minuti. Se non viene specificato alcun valore, il valore predefinito per il timeout è "02:00:00". |No |
 | preCopyScript |Questa proprietà specifica una query SQL per l'attività di copia da eseguire prima di scrivere i dati in SQL Server. Viene richiamata solo una volta per ogni esecuzione della copia. È possibile usare questa proprietà per pulire i dati precaricati. |No |
@@ -502,36 +503,36 @@ Quando si copiano dati da e in SQL Server, i mapping seguenti vengono utilizzati
 |:--- |:--- |
 | bigint |Int64 |
 | binary |Byte[] |
-| Bit |Booleano |
+| bit |boolean |
 | char |String, Char[] |
-| date |DateTime |
-| Datetime |DateTime |
-| datetime2 |DateTime |
-| Datetimeoffset |Datetimeoffset |
-| Decimal |Decimal |
+| date |Data e ora |
+| DateTime |Data e ora |
+| datetime2 |Data e ora |
+| Datetimeoffset |DateTimeOffset |
+| DECIMAL |DECIMAL |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
-| Float |Double |
-| immagine |Byte[] |
+| Float |DOUBLE |
+| image |Byte[] |
 | int |Int32 |
-| money |Decimal |
+| money |DECIMAL |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeric |Decimal |
+| numeric |DECIMAL |
 | nvarchar |String, Char[] |
-| real |Single |
+| real |Singolo |
 | rowversion |Byte[] |
-| smalldatetime |DateTime |
+| smalldatetime |Data e ora |
 | smallint |Int16 |
-| smallmoney |Decimal |
-| sql_variant |Object |
+| smallmoney |DECIMAL |
+| sql_variant |Oggetto |
 | text |String, Char[] |
-| time |TimeSpan |
+| time |Intervallo di tempo |
 | timestamp |Byte[] |
 | tinyint |Int16 |
-| uniqueidentifier |Guid |
+| uniqueidentifier |GUID |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |Xml |
+| Xml |xml |
 
 >[!NOTE]
 > Per i tipi di dati associati al tipo provvisorio Decimal, Azure Data Factory supporta attualmente la precisione fino a 28. Se si hanno dati che richiedono una precisione maggiore di 28, è consigliabile convertirli in una stringa in una query SQL.

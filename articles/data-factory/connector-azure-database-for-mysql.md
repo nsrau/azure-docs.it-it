@@ -1,23 +1,22 @@
 ---
-title: Copiare dati da e verso il database di Azure per MySQL usando Azure Data Factory
+title: Copiare dati da e verso il database di Azure per MySQL
 description: Informazioni su come copiare dati da e verso il database di Azure per MySQL usando un'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 08/25/2019
-ms.author: jingwang
-ms.openlocfilehash: dd450852931fdc57192bcc126b710d8cfb3e27ac
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: cd3a069eb24b6390629cfaf9a4f19f47e8978d8a
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681245"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931653"
 ---
 # <a name="copy-data-to-and-from-azure-database-for-mysql-using-azure-data-factory"></a>Copiare dati da e verso il database di Azure per MySQL usando Azure Data Factory
 
@@ -36,7 +35,7 @@ Questo connettore di database di Azure per MySQL è supportato per le attività 
 
 Azure Data Factory offre un driver predefinito per consentire la connettività, pertanto non è necessario installare manualmente alcun driver usando questo connettore.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -46,15 +45,15 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà usate pe
 
 Per il servizio collegato del database di Azure per MySQL sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **AzureMySql** | Sì |
-| connectionString | Specifica le informazioni necessarie per connettersi all'istanza del database di Azure per MySQL. <br/>Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. È anche possibile inserire la password in Azure Key Vault ed eseguire lo spostamento forzato dei dati della configurazione `password` all'esterno della stringa di connessione. Vedere gli esempi seguenti e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. | Sì |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
+| type | La proprietà type deve essere impostata su: **AzureMySql** | SÌ |
+| connectionString | Specifica le informazioni necessarie per connettersi all'istanza del database di Azure per MySQL. <br/>Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. È anche possibile inserire la password in Azure Key Vault ed eseguire lo spostamento forzato dei dati della configurazione `password` all'esterno della stringa di connessione. Vedere gli esempi seguenti e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. | SÌ |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non diversamente specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 Una stringa di connessione tipica è `Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Altre proprietà che è possibile impostare per il case:
 
-| Proprietà | Descrizione | Opzioni | Obbligatorio |
+| Proprietà | Description | Opzioni | Obbligatoria |
 |:--- |:--- |:--- |:--- |
 | SSLMode | Questa opzione specifica se il driver usa la crittografia SSL e verifica la connessione a MySQL. Ad esempio, `SSLMode=<0/1/2/3/4>`| DISABLED (0) / PREFERRED (1) **(impostazione predefinita)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | No |
 | UseSystemTrustStore | Questa opzione specifica se usare o meno un certificato CA dall'archivio di attendibilità di sistema o da un file PEM specificato. Ad esempio, `UseSystemTrustStore=<0/1>;`| Abilitato (1) / Disabilitato (0) **(impostazione predefinita)** | No |
@@ -115,9 +114,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati dal database di Azure per MySQL, impostare la proprietà type del set di dati su **AzureMySqlTable**. Sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su **AzureMySqlTable** | Sì |
+| type | La proprietà type del set di dati deve essere impostata su **AzureMySqlTable** | SÌ |
 | tableName | Nome della tabella nel database MySQL. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
@@ -146,9 +145,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da database di Azure per MySQL, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **AzureMySqlSource** | Sì |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **AzureMySqlSource** | SÌ |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
 | queryCommandTimeout | Tempo di attesa prima del timeout della richiesta di query. Il valore predefinito è 120 minuti (02:00:00) | No |
 
@@ -188,9 +187,9 @@ Per copiare dati da database di Azure per MySQL, nella sezione **origine** dell'
 
 Per copiare dati in database di Azure per MySQL, nella sezione **sink** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type del sink dell'attività di copia deve essere impostata su: **AzureMySqlSink** | Sì |
+| type | La proprietà Type del sink dell'attività di copia deve essere impostata su: **AzureMySqlSink** | SÌ |
 | preCopyScript | Specificare una query SQL per l'attività di copia da eseguire prima di scrivere i dati nel database di Azure per MySQL in ogni esecuzione. È possibile usare questa proprietà per pulire i dati precaricati. | No |
 | writeBatchSize | Inserisce i dati nella tabella di database di Azure per MySQL quando la dimensione del buffer raggiunge writeBatchSize.<br>Il valore consentito è Integer che rappresenta il numero di righe. | No (il valore predefinito è 10.000) |
 | writeBatchTimeout | Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout.<br>I valori consentiti sono un intervallo di tempo. Ad esempio "00:30:00" (30 minuti). | No (il valore predefinito è 00:00:30) |

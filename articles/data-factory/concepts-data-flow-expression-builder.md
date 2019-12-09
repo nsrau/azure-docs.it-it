@@ -1,17 +1,18 @@
 ---
-title: Generatore di espressioni del flusso di dati del mapping Azure Data Factory
+title: Generatore di espressioni del flusso di dati di mapping
 description: Generatore di espressioni per i flussi di dati di mapping Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 11/17/2019
-ms.openlocfilehash: 0eb2c2692ed2444a85e7253c6fdd8734385ff881
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.custom: seo-lt-2019
+ms.date: 12/06/2019
+ms.openlocfilehash: 7d8f02647224c971c44bff51f09315c53c53e9a3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672258"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928347"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Generatore di espressioni del flusso di dati di mapping
 
@@ -27,7 +28,7 @@ L'opzione predefinita dello strumento Generatore di espressioni è l'editor di t
 
 ## <a name="build-schemas-in-output-schema-pane"></a>Schemi di compilazione nel riquadro Schema di output
 
-![Aggiungi colonna complessa](media/data-flow/complexcolumn.png "Aggiungi colonne")
+![Aggiungi colonna complessa](media/data-flow/complexcolumn.png "Aggiungere colonne")
 
 Nel riquadro dello schema di output a sinistra verranno visualizzate le colonne che si stanno modificando e aggiungendo allo schema. Qui è possibile compilare in modo interattivo strutture di dati semplici e complesse. Aggiungere ulteriori campi utilizzando "Aggiungi colonna" e compilare gerarchie utilizzando "Aggiungi sottocolonna".
 
@@ -50,6 +51,16 @@ Fare clic sul pulsante Aggiorna per aggiornare i risultati dell'espressione risp
 Aggiungere commenti per le espressioni che usano sintassi dei commenti su una riga singola e su righe multiple:
 
 ![Commenti](media/data-flow/comments.png "Commenti")
+
+## <a name="string-interpolation"></a>Interpolazione di stringhe
+
+Utilizzare le virgolette doppie per racchiudere il testo di stringa letterale insieme alle espressioni. È possibile includere funzioni di espressione, colonne e parametri. Questa operazione è molto utile per evitare l'utilizzo estensivo della concatenazione di stringhe quando si includono parametri nelle stringhe di query.
+
+* ```"My favorite movie is {iif(instr(title,', The')>0,"The {split(title,', The')[1]}",title)}"```
+
+* ```"select * from {$tablename} where orderyear > {$year}"```
+
+* ```"Total cost with sales tax is {round(totalcost * 1.08,2)}"```
 
 ## <a name="regular-expressions"></a>Espressioni regolari
 

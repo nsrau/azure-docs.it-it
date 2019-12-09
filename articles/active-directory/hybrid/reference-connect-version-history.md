@@ -12,12 +12,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 461298e4f195d88ced5015af26226a9f7b12f737
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3414bc21afb88d2683261ea1ce1398a0b1bfeece
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74891780"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74922284"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Cronologia delle versioni
 Il team di Azure Active Directory (Azure AD) aggiorna regolarmente Azure AD Connect con nuove funzionalità. Le nuove funzionalità potrebbero non essere disponibili in tutti i paesi.
@@ -38,9 +38,23 @@ Download| [Scaricare Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=6
 Durante questo processo, il numero di versione della versione verrà visualizzato con una "X" nella posizione del numero di versione secondario, come in "1.3. X. 0", che indica che le note sulla versione di questo documento sono valide per tutte le versioni che iniziano con "1,3". Non appena è stato completato il processo di rilascio, il numero di versione di rilascio verrà aggiornato alla versione rilasciata più di recente e lo stato della versione verrà aggiornato a "rilasciato per il download e l'aggiornamento automatico".
 Non tutte le versioni di Azure AD Connect saranno disponibili per l'aggiornamento automatico. Lo stato della versione indicherà se una versione sarà disponibile per l'aggiornamento automatico o solo per il download. Se l'aggiornamento automatico è stato abilitato nel server di Azure AD Connect, tale server eseguirà automaticamente l'aggiornamento per la versione più recente di Azure AD Connect, rilasciata per l'aggiornamento automatico. Si noti che non tutte le configurazioni di Azure AD Connect sono idonee per l'aggiornamento automatico. Seguire questo collegamento per altre informazioni sull'[aggiornamento automatico](how-to-connect-install-automatic-upgrade.md)
 
+## <a name="14380"></a>1.4.38.0
+### <a name="release-status"></a>Stato della versione
+12/6/2019: versione per il download. Non disponibile tramite l'aggiornamento automatico.
+### <a name="new-features-and-improvements"></a>Miglioramenti e nuove funzionalità
+- La sincronizzazione dell'hash delle password è stata aggiornata per Azure AD Domain Services per tenere in considerazione correttamente la spaziatura negli hash Kerberos.  In questo modo si otterrà un miglioramento delle prestazioni durante la sincronizzazione delle password da AAD a Azure AD Domain Services.
+- È stato aggiunto il supporto per le sessioni affidabili tra l'agente di autenticazione e il bus di servizio.
+- Questa versione applica TLS 1,2 per la comunicazione tra l'agente di autenticazione e i servizi cloud.
+- È stata aggiunta una cache DNS per le connessioni WebSocket tra l'agente di autenticazione e i servizi cloud.
+- È stata aggiunta la possibilità di indirizzare un agente specifico dal cloud per testare la connettività degli agenti.
+
+### <a name="fixed-issues"></a>Problemi risolti
+- La versione 1.4.18.0 presenta un bug in cui il cmdlet di PowerShell per ICTAMMOLO usa le credenziali di accesso di Windows anziché le credenziali di amministratore fornite durante l'esecuzione di PS. Di conseguenza, non è stato possibile abilitare ICTAMMOLO in più foreste tramite l'interfaccia utente di AADConnect. 
+- È stata apportata una correzione per abilitare ICTAMMOLO simultaneamente in tutti gli insiemi di strutture tramite l'interfaccia utente di AADConnect
+
 ## <a name="14320"></a>1.4.32.0
 ### <a name="release-status"></a>Stato della versione
-11/08/2019: rilasciato per il download. Non disponibile per l'aggiornamento automatico
+11/08/2019: rilasciato per il download. Non disponibile tramite l'aggiornamento automatico.
 
 >[!IMPORTANT]
 >A causa di una modifica dello schema interno in questa versione di Azure AD Connect, se si gestiscono le impostazioni di configurazione della relazione di trust con ADFS usando MSOnline PowerShell, è necessario aggiornare il modulo MSOnline PowerShell alla versione 1.1.183.57 o successiva.

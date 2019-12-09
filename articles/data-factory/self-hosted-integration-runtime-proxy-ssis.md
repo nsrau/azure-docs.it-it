@@ -5,7 +5,6 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
@@ -13,12 +12,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 11/12/2019
-ms.openlocfilehash: cae15e38f98794a3e97ad0b06329aa2e62c2945e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: fa0f61ed0e280f11e693596f80e79f2e2c110678
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217654"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74932048"
 ---
 # <a name="configure-self-hosted-ir-as-a-proxy-for-azure-ssis-ir-in-adf"></a>Configurare il runtime di integrazione self-hosted come proxy per Azure-SSIS IR in ADF
 
@@ -54,14 +53,14 @@ Nella pagina **Impostazioni avanzate** selezionare la casella di controllo **Con
 ![Configurare Azure-SSIS IR con il runtime di integrazione self-hosted come proxy](media/self-hosted-integration-runtime-proxy-ssis/shir-advanced-settings-ssisir.png)
 
 ## <a name="enable-ssis-packages-to-connect-by-proxy"></a>Abilitare la connessione dei pacchetti SSIS per proxy
-Usando la versione più recente di SSDT con l'estensione di progetti SSIS per Visual Studio che può essere scaricata da [qui](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects) o come programma di installazione autonomo che può essere scaricato da [qui](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer), è possibile trovare una nuova proprietà **ConnectByProxy** che è stata aggiunta in OLEDB/ Gestioni connessioni file flat.  
+Usando la versione più recente di SSDT con l'estensione di progetti SSIS per Visual Studio che può essere scaricata da [qui](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects) o come programma di installazione autonomo che può essere scaricato da [qui](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer), è possibile trovare una nuova proprietà **ConnectByProxy** aggiunta nelle gestioni connessioni file flat e OLEDB.  
 
 Quando si progettano nuovi pacchetti contenenti attività flusso di dati con origini file OLEDB/flat per accedere a database o file in locale, è possibile abilitare questa proprietà impostando il valore su **true** nel pannello Proprietà delle gestioni connessioni pertinenti.
 
 ![Abilita proprietà ConnectByProxy](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-manager-properties.png)
 
 È anche possibile abilitare questa proprietà quando si eseguono i pacchetti esistenti senza doverle modificare manualmente una alla volta.  Sono disponibili due opzioni:
-- Apertura, ricompilazione e ridistribuzione del progetto contenente i pacchetti con la versione più recente di SSDT da eseguire nel Azure-SSIS IR: la proprietà può essere abilitata impostando la proprietà su **true** per le gestioni connessioni pertinenti visualizzate nella **connessione Scheda responsabili** della finestra popup Esegui pacchetto durante l'esecuzione di pacchetti da SSMS.
+- Aprire, ricompilare e ridistribuire il progetto contenente i pacchetti con la versione più recente di SSDT da eseguire nel Azure-SSIS IR: la proprietà può quindi essere abilitata impostando il valore su **true** per le gestioni connessioni pertinenti visualizzate nella scheda **gestioni connessioni** della finestra popup Esegui pacchetto durante l'esecuzione di pacchetti da SSMS.
 
   ![Abilita Property2 ConnectByProxy](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssms.png)
 
@@ -69,7 +68,7 @@ Quando si progettano nuovi pacchetti contenenti attività flusso di dati con ori
   
   ![Abilita property3 ConnectByProxy](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssis-activity.png)
 
-- Ridistribuzione del progetto contenente i pacchetti da eseguire sul runtime di integrazione SSIS: la proprietà può quindi essere abilitata specificando il percorso della proprietà, `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`e impostando il valore su **true** come override di proprietà nella scheda **Avanzate** della finestra popup Esegui pacchetto Quando si eseguono pacchetti da SSMS.
+- Ridistribuzione del progetto contenente i pacchetti da eseguire sul runtime di integrazione SSIS: la proprietà può quindi essere abilitata specificando il percorso della proprietà, `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`e impostando il valore su **true** come override di proprietà nella scheda **Avanzate** della finestra popup Esegui pacchetto quando si eseguono pacchetti da SSMS.
 
   ![Abilita Property4 ConnectByProxy](media/self-hosted-integration-runtime-proxy-ssis/shir-advanced-tab-ssms.png)
 
@@ -95,4 +94,4 @@ Le seconde attività di gestione temporanea in esecuzione nel Azure-SSIS IR non 
 - L'utilizzo di parametri/variabili SSIS all'interno delle proprietà delle origini file ODBC/OLEDB/flat e delle gestioni connessioni non è al momento supportato.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo aver configurato il runtime di integrazione self-hosted come proxy per la Azure-SSIS IR, è possibile distribuire ed eseguire i pacchetti per accedere ai dati locali come attività Esegui pacchetto SSIS nelle pipeline di ADF, vedere [eseguire pacchetti SSIS come attività Esegui pacchetto SSIS nelle pipeline di ADF ](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
+Dopo aver configurato il runtime di integrazione self-hosted come proxy per la Azure-SSIS IR, è possibile distribuire ed eseguire i pacchetti per accedere ai dati locali come attività Esegui pacchetto SSIS nelle pipeline di ADF, vedere [eseguire pacchetti SSIS come attività Esegui pacchetto SSIS nelle pipeline di ADF](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).

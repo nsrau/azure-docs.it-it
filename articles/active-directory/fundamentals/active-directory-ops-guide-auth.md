@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 40e0ba21d472097e34938878ddc1fa0c47b30417
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 85281088692d1c4b0245eb9d069519198f8f315d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803734"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919342"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guida di riferimento per le operazioni di gestione dell'autenticazione Azure Active Directory
 
@@ -292,16 +292,16 @@ Se l'autenticazione legacy viene ampiamente utilizzata nell'ambiente in uso, è 
 
 ### <a name="consent-grants"></a>Concessioni di consenso
 
-In un attacco di concessione di consenso illecito, l'autore dell'attacco crea un'applicazione registrata Azure AD che richiede l'accesso ai dati, ad esempio le informazioni di contatto, la posta elettronica o i documenti. È possibile che gli utenti concedano il consenso alle applicazioni dannose tramite attacchi di phishing o indirettamente, senza prestare attenzione durante l'atterraggio su siti Web dannosi.
+In un attacco di concessione di consenso illecito, l'autore dell'attacco crea un'applicazione registrata Azure AD che richiede l'accesso ai dati, ad esempio le informazioni di contatto, la posta elettronica o i documenti. Gli utenti potrebbero concedere il consenso alle applicazioni dannose tramite attacchi di phishing durante l'atterraggio su siti Web dannosi.
 
-Di seguito sono riportate le autorizzazioni che è possibile esaminare per i servizi cloud Microsoft:
+Di seguito è riportato un elenco di app con autorizzazioni che possono essere esaminate per i servizi cloud Microsoft:
 
-- Applicazioni con app o \*delegata. Autorizzazioni ReadWrite
-- Le applicazioni con autorizzazioni delegate possono leggere, inviare o gestire i messaggi di posta elettronica per conto dell'utente
-- Applicazioni a cui viene concesso utilizzando le autorizzazioni seguenti:
+- App con app o \*delegata. Autorizzazioni ReadWrite
+- Le app con autorizzazioni delegate possono leggere, inviare o gestire i messaggi di posta elettronica per conto dell'utente
+- App a cui viene concesso usando le autorizzazioni seguenti:
 
 | Gruppi | Autorizzazione |
-| -------------------------- | -------------------- |
+| :- | :- |
 | Office 365 Exchange Online | EAS. AccessAsUser. All |
 | | EWS. AccessAsUser. All |
 | | Posta elettronica. Read |
@@ -309,11 +309,19 @@ Di seguito sono riportate le autorizzazioni che è possibile esaminare per i ser
 | | Mail. Read. Shared |
 | | Mail. ReadWrite |
 
-Per evitare questo scenario, è necessario fare riferimento a [rilevare e correggere le concessioni di consenso illecito in Office 365](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) per identificare e correggere le applicazioni con concessioni illecite o applicazioni che dispongono di più concessioni rispetto a quelle necessarie. Pianificare le verifiche regolari delle autorizzazioni dell'app e rimuoverle quando non sono necessarie; oppure rimuovere completamente la modalità self-service e stabilire procedure di governance.
+- Le app hanno concesso la rappresentazione utente completa dell'utente che ha eseguito l'accesso. ad esempio:
+
+|Gruppi | Autorizzazione |
+| :- | :- |
+| Microsoft Azure AD Graph | Directory.AccessAsUser.All |
+| Microsoft Graph | Directory.AccessAsUser.All |
+| API REST di Azure | user_impersonation |
+
+Per evitare questo scenario, è necessario fare riferimento a [rilevare e correggere le concessioni di consenso illecito in Office 365](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) per identificare e correggere le applicazioni con concessioni illecite o applicazioni che dispongono di più concessioni rispetto a quelle necessarie. A questo punto, [rimuovere completamente il self-service](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-user-consent) e [stabilire le procedure di governance](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow). Infine, pianificare le verifiche regolari delle autorizzazioni dell'app e rimuoverle quando non sono necessarie.
 
 #### <a name="consent-grants-recommended-reading"></a>Concessioni di consenso consigliate
 
-- [Ambiti di autorizzazione di Azure Active Directory (AD) API Graph](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes)
+- [Autorizzazioni di Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference)
 
 ### <a name="user-and-group-settings"></a>Impostazioni utente e gruppo
 

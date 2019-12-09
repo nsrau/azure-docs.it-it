@@ -3,19 +3,19 @@ title: Esperienze di gestione tra tenant
 description: La gestione risorse delegate di Azure consente un'esperienza di gestione tra tenant.
 ms.date: 11/7/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2db1cfd7cc8145ff3020bf232021b4f1a63b2ddd
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 0f69fc6b606f2f848b9a14d29addbbde11f07a3e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464025"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927999"
 ---
 # <a name="cross-tenant-management-experiences"></a>Esperienze di gestione tra tenant
 
 Un provider di servizi può usare la [gestione risorse delegate di Azure](../concepts/azure-delegated-resource-management.md) per gestire le risorse di Azure per più clienti dal tenant nel [portale di Azure](https://portal.azure.com). La maggior parte delle attività e dei servizi può essere eseguita nelle risorse di Azure delegate tra i tenant gestiti. Questo articolo descrive alcuni degli scenari avanzati in cui la gestione risorse delegate di Azure può essere efficace.
 
 > [!NOTE]
-> La gestione risorse delegate di Azure può essere usata anche all'interno di un'azienda con più tenant propri per semplificare l'amministrazione tra tenant.
+> La gestione delle risorse delegate di Azure può essere usata anche [all'interno di un'azienda che dispone di più tenant Azure ad](enterprise.md) per semplificare l'amministrazione tra tenant.
 
 ## <a name="understanding-customer-tenants"></a>Informazioni sui tenant dei clienti
 

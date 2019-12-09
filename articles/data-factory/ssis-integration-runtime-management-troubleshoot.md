@@ -1,23 +1,22 @@
 ---
-title: 'Risolvere i problemi di gestione di SSIS Integration Runtime in Azure Data Factory '
+title: Risolvere i problemi di gestione Integration Runtime SSIS
 description: Questo articolo fornisce indicazioni per la risoluzione dei problemi di gestione di SSIS Integration Runtime (IR SSIS)
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/08/2019
 author: chinadragon0515
 ms.author: dashe
 ms.reviewer: sawinark
-manager: craigg
-ms.openlocfilehash: 3452fc2274eb646acb19c0e6a203ebadcb81cad5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: mflasko
+ms.custom: seo-lt-2019
+ms.date: 07/08/2019
+ms.openlocfilehash: c7db5d7d8963702f6039af3cfd51d6d916755abb
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684033"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931931"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Risolvere i problemi di gestione di SSIS Integration Runtime in Azure Data Factory
 
@@ -77,7 +76,7 @@ Per altri problemi, controllare il messaggio di errore di eccezione SQL e risolv
 
 ### <a name="invalidcatalogdb"></a>InvalidCatalogDb
 
-Questo tipo di messaggio di errore è simile al seguente: "nome di oggetto non valido ' Catalog. catalog_properties '". In questa situazione, si dispone già di un database denominato SSISDB ma non è stato creato dal runtime di integrazione SSIS oppure il database è in uno stato non valido causato da errori nell'ultimo provisioning del runtime di integrazione SSIS. È possibile eliminare il database esistente con il nome SSISDB oppure configurare un nuovo server di database SQL di Azure o una nuova istanza gestita per il runtime di integrazione.
+Questo tipo di messaggio di errore è simile al seguente: "nome oggetto non valido ' Catalog. catalog_properties '". In questa situazione, si dispone già di un database denominato SSISDB ma non è stato creato dal runtime di integrazione SSIS oppure il database è in uno stato non valido causato da errori nell'ultimo provisioning del runtime di integrazione SSIS. È possibile eliminare il database esistente con il nome SSISDB oppure configurare un nuovo server di database SQL di Azure o una nuova istanza gestita per il runtime di integrazione.
 
 ## <a name="custom-setup-issues"></a>Problemi di installazione personalizzati
 
@@ -105,7 +104,7 @@ Questo errore indica che l'esecuzione dello script di installazione personalizza
 
 ### <a name="customsetupscripttimeout"></a>CustomSetupScriptTimeout
 
-Questo errore indica un timeout di esecuzione dello script di installazione personalizzata. Assicurarsi che lo script possa essere eseguito in modo invisibile all'utente e che non siano necessari input interattivi e assicurarsi che il contenitore BLOB contenga solo i file di installazione personalizzati necessari. È consigliabile testare prima lo script sul computer locale. È inoltre necessario controllare i log di esecuzione dell'installazione personalizzata nel contenitore BLOB. Il periodo massimo per l'installazione personalizzata è di 45 minuti prima del timeout, mentre il periodo massimo include il tempo per scaricare tutti i file dal contenitore e installarli in SSIS IR. Se è necessario un periodo più lungo, generare un ticket di supporto.
+Questo errore indica un timeout di esecuzione dello script di installazione personalizzata. Assicurarsi che lo script possa essere eseguito in modo invisibile all'utente e che non siano necessari input interattivi e assicurarsi anche che il contenitore BLOB contenga solo i file di installazione personalizzati necessari. È consigliabile testare prima lo script sul computer locale. È inoltre necessario controllare i log di esecuzione dell'installazione personalizzata nel contenitore BLOB. Il periodo massimo per l'installazione personalizzata è di 45 minuti prima del timeout, mentre il periodo massimo include il tempo per scaricare tutti i file dal contenitore e installarli in SSIS IR. Se è necessario un periodo più lungo, generare un ticket di supporto.
 
 ### <a name="customsetupscriptloguploadfailure"></a>CustomSetupScriptLogUploadFailure
 

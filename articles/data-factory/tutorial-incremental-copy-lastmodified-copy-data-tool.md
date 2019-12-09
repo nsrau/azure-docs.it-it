@@ -2,24 +2,22 @@
 title: Strumento dati per copiare i file nuovi e aggiornati in modo incrementale
 description: Creare una data factory di Azure e quindi usare lo strumento Copia dati per caricare in modo incrementale i nuovi file in base a LastModifiedDate.
 services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
 ms.reviewer: ''
 manager: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 1/24/2019
-ms.openlocfilehash: 5c20196bd243d025d58f7cc08e015e1e0038e178
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5ff3ade800b2a3474a68a34dc77d0c9b009e8822
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217795"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74923148"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Copia i file nuovi e modificati in modo incrementale in base a LastModifiedDate utilizzando lo strumento Copia dati
 
@@ -30,17 +28,17 @@ In questo modo, ADF analizzerà tutti i file dell'archivio di origine, applicher
 > [!NOTE]
 > Se non si ha familiarità con Azure Data Factory, vedere [Introduzione ad Azure Data Factory](introduction.md).
 
-In questa esercitazione si eseguiranno le attività seguenti:
+In questa esercitazione verranno effettuate le attività seguenti:
 
 > [!div class="checklist"]
 > * Creare una data factory.
 > * Usare lo strumento Copia dati per creare una pipeline.
 > * Monitorare le esecuzioni di pipeline e attività.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * **Sottoscrizione di Azure**: se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-* **Account di archiviazione di Azure**: usare l'archiviazione BLOB come archivio dati di _origine_ e _sink_ . Se non si ha un account di archiviazione di Azure, vedere le istruzioni riportate in [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md).
+* **Account di archiviazione di Azure**: usare l'archiviazione BLOB come archivio dati di _origine_ e _sink_ . Se non è disponibile un account di archiviazione di Azure, vedere le istruzioni fornite in [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md).
 
 ### <a name="create-two-containers-in-blob-storage"></a>Creare due contenitori nell'archivio BLOB
 
@@ -50,7 +48,7 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
 
 2. Creare un contenitore denominato **Destination**. 
 
-## <a name="create-a-data-factory"></a>Creare un'istanza di Data factory
+## <a name="create-a-data-factory"></a>Creare una data factory
 
 1. Nel menu a sinistra selezionare **Crea una risorsa** > **Dati e analisi** > **Data factory**: 
    
@@ -75,7 +73,7 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
 5. In **versione**selezionare **v2**.
 6. In **Località** selezionare la località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati (ad esempio, archiviazione di Azure e il database SQL) e le risorse di calcolo (ad esempio, Azure HDInsight) usati dal data factory possono trovarsi in altre località e aree.
 7. Selezionare **Aggiungi al dashboard**. 
-8. Selezionare **Create**.
+8. Selezionare **Create** (Crea).
 9. Nel dashboard fare riferimento al riquadro **deploying Data Factory** per visualizzare lo stato del processo.
 
     ![Distribuzione del riquadro Data Factory](media/tutorial-copy-data-tool/deploying-data-factory.png)
@@ -96,7 +94,7 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
 
     b. In **cadenza attività** o **pianificazione attività**Selezionare **Esegui regolarmente in base alla pianificazione**.
 
-    C. In **tipo di trigger**selezionare **finestra a cascata**.
+    c. In **tipo di trigger**selezionare **finestra a cascata**.
     
     d. In **ricorrenza**immettere **15 minuto/i**. 
     
@@ -116,7 +114,7 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
     
     ![Pagina Archivio dati di origine](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-blob.png)
 
-    C. Nella pagina **nuovo servizio collegato** selezionare l'account di archiviazione dall'elenco **nome account di archiviazione** e quindi fare clic su **fine**.
+    c. Nella pagina **nuovo servizio collegato** selezionare l'account di archiviazione dall'elenco **nome account di archiviazione** e quindi fare clic su **fine**.
     
     ![Pagina Archivio dati di origine](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-linkedservice.png)
     
@@ -134,7 +132,7 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
     
     ![Scegliere il file o la cartella di input](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-loading-behavior.png)
     
-    C. Controllare la **copia binaria** e selezionare **Avanti**.
+    c. Controllare la **copia binaria** e selezionare **Avanti**.
     
      ![Scegliere il file o la cartella di input](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/check-binary-copy.png)
      

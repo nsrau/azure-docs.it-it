@@ -2,7 +2,6 @@
 title: Come abilitare l'accesso Single Sign-On tra app su Android tramite ADAL | Documentazione Microsoft
 description: Come usare le funzionalità dell'SDK ADAL per abilitare l'accesso Single Sign-On tra le applicazioni.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
@@ -17,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: brandwe, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb11a4a926c676d37a0bf6be456e3b831a5d8357
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a4d247c569cdc0beff499cee191b95711a603e42
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65962632"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917557"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Procedura: Abilitare l'accesso Single Sign-On tra app su Android tramite ADAL
 
@@ -116,9 +115,9 @@ La capacità dell'applicazione di usare il broker è attivata quando si creano l
 AuthenticationSettings.Instance.setUseBroker(true);
 ```
 
-#### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>Passaggio 2: Stabilire un nuovo URI di reindirizzamento con lo schema URL
+#### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>Passaggio 2: Creare un nuovo URI di reindirizzamento con lo schema dell'URL
 
-Per garantire che l'applicazione corretta riceve l'oggetto restituito le credenziali dei token, vi è necessario assicurarsi che la chiamata all'applicazione in modo che è possibile verificare il sistema operativo Android. Il sistema operativo Android utilizza in Google Play Store l'hash del certificato, che non può essere soggetto a spoofing da un'applicazione non autorizzata. Insieme all'URI dell'applicazione broker, Microsoft si assicura che i token vengano restituiti all'applicazione corretta. È necessario che nell'applicazione venga registrato un URI di reindirizzamento univoco.
+Per assicurarsi che l'applicazione corretta riceva i token delle credenziali restituiti, è necessario assicurarsi che la chiamata all'applicazione venga verificata in un modo che il sistema operativo Android può verificare. Il sistema operativo Android utilizza in Google Play Store l'hash del certificato, che non può essere soggetto a spoofing da un'applicazione non autorizzata. Insieme all'URI dell'applicazione broker, Microsoft si assicura che i token vengano restituiti all'applicazione corretta. È necessario che nell'applicazione venga registrato un URI di reindirizzamento univoco.
 
 L'URI di reindirizzamento deve essere nel formato corretto:
 

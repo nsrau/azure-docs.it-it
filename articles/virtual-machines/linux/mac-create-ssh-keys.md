@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: cb3bb6a91c25298535cfba1107b85f200031a7d6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6cf636e7d7ee35680c1da872b186748c333a81dc
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035905"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929998"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Azioni rapide: Creare e usare una coppia di chiavi SSH pubblica e privata per le macchine virtuali Linux in Azure
 
@@ -38,10 +38,10 @@ Per altri modi in cui generare e usare le chiavi SSH in un computer Windows, ved
 
 Usare il comando `ssh-keygen` per generare i file di chiave pubblica e privata SSH. Per impostazione predefinita, questi file vengono creati nella directory ~/.ssh. È possibile specificare un percorso diverso e una password facoltativa (*passphrase*) per accedere al file di chiave privata. Se nel percorso specificato è presente una coppia di chiavi SSH con lo stesso nome, questi file vengono sovrascritti.
 
-Il comando seguente crea una coppia di chiavi SSH usando la crittografia RSA e una lunghezza in bit pari a 2048:
+Il comando seguente crea una coppia di chiavi SSH usando la crittografia RSA e una lunghezza di bit di 4096:
 
 ```bash
-ssh-keygen -t rsa -b 2048
+ssh-keygen -m PEM -t rsa -b 4096
 ```
 
 Se si usa l'[interfaccia della riga di comando di Azure](/cli/azure) per creare la macchina virtuale con il comando [az vm create](/cli/azure/vm#az-vm-create), facoltativamente è possibile creare i file della chiave SSH pubblica e privata usando con l'opzione `--generate-ssh-keys`. I file delle chiavi vengono archiviati nella directory ~/.ssh se non diversamente specificato con l'opzione `--ssh-dest-key-path`. L'opzione `--generate-ssh-keys` non sovrascriverà i file delle chiavi esistenti, ma restituirà un errore. Nel comando seguente sostituire *VMname* e *RGname* con i propri valori:

@@ -1,57 +1,58 @@
 ---
-title: Azure Data Factory mapping data flow Alter Row Transformation
-description: How to update database target using Azure Data Factory mapping data flow Alter Row Transformation
+title: Trasformazione modifica riga flusso di dati mapping
+description: Come aggiornare la destinazione del database utilizzando la trasformazione alter Row del flusso di dati del mapping di Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 03/12/2019
-ms.openlocfilehash: 7a782c62165aa6f2641c2ebe8e4600198ec373c5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1301b89ef1a6fb02356c6dcd4e568401eb5e9cd2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73486209"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930472"
 ---
-# <a name="azure-data-factory-alter-row-transformation"></a>Azure Data Factory Alter Row Transformation
+# <a name="azure-data-factory-alter-row-transformation"></a>Azure Data Factory trasformazione alter Row
 
-Use the Alter Row transformation to set insert, delete, update, and upsert policies on rows. You can add one-to-many conditions as expressions. These conditions should be specified in order of priority, as each row will be marked with the policy corresponding to the first-matching expression. Each of those conditions can result in a row (or rows) being inserted, updated, deleted, or upserted. Alter Row can produce both DDL & DML actions against your database.
+Utilizzare la trasformazione alter Row per impostare i criteri INSERT, DELETE, Update e Upsert sulle righe. È possibile aggiungere condizioni uno-a-molti come espressioni. Queste condizioni devono essere specificate in ordine di priorità, in quanto ogni riga verrà contrassegnata con i criteri corrispondenti alla prima espressione corrispondente. Ognuna di queste condizioni può comportare l'inserimento, l'aggiornamento, l'eliminazione o la corretto di una riga o di righe. Alter Row può produrre entrambe le azioni DDL & DML nel database.
 
 
 
-![Alter row settings](media/data-flow/alter-row1.png "Alter Row Settings")
-
-> [!NOTE]
-> Alter Row transformations will only operate on database or CosmosDB sinks in your data flow. The actions that you assign to rows (insert, update, delete, upsert) will not occur during debug sessions. You must add an Execute Data Flow task to a pipeline and use pipeline debug or triggers to enact the alter row policies on your database tables.
-
-## <a name="indicate-a-default-row-policy"></a>Indicate a default row policy
-
-Create an Alter Row transformation and specify a row policy with a condition of `true()`. Each row that does not meet any of the previously defined expressions will be marked for the specified row policy. By default, each row that does not meet any conditional expression will be marked for `Insert`.
-
-![Alter row one policy](media/data-flow/alter-row4.png "Alter row one policy")
+![Alter Row-impostazioni](media/data-flow/alter-row1.png "Alter Row-impostazioni")
 
 > [!NOTE]
-> To mark all rows with one policy, you can create a condition for that policy and specify the condition as `true()`.
+> Le trasformazioni alter Row funzioneranno solo sui sink di database o CosmosDB nel flusso di dati. Le azioni assegnate alle righe (Insert, Update, DELETE, Upsert) non vengono eseguite durante le sessioni di debug. È necessario aggiungere un'attività Esegui flusso di dati a una pipeline e utilizzare il debug o i trigger della pipeline per applicare i criteri alter Row nelle tabelle di database.
+
+## <a name="indicate-a-default-row-policy"></a>Indicare un criterio di riga predefinito
+
+Creare una trasformazione alter Row e specificare un criterio di riga con una condizione di `true()`. Ogni riga che non soddisfa le espressioni definite in precedenza verrà contrassegnata per i criteri di riga specificati. Per impostazione predefinita, ogni riga che non soddisfa alcuna espressione condizionale verrà contrassegnata per `Insert`.
+
+![Modifica criteri riga uno](media/data-flow/alter-row4.png "Modifica criteri riga uno")
+
+> [!NOTE]
+> Per contrassegnare tutte le righe con un criterio, è possibile creare una condizione per quel criterio e specificare la condizione come `true()`.
 
 ## <a name="view-policies"></a>Visualizzare i criteri
 
-Turn on Data Flow Debug mode to view the results of your alter row policies in the Data Preview pane. Executing an alter row in Data Flow Debug mode will not produce DDL or DML actions against your target. In order to have those actions occur, execute the data flow inside an Execute Data Flow activity within a pipeline.
+Attivare la modalità di debug del flusso di dati per visualizzare i risultati dei criteri alter Row nel riquadro di anteprima dei dati. L'esecuzione di un'istruzione ALTER Row nella modalità di debug del flusso di dati non produrrà azioni DDL o DML sulla destinazione. Per eseguire tali azioni, eseguire il flusso di dati all'interno di un'attività Esegui flusso di dati all'interno di una pipeline.
 
-![Alter row policies](media/data-flow/alter-row3.png "Alter Row Policies")
+![Alter Row (criteri)](media/data-flow/alter-row3.png "Alter Row (criteri)")
 
-This will allow you to verify and view the state of each row based on your conditions. There are icon represents for each insert, update, delete, and upsert action that will occur in your data flow, indicating which action will take place when you execute the data flow inside a pipeline.
+Ciò consentirà di verificare e visualizzare lo stato di ogni riga in base alle condizioni. L'icona rappresenta per ogni azione di inserimento, aggiornamento, eliminazione e Upsert che si verificherà nel flusso di dati, che indica l'azione che verrà eseguita quando si esegue il flusso di dati all'interno di una pipeline.
 
-## <a name="sink-settings"></a>Sink settings
+## <a name="sink-settings"></a>Impostazioni sink
 
-You must have a database sink type for Alter Row to work. In the sink Settings, you should set each action corresponding to your Alter Row conditions to be allowed.
+Per il corretto funzionamento di alter Row è necessario disporre di un tipo di sink di database. Nelle impostazioni del sink è necessario impostare ogni azione corrispondente alle condizioni alter Row da consentire.
 
-![Alter row sink](media/data-flow/alter-row2.png "Alter Row Sink")
+![Alter Row sink](media/data-flow/alter-row2.png "Alter Row sink")
 
-The default behavior in ADF Data Flow with database sinks is to insert rows. If you want to allow updates, upserts, and deletes as well, you must also check these boxes in the sink to allow the actions.
+Il comportamento predefinito nel flusso di dati di ADF con i sink di database consiste nell'inserire righe. Se si desidera consentire aggiornamenti, Upsert ed eliminazioni, è necessario controllare anche queste caselle nel sink per consentire le azioni.
 
 > [!NOTE]
-> If your inserts, updates, or upserts modify the schema of the target table in the sink, your data flow will fail. In order to modify the target schema in your database, you must choose the "Recreate table" option in the sink. This will drop and recreate your table with the new schema definition.
+> Se inserimenti, aggiornamenti o Upsert modifica lo schema della tabella di destinazione nel sink, il flusso di dati avrà esito negativo. Per modificare lo schema di destinazione nel database, è necessario scegliere l'opzione "ricrea tabella" nel sink. Verrà eliminata e ricreata la tabella con la nuova definizione dello schema.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-After the Alter Row transformation, you may want to [sink your data into a destination data store](data-flow-sink.md).
+Dopo la trasformazione alter Row, è possibile che si desideri eseguire il [sink dei dati in un archivio dati di destinazione](data-flow-sink.md).

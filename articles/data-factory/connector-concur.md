@@ -4,20 +4,19 @@ description: Informazioni su come copiare dati da Concur in archivi dati di sink
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 403373324d32024c5559358563ee4025b3a3e1db
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c3b8792039cbb5907dc9b6952fc7b1e30c0d7c55
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681078"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929569"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>Copiare dati da Concur tramite Azure Data Factory (anteprima)
 
@@ -40,7 +39,7 @@ Azure Data Factory offre un driver predefinito per consentire la connettività, 
 > [!NOTE]
 > L'account partner non è attualmente supportato.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -50,12 +49,12 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di Concur sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **Concur** | Sì |
-| clientId | ID client dell'applicazione fornito dal servizio di gestione delle app Concur.  | Sì |
-| Nome utente | Nome utente usato per accedere al servizio Concur.  | Sì |
-| password | Password corrispondente al nome utente specificato nel campo username. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| type | La proprietà type deve essere impostata su: **Concur** | SÌ |
+| clientId | ID client dell'applicazione fornito dal servizio di gestione delle app Concur.  | SÌ |
+| Nome utente | Nome utente usato per accedere al servizio Concur.  | SÌ |
+| password | Password corrispondente al nome utente specificato nel campo username. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | SÌ |
 | useEncryptedEndpoints | Specifica se gli endpoint dell'origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No |
 | useHostVerification | Specifica se è necessario che il nome host nel certificato del server corrisponda al nome host del server per la connessione tramite SSL. Il valore predefinito è true.  | No |
 | usePeerVerification | Specifica se verificare l'identità del server durante la connessione tramite SSL. Il valore predefinito è true.  | No |
@@ -85,9 +84,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Concur, impostare la proprietà type del set di dati su **ConcurObject**. Non sono presenti proprietà aggiuntive specifiche per il tipo in questo tipo di set di dati. Sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type del set di dati deve essere impostata su: **ConcurObject** | Sì |
+| type | La proprietà Type del set di dati deve essere impostata su: **ConcurObject** | SÌ |
 | tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
 
 
@@ -116,9 +115,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Concur, impostare il tipo di origine nell'attività di copia su **ConcurSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **ConcurSource** | Sì |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **ConcurSource** | SÌ |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM Opportunities where Id = xxx "`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**
