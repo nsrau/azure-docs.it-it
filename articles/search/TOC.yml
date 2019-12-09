@@ -15,6 +15,8 @@
       items:
         - name: Creare un indice di ricerca
           href: search-get-started-portal.md
+        - name: Creare un'app (anteprima)
+          href: search-create-app-portal.md
         - name: Creare un set di competenze cognitive
           href: cognitive-search-quickstart-blob.md
         - name: Creare un knowledge store
@@ -303,6 +305,8 @@
           href: search-manage-powershell.md
         - name: Monitorare le attività e la registrazione
           href: search-monitor-usage.md
+        - name: Analisi del traffico di ricerca
+          href: search-traffic-analytics.md
     - name: Risolvere problemi
       items:
         - name: Problemi relativi all'indicizzatore

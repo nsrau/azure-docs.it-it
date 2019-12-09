@@ -111,7 +111,7 @@
           href: notebooks.md
         - name: Usare i segnalibri per la ricerca
           href: bookmarks.md
-        - name: Usare Livestream per la ricerca
+        - name: Usare lo streaming live per la ricerca
           href: livestream.md
     - name: Rimuovere Azure Sentinel
       href: offboard.md

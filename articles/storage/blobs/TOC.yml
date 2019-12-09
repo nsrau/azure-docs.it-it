@@ -91,7 +91,7 @@
           items:
             - name: 1 - Rendere l'applicazione a disponibilità elevata
               href: storage-create-geo-redundant-storage.md
-            - name: 2 - Simulare un errore con l'archiviazione con ridondanza geografica e accesso in lettura
+            - name: 2 - Simulare un errore durante la lettura dei dati dall'area primaria
               href: storage-simulate-failure-ragrs-account-app.md
         - name: Crittografare e decrittografare BLOB con Azure Key Vault
           href: storage-encrypt-decrypt-blobs-key-vault.md
@@ -151,7 +151,7 @@
               href: ../common/storage-redundancy-gzrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Ripristino di emergenza e failover
               href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Progettazione di app HA con RA-GRS
+            - name: Progettare applicazioni a disponibilità elevata
               href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Livelli di prestazioni e accesso
           items:
@@ -406,6 +406,8 @@
               href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Montare l'archivio BLOB come file system in Linux
               href: storage-how-to-mount-container-linux.md
+            - name: Trasferire dati con la libreria di Spostamento dati
+              href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Domande frequenti sulla migrazione di Archiviazione
               href: ../common/storage-migration-faq.md
         - name: Sviluppare con BLOB

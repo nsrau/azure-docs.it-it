@@ -72,6 +72,8 @@
           href: how-to-enable-remote-desktop-linux.md
         - name: Abilitare la virtualizzazione annidata in una VM modello
           href: how-to-enable-nested-virtualization-template-vm.md
+        - name: Preparare una VM modello Windows
+          href: how-to-prepare-windows-template.md
     - name: Connettersi a una macchina virtuale in lab per le classi (studente)
       items:
         - name: Accedere ai lab per le classi
