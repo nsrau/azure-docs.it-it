@@ -1,6 +1,6 @@
 ---
 title: 'Guida introduttiva: Abilitare il servizio Centro sicurezza di Azure per IoT in un hub IoT'
-description: In questo avvio rapido sono disponibili informazioni su come abilitare il servizio Centro sicurezza di Azure per IoT nell'hub IoT.
+description: Informazioni su come eseguire l'onboarding e abilitare il Centro sicurezza di Azure per il servizio di sicurezza per IoT nell'hub IoT di Azure.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2019
 ms.author: mlottner
-ms.openlocfilehash: 641ba4c8d3b0e54132c19a493e1e4bf17bb28e13
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 0b1f09cfaf107802e1ce6586b3f96b14269aaced
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904120"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664862"
 ---
 # <a name="quickstart-onboard-azure-security-center-for-iot-service-in-iot-hub"></a>Guida introduttiva: Eseguire l'onboarding del servizio Centro sicurezza di Azure per IoT nell'hub IoT
 

@@ -1,17 +1,17 @@
 ---
-title: Preparare un'applicazione Spring per la distribuzione in Azure Spring Cloud | Microsoft Docs
-description: In questo argomento di avvio rapido si prepara un'applicazione Java Spring per la distribuzione.
+title: "Esercitazione: Preparare un'applicazione Spring per la distribuzione in Azure Spring Cloud"
+description: Questa esercitazione mostra come preparare un'applicazione Java Spring per la distribuzione.
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 10/06/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 6c3048fd27c3d3d4fdba0841fb4ab21bd10e15fe
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 3c567c54f887afe9ac112970a682b9466515d949
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721244"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708739"
 ---
 # <a name="tutorial-prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Esercitazione: Preparare un'applicazione Java Spring per la distribuzione in Azure Spring Cloud
 
@@ -176,4 +176,3 @@ In questa esercitazione si è appreso come configurare l'applicazione Java Sprin
 
 > [!div class="nextstepaction"]
 > [Informazioni su come configurare Config Server](spring-cloud-tutorial-config-server.md).
-

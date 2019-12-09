@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.openlocfilehash: 492fa7f4989a40ea1d5ec91a4fbf4dbbe79ef6ce
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 7700c61a978532a63fc5b3298d45b8e7041dba40
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383267"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790339"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Esercitazione: Ricevere notifiche dagli spazi di Gemelli digitali di Azure usando App per la logica
 
@@ -116,11 +116,11 @@ Un [argomento di Griglia di eventi](../event-grid/concepts.md#topics) forniscono
 
     [![Creare una risorsa di App per la logica](./media/tutorial-facilities-events/create-logic-app.png)](./media/tutorial-facilities-events/create-logic-app.png#lightbox)
 
-1. Aprire la risorsa dell'app per la logica dopo averla distribuita e quindi aprire il riquadro **Progettazione app per la logica**. 
+1. Aprire la risorsa App per la logica dopo averla distribuita e quindi aprire il riquadro **Progettazione app per la logica**. 
 
-1. Selezionare il trigger **Quando si verifica un evento di risorsa Griglia di eventi**. Accedere al tenant con l'account Azure, quando richiesto. Se richiesto, selezionare **Consenti l'accesso** per consentire l'accesso alla risorsa di Griglia di eventi. Selezionare **Continua**.
+1. Selezionare il trigger **Quando si verifica un evento di risorsa Griglia di eventi**. Espanrede l'opzione **Griglia di eventi di Azure** e accedere al tenant con l'account Azure, quando richiesto. Se richiesto, selezionare **Consenti l'accesso** per consentire l'accesso alla risorsa di Griglia di eventi. Selezionare **Continua**.
 
-1. Nella finestra **When a resource event occurs (Preview)** (Quando si verifica un evento della risorsa - Anteprima): 
+1. Nella finestra **Quando si verifica un evento della risorsa (anteprima)** : 
    
    a. In **Sottoscrizione** selezionare la sottoscrizione usata per creare l'argomento di Griglia di eventi.
 
@@ -128,7 +128,7 @@ Un [argomento di Griglia di eventi](../event-grid/concepts.md#topics) forniscono
 
    c. Selezionare la risorsa di Griglia di eventi nella casella di riepilogo a discesa per **Nome risorsa**.
 
-   [![Riquadro di progettazione di app per la logica](./media/tutorial-facilities-events/logic-app-resource-event.png)](./media/tutorial-facilities-events/logic-app-resource-event.png#lightbox)
+   [![Riquadro Progettazione app per la logica](./media/tutorial-facilities-events/logic-app-resource-event.png)](./media/tutorial-facilities-events/logic-app-resource-event.png#lightbox)
 
 1. Selezionare il pulsante **Nuovo passaggio**.
 

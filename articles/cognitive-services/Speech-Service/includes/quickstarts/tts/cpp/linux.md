@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 07/05/2019
 ms.author: yinhew
-ms.openlocfilehash: ba0e04d4dadd9d3a4bea41aeb0a66b37f454f030
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fc5d0e0a7f693df87e754383a123dc1cebfdd94c
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505276"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818106"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -32,7 +32,7 @@ Prima di iniziare, assicurarsi di:
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp/linux/text-to-speech/helloworld.cpp#code)]
 
-1. Nel nuovo file, sostituire la stringa `YourSubscriptionKey` con la chiave di sottoscrizione dei Servizi di riconoscimento vocale.
+1. Nel nuovo file, sostituire la stringa `YourSubscriptionKey` con la chiave di sottoscrizione del Servizio di riconoscimento vocale.
 
 1. Sostituire la stringa `YourServiceRegion` con la [regione](~/articles/cognitive-services/Speech-Service/regions.md) associata alla sottoscrizione (ad esempio, `westus` per la sottoscrizione di valutazione gratuita).
 
@@ -87,7 +87,7 @@ Prima di iniziare, assicurarsi di:
    ./helloworld
    ```
 
-1. Nella finestra della console viene visualizzato un prompt che chiede di digitare un testo. Digitare alcune parole o una frase. Il testo digitato viene trasmesso ai servizi Voce e sintetizzato in voce, che viene riprodotta dall'altoparlante.
+1. Nella finestra della console viene visualizzato un prompt che chiede di digitare un testo. Digitare alcune parole o una frase. Il testo digitato viene trasmesso al servizio Voce e sintetizzato in voce, che viene riprodotta dall'altoparlante.
 
    ```text
    Type some text that you want to speak...

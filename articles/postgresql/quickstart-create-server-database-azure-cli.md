@@ -1,6 +1,6 @@
 ---
-title: "Avvio rapido: Creare un Database di Azure per PostgreSQL - Server singolo usando l'interfaccia della riga di comando di Azure"
-description: Guida di avvio rapido alla creazione e alla gestione di Database di Azure per PostgreSQL - Server singolo tramite l'interfaccia della riga di comando di Azure.
+title: 'Guida introduttiva: Creare un server - Interfaccia della riga di comando di Azure - Database di Azure per PostgreSQL - Server singolo'
+description: Guida di avvio rapido che mostra come creare un database di Azure per PostgreSQL - Server singolo tramite l'interfaccia della riga di comando di Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 06/25/2019
 ms.custom: mvc
-ms.openlocfilehash: d8e5ddf0820c789150f264aa4f7d6bd291adb3af
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 54e31f206057207a9ed396c8980c6a3986d5ece4
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443139"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766923"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Guida introduttiva: Creare un Database di Azure per PostgreSQL - Server singolo usando l'interfaccia della riga di comando di Azure
 

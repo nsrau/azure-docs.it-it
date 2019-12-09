@@ -10,12 +10,12 @@ ms.subservice: integration
 ms.date: 08/28/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: fd03072f4e69fac43874e822ebb06063436ef72c
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: e8d7e7764a01dbd0169efae093bac4d984982108
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646139"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708658"
 ---
 # <a name="continuous-integration-and-deployment-for-azure-sql-data-warehouse"></a>Integrazione e distribuzione continue per Azure SQL Data Warehouse
 
@@ -25,12 +25,8 @@ Questa semplice esercitazione illustra come integrare il progetto di database di
 
 - Completare l'[esercitazione sull'integrazione del controllo del codice sorgente](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-source-control-integration)
 
-- Creare un [agente self-hosted](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops#install) con i bit di anteprima di SSDT (16.3 anteprima 2 e versioni successive) installati per SQL Data Warehouse (anteprima)
-
 - Configurare Azure DevOps e connettersi
 
-  > [!NOTE]
-  > SSDT è attualmente disponibile in anteprima ed è necessario usare un agente self-hosted. Gli agenti ospitati da Microsoft verranno aggiornati nei prossimi mesi.
 
 ## <a name="continuous-integration-with-visual-studio-build"></a>Integrazione continua con compilazione di Visual Studio
 
@@ -49,13 +45,13 @@ Questa semplice esercitazione illustra come integrare il progetto di database di
 A questo punto, si avrà un ambiente semplice in cui qualsiasi archiviazione nel ramo master del repository del controllo del codice sorgente dovrebbe attivare automaticamente una compilazione di Visual Studio corretta del progetto di database. Verificare se l'automazione funziona end-to-end apportando una modifica nel progetto di database locale e archiviandola nel ramo master.
 
 
-## <a name="continuous-deployment-with-the-azure-sql-database-deployment-task"></a>Distribuzione continua con l'attività di distribuzione del database SQL di Azure
+## <a name="continuous-deployment-with-the-azure-sql-data-warehouse-or-database-deployment-task"></a>Distribuzione continua con l'attività di distribuzione di Azure SQL Data Warehouse
 
-1. Aggiungere una nuova attività usando l'[attività di distribuzione del database SQL di Azure](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/sql-azure-dacpac-deployment?view=azure-devops) e compilare i campi obbligatori per connettersi al data warehouse di destinazione. Quando questa attività viene eseguita, il pacchetto di applicazione livello dati generato dal processo di compilazione precedente viene distribuito nel data warehouse di destinazione.
+1. Aggiungere una nuova attività usando l'[attività di distribuzione del database SQL di Azure](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/sql-azure-dacpac-deployment?view=azure-devops) e compilare i campi obbligatori per connettersi al data warehouse di destinazione. Quando questa attività viene eseguita, il pacchetto di applicazione livello dati generato dal processo di compilazione precedente viene distribuito nel data warehouse di destinazione. È anche possibile usare l'[attività di distribuzione di Azure SQL Data Warehouse](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment) 
 
       ![Attività di distribuzione](media/sql-data-warehouse-continuous-integration-and-deployment/4-deployment-task.png "Attività di distribuzione")
 
-2. Quando si usa un agente self-hosted, assicurarsi di impostare la variabile di ambiente per l'uso del file SqlPackage.exe corretto per SQL Data Warehouse. Il percorso dovrà essere simile a questo:
+2. Se si usa un agente self-hosted, assicurarsi di impostare la variabile di ambiente per l'uso del file SqlPackage.exe corretto per SQL Data Warehouse. Il percorso dovrà essere simile a questo:
 
       ![Variabile di ambiente](media/sql-data-warehouse-continuous-integration-and-deployment/5-environment-variable-preview.png "Variabile di ambiente")
 

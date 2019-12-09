@@ -1,5 +1,5 @@
 ---
-title: Creare un processo di Analisi di flusso usando Azure PowerShell
+title: 'Avvio rapido: Creare un processo di Analisi di flusso tramite Azure PowerShell'
 description: Questa guida introduttiva dimostra come usare il modulo Azure PowerShell per distribuire ed eseguire un processo di Analisi di flusso di Azure.
 services: stream-analytics
 author: mamccrea
@@ -8,12 +8,12 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: f46f437ffd79ae9d0457606a72719ef13314aa1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 44fe16caf6805819b0d942a02f5138fe766ae99c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66116977"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707312"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Guida introduttiva: Creare un processo di Analisi di flusso usando Azure PowerShell
 

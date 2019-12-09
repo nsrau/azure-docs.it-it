@@ -1,5 +1,5 @@
 ---
-title: Configurare regole e azioni in Azure IoT Central | Microsoft Docs
+title: 'Avvio rapido: Configurare regole e azioni in Azure IoT Central'
 description: Questo avvio rapido illustra come i creatori possono configurare regole e azioni basate su dati di telemetria nell'applicazione Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 7e2047ee824c3dc8b6387f7879757a1e7be7a4a9
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: f81171d0f545bbf7f903d54bee761817e9451d9d
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73896659"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706730"
 ---
 # <a name="quickstart-configure-rules-and-actions-for-your-device-in-azure-iot-central-preview-features"></a>Guida introduttiva: Configurare regole e azioni per il dispositivo in Azure IoT Central (funzionalità di anteprima)
 

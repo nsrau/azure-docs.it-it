@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Sviluppare moduli per dispositivi Linux - Azure IoT Edge'
+title: 'Esercitazione: Sviluppare moduli per dispositivi Linux con Azure IoT Edge'
 description: Questa esercitazione illustra in modo dettagliato come configurare il computer di sviluppo e le risorse cloud per sviluppare moduli IoT Edge usando contenitori Linux per dispositivi Linux
 author: kgremban
 manager: philmea
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 01ca118348b3a084c97182338bf656da83d52cb4
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: e4291c5dcea27699de72b72c52a832a7dc86b97b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114049"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701894"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Esercitazione: Sviluppare moduli IoT Edge per dispositivi Linux
 

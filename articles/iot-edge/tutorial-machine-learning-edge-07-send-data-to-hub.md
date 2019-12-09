@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Inviare i dati dei dispositivi tramite un gateway trasparente - Machine Learning in Azure IoT Edge'
-description: "Esercitazione: Usare il computer di sviluppo come dispositivo IoT Edge simulato per inviare i dati all'hub IoT passando attraverso un dispositivo configurato come gateway trasparente."
+description: Questa esercitazione mostra come usare il computer di sviluppo come dispositivo IoT Edge simulato per inviare i dati all'hub IoT passando attraverso un dispositivo configurato come gateway trasparente.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1a1974a9d9e635bad4094e38c2c194ff49993611
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 50f339b257110f0a5dc0ac08b9f40043ee384afb
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113954"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706899"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Esercitazione: Inviare i dati tramite un gateway trasparente
 

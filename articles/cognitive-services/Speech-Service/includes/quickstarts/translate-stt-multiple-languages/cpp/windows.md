@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Tradurre la voce in più lingue, C++ (Windows) - Servizio di riconoscimento vocale'
+title: 'Guida introduttiva: Tradurre la voce in più lingue, C++ (Windows) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Da definire
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 08/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 9de9db768fcadaa132195169b50ad48487a4a343
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 78e8d479f9d36924f77744a36de9451a013a6e42
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504708"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817312"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -116,7 +116,7 @@ Prima di iniziare, assicurarsi di:
 
 1. Scegliere **Debug** > **Avvia debug** o premere **F5** per avviare l'applicazione **helloworld**.
 
-1. Pronunciare una frase o un'espressione in inglese. L'applicazione trasmette il parlato ai servizi Voce, che effettuano la traduzione e la trascrizione in testo (in questo caso in francese e tedesco). I servizi Voce inviano quindi nuovamente il testo all'applicazione per la visualizzazione.
+1. Pronunciare una frase o un'espressione in inglese. L'applicazione trasmette il parlato al servizio Voce, che effettua la traduzione e la trascrizione in testo (in questo caso in francese e tedesco). Il servizio Voce invia quindi nuovamente il testo all'applicazione per la visualizzazione.
 
 ````
 Say something...

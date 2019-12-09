@@ -1,26 +1,19 @@
 ---
-title: Compilare un'immagine personalizzata ed eseguirla nel servizio app da un registro privato
-description: Come usare un'immagine Docker personalizzata per l'app Web per contenitori.
+title: "Esercitazione: Creare ed eseguire un'immagine personalizzata"
+description: Informazioni su come creare un'immagine Linux personalizzata che può essere eseguita in Servizio app di Azure, distribuirla in Registri Azure Container ed eseguirla in Servizio app.
 keywords: Servizio app di Azure, app Web, Linux, Docker, contenitore
-services: app-service
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+author: msangapu-msft
 ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 07d5b718cb96a938cb6e796e1cf4864851433516
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: d960af01eed9fae0fec2566772799e4972053d7b
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070928"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687489"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>Esercitazione: Compilare un'immagine personalizzata ed eseguirla nel servizio app da un registro privato
 

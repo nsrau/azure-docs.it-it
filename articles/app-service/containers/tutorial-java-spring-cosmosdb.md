@@ -1,20 +1,18 @@
 ---
-title: Creare un app Web Java in Linux - Servizio app di Azure
-description: Creare, distribuire e ridimensionare app Web Java Spring Boot con il servizio app di Azure in Linux e Azure Cosmos DB.
+title: 'Esercitazione: App Java Linux con MongoDB'
+description: Informazioni su come usare un'app Java Linux basata sui dati in Servizio app di Azure, con connessione a un database MongoDB in esecuzione in Azure (Cosmos DB).
 author: rloutlaw
 ms.author: routlaw
-manager: angerobe
-ms.service: app-service-web
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 077c9b22dbb629c8408d431de3e2e621b79c9c48
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: a3e9c05fbe68bf1b03f45d045afd8754753fecd3
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747684"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688821"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>Esercitazione: Creare un'app Web Java Spring Boot con il Servizio app di Azure in Linux e Azure Cosmos DB
 

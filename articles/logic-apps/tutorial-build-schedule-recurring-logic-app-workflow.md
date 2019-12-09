@@ -1,22 +1,18 @@
 ---
-title: Creare flussi di lavoro automatizzati basati su pianificazione - App per la logica di Azure
+title: Creare flussi di lavoro automatizzati basati su pianificazione
 description: 'Esercitazione: Creare un flusso di lavoro automatizzato basato su pianificazione e ricorrente con App per la logica di Azure'
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
-ms.openlocfilehash: eae2319e8d1c162969a04f8dafa18eec671ee1d0
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: f9203f77d5b398f53fcb7c9fceb70604b364a4e0
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034683"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790291"
 ---
 # <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>Esercitazione: Creare un flusso di lavoro automatizzato basato su pianificazione e ricorrente con App per la logica di Azure
 
@@ -56,7 +52,7 @@ Accedere al [portale di Azure](https://portal.azure.com) con le credenziali dell
 
 1. In **Crea app per la logica** specificare le informazioni sull'app per la logica come mostrato e descritto di seguito. Al termine, selezionare **Crea**.
 
-   ![Specificare le informazioni sull'app per la logica.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
+   ![Specificare le informazioni sull'app per la logica](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
 
    | Proprietà | Valore | DESCRIZIONE |
    |----------|-------|-------------|

@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.openlocfilehash: c52bf372f21d9c2ef3d1a148aadd899435ad4181
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: cab13fd65e9fdbd7179e6ba759b1aa696ef95fa1
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383068"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790323"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-azure-digital-twins-by-using-time-series-insights"></a>Esercitazione: Visualizzare e analizzare gli eventi dei Gemelli digitali di Azure usando Time Series Insights
 
@@ -145,7 +145,7 @@ Usare il servizio [Hub eventi](../event-hubs/event-hubs-about.md) per creare una
 
     [![Selezioni per la creazione di un'istanza Time Series Insights](./media/tutorial-facilities-analyze/create-tsi.png)](./media/tutorial-facilities-analyze/create-tsi.png#lightbox)
 
-1. Nella scheda **Origine evento** immettere un **Nome**, selezionare **Hub eventi** come il **Tipo di origine** e assicurarsi che gli altri valori siano selezionati in modo corretto. Selezionare **ManageSend** per **Nome criterio di accesso Hub eventi** e quindi selezionare il gruppo di consumer creato nella sezione precedente per **Gruppo di consumer dell'Hub eventi**. Selezionare **Rivedi e crea**.
+1. Nella scheda **Origine evento** immettere un **Nome**, selezionare **Hub eventi** per **Tipo di origine** e assicurarsi che gli altri valori siano selezionati correttamente per fare riferimento all'hub eventi creato. Selezionare **ManageSend** per **Nome criterio di accesso Hub eventi** e quindi selezionare il gruppo di consumer creato nella sezione precedente per **Gruppo di consumer dell'Hub eventi**. Selezionare **Rivedi e crea**.
 
     [![Selezioni per la creazione di un'origine evento](./media/tutorial-facilities-analyze/tsi-event-source.png)](./media/tutorial-facilities-analyze/tsi-event-source.png#lightbox)
 

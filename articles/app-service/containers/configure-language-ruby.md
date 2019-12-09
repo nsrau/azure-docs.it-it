@@ -1,26 +1,16 @@
 ---
 title: Configurare le app Ruby - Servizio app di Azure
-description: Questa esercitazione descrive le opzioni per la creazione e la configurazione delle app Ruby per il Servizio app di Azure in Linux.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
+description: Informazioni su come configurare un contenitore Ruby predefinito per l'app. Questo articolo illustra le attività di configurazione più comuni.
 ms.topic: quickstart
 ms.date: 03/28/2019
-ms.author: cephalin
 ms.reviewer: astay; kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 71734396e90987fb1e318f3d8bb01d957fc0fda1
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: b17bec5663cc8e9d199ad79bb5282b052b8c0182
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071296"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670397"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Configurare un'app Ruby in Linux per il Servizio app di Azure
 

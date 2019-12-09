@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: acd601512f2240802de47483a015f03a226da115
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: b65cf26bcea628f784eb086d1b9c88febade25f6
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74796094"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74829024"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>Qual è la differenza tra un gateway di rete virtuale di Azure (gateway VPN) e un gateway VPN di rete WAN virtuale di Azure?
 
@@ -113,7 +113,9 @@ Una semplice configurazione di una rete WAN virtuale con un hub e un sito VPN pu
 
 ### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other"></a>Le reti virtuali spoke connesse a un hub virtuale possono comunicare tra loro?
 
-Sì. Le reti virtuali spoke possono comunicare direttamente tramite il peering di rete virtuale. Per altre informazioni, vedere [Peering di rete virtuale](../articles/virtual-network/virtual-network-peering-overview.md). Sono inoltre supportate le reti virtuali che comunicano in modo transitorio tramite l'hub.
+Sì. La rete WAN virtuale standard supporta la connettività transitiva da rete virtuale a rete virtuale tramite l'hub rete WAN virtuale a cui sono connesse le reti virtuali. Nella terminologia della rete WAN virtuale, si fa riferimento a questi percorsi come "transito locale di rete virtuale in rete WAN virtuale" per le reti virtuali connesse a un hub rete WAN virtuale e "transito globale di rete virtuale in rete WAN virtuale" per le reti virtuali connesse tramite più hub rete WAN virtuale in due o più aree. Il transito di rete virtuale supporta fino a 3 Gbps di velocità effettiva durante l'anteprima pubblica. La velocità effettiva verrà aumentata quando il transito globale sarà disponibile a livello generale.   
+
+Per alcuni scenari, le reti virtuali spoke possono anche essere collegate direttamente in peering tra loro usando il [peering di reti virtuali](../articles/virtual-network/virtual-network-peering-overview.md) oltre al transito locale o globale di rete virtuale in rete WAN virtuale. In questo caso, il peering di reti virtuali ha la precedenza sulla connessione transitiva tramite l'hub rete WAN virtuale. 
 
 ### <a name="what-is-a-branch-connection-to-azure-virtual-wan"></a>Che cosa si intende per connessione da dispositivo di ramo alla rete WAN virtuale di Azure?
 

@@ -1,26 +1,19 @@
 ---
-title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un'app e distribuire file con FTP | Microsoft Docs
-description: Esempio di script dell'interfaccia della riga di comando di Azure -Creare un'app del servizio app e distribuire file con FTP
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: "Interfaccia della riga di comando: Distribuire i file dell'app con FTP"
+description: Informazioni su come usare l'interfaccia della riga di comando di Azure per automatizzare la distribuzione e la gestione dell'app Servizio app. Questo esempio illustra come creare un'app e distribuire file con FTP.
+author: msangapu-msft
 tags: azure-service-management
-ms.service: app-service-web
-ms.workload: web
 ms.devlang: azurecli
-ms.tgt_pltfrm: sample
 ms.topic: sample
 ms.date: 12/12/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 7bca306911dc72a2f8ec31d2ac80f99b4925c9fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 320f293073ce0a97cf4b73b420f38d91c5206013
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136815"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688365"
 ---
 # <a name="create-an-app-service-app-and-deploy-files-with-ftp-using-azure-cli"></a>Creare un'app del servizio app e distribuire i file con FTP usando l'interfaccia della riga di comando di Azure
 

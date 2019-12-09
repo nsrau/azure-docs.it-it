@@ -1,5 +1,5 @@
 ---
-title: Definire un nuovo tipo di dispositivo Azure IoT Edge in Azure IoT Central | Microsoft Docs
+title: 'Esercitazione: Definire un nuovo tipo di dispositivo Azure IoT Edge in Azure IoT Central'
 description: Questa esercitazione illustra come creare un nuovo dispositivo Azure IoT Edge nell'applicazione Azure IoT Central. Il creatore definisce i dati di telemetria, lo stato, le proprietà e i comandi per il tipo.
 author: rangv
 ms.author: rangv
@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 0a293d74c9e37a6771c5bb246b74bda38db3b7c3
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 97bfd2b1e8b571f44c0b782459567f5677dd36a7
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406474"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702796"
 ---
 # <a name="tutorial-define-a-new-azure-iot-edge-device-type-in-your-azure-iot-central-application-preview-features"></a>Esercitazione: Definire un nuovo tipo di dispositivo Azure IoT Edge nell'applicazione Azure IoT Central (funzionalità in anteprima)
 

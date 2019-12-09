@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Analisi di flusso sul perimetro - Azure IoT Edge'
+title: 'Esercitazione: Analisi di flusso nei dispositivi perimetrali con Azure IoT Edge'
 description: In questa esercitazione Analisi di flusso di Azure viene distribuito come modulo in un dispositivo IoT Edge
 author: kgremban
 ms.author: kgremban
@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 7fbbe32efcedd4fa2635db1cc21f7ce98557515b
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: b4c4415819ba614bb584f1bc5cb0acfe136c174c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452541"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707071"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Esercitazione: Distribuire Analisi di flusso di Azure come modulo IoT Edge
 

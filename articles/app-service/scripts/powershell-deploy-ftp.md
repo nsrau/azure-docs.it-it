@@ -1,25 +1,17 @@
 ---
-title: Esempio di script di Azure PowerShell - Caricare i file in un'app Web usando FTP | Microsoft Docs
-description: Esempio di script di Azure PowerShell - Caricare i file in un'app Web usando FTP
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
+title: 'PowerShell: Caricare i file tramite FTP'
+description: Informazioni su come usare Azure PowerShell per automatizzare la distribuzione e la gestione di Servizio app. Questo esempio illustra come caricare i file in un'app tramite FTP.
 tags: azure-service-management
 ms.assetid: b7d46d6f-44fd-454c-8008-87dab6eefbc1
-ms.service: app-service-web
-ms.workload: web
 ms.topic: sample
 ms.date: 03/20/2017
-ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: fa5bc2b05f4bf34bdefd2291f10e0f69d1cd634f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1dfcbec9530a66570244e8168faa84bfe0759038
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098327"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74685086"
 ---
 # <a name="upload-files-to-a-web-app-using-ftp"></a>Caricare i file in un'app Web tramite FTP
 

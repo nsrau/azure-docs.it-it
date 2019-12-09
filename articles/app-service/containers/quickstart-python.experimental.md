@@ -1,27 +1,18 @@
 ---
-title: Creare un'app Python in Linux - Servizio app di Azure | Microsoft Docs
-description: Distribuire la prima app Hello World Python nel servizio app di Azure in Linux in pochi minuti.
-services: app-service\web
-documentationcenter: ''
+title: "Guida introduttiva: Creare un'app Python in Linux"
+description: Introduzione all'uso delle app Linux nel servizio app di Azure distribuendo la prima app Python in un contenitore Linux nel servizio app.
 author: msangapu-msft
-manager: gwallace
-editor: ''
-ms.assetid: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/23/2019
-ms.author: cephalin
 ms.custom: seodec18
 experimental: false
 experiment_id: 1e304dc9-5add-4b
-ms.openlocfilehash: d6e062145474b8479db749627b56163106f088d8
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 7905b086ac390243f2fe02697f68c9b1c05ca28e
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72024937"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688987"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Creare un'app Python nel Servizio app di Azure in Linux
 

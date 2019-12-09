@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 08/07/2019
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 8b31a5ab716b58d167a0d16579b44aa7df95a0ff
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 684c067f393b1f6037e67d3b49a861341f3353c8
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232836"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706131"
 ---
 # <a name="what-are-durable-functions"></a>Informazioni su Durable Functions
 
@@ -22,8 +22,8 @@ ms.locfileid: "74232836"
 Durable Functions supporta attualmente i linguaggi seguenti:
 
 * **C#** : sia le [librerie di classe precompilate](../functions-dotnet-class-library.md) che lo [script C#](../functions-reference-csharp.md).
-* **F#** : librerie di classe precompilate e script F#. Lo script F# è supportato solo per la versione 1.x del runtime di Funzioni di Azure.
 * **JavaScript**: supportato per la versione 2.x del runtime di Funzioni di Azure. Richiede la versione 1.7.0 dell'estensione Durable Functions, o versione successiva. 
+* **F#** : librerie di classe precompilate e script F#. Lo script F# è supportato solo per la versione 1.x del runtime di Funzioni di Azure.
 
 Durable Functions ha l'obiettivo di supportare tutti i [linguaggi di Funzioni di Azure](../supported-languages.md). Vedere l'[elenco dei problemi di Durable Functions](https://github.com/Azure/azure-functions-durable-extension/issues) per ottenere lo stato del lavoro più recente a supporto di linguaggi aggiuntivi.
 
@@ -38,7 +38,7 @@ Il caso d'uso principale per Durable Functions è la semplificazione dei requisi
 * [API HTTP asincrone](#async-http)
 * [Monitoraggio](#monitoring)
 * [Interazione umana](#human)
-* [Aggregatore](#aggregator)
+* [Aggregatore (entità con stato)](#aggregator)
 
 ### <a name="chaining"></a>Modello 1: Concatenamento di funzioni
 
@@ -46,9 +46,11 @@ Nel modello di concatenamento di funzioni, una sequenza di funzioni viene esegui
 
 ![Diagramma del modello di concatenamento di funzioni](./media/durable-functions-concepts/function-chaining.png)
 
-È possibile usare Durable Functions per implementare il modello di concatenamento di funzioni in modo conciso, come illustrato nell'esempio seguente:
+È possibile usare Durable Functions per implementare il modello di concatenamento di funzioni in modo conciso, come illustrato nell'esempio seguente.
 
-#### <a name="c"></a>C#
+In questo esempio i valori `F1`, `F2`, `F3` e `F4` corrispondono ai nomi di altre funzioni nell'app per le funzioni. È possibile implementare il flusso di controllo usando normali costrutti di codice imperativo. Il codice viene eseguito dall'alto verso il basso e può implicare semantica esistente del flusso di controllo del linguaggio, ad esempio istruzioni condizionali e cicli. È possibile includere la logica di gestione degli errori nei in blocchi `try`/`catch`/`finally`.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("Chaining")]
@@ -69,25 +71,31 @@ public static async Task<object> Run(
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (solo Funzioni 2.0)
+È possibile usare il parametro `context` per richiamare altre funzioni tramite il nome, i parametri passati e l'output restituito dalla funzione. Ogni volta che il codice chiama `await`, il framework di Durable Functions imposta checkpoint sullo stato di avanzamento dell'istanza della funzione corrente. Se la VM o il processo viene riciclato durante l'esecuzione, l'istanza della funzione riprende dalla chiamata `await` precedente. Per altre informazioni, vedere la sezione seguente, Modello 2: Fan-out/fan-in.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
 
 module.exports = df.orchestrator(function*(context) {
-    const x = yield context.df.callActivity("F1");
-    const y = yield context.df.callActivity("F2", x);
-    const z = yield context.df.callActivity("F3", y);
-    return    yield context.df.callActivity("F4", z);
+    try {
+        const x = yield context.df.callActivity("F1");
+        const y = yield context.df.callActivity("F2", x);
+        const z = yield context.df.callActivity("F3", y);
+        return    yield context.df.callActivity("F4", z);
+    } catch (error) {
+        // Error handling or compensation goes here.
+    }
 });
 ```
 
-In questo esempio i valori `F1`, `F2`, `F3` e `F4` corrispondono ai nomi di altre funzioni nell'app per le funzioni. È possibile implementare il flusso di controllo usando normali costrutti di codice imperativo. Il codice viene eseguito dall'alto verso il basso e può implicare semantica esistente del flusso di controllo del linguaggio, ad esempio istruzioni condizionali e cicli. È possibile includere la logica di gestione degli errori nei in blocchi `try`/`catch`/`finally`.
-
-È possibile usare il parametro `context` [IDurableOrchestrationContext] \(.NET\) e l'oggetto `context.df` (JavaScript) per richiamare altre funzioni tramite il nome, i parametri passati e l'output restituito dalla funzione. Ogni volta che il codice chiama `await` (C#) o `yield` (JavaScript), il framework di Durable Functions imposta checkpoint sullo stato di avanzamento dell'istanza della funzione corrente. Se la VM o il processo viene riciclato durante l'esecuzione, l'istanza della funzione riprende dalla chiamata `await` o `yield` precedente. Per altre informazioni, vedere la sezione seguente, Modello 2: Fan-out/fan-in.
+È possibile usare l'oggetto `context.df` per richiamare altre funzioni tramite il nome, i parametri passati e l'output restituito dalla funzione. Ogni volta che il codice chiama `yield`, il framework di Durable Functions imposta checkpoint sullo stato di avanzamento dell'istanza della funzione corrente. Se la VM o il processo viene riciclato durante l'esecuzione, l'istanza della funzione riprende dalla chiamata `yield` precedente. Per altre informazioni, vedere la sezione seguente, Modello 2: Fan-out/fan-in.
 
 > [!NOTE]
-> L'oggetto `context` in JavaScript rappresenta l'intero [contesto della funzione](../functions-reference-node.md#context-object), non solo il parametro [IDurableOrchestrationContext].
+> L'oggetto `context` in JavaScript rappresenta l'intero [contesto della funzione](../functions-reference-node.md#context-object). Accedere al contesto di Durable Functions usando la proprietà `df` nel contesto principale.
+
+---
 
 ### <a name="fan-in-out"></a>Modello 2: Fan-out/fan-in
 
@@ -99,7 +107,7 @@ Con le normali funzioni il fan-out può essere effettuato facendo in modo che la
 
 L'estensione Durable Functions gestisce questo modello con codice relativamente semplice:
 
-#### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("FanOutFanIn")]
@@ -124,7 +132,11 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (solo Funzioni 2.0)
+L'operazione di fan-out viene distribuita a più istanze della funzione `F2` e viene monitorata tramite un elenco dinamico di attività. Viene effettuata una chiamata a `Task.WhenAll` per attendere il completamento di tutte le funzioni chiamate. Quindi, gli output della funzione `F2` vengono aggregati dall'elenco dinamico di attività e passati alla funzione `F3`.
+
+L'impostazione automatica di checkpoint che avviene alla chiamata di `await` su `Task.WhenAll` assicura che qualsiasi potenziale riavvio o arresto anomalo del sistema durante l'esecuzione non richieda il riavvio di un'attività già completata.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -146,9 +158,11 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-L'operazione di fan-out viene distribuita a più istanze della funzione `F2` e viene monitorata tramite un elenco dinamico di attività. Viene chiamata l'API `Task.WhenAll` .NET o l'API `context.df.Task.all` JavaScript per attendere il completamento di tutte le funzioni chiamate. Quindi, gli output della funzione `F2` vengono aggregati dall'elenco dinamico di attività e passati alla funzione `F3`.
+L'operazione di fan-out viene distribuita a più istanze della funzione `F2` e viene monitorata tramite un elenco dinamico di attività. Viene chiamata l'API `context.df.Task.all` per attendere il completamento di tutte le funzioni chiamate. Quindi, gli output della funzione `F2` vengono aggregati dall'elenco dinamico di attività e passati alla funzione `F3`.
 
-L'impostazione automatica di checkpoint che avviene alla chiamata di `await` o `yield` su `Task.WhenAll` o `context.df.Task.all` assicura che qualsiasi potenziale riavvio o arresto anomalo del sistema durante l'esecuzione non richieda il riavvio di un'attività già completata.
+L'impostazione automatica di checkpoint che avviene alla chiamata di `yield` su `context.df.Task.all` assicura che qualsiasi potenziale riavvio o arresto anomalo del sistema durante l'esecuzione non richieda il riavvio di un'attività già completata.
+
+---
 
 > [!NOTE]
 > In rari casi, è possibile che si verifichi un arresto anomalo nella finestra dopo che una funzione di attività è stata completata, ma prima che il completamento venga salvato nella cronologia dell'orchestrazione. In tal caso, la funzione di attività verrebbe rieseguita dall'inizio dopo il ripristino del processo.
@@ -200,11 +214,11 @@ Un esempio di modello di monitoraggio consiste nell'invertire lo scenario preced
 
 ![Diagramma del modello di monitoraggio](./media/durable-functions-concepts/monitor.png)
 
-Con poche righe di codice, è possibile usare Durable Functions per creare più monitoraggi che osservano endpoint arbitrari. I monitoraggi possono terminare l'esecuzione quando viene soddisfatta una condizione oppure `IDurableOrchestrationClient` può terminare i monitoraggi. È possibile cambiare l'intervallo `wait` di un monitoraggio in base a una condizione specifica, ad esempio un backoff esponenziale. 
+Con poche righe di codice, è possibile usare Durable Functions per creare più monitoraggi che osservano endpoint arbitrari. I monitoraggi possono terminare l'esecuzione quando viene soddisfatta una condizione oppure un'altra funzione può usare il cliente di orchestrazione durevole per terminarli. È possibile cambiare l'intervallo `wait` di un monitoraggio in base a una condizione specifica, ad esempio un backoff esponenziale. 
 
 Il codice seguente implementa un monitoraggio di base:
 
-#### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("MonitorJobStatus")]
@@ -234,7 +248,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (solo Funzioni 2.0)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -262,7 +276,9 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-Quando viene ricevuta una richiesta, viene creata una nuova istanza di orchestrazione per tale ID di processo. L'istanza esegue il polling di uno stato fino a quando non viene soddisfatta una condizione e terminato il ciclo. Un timer durevole controlla l'intervallo di polling. Quindi, possono essere eseguite più operazioni oppure l'orchestrazione può terminare. Quando `context.CurrentUtcDateTime` (.NET) o `context.df.currentUtcDateTime` (JavaScript) supera il valore di `expiryTime`, il monitoraggio termina.
+---
+
+Quando viene ricevuta una richiesta, viene creata una nuova istanza di orchestrazione per tale ID di processo. L'istanza esegue il polling di uno stato fino a quando non viene soddisfatta una condizione e terminato il ciclo. Un timer durevole controlla l'intervallo di polling. Quindi, possono essere eseguite più operazioni oppure l'orchestrazione può terminare. Quando `nextCheck` supera `expiryTime`, il monitoraggio termina.
 
 ### <a name="human"></a>Modello 5: Interazione umana
 
@@ -276,7 +292,7 @@ Un processo di approvazione è un esempio di processo aziendale che implica inte
 
 Questi esempi creano un processo di approvazione per illustrare il modello di interazione umana:
 
-#### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("ApprovalWorkflow")]
@@ -303,7 +319,9 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (solo Funzioni 2.0)
+Per creare il timer durevole, chiamare `context.CreateTimer`. La notifica viene ricevuta da `context.WaitForExternalEvent`. Viene quindi effettuata una chiamata a `Task.WhenAny` per stabilire se attivare l'escalation (si verifica prima il timeout) o elaborare l'approvazione (l'approvazione viene ricevuta prima del timeout).
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -325,9 +343,19 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-Per creare il timer durevole, chiamare `context.CreateTimer` (.NET) o `context.df.createTimer` (JavaScript). La notifica viene ricevuta da `context.WaitForExternalEvent` (.NET) o `context.df.waitForExternalEvent` (JavaScript). Viene quindi effettuata una chiamata a `Task.WhenAny` (.NET) o a `context.df.Task.any` (JavaScript) per stabilire se attivare l'escalation (si verifica prima il timeout) o elaborare l'approvazione (l'approvazione viene ricevuta prima del timeout).
+Per creare il timer durevole, chiamare `context.df.createTimer`. La notifica viene ricevuta da `context.df.waitForExternalEvent`. Viene quindi effettuata una chiamata a `context.df.Task.any` per stabilire se attivare l'escalation (si verifica prima il timeout) o elaborare l'approvazione (l'approvazione viene ricevuta prima del timeout).
 
-Un client esterno può recapitare la notifica degli eventi a una funzione dell'agente di orchestrazione in attesa usando le [API HTTP predefinite](durable-functions-http-api.md#raise-event) oppure usando il metodo `RaiseEventAsync` (.NET) o `raiseEvent` (JavaScript) di un'altra funzione:
+---
+
+Un client esterno può recapitare la notifica degli eventi a una funzione dell'agente di orchestrazione in attesa usando le [API HTTP predefinite](durable-functions-http-api.md#raise-event):
+
+```bash
+curl -d "true" http://localhost:7071/runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/ApprovalEvent -H "Content-Type: application/json"
+```
+
+Un evento può essere generato anche usando il client di orchestrazione durevole di un'altra funzione:
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("RaiseEventToOrchestration")]
@@ -340,6 +368,8 @@ public static async Task Run(
 }
 ```
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
 ```javascript
 const df = require("durable-functions");
 
@@ -350,11 +380,9 @@ module.exports = async function (context) {
 };
 ```
 
-```bash
-curl -d "true" http://localhost:7071/runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/ApprovalEvent -H "Content-Type: application/json"
-```
+---
 
-### <a name="aggregator"></a>Modello 6: Aggregatore
+### <a name="aggregator"></a>Modello 6: Aggregatore (entità con stato)
 
 Il sesto modello riguarda l'aggregazione in una singola *entità* indirizzabile dei dati degli eventi relativi a un periodo di tempo. In questo modello i dati aggregati possono provenire da più origini, possono essere recapitati in batch o possono essere distribuiti in periodi di tempo prolungati. L'aggregatore potrebbe dover intervenire sui dati degli eventi non appena arrivano e i client esterni potrebbero dover eseguire query sui dati aggregati.
 
@@ -363,6 +391,8 @@ Il sesto modello riguarda l'aggregazione in una singola *entità* indirizzabile 
 Se si prova a implementare questo modello con normali funzioni senza stato, l'aspetto più difficile è che il controllo della concorrenza diventa un problema enorme. Non solo è necessario preoccuparsi di più thread che modificano contemporaneamente gli stessi dati, ma bisogna anche assicurarsi che l'aggregatore venga eseguito solo in una singola macchina virtuale alla volta.
 
 È possibile usare [entità durevoli](durable-functions-entities.md) per implementare facilmente questo modello come una singola funzione.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("Counter")]
@@ -385,26 +415,6 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 }
 ```
 
-```javascript
-const df = require("durable-functions");
-
-module.exports = df.entity(function(context) {
-    const currentValue = context.df.getState(() => 0);
-    switch (context.df.operationName) {
-        case "add":
-            const amount = context.df.getInput();
-            context.df.setState(currentValue + amount);
-            break;
-        case "reset":
-            context.df.setState(0);
-            break;
-        case "get":
-            context.df.return(currentValue);
-            break;
-    }
-});
-```
-
 Le entità durevoli possono anche essere modellate come classi in .NET. Questo modello può rivelarsi utile se l'elenco delle operazioni è fisso e diventa grande. L'esempio seguente è un'implementazione equivalente dell'entità `Counter` tramite classi e metodi .NET.
 
 ```csharp
@@ -425,7 +435,33 @@ public class Counter
 }
 ```
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.entity(function(context) {
+    const currentValue = context.df.getState(() => 0);
+    switch (context.df.operationName) {
+        case "add":
+            const amount = context.df.getInput();
+            context.df.setState(currentValue + amount);
+            break;
+        case "reset":
+            context.df.setState(0);
+            break;
+        case "get":
+            context.df.return(currentValue);
+            break;
+    }
+});
+```
+
+---
+
 I client possono accodare *operazioni* ("segnalazione") per una funzione di entità tramite il [binding del client di entità](durable-functions-bindings.md#entity-client).
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -445,6 +481,7 @@ public static async Task Run(
 > [!NOTE]
 > In .NET sono anche disponibili proxy generati dinamicamente per la segnalazione di entità in modo indipendente dai tipi. Oltre alla segnalazione, i client possono anche eseguire query per ottenere lo stato di una funzione di entità tramite [metodi indipendenti dai tipi](durable-functions-bindings.md#entity-client-usage) sul binding del client di orchestrazione.
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -455,6 +492,8 @@ module.exports = async function (context) {
     await context.df.signalEntity(entityId, "add", 1);
 };
 ```
+
+---
 
 Le funzioni di entità sono disponibili in  [Durable Functions 2.0](durable-functions-versions.md) e versioni successive.
 

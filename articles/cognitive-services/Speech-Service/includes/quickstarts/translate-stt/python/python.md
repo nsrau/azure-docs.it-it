@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 679690c495f18a489c6fab11a18182c83ca1577f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4e45777e8af75d568a98dd649159379a5d9c9a6f
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505084"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816710"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -83,13 +83,13 @@ Prima di iniziare, assicurarsi di:
 
 ## <a name="build-and-run-your-app"></a>Compilare ed eseguire l'app
 
-1. Eseguire il campione dalla console o nell'IDE:
+1. Eseguire l'esempio dalla console o nell'IDE:
 
    ```
    python quickstart.py
    ```
 
-2. Pronunciare una frase o un'espressione in inglese. L'applicazione trasmette il parlato ai servizi Voce, che effettuano la traduzione e la trascrizione in testo (in questo caso in tedesco). I servizi Voce inviano quindi nuovamente il testo all'applicazione per la visualizzazione.
+2. Pronunciare una frase o un'espressione in inglese. L'applicazione trasmette il parlato al servizio Voce, che effettua la traduzione e la trascrizione in testo (in questo caso in tedesco). Il servizio Voce invia quindi nuovamente il testo all'applicazione per la visualizzazione.
 
    ````
    Say something...

@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: 84272336a9f70f663e134e16fe88c7e43bb73548
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ef203eec1398e9f23fb162845b9d570316083ecf
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74208655"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703702"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Esercitazione: Creare e configurare un'istanza di Azure Active Directory Domain Services
 
@@ -72,7 +72,7 @@ Quando si crea un'istanza di Azure AD DS, si specifica un nome DNS. Di seguito s
 >
 > È possibile usare il nome DNS radice per il dominio gestito di Azure Active Directory Domain Services, ma potrebbe essere necessario creare alcuni record DNS aggiuntivi per altri servizi nell'ambiente in uso. Ad esempio, se si esegue un server Web che ospita un sito con il nome DNS radice, possono essere presenti conflitti di denominazione che richiedono voci DNS aggiuntive.
 >
-> In queste esercitazioni e articoli sulle procedure come esempio breve viene usato il dominio personalizzato *contoso.com*. In tutti i comandi specificare il proprio nome di dominio, che può includere un prefisso univoco.
+> In queste esercitazioni e articoli sulle procedure come esempio breve viene usato il dominio personalizzato *aadds.contoso.com*. In tutti i comandi specificare il proprio nome di dominio, che può includere un prefisso univoco.
 >
 > Per altre informazioni, vedere [Selezione di un prefisso di denominazione per il dominio][naming-prefix].
 
@@ -117,7 +117,7 @@ Nella pagina **Riepilogo** della procedura guidata controllare le impostazioni d
     ![Notifica nel portale di Azure sulla distribuzione in corso](./media/tutorial-create-instance/deployment-in-progress.png)
 
 1. La pagina verrà caricata con aggiornamenti sul processo di distribuzione, inclusa la creazione di nuove risorse nella directory.
-1. Selezionare il gruppo di risorse, ad esempio *myResourceGroup*, quindi scegliere l'istanza di Azure AD DS dall'elenco di risorse di Azure, ad esempio *contoso.com*. La scheda **Panoramica** indica che il dominio gestito è attualmente in fase di *Distribuzione*. Non è possibile configurare il dominio gestito fino a quando non ne è stato completato il provisioning.
+1. Selezionare il gruppo di risorse, ad esempio *myResourceGroup*, quindi scegliere l'istanza di Azure Active Directory Domain Services dall'elenco di risorse di Azure, ad esempio *aadds.contoso.com*. La scheda **Panoramica** indica che il dominio gestito è attualmente in fase di *Distribuzione*. Non è possibile configurare il dominio gestito fino a quando non ne è stato completato il provisioning.
 
     ![Stato di Domain Services durante lo stato di provisioning](./media/tutorial-create-instance/provisioning-in-progress.png)
 

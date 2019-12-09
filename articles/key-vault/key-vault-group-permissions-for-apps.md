@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7c31c04137a8d36adfe41a18cbc276a45483b05b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 10445aba9c52c5367a8ea03729462d14e2d51085
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467168"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707191"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Fornire un'autenticazione di Key Vault con un criterio di controllo di accesso
 
@@ -220,6 +220,7 @@ Add-AzADGroupMember -TargetGroupObjectId <groupId> -MemberObjectId <objectId>
 
 Infine, concedere al gruppo di Azure AD le autorizzazioni per l'insieme di credenziali delle chiavi usando il comando [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) dell'interfaccia della riga di comando di Azure o il cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy?view=azps-2.7.0) di Azure PowerShell. Per gli esempi, vedere la sezione [Concedere all'applicazione, al gruppo di Azure AD o all'utente l'accesso all'insieme di credenziali delle chiavi](#give-the-principal-access-to-your-key-vault) precedente.
 
+L'applicazione necessita anche che sia assegnato almeno un ruolo di gestione delle identità e degli accessi (IAM) all'insieme di credenziali delle chiavi. In caso contrario, non potrà eseguire l'accesso e l'accesso alla sottoscrizione non riuscirà a causa di diritti insufficienti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

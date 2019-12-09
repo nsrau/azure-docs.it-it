@@ -1,6 +1,6 @@
 ---
-title: Creare e gestire le regole nell'applicazione Azure IoT Central | Microsoft Docs
-description: Le regole di Azure IoT Central consentono il monitoraggio dei dispositivi in tempo reale e l'attivazione automatica di azioni quali l'invio di un messaggio di posta elettronica quando la regola si attiva.
+title: "Esercitazione: Creare e gestire le regole nell'applicazione Azure IoT Central"
+description: Questa esercitazione illustra come usare le regole di Azure IoT Central per il monitoraggio dei dispositivi in tempo reale e l'attivazione automatica di azioni quali l'invio di un messaggio di posta elettronica quando la regola si attiva.
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/24/2019
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 6327ee8a1b0d52c933844670d9b8098c2c3c4f09
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: e2ec01e372ebda79272b585ea6f1708029ea7b13
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958152"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702533"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application-preview-features"></a>Esercitazione: Creare una regola e impostare le notifiche nell'applicazione Azure IoT Central (funzionalità in anteprima)
 
@@ -35,11 +35,11 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, è necessario completare le guide di avvio rapido [Creare un'applicazione Azure IoT Central](./quick-deploy-iot-central.md) e [Aggiungere un dispositivo simulato a un'applicazione IoT Central](./quick-create-pnp-device.md) per creare il modello di dispositivo di tipo **Sensore ambientale** da usare.
+Prima di iniziare, è necessario completare gli argomenti di avvio rapido [Creare un'applicazione Azure IoT Central](./quick-deploy-iot-central.md) e [Aggiungere un dispositivo simulato a un'applicazione IoT Central](./quick-create-pnp-device.md) per creare il modello di dispositivo di tipo **Sensore ambientale** da usare.
 
 ## <a name="create-a-rule"></a>Creare una regola
 
-Per creare una regola di telemetria, il modello di dispositivo deve disporre di misurazione di almeno una telemetria definita. Questa esercitazione usa un dispositivo di tipo sensore ambientale che invia dati di telemetria relativi a temperatura e umidità. Nella guida di avvio rapido [Aggiungere un dispositivo simulato a un'applicazione IoT Central](./quick-create-pnp-device.md) è stato aggiunto questo modello di dispositivo ed è stato creato un dispositivo simulato. La regola esegue il monitoraggio della temperatura segnalata dal dispositivo e invia un messaggio di posta elettronica quando la temperatura supera un determinato valore, ad esempio 27 gradi.
+Per creare una regola di telemetria, il modello di dispositivo deve disporre di misurazione di almeno una telemetria definita. Questa esercitazione usa un dispositivo di tipo sensore ambientale che invia dati di telemetria relativi a temperatura e umidità. Nell'argomento di avvio rapido [Aggiungere un dispositivo simulato a un'applicazione IoT Central](./quick-create-pnp-device.md) è stato aggiunto questo modello di dispositivo ed è stato creato un dispositivo simulato. La regola esegue il monitoraggio della temperatura segnalata dal dispositivo e invia un messaggio di posta elettronica quando la temperatura supera un determinato valore, ad esempio 27 gradi.
 
 1. Nel riquadro sinistro selezionare **Regole**.
 
