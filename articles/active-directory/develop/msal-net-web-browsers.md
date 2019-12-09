@@ -1,29 +1,25 @@
 ---
-title: Web browser in Microsoft Authentication Library per .NET
+title: Uso di Web browser con MSAL.NET | Azure
 titleSuffix: Microsoft identity platform
 description: Per informazioni su considerazioni specifiche, vedere l'articolo relativo all'uso di Novell Android con Microsoft Authentication Library per .NET (MSAL.NET).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2446166aa8078040c06d7cb54ce01666d9931727
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: d5b8c8e78c554994b71f9e246f8bacc39828b17f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802684"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921595"
 ---
 # <a name="using-web-browsers-in-msalnet"></a>Uso di Web browser in MSAL.NET
 I Web browser sono necessari per l'autenticazione interattiva. Per impostazione predefinita, MSAL.NET supporta il [Web browser di sistema](#system-web-browser-on-xamarinios-xamarinandroid) in Novell. iOS e Novell. Android. Tuttavia, [è anche possibile abilitare la Web browser incorporata](#enable-embedded-webviews-on-ios-and-android) in base ai propri requisiti (UX, need for Single Sign-on (SSO), Security) nelle app [Novell. iOS](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios) e [Novell. Android](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) . È anche possibile [scegliere dinamicamente](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) il Web browser da usare in base alla presenza di Chrome o un browser che supporta le schede personalizzate Chrome in Android. MSAL.NET supporta solo il browser di sistema nelle applicazioni desktop .NET Core.
@@ -49,15 +45,15 @@ In genere, è consigliabile usare il valore predefinito della piattaforma, che i
 
 ### <a name="at-a-glance"></a>Panoramica
 
-| Framework        | Embedded | Sistema | Predefinito |
+| Framework        | Incorporata | Sistema | Predefinito |
 | ------------- |-------------| -----| ----- |
-| .NET classico     | SÌ | Sì ^ | Embedded |
+| .NET classico     | SÌ | Sì ^ | Incorporata |
 | .NET Core     | No | Sì ^ | Sistema |
 | .NET Standard | No | Sì ^ | Sistema |
-| UWP | SÌ | No | Embedded |
+| UWP | SÌ | No | Incorporata |
 | Xamarin.Android | SÌ | SÌ  | Sistema |
 | Xamarin.iOS | SÌ | SÌ  | Sistema |
-| Novell. Mac| SÌ | No | Embedded |
+| Xamarin.Mac| SÌ | No | Incorporata |
 
 ^ Richiede l'URI di reindirizzamento "http://localhost"
 
@@ -153,7 +149,7 @@ Esistono alcune differenze visive tra WebView incorporato e browser di sistema i
 
 **Accesso interattivo con MSAL.NET usando la WebView incorporata:**
 
-![Embedded](media/msal-net-web-browsers/embedded-webview.png)
+![incorporate](media/msal-net-web-browsers/embedded-webview.png)
 
 **Accesso interattivo con MSAL.NET tramite il browser di sistema:**
 

@@ -1,29 +1,25 @@
 ---
-title: Azure AD B2C (Microsoft Authentication Library per .NET)
+title: Azure AD B2C (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
 description: Per informazioni su considerazioni specifiche, vedere l'articolo relativo all'uso di Azure AD B2C con Microsoft Authentication Library per .NET (MSAL.NET).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0996c5635223800a981497256654b7e418bf4163
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: b8940ca6887e5c37659dd5b8d5a24ba7a2f4b889
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175611"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921937"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Usare MSAL.NET per l'accesso degli utenti con identità di social networking
 
@@ -40,7 +36,7 @@ L'autorità da usare è `https://{azureADB2CHostname}/tfp/{tenant}/{policyName}`
 
 - `azureADB2CHostname` è il nome del tenant Azure AD B2C più l'host, ad esempio `{your-tenant-name}.b2clogin.com`
 - `tenant` è il nome completo del tenant di Azure AD B2C, ad esempio `{your-tenant-name}.onmicrosoft.com`, oppure il GUID per il tenant. 
-- `policyName` il nome del flusso utente o del criterio da applicare (ad esempio "b2c_1_susi" per l'iscrizione/accesso).
+- `policyName` il nome del criterio o del flusso utente da applicare, ad esempio "b2c_1_susi" per l'iscrizione o l'accesso.
 
 Per ulteriori informazioni sulle autorità Azure AD B2C, vedere questa [documentazione](/azure/active-directory-b2c/b2clogin).
 
@@ -170,9 +166,9 @@ MSAL.Net supporta una [cache di token](/dotnet/api/microsoft.identity.client.tok
 
 Entrambe le attestazioni non sono presenti in molti scenari Azure AD B2C. 
 
-L'effetto del cliente è che, quando si tenta di visualizzare il campo username, si sta ricevendo "missing from the token Response" come valore? In caso affermativo, questo è dovuto al fatto che Azure AD B2C non restituisce un valore in IdToken per il preferred_username a causa di limitazioni con gli account di social networking e i provider di identità esterni (IDP). Azure AD restituisce un valore per preferred_username perché conosce l'utente, ma per Azure AD B2C, poiché l'utente può accedere con un account locale, Facebook, Google, GitHub e così via, non esiste un valore coerente per Azure AD B2C da usare per preferred_username. Per sbloccare MSAL dalla distribuzione della compatibilità della cache con ADAL, si è deciso di usare "missing from the token Response" alla fine quando si gestiscono gli account di Azure AD B2C quando IdToken non restituisce nulla per preferred_username. MSAL deve restituire un valore per preferred_username per mantenere la compatibilità della cache tra le librerie.
+L'effetto del cliente è che, quando si tenta di visualizzare il campo username, si sta ricevendo "missing from the token Response" come valore? In caso affermativo, questo è dovuto al fatto che Azure AD B2C non restituisce un valore in IdToken per il preferred_username a causa di limitazioni con gli account di social networking e con i provider di identità esterni (IDP). Azure AD restituisce un valore per preferred_username perché conosce l'utente, ma per Azure AD B2C, perché l'utente può accedere con un account locale, Facebook, Google, GitHub e così via. non è disponibile un valore coerente per Azure AD B2C da usare per preferred_username. Per sbloccare MSAL dalla distribuzione della compatibilità della cache con ADAL, si è deciso di usare "missing from the token Response" alla fine quando si gestiscono gli account di Azure AD B2C quando il IdToken non restituisce nulla per preferred_username. MSAL deve restituire un valore per preferred_username per mantenere la compatibilità della cache tra le librerie.
 
-### <a name="workarounds"></a>Soluzioni alternative
+### <a name="workarounds"></a>Soluzioni
 
 #### <a name="mitigation-for-the-missing-tenant-id"></a>Attenuazione per l'ID tenant mancante
 
@@ -189,4 +185,4 @@ Nell'esempio seguente vengono fornite ulteriori informazioni sull'acquisizione d
 
 | Esempio | Piattaforma | Description|
 |------ | -------- | -----------|
-|[Active-Directory-B2C-Novell-Native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Novell iOS, Novell Android, UWP | Una semplice app Novell Forms che illustra come usare MSAL.NET per autenticare gli utenti tramite Azure AD B2C e accedere a un'API Web con i token risultanti.|
+|[active-directory-b2c-xamarin-native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Novell iOS, Novell Android, UWP | Una semplice app Novell Forms che illustra come usare MSAL.NET per autenticare gli utenti tramite Azure AD B2C e accedere a un'API Web con i token risultanti.|

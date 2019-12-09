@@ -3,27 +3,23 @@ title: Configurare il dominio di pubblicazione di un'applicazione
 titleSuffix: Microsoft identity platform
 description: Informazioni su come configurare il dominio del server di pubblicazione di un'applicazione per consentire agli utenti di sapere dove vengono inviate le informazioni.
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/05/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3558e589004e0488e5b96b0e39bd3f5ceea69658
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 032fca669a617c938473b0d0c27a754faa60b528
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013068"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917846"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>Procedura: configurare un dominio di pubblicazione di un'applicazione
 
@@ -56,8 +52,8 @@ Per impostare il dominio del server di pubblicazione dell'applicazione, atteners
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 
 1. Se l'account è presente in più di un tenant di Azure AD:
-   1. Selezionare il profilo dal menu nell'angolo superiore destro della pagina, quindi **passare alla directory**.
-   1. Modificare la sessione nel tenant Azure AD in cui si desidera creare l'applicazione.
+   1. Selezionare il profilo dal menu nell'angolo superiore destro della pagina e quindi fare clic su **Cambia directory**.
+   1. Impostare la sessione sul tenant di Azure AD in cui si vuole creare l'applicazione.
 
 1. Passare a [Azure Active Directory > registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) per trovare e selezionare l'app che si vuole configurare.
 

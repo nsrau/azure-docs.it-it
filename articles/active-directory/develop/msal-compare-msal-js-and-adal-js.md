@@ -3,27 +3,23 @@ title: Differenze tra MSAL. js e ADAL. js
 titleSuffix: Microsoft identity platform
 description: Informazioni sulle differenze tra Microsoft Authentication Library per JavaScript (MSAL.js) e Azure AD Authentication Library per JavaScript (ADAL.js) e sulla scelta della libreria da usare.
 services: active-directory
-documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d831f9f1cf8dbf565d569f63ee6215fac80949d
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: e3696eb90abbb35f4d989649b4a1198aec69b9a5
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803180"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916911"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>Differenze tra MSAL.js e ADAL.js
 
@@ -66,7 +62,7 @@ Nella versione 2.0, l'uso dell'autorità `https://login.microsoftonline.com/comm
 
     È possibile richiedere gli ambiti per qualsiasi API di risorsa usando l'URI dell'API in questo formato: URIidapp/ambito, ad esempio: https:\//mytenant.onmicrosoft.com/myapi/api.read
 
-    Solo per l'API Graph MS, un valore di ambito `user.read` esegue il mapping a https: \//Graph. Microsoft. com/User. Read e può essere usato in modo intercambiabile.
+    Solo per l'API Graph MS, un valore di ambito `user.read` viene mappato a https:\//graph.microsoft.com/User.Read e può essere usato in modo intercambiabile.
 
     ```javascript
     var request = {

@@ -1,29 +1,25 @@
 ---
-title: Configurazione dell'applicazione client (Microsoft Authentication Library)
+title: Configurazione dell'applicazione client (MSAL) | Azure
 titleSuffix: Microsoft identity platform
-description: Informazioni sulle opzioni di configurazione per client pubblici e applicazioni client riservate in Microsoft Authentication Library (MSAL).
+description: Informazioni sulle opzioni di configurazione per client pubblici e applicazioni client riservate tramite Microsoft Authentication Library (MSAL).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/27/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d9a18f1ab5b86cbdb74a61a9520e89ecf920478
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: f3fd70757fe5ce8761fd3444f3f0dd31e2bfcc3b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803197"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917064"
 ---
 # <a name="application-configuration-options"></a>Opzioni di configurazione dell'applicazione
 
@@ -127,7 +123,7 @@ Se sei uno sviluppatore di app client pubbliche che usa MSAL:
 
 È possibile eseguire l'override dell'URI di Reindirizzamento usando la proprietà `RedirectUri` (ad esempio, se si usano i broker). Di seguito sono riportati alcuni esempi di URI di reindirizzamento per lo scenario:
 
-- `RedirectUriOnAndroid` = "msauth-5a434691-CCB2-4fd1-b97b-b64bcfbc03fc://com.Microsoft.Identity.client.Sample";
+- `RedirectUriOnAndroid` = "msauth-5a434691-ccb2-4fd1-b97b-b64bcfbc03fc://com.microsoft.identity.client.sample";
 - `RedirectUriOnIos` = $ "msauth. {Bundle. ID}://auth ";
 
 Per altri dettagli su iOS, vedere [eseguire la migrazione di applicazioni iOS che usano Microsoft Authenticator da adal.NET a MSAL.NET](msal-net-migration-ios-broker.md) e [sfruttare Service Broker in iOS](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS).

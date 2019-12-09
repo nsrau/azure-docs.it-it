@@ -1,23 +1,22 @@
 ---
-title: 'Installare i componenti con licenza per il runtime di integrazione Azure-SSIS '
+title: Installare i componenti con licenza per il runtime di integrazione SSIS di Azure
 description: Informazioni su come un fornitore di software indipendente (ISV) può sviluppare e installare componenti personalizzati, a pagamento o concessi in licenza, per il runtime di integrazione Azure-SSIS
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.topic: conceptual
-ms.date: 08/01/2019
 author: swinarko
 ms.author: sawinark
+manager: mflasko
 ms.reviewer: douglasl
-manager: craigg
-ms.openlocfilehash: f1f8a017153d95beed4979b6059383a41cd6a972
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.topic: conceptual
+ms.custom: seo-lt-2019
+ms.date: 08/01/2019
+ms.openlocfilehash: 599b54f8a5d97ee5ed29ce4df16980f456ffb919
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73673587"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74914575"
 ---
 # <a name="install-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Installare componenti personalizzati a pagamento o concessi in licenza per il runtime di integrazione Azure-SSIS
 
@@ -40,7 +39,7 @@ Il diagramma seguente mostra i flussi tipici di installazione, attivazione, asso
 ![Installazione dei componenti concessi in licenza](media/how-to-configure-azure-ssis-ir-licensed-components/licensed-component-installation.png)
 
 ## <a name="instructions"></a>Istruzioni
-1. I fornitori di software indipendenti possono offrire i propri componenti concessi in licenza in più SKU o livelli (ad esempio nodo singolo, fino a 5 nodi, fino a 10 nodi e così via). Quando i clienti acquistano un prodotto, l'ISV fornisce il codice Product Key corrispondente. Può fornire anche un contenitore BLOB di Archiviazione di Azure che include uno script di installazione creato dall'ISV stesso e i file associati. I clienti possono copiare questi file nel proprio contenitore di archiviazione e modificarli inserendo il proprio codice Product Key (ad esempio, eseguendo `IsvSetup.exe -pid xxxx-xxxx-xxxx`). I clienti possono quindi eseguire il provisioning del runtime di integrazione Azure-SSIS o riconfigurarlo usando come parametro l'URI SAS del proprio contenitore. Per altre informazioni, vedere [Installazione personalizzata per il runtime di integrazione Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md).
+1. I fornitori di software indipendenti possono offrire i propri componenti concessi in licenza in più SKU o livelli (ad esempio nodo singolo, fino a 5 nodi, fino a 10 nodi e così via). Quando i clienti acquistano un prodotto, l'ISV fornisce il codice Product Key corrispondente. Può fornire anche un contenitore BLOB di Archiviazione di Azure che include uno script di installazione creato dall'ISV stesso e i file associati. I clienti possono copiare questi file nel proprio contenitore di archiviazione e modificarli inserendo il proprio codice Product Key (ad esempio, eseguendo `IsvSetup.exe -pid xxxx-xxxx-xxxx`). I clienti possono quindi eseguire il provisioning del runtime di integrazione Azure-SSIS o riconfigurarlo usando come parametro l'URI SAS del proprio contenitore. Per altre informazioni, vedere [Custom setup for the Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md) (Configurazione personalizzata per il runtime di integrazione SSIS di Azure).
 
 2. Quando vengono eseguiti il provisioning o la configurazione del runtime di integrazione Azure-SSIS, lo script di installazione dell'ISV viene eseguito in ogni nodo per recuperare le variabili di ambiente Windows, `SSIS_CLUSTERID` e `SSIS_CLUSTERNODECOUNT`. Quindi, il runtime di integrazione Azure-SSIS invia l'ID cluster e il codice Product Key al server di attivazione dell'ISV per generare una chiave di attivazione.
 

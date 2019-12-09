@@ -1,29 +1,25 @@
 ---
-title: Considerazioni sul browser di sistema di Novell Android (Microsoft Authentication Library per .NET)
+title: Considerazioni sul browser del sistema Novell Android (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: Informazioni sulle considerazioni specifiche quando si usano i browser di sistema in Novell Android quando si usa Microsoft Authentication Library per .NET (MSAL.NET).
+description: Informazioni sulle considerazioni specifiche quando si usano i browser di sistema in Novell Android con Microsoft Authentication Library per .NET (MSAL.NET).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f83283cc02c60eb452d0e414c0b21843b48f343b
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 1d3ea2554fac8654b052e3e38633af23e7c778b3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150352"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74915474"
 ---
 #  <a name="xamarin-android-system-browser-considerations-with-msalnet"></a>Considerazioni sul browser di sistema Novell Android con MSAL.NET
 
@@ -35,11 +31,11 @@ Si consiglia di utilizzare browser che supportano schede personalizzate, ad esem
 
 | Browser con supporto per schede personalizzate | Nome del pacchetto |
 |------| ------- |
-|Chrome | com. Android. Chrome|
-|Microsoft Edge | com. Microsoft. emmx|
-|Firefox | org. Mozilla. Firefox|
-|Ecosia | com. Ecosia. Android|
-|Kiwi | com. kiwibrowser. browser|
+|Chrome | com.android.chrome|
+|Microsoft Edge | com.microsoft.emmx|
+|Firefox | org.mozilla.firefox|
+|Ecosia | com.ecosia.android|
+|Kiwi | com.kiwibrowser.browser|
 |Incredibile | com. brave. browser|
 
 Oltre ai browser con supporto per schede personalizzate, in base ai test, alcuni browser che non supportano schede personalizzate funzioneranno anche per l'autenticazione: opera, mini, inbrowser e Maxthon. Per ulteriori informazioni, vedere [tabella per i risultati dei test](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Android-system-browser#devices-and-browsers-tested).
@@ -60,13 +56,13 @@ La tabella seguente elenca i dispositivi e i browser che sono stati testati.
 | ------------- |:-------------:|:-----:|
 | Huawei/uno + | &ast; di Chrome | Pass|
 | Huawei/uno + | &ast; Edge | Pass|
-| Huawei/uno + | &ast; Firefox | Pass|
+| Huawei/uno + | Firefox&ast; | Pass|
 | Huawei/uno + | &ast; coraggioso | Pass|
-| Uno + | &ast; Ecosia | Pass|
+| Uno + | Ecosia&ast; | Pass|
 | Uno + | Kiwi&ast; | Pass|
 | Huawei/uno + | Opera | Pass|
 | Huawei | OperaMini | Pass|
-| Huawei/uno + | Inbrowser | Pass|
+| Huawei/uno + | InBrowser | Pass|
 | Uno + | Maxthon | Pass|
 | Huawei/uno + | DuckDuckGo | Autenticazione annullata dall'utente|
 | Huawei/uno + | Browser UC | Autenticazione annullata dall'utente|

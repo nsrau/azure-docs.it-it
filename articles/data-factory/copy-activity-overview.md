@@ -4,20 +4,19 @@ description: Informazioni sull'attività di copia in Azure Data Factory. È poss
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: jingwang
-ms.openlocfilehash: fa2876b88a520480813ebfb8af8219d53c32057a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 40bddaab6db5e7ed777ec55ca469a9e2d1c35c98
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075551"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927540"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Attività di copia in Azure Data Factory
 
@@ -126,21 +125,21 @@ Il modello seguente di un'attività di copia contiene un elenco completo delle p
 
 #### <a name="syntax-details"></a>Dettagli sintassi
 
-| Proprietà | Descrizione | Obbligatorio? |
+| Proprietà | Description | Obbligatorio? |
 |:--- |:--- |:--- |
-| type | Per un'attività di copia, impostare su `Copy` | Sì |
-| inputs | Specificare il set di dati creato che fa riferimento ai dati di origine. L'attività di copia supporta solo un singolo input. | Sì |
-| outputs | Specificare il set di dati creato che punta ai dati del sink. L'attività di copia supporta solo un singolo output. | Sì |
-| typeProperties | Specificare le proprietà per configurare l'attività di copia. | Sì |
-| origine | Specificare il tipo di origine della copia e le proprietà corrispondenti per il recupero dei dati.<br/><br/>Per ulteriori informazioni, vedere la sezione "proprietà dell'attività di copia" nell'articolo del connettore elencato in [archivi dati e formati supportati](#supported-data-stores-and-formats). | Sì |
-| sink | Specificare il tipo di sink di copia e le proprietà corrispondenti per la scrittura dei dati.<br/><br/>Per ulteriori informazioni, vedere la sezione "proprietà dell'attività di copia" nell'articolo del connettore elencato in [archivi dati e formati supportati](#supported-data-stores-and-formats). | Sì |
+| type | Per un'attività di copia, impostare su `Copy` | SÌ |
+| inputs | Specificare il set di dati creato che fa riferimento ai dati di origine. L'attività di copia supporta solo un singolo input. | SÌ |
+| outputs | Specificare il set di dati creato che punta ai dati del sink. L'attività di copia supporta solo un singolo output. | SÌ |
+| typeProperties | Specificare le proprietà per configurare l'attività di copia. | SÌ |
+| una sezione source | Specificare il tipo di origine della copia e le proprietà corrispondenti per il recupero dei dati.<br/><br/>Per ulteriori informazioni, vedere la sezione "proprietà dell'attività di copia" nell'articolo del connettore elencato in [archivi dati e formati supportati](#supported-data-stores-and-formats). | SÌ |
+| sink | Specificare il tipo di sink di copia e le proprietà corrispondenti per la scrittura dei dati.<br/><br/>Per ulteriori informazioni, vedere la sezione "proprietà dell'attività di copia" nell'articolo del connettore elencato in [archivi dati e formati supportati](#supported-data-stores-and-formats). | SÌ |
 | translator | Specificare il mapping esplicito di colonne da origine a sink. Questa proprietà si applica quando il comportamento di copia predefinito non soddisfa le proprie esigenze.<br/><br/>Per ulteriori informazioni, vedere [mapping dello schema nell'attività di copia](copy-activity-schema-and-type-mapping.md). | No |
 | dataIntegrationUnits | Specificare una misura che rappresenta la quantità di energia utilizzata dal [runtime di integrazione di Azure](concepts-integration-runtime.md) per la copia dei dati. Queste unità erano precedentemente note come unità di spostamento dati cloud (spostamento dati). <br/><br/>Per ulteriori informazioni, vedere [Data Integration Unit](copy-activity-performance.md#data-integration-units). | No |
 | parallelCopies | Specificare il parallelismo che si desidera venga utilizzato dall'attività di copia durante la lettura dei dati dall'origine e la scrittura dei dati nel sink.<br/><br/>Per ulteriori informazioni, vedere [copia parallela](copy-activity-performance.md#parallel-copy). | No |
 | enableStaging<br/>stagingSettings | Consente di specificare se organizzare temporaneamente i dati provvisori nell'archivio BLOB anziché copiare direttamente i dati dall'origine al sink.<br/><br/>Per informazioni sugli scenari e i dettagli di configurazione utili, vedere la pagina relativa alla [copia temporanea](copy-activity-performance.md#staged-copy). | No |
 | enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Scegliere come gestire le righe incompatibili durante la copia dei dati dall'origine al sink.<br/><br/>Per altre informazioni, vedere [tolleranza di errore](copy-activity-fault-tolerance.md). | No |
 
-## <a name="monitoring"></a>Monitoraggio
+## <a name="monitoring"></a>Monitorare
 
 È possibile monitorare l'esecuzione dell'attività di copia in Azure Data Factory **autore & monitorare** l'interfaccia utente o a livello di codice.
 
@@ -169,7 +168,7 @@ i dettagli dell'esecuzione dell'attività ![monitor](./media/copy-activity-overv
 
 I dettagli dell'esecuzione dell'attività di copia e le caratteristiche delle prestazioni vengono restituiti anche nella sezione **Risultati esecuzione attività di copia** > **output** . Di seguito è riportato un elenco completo delle proprietà che possono essere restituite. Verranno visualizzate solo le proprietà applicabili allo scenario di copia. Per informazioni su come monitorare le esecuzioni delle attività, vedere [monitorare un'esecuzione della pipeline](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run).
 
-| Nome proprietà  | Descrizione | Unità |
+| Nome proprietà  | Description | Unità |
 |:--- |:--- |:--- |
 | dataRead | Quantità di dati letti dall'origine. | Valore Int64, in byte |
 | dataWritten | Quantità di dati scritti nel sink. | Valore Int64, in byte |
@@ -184,9 +183,9 @@ I dettagli dell'esecuzione dell'attività di copia e le caratteristiche delle pr
 | throughput | Frequenza di trasferimento dei dati. | Numero a virgola mobile, in KBps |
 | sourcePeakConnections | Numero massimo di connessioni simultanee stabilite nell'archivio dati di origine durante l'esecuzione dell'attività di copia. | Valore Int32 (nessuna unità) |
 | sinkPeakConnections| Numero massimo di connessioni simultanee stabilite nell'archivio dati sink durante l'esecuzione dell'attività di copia.| Valore Int32 (nessuna unità) |
-| sqlDwPolyBase | Indica se la polibase viene utilizzata quando i dati vengono copiati in SQL Data Warehouse. | Booleano |
-| redshiftUnload | Indica se lo SCARICAmento viene utilizzato quando i dati vengono copiati da spostamento verso il suo | Booleano |
-| hdfsDistcp | Indica se DistCp viene usato quando i dati vengono copiati da HDFS. | Booleano |
+| sqlDwPolyBase | Indica se la polibase viene utilizzata quando i dati vengono copiati in SQL Data Warehouse. | boolean |
+| redshiftUnload | Indica se lo SCARICAmento viene utilizzato quando i dati vengono copiati da spostamento verso il suo | boolean |
+| hdfsDistcp | Indica se DistCp viene usato quando i dati vengono copiati da HDFS. | boolean |
 | effectiveIntegrationRuntime | Runtime di integrazione (IR) o Runtime usati per l'esecuzione dell'attività, nel formato `<IR name> (<region if it's Azure IR>)`. | Testo (stringa) |
 | usedDataIntegrationUnits | Le unità di integrazione dati effettive durante la copia. | Valore Int32 |
 | usedParallelCopies | Proprietà parallelCopies effettiva durante la copia. | Valore Int32 |

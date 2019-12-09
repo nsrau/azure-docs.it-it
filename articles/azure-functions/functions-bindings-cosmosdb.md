@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: 18bbfd1b54947bb88ba8f06c65a17b90430b38a3
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: bae027fc5a3b6ce7b4246c403841fa529b8884cb
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305221"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74925952"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Associazioni di Azure Cosmos DB per Funzioni di Azure 1.x
 
@@ -22,7 +22,7 @@ ms.locfileid: "74305221"
 Questo articolo descrive come usare le associazioni di [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) in Funzioni di Azure. Funzioni di Azure supporta i trigger e le associazioni di input e output per Azure Cosmos DB.
 
 > [!NOTE]
-> Questo articolo riguarda Funzioni di Azure 1.x. Per informazioni su come usare le associazioni in Funzioni 2.x, vedere [Azure Cosmos DB bindings for Azure Functions 2.x](functions-bindings-cosmosdb-v2.md) (Associazioni di Azure Cosmos DB per Funzioni di Azure 2.x).
+> Questo articolo riguarda Funzioni di Azure 1.x. Per informazioni su come usare questi binding in functions 2. x e versioni successive, vedere [binding Azure Cosmos DB per funzioni di Azure 2. x](functions-bindings-cosmosdb-v2.md).
 >
 >Questa associazione è stata originariamente denominata DocumentDB. In Funzioni versione 1.x, solo il trigger viene rinominato Cosmos DB, mentre l'associazione di input, l'associazione di output e il pacchetto NuGet conservano il nome di DocumentDB.
 
@@ -178,7 +178,7 @@ Gli attributi non sono supportati da JavaScript.
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `CosmosDBTrigger`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
 |**type** || Il valore deve essere impostato su `cosmosDBTrigger`. |
 |**direction** || Il valore deve essere impostato su `in`. Questo parametro viene impostato automaticamente quando si crea il trigger nel portale di Azure. |
@@ -1113,7 +1113,7 @@ Gli attributi non sono supportati da JavaScript.
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `DocumentDB`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
 |**type**     || Il valore deve essere impostato su `documentdb`.        |
 |**direction**     || Il valore deve essere impostato su `in`.         |
@@ -1452,7 +1452,7 @@ Gli attributi non sono supportati da JavaScript.
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `DocumentDB`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
 |**type**     || Il valore deve essere impostato su `documentdb`.        |
 |**direction**     || Il valore deve essere impostato su `out`.         |
@@ -1475,9 +1475,9 @@ Per impostazione predefinita, quando si scrive nel parametro di output della fun
 
 ## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
 
-| Binding | riferimento |
+| Associazione | Riferimento |
 |---|---|
-| Cosmos DB | [Codici di errore di CosmosDB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
+| CosmosDB | [Codici di errore di CosmosDB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

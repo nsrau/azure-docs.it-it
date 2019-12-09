@@ -2,28 +2,25 @@
 title: Come riattivare spazi dei nomi disabilitati del Servizio di controllo di accesso (ACS)
 description: Informazioni su come trovare e abilitare gli spazi dei nomi disabilitati del Servizio di controllo di accesso (ACS) e richiedere un'estensione per mantenerli abilitati fino al 4 febbraio 2019.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: ryanwi
 ms.reviewer: jlu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cb17109d53c6e08c8607959207e367086032f6d
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 590fc99861035ce1a5219a3cfd788159c6c2a19b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482700"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917710"
 ---
-# <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Procedura: Riattivare spazi dei nomi del Servizio di controllo di accesso disabilitati
+# <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Procedura: Riattivare gli spazi dei nomi disabilitati del Servizio di controllo di accesso
 
 A novembre 2017 è stato annunciato il ritiro in data 7 novembre 2018 del Servizio di controllo di accesso di Microsoft Azure, un servizio di Azure Active Directory (Azure AD).
 
@@ -90,7 +87,7 @@ Ulteriori estensioni non verranno più approvate automaticamente. Se è necessar
 
 ### <a name="to-request-an-extension"></a>Per richiedere un'estensione
 
-1. Accedere al portale di Azure e creare un [nuova richiesta di supporto](https://portal.azure.com/#create/Microsoft.Support).
+1. Accedere al portale di Azure e creare una [nuova richiesta di supporto](https://portal.azure.com/#create/Microsoft.Support).
 1. Compilare il nuovo modulo di richiesta di supporto, come illustrato nell'esempio seguente.
 
     | Campo della richiesta di supporto | Value |
@@ -102,7 +99,7 @@ Ulteriori estensioni non verranno più approvate automaticamente. Se è necessar
     | **Tipo di problema** | `ACS to SAS Migration` |
     | **Oggetto** | Descrivere il problema |
 
-   ![Viene illustrato un esempio di una nuova richiesta di supporto tecnico](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
+   ![Mostra un esempio di una nuova richiesta di supporto tecnico](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
 
 <!--
 
@@ -120,11 +117,11 @@ Ulteriori estensioni non verranno più approvate automaticamente. Se è necessar
     [![Updated page with refreshed banner](./media/howto-reactivate-disabled-acs-namespaces/updated-banner-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/updated-banner-expanded.png#lightbox)
 -->
 
-## <a name="help-and-support"></a>Guida e supporto
+## <a name="help-and-support"></a>Guida e supporto tecnico
 
 - Se si verificano problemi dopo aver seguito questa procedura, contattare il [supporto tecnico di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 - Per domande o commenti e suggerimenti sul ritiro di ACS, contattare Microsoft all'indirizzo acsfeedback@microsoft.com.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Esaminare le informazioni sul ritiro di ACS in [Procedura: Eseguire la migrazione dal Servizio di controllo di accesso di Azure](active-directory-acs-migration.md).
+- Esaminare le informazioni sul ritiro di ACS in [Procedura: Eseguire la migrazione da Servizio di controllo di accesso di Azure](active-directory-acs-migration.md).

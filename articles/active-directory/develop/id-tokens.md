@@ -1,15 +1,12 @@
 ---
 title: Riferimento al token ID della piattaforma di identità Microsoft | Microsoft Docs
-description: Informazioni su come usare token ID emessi dagli endpoint Azure AD v 1.0 e Microsoft Identity Platform (v 2.0).
+description: Informazioni su come usare id_tokens emessi dagli endpoint Azure AD v 1.0 e Microsoft Identity Platform (v 2.0).
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: ryanwi
@@ -17,12 +14,12 @@ ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 271d00539d1e502fe172d086067664fe15000dcf
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 1106692128f3272f59c80a8312d6ceea2500b3a7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554794"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917472"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Token ID piattaforma Microsoft Identity
 
@@ -30,7 +27,7 @@ Gli `id_tokens` vengono inviati all'applicazione client nell'ambito di un flusso
 
 ## <a name="using-the-id_token"></a>Uso degli id_token
 
-I token ID devono essere usati per convalidare che un utente è quello che attesta di essere e ottenere ulteriori informazioni utili su di essi. non deve essere usato per l'autorizzazione al posto di un [token di accesso](access-tokens.md). Le attestazioni fornite possono essere usate per l'esperienza utente all'interno dell'applicazione, come chiavi in un database e per fornire l'accesso all'applicazione client.  Quando si creano le chiavi per un database, non è necessario usare `idp` perché crea problemi con gli scenari Guest.  La chiave deve essere eseguita solo su `sub`, che è sempre univoca, con `tid` utilizzato per il routing, se necessario.  Se è necessario condividere i dati tra i servizi, `oid` + `sub` + `tid` funzioneranno poiché tutti i servizi ottengono lo stesso `oid`.
+I token ID devono essere usati per convalidare che un utente è quello che attesta di essere e ottenere ulteriori informazioni utili su di essi. non deve essere usato per l'autorizzazione al posto di un [token di accesso](access-tokens.md). Le attestazioni fornite possono essere usate per l'esperienza utente all'interno dell'applicazione, come chiavi in un database e per fornire l'accesso all'applicazione client.  Quando si creano le chiavi per un database, non è necessario usare `idp` perché crea problemi con gli scenari Guest.  La chiave deve essere eseguita solo su `sub`, che è sempre univoca, con `tid` utilizzato per il routing, se necessario.  Se è necessario condividere i dati tra i servizi, `oid`+`sub`+`tid` funzioneranno poiché tutti i servizi ottengono lo stesso `oid`.
 
 ## <a name="claims-in-an-id_token"></a>Attestazioni in un id_token
 
@@ -63,7 +60,7 @@ Questo token v2.0 di esempio viene visualizzato in [jwt.ms](https://jwt.ms/#id_t
 
 ### <a name="payload-claims"></a>Attestazioni di payload
 
-Questo elenco Mostra le attestazioni nella maggior parte dei token ID per impostazione predefinita, ad eccezione di quanto indicato.  Tuttavia, l'app può usare le [attestazioni facoltative](active-directory-optional-claims.md) per richiedere altre attestazioni in token ID.  Questi possono variare dall'attestazione `groups` a informazioni sul nome dell'utente.
+Questo elenco Mostra le attestazioni nella maggior parte dei id_tokens per impostazione predefinita, ad eccezione di quanto indicato.  Tuttavia, l'app può usare le [attestazioni facoltative](active-directory-optional-claims.md) per richiedere altre attestazioni in token ID.  Questi possono variare dall'attestazione `groups` a informazioni sul nome dell'utente.
 
 |Attestazione | Format | Description |
 |-----|--------|-------------|
@@ -102,4 +99,4 @@ Per convalidare manualmente il token, vedere la procedura illustrata nella sezio
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni sui [token di accesso](access-tokens.md)
-* Personalizzare le attestazioni nel token ID usando [attestazioni facoltative](active-directory-optional-claims.md).
+* Personalizzare le attestazioni nel id_token usando [attestazioni facoltative](active-directory-optional-claims.md).

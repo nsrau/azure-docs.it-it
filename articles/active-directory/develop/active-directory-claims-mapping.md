@@ -1,5 +1,5 @@
 ---
-title: Personalizzare le attestazioni per un'app tenant Azure AD (anteprima pubblica)
+title: Personalizzare le attestazioni per Azure AD app tenant
 titleSuffix: Microsoft identity platform
 description: Questa pagina descrive il mapping delle attestazioni di Azure Active Directory.
 services: active-directory
@@ -14,12 +14,12 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12726a1ad9b04bdfe2cd279d36a696bb011e4122
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: c8d15631c30566d7588b562f1bb0d6ba5280e699
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74845349"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918424"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedura: Personalizzare le attestazioni generate nei token per un'app specifica in un tenant (anteprima)
 

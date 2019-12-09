@@ -1,29 +1,25 @@
 ---
-title: Asserzioni client in Microsoft Authentication Library per .NET
+title: Asserzioni client (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
 description: Informazioni sul supporto delle asserzioni client firmate per le applicazioni client riservate in Microsoft Authentication Library per .NET (MSAL.NET).
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/18/2019
 ms.author: jmprieur
-ms.reviewer: ''
+ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66ff02e4c95594f0155ab31e3c99a0eb269626d9
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 4731a7265265c48bed02e836de91d61971b9be14
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74168135"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921912"
 ---
 # <a name="confidential-client-assertions"></a>Asserzioni client riservate
 
@@ -55,7 +51,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 Le attestazioni previste da Azure AD sono:
 
-Tipo di attestazione | Valore | DESCRIZIONE
+Tipo di attestazione | Value | Description
 ---------- | ---------- | ----------
 aud | https://login.microsoftonline.com/{tenantId}/v2.0 | L'attestazione "AUD" (audience) identifica i destinatari a cui è destinato il JWT (qui Azure AD) vedere [RFC 7519, sezione 4.1.3]
 exp | Gio giu 27 2019 15:04:17 GMT + 0200 (Romance Daylight Time) | L'attestazione "exp" (expiration time) identifica l'ora di scadenza a partire dalla quale o successivamente alla quale il token JWT non deve essere accettato per l'elaborazione. Vedere [RFC 7519, sezione 4.1.4]

@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 63d2aa5c9e4ec751d9b95ba0d884e6dc17e207bb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: bb86d551d83668a3558cf63827a64a481cf87e02
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276799"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926989"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuire modelli con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ Il flusso di lavoro è simile indipendentemente [da dove si distribuisce](#targe
 
 Per ulteriori informazioni sui concetti relativi al flusso di lavoro di distribuzione, vedere [gestire, distribuire e monitorare i modelli con Azure Machine Learning](concept-model-management-and-deployment.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere [creare un'area di lavoro Azure Machine Learning](how-to-manage-workspace.md).
 
@@ -530,7 +530,7 @@ La tabella seguente fornisce un esempio di creazione di una configurazione di di
 
 | Destinazione del calcolo | Esempio di configurazione della distribuzione |
 | ----- | ----- |
-| Local | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
+| Locale | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
 | Istanze di Azure Container | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Servizio Azure Kubernetes | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
@@ -852,7 +852,7 @@ Per altri progetti ed esempi di esempio, vedere questi repository di esempio in 
 ## <a name="download-a-model"></a>Scaricare un modello
 Se si vuole scaricare il modello per usarlo nel proprio ambiente di esecuzione, è possibile eseguire questa operazione con i comandi SDK/CLI seguenti:
 
-SDK
+SDK di  -
 ```python
 model_path = Model(ws,'mymodel').download()
 ```
@@ -867,6 +867,9 @@ az ml model download --model-id mymodel:1 --target-dir model_folder
 La distribuzione del modello senza codice è attualmente in anteprima e supporta i Framework di apprendimento automatico seguenti:
 
 ### <a name="tensorflow-savedmodel-format"></a>Formato Tensorflow SavedModel
+I modelli Tensorflow devono essere registrati in **formato SavedModel** per funzionare con la distribuzione del modello senza codice.
+
+Vedere [questo collegamento](https://www.tensorflow.org/guide/saved_model) per informazioni su come creare un SavedModel.
 
 ```python
 from azureml.core import Model
@@ -902,7 +905,7 @@ service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
-### <a name="scikit-learn-models"></a>Scikit-informazioni sui modelli
+### <a name="scikit-learn-models"></a>Modelli Scikit-Learn
 
 Nessuna distribuzione del modello di codice è supportata per tutti i tipi di modello Scikit-learn predefiniti.
 
@@ -961,7 +964,7 @@ package = Model.package(ws, [model], inference_config)
 package.wait_for_creation(show_output=True)
 ```
 
-Dopo aver creato un pacchetto, è possibile usare `package.pull()` per eseguire il pull dell'immagine nell'ambiente Docker locale. L'output di questo comando visualizzerà il nome dell'immagine. Ad esempio: 
+Dopo aver creato un pacchetto, è possibile usare `package.pull()` per eseguire il pull dell'immagine nell'ambiente Docker locale. L'output di questo comando visualizzerà il nome dell'immagine. ad esempio: 
 
 `Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`. 
 

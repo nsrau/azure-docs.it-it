@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0a1d3de1b3eb5aebd89e6601f95c449851d4a1a
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 5a493179e6e657a1d99d7cdb808629bae7332567
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74889581"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918968"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Servizio di sincronizzazione Azure Active Directory Connect: configurare il percorso dati preferito per le risorse di Office 365
 Lo scopo di questo argomento è illustrare come configurare l'attributo per la posizione dei dati preferita in Azure Active Directory (Azure AD) Connect Sync. Quando un utente usa funzionalità multigeo in Office 365, questo attributo viene usato per definire la posizione geografica dei dati di Office 365 dell'utente. I termini *area* e *area geografica* vengono usati in modo intercambiabile.
@@ -251,7 +251,7 @@ Riabilitare l'utilità di pianificazione della sincronizzazione predefinita:
 1. Avviare una sessione di PowerShell.
 2. Riabilitare la sincronizzazione pianificata eseguendo questo cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
-## <a name="step-8-verify-the-result"></a>Passaggio 8: Verificare il risultato
+## <a name="step-9-verify-the-result"></a>Passaggio 9: verificare il risultato
 A questo punto è necessario verificare la configurazione e abilitarla per gli utenti.
 
 1. Aggiungere l'area all'attributo selezionato per un utente. L'elenco di aree geografiche disponibili è indicato in questa tabella.  

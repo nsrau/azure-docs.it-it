@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/16/2019
+ms.date: 12/06/2019
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e1763b8d6402a6093499f1f06253fe4c7502255
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 54c51a10f950fb5381ab29968a866772dcaec78c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74842779"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918007"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Inserire l'applicazione nella raccolta di applicazioni di Azure Active Directory
 
@@ -42,6 +42,10 @@ Questo articolo illustra come elencare un'applicazione nella raccolta di applica
 - Per l'accesso Single Sign-on basato su password, assicurarsi che l'applicazione supporti l'autenticazione basata su form, Single Sign-On in modo che l'insieme di credenziali delle password possa essere eseguito come previsto.
 - È necessario un account permanente per i test con almeno due utenti registrati.
 
+**Come ottenere Azure AD per gli sviluppatori?**
+
+È possibile ottenere un account di test gratuito con tutte le funzionalità Premium Azure AD-90 giorni gratuiti e possono essere estese fino a quando si lavora con il team di sviluppo: https://docs.microsoft.com/office/developer-program/office-365-developer-program
+
 ## <a name="submit-the-request-in-the-portal"></a>Inviare la richiesta nel portale
 
 Dopo aver verificato che l'integrazione dell'applicazione funzioni con Azure AD, inviare la richiesta di accesso nel [portale di rete dell'applicazione](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Se si dispone di un account Office 365, usarlo per accedere a questo portale. In caso contrario, usare la account Microsoft, ad esempio Outlook o Hotmail, per accedere.
@@ -59,6 +63,26 @@ Se viene visualizzata la pagina seguente dopo l'accesso, fornire una giustificaz
 Il team esamina i dettagli e fornisce l'accesso di conseguenza. Dopo che la richiesta è stata approvata, è possibile accedere al portale e inviare la richiesta selezionando il riquadro **Invia richiesta (ISV)** nella Home page.
 
 ![Riquadro Invia richiesta (ISV) in home page](./media/howto-app-gallery-listing/homepage.png)
+
+## <a name="issues-on-logging-into-portal"></a>Problemi di accesso al portale
+
+Se questo errore viene visualizzato durante l'accesso, di seguito sono riportati i dettagli sul problema e questo è il modo in cui è possibile risolverlo.
+
+* Se l'accesso è stato bloccato come illustrato di seguito:
+
+  ![problemi di risoluzione dell'applicazione nella raccolta](./media/howto-app-gallery-listing/blocked.png)
+
+**Cosa sta succedendo:**
+
+L'utente Guest è federato a un tenant principale che è anche un Azure AD. L'utente Guest è a rischio elevato. Microsoft non consente agli utenti ad alto rischio di accedere alle proprie risorse. Tutti gli utenti ad alto rischio (dipendenti o ospiti/fornitori) devono correggere o chiudere i rischi per accedere alle risorse Microsoft. Per gli utenti guest, questo rischio per l'utente deriva dal tenant principale e il criterio deriva dal tenant delle risorse (in questo caso Microsoft).
+ 
+**Soluzioni protette:**
+
+* Gli utenti Guest registrati in multi-factor authentication correggono il proprio rischio utente. Questa operazione può essere eseguita dall'utente guest che esegue una modifica o reimpostazione della password protetta (https://aka.ms/sspr) al tenant principale, che richiede l'autenticazione a più fattori e SSPR nel tenant principale). La modifica o la reimpostazione della password protetta deve essere avviata in Azure AD e non in locale.
+
+* Gli utenti Guest hanno a disposizione gli amministratori per correggere i rischi. In questo caso, l'amministratore eseguirà la reimpostazione della password (generazione temporanea delle password). Questa operazione non richiede la protezione delle identità. L'amministratore dell'utente Guest può passare a https://aka.ms/RiskyUsers e fare clic su "Reimposta password".
+
+* Gli utenti Guest hanno gli amministratori che chiudono o ignorano i rischi. Anche in questo caso non è necessaria la protezione delle identità. L'amministratore può passare a https://aka.ms/RiskyUsers e fare clic su' ignora il rischio utente '. Tuttavia, l'amministratore deve eseguire la diligenza per assicurarsi che si tratta di una valutazione dei rischi falsa positiva prima di chiudere il rischio utente. In caso contrario, vengono messi a rischio le risorse di Microsoft, evitando una valutazione dei rischi senza alcuna indagine.
 
 > [!NOTE]
 > In caso di problemi con l'accesso, contattare il [team di integrazione di Azure ad SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
@@ -79,6 +103,7 @@ Per inserire un'applicazione nella raccolta di app di Azure AD, è innanzitutto 
   ![Elenco di un'applicazione SAML 2,0 o WS-Fed nella raccolta](./media/howto-app-gallery-listing/saml.png)
 
   * Se si vuole aggiungere l'applicazione all'elenco nella raccolta con **saml 2,0** o **WS-Fed**, selezionare **SAML 2.0/WS-Fed** come illustrato.
+
   * In caso di problemi con l'accesso, contattare il [team di integrazione di Azure ad SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## <a name="implement-sso-by-using-the-password-sso"></a>Implementare SSO tramite la password SSO

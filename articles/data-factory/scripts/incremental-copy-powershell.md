@@ -1,22 +1,21 @@
 ---
-title: 'Script di PowerShell: caricare i dati in modo incrementale tramite Azure Data Factory '
+title: Caricare i dati in modo incrementale tramite PowerShell
 description: Questo script PowerShell mostra come usare Azure Data Factory per copiare i dati in modo incrementale da un database SQL di Azure ad Archiviazione BLOB di Azure.
 services: data-factory
+ms.author: jingwang
 author: linda33wj
-manager: craigg
-editor: ''
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: article
+ms.custom: seo-lt-2019
 ms.date: 10/31/2017
-ms.author: jingwang
-ms.openlocfilehash: ef7b00172f0371e09d6462ed357744166b5fb08a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9f1a18155a0be4bc19e723ca04cf6770166a25af
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684324"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74913383"
 ---
 # <a name="powershell-script---incrementally-load-data-by-using-azure-data-factory"></a>Script PowerShell: caricare i dati in modo incrementale usando Azure Data Factory
 Questo script PowerShell di esempio carica solo i record nuovi o aggiornati da un archivio dati di origine a un archivio dati sink dopo la copia iniziale completa dei dati dall'origine al sink.  
@@ -36,7 +35,7 @@ Vedere [Esercitazione: copia incrementale](../tutorial-incremental-copy-powershe
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 
-Dopo aver eseguito lo script di esempio, è possibile eseguire il comando seguente per rimuovere il gruppo di risorse e tutte le risorse associate a questo:
+Dopo aver eseguito lo script di esempio, è possibile eseguire il comando seguente per rimuovere il gruppo di risorse e tutte le risorse a esso associate:
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourceGroupName

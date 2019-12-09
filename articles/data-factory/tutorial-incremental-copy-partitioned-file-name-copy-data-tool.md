@@ -9,17 +9,16 @@ ms.reviewer: ''
 manager: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 1/24/2019
-ms.openlocfilehash: 746b5cbcc58f6c722623446227417e6c94dd0a80
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9c72bc9c0862820b72fbecee7966e946f4ba0001
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217457"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928043"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Consente di copiare in modo incrementale i nuovi file in base al nome del file partizionato ora utilizzando lo strumento Copia dati
 
@@ -35,10 +34,10 @@ In questa esercitazione si segue questa procedura:
 > * Usare lo strumento Copia dati per creare una pipeline.
 > * Monitorare le esecuzioni di pipeline e attività.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * **Sottoscrizione di Azure**: se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-* **Account di archiviazione di Azure**: usare l'archiviazione BLOB come archivio dati di _origine_ e _sink_ . Se non si ha un account di archiviazione di Azure, vedere le istruzioni riportate in [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md).
+* **Account di archiviazione di Azure**: usare l'archiviazione BLOB come archivio dati di _origine_ e _sink_ . Se non è disponibile un account di archiviazione di Azure, vedere le istruzioni fornite in [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md).
 
 ### <a name="create-two-containers-in-blob-storage"></a>Creare due contenitori nell'archivio BLOB
 
@@ -53,7 +52,7 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
 
 2. Creare un contenitore denominato **Destination**. Per eseguire queste attività è possibile usare vari strumenti, ad esempio [Azure Storage Explorer](https://storageexplorer.com/).
 
-## <a name="create-a-data-factory"></a>Creare un'istanza di Data factory
+## <a name="create-a-data-factory"></a>Creare una data factory
 
 1. Nel menu a sinistra selezionare **Crea una risorsa** > **Dati e analisi** > **Data factory**: 
    
@@ -78,7 +77,7 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
 5. In **Versione** selezionare la versione **V2**.
 6. In **Località** selezionare la località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati (ad esempio, Archiviazione di Azure e il database SQL) e le risorse di calcolo (ad esempio, Azure HDInsight) usati dalla data factory possono trovarsi in altre località e aree.
 7. Selezionare **Aggiungi al dashboard**. 
-8. Selezionare **Create**.
+8. Selezionare **Create** (Crea).
 9. Il riquadro **Deploying Data Factory** (Distribuzione della data factory) nel dashboard mostra lo stato del processo.
 
     ![Riquadro Deploying data factory (Distribuzione della data factory)](media/tutorial-copy-data-tool/deploying-data-factory.png)
@@ -99,7 +98,7 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
 
     b. In **cadenza attività o pianificazione attività**selezionare **Esegui regolarmente in base alla pianificazione**.
 
-    C. In **tipo di trigger**selezionare **finestra a cascata**.
+    c. In **tipo di trigger**selezionare **finestra a cascata**.
     
     d. In **ricorrenza**immettere **1 ora**/e. 
     
@@ -118,7 +117,7 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
 
     ![Pagina Archivio dati di origine](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page-select-blob.png)
     
-    C. Nella pagina **nuovo servizio collegato** selezionare l'account di archiviazione dall'elenco **nome account di archiviazione** e quindi fare clic su **fine**.
+    c. Nella pagina **nuovo servizio collegato** selezionare l'account di archiviazione dall'elenco **nome account di archiviazione** e quindi fare clic su **fine**.
     
     ![Pagina Archivio dati di origine](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page-linkedservice.png)
     
@@ -135,7 +134,7 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
     
     ![Scegliere il file o la cartella di input](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-loading-behavior.png)
     
-    C. Scrivere il percorso della cartella dinamica come **origine/{year}/{month}/{day}/{hour}** /e modificare il formato come segue:
+    c. Scrivere il percorso della cartella dinamica come **origine/{year}/{month}/{day}/{hour}** /e modificare il formato come segue:
     
     ![Scegliere il file o la cartella di input](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/input-file-name.png)
     
@@ -155,7 +154,7 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
     
     ![Scegliere il file o la cartella di output](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/input-file-name2.png)    
     
-    C. Fare clic su **Next** (Avanti).
+    c. Fare clic su **Next** (Avanti).
     
     ![Scegliere il file o la cartella di output](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/click-next-after-output-folder.png)  
 7. Nella pagina **Impostazioni** selezionare **Avanti**. 

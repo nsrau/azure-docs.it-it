@@ -1,6 +1,7 @@
 ---
-title: Usare la piattaforma di identità Microsoft per accedere agli utenti usando la concessione delle credenziali password del proprietario della risorsa (ROPC) | Azure
-description: Come supportare i flussi di autenticazione senza browser tramite la concessione di credenziali password del proprietario della risorsa.
+title: Accesso con la concessione delle credenziali password del proprietario della risorsa | Azure
+titleSuffix: Microsoft identity platform
+description: Supportare i flussi di autenticazione senza browser usando la concessione delle credenziali password del proprietario della risorsa (ROPC).
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -17,14 +18,14 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4504a1ae60aaac790ca15c120433159c2ff78fa
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 24c6bfdc7efc8f15378d4a126b978bc77741b43c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74207775"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919325"
 ---
-# <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credentials"></a>Microsoft Identity Platform e le credenziali password del proprietario della risorsa OAuth 2,0
+# <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Credenziali della password del proprietario della risorsa OAuth 2,0 e della piattaforma di identità Microsoft
 
 Microsoft Identity Platform supporta la [concessione delle credenziali password del proprietario della risorsa OAuth 2,0 (ROPC)](https://tools.ietf.org/html/rfc6749#section-4.3), che consente a un'applicazione di accedere all'utente gestendo direttamente la password.  Questo articolo descrive come programmare direttamente in base al protocollo nell'applicazione.  Quando possibile, è consigliabile usare invece le librerie di autenticazione Microsoft (MSAL) supportate per [acquisire i token e chiamare le API Web protette](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Esaminare anche le [app di esempio che usano MSAL](sample-v2-code.md).
 
@@ -68,13 +69,13 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &grant_type=password
 ```
 
-| . | Condizione | DESCRIZIONE |
+| Parametro | Condizione | Description |
 | --- | --- | --- |
-| `tenant` | obbligatori | Il tenant della directory in cui si desidera registrare l'utente. Può essere fornito nel formato di nome descrittivo o GUID. Questo parametro non può essere impostato su `common` oppure `consumers`, ma può essere impostato su `organizations`. |
-| `client_id` | obbligatori | ID dell'applicazione (client) che la pagina [portale di Azure registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) assegnata all'app. | 
-| `grant_type` | obbligatori | Il valore deve essere impostato su `password`. |
-| `username` | obbligatori | L'indirizzo di posta elettronica dell'utente. |
-| `password` | obbligatori | La password dell'utente. |
+| `tenant` | Obbligatoria | Il tenant della directory in cui si desidera registrare l'utente. Può essere fornito nel formato di nome descrittivo o GUID. Questo parametro non può essere impostato su `common` oppure `consumers`, ma può essere impostato su `organizations`. |
+| `client_id` | Obbligatoria | ID dell'applicazione (client) che la pagina [portale di Azure registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) assegnata all'app. | 
+| `grant_type` | Obbligatoria | Il valore deve essere impostato su `password`. |
+| `username` | Obbligatoria | L'indirizzo di posta elettronica dell'utente. |
+| `password` | Obbligatoria | La password dell'utente. |
 | `scope` | Consigliato | Un elenco delimitato da spazi di [ambiti](v2-permissions-and-consent.md), o privilegi, richiesti dall'app. In un flusso interattivo, l'amministratore o l'utente deve dare il consenso in anticipo a questi ambiti. |
 | `client_secret`| A volte obbligatorio | Se l'app è un client pubblico, non è possibile includere il `client_secret` o `client_assertion`.  Se l'app è un client riservato, è necessario includerla. | 
 | `client_assertion` | A volte obbligatorio | Una forma diversa di `client_secret`, generata utilizzando un certificato.  Per ulteriori informazioni, vedere [credenziali del certificato](active-directory-certificate-credentials.md) . | 
@@ -94,9 +95,9 @@ Nell'esempio seguente viene illustrata una risposta di token riuscita:
 }
 ```
 
-| . | Format | DESCRIZIONE |
+| Parametro | Format | Description |
 | --------- | ------ | ----------- |
-| `token_type` | String | Sempre impostato su `Bearer`. |
+| `token_type` | Stringa | Sempre impostato su `Bearer`. |
 | `scope` | Stringhe separate da uno spazio | Se è stato restituito un token di accesso, questo parametro elenca gli ambiti per cui è valido. |
 | `expires_in`| int | Numero di secondi per cui il token di accesso incluso verrà considerato valido. |
 | `access_token`| Stringa opaca | Emessa per gli [ambiti](v2-permissions-and-consent.md) che sono stati richiesti. |
@@ -109,12 +110,12 @@ Nell'esempio seguente viene illustrata una risposta di token riuscita:
 
 Se l'utente non ha fornito il nome utente o la password corretti, o il client non ha ricevuto il consenso richiesto, l'autenticazione avrà esito negativo.
 
-| Tipi di errore | DESCRIZIONE | Azione client |
+| Errore | Description | Azione client |
 |------ | ----------- | -------------|
 | `invalid_grant` | L'autenticazione non è riuscita | Le credenziali non sono corrette o il client non ha il consenso per gli ambiti richiesti. Se gli ambiti non sono concessi, viene restituito un errore di `consent_required`. In questo caso, il client deve reindirizzare l'utente a un prompt interattivo con una webview o un browser. |
 | `invalid_request` | La richiesta è stata costruita in modo non corretto | Il tipo di concessione non è supportato nei contesti di autenticazione `/common` o `/consumers`.  Usare invece `/organizations` o un ID tenant. |
 
-## <a name="learn-more"></a>Altre informazioni
+## <a name="learn-more"></a>Altre informazioni.
 
 * È possibile provare ROPC grazie all'[applicazione console di esempio](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2).
 * Per determinare se è necessario usare l'endpoint v 2.0, vedere le informazioni sulle [limitazioni della piattaforma di identità Microsoft](active-directory-v2-limitations.md).

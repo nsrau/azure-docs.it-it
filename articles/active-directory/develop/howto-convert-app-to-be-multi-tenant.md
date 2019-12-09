@@ -1,30 +1,26 @@
 ---
-title: Come compilare un'app che può consentire l'accesso a qualsiasi utente di Azure AD
+title: Consente di compilare app per l'accesso Azure AD utenti
 titleSuffix: Microsoft identity platform
 description: Viene illustrato come compilare un'applicazione multi-tenant che può accedere a un utente da qualsiasi tenant Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f7f31e0254ad4963ce6946a108d84c97027f30b
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 73a5d30761b25f6233e298cac2602fb701a2987f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803945"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917778"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procedura: Come consentire l'accesso a qualsiasi utente di Azure Active Directory usando il modello di applicazione multi-tenant
 
@@ -46,7 +42,7 @@ Esaminiamo in dettaglio ogni passaggio. È anche possibile passare direttamente 
 
 ## <a name="update-registration-to-be-multi-tenant"></a>Aggiornare la registrazione in modo che sia multi-tenant
 
-Per impostazione predefinita, le registrazioni di API o app Web in Azure AD sono single-tenant. È possibile rendere la registrazione multi-tenant individuando l'opzione **tipi di conto supportati** nel riquadro **autenticazione** della registrazione dell'applicazione nella [portale di Azure][AZURE-portal] e impostando gli **account in qualsiasi organizzazione Directory**.
+Per impostazione predefinita, le registrazioni di API o app Web in Azure AD sono single-tenant. È possibile rendere la registrazione multi-tenant individuando l'opzione **tipi di conto supportati** nel riquadro **autenticazione** della registrazione dell'applicazione nella [portale di Azure][AZURE-portal] e impostando gli **account in qualsiasi directory dell'organizzazione**.
 
 Un'applicazione può diventare multi-tenant se l'URI dell'ID app dell'applicazione è univoco a livello globale. L'URI dell'ID App è uno dei modi in cui un'applicazione viene identificata nei messaggi di protocollo. Per un'applicazione single-tenant, è sufficiente che l'URI dell'ID App sia univoco all'interno del tenant. Per un'applicazione multi-tenant, è necessario che sia univoco a livello globale in modo da Azure AD possa trovare l'applicazione in tutti i tenant. L'univocità globale viene applicata richiedendo che l'URI dell'ID App abbia un nome host corrispondente a un dominio verificato del tenant di Azure AD.
 

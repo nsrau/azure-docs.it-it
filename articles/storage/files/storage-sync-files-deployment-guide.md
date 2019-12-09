@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 593c9ea9c37cc5684e85604340f8aae3d84d9afb
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 4f9a2842f99c7f8b0bb9f820584fb2cd4e41a2b2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546357"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927884"
 ---
 # <a name="deploy-azure-file-sync"></a>Distribuire Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -400,6 +400,10 @@ Attualmente, l'approccio di pre-seeding presenta alcune limitazioni:
 - Dopo la creazione dell'endpoint cloud, Sincronizzazione file di Azure esegue un processo per rilevare i file nel cloud prima di avviare la sincronizzazione iniziale. Il tempo impiegato per completare questo processo varia a seconda dei diversi fattori, ad esempio la velocità di rete, la larghezza di banda disponibile e il numero di file e cartelle. Per la stima approssimativa nella versione di anteprima, il processo di rilevamento viene eseguito a una velocità di circa 10 file/sec. Di conseguenza, anche se il pre-seeding viene eseguito velocemente, il tempo complessivo per ottenere un sistema completamente operativo può essere notevolmente più lungo quando viene effettuato il pre-seeding dei dati nel cloud.
 
 ## <a name="self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service"></a>Ripristino self-service tramite versioni precedenti e VSS (Servizio Copia Shadow del volume)
+
+> [!IMPORTANT]
+> Le informazioni seguenti possono essere usate solo con la versione 9 o successive dell'agente di sincronizzazione archiviazione. Le versioni inferiori a 9 non avranno i cmdlet di StorageSyncSelfService.
+
 Versioni precedenti è una funzionalità di Windows che consente di utilizzare snapshot VSS lato server di un volume per presentare le versioni di un file ripristinabili a un client SMB.
 Questo consente uno scenario potente, comunemente definito ripristino self-service, direttamente per gli Information Worker anziché a seconda del ripristino di un amministratore IT.
 

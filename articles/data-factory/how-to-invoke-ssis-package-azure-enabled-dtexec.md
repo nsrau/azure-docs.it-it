@@ -5,19 +5,18 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/21/2019
 author: swinarko
 ms.author: sawinark
+manager: mflasko
 ms.reviewer: douglasl
-manager: craigg
-ms.openlocfilehash: 9ab308d0e2145a0d0b40e8b37c8c5be07b55dac6
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a5540eea91937319a6ac947b50698ccaa8b25847
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73673548"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931693"
 ---
 # <a name="run-sql-server-integration-services-packages-with-the-azure-enabled-dtexec-utility"></a>Eseguire pacchetti di SQL Server Integration Services con l'utilità dtexec abilitata per Azure
 Questo articolo descrive l'utilità del prompt dei comandi dtexec abilitata per Azure (AzureDTExec). Viene usato per eseguire pacchetti SQL Server Integration Services (SSIS) nell'Azure-SSIS Integration Runtime (IR) in Azure Data Factory.
@@ -80,7 +79,7 @@ L'utilità viene installata in `{SSMS Folder}\Common7\IDE\CommonExtensions\Micro
   /De MyEncryptionPassword
 ```
 
-La chiamata di AzureDTExec offre opzioni simili a quelle richiamando dtexec. Per ulteriori informazioni, vedere [utilità dtexec](https://docs.microsoft.com/sql/integration-services/packages/dtexec-utility?view=sql-server-2017). Ecco le opzioni attualmente supportate:
+La chiamata di AzureDTExec offre opzioni simili a quelle richiamando dtexec. Per altre informazioni, vedere [dtexec Utility](https://docs.microsoft.com/sql/integration-services/packages/dtexec-utility?view=sql-server-2017). Ecco le opzioni attualmente supportate:
 
 - **/F [ile]** : carica un pacchetto archiviato in file System, condivisione file o file di Azure. Come valore per questa opzione, è possibile specificare il percorso UNC per il file del pacchetto in file system, condivisione file o File di Azure con la relativa estensione dtsx. Se il percorso UNC specificato contiene spazi, racchiudere l'intero percorso tra virgolette.
 - **/Conf [igFile]** : specifica un file di configurazione da cui estrarre i valori. Utilizzando questa opzione, è possibile impostare una configurazione della fase di esecuzione per il pacchetto che differisce da quella specificata in fase di progettazione. È possibile archiviare impostazioni diverse in un file di configurazione XML e quindi caricarle prima dell'esecuzione del pacchetto. Per altre informazioni, vedere [configurazioni di pacchetti SSIS](https://docs.microsoft.com/sql/integration-services/packages/package-configurations?view=sql-server-2017). Per specificare il valore per questa opzione, usare il percorso UNC del file di configurazione in file system, condivisione file o File di Azure con l'estensione dtsConfig. Se il percorso UNC specificato contiene spazi, racchiudere l'intero percorso tra virgolette.

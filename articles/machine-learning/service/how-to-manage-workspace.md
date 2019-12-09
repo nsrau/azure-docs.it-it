@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9e3915a2f55680fc2e24ac63d5e7170ada026c2e
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: c7ff51c18d4ec41c706518631071e8feb3bafe59
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615214"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74912448"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Creare e gestire aree di lavoro Azure Machine Learning nel portale di Azure
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,13 +26,13 @@ Questo articolo illustra come creare, visualizzare ed eliminare [**Azure Machine
 
 Per creare un'area di lavoro, è necessaria una sottoscrizione di Azure. Se non si dispone di una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
-1. Accedere al [portale di Azure](https://portal.azure.com/) usando le credenziali per la sottoscrizione di Azure. 
+1. Accedere al [portale di Azure](https://portal.azure.com/) usando le credenziali della sottoscrizione di Azure. 
 
 1. Nell'angolo in alto a sinistra del portale di Azure selezionare **+ Crea una risorsa**.
 
       ![Creare una nuova risorsa](../../../includes/media/aml-create-in-portal/create-workspace.gif)
 
-1. Utilizzare la barra di ricerca per trovare **Machine Learning**.
+1. Usare la barra di ricerca per trovare **Machine Learning**.
 
 1. Selezionare **Machine Learning**.
 
@@ -40,13 +40,13 @@ Per creare un'area di lavoro, è necessaria una sottoscrizione di Azure. Se non 
 
 1. Specificare le informazioni seguenti per configurare la nuova area di lavoro:
 
-   Campo|Descrizione 
+   Campo|Description 
    ---|---
    Nome dell'area di lavoro |Immettere un nome univoco che identifichi l'area di lavoro. In questo esempio si usa **docs-ws**. I nomi devono essere univoci all'interno del gruppo di risorse. Usare un nome facile da ricordare e da distinguere dai nomi delle aree di lavoro create da altri utenti.  
    Sottoscrizione |Selezionare la sottoscrizione di Azure da usare.
-   Resource group | Usare un gruppo di risorse esistente nella sottoscrizione oppure immettere un nome per creare un nuovo gruppo di risorse. Un gruppo di risorse include risorse correlate per una soluzione Azure. In questo esempio si usa **docs-aml**. 
-   Percorso | Selezionare la località più vicina agli utenti e alle risorse di dati per creare l'area di lavoro.
-   Edizione area di lavoro | Selezionare **Basic** o **Enterprise**.  Questa edizione dell'area di lavoro determina le funzionalità a cui si avrà accesso e i prezzi. Scopri di più sulle [offerte Basic ed Enterprise Edition](overview-what-is-azure-ml.md#sku). 
+   Gruppo di risorse | Usare un gruppo di risorse esistente nella sottoscrizione oppure immettere un nome per creare un nuovo gruppo di risorse. Un gruppo di risorse include risorse correlate per una soluzione Azure. In questo esempio si usa **docs-aml**. 
+   Località | Selezionare la località più vicina agli utenti e alle risorse di dati per creare l'area di lavoro.
+   Edizione dell'area di lavoro | Selezionare **Basic** o **Enterprise**.  Questa edizione dell'area di lavoro determina le funzionalità a cui si avrà accesso e i prezzi. Scopri di più sulle [offerte Basic ed Enterprise Edition](overview-what-is-azure-ml.md#sku). 
 
     ![Configurare l'area di lavoro](media/how-to-manage-workspace/select-edition.png)
 
@@ -73,15 +73,15 @@ Per creare un'area di lavoro, è necessaria una sottoscrizione di Azure. Se non 
 
 È possibile aggiornare l'area di lavoro da Basic Edition a Enterprise Edition per sfruttare le funzionalità avanzate, ad esempio le esperienze di basso codice e le funzionalità di sicurezza avanzate.
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere ad [Azure Machine Learning Studio](https://ml.azure.com).
 
 1. Selezionare l'area di lavoro che si desidera aggiornare.
 
-1. Selezionare **Aggiorna** nella parte superiore o nel messaggio di aggiornamento.
+1. Selezionare **altre informazioni** nella parte superiore destra della pagina.
 
-    ![Aggiornare un'area di lavoro](media/how-to-manage-workspace/upgrade.png)
+   [![aggiornare un'area di lavoro](media/how-to-manage-workspace/upgrade.png)](media/how-to-manage-workspace/upgrade.png#lightbox)
 
-1. Selezionare **Conferma aggiornamento**.
+1. Selezionare **Aggiorna** nella finestra visualizzata.
 
 
 > [!IMPORTANT]

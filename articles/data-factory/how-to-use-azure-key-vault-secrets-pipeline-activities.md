@@ -1,24 +1,23 @@
 ---
-title: Usare i segreti Azure Key Vault nelle attività della pipeline
+title: Usare i segreti di Azure Key Vault nelle attività della pipeline
 description: Informazioni su come recuperare le credenziali archiviate da Azure Key Vault e usarle durante data factory esecuzioni di pipeline.
 services: data-factory
 author: ChrisLound
-manager: craigg
+manager: anandsub
 editor: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: chlound
-ms.openlocfilehash: 83d0981a0d277eab1aae8654343ab34661b3e88b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 837d62784a56ad0f17471cca5a660819d4a83e12
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73672888"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926770"
 ---
-# <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Usare i segreti Azure Key Vault nelle attività della pipeline
+# <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Usare i segreti di Azure Key Vault nelle attività della pipeline
 
 È possibile archiviare le credenziali o i valori dei segreti in un Azure Key Vault e usarli durante l'esecuzione della pipeline per passare alle attività.
 
@@ -26,7 +25,7 @@ ms.locfileid: "73672888"
 
 Questa funzionalità si basa sull'identità gestita data factory.  Scopri come funziona da [identità gestita per data factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) e assicurati che i data factory ne abbiano uno associato.
 
-## <a name="steps"></a>Passi
+## <a name="steps"></a>Procedure
 
 1. Aprire le proprietà del data factory e copiare il valore di ID applicazione identità gestita.
 
@@ -48,13 +47,13 @@ Questa funzionalità si basa sull'identità gestita data factory.  Scopri come f
 
 4. Nella pipeline Data Factory aggiungere una nuova attività Web e configurarla come indicato di seguito.  
 
-    |Proprietà  |Valore  |
+    |Proprietà  |Value  |
     |---------|---------|
-    |Output sicuro     |True         |
+    |Output sicuro     |Vero         |
     |URL     |[Valore dell'URI del segreto]? API-Version = 7.0         |
     |Metodo     |GET         |
-    |Autenticazione     |Identità del servizio gestita         |
-    |Risorsa        |https://vault.azure.net       |
+    |Authentication     |Identità del servizio gestita         |
+    |Gruppi        |https://vault.azure.net       |
 
     ![Attività Web](media/how-to-use-azure-key-vault-secrets-pipeline-activities/webactivity.png)
 

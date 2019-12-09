@@ -4,10 +4,8 @@ description: Informazioni su come eseguire la migrazione dell'app Android ADAL (
 services: active-directory
 author: tylermsft
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: Android
 ms.workload: identity
@@ -16,12 +14,12 @@ ms.author: twhitney
 ms.reviewer: shoatman
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be8129de8b1c12965810bd5d9b5dfd1093e18d1c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0653eef585dd81d2e03585bf45b45ee9df9de292
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73667894"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917252"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Guida alla migrazione da ADAL a MSAL per Android
 
@@ -149,7 +147,7 @@ Prendere in considerazione un conto bancario. È possibile avere più di un acco
 
 Per analogie, ad esempio gli account di un istituto finanziario, è possibile accedere agli account della piattaforma Microsoft Identity usando le credenziali. Queste credenziali sono registrate con o emesse da Microsoft. O da Microsoft per conto di un'organizzazione.
 
-Laddove la piattaforma di identità Microsoft differisce da un istituto finanziario, in questa analogia, la piattaforma di gestione delle identità Microsoft fornisce un Framework che consente a un utente di usare un account e le credenziali associate per accedere alle risorse che appartengono a più utenti e organizzazioni. Questo è come poter usare una scheda rilasciata da una banca, a un altro istituto finanziario. Questa operazione funziona perché tutte le organizzazioni in questione usano la piattaforma di identità Microsoft, che consente l'uso di un account in più organizzazioni. Ad esempio:
+Laddove la piattaforma di identità Microsoft differisce da un istituto finanziario, in questa analogia, la piattaforma di gestione delle identità Microsoft fornisce un Framework che consente a un utente di usare un account e le credenziali associate per accedere alle risorse che appartengono a più utenti e organizzazioni. Questo è come poter usare una scheda rilasciata da una banca, a un altro istituto finanziario. Questa operazione funziona perché tutte le organizzazioni in questione usano la piattaforma di identità Microsoft, che consente l'uso di un account in più organizzazioni. Ecco un esempio:
 
 Sam funziona per Contoso.com, ma gestisce macchine virtuali di Azure appartenenti a Fabrikam.com. Per gestire le macchine virtuali di Fabrikam, Sam deve essere autorizzato ad accedervi. È possibile concedere l'accesso aggiungendo l'account di Sam a Fabrikam.com e concedendo al suo account un ruolo che consenta di lavorare con le macchine virtuali. Questa operazione viene eseguita con il portale di Azure.
 
@@ -243,7 +241,7 @@ In MSAL è presente una gerarchia di eccezioni e ognuna ha un proprio set di cod
 
 Elenco di eccezioni MSAL
 
-|Eccezione  | Descrizione  |
+|Eccezione  | Description  |
 |---------|---------|
 | `MsalException`     | Eccezione controllata predefinita generata da MSAL.  |
 | `MsalClientException`     | Viene generata se l'errore è lato client. |

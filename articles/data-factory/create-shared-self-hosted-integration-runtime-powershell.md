@@ -5,19 +5,18 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.author: abnarain
 author: nabhishek
 manager: anansub
 ms.custom: seo-lt-2019
 ms.date: 10/31/2018
-ms.openlocfilehash: a8ac5bdaab915e46f5d5074c991703790d429e50
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 2b83c61d05cbc9d84c74d03004839a21505519fa
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74218237"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928471"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Creare un runtime di integrazione self-hosted condiviso in Azure Data Factory
 
@@ -52,7 +51,7 @@ Per creare un runtime di integrazione self-hosted condiviso usando Azure PowerSh
 1. Creare un runtime di integrazione collegato.
 1. Revocare la condivisione.
 
-### <a name="prerequisites"></a>prerequisiti 
+### <a name="prerequisites"></a>Prerequisiti 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -63,7 +62,7 @@ Per creare un runtime di integrazione self-hosted condiviso usando Azure PowerSh
 > [!NOTE]  
 > Per un elenco delle aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse in [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
 
-### <a name="create-a-data-factory"></a>Creare un'istanza di Data factory
+### <a name="create-a-data-factory"></a>Creare una data factory
 
 1. Avviare Windows PowerShell Integrated Scripting Environment (ISE).
 

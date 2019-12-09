@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9f6fd2a01cdb325d543bc624d0c13bce1d84a02
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 55bba2ff51460a10feabd881458b8d4a15cde924
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848239"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74914614"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Come richiedere la verifica in due passaggi per un utente
 
@@ -52,7 +52,10 @@ Gli account utente in modalità Multi-Factor Authentication di Azure presentano 
 
 Lo stato dell'utente indica se un amministratore ha eseguito la relativa iscrizione in Azure MFA e se l'utente ha completato il processo di registrazione.
 
-Tutti gli utenti iniziano con *Disabilitato*. Quando si registrano gli utenti in Azure MFA, il relativo stato cambia in *Abilitato*. Quando gli utenti abilitati accedono e completano il processo di registrazione, il relativo stato viene modificato in *Applicato*.  
+Tutti gli utenti iniziano con *Disabilitato*. Quando si registrano gli utenti in Azure MFA, il relativo stato cambia in *Abilitato*. Quando gli utenti abilitati accedono e completano il processo di registrazione, il relativo stato viene modificato in *Applicato*.
+
+> [!NOTE]
+> Se l'autenticazione a più fattori viene riabilitata in un oggetto utente che ha già i dettagli di registrazione, ad esempio telefono o indirizzo di posta elettronica, gli amministratori devono ripetere la registrazione dell'autenticazione a più fattori tramite portale di Azure o PowerShell. Se l'utente non esegue di nuovo la registrazione, lo stato dell'autenticazione a più fattori non passa da *abilitato* a *applicato* nell'interfaccia utente di gestione dell'autenticazione a più fattori.
 
 ### <a name="view-the-status-for-a-user"></a>Visualizzare lo stato di un utente
 
@@ -179,6 +182,8 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 
 > [!NOTE]
 > Il comportamento e lo script di PowerShell sono stati modificati di recente di conseguenza. In precedenza, lo script salvava i metodi di autenticazione a più fattori, disabilitazione dell'autenticazione a più fattori e ripristina i metodi. Questa operazione non è più necessaria, ora che il comportamento predefinito di Disable non cancella i metodi.
+>
+> Se l'autenticazione a più fattori viene riabilitata in un oggetto utente che ha già i dettagli di registrazione, ad esempio telefono o indirizzo di posta elettronica, gli amministratori devono ripetere la registrazione dell'autenticazione a più fattori tramite portale di Azure o PowerShell. Se l'utente non esegue di nuovo la registrazione, lo stato dell'autenticazione a più fattori non passa da *abilitato* a *applicato* nell'interfaccia utente di gestione dell'autenticazione a più fattori.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

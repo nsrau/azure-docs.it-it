@@ -1,29 +1,25 @@
 ---
-title: Single Sign-on (Microsoft Authentication Library per JavaScript)
+title: Single Sign-on (MSAL. js) | Azure
 titleSuffix: Microsoft identity platform
 description: Informazioni sulla creazione di Single Sign-On esperienze usando Microsoft Authentication Library per JavaScript (MSAL. js).
 services: active-directory
-documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/24/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da39b8435acdd11108a945c6bac5147dc8b6ad50
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 921c02e682c722a4e96f98fb0fc54d7fcbb82220
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150583"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916265"
 ---
 # <a name="single-sign-on-with-msaljs"></a>Single Sign-On con MSAL.js
 
@@ -92,7 +88,7 @@ userAgentApplication.acquireTokenSilent(request).then(function(response) {
 
 **Utilizzo dell'hint di accesso**
 
-Se non si dispone di un'attestazione SID configurata o se è necessario ignorare la richiesta di selezione dell'account nelle chiamate di autenticazione interattiva, è possibile eseguire questa operazione fornendo un `login_hint` nei parametri della richiesta e, facoltativamente, una `domain_hint` come `extraQueryParameters` nei metodi interattivi MSAL. js (@no __t_3_, `loginRedirect`, `acquireTokenPopup` e `acquireTokenRedirect`). ad esempio:
+Se non si dispone di un'attestazione SID configurata o se è necessario ignorare la richiesta di selezione dell'account nelle chiamate di autenticazione interattiva, è possibile eseguire questa operazione fornendo un `login_hint` nei parametri della richiesta e, facoltativamente, una `domain_hint` come `extraQueryParameters` nei metodi interattivi MSAL. js (`loginPopup`, `loginRedirect`, `acquireTokenPopup` e `acquireTokenRedirect`). ad esempio:
 
 ```javascript
 var request = {
@@ -108,12 +104,12 @@ userAgentApplication.loginRedirect(request);
 
 * **loginHint** deve essere impostato sull'attestazione `preferred_username` nel token ID.
 
-* è necessario passare **domain_hint** solo quando si usa l'autorità/Common. L'hint di dominio è determinato dall'ID tenant (TID).  Se il `tid` attestazione nel token ID è `9188040d-6c67-4c5b-b112-36a304b66dad` è consumer. In caso contrario, si tratta di organizzazioni.
+* **domain_hint** è necessario passare solo quando si usa l'autorità/Common. L'hint di dominio è determinato dall'ID tenant (TID).  Se il `tid` attestazione nel token ID è `9188040d-6c67-4c5b-b112-36a304b66dad` è consumer. In caso contrario, si tratta di organizzazioni.
 
 Leggere [qui](v2-oauth2-implicit-grant-flow.md) per altre informazioni sui valori per l'hint di accesso e l'hint di dominio.
 
 > [!Note]
-> Non è possibile passare contemporaneamente a SID e a login_hint. Si otterrà quindi una risposta di errore.
+> Non è possibile passare contemporaneamente a SID e login_hint. Si otterrà quindi una risposta di errore.
 
 ## <a name="sso-without-msaljs-login"></a>SSO senza accesso a MSAL. js
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 11/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9bb22a564f52dfcdb3fbec6d842e452ca416059f
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: ce1076446fb704bb64bac98c7afe53e63d3b3450
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961708"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74912423"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Eseguire il training di modelli con Azure Machine Learning usando l'oggetto Estimator
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -58,7 +58,7 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 
 Questo frammento di codice specifica i parametri seguenti per il costruttore di `Estimator`.
 
-. | DESCRIZIONE
+Parametro | Description
 --|--
 `source_directory`| Directory locale contenente tutto il codice necessario per il processo di training. Questa cartella viene copiata dal computer locale al calcolo remoto.
 `script_params`| Dizionario che specifica gli argomenti della riga di comando da passare allo script di training `entry_script`, sotto forma di coppie di `<command-line argument, value>`. Per specificare un flag dettagliato in `script_params`, utilizzare `<command-line argument, "">`.
@@ -110,7 +110,7 @@ estimator = Estimator(source_directory='./my-keras-proj',
 
 Il codice precedente espone i nuovi parametri seguenti al costruttore di `Estimator`:
 
-. | DESCRIZIONE | Default
+Parametro | Description | Predefinito
 --|--|--
 `custom_docker_image`| Nome dell'immagine da usare. Specificare solo immagini disponibili in repository Docker pubblici (in questo caso Hub Docker). Per usare un'immagine da un repository Docker privato, usare invece il parametro `environment_definition` del costruttore. [Vedere l'esempio](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
 `node_count`| Numero di nodi da usare per il processo di training. | `1`
@@ -122,6 +122,16 @@ Infine, inviare il processo di training:
 ```Python
 run = experiment.submit(estimator)
 print(run.get_portal_url())
+```
+
+## <a name="registering-a-model"></a>Registrazione di un modello
+
+Dopo aver eseguito il training del modello, è possibile salvarlo e registrarlo nell'area di lavoro. Con la registrazione del modello è possibile archiviare e deversionere i modelli nell'area di lavoro per semplificare la [gestione e la distribuzione del modello](concept-model-management-and-deployment.md).
+
+L'esecuzione del codice seguente registrerà il modello nell'area di lavoro e la renderà disponibile per il riferimento in base al nome nei contesti di calcolo remoti o negli script di distribuzione. Per ulteriori informazioni e per ulteriori parametri, vedere [`register_model`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-) nella documentazione di riferimento.
+
+```python
+model = run.register_model(model_name='sklearn-sample')
 ```
 
 ## <a name="github-tracking-and-integration"></a>Rilevamento e integrazione di GitHub

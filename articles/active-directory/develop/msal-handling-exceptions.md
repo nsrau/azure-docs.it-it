@@ -3,10 +3,8 @@ title: Errori ed eccezioni (MSAL)
 titleSuffix: Microsoft identity platform
 description: Informazioni su come gestire gli errori e le eccezioni, l'accesso condizionale e le richieste di attestazione nelle applicazioni MSAL.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
@@ -15,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/22/2019
 ms.author: twhitney
-ms.reviewer: saeeda
+ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 753296596982279a14ff2775b0e129048dbe8369
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 7f903ca541582dfa0f3980bb65a3fef3c4b774a7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482065"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916775"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>Gestisci eccezioni ed errori di MSAL
 
@@ -80,7 +78,7 @@ MSAL espone un campo `Classification`, che è possibile leggere per offrire un'e
 | UserPasswordExpired | La password dell'utente è scaduta. | Chiamare AcquireTokenInteractively () in modo che l'utente possa reimpostare la password. |
 | PromptNeverFailed| È stata chiamata l'autenticazione interattiva con il prompt dei parametri = Never, forzando MSAL a basarsi sui cookie del browser e non visualizzare il browser. Questa operazione non è riuscita. | Chiamare AcquireTokenInteractively () senza prompt. None |
 | AcquireTokenSilentFailed | MSAL SDK non dispone di informazioni sufficienti per recuperare un token dalla cache. Questo può essere dovuto al fatto che non sono presenti token nella cache o che non è stato trovato alcun account. Il messaggio di errore contiene maggiori dettagli.  | Chiamare AcquireTokenInteractively (). |
-| nessuno    | Non vengono forniti altri dettagli. La condizione può essere risolta dall'interazione dell'utente durante il flusso di autenticazione interattiva. | Chiamare AcquireTokenInteractively (). |
+| Nessuno    | Non vengono forniti altri dettagli. La condizione può essere risolta dall'interazione dell'utente durante il flusso di autenticazione interattiva. | Chiamare AcquireTokenInteractively (). |
 
 ## <a name="net-code-example"></a>Esempio di codice .NET
 

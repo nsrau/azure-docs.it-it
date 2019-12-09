@@ -2,19 +2,19 @@
 title: Formato binario in Azure Data Factory
 description: In questo argomento viene descritto come gestire il formato binario in Azure Data Factory.
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: jingwang
-ms.openlocfilehash: 815933f1f08b873ae1438d6b2f1e6cd922fe886a
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 8ebb4f0d1a06a7bf29dc46cd696b6acfd2527095
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74548229"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927388"
 ---
 # <a name="binary-format-in-azure-data-factory"></a>Formato binario in Azure Data Factory
 

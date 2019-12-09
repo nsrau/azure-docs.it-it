@@ -4,24 +4,23 @@ description: Informazioni su come spostare dati da un database DB2 locale median
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: c1644e17-4560-46bb-bf3c-b923126671f1
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0d066e66e4b9600eb5734ef2f3c6031dbc44f17a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e5d2c6b0460c3a7566adb17601aceb57e57f4d0b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666593"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931793"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Spostare dati da DB2 mediante l'attività di copia di Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-onprem-db2-connector.md)
 > * [Versione 2 (corrente)](../connector-db2.md)
 
@@ -60,7 +59,7 @@ Il connettore Data Factory DB2 supporta le piattaforme e le versioni di IBM DB2 
 > - DB2 per i (AS400): consente all'utente esperto di creare una raccolta per l'utente normale prima di eseguire l'attività di copia. Per creare la raccolta usare il comando: `create collection <username>`
 > - DB2 per z/OS o LUW: usare un account con privilegi elevati, ovvero utente esperto o amministratore con autorità di pacchetto e autorizzazioni BIND, BINDADD, GRANT EXECUTE TO PUBLIC, per eseguire l'attività di copia una volta. Il pacchetto necessario viene creato automaticamente durante la copia. In seguito è possibile tornare a essere un utente normale per le successive esecuzioni delle operazioni di copia.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 È possibile creare una pipeline con un'attività di copia per spostare i dati da un archivio dati DB2 usando diversi strumenti e API: 
 
 - Il modo più semplice per creare una pipeline è usare la Copia guidata di Azure Data Factory. Per una rapida procedura dettagliata di creazione di una pipeline mediante la copia guidata dei dati, vedere [Esercitazione: Creare una pipeline con l'attività di copia usando la Copia guidata di Data Factory](data-factory-copy-data-wizard-tutorial.md). 
@@ -79,23 +78,23 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che
 ## <a name="db2-linked-service-properties"></a>Proprietà del servizio collegato DB2
 La tabella seguente elenca le proprietà JSON che sono specifiche di un servizio collegato DB2.
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 | --- | --- | --- |
-| **type** |Questa proprietà deve essere impostata su **OnPremisesDb2**. |Sì |
-| **server** |Il nome del server DB2. |Sì |
-| **database** |Il nome del database DB2. |Sì |
+| **type** |Questa proprietà deve essere impostata su **OnPremisesDb2**. |SÌ |
+| **server** |Il nome del server DB2. |SÌ |
+| **database** |Il nome del database DB2. |SÌ |
 | **schema** |Il nome dello schema nel database DB2. Questa proprietà fa distinzione tra maiuscole e minuscole. |No |
-| **authenticationType** |Il tipo di autenticazione utilizzato per connettersi al database DB2. I valori possibili sono: anonima, di base e Windows. |Sì |
+| **authenticationType** |Il tipo di autenticazione utilizzato per connettersi al database DB2. I valori possibili sono: anonima, di base e Windows. |SÌ |
 | **username** |Il nome dell'account utente, se si usa l'autenticazione di base o di Windows. |No |
 | **password** |La password per l'account utente. |No |
-| **gatewayName** |Il nome del gateway che il servizio Data factory deve usare per connettersi al database DB2 locale. |Sì |
+| **gatewayName** |Il nome del gateway che il servizio Data factory deve usare per connettersi al database DB2 locale. |SÌ |
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 Per un elenco delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di dati in Azure Data Factory](data-factory-create-datasets.md). Le sezioni come **struttura**, **disponibilità** e **policy** di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, archiviazione BLOB di Azure, archiviazione tabelle di Azure e così via.
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione **typeProperties** per il set di dati di tipo **RelationalTable**, che comprende il set di dati DB2, presenta la proprietà seguente:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 | --- | --- | --- |
 | **tableName** |Il nome della tabella nell'istanza del database DB2 a cui il servizio collegato fa riferimento. Questa proprietà fa distinzione tra maiuscole e minuscole. |No (se è specificata la proprietà **query** di un'attività di copia di tipo **RelationalSource**) |
 
@@ -104,7 +103,7 @@ Per un elenco delle sezioni e delle proprietà disponibili per la definizione de
 
 Per le attività di copia con origine di tipo **RelationalSource** (che comprende DB2), sono disponibili le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Descrizione | Valori consentiti | Obbligatorio |
+| Proprietà | Description | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | **query** |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: `"query": "select * from "MySchema"."MyTable""` |No (se è specificata la proprietà **tableName** di un set di dati) |
 
@@ -311,43 +310,43 @@ Quando l'attività di copia converte i dati da un tipo DB2 in un tipo .NET, veng
 | SmallInt |Int16 |
 | Integer |Int32 |
 | BigInt |Int64 |
-| Real |Single |
-| Double |Double |
-| Float |Double |
-| Decimal |Decimal |
-| DecimalFloat |Decimal |
-| Numeric |Decimal |
-| Data |DateTime |
-| Time |TimeSpan |
-| Timestamp |DateTime |
-| Xml |Byte[] |
-| Char |String |
-| VarChar |String |
-| LongVarChar |String |
-| DB2DynArray |String |
+| Real |Singolo |
+| DOUBLE |DOUBLE |
+| Float |DOUBLE |
+| DECIMAL |DECIMAL |
+| DecimalFloat |DECIMAL |
+| Numeric |DECIMAL |
+| Data |Data e ora |
+| Durata |Intervallo di tempo |
+| Timestamp |Data e ora |
+| xml |Byte[] |
+| Char |Stringa |
+| VarChar |Stringa |
+| LongVarChar |Stringa |
+| DB2DynArray |Stringa |
 | Binary |Byte[] |
 | VarBinary |Byte[] |
 | LongVarBinary |Byte[] |
-| Graphic |String |
-| VarGraphic |String |
-| LongVarGraphic |String |
-| Clob |String |
+| Graphic |Stringa |
+| VarGraphic |Stringa |
+| LongVarGraphic |Stringa |
+| Clob |Stringa |
 | BLOB |Byte[] |
-| DbClob |String |
+| DbClob |Stringa |
 | SmallInt |Int16 |
 | Integer |Int32 |
 | BigInt |Int64 |
-| Real |Single |
-| Double |Double |
-| Float |Double |
-| Decimal |Decimal |
-| DecimalFloat |Decimal |
-| Numeric |Decimal |
-| Data |DateTime |
-| Time |TimeSpan |
-| Timestamp |DateTime |
-| Xml |Byte[] |
-| Char |String |
+| Real |Singolo |
+| DOUBLE |DOUBLE |
+| Float |DOUBLE |
+| DECIMAL |DECIMAL |
+| DecimalFloat |DECIMAL |
+| Numeric |DECIMAL |
+| Data |Data e ora |
+| Durata |Intervallo di tempo |
+| Timestamp |Data e ora |
+| xml |Byte[] |
+| Char |Stringa |
 
 ## <a name="map-source-to-sink-columns"></a>Eseguire il mapping delle colonne dell'origine alle colonne del sink
 Per informazioni su come eseguire il mapping delle colonne del set di dati di origine alle colonne del set di dati del sink, vedere [Mapping delle colonne del set di dati in Azure Data Factory](data-factory-map-columns.md).

@@ -1,28 +1,25 @@
 ---
-title: Usare Microsoft Authentication Library (MSAL) nei cloud nazionali-piattaforma di identità Microsoft
+title: Usare MSAL in un'app cloud nazionale | Azure
+titleSuffix: Microsoft identity platform
 description: Microsoft Authentication Library (MSAL) consente agli sviluppatori di applicazioni di acquisire token per chiamare le API Web protette. Queste API Web possono essere Microsoft Graph, altre API Microsoft, API Web dei partner o API Web. MSAL supporta più architetture e piattaforme applicative.
 services: active-directory
-documentationcenter: dev-center-name
 author: negoe
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f1c73d89b0efc17e8f8836d080595927d500ad6
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: f1d0d4511b95d56ae41bf9fbb1118318d8374bde
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481870"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916042"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Usare MSAL in un ambiente cloud nazionale
 
@@ -32,13 +29,13 @@ Oltre al cloud Microsoft nel mondo, Microsoft Authentication Library (MSAL) cons
 
 Incluso il cloud globale, Azure Active Directory (Azure AD) viene distribuito nei cloud nazionali seguenti:  
 
-- Azure Government
+- Azure per enti pubblici
 - 21Vianet per Azure Cina
 - Azure Germania
 
 Questa guida illustra come accedere agli account aziendali e dell'Istituto di istruzione, ottenere un token di accesso e chiamare l'API Microsoft Graph nell'ambiente [cloud di Azure per enti pubblici](https://azure.microsoft.com/global-infrastructure/government/) .
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, verificare che siano soddisfatti questi prerequisiti.
 
@@ -93,7 +90,7 @@ Per abilitare l'applicazione MSAL. js per i cloud sovrani:
 
 - [Scaricare i file di progetto](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip) per un server Web locale, ad esempio node.
 
-  oppure
+  Oppure
 
 - [Scaricare il progetto di Visual Studio](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip).
 

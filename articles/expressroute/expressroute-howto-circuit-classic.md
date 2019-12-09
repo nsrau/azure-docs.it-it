@@ -7,22 +7,22 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: a2a3bdeb0ee454185c92c6e49a17bda7e4e5d5f0
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: e421a534b04f74d2a2eb0bc06aeffa52684ae17a
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083589"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931969"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Modificare un circuito ExpressRoute mediante PowerShell (versione classica)
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
-> * [Interfaccia della riga di comando di Azure](howto-circuit-cli.md)
+> * [interfaccia della riga di comando di Azure](howto-circuit-cli.md)
 > * [Modello di Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
 > * [Video - Portale di Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
-> * [PowerShell (classic)](expressroute-howto-circuit-classic.md) (PowerShell (classico))
+> * [PowerShell (classico)](expressroute-howto-circuit-classic.md)
 >
 
 Questo articolo illustra i passaggi per verificare lo stato, aggiornare o eliminare ed effettuare il deprovisioning del circuito del modello di distribuzione classica ExpressRoute. Questo articolo si applica al modello di distribuzione classica.
@@ -35,20 +35,7 @@ Questo articolo illustra i passaggi per verificare lo stato, aggiornare o elimin
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Installare le versioni più recenti dei moduli di PowerShell per Gestione dei servizi di Azure e il modulo ExpressRoute. Non è possibile usare l'ambiente Azure CloudShell per eseguire i moduli SM.
-
-1. Usare le istruzioni riportate nell'articolo [installazione del modulo di gestione dei servizi](/powershell/azure/servicemanagement/install-azure-ps) per installare il modulo gestione dei servizi di Azure. Se è già installato il modulo AZ o RM, assicurarsi di usare "-AllowClobber".
-2. Importare i moduli installati. Quando si usa l'esempio seguente, modificare il percorso in modo che corrisponda al percorso dei moduli di PowerShell installati.
-
-   ```powershell
-   Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.3.0\Azure.psd1'
-   Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.3.0\ExpressRoute\ExpressRoute.psd1'
-   ```
-3. Per accedere al proprio account Azure, aprire la console di PowerShell con diritti elevati e connettersi al proprio account. Usare l'esempio seguente per la connessione tramite il modulo di gestione dei servizi:
-
-   ```powershell
-   Add-AzureAccount
-   ```
+[!INCLUDE [classic powershell install instructions](../../includes/expressroute-poweshell-classic-install-include.md)]
 
 ## <a name="get-the-status-of-a-circuit"></a>Ottenere lo stato di un circuito
 
