@@ -4,23 +4,22 @@ description: Informazioni su come copiare dati da Sybase in archivi dati di sink
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 4877706c487f389539e8e5c73bb984b01d200f38
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0552cdc50e2b760600ad8c58bd3d1cd4d2dc50a2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680110"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930987"
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Copiare dati da Sybase usando Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-onprem-sybase-connector.md)
 > * [Versione corrente](connector-sybase.md)
 
@@ -47,7 +46,7 @@ Per usare questo connettore Sybase, è necessario:
 - Configurare un runtime di integrazione self-hosted. Per i dettagli, vedere l'articolo [Runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md).
 - Installare il [provider di dati per Sybase iAnywhere.Data.SQLAnywhere](https://go.microsoft.com/fwlink/?linkid=324846) versione 16 o successiva nel computer del runtime di integrazione.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -57,15 +56,15 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di Sybase sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **Sybase** | Sì |
-| server | Nome del server Sybase. |Sì |
-| database | Nome del database Sybase. |Sì |
-| authenticationType | Tipo di autenticazione usato per connettersi al database Sybase.<br/>I valori consentiti sono: **Di base** e **Windows**. |Sì |
-| Nome utente | Specificare il nome utente per la connessione al database Sybase. |Sì |
-| password | Specificare la password per l'account utente specificato per il nome utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |Sì |
+| type | La proprietà type deve essere impostata su: **Sybase** | SÌ |
+| server | Nome del server Sybase. |SÌ |
+| database | Nome del database Sybase. |SÌ |
+| authenticationType | Tipo di autenticazione usato per connettersi al database Sybase.<br/>I valori consentiti sono: **Di base** e **Windows**. |SÌ |
+| Nome utente | Specificare il nome utente per la connessione al database Sybase. |SÌ |
+| password | Specificare la password per l'account utente specificato per il nome utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |SÌ |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |SÌ |
 
 **Esempio:**
 
@@ -98,9 +97,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Sybase, sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type del set di dati deve essere impostata su: **SybaseTable** | Sì |
+| type | La proprietà Type del set di dati deve essere impostata su: **SybaseTable** | SÌ |
 | tableName | Nome della tabella nel database Sybase. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
@@ -130,9 +129,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Sybase, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su: **SybaseSource** | Sì |
+| type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su: **SybaseSource** | SÌ |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**

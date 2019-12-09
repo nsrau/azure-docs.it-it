@@ -4,20 +4,19 @@ description: Informazioni su come copiare dati da un'origine HTTP locale o cloud
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 214809df692bc7e43203fe4a736d6cc53908e0bf
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 7c942661beea34e7a49223f4a8e4a4d6c0eb66e1
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278534"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929326"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copiare dati da un endpoint HTTP tramite Azure Data Factory
 
@@ -25,7 +24,7 @@ ms.locfileid: "74278534"
 > * [Versione 1](v1/data-factory-http-connector.md)
 > * [Versione corrente](connector-http.md)
 
-Questo articolo descrive come usare l'attività di copia in Azure Data Factory per copiare dati da un endpoint HTTP. È basato sull'articolo [Attività di copia in Azure Data Factory](copy-activity-overview.md), che presenta una panoramica generale dell'attività di copia.
+Questo articolo descrive come usare l'attività di copia in Azure Data Factory per copiare dati da un endpoint HTTP. L'articolo è basato su [Attività di copia in Azure Data Factory](copy-activity-overview.md), dove viene presentata una panoramica generale dell'attività di copia.
 
 La differenza tra questo connettore HTTP, il [connettore REST](connector-rest.md) e il [connettore Tabella Web](connector-web-table.md) è la seguente:
 
@@ -51,11 +50,11 @@ Questo connettore HTTP è supportato per le attività seguenti:
 > [!TIP]
 > Per testare una richiesta HTTP per il recupero dei dati prima di configurare il connettore HTTP in Data Factory, fare riferimento alla specifica dell'API per i requisiti relativi a intestazione e corpo. È possibile usare strumenti come Postman o un Web browser per la convalida.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Inizia oggi stesso
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -65,22 +64,22 @@ Le sezioni seguenti presentano informazioni dettagliate sulle proprietà che è 
 
 Per il servizio collegato HTTP sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | obbligatori |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **type** deve essere impostata su **HttpServer**. | Sì |
-| URL | URL di base del server Web. | Sì |
+| type | La proprietà **type** deve essere impostata su **HttpServer**. | SÌ |
+| url | URL di base del server Web. | SÌ |
 | enableServerCertificateValidation | Specificare se abilitare la convalida del certificato SSL del server quando ci si connette a un endpoint HTTP. Se il server HTTPS usa un certificato autofirmato, impostare questa proprietà su **false**. | No<br /> (il valore predefinito è **true**) |
-| authenticationType | Specifica il tipo di autenticazione. I valori consentiti sono **Anonymous**, **Basic**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Vedere le sezioni seguenti per altre proprietà e altri esempi JSON per questi tipi di autenticazione. | Sì |
+| authenticationType | Specifica il tipo di autenticazione. I valori consentiti sono **Anonymous**, **Basic**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Vedere le sezioni seguenti per altre proprietà e altri esempi JSON per questi tipi di autenticazione. | SÌ |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se questa proprietà non è specificata, viene usato il tipo Azure Integration Runtime predefinito. |No |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Usando l'autenticazione Basic, Digest o Windows
 
 Impostare la proprietà **authenticationType** su **Basic**, **Digest** o **Windows**. Oltre alle proprietà generiche descritte nella sezione precedente, specificare le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | obbligatori |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| userName | Nome utente da usare per accedere all'endpoint HTTP. | Sì |
-| Password | Password per l'utente (valore di **userName**). Contrassegnare questo campo come tipo **SecureString** per archiviare la password in modo sicuro in Data Factory. È anche possibile [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| userName | Nome utente da usare per accedere all'endpoint HTTP. | SÌ |
+| password | Password per l'utente (valore di **userName**). Contrassegnare questo campo come di tipo **SecureString** per l'archiviazione sicura in Data Factory. È anche possibile [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | SÌ |
 
 **Esempio**
 
@@ -110,11 +109,11 @@ Impostare la proprietà **authenticationType** su **Basic**, **Digest** o **Wind
 
 Per usare l'autenticazione ClientCertificate, impostare la proprietà **authenticationType** su **ClientCertificate**. Oltre alle proprietà generiche descritte nella sezione precedente, specificare le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | obbligatori |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
 | embeddedCertData | Dati del certificato con codifica Base64. | Specificare **embeddedCertData** o **certThumbprint**. |
 | certThumbprint | Identificazione personale del certificato installato nell'archivio certificati del computer per il runtime di integrazione self-hosted. Si applica solo quando nella proprietà **connectVia** è specificato il tipo self-hosted del runtime di integrazione. | Specificare **embeddedCertData** o **certThumbprint**. |
-| Password | Password associata al certificato. Contrassegnare questo campo come tipo **SecureString** per archiviare la password in modo sicuro in Data Factory. È anche possibile [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| password | Password associata al certificato. Contrassegnare questo campo come di tipo **SecureString** per l'archiviazione sicura in Data Factory. È anche possibile [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 
 Se si usa **certThumbprint** per l'autenticazione e il certificato è installato nell'archivio personale del computer locale, concedere l'autorizzazione di lettura al runtime di integrazione self-hosted:
 
@@ -167,7 +166,7 @@ Se si usa **certThumbprint** per l'autenticazione e il certificato è installato
 }
 ```
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di dati](concepts-datasets-linked-services.md). 
 
@@ -175,9 +174,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Le proprietà seguenti sono supportate per HTTP in `location` impostazioni nel set di dati basato sul formato:
 
-| Proprietà    | DESCRIZIONE                                                  | obbligatori |
+| Proprietà    | Description                                                  | Obbligatoria |
 | ----------- | ------------------------------------------------------------ | -------- |
-| type        | La proprietà Type in `location` nel set di dati deve essere impostata su **HttpServerLocation**. | Sì      |
+| type        | La proprietà Type in `location` nel set di dati deve essere impostata su **HttpServerLocation**. | SÌ      |
 | relativeUrl | URL relativo della risorsa che contiene i dati. Il connettore HTTP copia i dati dall'URL combinato: `[URL specified in linked service]/[relative URL specified in dataset]`.   | No       |
 
 > [!NOTE]
@@ -214,9 +213,9 @@ Le proprietà seguenti sono supportate per HTTP in `location` impostazioni nel s
 >[!NOTE]
 >Il modello di set di dati seguente è ancora supportato così com'è per la compatibilità con le versioni precedenti. Si consiglia di usare il nuovo modello menzionato nella sezione precedente in futuro e l'interfaccia utente di creazione di ADF ha cambiato la generazione del nuovo modello.
 
-| Proprietà | DESCRIZIONE | obbligatori |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **type** del set di dati deve essere impostata su **HttpFile**. | Sì |
+| type | La proprietà **type** del set di dati deve essere impostata su **HttpFile**. | SÌ |
 | relativeUrl | URL relativo della risorsa che contiene i dati. Quando questa proprietà non è specificata, viene usato solo l'URL indicato nella definizione del servizio collegato. | No |
 | requestMethod | Metodo HTTP. I valori consentiti sono **Get** (predefinito) e **Post**. | No |
 | additionalHeaders | Intestazioni richiesta HTTP aggiuntive. | No |
@@ -270,7 +269,7 @@ Le proprietà seguenti sono supportate per HTTP in `location` impostazioni nel s
 
 Questa sezione presenta un elenco delle proprietà supportate dall'origine HTTP.
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere [Pipelines](concepts-pipelines-activities.md) (Pipeline). 
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere [Pipeline](concepts-pipelines-activities.md). 
 
 ### <a name="http-as-source"></a>HTTP come origine
 
@@ -278,9 +277,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Le proprietà seguenti sono supportate per HTTP in `storeSettings` impostazioni in origine copia basata sul formato:
 
-| Proprietà                 | DESCRIZIONE                                                  | obbligatori |
+| Proprietà                 | Description                                                  | Obbligatoria |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | La proprietà Type in `storeSettings` deve essere impostata su **HttpReadSetting**. | Sì      |
+| type                     | La proprietà Type in `storeSettings` deve essere impostata su **HttpReadSetting**. | SÌ      |
 | requestMethod            | Metodo HTTP. <br>I valori consentiti sono **Get** (predefinito) e **Post**. | No       |
 | addtionalHeaders         | Intestazioni richiesta HTTP aggiuntive.                             | No       |
 | requestBody              | Corpo della richiesta HTTP.                               | No       |
@@ -333,9 +332,9 @@ Le proprietà seguenti sono supportate per HTTP in `storeSettings` impostazioni 
 >[!NOTE]
 >Il modello di origine della copia seguente è ancora supportato così com'è per la compatibilità con le versioni precedenti. Si consiglia di usare il nuovo modello menzionato in precedenza e l'interfaccia utente di creazione di ADF ha cambiato la generazione del nuovo modello.
 
-| Proprietà | DESCRIZIONE | obbligatori |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su **HttpSource**. | Sì |
+| type | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su **HttpSource**. | SÌ |
 | httpRequestTimeout | Timeout (valore di **TimeSpan**) durante il quale la richiesta HTTP attende una risposta. Si tratta del timeout per ottenere una risposta, non per leggere i dati della risposta. Il valore predefinito è **00:01:40**.  | No |
 
 **Esempio**

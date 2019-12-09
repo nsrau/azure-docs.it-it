@@ -1,23 +1,22 @@
 ---
-title: Controllo del codice sorgente in Azure Data Factory
+title: Controllo del codice sorgente
 description: Informazioni su come configurare il controllo del codice sorgente in Azure Data Factory
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: naF
-ms.topic: conceptual
-ms.date: 01/09/2019
 author: djpmsft
 ms.author: daperlov
+manager: anandsub
 ms.reviewer: ''
-manager: craigg
-ms.openlocfilehash: 904165c4a221e1db30f9aa1ce1f2ce7b21cf04ed
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.topic: conceptual
+ms.custom: seo-lt-2019
+ms.date: 01/09/2019
+ms.openlocfilehash: 1f31bb78fced6db2a26559cbd098407823161dfc
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703825"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928775"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controllo del codice sorgente in Azure Data Factory
 
@@ -162,7 +161,7 @@ Il riquadro Configurazione Mostra le impostazioni del repository GitHub seguenti
 
 Per passare a un repository git diverso, fare clic sull'icona **delle impostazioni del repository git** nell'angolo superiore destro della pagina Panoramica data factory. Se l'icona non è visibile, cancellare la cache del browser locale. Selezionare l'icona per rimuovere l'associazione al repository corrente.
 
-![Icona git](media/author-visually/remove-repo.png)
+![Icona Git](media/author-visually/remove-repo.png)
 
 Quando viene visualizzato il riquadro Impostazioni repository, selezionare **Rimuovi git**. Immettere il nome del data factory e fare clic su **conferma** per rimuovere il repository git associato al data factory.
 

@@ -1,21 +1,22 @@
 ---
-title: Copiare e trasformare i dati in Azure Data Lake Storage Gen2 usando Data Factory
+title: Copiare e trasformare i dati in Azure Data Lake Storage Gen2
 description: Informazioni su come copiare dati da e verso Azure Data Lake Storage Gen2 e trasformare i dati in Azure Data Lake Storage Gen2 tramite Azure Data Factory.
 services: data-factory
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 11/13/2019
-ms.author: jingwang
-ms.openlocfilehash: fb21dbbe087f4dd1c210af1afbba19ba9df1242a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: accf7aef7d810d9d898945adb7835ee1a7ed9404
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076786"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929962"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copiare e trasformare i dati in Azure Data Lake Storage Gen2 usando Azure Data Factory
 
@@ -39,12 +40,12 @@ Per l'attività di copia, con questo connettore è possibile:
 - Copia i file così come sono o analizza o genera file con i [formati di file supportati e i codec di compressione](supported-file-formats-and-compression-codecs.md).
 
 >[!IMPORTANT]
->Se si Abilita l'opzione **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione** nelle impostazioni del firewall di archiviazione di Azure e si vuole usare il runtime di integrazione di Azure per connettersi alla data Lake storage Gen2, è necessario usare l' [identità gestita autenticazione](#managed-identity) per ADLS Gen2.
+>Se si Abilita l'opzione **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione** nelle impostazioni del firewall di archiviazione di Azure e si vuole usare il runtime di integrazione di Azure per connettersi alla data Lake storage Gen2, è necessario usare [l'autenticazione di identità gestita](#managed-identity) per ADLS Gen2.
 
 >[!TIP]
 >Se si Abilita lo spazio dei nomi gerarchico, attualmente non esiste alcuna interoperabilità tra le API BLOB e Data Lake Storage Gen2. Se viene visualizzato l'errore "ErrorCode = FilesystemNotFound" con il messaggio "il file system specificato non esiste", è causato dal sink specificato file system creato tramite l'API BLOB anziché Data Lake Storage Gen2 API altrove. Per risolvere il problema, specificare un nuovo file system con un nome che non esiste come nome di un contenitore BLOB. Quindi Data Factory crea automaticamente tale file system durante la copia dei dati.
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Inizia oggi stesso
 
 >[!TIP]
 >Per una procedura dettagliata sull'uso del connettore Data Lake Storage Gen2, vedere [caricare dati in Azure Data Lake storage Gen2](load-azure-data-lake-storage-gen2.md).
@@ -68,11 +69,11 @@ Il connettore Azure Data Lake Storage Gen2 supporta i tipi di autenticazione seg
 
 Per usare l'autenticazione basata sulla chiave dell'account di archiviazione, sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | obbligatori |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su **AzureBlobFS**. |Sì |
-| URL | Endpoint per Data Lake Storage Gen2 con il modello di `https://<accountname>.dfs.core.windows.net`. | Sì |
-| accountKey | Chiave dell'account per Data Lake Storage Gen2. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì |
+| type | La proprietà type deve essere impostata su **AzureBlobFS**. |SÌ |
+| url | Endpoint per Data Lake Storage Gen2 con il modello di `https://<accountname>.dfs.core.windows.net`. | SÌ |
+| accountKey | Chiave dell'account per Data Lake Storage Gen2. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |SÌ |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Se l'archivio dati si trova in una rete privata, è possibile usare il runtime di integrazione di Azure o un runtime di integrazione self-hosted. Se questa proprietà non è specificata, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 >[!NOTE]
@@ -116,17 +117,17 @@ Per utilizzare l'autenticazione basata su entità servizio, attenersi alla segue
     - **Come sink**: in Storage Explorer, concedere almeno l'autorizzazione **Execute** per tutte le cartelle upstream e la file System, insieme all'autorizzazione di **scrittura** per la cartella sink. In alternativa, in controllo di accesso (IAM) concedere almeno il ruolo di **collaboratore dati BLOB di archiviazione** .
 
 >[!NOTE]
->Se si usa Data Factory interfaccia utente per creare e l'entità servizio non è impostata con il ruolo "lettore dati BLOB di archiviazione/collaboratore" in IAM, quando si esegue la connessione di test o si esplorano cartelle, scegliere "Test connessione a percorso file" o "Sfoglia da percorso specificato" e specificare un file system o un percorso con l'autorizzazione Execute per continuare.
+>Se si usa Data Factory interfaccia utente per creare e l'entità servizio non è impostata con il ruolo "lettore dati BLOB di archiviazione/collaboratore" in IAM, quando si esegue la connessione di test o si esplorano le cartelle, scegliere "Test connessione a percorso file" o "Sfoglia da percorso specificato" e specificare un file system o un percorso con l'autorizzazione Execute per continuare.
 
 Queste proprietà sono supportate per il servizio collegato:
 
-| Proprietà | DESCRIZIONE | obbligatori |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su **AzureBlobFS**. |Sì |
-| URL | Endpoint per Data Lake Storage Gen2 con il modello di `https://<accountname>.dfs.core.windows.net`. | Sì |
-| servicePrincipalId | Specificare l'ID client dell'applicazione. | Sì |
-| servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come `SecureString` per archiviarlo in modo sicuro nel Data Factory. In alternativa, è possibile [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
-| tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. Recuperarlo posizionando il puntatore del mouse nell'angolo in alto a destra della portale di Azure. | Sì |
+| type | La proprietà type deve essere impostata su **AzureBlobFS**. |SÌ |
+| url | Endpoint per Data Lake Storage Gen2 con il modello di `https://<accountname>.dfs.core.windows.net`. | SÌ |
+| servicePrincipalId | Specificare l'ID client dell'applicazione. | SÌ |
+| servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come `SecureString` per archiviarlo in modo sicuro nel Data Factory. In alternativa, è possibile [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | SÌ |
+| tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. Recuperarlo posizionando il puntatore del mouse nell'angolo in alto a destra della portale di Azure. | SÌ |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Se l'archivio dati si trova in una rete privata, è possibile usare il runtime di integrazione di Azure o un runtime di integrazione self-hosted. Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 **Esempio:**
@@ -167,17 +168,17 @@ Per usare le identità gestite per l'autenticazione delle risorse di Azure, segu
     - **Come sink**: in Storage Explorer, concedere almeno l'autorizzazione **Execute** per tutte le cartelle upstream e la file System, insieme all'autorizzazione di **scrittura** per la cartella sink. In alternativa, in controllo di accesso (IAM) concedere almeno il ruolo di **collaboratore dati BLOB di archiviazione** .
 
 >[!NOTE]
->Se si usa Data Factory interfaccia utente per creare e l'identità gestita non è impostata con il ruolo "lettore dati BLOB di archiviazione/collaboratore" in IAM, quando si esegue la connessione di test o si esplorano cartelle, scegliere "Test connessione a percorso file" o "Sfoglia dal percorso specificato" e specificare un file system o un percorso con l'autorizzazione Execute per continuare.
+>Se si usa Data Factory interfaccia utente per creare e l'identità gestita non è impostata con il ruolo "lettore dati BLOB di archiviazione/collaboratore" in IAM, quando si esegue la connessione di test o si esplorano le cartelle, scegliere "Test connessione a percorso file" o "Sfoglia da percorso specificato" e specificare un file system o un percorso con l'autorizzazione Execute per continuare.
 
 >[!IMPORTANT]
->Se si usa la polibase per caricare i dati da Data Lake Storage Gen2 in SQL Data Warehouse, quando si usa l'autenticazione di identità gestita per Data Lake Storage Gen2, assicurarsi di seguire anche i passaggi 1 e 2 in [questa guida](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) a 1) registrare il server di database SQL con Azure Active Directory (Azure AD) e 2) assegnare il ruolo di collaboratore dati BLOB di archiviazione al server del database SQL. il resto viene gestito da Data Factory. Se la Data Lake Storage Gen2 è configurata con un endpoint di rete virtuale di Azure, per usare la polibase per il caricamento dei dati, è necessario usare l'autenticazione di identità gestita come richiesto da polibase.
+>Se si usa la funzione polibase per caricare i dati da Data Lake Storage Gen2 in SQL Data Warehouse, quando si usa l'autenticazione di identità gestita per Data Lake Storage Gen2, assicurarsi di seguire anche i passaggi 1 e 2 in [questa guida](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) a 1) registrare il server di database sql con Azure Active Directory (Azure ad) e 2) assegnare il ruolo di collaboratore dati BLOB di archiviazione al server del database SQL. il resto viene gestito da Data Factory. Se la Data Lake Storage Gen2 è configurata con un endpoint di rete virtuale di Azure, per usare la polibase per il caricamento dei dati, è necessario usare l'autenticazione di identità gestita come richiesto da polibase.
 
 Queste proprietà sono supportate per il servizio collegato:
 
-| Proprietà | DESCRIZIONE | obbligatori |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su **AzureBlobFS**. |Sì |
-| URL | Endpoint per Data Lake Storage Gen2 con il modello di `https://<accountname>.dfs.core.windows.net`. | Sì |
+| type | La proprietà type deve essere impostata su **AzureBlobFS**. |SÌ |
+| url | Endpoint per Data Lake Storage Gen2 con il modello di `https://<accountname>.dfs.core.windows.net`. | SÌ |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Se l'archivio dati si trova in una rete privata, è possibile usare il runtime di integrazione di Azure o un runtime di integrazione self-hosted. Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 **Esempio:**
@@ -198,7 +199,7 @@ Queste proprietà sono supportate per il servizio collegato:
 }
 ```
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di impostazioni, vedere [Datasets](concepts-datasets-linked-services.md).
 
@@ -206,9 +207,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Le proprietà seguenti sono supportate per Data Lake Storage Gen2 in impostazioni `location` nel set di dati basato sul formato:
 
-| Proprietà   | DESCRIZIONE                                                  | obbligatori |
+| Proprietà   | Description                                                  | Obbligatoria |
 | ---------- | ------------------------------------------------------------ | -------- |
-| type       | La proprietà Type in `location` nel set di dati deve essere impostata su **AzureBlobFSLocation**. | Sì      |
+| type       | La proprietà Type in `location` nel set di dati deve essere impostata su **AzureBlobFSLocation**. | SÌ      |
 | fileSystem | Nome del file system Data Lake Storage Gen2.                              | No       |
 | folderPath | Percorso di una cartella nella file system specificata. Se si vuole usare un carattere jolly per filtrare le cartelle, ignorare questa impostazione e specificarla nelle impostazioni dell'origine dell'attività. | No       |
 | fileName   | Nome del file nel file System + folderPath specificato. Se si vuole usare un carattere jolly per filtrare i file, ignorare questa impostazione e specificarla nelle impostazioni dell'origine dell'attività. | No       |
@@ -245,9 +246,9 @@ Le proprietà seguenti sono supportate per Data Lake Storage Gen2 in impostazion
 >[!NOTE]
 >Il modello di set di dati seguente è ancora supportato così com'è per la compatibilità con le versioni precedenti. Si consiglia di usare il nuovo modello menzionato nella sezione precedente in futuro e l'interfaccia utente di creazione di ADF ha cambiato la generazione del nuovo modello.
 
-| Proprietà | DESCRIZIONE | obbligatori |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su **AzureBlobFSFile**. |Sì |
+| type | La proprietà type del set di dati deve essere impostata su **AzureBlobFSFile**. |SÌ |
 | folderPath | Percorso della cartella in Data Lake Storage Gen2. Se il valore non è specificato, punta alla radice. <br/><br/>Il filtro con caratteri jolly è supportato. I caratteri jolly consentiti sono `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero o a un carattere singolo). Usare `^` per eseguire l'escape se il nome effettivo della cartella contiene un carattere jolly o se il carattere di escape è interno. <br/><br/>Esempi: filesystem/Folder/. Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). |No |
 | fileName | Nome o filtro con caratteri jolly per i file sotto il "folderPath" specificato. Se non si specifica alcun valore per questa proprietà, il set di dati punta a tutti i file nella cartella. <br/><br/>Per il filtro, i caratteri jolly consentiti sono `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero o a un carattere singolo).<br/>- Esempio 1: `"fileName": "*.csv"`<br/>- Esempio 2: `"fileName": "???20180427.txt"`<br/>Usare `^` per eseguire l'escape se il nome file effettivo contiene un carattere jolly o se il carattere di escape è all'interno.<br/><br/>Quando fileName non è specificato per un set di dati di output e **preserveHierarchy** non è specificato nel sink dell'attività, l'attività di copia genera automaticamente il nome del file con il modello seguente: "*Data. [ GUID ID esecuzione attività]. [GUID se FlattenHierarchy]. [format se configurato]. [compressione se configurata]* ", ad esempio" Data. 0a405f8a-93ff-4C6F-B3BE-f69616f1df7a. txt. gz ". Se si copia da un'origine tabulare usando un nome di tabella anziché una query, il modello del nome è " *[nome tabella]. [ formato]. [compressione se configurata]* ", ad esempio" MyTable. csv ". |No |
 | modifiedDatetimeStart | Filtro file basato sull'Ultima modifica dell'attributo. I file vengono selezionati se l'ora dell'Ultima modifica rientra nell'intervallo di tempo compreso tra `modifiedDatetimeStart` e `modifiedDatetimeEnd`. L'ora viene applicata al fuso orario UTC nel formato "2018-12-01T05:00:00Z". <br/><br/> Le prestazioni complessive dello spostamento dei dati sono interessate dall'abilitazione di questa impostazione quando si desidera eseguire un filtro di file con grandi quantità di file. <br/><br/> Le proprietà possono essere NULL, il che significa che al set di dati non viene applicato alcun filtro di attributi di file. Quando `modifiedDatetimeStart` dispone di un valore DateTime, ma `modifiedDatetimeEnd` è NULL, significa che i file il cui ultimo attributo modificato è maggiore o uguale al valore DateTime sono selezionati. Quando `modifiedDatetimeEnd` dispone di un valore DateTime ma `modifiedDatetimeStart` è NULL, significa che i file il cui ultimo attributo è minore del valore DateTime sono selezionati.| No |
@@ -298,9 +299,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Le proprietà seguenti sono supportate per Data Lake Storage Gen2 in impostazioni `storeSettings` in origine copia basata sul formato:
 
-| Proprietà                 | DESCRIZIONE                                                  | obbligatori                                      |
+| Proprietà                 | Description                                                  | Obbligatoria                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | La proprietà Type in `storeSettings` deve essere impostata su **AzureBlobFSReadSetting**. | Sì                                           |
+| type                     | La proprietà Type in `storeSettings` deve essere impostata su **AzureBlobFSReadSetting**. | SÌ                                           |
 | ricorsiva                | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Quando l'opzione ricorsiva è impostata su true e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink. I valori consentiti sono **true** (predefinito) e **false**. | No                                            |
 | wildcardFolderPath       | Il percorso della cartella con caratteri jolly sotto la file system specificata configurata nel set di dati per filtrare le cartelle di origine. <br>I caratteri jolly consentiti sono `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero o a un carattere singolo). Usare `^` per eseguire l'escape se il nome della cartella effettivo contiene un carattere jolly o il carattere di escape. <br>Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | No                                            |
 | wildcardFileName         | Nome file con caratteri jolly sotto il file system + folderPath/wildcardFolderPath specificato per filtrare i file di origine. <br>I caratteri jolly consentiti sono `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero o a un carattere singolo). Usare `^` per eseguire l'escape se il nome della cartella effettivo contiene un carattere jolly o il carattere di escape. Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | Sì se `fileName` non è specificato nel DataSet |
@@ -354,9 +355,9 @@ Le proprietà seguenti sono supportate per Data Lake Storage Gen2 in impostazion
 >[!NOTE]
 >Il modello di origine della copia seguente è ancora supportato così com'è per la compatibilità con le versioni precedenti. Si consiglia di usare il nuovo modello menzionato in precedenza e l'interfaccia utente di creazione di ADF ha cambiato la generazione del nuovo modello.
 
-| Proprietà | DESCRIZIONE | obbligatori |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **AzureBlobFSSource**. |Sì |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **AzureBlobFSSource**. |SÌ |
 | ricorsiva | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Quando l'opzione ricorsiva è impostata su true e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink.<br/>I valori consentiti sono **true** (predefinito) e **false**. | No |
 | maxConcurrentConnections | Numero di connessioni per la connessione all'archivio dati contemporaneamente. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No |
 
@@ -398,9 +399,9 @@ Le proprietà seguenti sono supportate per Data Lake Storage Gen2 in impostazion
 
 Le proprietà seguenti sono supportate per Data Lake Storage Gen2 in impostazioni `storeSettings` nel sink di copia basato sul formato:
 
-| Proprietà                 | DESCRIZIONE                                                  | obbligatori |
+| Proprietà                 | Description                                                  | Obbligatoria |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | La proprietà Type in `storeSettings` deve essere impostata su **AzureBlobFSWriteSetting**. | Sì      |
+| type                     | La proprietà Type in `storeSettings` deve essere impostata su **AzureBlobFSWriteSetting**. | SÌ      |
 | copyBehavior             | Definisce il comportamento di copia quando l'origine è costituita da file di un archivio dati basato su file.<br/><br/>I valori consentiti sono i seguenti:<br/><b>- PreserveHierarchy (predefinito)</b>: mantiene la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><b>- FlattenHierarchy</b>: tutti i file della cartella di origine si trovano nel primo livello della cartella di destinazione. I nomi dei file di destinazione vengono generati automaticamente. <br/><b>- MergeFiles</b>: unisce tutti i file della cartella di origine in un solo file. Se si specifica il nome di file, il nome del file unito sarà il nome specificato. In caso contrario, verrà usato un nome di file generato automaticamente. | No       |
 | maxConcurrentConnections | Numero di connessioni per la connessione all'archivio dati contemporaneamente. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No       |
 
@@ -444,9 +445,9 @@ Le proprietà seguenti sono supportate per Data Lake Storage Gen2 in impostazion
 >[!NOTE]
 >Il modello di sink di copia seguente è ancora supportato così com'è per la compatibilità con le versioni precedenti. Si consiglia di usare il nuovo modello menzionato in precedenza e l'interfaccia utente di creazione di ADF ha cambiato la generazione del nuovo modello.
 
-| Proprietà | DESCRIZIONE | obbligatori |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del sink dell'attività di copia deve essere impostata su **AzureBlobFSSink**. |Sì |
+| type | La proprietà type del sink dell'attività di copia deve essere impostata su **AzureBlobFSSink**. |SÌ |
 | copyBehavior | Definisce il comportamento di copia quando l'origine è costituita da file di un archivio dati basato su file.<br/><br/>I valori consentiti sono i seguenti:<br/><b>- PreserveHierarchy (predefinito)</b>: mantiene la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><b>- FlattenHierarchy</b>: tutti i file della cartella di origine si trovano nel primo livello della cartella di destinazione. I nomi dei file di destinazione vengono generati automaticamente. <br/><b>- MergeFiles</b>: unisce tutti i file della cartella di origine in un solo file. Se si specifica il nome di file, il nome del file unito sarà il nome specificato. In caso contrario, verrà usato un nome di file generato automaticamente. | No |
 | maxConcurrentConnections | Numero di connessioni per la connessione all'archivio dati contemporaneamente. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No |
 
@@ -524,7 +525,7 @@ Se si specifica di copiare da una cartella, Data Factory replica gli ACL per la 
 >[!IMPORTANT]
 >Quando si sceglie di mantenere gli ACL, assicurarsi di concedere autorizzazioni sufficientemente elevate affinché Data Factory funzionino con l'account di Data Lake Storage Gen2 del sink. Ad esempio, usare l'autenticazione con chiave dell'account o assegnare il ruolo di proprietario dei dati BLOB di archiviazione all'entità servizio o all'identità gestita.
 
-Quando si configura l'origine come Data Lake Storage Gen1 con l'opzione di copia binaria o il formato binario e il sink come Data Lake Storage Gen2 con l'opzione di copia binaria o il formato binario, è possibile trovare l'opzione **Mantieni** nella pagina **delle impostazioni dello strumento copia dati** o in la scheda **impostazioni** > **attività di copia** per la creazione di attività.
+Quando si configura l'origine come Data Lake Storage Gen1 con l'opzione di copia binaria o il formato binario e il sink come Data Lake Storage Gen2 con l'opzione di copia binaria o il formato binario, è possibile trovare l'opzione **Mantieni** nella pagina **delle impostazioni dello strumento copia dati** o nella scheda **delle impostazioni** dell' **attività di copia** > per la creazione di attività.
 
 ![Data Lake Storage Gen1 a Gen2 Mantieni ACL](./media/connector-azure-data-lake-storage/adls-gen2-preserve-acl.png)
 

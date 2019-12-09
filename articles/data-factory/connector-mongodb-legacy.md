@@ -1,26 +1,27 @@
 ---
-title: Copiare i dati da MongoDB con Azure Data Factory
+title: Copiare dati da MongoDB usando legacy
 description: Informazioni su come copiare dati da MongoDB in archivi dati sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+ms.author: jingwang
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
-ms.author: jingwang
-ms.openlocfilehash: 0c2c2d9ad78bb09a37faaa5825f8dae3e27370ea
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 089064cee68170ab44fc1cc05e630781529b7b60
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680680"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931294"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copiare i dati da MongoDB con Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
+
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-on-premises-mongodb-connector.md)
 > * [Versione corrente](connector-mongodb.md)
 
@@ -44,7 +45,7 @@ In particolare, il connettore MongoDB supporta:
 
 Il runtime di integrazione offre un driver per MongoDB predefinito e non è quindi necessario installare manualmente alcun driver quando si copiano dati da MongoDB.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -54,19 +55,19 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di MongoDB sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type |La proprietà type deve essere impostata su **MongoDb** |Sì |
-| server |Indirizzo IP o nome host del server MongoDB. |Sì |
+| type |La proprietà type deve essere impostata su **MongoDb** |SÌ |
+| server |Indirizzo IP o nome host del server MongoDB. |SÌ |
 | port |Porta TCP che il server MongoDB usa per ascoltare le connessioni client. |No (il valore predefinito è 27017) |
-| databaseName |Nome del database MongoDB a cui si vuole accedere. |Sì |
-| authenticationType | Tipo di autenticazione usato per connettersi al database MongoDB.<br/>I valori consentiti sono: **Di base** e **Anonima**. |Sì |
+| databaseName |Nome del database MongoDB a cui si vuole accedere. |SÌ |
+| authenticationType | Tipo di autenticazione usato per connettersi al database MongoDB.<br/>I valori consentiti sono **Base** e **Anonimo**. |SÌ |
 | Nome utente |Account utente per accedere a MongoDB. |Sì (se si usa l'autenticazione di base). |
 | password |Password per l'utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì (se si usa l'autenticazione di base). |
 | authSource |Nome del database MongoDB che si vuole usare per controllare le credenziali di autenticazione. |No. Per l'autenticazione di base il valore predefinito usa l'account di amministrazione e il database specificati usando la proprietà databaseName. |
 | enableSsl | Specifica se le connessioni al server sono crittografate tramite SSL. Il valore predefinito è False.  | No |
 | allowSelfSignedServerCert | Specifica se consentire o meno i certificati autofirmati dal server. Il valore predefinito è False.  | No |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se non diversamente specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 **Esempio:**
 
@@ -97,10 +98,10 @@ Per il servizio collegato di MongoDB sono supportate le proprietà seguenti:
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere [Set di dati e servizi collegati](concepts-datasets-linked-services.md). Per il set di dati MongoDB sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **MongoDbCollection** | Sì |
-| collectionName |Nome della raccolta nel database MongoDB. |Sì |
+| type | La proprietà type del set di dati deve essere impostata su: **MongoDbCollection** | SÌ |
+| collectionName |Nome della raccolta nel database MongoDB. |SÌ |
 
 **Esempio:**
 
@@ -128,9 +129,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **MongoDbSource** | Sì |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **MongoDbSource** | SÌ |
 | query |Usare la query SQL-92 personalizzata per leggere i dati. Ad esempio: selezionare * da MyTable. |No (se "collectionName" nel set di dati è specificato) |
 
 **Esempio:**
@@ -179,14 +180,14 @@ Quando si copiano dati da MongoDB, vengono usati i mapping seguenti tra i tipi d
 | Tipo di dati di MongoDB | Tipo di dati provvisori di Data Factory |
 |:--- |:--- |
 | Binary |Byte[] |
-| Booleano |Booleano |
-| Data |DateTime |
-| NumberDouble |Double |
+| boolean |boolean |
+| Data |Data e ora |
+| NumberDouble |DOUBLE |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |String |
-| String |String |
-| UUID |Guid |
+| ObjectID |Stringa |
+| Stringa |Stringa |
+| UUID |GUID |
 | Oggetto |Rinormalizzato in colonne rese flat con "_" come separatore annidato |
 
 > [!NOTE]
@@ -207,14 +208,14 @@ Le tabelle virtuali fanno riferimento ai dati nella tabella reale, consentendo a
 
 Ad esempio, ExampleTable di seguito è una tabella MongoDB che contiene una colonna con una matrice di oggetti in ogni cella, Fatture, e una colonna con una matrice di tipi scalari, Classificazioni.
 
-| _id | Nome del cliente | Fatture | Contratto | Classificazioni |
+| _id | Nome del cliente | Fatture | Livello di servizio | Classificazioni |
 | --- | --- | --- | --- | --- |
 | 1111 |ABC |[{invoice_id:"123", elemento:"tostapane", prezzo:"456", sconto:"0,2"}, {invoice_id:"124", elemento:"forno", prezzo: "1235", sconto: "0,2"}] |Silver |[5,6] |
 | 2222 |XYZ |[{invoice_id:"135", elemento:"frigorifero", prezzo: "12543", sconto: "0,0"}] |Gold |[1,2] |
 
 Il driver genera più tabelle virtuali per rappresentare questa singola tabella. La prima tabella virtuale è la tabella di base denominata "ExampleTable", illustrata nell'esempio. La tabella di base contiene tutti i dati della tabella originale, ma i dati dalle matrici sono stati omessi e vengono espansi nelle tabelle virtuali.
 
-| _id | Nome del cliente | Contratto |
+| _id | Nome del cliente | Livello di servizio |
 | --- | --- | --- |
 | 1111 |ABC |Silver |
 | 2222 |XYZ |Gold |
@@ -227,7 +228,7 @@ Le tabelle seguenti illustrano le tabelle virtuali che rappresentano le matrici 
 
 **Tabella "ExampleTable_Invoices":**
 
-| _id | ExampleTable_Invoices_dim1_idx | invoice_id | item | price | Discount |
+| _id | ExampleTable_Invoices_dim1_idx | invoice_id | item | price | Sconto |
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |toaster |456 |0,2 |
 | 1111 |1 |124 |oven |1235 |0,2 |

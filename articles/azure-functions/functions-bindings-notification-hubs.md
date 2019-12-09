@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 8bc7f879a2c2e8b1e0e2d82216241704a466ad60
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 211f8c8a203b81a4df6a8e9515b403f99cec572a
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231148"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926319"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Associazioni di output di Hub di notifica per Funzioni di Azure
 
@@ -29,9 +29,9 @@ Le associazioni di Hub di notifica sono incluse nel pacchetto NuGet [Microsoft.A
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## <a name="packages---functions-2x"></a>Pacchetti: Funzioni 2.x
+## <a name="packages---functions-2x-and-higher"></a>Packages-Functions 2. x e versioni successive
 
-Questa associazione non è disponibile in Funzioni 2.x.
+Questa associazione non è disponibile in functions 2. x e versioni successive.
 
 ## <a name="example---template"></a>Modello di esempio
 
@@ -237,7 +237,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 }
 ```
 
-## <a name="attributes"></a>Attributes
+## <a name="attributes"></a>Attributi
 
 Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attributo [NotificationHub](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs).
 
@@ -247,7 +247,7 @@ I parametri e le proprietà del costruttore dell'attributo sono descritte nella 
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `NotificationHub`:
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
 |**type** |N/D| Il valore deve essere impostato su `notificationHub`. |
 |**direction** |N/D| Il valore deve essere impostato su `out`. | 
@@ -296,7 +296,7 @@ Il nome di questa impostazione applicazione corrisponde all'impostazione di conn
 
 ## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
 
-| Binding | riferimento |
+| Associazione | Riferimento |
 |---|---|
 | Hub di notifica | [Operations Guide](https://docs.microsoft.com/rest/api/notificationhubs/) (Guida operativa) |
 

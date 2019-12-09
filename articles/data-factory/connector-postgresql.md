@@ -4,23 +4,22 @@ description: Informazioni su come copiare dati da PostgreSQL in archivi dati sin
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 1f270d2e303a8f7b5589d28f101c797c38b2b626
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: fab3b919ee3ecb1f8e76b70bada57a5380aaeab8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680451"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927822"
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Copiare i dati da PostgreSQL mediante Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-onprem-postgresql-connector.md)
 > * [Versione corrente](connector-postgresql.md)
 
@@ -43,7 +42,7 @@ In particolare, questo connettore PostgreSQL supporta la **versione 7.4 e le ver
 
 Per una versione del runtime di integrazione self-hosted precedente alla 3.7, è necessario installare il [provider di dati Ngpsql per PostgreSQL](https://go.microsoft.com/fwlink/?linkid=282716) con una versione compresa tra la 2.0.12 e la 3.1.9 nel computer del runtime di integrazione.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -53,15 +52,15 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di PostgreSQL sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su **PostgreSql** | Sì |
-| connectionString | Stringa di connessione ODBC per la connessione al Database di Azure per PostgreSQL. <br/>Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. È anche possibile inserire la password in Azure Key Vault ed eseguire lo spostamento forzato dei dati della configurazione `password` all'esterno della stringa di connessione. Vedere gli esempi seguenti e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. | Sì |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
+| type | La proprietà type deve essere impostata su **PostgreSql** | SÌ |
+| connectionString | Stringa di connessione ODBC per la connessione al Database di Azure per PostgreSQL. <br/>Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. È anche possibile inserire la password in Azure Key Vault ed eseguire lo spostamento forzato dei dati della configurazione `password` all'esterno della stringa di connessione. Vedere gli esempi seguenti e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. | SÌ |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se non diversamente specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 Una stringa di connessione tipica è `Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`. Altre proprietà che è possibile impostare per il case:
 
-| Proprietà | Descrizione | Opzioni | Obbligatorio |
+| Proprietà | Description | Opzioni | Obbligatoria |
 |:--- |:--- |:--- |:--- |
 | EncryptionMethod (EM)| Il metodo usato dal driver per crittografare i dati inviati tra il driver e il server di database. Ad esempio, `EncryptionMethod=<0/1/6>;`| 0 (Nessuna crittografia) **(impostazione predefinita)** / 1 (SSL) / 6 (RequestSSL) | No |
 | ValidateServerCertificate (VSC) | Determina se il driver convalida il certificato inviato dal server di database quando è abilitata la crittografia SSL (metodo di crittografia = 1). Ad esempio, `ValidateServerCertificate=<0/1>;`| 0 (disabilitato) **(impostazione predefinita)** / 1 (abilitato) | No |
@@ -148,9 +147,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da PostgreSQL, sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type del set di dati deve essere impostata su: **PostgreSqlTable** | Sì |
+| type | La proprietà Type del set di dati deve essere impostata su: **PostgreSqlTable** | SÌ |
 | schema | Nome dello schema. |No (se nell'origine dell'attività è specificato "query")  |
 | table | Nome della tabella. |No (se nell'origine dell'attività è specificato "query")  |
 | tableName | Nome della tabella con schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Usare `schema` e `table` per un nuovo carico di lavoro. | No (se nell'origine dell'attività è specificato "query") |
@@ -183,9 +182,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da PostgreSQL, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su: **PostgreSqlSource** | Sì |
+| type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su: **PostgreSqlSource** | SÌ |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"query": "SELECT * FROM \"MySchema\".\"MyTable\""`. | No (se nel set di dati è specificato "tableName") |
 
 > [!NOTE]

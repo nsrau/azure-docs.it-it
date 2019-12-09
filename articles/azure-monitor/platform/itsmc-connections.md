@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: JYOTHIRMAISURI
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: bd9f659589b222350fe688ee4da876801a65226a
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: d800f20826723d3a626d9a0f5f83664927c1185c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769966"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927588"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Connettere prodotti e servizi di Gestione dei servizi IT con Connettore di Gestione dei servizi IT
 Questo articolo fornisce informazioni su come configurare la connessione tra un prodotto o servizio di Gestione dei servizi IT e Connettore di Gestione dei servizi IT in Log Analytics per gestire da una posizione centrale gli elementi di lavoro. Per altre informazioni su Connettore di Gestione dei servizi IT, vedere [Panoramica](../../azure-monitor/platform/itsmc-overview.md).
@@ -185,6 +185,7 @@ Accertarsi di aver soddisfatto i prerequisiti seguenti:
 **ServiceNow Admins deve eseguire le operazioni seguenti nell'istanza di ServiceNow**:
 - Generare l'ID client e il segreto client per il prodotto ServiceNow. Per informazioni su come generare un ID client e un segreto client, vedere gli articoli seguenti:
 
+    - [Configurare OAuth per New York](https://docs.servicenow.com/bundle/newyork-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configurare OAuth per Madrid](https://docs.servicenow.com/bundle/madrid-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configurare OAuth per Londra](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Set up OAuth for Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/task/t_SettingUpOAuth.html) (Configurare OAuth per Kingston)
@@ -192,7 +193,7 @@ Accertarsi di aver soddisfatto i prerequisiti seguenti:
     - [Set up OAuth for Istanbul](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html) (Configurare OAuth per Istanbul)
     - [Set up OAuth for Helsinki](https://docs.servicenow.com/bundle/helsinki-platform-administration/page/administer/security/task/t_SettingUpOAuth.html) (Configurare OAuth for Helsinki)
     - [Set up OAuth for Geneva](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html) (Configurare OAuth per Ginevra)
-    - [Configurare OAuth per New York](https://docs.servicenow.com/bundle/newyork-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
+
 
 - Installare l'app utente per l'integrazione di Microsoft Log Analytics (app ServiceNow). [Altre informazioni](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
 - Creare un ruolo utente integrazione per l'app utente installata. Per informazioni su come creare il ruolo utente di integrazione, vedere [qui](#create-integration-user-role-in-servicenow-app).

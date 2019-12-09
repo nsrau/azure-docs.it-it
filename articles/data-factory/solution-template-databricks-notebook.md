@@ -2,22 +2,21 @@
 title: Trasformare i dati usando databricks
 description: Informazioni su come usare un modello di soluzione per trasformare i dati usando un notebook di Databricks in Azure Data Factory.
 services: data-factory
-documentationcenter: ''
+ms.author: abnarain
 author: nabhishek
-manager: craigg
+ms.reviewer: douglasl
+manager: anandsub
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 12/10/2018
-ms.author: abnarain
-ms.reviewer: douglasl
-ms.openlocfilehash: 5b39e354d503910d20141ce19c625eb79b4a7353
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: d21bab2f358e8ae9460bff2305957ed901c70926
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74890998"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927743"
 ---
 # <a name="transform-data-by-using-databricks-in-azure-data-factory"></a>Trasformare i dati con Databricks in Azure Data Factory
 

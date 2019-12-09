@@ -6,15 +6,14 @@ services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/06/2019
 ms.author: charwen
-ms.custom: seodec18
-ms.openlocfilehash: 0643ce99ce4ba9328abc3f7a8c8e7061026611b9
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: aba07e0a1dd8e7b1db8677907672d919ef034057
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031785"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926227"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Configurare connessioni coesistenti ExpressRoute e da sito a sito (versione classica)
 > [!div class="op_single_selector"]
@@ -77,6 +76,10 @@ Esistono due diverse serie di procedure disponibili per configurare le connessio
     E’ possibile che esista già una rete virtuale con una connessione VPN da sito a sito o una connessione ExpressRoute. La sezione [Per configurare connessioni coesistenti per una rete virtuale esistente](#add) illustra come eliminare il gateway e quindi come creare nuove connessioni ExpressRoute e VPN da sito a sito. Durante la creazione di nuove connessioni, è necessario completare i passaggi in un ordine molto specifico. Non usare le istruzioni in altri articoli per creare gateway e connessioni.
   
     In questa procedura, la creazione di connessioni che possono coesistere richiederà l’eliminazione del gateway e la configurazione di nuovi gateway. Mentre si elimina e si ricrea il gateway e le connessioni, si avrà un tempo di inattività per le connessioni cross-premise, ma non sarà necessario eseguire la migrazione delle macchine virtuali o dei servizi a una nuova rete virtuale. Le macchine virtuali e i servizi saranno comunque in grado di comunicare tramite il servizio di bilanciamento del carico mentre si configura il gateway, se sono configurati in questo senso.
+
+## <a name="install-powershell-cmdlets"></a>Installare i cmdlet di PowerShell
+
+[!INCLUDE [classic powershell install instructions](../../includes/expressroute-poweshell-classic-install-include.md)]
 
 ## <a name="new"></a>Per creare una nuova rete virtuale con connessioni coesistenti
 Questa procedura illustra come creare una rete virtuale e connessioni da sito a sito ed ExpressRoute coesistenti.
@@ -177,7 +180,7 @@ Questa procedura illustra come creare una rete virtuale e connessioni da sito a 
         OperationStatus      : Succeeded
 
 
-1. Configurare il dispositivo VPN locale per la connessione al nuovo gateway. Quando si configura il dispositivo VPN, usare le informazioni recuperate nel passaggio 6. Per altre informazioni sulla configurazione del dispositivo VPN, vedere l'articolo relativo alla [configurazione del dispositivo VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md).
+1. Configurare il dispositivo VPN locale per la connessione al nuovo gateway. Quando si configura il dispositivo VPN, usare le informazioni recuperate nel passaggio 6. Per altre informazioni sulla configurazione del dispositivo VPN, vedere la pagina relativa alla [configurazione del dispositivo VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md).
 2. Collegare il gateway VPN da sito a sito in Azure al gateway locale.
    
     In questo esempio connectedEntityId è l'ID del gateway locale, che è possibile trovare eseguendo `Get-AzureLocalNetworkGateway`. È possibile trovare virtualNetworkGatewayId usando il cmdlet `Get-AzureVirtualNetworkGateway` . Dopo questo passaggio, viene stabilita la connessione tra la rete locale e Azure tramite la connessione VPN da sito a sito.

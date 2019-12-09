@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 61f24776bb9ec9443df421dcbcf35dcc83ec2bc9
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: eea078a4fb8287a4f07db478adf059eecce9ed82
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036516"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929720"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Procedura dettagliata: Creare e gestire chiavi SSH per l'autenticazione in una VM Linux di Azure 
 Con una coppia di chiavi SSH (Secure Shell) è possibile creare una macchina virtuale Linux in Azure che per impostazione predefinita usa le chiavi SSH per l'autenticazione, eliminando la necessità di password per l'accesso. Le VM create con il portale di Azure, l'interfaccia della riga di comando di Azure, i modelli di Resource Manager o altri strumenti possono includere la chiave pubblica SSH come parte della distribuzione, configurando in questo modo l'autenticazione con chiave SSH per le connessioni SSH. 
@@ -52,7 +52,7 @@ Per impostazione predefinita, le chiavi SSH vengono conservate nella directory `
 Il seguente comando `ssh-keygen` genera i file della chiave pubblica e privata SSH RSA a 2048 bit nella directory `~/.ssh` per impostazione predefinita. Se nel percorso corrente è presente una coppia di chiavi SSH, questi file vengono sovrascritti.
 
 ```bash
-ssh-keygen -t rsa -b 2048
+ssh-keygen -m PEM -t rsa -b 4096
 ```
 
 ### <a name="detailed-example"></a>Esempio dettagliato
@@ -60,6 +60,7 @@ L'esempio seguente mostra opzioni di comando aggiuntive per creare una coppia di
 
 ```bash
 ssh-keygen \
+    -m PEM \
     -t rsa \
     -b 4096 \
     -C "azureuser@myserver" \
@@ -69,13 +70,15 @@ ssh-keygen \
 
 **Descrizione del comando**
 
-`ssh-keygen` : programma usato per creare le chiavi.
+`ssh-keygen`: programma usato per creare le chiavi.
+
+`-m PEM` = formattare la chiave come PEM
 
 `-t rsa` = tipo di chiave da creare, in questo caso nel formato RSA
 
 `-b 4096` = numero di bit nella chiave, in questo caso 4096
 
-`-C "azureuser@myserver"`: commento aggiunto alla fine del file della chiave pubblica per identificarla facilmente. Come commento viene usato in genere un indirizzo di posta elettronica, ma è possibile usare qualsiasi elemento, in base alle esigenze dell'infrastruttura.
+`-C "azureuser@myserver"` : commento aggiunto alla fine del file della chiave pubblica per identificarla facilmente. Come commento viene usato in genere un indirizzo di posta elettronica, ma è possibile usare qualsiasi elemento, in base alle esigenze dell'infrastruttura.
 
 `-f ~/.ssh/mykeys/myprivatekey` = il nome del file della chiave privata, se si sceglie di non usare il nome predefinito. Un file di chiave pubblica corrispondente con finale `.pub` viene generato nella stessa directory. La directory deve esistere.
 
@@ -84,7 +87,7 @@ ssh-keygen \
 ### <a name="example-of-ssh-keygen"></a>Esempio di ssh-keygen
 
 ```bash
-ssh-keygen -t rsa -b 2048 -C "azureuser@myserver"
+ssh-keygen -t -m PEM rsa -b 4096 -C "azureuser@myserver"
 Generating public/private rsa key pair.
 Enter file in which to save the key (/home/azureuser/.ssh/id_rsa):
 Enter passphrase (empty for no passphrase):
@@ -92,19 +95,19 @@ Enter same passphrase again:
 Your identification has been saved in /home/azureuser/.ssh/id_rsa.
 Your public key has been saved in /home/azureuser/.ssh/id_rsa.pub.
 The key fingerprint is:
-14:a3:cb:3e:78:ad:25:cc:55:e9:0c:08:e5:d1:a9:08 azureuser@myserver
-The keys randomart image is:
-+--[ RSA 2048]----+
-|        o o. .   |
-|      E. = .o    |
-|      ..o...     |
-|     . o....     |
-|      o S =      |
-|     . + O       |
-|      + = =      |
-|       o +       |
-|        .        |
-+-----------------+
+SHA256:vFfHHrpSGQBd/oNdvNiX0sG9Vh+wROlZBktNZw9AUjA azureuser@myserver
+The key's randomart image is:
++---[RSA 4096]----+
+|        .oE=*B*+ |
+|          o+o.*++|
+|           .oo++*|
+|       .    .B+.O|
+|        S   o=BO.|
+|         . .o++o |
+|        . ... .  |
+|         ..  .   |
+|           ..    |
++----[SHA256]-----+
 ```
 
 #### <a name="saved-key-files"></a>I file delle chiavi salvati

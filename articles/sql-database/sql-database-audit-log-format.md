@@ -4,19 +4,17 @@ description: Informazioni sul modo in cui sono strutturati i log di controllo de
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: ''
-ms.devlang: ''
 ms.topic: conceptual
 author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 01/03/2019
-ms.openlocfilehash: 3b7a3c295d2edd60c70f47ea155a5d747a3bfb03
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 5bd3a3ae5ab95076129e2565a578bdc6ac0e1e38
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873761"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928631"
 ---
 # <a name="sql-database-audit-log-format"></a>Formato del log di controllo del database SQL
 
@@ -32,16 +30,16 @@ Ad esempio, per `Database1` di database su `Server1` il seguente è un possibile
 
     Server1/Database1/SqlDbAuditing_ServerAudit_NoRetention/2019-02-03/12_23_30_794_0.xel
 
-[Repliche di sola lettura](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out) I log di controllo vengono archiviati nello stesso contenitore. Il formato della gerarchia di directory all'interno del contenitore è `<ServerName>/<DatabaseName>/<AuditName>/<Date>/RO/`. Il nome file del BLOB condivide lo stesso formato. I log di controllo delle repliche di sola lettura vengono archiviati nello stesso contenitore.
+[Repliche di sola lettura](sql-database-read-scale-out.md) I log di controllo vengono archiviati nello stesso contenitore. Il formato della gerarchia di directory all'interno del contenitore è `<ServerName>/<DatabaseName>/<AuditName>/<Date>/RO/`. Il nome file del BLOB condivide lo stesso formato. I log di controllo delle repliche di sola lettura vengono archiviati nello stesso contenitore.
 
 
 ### <a name="event-hub"></a>Hub eventi
 
-Gli eventi di controllo vengono scritti nello spazio dei nomi e nell'hub eventi che è stato definito durante la configurazione di controllo e vengono acquisiti nel corpo degli eventi [Apache avro](https://avro.apache.org/) e archiviati usando la formattazione JSON con la codifica UTF-8. Per leggere i log di controllo, è possibile usare [Avro Tools](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) o strumenti simili in grado di elaborare tale formato.
+Gli eventi di controllo vengono scritti nello spazio dei nomi e nell'hub eventi che è stato definito durante la configurazione di controllo e vengono acquisiti nel corpo degli eventi [Apache avro](https://avro.apache.org/) e archiviati usando la formattazione JSON con la codifica UTF-8. Per leggere i log di controllo, è possibile usare [Avro Tools](../event-hubs/event-hubs-capture-overview.md#use-avro-tools) o strumenti simili in grado di elaborare tale formato.
 
 ### <a name="log-analytics"></a>Log Analytics
 
-Gli eventi di controllo vengono scritti nell'area di lavoro Log Analytics definita durante la configurazione di controllo, nella tabella `AzureDiagnostics` con la categoria `SQLSecurityAuditEvents`. Per altre informazioni utili sul linguaggio di ricerca e i comandi di Log Analytics, vedere [Guida di riferimento alla ricerca in Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search).
+Gli eventi di controllo vengono scritti nell'area di lavoro Log Analytics definita durante la configurazione di controllo, nella tabella `AzureDiagnostics` con la categoria `SQLSecurityAuditEvents`. Per altre informazioni utili sul linguaggio di ricerca e i comandi di Log Analytics, vedere [Guida di riferimento alla ricerca in Log Analytics](../log-analytics/log-analytics-log-search.md).
 
 ## <a id="subheading-1"></a>Campi del log di controllo
 

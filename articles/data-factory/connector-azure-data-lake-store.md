@@ -1,25 +1,25 @@
 ---
-title: Copiare dati da o verso Azure Data Lake Storage Gen1 usando Data Factory
+title: Copia i dati da e verso Azure Data Lake Storage Gen1
 description: Informazioni su come copiare dati da archivi dati di origine supportati ad Azure Data Lake Store, o da Data Lake Store ad archivi di sink supportati, usando Data Factory.
 services: data-factory
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/24/2019
-ms.author: jingwang
-ms.openlocfilehash: 2aef04c4fe4713b107abe53fe459b7859a9c714e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 17f7c62600bcc2aa21fbcea8ecd96810be412a26
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681264"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930522"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Copiare dati da o verso Azure Data Lake Storage Gen1 usando Azure Data Factory
+
 > [!div class="op_single_selector" title1="Selezionare la versione di Azure Data Factory che si sta usando:"]
 > * [Versione 1](v1/data-factory-azure-datalake-connector.md)
 > * [Versione corrente](connector-azure-data-lake-store.md)
@@ -44,7 +44,7 @@ In particolare, con questo connettore è possibile:
 > [!IMPORTANT]
 > Se si copiano i dati tramite il runtime di integrazione self-hosted, configurare il firewall aziendale in modo da consentire il traffico in uscita per `<ADLS account name>.azuredatalakestore.net` e `login.microsoftonline.com/<tenant>/oauth2/token` sulla porta 443. Quest'ultimo è il servizio token di sicurezza di Azure con cui deve comunicare il runtime di integrazione per ottenere il token di accesso.
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Inizia oggi stesso
 
 > [!TIP]
 > Per una procedura dettagliata sull'uso del connettore Azure Data Lake Store, vedere [caricare dati in Azure Data Lake Store](load-azure-data-lake-store.md).
@@ -57,10 +57,10 @@ Le sezioni seguenti forniscono informazioni sulle proprietà che vengono usate p
 
 Per il servizio collegato ad Azure Data Lake Store sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà `type` deve essere impostata su **AzureDataLakeStore**. | Sì |
-| dataLakeStoreUri | Informazioni sull'account Azure Data Lake Store. Queste informazioni accettano uno dei seguenti formati: `https://[accountname].azuredatalakestore.net/webhdfs/v1` o `adl://[accountname].azuredatalakestore.net/`. | Sì |
+| type | La proprietà `type` deve essere impostata su **AzureDataLakeStore**. | SÌ |
+| dataLakeStoreUri | Informazioni sull'account Azure Data Lake Store. Queste informazioni accettano uno dei seguenti formati: `https://[accountname].azuredatalakestore.net/webhdfs/v1` o `adl://[accountname].azuredatalakestore.net/`. | SÌ |
 | subscriptionId | ID sottoscrizione di Azure a cui l'account Data Lake Store appartiene. | Richiesto per il sink |
 | resourceGroupName | Nome del gruppo di risorse di Azure a cui l'account Data Lake Store appartiene. | Richiesto per il sink |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Se l'archivio dati si trova in una rete privata, è possibile usare il runtime di integrazione di Azure o un runtime di integrazione self-hosted. Se questa proprietà non è specificata, viene usato il runtime di integrazione di Azure predefinito. |No |
@@ -82,11 +82,11 @@ Per utilizzare l'autenticazione basata su entità servizio, attenersi alla segue
 
 Sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| servicePrincipalId | Specificare l'ID client dell'applicazione. | Sì |
-| servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come `SecureString` per archiviarlo in modo sicuro in Data Factory oppure [riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
-| tenant | Specificare le informazioni sul tenant, ad esempio il nome di dominio o l'ID tenant, in cui risiede l'applicazione. È possibile recuperarlo passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Sì |
+| servicePrincipalId | Specificare l'ID client dell'applicazione. | SÌ |
+| servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come `SecureString` per archiviarlo in modo sicuro in Data Factory oppure [riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | SÌ |
+| tenant | Specificare le informazioni sul tenant, ad esempio il nome di dominio o l'ID tenant, in cui risiede l'applicazione. È possibile recuperarlo passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | SÌ |
 
 **Esempio:**
 
@@ -157,9 +157,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Le proprietà seguenti sono supportate per Azure Data Lake Store Gen1 in impostazioni `location` nel set di dati basato sul formato:
 
-| Proprietà   | Descrizione                                                  | Obbligatorio |
+| Proprietà   | Description                                                  | Obbligatoria |
 | ---------- | ------------------------------------------------------------ | -------- |
-| type       | La proprietà Type in `location` nel set di dati deve essere impostata su **AzureDataLakeStoreLocation**. | Sì      |
+| type       | La proprietà Type in `location` nel set di dati deve essere impostata su **AzureDataLakeStoreLocation**. | SÌ      |
 | folderPath | Percorso di una cartella. Se si vuole usare un carattere jolly per filtrare le cartelle, ignorare questa impostazione e specificarla nelle impostazioni dell'origine dell'attività. | No       |
 | fileName   | Nome del file sotto il folderPath specificato. Se si vuole usare un carattere jolly per filtrare i file, ignorare questa impostazione e specificarla nelle impostazioni dell'origine dell'attività. | No       |
 
@@ -194,9 +194,9 @@ Le proprietà seguenti sono supportate per Azure Data Lake Store Gen1 in imposta
 >[!NOTE]
 >Il modello di set di dati seguente è ancora supportato così com'è per la compatibilità con le versioni precedenti. Si consiglia di usare il nuovo modello menzionato nella sezione precedente in futuro e l'interfaccia utente di creazione di ADF ha cambiato la generazione del nuovo modello.
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type del set di dati deve essere impostata su **AzureDataLakeStoreFile**. |Sì |
+| type | La proprietà Type del set di dati deve essere impostata su **AzureDataLakeStoreFile**. |SÌ |
 | folderPath | Percorso della cartella in Data Lake Store. Se il valore non è specificato, punta alla radice. <br/><br/>Il filtro con caratteri jolly è supportato. I caratteri jolly consentiti sono `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero o a un carattere singolo). Usare `^` per eseguire l'escape se il nome della cartella effettivo contiene un carattere jolly o il carattere di escape. <br/><br/>Ad esempio: RootFolder/sottocartella/. Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). |No |
 | fileName | Nome o filtro con caratteri jolly per i file sotto il "folderPath" specificato. Se non si specifica alcun valore per questa proprietà, il set di dati punta a tutti i file nella cartella. <br/><br/>Per il filtro, i caratteri jolly consentiti sono `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero o a un carattere singolo).<br/>- Esempio 1: `"fileName": "*.csv"`<br/>- Esempio 2: `"fileName": "???20180427.txt"`<br/>Usare `^` per eseguire l'escape se il nome file effettivo contiene un carattere jolly o il carattere di escape.<br/><br/>Quando fileName non è specificato per un set di dati di output e **preserveHierarchy** non è specificato nel sink dell'attività, l'attività di copia genera automaticamente il nome del file con il modello seguente: "*Data. [ GUID ID esecuzione attività]. [GUID se FlattenHierarchy]. [format se configurato]. [compressione se configurata]* ", ad esempio" Data. 0a405f8a-93ff-4C6F-B3BE-f69616f1df7a. txt. gz ". Se si copia da un'origine tabulare usando un nome di tabella anziché una query, il modello del nome è " *[nome tabella]. [ formato]. [compressione se configurata]* ", ad esempio" MyTable. csv ". |No |
 | modifiedDatetimeStart | Filtro file basato sull'Ultima modifica dell'attributo. I file vengono selezionati se l'ora dell'Ultima modifica rientra nell'intervallo di tempo compreso tra `modifiedDatetimeStart` e `modifiedDatetimeEnd`. L'ora viene applicata al fuso orario UTC nel formato "2018-12-01T05:00:00Z". <br/><br/> Le prestazioni complessive dello spostamento dei dati sono interessate dall'abilitazione di questa impostazione quando si desidera eseguire un filtro di file con grandi quantità di file. <br/><br/> Le proprietà possono essere NULL, il che significa che al set di dati non viene applicato alcun filtro di attributi di file. Quando `modifiedDatetimeStart` dispone di un valore DateTime, ma `modifiedDatetimeEnd` è NULL, significa che i file il cui ultimo attributo modificato è maggiore o uguale al valore DateTime sono selezionati. Quando `modifiedDatetimeEnd` dispone di un valore DateTime ma `modifiedDatetimeStart` è NULL, significa che i file il cui ultimo attributo è minore del valore DateTime sono selezionati.| No |
@@ -247,9 +247,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per Azure Data Lake Store Gen1 in impostazioni `storeSettings` nell'origine copia basata sul formato sono supportate le proprietà seguenti:
 
-| Proprietà                 | Descrizione                                                  | Obbligatorio                                      |
+| Proprietà                 | Description                                                  | Obbligatoria                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | La proprietà Type in `storeSettings` deve essere impostata su **AzureDataLakeStoreReadSetting**. | Sì                                           |
+| type                     | La proprietà Type in `storeSettings` deve essere impostata su **AzureDataLakeStoreReadSetting**. | SÌ                                           |
 | ricorsiva                | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Quando l'opzione ricorsiva è impostata su true e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink. I valori consentiti sono **true** (predefinito) e **false**. | No                                            |
 | wildcardFolderPath       | Percorso della cartella con caratteri jolly per filtrare le cartelle di origine. <br>I caratteri jolly consentiti sono `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero o a un carattere singolo). Usare `^` per eseguire l'escape se il nome della cartella effettivo contiene un carattere jolly o il carattere di escape. <br>Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | No                                            |
 | wildcardFileName         | Nome file con caratteri jolly sotto il folderPath/wildcardFolderPath specificato per filtrare i file di origine. <br>I caratteri jolly consentiti sono `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero o a un carattere singolo). Usare `^` per eseguire l'escape se il nome della cartella effettivo contiene un carattere jolly o il carattere di escape. Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | Sì se `fileName` non è specificato nel DataSet |
@@ -303,9 +303,9 @@ Per Azure Data Lake Store Gen1 in impostazioni `storeSettings` nell'origine copi
 >[!NOTE]
 >Il modello di origine della copia seguente è ancora supportato così com'è per la compatibilità con le versioni precedenti. Si consiglia di usare il nuovo modello menzionato in precedenza e l'interfaccia utente di creazione di ADF ha cambiato la generazione del nuovo modello.
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà `type` dell'origine dell'attività di copia deve essere impostata su **AzureDataLakeStoreSource**. |Sì |
+| type | La proprietà `type` dell'origine dell'attività di copia deve essere impostata su **AzureDataLakeStoreSource**. |SÌ |
 | ricorsiva | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Quando `recursive` è impostato su true e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink. I valori consentiti sono **true** (predefinito) e **false**. | No |
 | maxConcurrentConnections | Numero di connessioni per la connessione all'archivio dati contemporaneamente. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No |
 
@@ -347,9 +347,9 @@ Per Azure Data Lake Store Gen1 in impostazioni `storeSettings` nell'origine copi
 
 Per Azure Data Lake Store Gen1 in impostazioni `storeSettings` nel sink di copia basato sul formato sono supportate le proprietà seguenti:
 
-| Proprietà                 | Descrizione                                                  | Obbligatorio |
+| Proprietà                 | Description                                                  | Obbligatoria |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | La proprietà Type in `storeSettings` deve essere impostata su **AzureDataLakeStoreWriteSetting**. | Sì      |
+| type                     | La proprietà Type in `storeSettings` deve essere impostata su **AzureDataLakeStoreWriteSetting**. | SÌ      |
 | copyBehavior             | Definisce il comportamento di copia quando l'origine è costituita da file di un archivio dati basato su file.<br/><br/>I valori consentiti sono i seguenti:<br/><b>- PreserveHierarchy (predefinito)</b>: mantiene la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><b>- FlattenHierarchy</b>: tutti i file della cartella di origine si trovano nel primo livello della cartella di destinazione. I nomi dei file di destinazione vengono generati automaticamente. <br/><b>- MergeFiles</b>: unisce tutti i file della cartella di origine in un solo file. Se si specifica il nome di file, il nome del file unito sarà il nome specificato. In caso contrario, verrà usato un nome di file generato automaticamente. | No       |
 | maxConcurrentConnections | Numero di connessioni per la connessione all'archivio dati contemporaneamente. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No       |
 
@@ -393,9 +393,9 @@ Per Azure Data Lake Store Gen1 in impostazioni `storeSettings` nel sink di copia
 >[!NOTE]
 >Il modello di sink di copia seguente è ancora supportato così com'è per la compatibilità con le versioni precedenti. Si consiglia di usare il nuovo modello menzionato in precedenza e l'interfaccia utente di creazione di ADF ha cambiato la generazione del nuovo modello.
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà `type` del sink dell'attività di copia deve essere impostata su **AzureDataLakeStoreSink**. |Sì |
+| type | La proprietà `type` del sink dell'attività di copia deve essere impostata su **AzureDataLakeStoreSink**. |SÌ |
 | copyBehavior | Definisce il comportamento di copia quando l'origine è costituita da file di un archivio dati basato su file.<br/><br/>I valori consentiti sono i seguenti:<br/><b>- PreserveHierarchy (predefinito)</b>: mantiene la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><b>- FlattenHierarchy</b>: tutti i file della cartella di origine si trovano nel primo livello della cartella di destinazione. I nomi dei file di destinazione vengono generati automaticamente. <br/><b>- MergeFiles</b>: unisce tutti i file della cartella di origine in un solo file. Se si specifica il nome di file, il nome del file unito sarà il nome specificato. In caso contrario, il nome del file viene generato automaticamente. | No |
 | maxConcurrentConnections | Numero di connessioni per la connessione all'archivio dati contemporaneamente. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No |
 

@@ -4,24 +4,23 @@ description: Informazioni su come spostare dati da Salesforce usando Azure Data 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: dbe3bfd6-fa6a-491a-9638-3a9a10d396d1
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 71201efeb56ffda2dfbf82ca19b3bacb773c7c3d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8b94f6388d77cca2ef74c802aec7648091172775
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666156"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929277"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Spostare dati da Salesforce usando Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-salesforce-connector.md)
 > * [Versione 2 (corrente)](../connector-salesforce.md)
 
@@ -47,10 +46,10 @@ Salesforce presenta limiti per le richieste API totali e per le richieste API si
 
 In entrambi gli scenari è anche possibile che venga visualizzato l'errore "REQUEST_LIMIT_EXCEEDED" ("LIMITE_RICHIESTE_SUPERATO"). Per i dettagli, vedere la sezione API Request Limits (Limiti delle richieste API) nell'articolo [Salesforce API Request Limits](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Limiti delle richieste API di Salesforce).
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 È possibile creare una pipeline con l'attività di copia che sposta i dati da Salesforce usando diversi strumenti/API.
 
-Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
+Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md).
 
 È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager modello**, **API .NET**e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
@@ -60,27 +59,27 @@ Se si usano gli strumenti o le API, eseguire la procedura seguente per creare un
 2. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia.
 3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output.
 
-Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di Data Factory. Per un esempio con le definizioni JSON per le entità di Data Factory usate per copiare dati da Salesforce, vedere la sezione [Esempio JSON: Copiare dati da Salesforce a BLOB di Azure](#json-example-copy-data-from-salesforce-to-azure-blob) di questo articolo.
+Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory. Per un esempio con le definizioni JSON per le entità di Data Factory usate per copiare dati da Salesforce, vedere la sezione [Esempio JSON: Copiare dati da Salesforce a BLOB di Azure](#json-example-copy-data-from-salesforce-to-azure-blob) di questo articolo.
 
 Nelle sezioni seguenti sono disponibili le informazioni dettagliate sulle proprietà JSON che vengono usate per definire entità della Data Factory specifiche di Salesforce:
 
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 La tabella seguente include le descrizioni degli elementi JSON specifici del servizio collegato Salesforce.
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 | --- | --- | --- |
-| type |La proprietà type deve essere impostata su **Salesforce**. |Sì |
+| type |La proprietà type deve essere impostata su **Salesforce**. |SÌ |
 | environmentUrl | Specificare l'URL dell'istanza di Salesforce. <br><br> -Il valore predefinito è "https:\//login.salesforce.com". <br> - Per copiare dati dalla sandbox, specificare "https://test.salesforce.com". <br> - Per copiare i dati dal dominio personalizzato, specificare ad esempio "https://[dominio].my.salesforce.com". |No |
-| Nome utente |Specificare un nome utente per l'account utente. |Sì |
-| password |Specificare la password per l'account utente. |Sì |
-| securityToken |Specificare un token di sicurezza per l'account utente. Per istruzioni su come ottenere o reimpostare un token di sicurezza, vedere [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Ottenere un token di sicurezza). Per informazioni generali sui token di sicurezza, vedere [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Sicurezza e API). |Sì |
+| Nome utente |Specificare un nome utente per l'account utente. |SÌ |
+| password |Specificare la password per l'account utente. |SÌ |
+| securityToken |Specificare un token di sicurezza per l'account utente. Per istruzioni su come ottenere o reimpostare un token di sicurezza, vedere [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Ottenere un token di sicurezza). Per informazioni generali sui token di sicurezza, vedere [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Sicurezza e API). |SÌ |
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo [Set di dati in Azure Data Factory](data-factory-create-datasets.md) . Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per un set di dati di tipo **RelationalTable** presenta le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella in Salesforce. |No, se è specificata una **query** di **RelationalSource** |
 
@@ -96,9 +95,9 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano in
 
 Nell'attività di copia, quando l'origine è di tipo **RelationalSource** (che include Salesforce), nella sezione typeProperties sono disponibili le proprietà seguenti:
 
-| Proprietà | Descrizione | Valori consentiti | Obbligatorio |
+| Proprietà | Description | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
-| query |Usare la query personalizzata per leggere i dati. |Query SQL-92 o query [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) . Ad esempio: `select * from MyTable__c`. |No, se è specificato **tableName** per il **set di dati** |
+| query |Usare la query personalizzata per leggere i dati. |Query SQL-92 o query [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Ad esempio: `select * from MyTable__c`. |No, se è specificato **tableName** per il **set di dati** |
 
 > [!IMPORTANT]
 > La parte "__c" del nome dell'API è necessaria per qualsiasi oggetto personalizzato.
@@ -107,7 +106,7 @@ Nell'attività di copia, quando l'origine è di tipo **RelationalSource** (che i
 
 ## <a name="query-tips"></a>Suggerimenti di query
 ### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>Recupero di dati tramite la clausola where nella colonna DateTime
-Quando si specifica la query SQL o SOQL, prestare attenzione alla differenza di formato di DateTime. Ad esempio:
+Quando si specifica la query SQL o SOQL, prestare attenzione alla differenza di formato di DateTime. ad esempio:
 
 * **Esempio SOQL**: `$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
 * **Esempio SQL**:
@@ -286,25 +285,25 @@ Per l'elenco delle proprietà supportate da RelationalSource, vedere [Proprietà
 
 | Tipo Salesforce | Tipo basato su .NET |
 | --- | --- |
-| Numero automatico |String |
-| Casella di controllo |Booleano |
-| Valuta |Decimal |
-| Data |DateTime |
-| Data/ora |DateTime |
-| Email |String |
-| id |String |
-| Relazione di ricerca |String |
-| Elenco a discesa seleziona multipla |String |
-| Number |Decimal |
-| Percentuale |Decimal |
-| Telefono |String |
-| Elenco a discesa |String |
-| Text |String |
-| Area di testo |String |
-| Area di testo (Long) |String |
-| Area di testo (Rich) |String |
-| Testo (Crittografato) |String |
-| URL |String |
+| Numero automatico |Stringa |
+| Casella di controllo |boolean |
+| Valuta |DECIMAL |
+| Data |Data e ora |
+| Data/ora |Data e ora |
+| Indirizzo di posta elettronica |Stringa |
+| ID |Stringa |
+| Relazione di ricerca |Stringa |
+| Elenco a discesa seleziona multipla |Stringa |
+| Numero |DECIMAL |
+| Percentuale |DECIMAL |
+| Telefono |Stringa |
+| Elenco a discesa |Stringa |
+| Testo |Stringa |
+| Area di testo |Stringa |
+| Area di testo (Long) |Stringa |
+| Area di testo (Rich) |Stringa |
+| Testo (Crittografato) |Stringa |
+| URL |Stringa |
 
 > [!NOTE]
 > Per eseguire il mapping dal set di dati di origine alle colonne del set di dati sink, vedere [Mapping delle colonne del set di dati in Azure Data Factory](data-factory-map-columns.md).

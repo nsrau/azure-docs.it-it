@@ -4,7 +4,6 @@ description: Informazioni su come spostare i dati da e verso l'Istanza gestita d
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.author: jingwang
 author: linda33wj
@@ -12,12 +11,12 @@ manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 09/09/2019
-ms.openlocfilehash: 9eedd8c1ad740f7393da47eac7a20cb5b58ad8d3
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: e8029b957fedc07ba571b61f1211c020b706bea3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74218781"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929665"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Copiare dati da e verso l'Istanza gestita di database SQL di Azure con Azure Data Factory
 
@@ -45,13 +44,13 @@ In particolare il connettore dell'Istanza gestita di database SQL di Azure suppo
 >[!NOTE]
 >L'entità servizio e le autenticazioni di identità gestite attualmente non sono supportate da questo connettore. Per risolvere il errore, scegliere un connettore del database SQL di Azure e specificare manualmente il server dell'istanza gestita.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per accedere all' [endpoint pubblico](../sql-database/sql-database-managed-instance-public-endpoint-securely.md)di istanza gestita di database SQL di Azure, è possibile usare una Azure Data Factory runtime di integrazione di Azure gestito. Assicurarsi di abilitare l'endpoint pubblico e consentire anche il traffico dell'endpoint pubblico nel gruppo di sicurezza di rete in modo che Azure Data Factory possa connettersi al database. Per ulteriori informazioni, vedere le [linee guida](../sql-database/sql-database-managed-instance-public-endpoint-configure.md).
 
 Per accedere all'endpoint privato Istanza gestita di database SQL di Azure, configurare un [runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md) in grado di accedere al database. Se si esegue il provisioning del runtime di integrazione self-hosted nella stessa rete virtuale dell'istanza gestita, verificare che il computer del runtime di integrazione si trovi in una subnet diversa da quella dell'istanza gestita. Se si effettua il provisioning del runtime di integrazione self-hosted in una rete virtuale diversa da quella dell'istanza gestita, è possibile usare un peering di rete virtuale o una rete virtuale per la connessione di rete virtuale. Per altre informazioni, vedere [Connettere un'applicazione a Istanza gestita di database SQL di Azure](../sql-database/sql-database-managed-instance-connect-app.md).
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Inizia oggi stesso
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -61,14 +60,14 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato dell'Istanza gestita di database SQL di Azure sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | obbligatori |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type deve essere impostata su **AzureSqlMI**. | Sì |
-| connectionString |Questa proprietà specifica le informazioni di **ConnectionString** necessarie per connettersi all'istanza gestita usando l'autenticazione SQL. Per altre informazioni, vedere gli esempi seguenti. <br/>La porta predefinita è 1433. Se si usa Istanza gestita di database SQL di Azure con un endpoint pubblico, specificare in modo esplicito la porta 3342.<br>Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in Azure Data Factory. È anche possibile inserire una password in Azure Key Vault. Se si tratta dell'autenticazione SQL, estrarre la configurazione `password` dalla stringa di connessione. Per ulteriori informazioni, vedere l'esempio JSON che segue la tabella e [archivia le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). |Sì |
+| type | La proprietà Type deve essere impostata su **AzureSqlMI**. | SÌ |
+| connectionString |Questa proprietà specifica le informazioni di **ConnectionString** necessarie per connettersi all'istanza gestita usando l'autenticazione SQL. Per altre informazioni, vedere gli esempi seguenti. <br/>La porta predefinita è 1433. Se si usa Istanza gestita di database SQL di Azure con un endpoint pubblico, specificare in modo esplicito la porta 3342.<br>Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in Azure Data Factory. È anche possibile inserire una password in Azure Key Vault. Se si tratta dell'autenticazione SQL, estrarre la configurazione `password` dalla stringa di connessione. Per ulteriori informazioni, vedere l'esempio JSON che segue la tabella e [archivia le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). |SÌ |
 | servicePrincipalId | Specificare l'ID client dell'applicazione. | Sì, quando si usa l'autenticazione Azure AD con un'entità servizio |
 | servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in Azure Data Factory o [fare riferimento a un segreto archiviato nel Azure Key Vault](store-credentials-in-key-vault.md). | Sì, quando si usa l'autenticazione Azure AD con un'entità servizio |
 | tenant | Specificare le informazioni sul tenant, ad esempio il nome di dominio o l'ID tenant, in cui risiede l'applicazione. Recuperarlo posizionando il puntatore del mouse nell'angolo in alto a destra della portale di Azure. | Sì, quando si usa l'autenticazione Azure AD con un'entità servizio |
-| connectVia | Questo [runtime di integrazione](concepts-integration-runtime.md) viene usato per connettersi all'archivio dati. È possibile usare un runtime di integrazione self-hosted o un runtime di integrazione di Azure se l'istanza gestita ha un endpoint pubblico e consente a Azure Data Factory di accedervi. Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |Sì |
+| connectVia | Questo [runtime di integrazione](concepts-integration-runtime.md) viene usato per connettersi all'archivio dati. È possibile usare un runtime di integrazione self-hosted o un runtime di integrazione di Azure se l'istanza gestita ha un endpoint pubblico e consente a Azure Data Factory di accedervi. Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |SÌ |
 
 Per altri tipi di autenticazione, fare riferimento alle sezioni seguenti relative, rispettivamente, ai prerequisiti e agli esempi JSON:
 
@@ -236,15 +235,15 @@ Per utilizzare l'autenticazione di identità gestita, attenersi alla seguente pr
 }
 ```
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per definire set di dati, vedere l'articolo sui set di dati. Questa sezione presenta un elenco delle proprietà supportate dal set di dati dell'Istanza gestita di database SQL di Azure.
 
 Per copiare dati da e verso Istanza gestita di database SQL di Azure, sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | obbligatori |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type del set di dati deve essere impostata su **AzureSqlMITable**. | Sì |
+| type | La proprietà Type del set di dati deve essere impostata su **AzureSqlMITable**. | SÌ |
 | schema | Nome dello schema. |No per l'origine, Sì per il sink  |
 | table | Nome della tabella o della vista. |No per l'origine, Sì per il sink  |
 | tableName | Nome della tabella o della vista con schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Per il nuovo carico di lavoro, usare `schema` e `table`. | No per l'origine, Sì per il sink |
@@ -278,9 +277,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per definire
 
 Per copiare dati da Istanza gestita di database SQL di Azure, nella sezione origine dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | obbligatori |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **SqlMISource**. | Sì |
+| type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **SqlMISource**. | SÌ |
 | sqlReaderQuery |Questa proprietà usa la query SQL personalizzata per leggere i dati. Un esempio è `select * from MyTable`. |No |
 | sqlReaderStoredProcedureName |Questa proprietà definisce il nome della stored procedure che legge i dati dalla tabella di origine. L'ultima istruzione SQL deve essere un'istruzione SELECT nella stored procedure. |No |
 | storedProcedureParameters |Questi parametri sono relativi alla stored procedure.<br/>I valori consentiti sono coppie nome-valore. I nomi e l'uso di maiuscole e minuscole dei parametri devono corrispondere a quelli dei parametri della stored procedure. |No |
@@ -384,9 +383,9 @@ GO
 
 Per copiare dati in Istanza gestita di database SQL di Azure, nella sezione sink dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | obbligatori |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type del sink dell'attività di copia deve essere impostata su **SqlMISink**. | Sì |
+| type | La proprietà Type del sink dell'attività di copia deve essere impostata su **SqlMISink**. | SÌ |
 | writeBatchSize |Numero di righe da inserire nella tabella SQL *per batch*.<br/>I valori consentiti sono integer per il numero di righe. Per impostazione predefinita, Azure Data Factory determina in modo dinamico le dimensioni del batch appropriate in base alle dimensioni della riga.  |No |
 | writeBatchTimeout |Questa proprietà specifica il tempo di attesa per l'operazione di inserimento batch da completare prima del timeout.<br/>I valori consentiti sono per l'intervallo di tempo. Ad esempio, "00:30:00" corrisponde a 30 minuti. |No |
 | preCopyScript |Questa proprietà specifica una query SQL per l'attività di copia da eseguire prima di scrivere i dati nell'istanza gestita. Viene richiamata solo una volta per ogni esecuzione della copia. È possibile usare questa proprietà per pulire i dati precaricati. |No |
@@ -589,36 +588,36 @@ Quando si copiano dati da o verso l'Istanza gestita di database SQL di Azure, ve
 |:--- |:--- |
 | bigint |Int64 |
 | binary |Byte[] |
-| Bit |Booleano |
+| bit |boolean |
 | char |String, Char[] |
-| date |DateTime |
-| Datetime |DateTime |
-| datetime2 |DateTime |
-| Datetimeoffset |Datetimeoffset |
-| Decimal |Decimal |
+| date |Data e ora |
+| DateTime |Data e ora |
+| datetime2 |Data e ora |
+| Datetimeoffset |DateTimeOffset |
+| DECIMAL |DECIMAL |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
-| Float |Double |
-| immagine |Byte[] |
+| Float |DOUBLE |
+| image |Byte[] |
 | int |Int32 |
-| money |Decimal |
+| money |DECIMAL |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeric |Decimal |
+| numeric |DECIMAL |
 | nvarchar |String, Char[] |
-| real |Single |
+| real |Singolo |
 | rowversion |Byte[] |
-| smalldatetime |DateTime |
+| smalldatetime |Data e ora |
 | smallint |Int16 |
-| smallmoney |Decimal |
-| sql_variant |Object |
+| smallmoney |DECIMAL |
+| sql_variant |Oggetto |
 | text |String, Char[] |
-| time |TimeSpan |
+| time |Intervallo di tempo |
 | timestamp |Byte[] |
 | tinyint |Int16 |
-| uniqueidentifier |Guid |
+| uniqueidentifier |GUID |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |Xml |
+| Xml |xml |
 
 >[!NOTE]
 > Per i tipi di dati associati al tipo provvisorio Decimal, Azure Data Factory supporta attualmente la precisione fino a 28. Se si hanno dati che richiedono una precisione maggiore di 28, è consigliabile convertirli in una stringa in una query SQL.

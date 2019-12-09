@@ -1,22 +1,21 @@
 ---
-title: 'Script di PowerShell: copiare i dati nel cloud usando Azure Data Factory '
+title: Copiare i dati nel cloud usando PowerShell
 description: Lo script PowerShell copia i dati da una posizione nell'archiviazione BLOB di Azure a un'altra posizione nella stessa archiviazione BLOB.
 services: data-factory
+ms.author: jingwang
 author: linda33wj
-manager: craigg
-editor: ''
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: article
+ms.custom: seo-lt-2019
 ms.date: 09/12/2017
-ms.author: jingwang
-ms.openlocfilehash: 7ff9bd39a6a2d9785009d0f8bd8cb4c46fc09882
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: abc372355ce1a5350d205bce72a093fbfb1622e1
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684377"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929852"
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-in-the-cloud"></a>Usare PowerShell per creare una pipeline di Data Factory per copiare dati nel cloud
 
@@ -40,7 +39,7 @@ In questo esempio si usa PowerShell per creare una pipeline di Azure Data Factor
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 
-Dopo aver eseguito lo script di esempio, è possibile eseguire il comando seguente per rimuovere il gruppo di risorse e tutte le risorse associate a questo:
+Dopo aver eseguito lo script di esempio, è possibile eseguire il comando seguente per rimuovere il gruppo di risorse e tutte le risorse a esso associate:
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourceGroupName

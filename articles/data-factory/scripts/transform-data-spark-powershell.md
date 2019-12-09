@@ -1,20 +1,21 @@
 ---
-title: 'Script PowerShell: trasformare i dati nel cloud usando Data Factory '
+title: Trasformare i dati nel cloud con PowerShell
 description: Questo script PowerShell trasforma i dati nel cloud eseguendo il programma Spark in un cluster Azure HDInsight Spark.
 author: djpmsft
 ms.author: daperlov
-manager: jroth
+manager: anandsub
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 09/12/2017
-ms.openlocfilehash: 53f64103819476e4efe918bd7a7be4ee2a1bcca3
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c09d0532b845472d0ccaac1ad57e3772630bb5c9
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684314"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74932057"
 ---
 # <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>Script PowerShell: trasformare dati nel cloud con Azure Data Factory
 
@@ -73,7 +74,7 @@ Questo script PowerShell di esempio crea una pipeline che trasforma i dati nel c
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 
-Dopo aver eseguito lo script di esempio, è possibile eseguire il comando seguente per rimuovere il gruppo di risorse e tutte le risorse associate a questo:
+Dopo aver eseguito lo script di esempio, è possibile eseguire il comando seguente per rimuovere il gruppo di risorse e tutte le risorse a esso associate:
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourceGroupName

@@ -4,24 +4,23 @@ description: Informazioni su come spostare i dati da/verso il database di SQL Se
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: 864ece28-93b5-4309-9873-b095bbe6fedd
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a5afbec39a87423463bf1a65fdd99ec7a739958b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5e4bbe1e6bd944787d47c5e3ed98de582c088a52
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666264"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928179"
 ---
 # <a name="move-data-to-and-from-sql-server-on-premises-or-on-iaas-azure-vm-using-azure-data-factory"></a>Spostare i dati da e verso SQL Server locale o in IaaS (VM di Azure) utilizzando Data factory di Azure
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-sqlserver-connector.md)
 > * [Versione 2 (corrente)](../connector-sql-server.md)
 
@@ -51,10 +50,10 @@ Vedere l'articolo sullo [spostamento di dati tra sedi locali e cloud](data-facto
 
 Sebbene sia possibile installare il gateway nello stesso computer locale o istanza cloud della macchina virtuale come SQL Server per migliorare le prestazioni, si consiglia di installarli in computer separati, per evitare che il gateway e il server SQL entrino in conflitto sulle risorse.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 È possibile creare una pipeline con l'attività di copia che sposta i dati da e verso un SQL Server locale usando diversi strumenti/API.
 
-Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
+Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md).
 
 È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager modello**, **API .NET**e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
@@ -65,7 +64,7 @@ Se si usano gli strumenti o le API, eseguire la procedura seguente per creare un
 3. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia. Nell'esempio citato nel passaggio precedente, si crea un set di dati per specificare la tabella nel database SQL Server che contiene i dati di input. Si crea anche un altro set di dati per specificare il contenitore BLOB e la cartella che contiene i dati copiati dal database SQL Server. Per le proprietà del set di dati specifiche per il database SQL Server, vedere la sezione sulle [proprietà del set di dati](#dataset-properties).
 4. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output. Nell'esempio indicato in precedenza si usa SqlSource come origine e BlobSink come sink per l'attività di copia. Analogamente, se si effettua la copia dall'archiviazione BLOB di Azure al database SQL Server, usare BlobSource e SqlSink nell'attività di copia. Per le proprietà dell'attività di copia specifiche per il database SQL Server, vedere la sezione sulle [proprietà dell'attività di copia](#copy-activity-properties). Per informazioni dettagliate su come usare un archivio dati come origine o come sink, fare clic sul collegamento nella sezione precedente per l'archivio dati.
 
-Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di Data Factory. Per esempi con definizioni JSON per le entità di Data Factory che vengono usate per copiare dati da e verso un database SQL Server locale, vedere la sezione degli [esempi JSON](#json-examples-for-copying-data-from-and-to-sql-server) in questo articolo.
+Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory. Per esempi con definizioni JSON per le entità di Data Factory che vengono usate per copiare dati da e verso un database SQL Server locale, vedere la sezione degli [esempi JSON](#json-examples-for-copying-data-from-and-to-sql-server) in questo articolo.
 
 Nelle sezioni seguenti sono disponibili le informazioni dettagliate sulle proprietà JSON che vengono usate per definire entità della Data Factory specifiche di SQL Server:
 
@@ -74,11 +73,11 @@ Nelle sezioni seguenti sono disponibili le informazioni dettagliate sulle propri
 
 La tabella seguente contiene le descrizioni degli elementi JSON specifici del servizio collegato SQL Server.
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 | --- | --- | --- |
-| type |La proprietà type deve essere impostata su **OnPremisesSqlServer**. |Sì |
-| connectionString |Specificare le informazioni di connectionString necessarie per connettersi al database di SQL Server locale usando l'autenticazione di SQL o Windows. |Sì |
-| gatewayName |Nome del gateway che il servizio Data factory deve usare per connettersi al database di SQL Server locale. |Sì |
+| type |La proprietà type deve essere impostata su **OnPremisesSqlServer**. |SÌ |
+| connectionString |Specificare le informazioni di connectionString necessarie per connettersi al database di SQL Server locale usando l'autenticazione di SQL o Windows. |SÌ |
+| gatewayName |Nome del gateway che il servizio Data factory deve usare per connettersi al database di SQL Server locale. |SÌ |
 | Nome utente |Specificare il nome utente se si usa l'autenticazione Windows. Esempio: **nomedominio\\nomeutente**. |No |
 | password |Specificare la password per l'account utente specificato per il nome utente. |No |
 
@@ -131,9 +130,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 La sezione typeProperties è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione **typeProperties** per il set di dati di tipo **SqlServerTable** presenta le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 | --- | --- | --- |
-| tableName |Nome della tabella o vista nell'istanza del database di SQL Server a cui fa riferimento il servizio collegato. |Sì |
+| tableName |Nome della tabella o vista nell'istanza del database di SQL Server a cui fa riferimento il servizio collegato. |SÌ |
 
 ## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
 Se si effettua il trasferimento dei dati da un database di SQL Server, impostare il tipo di origine nell'attività di copia su **SqlSource**. Analogamente, se si effettua il trasferimento dei dati in un database di SQL Server, impostare il tipo di sink nell'attività di copia su **SqlSink**. Questa sezione presenta un elenco delle proprietà supportate da SqlSource e SqlSink.
@@ -148,7 +147,7 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano in
 ### <a name="sqlsource"></a>SqlSource
 Se in un'attività di copia l'origine è di tipo **SqlSource**, nella sezione **typeProperties** sono disponibili le proprietà seguenti:
 
-| Proprietà | Descrizione | Valori consentiti | Obbligatorio |
+| Proprietà | Description | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | sqlReaderQuery |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: selezionare * da MyTable. Può fare riferimento a più tabelle del database a cui fa riferimento il set di dati di input. Se non specificato, l'istruzione SQL eseguita: selezionare da MyTable. |No |
 | sqlReaderStoredProcedureName |Nome della stored procedure che legge i dati dalla tabella di origine. |Nome della stored procedure. L'ultima istruzione SQL deve essere un'istruzione SELECT nella stored procedure. |No |
@@ -166,7 +165,7 @@ Se non si specifica il parametro sqlReaderQuery o sqlReaderStoredProcedureName, 
 ### <a name="sqlsink"></a>SqlSink
 **SqlSink** supporta le proprietà seguenti:
 
-| Proprietà | Descrizione | Valori consentiti | Obbligatorio |
+| Proprietà | Description | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | writeBatchTimeout |Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout. |timespan<br/><br/> Ad esempio: "00:30:00" (30 minuti). |No |
 | writeBatchSize |Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge writeBatchSize. |Numero intero (numero di righe) |No (valore predefinito: 10000) |
@@ -655,36 +654,36 @@ Il mapping è uguale al mapping del tipo di dati di SQL Server per ADO.NET.
 | --- | --- |
 | bigint |Int64 |
 | binary |Byte[] |
-| bit |Booleano |
+| bit |boolean |
 | char |String, Char[] |
-| date |DateTime |
-| DateTime |DateTime |
-| datetime2 |DateTime |
-| Datetimeoffset |Datetimeoffset |
-| Decimal |Decimal |
+| date |Data e ora |
+| DateTime |Data e ora |
+| datetime2 |Data e ora |
+| Datetimeoffset |DateTimeOffset |
+| DECIMAL |DECIMAL |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
-| Float |Double |
-| immagine |Byte[] |
+| Float |DOUBLE |
+| image |Byte[] |
 | int |Int32 |
-| money |Decimal |
+| money |DECIMAL |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeric |Decimal |
+| numeric |DECIMAL |
 | nvarchar |String, Char[] |
-| real |Single |
+| real |Singolo |
 | rowversion |Byte[] |
-| smalldatetime |DateTime |
+| smalldatetime |Data e ora |
 | smallint |Int16 |
-| smallmoney |Decimal |
+| smallmoney |DECIMAL |
 | sql_variant |Object * |
 | text |String, Char[] |
-| time |TimeSpan |
+| time |Intervallo di tempo |
 | timestamp |Byte[] |
 | tinyint |Byte |
-| uniqueidentifier |Guid |
+| uniqueidentifier |GUID |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |Xml |
+| Xml |xml |
 
 ## <a name="mapping-source-to-sink-columns"></a>Eseguire il mapping delle colonne dell'origine alle colonne del sink
 Per eseguire il mapping dal set di dati di origine alle colonne del set di dati sink, vedere [Mapping delle colonne del set di dati in Azure Data Factory](data-factory-map-columns.md).

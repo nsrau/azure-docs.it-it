@@ -1,5 +1,5 @@
 ---
-title: Impostare una trasformazione sink nella funzionalità del flusso di dati di mapping
+title: Impostare una trasformazione sink nel flusso di dati di mapping
 description: Informazioni su come impostare una trasformazione sink nel flusso di dati di mapping.
 author: kromerm
 ms.author: makromer
@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/03/2019
-ms.openlocfilehash: 707c0e93b88f34d4663d3dbe20bb2e9e4991a332
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 828487aba651d10e5c906050dab544c097b49762
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217917"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930281"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>Trasformazione sink per un flusso di dati
 

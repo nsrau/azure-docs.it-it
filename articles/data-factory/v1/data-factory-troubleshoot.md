@@ -6,20 +6,19 @@ documentationcenter: ''
 ms.assetid: 38fd14c1-5bb7-4eef-a9f5-b289ff9a6942
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: maghan
-manager: craigg
+manager: anandsub
 robots: noindex
-ms.openlocfilehash: d729fd11f355650b1476e6864a6d70219bf37e12
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 81ae5c3c702108d854e4dfde93001d5c99875666
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135125"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931577"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Risolvere i problemi di Data factory
 > [!NOTE]
@@ -31,7 +30,7 @@ Questo articolo contiene suggerimenti per la risoluzione dei problemi correlati 
 
 ## <a name="troubleshooting-tips"></a>Suggerimenti per la risoluzione dei problemi
 ### <a name="error-the-subscription-is-not-registered-to-use-namespace-microsoftdatafactory"></a>Errore: La sottoscrizione non è registrata per l'uso dello spazio dei nomi 'Microsoft.DataFactory'
-Se viene visualizzato questo errore, il provider di risorse di Azure Data Factory non è stato registrato nel computer in uso. Seguire questa procedura:
+Se viene visualizzato questo errore, il provider di risorse di Azure Data Factory non è stato registrato nel computer in uso. Eseguire le operazioni seguenti:
 
 1. Avviare Azure PowerShell.
 2. Accedere al proprio account di Azure usando il comando seguente.
@@ -45,12 +44,12 @@ Se viene visualizzato questo errore, il provider di risorse di Azure Data Factor
     Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 
-### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Problema: errore di mancata autorizzazione quando si esegue un cmdlet di Data Factory
+### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Problema: errore di mancata autorizzazione quando si esegue un cmdlet di Data factory
 È probabile che non si stia usando l'account o la sottoscrizione di Azure corretta con Azure PowerShell. Usare i cmdlet seguenti per selezionare l'account e la sottoscrizione di Azure corretti per Azure PowerShell.
 
 1. Connect-AzAccount-usa l'ID utente e la password corretti
 2. Get-AzSubscription: Visualizza tutte le sottoscrizioni per l'account.
-3. Select-AzSubscription &lt;subscription name&gt; : selezionare la sottoscrizione corretta. Usare la stessa sottoscrizione selezionata per creare un Data Factory nel portale di Azure.
+3. Select-AzSubscription &lt;nome sottoscrizione&gt;-selezionare la sottoscrizione corretta. Usare la stessa sottoscrizione selezionata per creare un Data Factory nel portale di Azure.
 
 ### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>Problema: impossibile avviare l'installazione rapida del Gateway di gestione dati dal portale di Azure
 L'installazione rapida del Gateway di gestione dati richiede Internet Explorer o un Web browser compatibile con Microsoft ClickOnce. Se non è possibile avviare l'installazione rapida, eseguire una di queste operazioni:
@@ -60,17 +59,17 @@ L'installazione rapida del Gateway di gestione dati richiede Internet Explorer o
     Se si usa Chrome, accedere al [Chrome Web Store](https://chrome.google.com/webstore/), eseguire una ricerca con la parola chiave "ClickOnce", scegliere una delle estensioni ClickOnce e installarla.
 
     Seguire la stessa procedura per Firefox (installazione di un componente aggiuntivo). Fare clic sul pulsante Apri menu sulla barra degli strumenti (tre righe orizzontali nell'angolo superiore destro), fare clic su Componenti aggiuntivi, eseguire una ricerca con la parola chiave "ClickOnce", scegliere una delle estensioni ClickOnce e installarla.
-* Usare il collegamento all' **installazione manuale** visualizzato sullo stesso pannello nel portale. Adottare questo approccio per scaricare il file di installazione ed eseguirlo manualmente. Al termine dell'installazione viene visualizzata la finestra di configurazione di Gateway di gestione dati. Copiare la **chiave** dalla schermata del portale e usarla in Gestione configurazione per registrare manualmente il gateway con il servizio.  
+* Usare il collegamento all' **installazione manuale** visualizzato sullo stesso pannello nel portale. Adottare questo approccio per scaricare il file di installazione ed eseguirlo manualmente. Al termine dell'installazione viene visualizzata la finestra di configurazione di Gateway di gestione dati. Copiare la **chiave** dalla schermata del portale e usarla in Gestione configurazione per registrare manualmente il gateway nel servizio.  
 
 ### <a name="problem-fail-to-connect-to-on-premises-sql-server"></a>Problema: impossibile connettersi all'istanza di SQL Server locale
 Avviare **Gestione configurazione di Gateway di gestione dati** nel computer gateway e usare la scheda **Risoluzione dei problemi** per testare la connessione a SQL Server dal computer gateway. Per suggerimenti sulla risoluzione di problemi correlati alla connessione o al gateway, vedere [Risoluzione dei problemi del gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) .   
 
-### <a name="problem-input-slices-are-in-waiting-state-for-ever"></a>Problema: Lo stato delle sezioni di input è sempre In attesa
-Le sezioni potrebbero essere **In attesa** per diversi motivi. Uno dei motivi più comuni è che la proprietà **external** non è impostata su **true**. Eventuali set di dati prodotti all'esterno dell'ambito di Azure Data Factory devono essere contrassegnati con la proprietà **external** . Questa proprietà indica che i dati sono esterni e non sono supportati da alcuna pipeline nel Data Factory. Le sezioni di dati vengono contrassegnate con **Pronto** quando i dati sono disponibili nel rispettivo archivio.
+### <a name="problem-input-slices-are-in-waiting-state-for-ever"></a>Problema: le sezioni di input rimangono nello stato Waiting
+Le sezioni potrebbero essere **In attesa** per diversi motivi. Uno dei motivi più comuni è che la proprietà **external** non è impostata su **true**. Eventuali set di dati prodotti all'esterno dell'ambito di Azure Data Factory devono essere contrassegnati con la proprietà **external** . Questa proprietà indica che i dati sono esterni e non sono supportati da alcuna pipeline nel Data Factory. Le sezioni di dati vengono contrassegnate come **Pronto** quando i dati sono disponibili nel rispettivo archivio.
 
-Per l'uso della proprietà **external** , vedere l'esempio seguente. È possibile specificare facoltativamente **externalData*** quando si imposta la proprietà external su true.
+Per informazioni sull'utilizzo della proprietà **external**, vedere l'esempio seguente. È possibile specificare facoltativamente **externalData*** quando si imposta la proprietà external su true.
 
-Per altre informazioni su questa proprietà, vedere [Set di dati in Azure Data Factory](data-factory-create-datasets.md) .
+Per altre informazioni su questa proprietà, vedere l'articolo [Set di dati](data-factory-create-datasets.md).
 
 ```json
 {
@@ -114,7 +113,7 @@ Questo errore di solito indica che il percorso dell'account di archiviazione spe
 
 È anche disponibile una seconda proprietà JSON additionalLinkedServiceNames in cui è possibile specificare account di archiviazione aggiuntivi in HDInsight su richiesta. Gli account di archiviazione aggiuntivi collegati devono trovarsi nello stesso percorso del cluster HDInsight oppure avranno esito negativo, producendo lo stesso errore.
 
-### <a name="problem-custom-net-activity-fails"></a>Problema: L'attività .NET personalizzata non riesce
+### <a name="problem-custom-net-activity-fails"></a>Problema: l'attività .NET personalizzata non riesce
 Per una procedura dettagliata, vedere la sezione [Eseguire il debug della pipeline](data-factory-use-custom-activities.md#troubleshoot-failures) .
 
 ## <a name="use-azure-portal-to-troubleshoot"></a>Usare il portale di Azure per la risoluzione dei problemi

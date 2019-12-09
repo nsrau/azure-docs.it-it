@@ -1,26 +1,27 @@
 ---
-title: Mapping di flussi di dati in Azure Data Factory
+title: Flussi di dati di mapping
 description: Cenni preliminari sul mapping dei flussi di dati in Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/7/2019
-ms.openlocfilehash: ed2502ffebbacf5e66e3e4738e2e88ce7fb8a562
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 397ecdb805f0be9f374c53ae7128f806bfb789d3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681568"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928296"
 ---
-# <a name="what-are-mapping-data-flows"></a>Cosa sono i flussi di dati di mapping?
+# <a name="what-are-mapping-data-flows"></a>Che cosa sono i flussi di dati di mapping?
 
 I flussi di dati di mapping sono le trasformazioni di dati progettate visivamente in Azure Data Factory. I flussi di dati consentono agli ingegneri di dati di sviluppare la logica di trasformazione dei dati grafici senza scrivere codice. I flussi di dati risultanti vengono eseguiti come attività all'interno di Azure Data Factory pipeline che usano cluster Spark con scalabilità orizzontale. Le attività del flusso di dati possono essere operative tramite le funzionalità di pianificazione, controllo, flusso e monitoraggio Data Factory esistenti.
 
 Il mapping di flussi di dati offre un'esperienza visiva completamente senza necessità di scrivere codice. I flussi di dati vengono eseguiti nel proprio cluster di esecuzione per l'elaborazione dei dati con scalabilità orizzontale. Azure Data Factory gestisce tutta la conversione del codice, l'ottimizzazione del percorso e l'esecuzione dei processi del flusso di dati.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 
 Per creare un flusso di dati, selezionare il segno più in **risorse Factory**, quindi selezionare **flusso di dati**. 
 
@@ -34,7 +35,7 @@ L'area di disegno del flusso di dati è suddivisa in tre parti: la barra superio
 
 ![Canvas](media/data-flow/canvas1.png "Canvas")
 
-### <a name="graph"></a>Grafico
+### <a name="graph"></a>Grafo
 
 Il grafico mostra il flusso di trasformazione. Mostra la derivazione dei dati di origine durante il flusso in uno o più sink. Per aggiungere una nuova origine, selezionare **Aggiungi origine**. Per aggiungere una nuova trasformazione, selezionare il segno più in basso a destra di una trasformazione esistente.
 
@@ -42,7 +43,7 @@ Il grafico mostra il flusso di trasformazione. Mostra la derivazione dei dati di
 
 ### <a name="azure-integration-runtime-data-flow-properties"></a>Proprietà del flusso di dati del runtime di integrazione di Azure
 
-![Pulsante debug](media/data-flow/debugbutton.png "Pulsante debug")
+![Pulsante debug](media/data-flow/debugbutton.png "Pulsante Debug")
 
 Quando si inizia a usare i flussi di dati in ADF, è necessario attivare l'opzione "debug" per i flussi di dati nella parte superiore dell'interfaccia utente del browser. Verrà avviata una Azure Databricks cluster da utilizzare per il debug interattivo, le anteprime dei dati e le esecuzioni di debug della pipeline. È possibile impostare le dimensioni del cluster usato scegliendo una [Azure Integration Runtime](concepts-integration-runtime.md)personalizzata. La sessione di debug resterà attiva per un massimo di 60 minuti dopo l'ultima esecuzione dell'anteprima dei dati o dell'ultima esecuzione della pipeline di debug.
 
@@ -84,11 +85,11 @@ La prima scheda del riquadro di configurazione di ogni trasformazione contiene l
 
 ![Scheda Impostazioni di origine](media/data-flow/source1.png "Scheda Impostazioni di origine")
 
-#### <a name="optimize"></a>Eseguire l'ottimizzazione
+#### <a name="optimize"></a>Ottimizzare
 
 La scheda **ottimizza** contiene le impostazioni per la configurazione degli schemi di partizionamento.
 
-![Optimize](media/data-flow/optimize1.png "Eseguire l'ottimizzazione") (Ottimizza)
+![Optimize](media/data-flow/optimize1.png "Ottimizzare") (Ottimizza)
 
 L'impostazione predefinita è **Usa il partizionamento corrente**, che indica Azure Data Factory di usare lo schema di partizionamento nativo per i flussi di dati in esecuzione in Spark. Nella maggior parte degli scenari è consigliabile questa impostazione.
 
@@ -122,11 +123,11 @@ Consente di compilare un'espressione che fornisce un intervallo fisso per i valo
 
 Se si dispone di una conoscenza corretta della cardinalità dei dati, il partizionamento delle chiavi potrebbe essere una strategia efficace. Il partizionamento con chiavi crea partizioni per ogni valore univoco nella colonna. Non è possibile impostare il numero di partizioni perché il numero sarà basato sui valori univoci nei dati.
 
-#### <a name="inspect"></a>Ispezionare
+#### <a name="inspect"></a>Esaminare
 
 La scheda **Controlla** fornisce una visualizzazione dei metadati del flusso di dati che si sta trasformando. È possibile visualizzare i conteggi delle colonne, le colonne modificate, le colonne aggiunte, i tipi di dati, l'ordinamento delle colonne e i riferimenti alle colonne. **Esaminare** è una visualizzazione di sola lettura dei metadati. Non è necessario che la modalità di debug sia abilitata per visualizzare i metadati nel riquadro di **controllo** .
 
-![Ispezionare](media/data-flow/inspect1.png "Ispezionare")
+![Inspect](media/data-flow/inspect1.png "Esaminare")
 
 Quando si modifica la forma dei dati tramite le trasformazioni, il flusso delle modifiche dei metadati verrà visualizzato nel riquadro **Controlla** . Se non è presente uno schema definito nella trasformazione origine, i metadati non saranno visibili nel riquadro **ispezione** . La mancanza di metadati è comune negli scenari di drifting dello schema.
 

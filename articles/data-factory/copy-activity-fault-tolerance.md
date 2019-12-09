@@ -4,23 +4,22 @@ description: Informazioni su come aggiungere la tolleranza di errore all'attivit
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
-manager: craigg
+manager: anandsub
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: yexu
-ms.openlocfilehash: a60cafd529db1c6726a15db2c442af8d097411cc
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b874c0dcc1f394866e74b45e6bc335a25ce24499
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73678166"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930022"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolleranza di errore dell'attività di copia in Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-copy-activity-fault-tolerance.md)
 > * [Versione corrente](copy-activity-fault-tolerance.md)
 
@@ -71,9 +70,9 @@ L'esempio seguente offre la definizione JSON per specificare di ignorare le righ
 }
 ```
 
-Proprietà | Descrizione | Valori consentiti | Obbligatorio
+Proprietà | Description | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | -------- 
-enableSkipIncompatibleRow | Specifica se ignorare o meno le righe incompatibili durante la copia. | True<br/>False (impostazione predefinita) | No
+enableSkipIncompatibleRow | Specifica se ignorare o meno le righe incompatibili durante la copia. | Vero<br/>False (impostazione predefinita) | No
 redirectIncompatibleRowSettings | Un gruppo di proprietà che può essere specificato quando si vuole registrare le righe incompatibili. | &nbsp; | No
 linkedServiceName | Servizio collegato di [Archiviazione di Azure](connector-azure-blob-storage.md#linked-service-properties) o [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) con cui archiviare il log che contiene le righe ignorate. | Nome di un servizio collegato `AzureStorage` o `AzureDataLakeStore` che fa riferimento all'istanza da usare per archiviare il file di log. | No
 path | Percorso del file di log che contiene le righe ignorate. | Specificare il percorso da usare per registrare i dati incompatibili. Se non si specifica un percorso, il servizio crea automaticamente un contenitore. | No

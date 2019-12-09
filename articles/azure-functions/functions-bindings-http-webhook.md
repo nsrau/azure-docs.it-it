@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 598074a6d5093c4febd4d62266a1c852200e3f69
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 481e2ab63263f77b513e6443479827cc9e168bbb
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231179"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926348"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Trigger e associazioni HTTP di Funzioni di Azure
 
@@ -22,7 +22,7 @@ Un trigger HTTP può essere personalizzato per rispondere ai [webhook](https://e
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
-In questo articolo il codice predefinito è impostato sulla sintassi di Funzioni 2.x che usa .NET Core. Per informazioni sulla sintassi 1.x, consultare i [modelli delle funzioni 1.x](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
+Il codice in questo articolo usa per impostazione predefinita la sintassi che usa .NET Core, usata nelle funzioni versione 2. x e successive. Per informazioni sulla sintassi 1.x, consultare i [modelli delle funzioni 1.x](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
 
 ## <a name="packages---functions-1x"></a>Pacchetti: Funzioni 1.x
 
@@ -30,7 +30,7 @@ Le associazioni HTTP sono incluse nel pacchetto NuGet [Microsoft.Azure.WebJobs.E
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-## <a name="packages---functions-2x"></a>Pacchetti: Funzioni 2.x
+## <a name="packages---functions-2x-and-higher"></a>Packages-Functions 2. x e versioni successive
 
 Le associazioni HTTP sono incluse nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.Http](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) versione 3.x. Il codice sorgente del pacchetto si trova nel repository GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/).
 
@@ -40,7 +40,7 @@ Le associazioni HTTP sono incluse nel pacchetto NuGet [Microsoft.Azure.WebJobs.E
 
 Un trigger HTTP consente di richiamare una funzione con una richiesta HTTP e può essere usato per compilare API senza server e rispondere ai webhook.
 
-Per impostazione predefinita, un trigger HTTP restituisce HTTP 200 OK con un corpo vuoto nelle funzioni 1.x o HTTP 204 Nessun contenuto con un corpo vuoto nelle funzioni 2.x. Per modificare la risposta, configurare un'[associazione di output HTTP](#output).
+Per impostazione predefinita, un trigger HTTP restituisce HTTP 200 OK con un corpo vuoto in functions 1. x o HTTP 204 nessun contenuto con un corpo vuoto in functions 2. x e versioni successive. Per modificare la risposta, configurare un'[associazione di output HTTP](#output).
 
 ## <a name="trigger---example"></a>Trigger - esempio
 
@@ -515,7 +515,7 @@ Per un esempio completo, vedere l' [esempio di trigger](#trigger---example).
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `HttpTrigger`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
 | **type** | N/D| Obbligatoria. Deve essere impostata su `httpTrigger`. |
 | **direction** | N/D| Obbligatoria. Deve essere impostata su `in`. |
@@ -684,7 +684,7 @@ Per impostazione predefinita, tutte le route di funzione sono precedute da *api*
 
 Se l'app per le funzioni usa l'[autenticazione/autorizzazione di Servizio app ](../app-service/overview-authentication-authorization.md), è possibile visualizzare informazioni sui client autenticati dal codice. Queste informazioni sono disponibili come [intestazioni delle richieste inserite dalla piattaforma](../app-service/app-service-authentication-how-to.md#access-user-claims). 
 
-È anche possibile leggere queste informazioni dai dati di binding. Questa funzionalità è disponibile solo per il runtime di Funzioni 2.x. È anche al momento disponibile solo per i linguaggi .NET.
+È anche possibile leggere queste informazioni dai dati di binding. Questa funzionalità è disponibile solo per il runtime di funzioni in 2. x e versioni successive. È anche al momento disponibile solo per i linguaggi .NET.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -774,7 +774,7 @@ Funzioni consente di usare in fase di sviluppo le chiavi che rendono più diffic
 > Mentre le chiavi possono risultare per offuscare gli endpoint HTTP durante lo sviluppo, non sono progettate come un modo per proteggere un trigger HTTP nell'ambiente di produzione. Per altre informazioni, vedere [Proteggere un endpoint HTTP nell'ambiente di produzione](#secure-an-http-endpoint-in-production).
 
 > [!NOTE]
-> Nel runtime 1.x di Funzioni i provider di webhook possono usare le chiavi per autorizzare le richieste in svariati modi, a seconda di ciò che il provider supporta. Questa procedura è illustrata in [Webhook e chiavi](#webhooks-and-keys). La versione 2.x del runtime non include supporto incorporato per i provider di webhook.
+> Nel runtime 1.x di Funzioni i provider di webhook possono usare le chiavi per autorizzare le richieste in svariati modi, a seconda di ciò che il provider supporta. Questa procedura è illustrata in [Webhook e chiavi](#webhooks-and-keys). Il runtime di funzioni nella versione 2. x e versioni successive non include il supporto incorporato per i provider di webhook.
 
 Esistono due tipi di chiavi:
 
@@ -825,9 +825,9 @@ Quando si usa uno di questi metodi di sicurezza a livello di app per le funzioni
 ### <a name="webhooks"></a>Webhook
 
 > [!NOTE]
-> La modalità webhook è disponibile solo per il runtime di funzioni versione 1.x. Questa modifica è stata apportata per migliorare le prestazioni dei trigger HTTP nella versione 2.x.
+> La modalità webhook è disponibile solo per il runtime di funzioni versione 1.x. Questa modifica è stata apportata per migliorare le prestazioni dei trigger HTTP nella versione 2. x e versioni successive.
 
-Nella versione 1.x, i modelli webhook forniscono una convalida aggiuntiva per i payload di webhook. Nella versione 2.x il trigger HTTP di base è ancora funzionante ed è l'approccio consigliato per i webhook. 
+Nella versione 1.x, i modelli webhook forniscono una convalida aggiuntiva per i payload di webhook. Nella versione 2. x e versioni successive, il trigger HTTP di base continua a funzionare ed è l'approccio consigliato per i webhook. 
 
 #### <a name="github-webhooks"></a>Webhook GitHub
 
@@ -854,13 +854,13 @@ Se una funzione che usa il trigger HTTP non viene completata entro 2,5 minuti ci
 
 ## <a name="output"></a>Output
 
-Usare l'associazione di output HTTP per rispondere al mittente della richiesta HTTP. Questa associazione richiede un trigger HTTP e consente di personalizzare la risposta associata alla richiesta del trigger. Se non viene fornita un'associazione di output HTTP, un trigger HTTP restituisce HTTP 200 OK con un corpo vuoto nelle funzioni 1.x o HTTP 204 Nessun contenuto con un corpo vuoto nelle funzioni 2.x.
+Usare l'associazione di output HTTP per rispondere al mittente della richiesta HTTP. Questa associazione richiede un trigger HTTP e consente di personalizzare la risposta associata alla richiesta del trigger. Se non viene specificata un'associazione di output HTTP, un trigger HTTP restituisce HTTP 200 OK con un corpo vuoto in functions 1. x o HTTP 204 nessun contenuto con un corpo vuoto in functions 2. x e versioni successive.
 
 ## <a name="output---configuration"></a>Output - configurazione
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json*. Per le librerie di classe C# non vi sono proprietà di attributo che corrispondano a queste proprietà *function.json*.
 
-|Proprietà  |DESCRIZIONE  |
+|Proprietà  |Description  |
 |---------|---------|
 | **type** |Il valore deve essere impostato su `http`. |
 | **direction** | Il valore deve essere impostato su `out`. |
@@ -874,7 +874,7 @@ Per le risposte di esempio, vedere l'[esempio di trigger](#trigger---example).
 
 ## <a name="hostjson-settings"></a>impostazioni host.json
 
-Questa sezione descrive le impostazioni di configurazione globali disponibili per questa associazione nella versione 2.x. Il file host.json di esempio seguente contiene solo le impostazioni della versione 2.x per questa associazione. Per altre informazioni sulle impostazioni di configurazione globali nella versione 2.x, vedere [Informazioni di riferimento su host.json per Funzioni di Azure versione 2.x](functions-host-json.md).
+Questa sezione descrive le impostazioni di configurazione globali disponibili per questa associazione nelle versioni 2. x e successive. Il file host. JSON di esempio seguente contiene solo le impostazioni della versione 2. x + per questa associazione. Per ulteriori informazioni sulle impostazioni di configurazione globali nelle versioni 2. x e successive, vedere informazioni di [riferimento su host. JSON per funzioni di Azure](functions-host-json.md).
 
 > [!NOTE]
 > Per informazioni di riferimento su host.json in Funzioni 1.x, vedere [Informazioni di riferimento su host.json per Funzioni di Azure 1.x](functions-host-json-v1.md#http).
@@ -899,11 +899,11 @@ Questa sezione descrive le impostazioni di configurazione globali disponibili pe
 }
 ```
 
-|Proprietà  |Default | DESCRIZIONE |
+|Proprietà  |Predefinito | Description |
 |---------|---------|---------| 
-| customHeaders|nessuno|Consente di impostare intestazioni personalizzate nella risposta HTTP. Nell'esempio precedente l'intestazione `X-Content-Type-Options` viene aggiunta alla risposta per evitare l'analisi dei tipi di contenuto. |
-|dynamicThrottlesEnabled|<sup>\*</sup> true|Quando è abilitata, questa impostazione determina la pipeline di elaborazione della richiesta per il controllo periodico delle prestazioni dei contatori del sistema, ad esempio connessioni/thread/processi/memoria/CPU e così via. Se uno di questi contatori supera una soglia massima predefinita (80%), le richieste verranno rifiutate con una risposta 429 "Occupato" fino a quando i contatori non tornano a livelli normali.<br/><sup>\*</sup> Il valore predefinito in un piano a consumo è `true`. Il valore predefinito in un piano dedicato è `false`.|
-|HSTS|non abilitato|Quando `isEnabled` è impostato su `true`, viene applicato il [comportamento di sicurezza del trasporto http Strict (HSTS) di .NET Core](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts) , come definito nella [classe`HstsOptions`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0). Nell'esempio precedente viene inoltre impostata la proprietà [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) su 10 giorni. Le proprietà supportate di `hsts` sono: <table><tr><th>Proprietà</th><th>DESCRIZIONE</th></tr><tr><td>excludedHosts</td><td>Matrice di stringhe di nomi host per cui non viene aggiunta l'intestazione HSTS.</td></tr><tr><td>includeSubDomains</td><td>Valore booleano che indica se il parametro includeSubDomain dell'intestazione Strict-Transport-Security è abilitato.</td></tr><tr><td>maxAge</td><td>Stringa che definisce il parametro max-age dell'intestazione Strict-Transport-Security.</td></tr><tr><td>precaricare</td><td>Valore booleano che indica se il parametro preload dell'intestazione Strict-Transport-Security è abilitato.</td></tr></table>|
+| customHeaders|None|Consente di impostare intestazioni personalizzate nella risposta HTTP. Nell'esempio precedente l'intestazione `X-Content-Type-Options` viene aggiunta alla risposta per evitare l'analisi dei tipi di contenuto. |
+|dynamicThrottlesEnabled|true<sup>\*</sup>|Quando è abilitata, questa impostazione determina la pipeline di elaborazione della richiesta per il controllo periodico delle prestazioni dei contatori del sistema, ad esempio connessioni/thread/processi/memoria/CPU e così via. Se uno di questi contatori supera una soglia massima predefinita (80%), le richieste verranno rifiutate con una risposta 429 "Occupato" fino a quando i contatori non tornano a livelli normali.<br/><sup>\*</sup> Il valore predefinito in un piano a consumo è `true`. Il valore predefinito in un piano dedicato è `false`.|
+|HSTS|non abilitato|Quando `isEnabled` è impostato su `true`, viene applicato il [comportamento di sicurezza del trasporto http Strict (HSTS) di .NET Core](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts) , come definito nella [classe`HstsOptions`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0). Nell'esempio precedente viene inoltre impostata la proprietà [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) su 10 giorni. Le proprietà supportate di `hsts` sono: <table><tr><th>Proprietà</th><th>Description</th></tr><tr><td>excludedHosts</td><td>Matrice di stringhe di nomi host per cui non viene aggiunta l'intestazione HSTS.</td></tr><tr><td>includeSubDomains</td><td>Valore booleano che indica se il parametro includeSubDomain dell'intestazione Strict-Transport-Security è abilitato.</td></tr><tr><td>maxAge</td><td>Stringa che definisce il parametro max-age dell'intestazione Strict-Transport-Security.</td></tr><tr><td>preload</td><td>Valore booleano che indica se il parametro preload dell'intestazione Strict-Transport-Security è abilitato.</td></tr></table>|
 |maxConcurrentRequests|100<sup>\*</sup>|Numero massimo di funzioni http eseguite in parallelo. Ciò consente di controllare la concorrenza e pertanto di semplificare la gestione dell'uso delle risorse. Ad esempio, potrebbe essere presente una funzione HTTP che usa una quantità di risorse di sistema (memoria/CPU/socket) tale da creare problemi quando la concorrenza è troppo elevata. Oppure potrebbe essere presente una funzione che invia richieste a un servizio di terze parti e tali chiamate devono essere a frequenza limitata. In questi casi potrebbe risultare utile l'applicazione di una limitazione. <br/><sup>*</sup> Il valore predefinito per un piano a consumo è 100. Il valore predefinito per un piano dedicato è unbounded (`-1`).|
 |maxOutstandingRequests|200<sup>\*</sup>|Il numero massimo di richieste in sospeso che verrà mantenuto in un determinato intervallo. Questo limite include le richieste che vengono messe in coda ma non hanno avviato l'esecuzione, nonché le esecuzioni in corso. Le richieste in arrivo che superano questo limite vengono rifiutate con la risposta 429 "Occupato". Ciò consente ai chiamanti di usare strategie di ripetizione dei tentativi basate sul tempo e di controllare la latenza massima delle richieste. Questa impostazione controlla solo l'accodamento che si verifica all'interno del percorso di esecuzione dell'host dello script. Altre code, ad esempio la coda di richieste ASP.NET, saranno valide e non interessate da questa impostazione. <br/><sup>\*</sup>valore predefinito \il per un piano a consumo è 200. Il valore predefinito per un piano dedicato è unbounded (`-1`).|
 |routePrefix|api|Il prefisso della route che si applica a tutte le route. Utilizzare una stringa vuota per rimuovere il prefisso predefinito. |

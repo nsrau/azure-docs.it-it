@@ -1,27 +1,26 @@
 ---
-title: Copiare i dati nell'indice di ricerca usando Azure Data Factory
+title: Copia dati nell'indice di ricerca
 description: Informazioni su come eseguire il push o la copia di dati in un indice di Ricerca di Azure usando l'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 09/13/2019
-ms.author: jingwang
-ms.openlocfilehash: ffdde571bbd2ae967003c520b09349ea9dcff414
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8a5b7bd366c504f0f5f4652728bf265289fb92e8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73806077"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929684"
 ---
 # <a name="copy-data-to-an-azure-cognitive-search-index-using-azure-data-factory"></a>Copiare dati in un indice di ricerca cognitiva di Azure usando Azure Data Factory
 
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-azure-search-connector.md)
 > * [Versione corrente](connector-azure-search.md)
 
@@ -31,7 +30,7 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 È possibile copiare dati da qualsiasi archivio dati di origine supportato nell'indice di ricerca. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -41,12 +40,12 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di Azure ricerca cognitiva sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su **AzureSearch** | Sì |
-| URL | URL per il servizio di ricerca. | Sì |
-| key | Chiave di amministrazione per il servizio di ricerca. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
+| type | La proprietà type deve essere impostata su **AzureSearch** | SÌ |
+| url | URL per il servizio di ricerca. | SÌ |
+| key | Chiave di amministrazione per il servizio di ricerca. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | SÌ |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non diversamente specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 > [!IMPORTANT]
 > Quando si copiano dati da un archivio dati cloud a un indice di ricerca, in Azure ricerca cognitiva servizio collegato è necessario fare riferimento a una Azure Integration Runtime con area esplicita in connactVia. Impostare l'area come quella in cui risiede il servizio di ricerca. Altre informazioni da [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime).
@@ -79,10 +78,10 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati in ricerca cognitiva di Azure, sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **AzureSearchIndex** | Sì |
-| indexName | Nome dell'indice di ricerca. Il servizio Data Factory non crea l'indice. L'indice deve esistere in ricerca cognitiva di Azure. | Sì |
+| type | La proprietà type del set di dati deve essere impostata su: **AzureSearchIndex** | SÌ |
+| indexName | Nome dell'indice di ricerca. Il servizio Data Factory non crea l'indice. L'indice deve esistere in ricerca cognitiva di Azure. | SÌ |
 
 **Esempio:**
 
@@ -111,10 +110,10 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare i dati in ricerca cognitiva di Azure, impostare il tipo di origine nell'attività di copia su **AzureSearchIndexSink**. Nella sezione **sink** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **AzureSearchIndexSink** | Sì |
-| writebehavior | Specifica se eseguire un'unione o una sostituzione quando nell'indice esiste già un documento. Vedere la [proprietà WriteBehavior](#writebehavior-property).<br/><br/>I valori consentiti sono: **Merge** (predefinito) e **Carica**. | No |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **AzureSearchIndexSink** | SÌ |
+| writeBehavior | Specifica se eseguire un'unione o una sostituzione quando nell'indice esiste già un documento. Vedere la [proprietà WriteBehavior](#writebehavior-property).<br/><br/>I valori consentiti sono: **Merge** (predefinito) e **Carica**. | No |
 | writeBatchSize | Carica i dati nell'indice di ricerca quando la dimensione del buffer raggiunge writeBatchSize. Per informazioni dettagliate, vedere la [proprietà WriteBatchSize](#writebatchsize-property).<br/><br/>I valori consentiti sono: integer da 1 a 1.000; il valore predefinito è 1000. | No |
 
 ### <a name="writebehavior-property"></a>Proprietà WriteBehavior
@@ -170,11 +169,11 @@ La tabella seguente specifica se un tipo di dati di ricerca cognitiva di Azure �
 
 | Tipo di dati ricerca cognitiva di Azure | Supportato in Azure ricerca cognitiva sink |
 | ---------------------- | ------------------------------ |
-| String | S |
+| Stringa | S |
 | Int32 | S |
 | Int64 | S |
-| Double | S |
-| Booleano | S |
+| DOUBLE | S |
+| boolean | S |
 | DataTimeOffset | S |
 | String Array | N |
 | GeographyPoint | N |

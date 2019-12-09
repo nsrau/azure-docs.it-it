@@ -1,24 +1,22 @@
 ---
-title: Eseguire una copia bulk da un database tramite una tabella di controllo
+title: Eseguire una copia bulk da un database usando la tabella dei controlli
 description: Informazioni su come usare un modello di soluzione per copiare dati in blocco da un database usando una tabella di controllo esterna per archiviare un elenco di partizioni di tabelle di origine usando Azure Data Factory.
 services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
 ms.reviewer: douglasl
-manager: craigg
+manager: anandsub
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 12/14/2018
-ms.openlocfilehash: 3f50a6067eb38e920c32079c140785f397ee6698
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3063767c73f4639e667d5f64b0563f1da396cfbf
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896265"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927311"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>Eseguire una copia bulk da un database con una tabella di controllo
 

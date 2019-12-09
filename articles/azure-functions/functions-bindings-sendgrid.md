@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: 997c9427883e2a099c2c185b618701fb85cb96a6
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a96cd537328a1a9edeeb03f81350ed5393806765
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231097"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927586"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Associazioni di SendGrid di Funzioni di Azure
 
@@ -24,12 +24,12 @@ Le associazioni di SendGrid sono incluse nel pacchetto NuGet [Microsoft.Azure.We
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## <a name="packages---functions-2x"></a>Pacchetti: Funzioni 2.x
+## <a name="packages---functions-2x-and-higher"></a>Packages-Functions 2. x e versioni successive
 
 Le associazioni di SendGrid sono incluse nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.SendGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid), versione 3.x. Il codice sorgente del pacchetto si trova nel repository GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/).
 
 > [!NOTE]
-> La versione 2. x non crea l'argomento o la sottoscrizione configurata nell'istanza di `ServiceBusTrigger`. La versione 2. x si basa su [Microsoft. Azure. ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) e non gestisce la gestione delle code.
+> Nelle versioni 2. x e successive non viene creato l'argomento o la sottoscrizione configurata nell'istanza di `ServiceBusTrigger`. Queste versioni sono basate su [Microsoft. Azure. ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) che non gestisce la gestione delle code.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -38,7 +38,7 @@ Le associazioni di SendGrid sono incluse nel pacchetto NuGet [Microsoft.Azure.We
 Vedere l'esempio specifico per ciascun linguaggio:
 
 * [C#](#c-example)
-* [Script C# (.csx)](#c-script-example)
+* [Script C# (file con estensione csx)](#c-script-example)
 * [JavaScript](#javascript-example)
 * [Java](#java-example)
 
@@ -229,7 +229,7 @@ module.exports = function (context, input) {
 };
 ```
 
-## <a name="attributes"></a>Attributes
+## <a name="attributes"></a>Attributi
 
 Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attributo [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs).
 
@@ -251,7 +251,7 @@ Per un esempio completo, vedere l'[esempio in C#](#c-example).
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `SendGrid`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
 |**type**|| Obbligatoria. Deve essere impostata su `sendGrid`.|
 |**direction**|| Obbligatoria. Deve essere impostata su `out`.|
@@ -268,7 +268,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 ## <a name="hostjson-settings"></a>impostazioni host.json
 
-Questa sezione descrive le impostazioni di configurazione globali disponibili per questa associazione nella versione 2.x. Il file host.json di esempio seguente contiene solo le impostazioni della versione 2.x per questa associazione. Per altre informazioni sulle impostazioni di configurazione globali nella versione 2.x, vedere [Informazioni di riferimento su host.json per Funzioni di Azure versione 2.x](functions-host-json.md).
+Questa sezione descrive le impostazioni di configurazione globali disponibili per questa associazione nelle versioni 2. x e successive. Il file host. JSON di esempio seguente contiene solo le impostazioni della versione 2. x + per questa associazione. Per ulteriori informazioni sulle impostazioni di configurazione globali nelle versioni 2. x e successive, vedere informazioni di [riferimento su host. JSON per funzioni di Azure](functions-host-json.md).
 
 > [!NOTE]
 > Per informazioni di riferimento su host.json in Funzioni 1.x, vedere [Informazioni di riferimento su host.json per Funzioni di Azure 1.x](functions-host-json-v1.md).
@@ -284,9 +284,9 @@ Questa sezione descrive le impostazioni di configurazione globali disponibili pe
 }
 ```  
 
-|Proprietà  |Default | DESCRIZIONE |
+|Proprietà  |Predefinito | Description |
 |---------|---------|---------| 
-|Da|N/D|Indirizzo di posta elettronica del mittente in tutte le funzioni.| 
+|from|N/D|Indirizzo di posta elettronica del mittente in tutte le funzioni.| 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

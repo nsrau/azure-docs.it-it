@@ -1,28 +1,24 @@
 ---
-title: Eseguire la migrazione di applicazioni Novell iOS che usano Microsoft Authenticator da ADAL.NET a MSAL.NET
+title: Eseguire la migrazione di Novell iOS ADAL a MSAL.NET
 titleSuffix: Microsoft identity platform
-description: Informazioni su come eseguire la migrazione di applicazioni Novell iOS che usano Microsoft Authenticator dalla libreria Autenticazione di Azure AD per .NET (ADAL.NET) a Microsoft Authentication Library per .NET (MSAL.NET).
-documentationcenter: dev-center-name
+description: Informazioni su come eseguire la migrazione di app Novell iOS che usano Microsoft Authenticator da ADAL.NET a MSAL.NET.
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c64f9f371424eddc7295b6ec40bda1ebdaaafd5
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 4e70865c897e408f1cebb7359d0890d27b11243b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175581"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921819"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Eseguire la migrazione di applicazioni iOS che usano Microsoft Authenticator da ADAL.NET a MSAL.NET
 
@@ -41,7 +37,7 @@ I broker sono applicazioni fornite da Microsoft in Android e iOS. (Vedere l'app 
 
 Consentono di:
 
-- Single Sign-on.
+- Single Sign-On.
 - Identificazione del dispositivo, richiesta da alcuni [criteri di accesso condizionale](../conditional-access/overview.md). Per ulteriori informazioni, vedere [gestione dei dispositivi](../conditional-access/conditions.md#device-platforms).
 - Verifica dell'identificazione dell'applicazione, necessaria anche in alcuni scenari aziendali. Per ulteriori informazioni, vedere la pagina relativa alla [gestione di applicazioni mobili (MAM) di Intune](https://docs.microsoft.com/intune/mam-faq).
 

@@ -1,23 +1,22 @@
 ---
-title: Usare Azure Data Factory per migrare i dati da un cluster Hadoop locale ad archiviazione di Azure
+title: Migrare i dati da un cluster Hadoop locale ad archiviazione di Azure
 description: Informazioni su come usare Azure Data Factory per eseguire la migrazione dei dati dal cluster Hadoop locale al servizio di archiviazione di Azure.
 services: data-factory
-documentationcenter: ''
-author: dearandyxu
 ms.author: yexu
+author: dearandyxu
 ms.reviewer: ''
-manager: ''
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 8/30/2019
-ms.openlocfilehash: b952be49bf5bc00b338aa04ed51e9dc451b5c4f9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: afccbdbbfd5b8ddeefa621448d6170d937b518f0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73675826"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931440"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>Usare Azure Data Factory per migrare i dati da un cluster Hadoop locale ad archiviazione di Azure 
 
@@ -30,13 +29,13 @@ Data Factory offre due approcci di base per la migrazione dei dati da HDFS local
 
 Questo articolo fornisce le informazioni seguenti su entrambi gli approcci:
 > [!div class="checklist"]
-> * Prestazioni 
+> * Performance 
 > * Resilienza della copia
 > * Sicurezza di rete
 > * Architettura della soluzione di alto livello 
 > * Procedure consigliate per l'implementazione  
 
-## <a name="performance"></a>Prestazioni
+## <a name="performance"></a>Performance
 
 In Data Factory modalità DistCp, la velocità effettiva è identica a quella usata dallo strumento DistCp in modo indipendente. Data Factory modalità DistCp ottimizza la capacità del cluster Hadoop esistente. È possibile usare DistCp per la copia tra cluster o intra-cluster di grandi dimensioni. 
 
@@ -82,7 +81,7 @@ Questa immagine illustra la migrazione dei dati tramite un collegamento privato:
 - In questa architettura viene eseguita la migrazione dei dati tramite un collegamento di peering privato tramite Azure ExpressRoute. I dati non passano mai attraverso la rete Internet pubblica.
 - Lo strumento DistCp non supporta il peering privato di ExpressRoute con un endpoint di rete virtuale di archiviazione di Azure. Per eseguire la migrazione dei dati, è consigliabile usare la funzionalità nativa di Data Factory tramite il runtime di integrazione.
 - Per questa architettura, è necessario installare il Data Factory runtime di integrazione self-hosted in una VM Windows nella rete virtuale di Azure. È possibile scalare manualmente la macchina virtuale o aumentare le prestazioni in più macchine virtuali per usare completamente la rete e gli IOPS di archiviazione o la larghezza di banda.
-- La configurazione consigliata per iniziare con per ogni macchina virtuale di Azure (con il Data Factory runtime di integrazione self-hosted installato) è Standard_D32s_v3 con 32 vCPU e 128 GB di memoria. È possibile monitorare l'utilizzo della CPU e della memoria della VM durante la migrazione dei dati per verificare se è necessario aumentare le prestazioni della macchina virtuale per ottenere prestazioni migliori o per ridurre la macchina virtuale per ridurre i costi.
+- La configurazione consigliata per iniziare con per ogni macchina virtuale di Azure (con il Data Factory runtime di integrazione self-hosted installato) viene Standard_D32s_v3 con 32 vCPU e 128 GB di memoria. È possibile monitorare l'utilizzo della CPU e della memoria della VM durante la migrazione dei dati per verificare se è necessario aumentare le prestazioni della macchina virtuale per ottenere prestazioni migliori o per ridurre la macchina virtuale per ridurre i costi.
 - È anche possibile aumentare la scalabilità orizzontale associando fino a quattro nodi VM con un singolo runtime di integrazione self-hosted. Un processo di copia singolo in esecuzione su un runtime di integrazione self-hosted suddivide automaticamente il set di file e usa tutti i nodi VM per copiare i file in parallelo. Per la disponibilità elevata, è consigliabile iniziare con due nodi VM per evitare uno scenario a singolo punto di errore durante la migrazione dei dati.
 - Quando si usa questa architettura, la migrazione iniziale dei dati dello snapshot e la migrazione dei dati Delta sono disponibili.
 

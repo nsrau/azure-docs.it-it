@@ -4,20 +4,19 @@ description: Informazioni su come copiare dati da Jira in archivi dati di sink s
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 277af8c0683897737fd5194aba68cd7be79d7dd7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 04509ac2ca229ee6175ca7be827eabb0caf0bc70
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680747"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929229"
 ---
 # <a name="copy-data-from-jira-using-azure-data-factory"></a>Copiare dati da Jira usando Azure Data Factory
 
@@ -34,7 +33,7 @@ Questo connettore Jira è supportato per le attività seguenti:
 
 Azure Data Factory offre un driver predefinito per consentire la connettività, pertanto non è necessario installare manualmente alcun driver usando questo connettore.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -44,13 +43,13 @@ Le sezioni seguenti includono informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di Jira sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **Jira** | Sì |
-| host | Indirizzo IP o nome host del servizio Jira, ad esempio jira.example.com.  | Sì |
+| type | La proprietà type deve essere impostata su: **Jira** | SÌ |
+| host | Indirizzo IP o nome host del servizio Jira, ad esempio jira.example.com.  | SÌ |
 | port | Porta TCP che il server Jira usa per l'ascolto delle connessioni client. Il valore predefinito è 443 se la connessione avviene tramite HTTPS oppure 8080 se la connessione avviene tramite HTTP.  | No |
-| Nome utente | Nome utente usato per accedere al servizio Jira.  | Sì |
-| password | Password corrispondente al nome utente specificato nel campo username. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| Nome utente | Nome utente usato per accedere al servizio Jira.  | SÌ |
+| password | Password corrispondente al nome utente specificato nel campo username. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | SÌ |
 | useEncryptedEndpoints | Specifica se gli endpoint dell'origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No |
 | useHostVerification | Specifica se è necessario che il nome host nel certificato del server corrisponda al nome host del server per la connessione tramite SSL. Il valore predefinito è true.  | No |
 | usePeerVerification | Specifica se verificare l'identità del server durante la connessione tramite SSL. Il valore predefinito è true.  | No |
@@ -81,9 +80,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Jira, impostare la proprietà type del set di dati su **JiraObject**. Sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type del set di dati deve essere impostata su: **JiraObject** | Sì |
+| type | La proprietà Type del set di dati deve essere impostata su: **JiraObject** | SÌ |
 | tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
@@ -111,9 +110,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Jira, impostare il tipo di origine nell'attività di copia su **JiraSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **JiraSource** | Sì |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **JiraSource** | SÌ |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**

@@ -4,21 +4,20 @@ description: Configurare un gateway dati per spostare dati tra origini locali e 
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: craigg
+manager: anandsub
 ms.assetid: 7bf6d8fd-04b5-499d-bd19-eff217aa4a9c
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 52bce71abd6ecf30b5a3661c2e6033537357db3a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 039a19f38da4e651ee35fe60ba2b95a40cf890b0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682485"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931898"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Spostare dati tra origini locali e il cloud con Gateway di gestione dati
 > [!NOTE]
@@ -32,7 +31,7 @@ Questo articolo offre una panoramica sull'integrazione tra archivi dati locali e
 > [!IMPORTANT]
 > Leggere l'articolo [Gateway di gestione dati](data-factory-data-management-gateway.md) per i dettagli sul Gateway di gestione dati. 
 
-Questa procedura dettagliata illustra come creare un'istanza di Data Factory con una pipeline che sposta i dati da un database di **SQL Server** locale a un archivio BLOB di Azure. Come parte della procedura dettagliata, viene installato e configurato il Gateway di gestione dati nel computer.
+Questa procedura dettagliata illustra come creare un'istanza di Data Factory con una pipeline che sposta i dati da un database di **SQL Server** locale a un archivio BLOB di Azure. Come parte della procedura dettagliata, viene installato e configurato il gateway di gestione dati nel computer.
 
 ## <a name="walkthrough-copy-on-premises-data-to-cloud"></a>Procedura dettagliata: Copiare i dati locali nel cloud
 In questa procedura dettagliata si eseguiranno i passaggi seguenti: 
@@ -91,7 +90,7 @@ In questo passaggio si usa il portale di Azure per creare un'istanza di Azure Da
     ![Pagina per la creazione del gateway](./media/data-factory-move-data-between-onprem-and-cloud/OnPremCreateGatewayBlade.png)
 
     > [!NOTE]
-    > In questa procedura dettagliata si crea il gateway logico con un solo nodo, ossia un computer Windows locale. È possibile scalare orizzontalmente un gateway di gestione dati mediante l'associazione di più computer locali con il gateway. È possibile aumentare le prestazioni aumentando il numero di processi di spostamento di dati eseguibili contemporaneamente in un nodo. Questa funzionalità è disponibile anche per un gateway logico con un singolo nodo. Per informazioni dettagliate, vedere l'articolo [Ridimensionamento del gateway di gestione dati in Azure Data Factory](data-factory-data-management-gateway-high-availability-scalability.md).  
+    > In questa procedura dettagliata si crea il gateway logico con un solo nodo, ossia un computer Windows locale. È possibile aumentare il numero di istanze di un gateway di gestione dati associando più computer locali al gateway. È possibile aumentare le prestazioni aumentando il numero di processi di spostamento di dati eseguibili contemporaneamente in un nodo. Questa funzionalità è disponibile anche per un gateway logico con un singolo nodo. Per informazioni dettagliate, vedere l'articolo [Ridimensionamento del gateway di gestione dati in Azure Data Factory](data-factory-data-management-gateway-high-availability-scalability.md).  
 4. Nella pagina **Configura** fare clic su **Installa direttamente nel computer**. Con questa azione viene scaricato il pacchetto di installazione per il gateway, che viene installato, configurato e registrato nel computer.  
 
    > [!NOTE]
@@ -398,7 +397,7 @@ In questo passaggio viene usato il portale di Azure per monitorare le attività 
 
     ![Pannello Sezione dati](./media/data-factory-move-data-between-onprem-and-cloud/DataSlice.png)
 
-    Se lo stato della sezione non è **Pronto**, è possibile visualizzare le sezioni upstream che non sono pronte e bloccano l'esecuzione della sezione corrente nell'elenco **Sezioni upstream non pronte**.
+    Se lo stato della sezione non è **Pronto**, sarà possibile visualizzare le sezioni upstream che non sono pronte e bloccano l'esecuzione della sezione corrente nell'elenco **Sezioni upstream non pronte**.
 5. Fare clic sull'**esecuzione attività** dall'elenco nella parte inferiore della pagina per visualizzare i **dettagli dell'esecuzione attività**.
 
    ![Pagina Dettagli esecuzione attività](./media/data-factory-move-data-between-onprem-and-cloud/ActivityRunDetailsBlade.png)
@@ -409,7 +408,7 @@ In questo passaggio viene usato il portale di Azure per monitorare le attività 
 8. (Facoltativo) Fare clic su **Pipeline** e su **ADFTutorialOnPremDF**, quindi eseguire il drill-through delle tabelle di input (**utilizzate**) o dei set di dati di output (**generati**).
 9. Usare strumenti come [Microsoft Storage Explorer](https://storageexplorer.com/) per verificare che venga creato un BLOB/file ogni ora.
 
-   ![Azure Storage Explorer](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
+   ![Esplora archivi Azure](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Leggere l’articolo [Gateway di gestione dati](data-factory-data-management-gateway.md) per tutti i dettagli sul gateway di gestione dati.

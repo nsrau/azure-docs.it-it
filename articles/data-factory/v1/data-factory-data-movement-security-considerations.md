@@ -4,20 +4,19 @@ description: Informazioni su come proteggere lo spostamento dei dati in Azure Da
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: craigg
+manager: anandsub
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 7f18505e02c5d65d21e93759eb5da480c20e2eb3
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 467ba9f36dbcd44c5b8d87ee2f20d178d62d9732
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682631"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930823"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory: considerazioni sulla sicurezza dello spostamento dei dati
 
@@ -61,13 +60,13 @@ Se l'archivio dati cloud supporta HTTPS o TLS, tutti i trasferimenti di dati tra
 ### <a name="data-encryption-at-rest"></a>Crittografia di dati inattivi
 Alcuni archivi di dati supportano la crittografia dei dati inattivi. È consigliabile abilitare il meccanismo di crittografia dei dati per gli archivi dati. 
 
-#### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
+#### <a name="azure-sql-data-warehouse"></a>SQL Data Warehouse di Azure
 La funzionalità Transparent Data Encryption (TDE) di Azure SQL Data Warehouse consente di proteggersi da attività dannose eseguendo in tempo reale la crittografia e la decrittografia dei dati inattivi. Questo comportamento è trasparente per il client. Per altre informazioni, vedere [Proteggere un database in SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
-#### <a name="azure-sql-database"></a>Database SQL di Azure
+#### <a name="azure-sql-database"></a>database SQL di Azure
 Il database SQL di Azure supporta anche la funzionalità Transparent Data Encryption (TDE), che consente di proteggersi da attività dannose eseguendo in tempo reale la crittografia e la decrittografia dei dati, senza dover apportare modifiche all'applicazione. Questo comportamento è trasparente per il client. Per altre informazioni, vedere [Transparent Data Encryption con il database SQL di Azure](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database). 
 
-#### <a name="azure-data-lake-store"></a>Archivio Azure Data Lake
+#### <a name="azure-data-lake-store"></a>Azure Data Lake Store
 Azure Data Lake Store offre anche la possibilità di crittografare i dati archiviati nell'account. Se abilitato, Data Lake Store crittografa automaticamente i dati prima di renderli persistenti e li decrittografa prima di recuperarli, rendendo quindi trasparente per il client l'accesso ai dati. Per altre informazioni, vedere [Sicurezza in Archivio Azure Data Lake](../../data-lake-store/data-lake-store-security-overview.md). 
 
 #### <a name="azure-blob-storage-and-azure-table-storage"></a>Archiviazione BLOB di Azure e Archiviazione tabelle di Azure
@@ -95,7 +94,7 @@ Le credenziali per gli archivi dati locali vengono salvate in locale (non nel cl
 - Usando **testo normale** (meno sicuro) tramite HTTPS dal portale di Azure/Copia guidata. Le credenziali vengono trasferite al gateway locale in testo normale.
 - Usando la **libreria JavaScript per la crittografia da Copia guidata**.
 - Usando l'**app di gestione delle credenziali basata su un solo clic**. L'applicazione con un solo clic viene eseguita nel computer locale che ha accesso al gateway e imposta le credenziali per l'archivio dati. Questa opzione e la successiva sono le opzioni più sicure. Per impostazione predefinita, l'app di gestione delle credenziali usa la porta 8050 nella macchina con il gateway per la comunicazione sicura.  
-- Usare il cmdlet di PowerShell [New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/New-azDataFactoryEncryptValue) per crittografare le credenziali. Questo cmdlet consente di crittografare le credenziali mediante il certificato usato dal gateway. È possibile usare le credenziali crittografate restituite da questo cmdlet e aggiungerlo all'elemento **EncryptedCredential** di **CONNECTIONSTRING** nel file JSON usato con il cmdlet [New-AzDataFactoryLinkedService](/powershell/module/az.datafactory/new-azdatafactorylinkedservice) o nel frammento di codice JSON nel Data Factory Editor nel portale. Questa opzione e l'applicazione con un clic sono le opzioni più sicure. 
+- Usare il cmdlet di PowerShell [New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/New-azDataFactoryEncryptValue) per crittografare le credenziali. Questo cmdlet consente di crittografare le credenziali mediante il certificato usato dal gateway. È possibile usare le credenziali crittografate restituite da questo cmdlet e aggiungerlo all'elemento **EncryptedCredential** di **CONNECTIONSTRING** nel file JSON usato con il cmdlet [New-AZDATAFACTORYLINKEDSERVICE](/powershell/module/az.datafactory/new-azdatafactorylinkedservice) o nel frammento JSON nell'editor di data factory nel portale. Questa opzione e l'applicazione con un clic sono le opzioni più sicure. 
 
 #### <a name="javascript-cryptography-library-based-encryption"></a>Crittografia basata sulla libreria JavaScript per la crittografia
 È possibile crittografare le credenziali di archivio dati usando la [libreria JavaScript per la crittografia](https://www.microsoft.com/download/details.aspx?id=52439) da [Copia guidata](data-factory-copy-wizard.md). Quando si seleziona questa opzione, Copia guidata recupera la chiave pubblica del gateway e la usa per crittografare le credenziali dell'archivio dati. Le credenziali vengono decrittografate dal computer del gateway e protetta da Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx).
@@ -127,11 +126,11 @@ La rete virtuale è una rappresentazione logica della propria rete nel cloud. È
 
 La tabella seguente riassume i consigli di configurazione di rete e del gateway in base alle diverse combinazioni di percorsi di origine e destinazione per lo spostamento dei dati ibridi.
 
-| Source | Destination | Network configuration | Configurazione del gateway |
+| Source (Sorgente) | Destinazione | Configurazione di rete | Configurazione del gateway |
 | ------ | ----------- | --------------------- | ------------- | 
-| Locale | Servizi cloud e macchine virtuali distribuiti nelle reti virtuali | VPN IPSec (da punto a sito o da sito a sito) | Il gateway può essere installato in locale o in una VM di Azure nella VNet | 
-| Locale | Servizi cloud e macchine virtuali distribuiti nelle reti virtuali | ExpressRoute (peering privato) | Il gateway può essere installato in locale o in una macchina virtuale di Azure nella VNet | 
-| Locale | Servizi basati su Azure con un endpoint pubblico | ExpressRoute (peering pubblico) | Il gateway deve essere installato in locale | 
+| Ambiente locale | Servizi cloud e macchine virtuali distribuiti nelle reti virtuali | VPN IPSec (da punto a sito o da sito a sito) | Il gateway può essere installato in locale o in una VM di Azure nella VNet | 
+| Ambiente locale | Servizi cloud e macchine virtuali distribuiti nelle reti virtuali | ExpressRoute (peering privato) | Il gateway può essere installato in locale o in una macchina virtuale di Azure nella VNet | 
+| Ambiente locale | Servizi basati su Azure con un endpoint pubblico | ExpressRoute (peering pubblico) | Il gateway deve essere installato in locale | 
 
 Le immagini seguenti mostrano come usare il gateway di gestione dati per spostare i dati tra un database locale e i servizi di Azure ricorrendo a Express Route e a VPN IPSec (con la rete virtuale):
 
@@ -150,7 +149,7 @@ In un'azienda il **firewall aziendale** viene eseguito nel router centrale dell'
 
 La tabella seguente indica la **porta in uscita** e i requisiti di dominio per il **firewall aziendale**.
 
-| Nomi di dominio | Porte in uscita | Descrizione |
+| Nomi di dominio | Porte in uscita | Description |
 | ------------ | -------------- | ----------- | 
 | `*.servicebus.windows.net` | 443, 80 | Richieste dal gateway per connettersi ai servizi di spostamento dei dati in Data Factory |
 | `*.core.windows.net` | 443 | Usata dal gateway per connettersi all'account di Archiviazione di Azure quando si usa la funzionalità di [ copia temporanea](data-factory-copy-activity-performance.md#staged-copy). | 
@@ -163,7 +162,7 @@ La tabella seguente indica la **porta in uscita** e i requisiti di dominio per i
 
 Nella tabella seguente vengono indicati i requisiti relativi alla **porta in ingresso** per il **firewall di Windows**.
 
-| Porte in ingresso | Descrizione | 
+| Porte in ingresso | Description | 
 | ------------- | ----------- | 
 | 8050 (TCP) | Richiesta dall'applicazione di gestione delle credenziali per impostare in modo sicuro le credenziali per gli archivi dati locali nel gateway. | 
 

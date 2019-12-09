@@ -1,18 +1,20 @@
 ---
-title: Risolvere i problemi di Azure Data Factory flussi di dati
+title: Risolvere i problemi relativi ai flussi di dati
 description: Informazioni su come risolvere i problemi del flusso di dati in Azure Data Factory.
 services: data-factory
+ms.author: makromer
 author: kromerm
+manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/08/2019
-ms.author: makromer
-ms.openlocfilehash: 1b2309ec71cb3d43f4e5a39b80db593ab201c614
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.custom: seo-lt-2019
+ms.date: 12/06/2019
+ms.openlocfilehash: b972bbeac419d88afdd257a7fd19587dbaedf0d9
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721355"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930164"
 ---
 # <a name="troubleshoot-azure-data-factory-data-flows"></a>Risolvere i problemi di Azure Data Factory flussi di dati
 
@@ -83,6 +85,14 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi per i f
 - **Causa**: durante la lettura da un'origine JSON con un singolo documento su molte righe annidate, ADF, tramite Spark, non è in grado di determinare la posizione in cui inizia un nuovo documento e il documento precedente termina.
 
 - **Soluzione**: nella trasformazione di origine che usa un set di dati JSON, espandere "impostazioni JSON" e attivare "documento singolo".
+
+### <a name="error-message-duplicate-columns-found-in-join"></a>Messaggio di errore: colonne duplicate trovate in join
+
+- **Sintomi**: la trasformazione join ha generato colonne dal lato sinistro e destro che includono nomi di colonna duplicati
+
+- **Motivo**: i flussi da unire in join hanno nomi di colonna comuni
+
+- **Soluzione**: aggiungere un transforamtion SELECT dopo il join e selezionare "Rimuovi colonne duplicate" per l'input e l'output.
 
 
 ## <a name="general-troubleshooting-guidance"></a>Indicazioni generali per la risoluzione dei problemi

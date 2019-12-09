@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ebb2fcf0f626a82bcb5e6439183ba98c39c58588
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 6520f205d0a9c1a33d0cb4911a58a5e680bdadb7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74322909"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929722"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Ridimensionamento e hosting di Funzioni di Azure
 
@@ -39,8 +39,8 @@ La tabella seguente indica il livello di supporto corrente per i tre piani di ho
 
 | | Piano a consumo | Piano Premium | Piano dedicato |
 |-|:----------------:|:------------:|:----------------:|
-| Windows | GA | GA | GA |
-| Linux | GA | GA | GA |
+| Windows | Disponibilità a livello generale | Disponibilità a livello generale | Disponibilità a livello generale |
+| Linux | Disponibilità a livello generale | Disponibilità a livello generale | Disponibilità a livello generale |
 
 ## <a name="consumption-plan"></a>Piano a consumo
 
@@ -142,7 +142,7 @@ I file di codice delle funzioni vengono archiviati nelle condivisioni File di Az
 
 Funzioni di Azure usa un componente denominato *controller di scalabilità* per monitorare la frequenza degli eventi e determinare se aumentare il numero di istanze o ridurre le prestazioni. Il controller di scalabilità usa le funzionalità di euristica per ogni tipo di trigger. Quando si usa ad esempio un trigger di archiviazione code di Azure, la scalabilità dipende dalla lunghezza della coda e dal tempo di attesa del messaggio meno recente della coda.
 
-L'unità di scala per funzioni di Azure è l'app per le funzioni. In caso di aumento del numero di istanze dell'app per le funzioni, vengono allocate altre risorse per l'esecuzione di più istanze dell'host di Funzioni di Azure. In caso di riduzione delle richieste di calcolo, il controller di scalabilità rimuove le istanze dell'host di Funzioni. Il numero di istanze viene ridotto a zero quando non è in esecuzione alcuna funzione in un'app per le funzioni.
+L'unità di scala per funzioni di Azure è l'app per le funzioni. In caso di aumento del numero di istanze dell'app per le funzioni, vengono allocate altre risorse per l'esecuzione di più istanze dell'host di Funzioni di Azure. In caso di riduzione delle richieste di calcolo, il controller di scalabilità rimuove le istanze dell'host di Funzioni. Il numero di istanze viene infine *ridimensionato in* zero quando nessuna funzione viene eseguita all'interno di un'app per le funzioni.
 
 ![Monitoraggio degli eventi e creazione delle istanze da parte del controller di scalabilità](./media/functions-scale/central-listener.png)
 

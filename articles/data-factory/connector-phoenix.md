@@ -4,20 +4,19 @@ description: Informazioni su come copiare dati da Phoenix in archivi dati di sin
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 128946562fb3976bcb98de6c0911b7f89805b149
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d8f63984a5ad3717b470657aba02224794122cd5
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680439"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930826"
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Copiare dati da Phoenix usando Azure Data Factory 
 
@@ -38,7 +37,7 @@ Azure Data Factory offre un driver predefinito per consentire la connettività, 
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -48,13 +47,13 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di Phoenix sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **Phoenix** | Sì |
-| host | Indirizzo IP o nome host del server Phoenix, ovvero 192.168.222.160.  | Sì |
+| type | La proprietà type deve essere impostata su: **Phoenix** | SÌ |
+| host | Indirizzo IP o nome host del server Phoenix, ovvero 192.168.222.160.  | SÌ |
 | port | Porta TCP che il server Phoenix usa per l'ascolto delle connessioni client. Il valore predefinito è 8765. Se ci si connette a Azure HDInsights, specificare la porta come 443. | No |
 | httpPath | URL parziale corrispondente al server Phoenix, ovvero /gateway/sandbox/phoenix/version. Se si usa il cluster HDInsights, specificare `/hbasephoenix0`.  | No |
-| authenticationType | Meccanismo di autenticazione usato per la connessione al server Phoenix. <br/>I valori consentiti sono **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Sì |
+| authenticationType | Meccanismo di autenticazione usato per la connessione al server Phoenix. <br/>I valori consentiti sono **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | SÌ |
 | Nome utente | Nome utente usato per connettersi al server Phoenix.  | No |
 | password | Password corrispondente al nome utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | enableSsl | Specifica se le connessioni al server sono crittografate tramite SSL. Il valore predefinito è False.  | No |
@@ -62,7 +61,7 @@ Per il servizio collegato di Phoenix sono supportate le proprietà seguenti:
 | useSystemTrustStore | Specifica se usare o meno un certificato della CA dall'archivio di scopi consentiti o da un file .pem specificato. Il valore predefinito è False.  | No |
 | allowHostNameCNMismatch | Specifica se è necessario che il nome del certificato SSL rilasciato dall'Autorità di certificazione corrisponda al nome host del server per la connessione tramite SSL. Il valore predefinito è False.  | No |
 | allowSelfSignedServerCert | Specifica se consentire o meno i certificati autofirmati dal server. Il valore predefinito è False.  | No |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se non diversamente specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 >[!NOTE]
 >Se il cluster non supporta una sessione permanente, ad esempio HDInsight, aggiungere in modo esplicito l'indice nodo alla fine dell'impostazione del percorso HTTP. Specificare, ad esempio, `/hbasephoenix0` anziché `/hbasephoenix`.
@@ -95,9 +94,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Phoenix, impostare la proprietà type del set di dati su **PhoenixObject**. Sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type del set di dati deve essere impostata su: **PhoenixObject** | Sì |
+| type | La proprietà Type del set di dati deve essere impostata su: **PhoenixObject** | SÌ |
 | schema | Nome dello schema. |No (se nell'origine dell'attività è specificato "query")  |
 | table | Nome della tabella. |No (se nell'origine dell'attività è specificato "query")  |
 | tableName | Nome della tabella con schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Usare `schema` e `table` per un nuovo carico di lavoro. | No (se nell'origine dell'attività è specificato "query") |
@@ -127,9 +126,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Phoenix, impostare il tipo di origine nell'attività di copia su **PhoenixSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **PhoenixSource** | Sì |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **PhoenixSource** | SÌ |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**

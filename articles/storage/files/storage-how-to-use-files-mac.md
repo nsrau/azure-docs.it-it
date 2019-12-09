@@ -1,18 +1,18 @@
 ---
 title: Montare una condivisione file di Azure tramite SMB con macOS | Microsoft Docs
 description: Informazioni su come montare una condivisione file di Azure tramite SMB con macOS.
-author: roygara
+author: RenaShahMSFT
 ms.service: storage
 ms.topic: conceptual
 ms.date: 09/19/2017
-ms.author: rogarana
+ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: 6bd696ce5a314b0c849256311d0629b917036ea2
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 0e3420e469b117d90efb2949dab828021bfedcb6
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699539"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74924701"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Montare una condivisione file di Azure tramite SMB con macOS
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere montate con il protocollo SMB 3 standard di settore tramite macOS El Capitan 10.11 e versioni successive. Questo articolo descrive due diversi modi di montare una condivisione file di Azure in macOS: con l'interfaccia utente del Finder e usando il terminale.
@@ -27,19 +27,19 @@ ms.locfileid: "68699539"
 >    ```
 
 ## <a name="prerequisites-for-mounting-an-azure-file-share-on-macos"></a>Prerequisiti per il montaggio di una condivisione file di Azure in macOS
-* **Nome account di archiviazione**: per montare una condivisione file di Azure, sarà necessario il nome dell'account di archiviazione.
+* **Nome dell'account di archiviazione**: per montare una condivisione file di Azure, sarà necessario il nome dell'account di archiviazione.
 
-* **Chiave dell'account di archiviazione**: per montare una condivisione file di Azure, sarà necessaria la chiave di archiviazione primaria (o secondaria). Le chiavi di firma di accesso condiviso non sono attualmente supportate per il montaggio.
+* **Chiave dell'account di archiviazione**: per montare una condivisione file di Azure, sarà necessaria la chiave dell'account primaria (o secondaria). Le chiavi di firma di accesso condiviso non sono attualmente supportate per il montaggio.
 
-* **Assicurarsi che la porta 445 sia aperta**: SMB comunica sulla porta TCP 445. Nel computer client (Mac) verificare che il firewall non blocchi la porta TCP 445.
+* **Assicurarsi che la porta 445 sia aperta**: SMB comunica tramite la porta TCP 445. Nel computer client (Mac) verificare che il firewall non blocchi la porta TCP 445.
 
 ## <a name="mount-an-azure-file-share-via-finder"></a>Montare una condivisione file di Azure tramite il Finder
-1. **Aprire Finder**: per impostazione predefinita, il Finder è aperto in macOS, ma per verificare che sia l'applicazione attualmente selezionata fare clic sull'icona con il volto di macOS sul Dock:  
+1. **Aprire Finder**: per impostazione predefinita, il Finder è aperto in macOS, ma è possibile assicurarsi che sia l'applicazione attualmente selezionata facendo clic sull'icona con il volto di macOS sul Dock:  
     ![Icona con il volto di macOS](./media/storage-how-to-use-files-mac/mount-via-finder-1.png)
 
-2. **Selezionare "Connetti a server" dal menu "Vai"** : usando il percorso UNC dei prerequisiti, convertire la doppia barra rovesciata iniziale (`\\`) in `smb://` e tutte le altre barre rovesciate (`\`) in barre (`/`). Il collegamento deve apparire come segue: ![Finestra di dialogo "Connetti al server"](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
+2. **Selezionare "Connetti al server" dal menu "Vai"** : usando il percorso UNC dei prerequisiti, convertire la doppia barra rovesciata (`\\`) iniziale in `smb://` e tutte le altre barre rovesciate (`\`) per l'avanzamento delle barre (`/`). Il collegamento sarà simile al seguente: ![Finestra di dialogo "Connect to Server" (Connetti al server)](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
 
-3. **Usare il nome dell'account di archiviazione e la chiave dell'account di archiviazione quando vengono richiesti un nome utente e una password**: quando si fa clic su "Connessione" nella finestra di dialogo "Connetti a server", verranno chiesti il nome utente e la password. Verrà automaticamente inserito il nome utente macOS. È possibile inserire il nome o la chiave dell'account di archiviazione nel keychain di macOS.
+3. **Usare il nome e la chiave dell'account di archiviazione quando vengono chiesti un nome utente e una password**: quando si fa clic su "Connessione" nella finestra di dialogo "Connetti al server", verranno chiesti il nome utente e la password. Verrà automaticamente inserito il nome utente macOS. È possibile inserire il nome o la chiave dell'account di archiviazione nel keychain di macOS.
 
 4. **Usare la condivisione file di Azure nel modo desiderato**: dopo avere sostituito il nome utente e la password con il nome condivisione e la chiave dell'account di archiviazione, la condivisione verrà montata. È possibile usarla come qualsiasi altra cartella/condivisione file locale, anche ad esempio per trascinare e rilasciare file nella condivisione file:
 
@@ -57,9 +57,9 @@ ms.locfileid: "68699539"
     ![Snapshot della condivisione file di Azure montata](./media/storage-how-to-use-files-mac/mount-via-terminal-1.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni su File di Azure, vedere i collegamenti seguenti.
+Vedere questi collegamenti per altre informazioni su File di Azure.
 
 * [Articolo del supporto Apple: Come connettersi con Condivisione file sul Mac](https://support.apple.com/HT204445)
-* [Domande frequenti](../storage-files-faq.md)
+* [DOMANDE FREQUENTI](../storage-files-faq.md)
 * [Risoluzione dei problemi in Windows](storage-troubleshoot-windows-file-connection-problems.md)      
 * [Risoluzione dei problemi in Linux](storage-troubleshoot-linux-file-connection-problems.md)    

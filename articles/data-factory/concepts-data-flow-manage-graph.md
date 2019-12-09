@@ -1,17 +1,18 @@
 ---
-title: Azure Data Factory grafici del flusso di dati
+title: Grafici del flusso di dati
 description: Come usare data factory grafici del flusso di dati
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 11/04/2019
-ms.openlocfilehash: 38f85dea554000daf89689a311c091bc9796a658
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: da180bfb1aec29fa15b070fd73ba84d708ada927
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74015899"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928315"
 ---
 # <a name="mapping-data-flow-graphs"></a>Mapping dei grafici del flusso di dati
 
@@ -41,7 +42,7 @@ Se dopo il nodo selezionato non sono presenti trasformazioni successive, nella n
 
 È possibile cercare il grafico con il pulsante Cerca nell'area di progettazione.
 
-![Ricerca](media/data-flow/search001.png "Grafico di ricerca")
+![Search](media/data-flow/search001.png "Grafico di ricerca")
 
 ## <a name="next-steps"></a>Passaggi successivi
 

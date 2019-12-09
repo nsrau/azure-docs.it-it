@@ -1,17 +1,18 @@
 ---
-title: Trasformazione ricerca flusso di dati mapping Azure Data Factory
+title: Mapping della trasformazione ricerca flusso di dati
 description: Trasformazione ricerca flusso di dati mapping Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/03/2019
-ms.openlocfilehash: 01a1dba18e21a38695146560bbf85cf1a042ba02
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 5cc54c95759ba1490f498305f05cc49a4411686d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596612"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930326"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Trasformazione ricerca flusso di dati mapping Azure Data Factory
 
@@ -27,7 +28,7 @@ La trasformazione Ricerca esegue l'equivalente di un left outer join. Quindi, ve
 
 ## <a name="match--no-match"></a>Corrispondenza/nessuna corrispondenza
 
-Dopo la trasformazione ricerca, è possibile utilizzare le trasformazioni successive per esaminare i risultati di ogni riga delle corrispondenze utilizzando la funzione Expression `isMatch()` per effettuare ulteriori scelte nella logica a seconda che la ricerca abbia restituito o meno una corrispondenza di riga.
+Dopo la trasformazione ricerca, è possibile utilizzare le trasformazioni successive per esaminare i risultati di ogni riga delle corrispondenze utilizzando la funzione Expression `isMatch()` per eseguire ulteriori scelte nella logica a seconda che la ricerca abbia restituito o meno una corrispondenza di riga.
 
 ![Modello di ricerca](media/data-flow/lookup111.png "Modello di ricerca")
 

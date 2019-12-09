@@ -4,24 +4,23 @@ description: Informazioni su come spostare dati da una tabella in una pagina Web
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: f54a26a4-baa4-4255-9791-5a8f935898e2
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 957b47244744f161ad9cc8019a411e2e59c29418
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d2ea038c7d7212529185d77a6ba9e64deacb1c9e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682310"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927929"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Spostare i dati da un'origine tabella Web con Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-web-table-connector.md)
 > * [Versione 2 (corrente)](../connector-web-table.md)
 
@@ -52,10 +51,10 @@ Per usare questo connettore tabella Web, è necessario impostare un runtime di i
 }
 ```
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 È possibile creare una pipeline con l'attività di copia che sposta i dati da un archivio dati Cassandra usando diversi strumenti/API. 
 
-- Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati. 
+- Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md). 
 - È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager modello**, **API .NET**e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia. 
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
@@ -64,18 +63,18 @@ Se si usano gli strumenti o le API, eseguire la procedura seguente per creare un
 2. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia. 
 3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output. 
 
-Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di Data Factory.  Per un esempio con le definizioni JSON per le entità di Data Factory usate per copiare dati da una tabella Web, vedere la sezione [Esempio JSON: Copiare dati da una tabella Web a BLOB di Azure](#json-example-copy-data-from-web-table-to-azure-blob) di questo articolo. 
+Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory.  Per un esempio con le definizioni JSON per le entità di Data Factory usate per copiare dati da una tabella Web, vedere la sezione [Esempio JSON: Copiare dati da una tabella Web a BLOB di Azure](#json-example-copy-data-from-web-table-to-azure-blob) di questo articolo. 
 
 Nelle sezioni seguenti sono disponibili le informazioni dettagliate sulle proprietà JSON che vengono usate per definire entità della Data Factory specifiche di una tabella Web:
 
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 La tabella seguente contiene le descrizioni degli elementi JSON specifici del servizio collegato Web.
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 | --- | --- | --- |
-| type |La proprietà type deve essere impostata su: **Web** |Sì |
-| Url |URL dell'origine Web |Sì |
-| authenticationType |Anonimo. |Sì |
+| type |La proprietà type deve essere impostata su: **Web** |SÌ |
+| Url |URL dell'origine Web |SÌ |
+| authenticationType |Anonimo. |SÌ |
 
 ### <a name="using-anonymous-authentication"></a>Uso dell'autenticazione anonima
 
@@ -99,11 +98,11 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **WebTable** presenta le proprietà seguenti
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type |Tipo del set di dati. Deve essere impostato su **WebTable** |Sì |
+| type |Tipo del set di dati. Deve essere impostato su **WebTable** |SÌ |
 | path |URL relativo della risorsa che contiene la tabella. |No. Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. |
-| index |Indice della tabella nella risorsa. Per i passaggi per ottenere l'indice di una tabella in una pagina HTML, vedere la sezione [Ottenere l'indice di una tabella in una pagina HTML](#get-index-of-a-table-in-an-html-page) . |Sì |
+| index |Indice della tabella nella risorsa. Per i passaggi per ottenere l'indice di una tabella in una pagina HTML, vedere la sezione [Ottenere l'indice di una tabella in una pagina HTML](#get-index-of-a-table-in-an-html-page) . |SÌ |
 
 **Esempio:**
 

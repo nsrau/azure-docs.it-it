@@ -1,17 +1,18 @@
 ---
-title: Trasformazione colonna derivata nel flusso di dati del mapping Azure Data Factory
+title: Trasformazione colonna derivata nel flusso di dati di mapping
 description: Informazioni su come trasformare i dati su larga scala in Azure Data Factory con la trasformazione colonna derivata flusso di dati mapping.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/15/2019
-ms.openlocfilehash: 387af25b87fdedff5d15ccb6a03819ad8b020e9a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ce774868acc281f769e7f2991472e7d2a5da9739
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73676878"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930385"
 ---
 # <a name="derived-column-transformation-in-mapping-data-flow"></a>Trasformazione colonna derivata nel flusso di dati di mapping
 
@@ -46,7 +47,7 @@ Per aggiungere altre colonne derivate, passare il mouse su una colonna derivata 
 
 ### <a name="example"></a>Esempio
 
-L'esempio seguente è una colonna derivata denominata `CleanData` che accetta un flusso in ingresso `MoviesYear` e crea due colonne derivate. La prima colonna derivata sostituisce la colonna `Rating` con il valore della classificazione come tipo Integer. La seconda colonna derivata è un modello che corrisponde a ogni colonna il cui nome inizia con "Movies". Per ogni colonna corrispondente, viene creata una colonna `movie` uguale al valore della colonna corrispondente con prefisso ' movie_'. 
+L'esempio seguente è una colonna derivata denominata `CleanData` che accetta un flusso in ingresso `MoviesYear` e crea due colonne derivate. La prima colonna derivata sostituisce la colonna `Rating` con il valore della classificazione come tipo Integer. La seconda colonna derivata è un modello che corrisponde a ogni colonna il cui nome inizia con "Movies". Per ogni colonna corrispondente, viene creata una colonna `movie` uguale al valore della colonna corrispondente con il prefisso ' movie_'. 
 
 In Data Factory UX questa trasformazione è simile all'immagine seguente:
 

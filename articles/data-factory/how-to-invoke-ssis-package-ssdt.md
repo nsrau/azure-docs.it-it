@@ -1,23 +1,23 @@
 ---
-title: Eseguire pacchetti SSIS in Azure Data Factory da SSDT
+title: Eseguire pacchetti SSIS da SSDT
 description: Informazioni su come eseguire pacchetti SSIS in Azure da SSDT.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/31/2019
-author: swinarko
 ms.author: sawinark
+author: swinarko
 ms.reviewer: douglasl
-manager: craigg
-ms.openlocfilehash: 4c89bdddce7b7318e184994ddf627d853e29fd7e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: mflasko
+ms.custom: seo-lt-2019
+ms.date: 07/31/2019
+ms.openlocfilehash: 5f21623af9b89bbb020063dfb72f7b60e65a6ebe
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73673612"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927714"
 ---
 # <a name="execute-ssis-packages-in-azure-from-ssdt"></a>Eseguire pacchetti SSIS in Azure da SSDT
 Questo articolo descrive la funzionalità dei progetti SQL Server Integration Services (SSIS) abilitati per Azure in SQL Server Data Tools (SSDT), che consente di eseguire pacchetti in Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF).  È possibile usare questa funzionalità per testare i pacchetti SSIS esistenti prima di eseguire & MAIUSC/migrarli in Azure o per sviluppare nuovi pacchetti SSIS per l'esecuzione in Azure.
@@ -52,13 +52,13 @@ Connettendo i progetti abilitati per Azure a SSIS in ADF, è possibile caricare 
 3. Nella pagina selezionare un runtime di integrazione **SSIS in ADF** selezionare il file ADF esistente e Azure-SSIS IR per eseguire i pacchetti o crearne di nuovi, se non sono presenti.
    - Per selezionare il Azure-SSIS IR esistente, selezionare prima la sottoscrizione di Azure pertinente e l'ADF.
    - Se si seleziona il file ADF esistente privo di Azure-SSIS IR, fare clic sul pulsante **creare** un runtime di integrazione SSIS per crearne uno nuovo nel portale o nell'app ADF.
-   - Se si seleziona la sottoscrizione di Azure esistente in cui non è installato alcun ADF, fare clic sul pulsante **Crea IR SSIS** per avviare la **creazione guidata Integration Runtime**, dove è possibile immettere il percorso e il prefisso per creare automaticamente una nuova Azure Gruppo di risorse, Data Factory e runtime di integrazione SSIS per conto dell'utente, denominato con il modello seguente: **YourPrefix-RG/DF/IR-YourCreationTime**.
+   - Se si seleziona la sottoscrizione di Azure esistente in cui non è installato alcun ADF, fare clic sul pulsante **create SSIS IR** per avviare la **creazione guidata Integration Runtime**, in cui è possibile immettere il percorso e il prefisso per creare automaticamente un nuovo gruppo di risorse di Azure, data factory e il runtime di integrazione SSIS per conto dell'utente, denominato con il modello seguente: **YourPrefix-RG/DF/IR-YourCreationTime**.
    
    ![Selezionare IR SSIS in ADF](media/how-to-invoke-ssis-package-ssdt/ssis-in-adf-connection-wizard2.png)
 
 4. Nella pagina **Seleziona archiviazione di Azure** selezionare l'account di archiviazione di Azure esistente per caricare i pacchetti in file di Azure o crearne uno nuovo, se non è disponibile.
    - Per selezionare l'account di archiviazione di Azure esistente, selezionare prima di tutto la sottoscrizione di Azure pertinente.
-   - Se si seleziona la stessa sottoscrizione di Azure del Azure-SSIS IR che non dispone di alcun account di archiviazione di Azure, fare clic sul pulsante **Crea archiviazione di Azure** per crearne automaticamente uno nuovo per conto dell'utente nella stessa posizione del Azure-SSIS IR, denominato da combinazione di un prefisso del nome del Azure-SSIS IR e della data di creazione.
+   - Se si seleziona la stessa sottoscrizione di Azure del Azure-SSIS IR che non ha un account di archiviazione di Azure, fare clic sul pulsante **Crea archiviazione di Azure** per crearne automaticamente uno nuovo per conto dell'utente nella stessa posizione della Azure-SSIS IR, denominato combinando un prefisso del nome del Azure-SSIS IR e la data di creazione.
    - Se si seleziona una sottoscrizione di Azure diversa che non dispone di un account di archiviazione di Azure, fare clic sul pulsante **Crea archiviazione di Azure** per crearne uno nuovo in portale di Azure.
    
    ![Selezionare Archiviazione di Azure](media/how-to-invoke-ssis-package-ssdt/ssis-in-adf-connection-wizard3.png)
@@ -77,18 +77,18 @@ Dopo aver connesso i progetti a SSIS in ADF, è possibile eseguire i pacchetti i
    ![Esegui pacchetto in Azure](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-execute-package2.png)
 
 > [!NOTE]
-> Per eseguire i pacchetti in Azure è necessario disporre di un Azure-SSIS IR in esecuzione. Pertanto, se il Azure-SSIS IR viene arrestato, viene visualizzata una finestra di dialogo per avviarla.  Escludendo qualsiasi tempo di installazione personalizzato, questo processo dovrebbe essere completato entro 5 minuti, ma per Azure-SSIS IR aggiunta a una rete virtuale potrebbero essere necessari circa 20-30 minuti.  Dopo aver eseguito i pacchetti in Azure, è possibile arrestare il Azure-SSIS IR per gestire il costo di esecuzione facendo clic con il pulsante destro del mouse sul nodo Esplora soluzioni pannello di SSDT per visualizzare un menu e quindi selezionando la voce di menu **Start\Stop\Manage** che porta al portale di ADF/ app a tale scopo.
+> Per eseguire i pacchetti in Azure è necessario disporre di un Azure-SSIS IR in esecuzione. Pertanto, se il Azure-SSIS IR viene arrestato, viene visualizzata una finestra di dialogo per avviarla.  Escludendo qualsiasi tempo di installazione personalizzato, questo processo dovrebbe essere completato entro 5 minuti, ma per Azure-SSIS IR aggiunta a una rete virtuale potrebbero essere necessari circa 20-30 minuti.  Dopo aver eseguito i pacchetti in Azure, è possibile arrestare il Azure-SSIS IR per gestire il costo di esecuzione facendo clic con il pulsante destro del mouse sul nodo Esplora soluzioni pannello di SSDT per visualizzare un menu e quindi selezionando la voce di menu **Start\Stop\Manage** che consente di visualizzare il portale e l'app di ADF.
 
 ### <a name="checking-package-execution-logs"></a>Verifica dei log di esecuzione dei pacchetti
 Quando si avvia l'esecuzione del pacchetto, il relativo log viene formattato e visualizzato nella finestra di stato di SSDT.  Per un pacchetto con esecuzione prolungata, il log viene aggiornato periodicamente in base ai minuti.  È possibile arrestare l'esecuzione del pacchetto facendo clic sul pulsante **Interrompi** nella barra degli strumenti di SSDT che lo annullerà immediatamente.  È anche possibile trovare temporaneamente i dati di log non elaborati nel percorso Universal Naming Convention (UNC): `\\<YourConnectedAzureStorage>.file.core.windows.net\ssdtexecution\<YourProjectName-FirstConnectTime>\<YourPackageName-tmp-ExecutionTime>\logs`, ma la pulizia verrà completata dopo un giorno.
 
 ### <a name="switching-package-protection-level"></a>Cambio del livello di protezione del pacchetto
-L'esecuzione di pacchetti SSIS in Azure non supporta i livelli di protezione **EncryptSensitiveWithUserKey**/**EncryptAllWithUserKey** .  Di conseguenza, se i pacchetti sono configurati con questi, verranno temporaneamente passati in **EncryptSensitiveWithPassword**/**EncryptAllWithPassword**, rispettivamente, con password generate in modo casuale quando si caricano i pacchetti in File di Azure per l'esecuzione nel Azure-SSIS IR.
+L'esecuzione di pacchetti SSIS in Azure non supporta i livelli di protezione **EncryptSensitiveWithUserKey**/**EncryptAllWithUserKey** .  Di conseguenza, se i pacchetti sono configurati con questi, verranno temporaneamente passati in **EncryptSensitiveWithPassword**/**EncryptAllWithPassword**, rispettivamente, con password generate in modo casuale quando si caricano i pacchetti in file di Azure per l'esecuzione sul Azure-SSIS IR.
 
 > [!NOTE]
-> Se i pacchetti contengono attività Esegui pacchetto che fanno riferimento ad altri pacchetti configurati con i livelli di protezione **EncryptSensitiveWithUserKey**/**EncryptAllWithUserKey** , è necessario riconfigurare manualmente gli altri pacchetti da usare  **EncryptSensitiveWithPassword**/**EncryptAllWithPassword**, rispettivamente, prima di eseguire i pacchetti.
+> Se i pacchetti contengono attività Esegui pacchetto che fanno riferimento ad altri pacchetti configurati con i livelli di protezione **EncryptSensitiveWithUserKey**/**EncryptAllWithUserKey** , è necessario riconfigurare manualmente gli altri pacchetti in modo da usare **EncryptSensitiveWithPassword**/**EncryptAllWithPassword**, prima di eseguire i pacchetti.
 
-Se i pacchetti sono già configurati con i livelli di protezione **EncryptSensitiveWithPassword**/**EncryptAllWithPassword** , verranno mantenuti invariati, ma continueranno a usare password generate in modo casuale quando si caricano i pacchetti in File di Azure per l'esecuzione nel Azure-SSIS IR.
+Se i pacchetti sono già configurati con i livelli di protezione **EncryptSensitiveWithPassword**/**EncryptAllWithPassword** , verranno mantenuti invariati, ma continueranno a usare password generate in modo casuale quando si caricano i pacchetti in file di Azure per l'esecuzione sul Azure-SSIS IR.
 
 ### <a name="using-package-configuration-file"></a>Uso del file di configurazione del pacchetto
 Se si usano i file di configurazione del pacchetto nel modello di distribuzione del pacchetto per modificare i valori delle variabili in fase di esecuzione, i file verranno caricati automaticamente con i pacchetti in File di Azure per l'esecuzione nel Azure-SSIS IR.

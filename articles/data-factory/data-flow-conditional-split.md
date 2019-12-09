@@ -1,18 +1,19 @@
 ---
-title: Trasformazione Suddivisione condizionale nel flusso di dati del mapping Azure Data Factory
+title: Trasformazione Suddivisione condizionale nel flusso di dati di mapping
 description: Suddividere i dati in flussi diversi usando la trasformazione Suddivisione condizionale nel flusso di dati del mapping Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/16/2019
-ms.openlocfilehash: 9ace415aa725a82d8feda5702d25d7e5ff9875d9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d7e2af6c98951e685192656b37226716e4340bfe
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73676820"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930439"
 ---
 # <a name="conditional-split-transformation-in-mapping-data-flow"></a>Trasformazione Suddivisione condizionale nel flusso di dati di mapping
 

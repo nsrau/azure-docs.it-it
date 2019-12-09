@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee78234b43e94a5c537161556410ee6246e625ca
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3c24e8b6098ba33a2e738a7f5f310ae7e65ee516
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230950"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74925286"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Associazione di Twilio per Funzioni di Azure
 
@@ -21,13 +21,13 @@ In questo articolo viene illustrato come inviare messaggi di testo tramite assoc
 
 ## <a name="packages---functions-1x"></a>Pacchetti: Funzioni 1.x
 
-Le associazioni di Twilio sono incluse nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.Http](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) versione 1.x. Il codice sorgente del pacchetto si trova nel repository GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.Twilio/).
+Le associazioni di Twilio sono incluse nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.Twilio](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) versione 1.x. Il codice sorgente del pacchetto si trova nel repository GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.Twilio/).
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## <a name="packages---functions-2x"></a>Pacchetti: Funzioni 2.x
+## <a name="packages---functions-2x-and-higher"></a>Packages-Functions 2. x e versioni successive
 
-Le associazioni di Twilio sono incluse nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.Http](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) versione 3.x. Il codice sorgente del pacchetto si trova nel repository GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/).
+Le associazioni di Twilio sono incluse nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.Twilio](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) versione 3.x. Il codice sorgente del pacchetto si trova nel repository GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/).
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -36,7 +36,7 @@ Le associazioni di Twilio sono incluse nel pacchetto NuGet [Microsoft.Azure.WebJ
 Vedere l'esempio specifico per ciascun linguaggio:
 
 * [C#](#c-example)
-* [Script C# (.csx)](#c-script-example)
+* [Script C# (file con estensione csx)](#c-script-example)
 * [JavaScript](#javascript-example)
 
 ### <a name="c-example"></a>Esempio in C#
@@ -197,15 +197,15 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-## <a name="example---functions-2x"></a>Esempio - Funzioni 2.x
+## <a name="example---functions-2x-and-higher"></a>Example-Functions 2. x e versioni successive
 
 Vedere l'esempio specifico per ciascun linguaggio:
 
-* [C# 2.x](#2x-c-example)
-* [Script C# 2.x (file con estensione csx)](#2x-c-script-example)
-* [JavaScript 2.x](#2x-javascript-example)
+* [2. x +C#](#2x-c-example)
+* [2. x + C# script (. CSX)](#2x-c-script-example)
+* [2. x + JavaScript](#2x-javascript-example)
 
-### <a name="2x-c-example"></a>Esempio in C# 2.x
+### <a name="2x-c-example"></a>2. x + C# esempio
 
 L'esempio seguente mostra una [funzione C#](functions-dotnet-class-library.md) che invia un messaggio di testo quando viene attivata da un messaggio in coda.
 
@@ -240,7 +240,7 @@ namespace TwilioQueueOutput
 
 Questo esempio usa l'attributo `TwilioSms` con valore restituito del metodo. In alternativa è possibile usare l'attributo con un parametro `out CreateMessageOptions` o un parametro `ICollector<CreateMessageOptions>` o `IAsyncCollector<CreateMessageOptions>`.
 
-### <a name="2x-c-script-example"></a>Esempio di script C# 2.x
+### <a name="2x-c-script-example"></a>esempio di script 2 C# . x +
 
 L'esempio seguente mostra un'associazione di output di Twilio in un file *function.json* e una [funzione script C#](functions-reference-csharp.md) che usa l'associazione. La funzione usa un parametro `out` per inviare un messaggio di testo.
 
@@ -326,7 +326,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<CreateMessageOp
 }
 ```
 
-### <a name="2x-javascript-example"></a>Esempio JavaScript 2.x
+### <a name="2x-javascript-example"></a>2. x + esempio di JavaScript
 
 L'esempio seguente illustra un'associazione di output di Twilio in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione.
 
@@ -371,7 +371,7 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-## <a name="attributes"></a>Attributes
+## <a name="attributes"></a>Attributi
 
 Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attributo [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs).
 
@@ -393,7 +393,7 @@ Per un esempio completo, vedere l'[esempio in C#](#c-example).
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `TwilioSms`.
 
-| Proprietà v1 function.json | Proprietà v2 function.json | Proprietà dell'attributo |DESCRIZIONE|
+| Proprietà v1 function.json | Proprietà v2 function.json | Proprietà dell'attributo |Description|
 |---------|---------|---------|----------------------|
 |**type**|**type**| deve essere impostato su `twilioSms`.|
 |**direction**|**direction**| deve essere impostato su `out`.|

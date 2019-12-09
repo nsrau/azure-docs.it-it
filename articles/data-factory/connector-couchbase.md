@@ -4,20 +4,19 @@ description: Informazioni su come copiare dati da Couchbase in archivi dati sink
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: b5fcff9ce393fc74b03257f4adde69a7c7a049ea
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 19496d88c1e77a6f6b18ae6f73c289f8617a3c29
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681075"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929560"
 ---
 # <a name="copy-data-from-couchbase-using-azure-data-factory-preview"></a>Copiare dati da Couchbase tramite Azure Data Factory (anteprima)
 
@@ -41,7 +40,7 @@ Azure Data Factory offre un driver predefinito per consentire la connettività, 
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -51,11 +50,11 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato Couchbase sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **Couchbase** | Sì |
-| connectionString | Stringa di connessione ODBC per la connessione a Couchbase. <br/>Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. È anche possibile inserire la stringa credenziali in Azure Key Vault ed eseguire lo spostamento forzato dei dati della configurazione `credString` all'esterno della stringa di connessione. Vedere gli esempi seguenti e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. | Sì |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
+| type | La proprietà type deve essere impostata su: **Couchbase** | SÌ |
+| connectionString | Stringa di connessione ODBC per la connessione a Couchbase. <br/>Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. È anche possibile inserire la stringa credenziali in Azure Key Vault ed eseguire lo spostamento forzato dei dati della configurazione `credString` all'esterno della stringa di connessione. Vedere gli esempi seguenti e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. | SÌ |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se non diversamente specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 **Esempio:**
 
@@ -113,9 +112,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Couchbase, impostare la proprietà type del set di dati su **CouchbaseTable**. Sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type del set di dati deve essere impostata su: **CouchbaseTable** | Sì |
+| type | La proprietà Type del set di dati deve essere impostata su: **CouchbaseTable** | SÌ |
 | tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
 
 
@@ -144,9 +143,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Couchbase, impostare il tipo di origine nell'attività di copia su **CouchbaseSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **CouchbaseSource** | Sì |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **CouchbaseSource** | SÌ |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**

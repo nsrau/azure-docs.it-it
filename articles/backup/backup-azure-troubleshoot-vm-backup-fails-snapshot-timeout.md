@@ -4,12 +4,13 @@ description: Sintomi, cause e soluzioni per i problemi di Backup di Azure correl
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 23b10bed3b741ec76167eb5a976bf5737d20b173
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.service: backup
+ms.openlocfilehash: 5e435d1169d5f148bfa2910174bf1f2835806c8b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894012"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928237"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere i problemi di Backup di Azure: problemi relativi all'agente o all'estensione
 
@@ -25,8 +26,8 @@ Questo articolo illustra le procedure di risoluzione dei problemi che possono es
 L'agente di macchine virtuali di Azure potrebbe essere arrestato, obsoleto, in uno stato incoerente o non installato e impedire al servizio backup di Azure di attivare gli snapshot.
 
 - **Aprire il portale di Azure > impostazioni > vm > Pannello proprietà** > assicurarsi che **lo stato** della macchina virtuale sia **in esecuzione** e che **lo stato dell'agente** sia **pronto**. Se l'agente di macchine virtuali è stato arrestato o è in uno stato incoerente, riavviare l'agente<br>
-  - Per le macchine virtuali Windows attenersi alla [seguente procedura](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) per riavviare l'agente guest.<br>
-  - Per le VM Linux, attenersi alla [procedura seguente](https://docs.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) per riavviare l'agente guest.
+  - Per le macchine virtuali Windows attenersi alla [seguente procedura](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) per riavviare l'agente guest.<br>
+  - Per le VM Linux, attenersi alla [procedura seguente](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) per riavviare l'agente guest.
 
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError - Non è stato possibile comunicare con l'agente della macchina virtuale per lo stato dello snapshot
