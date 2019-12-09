@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9efaeb9d3fe0ec8684f10c58897f5490d0f28cb9
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: e1ec0dd844dea8cf98621130d6a19b415bda1cf0
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74182684"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786487"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con F5
 

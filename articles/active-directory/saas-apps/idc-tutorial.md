@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df8dfc72dea9289fc13d648b05b59f6d1bd9b3e0
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 9fc7ccb1d619e36990fbc1b654a2b7be36a287e1
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273599"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705993"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-idc"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con IDC
 
@@ -93,7 +93,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     Nella casella di testo **URL di accesso** digitare un URL: `https://www.idc.com/saml-welcome/<SamlWelcomeCode>`
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di IDC](mailto:webchanneldev@idc.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il team di supporto clienti di IDC. È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare il file **XML dei metadati della federazione** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
@@ -103,7 +103,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
@@ -135,7 +135,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-idc-sso"></a>Configurare l'accesso Single Sign-On di IDC
 
-Per configurare l'accesso Single Sign-On sul lato **IDC**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di IDC](mailto:webchanneldev@idc.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **IDC**, inviare il file **XML dei metadati della federazione** scaricato e gli URL appropriati, copiati dal portale di Azure, al team di supporto di IDC. IDC configura questa impostazione in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-idc-test-user"></a>Creare l'utente di test di IDC
 

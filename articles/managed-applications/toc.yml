@@ -51,6 +51,10 @@
       href: concepts-custom-role-definition.md
     - name: Onboarding delle risorse
       href: concepts-custom-providers-resourceonboarding.md
+    - name: Criteri di Azure per associazioni di provider personalizzate
+      href: concepts-custom-providers-built-in-policy.md
+    - name: Criteri di Azure per associazioni di applicazioni gestite
+      href: concepts-managed-applications-built-in-policy.md
 - name: Guide alle procedure
   items:
     - name: Provider personalizzati
