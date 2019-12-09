@@ -7,16 +7,15 @@ ms.service: data-factory
 services: data-factory
 documentationcenter: ''
 ms.workload: data-services
-ms.tgt_pltfrm: na
 author: djpmsft
 ms.author: daperlov
-manager: craigg
-ms.openlocfilehash: f5b4cbc670a429a84f42be79adb00057656a5483
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: anandsub
+ms.openlocfilehash: 00d84a7f3b4a15c9278caac8c2715380dd330482
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681418"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930487"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Ruoli e autorizzazioni per Azure Data Factory
 
@@ -57,7 +56,7 @@ Le autorizzazioni per Azure Repos e GitHub sono indipendenti dalle autorizzazion
 
 ### <a name="custom-scenarios-and-custom-roles"></a>Scenari personalizzati e ruoli personalizzati
 
-In alcuni casi potrebbe essere necessario concedere livelli di accesso diversi a utenti di data factory diversi. Ad esempio:
+In alcuni casi potrebbe essere necessario concedere livelli di accesso diversi a utenti di data factory diversi. ad esempio:
 - Potrebbe servire un gruppo in cui gli utenti dispongano solo di autorizzazioni su una data factory specifica.
 - Oppure potrebbe essere necessario un gruppo in cui gli utenti possano monitorare solo una data factory (o più data factory) ma non possano modificarla.
 

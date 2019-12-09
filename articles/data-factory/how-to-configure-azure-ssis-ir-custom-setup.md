@@ -1,23 +1,23 @@
 ---
-title: "Personalizzare l'installazione del runtime di integrazione Azure-SSIS "
+title: Personalizzare l'installazione del runtime di integrazione Azure-SSIS
 description: Questo articolo descrive come usare l'interfaccia di installazione personalizzata per il runtime di integrazione Azure-SSIS per installare componenti aggiuntivi o cambiare le impostazioni.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 1/25/2019
 author: swinarko
 ms.author: sawinark
+manager: mflasko
 ms.reviewer: douglasl
-manager: craigg
-ms.openlocfilehash: 222672a93ccde7464ec1f37212f18996033a1460
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: seo-lt-2019
+ms.date: 1/25/2019
+ms.openlocfilehash: d80ff102648deebf63cc0752b2980274cb90aeb9
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73674854"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74922890"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Personalizzare l'installazione del runtime di integrazione Azure-SSIS
 
@@ -109,7 +109,7 @@ Per personalizzare il runtime di integrazione Azure-SSIS occorre quanto segue:
 
       ![Immettere la firma di accesso condiviso](media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)
 
-      Quando si riconfigura o si esegue il provisioning del runtime di integrazione Azure-SSIS con PowerShell, prima di avviare il runtime eseguire il cmdlet `Set-AzDataFactoryV2IntegrationRuntime` inserendo l'URI SAS del contenitore come valore per il nuovo parametro `SetupScriptContainerSasUri`. Ad esempio:
+      Quando si riconfigura o si esegue il provisioning del runtime di integrazione Azure-SSIS con PowerShell, prima di avviare il runtime eseguire il cmdlet `Set-AzDataFactoryV2IntegrationRuntime` inserendo l'URI SAS del contenitore come valore per il nuovo parametro `SetupScriptContainerSasUri`. ad esempio:
 
       ```powershell
       Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `

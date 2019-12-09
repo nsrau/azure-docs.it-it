@@ -5,19 +5,18 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/10/2018
 author: djpmsft
 ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
-ms.openlocfilehash: 2589e56d3170b235f31d07f902eb75c749e8573f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 88500ecbc56b34551a0cbd3ca94727ba4bbcda9f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679292"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930652"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Attività di impostazione della variabile in Azure Data Factory
 
@@ -25,9 +24,9 @@ Usare l'attività di impostazione della variabile per impostare il valore di una
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-Proprietà | Descrizione | Obbligatorio
+Proprietà | Description | Obbligatoria
 -------- | ----------- | --------
-name | Nome dell'attività nella pipeline | Sì
+name | Nome dell'attività nella pipeline | SÌ
 description | Testo che descrive l'attività | no
 type | Il tipo di attività è SetVariable | Sì
 value | Valore letterale stringa o valore di oggetto espressione usato per impostare la variabile specificata | Sì

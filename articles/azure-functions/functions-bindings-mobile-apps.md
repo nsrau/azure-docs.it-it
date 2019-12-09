@@ -5,17 +5,17 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 474cdc52d34d3f5e00dee69b7cc9861042cbcc04
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 051b8780a102a8a1ec4d3979cc53b686e2823dc8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231122"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928603"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Associazioni di app per dispositivi mobili per Funzioni di Azure 
 
 > [!NOTE]
-> Le associazioni di App per dispositivi mobili di Azure sono disponibili solo per Funzioni di Azure 1.x. Non sono supportate in Funzioni di Azure 2.x.
+> Le associazioni di App per dispositivi mobili di Azure sono disponibili solo per Funzioni di Azure 1.x. Non sono supportate in funzioni di Azure 2. x e versioni successive.
 
 Questo articolo descrive come usare le associazioni di [app per dispositivi mobili](../app-service-mobile/app-service-mobile-value-prop.md) in Funzioni di Azure. Funzioni di Azure supporta le associazioni di input e output per App per dispositivi mobili.
 
@@ -37,7 +37,7 @@ L'associazione di input di App per dispositivi mobili carica un record da un end
 
 Vedere l'esempio specifico per ciascun linguaggio:
 
-* [Script C# (.csx)](#input---c-script-example)
+* [Script C# (file con estensione csx)](#input---c-script-example)
 * JavaScript
 
 ### <a name="input---c-script-example"></a>Input - esempio di script C#
@@ -134,7 +134,7 @@ Per informazioni sulle proprietà degli attributi che è possibile configurare, 
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `MobileTable`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
 | **type**|| Deve essere impostato su "mobileTable"|
 | **direction**||Deve essere impostato su "in"|
@@ -166,7 +166,7 @@ L'associazione di output di app per dispositivi mobili consente di scrivere un n
 Vedere l'esempio specifico per ciascun linguaggio:
 
 * [C#](#output---c-example)
-* [Script C# (.csx)](#output---c-script-example)
+* [Script C# (file con estensione csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Output - esempio in C#
@@ -292,7 +292,7 @@ Per un esempio completo, vedere [Output - esempio in C#](#output---c-example).
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `MobileTable`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
 | **type**|| Deve essere impostato su "mobileTable"|
 | **direction**||Deve essere impostato su "out"|

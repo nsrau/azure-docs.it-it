@@ -1,22 +1,22 @@
 ---
-title: Caricare dati in Azure SQL Data Warehouse tramite Azure Data Factory
+title: Caricare i dati in Azure SQL Data Warehouse
 description: Usare Azure Data Factory per copiare dati in Azure SQL Data Warehouse
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 06/22/2018
-ms.author: jingwang
-ms.openlocfilehash: 538751b1e93dfec66c35ea3768bde603c198df32
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 732d5d170ee647dc0dfdbf4d09a12617c8c9bcce
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73672752"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931518"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Caricare dati in Azure SQL Data Warehouse tramite Azure Data Factory
 
@@ -41,9 +41,9 @@ Questo articolo mostra come usare lo strumento Copia dati di Data Factory per _c
 * Sottoscrizione di Azure: se non è disponibile una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * Azure SQL Data Warehouse: il data warehouse contiene i dati copiati dal database SQL. Se non è disponibile un'istanza di Azure SQL Data Warehouse, vedere le istruzioni fornite in [Creare un'istanza di SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
 * Database SQL di Azure: questa esercitazione copia i dati da un database SQL di Azure con dati di esempio di Adventure Works LT. È possibile creare un database SQL seguendo le istruzioni fornite in [Creare un database SQL di Azure](../sql-database/sql-database-get-started-portal.md). 
-* Account di archiviazione di Azure: Archiviazione di Azure viene usato come BLOB di _staging_ nell'operazione di copia in blocco. Se non si ha un account di archiviazione di Azure, vedere le istruzioni riportate in [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md).
+* Account di archiviazione di Azure: Archiviazione di Azure viene usato come BLOB di _staging_ nell'operazione di copia in blocco. Se non è disponibile un account di archiviazione di Azure, vedere le istruzioni fornite in [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md).
 
-## <a name="create-a-data-factory"></a>Creare un'istanza di Data factory
+## <a name="create-a-data-factory"></a>Creare una data factory
 
 1. Nel menu a sinistra selezionare **Crea una risorsa** > **Dati e analisi** > **Data factory**: 
    
@@ -55,11 +55,11 @@ Questo articolo mostra come usare lo strumento Copia dati di Data Factory per _c
  
     * **Nome**: immettere un nome univoco globale per la data factory di Azure. Se viene visualizzato l'errore "Il nome \"LoadSQLDWDemo\" per la data factory non è disponibile", immettere un nome diverso per la data factory. Ad esempio, è possibile usare il nome _**nomeutente**_ **ADFTutorialDataFactory**. Riprovare a creare la data factory. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere [Azure Data Factory - Regole di denominazione](naming-rules.md).
     * **Sottoscrizione**: selezionare la sottoscrizione di Azure in cui creare la data factory. 
-    * **Gruppo di risorse**: selezionare un gruppo di risorse esistente nell'elenco a discesa oppure selezionare l'opzione **Crea nuovo** e immettere il nome di un gruppo di risorse. Per informazioni sui gruppi di risorse, vedere l'articolo relativo all' [uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/resource-group-overview.md).  
+    * **Gruppo di risorse**: selezionare un gruppo di risorse esistente nell'elenco a discesa oppure selezionare l'opzione **Crea nuovo** e immettere il nome di un gruppo di risorse. Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/resource-group-overview.md).  
     * **Versione**: selezionare **V2**.
     * **Località**: selezionare la località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati usati dalla data factory possono trovarsi in altre località e aree. Questi archivi dati includono Azure Data Lake Store, Archiviazione di Azure, il database SQL di Azure e così via.
 
-3. Selezionare **Crea**.
+3. Selezionare **Create** (Crea).
 4. Al termine della creazione, accedere alla data factory. Verrà visualizzata la home page **Data factory**, come mostrato nell'immagine seguente:
    
    ![Home page di Data factory](./media/load-azure-sql-data-warehouse/data-factory-home-page.png)

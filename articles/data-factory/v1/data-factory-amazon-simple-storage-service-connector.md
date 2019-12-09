@@ -4,24 +4,23 @@ description: Informazioni su come spostare i dati da Amazon Simple Storage Servi
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: 636d3179-eba8-4841-bcb4-3563f6822a26
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 970e8d2b960c3a4be1c5208d7fa3a21bc05d9e9a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b23be9901df7ca435f412d9f49e1a7ad88382ade
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683210"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74924845"
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Spostare i dati da Amazon Simple Storage Service usando Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-amazon-simple-storage-service-connector.md)
 > * [Versione 2 (corrente)](../connector-amazon-simple-storage-service.md)
 
@@ -40,7 +39,7 @@ Per copiare i dati da Amazon S3, assicurarsi di avere le autorizzazioni indicate
 
 Per informazioni dettagliate sull'elenco completo delle autorizzazioni di Amazon S3 con tutti i dettagli in [Specifying Permissions in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html) (Specificare le autorizzazioni in un criterio).
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 È possibile creare una pipeline con l'attività di copia che sposta i dati da un'origine Amazon S3 usando diversi strumenti o API.
 
 Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per una procedura dettagliata, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md).
@@ -63,10 +62,10 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 Un servizio collegato collega un archivio dati a una data factory. Viene creato un servizio collegato di tipo **AwsAccessKey** per collegare l'archivio dati Amazon S3 alla data factory. La tabella seguente fornisce la descrizione degli elementi JSON specifici del servizio collegato Amazon S3 (AwsAccessKey).
 
-| Proprietà | Descrizione | Valori consentiti | Obbligatorio |
+| Proprietà | Description | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
-| accessKeyID |ID della chiave di accesso segreta. |stringa |Sì |
-| secretAccessKey |La stessa chiave di accesso segreta. |La stringa segreta crittografata |Sì |
+| accessKeyID |ID della chiave di accesso segreta. |string |SÌ |
+| secretAccessKey |La stessa chiave di accesso segreta. |La stringa segreta crittografata |SÌ |
 
 >[!NOTE]
 >Questo connettore richiede le chiavi di accesso per l'account IAM per la copia di dati da Amazon S3. Le [credenziali di sicurezza temporanee](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) non sono supportate.
@@ -92,12 +91,12 @@ Per specificare un set di dati per rappresentare i dati di input in un'archiviaz
 
 Le sezioni come struttura, disponibilità e criteri sono simili per tutti i tipi di set di dati, ad esempio database SQL, BLOB di Azure e tabelle di Azure. La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione **typeProperties** per un set di dati di tipo **AmazonS3**, che include il set di dati Amazon S3, presenta le proprietà seguenti:
 
-| Proprietà | Descrizione | Valori consentiti | Obbligatorio |
+| Proprietà | Description | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
-| bucketName |Il nome del bucket S3. |String |Sì |
-| key |La chiave dell'oggetto S3. |String |No |
-| prefix |Il prefisso per la chiave dell'oggetto S3. Vengono selezionati gli oggetti le cui chiavi iniziano con questo prefisso. Si applica solo quando la chiave è vuota. |String |No |
-| version |La versione dell'oggetto S3 se è stato abilitato il controllo delle versioni S3. |String |No |
+| bucketName |Il nome del bucket S3. |Stringa |SÌ |
+| key |La chiave dell'oggetto S3. |Stringa |No |
+| prefix |Il prefisso per la chiave dell'oggetto S3. Vengono selezionati gli oggetti le cui chiavi iniziano con questo prefisso. Si applica solo quando la chiave è vuota. |Stringa |No |
+| version |La versione dell'oggetto S3 se è stato abilitato il controllo delle versioni S3. |Stringa |No |
 | format | Sono supportati i tipi di formato seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per altre informazioni, vedere le sezioni [Formato testo](data-factory-supported-file-and-compression-formats.md#text-format), [Formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Formato AVRO](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato OCR](data-factory-supported-file-and-compression-formats.md#orc-format) e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Per copiare i file così come sono tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. | |No |
 | compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. I livelli supportati sono **Ottimale** e **Più veloce**. Per altre informazioni, vedere [File e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). | |No |
 
@@ -173,7 +172,7 @@ Nell'esempio precedente vengono usati dei valori fissi per le proprietà **key**
 ## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output e criteri. Le proprietà disponibili nella sezione **typeProperties** dell'attività variano in base al tipo di attività. Per l'attività di copia, le proprietà variano in base ai tipi di origine e sink. Se l'origine nell'attività di copia è di tipo **FileSystemSource**, che comprende Amazon S3, sono disponibili le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Descrizione | Valori consentiti | Obbligatorio |
+| Proprietà | Description | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | ricorsiva |Specifica se elencare in modo ricorsivo gli oggetti S3 sotto la directory. |true/false |No |
 

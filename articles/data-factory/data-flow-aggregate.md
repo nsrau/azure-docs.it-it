@@ -1,18 +1,19 @@
 ---
-title: Trasformazione aggregazione nel flusso di dati del mapping Azure Data Factory
+title: Trasformazione aggregazione nel flusso di dati di mapping
 description: Informazioni su come aggregare i dati su larga scala in Azure Data Factory con la trasformazione aggregazione del flusso di dati di mapping.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/15/2019
-ms.openlocfilehash: 3f21367c36ae31aa2115c109933a581bef464baf
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 74b96bf2cac0de7c57e496c637f2e3ef549eb61f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73676904"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930468"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>Trasformazione aggregazione nel flusso di dati di mapping 
 

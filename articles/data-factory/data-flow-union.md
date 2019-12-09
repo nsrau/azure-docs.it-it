@@ -1,22 +1,21 @@
 ---
-title: Trasformazione nuovo ramo flusso di dati mapping di Azure Data Factory
+title: Trasformazione Unione flusso di dati mapping
 description: Trasformazione nuovo ramo flusso di dati mapping di Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 02/12/2019
-ms.openlocfilehash: 4832cd2036f615d1e90d5e7a21c1a9832c2fa837
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: adba1eb61676dbebcb356490b14b279ebe69c644
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387124"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930156"
 ---
-# <a name="mapping-data-flow-union-transformation"></a>Trasformazione Unione flusso di dati mapping
-
-
+# <a name="azure-data-factory-mapping-data-flow-union-transformation"></a>Trasformazione Unione flusso di dati mapping Azure Data Factory
 
 La trasformazione Unione consente di unire più flussi di dati in uno solo, con un'operazione Union SQL di tali flussi come nuovo output dalla trasformazione Unione. Tutti gli schemi di ogni flusso di input verranno combinati all'interno del flusso di dati, senza che sia necessario disporre di una chiave di join.
 

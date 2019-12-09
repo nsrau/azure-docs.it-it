@@ -1,5 +1,5 @@
 ---
-title: Eseguire un pacchetto SSIS con l'attività Esegui pacchetto SSIS-Azure
+title: Eseguire un pacchetto SSIS con l'attività Esegui pacchetto SSIS
 description: Questo articolo descrive come eseguire un pacchetto di SQL Server Integration Services (SSIS) in una pipeline Azure Data Factory usando l'attività Esegui pacchetto SSIS.
 services: data-factory
 documentationcenter: ''
@@ -8,22 +8,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 11/14/2019
-author: swinarko
 ms.author: sawinark
+author: swinarko
 ms.reviewer: douglasl
-manager: craigg
-ms.openlocfilehash: ddb7cd06934c85243717dd2a34dc99bae582b6fa
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+manager: mflasko
+ms.custom: seo-lt-2019
+ms.date: 11/14/2019
+ms.openlocfilehash: 6027c2d94535ca2ef5c41e7027fe070c6ccb21a0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122983"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926488"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Eseguire un pacchetto SSIS tramite l'attività Esegui pacchetto SSIS in Azure Data Factory
 Questo articolo descrive come eseguire un pacchetto di SQL Server Integration Services (SSIS) in una pipeline Azure Data Factory usando l'attività Esegui pacchetto SSIS. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -69,13 +70,13 @@ In questo passaggio si usa l'interfaccia utente o l'app Data Factory per creare 
 
    ![Impostare le proprietà nella scheda Impostazioni - Modalità manuale](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
 
-   Se si seleziona **file System (pacchetto)** come percorso del pacchetto, che viene selezionato automaticamente se è stato effettuato il provisioning del Azure-SSIS IR senza SSISDB, specificare il pacchetto da eseguire fornendo un percorso di Universal Naming Convention (UNC) al file del pacchetto (@no __t_1_) nella casella **percorso pacchetto** .`.dtsx` Se, ad esempio, si archivia il pacchetto in File di Azure, il percorso del pacchetto è `\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`. 
+   Se si seleziona **file System (pacchetto)** come percorso del pacchetto, che viene selezionato automaticamente se è stato effettuato il provisioning del Azure-SSIS IR senza SSISDB, specificare il pacchetto da eseguire fornendo un percorso di Universal Naming Convention (UNC) al file del pacchetto (`.dtsx`) nella casella **percorso pacchetto** . Se, ad esempio, si archivia il pacchetto in File di Azure, il percorso del pacchetto è `\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`. 
    
    Se il pacchetto viene configurato in un file separato, è necessario specificare anche un percorso UNC per il file di configurazione (`.dtsConfig`) nella casella **percorso configurazione** . Se, ad esempio, si archivia la configurazione in File di Azure, il percorso di configurazione è `\\<storage account name>.file.core.windows.net\<file share name>\<configuration name>.dtsConfig`.
 
    ![Impostare le proprietà nella scheda Impostazioni - Modalità manuale](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png)
 
-   Se si seleziona **file System (progetto)** come percorso del pacchetto, specificare il pacchetto da eseguire fornendo un percorso UNC al file di progetto (`.ispac`) nella casella **percorso progetto** e un file di pacchetto (`.dtsx`) dal progetto nel **nome del pacchetto** dialogo. Se, ad esempio, si archivia il progetto in File di Azure, il percorso del progetto è `\\<storage account name>.file.core.windows.net\<file share name>\<project name>.ispac`.
+   Se si seleziona **file System (progetto)** come percorso del pacchetto, specificare il pacchetto da eseguire fornendo un percorso UNC al file di progetto (`.ispac`) nella casella **percorso progetto** e un file di pacchetto (`.dtsx`) dal progetto nella casella **nome pacchetto** . Se, ad esempio, si archivia il progetto in File di Azure, il percorso del progetto è `\\<storage account name>.file.core.windows.net\<file share name>\<project name>.ispac`.
 
    ![Impostare le proprietà nella scheda Impostazioni - Modalità manuale](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png)
 
@@ -99,17 +100,17 @@ In questo passaggio si usa l'interfaccia utente o l'app Data Factory per creare 
    
    Per tutti i percorsi UNC indicati in precedenza, il nome completo del file deve essere composto da meno di 260 caratteri. Il nome della directory deve essere composto da meno di 248 caratteri.
 
-1. Nella scheda **parametri SSIS** per l'attività Esegui pacchetto SSIS, se il Azure-SSIS IR è in esecuzione, **SSISDB** viene selezionato come percorso del pacchetto e la casella di controllo **voci manuali** nella scheda **Impostazioni** è deselezionata, SSIS esistente vengono visualizzati i parametri del progetto o del pacchetto selezionato da SSISDB per poter assegnare loro i valori. In caso contrario, è possibile immetterli uno alla volta per assegnare manualmente i valori. Assicurarsi che esistano e siano stati immessi correttamente affinché l'esecuzione del pacchetto abbia esito positivo. 
+1. Nella scheda **parametri SSIS** per l'attività Esegui pacchetto SSIS, se il Azure-SSIS IR è in esecuzione, **SSISDB** viene selezionato come percorso del pacchetto e la casella di controllo **voci manuali** nella scheda **Impostazioni** è deselezionata, vengono visualizzati i parametri SSIS esistenti nel progetto o nel pacchetto selezionato da SSISDB per poter assegnare loro i valori. In caso contrario, è possibile immetterli uno alla volta per assegnare manualmente i valori. Assicurarsi che esistano e siano stati immessi correttamente affinché l'esecuzione del pacchetto abbia esito positivo. 
    
-   Se è stato usato il livello di protezione **EncryptSensitiveWithUserKey** durante la creazione del pacchetto tramite SQL Server Data Tools e il **file System (pacchetto)** o il **file System (progetto)** è selezionato come percorso del pacchetto, è necessario immettere nuovamente i parametri sensibili a cui assegnare i valori nei file di configurazione o in questa scheda. 
+   Se è stato usato il livello di protezione **EncryptSensitiveWithUserKey** durante la creazione del pacchetto tramite SQL Server Data Tools e il **file System (pacchetto)** o il **file System (progetto)** è selezionato come percorso del pacchetto, è necessario anche immettere nuovamente i parametri sensibili per assegnare loro i valori nei file di configurazione o in questa scheda. 
    
    Quando si assegnano valori ai parametri, è possibile aggiungere contenuto dinamico usando espressioni, funzioni, Data Factory variabili di sistema e Data Factory parametri o variabili della pipeline. In alternativa, è possibile usare i segreti archiviati nell'insieme di credenziali delle chiavi come valori (vedere precedente).
 
    ![Impostare le proprietà nella scheda Parametri per SSIS](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
 
-1. Nella scheda **gestioni connessioni** per l'attività Esegui pacchetto SSIS, se il Azure-SSIS IR è in esecuzione, **SSISDB** viene selezionato come percorso del pacchetto e la casella di controllo **voci manuali** nella scheda **Impostazioni** è deselezionata, la casella di controllo esistente verranno visualizzate le gestioni connessioni del progetto o del pacchetto selezionato da SSISDB per assegnare valori alle relative proprietà. In caso contrario, è possibile immetterli uno alla volta per assegnare manualmente i valori alle rispettive proprietà. Assicurarsi che esistano e siano stati immessi correttamente affinché l'esecuzione del pacchetto abbia esito positivo. 
+1. Nella scheda **gestioni connessioni** per l'attività Esegui pacchetto SSIS, se il Azure-SSIS IR è in esecuzione, **SSISDB** viene selezionato come percorso del pacchetto e la casella di controllo **voci manuali** nella scheda **Impostazioni** è deselezionata, vengono visualizzate le gestioni connessioni esistenti nel progetto o nel pacchetto selezionato da SSISDB per assegnare valori alle relative proprietà. In caso contrario, è possibile immetterli uno alla volta per assegnare manualmente i valori alle rispettive proprietà. Assicurarsi che esistano e siano stati immessi correttamente affinché l'esecuzione del pacchetto abbia esito positivo. 
    
-   Se è stato usato il livello di protezione **EncryptSensitiveWithUserKey** durante la creazione del pacchetto tramite SQL Server Data Tools e il **file System (pacchetto)** o il **file System (progetto)** è selezionato come percorso del pacchetto, è necessario immettere nuovamente Proprietà della gestione connessione sensibile a cui assegnare i valori nei file di configurazione o in questa scheda. 
+   Se è stato usato il livello di protezione **EncryptSensitiveWithUserKey** durante la creazione del pacchetto tramite SQL Server Data Tools e il **file System (pacchetto)** o il **file System (progetto)** è selezionato come percorso del pacchetto, è necessario anche immettere nuovamente le proprietà di gestione connessione sensibili per assegnare loro i valori nei file di configurazione o in questa scheda. 
    
    Quando si assegnano valori alle proprietà di gestione connessione, è possibile aggiungere contenuto dinamico usando espressioni, funzioni, Data Factory variabili di sistema e Data Factory parametri o variabili della pipeline. In alternativa, è possibile usare i segreti archiviati nell'insieme di credenziali delle chiavi come valori (vedere precedente).
 
@@ -117,7 +118,7 @@ In questo passaggio si usa l'interfaccia utente o l'app Data Factory per creare 
 
 1. Nella scheda **override proprietà** per l'attività Esegui pacchetto SSIS immettere i percorsi delle proprietà esistenti nel pacchetto selezionato uno alla volta per assegnare i valori manualmente. Assicurarsi che esistano e siano stati immessi correttamente affinché l'esecuzione del pacchetto abbia esito positivo. Ad esempio, per eseguire l'override del valore della variabile utente, immettere il percorso nel formato seguente: `\Package.Variables[User::<variable name>].Value`. 
    
-   Se è stato usato il livello di protezione **EncryptSensitiveWithUserKey** durante la creazione del pacchetto tramite SQL Server Data Tools e il **file System (pacchetto)** o il **file System (progetto)** è selezionato come percorso del pacchetto, è necessario immettere nuovamente Proprietà riservate a cui assegnare i valori nei file di configurazione o in questa scheda. 
+   Se è stato usato il livello di protezione **EncryptSensitiveWithUserKey** durante la creazione del pacchetto tramite SQL Server Data Tools e il **file System (pacchetto)** o il **file System (progetto)** è selezionato come percorso del pacchetto, è necessario immettere nuovamente le proprietà riservate per assegnare loro i valori nei file di configurazione o in questa scheda. 
    
    Quando si assegnano valori alle proprietà, è possibile aggiungere contenuto dinamico usando espressioni, funzioni, Data Factory variabili di sistema e Data Factory parametri o variabili della pipeline.
 

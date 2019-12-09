@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 3563b56e596f5c79f2107bdbf74219a19c6c0d06
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: bff3547456c03ae313e7465238872670965765f1
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74784613"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927673"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problemi noti e risoluzione dei problemi Azure Machine Learning
 
@@ -89,6 +89,19 @@ I grafici di classificazione binaria (precisione-richiamo, ROC, curva di guadagn
 ## <a name="datasets-and-data-preparation"></a>Set di dati e preparazione dei dati
 
 Si tratta di problemi noti per Azure Machine Learning set di impostazioni.
+
+### <a name="typeerror-filenotfound-no-such-file-or-directory"></a>TypeError: FileNotFound: nessun file o directory di questo tipo
+
+Questo errore si verifica se il percorso del file fornito non è quello in cui si trova il file. È necessario assicurarsi che il modo in cui si fa riferimento al file sia coerente con la posizione in cui è stato montato il set di dati nella destinazione di calcolo. Per garantire uno stato deterministico, è consigliabile usare il percorso astratto quando si monta un set di dati in una destinazione di calcolo. Nel codice seguente, ad esempio, il set di dati viene montato sotto la radice del file System della destinazione di calcolo `/tmp`. 
+
+```python
+# Note the leading / in '/tmp/dataset'
+script_params = {
+    '--data-folder': dset.as_named_input('dogscats_train').as_mount('/tmp/dataset'),
+} 
+```
+
+Se non si include la barra iniziale '/', è necessario anteporre al prefisso la directory di lavoro, ad esempio `/mnt/batch/.../tmp/dataset` nella destinazione di calcolo per indicare dove si desidera montare il set di dati. 
 
 ### <a name="fail-to-read-parquet-file-from-http-or-adls-gen-2"></a>Non è possibile leggere il file parquet da HTTP o ADLS gen 2
 
@@ -213,9 +226,9 @@ az aks get-credentials -g <rg> -n <aks cluster name>
 È necessario applicare manualmente gli aggiornamenti ai componenti Azure Machine Learning installati in un cluster del servizio Azure Kubernetes. 
 
 > [!WARNING]
-> Prima di eseguire le azioni seguenti, controllare la versione del cluster del servizio Azure Kubernetes. Se la versione del cluster è uguale o maggiore di 1,14, non sarà possibile ricollegare il cluster all'area di lavoro Azure Machine Learning.
+> Prima di eseguire le azioni seguenti, controllare la versione del cluster del servizio Azure Kubernetes. Se la versione del cluster è uguale o maggiore di 1,14, non sarà possibile riconnettersi il cluster all'area di lavoro Azure Machine Learning.
 
-È possibile applicare questi aggiornamenti scollegando il cluster dall'area di lavoro Azure Machine Learning e quindi riconnettendo il cluster all'area di lavoro. Se SSL è abilitato nel cluster, sarà necessario fornire il certificato SSL e la chiave privata quando si riconnette il cluster. 
+È possibile applicare questi aggiornamenti scollegando il cluster dall'area di lavoro Azure Machine Learning, quindi riconnettendo il cluster all'area di lavoro. Se SSL è abilitato nel cluster, sarà necessario fornire il certificato SSL e la chiave privata quando si riconnette il cluster. 
 
 ```python
 compute_target = ComputeTarget(workspace=ws, name=clusterWorkspaceName)
@@ -256,14 +269,14 @@ Se si usano gli [estimatori](concept-azure-machine-learning-architecture.md#esti
 Azure ML fornisce anche estimatori specifici del Framework per Tensorflow, PyTorch, Chainer e SKLearn. Con questi estimatori si assicurerà che le dipendenze del Framework siano installate per conto dell'utente nell'ambiente utilizzato per il training. È possibile specificare dipendenze aggiuntive, come descritto in precedenza. 
  
  Le immagini Docker gestite da Azure ML e il relativo contenuto possono essere visualizzate nei [contenitori AzureML](https://github.com/Azure/AzureML-Containers).
-Le dipendenze specifiche del Framework sono elencate nella rispettiva documentazione del [Framework,](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks) [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
+Le dipendenze specifiche del Framework sono elencate nella rispettiva documentazione di Framework- [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
 
 >[Nota] Se si ritiene che un particolare pacchetto sia abbastanza comune da essere aggiunto in ambienti e immagini gestite da Azure ML, è necessario generare un problema di GitHub nei [contenitori AzureML](https://github.com/Azure/AzureML-Containers). 
  
  ### <a name="nameerror-name-not-defined-attributeerror-object-has-no-attribute"></a>NameError (nome non definito), AttributeError (oggetto senza attributo)
 Questa eccezione deve provenire dagli script di training. È possibile esaminare i file di log da portale di Azure per ottenere altre informazioni sul nome specifico non definito o sull'errore dell'attributo. Dall'SDK è possibile usare `run.get_details()` per esaminare il messaggio di errore. Vengono inoltre elencati tutti i file di log generati per l'esecuzione. Assicurarsi di esaminare lo script di training, correggere l'errore prima di riprovare. 
 
-### <a name="horovod-is-shutdown"></a>Horovod è stato arrestato
+### <a name="horovod-is-shut-down"></a>Horovod è stato arrestato
 Nella maggior parte dei casi, questa eccezione indica che si è verificata un'eccezione sottostante in uno dei processi che hanno causato l'arresto di horovod. Ogni rango nel processo MPI ottiene il proprio file di log dedicato in Azure ML. Questi log sono denominati `70_driver_logs`. In caso di training distribuito, i nomi dei log sono con suffisso `_rank` per facilitare la differenziazione dei log. Per individuare l'errore esatto che ha causato l'arresto di horovod, esaminare tutti i file di log e cercare `Traceback` alla fine dei file di driver_log. Uno di questi file fornirà l'effettiva eccezione sottostante. 
 
 ## <a name="labeling-projects-issues"></a>Problemi relativi all'assegnazione di etichette ai progetti
@@ -282,6 +295,6 @@ Aggiornare manualmente la pagina. L'inizializzazione deve continuare a circa 20 
 
 Per caricare tutte le immagini con etichetta, scegliere il **primo** pulsante. Il **primo** pulsante consente di tornare all'inizio dell'elenco, ma carica tutti i dati con etichetta.
 
-### <a name="pressing-esc-key-while-labeling-for-object-detection-creates-a-zero-size-label-on-the-top-left-corner-submitting-labels-in-this-state-fails"></a>Se si preme ESC mentre si assegna un'etichetta per il rilevamento di oggetti, viene creata un'etichetta con dimensioni pari a zero nell'angolo superiore sinistro. L'invio di etichette in questo stato non riesce.
+### <a name="pressing-esc-key-while-labeling-for-object-detection-creates-a-zero-size-label-on-the-top-left-corner-submitting-labels-in-this-state-fails"></a>Quando si preme il tasto ESC durante l'assegnazione di etichette per il rilevamento di oggetti, viene creata un'etichetta con dimensioni pari a zero nell'angolo superiore sinistro. L'invio di etichette in questo stato non riesce.
 
 Eliminare l'etichetta facendo clic sul segno incrociato accanto.

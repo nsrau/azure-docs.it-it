@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: e3a9b733b055469e22d3b107c0f9f49b768756c4
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3d5b1ab4e72ec759098e9c71515200f89a8dfe82
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895253"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931201"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Azure Storage Explorer
 
@@ -301,7 +301,7 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 
 Questi pacchetti sono i requisiti più comuni per Storage Explorer in Linux:
 
-* [Runtime di .NET Core 2,2](https://docs.microsoft.com/en-us/dotnet/core/install/dependencies?tabs=netcore22&pivots=os-linux)
+* [Runtime di .NET Core 2,2](/dotnet/core/install/dependencies?tabs=netcore22&pivots=os-linux)
 * `libgconf-2-4`
 * `libgnome-keyring0` oppure `libgnome-keyring-dev`
 * `libgnome-keyring-common`

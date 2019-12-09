@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 0be50ef43774be6082a4ede330f65296094552de
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: c16fea8f710751a051995ecece8a3d0ce8f933c7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786844"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926462"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurare, ottimizzare e risolvere i problemi relativi a AzCopy
 
@@ -99,7 +99,7 @@ AzCopy crea file di log e di piano per ogni processo. È possibile usare i log p
 
 I log conterranno lo stato dell'errore (`UPLOADFAILED`, `COPYFAILED`e `DOWNLOADFAILED`), il percorso completo e il motivo dell'errore.
 
-Per impostazione predefinita, i file di log e di piano si trovano nella directory `%USERPROFILE$\.azcopy` in Windows o `$HOME$\.azcopy` directory su Mac e Linux, ma è possibile modificare tale percorso se lo si desidera.
+Per impostazione predefinita, i file di log e di piano si trovano nella directory `%USERPROFILE%\.azcopy` in Windows o `$HOME$\.azcopy` directory su Mac e Linux, ma è possibile modificare tale percorso se lo si desidera.
 
 > [!IMPORTANT]
 > Quando si invia una richiesta di supporto tecnico Microsoft (o si risolvono i problemi relativi a terze parti), condividere la versione redatta del comando che si desidera eseguire. Ciò garantisce che la firma di accesso condiviso non venga accidentalmente condivisa con nessuno. È possibile trovare la versione con modifiche all'inizio del file di log.
@@ -151,7 +151,7 @@ Quando si riprende un processo, AzCopy esamina il file del piano di processo. Il
 
 ## <a name="change-the-location-of-the-plan-and-log-files"></a>Modificare il percorso del piano e dei file di log
 
-Per impostazione predefinita, i file di piano e di log si trovano nella directory `%USERPROFILE$\.azcopy` in Windows o nella directory `$HOME$\.azcopy` su Mac e Linux. È possibile modificare questo percorso.
+Per impostazione predefinita, i file di piano e di log si trovano nella directory `%USERPROFILE%\.azcopy` in Windows o nella directory `$HOME$\.azcopy` su Mac e Linux. È possibile modificare questo percorso.
 
 ### <a name="change-the-location-of-plan-files"></a>Modificare il percorso dei file del piano
 

@@ -1,23 +1,22 @@
 ---
-title: Copiare dati da Oracle Service Cloud usando Azure Data Factory (anteprima)
+title: Copia dati da Oracle Service Cloud (anteprima)
 description: Informazioni su come copiare dati da Oracle Service Cloud in archivi dati di sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 08/01/2019
-ms.author: jingwang
-ms.openlocfilehash: 2b2d41d7ef2c42fea90555d2b24f6d055712bfc5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c655ddf47318951f01cb86841a72389489941db2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680516"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930515"
 ---
 # <a name="copy-data-from-oracle-service-cloud-using-azure-data-factory-preview"></a>Copiare dati da Oracle Service Cloud usando Azure Data Factory (anteprima)
 
@@ -37,7 +36,7 @@ Questo connettore Cloud del servizio Oracle è supportato per le attività segue
 
 Azure Data Factory offre un driver predefinito per consentire la connettività, pertanto non è necessario installare manualmente alcun driver usando questo connettore.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -47,12 +46,12 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di Oracle Service Cloud sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **OracleServiceCloud** | Sì |
-| host | L'indirizzo Web dell'istanza di Oracle Service Cloud.  | Sì |
-| Nome utente | Nome utente usato per accedere al server Oracle Service Cloud.  | Sì |
-| password | Password corrispondente al nome utente specificato nella chiave username. È possibile scegliere di contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory o archiviare la password in Azure Key Vault e consentire all'attività di copia di ADF di eseguire il pull da tale posizione durante l'esecuzione della copia dei dati. Per altre informazioni, consultare [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| type | La proprietà type deve essere impostata su: **OracleServiceCloud** | SÌ |
+| host | L'indirizzo Web dell'istanza di Oracle Service Cloud.  | SÌ |
+| Nome utente | Nome utente usato per accedere al server Oracle Service Cloud.  | SÌ |
+| password | Password corrispondente al nome utente specificato nella chiave username. È possibile scegliere di contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory o archiviare la password in Azure Key Vault e consentire all'attività di copia di ADF di eseguire il pull da tale posizione durante l'esecuzione della copia dei dati. Per altre informazioni, consultare [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). | SÌ |
 | useEncryptedEndpoints | Specifica se gli endpoint dell'origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No |
 | useHostVerification | Specifica se è necessario che il nome host nel certificato del server corrisponda al nome host del server per la connessione tramite SSL. Il valore predefinito è true.  | No |
 | usePeerVerification | Specifica se verificare l'identità del server durante la connessione tramite SSL. Il valore predefinito è true.  | No |
@@ -86,9 +85,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Oracle Service Cloud, impostare la proprietà type del set di dati su **OracleServiceCloudObject**. Sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type del set di dati deve essere impostata su: **OracleServiceCloudObject** | Sì |
+| type | La proprietà Type del set di dati deve essere impostata su: **OracleServiceCloudObject** | SÌ |
 | tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
@@ -117,9 +116,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Oracle Service Cloud, impostare il tipo di origine nell'attività di copia su **OracleServiceCloudSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **OracleServiceCloudSource** | Sì |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **OracleServiceCloudSource** | SÌ |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**
