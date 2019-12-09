@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Riconoscere la voce da un microfono - Servizio Voce'
+title: 'Guida introduttiva: Riconoscimento vocale da un microfono - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Da definire
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: ce952132194b2c7723cb525e745c354b99b7f328
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: ac4b1208a78b1a80c6e35d830610a2dabe49143d
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74021125"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818650"
 ---
 ## <a name="additional-language-and-platform-support"></a>Supporto per piattaforme e linguaggi aggiuntivi
 

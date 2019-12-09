@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: d6f6519ea5df630a914243046e74c315b4bd7db9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 314a5302c76157810557036370a18ad6fb605033
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505396"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818039"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una chiave di sottoscrizione di Azure per i servizi Voce. [È possibile ottenerne una gratuitamente](~/articles/cognitive-services/Speech-Service/get-started.md).
+* Una chiave di sottoscrizione di Azure per il servizio Voce. [È possibile ottenerne una gratuitamente](~/articles/cognitive-services/Speech-Service/get-started.md).
 * [Python 3.5 o versione successiva](https://www.python.org/downloads/).
 * Il pacchetto Speech SDK per Python è disponibile per i sistemi operativi seguenti:
     * Windows: x64 e x86.
@@ -127,7 +127,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
    ![Creare un file](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-newfile.png)
 
 1. Copiare, incollare e salvare il [codice Python](#sample-code) nel file appena creato.
-1. Inserire le informazioni sulla sottoscrizione dei servizi Voce.
+1. Inserire le informazioni sulla sottoscrizione del servizio Voce.
 1. Se selezionato, un interprete Python verrà visualizzato sul lato sinistro della barra di stato nella parte inferiore della finestra.
    In caso contrario, visualizzare un elenco di interpreti Python disponibili. Usare il riquadro comandi (CTRL+MAIUSC+P) e immettere **Python: Select Interpreter** (Python: Seleziona interprete). Sceglierne uno appropriato.
 1. È possibile installare il pacchetto Speech SDK per Python da Visual Studio Code. È possibile farlo se non è stato ancora installato per l'interprete Python selezionato.

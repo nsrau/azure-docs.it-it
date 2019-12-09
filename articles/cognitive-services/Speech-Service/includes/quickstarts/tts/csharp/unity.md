@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Sintesi vocale, C# (Unity) - Servizio Voce'
+title: 'Guida introduttiva: Eseguire la sintesi vocale, C# (Unity) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida per creare un'applicazione di sintesi vocale con Unity e Speech SDK per Unity. Al termine, la sintesi vocale dal testo verrà eseguita in tempo reale nell'altoparlante del dispositivo.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 9/19/2019
 ms.author: yinhew
-ms.openlocfilehash: 281fbcf3f42160b18adcad3f06f6ef4a7b8de243
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f3b3d68e0154913e3eb6d101965ad33530502954
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504900"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818319"
 ---
 > [!NOTE]
 > Unity supporta Windows Desktop (x86 e x64) o la piattaforma UWP (Universal Windows Platform) (x86, x64, ARM/ARM64), Android (x86, ARM32/64) e iOS (simulatore x64, ARM32 e ARM64).
@@ -64,7 +64,7 @@ Al termine, l'interfaccia utente dovrebbe essere simile allo screenshot seguente
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/unity/text-to-speech/Assets/Scripts/HelloWorld.cs#code)]
 
-1. Individuare e sostituire la stringa `YourSubscriptionKey` con la chiave di sottoscrizione dei servizi Voce.
+1. Individuare e sostituire la stringa `YourSubscriptionKey` con la chiave di sottoscrizione del Servizio Voce.
 
 1. Individuare e sostituire la stringa `YourServiceRegion` con l'[area](~/articles/cognitive-services/Speech-Service/regions.md) associata alla sottoscrizione, ad esempio `westus` per la sottoscrizione di valutazione gratuita.
 

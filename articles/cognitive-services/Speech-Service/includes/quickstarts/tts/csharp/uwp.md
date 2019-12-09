@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 08/19/2019
 ms.author: yinhew
-ms.openlocfilehash: 3a88f4fc14286a60feb9d72676827b0cce91eb25
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 276de42f2a37a0e48cd323e285760c00e6db9f32
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505132"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818343"
 ---
 > [!NOTE]
 > La piattaforma UWP (Universal Windows Platform) consente di sviluppare applicazioni eseguibili su qualsiasi dispositivo che supporta Windows 10, inclusi PC, Xbox, Surface Hub e altri dispositivi.
@@ -61,7 +61,7 @@ A questo punto è possibile compilare e testare l'applicazione.
 
    ![Applicazione di sintesi vocale UWP di esempio in C# - Avvio rapido](~/articles/cognitive-services/Speech-Service/media/sdk/qs-text-to-speech-uwp-helloworld-window.png)
 
-1. Immettere il testo nella casella di testo e fare clic su **Speak** (Parla). Il testo viene trasmesso ai servizi Voce e sintetizzato in voce, che viene riprodotta dall'altoparlante.
+1. Immettere il testo nella casella di testo e fare clic su **Speak** (Parla). Il testo viene trasmesso al servizio Voce e sintetizzato in voce, che viene riprodotta dall'altoparlante.
 
     ![Interfaccia utente di sintesi vocale](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-csharp-uwp-ui-result.png)
 

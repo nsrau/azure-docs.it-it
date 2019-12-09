@@ -1,19 +1,19 @@
 ---
-title: "Esercitazione: Progettare un'istanza di Database di Azure per MariaDB con l'interfaccia della riga di comando di Azure"
+title: 'Esercitazione: Progettare un database di Azure per MariaDB - Interfaccia della riga di comando di Azure'
 description: In questa esercitazione viene illustrato come creare e gestire il database e il server di Database di Azure per MariaDB tramite l'interfaccia della riga di comando di Azure dalla riga di comando.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 11/10/2018
+ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: 548f4f10758b2d69bf4fda00f8bf52d33d20306c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 91283b453e71e476d247e752b24e9eec0047a814
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999156"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74776782"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Esercitazione: Progettare un'istanza di Database di Azure per MariaDB con l'interfaccia della riga di comando di Azure
 

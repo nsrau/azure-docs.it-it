@@ -1,27 +1,20 @@
 ---
-title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare app con la distribuzione continua da GitHub | Microsoft Docs
-description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un'app ed eseguire la distribuzione continua da GitHub
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'Interfaccia della riga di comando: Distribuzione continua da GitHub'
+description: Informazioni su come usare l'interfaccia della riga di comando di Azure per automatizzare la distribuzione e la gestione dell'app Servizio app. Questo esempio illustra come creare un'app con CI/CD da GitHub.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 0205c991-0989-4ca3-bb41-237dcc964460
-ms.service: app-service-web
-ms.workload: web
 ms.devlang: azurecli
-ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 09/02/2019
-ms.author: cephalin
+ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 02853186a1f28d8c6db6b5421c6ebba0640461cb
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 829f1507bdf69522f1baf5af1c8d92455608334f
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "71057883"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688474"
 ---
 # <a name="create-an-app-service-app-with-continuous-deployment-from-github-using-cli"></a>Creare un'app del servizio app con distribuzione continua da GitHub usando l'interfaccia della riga di comando
 

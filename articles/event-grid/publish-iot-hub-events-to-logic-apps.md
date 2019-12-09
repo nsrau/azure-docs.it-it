@@ -1,18 +1,18 @@
 ---
 title: "Esercitazione: Usare eventi dell'hub IoT per attivare App per la logica di Azure"
-description: "Esercitazione: Usando il servizio di routing di eventi di Griglia di eventi di Azure, creare processi automatizzati per eseguire azioni di App per la logica di Azure basate su eventi dell'hub IoT."
+description: Questa esercitazione mostra come usare il servizio di routing di eventi di Griglia di eventi di Azure per creare processi automatizzati ed eseguire azioni di App per la logica di Azure basate sugli eventi dell'hub IoT.
 services: iot-hub
 author: robinsh
 ms.service: iot-hub
 ms.topic: tutorial
 ms.date: 11/21/2019
 ms.author: robinsh
-ms.openlocfilehash: 70ad74715446a54605a23a049ebc92a81d7ee673
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 334b7b2c59b328e8eff3c7c2b9c3ed46bffc3442
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423680"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706442"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Esercitazione: Esercitazione: Inviare notifiche di posta elettronica sugli eventi dell'hub IoT di Azure usando Griglia di eventi e App per la logica
 

@@ -1,26 +1,17 @@
 ---
-title: ASP.NET Core con il database SQL in Linux - Servizio app di Azure | Microsoft Docs
-description: Informazioni su come ottenere un'app ASP.NET Core da usare in Servizio app di Azure in Linux, con connessione a un database SQL.
-services: app-service\web
-documentationcenter: dotnet
-author: cephalin
-manager: jeconnoc
-editor: ''
+title: 'Esercitazione: ASP.NET Core Linux con database SQL'
+description: Informazioni su come usare un'app ASP.NET Core Linux basata sui dati da usare in Servizio app di Azure, con connessione a un database SQL.
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/06/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 532c6a45351f872260ea9383adaacacd486b9d9a
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 67ea11b2e1457bf4a788f54664ed54ff7ca9c8d9
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72532711"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688927"
 ---
 # <a name="build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Compilare un'app ASP.NET Core e database SQL in Servizio app di Azure in Linux
 

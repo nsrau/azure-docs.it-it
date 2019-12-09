@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/22/2019
 ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: b68bd69c6d00ac177466f8fdaabd89649c910287
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 77497d709d7106bf7c13d1fafcc4e64ee0ed1d39
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790297"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790303"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Scegliere tra i servizi di messaggistica di Azure - Griglia di eventi, Hub eventi, bus di servizio
 
@@ -98,7 +98,7 @@ In altri casi, è possibile collegarli per formare una pipeline di eventi e dati
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti: 
-
+- [Opzioni di messaggistica asincrona in Azure](/azure/architecture/guide/technology-choices/messaging)
 - [Events, Data Points, and Messages - Choosing the right Azure messaging service for your data](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/) (Eventi, punti dati e messaggi: scelta del servizio di messaggistica di Azure appropriato per i dati)
 - [Analogie e differenze tra le code di archiviazione e le code del bus di servizio](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - Per iniziare a usare Griglia di eventi, vedere [Creare e instradare eventi personalizzati con Griglia di eventi di Azure](custom-event-quickstart.md).

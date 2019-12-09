@@ -10,24 +10,27 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: babc6b1c0b6207d404091db3117f95f6d71c53ac
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b0a9eddf147eedfa972e0574e62c9e7c2eace84f
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505556"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818878"
 ---
 > [!NOTE]
 > Speech SDK per Unity supporta Windows Desktop (x86 e x64) o la piattaforma UWP (Universal Windows Platform) (x86, x64, ARM/ARM64), Android (x86, ARM32/64) e iOS (simulatore x64, ARM32 e ARM64).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, assicurarsi di:
+Prima di iniziare:
 
 > [!div class="checklist"]
 > * [Creare una risorsa Voce di Azure](../../../../get-started.md)
 > * [Configurare l'ambiente di sviluppo](../../../../quickstarts/setup-platform.md?tabs=unity)
-> * [Creare un progetto di esempio vuoto](../../../../quickstarts/create-project.md?tabs=unity) se non è già stato fatto. Ecco come procedere.
+> * [Creare un progetto di esempio vuoto](../../../../quickstarts/create-project.md?tabs=unity)
+> * Assicurarsi di avere accesso a un microfono per l'acquisizione audio
+
+Se queste operazioni sono già state eseguite, procedere come segue.
 
 ## <a name="create-a-unity-project"></a>Creare un progetto Unity
 
@@ -86,7 +89,7 @@ Per aggiungere il codice di script di esempio per il progetto Unity, seguire que
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/unity/from-microphone/Assets/Scripts/HelloWorld.cs#code)]
 
-1. Trovare e sostituire la stringa `YourSubscriptionKey` con la chiave di sottoscrizione dei servizi Voce.
+1. Individuare e sostituire la stringa `YourSubscriptionKey` con la chiave di sottoscrizione del servizio Voce.
 
 1. Trovare e sostituire la stringa `YourServiceRegion` con l'[area](~/articles/cognitive-services/Speech-Service/regions.md) associata alla sottoscrizione, ad esempio `westus` per la sottoscrizione di valutazione gratuita.
 
@@ -117,7 +120,7 @@ A questo punto è possibile eseguire l'applicazione nell'editor di Unity.
 
 1. Passare alla [visualizzazione **Game**](https://docs.unity3d.com/Manual/GameView.html) (Gioco) e attendere che l'oggetto **Text** visualizzi **Click button to recognize speech** (Fare clic sul pulsante per riconoscere la voce). L'oggetto visualizza **New Text** (Nuovo testo) quando l'applicazione non è stata avviata o non è pronta per rispondere.
 
-1. Selezionare il pulsante e pronunciare una frase o un'espressione in inglese nel microfono del computer. Il contenuto vocale viene trasmesso ai servizi Voce e trascritto come testo, che compare nella visualizzazione **Game** (Gioco).
+1. Selezionare il pulsante e pronunciare una frase o un'espressione in inglese nel microfono del computer. Il parlato viene trasmesso al servizio Voce e trascritto in testo, che viene visualizzato nella schermata **Game** (Gioco).
 
    [![Visualizzazione Game nell'editor di Unity](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-03-output-inline.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-03-output-inline.png#lightbox)
 

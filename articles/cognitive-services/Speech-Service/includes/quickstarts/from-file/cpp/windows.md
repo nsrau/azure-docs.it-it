@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 08/19/2019
 ms.author: wolfma
-ms.openlocfilehash: 09e0b6fbfcb8541a0756a855d4548e456a7b5c90
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 005d3c36525546443f96ec2134a2c8f9ad44b4dd
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506380"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819435"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -25,6 +25,8 @@ Prima di iniziare, assicurarsi di:
 > * [Creare una risorsa Voce di Azure](../../../../get-started.md)
 > * [Configurare l'ambiente di sviluppo](../../../../quickstarts/setup-platform.md?tabs=windows)
 > * [Creare un progetto di esempio vuoto](../../../../quickstarts/create-project.md?tabs=windows)
+
+[!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
 ## <a name="add-sample-code"></a>Aggiungere il codice di esempio
 
@@ -84,13 +86,16 @@ Prima di iniziare, assicurarsi di:
 
 1. Dalla barra dei menu scegliere **File** > **Salva tutto**.
 
+> [!NOTE]
+> Per impostazione predefinita, Speech SDK riconoscerà l'uso di en-us per la lingua. Per informazioni sulla scelta della lingua di origine, vedere [Specificare la lingua di origine per il riconoscimento vocale](../../../../how-to-specify-source-language.md).
+
 ## <a name="build-and-run-the-application"></a>Compilare ed eseguire l'applicazione
 
 1. Dalla barra dei menu scegliere **Compila** > **Compila soluzione** per compilare l'applicazione. Il codice dovrebbe ora risultare compilato senza errori.
 
 1. Scegliere **Debug** > **Avvia debug** o premere **F5** per avviare l'applicazione **helloworld**.
 
-1. Il file audio viene trasmesso ai servizi Voce e la prima espressione nel file viene trascritta in formato testo, che viene visualizzato nella stessa finestra.
+1. Il file audio viene trasmesso al servizio Voce e la prima espressione nel file viene trascritta in testo, che viene visualizzato nella stessa finestra.
 
    ```text
    Recognizing first result...

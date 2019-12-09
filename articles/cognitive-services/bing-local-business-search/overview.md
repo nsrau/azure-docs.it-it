@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: overview
-ms.date: 09/13/2019
+ms.date: 11/29/2019
 ms.author: aahi
-ms.openlocfilehash: bdada613ef46881bbf051144efded541ac3d0974
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 4e08596e8cf71bbb0e88abdc51f5d8e69972464d
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996696"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665256"
 ---
 # <a name="what-is-bing-local-business-search"></a>Informazioni sull'API di ricerca di attività locali Bing
 L'API di ricerca di attività locali Bing è un servizio RESTful che consente all'applicazione di trovare informazioni su aziende locali in base alle query di ricerca. Ad esempio, `q=<business-name> in Redmond, Washington` o `q=Italian restaurants near me`. 
@@ -36,9 +36,9 @@ Chiamare l'API di ricerca di attività locali Bing da qualsiasi linguaggio di pr
 4. Analizzare la risposta JSON. 
 
 > [!NOTE]
-> Attualmente l'API di ricerca di attività locali Bing è supportata solo per il mercato `en-US`. 
-> [!NOTE]
-> Attualmente l'API di ricerca di attività locali Bing non supporta i suggerimenti automatici. 
+> Attualmente, Ricerca attività commerciali locali: 
+> * Supporta solo il mercato `en-US`. 
+> * Non supporta Suggerimenti automatici Bing. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Query and response](local-search-query-response.md) (Query e risposta)

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 10/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: 7327031a7cd05674e9823f21601aab34c859f540
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 686ac8013879eff8adc4476d56119bbb4a169900
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423557"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74813113"
 ---
 # <a name="tutorial-create-and-modify-an-expressroute-circuit"></a>Esercitazione: Creare e modificare un circuito ExpressRoute
 
@@ -45,9 +45,12 @@ In un browser passare al [portale di Azure](https://portal.azure.com) e accedere
 > [!IMPORTANT]
 > Il circuito ExpressRoute viene addebitato dal momento in cui viene emessa una chiave di servizio. Verificare che l'operazione venga eseguita quando il provider di connettività è pronto a effettuare il provisioning del circuito.
 
-1. È possibile creare un circuito ExpressRoute selezionando l'opzione che consente di creare una nuova risorsa. Fare clic su **Crea una risorsa** > **Rete** > **ExpressRoute**, come illustrato nell'immagine seguente:
+È possibile creare un circuito ExpressRoute selezionando l'opzione che consente di creare una nuova risorsa. 
 
-   ![Creare un circuito ExpressRoute](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit1.png)
+1. Nel menu del portale di Azure o dalla pagina **Home** selezionare **Crea una risorsa**. Fare clic su **Rete** > **ExpressRoute**, come illustrato nell'immagine seguente:
+
+   ![Creare un circuito ExpressRoute](./media/expressroute-howto-circuit-portal-resource-manager/create-an-expressroute-circuit.png)
+
 2. Dopo aver fatto clic su **ExpressRoute**, viene visualizzata la pagina **Crea un circuito ExpressRoute**. Quando si inseriscono i valori in questa pagina, assicurarsi di specificare il livello di SKU (Standard o Premium) e il modello di fatturazione della misurazione dei dati (Senza limiti o A consumo) corretti.
 
    ![Configurazione del livello SKU e misurazione dei dati](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit.png)
@@ -146,7 +149,7 @@ Collegare quindi una rete virtuale al circuito ExpressRoute. Fare riferimento al
 
 Per modificare un circuito ExpressRoute, fare clic su **Configurazione**.
 
-![Modificare il circuito](./media/expressroute-howto-circuit-portal-resource-manager/modifycircuit.png)
+![Modificare il circuito](./media/expressroute-howto-circuit-portal-resource-manager/modify-circuit-configuration.png)
 
 ## <a name="delete"></a>Deprovisioning ed eliminazione di un circuito ExpressRoute
 

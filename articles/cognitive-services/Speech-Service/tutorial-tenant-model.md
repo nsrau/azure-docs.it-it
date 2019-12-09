@@ -1,5 +1,5 @@
 ---
-title: Creare un modello di tenant (anteprima) - Servizio di riconoscimento vocale
+title: Creare un modello di tenant (anteprima) - Servizio Voce
 titleSuffix: Azure Cognitive Services
 description: Generare automaticamente un modello di tenant (Riconoscimento vocale personalizzato con dati di Office 365) che sfrutta i dati di Office 365 per offrire un riconoscimento vocale ottimale per termini specifici dell'organizzazione, rispettando i requisiti di sicurezza e conformità.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.author: erhopf
-ms.openlocfilehash: c8a2855ce9cd320be3aea8b3b4a05f3b3eb39976
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 8ca31dcadebf2dc47d5a4b4db715f26fb38e204e
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73578228"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816391"
 ---
 # <a name="create-a-tenant-model-preview"></a>Creare un modello di tenant (anteprima)
 
@@ -96,7 +96,7 @@ Quando il modello di tenant è pronto, seguire questa procedura per distribuirlo
 
 ## <a name="use-your-model-with-the-speech-sdk"></a>Usare il modello con Speech SDK
 
-Ora che è stato distribuito il modello, è possibile usarlo con Speech SDK. In questa sezione verrà usato il codice di esempio fornito per chiamare il servizio di riconoscimento vocale usando l'autenticazione di Azure AD.
+Ora che è stato distribuito il modello, è possibile usarlo con Speech SDK. In questa sezione verrà usato il codice di esempio fornito per chiamare il servizio Voce usando l'autenticazione di Azure AD.
 
 Verrà ora esaminato il codice che verrà usato per chiamare Speech SDK in C#. In questo esempio si eseguirà il riconoscimento vocale usando un modello di tenant. Questa guida presuppone che la piattaforma sia già configurata. Per assistenza con la configurazione, vedere [Avvio rapido: Riconoscimento vocale, C# (.NET Core)](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore).
 

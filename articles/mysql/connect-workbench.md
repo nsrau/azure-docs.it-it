@@ -1,18 +1,18 @@
 ---
-title: Connettersi a Database di Azure per MySQL da MySQL Workbench
+title: Connettersi tramite MySQL Workbench - Database di Azure per MySQL
 description: Questa guida introduttiva illustra come usare MySQL Workbench per connettersi ed eseguire query sui dati dal database di Azure per MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: aa7d38171fdfaa6fb25b1863a09273a4e733b6e2
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.date: 12/02/2019
+ms.openlocfilehash: 16218dcac2f0a4301b52b0efc54fc04ae39d5e22
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349944"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770680"
 ---
 # <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>Database di Azure per MySQL: usare MySQL Workbench per connettersi ai dati ed eseguire query sui dati
 Questa guida introduttiva illustra come connettersi a un database di Azure per MySQL usando un'applicazione MySQL Workbench. 

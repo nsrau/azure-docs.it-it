@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: alzam
-ms.openlocfilehash: 0319e3aec71d37b49a094861fdcbb3b96b6def67
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 394ca0c244db751645eb56f50e7023fcee229876
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585424"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807460"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Esercitazione: Creare una connessione VNP utente usando la rete WAN virtuale di Azure
 
@@ -134,7 +134,7 @@ Usare il profilo scaricato per configurare i client di accesso remoto. La proced
 1. Scaricare e installare il client OpenVPN dal sito Web ufficiale.
 2. Scaricare il profilo VPN per il gateway. Questa operazione può essere eseguita dalla scheda Configurazioni VPN utente nel portale di Azure oppure tramite New-AzureRmVpnClientConfiguration in PowerShell.
 3. Decomprimere il profilo. Aprire il file di configurazione vpnconfig.ovpn dalla cartella OpenVPN nel Blocco note.
-4. Completare la sezione relativa al certificato client da punto a sito con la chiave pubblica del certificato client da punto a sito in formato Base 64. In un certificato in formato PEM è possibile aprire semplicemente il file con estensione cer e copiare la chiave in formato Base 64 tra le intestazioni del certificato. Sono disponibili altre informazioni su come esportare un certificato per ottenere la chiave pubblica codificata.
+4. Completare la sezione relativa al certificato client da punto a sito con la chiave pubblica del certificato client da punto a sito in formato Base 64. In un certificato in formato PEM è possibile aprire semplicemente il file con estensione cer e copiare la chiave in formato Base 64 tra le intestazioni del certificato. Sono disponibili altre informazioni su [come esportare un certificato per ottenere la chiave pubblica codificata](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-certificates-point-to-site).
 5. Completare la sezione relativa alla chiave privata con la chiave privata del certificato client da punto a sito in formato Base 64. Sono disponibili altre informazioni su come estrarre la chiave privata.
 6. Lasciare invariati tutti gli altri campi. Usare la configurazione così completata nell'input del client per connettersi alla rete VPN.
 7. Copiare il file vpnconfig.ovpn nella cartella C:\Programmi\OpenVPN\config.
@@ -145,7 +145,7 @@ Usare il profilo scaricato per configurare i client di accesso remoto. La proced
 1. Selezionare i file di configurazione del client VPN corrispondenti all'architettura del computer Windows. Per un'architettura con processore a 64 bit, scegliere il pacchetto di installazione "VpnClientSetupAmd64". Per un'architettura con processore a 32 bit, scegliere il pacchetto di installazione "VpnClientSetupX86".
 2. Fare doppio clic sul pacchetto per installarlo. Se viene visualizzato un popup SmartScreen, fare clic su Altre informazioni e quindi su Esegui comunque.
 3. Nel computer client passare a Impostazioni di rete e fare clic su VPN. La connessione VPN viene visualizzata con il nome della rete virtuale a cui si connette.
-4. Prima di tentare di connettersi, verificare che nel computer client sia installato un certificato client. Quando si usa il tipo di autenticazione del certificato di Azure nativo, è necessario un certificato client per l'autenticazione. Per altre informazioni sulla generazione di certificati, vedere Generare i certificati. Per informazioni sull'installazione di un certificato client, vedere Installare un certificato client.
+4. Prima di tentare di connettersi, verificare che nel computer client sia installato un certificato client. Quando si usa il tipo di autenticazione del certificato di Azure nativo, è necessario un certificato client per l'autenticazione. Per altre informazioni sulla generazione di certificati, vedere [Generare i certificati](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-certificates-point-to-site). Per informazioni sull'installazione di un certificato client, vedere Installare un certificato client.
 
 ## <a name="viewwan"></a>Visualizzare la rete WAN virtuale
 
@@ -164,7 +164,7 @@ Usare il profilo scaricato per configurare i client di accesso remoto. La proced
 Quando queste risorse non sono più necessarie, è possibile usare [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) per rimuovere il gruppo di risorse e tutte le risorse in esso contenute. Sostituire "myResourceGroup" con il nome del gruppo di risorse specifico ed eseguire il comando di PowerShell seguente:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 75ecbe8351e68b77a59b40709a2beb15d09b16df
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 25d74b640f1bf567792c317626da0178ead7e34f
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506228"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816238"
 ---
 # <a name="quickstart-create-a-voice-assistant-with-the-speech-sdk-uwp"></a>Guida introduttiva: Creare un assistente vocale con Speech SDK, piattaforma UWP
 
@@ -31,7 +31,7 @@ In questo articolo viene sviluppata un'applicazione della piattaforma UWP (Unive
 Questa guida introduttiva richiede:
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
-* Una chiave di sottoscrizione di Azure per i servizi Voce. [È possibile ottenerne una gratuitamente](get-started.md) o crearla nel [portale di Azure](https://portal.azure.com).
+* Una chiave di sottoscrizione di Azure per il servizio Voce. [È possibile ottenerne una gratuitamente](get-started.md) o crearla nel [portale di Azure](https://portal.azure.com).
 * Un bot creato in precedenza e configurato per l'uso del [canale Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
   > [!NOTE]
@@ -292,7 +292,7 @@ Per aggiungere il file di origine code-behind, seguire questa procedura:
 1. Aggiungere il frammento di codice seguente al corpo del metodo di `InitializeDialogServiceConnector`. Tale codice crea l'elemento `DialogServiceConnector` con le informazioni della sottoscrizione.
 
     ```csharp
-    // Create a BotFrameworkConfig by providing a Speech Service subscription key
+    // Create a BotFrameworkConfig by providing a Speech service subscription key
     // the RecoLanguage property is optional (default en-US)
     const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
     const string region = "YourServiceRegion"; // Your subscription service region.
@@ -422,7 +422,7 @@ A questo punto è possibile compilare e testare l'applicazione.
 ## <a name="see-also"></a>Vedere anche
 
 - [Informazioni sugli assistenti vocali](voice-assistants.md)
-- [Ottieni gratuitamente una chiave di sottoscrizione per i servizi Voce](get-started.md)
+- [Ottenere gratuitamente una chiave di sottoscrizione per i servizi di riconoscimento vocale](get-started.md)
 - [Parole chiave personalizzate](speech-devices-sdk-create-kws.md)
 - [Collegare Direct Line Speech al bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 - [Esaminare gli esempi di codice C# su GitHub](https://aka.ms/csspeech/samples)

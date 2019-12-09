@@ -1,25 +1,18 @@
 ---
-title: Creare app multi-contenitore tramite Docker Compose - Servizio App di Azure
-description: Distribuire la prima app multi-contenitore nell'app Web per contenitori di Azure in pochi minuti
+title: "Guida introduttiva: Creare un'app multicontenitore"
+description: Informazioni su come distribuire la prima app multicontenitore nel servizio app di Azure.
 keywords: servizio app di azure, app web, linux, docker, compose, multicontenitore, multi-contenitore, app web per contenitori, più contenitori, contenitore, wordpress, db azure per mysql, database di produzione con contenitori
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
+author: msangapu-msft
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 89cf13fd4405b9ddcbc5b31fad9f0c945aef64aa
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 0fdba3afe7e0977496af105e39fb5d7e657df2f0
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071113"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687520"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Creare un'app multi-contenitore (anteprima) con una configurazione di Docker Compose
 

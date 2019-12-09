@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Assistente vocale personalizzato, Java (Android) - Servizio di riconoscimento vocale'
+title: 'Guida introduttiva: Assistente vocale personalizzato, Java (Android) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come creare un'applicazione di assistente vocale in Java in ambiente Android con Speech SDK
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: 58bc33c54a7bd878d717b2c6e44d9ac8657c245f
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 077f34e94423918d324eb41b56ab84c64a0db719
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111786"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816201"
 ---
 # <a name="quickstart-create-a-voice-assistant-in-java-on-android-by-using-the-speech-sdk"></a>Guida introduttiva: Creare un assistente vocale in Java in ambiente Android con Speech SDK
 
@@ -30,7 +30,7 @@ L'applicazione è basata sul pacchetto Maven per Speech SDK e su Android Studio 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Una chiave di sottoscrizione di Azure per i servizi Voce. [È possibile ottenerne una gratuitamente](get-started.md) o crearla nel [portale di Azure](https://portal.azure.com).
+- Una chiave di sottoscrizione di Azure per il servizio Voce. [È possibile ottenerne una gratuitamente](get-started.md) o crearla nel [portale di Azure](https://portal.azure.com).
 - Un bot creato in precedenza e configurato per l'uso del [canale Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 - [Android Studio](https://developer.android.com/studio/) 3.3 o versioni successive
 
@@ -260,7 +260,7 @@ Il testo e la versione grafica dell'interfaccia utente dovrebbero essere simili 
 
     * Sostituire `YourSpeechSubscriptionKey` con la chiave di sottoscrizione.
 
-    * Sostituire `YourServiceRegion` con l'[area di Azure](regions.md) associata alla propria sottoscrizione. È attualmente supportato solo un subset di aree di Azure per servizi Voce con Direct Line Speech. Per altre informazioni, vedere le [aree di Azure](regions.md#voice-assistants).
+    * Sostituire `YourServiceRegion` con l'[area di Azure](regions.md) associata alla propria sottoscrizione. È attualmente supportato solo un sottoinsieme di aree per il servizio Voce con Direct Line Speech. Per altre informazioni, vedere le [aree di Azure](regions.md#voice-assistants).
 
 ## <a name="build-and-run-the-app"></a>Compilare ed eseguire l'app
 
@@ -285,7 +285,7 @@ Dopo aver avviato l'applicazione e la relativa attività, fare clic sul pulsante
 
 ## <a name="see-also"></a>Vedere anche
 - [Informazioni sugli assistenti vocali](voice-assistants.md)
-- [Ottieni gratuitamente una chiave di sottoscrizione per i servizi Voce](get-started.md)
+- [Ottenere gratuitamente una chiave di sottoscrizione per i servizi di riconoscimento vocale](get-started.md)
 - [Parole chiave personalizzate](speech-devices-sdk-create-kws.md)
 - [Collegare Direct Line Speech al bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 - [Esaminare gli esempi di codice Java su GitHub](https://aka.ms/csspeech/samples)

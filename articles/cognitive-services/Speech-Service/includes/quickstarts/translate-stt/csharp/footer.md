@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Tradurre la voce in testo scritto, C# (.NET Framework Windows) - Servizio Voce'
+title: 'Guida introduttiva: Tradurre la voce in testo, C# (.NET Framework Windows) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Da definire
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 5804f1375e59341ef5ceaeb738ae6d97332815aa
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a80c1c0a9c2790a257ba3c3a39b67a42c564588b
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504636"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816741"
 ---
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice C# su GitHub](https://aka.ms/speech/github-csharp)

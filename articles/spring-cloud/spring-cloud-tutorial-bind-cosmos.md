@@ -1,17 +1,17 @@
 ---
-title: Associare un'istanza di Azure Cosmos DB all'applicazione Azure Spring Cloud | Microsoft Docs
-description: Informazioni su come associare un'istanza di Azure Cosmos DB all'applicazione Azure Spring Cloud
+title: "Esercitazione: Associare un'istanza di Azure Cosmos DB all'applicazione Azure Spring Cloud"
+description: Questa esercitazione mostra come associare un'istanza di Azure Cosmos DB all'applicazione Azure Spring Cloud
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 10/06/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 76a2b9f305f041a19b8d7ace8234a804825f6a0e
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 7e796c6f8b2ae17ba267a19da1d909087163d99c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607121"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708836"
 ---
 # <a name="tutorial-bind-an-azure-cosmos-db-to-your-azure-spring-cloud-application"></a>Esercitazione: Associare un'istanza di Azure Cosmos DB all'applicazione Azure Spring Cloud
 

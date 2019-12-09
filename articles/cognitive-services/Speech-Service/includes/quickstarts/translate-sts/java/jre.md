@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 6a6ef6c0070642e1c2f762f5cb19f97bd4d1e8cb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fa6b49f7e79b72ff1f8de8ede4b34c8d7de1462b
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505196"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817701"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -143,7 +143,7 @@ Prima di iniziare, assicurarsi di:
 
 Premere F11 o selezionare **Esegui** > **Debug**.
 
-1. Pronunciare una frase o un'espressione in inglese. L'applicazione trasmette il parlato ai servizi Voce, che effettuano la traduzione e la trascrizione in testo (in questo caso in tedesco). I servizi Voce inviano quindi nuovamente l'audio sintetizzato e il testo all'applicazione per la visualizzazione.
+1. Pronunciare una frase o un'espressione in inglese. L'applicazione trasmette il parlato al servizio Voce, che effettua la traduzione e la trascrizione in testo (in questo caso in tedesco). Il servizio Voce invia quindi nuovamente l'audio sintetizzato e il testo all'applicazione per la visualizzazione.
 
 ````
 Say something...

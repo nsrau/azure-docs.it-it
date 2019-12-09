@@ -1,5 +1,5 @@
 ---
-title: Script dell'interfaccia della riga di comando di Azure - Ripristinare un server Database di Azure per MySQL
+title: Script dell'interfaccia della riga di comando - Ripristinare un server - Database di Azure per MySQL
 description: Questo script di esempio dell'interfaccia della riga di comando di Azure mostra come ripristinare un database di Azure per il server MySQL e i relativi database a un momento precedente.
 author: ajlam
 ms.author: andrela
@@ -7,13 +7,13 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 02/28/2018
-ms.openlocfilehash: 7bc4b1533da272bed9b7b7b8a0abe9b509e02386
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 12/02/2019
+ms.openlocfilehash: 5a84a44a4ea941bf3b77f0762fc764ec069919c7
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545111"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74771329"
 ---
 # <a name="restore-an-azure-database-for-mysql-server-using-azure-cli"></a>Ripristinare un database di Azure per il server MySQL tramite l'interfaccia della riga di comando di Azure
 Questo script di esempio dell'interfaccia della riga di comando di Azure consente di ripristinare un database singolo di Azure per il server MySQL a un momento precedente.

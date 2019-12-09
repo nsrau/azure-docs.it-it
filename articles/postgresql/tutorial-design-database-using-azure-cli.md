@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Progettare un Database di Azure per PostgreSQL - Server singolo usando l'interfaccia della riga di comando di Azure"
+title: 'Esercitazione: Progettare un database di Azure per PostgreSQL - Server singolo - Interfaccia della riga di comando di Azure'
 description: Questa esercitazione illustra come creare e configurare il primo Database di Azure per PostgreSQL - Server singolo ed eseguire query usando l'interfaccia della riga di comando di Azure.
 author: rachel-msft
 ms.author: raagyema
@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: db0ff9facbd8609955c5ef1918b0f8a6aa53ea65
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 0f1f4c07f3dc694bcae9b540c71a11e53a00eb7f
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447230"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773681"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>Esercitazione: Progettare un Database di Azure per PostgreSQL - Server singolo usando l'interfaccia della riga di comando di Azure 
 In questa esercitazione, si usano l'interfaccia della riga di comando di Azure e altre utilità per informazioni su come:

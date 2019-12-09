@@ -1,18 +1,18 @@
 ---
-title: Connettersi a Database di Azure per MySQL da PHP
+title: Connettersi con PHP - Database di Azure per MySQL
 description: Questa guida introduttiva fornisce diversi esempi di codice PHP che è possibile usare per connettersi ai dati ed eseguire query da Database di Azure per MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 76d721ca102ae0affeba23c46d5da9fd44743f5b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 12/02/2019
+ms.openlocfilehash: b8923000b0bbc75e6d96b1b27a1154ef8ff87f24
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608767"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770714"
 ---
 # <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Database di Azure per MySQL: Usare PHP per connettersi ai dati ed eseguire query sui dati
 Questa guida introduttiva illustra come connettersi a un database di Azure per MySQL usando un'applicazione [PHP](https://secure.php.net/manual/intro-whatis.php). Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Questo argomento presuppone che si abbia familiarità con lo sviluppo con PHP, ma non con Database di Azure per MySQL.
@@ -33,7 +33,7 @@ Installare PHP nel server o creare un'[app Web](../app-service/overview.md) di A
 - Scaricare [PHP versione 7.1.4 non thread-safe (x64)](https://secure.php.net/downloads.php).
 - Installare PHP e vedere il [manuale di PHP](https://secure.php.net/manual/install.unix.php) per le altre opzioni di configurazione.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 - Scaricare [PHP versione 7.1.4 non thread-safe (x64)](https://windows.php.net/download#php-7.1).
 - Installare PHP e vedere il [manuale di PHP](https://secure.php.net/manual/install.windows.php) per le altre opzioni di configurazione.
 

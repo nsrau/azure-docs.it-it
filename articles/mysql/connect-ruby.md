@@ -1,5 +1,5 @@
 ---
-title: Connettersi a Database di Azure per MySQL con Ruby
+title: Connettersi con Ruby - Database di Azure per MySQL
 description: Questa guida introduttiva fornisce diversi esempi di codice Ruby che è possibile usare per connettersi ai dati ed eseguire query da Database di Azure per MySQL.
 author: ajlam
 ms.author: andrela
@@ -7,13 +7,13 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 5dbb2226e33928d9d79358a84192b57c44841de4
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.date: 12/02/2019
+ms.openlocfilehash: dc8c7352856b11cb6cc4c9c404eb567cb72b720d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351629"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770646"
 ---
 # <a name="azure-database-for-mysql-use-ruby-to-connect-and-query-data"></a>Database di Azure per MySQL: Usare Ruby per connettersi ai dati ed eseguire query
 Questa guida introduttiva illustra come connettersi a un database di Azure per MySQL usando un'applicazione [Ruby](https://www.ruby-lang.org) e Gem [mysql2](https://rubygems.org/gems/mysql2) dalle piattaforme Windows, Ubuntu Linux e Mac. Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Questo argomento presuppone che si abbia familiarità con lo sviluppo con Ruby, ma non con Database di Azure per MySQL.
@@ -26,7 +26,7 @@ Questa guida introduttiva usa le risorse create in una delle guide seguenti come
 ## <a name="install-ruby"></a>Installare Ruby
 Installare Ruby, Gem e la libreria MySQL2 nel computer. 
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 1. Scaricare e installare la versione 2.3 di [Ruby](https://rubyinstaller.org/downloads/).
 2. Avviare un nuovo prompt dei comandi (cmd) dal menu Start.
 3. Passare alla directory di Ruby per la versione 2.3. `cd c:\Ruby23-x64\bin`

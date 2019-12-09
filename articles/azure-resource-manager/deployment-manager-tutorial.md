@@ -1,16 +1,16 @@
 ---
-title: Usare Azure Deployment Manager con modelli di Resource Manager | Microsoft Docs
-description: Usare modelli di Resource Manager con Azure Deployment Manager per distribuire risorse di Azure.
+title: Distribuire modelli con Azure Deployment Manager
+description: Informazioni su come usare modelli di Resource Manager con Azure Deployment Manager per distribuire risorse di Azure.
 author: mumian
-ms.date: 11/21/2019
+ms.date: 12/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: db130da9943007e647adf77411b456914af9886f
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 38f6374c9a1f3930691a986f33620580ac7fdb0c
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307027"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815233"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Esercitazione: Usare Azure Deployment Manager con modelli di Resource Manager (anteprima pubblica)
 
@@ -169,7 +169,7 @@ foreach ($x in $filesToUpload) {
     Set-AzStorageBlobContent -File $x.fullname -Container $storageContainer.Name -Blob $targetPath -Context $storageContext | Out-Null
 }
 
-$token = New-AzStorageContainerSASToken -name $containerName -Context $storageContext -Permission rl -ExpiryTime (Get-date).AddMonths(1)  -Protocol HttpsOrHttp
+$token = New-AzStorageContainerSASToken -name $containerName -Context $storageContext -Permission rl -ExpiryTime (Get-date).AddMonths(1)
 
 $url = $storageAccount.PrimaryEndpoints.Blob + $containerName + $token
 

@@ -4,19 +4,22 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: bcf353fa0783429702143b2bf0bdf2114dd4bed6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ebabeccc43998c229bcd28063b6cbabae4b046ea
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505740"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74795618"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
+
+Prima di iniziare:
 
 > [!div class="checklist"]
 > * [Creare una risorsa Voce di Azure](../../../../get-started.md)
 > * [Configurare l'ambiente di sviluppo](../../../../quickstarts/setup-platform.md?tabs=jre)
 > * [Creare un progetto di esempio vuoto](../../../../quickstarts/create-project.md?tabs=jre)
+> * Assicurarsi di avere accesso a un microfono per l'acquisizione audio
 
 ## <a name="add-sample-code"></a>Aggiungere il codice di esempio
 
@@ -35,6 +38,9 @@ ms.locfileid: "73505740"
 1. Sostituire la stringa `YourServiceRegion` con la [regione](~/articles/cognitive-services/Speech-Service/regions.md) associata alla sottoscrizione (ad esempio, `westus` per la sottoscrizione di valutazione gratuita).
 
 1. Salvare le modifiche apportate al progetto.
+
+> [!NOTE]
+> Per impostazione predefinita, Speech SDK riconoscerà l'uso di en-us per la lingua. Per informazioni sulla scelta della lingua di origine, vedere [Specificare la lingua di origine per il riconoscimento vocale](../../../../how-to-specify-source-language.md).
 
 ## <a name="build-and-run-the-app"></a>Compilare ed eseguire l'app
 

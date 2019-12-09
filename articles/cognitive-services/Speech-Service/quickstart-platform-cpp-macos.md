@@ -1,7 +1,7 @@
 ---
 title: 'Guida introduttiva: Configurazione della piattaforma per C++ (macOS) con Speech SDK - Servizio Voce'
 titleSuffix: Azure Cognitive Services
-description: Usare questa guida per configurare la piattaforma per C++ in macOS con i servizi Speech SDK.
+description: Usare questa guida per configurare la piattaforma per C++ in macOS con il servizio Speech SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/14/2019
 ms.author: erhopf
-ms.openlocfilehash: eb4cce5f469ca493c5183b4ca0830941ea92ac9f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 80f72a4d9aa9a3eef0b0cbab9f2d6017b3c366de
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504476"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818526"
 ---
 # <a name="quickstart-speech-sdk-c-macos-platform-setup"></a>Guida introduttiva: Configurazione della piattaforma Speech SDK C++ (macOS)
 

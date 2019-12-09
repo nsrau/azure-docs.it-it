@@ -1,5 +1,5 @@
 ---
-title: Connettersi a Database di Azure per MySQL da Node.js
+title: Connettersi con Node.js - Database di Azure per MySQL
 description: Questa guida introduttiva fornisce diversi esempi di codice Node.js che è possibile usare per connettersi ai dati ed eseguire query da Database di Azure per MySQL.
 author: ajlam
 ms.author: andrela
@@ -7,13 +7,13 @@ ms.service: mysql
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 11/21/2018
-ms.openlocfilehash: fb61a976e62c3ae5e29dfcc5e28b48f2ea4214c8
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.date: 12/02/2019
+ms.openlocfilehash: 6773b5d4635089d0977dfa0699549ad22e00aead
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529074"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770731"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-mysql"></a>Guida introduttiva: usare Node.js per connettersi ai dati ed eseguire query nel Database di Azure per MySQL
 Questa guida introduttiva illustra come connettersi a un database di Azure per MySQL usando [Node.js](https://nodejs.org/) dalle piattaforme Windows, Ubuntu Linux e Mac. Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Questo argomento presuppone che si abbia familiarità con lo sviluppo con Node.js, ma non con Database di Azure per MySQL.

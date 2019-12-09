@@ -1,18 +1,18 @@
 ---
-title: "Esercitazione: Progettare un'istanza di Database di Azure per MariaDB con il portale di Azure"
+title: 'Esercitazione: Progettare un database di Azure per MariaDB - Portale di Azure'
 description: Questa esercitazione illustra come creare e gestire un database e un server di Database di Azure per MariaDB usando il portale di Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: tutorial
-ms.date: 04/15/2019
+ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: 1938a84d3e9c0ba8c84cbdbd2eee5b7ca448554d
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 28a20325fac92d0b296c336e2e1186487d1e0272
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515643"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74776709"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Esercitazione: Progettare un database di Database di Azure per MariaDB con il portale di Azure
 
@@ -52,13 +52,13 @@ Si crea un server di Database di Azure per MariaDB con un set definito di [risor
     Impostazione | Valore consigliato | Descrizione campo 
     ---|---|---
     Nome server | *Nome server univoco* | Scegliere un nome univoco per identificare il database di Azure per il server MariaDB. Ad esempio, **mydemoserver**. Al nome del server specificato viene aggiunto il nome di dominio *.mariadb.database.azure.com*. Il nome del server può contenere solo lettere minuscole, numeri e il segno meno (-) Deve contenere tra 3 e 63 caratteri.
-    Sottoscrizione | *sottoscrizione in uso* | Selezionare la sottoscrizione di Azure da usare per il server. Se si hanno più sottoscrizioni, scegliere quella in cui viene fatturata la risorsa.
-    Gruppo di risorse | **myresourcegroup** | Immettere il nome di un nuovo gruppo di risorse o selezionare un gruppo di risorse esistente.
+    Subscription | *sottoscrizione in uso* | Selezionare la sottoscrizione di Azure da usare per il server. Se si hanno più sottoscrizioni, scegliere quella in cui viene fatturata la risorsa.
+    Resource group | **myresourcegroup** | Immettere il nome di un nuovo gruppo di risorse o selezionare un gruppo di risorse esistente.
     Selezionare l'origine | **Vuoto** | Selezionare **Vuoto** per creare un nuovo server. Se si sta creando un server da un backup geografico di un server di Database di Azure per MariaDB esistente, selezionare **Backup**.
     Accesso amministratore server | **myadmin** | Account di accesso da usare per la connessione al server. Il nome di accesso dell'amministratore non può essere **azure_superuser**, **admin**, **administrator**, **root**, **guest** o **public**.
     Password | *A scelta dell'utente* | Immettere una nuova password per l'account dell'amministratore del server. Deve contenere tra 8 e 128 caratteri. La password deve contenere caratteri di tre delle categorie seguenti: lettere maiuscole, lettere minuscole, numeri (0-9) e caratteri non alfanumerici (!, $, #, % e così via).
     Conferma password | *A scelta dell'utente*| Confermare la password dell'account amministratore.
-    Località | *Area più vicina ai propri utenti*| Selezionare la località più vicina agli utenti o alle altre applicazioni Azure.
+    Location | *Area più vicina ai propri utenti*| Selezionare la località più vicina agli utenti o alle altre applicazioni Azure.
     Versione | *Ultima versione*| Ultima versione, a meno che non si abbiano requisiti specifici per cui deve esserne usata un'altra.
     Piano tariffario | Vedere la descrizione. | Configurazioni di calcolo, archiviazione e backup per il nuovo server. Selezionare **Piano tariffario** > **Utilizzo generico**. Mantenere i valori predefiniti per le impostazioni seguenti:<br><ul><li>**Generazione di calcolo** (Generazione 5)</li><li>**vCore** (4 vCore)</li><li>**Archiviazione** (100 GB)</li><li>**Periodo di conservazione backup** (7 giorni)</li></ul><br>Per abilitare l'archiviazione con ridondanza geografica dei backup del server, in **Opzioni di ridondanza per il backup** selezionare **Con ridondanza geografica**. <br><br>Per salvare la selezione del piano tariffario, selezionare **OK**. Lo screenshot successivo mostra queste selezioni.
     

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/20/2019
 ms.author: yulili
-ms.openlocfilehash: 27e471bb1b155ab245e68712031eef4efb4d5b34
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5758361e1c4de6e824f0df33eacd940cad8eca70
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505508"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817755"
 ---
 # <a name="quickstart-synthesize-speech-in-objective-c-on-macos-using-the-speech-sdk"></a>Guida introduttiva: Sintesi vocale in Objective-C in macOS con Speech SDK
 
@@ -25,7 +25,7 @@ Questo articolo spiega come creare un'applicazione macOS in Objective-C usando S
 
 Prima di iniziare, ecco un elenco di prerequisiti:
 
-* Una [chiave di sottoscrizione](~/articles/cognitive-services/Speech-Service/get-started.md) per il servizio di riconoscimento vocale
+* Una [chiave di sottoscrizione](~/articles/cognitive-services/Speech-Service/get-started.md) per il servizio Voce
 * Un computer macOS con [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) o versione successiva e macOS 10.13 o versione successiva
 
 ## <a name="get-the-speech-sdk-for-macos"></a>Ottenere Speech SDK per macOS

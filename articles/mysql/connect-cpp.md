@@ -1,5 +1,5 @@
 ---
-title: Connettersi a Database di Azure per MySQL da C++
+title: Connettersi con C++ - Database di Azure per MySQL
 description: Questa guida introduttiva offre un esempio di codice C++ che è possibile usare per connettersi ed eseguire query sui dati da Database di Azure per MySQL.
 author: ajlam
 ms.author: andrela
@@ -7,13 +7,13 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: cpp
 ms.topic: quickstart
-ms.date: 04/12/2018
-ms.openlocfilehash: ff5232c4569e94322d76928f19f202c8bad1a39a
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.date: 12/02/2019
+ms.openlocfilehash: 1cec92631208b446f5621c9010d8cb7b86ae38e9
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66428498"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770799"
 ---
 # <a name="azure-database-for-mysql-use-connectorc-to-connect-and-query-data"></a>Database di Azure per MySQL: usare Connector/C++ per connettersi ai dati ed eseguire query sui dati
 Questa guida introduttiva illustra come connettersi a un database di Azure per MySQL usando un'applicazione C++. Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Questo argomento presuppone che si abbia familiarità con lo sviluppo con C++, ma non con Database di Azure per MySQL.

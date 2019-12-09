@@ -1,5 +1,5 @@
 ---
-title: Script dell'interfaccia della riga di comando di Azure - Ripristinare un server Database di Azure per MariaDB
+title: Script dell'interfaccia della riga di comando - Ripristinare un server - Database di Azure per MariaDB
 description: Questo script di esempio dell'interfaccia della riga di comando di Azure mostra come ripristinare un server di Database di Azure per MariaDB e i relativi database a un momento precedente.
 author: ajlam
 ms.author: andrela
@@ -7,13 +7,13 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 11/28/2018
-ms.openlocfilehash: 2d294f5b43ba3fb7587ca1d03903e39d75291754
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 12/02/2019
+ms.openlocfilehash: d7591c4f88026644ee2453150cfa226a155ab32d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66171361"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74771705"
 ---
 # <a name="restore-an-azure-database-for-mariadb-server-using-azure-cli"></a>Ripristinare un server di Database di Azure per MariaDB usando l'interfaccia della riga di comando di Azure
 Questo script di esempio dell'interfaccia della riga di comando di Azure consente di ripristinare un server singolo di Database di Azure per MariaDB a un momento precedente.

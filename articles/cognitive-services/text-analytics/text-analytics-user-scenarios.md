@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 04/04/2019
+ms.date: 11/29/2019
 ms.author: aahi
-ms.openlocfilehash: f11d23207a21af5c73831d0edd5ffc9eaa59c119
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 027e6ec829e9de9956451e48e5f9e1cdd749f9f7
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280665"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689324"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Scenari utente di esempio per l'API di Analisi di testo
 
@@ -29,7 +29,7 @@ L'API Analisi del testo è un servizio basato sul cloud che fornisce l'elaborazi
 
 ## <a name="analyze-recorded-inbound-customer-calls"></a>Analizzare le chiamate dei clienti in ingresso registrate
 
-Estrarre informazioni approfondite dalle chiamate al servizio clienti usando la sintesi vocale, l'analisi del sentiment, e l'estrazione di frasi chiave. Visualizzare i risultati nel dashboard di Power BI o in un portale per conoscere meglio i clienti, evidenziare le tendenze del servizio clienti e aumentare il coinvolgimento dei clienti. Inviare le richieste API come batch per la creazione di report o in tempo reale per gli interventi. Visualizza [codice di esempio](https://github.com/rlagh2/callcenteranalytics).
+Estrarre informazioni approfondite dalle chiamate al servizio clienti usando la sintesi vocale, l'analisi del sentiment, e l'estrazione di frasi chiave. Visualizzare i risultati nel dashboard di Power BI o in un portale per conoscere meglio i clienti, evidenziare le tendenze del servizio clienti e aumentare il coinvolgimento dei clienti. Inviare le richieste API come batch per la creazione di report o in tempo reale per gli interventi. Vedere il codice di esempio in [Github](https://github.com/rlagh2/callcenteranalytics).
 
 ![Immagine che illustra come automatizzare l'acquisizione di informazioni accurate dalle chiamate al servizio clienti usando l'analisi del sentiment](media/use-cases/azure-inbound.svg)
 

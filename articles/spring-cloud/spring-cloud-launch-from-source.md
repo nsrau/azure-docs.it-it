@@ -1,19 +1,19 @@
 ---
-title: "Guida introduttiva: Avviare l'applicazione Spring Cloud dal codice sorgente"
-description: Informazioni su come avviare l'applicazione Azure Spring Cloud direttamente dal codice sorgente
+title: "Avvio rapido: Avviare l'applicazione Spring Cloud dal codice sorgente"
+description: Questa guida di avvio rapido mostra come avviare l'applicazione Azure Spring Cloud direttamente dal codice sorgente
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/30/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 7ca80966ccab83991246f0ed7ea35cf2c9524b1d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 6e18ac6c0fa97125b89ea5760a5d7da6c1545393
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721282"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708880"
 ---
-# <a name="launch-your-spring-cloud-application-from-source-code"></a>Avviare l'applicazione Spring Cloud dal codice sorgente
+# <a name="quickstart-launch-your-spring-cloud-application-from-source-code"></a>Guida introduttiva: Avviare l'applicazione Spring Cloud dal codice sorgente
 
 Azure Spring Cloud consente di eseguire facilmente applicazioni di microservizi basate su Spring Cloud in Azure.
 
@@ -31,7 +31,7 @@ Seguendo questo argomento di avvio rapido, si apprenderà come:
 ## <a name="prerequisites"></a>Prerequisiti
 
 >[!Note]
-> Azure Spring Cloud è attualmente disponibile come anteprima pubblica. Le offerte di anteprima pubblica consentono ai clienti di sperimentare le nuove funzionalità prima del rilascio della versione ufficiale.  Le funzionalità e i servizi di anteprima pubblica non sono destinati all'uso in produzione.  Per altre informazioni sul supporto durante le anteprime, vedere le [domande frequenti](https://azure.microsoft.com/support/faq/) o inviare una [richiesta di supporto](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
+> Azure Spring Cloud è attualmente disponibile come anteprima pubblica. Le offerte di anteprima pubblica consentono ai clienti di sperimentare le nuove funzionalità prima del rilascio della versione ufficiale.  I servizi e le funzionalità di anteprima pubblica non sono destinati all'uso in produzione.  Per altre informazioni sul supporto durante le anteprime, vedere le [domande frequenti](https://azure.microsoft.com/support/faq/) o inviare una [richiesta di supporto](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
 
 Prima di iniziare, verificare che la sottoscrizione di Azure abbia le dipendenze necessarie:
 

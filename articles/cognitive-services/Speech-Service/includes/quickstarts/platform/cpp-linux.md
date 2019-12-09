@@ -1,7 +1,7 @@
 ---
 title: 'Guida introduttiva: Configurazione della piattaforma per C++ (Linux) con Speech SDK - Servizio Voce'
 titleSuffix: Azure Cognitive Services
-description: Usare questa guida per configurare la piattaforma per C++ in Linux con i servizi Speech SDK.
+description: Usare questa guida per configurare la piattaforma per C++ in Linux con il servizio Speech SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/14/2019
 ms.author: erhopf
-ms.openlocfilehash: 96e4c12d7b0aaceea3d652a81f2df8721c43954c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 03aafb133f1d4a18ffe2b46ae5ec36225865a239
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504548"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819051"
 ---
 Questa guida spiega come installare [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) per Linux
 

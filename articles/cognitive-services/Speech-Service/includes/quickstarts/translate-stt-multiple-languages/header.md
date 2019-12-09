@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 09/20/2019
 ms.author: yulili
-ms.openlocfilehash: 6c65fd9a504b5f399afa99280ca2a75b476c750c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: bc35c1efcad2ca9ebb5eaf23dd84f7189858a159
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504772"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817055"
 ---
 In questo argomento di avvio rapido si userà [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) per tradurre in modo interattivo la voce da una lingua a un'altra. Dopo aver soddisfatto alcuni prerequisiti, la traduzione della voce in testo richiede solo sei passaggi:
 > [!div class="checklist"]

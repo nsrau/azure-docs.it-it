@@ -1,17 +1,17 @@
 ---
-title: Come associare Cache di Azure per Redis all'applicazione Azure Spring Cloud | Microsoft Docs
-description: Informazioni su come associare Cache di Azure per Redis all'applicazione Azure Spring Cloud
+title: "Esercitazione: Come associare Cache di Azure per Redis all'applicazione Azure Spring Cloud"
+description: Questa esercitazione mostra come associare Cache di Azure per Redis all'applicazione Azure Spring Cloud
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 10/31/2019
 ms.author: jeconnoc
-ms.openlocfilehash: a901e4194909df85f53799d5937515e42ea87a69
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 1653db3619fd569238872ca1fcfd6d0c439e84c9
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607564"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708777"
 ---
 # <a name="tutorial-bind-azure-services-to-your-azure-spring-cloud-application-azure-cache-for-redis"></a>Esercitazione: Associare i servizi di Azure all'applicazione Azure Spring Cloud: Cache Redis di Azure
 

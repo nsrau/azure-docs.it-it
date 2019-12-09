@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: banders
-ms.openlocfilehash: 7ca7256cbe42949141bc216ee1cb5c89ceac935c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bd561f616c9e120a38f1c6b125e349684f82942e
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226379"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665611"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Creare una sottoscrizione di Azure aggiuntiva
 
@@ -36,7 +36,7 @@ Per creare sottoscrizioni è necessario disporre delle autorizzazioni seguenti:
 |---------|---------|
 |Contratto Enterprise Agreement (EA) |  Ruolo di proprietario dell'account nella registrazione del Contratto Enterprise. Per altre informazioni, vedere [Informazioni sui ruoli amministrativi per il Contratto Enterprise di Azure](billing-understand-ea-roles.md).    |
 |Contratto del cliente Microsoft |  Ruolo proprietario o collaboratore nella sezione fattura, nel profilo di fatturazione o nell'account di fatturazione. In alternativa, il ruolo di autore di sottoscrizioni di Azure nella sezione fattura.  Per altre informazioni, vedere [Ruoli e attività di fatturazione della sottoscrizione](billing-understand-mca-roles.md#subscription-billing-roles-and-tasks).    |
-|Contratto Microsoft Partner |   Ruolo amministratore globale e agente amministratore nell'organizzazione partner. Per altre informazioni, vedere [Centro per i partner - Assegnare autorizzazioni e ruoli utente](https://docs.microsoft.com/partner-center/permissions-overview)  |
+|Contratto Microsoft Partner |   Ruolo amministratore globale e agente amministratore nell'organizzazione partner CSP. Per altre informazioni, vedere [Centro per i partner - Assegnare autorizzazioni e ruoli utente](https://docs.microsoft.com/partner-center/permissions-overview).  L'utente deve eseguire l'accesso al tenant del partner per creare sottoscrizioni di Azure.   |
 
 ## <a name="create-a-subscription-in-the-azure-portal"></a>Per creare una sottoscrizione nel portale di Azure
 

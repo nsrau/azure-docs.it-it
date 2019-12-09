@@ -10,20 +10,21 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: wolfma
-ms.openlocfilehash: f0d9a4d2a86b13d5e2d37a900f27d2977f63de14
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e492381c4ab2f7ab41b5363ed70f9c5c6b12ce99
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505780"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818634"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, assicurarsi di:
+Prima di iniziare:
 
 > [!div class="checklist"]
 > * [Creare una risorsa Voce di Azure](../../../../get-started.md)
 > * [Configurare l'ambiente di sviluppo](../../../../quickstarts/setup-platform.md?tabs=android)
+> * Assicurarsi di avere accesso a un microfono per l'acquisizione audio
 
 ## <a name="create-a-user-interface"></a>Creare un'interfaccia utente
 
@@ -71,7 +72,7 @@ Il testo e la versione grafica dell'interfaccia utente dovrebbero essere simili 
 
    ![Screenshot della finestra di schermata Seleziona destinazione di distribuzione](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-12-deploy.png)
 
-Fare clic sul pulsante nell'applicazione per iniziare una sezione dedicata al riconoscimento vocale. I 15 secondi successivi di riconoscimento vocale in lingua inglese verranno inviati ai servizi Voce e trascritti. Il risultato viene visualizzato nell'applicazione Android e nella finestra di logcat in Android Studio.
+Fare clic sul pulsante nell'applicazione per iniziare una sezione dedicata al riconoscimento vocale. I 15 secondi successivi di riconoscimento vocale in lingua inglese verranno inviati al servizio di riconoscimento vocale e trascritti. Il risultato viene visualizzato nell'applicazione Android e nella finestra di logcat in Android Studio.
 
 ![Screenshot dell'applicazione Android](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-13-gui-on-device.png)
 

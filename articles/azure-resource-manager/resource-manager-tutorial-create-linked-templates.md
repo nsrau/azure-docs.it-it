@@ -2,15 +2,15 @@
 title: Creare modelli collegati
 description: Informazioni su come creare modelli di Azure Resource Manager collegati per la creazione di macchine virtuali
 author: mumian
-ms.date: 10/04/2019
+ms.date: 12/03/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 9764edb986b2ee847e3fcecda228f53551b462c3
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: e8964335d8c436cc590c36c3ea01fac02ed2280a
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325415"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815257"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Esercitazione: Creare modelli collegati di Azure Resource Manager
 
@@ -39,12 +39,13 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
-* Visual Studio Code con l'estensione di Strumenti di Resource Manager. Vedere [Usare Visual Studio Code per creare modelli di Azure Resource Manager](./resource-manager-tools-vs-code.md).
+* Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Usare Visual Studio Code per creare modelli di Azure Resource Manager](./resource-manager-tools-vs-code.md).
 * Per una maggiore sicurezza, usare una password generata per l'account amministratore della macchina virtuale. Di seguito è riportato un esempio della generazione di una password:
 
     ```azurecli-interactive
     openssl rand -base64 32
     ```
+
     Azure Key Vault è progettato per proteggere chiavi crittografiche e altri segreti. Per altre informazioni, vedere [Esercitazione: Integrare Azure Key Vault in Distribuzione modelli di Resource Manager](./resource-manager-tutorial-use-key-vault.md). È consigliabile anche aggiornare la password ogni tre mesi.
 
 ## <a name="open-a-quickstart-template"></a>Aprire un modello di avvio rapido
@@ -55,42 +56,46 @@ Modelli di avvio rapido di Azure è un repository di modelli di Resource Manager
 * **Il modello collegato**: creare l'account di archiviazione.
 
 1. In Visual Studio Code selezionare **File**>**Apri file**.
-2. In **Nome file** incollare l'URL seguente:
+1. In **Nome file** incollare l'URL seguente:
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
-3. Selezionare **Apri** per aprire il file.
-4. Sono presenti cinque risorse definite dal modello:
+
+1. Selezionare **Apri** per aprire il file.
+1. Sono presenti sei risorse definite dal modello:
 
    * [`Microsoft.Storage/storageAccounts`](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)
    * [`Microsoft.Network/publicIPAddresses`](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)
+   * [`Microsoft.Network/networkSecurityGroups`](https://docs.microsoft.com/azure/templates/microsoft.network/networksecuritygroups)
    * [`Microsoft.Network/virtualNetworks`](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)
    * [`Microsoft.Network/networkInterfaces`](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)
    * [`Microsoft.Compute/virtualMachines`](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)
 
      Prima di personalizzare il modello è utile acquisire una conoscenza di base del relativo schema.
-5. Selezionare **File**>**Salva con nome** per salvare una copia del file con il nome **azuredeploy.json** nel computer locale.
-6. Selezionare **File**>**Salva con nome** per creare un'altra copia del file con il nome **linkedTemplate.json**.
+1. Selezionare **File**>**Salva con nome** per salvare una copia del file con il nome **azuredeploy.json** nel computer locale.
+1. Selezionare **File**>**Salva con nome** per creare un'altra copia del file con il nome **linkedTemplate.json**.
 
 ## <a name="create-the-linked-template"></a>Creazione del modello collegato
 
 Il modello collegato crea un account di archiviazione. Il modello collegato può essere usato come un modello autonomo per creare un account di archiviazione. In questa esercitazione, il modello collegato accetta due parametri e passa quindi un valore al modello principale. Questo valore "restituito" viene definito nell'elemento `outputs`.
 
 1. Aprire **linkedTemplate.json** in Visual Studio Code, se il file non è aperto.
-2. Apportare le modifiche seguenti:
+1. Apportare le modifiche seguenti:
 
     * Rimuovere tutti i parametri tranne **location**.
     * Aggiungere un parametro denominato **storageAccountName**.
-        ```json
-        "storageAccountName":{
-          "type": "string",
-          "metadata": {
-              "description": "Azure Storage account name."
-          }
-        },
-        ```
-        Il nome e la località dell'account di archiviazione vengono passati dal modello principale al modello collegato come parametri.
+
+      ```json
+      "storageAccountName":{
+        "type": "string",
+        "metadata": {
+            "description": "Azure Storage account name."
+        }
+      },
+      ```
+
+      Il nome e la località dell'account di archiviazione vengono passati dal modello principale al modello collegato come parametri.
 
     * Rimuovere l'elemento **variables** e tutte le definizioni delle variabili.
     * Rimuovere tutte le risorse tranne l'account di archiviazione. Si rimuove un totale di quattro risorse.
@@ -110,6 +115,7 @@ Il modello collegato crea un account di archiviazione. Il modello collegato può
             }
         }
         ```
+
        **storageUri** è richiesto dalla definizione della risorsa della macchina virtuale nel modello principale.  Si ripassa il valore al modello principale come un valore di output.
 
         Al termine, il modello è simile a:
@@ -138,7 +144,7 @@ Il modello collegato crea un account di archiviazione. Il modello collegato può
               "type": "Microsoft.Storage/storageAccounts",
               "name": "[parameters('storageAccountName')]",
               "location": "[parameters('location')]",
-              "apiVersion": "2018-07-01",
+              "apiVersion": "2018-11-01",
               "sku": {
                 "name": "Standard_LRS"
               },
@@ -154,7 +160,8 @@ Il modello collegato crea un account di archiviazione. Il modello collegato può
           }
         }
         ```
-3. Salvare le modifiche.
+
+1. Salvare le modifiche.
 
 ## <a name="upload-the-linked-template"></a>Caricamento del modello collegato
 
@@ -208,9 +215,10 @@ $templateURI = New-AzStorageBlobSASToken `
     -ExpiryTime (Get-Date).AddHours(8.0) `
     -FullUri
 
-echo "You need the following values later in the tutorial:"
-echo "Resource Group Name: $resourceGroupName"
-echo "Linked template URI with SAS token: $templateURI"
+Write-Host "You need the following values later in the tutorial:"
+Write-Host "Resource Group Name: $resourceGroupName"
+Write-Host "Linked template URI with SAS token: $templateURI"
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 1. Selezionare il pulsante verde **Prova** per aprire il riquadro di Azure Cloud Shell.
@@ -226,22 +234,7 @@ In pratica, si genera un token di firma di accesso condiviso quando si distribui
 Il modello principale è denominato azuredeploy.json.
 
 1. Aprire **azuredeploy.json** in Visual Studio Code, se non è aperto.
-2. Eliminare la definizione della risorsa dell'account di archiviazione dal modello:
-
-    ```json
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageAccountName')]",
-      "location": "[parameters('location')]",
-      "apiVersion": "2018-07-01",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "properties": {}
-    },
-    ```
-3. Aggiungere il frammento json seguente alla posizione in cui è presente la definizione dell'account di archiviazione:
+1. Sostituire la definizione di risorsa dell'account di archiviazione con il frammento di codice JSON seguente:
 
     ```json
     {
@@ -251,7 +244,7 @@ Il modello principale è denominato azuredeploy.json.
       "properties": {
           "mode": "Incremental",
           "templateLink": {
-              "uri":"https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-linked-templates/linkedStorageAccount.json"
+              "uri":""
           },
           "parameters": {
               "storageAccountName":{"value": "[variables('storageAccountName')]"},
@@ -268,8 +261,8 @@ Il modello principale è denominato azuredeploy.json.
     * È possibile usare solo la modalità di distribuzione [Incrementale](./deployment-modes.md) quando si chiamano i modelli collegati.
     * `templateLink/uri` contiene l'URI del modello collegato. Aggiornare il valore all'URI che si ottiene quando si carica il modello collegato, ovvero quello con un token di firma di accesso condiviso.
     * Per passare i valori dal modello principale al modello collegato, usare `parameters`.
-4. Assicurarsi di aver aggiornato il valore dell'elemento `uri` con quell ottenuto dopo aver caricato il modello collegato, ovvero il valore con token di firma di accesso condiviso. In pratica, si desidera fornire l'URI con un parametro.
-5. Salvare il modello modificato
+1. Assicurarsi di aver aggiornato il valore dell'elemento `uri` con quell ottenuto dopo aver caricato il modello collegato, ovvero il valore con token di firma di accesso condiviso. In pratica, si desidera fornire l'URI con un parametro.
+1. Salvare il modello modificato
 
 ## <a name="configure-dependency"></a>Configurare le dipendenze
 
@@ -290,6 +283,7 @@ Poiché l'account di archiviazione viene ora definito nel modello collegato, è 
             }
     }
     ```
+
     Questo valore viene richiesto dal modello principale.
 
 1. Aprire azuredeploy.json in Visual Studio Code, se non è aperto.

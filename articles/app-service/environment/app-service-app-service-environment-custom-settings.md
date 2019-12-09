@@ -1,25 +1,18 @@
 ---
-title: Impostazioni personalizzate per gli ambienti del servizio app - Azure
-description: Impostazioni di configurazione personalizzate per gli ambienti del servizio app
-services: app-service
-documentationcenter: ''
+title: Configurare impostazioni personalizzate
+description: Configurare le impostazioni che si applicano all'intero ambiente di Servizio app di Azure. Informazioni su come eseguire questa operazione con modelli di Azure Resource Manager.
 author: stefsch
-manager: nirma
-editor: ''
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/16/2018
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 768e354281aeb5e2143ddb0e190b0f27bf4f4e24
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 36208b4662242b37c135eaffc745a819c11fa015
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470700"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687336"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Impostazioni di configurazione personalizzate per gli ambienti del servizio app
 ## <a name="overview"></a>Panoramica

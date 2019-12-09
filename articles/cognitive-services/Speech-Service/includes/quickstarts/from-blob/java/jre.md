@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: c5fa12621d689287db0d91885fc0a35edb772294
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d4a436540460240ebd97c39d3406b2886586a6df
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506060"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74828981"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -49,25 +49,25 @@ Aggiungere codice che funge da scheletro del progetto.
 
 ## <a name="json-wrappers"></a>Wrapper JSON
 
-Poiché le API REST accetta le richieste in formato JSON e restituisce i risultati in JSON, è possibile interagire con essi usando solo le stringhe, ma ciò non è consigliato.
+Poiché le API REST accettano le richieste in formato JSON e restituiscono i risultati in JSON, è possibile interagire usando solo stringhe, ma questa opzione non è consigliata.
 Per semplificare la gestione delle richieste e delle risposte, verranno dichiarate alcune classi da usare per la serializzazione/deserializzazione di JSON.
 
 Procedere e inserire le dichiarazioni prima di `Main`.
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=15-93)]
 
-## <a name="create-and-configure-an-http-client"></a>Creare e configurare il client Http
-Per prima cosa è necessario un client Http con un URL di base e un set di autenticazione corretti.
+## <a name="create-and-configure-an-http-client"></a>Creare e configurare il client HTTP
+Per prima cosa è necessario un client HTTP con un URL di base e un set di autenticazione corretti.
 Inserire questo codice in `Main` [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=106-113)]
 
 ## <a name="generate-a-transcription-request"></a>Generare una richiesta di trascrizione
 Successivamente, verrà generata la richiesta di trascrizione. Aggiungere questo codice a `Main` [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=115-116)]
 
 ## <a name="send-the-request-and-check-its-status"></a>Inviare la richiesta e controllarne lo stato
-A questo punto, viene inviata la richiesta al servizio Voce e si controlla il codice di risposta iniziale. Questo codice di risposta indicherà semplicemente se il servizio ha ricevuto la richiesta. Il servizio restituirà un URL nelle intestazioni della risposta che è il percorso in cui verrà memorizzato lo stato della trascrizione.
+A questo punto, viene inviata la richiesta al servizio Voce e si controlla il codice di risposta iniziale. Questo codice di risposta indicherà semplicemente se il servizio ha ricevuto la richiesta. Il servizio restituirà un URL nelle intestazioni della risposta, che è il percorso in cui verrà memorizzato lo stato della trascrizione.
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=118-129)]
 
 ## <a name="wait-for-the-transcription-to-complete"></a>Attendere il completamento della trascrizione
-Poiché il servizio elabora la trascrizione in modo asincrono, ogni tanto è necessario eseguire il polling dello stato. La verifica avverrà ogni 5 secondi.
+Poiché il servizio elabora la trascrizione in modo asincrono, ogni tanto è necessario eseguirne il polling dello stato. La verifica avverrà ogni 5 secondi.
 
 È possibile controllare lo stato recuperando il contenuto nell'URL ottenuto al momento della richiesta. Quando si ottiene il contenuto, questo viene deserializzato in una delle classi helper per renderne più facile l'interazione.
 

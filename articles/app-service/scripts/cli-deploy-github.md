@@ -1,27 +1,20 @@
 ---
-title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un'app con distribuzione da GitHub | Microsoft Docs
-description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un'app del servizio app con distribuzione da GitHub
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'Interfaccia della riga di comando: Distribuire un app da GitHub'
+description: Informazioni su come usare l'interfaccia della riga di comando di Azure per automatizzare la distribuzione e la gestione dell'app Servizio app. Questo esempio illustra come distribuire un'app da GitHub.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 0205c991-0989-4ca3-bb41-237dcc964460
-ms.service: app-service-web
-ms.workload: web
 ms.devlang: azurecli
-ms.tgt_pltfrm: sample
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 61cf31bcd82997a13ffae79df106485a86a9444d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dbb5c4f17b8bfecf0ada6405c789c5f9d7655a2d
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136834"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74686911"
 ---
 # <a name="create-an-app-service-app-with-deployment-from-github-using-azure-cli"></a>Creare un'app del servizio app con distribuzione da GitHub usando l'interfaccia della riga di comando di Azure
 

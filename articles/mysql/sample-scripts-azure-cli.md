@@ -1,5 +1,5 @@
 ---
-title: Esempi dell'interfaccia della riga di comando di Azure per il database di Azure per MySQL
+title: Esempi dell'interfaccia della riga di comando di Azure - Database di Azure per MySQL
 description: In questo articolo sono elencati esempi di codice dell'interfaccia della riga di comando di Azure disponibili per l'interazione con il database di Azure per MySQL.
 author: ajlam
 ms.author: andrela
@@ -7,13 +7,13 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 02/28/2018
-ms.openlocfilehash: c5ecaf5ba893cce38327d38236d593e06b31abb9
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.date: 12/02/2019
+ms.openlocfilehash: 18c52505ddf82cb29b13a9ee7621db5c3422eab6
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350939"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769762"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-mysql"></a>Esempi dell'interfaccia della riga di comando di Azure per il database di Azure per MySQL 
 La tabella seguente include collegamenti a esempi di script di interfaccia della riga di comando di Azure per il database di Azure per MySQL.

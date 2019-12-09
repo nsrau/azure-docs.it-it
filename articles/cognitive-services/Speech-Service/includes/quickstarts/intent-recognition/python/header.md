@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Eseguire il riconoscimento vocale, delle finalità e delle entità, Python - Servizio di riconoscimento vocale'
+title: 'Guida introduttiva: Riconoscere la voce, le finalità e le entità, Python - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Da definire
 services: cognitive-services
@@ -10,11 +10,11 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: a69d419cf80533629feaa7a9d1845ac328e894b0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f95a6c5166c77e99abdb6cba359387eebda85a7e
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506076"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816135"
 ---
-Se si preferisce iniziare subito, visualizzare o scaricare tutti gli <a href="https://aka.ms/speech/github-python">esempi di Python di Speech SDK</a> su GitHub. In caso contrario, ecco come procedere.
+Se si preferisce iniziare subito, visualizzare o scaricare tutti gli <a href="https://aka.ms/speech/github-python">esempi di Python di Speech SDK</a> in GitHub. In caso contrario, ecco come procedere.

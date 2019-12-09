@@ -1,6 +1,6 @@
 ---
-title: Effettuare il provisioning di dispositivi tra hub con carico bilanciato tramite il servizio Device Provisioning in hub IoT di Azure
-description: 'Esercitazione: Provisioning automatico dei dispositivi con il servizio Device Provisioning tra hub IoT con carico bilanciato nel portale di Azure'
+title: 'Esercitazione: Effettuare il provisioning di dispositivi tra hub con carico bilanciato tramite il servizio Device Provisioning in hub IoT di Azure'
+description: Questa esercitazione illustra come usare il servizio Device Provisioning per abilitare il provisioning automatico dei dispositivi tra hub IoT con carico bilanciato nel portale di Azure
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: fb3002e5f195bd3dca32a3500c6789f90e9ea0d6
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: cf1246862a455cfa71f3e170478736e5e07ee6f7
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229444"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701964"
 ---
 # <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>Esercitazione: Eseguire il provisioning dei dispositivi in più hub IoT con bilanciamento del carico
 

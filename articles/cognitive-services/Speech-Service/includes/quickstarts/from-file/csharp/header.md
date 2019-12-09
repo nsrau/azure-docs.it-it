@@ -10,11 +10,11 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 868fdfec4a6d96d9ec6a1b7d67a44536c06a3d26
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: bd015024f34eb3f908a1581bc9f3caf21a887493
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506332"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819261"
 ---
 Se si preferisce iniziare subito, visualizzare o scaricare tutti gli <a href="https://aka.ms/speech/github-csharp">esempi di C# di Speech SDK</a> su GitHub. In caso contrario, ecco come procedere.

@@ -10,21 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: d0d1cfee535a04203d9ff995b94fcad5d432ed3e
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: ecfdc74c72284da97ebf3107140911e666a3a12d
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960875"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818851"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, assicurarsi di:
+Prima di iniziare:
 
 > [!div class="checklist"]
 > * [Creare una risorsa Voce di Azure](../../../../get-started.md)
 > * [Configurare l'ambiente di sviluppo](../../../../quickstarts/setup-platform.md?tabs=xamarin)
 > * [Creare un progetto di esempio vuoto](../../../../quickstarts/create-project.md?tabs=xamarin)
+> * Assicurarsi di avere accesso a un microfono per l'acquisizione audio
 
 Se queste operazioni sono già state eseguite, procedere come segue.
 
@@ -135,7 +136,7 @@ Aggiungere ora il codice C# che definisce la parte specifica di UWP dell'applica
 
    ![Richiesta di autorizzazione di accesso al microfono](../../../../media/sdk/qs-csharp-xamarin-uwp-access-prompt.png)
 
-1. Selezionare **Avvia riconoscimento vocale**  e pronunciare una frase o espressione nel microfono del dispositivo. Il contenuto vocale viene trasmesso ai servizi Voce e trascritto come testo, che viene visualizzato nella finestra.
+1. Selezionare **Avvia riconoscimento vocale**  e pronunciare una frase o espressione nel microfono del dispositivo. Il riconoscimento vocale viene trasmesso al Servizio di riconoscimento vocale e trascritto in formato testo, che appare nella finestra.
 
    ![Interfaccia utente di riconoscimento vocale](../../../../media/sdk/qs-csharp-xamarin-uwp-ui-result.png)
 * * *

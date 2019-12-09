@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 40b226796b4dfb9aced3c6b00eba1a12bad66894
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9223fa484d45b927059c73e23e0607526e70fae4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506156"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74828822"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -36,7 +36,7 @@ Seguire questa procedura per l'installazione:
 
 1. Passare a https://editor.swagger.io.
 1. Fare clic su **File** e quindi su **Import URL** (URL di importazione).
-1. Immettere l'URL di Swagger che include l'area della sottoscrizione dei servizi Voce: `https://<your-region>.cris.ai/docs/v2.0/swagger`.
+1. Immettere l'URL di Swagger includendo l'area della sottoscrizione del servizio Voce: `https://<your-region>.cris.ai/docs/v2.0/swagger`.
 1. Fare clic su **Generate Client** (Genera client) e selezionare **Python**.
 1. Salvare la libreria client.
 1. Estrarre il file python-client-generated.zip scaricato in un punto qualsiasi del file system.
@@ -95,7 +95,7 @@ Si ottiene e si visualizza il risultato JSON.
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=95-98)]
 
 ## <a name="check-your-code"></a>Controllare il codice
-A questo punto, il codice dovrà avere questo aspetto: (In questa versione sono stati aggiunti alcuni commenti) [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=1-118)]
+A questo punto il codice dovrà avere questo aspetto: (in questa versione sono stati aggiunti alcuni commenti) [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=1-118)]
 
 ## <a name="build-and-run-your-app"></a>Compilare ed eseguire l'app
 

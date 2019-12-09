@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Progettare un'istanza di database di Azure per il server singolo PostgreSQL usando il portale di Azure"
+title: 'Esercitazione: Progettare un database di Azure per PostgreSQL - Server singolo - Portale di Azure'
 description: Questa esercitazione illustrata come progettare la prima istanza del database di Azure per server singolo PostgreSQL tramite il portale di Azure.
 author: rachel-msft
 ms.author: raagyema
@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 421d5cde46b466c0c13a52755abdf137e52f2f6b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 11276d532f0f978b127f48924e383b7aeb7f4ad5
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443090"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770102"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Esercitazione: Progettare un'istanza del database di Azure per server singolo PostgreSQL usando il portale di Azure
 
@@ -50,13 +50,13 @@ Seguire questa procedura per creare un database di Azure per il server PostgreSQ
 
     Impostazione|Valore consigliato|DESCRIZIONE
     ---|---|---
-    Sottoscrizione|Nome della sottoscrizione utente|Sottoscrizione di Azure da usare per il server. Se si hanno più sottoscrizioni, scegliere quella in cui viene fatturata la risorsa.
-    Gruppo di risorse|*myresourcegroup*| Nuovo nome di gruppo di risorse o uno esistente nella sottoscrizione.
+    Subscription|Nome della sottoscrizione utente|Sottoscrizione di Azure da usare per il server. Se si hanno più sottoscrizioni, scegliere quella in cui viene fatturata la risorsa.
+    Resource group|*myresourcegroup*| Nuovo nome di gruppo di risorse o uno esistente nella sottoscrizione.
     Nome server |*mydemoserver*|Nome univoco per identificare il database di Azure per il server PostgreSQL. Al nome del server specificato viene aggiunto il nome di dominio *postgres.database.azure.com*. Il server può contenere solo lettere minuscole, numeri e il segno meno (-). Deve contenere almeno da 3 a 63 caratteri.
     Origine dati | *Nessuno* | Selezionare *Nessuno* per creare un nuovo server da zero. Si selezionerebbe *Backup* se si stesse creando un server da un backup geografico di un server Database di Azure per PostgreSQL esistente.
     Nome utente amministratore |*myadmin*| Account di accesso da usare per la connessione al server. Il nome di accesso dell'amministratore non può essere **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **guest** o **public**. Non può iniziare con **pg_** .
     Password |Password| Nuova password per l'account amministratore del server. Deve contenere tra 8 e 128 caratteri. La password deve contenere caratteri di tre di queste categorie: lettere maiuscole, lettere minuscole, numeri (da 0 a 9) e caratteri non alfanumerici (!, $, #, % e così via).
-    Località|Area più vicina ai propri utenti| Località più vicina agli utenti.
+    Location|Area più vicina ai propri utenti| Località più vicina agli utenti.
     Versione|La versione principale più recente| La versione principale più recente di PostgreSQL, a meno che non si abbiano requisiti specifici diversi.
     Calcolo e archiviazione | **Utilizzo generico**, **Generazione 5**, **2 vCore**, **5 GB**, **7 giorni**, **Con ridondanza geografica** | Configurazioni di calcolo, archiviazione e backup per il nuovo server. Selezionare **Configura server**. Selezionare quindi la scheda **Utilizzo generico**. *Generazione 5*, *4 vCore*, *100 GB* e *7 giorni* sono i valori predefiniti per **Generazione di calcolo**, **vCore**, **Archiviazione** e **Periodo di conservazione backup**. È possibile lasciare questi dispositivi di scorrimento nella posizione in cui si trovano oppure regolarli. Per abilitare l'archiviazione con ridondanza geografica dei backup del server, selezionare **Con ridondanza geografica** in **Opzioni di ridondanza per il backup**. Per salvare la selezione del piano tariffario, selezionare **OK**. Lo screenshot successivo mostra queste selezioni.
 
@@ -128,7 +128,7 @@ Se nel computer client è installato PostgreSQL, è possibile usare un'istanza l
    ```
 
    > [!TIP]
-   > Se si preferisce usare un percorso URL per connettersi a Postgres, l'URL codifica il segno @ nel nome utente con `%40`. Ad esempio la stringa di connessione per psql sarà,
+   > Se si preferisce usare un percorso URL per connettersi a Postgres, l'URL codifica il segno @ nel nome utente con `%40`. Ad esempio la stringa di connessione per psql sarà
    > ```
    > psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.azure.com:5432/postgres
    > ```

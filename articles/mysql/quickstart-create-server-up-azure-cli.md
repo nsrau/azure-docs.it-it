@@ -1,21 +1,21 @@
 ---
-title: "Avvio rapido: Creare un'istanza di Database di Azure per MySQL con un semplice comando dell'interfaccia della riga di comando di Azure - az mysql up (anteprima)"
+title: 'Guida introduttiva: Creare un database di Azure per MySQL con az mysql up'
 description: Guida di avvio rapido per creare un server Database di Azure per MySQL con un comando dell'interfaccia della riga di comando di Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 3/18/2019
+ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: aa0d2a9e990faa8d99355744824f34e26aeb519e
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 4bb5c62a7df53548ff59a03c6ccc8fb28f1503d3
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58137913"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765684"
 ---
-# <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>Avvio rapido: Creare un'istanza di Database di Azure per MySQL con un semplice comando dell'interfaccia della riga di comando di Azure - az mysql up (anteprima)
+# <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>Guida introduttiva: Creare un'istanza di Database di Azure per MySQL con un semplice comando dell'interfaccia della riga di comando di Azure - az mysql up (anteprima)
 
 > [!IMPORTANT]
 > Il comando [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) dell'interfaccia della riga di comando di Azure è disponibile in anteprima.
@@ -73,7 +73,7 @@ admin-password | Generata dal sistema | Password dell'utente amministratore.
 > [!NOTE]
 > Per altre informazioni sul comando `az mysql up` e i relativi parametri aggiuntivi, vedere la [documentazione dell'interfaccia della riga di comando di Azure](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up).
 
-Dopo la creazione, il server presenta le impostazioni seguenti:
+Dopo la creazione del server, vengono applicate le impostazioni seguenti:
 
 - Viene creata una regola del firewall denominata "devbox". L'interfaccia della riga di comando di Azure prova a rilevare l'indirizzo IP del computer da cui viene eseguito il comando `az mysql up` e inserisce tale indirizzo IP nell'elenco elementi consentiti.
 - Viene attivata l'opzione "Consenti l'accesso a Servizi di Azure". Questa impostazione configura il firewall del server in modo da accettare connessioni da tutte le risorse di Azure, incluse le risorse non incluse nella sottoscrizione dell'utente.

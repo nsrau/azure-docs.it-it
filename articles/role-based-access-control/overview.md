@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 59708be1de53ab231ccb6dc89bd56c795734fccc
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 1b40f8e070606a4c21def592fb6104e42e25f9f6
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176811"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707928"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>Che cos'è il controllo degli accessi in base al ruolo per le risorse di Azure?
 
@@ -61,7 +61,7 @@ Un'*entità di sicurezza* è un oggetto che rappresenta un utente, un gruppo, un
 
 ### <a name="role-definition"></a>Definizione di ruolo
 
-Una *definizione di ruolo* è una raccolta di autorizzazioni, talvolta semplicemente chiamata *ruolo*. Una definizione di ruolo elenca le operazioni che è possibile eseguire, ad esempio lettura, scrittura ed eliminazione, I ruoli possono essere di livello superiore, ad esempio quello di proprietario, o specifici, ad esempio quello di lettore di macchina virtuale.
+Una *definizione di ruolo* è una raccolta di autorizzazioni, generalmente chiamata *ruolo*. Una definizione di ruolo elenca le operazioni che è possibile eseguire, ad esempio lettura, scrittura ed eliminazione, I ruoli possono essere di livello superiore, ad esempio quello di proprietario, o specifici, ad esempio quello di lettore di macchina virtuale.
 
 ![Definizione di ruolo per un'assegnazione di ruolo](./media/overview/rbac-role-definition.png)
 

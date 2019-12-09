@@ -1,24 +1,17 @@
 ---
-title: "Creare un'app multicontenitore nell'app Web per contenitori: servizio app di Azure"
-description: Informazioni su come usare più contenitori in Azure con Docker Compose, WordPress e MySQL.
+title: "Esercitazione: Creare un'app multicontenitore"
+description: Informazioni su come creare un'app multicontenitore in Servizio app di Azure che contiene un'app WordPress e un contenitore MySQL, nonché configurare l'app WordPress.
 keywords: servizio app di azure, app web, linux, docker, compose, multicontenitore, multi-contenitore, app web per contenitori, più contenitori, contenitore, wordpress, db azure per mysql, database di produzione con contenitori
-services: app-service
-documentationcenter: ''
 author: msangapu-msft
-manager: gwallace
-editor: ''
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/29/2019
 ms.author: msangapu
-ms.openlocfilehash: f4a366809bd5c6267ef76632e8990309f100c393
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 327b2aaadd77c00d847504ff16415813d2fcf89c
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554936"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687452"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Esercitazione: Creare un'app multi-contenitore (anteprima) in App Web per contenitori
 

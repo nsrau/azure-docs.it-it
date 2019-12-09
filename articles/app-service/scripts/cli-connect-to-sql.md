@@ -1,27 +1,20 @@
 ---
-title: Esempio di script dell'interfaccia della riga di comando di Azure - Connettere un'app a un database SQL | Microsoft Docs
-description: Esempio di script dell'interfaccia della riga di comando di Azure - Connettere un'app a un database SQL
-services: appservice
-documentationcenter: appservice
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: "Interfaccia della riga di comando: Connettere un'app a un database SQL"
+description: Informazioni su come usare l'interfaccia della riga di comando di Azure per automatizzare la distribuzione e la gestione dell'app Servizio app. Questo esempio illustra come connettere un'app a un database SQL.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 7c2efdd0-f553-4038-a77a-e953021b3f77
-ms.service: app-service
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: e23ef4a12182aaeb6db84615106ed4e8919938bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0634cff6060e47ea059508f5f14abcaa679b53f
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136768"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688462"
 ---
 # <a name="connect-an-app-service-app-to-a-sql-database-using-cli"></a>Connettere un'app del servizio app a un database SQL usando l'interfaccia della riga di comando
 

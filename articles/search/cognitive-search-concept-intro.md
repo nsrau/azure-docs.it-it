@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/04/2019
-ms.openlocfilehash: 5dc33de19ef71a0714052a6457bef9f32fc159c3
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 92fe564b849c728952dd549757be42b8b5131b25
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720155"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791024"
 ---
 # <a name="introduction-to-ai-in-azure-cognitive-search"></a>Introduzione all'intelligenza artificiale nella ricerca cognitiva di Azure
 
@@ -116,6 +116,8 @@ Gli indici vengono generati da uno schema dell'indice che definisce i campi, gli
 | Indexer |  Crawler che estrae dati e metadati che supportano la ricerca da un'origine dati esterna e popola un indice in base a mapping da campo a campo tra l'indice e l'origine dati per l'individuazione dei documenti. Per gli arricchimenti tramite intelligenza artificiale, l'indicizzatore richiama un set di competenze e contiene i mapping dei campi che associano gli output di arricchimento ai campi di destinazione nell'indice. La definizione dell'indicizzatore contiene tutte le istruzioni e i riferimenti per le operazioni della pipeline, che viene a sua volta richiamata quando si esegue l'indicizzatore. Con la configurazione aggiuntiva, è possibile riutilizzare l'elaborazione esistente ed eseguire solo le competenze e i passaggi cambiati. | Vedere [Indicizzatori](search-indexer-overview.md) e [Indicizzazione incrementale (anteprima)](cognitive-search-incremental-indexing-conceptual.md). |
 | origine dati  | Oggetto usato da un indicizzatore per la connessione a un'origine dati esterna di tipi supportati in Azure. | Vedere [Panoramica degli indicizzatori](search-indexer-overview.md) |
 | Indice | Indice di ricerca persistente in Ricerca cognitiva di Azure, compilato in base a uno schema dell'indice che definisce la struttura dei campi e l'utilizzo. | Vedere [Creare un indice di base](search-what-is-an-index.md) | 
+| Knowledge store | Account di archiviazione in cui è possibile modellare e proiettare i documenti arricchiti oltre all'indice di ricerca | Vedere [Introduzione all'archivio conoscenze](knowledge-store-concept-intro.md) | 
+| Cache dell'indicizzatore | Gli output delle competenze dell'account di archiviazione vengono memorizzati nella cache dall'indicizzatore. La cache consente all'indicizzatore di ridurre al minimo il costo di rielaborazione di un numero elevato di documenti quando viene modificato un set di competenze. | Vedere [Indicizzazione incrementale](cognitive-search-incremental-indexing-conceptual.md) | 
 
 <a name="where-do-i-start"></a>
 

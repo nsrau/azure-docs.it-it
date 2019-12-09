@@ -1,19 +1,18 @@
 ---
-title: Distribuire un'app Docker su Linux - Servizio app di Azure
-description: Come distribuire un'immagine Docker in Servizi app di Azure per Linux
-author: msangapu
+title: 'Guida introduttiva: Eseguire un contenitore Linux personalizzato'
+description: Introduzione all'uso dei contenitori Linux nel servizio app Azure distribuendo il primo contenitore personalizzato tramite Registri contenitori di Azure.
+author: msangapu-msft
 ms.author: msangapu
 ms.date: 08/28/2019
 ms.topic: quickstart
-ms.service: app-service
-ms.openlocfilehash: 2a7dc477b4cd0be0c50569d84e10cfe1d666eac9
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 14ea5444d3d8827919405a4d5aa8a176746c2e72
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70392700"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688955"
 ---
-# <a name="deploy-to-azure-using-docker"></a>Eseguire la distribuzione in Azure con Docker
+# <a name="deploy-a-custom-linux-container-to-azure-app-service"></a>Distribuire un contenitore Linux personalizzato nel servizio app di Azure
 
 Il servizio app in Linux fornisce stack di applicazioni predefiniti in Linux con il supporto per linguaggi quali .NET, PHP, Node.js e altri ancora. È anche possibile usare un'immagine Docker personalizzata per eseguire l'app Web in uno stack di applicazioni non ancora definito in Azure. Questo argomento di avvio rapido illustra come distribuire un'immagine da un [Registro Azure Container](/azure/container-registry) al servizio app.
 

@@ -1,26 +1,17 @@
 ---
-title: PHP (Laravel) con MySQL - Servizio app di Azure | Microsoft Docs
+title: 'Esercitazione: App PHP con MySQL'
 description: Informazioni su come ottenere un'app PHP che è possibile usare in Azure con connessione a un database MySQL in Azure. Laravel verrà usato nell'esercitazione.
-services: app-service\web
-documentationcenter: php
-author: cephalin
-manager: erikre
-editor: ''
 ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/25/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: bae64b2a7ce91aa9738f8d3dbdf55a15edf8957f
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: d827270c89160097f76a7fdb36f9a6f97525064b
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480949"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672000"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure"></a>Esercitazione: Creare un'app PHP e MySQL in Azure
 

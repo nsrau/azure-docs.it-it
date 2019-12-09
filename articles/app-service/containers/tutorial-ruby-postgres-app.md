@@ -1,23 +1,16 @@
 ---
-title: Ruby (Rails) con Postgres in Linux - Servizio app di Azure | Microsoft Docs
-description: Informazioni su come ottenere un'app Ruby da usare in Azure con connessione a un database PostgreSQL in Azure. Rails verrà usato nell'esercitazione.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-ms.service: app-service-web
-ms.workload: web
+title: 'Esercitazione: App Ruby Linux con Postgres'
+description: Informazioni su come usare un'app Ruby Linux in Servizio app di Azure, con connessione a un database PostgreSQL in Azure. Rails verrà usato nell'esercitazione.
 ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 03/27/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3ec19b1c564c09406ab1f29c38aef6332d80f8f1
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 6af9da060f7742fe2a9b9656199edd5feb67bec1
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544689"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687403"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Compilare un'app Ruby e Postgres nel servizio app di Azure in Linux
 
@@ -167,13 +160,13 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 
 ### <a name="connect-to-production-postgres-server-locally"></a>Connettersi al server Postgres di produzione in locale
 
-In Cloud Shell connettersi al server Postgres in Azure. Usare il valore specificato in precedenza per i segnaposto _&lt;postgres-server-name>_.
+In Cloud Shell connettersi al server Postgres in Azure. Usare il valore specificato in precedenza per i segnaposto _&lt;postgres-server-name>_ .
 
 ```bash
 psql -U adminuser@<postgres-server-name> -h <postgres-server-name>.postgres.database.azure.com postgres
 ```
 
-Quando viene richiesta una password, usare _My5up3r$tr0ngPa$w0rd!_, ossia la password specificata al momento della creazione del server di database.
+Quando viene richiesta una password, usare _My5up3r$tr0ngPa$w0rd!_ , ossia la password specificata al momento della creazione del server di database.
 
 ### <a name="create-a-production-database"></a>Creare un database di produzione
 
@@ -302,7 +295,7 @@ In questo passaggio si distribuisce l'applicazione Ruby on Rails connessa a Post
 
 Nel servizio app, le variabili di ambiente vengono configurate come _impostazioni dell'app_ usando il comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) in Cloud Shell.
 
-Il comando di Cloud Shell seguente configura le impostazioni dell'app `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` e `DB_PASSWORD`. Sostituire i segnaposto _&lt;appname>_ e _&lt;postgres-server-name>_.
+Il comando di Cloud Shell seguente configura le impostazioni dell'app `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` e `DB_PASSWORD`. Sostituire i segnaposto _&lt;appname>_ e _&lt;postgres-server-name>_ .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DB_HOST="<postgres-server-name>.postgres.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="railsappuser@<postgres-server-name>" DB_PASSWORD="MyPostgresAzure2017"

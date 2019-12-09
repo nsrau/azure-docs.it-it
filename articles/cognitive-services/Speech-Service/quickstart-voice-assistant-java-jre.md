@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Assistente vocale personalizzato per Java (Windows, Linux) - Servizio di riconoscimento vocale'
+title: 'Guida introduttiva: Assistente vocale personalizzato per Java (Windows, Linux) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Questa guida di avvio rapido spiega come usare Speech SDK di Servizi cognitivi in un'applicazione console Java. Viene spiegato come connettere l'applicazione client a un bot di Bot Framework creato in precedenza e configurato per l'uso del canale Direct Line Speech e abilitare un'esperienza di assistente vocale.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: bidishac
-ms.openlocfilehash: 54a5be769ace97ffa9a4f5f38a9227d9565abfd1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 29f6596408a825a571682d14aceca01fa8108515
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111703"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815848"
 ---
 # <a name="quickstart-create-a-voice-assistant-with-the-speech-sdk-java-preview"></a>Guida introduttiva: Creare un assistente vocale con Speech SDK, Java (anteprima)
 
@@ -30,7 +30,7 @@ Questa guida introduttiva richiede:
 - Sistema operativo: Windows (a 64 bit), Ubuntu Linux 16.04/18.04 (a 64 bit) o macOS 10.13 o versione successiva.
 - [Ambiente IDE Java Eclipse](https://www.eclipse.org/downloads/).
 - [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) o [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
-- Una chiave di sottoscrizione di Azure per i servizi Voce. [È possibile ottenerne una gratuitamente](get-started.md) o crearla nel [portale di Azure](https://portal.azure.com).
+- Una chiave di sottoscrizione di Azure per il servizio Voce. [È possibile ottenerne una gratuitamente](get-started.md) o crearla nel [portale di Azure](https://portal.azure.com).
 - Un bot preconfigurato creato con Bot Framework 4.2 o versione successiva. Per ricevere gli input vocali, il bot deve sottoscrivere il nuovo canale Direct Line Speech.
 
   > [!NOTE]
@@ -477,7 +477,7 @@ Esempi aggiuntivi, ad esempio per eseguire il riconoscimento vocale da un file a
 ## <a name="see-also"></a>Vedere anche
 
 - [Informazioni sugli assistenti vocali](voice-assistants.md)
-- [Ottieni gratuitamente una chiave di sottoscrizione per i servizi Voce](get-started.md)
+- [Ottenere gratuitamente una chiave di sottoscrizione per i servizi di riconoscimento vocale](get-started.md)
 - [Parole chiave personalizzate](speech-devices-sdk-create-kws.md)
 - [Collegare Direct Line Speech al bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 - [Esaminare gli esempi di codice Java su GitHub](https://aka.ms/csspeech/samples)

@@ -1,24 +1,15 @@
 ---
-title: 'Costruire un app ASP.NET con il contenitore di Windows (anteprima): servizio app di Azure | Microsoft Docs'
-description: Informazioni su come distribuire un contenitore Windows personalizzato nel servizio app di Azure e come distribuire un software personalizzato nel contenitore.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.topic: quickstart
+title: 'Esercitazione: App legacy con contenitore (anteprima)'
+description: Informazioni su come eseguire la migrazione di un contenitore Windows personalizzato in Servizio app di Azure e come distribuire un software personalizzato nel contenitore.
+ms.topic: tutorial
 ms.date: 10/22/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 6f9005b0e73e60bf479d0d3c059c301668f3b848
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 5fc65a4d3f9989ac462d7716b7652a1011281413
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787332"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671968"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Eseguire la migrazione di un'app ASP.NET in Servizio app di Azure usando un contenitore Windows (anteprima)
 

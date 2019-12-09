@@ -10,16 +10,16 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 6b55ce851bb12e37aed37039889aa8e69223a286
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b5d38ffeda3600fd90c4ee84acdd29ed599886ae
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467199"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707942"
 ---
 # <a name="what-is-personalizer"></a>Informazioni su Personalizza esperienze
 
-Personalizza esperienze di Azure è un servizio API basato sul cloud che consente di scegliere la migliore esperienza da mostrare agli utenti, apprendendo dal loro comportamento collettivo in tempo reale.
+Personalizza esperienze di Azure è un servizio API basato sul cloud che consente all'applicazione di scegliere la migliore esperienza da mostrare agli utenti, apprendendo dal loro comportamento collettivo in tempo reale.
 
 * È possibile fornire informazioni sui propri utenti e contenuti e ricevere l'azione principale da mostrare agli utenti. 
 * Non è necessario pulire ed etichettare i dati prima di usare Personalizza esperienze.
@@ -60,8 +60,8 @@ Personalizza esperienze non è un servizio per rendere permanenti e gestire le i
 
 Il servizio Personalizza esperienze è caratterizzato da due API:
 
-* Inviare informazioni (_funzionalità_) sugli utenti e sul contenuto (_azioni_) da personalizzare. Personalizza esperienze risponde con l'azione principale.
-* Inviare il feedback a Personalizza esperienze sul funzionamento della classificazione come [punteggio di ricompensa](concept-rewards.md). 
+* *Classificazione*: usare l'API Classificazione per determinare quale _azione_ visualizzare nel _contesto_ corrente. Le azioni vengono inviate come una matrice di oggetti JSON, con un ID e informazioni (_funzionalità_) su ognuno. Il contesto viene inviato come un altro oggetto JSON. L'API restituisce l'ID azione che l'applicazione deve mostrare all'utente.
+* *Riconoscimento*: dopo che l'utente interagisce con l'applicazione, è possibile misurare le prestazioni della personalizzazione con un numero compreso tra 0 e 1 e inviare questo valore come [punteggio di ricompensa](concept-rewards.md). 
 
 ![Sequenza di base di eventi per la personalizzazione](media/what-is-personalizer/personalization-intro.png)
 

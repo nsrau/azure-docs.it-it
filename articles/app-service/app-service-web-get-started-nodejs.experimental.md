@@ -1,25 +1,18 @@
 ---
-title: Creare un'app Web Node.js - Servizio app di Azure | Microsoft Docs
-description: Distribuire la prima app Node.js Hello World in un'app Web del servizio app di Azure in pochi minuti.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
+title: "Guida introduttiva: Creare un'app Web Node.js"
+description: Distribuire la prima app Node.js Hello World nel servizio app di Azure in pochi minuti. A questo scopo si usa un pacchetto ZIP, uno dei molti strumenti disponibili per eseguire distribuzioni nel servizio app.
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/23/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 7d81dae25b793144bfe044f8434a6df181dbcd1b
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+experimental: false
+experiment_id: a231f2b4-2625-4d
+ms.openlocfilehash: c02caf7c70dfe88bd3312742fce08137bc360a2e
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067395"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671414"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Creare un'app Web Node.js in Azure
 

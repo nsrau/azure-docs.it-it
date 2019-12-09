@@ -1,25 +1,19 @@
 ---
-title: "Esempio di script di Azure PowerShell: Ripristinare un'app Web da un backup | Microsoft Docs"
-description: "Esempio di script di Azure PowerShell: Ripristinare un'app Web da un backup"
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: "PowerShell: Ripristinare un backup dell'app"
+description: Informazioni su come usare Azure PowerShell per automatizzare la distribuzione e la gestione di Servizio app. Questo esempio illustra come ripristinare un'app da un backup.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: a2a27d94-d378-4c17-a6a9-ae1e69dc4a72
-ms.service: app-service-web
-ms.workload: web
 ms.topic: sample
 ms.date: 11/21/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 85cbcb4b01161e0004d38f08ae8c30fd398727ff
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 026c275ce4bc85ff3f964bfbb175cc01ff611df0
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087901"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74685761"
 ---
 # <a name="restore-a-web-app-from-a-backup-using-azure-powershell"></a>Ripristinare un'app Web da un backup con Azure PowerShell
 

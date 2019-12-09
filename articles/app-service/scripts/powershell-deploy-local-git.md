@@ -1,25 +1,17 @@
 ---
-title: Esempio di script di Azure PowerShell - Creare un'app e distribuirla dal repository GIT locale | Microsoft Docs
-description: Esempio di script di Azure PowerShell - Creare un'app Web e distribuire il codice da un repository Git locale
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
+title: 'PowerShell: Distribuire dal repository GIT locale'
+description: Informazioni su come usare Azure PowerShell per automatizzare la distribuzione e la gestione di Servizio app. Questo esempio illustra come distribuire il codice da un repository GIT locale.
 tags: azure-service-management
 ms.assetid: 5a927f23-8e70-45fd-9aae-980d4e7a007d
-ms.service: app-service-web
-ms.workload: web
 ms.topic: sample
 ms.date: 03/20/2017
-ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 670660c3618124339c6d6ab416aa9baa4d5ca2ca
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7355f2730cc54ca027e20c48e989e9f28dac7487
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098331"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684834"
 ---
 # <a name="create-a-web-app-and-deploy-code-from-a-local-git-repository"></a>Creare un'App Web e distribuire il codice da un archivio Git locale
 

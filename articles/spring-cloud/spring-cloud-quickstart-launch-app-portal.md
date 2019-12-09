@@ -1,17 +1,17 @@
 ---
-title: "Guida introduttiva: Avviare un'applicazione Azure Spring Cloud con il portale di Azure"
-description: Distribuire un'applicazione di esempio in Azure Spring Cloud tramite il portale di Azure.
+title: "Avvio rapido: Avviare un'applicazione Azure Spring Cloud con il portale di Azure"
+description: In questa guida di avvio rapido verrà distribuita un'applicazione di esempio in Azure Spring Cloud tramite il portale di Azure.
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/4/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 8a34dcd31ba15ed949fa0a50ec904da96a048a7d
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 891952000f633d7d873c6d76c475916acc8ac4ec
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560055"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708854"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>Guida introduttiva: Avviare un'applicazione Azure Spring Cloud con il portale di Azure
 
@@ -72,7 +72,11 @@ Per distribuire il servizio sono necessari circa 5 minuti.  Una volta completata
 
 1. Passare alla pagina **Panoramica** e selezionare **Config Server**.
 
-1. Nella sezione **Repository predefinito** impostare **URI** su "https\://github.com/Azure-Samples/piggymetrics", **LABEL** su "config" e selezionare **Applica** per salvare le modifiche.
+1. Nella sezione **Repository predefinito** impostare **URI** su "https\://github.com/Azure-Samples/piggymetrics".
+
+1. Impostare **ETICHETTA** su "config".
+
+1. Fare clic su **Applica** per salvare le modifiche.
 
     ![Screenshot del portale ASC](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
@@ -123,7 +127,7 @@ Per distribuire il servizio sono necessari circa 5 minuti.  Una volta completata
 
 1. Selezionare l'applicazione `gateway` per visualizzare la pagina **Panoramica**.
 
-1. Selezionare **Assign Domain** (Assegna dominio) per assegnare un endpoint pubblico al gateway. Questa operazione può richiedere alcuni minuti.
+1. Selezionare **Assign Domain** (Assegna dominio) per assegnare un endpoint pubblico al gateway. L'operazione potrebbe richiedere alcuni minuti.
 
     ![Screenshot del portale ASC](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
 

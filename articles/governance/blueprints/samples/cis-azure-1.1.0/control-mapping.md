@@ -1,14 +1,14 @@
 ---
 title: Controlli dell'esempio di progetto CIS Microsoft Azure Foundations Benchmark
 description: Mapping di raccomandazioni del progetto di esempio CIS Microsoft Azure Foundations Benchmark in Criteri di Azure.
-ms.date: 10/01/2019
+ms.date: 11/04/2019
 ms.topic: sample
-ms.openlocfilehash: 55abac9f7479f0ee7d1adddea64cb81a1c7cf2b5
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 34d38f34dcd4233706f9b4578bc2dc2a644e4c2c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74544537"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707418"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Mapping di raccomandazioni del progetto di esempio CIS Microsoft Azure Foundations Benchmark
 
@@ -40,6 +40,12 @@ Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/ov
 - Gli account esterni con autorizzazioni di proprietario devono essere rimossi dalla sottoscrizione
 - Gli account esterni con autorizzazioni di lettura devono essere rimossi dalla sottoscrizione
 - Gli account esterni con autorizzazioni di scrittura devono essere rimossi dalla sottoscrizione
+
+## <a name="123-ensure-that-no-custom-subscription-owner-roles-are-created"></a>1.23 Assicurarsi che non siano stati creati ruoli di proprietario della sottoscrizione personalizzati
+
+Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) che permette di monitorare i ruoli di proprietario della sottoscrizione personalizzati che devono essere rimossi.
+
+- Non devono esistere ruoli di proprietario della sottoscrizione personalizzati
 
 ## <a name="21-ensure-that-standard-pricing-tier-is-selected"></a>2.1 Assicurarsi che sia selezionato il piano tariffario Standard
 
@@ -243,11 +249,35 @@ Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/ov
 
 - Il criterio Imponi connessione SSL deve essere abilitato per i server di database MySQL
 
+## <a name="412-ensure-server-parameter-log_checkpoints-is-set-to-on-for-postgresql-database-server"></a>4.12 Assicurarsi che il parametro del server 'log_checkpoints' sia impostato su 'Sì' per il server di database PostgreSQL
+
+Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) per assicurarsi che i server di database PostgreSQL registrino i punti di controllo.
+
+- L'impostazione di registrazione dei punti di controllo deve essere abilitata per i server di database PostgreSQL
+
 ## <a name="413-ensure-enforce-ssl-connection-is-set-to-enabled-for-postgresql-database-server"></a>4.13 Assicurarsi che il criterio 'Imponi connessione SSL' sia abilitato per il server di database PostgreSQL
 
 Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) per assicurarsi che i server di database PostgreSQL impongano le connessioni SSL.
 
 - Il criterio Imponi connessione SSL deve essere abilitato per i server di database PostgreSQL
+
+## <a name="414-ensure-server-parameter-log_connections-is-set-to-on-for-postgresql-database-server"></a>4.14 Assicurarsi che il parametro del server 'log_connections' sia impostato su 'Sì' per il server di database PostgreSQL
+
+Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) per assicurarsi che i server di database PostgreSQL registrino le connessioni.
+
+- L'impostazione di registrazione delle connessioni deve essere abilitata per i server di database PostgreSQL
+
+## <a name="415-ensure-server-parameter-log_disconnections-is-set-to-on-for-postgresql-database-server"></a>4.15 Assicurarsi che il parametro del server 'log_disconnections' sia impostato su 'Sì' per il server di database PostgreSQL
+
+Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) per assicurarsi che i server di database PostgreSQL registrino le disconnessioni.
+
+- L'impostazione di registrazione delle disconnessioni deve essere abilitata per i server di database PostgreSQL.
+
+## <a name="416-ensure-server-parameter-log_duration-is-set-to-on-for-postgresql-database-server"></a>4.16 Assicurarsi che il parametro del server 'log_duration' sia impostato su 'Sì' per il server di database PostgreSQL
+
+Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) per assicurarsi che i server di database PostgreSQL registrino la durata delle istruzioni completate.
+
+- L'impostazione di registrazione della durata deve essere abilitata per i server di database PostgreSQL
 
 ## <a name="417-ensure-server-parameter-connection_throttling-is-set-to-on-for-postgresql-database-server"></a>4.17 Assicurarsi che il parametro del server 'connection_throttling' sia impostato su 'Sì' per il server di database PostgreSQL
 
@@ -350,6 +380,71 @@ Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/ov
 Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) che consente di garantire che le applicazioni Web siano accessibili solo tramite connessioni sicure.
 
 - L'applicazione Web deve essere accessibile solo tramite HTTPS
+
+## <a name="93-ensure-web-app-is-using-the-latest-version-of-tls-encryption"></a>9.3 Assicurarsi che l'app Web usi la versione più recente della crittografia TLS
+
+Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) per assicurarsi che le app Web usino la versione più recente di TLS.
+
+- Nell'app per le API è necessario usare la versione più recente di TLS
+- Nell'app per le funzioni è necessario usare la versione più recente di TLS
+- Nell'app Web è necessario usare la versione più recente di TLS
+
+## <a name="94-ensure-the-web-app-has-client-certificates-incoming-client-certificates-set-to-on"></a>9.4 Assicurarsi che l'opzione "Certificati client (certificati client in ingresso)" dell'app Web sia impostata su 'Sì'
+
+Questo progetto assegna le definizioni di [Criteri di Azure](../../../policy/overview.md) per assicurarsi che solo i client con certificati validi possano raggiungere un'app Web.
+
+- Assicurarsi che l'opzione "Certificati client (certificati client in ingresso)" dell'app per le API sia impostata su 'Sì'
+- Assicurarsi che l'opzione 'Certificati client (certificati client in ingresso)' dell'app per le funzioni sia impostata su 'Sì'
+- Assicurarsi che l'opzione "Certificati client (certificati client in ingresso)" dell'app Web sia impostata su 'Sì'
+
+## <a name="95-ensure-that-register-with-azure-active-directory-is-enabled-on-app-service"></a>9.5 Assicurarsi che l'opzione Registra con Azure Active Directory sia abilitata nel Servizio app
+
+Questo progetto assegna le definizioni di [Criteri di Azure](../../../policy/overview.md) per assicurarsi che le app Web usino un'identità gestita.
+
+- Assicurarsi che l'opzione Registra con Azure Active Directory sia abilitata nell'app per le API
+- Assicurarsi che l'opzione Registra con Azure Active Directory sia abilitata nell'app per le funzioni
+- Assicurarsi che l'opzione Registra con Azure Active Directory sia abilitata nell'app per le Web
+
+## <a name="96-ensure-that-net-framework-version-is-the-latest-if-used-as-a-part-of-the-web-app"></a>9.6 Assicurarsi che la versione di '.NET Framework' sia la più recente, se usata come parte dell'app Web
+
+Questo progetto assegna le definizioni di [Criteri di Azure](../../../policy/overview.md) per assicurarsi che le app Web usino la versione più recente di .NET Framework.
+
+- Assicurarsi che la versione di '.NET Framework' sia la più recente, se usata come parte dell'app per le API
+- Assicurarsi che la versione di '.NET Framework' sia la più recente, se usata come parte dell'app per le funzioni
+- Assicurarsi che la versione di '.NET Framework' sia la più recente, se usata come parte dell'app Web
+
+## <a name="97-ensure-that-php-version-is-the-latest-if-used-to-run-the-web-app"></a>9.7 Assicurarsi che la 'versione di PHP' sia la più recente, se usata per eseguire l'app Web
+
+Questo progetto assegna le definizioni di [Criteri di Azure](../../../policy/overview.md) per assicurarsi che le app Web usino la versione più recente di PHP.
+
+- Assicurarsi che la 'versione di PHP' sia la più recente, se usata come parte dell'app per le API
+- Assicurarsi che la 'versione di PHP' sia la più recente, se usata come parte dell'app per le funzioni
+- Assicurarsi che la 'versione di PHP' sia la più recente, se usata come parte dell'app Web
+
+## <a name="98-ensure-that-python-version-is-the-latest-if-used-to-run-the-web-app"></a>9.8 Assicurarsi che la 'versione di Python' sia la più recente, se usata per eseguire l'app Web
+
+Questo progetto assegna le definizioni di [Criteri di Azure](../../../policy/overview.md) per assicurarsi che le app Web usino la versione più recente di Python.
+
+- Assicurarsi che la 'versione di Python' sia la più recente, se usata come parte dell'app per le API
+- Assicurarsi che la 'versione di Python' sia la più recente, se usata come parte dell'app per le funzioni
+- Assicurarsi che la 'versione di Python' sia la più recente, se usata come parte dell'app Web
+
+## <a name="99-ensure-that-java-version-is-the-latest-if-used-to-run-the-web-app"></a>9.9 Assicurarsi che la 'versione di Java' sia la più recente, se usata per eseguire l'app Web
+
+Questo progetto assegna le definizioni di [Criteri di Azure](../../../policy/overview.md) per assicurarsi che le app Web usino la versione più recente di Java.
+
+- Assicurarsi che la 'versione di Java' sia la più recente, se usata come parte dell'app per le API
+- Assicurarsi che la 'versione di Java' sia la più recente, se usata come parte dell'app per le funzioni
+- Assicurarsi che la 'versione di Java' sia la più recente, se usata come parte dell'app Web
+
+## <a name="910-ensure-that-http-version-is-the-latest-if-used-to-run-the-web-app"></a>9.10 Assicurarsi che la 'versione di HTTP' sia la più recente, se usata per eseguire l'app Web
+
+Questo progetto assegna le definizioni di [Criteri di Azure](../../../policy/overview.md) per assicurarsi che le app Web usino la versione più recente di HTTP.
+
+- Assicurarsi che la 'versione di HTTP' sia la più recente, se usata per eseguire l'app per le API
+- Assicurarsi che la 'versione di HTTP' sia la più recente, se usata per eseguire l'app per le funzioni
+- Assicurarsi che la 'versione di HTTP' sia la più recente, se usata per eseguire l'app Web
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

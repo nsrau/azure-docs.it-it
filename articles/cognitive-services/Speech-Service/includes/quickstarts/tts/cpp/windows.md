@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Sintesi vocale, C++ (Windows) - Servizio Voce'
+title: 'Guida introduttiva: Eseguire la sintesi vocale, C++ (Windows) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come seguire la sintesi vocale in C++ su Windows Desktop con Speech SDK
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 08/24/2019
 ms.author: yinhew
-ms.openlocfilehash: c0666dccbb7f110e122c4632995299a414bf690a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 35c8eb640e3c8c9e33486d5126f83dd40b5b96e0
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505412"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818390"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -46,7 +46,7 @@ Prima di iniziare, assicurarsi di:
 
 1. Scegliere **Debug** > **Avvia debug** o premere **F5** per avviare l'applicazione **helloworld**.
 
-1. Digitare una frase o un'espressione in inglese. L'applicazione trasmette il testo ai servizi Voce, che inviano la sintesi vocale all'applicazione per la riproduzione con l'altoparlante.
+1. Digitare una frase o un'espressione in inglese. L'applicazione trasmette il testo al servizio Voce, che invia la sintesi vocale all'applicazione per la riproduzione con l'altoparlante.
 
    ![Output della console dopo la sintesi vocale](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-cpp-windows-console-output.png)
 

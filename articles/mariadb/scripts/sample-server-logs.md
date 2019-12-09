@@ -1,19 +1,19 @@
 ---
-title: Script dell'interfaccia della riga di comando di Azure - Scaricare i log del server in Database di Azure per MariaDB
-description: Questo script di esempio dell'interfaccia della riga di comando di Azure mostra come abilitare e scaricare i log del server di un server Database di Azure per MariaDB.
+title: Script dell'interfaccia della riga di comando - Scaricare i log query lente - Database di Azure per MariaDB
+description: Questo script dell'interfaccia della riga di comando di Azure di esempio mostra come abilitare e scaricare i log query lente di un server di database di Azure per MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 11/28/2018
-ms.openlocfilehash: da2a8ed610873d957866117a9ef7aab424edd452
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 12/02/2019
+ms.openlocfilehash: a6d4ed70418f39b24a68362d5006f3f374693cb6
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66171334"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74777349"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-mariadb-server-using-azure-cli"></a>Abilitare e scaricare i log di query lente del server di un server Database di Azure per MariaDB tramite l'interfaccia della riga di comando di Azure
 Questo script di esempio dell'interfaccia della riga di comando consente di abilitare e scaricare i log di query lente di un singolo server Database di Azure per MariaDB.

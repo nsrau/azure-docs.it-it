@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 91b136b7986dc3551ebc28b7e35bfe206b273497
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8a5652f6cb8b42200e24221921868b084bd6e62f
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506444"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819235"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -26,6 +26,8 @@ Prima di iniziare, assicurarsi di:
 > * [Creare un'applicazione LUIS e ottenere una chiave dell'endpoint](../../../../quickstarts/create-luis.md)
 > * [Configurare l'ambiente di sviluppo](../../../../quickstarts/setup-platform.md)
 > * [Creare un progetto di esempio vuoto](../../../../quickstarts/create-project.md)
+
+[!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
 ## <a name="support-and-updates"></a>Supporto e aggiornamenti
 
@@ -48,6 +50,9 @@ python quickstart.py
 In alternativa è possibile scaricare questa esercitazione della guida introduttiva come notebook [Jupyter](https://jupyter.org) dal [repository degli esempi di Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) ed eseguirla come notebook.
 
 ### <a name="sample-code"></a>Codice di esempio
+
+> [!NOTE]
+> Per impostazione predefinita, Speech SDK riconoscerà l'uso di en-us per la lingua. Per informazioni sulla scelta della lingua di origine, vedere [Specificare la lingua di origine per il riconoscimento vocale](../../../../how-to-specify-source-language.md).
 
 ````Python
 
@@ -108,7 +113,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
    ![Creare un file](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-newfile.png)
 
 1. Copiare, incollare e salvare il [codice Python](#sample-code) nel file appena creato.
-1. Inserire le informazioni sulla sottoscrizione dei servizi Voce.
+1. Inserire le informazioni sulla sottoscrizione del servizio Voce.
 1. Se selezionato, un interprete Python verrà visualizzato sul lato sinistro della barra di stato nella parte inferiore della finestra.
    In caso contrario, visualizzare un elenco di interpreti Python disponibili. Usare il riquadro comandi (CTRL+MAIUSC+P) e immettere **Python: Select Interpreter** (Python: Seleziona interprete). Sceglierne uno appropriato.
 1. È possibile installare il pacchetto Speech SDK per Python da Visual Studio Code. È possibile farlo se non è stato ancora installato per l'interprete Python selezionato.

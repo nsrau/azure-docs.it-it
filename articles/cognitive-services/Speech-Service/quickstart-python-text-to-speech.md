@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: a66835d605b9005b8f94eb79a3c266f735f0a3b6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 23f3a6b030b477d3dcc06317a545064da95100ff
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467207"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816205"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>Avvio rapido: Eseguire la sintesi vocale con Python
 
 In questo avvio rapido si apprenderà come eseguire la sintesi vocale di testo usando Python e l'API REST Sintesi vocale. In questo articolo il corpo della richiesta è strutturato nel formato [SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md), che consente di scegliere la voce e la lingua della risposta.
 
-Per questo avvio rapido è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa dei servizi Voce. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](get-started.md) per ottenere una chiave di sottoscrizione.
+Per questo argomento di avvio rapido, è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa del servizio Voce. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](get-started.md) per ottenere una chiave di sottoscrizione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -29,7 +29,7 @@ Questa guida introduttiva richiede:
 
 * Python 2.7.x o 3.x
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) o l'editor di testo preferito
-* Una chiave di sottoscrizione di Azure per i servizi Voce
+* Una chiave di sottoscrizione di Azure per il servizio Voce
 
 ## <a name="create-a-project-and-import-required-modules"></a>Creare un progetto e importare i moduli necessari
 
@@ -73,9 +73,9 @@ class TextToSpeech(object):
 
 ## <a name="get-an-access-token"></a>Ottenere un token di accesso
 
-L'API REST Sintesi vocale necessita di un token di accesso per l'autenticazione. Per ottenere un token di accesso, è necessario uno scambio. In questo esempio viene scambiata la chiave di sottoscrizione dei servizi Voce con un token di accesso usando l'endpoint `issueToken`.
+L'API REST Sintesi vocale necessita di un token di accesso per l'autenticazione. Per ottenere un token di accesso, è necessario uno scambio. In questo esempio la chiave di sottoscrizione del servizio Voce viene scambiata con un token di accesso usando l'endpoint `issueToken`.
 
-L'esempio presuppone che la sottoscrizione dei servizi Voce sia nell'area Stati Uniti occidentali. Se si usa un'area diversa, aggiornare il valore per `fetch_token_url`. Per un elenco completo, vedere [Aree](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+L'esempio presuppone che la sottoscrizione del servizio Voce si trovi nell'area Stati Uniti occidentali. Se si usa un'area diversa, aggiornare il valore per `fetch_token_url`. Per un elenco completo, vedere [Aree](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 Copiare questo codice nella classe `TextToSpeech`:
 
@@ -94,7 +94,7 @@ def get_token(self):
 
 ## <a name="make-a-request-and-save-the-response"></a>Eseguire una richiesta e salvare la risposta
 
-In questa sezione si creerà la richiesta e si salverà la risposta di sintesi vocale. In primo luogo, è necessario impostare `base_url` e `path`. Questo esempio presuppone che si usi l'endpoint Stati Uniti occidentali. Se la risorsa è registrata in un'area diversa, assicurarsi di aggiornare il valore di `base_url`. Per altre informazioni, vedere [Aree dei servizi Voce](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+In questa sezione si creerà la richiesta e si salverà la risposta di sintesi vocale. In primo luogo, è necessario impostare `base_url` e `path`. Questo esempio presuppone che si usi l'endpoint Stati Uniti occidentali. Se la risorsa è registrata in un'area diversa, assicurarsi di aggiornare il valore di `base_url`. Per altre informazioni, vedere [Aree del servizio Voce](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
 È quindi necessario aggiungere le intestazioni obbligatorie per la richiesta. Assicurarsi di aggiornare `User-Agent` con il nome della risorsa, che si trova nel portale di Azure, e impostare `X-Microsoft-OutputFormat` sul formato di output audio preferito. Per un elenco completo dei formati di output, vedere [Output audio](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 

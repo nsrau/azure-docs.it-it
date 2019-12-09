@@ -1,5 +1,5 @@
 ---
-title: Script dell'interfaccia della riga di comando di Azure - Scaricare i log del server in Database di Azure per MySQL
+title: Script dell'interfaccia della riga di comando - Scaricare i log query lente - Database di Azure per MySQL
 description: Questo script di esempio dell'interfaccia della riga di comando di Azure mostra come abilitare e scaricare i log del server di un database di Azure per il server MySQL.
 author: ajlam
 ms.author: andrela
@@ -7,13 +7,13 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 02/28/2018
-ms.openlocfilehash: 7cb28d22dbd1fb7fcefbc16d01f55f4785a5932d
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 12/02/2019
+ms.openlocfilehash: a574d7c36ce1d701504ea1d202eeafca542ad946
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544501"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74771257"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-mysql-server-using-azure-cli"></a>Abilitare e scaricare i log di query lente del server di un database di Azure per il server MySQL tramite l'interfaccia della riga di comando di Azure
 Questo script di esempio dell'interfaccia della riga di comando consente di abilitare e scaricare i log di query lente di un database singolo di Azure per il server MySQL.

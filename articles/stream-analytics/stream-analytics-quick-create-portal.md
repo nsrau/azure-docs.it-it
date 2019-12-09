@@ -1,5 +1,5 @@
 ---
-title: Creare un processo di Analisi di flusso di Azure tramite il portale di Azure | Microsoft Docs
+title: 'Avvio rapido: Creare un processo di Analisi di flusso di Azure tramite il portale di Azure'
 description: Questa guida introduttiva descrive come iniziare a creare un processo di Analisi di flusso, configurare gli input e gli output e definire una query.
 services: stream-analytics
 author: mamccrea
@@ -8,12 +8,12 @@ ms.date: 06/21/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: e05d293760b88cd02fdffae60e762f040a4d1311
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 65114f2ddb7567b47ac3951fbaf6664654e379f0
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449240"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707379"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Guida introduttiva: Creare un processo di Analisi di flusso tramite il portale di Azure
 
@@ -37,8 +37,8 @@ Prima di definire il processo di Analisi di flusso, è necessario preparare i da
    
    |**Impostazione**  |**Valore consigliato**  |**Descrizione**  |
    |---------|---------|---------|
-   |Sottoscrizione  | \<Sottoscrizione in uso\> |  Selezionare la sottoscrizione di Azure da usare. |
-   |Gruppo di risorse   |   asaquickstart-resourcegroup  |   Selezionare **Crea nuovo** e immettere il nome di un nuovo gruppo di risorse per l'account. |
+   |Subscription  | \<Sottoscrizione in uso\> |  Selezionare la sottoscrizione di Azure da usare. |
+   |Resource group   |   asaquickstart-resourcegroup  |   Selezionare **Crea nuovo** e immettere il nome di un nuovo gruppo di risorse per l'account. |
    |Region  |  \<Selezionare l'area più vicina agli utenti\> | Selezionare la posizione geografica in cui è possibile ospitare l'hub IoT. Usare la località più vicina agli utenti. |
    |Nome hub IoT  | MyASAIoTHub  |   Scegliere un nome per l'hub IoT.   |
 
@@ -89,9 +89,9 @@ Prima di definire il processo di Analisi di flusso, è necessario preparare i da
    |**Impostazione**  |**Valore consigliato**  |**Descrizione**  |
    |---------|---------|---------|
    |Nome processo   |  MyASAJob   |   Immettere un nome per identificare il processo di Analisi di flusso. Il nome del processo di Analisi di flusso può contenere solo caratteri alfanumerici, trattini e caratteri di sottolineatura e deve avere una lunghezza compresa tra 3 e 63 caratteri. |
-   |Sottoscrizione  | \<Sottoscrizione in uso\> |  Selezionare la sottoscrizione di Azure che si vuole usare per il processo. |
-   |Gruppo di risorse   |   asaquickstart-resourcegroup  |   Selezionare lo stesso gruppo di risorse dell'hub IoT. |
-   |Località  |  \<Selezionare l'area più vicina agli utenti\> | Selezionare la posizione geografica in cui è possibile ospitare il processo di Analisi di flusso. Usare la località più vicina agli utenti per ottenere prestazioni migliori e ridurre i costi di trasferimento dati. |
+   |Subscription  | \<Sottoscrizione in uso\> |  Selezionare la sottoscrizione di Azure che si vuole usare per il processo. |
+   |Resource group   |   asaquickstart-resourcegroup  |   Selezionare lo stesso gruppo di risorse dell'hub IoT. |
+   |Location  |  \<Selezionare l'area più vicina agli utenti\> | Selezionare la posizione geografica in cui è possibile ospitare il processo di Analisi di flusso. Usare la località più vicina agli utenti per ottenere prestazioni migliori e ridurre i costi di trasferimento dati. |
    |Unità di streaming  | 1  |   Le unità di streaming rappresentano le risorse di calcolo necessarie per eseguire un processo. Il valore predefinito di questa impostazione è 1. Per informazioni sul ridimensionamento delle unità di streaming, vedere l'articolo [Informazioni sulle unità di streaming](stream-analytics-streaming-unit-consumption.md).   |
    |Ambiente di hosting  |  Cloud  |   Per la distribuzione dei processi di Analisi di flusso è possibile scegliere tra Cloud o Edge. L'opzione Cloud consente di eseguire la distribuzione nel cloud di Azure, mentre l'opzione Edge consente di eseguire la distribuzione in un dispositivo IoT Edge. |
 
@@ -114,7 +114,7 @@ In questa sezione si configurerà l'input del dispositivo hub IoT per il process
    |**Impostazione**  |**Valore consigliato**  |**Descrizione**  |
    |---------|---------|---------|
    |Alias di input  |  IoTHubInput   |  Immettere un nome per identificare l'input del processo.   |
-   |Sottoscrizione   |  \<Sottoscrizione in uso\> |  Selezionare la sottoscrizione di Azure che include l'account di archiviazione creato. L'account di archiviazione può essere incluso nella stessa sottoscrizione o in una diversa. Questo esempio presuppone che l'account di archiviazione sia stato creato all'interno della stessa sottoscrizione. |
+   |Subscription   |  \<Sottoscrizione in uso\> |  Selezionare la sottoscrizione di Azure che include l'account di archiviazione creato. L'account di archiviazione può essere incluso nella stessa sottoscrizione o in una diversa. Questo esempio presuppone che l'account di archiviazione sia stato creato all'interno della stessa sottoscrizione. |
    |Hub IoT  |  MyASAIoTHub |  Immettere il nome dell'hub IoT creato nella sezione precedente. |
 
 4. Lasciare le altre opzioni impostate sui valori predefiniti e selezionare **Salva** per salvare le impostazioni.  
@@ -132,7 +132,7 @@ In questa sezione si configurerà l'input del dispositivo hub IoT per il process
    |**Impostazione**  |**Valore consigliato**  |**Descrizione**  |
    |---------|---------|---------|
    |Alias di output |   BlobOutput   |   Immettere un nome per identificare l'output del processo. |
-   |Sottoscrizione  |  \<Sottoscrizione in uso\>  |  Selezionare la sottoscrizione di Azure che include l'account di archiviazione creato. L'account di archiviazione può essere incluso nella stessa sottoscrizione o in una diversa. Questo esempio presuppone che l'account di archiviazione sia stato creato all'interno della stessa sottoscrizione. |
+   |Subscription  |  \<Sottoscrizione in uso\>  |  Selezionare la sottoscrizione di Azure che include l'account di archiviazione creato. L'account di archiviazione può essere incluso nella stessa sottoscrizione o in una diversa. Questo esempio presuppone che l'account di archiviazione sia stato creato all'interno della stessa sottoscrizione. |
    |Account di archiviazione |  asaquickstartstorage |   Scegliere o immettere il nome dell'account di archiviazione. I nomi degli account di archiviazione vengono rilevati automaticamente se sono stati creati nella stessa sottoscrizione.       |
    |Contenitore |   container1  |  Selezionare il contenitore esistente creato nell'account di archiviazione.   |
 
@@ -193,4 +193,3 @@ Per informazioni sulla configurazione di altre origini di input e sull'esecuzion
 
 > [!div class="nextstepaction"]
 > [Rilevamento delle frodi in tempo reale tramite Analisi di flusso di Azure](stream-analytics-real-time-fraud-detection.md)
-

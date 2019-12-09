@@ -1,25 +1,16 @@
 ---
-title: Creare un'app PHP in Linux - Servizio app di Azure | Microsoft Docs
-description: Distribuire in pochi minuti la prima app Hello World PHP in un'app Web del Servizio app in Linux.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
+title: "Guida introduttiva: Creare un'app PHP in Linux"
+description: Introduzione all'uso delle app Linux nel servizio app di Azure distribuendo la prima app PHP in un contenitore Linux nel servizio app.
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 03/27/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 414d34065b78db0f76683752b93d5ed89ebcdf75
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: feab990f1d9b0e26ff134a7232a358fd2bca7cc2
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071190"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687553"
 ---
 # <a name="create-a-php-app-in-app-service-on-linux"></a>Creare un'app PHP nel servizio app in Linux
 

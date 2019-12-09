@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 598168285ee67921ab17ab8c2ce780753c562f81
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 6ecce4dc97272f03a3151708cd9c047212c36e03
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072349"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707193"
 ---
 # <a name="monitor-published-apis"></a>Monitorare le API pubblicate
 
@@ -183,10 +183,10 @@ Attualmente Gestione API offre log di diagnostica (in batch orari) sulle singole
 | Proprietà  | Type | DESCRIZIONE |
 | ------------- | ------------- | ------------- |
 | isRequestSuccess | boolean | True se la richiesta HTTP è stata completata con codice di stato risposta compreso nell'intervallo 2xx o 3xx |
-| time | datetime | Timestamp di ricezione della richiesta HTTP dal gateway |
+| time | datetime | Timestamp relativo all'avvio dell'elaborazione della richiesta nel gateway |
 | operationName | stringa | Valore costante 'Microsoft.ApiManagement/GatewayLogs' |
 | category | stringa | Valore costante 'GatewayLogs' |
-| durationMs | numero intero | Numero di millisecondi dal momento in cui il gateway ha ricevuto la richiesta al momento dell'invio della risposta completa |
+| durationMs | numero intero | Numero di millisecondi dal momento in cui il gateway ha ricevuto la richiesta al momento dell'invio della risposta completa. Include clienTime, cacheTime e backendTime. |
 | callerIpAddress | stringa | Indirizzo IP del chiamante gateway immediato (può essere un intermediario) |
 | correlationId | stringa | Identificatore richiesta http univoco assegnato da Gestione API |
 | location | stringa | Nome dell'area di Azure in cui si trovava il gateway che ha elaborato la richiesta |
@@ -214,7 +214,7 @@ Attualmente Gestione API offre log di diagnostica (in batch orari) sulle singole
 | apimSubscriptionId | stringa | Identificatore dell'entità sottoscrizione per la richiesta corrente | 
 | backendId | stringa | Identificatore dell'entità back-end per la richiesta corrente | 
 | lastError | object | Errore di elaborazione dell'ultima richiesta | 
-| elapsed | numero intero | Numero di millisecondi trascorsi da quando il gateway ha ricevuto la richiesta fino al momento in cui si è verificato l'errore | 
+| elapsed | numero intero | Numero di millisecondi trascorsi tra la ricezione della richiesta nel gateway e il momento in cui si è verificato l'errore | 
 | source | stringa | Nome del criterio o del gestore interno di elaborazione che ha causato l'errore | 
 | scope | stringa | Ambito del documento dei criteri contenente il criterio che ha causato l'errore | 
 | section | stringa | Sezione del documento dei criteri contenente il criterio che ha causato l'errore | 

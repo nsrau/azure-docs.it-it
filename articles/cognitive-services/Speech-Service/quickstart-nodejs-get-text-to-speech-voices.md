@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 1044519110d8b0ae7b5a50860c8116d73b6b70bc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bd063102a4c0cbdc4b62df027e643b117b412278
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559375"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74812865"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-nodejs"></a>Guida introduttiva: Ottenere l'elenco delle voci per la sintesi vocale usando Node.js
 
 In questa guida di avvio rapido si apprenderà come ottenere l'elenco completo delle voci standard e neurali per un'area o un endpoint usando Node.js. L'elenco viene restituito in formato JSON e la disponibilità delle voci varia in base all'area. Per un elenco delle aree supportate, vedere [Aree](regions.md).
 
-Per questo avvio rapido è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa dei servizi Voce. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](get-started.md) per ottenere una chiave di sottoscrizione.
+Per questo argomento di avvio rapido, è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa del servizio Voce. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](get-started.md) per ottenere una chiave di sottoscrizione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -29,7 +29,7 @@ Questa guida introduttiva richiede:
 
 * [Node 8.12.x o versione successiva](https://nodejs.org/en/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) o l'editor di testo preferito
-* Una chiave di sottoscrizione di Azure per i servizi Voce. [È possibile ottenerne una gratuitamente](get-started.md).
+* Una chiave di sottoscrizione di Azure per il servizio Voce. [È possibile ottenerne una gratuitamente](get-started.md).
 
 ## <a name="create-a-project-and-require-dependencies"></a>Creare un progetto e richiedere le dipendenze
 
@@ -48,9 +48,9 @@ const fs = require('fs');
 
 ## <a name="get-an-access-token"></a>Ottenere un token di accesso
 
-L'API REST Sintesi vocale necessita di un token di accesso per l'autenticazione. Per ottenere un token di accesso, è necessario uno scambio. Questa funzione scambia la chiave di sottoscrizione dei servizi di riconoscimento vocale con un token di accesso usando l'endpoint `issueToken`.
+L'API REST Sintesi vocale necessita di un token di accesso per l'autenticazione. Per ottenere un token di accesso, è necessario uno scambio. Questa funzione scambia la chiave di sottoscrizione del servizio Voce con un token di accesso usando l'endpoint `issueToken`.
 
-L'esempio presuppone che la sottoscrizione dei servizi Voce sia nell'area Stati Uniti occidentali. Se si usa un'area diversa, aggiornare il valore per `uri`. Per un elenco completo, vedere [Aree](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+L'esempio presuppone che la sottoscrizione del servizio Voce si trovi nell'area Stati Uniti occidentali. Se si usa un'area diversa, aggiornare il valore per `uri`. Per un elenco completo, vedere [Aree](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 Copiare questo codice nel progetto:
 
@@ -75,7 +75,7 @@ Nella prossima sezione si creerà la funzione per ottenere l'elenco di voci e sa
 
 ## <a name="make-a-request-and-save-the-response"></a>Eseguire una richiesta e salvare la risposta
 
-In questa sezione si creerà la richiesta e si salverà l'elenco delle voci restituite. Questo esempio presuppone che si usi l'endpoint Stati Uniti occidentali. Se la risorsa è registrata in un'area diversa, assicurarsi di aggiornare il valore di `uri`. Per altre informazioni, vedere [Aree dei servizi Voce](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+In questa sezione si creerà la richiesta e si salverà l'elenco delle voci restituite. Questo esempio presuppone che si usi l'endpoint Stati Uniti occidentali. Se la risorsa è registrata in un'area diversa, assicurarsi di aggiornare il valore di `uri`. Per altre informazioni, vedere [Aree del servizio Voce](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
 Successivamente, aggiungere le intestazioni obbligatorie per la richiesta. Si creerà infine una richiesta da inviare al servizio. Se la richiesta ha esito positivo e viene restituito il codice di stato 200, la risposta viene scritta su file.
 

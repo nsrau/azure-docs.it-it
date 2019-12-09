@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 77ab519ae966ab6b3dfc9fd309ce9a5740a5ce0f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 96062057a139e4ab2c91792b5c451e093f7f4c96
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505892"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74829071"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -92,15 +92,15 @@ Una volta caricati, i risultati possono essere stampati sulla console.
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=107-120)]
 
 ## <a name="check-your-code"></a>Controllare il codice
-A questo punto, il codice dovrà avere questo aspetto: (In questa versione sono stati aggiunti alcuni commenti) [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=6-277)]
+A questo punto il codice dovrà avere questo aspetto: (in questa versione sono stati aggiunti alcuni commenti) [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=6-277)]
 
 ## <a name="build-and-run-your-app"></a>Compilare ed eseguire l'app
 
 A questo punto è possibile compilare l'app e testare il riconoscimento vocale con il servizio Voce.
 
-1. **Compilare il codice**: sulla barra dei menu di Visual Studio scegliere **Compila** > **Compila soluzione**.
-2. **Avviare l'app**: sulla barra dei menu scegliere **Debug** > **Avvia debug** o premere **F5**.
-3. **Avviare il riconoscimento**: verrà richiesto di pronunciare una frase in inglese. La voce viene inviata al servizio Voce, trascritta come testo e visualizzata sulla console.
+1. **Compilare il codice**: dalla barra dei menu di Visual Studio scegliere **Compila** > **Compila soluzione**.
+2. **Avviare l'app**: dalla barra dei menu scegliere **Debug** > **Avvia debug** o premere **F5**.
+3. **Avviare il riconoscimento**: verrà richiesto di pronunciare una frase in inglese. La voce viene inviata al servizio Voce, trascritta come testo e visualizzata nella console.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

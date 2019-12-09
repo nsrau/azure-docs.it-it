@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 599f59df1a18dfe77d66c497c52a05d7d2e3b6d6
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c7e63008e6c54d517c0d4c0e1661a9836f9f38c3
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280390"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816061"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -46,6 +46,7 @@ Aggiungere codice che funga da scheletro del progetto. Si noti che è stato crea
 Prima di poter inizializzare un oggetto `IntentRecognizer`, è necessario creare una configurazione che usi la chiave e l'area dell'endpoint LUIS. Inserire questo codice nel metodo `RecognizeIntentAsync()`.
 
 Questo esempio usa il metodo `FromSubscription()` per creare `SpeechConfig`. Per un elenco completo dei metodi disponibili, vedere [Classe SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
+Per impostazione predefinita, Speech SDK riconoscerà l'uso di en-us per la lingua. Per informazioni sulla scelta della lingua di origine, vedere [Specificare la lingua di origine per il riconoscimento vocale](../../../../how-to-specify-source-language.md).
 
 > [!NOTE]
 > È importante usare la chiave dell'endpoint LUIS e non le chiavi di avvio o di creazione perché per il riconoscimento finalità voce è valida solo la chiave dell'endpoint. Per istruzioni su come ottenere la chiave corretta, vedere [Creare un'applicazione LUIS e ottenere una chiave dell'endpoint](~/articles/cognitive-services/Speech-Service/quickstarts/create-luis.md).

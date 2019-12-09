@@ -8,12 +8,12 @@ ms.topic: tutorial
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 1dc7005ac0d1cb520e4c0452196a2b47665f9b5c
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 5888547939759984effb10aa2c7c6b2add135d12
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325837"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708383"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-java-with-azure-dev-spaces"></a>Creare uno spazio di sviluppo Kubernetes: Visual Studio Code e Java con Azure Dev Spaces
 
@@ -43,9 +43,10 @@ az login
 È possibile visualizzare le sottoscrizioni eseguendo: 
 
 ```cmd
-az account list
+az account list --output table
 ```
-Individuare la sottoscrizione con `isDefault: true` nell'output JSON.
+
+Individuare la sottoscrizione in cui il valore di *IsDefault* è *True*.
 Se non si tratta della sottoscrizione che si vuole usare, è possibile modificare la sottoscrizione predefinita:
 
 ```cmd

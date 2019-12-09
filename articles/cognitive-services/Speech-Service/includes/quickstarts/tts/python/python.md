@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Sintesi vocale, Python - Servizio Voce'
+title: 'Guida introduttiva: Eseguire la sintesi vocale, Python - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Informazioni sulla sintesi vocale in Python con Speech SDK
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 09/14/2019
 ms.author: yulili
-ms.openlocfilehash: 36e48a5d513daa951c1e92017ba9a2322b009703
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 990e795d0331df41ff098ed498508d6ecfd58f0e
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505452"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818477"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -69,7 +69,7 @@ In alternativa è possibile scaricare questa esercitazione della guida introdutt
    ![Creare un file](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-newfile.png)
 
 1. Copiare, incollare e salvare il [codice Python](#sample-code) nel file appena creato.
-1. Inserire le informazioni sulla sottoscrizione dei servizi Voce.
+1. Inserire le informazioni sulla sottoscrizione del servizio Voce.
 1. Se selezionato, un interprete Python verrà visualizzato sul lato sinistro della barra di stato nella parte inferiore della finestra.
    In caso contrario, visualizzare un elenco di interpreti Python disponibili. Usare il riquadro comandi (CTRL+MAIUSC+P) e immettere **Python: Select Interpreter** (Python: Seleziona interprete). Sceglierne uno appropriato.
 1. È possibile installare il pacchetto Speech SDK per Python da Visual Studio Code. È possibile farlo se non è stato ancora installato per l'interprete Python selezionato.

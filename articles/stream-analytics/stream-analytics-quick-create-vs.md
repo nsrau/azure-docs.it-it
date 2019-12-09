@@ -1,5 +1,5 @@
 ---
-title: Creare un processo di Analisi di flusso di Azure con Visual Studio
+title: 'Avvio rapido: Creare un processo di Analisi di flusso di Azure con Visual Studio'
 description: Questa guida introduttiva descrive come iniziare a creare un processo di Analisi di flusso, configurare gli input e gli output e definire una query con Visual Studio.
 services: stream-analytics
 author: mamccrea
@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.openlocfilehash: 834447d15336fcd6d56f2979113aaef7e22ecb8f
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: ec3318201fd3fe8f7daf78d05bf316fb88914daf
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934303"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707342"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-by-using-visual-studio"></a>Guida introduttiva: Creare un processo di Analisi di flusso di Azure con Visual Studio Code
 

@@ -1,17 +1,17 @@
 ---
-title: Configurare l'istanza del server di configurazione in Azure Spring Cloud | Microsoft Docs
+title: "Esercitazione: Configurare l'istanza del server di configurazione in Azure Spring Cloud"
 description: Questa esercitazione illustra come configurare un'istanza del server di configurazione Spring Cloud per Azure Spring Cloud nel portale di Azure
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.author: jeconnoc
 author: jpconnock
 ms.date: 10/18/2019
-ms.openlocfilehash: 7589a3a750e2fe04736bb3c8fc072c7a2c0a7358
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 186ba771d2df3b08244a05e349beea8dad2af93b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74147546"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708791"
 ---
 # <a name="tutorial-set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Esercitazione: Configurare un'istanza del server di configurazione Spring Cloud per il servizio
 

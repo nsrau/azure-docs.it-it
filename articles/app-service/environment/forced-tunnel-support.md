@@ -1,24 +1,18 @@
 ---
-title: Configurare l'ambiente del servizio app per il tunneling forzato - Azure
-description: Abilitare l'ambiente del servizio app per i casi in cui il traffico in uscita è sottoposto a tunneling forzato
-services: app-service
-documentationcenter: na
+title: È possibile configurare il tunneling forzato?
+description: Informazioni su come abilitare l'ambiente del servizio app per i casi in cui il traffico in uscita è sottoposto a tunneling forzato nella rete virtuale.
 author: ccompy
-manager: stefsch
 ms.assetid: 384cf393-5c63-4ffb-9eb2-bfd990bc7af1
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e80c0e4e57f8af067c17d0dcfefd26ce7ce8255f
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: e0164ac3903c63632c97c4a089066cf6ad23b31b
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069458"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687184"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configurare Ambiente del servizio app con il tunneling forzato
 

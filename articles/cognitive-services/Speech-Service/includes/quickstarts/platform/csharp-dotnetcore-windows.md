@@ -1,7 +1,7 @@
 ---
 title: 'Guida introduttiva: Configurazione della piattaforma per C# in .NET Core con Speech SDK - Servizio Voce'
 titleSuffix: Azure Cognitive Services
-description: Usare questa guida per configurare la piattaforma per C# in .NET Core in Windows o macOS con i servizi Speech SDK.
+description: Usare questa guida per configurare la piattaforma per C# in .NET Core in Windows o macOS con il servizio Speech SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.openlocfilehash: ff18fb372d5feb96369d5d51d386520665302c78
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6bcbf56fd3248098e012d0c56700432ab7594440
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504412"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816353"
 ---
 Questa guida spiega come installare [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) per C# .NET Core.
 

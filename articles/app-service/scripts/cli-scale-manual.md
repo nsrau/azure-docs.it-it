@@ -1,27 +1,20 @@
 ---
-title: Esempio di script dell'interfaccia della riga di comando di Azure - Ridimensionare un'app manualmente usando l'interfaccia della riga di comando di Azure | Microsoft Docs
-description: Esempio di script dell'interfaccia della riga di comando di Azure - Ridimensionare un servizio app manualmente usando l'interfaccia della riga di comando di Azure
-services: appservice
-documentationcenter: appservice
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: "Interfaccia della riga di comando: Ridimensionare un'app manualmente"
+description: Informazioni su come usare l'interfaccia della riga di comando di Azure per automatizzare la distribuzione e la gestione dell'app Servizio app. Questo esempio illustra come ridimensionare un'app manualmente.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 251d9074-8fff-4121-ad16-9eca9556ac96
-ms.service: app-service
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 5a15a16b05adedf9f7c8738ae26174120a86efd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c05eed7485d0915140bdc95ebeb466fa1efc077d
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136650"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74685862"
 ---
 # <a name="scale-an-app-service-app-manually-using-azure-cli"></a>Ridimensionare un'app del servizio app manualmente usando l'interfaccia della riga di comando di Azure
 

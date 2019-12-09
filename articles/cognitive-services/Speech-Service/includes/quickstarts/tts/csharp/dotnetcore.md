@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 6/24/2019
 ms.author: yinhew
-ms.openlocfilehash: 670d32a93df9e2a0363163079b50c7306f81975e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6e732237b22bec6e2a66d44f12ac25e5f9adca3f
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504884"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818180"
 ---
 > [!NOTE]
 > .NET core è una multipiattaforma open source, multipiattaforma di .NET che implementa la specifica [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard).
@@ -50,7 +50,7 @@ Prima di iniziare, assicurarsi di:
 
     ![Screenshot dell'applicazione Visual Studio con l'opzione Avvia debug evidenziata](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Avviare l'app nel debug")
 
-1. Viene visualizzata una finestra della console che chiede di digitare un testo. Digitare alcune parole o una frase. Il testo digitato viene trasmesso ai servizi Voce e sintetizzato in voce, che viene riprodotta dall'altoparlante.
+1. Viene visualizzata una finestra della console che chiede di digitare un testo. Digitare alcune parole o una frase. Il testo digitato viene trasmesso al servizio Voce e sintetizzato in voce, che viene riprodotta dall'altoparlante.
 
     ![Screenshot dell'output della console dopo la sintesi riuscita](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-csharp-dotnet-windows-console-output.png "Output della console dopo la sintesi riuscita")
 

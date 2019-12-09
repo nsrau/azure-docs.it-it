@@ -1,18 +1,18 @@
 ---
-title: "Esercitazione: Progettare un'istanza di Database di Azure per MySQL con il portale di Azure"
+title: 'Esercitazione: Progettare un server - Portale di Azure - Database di Azure per MySQL'
 description: Questa esercitazione illustra come creare e gestire il database e il server di Database di Azure per MySQL con il portale di Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: tutorial
-ms.date: 03/20/2018
+ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: d9c6a16dd7e6c32a71d496abe8a67e23cc075a6d
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: ee33af4992745aeaeb99551cc173c39e224a298b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515816"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74771157"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Esercitazione: Progettare un database di Database di Azure per MySQL con il portale di Azure
 Il database di Azure per MySQL è un servizio gestito che consente di eseguire, gestire e scalare dei database MySQL a disponibilità elevata nel cloud. Tramite il portale di Azure, è possibile gestire facilmente il server e progettare un database.
@@ -47,13 +47,13 @@ Verrà creato un database di Azure per MySQL con un set definito di [risorse di 
     **Impostazione** | **Valore consigliato** | **Descrizione campo** 
     ---|---|---
     Nome server | Nome server univoco | Scegliere un nome univoco per identificare il database di Azure per il server MySQL. Ad esempio, mydemoserver. Al nome del server specificato viene aggiunto il nome di dominio *mysql.database.azure.com*. Il nome del server può contenere solo lettere minuscole, numeri e il segno meno (-) e deve avere una lunghezza compresa tra 3 e 63 caratteri.
-    Sottoscrizione | Sottoscrizione in uso | Selezionare la sottoscrizione di Azure da usare per il server. Se si hanno più sottoscrizioni, scegliere quella in cui viene fatturata la risorsa.
-    Gruppo di risorse | *myresourcegroup* | Specificare il nome di un gruppo di risorse nuovo o esistente.
+    Subscription | Sottoscrizione in uso | Selezionare la sottoscrizione di Azure da usare per il server. Se si hanno più sottoscrizioni, scegliere quella in cui viene fatturata la risorsa.
+    Resource group | *myresourcegroup* | Specificare il nome di un gruppo di risorse nuovo o esistente.
     Selezionare l'origine | *Vuoto* | Selezionare *Vuoto* per creare un nuovo server da zero. Selezionare *Backup* se si sta creando un server da un backup geografico di un server Database di Azure per MySQL esistente.
     Accesso amministratore server | myadmin | Account di accesso da usare per la connessione al server. Il nome di accesso dell'amministratore non può essere **azure_superuser**, **admin**, **administrator**, **root**, **guest** o **public**.
     Password | *A scelta dell'utente* | Specificare una nuova password per l'account dell'amministratore del server. Deve avere una lunghezza compresa tra 8 e 128 caratteri. La password deve contenere caratteri di tre delle categorie seguenti: lettere maiuscole, lettere minuscole, numeri (0-9) e caratteri non alfanumerici (!, $, #, % e così via).
     Conferma password | *A scelta dell'utente*| Confermare la password dell'account amministratore.
-    Località | *Area più vicina ai propri utenti*| Scegliere la località più vicina agli utenti o alle altre applicazioni Azure.
+    Location | *Area più vicina ai propri utenti*| Scegliere la località più vicina agli utenti o alle altre applicazioni Azure.
     Versione | *Ultima versione*| Ultima versione, a meno che non si abbiano requisiti specifici per cui deve esserne usata un'altra.
     Piano tariffario | **Utilizzo generico**, **Generazione 5**, **2 vCore**, **5 GB**, **7 giorni**, **Con ridondanza geografica** | Configurazioni di calcolo, archiviazione e backup per il nuovo server. Selezionare **Piano tariffario**. Selezionare quindi la scheda **Utilizzo generico**. *Generazione 5*, *2 vCore*, *5 GB* e *7 giorni* sono i valori predefiniti per **Generazione di calcolo**, **vCore**, **Archiviazione** e **Periodo di conservazione backup**. È possibile lasciare questi dispositivi di scorrimento nella posizione in cui si trovano. Per abilitare l'archiviazione con ridondanza geografica dei backup del server, selezionare **Con ridondanza geografica** in **Opzioni di ridondanza per il backup**. Per salvare la selezione del piano tariffario, selezionare **OK**. Lo screenshot successivo mostra queste selezioni.
     

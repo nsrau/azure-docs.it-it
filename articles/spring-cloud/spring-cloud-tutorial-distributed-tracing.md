@@ -1,17 +1,17 @@
 ---
-title: 'Esercitazione: Usare Traccia distribuita con Azure Spring Cloud | Microsoft Docs'
-description: Informazioni su come usare Traccia distribuita di Spring Cloud tramite Azure Application Insights
+title: 'Esercitazione: Usare Traccia distribuita con Azure Spring Cloud'
+description: Questa esercitazione mostra come usare Traccia distribuita di Spring Cloud tramite Azure Application Insights
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 10/06/2019
 ms.author: jeconnoc
-ms.openlocfilehash: a9d2100103cdd5858d0d58cf6ef77a6ccac3745f
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 9c049ecbea3c630e0f7d08e4a42bd441ba3f5cfa
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607557"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708768"
 ---
 # <a name="tutorial-using-distributed-tracing-with-azure-spring-cloud"></a>Esercitazione: Uso di Traccia distribuita con Azure Spring Cloud
 

@@ -6,15 +6,15 @@ author: mgoedtel
 ms.service: automation
 ms.subservice: update-management
 ms.topic: tutorial
-ms.date: 11/20/2019
+ms.date: 12/03/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 65ce4234da3f44de11522a626d2c0d10524e4673
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 44372f32227bbfef46a72afa6f9b0bd88b29905b
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278776"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806559"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gestire gli aggiornamenti e le patch per le macchine virtuali di Azure
 
@@ -127,6 +127,10 @@ Per personalizzare l'oggetto del messaggio di posta elettronica di avviso, in **
 ## <a name="schedule-an-update-deployment"></a>Pianificare la distribuzione degli aggiornamenti
 
 Pianificare quindi una distribuzione che rispetti la pianificazione dei rilasci e l'intervallo di servizio per installare gli aggiornamenti. È possibile scegliere i tipi di aggiornamento da includere nella distribuzione. È possibile ad esempio includere gli aggiornamenti critici o della sicurezza ed escludere gli aggiornamenti cumulativi.
+
+>[!NOTE]
+>Quando si pianifica una distribuzione degli aggiornamenti, viene creata una risorsa di tipo [pianificazione](shared-resources/schedules.md) collegata al runbook **Patch-MicrosoftOMSComputers** che gestisce la distribuzione degli aggiornamenti nei computer di destinazione. Se si elimina la risorsa di tipo pianificazione dal portale di Azure o si usa PowerShell dopo aver creato la distribuzione, la distribuzione degli aggiornamenti pianificati viene interrotta e viene visualizzato un errore quando si prova a riconfigurarla dal portale. È possibile eliminare la risorsa di tipo pianificazione solo eliminando la pianificazione di distribuzione corrispondente.  
+>
 
 Per pianificare una nuova distribuzione di aggiornamenti per la macchina virtuale, passare a **Gestione aggiornamenti** e quindi selezionare **Pianifica la distribuzione di aggiornamenti**.
 

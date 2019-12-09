@@ -1,5 +1,5 @@
 ---
-title: Creare e gestire un processo di Analisi di flusso usando il portale di Azure
+title: 'Esercitazione: Creare e gestire un processo di Analisi di flusso usando il portale di Azure'
 description: Questa esercitazione offre una dimostrazione completa relativa all'uso di Analisi di flusso di Azure per analizzare le chiamate fraudolente in un flusso di telefonate.
 services: stream-analytics
 author: mamccrea
@@ -9,14 +9,14 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
-ms.openlocfilehash: 128859a00402c3381edfa65918a7135c9fd775de
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: cca9f25fae9646b4207db7aa98f4c334457fc426
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72925283"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707392"
 ---
-# <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Analizzare i dati delle telefonate con Analisi di flusso di Azure e visualizzare i risultati in una dashboard Power BI
+# <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Esercitazione: Analizzare i dati delle telefonate con Analisi di flusso di Azure e visualizzare i risultati in una dashboard Power BI
 
 Questa esercitazione spiega come analizzare i dati delle telefonate con Analisi di flusso di Azure. I dati delle telefonate, generati da un'applicazione client, contengono alcune chiamate fraudolente che verranno filtrate dal processo di Analisi di flusso.
 
