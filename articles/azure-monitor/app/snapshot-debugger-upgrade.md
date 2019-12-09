@@ -1,6 +1,6 @@
 ---
-title: Applicazione Azure Insights Snapshot Debugger aggiornamento per le app .NET | Microsoft Docs
-description: Come aggiornare Snapshot Debugger alla versione più recente nei servizi app Azure o tramite pacchetti NuGet
+title: Aggiornamento di applicazione Azure Insights Snapshot Debugger
+description: Come aggiornare Snapshot Debugger per le app .NET alla versione più recente nei servizi app Azure o tramite pacchetti NuGet
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
@@ -8,12 +8,12 @@ author: pharring
 ms.author: pharring
 ms.date: 03/28/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 51642dde3de16f2bed3ca247e573237effb30917
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: d246fb36cc56a90faaf00c5b47ba69580a9c8a5d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73935938"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927184"
 ---
 # <a name="upgrading-the-snapshot-debugger"></a>Aggiornamento del Snapshot Debugger
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: mlearned
-ms.openlocfilehash: e24d930ec82ea92a040efeed3056a10917ce2b2a
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: ded3fc97c4cdf041fdf50d7b4aa9a9b2fbdf1c84
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263916"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74913496"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entità servizio con il servizio Azure Kubernetes
 
@@ -43,7 +43,7 @@ az aks create --name myAKSCluster --resource-group myResourceGroup
 Per creare manualmente un'entità servizio con l'interfaccia della riga di comando di Azure, usare il comando [AZ ad SP create-for-RBAC][az-ad-sp-create] . Nell'esempio seguente il parametro `--skip-assignment` impedisce il completamento di qualsiasi assegnazione predefinita aggiuntiva:
 
 ```azurecli-interactive
-az ad sp create-for-rbac --skip-assignment
+az ad sp create-for-rbac --skip-assignment --name myAKSClusterServicePrincipal
 ```
 
 L'output è simile all'esempio seguente: Prendere nota dei propri valori `appId` e `password`. Questi valori serviranno per creare il cluster servizio Azure Kubernetes nella sezione successiva.
@@ -51,8 +51,8 @@ L'output è simile all'esempio seguente: Prendere nota dei propri valori `appId`
 ```json
 {
   "appId": "559513bd-0c19-4c1a-87cd-851a26afd5fc",
-  "displayName": "azure-cli-2019-03-04-21-35-28",
-  "name": "http://azure-cli-2019-03-04-21-35-28",
+  "displayName": "myAKSClusterServicePrincipal",
+  "name": "http://myAKSClusterServicePrincipal",
   "password": "e763725a-5eee-40e8-a466-dc88d980f415",
   "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db48"
 }
@@ -60,7 +60,7 @@ L'output è simile all'esempio seguente: Prendere nota dei propri valori `appId`
 
 ## <a name="specify-a-service-principal-for-an-aks-cluster"></a>Specificare un'entità servizio per un cluster servizio Azure Kubernetes
 
-Per usare un'entità servizio esistente quando si crea un cluster AKS usando il comando [AZ AKS create][az-aks-create] , usare i parametri `--service-principal` e `--client-secret` per specificare le `appId` e `password` dall'output del comando [AZ ad SP create-for-RBAC][az-ad-sp-create] :
+Per usare un'entità servizio esistente quando si crea un cluster AKS usando il comando [AZ AKS create][az-aks-create] , usare i parametri `--service-principal` e `--client-secret` per specificare i `appId` e `password` dall'output del comando [AZ ad SP create-for-RBAC][az-ad-sp-create] :
 
 ```azurecli-interactive
 az aks create \
@@ -93,7 +93,7 @@ Le sezioni seguenti illustrano le deleghe comuni che potrebbe essere necessario 
 
 ### <a name="azure-container-registry"></a>Registro Azure Container
 
-Se si usa Azure Container Registry (ACR) come archivio immagini del contenitore, è necessario concedere le autorizzazioni all'entità servizio per il cluster AKS per leggere ed eseguire il pull delle immagini. Attualmente, la configurazione consigliata consiste nell'usare il comando [AZ AKS create][az-aks-create] o [AZ AKS Update] [AZ-AKS-Update] per l'integrazione con un registro e l'assegnazione del ruolo appropriato per l'entità servizio. Per i passaggi dettagliati, vedere [eseguire l'autenticazione con container Registry di Azure dal servizio Azure Kubernetes][aks-to-acr].
+Se si usa Azure Container Registry (ACR) come archivio immagini del contenitore, è necessario concedere le autorizzazioni all'entità servizio per il cluster AKS per leggere ed eseguire il pull delle immagini. Attualmente, la configurazione consigliata prevede l'uso del comando [AZ AKS create][az-aks-create] o [AZ AKS Update][az-aks-update] per l'integrazione con un registro e l'assegnazione del ruolo appropriato per l'entità servizio. Per i passaggi dettagliati, vedere [eseguire l'autenticazione con container Registry di Azure dal servizio Azure Kubernetes][aks-to-acr].
 
 ### <a name="networking"></a>Rete
 
@@ -121,7 +121,7 @@ Potrebbe essere necessario accedere alle risorse esistenti del disco in un altro
 
 Se si usa Virtual Kubelet per l’integrazione con il servizio Azure Kubernetes e si sceglie di eseguire Istanze di Azure Container nel gruppo di risorse separato dal cluster del servizio Azure Kubernetes, è necessario concedere all'entità servizio Azure Kubernetes le autorizzazioni da *collaboratore* per il gruppo di risorse di Istanze di Azure Container.
 
-## <a name="additional-considerations"></a>Considerazioni aggiuntive
+## <a name="additional-considerations"></a>Considerazione aggiuntive
 
 Quando si usano entità di servizio Azure Kubernetes e di Azure AD, ricordare le considerazioni seguenti.
 
@@ -173,6 +173,7 @@ Per informazioni su come aggiornare le credenziali, vedere [aggiornare o ruotare
 [az-ad-app-list]: /cli/azure/ad/app#az-ad-app-list
 [az-ad-app-delete]: /cli/azure/ad/app#az-ad-app-delete
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-update]: /cli/azure/aks#az-aks-update
 [rbac-network-contributor]: ../role-based-access-control/built-in-roles.md#network-contributor
 [rbac-custom-role]: ../role-based-access-control/custom-roles.md
 [rbac-storage-contributor]: ../role-based-access-control/built-in-roles.md#storage-account-contributor

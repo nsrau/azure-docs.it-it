@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: mlearned
-ms.openlocfilehash: 70272413ef4952cfeed558dd313f12096204d569
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 601f89c4510899dbb1f5d8a238961d9a4e5864e0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120485"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74913707"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opzioni di archiviazione per le applicazioni nel servizio Azure Kubernetes
 
@@ -60,8 +60,8 @@ Per definire livelli di archiviazione diversi, ad esempio Premium e Standard, è
 
 Nel servizio Azure Kubernetes vengono create due StorageClass iniziali:
 
-- *default* - Usa l'archiviazione Standard di Azure per creare un disco gestito. I criteri di recupero indicano che il disco di Azure sottostante deve essere eliminato quando viene eliminato il pod che lo ha usato.
-- *managed-premium* - Usa l'archiviazione Premium di Azure per creare un disco gestito. Anche in questo caso, i criteri di recupero indicano che il disco di Azure sottostante deve essere eliminato quando viene eliminato il pod che lo ha usato.
+- *default* - Usa l'archiviazione Standard di Azure per creare un disco gestito. Il criterio di rimborso indica che il disco di Azure sottostante viene eliminato quando viene eliminato il volume permanente che lo ha usato.
+- *managed-premium* - Usa l'archiviazione Premium di Azure per creare un disco gestito. Il criterio di rimborso indica di nuovo che il disco di Azure sottostante viene eliminato quando viene eliminato il volume permanente che lo utilizza.
 
 Se non si specifica una StorageClass per un volume permanente, viene usata la StorageClass predefinita. Prestare attenzione per la richiesta di volumi permanenti, in modo che usino le risorse di archiviazione appropriate necessarie. È possibile creare una StorageClass per esigenze aggiuntive con `kubectl`. L'esempio seguente usa Managed Disks Premium e specifica che il disco di Azure sottostante deve essere *conservato* quando viene eliminato il pod:
 

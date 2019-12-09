@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 83c1463beec47ed3535811de822348cc7706f757
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/05/2019
+ms.openlocfilehash: bb8477165afcaafe6d03ccb3fe7764124aa166c6
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765342"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928663"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Driver MySQL e strumenti di gestione compatibili con Database di Azure per MySQL
 Questo articolo descrive i driver e gli strumenti di gestione compatibili con il Database di Azure per MySQL.
@@ -30,7 +30,7 @@ Database di Azure per MySQL usa la versione di community del database MySQL più
 | Python | Connettore MySQL/python | https://pypi.python.org/pypi/mysql-connector-python | 1.2.3, 2,0, 2,1, 2,2, usare 8.0.16 + con MySQL 8,0  | 1.2.2 e precedenti | |
 | Python | PyMySQL | https://pypi.org/project/PyMySQL/ | 0.7.11, 0.8.0, 0.8.1, 0.9.3 + | 0.9.0-0.9.2 (regressione in web2py) | |
 | Java | Connettore MariaDB/J | https://downloads.mariadb.org/connector-java/ | 2.1, 2.0, 1.6 | 1.5.5 e precedenti | | 
-| Java | Connettore MySQL/J | https://github.com/mysql/mysql-connector-j | 5.1.20 +, usare 8.0.17 + con MySQL 8,0 | 5.1.9 e versioni precedenti | |
+| Java | Connettore MySQL/J | https://github.com/mysql/mysql-connector-j | 5.1.21 +, usare 8.0.17 + con MySQL 8,0 | 5.1.20 e versioni precedenti | |
 | C | Connettore MySQL/C (libmysqlclient) | https://dev.mysql.com/doc/refman/5.7/en/c-api-implementations.html | 6.0.2 + | | |
 | C | Connettore MySQL/ODBC (ODBC) | https://github.com/mysql/mysql-connector-odbc | 3.51.29 + | | |
 | C++ | Connettore MySQL/C++ | https://github.com/mysql/mysql-connector-cpp | 1.1.9 + | 1.1.3 e versioni precedenti | | 

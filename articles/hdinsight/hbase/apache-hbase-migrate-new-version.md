@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 12/05/2019
 ms.author: ashishth
-ms.openlocfilehash: 75158fbe5604c6fcf54c2fa08636cb87dfd9da80
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: b03bbc7aacd3bfa2a8e29296a5fafed7d4e7e37a
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70917420"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931538"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Eseguire la migrazione di cluster Apache HBase a una nuova versione
 
@@ -33,17 +33,17 @@ Di seguito è riportato un esempio di matrice di compatibilità delle versioni. 
 
 | Tipo di compatibilità | Versione principale| Versione secondaria | Patch |
 | --- | --- | --- | --- |
-| Compatibilità di rete client-server | N | Y | Y |
-| Compatibilità server-server | N | Y | Y |
-| Compatibilità tra formati di file | N | Y | Y |
-| Compatibilità API client | N | Y | Y |
-| Compatibilità binaria client | N | N | Y |
+| Compatibilità di rete client-server | N | S | S |
+| Compatibilità server-server | N | S | S |
+| Compatibilità tra formati di file | N | S | S |
+| Compatibilità API client | N | S | S |
+| Compatibilità binaria client | N | N | S |
 | **Compatibilità API limitata sul lato server** |  |  |  |
-| Stabile | N | Y | Y |
-| In evoluzione | N | N | Y |
+| Stabile | N | S | S |
+| In evoluzione | N | N | S |
 | Instabile | N | N | N |
-| Compatibilità tra dipendenze | N | Y | Y |
-| Compatibilità operativa | N | N | Y |
+| Compatibilità tra dipendenze | N | S | S |
+| Compatibilità operativa | N | N | S |
 
 > [!NOTE]  
 > Eventuali incompatibilità di rilievo sono indicate nelle note sulla versione di HBase.
@@ -98,7 +98,7 @@ Per aggiornare il cluster Apache HBase in Azure HDInsight, seguire questa proced
     
             Provide Script URL.
     
-            Provide hostname as a parameter (i.e. hn0, hn1 or wn2 etc.).
+            Provide hostname as a parameter (i.e. hn0, hn1, hn2.. or wn2 etc.).
     ...
             exit
         fi
@@ -178,7 +178,7 @@ Per aggiornare il cluster Apache HBase in Azure HDInsight, seguire questa proced
     
 4. Arrestare l'inserimento nel cluster HBase precedente.
 5. Per assicurarsi che i dati recenti nell'archivio memstore vengano scaricati, eseguire di nuovo lo script precedente.
-6. Accedere ad [Apache Ambari](https://ambari.apache.org/) nel vecchio cluster https://OLDCLUSTERNAME.azurehdidnsight.net) e arrestare i servizi HBase. Quando viene richiesto di confermare che si desidera arrestare i servizi, selezionare la casella per attivare la modalità di manutenzione per HBase. Per altre informazioni sulla connessione ad Ambari e sul suo uso, vedere [Gestire i cluster HDInsight con l'interfaccia utente Web Ambari](../hdinsight-hadoop-manage-ambari.md).
+6. Accedere ad [Apache Ambari](https://ambari.apache.org/) nel vecchio cluster (https://OLDCLUSTERNAME.azurehdidnsight.net) e arrestare i servizi HBase. Quando viene richiesto di confermare che si desidera arrestare i servizi, selezionare la casella per attivare la modalità di manutenzione per HBase. Per altre informazioni sulla connessione ad Ambari e sul suo uso, vedere [Gestire i cluster HDInsight con l'interfaccia utente Web Ambari](../hdinsight-hadoop-manage-ambari.md).
 
     ![In Ambari fare clic su Servizi > HBase > arresta in azioni servizio](./media/apache-hbase-migrate-new-version/stop-hbase-services1.png)
 
@@ -192,11 +192,11 @@ Per aggiornare il cluster Apache HBase in Azure HDInsight, seguire questa proced
 
 8. **Se non si usano cluster HBase con la funzionalità di scrittura avanzata, ignorare questo passaggio. È necessario solo per i cluster HBase con funzionalità di scrittura avanzate.**
    
-   Modificare il `hbase.rootdir` percorso in modo che punti al contenitore del cluster originale.
+   Modificare il percorso del `hbase.rootdir` in modo che punti al contenitore del cluster originale.
 
     ![In Ambari modificare il nome del contenitore per HBase RootDir](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
 1. Se si sta eseguendo l'aggiornamento di HDInsight 3,6 a 4,0, seguire questa procedura. in caso contrario, andare al passaggio 10:
-    1. Riavviare tutti i servizi necessari in Ambari selezionando **Servizi** > **Riavvia tutti necessari**.
+    1. Riavviare tutti i servizi necessari in Ambari selezionando **servizi** > **riavviare tutti i servizi necessari**.
     1. Arrestare il servizio HBase.
     1. Connettersi tramite SSH al nodo Zookeeper ed eseguire [zkCli](https://github.com/go-zkcli/zkcli) comando `rmr /hbase-unsecure` per rimuovere il elemento znode radice HBase da Zookeeper.
     1. Riavviare HBase.

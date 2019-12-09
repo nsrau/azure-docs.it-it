@@ -1,26 +1,25 @@
 ---
-title: Copiare dati da SAP HANA usando Azure Data Factory
+title: Copia i dati da SAP HANA
 description: Informazioni su come copiare dati da SAP HANA in archivi dati di sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 09/02/2019
-ms.author: jingwang
-ms.openlocfilehash: 6b7f41f53ea743f8e3914512b40d3f69f595b7c8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 97c277eadbd1b425c50b10d15172c13e17e20eb3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680243"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926194"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copiare dati da SAP HANA usando Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-sap-hana-connector.md)
 > * [Versione corrente](connector-sap-hana.md)
 
@@ -54,7 +53,7 @@ Per usare questo connettore SAP HANA, è necessario:
 - Configurare un runtime di integrazione self-hosted. Per i dettagli, vedere l'articolo [Runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md).
 - Installare il driver ODBC di SAP HANA nel computer del runtime di integrazione. È possibile scaricare il driver ODBC di SAP HANA dall'[area per il download di software SAP](https://support.sap.com/swdc). Per cercare il driver, usare la parola chiave **SAP HANA CLIENT for Windows**.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -64,13 +63,13 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di SAP HANA sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **SapHana** | Sì |
-| connectionString | Specificare le informazioni necessarie per connettersi al SAP HANA usando l' **autenticazione di base** o **l'autenticazione di Windows**. Vedere gli esempi seguenti.<br>In stringa di connessione, il server/porta è obbligatorio (la porta predefinita è 30015) e il nome utente e la password sono obbligatori quando si usa l'autenticazione di base. Per altre impostazioni avanzate, vedere [SAP Hana proprietà di connessione ODBC](<https://help.sap.com/viewer/0eec0d68141541d1b07893a39944924e/2.0.02/en-US/7cab593774474f2f8db335710b2f5c50.html>)<br/>È anche possibile inserire la password in Azure Key Vault ed estrarre la configurazione della password dalla stringa di connessione. Per informazioni dettagliate, vedere [archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) articolo. | Sì |
+| type | La proprietà type deve essere impostata su: **SapHana** | SÌ |
+| connectionString | Specificare le informazioni necessarie per connettersi al SAP HANA usando l' **autenticazione di base** o **l'autenticazione di Windows**. Vedere gli esempi seguenti.<br>In stringa di connessione, il server/porta è obbligatorio (la porta predefinita è 30015) e il nome utente e la password sono obbligatori quando si usa l'autenticazione di base. Per altre impostazioni avanzate, vedere [SAP Hana proprietà di connessione ODBC](<https://help.sap.com/viewer/0eec0d68141541d1b07893a39944924e/2.0.02/en-US/7cab593774474f2f8db335710b2f5c50.html>)<br/>È anche possibile inserire la password in Azure Key Vault ed estrarre la configurazione della password dalla stringa di connessione. Per informazioni dettagliate, vedere [archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) articolo. | SÌ |
 | userName | Specificare il nome utente quando si utilizza l'autenticazione di Windows. Esempio: `user@domain.com` | No |
 | password | Specifica la password per l'account utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |Sì |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |SÌ |
 
 **Esempio: uso dell'autenticazione di base**
 
@@ -145,9 +144,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da SAP HANA, sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type del set di dati deve essere impostata su: **SapHanaTable** | Sì |
+| type | La proprietà Type del set di dati deve essere impostata su: **SapHanaTable** | SÌ |
 | schema | Nome dello schema nel database SAP HANA. | No (se nell'origine dell'attività è specificato "query") |
 | table | Nome della tabella nel database SAP HANA. | No (se nell'origine dell'attività è specificato "query") |
 
@@ -181,10 +180,10 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da SAP HANA, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su: **SapHanaSource** | Sì |
-| query | Specifica la query SQL che consente di leggere i dati dall'istanza di SAP HANA. | Sì |
+| type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su: **SapHanaSource** | SÌ |
+| query | Specifica la query SQL che consente di leggere i dati dall'istanza di SAP HANA. | SÌ |
 | packetSize | Specifica le dimensioni del pacchetto di rete (in kilobyte) per suddividere i dati in più blocchi. Se è presente una grande quantità di dati da copiare, l'aumento delle dimensioni del pacchetto può aumentare la velocità di lettura da SAP HANA nella maggior parte dei casi. Il test delle prestazioni è consigliato per la regolazione delle dimensioni del pacchetto. | No.<br>Il valore predefinito è 2048 (2MB). |
 
 **Esempio:**
@@ -227,32 +226,32 @@ Quando si copiano dati da SAP HANA, vengono usati i mapping seguenti tra i tipi 
 
 | Tipo di dati di SAP HANA | Tipo di dati provvisori di Data Factory |
 | ------------------ | ------------------------------ |
-| ALPHANUM           | String                         |
+| ALPHANUM           | Stringa                         |
 | BIGINT             | Int64                          |
 | BINARY             | Byte[]                         |
-| Bintext            | String                         |
+| Bintext            | Stringa                         |
 | BLOB               | Byte[]                         |
 | BOOL               | Byte                           |
-| CLOB               | String                         |
-| DATE               | DateTime                       |
-| DECIMAL            | Decimal                        |
-| DOUBLE             | Double                         |
-| FLOAT              | Double                         |
+| CLOB               | Stringa                         |
+| DATE               | Data e ora                       |
+| DECIMAL            | DECIMAL                        |
+| DOUBLE             | DOUBLE                         |
+| FLOAT              | DOUBLE                         |
 | INTEGER            | Int32                          |
-| NCLOB              | String                         |
-| NVARCHAR           | String                         |
-| REAL               | Single                         |
-| SECONDDATE         | DateTime                       |
-| SHORTTEXT          | String                         |
-| SMALLDECIMAL       | Decimal                        |
+| NCLOB              | Stringa                         |
+| NVARCHAR           | Stringa                         |
+| REAL               | Singolo                         |
+| SECONDDATE         | Data e ora                       |
+| SHORTTEXT          | Stringa                         |
+| SMALLDECIMAL       | DECIMAL                        |
 | SMALLINT           | Int16                          |
 | STGEOMETRYTYPE     | Byte[]                         |
 | STPOINTTYPE        | Byte[]                         |
-| TEXT               | String                         |
-| TIME               | TimeSpan                       |
+| TEXT               | Stringa                         |
+| TIME               | Intervallo di tempo                       |
 | TINYINT            | Byte                           |
-| VARCHAR            | String                         |
-| TIMESTAMP          | DateTime                       |
+| VARCHAR            | Stringa                         |
+| TIMESTAMP          | Data e ora                       |
 | VARBINARY          | Byte[]                         |
 
 ## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca

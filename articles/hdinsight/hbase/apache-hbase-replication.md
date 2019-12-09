@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/15/2018
-ms.openlocfilehash: 18c7a06e656cbd5c16151381a76ec7725eb2785e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/06/2019
+ms.openlocfilehash: 5b1b85a0c600871cbedc478f3a56cf71ef8c2ca4
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468421"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931502"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurare la replica di cluster Apache HBase nelle reti virtuali di Azure
 
@@ -296,6 +296,8 @@ La procedura seguente illustra come chiamare lo script di azione script dal port
     
       > [!NOTE]
       > Usare il nome host invece di FQDN per il nome DNS del cluster di origine e di destinazione.
+      >
+      > Questa procedura dettagliata presuppone HN1 come nodo head attivo. Verificare il cluster per identificare il nodo head attivo.
 
 6. Selezionare **Create** (Crea). L'esecuzione dello script può richiedere tempo, in particolare se si usa l'argomento **-copydata**.
 
@@ -315,7 +317,7 @@ Argomenti facoltativi:
 |-su, --src-ambari-user | Specifica il nome utente amministratore per Ambari nel cluster HBase di origine. Il valore predefinito è **admin**. |
 |-du, --dst-ambari-user | Specifica il nome utente amministratore per Ambari nel cluster HBase di destinazione. Il valore predefinito è **admin**. |
 |-t, --table-list | Specifica le tabelle da replicare. Ad esempio: --table-list="table1;table2;table3". Se non si specificano tabelle, vengono replicate tutte le tabelle HBase esistenti.|
-|-m, --machine | Specifica il nodo head in cui viene eseguita l'azione script. Il valore può essere **hn0** oppure **hn1** e deve essere selezionato in base al nodo head attivo. Usare questa opzione quando si esegue lo script $0 come azione script dal portale di HDInsight o da Azure PowerShell.|
+|-m, --machine | Specifica il nodo head in cui viene eseguita l'azione script. Il valore deve essere scelto in base al nodo head attivo. Usare questa opzione quando si esegue lo script $0 come azione script dal portale di HDInsight o da Azure PowerShell.|
 |-cp, -copydata | Abilita la migrazione dei dati esistenti nelle tabelle in cui è abilitata la replica. |
 |-rpm, -replicate-phoenix-meta | Abilita la replica nelle tabelle di sistema Phoenix. <br><br>*Questa opzione deve essere usata con attenzione.* È consigliabile ricreare le tabelle di Phoenix nei cluster di replica prima di usare questo script. |
 |-h, --help | Visualizza le informazioni sull'utilizzo. |

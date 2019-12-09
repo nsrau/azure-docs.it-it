@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 952485a3bb8feb1434f4f4705f6c07176dd1e1f6
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 254cbc995da9380f108970fb981c000fca7dc63f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894474"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74925819"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub"></a>Trasmettere i dati di monitoraggio di Azure a un hub eventi
 Monitoraggio di Azure offre una soluzione completa per il monitoraggio completo dello stack per applicazioni e servizi in Azure, in altri cloud e in locale. Oltre a usare monitoraggio di Azure per analizzare i dati e sfruttarli per diversi scenari di monitoraggio, potrebbe essere necessario inviarli ad altri strumenti di monitoraggio nell'ambiente in uso. Il metodo più efficace per trasmettere i dati di monitoraggio agli strumenti esterni nella maggior parte dei casi consiste nell'usare [Hub eventi di Azure](/azure/event-hubs/). Questo articolo fornisce una breve descrizione di come è possibile trasmettere i dati di monitoraggio da origini diverse a un hub eventi e collegamenti a istruzioni dettagliate.
@@ -45,18 +45,19 @@ Le [origini dei dati di monitoraggio per monitoraggio di Azure](data-sources.md)
 Per i dati che non è possibile trasmettere direttamente a un hub eventi, è possibile scrivere in archiviazione di Azure e quindi usare un'app per la logica attivata in base al tempo che [estrae i dati dall'archiviazione BLOB](../../connectors/connectors-create-api-azureblobstorage.md#add-action) e [li inserisce come messaggio nell'hub eventi](../../connectors/connectors-create-api-azure-event-hubs.md#add-action). 
 
 
-## <a name="tools-with-azure-monitor-integration"></a>Strumenti con integrazione di monitoraggio di Azure
+## <a name="partner-tools-with-azure-monitor-integration"></a>Strumenti per i partner con integrazione di monitoraggio di Azure
 
 Il routing dei dati di monitoraggio a un hub eventi con monitoraggio di Azure consente di eseguire facilmente l'integrazione con gli strumenti esterni SIEM e di monitoraggio. Di seguito sono riportati alcuni esempi di strumenti con l'integrazione di monitoraggio di Azure:
 
-| Strumento | Description |
-|:---|:---|
-|  IBM QRadar | Microsoft Azure DSM e Microsoft Azure Event Hub Protocol sono scaricabili dal [sito Web del supporto IBM](https://www.ibm.com/support). Altre informazioni sull'integrazione con Azure sono disponibili nella pagina relativa alla [configurazione di QRADAR DSM](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0). |
-| Splunk | [Il componente aggiuntivo monitoraggio di Azure per Splunk](https://splunkbase.splunk.com/app/3534/) è un progetto open source disponibile in splunkbase. La documentazione è disponibile nell' [addon di monitoraggio di Azure per Splunk](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).<br><br> Se non è possibile installare un componente aggiuntivo nell'istanza di Splunk, se ad esempio si usa un proxy o in esecuzione in Splunk cloud, è possibile inviare questi eventi all'agente di raccolta eventi HTTP Splunk usando la [funzione di Azure per Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS), che viene attivata da nuovi messaggi nell'hub eventi. |
-| sumologic | Le istruzioni per la configurazione di SumoLogic per l'utilizzo di dati da un hub eventi sono disponibili in [raccogliere i log per l'app Azure audit dall'hub eventi](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). |
-| ArcSight | Il connettore intelligente Hub eventi di Azure ArcSight è disponibile come parte della [raccolta di Smart Connector ArcSight](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852). |
-| Server Syslog | Se si vuole trasmettere i dati di monitoraggio di Azure direttamente a un server syslog, è possibile usare una [soluzione basata su una funzione di Azure](https://github.com/miguelangelopereira/azuremonitor2syslog/).
-| LogRhythm | Le istruzioni per configurare LogRhythm per la raccolta di log da un hub eventi sono disponibili [qui](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
+| Strumento | Ospitato in Azure | Description |
+|:---|:---| :---|
+|  IBM QRadar | No | Microsoft Azure DSM e Microsoft Azure Event Hub Protocol sono scaricabili dal [sito Web del supporto IBM](https://www.ibm.com/support). Altre informazioni sull'integrazione con Azure sono disponibili nella pagina relativa alla [configurazione di QRADAR DSM](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0). |
+| Splunk | No | [Il componente aggiuntivo monitoraggio di Azure per Splunk](https://splunkbase.splunk.com/app/3534/) è un progetto open source disponibile in splunkbase. La documentazione è disponibile nell' [addon di monitoraggio di Azure per Splunk](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).<br><br> Se non è possibile installare un componente aggiuntivo nell'istanza di Splunk, se ad esempio si usa un proxy o in esecuzione in Splunk cloud, è possibile inviare questi eventi all'agente di raccolta eventi HTTP Splunk usando la [funzione di Azure per Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS), che viene attivata da nuovi messaggi nell'hub eventi. |
+| sumologic | No | Le istruzioni per la configurazione di SumoLogic per l'utilizzo di dati da un hub eventi sono disponibili in [raccogliere i log per l'app Azure audit dall'hub eventi](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). |
+| ArcSight | No | Il connettore intelligente Hub eventi di Azure ArcSight è disponibile come parte della [raccolta di Smart Connector ArcSight](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852). |
+| Server Syslog | No | Se si vuole trasmettere i dati di monitoraggio di Azure direttamente a un server syslog, è possibile usare una [soluzione basata su una funzione di Azure](https://github.com/miguelangelopereira/azuremonitor2syslog/).
+| LogRhythm | No| Le istruzioni per configurare LogRhythm per la raccolta di log da un hub eventi sono disponibili [qui](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
+|Logz.io | SÌ | Per altre informazioni, vedere [Introduzione al monitoraggio e alla registrazione con LOGZ.io per app Java in esecuzione in Azure](https://docs.microsoft.com/azure/java/java-get-started-with-logzio)
 
 
 ## <a name="next-steps"></a>Fasi successive

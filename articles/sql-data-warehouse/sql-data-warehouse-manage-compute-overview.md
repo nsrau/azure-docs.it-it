@@ -2,21 +2,21 @@
 title: Gestisci risorsa di calcolo
 description: Informazioni sulle funzionalità di scalabilità orizzontale per le prestazioni in Azure SQL Data Warehouse. Applicare la scalabilità orizzontale modificando le DWU o ridurre i costi tramite la sospensione delle funzioni di data warehouse.
 services: sql-data-warehouse
-author: kevinvngo
+author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
 ms.date: 11/12/2019
-ms.author: kevin
+ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 936d92d085420e1386e29a924470b9bac9200d43
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 305b17a9118bddac53b19462cb8c3be887395311
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039095"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74923608"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Gestire le risorse di calcolo in Azure SQL Data Warehouse
 Informazioni sulla gestione delle risorse di calcolo in Azure SQL Data Warehouse. Ridurre i costi sospendendo il data warehouse o ridimensionare il data warehouse per soddisfare le esigenze in termini di prestazioni. 
@@ -59,7 +59,7 @@ Per ottenere vantaggi della scalabilità orizzontale in termini di prestazioni, 
 
 Indicazioni per la ricerca del numero di unità di data warehouse più adatto.
 
-- Per un data warehouse in fase di sviluppo, iniziare selezionando un numero minore di unità di data warehouse.  Un buon punto di partenza è DW400 o DW200.
+- Per un data warehouse in fase di sviluppo, iniziare selezionando un numero minore di unità di data warehouse.  Un punto di partenza valido è DW400c o DW200c.
 - Monitorare le prestazioni dell'applicazione, osservando il numero di unità di data warehouse selezionato rispetto alle prestazioni ottenute.
 - Presupporre una scalabilità lineare e determinare quanto è necessario aumentare o ridurre le unità di data warehouse. 
 - Continuare ad apportare modifiche finché non si raggiunge un livello di prestazioni ottimale per i propri requisiti aziendali.

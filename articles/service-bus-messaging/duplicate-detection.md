@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: bee8c1d2a1cd313c7fe59d8e53379dc57554e98c
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 4cd5fc50c35f4c4adb63c9d91af05dcf8b2dda40
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618580"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74924644"
 ---
 # <a name="duplicate-detection"></a>Rilevamento duplicati
 
@@ -39,7 +39,7 @@ Il *MessageId* può sempre essere un GUID, ma ancorare l'identificatore al proce
 > [!NOTE]
 > Se il rilevamento dei duplicati è abilitato e l'ID di sessione o la chiave di partizione non sono impostati, l'ID del messaggio viene usato come chiave di partizione. Se anche l'ID del messaggio non è impostato, le librerie .NET e AMQP generano automaticamente un ID di messaggio per il messaggio. Per altre informazioni, vedere [uso delle chiavi di partizione](service-bus-partitioning.md#use-of-partition-keys).
 
-## <a name="enable-duplicate-detection"></a>Abilita rilevamento duplicati
+## <a name="enable-duplicate-detection"></a>Abilitare il rilevamento dei duplicati
 
 Nel portale la funzionalità si attiva durante la creazione di entità tramite la casella di controllo **Abilita rilevamento duplicati**, che per impostazione predefinita è deselezionata. L'impostazione per la creazione di nuovi argomenti è equivalente.
 
@@ -67,6 +67,8 @@ Per altre informazioni sulla messaggistica del bus di servizio, vedere gli argom
 * [Code, argomenti e sottoscrizioni del bus di servizio](service-bus-queues-topics-subscriptions.md)
 * [Introduzione alle code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
 * [Come usare gli argomenti e le sottoscrizioni del bus di servizio](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+
+Negli scenari in cui il codice client non è in grado di inviare di nuovo un messaggio con lo stesso *MessageID* di prima, è importante progettare messaggi che possono essere rielaborati in modo sicuro. Questo [post di Blog su l'idempotenza](https://particular.net/blog/what-does-idempotent-mean) descrive le varie tecniche per eseguire questa operazione.
 
 [1]: ./media/duplicate-detection/create-queue.png
 [2]: ./media/duplicate-detection/queue-prop.png

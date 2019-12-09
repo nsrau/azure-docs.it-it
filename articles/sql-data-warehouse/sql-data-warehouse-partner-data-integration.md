@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8dd111017076e4a1a6a93ac7d53c253a85a09376
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: d71c4ee7c5d982708c8a3b0a79b453d7196ad02d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74890094"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74923619"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>Partner di integrazione di dati di SQL Data Warehouse
 Per creare una soluzione di data warehouse, è possibile scegliere tra una vasta gamma di strumenti leader nel settore. Questo articolo evidenzia le aziende partner Microsoft con soluzioni di integrazione dei dati ufficiali che supportano Azure SQL Data Warehouse.
@@ -37,7 +37,7 @@ Per creare una soluzione di data warehouse, è possibile scegliere tra una vasta
 | ![SnapLogic][6] |**SnapLogic**<br>La piattaforma SnapLogic consente ai clienti di trasferire rapidamente i dati all'interno e all'esterno dei Microsoft Azure SQL Data Warehouse. Offre la possibilità di integrare centinaia di applicazioni, servizi e scenari Internet in un'unica soluzione.|[Pagina del prodotto][snaplogic_website]<br>[Azure Marketplace][snaplogic_marketplace]<br> |
 | ![StreamSets][16] |**StreamSets**<br>StreamSets fornisce una piattaforma di integrazione dei dati per DataOps. Operationalizes il ciclo di vita completo di progettazione, distribuzione e funzionamento dell'integrazione dei dati in Azure SQL Data Warehouse. Non è possibile inserire e integrare rapidamente i dati da e verso il warehouse, tramite i metodi di recapito dei dati in streaming, batch o modificati di acquisizione dei dati, ma anche garantire operazioni continue con le pipeline di dati intelligenti che forniscono visibilità del flusso di dati end-to-end e resilienza.|[Pagina del prodotto][streamsets_website]|
 | ![Talend][12] |**Cloud Talend**<br>Talend cloud è una piattaforma di integrazione dei dati aziendali per connettere, accedere e trasformare i dati nel cloud o in locale. Si tratta di un'offerta iPaaS (Platform-as-a-Service, piattaforma distribuita come servizio) che offre connettività ampia, qualità dei dati incorporata e supporto nativo per le più recenti tecnologie cloud e Big Data. |[Pagina del prodotto][talend_website]<br> [Azure Marketplace][talend_marketplace] |
-| ![TimeXtender][13] |**TimeXtender**<br>L'hub di individuazione di TimeXtender consente alle aziende di creare un data estate moderna fornendo una piattaforma di gestione dei dati integrata che accelera il tempo per ottenere informazioni dettagliate sui dati fino a 10 volte. Oltre al quotidiano di estrazione, trasformazione e caricamento (ETL) o estrazione, caricamento e trasformazione (ELT) grazie all'automazione e alle funzionalità per l'accesso ai dati, alla modellazione dei dati e alla conformità in un'unica piattaforma. L'hub di individuazione fornisce un'infrastruttura di dati coesa per l'analisi di scalabilità cloud, che consente di connettere e integrare diversi silo di dati, cataloghi, modelli, spostamenti e dati di documenti per l'analisi e l'intelligenza artificiale. | [Pagina del prodotto][timextender_website] |
+| ![TimeXtender][13] |**TimeXtender**<br>L'hub di individuazione di TimeXtender consente alle aziende di creare un data estate moderna fornendo una piattaforma di gestione dei dati integrata che accelera il tempo per ottenere informazioni dettagliate sui dati fino a 10 volte. Oltre al quotidiano di estrazione, trasformazione e caricamento (ETL) o estrazione, caricamento e trasformazione (ELT) grazie all'automazione e alle funzionalità per l'accesso ai dati, alla modellazione dei dati e alla conformità in un'unica piattaforma. L'hub di individuazione fornisce un'infrastruttura di dati coesa per l'analisi di scalabilità cloud, che consente di connettere e integrare diversi silo di dati, cataloghi, modelli, spostamenti e dati di documenti per l'analisi e l'intelligenza artificiale. | [Pagina del prodotto][timextender_website]<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=timextender&page=1) |
 | ![Trifacta][14] |**Wrangler trifact**<br> Trifactora consente a utenti e organizzazioni di esplorare e unire dati diversi per l'analisi. Trifacta Wrangler è progettato per gestire i carichi di lavoro data wrangling che devono supportare i dati su larga scala e un numero elevato di utenti finali.|[Pagina del prodotto][trifacta_website]<br> [Azure Marketplace][trifacta_marketplace] |
 | ![WhereScape][15] |**WhereScape rosso**<br> WhereScape RED è un IDE che fornisce ai team strumenti di automazione per semplificare i flussi di lavoro ETL. L'IDE fornisce procedure consigliate, codice nativo ottimizzato per le destinazioni dei dati più diffuse. USA WhereScape RED per ridurre il tempo necessario per sviluppare, distribuire e gestire l'infrastruttura di dati.|[Pagina del prodotto][wherescape_website]<br> [Azure Marketplace][wherescape_marketplace] |
 

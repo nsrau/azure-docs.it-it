@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 09/12/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 4460d19de1859a8a3c51d91d418b948b5d3532a6
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: fd220a4a955a8b2cd583c2fe9e3899cb36c1587d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666722"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74935860"
 ---
 Il codice per tutte le funzioni in una specifica app per le funzioni si trova in una cartella di progetto radice che contiene un file di configurazione host e una o più sottocartelle. Ogni sottocartella contiene il codice per una funzione separata. La struttura di cartelle è illustrata nella seguente rappresentazione:
 
@@ -31,7 +31,7 @@ FunctionApp
  | - bin
 ```
 
-Nella versione 2. x del runtime di funzioni, tutte le funzioni nell'app per le funzioni devono condividere lo stesso stack di linguaggi.  
+Nella versione 2. x e successive del runtime di funzioni, tutte le funzioni nell'app per le funzioni devono condividere lo stesso stack di linguaggi.  
 
 Il file [host. JSON](../articles/azure-functions/functions-host-json.md) contiene configurazioni specifiche del runtime e si trova nella cartella radice dell'app per le funzioni. Una cartella *bin* contiene i pacchetti e altri file di libreria richiesti dall'app per le funzioni. Vedere i requisiti specifici del linguaggio per un progetto di app per le funzioni:
 

@@ -1,25 +1,26 @@
 ---
-title: Guida alla scalabilità e alle prestazioni dell'attività di copia in Azure Data Factory
+title: Guida alla scalabilità e alle prestazioni dell'attività di copia
 description: Informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati in Azure Data Factory quando si usa l'attività di copia.
 services: data-factory
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/24/2019
-ms.author: jingwang
-ms.openlocfilehash: 701eaad8d36b352e946ae8d74204876b41ecb53d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 1b1b02e310c98a78006d258333c0ec10e89e3b31
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73678273"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927457"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Guida alla scalabilità e alle prestazioni dell'attività di copia
+
 > [!div class="op_single_selector" title1="Selezionare la versione di Azure Data Factory che si sta usando:"]
 > * [Versione 1](v1/data-factory-copy-activity-performance.md)
 > * [Versione corrente](copy-activity-performance.md)
@@ -96,7 +97,7 @@ Eseguire questi passaggi per ottimizzare le prestazioni del servizio Azure Data 
 
 3. **Come ottimizzare la velocità effettiva aggregata eseguendo più copie simultaneamente:**
 
-   Ora che sono state ingrandite le prestazioni di una singola attività di copia, se non sono ancora stati superati i limiti massimi di velocità effettiva dell'ambiente, ovvero la rete, l'archivio dati di origine e l'archivio dati di destinazione, è possibile eseguire più attività di copia in parallelo usando ADF costrutti del flusso di controllo, ad esempio [per ciascun ciclo](control-flow-for-each-activity.md).
+   Ora che sono state ingrandite le prestazioni di una singola attività di copia, se non sono ancora stati superati i limiti massimi di velocità effettiva dell'ambiente, ovvero la rete, l'archivio dati di origine e l'archivio dati di destinazione, è possibile eseguire più attività di copia in parallelo usando i costrutti del flusso di controllo di ADF, ad esempio [per ciascun ciclo](control-flow-for-each-activity.md).
 
 4. **Suggerimenti per l'ottimizzazione delle prestazioni e funzionalità di ottimizzazione.** In alcuni casi, quando si esegue un'attività di copia in Azure Data Factory, viene visualizzato il messaggio "suggerimenti per l'ottimizzazione delle prestazioni" nella parte superiore del [monitoraggio dell'attività di copia](copy-activity-overview.md#monitor-visually), come illustrato nell'esempio seguente. Il messaggio indica il collo di bottiglia identificato per l'esecuzione della copia specificata. Vengono inoltre illustrati gli elementi da modificare per aumentare la velocità effettiva della copia. I suggerimenti per l'ottimizzazione delle prestazioni offrono attualmente suggerimenti come:
 
@@ -148,7 +149,7 @@ Per ignorare l'impostazione predefinita, è possibile specificare un valore per 
 Quando si monitora un'esecuzione di attività, è possibile visualizzare i DIUs usati per ogni copia eseguita nell'output dell'attività di copia. Per altre informazioni, vedere [monitoraggio dell'attività di copia](copy-activity-overview.md#monitoring).
 
 > [!NOTE]
-> L'impostazione di DIUs maggiori di quattro attualmente si applica solo quando si copiano più file da BLOB di Azure/ADLS Gen1/ADLS Gen2/Amazon S3/Google Cloud storage/cloud FTP/cloud SFTP o da un archivio dati relazionale cloud abilitato per le opzioni di partizione (incluso [Oracle ](connector-oracle.md#oracle-as-source)/[Netezza](connector-netezza.md#netezza-as-source)/[Teradata](connector-teradata.md#teradata-as-source)) a qualsiasi altro archivio dati cloud.
+> L'impostazione di DIUs maggiori di quattro attualmente si applica solo quando si copiano più file da BLOB di Azure/ADLS Gen1/ADLS Gen2/Amazon S3/Google Cloud storage/cloud FTP/cloud SFTP o da un archivio dati relazionale cloud abilitato per le opzioni di partizione (incluso [Oracle](connector-oracle.md#oracle-as-source)/[Netezza](connector-netezza.md#netezza-as-source)/[Teradata](connector-teradata.md#teradata-as-source)) in qualsiasi altro archivio dati cloud.
 
 **Esempio:**
 
@@ -193,7 +194,7 @@ Per controllare il carico sui computer che ospitano gli archivi dati o per ottim
 **Punti da notare:**
 
 - Quando si copiano dati tra archivi basati su file, **parallelCopies** determina il parallelismo a livello di file. La suddivisione in blocchi all'interno di un singolo file avviene in modo automatico e trasparente. È progettato per usare le dimensioni del blocco più adatte per un determinato tipo di archivio dati di origine per caricare i dati in parallelo e ortogonali a **parallelCopies**. Il numero effettivo di copie parallele usate dal servizio di spostamento dati per l'operazione di copia in fase di esecuzione non è maggiore del numero di file disponibili. Se il comportamento di copia è **mergeFile**, l'attività di copia non può sfruttare il parallelismo a livello di file.
-- Quando si copiano dati da archivi non basati su file (ad eccezione di [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source)e [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source) Connector come origine con il partizionamento dei dati abilitato) per gli archivi basati su file, i dati il servizio di spostamento ignora la proprietà **parallelCopies** . Anche se viene specificato, in questo caso il parallelismo non viene applicato.
+- Quando si copiano dati da archivi non basati su file (ad eccezione di [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source)e [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source) Connector come origine con il partizionamento dei dati abilitato) per gli archivi basati su file, il servizio di spostamento dei dati ignora la proprietà **parallelCopies** . Anche se viene specificato, in questo caso il parallelismo non viene applicato.
 - La proprietà **parallelCopies** è ortogonale a **dataIntegrationUnits**. La prima viene conteggiata su tutte le unità di integrazione dati.
 - Quando si specifica un valore per la proprietà **parallelCopies** , prendere in considerazione l'aumento del carico per gli archivi dati di origine e sink. Prendere in considerazione anche l'aumento del carico per il runtime di integrazione self-hosted se l'attività di copia è abilitata, ad esempio per la copia ibrida. Questo aumento del carico si verifica soprattutto quando si hanno più attività o esecuzioni simultanee delle stesse attività eseguite nello stesso archivio dati. Se si nota che l'archivio dati o il runtime di integrazione self-hosted è sovraccarico del carico, ridurre il valore di **parallelCopies** per alleggerire il carico.
 
@@ -241,12 +242,12 @@ Attualmente, non è possibile copiare i dati tra due archivi dati connessi trami
 
 Configurare l'impostazione **enableStaging** nell'attività di copia per specificare se si desidera che i dati vengano gestiti temporaneamente nell'archivio BLOB prima di caricarli in un archivio dati di destinazione. Quando si imposta **enableStaging** su `TRUE`, specificare le proprietà aggiuntive elencate nella tabella seguente. È anche necessario creare un servizio collegato di archiviazione di Azure o di archiviazione con firma di accesso condiviso per la gestione temporanea, se non è già presente.
 
-| Proprietà | Descrizione | Valore predefinito | Obbligatorio |
+| Proprietà | Description | Valore predefinito | Obbligatoria |
 | --- | --- | --- | --- |
-| enableStaging |Specificare se si vuole copiare i dati tramite un archivio di staging provvisorio. |False |No |
+| enableStaging |Specificare se si vuole copiare i dati tramite un archivio di staging provvisorio. |Falso |No |
 | linkedServiceName |Specificare il nome di un servizio collegato [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) che fa riferimento all'istanza di archiviazione usata come archivio di staging provvisorio. <br/><br/> Non è possibile usare l'archiviazione con una firma di accesso condiviso per caricare i dati in SQL Data Warehouse tramite la polibase. Può essere usata in tutti gli altri scenari. |N/D |Sì, quando **enableStaging** è impostato su TRUE |
 | path |Specificare il percorso dell'archivio BLOB che deve contenere i dati di staging. Se non si specifica un percorso, il servizio crea un contenitore per archiviare i dati temporanei. <br/><br/> Specificare un percorso solo se si usa l'archiviazione con una firma di accesso condiviso o se i dati temporanei devono trovarsi in un percorso specifico. |N/D |No |
-| enableCompression |Specifica se i dati devono essere compressi prima di essere copiati nella destinazione. Questa impostazione ridurre il volume dei dati da trasferire. |False |No |
+| enableCompression |Specifica se i dati devono essere compressi prima di essere copiati nella destinazione. Questa impostazione ridurre il volume dei dati da trasferire. |Falso |No |
 
 >[!NOTE]
 > Se si usa la copia di staging con la compressione abilitata, l'entità servizio o l'autenticazione MSI per il servizio collegato del BLOB di staging non è supportata.
@@ -281,7 +282,7 @@ Ecco una definizione di esempio di un'attività di copia con le proprietà descr
 ]
 ```
 
-#### <a name="staged-copy-billing-impact"></a>Impatto della fatturazione della copia di staging
+#### <a name="staged-copy-billing-impact"></a>Impatto della copia di staging sulla fatturazione
 
 I costi vengono addebitati in base a due passaggi: durata della copia e tipo di copia.
 

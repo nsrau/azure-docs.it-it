@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 8ac93e7ed1638137e70086ac22fa9bb97606830e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f9bdc180bf0dfd6f35fb18f5c76176a68d8f1644
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228054"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74912988"
 ---
 # <a name="what-is-azure-private-link-service"></a>Che cos'è il servizio di collegamento privato di Azure?
 
@@ -42,7 +42,7 @@ Quando un consumer avvia una connessione, il provider di servizi può accettare 
 
 Se il servizio di collegamento privato non è più in uso, è possibile eliminarlo. Tuttavia, prima di eliminare il servizio, assicurarsi che non esistano connessioni a un endpoint privato associato. È possibile rifiutare tutte le connessioni ed eliminare il servizio.
 
-## <a name="properties"></a>Proprietà
+## <a name="properties"></a>properties
 
 Un servizio di collegamento privato specifica le proprietà seguenti: 
 
@@ -101,7 +101,6 @@ Di seguito sono riportate le limitazioni note relative all'utilizzo del servizio
 - Supportato solo in Load Balancer Standard 
 - Supporta solo traffico IPv4
 - Supporta solo il traffico TCP
-- Raggiungibile solo da endpoint privati nella stessa area
 - L'esperienza di creazione e gestione da portale di Azure non è supportata
 - Le informazioni di connessione dei client che usano il protocollo proxy non sono disponibili per il provider di servizi
 

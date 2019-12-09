@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: babanisa
-ms.openlocfilehash: 9ee1dd74384725b3fffbfea7144c3a536b50c531
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 074378668b0516936e11968ea8c800d3daa667bb
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74174551"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931547"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Pubblicare eventi per Azure Active Directory endpoint protetti
 
@@ -22,9 +22,9 @@ Questo articolo usa la portale di Azure per la dimostrazione, tuttavia la funzio
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
-## <a name="create-and-azure-ad-application"></a>Creare e Azure AD applicazione
+## <a name="create-an-azure-ad-application"></a>Creare un'applicazione Azure AD
 
-Iniziare creando un'applicazione Azure AD per l'endpoint protetto. Vedere https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.
+Iniziare creando un'applicazione Azure AD per l'endpoint protetto. Vedi https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.
     - Configurare l'API protetta affinché venga chiamata da un'app daemon.
     
 ## <a name="enable-event-grid-to-use-your-azure-ad-application"></a>Abilitare griglia di eventi per l'uso dell'applicazione Azure AD

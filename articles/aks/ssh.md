@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: mlearned
-ms.openlocfilehash: d855e7a65b7e1ad24dcfc4fe6a6d5e02f9004bb0
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 5ff79dc597571f4e6ef3d7c2c20bce61c0d061ad
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74089549"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926380"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Connessione con SSH ai nodi del cluster del servizio Azure Kubernetes per la risoluzione dei problemi e le attività di manutenzione
 
@@ -22,7 +22,7 @@ Questo articolo mostra come creare una connessione SSH con un nodo servizio Azur
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo presuppone che si disponga di un cluster servizio Azure Kubernetes esistente. Se è necessario un cluster AKS, vedere la Guida introduttiva di AKS [usando l'interfaccia della][aks-quickstart-cli] riga di comando di Azure o [l'portale di Azure][aks-quickstart-portal].
+Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster AKS, vedere la Guida introduttiva di AKS [usando l'interfaccia della][aks-quickstart-cli] riga di comando di Azure o [l'portale di Azure][aks-quickstart-portal].
 
 Per impostazione predefinita, le chiavi SSH vengono ottenute o generate, quindi aggiunte ai nodi quando si crea un cluster AKS. Questo articolo illustra come specificare chiavi SSH diverse dalle chiavi SSH usate durante la creazione del cluster AKS. Questo articolo illustra anche come determinare l'indirizzo IP privato del nodo e connetterlo tramite SSH. Se non è necessario specificare una chiave SSH diversa, è possibile ignorare il passaggio per aggiungere la chiave pubblica SSH al nodo.
 
@@ -41,7 +41,7 @@ CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myA
 SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query [0].name -o tsv)
 ```
 
-Nell'esempio precedente viene assegnato il nome del gruppo di risorse cluster per *myAKSCluster* in *myResourceGroup* a *CLUSTER_RESOURCE_GROUP*. Nell'esempio viene quindi usato *CLUSTER_RESOURCE_GROUP* per elencare il nome del set di scalabilità e assegnarlo a *SCALE_SET_NAME*.  
+Nell'esempio precedente viene assegnato il nome del gruppo di risorse cluster per *myAKSCluster* in *myResourceGroup* a *CLUSTER_RESOURCE_GROUP*. Nell'esempio viene quindi usato *CLUSTER_RESOURCE_GROUP* per elencare il nome del set di scalabilità e assegnarlo a *SCALE_SET_NAME*.
 
 > [!IMPORTANT]
 > A questo punto, è necessario aggiornare solo le chiavi SSH per i cluster AKS basati su set di scalabilità di macchine virtuali usando l'interfaccia della riga di comando di Azure.
@@ -100,7 +100,7 @@ CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myA
 az vm list --resource-group $CLUSTER_RESOURCE_GROUP -o table
 ```
 
-Nell'esempio precedente viene assegnato il nome del gruppo di risorse cluster per *myAKSCluster* in *myResourceGroup* a *CLUSTER_RESOURCE_GROUP*. Nell'esempio viene quindi usato *CLUSTER_RESOURCE_GROUP* per elencare il nome della macchina virtuale. L'output di esempio mostra il nome della macchina virtuale: 
+Nell'esempio precedente viene assegnato il nome del gruppo di risorse cluster per *myAKSCluster* in *myResourceGroup* a *CLUSTER_RESOURCE_GROUP*. Nell'esempio viene quindi usato *CLUSTER_RESOURCE_GROUP* per elencare il nome della macchina virtuale. L'output di esempio mostra il nome della macchina virtuale:
 
 ```
 Name                      ResourceGroup                                  Location
@@ -144,7 +144,7 @@ Per creare una connessione SSH a un nodo servizio Azure Kubernetes, si esegue un
 1. Eseguire un'immagine del contenitore `debian` e collegarvi una sessione terminal. Questo contenitore può essere usato per creare una sessione SSH con tutti i nodi del cluster del servizio Azure Container:
 
     ```console
-    kubectl run -it --rm aks-ssh --image=debian
+    kubectl run --generator=run-pod/v1 -it --rm aks-ssh --image=debian
     ```
 
     > [!TIP]
@@ -158,21 +158,12 @@ Per creare una connessione SSH a un nodo servizio Azure Kubernetes, si esegue un
     apt-get update && apt-get install openssh-client -y
     ```
 
-1. Aprire una nuova finestra del terminale, non connessa al contenitore, elencare i Pod nel cluster AKS usando il comando [kubectl Get Pod][kubectl-get] . Il pod creato nel passaggio precedente inizia con il nome *aks-ssh*, come mostrato nell'esempio seguente:
+1. Aprire una nuova finestra del terminale, non connessa al contenitore, copiare la chiave SSH privata nel pod helper. Questa chiave privata viene usata per creare SSH nel nodo AKS. 
 
-    ```
-    $ kubectl get pods
-    
-    NAME                       READY     STATUS    RESTARTS   AGE
-    aks-ssh-554b746bcf-kbwvf   1/1       Running   0          1m
-    ```
-
-1. In un passaggio precedente è stata aggiunta la chiave SSH pubblica al nodo AKS per cui si desidera risolvere i problemi. A questo punto, copiare la chiave SSH privata nel pod helper. Questa chiave privata viene usata per creare SSH nel nodo AKS.
-
-    Fornire il proprio nome pod *aks-ssh* ottenuto nel passaggio precedente. Se necessario, modificare *~/.ssh/id_rsa* alla posizione della chiave SSH privata:
+   Se necessario, modificare *~/.ssh/id_rsa* alla posizione della chiave SSH privata:
 
     ```console
-    kubectl cp ~/.ssh/id_rsa aks-ssh-554b746bcf-kbwvf:/id_rsa
+    kubectl cp ~/.ssh/id_rsa $(kubectl get pod -l run=aks-ssh -o jsonpath='{.items[0].metadata.name}'):/id_rsa
     ```
 
 1. Tornare alla sessione terminal nel contenitore, aggiornare le autorizzazioni per la chiave SSH privata copiata `id_rsa` in modo che sia di sola lettura:
@@ -185,22 +176,22 @@ Per creare una connessione SSH a un nodo servizio Azure Kubernetes, si esegue un
 
     ```console
     $ ssh -i id_rsa azureuser@10.240.0.4
-    
+
     ECDSA key fingerprint is SHA256:A6rnRkfpG21TaZ8XmQCCgdi9G/MYIMc+gFAuY9RUY70.
     Are you sure you want to continue connecting (yes/no)? yes
     Warning: Permanently added '10.240.0.4' (ECDSA) to the list of known hosts.
-    
+
     Welcome to Ubuntu 16.04.5 LTS (GNU/Linux 4.15.0-1018-azure x86_64)
-    
+
      * Documentation:  https://help.ubuntu.com
      * Management:     https://landscape.canonical.com
      * Support:        https://ubuntu.com/advantage
-    
+
       Get cloud support with Ubuntu Advantage Cloud Guest:
         https://www.ubuntu.com/business/services/cloud
-    
+
     [...]
-    
+
     azureuser@aks-nodepool1-79590246-0:~$
     ```
 

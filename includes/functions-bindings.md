@@ -4,16 +4,16 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 5d2608d1c374fadac18cebc093ce50ef93f9656a
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: ac6b86b4ad8830bd08c9db28ac0027a5f048c3dd
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597418"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74935840"
 ---
-Questa tabella mostra le associazioni supportate nelle due versioni principali del runtime di funzioni di Azure:
+Questa tabella mostra le associazioni supportate nelle versioni principali del runtime di funzioni di Azure:
 
-| Type | 1.x | 2.x<sup>1</sup> | Trigger | Input | Output |
+| Type | 1.x | 2. x e versioni successive<sup>1</sup> | Trigger | Input | Output |
 | ---- | :-: | :-: | :------: | :---: | :----: |
 | [Archiviazione BLOB](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔|✔|✔|✔|
 | [Cosmos DB](../articles/azure-functions/functions-bindings-documentdb.md)               |✔|✔|✔|✔|✔|
@@ -24,7 +24,7 @@ Questa tabella mostra le associazioni supportate nelle due versioni principali d
 | [Microsoft Graph<br/>Tabelle di Excel](../articles/azure-functions/functions-bindings-microsoft-graph.md)   ||✔| |✔|✔|
 | [Microsoft Graph<br/>File di OneDrive](../articles/azure-functions/functions-bindings-microsoft-graph.md) ||✔| |✔|✔|
 | [Microsoft Graph<br/>Indirizzo e-mail Outlook](../articles/azure-functions/functions-bindings-microsoft-graph.md)  ||✔| | |✔|
-| [Microsoft Graph <br/>events](../articles/azure-functions/functions-bindings-microsoft-graph.md)         ||✔|✔|✔|✔|
+| [Eventi<br/>Microsoft Graph](../articles/azure-functions/functions-bindings-microsoft-graph.md)         ||✔|✔|✔|✔|
 | [Microsoft Graph<br/>Token di autenticazione](../articles/azure-functions/functions-bindings-microsoft-graph.md)    ||✔| |✔| |
 | [App per dispositivi mobili](../articles/azure-functions/functions-bindings-mobile-apps.md)             |✔| | |✔|✔|
 | [Hub di notifica](../articles/azure-functions/functions-bindings-notification-hubs.md) |✔|| | |✔|
@@ -36,4 +36,4 @@ Questa tabella mostra le associazioni supportate nelle due versioni principali d
 | [Timer](../articles/azure-functions/functions-bindings-timer.md)                         |✔|✔|✔| | |
 | [Twilio](../articles/azure-functions/functions-bindings-twilio.md)                       |✔|✔| | |✔|
 
-<sup>1</sup> nel runtime della versione 2. x, tutti i binding eccetto http e timer devono essere registrati. Vedere [Registrare le estensioni delle associazioni](../articles/azure-functions/functions-bindings-register.md). Tutte le associazioni 2. x supportate sono supportate anche nella versione 3. x, se non diversamente specificato.   
+<sup>1</sup> a partire dal runtime della versione 2. x, è necessario registrare tutte le associazioni eccetto http e timer. Vedere [Registrare le estensioni delle associazioni](../articles/azure-functions/functions-bindings-register.md).

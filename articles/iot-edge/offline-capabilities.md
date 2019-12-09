@@ -3,23 +3,22 @@ title: Usare i dispositivi offline - Azure IoT Edge | Microsoft Docs
 description: Comprendere come i moduli e dispositivi IoT Edge possano funzionare senza connessione Internet per periodi prolungati di tempo e come IoT Edge possa consentire anche a dispositivi IoT regolari di funzionare offline.
 author: kgremban
 ms.author: kgremban
-ms.date: 08/04/2019
+ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b16a8d8ddd4ac23a59db8e7fed48f1c39752d130
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: ba64dcdadc5fa670c4502a7d8d92cb35e3b0cacd
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456882"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74924862"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Informazioni sulle funzionalità estese offline per IoT Edge dispositivi, moduli e dispositivi figlio
 
-Azure IoT Edge supporta le operazioni offline estese nei dispositivi IoT Edge e Abilita le operazioni offline nei dispositivi figlio non IoT Edge. Se un dispositivo IoT Edge ha avuto la possibilità di connettersi una volta all'hub IoT, tale dispositivo e tutti i dispositivi figlio possono continuare a funzionare con una connessione Internet intermittente o senza connessione. 
+Azure IoT Edge supporta le operazioni offline estese nei dispositivi IoT Edge e Abilita le operazioni offline nei dispositivi figlio non IoT Edge. Fino a quando un dispositivo IoT Edge ha avuto la possibilità di connettersi all'hub Internet, il dispositivo e tutti i dispositivi figlio possono continuare a funzionare con una connessione Internet intermittente o senza connessione.
 
-
-## <a name="how-it-works"></a>Funzionamento
+## <a name="how-it-works"></a>Come funziona
 
 Quando un dispositivo IoT Edge passa alla modalità offline, l'hub di IoT Edge svolge tre ruoli. Prima di tutto, archivia i messaggi diretti upstream e li salva fino a quando il dispositivo si riconnette. In secondo luogo, agisce per conto dell'hub IoT per l'autenticazione dei moduli e dei dispositivi figlio in modo che possano continuare a funzionare. In terzo luogo, consente le comunicazioni tra i dispositivi figlio che normalmente passerebbero attraverso l'hub IoT. 
 
@@ -39,7 +38,9 @@ L'esempio seguente mostra il funzionamento di uno scenario IoT Edge in modalità
 
 4. **Riconnettersi e risincronizzare con l'hub Internet delle cose**
 
-   Dopo il ripristino della connessione con l'hub IoT, il dispositivo IoT Edge viene sincronizzato di nuovo. I messaggi archiviati in locale vengono recapitati nello stesso ordine in cui sono stati archiviati. Eventuali differenze tra le proprietà desiderate e quelle segnalate per i moduli e i dispositivi vengono riconciliate. Il dispositivo IoT Edge aggiorna tutte le modifiche nel set di dispositivi IoT figlio assegnati.
+   Dopo il ripristino della connessione con l'hub IoT, il dispositivo IoT Edge viene sincronizzato di nuovo. I messaggi archiviati localmente vengono recapitati all'hub delle cose immediatamente, ma sono dipendenti dalla velocità della connessione, dalla latenza dell'hub degli elementi e dai fattori correlati. Vengono recapitati nello stesso ordine in cui sono stati archiviati.
+
+   Eventuali differenze tra le proprietà desiderate e quelle segnalate per i moduli e i dispositivi vengono riconciliate. Il dispositivo IoT Edge aggiorna tutte le modifiche nel set di dispositivi IoT figlio assegnati.
 
 ## <a name="restrictions-and-limits"></a>Restrizioni e limiti
 

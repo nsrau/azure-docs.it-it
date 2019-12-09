@@ -7,19 +7,19 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: c5910649127c4b2e78cfc12065a8f12a41f7309a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 932de70b634a7bbdb77e5dc1552ae53828a7269e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229383"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74913099"
 ---
 # <a name="create-a-private-link-service-using-azure-powershell"></a>Creare un servizio di collegamento privato utilizzando Azure PowerShell
 Questo articolo illustra come creare un servizio di collegamento privato in Azure usando Azure PowerShell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare PowerShell in locale, questo articolo richiede la versione più recente del modulo Azure PowerShell. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installare il modulo di Azure PowerShell). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
+Se si sceglie di installare e usare PowerShell in locale, questo articolo richiede la versione più recente del modulo Azure PowerShell. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -32,7 +32,7 @@ New-AzResourceGroup `
   -ResourceGroupName $rgName `
   -Location $location
 ```
-## <a name="create-a-virtual-network"></a>Crea rete virtuale
+## <a name="create-a-virtual-network"></a>Crea una rete virtuale
 Creare una rete virtuale per il collegamento privato con [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). Nell'esempio seguente viene creata una rete virtuale denominata *myvnet* con subnet per frontend (*frontendSubnet*), backend (*backendSubnet*), collegamento privato (*otherSubnet*):
 
 ```azurepowershell
@@ -103,7 +103,7 @@ $privateLinkService = New-AzPrivateLinkService `
 ```
 
 ### <a name="get-private-link-service"></a>Ottenere il servizio di collegamento privato
-Per informazioni dettagliate sul servizio di collegamento privato, usare [New-AzPrivateLinkService](/powershell/module/az.network/get-azprivatelinkservice) come indicato di seguito:
+Ottenere i dettagli sul servizio di collegamento privato con [Get-AzPrivateLinkService](/powershell/module/az.network/get-azprivatelinkservice) come indicato di seguito:
 
 ```azurepowershell
 $pls = Get-AzPrivateLinkService -Name $plsName -ResourceGroupName $rgName 
@@ -114,7 +114,7 @@ In questa fase, il servizio di collegamento privato viene creato correttamente e
 Verrà ora illustrato come eseguire il mapping di questo servizio a un endpoint privato in VNet diversi usando PowerShell. Anche in questo caso, l'esempio è limitato alla creazione dell'endpoint privato e alla connessione al servizio di collegamento privato creato in precedenza. È possibile creare macchine virtuali nella rete virtuale per inviare/ricevere traffico all'endpoint privato per la compilazione dello scenario. 
 
 ## <a name="create-a-private-endpoint"></a>Creare un endpoint privato
-### <a name="create-a-virtual-network"></a>Crea rete virtuale
+### <a name="create-a-virtual-network"></a>Crea una rete virtuale
 Creare una rete virtuale per l'endpoint privato con [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). Questo esempio crea una rete virtuale denominata *vnetPE* in un gruppo di risorse denominato *myResourceGroup*:
  
 ```azurepowershell

@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: file di inclusione
+description: file di inclusione
 services: functions
 author: ggailey777
 manager: jeconnoc
@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 4/10/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: e28104e1c795e093fda6457d9f86265312f540be
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 19503fd0e469258bb8305f151cc53b9ec3136558
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180710"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74935941"
 ---
 > [!IMPORTANT]
-> L'anteprima del Runtime di funzioni di Azure 2 supporta solo la versione 1.x del runtime di funzioni di Azure. Questa funzionalità in anteprima non è stata aggiornata per supportare versione 2.x del runtime e non gli aggiornamenti futuri pianificati. Se è necessario ospitare il runtime di funzioni di Azure all'esterno di Azure, prendere in considerazione [usando funzioni di Azure in Kubernetes con KEDA](../articles/azure-functions/functions-kubernetes-keda.md)
+> Il runtime di Funzioni di Azure Preview 2 supporta solo la versione 1. x del runtime di funzioni di Azure. Questa funzionalità di anteprima non viene aggiornata per supportare la versione 2. x e successive del runtime e non sono previsti aggiornamenti futuri. Se è necessario ospitare il runtime di funzioni di Azure all'esterno di Azure, è consigliabile [usare funzioni di Azure in Kubernetes con Keda](../articles/azure-functions/functions-kubernetes-keda.md)

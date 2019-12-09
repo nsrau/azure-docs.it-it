@@ -1,5 +1,5 @@
 ---
-title: Monitoraggio delle prestazioni per le app Web Java in Azure Application Insights | Documentazione Microsoft
+title: Monitoraggio delle prestazioni delle app Web Java-applicazione Azure Insights
 description: Estendere il monitoraggio di prestazioni e utilizzo del sito Web Java con Application Insights.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 01/10/2019
-ms.openlocfilehash: 181a1f253157fe112d42753d6f824a327457a2fa
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 8194c4b16d114be9b2b95ff56dea59d98cfdae10
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819408"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931135"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorare le dipendenze, le eccezioni intercettate e i tempi di esecuzione del metodo nelle app Web Java
 
@@ -91,7 +91,7 @@ Per app Azure Services, eseguire le operazioni seguenti:
 Chiave: valore `JAVA_OPTS`: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.5.0.jar`
 
 Per la versione più recente dell'agente Java, vedere [qui](https://github.com/Microsoft/ApplicationInsights-Java/releases
-)le versioni. 
+) le versioni. 
 
 L'agente deve essere incluso nel pacchetto come risorsa nel progetto, in modo che finisca nella directory D:/Home/site/wwwroot/. È possibile verificare che l'agente si trovi nella directory del servizio app corretta passando a **strumenti di sviluppo** > **strumenti avanzati** > **console di debug** ed esaminando il contenuto della directory del sito.    
 

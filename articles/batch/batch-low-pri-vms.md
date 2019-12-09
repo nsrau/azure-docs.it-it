@@ -8,15 +8,15 @@ ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
 ms.service: batch
 ms.topic: article
 ms.workload: na
-ms.date: 03/19/2018
+ms.date: 12/05/2019
 ms.author: markscu
 ms.custom: seodec18
-ms.openlocfilehash: 33d448bc95f4cb12f5a06232cbab168a43d522c1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 39d332a6d069a4e9fac8545f4d08a986c8984c9b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095187"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926280"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Usare le macchine virtuali con priorità bassa in Batch
 
@@ -27,6 +27,14 @@ Le macchine virtuali con priorità bassa sfruttano la capacità in eccesso di Az
 Il compromesso per l'uso di macchine virtuali con priorità bassa è che queste macchine virtuali possono non essere disponibili per l'allocazione o essere interrotte in qualsiasi momento, a seconda della capacità disponibile. Per questo motivo, le macchine virtuali con priorità bassa sono più adatte per determinati tipi di carichi di lavoro. Usare le macchine virtuali con priorità bassa per carichi di lavoro di batch ed elaborazione asincrona in cui il tempo di completamento del processo è flessibile e il lavoro viene distribuito su più macchine virtuali.
  
 Le macchine virtuali con priorità bassa sono caratterizzate da un prezzo notevolmente ridotto rispetto alle macchine virtuali dedicate. Per i dettagli sui prezzi vedere [Prezzi dei Batch](https://azure.microsoft.com/pricing/details/batch/).
+
+> [!NOTE]
+> Le [VM spot](https://azure.microsoft.com/pricing/spot/) sono ora disponibili per le [macchine virtuali a istanza singola](https://docs.microsoft.com/azure/virtual-machines/linux/spot-vms) e i [set di scalabilità di VM](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot). Le macchine virtuali spot sono un'evoluzione delle macchine virtuali con priorità bassa, ma si differenziano per i prezzi e un prezzo massimo facoltativo può essere impostato durante l'allocazione di VM spot.
+>
+> I pool di Azure Batch inizieranno a supportare le VM spot nel primo trimestre 2020 con le nuove versioni degli [strumenti e delle API di batch](https://docs.microsoft.com/azure/batch/batch-apis-tools). Le macchine virtuali con priorità bassa continueranno a essere supportate, usando le versioni correnti dell'API e dello strumento, per almeno 12 mesi, per consentire un tempo sufficiente per la migrazione alle macchine virtuali. 
+>
+> Le macchine virtuali spot non saranno supportate per i pool di [configurazione dei servizi cloud](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) . Per usare le VM spot, è necessario eseguire la migrazione dei pool di servizi cloud ai pool di [configurazione delle macchine virtuali](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration) .
+
 
 ## <a name="use-cases-for-low-priority-vms"></a>Casi di uso per le macchine virtuali con priorità bassa
 
@@ -44,9 +52,9 @@ Esempi di casi d'uso di elaborazione batch adatti all'uso di macchine virtuali c
 
 -   **Sviluppo e test**: in particolare, se sono in fase di sviluppo soluzioni su larga scala, è possibile realizzare risparmi significativi. Tutti i tipi di test possono trarre vantaggio, ma i test di carico su larga scala e i test di regressione ne traggono il miglio uso.
 
--   **Integrazione della capacità on demand**: le macchine virtuali con priorità bassa possono essere usate per integrare le normali macchine virtuali dedicate. Quando disponibili, i processi possono essere ridimensionati e quindi possono essere completati più rapidamente a un costo inferiore. Quando non sono disponibili, rimangono disponibili le macchine virtuali dedicate di base.
+-   **Integrazione della capacità su richiesta**: le macchine virtuali con priorità bassa possono essere usate per integrare le normali macchine virtuali dedicate. Quando disponibili, i processi possono essere ridimensionati e pertanto possono essere completati più rapidamente a un costo inferiore. Quando non sono disponibili, rimangono disponibili le macchine virtuali dedicate di base.
 
--   **Tempo di esecuzione del processo flessibile**: se c'è flessibilità nei tempi di completamento dei processi, le possibili cadute di capacità vengono considerate tollerabili. I processi delle macchine virtuali con priorità bassa, per giunta, vengono spesso eseguiti più rapidamente e a costi inferiori.
+-   **Tempi di esecuzione del processo flessibili**: se c'è flessibilità nei tempi di completamento dei processi, le possibili cadute di capacità vengono considerate tollerabili; i processi delle macchine virtuali con priorità bassa, per giunta, vengono spesso eseguiti più rapidamente e a costi inferiori.
 
 È possibile configurare i pool di batch per usare macchine virtuali con priorità bassa in diversi modi, a seconda della flessibilità dei tempi di esecuzione del processo:
 
@@ -183,3 +191,4 @@ Per visualizzare le metriche nel portale di Azure:
 
 * Vedere [Panoramica sulle funzionalità di Batch per sviluppatori](batch-api-basics.md)per informazioni essenziali per chiunque si prepari all'uso di Batch. L'articolo contiene informazioni più dettagliate sulle risorse del servizio Batch, ad esempio pool, nodi, processi e attività, e sulle numerose funzionalità delle API che è possibile usare durante la compilazione dell'applicazione Batch.
 * Informazioni sulle [API e gli strumenti di Batch](batch-apis-tools.md) disponibili per la compilazione di soluzioni Batch.
+* Iniziare a pianificare lo spostamento dalle macchine virtuali con priorità bassa per individuare le VM. Se si usano macchine virtuali con priorità bassa con i pool di **configurazione dei servizi cloud** , pianificare lo spostamento nei pool di **configurazione delle macchine virtuali** .

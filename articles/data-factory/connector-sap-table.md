@@ -1,23 +1,22 @@
 ---
-title: Copiare dati da una tabella SAP usando Azure Data Factory
+title: Copiare dati da una tabella SAP
 description: Informazioni su come copiare dati da una tabella SAP in archivi dati di sink supportati usando un'attività di copia in una pipeline Azure Data Factory.
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 09/02/2019
-ms.author: jingwang
-ms.openlocfilehash: 9c4e22e997b4ad8c36d8aaf84d1bb8aacb5c5529
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: fd363f7b685db5e309827a0c5e635264e676b388
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680232"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926186"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Copiare dati da una tabella SAP usando Azure Data Factory
 
@@ -61,9 +60,9 @@ Per usare questo connettore di tabella SAP, è necessario:
 - L'utente SAP usato nel connettore Data Factory SAP TABLE deve avere le autorizzazioni seguenti:
 
   - Autorizzazione per l'utilizzo di destinazioni della chiamata di funzione remota (RFC).
-  - Autorizzazioni per l'attività Execute dell'oggetto di autorizzazione S_SDSAUTH.
+  - Autorizzazioni per l'attività Execute dell'oggetto S_SDSAUTH autorizzazione.
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Inizia oggi stesso
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -73,25 +72,25 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato SAP BW Hub aperto sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| `type` | È necessario impostare la proprietà `type` su `SapTable`. | Sì |
+| `type` | La proprietà `type` deve essere impostata su `SapTable`. | SÌ |
 | `server` | Nome del server in cui si trova l'istanza di SAP.<br/>Usare per connettersi a un server applicazioni SAP. | No |
 | `systemNumber` | Il numero di sistema del sistema SAP.<br/>Usare per connettersi a un server applicazioni SAP.<br/>Valore consentito: numero decimale A due cifre rappresentato come stringa. | No |
 | `messageServer` | Nome host del server dei messaggi SAP.<br/>Usare per connettersi a un server di messaggi SAP. | No |
 | `messageServerService` | Nome del servizio o numero di porta del server dei messaggi.<br/>Usare per connettersi a un server di messaggi SAP. | No |
 | `systemId` | ID del sistema SAP in cui si trova la tabella.<br/>Usare per connettersi a un server di messaggi SAP. | No |
 | `logonGroup` | Il gruppo di accesso per il sistema SAP.<br/>Usare per connettersi a un server di messaggi SAP. | No |
-| `clientId` | ID del client nel sistema SAP.<br/>Valore consentito: numero decimale A tre cifre rappresentato come stringa. | Sì |
+| `clientId` | ID del client nel sistema SAP.<br/>Valore consentito: numero decimale A tre cifre rappresentato come stringa. | SÌ |
 | `language` | Linguaggio utilizzato dal sistema SAP.<br/>Il valore predefinito è `EN`.| No |
-| `userName` | Nome dell'utente che ha accesso al server SAP. | Sì |
-| `password` | Password dell'utente. Contrassegnare questo campo con il tipo di `SecureString` per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| `userName` | Nome dell'utente che ha accesso al server SAP. | SÌ |
+| `password` | Password dell'utente. Contrassegnare questo campo con il tipo di `SecureString` per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | SÌ |
 | `sncMode` | Indicatore di attivazione di SNC per accedere al server SAP in cui si trova la tabella.<br/>Usare se si vuole usare SNC per connettersi al server SAP.<br/>I valori consentiti sono `0` (disattivato, valore predefinito) o `1` (on). | No |
 | `sncMyName` | Nome della SNC dell'Initiator per accedere al server SAP in cui si trova la tabella.<br/>Si applica quando `sncMode` è on. | No |
 | `sncPartnerName` | Nome della SNC del partner di comunicazione per accedere al server SAP in cui si trova la tabella.<br/>Si applica quando `sncMode` è on. | No |
 | `sncLibraryPath` | Libreria del prodotto di sicurezza esterna per accedere al server SAP in cui si trova la tabella.<br/>Si applica quando `sncMode` è on. | No |
 | `sncQop` | Qualità SNC del livello di protezione da applicare.<br/>Si applica quando `sncMode` è on. <br/>I valori consentiti sono `1` (autenticazione), `2` (integrità), `3` (privacy), `8` (impostazione predefinita), `9` (massimo). | No |
-| `connectVia` | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Un runtime di integrazione self-hosted è obbligatorio, come indicato in precedenza in [prerequisiti](#prerequisites). |Sì |
+| `connectVia` | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Un runtime di integrazione self-hosted è obbligatorio, come indicato in precedenza in [prerequisiti](#prerequisites). |SÌ |
 
 **Esempio 1: connettersi a un server applicazioni SAP**
 
@@ -181,10 +180,10 @@ Per un elenco completo delle sezioni e delle proprietà per la definizione dei s
 
 Per copiare dati da e verso il SAP BW servizio collegato Hub aperto, sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| `type` | È necessario impostare la proprietà `type` su `SapTableResource`. | Sì |
-| `tableName` | Nome della tabella SAP da cui copiare i dati. | Sì |
+| `type` | La proprietà `type` deve essere impostata su `SapTableResource`. | SÌ |
+| `tableName` | Nome della tabella SAP da cui copiare i dati. | SÌ |
 
 ### <a name="example"></a>Esempio
 
@@ -213,12 +212,12 @@ Per un elenco completo delle sezioni e delle proprietà per la definizione delle
 
 Per copiare dati da una tabella SAP, sono supportate le proprietà seguenti:
 
-| Proprietà                         | Descrizione                                                  | Obbligatorio |
+| Proprietà                         | Description                                                  | Obbligatoria |
 | :------------------------------- | :----------------------------------------------------------- | :------- |
-| `type`                             | È necessario impostare la proprietà `type` su `SapTableSource`.         | Sì      |
+| `type`                             | La proprietà `type` deve essere impostata su `SapTableSource`.         | SÌ      |
 | `rowCount`                         | Numero di righe da recuperare.                              | No       |
-| `rfcTableFields`                   | Campi (colonne) da copiare dalla tabella SAP. Ad esempio, `column0, column1`. | No       |
-| `rfcTableOptions`                  | Opzioni per filtrare le righe in una tabella SAP. Ad esempio, `COLUMN0 EQ 'SOMEVALUE'`. Vedere anche la tabella degli operatori di query SAP più avanti in questo articolo. | No       |
+| `rfcTableFields`                   | Campi (colonne) da copiare dalla tabella SAP. Ad esempio `column0, column1`. | No       |
+| `rfcTableOptions`                  | Opzioni per filtrare le righe in una tabella SAP. Ad esempio `COLUMN0 EQ 'SOMEVALUE'`. Vedere anche la tabella degli operatori di query SAP più avanti in questo articolo. | No       |
 | `customRfcReadTableFunctionModule` | Un modulo della funzione RFC personalizzato che può essere usato per leggere i dati da una tabella SAP.<br>È possibile usare un modulo della funzione RFC personalizzato per definire il modo in cui i dati vengono recuperati dal sistema SAP e restituiti a Data Factory. Il modulo della funzione personalizzata deve disporre di un'interfaccia implementata (importazione, esportazione, tabelle) simile a `/SAPDS/RFC_READ_TABLE2`, ovvero l'interfaccia predefinita utilizzata da Data Factory. | No       |
 | `partitionOption`                  | Meccanismo di partizione per la lettura da una tabella SAP. Le opzioni supportate includono: <ul><li>`None`</li><li>`PartitionOnInt` (valori integer o Integer normali con riempimento zero a sinistra, ad esempio `0000012345`)</li><li>`PartitionOnCalendarYear` (4 cifre nel formato "aaaa")</li><li>`PartitionOnCalendarMonth` (6 cifre nel formato "YYYYMM")</li><li>`PartitionOnCalendarDate` (8 cifre nel formato "AAAAMMGG")</li></ul> | No       |
 | `partitionColumnName`              | Nome della colonna utilizzata per partizionare i dati.                | No       |
@@ -235,13 +234,13 @@ Per copiare dati da una tabella SAP, sono supportate le proprietà seguenti:
 
 In `rfcTableOptions`, è possibile usare gli operatori di query SAP comuni seguenti per filtrare le righe:
 
-| Operatore | Descrizione |
+| Operator | Description |
 | :------- | :------- |
 | `EQ` | Uguale a |
 | `NE` | Diverso da |
-| `LT` | Minore di |
+| `LT` | Meno di |
 | `LE` | Minore o uguale a |
-| `GT` | Maggiore di |
+| `GT` | Più di |
 | `GE` | Maggiore o uguale a |
 | `LIKE` | Come in `LIKE 'Emma%'` |
 

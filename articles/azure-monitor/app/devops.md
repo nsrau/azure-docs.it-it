@@ -1,5 +1,5 @@
 ---
-title: 'Monitoraggio delle prestazioni delle applicazioni Web: Azure Application Insights | Microsoft Docs'
+title: Monitoraggio delle prestazioni delle app Web-applicazione Azure Insights
 description: Funzione di Application Insights nel ciclo devOps
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/21/2018
-ms.openlocfilehash: bf7c0b4db2b7eb662f55b917dbe318d0ad8023ce
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 1396bc86971941fdf8c6559df71a4c47f58a899c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677298"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928812"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnostica completa per servizi e app Web con Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Funzione di Application Insights

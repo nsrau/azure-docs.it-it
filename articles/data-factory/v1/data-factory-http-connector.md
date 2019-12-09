@@ -4,24 +4,23 @@ description: Informazioni su come spostare dati da un origine HTTP locale o clou
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4133393b7b21394ea397598a5e1651ee370f92f0
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e668f44bbc3d2e381edeb80c568a41355584a4ee
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682519"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74924170"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Spostare dati da un'origine HTTP tramite Azure Data Factory
 
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-http-connector.md)
 > * [Versione 2 (corrente)](../connector-http.md)
 
@@ -39,7 +38,7 @@ Data Factory supporta attualmente solo lo spostamento di dati da un'origine HTTP
 
 Nel copiare dati da un endpoint HTTP locale, è necessario installare Gateway di gestione dati nell'ambiente locale o in una macchina virtuale di Azure. Per informazioni su Gateway di gestione dati e per istruzioni dettagliate su come configurare il gateway, vedere [Moving data between on-premises locations and the cloud](data-factory-move-data-between-onprem-and-cloud.md) (Spostamento di dati tra posizioni locali e nel cloud).
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Inizia oggi stesso
 
 È possibile creare una pipeline con l'attività di copia per spostare i dati da un'origine HTTP usando diversi strumenti o API:
 
@@ -51,11 +50,11 @@ Nel copiare dati da un endpoint HTTP locale, è necessario installare Gateway di
 
 La tabella seguente descrive gli elementi JSON specifici del servizio collegato HTTP:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 | --- | --- | --- |
-| type | La proprietà **type** deve essere impostata su **Http**. | Sì |
-| URL | URL di base del server Web. | Sì |
-| authenticationType | Specifica il tipo di autenticazione. I valori consentiti sono **Anonymous**, **Basic**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Fare riferimento alle sezioni più avanti in questo articolo per altre proprietà e altri esempi JSON per questi tipi di autenticazione. | Sì |
+| type | La proprietà **type** deve essere impostata su **Http**. | SÌ |
+| url | URL di base del server Web. | SÌ |
+| authenticationType | Specifica il tipo di autenticazione. I valori consentiti sono **Anonymous**, **Basic**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Fare riferimento alle sezioni più avanti in questo articolo per altre proprietà e altri esempi JSON per questi tipi di autenticazione. | SÌ |
 | enableServerCertificateValidation | Specifica se abilitare la convalida del certificato SSL del server se l'origine è un server Web HTTPS. Quando il server HTTPS usa un certificato autofirmato, impostare questa proprietà su **false**. | No<br /> (il valore predefinito è **true**) |
 | gatewayName | Nome dell'istanza di Gateway di gestione dati da usare per la connessione a un'origine HTTP locale. | Sì, se si copiano dati da un'origine HTTP locale |
 | encryptedCredential | Credenziale crittografata per l'accesso all'endpoint HTTP. Il valore viene generato automaticamente durante la configurazione delle informazioni di autenticazione nella procedura guidata di copia o tramite la finestra di dialogo **ClickOnce**. | No<br /> (si applica solo quando si copiano dati da un server HTTP locale) |
@@ -66,10 +65,10 @@ Per informazioni sull'impostazione di credenziali per un'origine dati connettore
 
 Impostare **authenticationType** su **Basic**, **Digest** o **Windows**. Oltre alle proprietà generiche del connettore HTTP descritte nelle sezioni precedenti, impostare le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 | --- | --- | --- |
-| userName | Nome utente da usare per accedere all'endpoint HTTP. | Sì |
-| password | Password per l'utente (**username**). | Sì |
+| userName | Nome utente da usare per accedere all'endpoint HTTP. | SÌ |
+| password | Password per l'utente (**username**). | SÌ |
 
 **Esempio: Uso dell'autenticazione di base, digest o di Windows**
 
@@ -94,7 +93,7 @@ Impostare **authenticationType** su **Basic**, **Digest** o **Windows**. Oltre a
 
 Per usare l'autenticazione di base, impostare **authenticationType** su **ClientCertificate**. Oltre alle proprietà generiche del connettore HTTP descritte nelle sezioni precedenti, impostare le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 | --- | --- | --- |
 | embeddedCertData | Contenuto dei dati binari del file PFX con codifica Base64. | Specificare **embeddedCertData** o **certThumbprint** |
 | certThumbprint | L'identificazione personale del certificato installato nell'archivio certificati del computer gateway. Si applica solo quando si copiano dati da un server HTTP locale. | Specificare **embeddedCertData** o **certThumbprint** |
@@ -158,9 +157,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati. La sezione **typeProperties** fornisce informazioni sulla posizione dei dati nell'archivio dati. La sezione **typeProperties** per un set di dati di tipo **Http** ha le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **type** del set di dati deve essere impostata su **Http**. | Sì |
+| type | La proprietà **type** del set di dati deve essere impostata su **Http**. | SÌ |
 | relativeUrl | URL relativo della risorsa che contiene i dati. Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. <br><br> Per creare un URL dinamico, è possibile usare le [funzioni e variabili di sistema di Data Factory](data-factory-functions-variables.md). Esempio: **relativeUrl**: **$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)** . | No |
 | requestMethod | Metodo HTTP. I valori consentiti sono **GET** e **POST**. | No <br />Il valore predefinito è **GET** |
 | additionalHeaders | Intestazioni richiesta HTTP aggiuntive. | No |
@@ -221,7 +220,7 @@ Le proprietà disponibili nella sezione **typeProperties** dell'attività varian
 
 Attualmente, quando l'origine nell'attività di copia è di tipo **HttpSource**, sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 | -------- | ----------- | -------- |
 | httpRequestTimeout | Timeout (valore di **TimeSpan**) durante il quale la richiesta HTTP attende una risposta. Si tratta del timeout per ottenere una risposta, non per leggere i dati della risposta. | No<br />(valore predefinito: **00:01:40**) |
 

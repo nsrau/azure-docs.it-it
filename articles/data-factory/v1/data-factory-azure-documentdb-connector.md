@@ -4,24 +4,23 @@ description: Informazioni su come spostare i dati da e verso la raccolta di Azur
 services: data-factory, cosmosdb
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: c9297b71-1bb4-4b29-ba3c-4cf1f5575fac
 ms.service: multiple
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c0ff1b9164f0e631bf148af88bd9efaaaa61f431
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a638184d5232de916ebd25360147301a93309dd9
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683165"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930078"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Spostare dati da e verso il BLOB di Azure mediante Data factory di Azure
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-azure-documentdb-connector.md)
 > * [Versione 2 (corrente)](../connector-azure-cosmos-db.md)
 
@@ -37,10 +36,10 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 Per copiare i dati così come sono da e verso i file JSON o un'altra raccolta Cosmos DB, vedere [Importare/esportare documenti JSON](#importexport-json-documents).
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 È possibile creare una pipeline con l'attività di copia che sposta i dati da e verso Azure Cosmos DB usando diversi strumenti/API.
 
-Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
+Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md).
 
 È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager modello**, **API .NET**e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
@@ -50,7 +49,7 @@ Se si usano gli strumenti o le API, eseguire la procedura seguente per creare un
 2. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia.
 3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output.
 
-Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di Data Factory. Per esempi con definizioni JSON per entità di data factory utilizzate per copiare i dati da e verso Cosmos DB, vedere la sezione degli [esempi JSON](#json-examples) in questo articolo.
+Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory. Per esempi con definizioni JSON per entità di data factory utilizzate per copiare i dati da e verso Cosmos DB, vedere la sezione degli [esempi JSON](#json-examples) in questo articolo.
 
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che vengono usate per definire entità di Data factory specifiche di Cosmos DB:
 
@@ -59,8 +58,8 @@ La tabella seguente fornisce la descrizione degli elementi JSON specifici del se
 
 | **Proprietà** | **Descrizione** | **Obbligatorio** |
 | --- | --- | --- |
-| type |La proprietà del tipo deve essere impostata su: **DocumentDb** |Sì |
-| connectionString |Specificare le informazioni necessarie per connettersi al database di Azure Cosmos DB. |Sì |
+| type |La proprietà del tipo deve essere impostata su: **DocumentDb** |SÌ |
+| connectionString |Specificare le informazioni necessarie per connettersi al database di Azure Cosmos DB. |SÌ |
 
 Esempio:
 
@@ -83,7 +82,7 @@ La sezione typeProperties è diversa per ogni tipo di set di dati e contiene inf
 
 | **Proprietà** | **Descrizione** | **Obbligatorio** |
 | --- | --- | --- |
-| collectionName |Nome della raccolta documenti di Cosmos DB. |Sì |
+| collectionName |Nome della raccolta documenti di Cosmos DB. |SÌ |
 
 Esempio:
 
@@ -131,7 +130,7 @@ In caso di attività di copia con origine di tipo **DocumentDbCollectionSource**
 
 | **Proprietà** | **Descrizione** | **Valori consentiti** | **Obbligatorio** |
 | --- | --- | --- | --- |
-| nestingSeparator |È necessario un carattere speciale nel nome della colonna di origine per indicare tale documento nidificato. <br/><br/>Per l'esempio sopra: `Name.First` nella tabella di output produce la struttura JSON seguente nel documento di Cosmos DB:<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |Carattere usato per separare i livelli di annidamento.<br/><br/>Il valore predefinito è `.` (punto). |Carattere usato per separare i livelli di annidamento. <br/><br/>Il valore predefinito è `.` (punto). |
+| nestingSeparator |È necessario un carattere speciale nel nome della colonna di origine per indicare tale documento nidificato. <br/><br/>Per l'esempio sopra: `Name.First` nella tabella di output produce la struttura JSON seguente nel documento di Cosmos DB:<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |Carattere utilizzato per separare i livelli di nidificazione.<br/><br/>Il valore predefinito è `.` (punto). |Carattere utilizzato per separare i livelli di nidificazione. <br/><br/>Il valore predefinito è `.` (punto). |
 | writeBatchSize |Numero di richieste in parallelo per il servizio Azure Cosmos DB per creare documenti.<br/><br/>È possibile ottimizzare le prestazioni quando si copiano dati da e verso Cosmos DB usando questa proprietà. È possibile prevedere prestazioni migliori quando si aumenta writeBatchSize, poiché vengono inviate più richieste in parallelo a Cosmos DB. Tuttavia è necessario evitare la limitazione che può generare il messaggio di errore: "La frequenza delle richieste è troppo elevata".<br/><br/>La limitazione viene decisa da diversi fattori, tra cui le dimensioni dei documenti, il numero di termini nei documenti, i criteri di indicizzazione della raccolta di destinazione e così via. Per le operazioni di copia, è possibile usare una raccolta migliore, ad esempio S3, per ottenere la massima velocità effettiva disponibile (2.500 unità richiesta al secondo). |Integer |No (valore predefinito: 5) |
 | writeBatchTimeout |Tempo di attesa per il completamento dell’operazione prima del timeout. |timespan<br/><br/> Ad esempio: "00:30:00" (30 minuti). |No |
 
@@ -488,7 +487,7 @@ Azure Cosmos DB è un archivio NoSQL per i documenti JSON, dove sono consentite 
 2. **Domanda:** in che modo un nuovo tentativo di copia in Azure Cosmos DB gestisce i record già copiati?
 
     **Risposta:** se i record dispongono di un campo "ID" e l'operazione di copia tenta di inserire un record con lo stesso ID, l'operazione di copia genera un errore.
-3. **Domanda:** Il Data Factory supporta [il partizionamento dei dati basato su hash o sull’intervallo](../../cosmos-db/sql-api-partition-data.md)?
+3. **Domanda:** Data Factory supporta il [partizionamento dei dati basato su hash o su intervalli](../../cosmos-db/sql-api-partition-data.md)?
 
     **Risposta:** No.
 4. **Domanda:** è possibile specificare più raccolte di Azure Cosmos DB per una tabella?

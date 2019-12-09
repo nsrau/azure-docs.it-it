@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: mlearned
-ms.openlocfilehash: 26ba3ff600ddca6158579941ab5d32b60ff13101
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 429205d1df91b5a63679d1189903e5340ab837f8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950372"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74913890"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Concetti relativi alla rete per le applicazioni nel servizio Azure Kubernetes
 
@@ -33,7 +33,7 @@ In Kubernetes, i *servizi* raggruppano i pod dal punto di vista logico per conse
 
 Anche la piattaforma Azure contribuisce a semplificare le funzionalità di rete virtuale per i cluster servizio Azure Kubernetes. Quando si crea un bilanciamento del carico di Kubernetes, viene creata e configurata la risorsa di bilanciamento del carico di Azure sottostante. Quando si aprono le porte di rete per i pod, vengono configurate le regole del gruppo di sicurezza di rete di Azure corrispondente. Per il routing delle applicazioni HTTP, Azure può anche configurare il *DNS esterno* quando vengono configurate nuove route in ingresso.
 
-## <a name="services"></a>Servizi
+## <a name="services"></a>Services
 
 Per semplificare la configurazione di rete per i carichi di lavoro dell'applicazione, Kubernetes usa *servizi* per raggruppare un set di pod in modo logico e fornire la connettività di rete. Sono disponibili i tipi di servizio seguenti:
 
@@ -68,13 +68,13 @@ Nel servizio Azure Kubernetes è possibile distribuire un cluster che usa uno de
 
 L'opzione per le funzionalità di rete *kubenet* è la configurazione predefinita per la creazione del cluster del servizio Azure Kubernetes. Con *kubenet* i nodi ottengono un indirizzo IP dalla subnet della rete virtuale di Azure. I pod ricevono un indirizzo IP da uno spazio di indirizzi diverso dal punto di vista logico nella subnet della rete virtuale di Azure dei nodi. La funzionalità Network Address Translation (NAT) viene quindi configurata in modo che i pod possano raggiungere le risorse nella rete virtuale di Azure. L'indirizzo IP di origine del traffico viene convertito tramite NAT nell'indirizzo IP primario del nodo.
 
-I nodi usano il plug-in [kubenet][kubenet] Kubernetes. La piattaforma Azure può creare e configurare le reti virtuali automaticamente. In alternativa, è possibile distribuire il cluster del servizio Azure Kubernetes nella subnet di una rete virtuale esistente. Anche in questo caso, solo i nodi ricevono un indirizzo IP instradabile e i pod usano NAT per comunicare con altre risorse all'esterno del cluster AKS. Questo approccio riduce notevolmente il numero di indirizzi IP che è necessario riservare ai pod nello spazio di indirizzi della rete.
+I nodi usano il plug-in [kubenet][kubenet] Kubernetes. La piattaforma Azure può creare e configurare le reti virtuali automaticamente. In alternativa, è possibile distribuire il cluster del servizio Azure Kubernetes nella subnet di una rete virtuale esistente. Anche in questo caso, solo i nodi ricevono un indirizzo IP instradabile e i pod usano NAT per comunicare con altre risorse all'esterno del cluster AKS. Questo approccio riduce notevolmente il numero di indirizzi IP che è necessario riservare ai pod nello spazio degli indirizzi della rete.
 
 Per altre informazioni, vedere [configurare la rete kubenet per un cluster AKS][aks-configure-kubenet-networking].
 
 ### <a name="azure-cni-advanced-networking"></a>Funzionalità di rete Azure CNI (avanzata)
 
-Con Azure CNI ogni pod ottiene un indirizzo IP dalla subnet in modo che vi si possa accedere direttamente. Questi indirizzi IP devono essere univoci nello spazio di indirizzi della rete e devono essere pianificati in anticipo. Ogni nodo ha un parametro di configurazione per il numero massimo di pod che supporta. Il numero equivalente di indirizzi IP per nodo viene quindi riservato anticipatamente per tale nodo. Questo approccio richiede una pianificazione più approfondita, in quanto può compromettere l'esaurimento degli indirizzi IP o la necessità di ricompilare i cluster in una subnet più ampia in caso di aumento delle richieste dell'applicazione.
+Con Azure CNI ogni pod ottiene un indirizzo IP dalla subnet in modo che vi si possa accedere direttamente. Questi indirizzi IP devono essere univoci nello spazio degli indirizzi della rete e devono essere pianificati in anticipo. Ogni nodo ha un parametro di configurazione per il numero massimo di pod che supporta. Il numero equivalente di indirizzi IP per nodo viene quindi riservato anticipatamente per tale nodo. Questo approccio richiede una pianificazione più approfondita, in quanto può compromettere l'esaurimento degli indirizzi IP o la necessità di ricompilare i cluster in una subnet più ampia in caso di aumento delle richieste dell'applicazione.
 
 I nodi usano il plug-in Kubernetes [(CNI) di Azure container Network Interface][cni-networking] .
 
@@ -92,12 +92,12 @@ Sia kubenet che Azure CNI forniscono la connettività di rete per i cluster AKS.
     * È necessario gestire e gestire manualmente le route definite dall'utente (UDR).
     * Massimo 400 nodi per cluster.
 * **Azure CNI**
-    * I pod ottengono la connettività di rete virtuale completa e possono essere raggiunti direttamente dall'esterno del cluster.
+    * I pod ottengono la connettività di rete virtuale completa e possono essere raggiunti direttamente tramite il proprio indirizzo IP privato dalle reti connesse.
     * Richiede più spazio di indirizzi IP.
 
 Tra kubenet e Azure CNI sono presenti le differenze di comportamento seguenti:
 
-| Capacità                                                                                   | Kubenet   | Azure CNI |
+| Funzionalità                                                                                   | Kubenet   | Azure CNI |
 |----------------------------------------------------------------------------------------------|-----------|-----------|
 | Distribuire il cluster in una rete virtuale nuova o esistente                                            | Supportato-UdR applicato manualmente | Supportato |
 | Connettività Pod-Pod                                                                         | Supportato | Supportato |
@@ -115,7 +115,7 @@ Indipendentemente dal modello di rete usato, sia kubenet che Azure CNI possono e
 * La piattaforma Azure può creare e configurare automaticamente le risorse della rete virtuale quando si crea un cluster AKS.
 * Quando si crea il cluster AKS, è possibile creare e configurare manualmente le risorse della rete virtuale e connetterle a tali risorse.
 
-Sebbene le funzionalità come gli endpoint di servizio o UdR siano supportate sia con kubenet che con Azure CNI, i [criteri di supporto per AKS][support-policies] definiscono le modifiche che è possibile apportare. Esempio:
+Sebbene le funzionalità come gli endpoint di servizio o UdR siano supportate sia con kubenet che con Azure CNI, i [criteri di supporto per AKS][support-policies] definiscono le modifiche che è possibile apportare. ad esempio:
 
 * Se si creano manualmente le risorse della rete virtuale per un cluster AKS, si è supportati quando si configurano gli endpoint di servizio o UdR personalizzati.
 * Se la piattaforma Azure crea automaticamente le risorse di rete virtuale per il cluster del servizio contenitore di Azure, non è supportata la modifica manuale delle risorse gestite da AKS per configurare UdR o endpoint di servizio personalizzati.

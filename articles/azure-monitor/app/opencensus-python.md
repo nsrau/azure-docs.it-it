@@ -8,12 +8,12 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 2114e60b5ed684063ed100279ea19f561bd335ea
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: af16643ed877ca427a22428afec028264de7a5d8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849786"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928989"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Configurare monitoraggio di Azure per l'applicazione Python (anteprima)
 
@@ -61,7 +61,16 @@ Per un elenco completo dei pacchetti e delle integrazioni, vedere [pacchetti Ope
 
 L'SDK usa tre utilità di esportazione di monitoraggio di Azure per inviare diversi tipi di dati di telemetria a monitoraggio di Azure: traccia, metriche e log. Per altre informazioni su questi tipi di telemetria, vedere [Panoramica della piattaforma dati](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform). Usare le istruzioni seguenti per inviare questi tipi di dati di telemetria tramite i tre esportatori.
 
+## <a name="telemetry-type-mappings"></a>Mapping dei tipi di telemetria
+
+Ecco gli esportatori che OpenCensus fornisce mappato ai tipi di dati di telemetria che verranno visualizzati in monitoraggio di Azure.
+
+![Screenshot del mapping dei tipi di dati di telemetria da OpenCensus a monitoraggio di Azure](./media/opencensus-python/0012-telemetry-types.png)
+
 ### <a name="trace"></a>Trace
+
+> [!NOTE]
+> `Trace` in OpenCensus si riferisce alla [traccia distribuita](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing). Il `AzureExporter` Invia `requests` e `dependency` la telemetria a monitoraggio di Azure.
 
 1. Prima di tutto, è necessario generare alcuni dati di traccia localmente. In Python inattivo, o l'editor preferito, immettere il codice seguente.
 
@@ -293,7 +302,10 @@ L'SDK usa tre utilità di esportazione di monitoraggio di Azure per inviare dive
         main()
     ```
 
-4. L'utilità di esportazione invierà i dati di log a monitoraggio di Azure. È possibile trovare i dati in `traces`.
+4. L'utilità di esportazione invierà i dati di log a monitoraggio di Azure. È possibile trovare i dati in `traces`. 
+
+> [!NOTE]
+> `traces` in questo contesto non corrisponde a `Tracing`. `traces` si riferisce al tipo di dati di telemetria che si vedrà in monitoraggio di Azure quando si usa il `AzureLogHandler`. `Tracing` si riferisce a un concetto di OpenCensus e si riferisce alla [traccia distribuita](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing).
 
 5. Per formattare i messaggi di log, è possibile usare `formatters` nell' [API di registrazione](https://docs.python.org/3/library/logging.html#formatter-objects)Python incorporata.
 

@@ -1,36 +1,35 @@
 ---
-title: Usare Azure Data Factory per migrare i dati da Amazon S3 ad archiviazione di Azure
+title: Eseguire la migrazione dei dati da un archivio dati Amazon S3 ad Archiviazione di Azure
 description: Usare Azure Data Factory per migrare i dati da Amazon S3 ad archiviazione di Azure.
 services: data-factory
-documentationcenter: ''
-author: dearandyxu
 ms.author: yexu
+author: dearandyxu
 ms.reviewer: ''
-manager: ''
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 8/04/2019
-ms.openlocfilehash: 4d4e0453105dacfbf35624a2a9acb9d5994f4dea
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 30990c3d1e3f885e8984227425d3e8e5c44b9286
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73675738"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927483"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Usare Azure Data Factory per migrare i dati da Amazon S3 ad archiviazione di Azure 
 
 Azure Data Factory offre un meccanismo efficiente, affidabile ed economico per eseguire la migrazione dei dati su larga scala da Amazon S3 all'archiviazione BLOB di Azure o Azure Data Lake Storage Gen2.  Questo articolo fornisce le informazioni seguenti per gli sviluppatori e gli sviluppatori di dati: 
 
 > [!div class="checklist"]
-> * Prestazioni 
+> * Performance 
 > * Resilienza della copia
 > * Sicurezza di rete
 > * Architettura della soluzione di alto livello 
 > * Procedure consigliate per l'implementazione  
 
-## <a name="performance"></a>Prestazioni
+## <a name="performance"></a>Performance
 
 ADF offre un'architettura senza server che consente il parallelismo a livelli diversi, consentendo agli sviluppatori di compilare pipeline per sfruttare al meglio la larghezza di banda di rete, oltre a IOPS e larghezza di banda di archiviazione per ottimizzare la velocità effettiva di spostamento dei dati per l'ambiente. 
 
@@ -93,7 +92,7 @@ Se uno dei processi di copia ha esito negativo a causa di un problema temporaneo
 
 ### <a name="delta-data-migration"></a>Migrazione dei dati Delta 
 
-Il modo più efficiente per identificare i file nuovi o modificati da AWS S3 consiste nell'usare la convenzione di denominazione partizionata in base al tempo: quando i dati in AWS S3 sono stati partizionati con le informazioni relative all'intervallo di tempo nel nome del file o della cartella (ad esempio,/yyyy/mm/DD/file.csv), la pipeline può identificare facilmente i file e le cartelle da copiare in modo incrementale. 
+Il modo più efficiente per identificare i file nuovi o modificati da AWS S3 consiste nell'usare la convenzione di denominazione partizionata in base al tempo: quando i dati in AWS S3 sono stati partizionati con le informazioni sull'intervallo di tempo nel nome del file o della cartella (ad esempio,/yyyy/mm/DD/file.csv), la pipeline può identificare facilmente i file o le cartelle da copiare in modo incrementale. 
 
 In alternativa, se i dati in AWS S3 non sono partizionati, ADF è in grado di identificare i file nuovi o modificati in base ai relativi LastModifiedDate.   Il modo in cui funziona è che ADF analizzerà tutti i file di AWS S3 e copierà solo il file nuovo e aggiornato il cui ultimo timestamp modificato è maggiore di un determinato valore.  Tenere presente che se si dispone di un numero elevato di file in S3, l'analisi dei file iniziale potrebbe richiedere molto tempo indipendentemente dal numero di file che corrispondono alla condizione di filtro.  In questo caso è consigliabile partizionare prima i dati, usando la stessa impostazione "prefix" per la migrazione dello snapshot iniziale, in modo che l'analisi dei file possa essere eseguita in parallelo.  
 
