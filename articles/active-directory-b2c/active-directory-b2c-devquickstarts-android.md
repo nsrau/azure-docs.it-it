@@ -1,6 +1,7 @@
 ---
-title: Acquisire un token mediante un'applicazione Android in Azure Active Directory B2C | Microsoft Docs
-description: Questo articolo spiega come creare un'app per Android che usa AppAuth con Azure Active Directory B2C per gestire le identità utente e l'autenticazione degli utenti.
+title: Acquisire un token in un'applicazione Android
+titleSuffix: Azure AD B2C
+description: Come creare un'app Android che usa AppAuth con Azure Active Directory B2C per gestire le identità utente e autenticare gli utenti.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 28b1c3622ca449b0ce539937369fe43bd1d508ee
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7da403eff6a8b96e5fbfc6a6acda48fa397e74b1
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468985"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948208"
 ---
 # <a name="sign-in-using-an-android-application-in-azure-active-directory-b2c"></a>Accedere mediante un'applicazione Android in Azure Active Directory B2C
 
@@ -38,7 +39,7 @@ Registrare quindi un'applicazione nel tenant del Azure AD B2C. Questo fornisce A
 
 [!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
 
-Registrare l' **ID dell'applicazione (client)** per l'uso in un passaggio successivo.
+Prendere nota del valore di **ID applicazione (client)** , che sarà necessario in un passaggio successivo.
 
 Registrare anche l'URI di reindirizzamento personalizzato per l'uso in un passaggio successivo. Ad esempio `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 

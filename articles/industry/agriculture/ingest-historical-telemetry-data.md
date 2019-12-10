@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: d2ac3b0f531b6384643d91fac1cf50a0ea719969
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: a3e4f543be2f01e0c649d5f9bcc9287dedc275f1
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900345"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941645"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Inserire dati di telemetria cronologici
 
@@ -39,7 +39,7 @@ Seguire questa procedura.
 > Per eseguire la procedura seguente, è necessario essere un amministratore.
 
 1. Scaricare questo [script](https://aka.ms/farmbeatspartnerscript)ed estrarlo nell'unità locale. Due file sono inclusi nel file zip.
-2. Accedere al [portale di Azure](https://portal.azure.com/) e aprire Azure Cloud Shell. Questa opzione è disponibile sulla barra degli strumenti nell'angolo superiore destro del portale. 
+2. Accedere al [portale di Azure](https://portal.azure.com/) e aprire Azure Cloud Shell. Questa opzione è disponibile sulla barra degli strumenti nell'angolo superiore destro del portale.
 
     ![Barra degli strumenti portale di Azure](./media/for-tutorials/navigation-bar-1.png)
 
@@ -47,7 +47,7 @@ Seguire questa procedura.
 
     ![Impostazione di PowerShell](./media/for-tutorials/power-shell-new-1.png)
 
-4. Caricare i due file scaricati al passaggio 1 nell'istanza di Cloud Shell. 
+4. Caricare i due file scaricati al passaggio 1 nell'istanza di Cloud Shell.
 
     ![Pulsante carica sulla barra degli strumenti](./media/for-tutorials/power-shell-two-1.png)
 
@@ -55,7 +55,7 @@ Seguire questa procedura.
 
    >[!NOTE]
    > Per impostazione predefinita, i file vengono caricati nella home directory/home/username.
-6. Eseguire lo script usando il comando seguente: 
+6. Eseguire lo script usando il comando seguente:
 
     ```azurepowershell-interactive
     ./generateCredentials.ps1
@@ -67,10 +67,10 @@ Seguire questa procedura.
 
  Ora che si dispone delle credenziali necessarie, è possibile definire il dispositivo e i sensori. A tale scopo, creare i metadati usando le API FarmBeats.
 
- FarmBeats datahub include le API seguenti che consentono di creare e gestire i metadati del dispositivo o del sensore. 
+ FarmBeats datahub include le API seguenti che consentono di creare e gestire i metadati del dispositivo o del sensore.
 
-- /**DeviceModel**: DeviceModel corrisponde ai metadati del dispositivo, ad esempio il produttore e il tipo di dispositivo, che può essere un gateway o un nodo. 
-- /**dispositivo**: il dispositivo corrisponde a un dispositivo fisico presente nella farm. 
+- /**DeviceModel**: DeviceModel corrisponde ai metadati del dispositivo, ad esempio il produttore e il tipo di dispositivo, che può essere un gateway o un nodo.
+- /**dispositivo**: il dispositivo corrisponde a un dispositivo fisico presente nella farm.
 - /**SensorModel**: SensorModel corrisponde ai metadati del sensore, ad esempio il produttore, il tipo di sensore, che può essere analogico o digitale, e la misura del sensore, ad esempio la temperatura e la pressione dell'ambiente.
 - **sensore**/: il sensore corrisponde a un sensore fisico che registra i valori. Un sensore è in genere connesso a un dispositivo con un ID dispositivo.  
 
@@ -86,7 +86,7 @@ Seguire questa procedura.
 |    properties          |    Proprietà aggiuntive del produttore.   |
 |    **Dispositivo**             |                      |
 |   DeviceModelId     |     ID del modello di dispositivo associato.  |
-|  hardwareId          | ID univoco per il dispositivo, ad esempio l'indirizzo MAC.
+|  HardwareId          | ID univoco per il dispositivo, ad esempio l'indirizzo MAC.
 |  ReportingInterval        |   Intervallo di Reporting in secondi.
 |  Località            |  Latitudine del dispositivo (da-90 a + 90), Longitudine (-180 a 180) ed elevazione (in metri).   
 |ParentDeviceId       |    ID del dispositivo padre a cui è connesso il dispositivo. Ad esempio, un nodo connesso a un gateway. Un nodo ha parentDeviceId come gateway.  |
@@ -99,14 +99,14 @@ Seguire questa procedura.
 |     ProductCode| Codice prodotto o nome modello o numero. Ad esempio, RS-CO2-N01. |
 |       Nome > SensorMeasures       | Nome della misura del sensore. Sono supportati solo caratteri minuscoli. Per le misurazioni di profondità diverse, specificare la profondità. Ad esempio, soil_moisture_15cm. Questo nome deve essere coerente con i dati di telemetria.  |
 |          Tipo di dati > SensorMeasures       |Tipo di dati di telemetria. Attualmente, il valore Double è supportato.|
-|    Tipo > sensorMeasures    |Tipo di misura dei dati di telemetria del sensore. I tipi definiti dal sistema sono Temperaturaambiente, CO2, depth, ElectricalConductivity, LeafWetness, length, LiquidLevel, nitrate, O2, PH, fosfato, PointInTime, potassio, Pressure, RainGauge, RelativeHumidity, salinità, SoilMoisture, SoilTemperature, SolarRadiation, state, TimeDuration, UVRadiation, UVIndex, volume, WindDirection, WindRun, WindSpeed, evapotraspirazione, PAR. Per aggiungere altre informazioni, vedere l'API/ExtendedType.|
+|    Tipo > SensorMeasures    |Tipo di misura dei dati di telemetria del sensore. I tipi definiti dal sistema sono Temperaturaambiente, CO2, depth, ElectricalConductivity, LeafWetness, length, LiquidLevel, nitrate, O2, PH, fosfato, PointInTime, potassio, Pressure, RainGauge, RelativeHumidity, salinità, SoilMoisture, SoilTemperature, SolarRadiation, state, TimeDuration, UVRadiation, UVIndex, volume, WindDirection, WindRun, WindSpeed, evapotraspirazione, PAR. Per aggiungere altre informazioni, vedere l'API/ExtendedType.|
 |        Unità > SensorMeasures              | Unità di dati di telemetria del sensore. Le unità definite dal sistema sono nounit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, millimetro, centimetro, metro, pollice, feet, Mile, chilometro, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, percentuale, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, litro, millilitro, seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour per aggiungere altro, fare riferimento all'API/ExtendedType.|
 |    SensorMeasures > AggregationType    |  I valori possibili sono None, Average, Maximum, Minimum o StandardDeviation.  |
 |          name            | Nome per identificare una risorsa. Ad esempio, il nome del modello o il nome del prodotto.  |
 |    Description        | Fornire una descrizione significativa del modello.  |
 |   properties       |  Proprietà aggiuntive del produttore.  |
 |    **Sensore**      |          |
-| hardwareId          |   ID univoco per il sensore impostato dal produttore. |
+| HardwareId          |   ID univoco per il sensore impostato dal produttore. |
 |  SensorModelId     |    ID del modello di sensore associato.   |
 | Località          |  Latitudine del sensore (da-90 a + 90), Longitudine (-180 a 180) ed elevazione (in metri).|
 |   Nome > porta        |  Nome e tipo della porta a cui il sensore è connesso nel dispositivo. Il nome deve corrispondere a quello definito nel modello di dispositivo. |
@@ -269,7 +269,7 @@ Sensore
   }
 }
 ```
-La richiesta di esempio seguente crea un dispositivo. Questa richiesta ha input JSON come payload con il corpo della richiesta. 
+La richiesta di esempio seguente crea un dispositivo. Questa richiesta ha input JSON come payload con il corpo della richiesta.
 
 ```bash
 curl -X POST "https://<datahub>.azurewebsites.net/Device" -H  
@@ -292,7 +292,7 @@ Ora che sono stati creati i dispositivi e i sensori in FarmBeats, è possibile i
 
 ### <a name="send-a-telemetry-message-as-the-client"></a>Inviare un messaggio di telemetria come client
 
-Dopo aver stabilito una connessione come client di hub eventi, è possibile inviare messaggi all'hub eventi come JSON. 
+Dopo aver stabilito una connessione come client di hub eventi, è possibile inviare messaggi all'hub eventi come JSON.
 
 Ecco il codice Python di esempio che invia dati di telemetria come client a un hub eventi specificato:
 
@@ -313,7 +313,7 @@ write_client.stop()
 
 ```
 
-Convertire il formato dei dati cronologici del sensore in un formato canonico che Azure FarmBeats riconosce. Il formato del messaggio canonico è il seguente: 
+Convertire il formato dei dati cronologici del sensore in un formato canonico che Azure FarmBeats riconosce. Il formato del messaggio canonico è il seguente:
 
 ```json
 {

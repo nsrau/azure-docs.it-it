@@ -1,5 +1,6 @@
 ---
-title: Esempi e definizioni di API per la creazione di report sull'utilizzo in Azure Active Directory B2C | Microsoft Docs
+title: Esempi e definizioni di API per la creazione di report sull'utilizzo
+titleSuffix: Azure AD B2C
 description: Guida ed esempi su come ottenere i report su utenti, autenticazioni e autenticazioni a più fattori del tenant di Azure AD B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: fe7dd90bdec816ee433310a803d85c57f4892f8c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f81acf28b502965f896cd8b38767e7c2e925156c
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508721"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949339"
 ---
 # <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>Accesso ai report sull'uso in Azure AD B2C tramite l'API per la creazione di report
 
@@ -29,7 +30,7 @@ Questo articolo si concentra sui report collegati all'attività di fatturazione,
 
 
 ## <a name="prerequisites"></a>Prerequisiti
-Prima di iniziare è necessario completare i passaggi nei [prerequisiti per l'accesso alle API per la creazione di report di Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/). Creare un'applicazione, ottenere il relativo segreto e concedere i diritti di accesso ai report del tenant di Azure AD B2C. Di seguito vengono riportati anche esempi di *script Bash* e *script Python*. 
+Prima di iniziare è necessario completare i passaggi nei [prerequisiti per l'accesso alle API per la creazione di report di Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/). Creare un'applicazione, ottenere il relativo segreto e concedere i diritti di accesso ai report del tenant di Azure AD B2C. Di seguito vengono riportati anche esempi di *script Bash* e *script Python*.
 
 ## <a name="powershell-script"></a>Script di PowerShell
 Questo script illustra la creazione di quattro report sull'uso impiegando il parametro `TimeStamp` e il filtro `ApplicationId`.
@@ -38,10 +39,10 @@ Questo script illustra la creazione di quattro report sull'uso impiegando il par
 # This script will require the Web Application and permissions setup in Azure Active Directory
 
 # Constants
-$ClientID      = "your-client-application-id-here"  
+$ClientID      = "your-client-application-id-here"
 $ClientSecret  = "your-client-application-secret-here"
 $loginURL      = "https://login.microsoftonline.com"
-$tenantdomain  = "your-b2c-tenant-domain.onmicrosoft.com"  
+$tenantdomain  = "your-b2c-tenant-domain.onmicrosoft.com"
 # Get an Oauth 2 access token based on client id, secret and tenant domain
 $body          = @{grant_type="client_credentials";resource=$resource;client_id=$ClientID;client_secret=$ClientSecret}
 $oauth         = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
@@ -106,7 +107,7 @@ if ($oauth.access_token -ne $null) {
 
 * **b2cAuthenticationCountSummary**: il riepilogo del numero giornaliero di autenticazioni fatturabili eseguite negli ultimi 30 giorni, per data e per tipo di flusso di autenticazione.
 
-* **b2cAuthenticationCount**: il numero di autenticazioni eseguite entro un determinato periodo di tempo. Il valore predefinito corrisponde agli ultimi 30 giorni.  (Facoltativo: i parametri `TimeStamp` di inizio e fine definiscono un periodo di tempo specifico). L'output include `StartTimeStamp` (prima data dell'attività per questo tenant) e `EndTimeStamp` (ultimo aggiornamento).
+* **b2cAuthenticationCount**: il numero di autenticazioni eseguite entro un determinato periodo di tempo. Il valore predefinito corrisponde agli ultimi 30 giorni.  (Facoltativo: i parametri di `TimeStamp` iniziale e finale definiscono un periodo di tempo specifico). L'output include `StartTimeStamp` (la prima data di attività per questo tenant) e `EndTimeStamp` (Ultimo aggiornamento).
 
 * **b2cMfaRequestCountSummary**: il riepilogo del numero giornaliero di autenticazioni a più fattori (voce o SMS), per data e per tipo.
 

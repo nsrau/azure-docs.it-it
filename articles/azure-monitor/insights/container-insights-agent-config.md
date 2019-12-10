@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: deab16f3b80ada12a7167e90922dc38f3012be91
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0d654dc05668a71b0fe69de32e5c09f8936951f8
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73478693"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951582"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Configurare la raccolta dei dati dell'agente per il monitoraggio di Azure per i contenitori
 
@@ -31,15 +31,15 @@ Viene fornito un file ConfigMap modello che consente di modificarlo facilmente c
 
 Di seguito sono riportate le impostazioni che possono essere configurate per controllare la raccolta dei dati.
 
-|Chiave |Tipo di dati |Valore |Descrizione |
+|Chiave |Tipo di dati |Value |Description |
 |----|----------|------|------------|
 |`schema-version` |Stringa (maiuscole/minuscole) |v1 |Si tratta della versione dello schema utilizzata dall'agente durante l'analisi di questo ConfigMap. La versione dello schema attualmente supportata è V1. La modifica di questo valore non è supportata e verrà rifiutata quando ConfigMap viene valutato.|
-|`config-version` |String | | Supporta la possibilità di tenere traccia della versione del file di configurazione nel sistema/repository del controllo del codice sorgente. I caratteri massimi consentiti sono 10 e tutti gli altri caratteri vengono troncati. |
-|`[log_collection_settings.stdout] enabled =` |Booleano | true o false | Controlla se è abilitata la raccolta di log del contenitore stdout. Se è impostato su `true` e non è stato escluso alcuno spazio dei nomi per la raccolta di log stdout (impostazione `log_collection_settings.stdout.exclude_namespaces` riportata di seguito), i log stdout verranno raccolti da tutti i contenitori in tutti i pod/nodi del cluster. Se non è specificato in ConfigMaps, il valore predefinito è `enabled = true`. |
-|`[log_collection_settings.stdout] exclude_namespaces =`|String | Matrice con valori delimitati da virgole |Matrice di spazi dei nomi Kubernetes per cui non verranno raccolti i log stdout. Questa impostazione è valida solo se `log_collection_settings.stdout.enabled` è impostata su `true`. Se non è specificato in ConfigMap, il valore predefinito è `exclude_namespaces = ["kube-system"]`.|
-|`[log_collection_settings.stderr] enabled =` |Booleano | true o false |Questo controlla se è abilitata la raccolta di log del contenitore stderr. Se è impostato su `true` e non è stato escluso alcuno spazio dei nomi per la raccolta di log stdout (impostazione `log_collection_settings.stderr.exclude_namespaces`), i log stderr verranno raccolti da tutti i contenitori in tutti i pod/nodi del cluster. Se non è specificato in ConfigMaps, il valore predefinito è `enabled = true`. |
-|`[log_collection_settings.stderr] exclude_namespaces =` |String |Matrice con valori delimitati da virgole |Matrice di spazi dei nomi Kubernetes per cui non verranno raccolti i log stderr. Questa impostazione è valida solo se `log_collection_settings.stdout.enabled` è impostata su `true`. Se non è specificato in ConfigMap, il valore predefinito è `exclude_namespaces = ["kube-system"]`. |
-| `[log_collection_settings.env_var] enabled =` |Booleano | true o false | Questa impostazione controlla la raccolta delle variabili di ambiente in tutti i pod/nodi del cluster e il valore predefinito è `enabled = true` quando non è specificato in ConfigMaps. Se la raccolta di variabili di ambiente è abilitata a livello globale, è possibile disabilitarla per un contenitore specifico impostando la variabile di ambiente `AZMON_COLLECT_ENV` su **false** con un'impostazione Dockerfile o nel [file di configurazione per il Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) sotto il **env:** sezione. Se la raccolta di variabili di ambiente è disabilitata a livello globale, non è possibile abilitare la raccolta per un contenitore specifico, ovvero l'unico override che può essere applicato a livello di contenitore è disabilitare la raccolta quando è già abilitata a livello globale. |
+|`config-version` |Stringa | | Supporta la possibilità di tenere traccia della versione del file di configurazione nel sistema/repository del controllo del codice sorgente. I caratteri massimi consentiti sono 10 e tutti gli altri caratteri vengono troncati. |
+|`[log_collection_settings.stdout] enabled =` |boolean | true o false | Controlla se è abilitata la raccolta di log del contenitore stdout. Se è impostato su `true` e non è stato escluso alcuno spazio dei nomi per la raccolta di log stdout (`log_collection_settings.stdout.exclude_namespaces` impostazione riportata di seguito), i log stdout verranno raccolti da tutti i contenitori in tutti i pod/nodi del cluster. Se non è specificato in ConfigMaps, il valore predefinito è `enabled = true`. |
+|`[log_collection_settings.stdout] exclude_namespaces =`|Stringa | Matrice con valori delimitati da virgole |Matrice di spazi dei nomi Kubernetes per cui non verranno raccolti i log stdout. Questa impostazione è valida solo se `log_collection_settings.stdout.enabled` è impostata su `true`. Se non è specificato in ConfigMap, il valore predefinito è `exclude_namespaces = ["kube-system"]`.|
+|`[log_collection_settings.stderr] enabled =` |boolean | true o false |Questo controlla se è abilitata la raccolta di log del contenitore stderr. Se è impostato su `true` e non è stato escluso alcuno spazio dei nomi per la raccolta di log stdout (impostazione`log_collection_settings.stderr.exclude_namespaces`), i log stderr verranno raccolti da tutti i contenitori in tutti i pod/nodi del cluster. Se non è specificato in ConfigMaps, il valore predefinito è `enabled = true`. |
+|`[log_collection_settings.stderr] exclude_namespaces =` |Stringa |Matrice con valori delimitati da virgole |Matrice di spazi dei nomi Kubernetes per cui non verranno raccolti i log stderr. Questa impostazione è valida solo se `log_collection_settings.stdout.enabled` è impostata su `true`. Se non è specificato in ConfigMap, il valore predefinito è `exclude_namespaces = ["kube-system"]`. |
+| `[log_collection_settings.env_var] enabled =` |boolean | true o false | Questa impostazione controlla la raccolta delle variabili di ambiente in tutti i pod/nodi del cluster e il valore predefinito è `enabled = true` quando non è specificato in ConfigMaps. Se la raccolta di variabili di ambiente è abilitata a livello globale, è possibile disabilitarla per un contenitore specifico impostando la variabile di ambiente `AZMON_COLLECT_ENV` su **false** con un'impostazione Dockerfile o nel [file di configurazione per il Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) nella sezione **env:** . Se la raccolta di variabili di ambiente è disabilitata a livello globale, non è possibile abilitare la raccolta per un contenitore specifico, ovvero l'unico override che può essere applicato a livello di contenitore è disabilitare la raccolta quando è già abilitata a livello globale. |
 
 ConfigMaps è un elenco globale e può essere applicato un solo ConfigMap all'agente. Non è possibile avere un altro ConfigMaps che esegue la sovradecisione delle raccolte.
 
@@ -58,12 +58,6 @@ Per configurare e distribuire il file di configurazione ConfigMap nel cluster, s
     - Per disabilitare la raccolta di log stderr a livello di cluster, configurare la chiave o il valore usando l'esempio seguente: `[log_collection_settings.stderr] enabled = false`.
 
 3. Creare ConfigMap eseguendo il comando kubectl seguente: `kubectl apply -f <configmap_yaml_file.yaml>`.
-    
-    Esempio: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
-    
-    La modifica della configurazione può richiedere alcuni minuti prima di essere applicata e tutti i pod omsagent del cluster verranno riavviati. Il riavvio è un riavvio in sequenza per tutti i pod omsagent, non tutti i riavvii nello stesso momento. Al termine del riavvio, viene visualizzato un messaggio simile al seguente e include il risultato: `configmap "container-azm-ms-agentconfig" created`.
-
-4. Creare ConfigMap eseguendo il comando kubectl seguente: `kubectl apply -f <configmap_yaml_file.yaml>`.
     
     Esempio: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
     

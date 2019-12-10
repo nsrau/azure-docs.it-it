@@ -1,5 +1,6 @@
 ---
-title: Tenere traccia del comportamento degli utenti usando gli eventi di Application Insights da Azure Active Directory B2C | Microsoft Docs
+title: Tenere traccia del comportamento degli utenti con Application Insights
+titleSuffix: Azure AD B2C
 description: Informazioni su come abilitare i log eventi di Application Insights dai percorsi utente di Azure AD B2C usando criteri personalizzati (anteprima).
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c02757fb4b48ebf1220a5826bc9699741faa5170
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 6643759688817811890fd022c7aa061607270b9e
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066192"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948947"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Tenere traccia del comportamento degli utenti in Azure Active Directory B2C usando Application Insights
 
@@ -28,7 +29,7 @@ Quando si usa Azure Active Directory B2C (Azure AD B2C) insieme a applicazione A
 * Misurare le prestazioni.
 * Creare notifiche da Application Insights.
 
-## <a name="how-it-works"></a>Funzionamento
+## <a name="how-it-works"></a>Come funziona
 
 Il framework dell'esperienza di gestione delle identità in Azure AD B2C include il provider `Handler="Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0`. Tale provider invia i dati degli eventi direttamente ad Application Insights usando la chiave di strumentazione fornita ad Azure AD B2C.
 

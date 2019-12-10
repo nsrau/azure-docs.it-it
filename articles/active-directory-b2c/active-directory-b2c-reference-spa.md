@@ -1,5 +1,6 @@
 ---
-title: Accesso a singola pagina con Azure Active Directory B2C del flusso implicito
+title: Accesso a singola pagina tramite il flusso implicito
+titleSuffix: Azure AD B2C
 description: Informazioni su come aggiungere l'accesso a una singola pagina usando il flusso implicito OAuth 2,0 con Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c8ac3b2ada99634f8f35c211f2dd7695f9174ce9
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 9a7d6a0a4e341158b37de73a74390d87a135d65f
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667986"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74947982"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Accesso a pagina singola con il flusso implicito OAuth 2,0 in Azure Active Directory B2C
 
@@ -53,7 +54,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | Parametro | Obbligatoria | Description |
 | --------- | -------- | ----------- |
 |inquilino| SÌ | Nome del tenant di Azure AD B2C|
-|politica| SÌ| Flusso utente da eseguire. Specificare il nome di un flusso utente creato nel tenant del Azure AD B2C. Ad esempio: `b2c_1_sign_in`, `b2c_1_sign_up`o `b2c_1_edit_profile`. |
+|politica| SÌ| Flusso utente da eseguire. Specificare il nome di un flusso utente creato nel tenant del Azure AD B2C. Ad esempio, `b2c_1_sign_in`, `b2c_1_sign_up` o `b2c_1_edit_profile`. |
 | client_id | SÌ | ID applicazione assegnato dall' [portale di Azure](https://portal.azure.com/) all'applicazione. |
 | response_type | SÌ | Deve includere `id_token` per l'accesso a OpenID Connect. Può anche includere il tipo di risposta `token`. Se si usa `token`, l'app può ricevere immediatamente un token di accesso dall'endpoint di autorizzazione senza dover inviare una seconda richiesta a tale endpoint.  Se si usa il tipo di risposta `token`, il parametro `scope` deve contenere un ambito che indica la risorsa per cui emettere il token. |
 | redirect_uri | No | URI di reindirizzamento dell'app dove le risposte di autenticazione possono essere inviate e ricevute dall'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL. |
@@ -166,7 +167,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | Parametro | Obbligatorio? | Description |
 | --- | --- | --- |
 |inquilino| Obbligatoria | Nome del tenant di Azure AD B2C|
-politica| Obbligatoria| Flusso utente da eseguire. Specificare il nome di un flusso utente creato nel tenant del Azure AD B2C. Ad esempio: `b2c_1_sign_in`, `b2c_1_sign_up`o `b2c_1_edit_profile`. |
+politica| Obbligatoria| Flusso utente da eseguire. Specificare il nome di un flusso utente creato nel tenant del Azure AD B2C. Ad esempio, `b2c_1_sign_in`, `b2c_1_sign_up` o `b2c_1_edit_profile`. |
 | client_id |Obbligatoria |ID applicazione assegnato all'app nel [portale di Azure](https://portal.azure.com). |
 | response_type |Obbligatoria |Deve includere `id_token` per l'accesso a OpenID Connect.  Può anche includere il tipo di risposta `token`. Se si usa `token` in questo momento, l'app può ricevere immediatamente un token di accesso dall'endpoint di autorizzazione senza dover inviare una seconda richiesta a tale endpoint. Se si usa il tipo di risposta `token`, il parametro `scope` deve contenere un ambito che indica la risorsa per cui emettere il token. |
 | redirect_uri |Consigliato |URI di reindirizzamento dell'app dove le risposte di autenticazione possono essere inviate e ricevute dall'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL. |

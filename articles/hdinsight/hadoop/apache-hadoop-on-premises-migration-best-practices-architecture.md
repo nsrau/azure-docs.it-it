@@ -2,18 +2,18 @@
 title: 'Architettura: Apache Hadoop locali ad Azure HDInsight'
 description: Informazioni sulle procedure consigliate per l'architettura relative alla migrazione di cluster Hadoop locali ad Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.author: hrasheed
-ms.openlocfilehash: 4ef3cded9aba7bd95ecc48e1feadf6c55acd7bdc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 12/06/2019
+ms.openlocfilehash: 9f532e7bbf9e24e431341344b3172c988f69bfc3
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499262"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951531"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Eseguire la migrazione di cluster Apache Hadoop locali ad Azure HDInsight - Procedure consigliate per l'architettura
 
@@ -23,29 +23,29 @@ Questo articolo include raccomandazioni per l'architettura dei sistemi Azure HDI
 
 Molte distribuzioni di Apache Hadoop in locale sono costituite da un singolo cluster di grandi dimensioni che supporta molti carichi di lavoro. Questo singolo cluster può essere complesso e potrebbero essere necessari compromessi per i singoli servizi per garantire la compatibilità di tutti gli elementi. Per la migrazione di cluster Hadoop locali ad Azure HDInsight occorre cambiare l'approccio.
 
-I cluster Azure HDInsight sono progettati per un tipo specifico di utilizzo delle risorse di calcolo. Dato che l'archiviazione può essere condivisa tra più cluster, è possibile creare più cluster di calcolo ottimizzati per i carichi di lavoro per soddisfare le esigenze dei diversi processi. Ogni tipo di cluster ha la configurazione ottimale per un carico di lavoro specifico. Nella tabella seguente sono elencati i tipi di cluster supportati in HDInsight e i carichi di lavoro corrispondenti.
+I cluster Azure HDInsight sono progettati per un tipo specifico di utilizzo delle risorse di calcolo. Poiché l'archiviazione può essere condivisa tra più cluster, è possibile creare più cluster di calcolo ottimizzati per il carico di lavoro per soddisfare le esigenze di processi diversi. Ogni tipo di cluster ha la configurazione ottimale per un carico di lavoro specifico. Nella tabella seguente sono elencati i tipi di cluster supportati in HDInsight e i carichi di lavoro corrispondenti.
 
-|**Carico di lavoro**|**Tipo di cluster HDInsight**|
+|Carico di lavoro|Tipo di cluster HDInsight|
 |---|---|
 |Elaborazione batch (ETL / ELT)|Hadoop, Spark|
-|Data warehousing|Hadoop, Spark, Interactive Query|
+|Data warehouse|Hadoop, Spark, Interactive Query|
 |IoT / Streaming|Kafka, Storm, Spark|
-|Elaborazione transazionale NoSQL|HBase|
-|Query interattive e più veloci con la memorizzazione nella cache in memoria|Interactive Query|
+|Elaborazione transazionale NoSQL|hbase|
+|Query interattive e più veloci con la memorizzazione nella cache in memoria|Query interattiva|
 |Data science|ML Services, Spark|
 
 La tabella seguente illustra i diversi metodi che possono essere usati per creare un cluster HDInsight.
 
-|**Strumento**|**Basato su browser**|**Riga di comando**|**API REST**|**SDK**|
+|Strumento|Basato su browser|Riga di comando|API REST|SDK|
 |---|---|---|---|---|
-|[Portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md)|X||||
-|[Data factory di Azure](../hdinsight-hadoop-create-linux-clusters-adf.md)|X|X|X|X|
+|[Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md)|X||||
+|[Data Factory di Azure](../hdinsight-hadoop-create-linux-clusters-adf.md)|X|X|X|X|
 |[Interfaccia della riga di comando di Azure versione 1.0](../hdinsight-hadoop-create-linux-clusters-azure-cli.md)||X|||
 |[Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md)||X|||
 |[cURL](../hdinsight-hadoop-create-linux-clusters-curl-rest.md)||X|X||
 |[.NET SDK](../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)||||X|
 |[Python SDK](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python)||||X|
-|[SDK per Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable)||||X|
+|[Java SDK](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable)||||X|
 |[Modelli di Gestione risorse di Azure](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)||X|||
 
 Per altre informazioni, vedere l'articolo [Tipi di cluster in HDInsight](../hadoop/apache-hadoop-introduction.md).
@@ -60,9 +60,9 @@ Azure Data Factory può essere usato per pianificare la creazione di cluster HDI
 
 ## <a name="decouple-storage-from-compute"></a>Separare l'archiviazione dal calcolo
 
-Le distribuzioni di Hadoop locali tipiche usano lo stesso set di computer per l'archiviazione dei dati e l'elaborazione dei dati. Condividendo la stessa posizione, le risorse di calcolo e archiviazione devono essere ridimensionate insieme.
+Le distribuzioni di Hadoop locali tipiche usano lo stesso set di computer per l'archiviazione dei dati e l'elaborazione dei dati. Poiché sono collocati, le risorse di calcolo e di archiviazione devono essere ridimensionate insieme.
 
-Nei cluster HDInsight, le risorse di archiviazione e di calcolo non devono condividere la stessa posizione e possono essere in Archiviazione di Azure, Azure Data Lake Storage o in entrambi. La separazione dell'archiviazione dal calcolo offre i vantaggi seguenti:
+Nei cluster HDInsight, non è necessario che l'archiviazione sia posizionata con il calcolo e possa trovarsi in archiviazione di Azure, Azure Data Lake Storage o entrambi. La separazione dell'archiviazione dal calcolo offre i vantaggi seguenti:
 
 - Condivisione dei dati tra i cluster.
 - Uso di cluster temporanei dato che i dati non sono dipendenti dal cluster.
@@ -74,9 +74,7 @@ I cluster di calcolo vengono creati in prossimità delle risorse dell'account di
 
 ## <a name="use-external-metadata-stores"></a>Usare archivi di metadati esterni
 
-
 Sono disponibili due Metastore principali che funzionano con i cluster HDInsight: [Apache hive](https://hive.apache.org/) e [Apache oozie](https://oozie.apache.org/). Il metastore Hive è il repository di schemi centrale che può essere usato dai motori di elaborazione dei dati, tra cui Hadoop, Spark, LLAP, Presto e Apache Pig. Il metastore Oozie archivia i dettagli sulla pianificazione e lo stato dei processi Hadoop in corso e completati.
-
 
 HDInsight usa il database SQL di Azure per i metastore Hive e Oozie. Esistono due modi per configurare un metastore nei cluster HDInsight:
 
@@ -105,7 +103,7 @@ Di seguito sono indicate alcune procedure consigliate per il metastore Hive di H
 - Eseguire periodicamente il backup del metastore personalizzato.
 - Mantenere il metastore e il cluster HDInsight nella stessa area.
 - Monitora il Metastore per le prestazioni e la disponibilità usando gli strumenti di monitoraggio del database SQL di Azure, ad esempio portale di Azure o i log di monitoraggio di Azure.
-- Eseguire il comando **ANALYZE TABLE** all'occorrenza per generare statistiche per tabelle e colonne. Ad esempio `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
+- Eseguire il comando `ANALYZE TABLE` come richiesto per generare statistiche per tabelle e colonne. Ad esempio `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
 
 ## <a name="best-practices-for-different-workloads"></a>Procedure consigliate per diversi carichi di lavoro
 

@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1a45ed90b2b2c4a3a4f8eb11c4618c11e6d66761
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 3d358ac1fb766804b35d969f4d06bc6c07e62661
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849361"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951463"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Risolvere i problemi della configurazione dello stato desiderato (DSC)
 
@@ -89,6 +89,68 @@ Questo errore è in genere causato da un firewall, dal computer che si trova die
 #### <a name="resolution"></a>Risoluzione
 
 Verificare che il computer abbia accesso agli endpoint appropriati per Automation DSC di Azure e riprovare. Per un elenco di porte e indirizzi necessari, vedere [pianificazione della rete](../automation-dsc-overview.md#network-planning)
+
+### <a name="a-nameunauthorizedascenario-status-reports-return-response-code-unauthorized"></a>Scenario di <a/><a name="unauthorized">: i rapporti di stato restituiscono il codice di risposta "non autorizzato"
+
+#### <a name="issue"></a>Problema
+
+Quando si registra un nodo con configurazione dello stato (DSC), viene visualizzato uno dei messaggi di errore seguenti:
+
+```error
+The attempt to send status report to the server https://{your automation account url}/accounts/xxxxxxxxxxxxxxxxxxxxxx/Nodes(AgentId='xxxxxxxxxxxxxxxxxxxxxxxxx')/SendReport returned unexpected response code Unauthorized.
+```
+
+```error
+VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / Registration of the Dsc Agent with the server failed.
+```
+
+### <a name="cause"></a>Causa
+
+Questo problema è causato da un certificato non valido o scaduto.  Per ulteriori informazioni, vedere [scadenza e registrazione dei certificati](../automation-dsc-onboarding.md#certificate-expiration-and-re-registration).
+
+### <a name="resolution"></a>Risoluzione
+
+Attenersi alla procedura riportata di seguito per registrare nuovamente il nodo DSC in errore.
+
+Per prima cosa, annullare la registrazione del nodo attenendosi alla procedura seguente.
+
+1. Dal portale di Azure, in **Home** -> **account di automazione**-> {your automation account}-> **state Configuration (DSC)**
+2. Fare clic su "nodi" e fare clic sul nodo in cui si sono verificati problemi.
+3. Fare clic su "Annulla registrazione" per annullare la registrazione del nodo.
+
+In secondo luogo, disinstallare l'estensione DSC dal nodo.
+
+1. Dal portale di Azure, in **Home** -> **macchina virtuale** -> {nodo in errore}-> **Extensions**
+2. Fare clic su "Microsoft. PowerShell. DSC".
+3. Fare clic su "Disinstalla" per disinstallare l'estensione DSC di PowerShell.
+
+Terzo, rimuovere tutti i certificati non validi o scaduti dal nodo.
+
+Nel nodo che ha avuto esito negativo da un prompt di PowerShell con privilegi elevati, eseguire il comando seguente:
+
+```powershell
+$certs = @()
+$certs += dir cert:\localmachine\my | ?{$_.FriendlyName -like "DSC"}
+$certs += dir cert:\localmachine\my | ?{$_.FriendlyName -like "DSC-OaaS Client Authentication"}
+$certs += dir cert:\localmachine\CA | ?{$_.subject -like "CN=AzureDSCExtension*"}
+"";"== DSC Certificates found: " + $certs.Count
+$certs | FL ThumbPrint,FriendlyName,Subject
+If (($certs.Count) -gt 0)
+{ 
+    ForEach ($Cert in $certs) 
+    {
+        RD -LiteralPath ($Cert.Pspath) 
+    }
+}
+```
+
+Infine, registrare di nuovo il nodo che ha avuto esito negativo attenendosi alla procedura seguente.
+
+1. Dal portale di Azure, in **Home** -> **account di automazione** -> {your automation account}-> **state Configuration (DSC)**
+2. Fare clic su "Nodes".
+3. Fare clic sul pulsante "Aggiungi".
+4. Selezionare il nodo in errore.
+5. Fare clic su "Connetti" e selezionare le opzioni desiderate.
 
 ### <a name="failed-not-found"></a>Scenario: Lo stato del nodo indica che non è riuscito con errore "Non trovato"
 
@@ -187,6 +249,49 @@ Questo errore si verifica in genere quando al nodo viene assegnato un nome di co
 
 * Assicurarsi di assegnare il nodo con un nome di configurazione nodo che corrisponda esattamente al nome del servizio.
 * È possibile scegliere di non includere il nome della configurazione del nodo, che comporterà l'onboarding del nodo, ma non l'assegnazione di una configurazione del nodo
+
+### <a name="cross-subscription"></a>Scenario: la registrazione di un nodo con PowerShell restituisce l'errore "si sono verificati uno o più errori"
+
+#### <a name="issue"></a>Problema
+
+Quando si registra un nodo usando `Register-AzAutomationDSCNode` o `Register-AzureRMAutomationDSCNode`, viene visualizzato l'errore seguente.
+
+```error
+One or more errors occurred.
+```
+
+#### <a name="cause"></a>Causa
+
+Questo errore si verifica quando si tenta di registrare un nodo che risiede in una sottoscrizione distinta rispetto all'account di automazione.
+
+#### <a name="resolution"></a>Risoluzione
+
+Considerare il nodo tra sottoscrizioni come se si trovasse in un cloud separato o in locale.
+
+Attenersi alla procedura seguente per registrare il nodo.
+
+* Windows: [computer fisici/virtuali Windows locali o in un cloud diverso da Azure/AWS](../automation-dsc-onboarding.md#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws).
+* Linux: [macchine virtuali Linux in locale o in un cloud diverso da Azure](../automation-dsc-onboarding.md#physicalvirtual-linux-machines-on-premises-or-in-a-cloud-other-than-azure).
+
+### <a name="agent-has-a-problem"></a>Scenario: messaggio di errore-"provisioning non riuscito"
+
+#### <a name="issue"></a>Problema
+
+Quando si registra un nodo, viene visualizzato l'errore:
+
+```error
+Provisioning has failed
+```
+
+#### <a name="cause"></a>Causa
+
+Questo messaggio viene visualizzato quando si verifica un problema di connettività tra il nodo e Azure.
+
+#### <a name="resolution"></a>Risoluzione
+
+Determinare se il nodo si trova in una rete virtuale privata o se si sono verificati altri problemi di connessione ad Azure.
+
+Per altre informazioni, vedere [risolvere gli errori durante l'onboarding delle soluzioni](onboarding.md).
 
 ### <a name="failure-linux-temp-noexec"></a>Scenario: applicazione di una configurazione in Linux. si verifica un errore con un errore generale
 

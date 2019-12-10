@@ -3,12 +3,12 @@ title: Come specificare le versioni del runtime per Funzioni di Azure
 description: La soluzione Funzioni di Azure supporta più versioni del runtime. Informazioni su come specificare la versione del runtime di un'app per le funzioni ospitata in Azure.
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 6f93ac7bcbd25c1b120cfeecae9dd4353524855f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0031fe08ee1e77c35a78b2128615f08846c1b612
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230315"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74942274"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Come specificare le versioni del runtime per Funzioni di Azure
 
@@ -27,11 +27,11 @@ Quando una nuova versione risulta disponibile pubblicamente, nel portale viene v
 
 La tabella seguente mostra i valori `FUNCTIONS_EXTENSION_VERSION` per ogni versione principale per abilitare gli aggiornamenti automatici:
 
-| Versione principale | valore `FUNCTIONS_EXTENSION_VERSION` |
+| Versione principale | Valore di `FUNCTIONS_EXTENSION_VERSION` |
 | ------------- | ----------------------------------- |
-| 3. x (anteprima) | `~3` |
+| 3.x  | `~3` |
 | 2.x  | `~2` |
-| 1.x | `~1` |
+| 1.x  | `~1` |
 
 Ogni modifica alla versione del runtime comporta il riavvio dell'app per le funzioni.
 

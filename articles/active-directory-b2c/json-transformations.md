@@ -1,6 +1,7 @@
 ---
-title: Esempi di trasformazione delle attestazioni JSON per lo schema del framework di gestione delle identità di Azure Active Directory B2C | Microsoft Docs
-description: Esempi di trasformazione delle attestazioni JSON per lo schema del framework di gestione delle identità di Azure Active Directory B2C.
+title: Esempi di trasformazione di attestazioni JSON per criteri personalizzati
+titleSuffix: Azure AD B2C
+description: Esempi di trasformazione delle attestazioni JSON per lo schema Framework dell'esperienza (Identity Experience Framework) del Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ff70b2f54304c83f70ff578e1947d752aafb34a7
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 0ff6f24e30febd57a3a9740ec72a927225b37933
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064155"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948889"
 ---
 # <a name="json-claims-transformations"></a>Trasformazioni delle attestazioni JSON
 
@@ -70,7 +71,7 @@ Consente di ottenere un elenco di elementi specificati dai dati Json.
 | InputParameter | includeEmptyClaims | string | Specifica se includere attestazioni vuote. |
 | InputParameter | jsonSourceKeyName | string | Nome della chiave dell'elemento |
 | InputParameter | jsonSourceValueName | string | Nome del valore dell'elemento |
-| OutputClaim | Collection | string, int, boolean e datetime |Elenco di attestazioni da estrarre. Il nome dell'attestazione deve essere uguale a quello specificato nell'attestazione di input _jsonSourceClaim_. |
+| OutputClaim | Raccolta | string, int, boolean e datetime |Elenco di attestazioni da estrarre. Il nome dell'attestazione deve essere uguale a quello specificato nell'attestazione di input _jsonSourceClaim_. |
 
 Nell'esempio seguente la trasformazione delle attestazioni estrae le attestazioni seguenti: email (string), displayName (string), membershipNum (int), active (boolean) e birthdate (datetime) dai dati JSON.
 
@@ -191,7 +192,7 @@ Converte i dati XML nel formato JSON.
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | xml | string | I ClaimType che vengono usati dalla trasformazione delle attestazioni per convertire i dati dal formato XML al formato JSON. |
+| InputClaim | Xml | string | I ClaimType che vengono usati dalla trasformazione delle attestazioni per convertire i dati dal formato XML al formato JSON. |
 | OutputClaim | json | string | Il ClaimType che viene generato dopo che è stata richiamata questa ClaimsTransformation, i dati in formato JSON. |
 
 ```XML

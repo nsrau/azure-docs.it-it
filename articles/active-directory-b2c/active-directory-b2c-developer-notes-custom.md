@@ -1,5 +1,6 @@
 ---
-title: Note per gli sviluppatori per i criteri personalizzati-Azure Active Directory B2C | Microsoft Docs
+title: Note per gli sviluppatori per i criteri personalizzati
+titleSuffix: Azure AD B2C
 description: Note per gli sviluppatori sulla configurazione e la gestione di Azure AD B2C con criteri personalizzati.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3f8d1ac217647ee292338da875671ef8bd3f79db
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: edbd31434715c380badf15118b0779885aed700f
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227204"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949756"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Note per gli sviluppatori per i criteri personalizzati in Azure Active Directory B2C
 
@@ -44,7 +45,7 @@ Gli sviluppatori che utilizzano il set di funzionalità dei criteri personalizza
 - Eseguire test metodici degli scenari.
 - Seguire le procedure consigliate di staging e sviluppo software con almeno un ambiente di sviluppo e testing e un ambiente di produzione.
 - Mantenersi aggiornati sui nuovi sviluppi dei servizi e dei provider di identità con cui viene eseguita l'integrazione. Ad esempio, tenere traccia delle modifiche dei segreti e delle modifiche pianificate e non pianificate del servizio.
-- Configurare il monitoraggio attivo e monitorare il tempo di risposta degli ambienti di produzione. Per ulteriori informazioni sull'integrazione con Application Insights, vedere [Azure Active Directory B2C: Raccolta dei](active-directory-b2c-custom-guide-eventlogger-appins.md)log.
+- Configurare il monitoraggio attivo e monitorare il tempo di risposta degli ambienti di produzione. Per ulteriori informazioni sull'integrazione con Application Insights, vedere [Azure Active Directory B2C: raccolta di log](active-directory-b2c-custom-guide-eventlogger-appins.md).
 - Mantenere aggiornati gli indirizzi di posta elettronica di contatto nella sottoscrizione di Azure e prestare attenzione ai messaggi di posta elettronica del team del sito live Microsoft.
 - Intervenire tempestivamente quando consigliato del team del sito live Microsoft.
 
@@ -60,12 +61,12 @@ Le funzionalità del Framework personalizzato di criteri/identità sono soggette
 
 ### <a name="identity-providers-tokens-protocols"></a>Provider di identità, token, protocolli
 
-| Funzionalità | Sviluppo. | Anteprima | GA | Note |
+| Funzionalità | Sviluppo. | Preview | Disponibilità a livello generale | Note |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | IDP-OpenIDConnect |  |  | X | Ad esempio, Google +.  |
 | IDP-OAUTH2 |  |  | X | Ad esempio, Facebook.  |
 | IDP-OAUTH1 (Twitter) |  | X |  | Ad esempio Twitter. |
-| IDP-OAUTH1 (es-Twitter) |  |  |  | Non supportate |
+| IDP-OAUTH1 (es-Twitter) |  |  |  | Supporto non disponibile |
 | IDP-SAML |  |   | X | Ad esempio, Salesforce, ADFS. |
 | IDP-WSFED | X |  |  |  |
 | Relying party OAUTH1 |  |  |  | Non supportati. |
@@ -77,7 +78,7 @@ Le funzionalità del Framework personalizzato di criteri/identità sono soggette
 
 ### <a name="component-support"></a>Supporto dei componenti
 
-| Funzionalità | Sviluppo. | Anteprima | GA | Note |
+| Funzionalità | Sviluppo. | Preview | Disponibilità a livello generale | Note |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Azure Multi-Factor Authentication |  |  | X |  |
 | Azure Active Directory come directory locale |  |  | X |  |
@@ -88,7 +89,7 @@ Le funzionalità del Framework personalizzato di criteri/identità sono soggette
 
 ### <a name="content-definition"></a>Definizione del contenuto
 
-| Funzionalità | Sviluppo. | Anteprima | GA | Note |
+| Funzionalità | Sviluppo. | Preview | Disponibilità a livello generale | Note |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Pagina di errore, api.error |  |  | X |  |
 | Pagina di selezione IDP, api.idpselections |  |  | X |  |
@@ -104,7 +105,7 @@ Le funzionalità del Framework personalizzato di criteri/identità sono soggette
 
 ### <a name="app-ief-integration"></a>Integrazione del framework dell'esperienza di gestione delle identità dell'app
 
-| Funzionalità | Sviluppo. | Anteprima | GA | Note |
+| Funzionalità | Sviluppo. | Preview | Disponibilità a livello generale | Note |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Parametro di stringa della query domain_hint |  |  | X | Disponibile come attestazione, può essere passato a IDP. |
 | Parametro di stringa della query login_hint |  |  | X | Disponibile come attestazione, può essere passato a IDP. |
@@ -114,16 +115,16 @@ Le funzionalità del Framework personalizzato di criteri/identità sono soggette
 
 ### <a name="session-management"></a>Gestione delle sessioni
 
-| Funzionalità | Sviluppo. | Anteprima | GA | Note |
+| Funzionalità | Sviluppo. | Preview | Disponibilità a livello generale | Note |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Provider di sessioni SSO |  |  | X |  |
 | Provider di sessioni di accesso esterno |  |  | X |  |
 | Provider di sessioni SSO SAML |  |  | X |  |
 | Provider sessione SSO predefinito |  |  | X |  |
 
-### <a name="security"></a>Security
+### <a name="security"></a>Sicurezza
 
-| Funzionalità | Sviluppo. | Anteprima | GA | Note |
+| Funzionalità | Sviluppo. | Preview | Disponibilità a livello generale | Note |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | Chiavi dei criteri: generazione, manuale, caricamento |  |  | X |  |
 | Chiavi dei criteri: RSA/certificato, segreti |  |  | X |  |
@@ -131,7 +132,7 @@ Le funzionalità del Framework personalizzato di criteri/identità sono soggette
 
 ### <a name="developer-interface"></a>Interfaccia di sviluppo
 
-| Funzionalità | Sviluppo. | Anteprima | GA | Note |
+| Funzionalità | Sviluppo. | Preview | Disponibilità a livello generale | Note |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Portale di Azure: esperienza utente del framework dell'esperienza di gestione delle identità |  |  | X |  |
 | Log UserJourney di Application Insights |  | X |  | Usato per la risoluzione dei problemi durante lo sviluppo.  |

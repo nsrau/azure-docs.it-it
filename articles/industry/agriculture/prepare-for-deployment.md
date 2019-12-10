@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: c29bba81132df15fcea9ff0df7be6a8cea94c9a0
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 27bf62cb328273db1f7bdd44117853b00feca9ae
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851129"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941577"
 ---
 # <a name="deploy-azure-farmbeats"></a>Distribuire Azure FarmBeats
 
@@ -33,7 +33,7 @@ Una distribuzione rapida di Azure FarmBeats dovrebbe richiedere meno di un'ora. 
 
 La distribuzione di Azure FarmBeats crea le risorse seguenti nella sottoscrizione:
 
-| Numero di serie  | Nome risorsa  | Componente FarmBeats  |
+| Serie. di serie  | Nome risorsa  | Componente FarmBeats  |
 |---------|---------|---------|
 |1  |       Azure Cosmos DB   |  Datahub       |
 |2  |    Application Insights      |     Datahub/acceleratore     |
@@ -49,7 +49,6 @@ La distribuzione di Azure FarmBeats crea le risorse seguenti nella sottoscrizion
 |12|      Servizio app di Azure      |  Datahub/acceleratore       |
 |13 |    Piano di servizio app        |     Datahub/acceleratore      |
 |14 |Account Azure Maps     |Acceleratore    |
-|15 |       Azure Time Series Insights      |  Datahub     |
 
 Azure FarmBeats è disponibile per il download in Azure Marketplace, a cui è possibile accedere direttamente dalla portale di Azure.  
 
@@ -83,7 +82,7 @@ Prima di iniziare la distribuzione, verificare che siano soddisfatti i prerequis
 
 Un account con Sentinel consente di scaricare le immagini satellite Sentinel dal sito web ufficiale al dispositivo. Per creare un account gratuito, procedere come segue:
 
-1. Andare alla [pagina di registrazione dell'account Sentinel](https://scihub.copernicus.eu/dhus/#/self-registration). 
+1. Andare alla [pagina di registrazione dell'account Sentinel](https://scihub.copernicus.eu/dhus/#/self-registration).
 1. Nel modulo di registrazione, specificare il nome, il cognome, il nome utente, la password e l'indirizzo di posta elettronica.
 
 Un messaggio di posta elettronica di verifica verrà inviato all'indirizzo di posta elettronica registrato per la conferma. Selezionare il collegamento per confermare l'indirizzo di posta elettronica. Il processo di registrazione è stato completato.
@@ -211,7 +210,7 @@ In questo scenario, descritto in precedenza in "opzione 1", il programma di inst
     > Il token scade dopo 60 minuti. Se scade, è possibile riavviare digitando il comando di distribuzione.
 
 1. Al prompt immettere la password dell'account Sentinel.
-   
+
    Il programma di installazione convalida e avvia la distribuzione, operazione che può richiedere circa 20 minuti.
 
    Una volta completata la distribuzione, si riceveranno i collegamenti di output seguenti:
@@ -282,12 +281,8 @@ Se si verificano problemi, vedere la sezione relativa alla [risoluzione dei](tro
 Al termine dell'installazione di datahub, si riceverà l'URL per accedere alle API FarmBeats di Azure tramite l'interfaccia spavalderia nel formato https://\<yourdatahub-website-name >. azurewebsites. NET/spavalderia.
 
 1. Per accedere tramite spavalderia, copiare e incollare l'URL nel browser.
-1. Accedere con le credenziali di portale di Azure.
-1. Opzionale Provare questo "test di integrità": 
-
-     - Accedere correttamente al portale di spavalderia usando il collegamento datahub, che è stato ricevuto come output per una distribuzione corretta.
-     - Tipi estesi ottenere l'API: selezionare "try it out/Execute Accoda"
-     - Si dovrebbe ricevere il codice di risposta del server 200 e non un'eccezione, ad esempio "403 utente non autorizzato".
+2. Accedere con le credenziali di portale di Azure.
+3. È possibile visualizzare il spavalderia ed eseguire tutte le operazioni REST sulle API FarmBeats di Azure. Ciò indica la corretta distribuzione di Azure FarmBeats.
 
 ### <a name="accelerator"></a>Acceleratore
 

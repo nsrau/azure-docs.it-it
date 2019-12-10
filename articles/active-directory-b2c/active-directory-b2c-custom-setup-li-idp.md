@@ -1,5 +1,6 @@
 ---
-title: Configurare l'accesso con un account LinkedIn usando criteri personalizzati-Azure Active Directory B2C
+title: Configurare l'accesso con un account LinkedIn usando criteri personalizzati
+titleSuffix: Azure AD B2C
 description: Configurare l'accesso con un account LinkedIn in Azure Active Directory B2C usando criteri personalizzati.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6d7beae75e13ef797c9e80a9a012e9f48b69d407
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 442c50df5da42da6d63c926845efd4a6bc3fcb12
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827188"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948386"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso con un account LinkedIn usando criteri personalizzati in Azure Active Directory B2C
 
@@ -335,7 +336,7 @@ Come parte della migrazione di LinkedIn dalla versione 1.0 alla versione 2.0, è
 
 1. Completare i passaggi precedenti per consentire Azure AD B2C di eseguire la Federazione con LinkedIn per consentire all'utente di accedere. Come parte della Federazione, Azure AD B2C riceve il token di accesso per LinkedIn.
 2. Salvare il token di accesso di LinkedIn in un'attestazione. [Vedere le istruzioni qui](idp-pass-through-custom.md).
-3. Aggiungere il provider di attestazioni seguente che effettua la richiesta all' `/emailAddress` API di LinkedIn. Per autorizzare questa richiesta, è necessario il token di accesso di LinkedIn.
+3. Aggiungere il provider di attestazioni seguente che effettua la richiesta all'API `/emailAddress` di LinkedIn. Per autorizzare questa richiesta, è necessario il token di accesso di LinkedIn.
 
     ```XML
     <ClaimsProvider>
@@ -363,7 +364,7 @@ Come parte della migrazione di LinkedIn dalla versione 1.0 alla versione 2.0, è
     </ClaimsProvider>
     ```
 
-4. Aggiungere il passaggio di orchestrazione seguente al percorso utente, in modo che il provider di attestazioni API venga attivato quando un utente accede tramite LinkedIn. Assicurarsi di aggiornare il `Order` numero in modo appropriato. Aggiungere questo passaggio subito dopo il passaggio di orchestrazione che attiva il profilo tecnico di LinkedIn.
+4. Aggiungere il passaggio di orchestrazione seguente al percorso utente, in modo che il provider di attestazioni API venga attivato quando un utente accede tramite LinkedIn. Assicurarsi di aggiornare il numero di `Order` in modo appropriato. Aggiungere questo passaggio subito dopo il passaggio di orchestrazione che attiva il profilo tecnico di LinkedIn.
 
     ```XML
     <!-- Extra step for LinkedIn to get the email -->

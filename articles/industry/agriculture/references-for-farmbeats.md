@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 8efc98ad2785a9052244556bddc60a5ba34bd3d8
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 501e5bc1b2de91e0dd74ae0f0d9163d74dcb06f2
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900385"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941560"
 ---
 # <a name="references"></a>Riferimenti
 
@@ -23,7 +23,7 @@ Le API di Azure FarmBeats offrono alle aziende agricole un'interfaccia RESTful s
 - API per ottenere sensori, fotocamera, drone, meteo, satellite e dati di base curati.
 - Normalizzazione e contestualizzazione dei dati tra i provider di dati comuni.
 - Schematizzato le funzionalità di accesso ed esecuzione di query su tutti i dati inseriti.
-- Generazione automatica di metadati su cui è possibile eseguire query in base alle funzionalità agronomiche. 
+- Generazione automatica di metadati su cui è possibile eseguire query in base alle funzionalità agronomiche.
 - Funzioni di aggregazione della sequenza temporale generate automaticamente per la compilazione rapida del modello.
 - Motore Azure Data Factory integrato per creare facilmente pipeline di elaborazione dati personalizzate.
 
@@ -102,7 +102,7 @@ curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  "accept:
 ### <a name="query-parameters"></a>Parametri della query
 
 Per le chiamate REST GET è possibile filtrare, limitare le dimensioni e ordinare i dati in una risposta API includendo uno o più parametri di query nell'URI della richiesta. Per i parametri di query, vedere la documentazione dell'API e le singole chiamate GET.
-Ad esempio, quando si esegue una query sull'elenco di dispositivi (GET Call on/device), è possibile specificare i parametri di query seguenti: 
+Ad esempio, quando si esegue una query sull'elenco di dispositivi (GET Call on/device), è possibile specificare i parametri di query seguenti:
 
 ![Elenco di dispositivi](./media/for-references/query-parameters-device-1.png)
 
@@ -163,12 +163,12 @@ In questo esempio, quando è stata creata una farm, il campo obbligatorio "Name"
 
 4. Passare a [datahub spavalderia](https://<yourdatahub>.azurewebsites.net/swagger/index.html) ed eseguire le operazioni seguenti:
     - Passare all' **API RoleAssignment**.
-    - Eseguire un POST per creare un oggetto **RoleAssignment** per l' **ID oggetto** appena creato. 
+    - Eseguire un POST per creare un oggetto **RoleAssignment** per l' **ID oggetto** appena creato.
 
   > [!NOTE]
   > Per ulteriori informazioni su come aggiungere utenti e Active Directory la registrazione, vedere [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
-Dopo aver completato i passaggi precedenti, la registrazione dell'app (client) può chiamare le API di Azure FarmBeats usando un token di accesso tramite l'autenticazione della connessione. 
+Dopo aver completato i passaggi precedenti, la registrazione dell'app (client) può chiamare le API di Azure FarmBeats usando un token di accesso tramite l'autenticazione della connessione.
 
 Usare il token di accesso per inviarlo nelle richieste API successive nella sezione dell'intestazione come:
 

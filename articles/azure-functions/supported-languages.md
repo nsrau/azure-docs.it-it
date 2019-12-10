@@ -2,13 +2,13 @@
 title: Linguaggi supportati in Funzioni di Azure
 description: Informazioni sui linguaggi supportati a livello generale, su quelli sperimentali e su quelli in anteprima.
 ms.topic: conceptual
-ms.date: 08/02/2018
-ms.openlocfilehash: 3b61dd83e481d42dd15f089247d016c6b71ff0de
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 11/27/2019
+ms.openlocfilehash: 029ea753439dca3093bf214a5adfb6d58a1fe567
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230291"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74942257"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Linguaggi supportati in Funzioni di Azure
 
@@ -24,7 +24,7 @@ Sono disponibili tre livelli di supporto:
 
 ## <a name="languages-by-runtime-version"></a>Linguaggi per versione runtime 
 
-Sono disponibili [due versioni del runtime di Funzioni di Azure](functions-versions.md). Nella tabella seguente sono indicati i linguaggi supportati in ogni versione del runtime.
+Sono disponibili [tre versioni del runtime di funzioni di Azure](functions-versions.md) . Nella tabella seguente sono indicati i linguaggi supportati in ogni versione del runtime.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
@@ -34,7 +34,7 @@ I linguaggi sperimentali supportati nella versione 1.x non garantiscono una corr
 
 Non usare le funzionalità sperimentali perché non è disponibile alcun supporto ufficiale. Non si possono aprire richieste di supporto per problemi con i linguaggi sperimentali. 
 
-La versione 2.x del runtime non supporta i linguaggi sperimentali. Il supporto per nuovi linguaggi viene aggiunto solo quando il linguaggio può essere supportato nell'ambiente di produzione. 
+Le versioni successive del runtime non supportano le lingue sperimentali. Il supporto per nuovi linguaggi viene aggiunto solo quando il linguaggio può essere supportato nell'ambiente di produzione. 
 
 ### <a name="language-extensibility"></a>Estendibilità di un linguaggio
 

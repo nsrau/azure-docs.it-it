@@ -1,6 +1,7 @@
 ---
-title: Esempi di trasformazione generale delle attestazioni per lo schema del Framework dell'esperienza di identità di Azure Active Directory B2C
-description: Esempi di trasformazione generale delle attestazioni per lo schema del Framework dell'esperienza di identità di Azure Active Directory B2C.
+title: Esempi di trasformazione generale delle attestazioni per i criteri personalizzati
+titleSuffix: Azure AD B2C
+description: Esempi di trasformazione generale delle attestazioni per lo schema Framework dell'esperienza (Identity Experience Framework) del Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 08/27/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7cea33cb61f8f8d0fe305a757f11c80bc5da24ca
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 639277177bf63e659e5b0ea804eca5e20f956831
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032891"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948868"
 ---
 # <a name="general-claims-transformations"></a>Trasformazioni delle attestazioni generali
 
@@ -29,7 +30,7 @@ Controlla se **inputClaim** esiste o meno e imposta **outputClaim** su true o fa
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim |Any | L'attestazione di input di cui deve essere verificata l'esistenza. |
+| InputClaim | InputClaim |Qualsiasi | L'attestazione di input di cui deve essere verificata l'esistenza. |
 | OutputClaim | outputClaim | boolean | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. |
 
 Usare questa trasformazione delle attestazioni per verificare se un'attestazione esiste o contiene un valore. Il valore restituito è un valore booleano che indica se l'attestazione esiste. L'esempio controlla se l'indirizzo di posta elettronica esiste.
@@ -60,7 +61,7 @@ Eseguire l'hash del testo normale specificato usando il salt e un segreto. L'alg
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | plaintext | string | L'attestazione di input da crittografare |
 | InputClaim | salt | string | Il parametro salt. È possibile creare un valore casuale, usando le trasformazione delle attestazioni `CreateRandomString`. |
-| InputParameter | randomizerSecret | string | Punta a una chiave di **criteri**di Azure ad B2C esistente. Per creare una nuova chiave dei criteri: Nel tenant di Azure AD B2C, in Gestisci selezionare **Framework dell'esperienza**di **gestione**delle identità. Selezionare **chiavi dei criteri** per visualizzare le chiavi disponibili nel tenant. Selezionare **Aggiungi**. Selezionare **Manuale** in **Opzioni**. Specificare un nome (il prefisso *B2C_1A_* potrebbe essere aggiunto automaticamente). Nella casella di testo **Secret** immettere il segreto da usare, ad esempio 1234567890. Per **Uso chiave** selezionare **Firma**. Selezionare **Create**. |
+| InputParameter | randomizerSecret | string | Punta a una chiave di **criteri**di Azure ad B2C esistente. Per creare una nuova chiave dei criteri: nel tenant di Azure AD B2C, in **Gestisci**selezionare **Framework dell'esperienza**di gestione delle identità. Selezionare **chiavi dei criteri** per visualizzare le chiavi disponibili nel tenant. Selezionare **Aggiungi**. Selezionare **Manuale** in **Opzioni**. Specificare un nome (il prefisso *B2C_1A_* potrebbe essere aggiunto automaticamente.) Nella casella di testo **Secret** immettere il segreto da usare, ad esempio 1234567890. Per **Uso chiave** selezionare **Firma**. Selezionare **Create** (Crea). |
 | OutputClaim | hash | string | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. L'attestazione configurata in `plaintext` inputClaim. |
 
 ```XML

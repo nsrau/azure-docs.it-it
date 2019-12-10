@@ -1,5 +1,6 @@
 ---
-title: "Esercitazione: registrare un'applicazione-Azure Active Directory B2C"
+title: "Esercitazione: registrare un'applicazione"
+titleSuffix: Azure AD B2C
 description: Informazioni su come registrare un'applicazione Web in Azure Active Directory B2C usando il portale di Azure.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: article
 ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3a5d5099c91736276aca56c8b94b846b53a190c1
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 76d38e4b35111cd2c09685653fb4948f98387132
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73642426"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950783"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>Esercitazione: registrare un'applicazione in Azure Active Directory B2C
 
@@ -35,7 +36,7 @@ Se non è ancora stato creato un [tenant Azure AD B2C](tutorial-create-tenant.md
 
 ## <a name="register-a-web-application"></a>Registrare un'applicazione Web
 
-Per registrare un'applicazione nel tenant di Azure AD B2C, è possibile usare l'esperienza di **applicazioni** corrente o la nuova esperienza di **registrazioni app (anteprima)** unificata. [Altre informazioni sulla nuova esperienza](https://aka.ms/b2cappregintro).
+Per registrare un'applicazione nel tenant di Azure AD B2C, è possibile usare l'esperienza **Applicazioni** corrente o la nuova esperienza **Registrazioni app (anteprima)** unificata. [Altre informazioni sulla nuova esperienza](https://aka.ms/b2cappregintro).
 
 #### <a name="applicationstabapplications"></a>[Applicazioni](#tab/applications/)
 
@@ -58,9 +59,9 @@ Per registrare un'applicazione nel tenant di Azure AD B2C, è possibile usare l'
 #### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Selezionare il filtro **directory + sottoscrizione** nel menu in alto e quindi selezionare la directory che contiene il tenant Azure ad B2C.
-1. Nel menu a sinistra selezionare **Azure ad B2C**. In alternativa, selezionare **tutti i servizi** e cercare e selezionare **Azure ad B2C**.
-1. Selezionare **registrazioni app (anteprima)** , quindi selezionare **nuova registrazione**.
+1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.
+1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
+1. Selezionare **Registrazioni app (anteprima)** e quindi **Nuova registrazione**.
 1. Immettere un **nome** per l'applicazione. Ad esempio, *webapp1*.
 1. Selezionare **account in qualsiasi directory organizzativa o provider di identità**.
 1. In **URI di reindirizzamento**selezionare **Web**, quindi immettere `https://jwt.ms` nella casella di testo URL.
@@ -72,14 +73,14 @@ Per registrare un'applicazione nel tenant di Azure AD B2C, è possibile usare l'
     * L'URL di risposta deve iniziare con lo schema `https`.
     * L'URL di risposta fa distinzione tra maiuscole e minuscole. Il caso deve corrispondere al caso del percorso URL dell'applicazione in esecuzione. Se, ad esempio, l'applicazione include come parte del percorso `.../abc/response-oidc`, non specificare `.../ABC/response-oidc` nell'URL di risposta. Poiché il Web browser considera i percorsi come distinzione tra maiuscole e minuscole, i cookie associati a `.../abc/response-oidc` possono essere esclusi se reindirizzati all'URL `.../ABC/response-oidc` senza corrispondenza maiuscole/minuscole.
 
-1. In **autorizzazioni**selezionare la casella *di controllo Concedi il consenso dell'amministratore per le autorizzazioni OpenID e offline_access* .
+1. In **Autorizzazioni**, selezionare la casella di controllo *Concedere il consenso amministratore alle autorizzazioni OpenID e offline_access*.
 1. Selezionare **Registra**.
 
 Al termine della registrazione dell'applicazione, abilitare il flusso di concessione implicita:
 
-1. In **Gestisci**selezionare **autenticazione**.
-1. Selezionare **prova la nuova esperienza** (se visualizzata).
-1. In **concessione implicita**selezionare le caselle di controllo **token di accesso** e **token ID** .
+1. In **Gestisci** selezionare **Autenticazione**.
+1. Selezionare **Prova la nuova esperienza** (se visualizzato).
+1. In **Concessione implicita** selezionare entrambe le caselle di controllo **Token di accesso** e **ID token**.
 1. Selezionare **Salva**.
 
 * * *
@@ -97,11 +98,11 @@ Se l'applicazione scambia un codice per un token, è necessario creare un segret
 #### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
 
 1. Nella pagina **Azure ad B2C-registrazioni app (anteprima)** selezionare l'applicazione creata, ad esempio *app Web 1*.
-1. In **Gestisci**selezionare **certificati & segreti**.
+1. In **Gestisci**, selezionare **Certificati e segreti**.
 1. Selezionare **Nuovo segreto client**.
-1. Immettere una descrizione per il segreto client nella casella **Descrizione** . Ad esempio, *clientsecret1*.
-1. In **scadenza**selezionare una durata per cui il segreto è valido, quindi selezionare **Aggiungi**.
-1. Registrare il **valore**del segreto. Usare questo valore come segreto dell'applicazione nel codice dell'applicazione.
+1. Immettere una descrizione per il segreto client nella casella **Descrizione**. Ad esempio, *clientsecret1*.
+1. In **Scadenza**selezionare una durata per la quale il segreto è valido, quindi selezionare **Aggiungi**.
+1. Registrare il **Valore** del segreto. Usare questo valore come segreto dell'applicazione nel codice dell'applicazione.
 
 * * *
 

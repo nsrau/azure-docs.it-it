@@ -1,6 +1,7 @@
 ---
-title: Esempi di trasformazione di attestazioni booleane per lo schema del framework di gestione delle identità di Azure Active Directory B2C | Microsoft Docs
-description: Esempi di trasformazione di attestazioni booleane per lo schema del framework di gestione delle identità di Azure Active Directory B2C.
+title: Esempi di trasformazione di attestazioni booleane per criteri personalizzati
+titleSuffix: Azure AD B2C
+description: Esempi di trasformazione di attestazioni booleane per lo schema Framework dell'esperienza (Identity Experience Framework) del Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: da4fc4704ee72210e180ef95fe6a821c8d116fa2
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: dcebcc3e2021938f3fd3bde236ef08e4f26b8a97
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064568"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949892"
 ---
 # <a name="boolean-claims-transformations"></a>Trasformazioni delle attestazioni booleane
 
@@ -62,7 +63,7 @@ Verifica che i valori booleani di due attestazioni siano uguali e genera un'ecce
 
 | Elemento | TransformationClaimType  | Tipo di dati  | Note |
 | ---- | ------------------------ | ---------- | ----- |
-| inputClaim | inputClaim | boolean | Il ClaimType da confermare. |
+| InputClaim | InputClaim | boolean | Il ClaimType da confermare. |
 | InputParameter |valueToCompareTo | boolean | Il valore da confrontare (true o false). |
 
 La trasformazione delle attestazioni **AssertBooleanClaimIsEqualToValue** viene sempre eseguita da un [profilo tecnico di convalida](validation-technical-profile.md) che viene chiamato da un [profilo tecnico autocertificato](self-asserted-technical-profile.md). I metadati del profilo tecnico autocertificato **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** controllano il messaggio di errore che il profilo tecnico presenta all'utente.
@@ -119,7 +120,7 @@ Esegue un'operazione Not dell'inputClaim booleano e imposta l'outputClaim con il
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | boolean | L'attestazione da usare. |
+| InputClaim | InputClaim | boolean | L'attestazione da usare. |
 | OutputClaim | outputClaim | boolean | I ClaimType generati dopo che ClaimsTransformation è stato richiamato (true o false). |
 
 Usare questa trasformazione delle attestazioni per eseguire la negazione logica su un'attestazione.

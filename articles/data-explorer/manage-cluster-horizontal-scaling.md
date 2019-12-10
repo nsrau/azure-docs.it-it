@@ -3,28 +3,24 @@ title: Gestire la scalabilità orizzontale del cluster (scale out) in Azure Espl
 description: Questo articolo descrive i passaggi per la scalabilità orizzontale e la scalabilità in un cluster Esplora dati di Azure in base alla richiesta di modifica.
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 07/14/2019
-ms.openlocfilehash: eb204701b42436a5ae95bac97ed6fd97cf272860
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.date: 12/09/2019
+ms.openlocfilehash: 52a9c0a13723361bbc93362cdd9e2c73ef0372f2
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561875"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74942240"
 ---
 # <a name="manage-cluster-horizontal-scaling-scale-out-in-azure-data-explorer-to-accommodate-changing-demand"></a>Gestire la scalabilità orizzontale del cluster (scale out) in Azure Esplora dati per soddisfare la richiesta di modifica
 
-Ridimensionare un cluster in modo appropriato è fondamentale per garantire le prestazioni di Esplora dati di Azure. La scelta di dimensioni statiche per un cluster può portare al suo sottoutilizzo o sovrautilizzo e nessuna delle due condizioni è ideale.
-
-Poiché la richiesta in un cluster non può essere prevista con una precisione assoluta, è preferibile *ridimensionare* un cluster, aggiungendo e rimuovendo la capacità e le risorse della CPU con la richiesta mutevole. 
+Ridimensionare un cluster in modo appropriato è fondamentale per garantire le prestazioni di Esplora dati di Azure. La scelta di dimensioni statiche per un cluster può portare al suo sottoutilizzo o sovrautilizzo e nessuna delle due condizioni è ideale. Poiché la richiesta in un cluster non può essere prevista con una precisione assoluta, è preferibile *ridimensionare* un cluster, aggiungendo e rimuovendo la capacità e le risorse della CPU con la richiesta mutevole. 
 
 Sono disponibili due flussi di lavoro per la scalabilità di un cluster Esplora dati di Azure: 
-
 * Scalabilità orizzontale, detta anche scalabilità in uscita e in uscita.
 * [Scalabilità verticale](manage-cluster-vertical-scaling.md), definita anche scalabilità verticale e verticale.
-
 Questo articolo illustra il flusso di lavoro di ridimensionamento orizzontale.
 
 ## <a name="configure-horizontal-scaling"></a>Configurare la scalabilità orizzontale
@@ -47,13 +43,40 @@ La scalabilità automatica ottimizzata è il metodo consigliato per la scalabili
 
 1. Selezionare **scalabilità automatica ottimizzata**. 
 
-1. Selezionare un numero minimo di istanze e un numero massimo di istanze. La scalabilità automatica del cluster è compresa tra questi due numeri, in base al carico.
+1. Selezionare un numero minimo di istanze e un numero massimo di istanze. Gli intervalli di scalabilità automatica del cluster tra questi due numeri, in base al carico.
 
 1. Selezionare **Salva**.
 
    ![Metodo di ridimensionamento automatico ottimizzato](media/manage-cluster-horizontal-scaling/optimized-autoscale-method.png)
 
 La scalabilità automatica ottimizzata inizia a funzionare. Le azioni sono ora visibili nel log attività di Azure del cluster.
+
+#### <a name="logic-of-optimized-autoscale"></a>Logica di scalabilità automatica ottimizzata 
+
+**Aumentare il numero di istanze**
+
+Quando il cluster si avvicina a uno stato di sovrautilizzo, applicare la scalabilità orizzontale per garantire prestazioni ottimali. La scalabilità orizzontale viene eseguita nei casi seguenti:
+* Il numero di istanze del cluster è inferiore al numero massimo di istanze definite dall'utente.
+* L'utilizzo della cache è elevato per più di un'ora.
+
+> [!NOTE]
+> La logica di scalabilità orizzontale non considera attualmente le metriche di utilizzo dell'inserimento e della CPU. Se queste metriche sono importanti per il caso d'uso, usare la [scalabilità automatica personalizzata](#custom-autoscale).
+
+**Ridimensiona in**
+
+Quando il cluster si avvicina a uno stato di sottoutilizzo, applicare la scalabilità a costi ridotti ma mantenere le prestazioni. Vengono usate più metriche per verificare la scalabilità sicura del cluster. Le regole seguenti vengono valutate giornalmente per 7 giorni prima che venga eseguita la scalabilità in:
+* Il numero di istanze è superiore a 2 e superiore al numero minimo di istanze definite.
+* Per assicurarsi che non vi sia alcun sovraccarico delle risorse, è necessario verificare le metriche seguenti prima di eseguire la scalabilità in: 
+    * L'utilizzo della cache non è elevato
+    * La CPU è al di sotto della media 
+    * L'utilizzo dell'inserimento è inferiore alla media 
+    * L'utilizzo del flusso di inserimento (se si usa l'inserimento di flussi) non è elevato
+    * Gli eventi Keep Alive sono superiori a un valore minimo definito, elaborati correttamente e in tempo.
+    * Nessuna limitazione query 
+    * Il numero di query non riuscite è inferiore a un valore minimo definito.
+
+> [!NOTE]
+> La scala nella logica richiede attualmente una valutazione di 7 giorni prima dell'implementazione della scala ottimizzata in. Questa valutazione viene eseguita ogni 24 ore. Se è necessaria una modifica rapida, usare la [scalabilità manuale](#manual-scale).
 
 ### <a name="custom-autoscale"></a>Scalabilità automatica personalizzata
 
@@ -108,5 +131,4 @@ A questo punto è stata configurata la scalabilità orizzontale per il cluster E
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Monitora le prestazioni, l'integrità e l'utilizzo di Azure Esplora dati con le metriche](using-metrics.md)
-
 * [Gestire la scalabilità verticale del cluster](manage-cluster-vertical-scaling.md) per il dimensionamento appropriato di un cluster.

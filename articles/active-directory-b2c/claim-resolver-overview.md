@@ -1,6 +1,7 @@
 ---
-title: Informazioni sui resolver di attestazioni nei criteri personalizzati in Azure Active Directory B2C | Microsoft Docs
-description: Informazioni su come vengono usati i resolver di attestazioni nei criteri personalizzati in Azure Active Directory B2C.
+title: Resolver di attestazioni nei criteri personalizzati
+titleSuffix: Azure AD B2C
+description: Informazioni su come usare i resolver di attestazioni in un criterio personalizzato in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f08c85cee2378f4a879daf197af7a2adf0c20f45
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 3370ec8de0fb49b92c0fb4dd429439e293ad1d8b
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064405"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949875"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Informazioni sui resolver di attestazioni nei criteri personalizzati in Azure Active Directory B2C
 
@@ -43,18 +44,18 @@ Nel profilo tecnico, mappare il resolver di attestazioni al tipo di attestazione
 
 Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 
-### <a name="culture"></a>Impostazioni cultura
+### <a name="culture"></a>Lingua
 
-| Attestazione | DESCRIZIONE | Esempio |
+| Attestazione | Description | Esempio |
 | ----- | ----------- | --------|
-| {Culture:LanguageName} | Codice ISO di due lettere per la lingua. | it-IT |
-| {Culture:LCID}   | Identificatore LCID del codice della lingua. | 16 |
+| {Culture:LanguageName} | Codice ISO di due lettere per la lingua. | en |
+| {Culture:LCID}   | Identificatore LCID del codice della lingua. | 1040 |
 | {Culture:RegionName} | Codice ISO di due lettere per la regione. | Stati Uniti |
 | {Culture:RFC5646} | Codice RFC5646 della lingua. | en-US |
 
-### <a name="policy"></a>Criteri
+### <a name="policy"></a>Policy
 
-| Attestazione | Descrizione | Esempio |
+| Attestazione | Description | Esempio |
 | ----- | ----------- | --------|
 | {Policy:PolicyId} | Nome dei criteri della relying party. | B2C_1A_signup_signin |
 | {Policy:RelyingPartyTenantId} | ID del tenant dei criteri della relying party. | your-tenant.onmicrosoft.com |
@@ -63,21 +64,21 @@ Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 
 ### <a name="openid-connect"></a>OpenID Connect
 
-| Attestazione | DESCRIZIONE | Esempio |
+| Attestazione | Description | Esempio |
 | ----- | ----------- | --------|
 | {OIDC:AuthenticationContextReferences} |Parametro di stringa di query `acr_values`. | N/D |
 | {OIDC:ClientId} |Parametro di stringa di query `client_id`. | 00000000-0000-0000-0000-000000000000 |
 | {OIDC:DomainHint} |Parametro di stringa di query `domain_hint`. | facebook.com |
 | {OIDC:LoginHint} |  Parametro di stringa di query `login_hint`. | someone@contoso.com |
-| {OIDC:MaxAge} | Oggetto `max_age`. | N/D |
+| {OIDC:MaxAge} | `max_age`. | N/D |
 | {OIDC:Nonce} |Parametro di stringa di query `Nonce`. | defaultNonce |
 | {OIDC:Prompt} | Parametro di stringa di query `prompt`. | Accesso |
 | {OIDC:Resource} |Parametro di stringa di query `resource`. | N/D |
 | {OIDC:scope} |Parametro di stringa di query `scope`. | openid |
 
-### <a name="context"></a>Contesto
+### <a name="context"></a>Context
 
-| Attestazione | DESCRIZIONE | Esempio |
+| Attestazione | Description | Esempio |
 | ----- | ----------- | --------|
 | {Context:BuildNumber} | Versione del framework dell'esperienza di gestione delle identità (numero di build).  | 1.0.507.0 |
 | {Context:CorrelationId} | L'ID di correlazione.  | 00000000-0000-0000-0000-000000000000 |
@@ -90,7 +91,7 @@ Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 
 I nomi di parametro inclusi in una richiesta OIDC o OAuth2 possono essere mappati a un'attestazione nel percorso utente Ad esempio, la richiesta generata dall'applicazione può includere un parametro di stringa di query denominato `app_session`, `loyalty_number` o qualsiasi stringa di query personalizzata.
 
-| Attestazione | DESCRIZIONE | Esempio |
+| Attestazione | Description | Esempio |
 | ----- | ----------------------- | --------|
 | {OAUTH-KV:campaignId} | Parametro di stringa di query. | hawaii |
 | {OAUTH-KV:app_session} | Parametro di stringa di query. | A3C5R |
@@ -99,7 +100,7 @@ I nomi di parametro inclusi in una richiesta OIDC o OAuth2 possono essere mappat
 
 ### <a name="oauth2"></a>OAuth2
 
-| Attestazione | DESCRIZIONE | Esempio |
+| Attestazione | Description | Esempio |
 | ----- | ----------------------- | --------|
 | {oauth2:access_token} | Token di accesso. | N/D |
 
