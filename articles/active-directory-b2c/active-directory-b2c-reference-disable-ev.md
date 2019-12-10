@@ -1,5 +1,6 @@
 ---
-title: Disabilitare la verifica tramite posta elettronica durante l'iscrizione del cliente in Azure Active Directory B2C
+title: Disabilitare la verifica tramite posta elettronica durante l'iscrizione del cliente
+titleSuffix: Azure AD B2C
 description: Informazioni su come disabilitare la verifica tramite posta elettronica durante l'iscrizione del cliente in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9a7adc04991dd4a472bdaf1aa47aacaf6cdeb190
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: c5b3598e33dac131c8881248a5f4b740a6302e20
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71256922"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948148"
 ---
 # <a name="disable-email-verification-during-customer-sign-up-in-azure-active-directory-b2c"></a>Disabilitare la verifica tramite posta elettronica durante l'iscrizione del cliente in Azure Active Directory B2C
 
@@ -27,7 +28,7 @@ Per disabilitare la verifica tramite posta elettronica, attenersi alla procedura
 
 1. Accedere al [portale di Azure](https://portal.azure.com)
 1. Usare il filtro **directory + sottoscrizione** nel menu in alto per selezionare la directory che contiene il tenant del Azure ad B2C.
-1. Nel menu a sinistra selezionare **Azure ad B2C**. In alternativa, selezionare **tutti i servizi** e cercare e selezionare **Azure ad B2C**.
+1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
 1. Selezionare **Flussi utente**.
 1. Selezionare il flusso utente per il quale si desidera disabilitare la verifica tramite posta elettronica. Ad esempio, *B2C_1_signinsignup*.
 1. Selezionare **layout di pagina**.

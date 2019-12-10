@@ -1,5 +1,6 @@
 ---
-title: Esercitazione-aggiungere provider di identità alle applicazioni-Azure Active Directory B2C
+title: 'Esercitazione: aggiungere provider di identità alle app'
+titleSuffix: Azure AD B2C
 description: Informazioni su come aggiungere provider di identità alle applicazioni in Azure Active Directory B2C usando il portale di Azure.
 services: active-directory-b2c
 author: mmacy
@@ -10,14 +11,14 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bc7828b7926ea6e7f2d6bc3891ee231972ae3208
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: a49eae95628645f6586a637c103433b122b5d287
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063240"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950953"
 ---
-# <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Esercitazione: Aggiungere provider di identità alle applicazioni in Azure Active Directory B2C
+# <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Esercitazione: aggiungere provider di identità alle applicazioni in Azure Active Directory B2C
 
 È possibile consentire agli utenti di accedere alle applicazioni con provider di identità diversi. Un *provider di identità* crea, mantiene e gestisce le informazioni sulle identità fornendo al contempo servizi di autenticazione alle applicazioni. È possibile aggiungere i provider di identità supportati da Azure Active Directory B2C (Azure AD B2C) ai [flussi utente](active-directory-b2c-reference-policies.md) tramite il portale di Azure.
 
@@ -50,7 +51,7 @@ Per consentire agli utenti di accedere da Azure AD, è necessario registrare un'
 1. Selezionare **Nuova registrazione**.
 1. Immettere un nome per l'applicazione. Ad esempio `Azure AD B2C App`.
 1. Accetta la selezione degli **account in questa directory organizzativa solo** per questa applicazione.
-1. Per l' **URI di reindirizzamento**accettare il valore di **Web** e immettere l'URL seguente in lettere minuscole, sostituendo `your-B2C-tenant-name` con il nome del tenant Azure ad B2C.
+1. Per l' **URI di reindirizzamento**accettare il valore di **Web** e immettere l'URL seguente in lettere minuscole, sostituendo `your-B2C-tenant-name` con il nome del tenant di Azure ad B2C.
 
     ```
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
@@ -143,7 +144,7 @@ Nell'esercitazione completata come parte dei prerequisiti è stato creato un flu
 1. Selezionare **Esegui flusso utente**e quindi accedere con un provider di identità aggiunto in precedenza.
 1. Ripetere i passaggi da 1 a 3 per gli altri provider di identità aggiunti.
 
-Se l'operazione di accesso ha esito positivo, si viene `https://jwt.ms` reindirizzati a che Visualizza il token decodificato, simile a:
+Se l'operazione di accesso ha esito positivo, si viene reindirizzati a `https://jwt.ms` che Visualizza il token decodificato, simile a:
 
 ```json
 {

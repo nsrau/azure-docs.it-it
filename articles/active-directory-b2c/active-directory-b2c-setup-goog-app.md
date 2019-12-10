@@ -1,5 +1,6 @@
 ---
-title: Configurare l'iscrizione e l'accesso con un account Google-Azure Active Directory B2C
+title: Configurare l'iscrizione e l'accesso con un account Google
+titleSuffix: Azure AD B2C
 description: Consentire l'iscrizione e l'accesso ai clienti con account Google alle applicazioni da Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,18 +11,18 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 158bb3b1329d2ad2cbd55ecf44f980966e2546e2
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 1e23c79b1e09f3e3a7aaa21b9257bfe6bd43f7e8
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065180"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950469"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account Google tramite Azure Active Directory B2C
 
 ## <a name="create-a-google-application"></a>Creazione di un'applicazione Google
 
-Per usare un account Google come [provider di identità](active-directory-b2c-reference-oauth-code.md) in Azure Active Directory B2C (Azure ad B2C), è necessario creare un'applicazione nel tenant che la rappresenta. Se non si ha già un account Google, è possibile iscriversi [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp)all'indirizzo.
+Per usare un account Google come [provider di identità](active-directory-b2c-reference-oauth-code.md) in Azure Active Directory B2C (Azure ad B2C), è necessario creare un'applicazione nel tenant che la rappresenta. Se non si ha già un account Google, è possibile iscriversi all' [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp).
 
 1. Accedere alla [Google Developers Console](https://console.developers.google.com/) con le credenziali dell'account Google.
 1. Nell'angolo superiore sinistro della pagina selezionare l'elenco progetto, quindi selezionare **nuovo progetto**.
@@ -35,7 +36,7 @@ Per usare un account Google come [provider di identità](active-directory-b2c-re
 ## <a name="configure-a-google-account-as-an-identity-provider"></a>Configurare un account Google come provider di identità
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale del tenant di Azure AD B2C.
-1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C selezionando il filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene il tenant.
+1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra del portale di Azure, cercare **Azure AD B2C** e selezionarlo.
 1. Selezionare **provider di identità**, quindi selezionare **Google**.
 1. Immettere un **Nome**. Ad esempio, *Google*.

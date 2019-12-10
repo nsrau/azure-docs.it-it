@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 333a3b93d872c1a99d1ec18d4941adc8986d4a03
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 10c778025c3def384f621cb5311d0d71ccb457d7
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74914561"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951123"
 ---
 # <a name="what-is-azure-ad-connect-cloud-provisioning"></a>Che cos'è il provisioning cloud di Azure AD Connect?
 Azure AD Connect provisioning cloud è un nuovo agente Microsoft progettato per soddisfare e raggiungere gli obiettivi di identità ibrida per la sincronizzazione di utenti, gruppi e contatti con Azure AD.  Può essere usato insieme a Azure AD Connect Sync e offre i vantaggi seguenti:
@@ -60,8 +60,9 @@ La tabella seguente fornisce un confronto tra Azure AD Connect e Azure AD Connec
 | Personalizzazione avanzata dei flussi di attributi |● | |
 | Supporto per il writeback (password, dispositivi, gruppi) |● | |
 | Supporto Azure AD Domain Services|● | |
+| Configurazione ibrida di Exchange |● | |
 
 ## <a name="next-steps"></a>Passaggi successivi 
 
-- [Che cos'è il provisioning?](what-is-provisioning.md)
+- [Cos'è il provisioning?](what-is-provisioning.md)
 - [Installare il provisioning cloud](how-to-install.md)

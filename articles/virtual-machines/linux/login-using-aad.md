@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
-ms.openlocfilehash: 74de621f88d9af65f8894319729f902bf11e57ce
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: cccdb54b89dff7c6a1fc9dac55c63b19d661ab65
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873013"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951310"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Anteprima: accedere a una macchina virtuale Linux in Azure usando l'autenticazione Azure Active Directory
 
@@ -206,6 +206,10 @@ Dopo aver completato correttamente il passaggio di autenticazione in un Web brow
 - Verificare che il nome di accesso specificato nel prompt SSH sia corretto. Un errore di battitura nel nome di accesso potrebbe causare una mancata corrispondenza tra il nome di accesso specificato nel prompt di SSH e l'account con cui è stato effettuato l'accesso ad Azure AD. Si digitano, ad esempio, *azuresuer\@contoso.onmicrosoft.com* anziché *azureuser\@contoso.onmicrosoft.com*.
 - Se si dispone di più account utente, assicurarsi che non si indichi un account utente diverso nella finestra del browser quando si accede ad Azure AD.
 - Linux è un sistema operativo che distingue tra maiuscole e minuscole. Quindi "Azureuser@contoso.onmicrosoft.com" e "azureuser@contoso.onmicrosoft.com" sono diversi e questo può causare una mancata corrispondenza. Assicurarsi di specificare l'UPN usando correttamente le maiuscole e le minuscole nel prompt SSH.
+
+### <a name="other-limitations"></a>Altre limitazioni
+
+Gli utenti che ereditano i diritti di accesso tramite gruppi annidati o assegnazioni di ruolo non sono attualmente supportati. All'utente o al gruppo devono essere assegnate direttamente le [assegnazioni di ruolo obbligatorie](#configure-role-assignments-for-the-vm). Ad esempio, l'utilizzo di gruppi di gestione o assegnazioni di ruolo a gruppi annidati non concederà le autorizzazioni corrette per consentire all'utente di eseguire l'accesso.
 
 ## <a name="preview-feedback"></a>Feedback sull'anteprima
 

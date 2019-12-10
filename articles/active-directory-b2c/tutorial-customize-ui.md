@@ -1,6 +1,7 @@
 ---
-title: Esercitazione - Personalizzare l'interfaccia delle esperienze utente - Azure Active Directory B2C | Microsoft Docs
-description: Informazioni su come personalizzare l'interfaccia utente delle applicazioni in Azure Active Directory B2C mediante il portale di Azure.
+title: "Esercitazione: personalizzare l'interfaccia utente"
+titleSuffix: Azure AD B2C
+description: Informazioni su come personalizzare l'interfaccia utente delle applicazioni in Azure Active Directory B2C usando il portale di Azure.
 services: B2C
 author: mmacy
 manager: celestedg
@@ -10,14 +11,14 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 08edf6e841dc7d389573d5e5b5ea7e043f750e76
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: eba9919b7a1d89e6aea8fb93ef8c4b3e92960368
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71291098"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950868"
 ---
-# <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Esercitazione: Personalizzare l'interfaccia delle esperienze utente in Azure Active Directory B2C
+# <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Esercitazione: personalizzare l'interfaccia delle esperienze utente in Azure Active Directory B2C
 
 Per esperienze utente più comuni, ad esempio iscrizione, accesso e modifica del profilo, è possibile usare i [flussi utente](active-directory-b2c-reference-policies.md) in Azure Active Directory B2C (Azure ad B2C). Le informazioni fornite in questa esercitazione spiegano come [personalizzare l'interfaccia utente](customize-ui-overview.md) di queste esperienze usando i propri file HTML e CSS.
 
@@ -38,7 +39,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Occorre creare un account di archiviazione e un contenitore di Azure e quindi inserire i file HTML e CSS di base nel contenitore.
 
-### <a name="create-a-storage-account"></a>Crea un account di archiviazione
+### <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
 I file possono essere archiviati in diversi modi, ma per questa esercitazione si userà l'[archivio BLOB di Azure](../storage/blobs/storage-blobs-introduction.md).
 
@@ -63,14 +64,14 @@ I file possono essere archiviati in diversi modi, ma per questa esercitazione si
 
 1. Nel menu selezionare **CORS**.
 2. Per **Origini consentite** immettere `https://your-tenant-name.b2clogin.com`. Sostituire `your-tenant-name` con il nome del tenant di Azure AD B2C. Ad esempio `https://fabrikam.b2clogin.com`. È necessario usare solo lettere minuscole quando si immette il nome del tenant.
-3. Per i **metodi consentiti**, `GET`selezionare `OPTIONS`,`PUT`e.
+3. Per i **metodi consentiti**, selezionare `GET`,`PUT`e `OPTIONS`.
 4. Per **Intestazioni consentite** immettere un asterisco (*).
 5. Per **Intestazioni esposte** immettere un asterisco (*).
 6. Per **Età massima** immettere 200.
 
     ![Pagina di configurazione di CORS nell'archivio BLOB di Azure in portale di Azure](./media/tutorial-customize-ui/enable-cors.png)
 
-5. Fare clic su **Salva**.
+5. Fare clic su **Salva**
 
 ### <a name="create-the-customization-files"></a>Creare i file di personalizzazione
 

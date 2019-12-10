@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 01/28/2018
-ms.openlocfilehash: 9796b41d0df091bc6eb23ba525a79da278e00bbd
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: b655181f41aeda71364edd061b7c81db23e59990
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802314"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951140"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Panoramica degli avvisi in Microsoft Azure 
 
@@ -63,7 +63,7 @@ Di seguito sono riportati gli attributi chiave di una regola di avviso:
 È possibile inviare un avviso sulle metriche e sui log, come descritto in [monitoraggio delle origini dati](../../azure-monitor/platform/data-sources-reference.md). Sono incluse, ad esempio:
 - Valori della metrica
 - Query di ricerca log
-- Eventi del log attività
+- Eventi dei log attività
 - Integrità della piattaforma Azure sottostante
 - Test per la disponibilità del sito Web
 
@@ -178,7 +178,7 @@ Nella pagina Dettagli avviso sono incluse le seguenti sezioni:
 
 ## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>Controllo degli accessi in base al ruolo (RBAC) per le istanze di avviso
 
-Il consumo e la gestione delle istanze di avviso richiedono che l'utente disponga dei ruoli RBAC predefiniti di [monitoraggio collaboratore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) o [lettore monitoraggio](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader). Questi ruoli sono supportati in qualsiasi ambito Azure Resource Manager, dal livello di sottoscrizione alle assegnazioni granulari a livello di risorsa. Se, ad esempio, un utente dispone solo dell'accesso collaboratore al monitoraggio per la `ContosoVM1` della macchina virtuale, tale utente potrà utilizzare e gestire solo gli avvisi generati su `ContosoVM1`.
+Il consumo e la gestione delle istanze di avviso richiedono che l'utente disponga dei ruoli RBAC predefiniti di [monitoraggio collaboratore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) o [lettore monitoraggio](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader). Questi ruoli sono supportati in qualsiasi ambito Azure Resource Manager, dal livello di sottoscrizione alle assegnazioni granulari a livello di risorsa. Se, ad esempio, un utente dispone solo dell'accesso collaboratore al monitoraggio per la `ContosoVM1`della macchina virtuale, tale utente potrà utilizzare e gestire solo gli avvisi generati su `ContosoVM1`.
 
 ## <a name="manage-your-alert-instances-programmatically"></a>Gestire le istanze di avviso a livello di codice
 
@@ -211,6 +211,7 @@ Usare l' [API REST di gestione avvisi](https://aka.ms/alert-management-api) per 
 - [Informazioni sui gruppi di azioni](../../azure-monitor/platform/action-groups.md)
 - [Managing your alert instances in Azure](https://aka.ms/managing-alert-instances) (Gestione delle istanze di avvio in Azure)
 - [Managing Smart Groups](https://aka.ms/managing-smart-groups) (Gestione dei gruppi intelligenti)
+- [Scopri di più sui prezzi per gli avvisi di Azure](https://azure.microsoft.com/pricing/details/monitor/)
 
 
 

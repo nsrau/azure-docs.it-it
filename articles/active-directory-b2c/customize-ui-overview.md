@@ -1,5 +1,6 @@
 ---
-title: Personalizzare l'interfaccia utente in Azure Active Directory B2C
+title: Personalizzare l'interfaccia utente
+titleSuffix: Azure AD B2C
 description: Informazioni su come personalizzare l'interfaccia utente per le applicazioni che usano Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6ebaeedf88bc02aa16e8be07fcb734e44ffa5bb6
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: d737d010f323a5d5b230091ad07ba530d25d6e51
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258159"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949407"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalizzare l'interfaccia utente in Azure Active Directory B2C
 
@@ -25,7 +26,7 @@ La personalizzazione e la personalizzazione dell'interfaccia utente che Azure Ac
 
 Esistono diversi modi per personalizzare l'interfaccia utente dell'applicazione, ognuno dei quali è adatto a scenari diversi.
 
-### <a name="user-flows"></a>Flussi utente
+### <a name="user-flows"></a>Flussi degli utenti
 
 Se si usano i [flussi utente](active-directory-b2c-reference-policies.md), è possibile modificare l'aspetto delle pagine del flusso utente usando *modelli di layout di pagina*predefiniti oppure usando il codice HTML e CSS. Entrambi i metodi sono illustrati più avanti in questo articolo.
 
@@ -57,7 +58,7 @@ In **Personalizza** nel menu a sinistra selezionare **layout di pagina** e quind
 
 Selezionare quindi un modello nell'elenco. Di seguito sono riportati alcuni esempi di pagine di accesso per ogni modello:
 
-| Blu oltremare | Grigio ardesia | Classica |
+| Blu oceano | Grigio ardesia | Classico |
 |:-:|:-:|:-:|
 |![Esempio di modello blu oceano di cui è stato eseguito il rendering nella pagina di accesso per l'iscrizione](media/customize-ui-overview/template-ocean-blue.png)|![Esempio del modello grigio dello Slate visualizzato nella pagina di accesso per l'iscrizione](media/customize-ui-overview/template-slate-gray.png)|![Esempio del modello classico di cui è stato eseguito il rendering nella pagina di accesso per l'iscrizione](media/customize-ui-overview/template-classic.png)|
 
@@ -144,12 +145,12 @@ La tabella seguente elenca i frammenti HTML che Azure AD B2C unisce nell'element
 | Iscrizione dell'account locale | Contiene un modulo per eseguire l'iscrizione dell'account locale in base a un indirizzo di posta elettronica o a un nome utente. Il modulo può contenere diversi controlli di input, ad esempio caselle per l'immissione di testo, caselle per l'immissione della password, pulsanti di opzione, caselle a discesa a selezione singola e caselle di controllo con selezione multipla. |
 | Iscrizione dell'account di social networking | Può essere visualizzata quando si effettua l'iscrizione usando un account esistente di un provider di identità basato su social network, ad esempio Facebook o Google. Viene usato quando è necessario raccogliere informazioni aggiuntive dal cliente usando un modulo di iscrizione. |
 | Unificata per l'iscrizione o l'accesso | Gestisce sia l'iscrizione che l'accesso dei clienti, che possono usare provider di identità basati su social network, come Facebook o Google, o account locali. |
-| Autenticazione a più fattori | Gli utenti possono verificare il proprio numero di telefono (tramite SMS o chiamata vocale) durante la procedura di iscrizione o di accesso. |
+| Multi-Factor Authentication | Gli utenti possono verificare il proprio numero di telefono (tramite SMS o chiamata vocale) durante la procedura di iscrizione o di accesso. |
 | Errore | Fornisce informazioni sugli errori al cliente. |
 
 ## <a name="localize-content"></a>Localizzare il contenuto
 
-Si può localizzare il contenuto HTML abilitando la [personalizzazione della lingua](active-directory-b2c-reference-language-customization.md) nel tenant di Azure AD B2C. L'abilitazione di questa funzionalità consente Azure ad B2C di inviare il `ui-locales` parametro OpenID Connect all'endpoint. Il server di contenuti può usare questo parametro per fornire pagine HTML personalizzate specifiche della lingua.
+Si può localizzare il contenuto HTML abilitando la [personalizzazione della lingua](active-directory-b2c-reference-language-customization.md) nel tenant di Azure AD B2C. L'abilitazione di questa funzionalità consente Azure AD B2C di inviare il parametro OpenID Connect `ui-locales` all'endpoint. Il server di contenuti può usare questo parametro per fornire pagine HTML personalizzate specifiche della lingua.
 
 È possibile eseguire il pull del contenuto da posizioni diverse in base alle impostazioni locali in uso. Nell'endpoint abilitato per CORS, configurare una struttura di cartelle in cui ospitare il contenuto per specifiche lingue. Se si inserisce il valore del carattere jolly `{Culture:RFC5646}` verrà chiamata la lingua corretta.
 
@@ -165,11 +166,11 @@ https://contoso.blob.core.windows.net/{Culture:RFC5646}/myHTML/unified.html
 https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 ```
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
 
 È possibile trovare diversi file di modello di esempio nel repository [B2C-AzureBlobStorage-client](https://github.com/azureadquickstarts/b2c-azureblobstorage-client) su GitHub.
 
-I file HTML e CSS di esempio nei modelli si trovano nella directory [/sample_templates](https://github.com/AzureADQuickStarts/B2C-AzureBlobStorage-Client/tree/master/sample_templates)
+I file HTML e CSS di esempio nei modelli si trovano nella directory [/sample_templates](https://github.com/AzureADQuickStarts/B2C-AzureBlobStorage-Client/tree/master/sample_templates) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

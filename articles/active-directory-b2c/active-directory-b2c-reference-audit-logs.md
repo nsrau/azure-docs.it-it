@@ -1,6 +1,7 @@
 ---
-title: Log di controllo esempi e definizioni in Azure Active Directory B2C
-description: Guida ed esempi sull'accesso ai log di controllo Azure AD B2C.
+title: Accedere ed esaminare i log di controllo
+titleSuffix: Azure AD B2C
+description: Come accedere ai log di controllo Azure AD B2C a livello di codice e nel portale di Azure.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -11,12 +12,12 @@ ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b1070314767f280ec9d15390dc838fa80b5508e2
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: feefe7cf6d559360defd7c7f830a9e3f2e583cd6
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643585"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948233"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Accesso ai log di controllo di Azure AD B2C
 
@@ -31,14 +32,14 @@ Gli eventi del log di controllo vengono conservati per **sette giorni**. Se è n
 
 La categoria **B2C** nei log di controllo contiene i tipi di attività seguenti:
 
-|Tipo di attività |Descrizione  |
+|Tipo di attività |Description  |
 |---------|---------|
-|Autorizzazione |Attività relative all'autorizzazione di un utente per accedere alle risorse B2C (ad esempio, un amministratore che accede a un elenco di criteri B2C).         |
+|Authorization |Attività relative all'autorizzazione di un utente per accedere alle risorse B2C (ad esempio, un amministratore che accede a un elenco di criteri B2C).         |
 |Directory |Attività relative agli attributi di directory recuperate quando un amministratore accede utilizzando il portale di Azure. |
-|Applicazione | Operazioni di creazione, lettura, aggiornamento ed eliminazione (CRUD) sulle applicazioni B2C. |
+|Richiesta | Operazioni di creazione, lettura, aggiornamento ed eliminazione (CRUD) sulle applicazioni B2C. |
 |Chiave |Operazioni CRUD sulle chiavi archiviate in un contenitore di chiavi B2C. |
-|Risorsa |Operazioni CRUD sulle risorse B2C. Ad esempio, i criteri e i provider di identità.
-|Autenticazione |Convalida delle credenziali utente e del rilascio dei token.|
+|Gruppi |Operazioni CRUD sulle risorse B2C. Ad esempio, i criteri e i provider di identità.
+|Authentication |Convalida delle credenziali utente e del rilascio dei token.|
 
 Per le attività CRUD sugli oggetti utente, vedere la categoria **Directory principale**.
 
@@ -50,12 +51,12 @@ Questa immagine di esempio dalla portale di Azure Mostra i dati acquisiti quando
 
 Il pannello Dettagli attività contiene le informazioni rilevanti seguenti:
 
-|Sezione|Campo|Descrizione|
+|Sezione|Campo|Description|
 |-------|-----|-----------|
-| Attività | Name | Quale attività ha avuto luogo. Ad esempio, *emettere un token ID per l'applicazione*, che conclude l'effettivo accesso dell'utente. |
+| Attività | name | Quale attività ha avuto luogo. Ad esempio, *emettere un id_token all'applicazione*, che conclude l'accesso utente effettivo. |
 | Azione avviata da (attore) | ObjectId | **ID oggetto** dell'applicazione B2C a cui l'utente sta eseguendo l'accesso. Questo identificatore non è visibile nel portale di Azure, ma è accessibile tramite l'API Microsoft Graph. |
 | Azione avviata da (attore) | SPN | **ID applicazione** dell'applicazione B2C a cui l'utente sta eseguendo l'accesso. |
-| Destinazioni | ObjectId | **ID oggetto** dell'utente che sta effettuando l'accesso. |
+| Destinazione/i | ObjectId | **ID oggetto** dell'utente che sta effettuando l'accesso. |
 | Altri dettagli | TenantId | **ID tenant** del tenant del Azure ad B2C. |
 | Altri dettagli | PolicyId | **ID criterio** del flusso utente (criterio) utilizzato per l'accesso dell'utente. |
 | Altri dettagli | ApplicationId | **ID applicazione** dell'applicazione B2C a cui l'utente sta eseguendo l'accesso. |
@@ -114,16 +115,16 @@ Eseguire la procedura seguente per registrare un'applicazione, concedere al Micr
 #### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
 
 1. In **Gestisci** selezionare **Autorizzazioni API**.
-1. In **autorizzazioni configurate**selezionare **Aggiungi un'autorizzazione**.
+1. In **Autorizzazioni configurate** selezionare **Aggiungi un'autorizzazione**.
 1. Selezionare la scheda **API Microsoft** .
 1. Selezionare **Microsoft Graph**.
 1. Selezionare **Autorizzazioni applicazione**.
 1. Espandere **auditlog** e quindi selezionare la casella di controllo **auditlog. Read. All** .
-1. Selezionare **Aggiungi autorizzazioni**. Come indicato, attendere alcuni minuti prima di procedere al passaggio successivo.
-1. Selezionare **concedi il consenso dell'amministratore per (nome del tenant)** .
+1. Selezionare **Aggiungi autorizzazioni**. Come indicato, attendere alcuni minuti prima di procedere con il passaggio successivo.
+1. Selezionare **Concedi consenso amministratore per (nome del tenant)** .
 1. Selezionare l'account attualmente connesso se è stato assegnato il ruolo di *amministratore globale* o accedere con un account nel tenant di Azure ad B2C a cui è stato assegnato il ruolo di *amministratore globale* .
 1. Selezionare **Accetto**.
-1. Selezionare **Aggiorna**, quindi verificare che "concesso per..." viene visualizzato in **stato** per l'autorizzazione *auditlog. Read. All* . Potrebbero essere necessari alcuni minuti per la propagazione delle autorizzazioni.
+1. Selezionare **Aggiorna**, quindi verificare che "concesso per..." viene visualizzato in **stato** per l'autorizzazione *auditlog. Read. All* . La propagazione delle autorizzazioni potrebbe richiedere alcuni minuti.
 
 * * *
 

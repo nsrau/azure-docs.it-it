@@ -1,5 +1,6 @@
 ---
-title: Configurare l'accesso con un provider SAML Salesforce usando criteri personalizzati in Azure Active Directory B2C
+title: Configurare l'accesso con un provider SAML Salesforce usando criteri personalizzati
+titleSuffix: Azure AD B2C
 description: Configurare l'accesso con un provider SAML Salesforce usando criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2922aa32bab2d9d7146a03757850d4b724ad7570
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: bf4b10c2c1f927c80ed9a99e178ed336892daa21
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71822257"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950545"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso con un provider SAML Salesforce usando criteri personalizzati in Azure Active Directory B2C
 
@@ -35,11 +36,11 @@ Questo articolo illustra come abilitare l'accesso per gli utenti di un'organizza
 2. Nel menu a sinistra espandere **Identity** (Identità) in **Settings** (Impostazioni) e quindi selezionare **Identity Provider** (Provider di identità).
 3. Selezionare **Enable Identity Provider** (Abilita provider di identità).
 4. In **Select the certificate** (Selezionare il certificato) selezionare il certificato che si desidera venga usato da Salesforce per comunicare con Azure AD B2C. È possibile usare il certificato predefinito.
-5. Fare clic su **Salva**.
+5. Fare clic su **Salva**
 
 ### <a name="create-a-connected-app-in-salesforce"></a>Creare un'app connessa in Salesforce
 
-1. Nella pagina **Identity Provider** (Provider di identità) selezionare **Service Providers are now created via Connected Apps. Click here** (I provider di servizi vengono ora creati tramite app connesse. Fare clic qui).
+1. Nella pagina **provider di identità** selezionare i **provider di servizi vengono ora creati tramite app connesse. Fare clic qui.**
 2. In **Basic Information** (Informazioni di base) immettere i valori richiesti per l'app connessa.
 3. In **Web App Settings** (Impostazioni app Web) selezionare la casella **Enable SAML** (Abilita SAML).
 4. Nel campo **Entity ID** (ID entità) immettere l'URL seguente. Assicurarsi di sostituire il valore `your-tenant` con il nome del tenant di Azure AD B2C.

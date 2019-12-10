@@ -1,6 +1,7 @@
 ---
-title: Definire un profilo tecnico OAuth1 in un criterio personalizzato in Azure Active Directory B2C | Microsoft Docs
-description: Definire un profilo tecnico OAuth1 in un criterio personalizzato in Azure Active Directory B2C.
+title: Definire un profilo tecnico OAuth1 in un criterio personalizzato
+titleSuffix: Azure AD B2C
+description: Definire un profilo tecnico OAuth 1,0 in un criterio personalizzato in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 97fa5757f8b77e29545f6d6f6b885334c7b526f1
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: d97d908ddf5d55bf09d96a5ef16fa79a7afde7b4
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063999"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951106"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico OAuth1 in un Azure Active Directory B2C criteri personalizzati
 
@@ -46,9 +47,9 @@ L'elemento **OutputClaimsTransformations** può contenere una raccolta di elemen
 
 L'esempio seguente mostra le attestazioni restituite dal provider di identità Twitter:
 
-- Attestazione **user_id** di cui è stato eseguito il mapping all'attestazione **issuerUserId** .
+- Attestazione **user_id** mappata all'attestazione **issuerUserId** .
 - L'attestazione **screen_name** di cui si esegue il mapping per l'attestazione **displayName**.
-- L'attestazione **email** senza eseguire il mapping del nome.
+- L'attestazione **email** senza l'esecuzione del mapping del nome.
 
 Il profilo tecnico restituisce anche le attestazioni che non vengono restituite dal provider di identità:
 
@@ -67,13 +68,13 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 
 ## <a name="metadata"></a>Metadata
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Description |
 | --------- | -------- | ----------- |
-| client_id | Sì | L'identificatore dell'attestazione del provider di identità. |
+| client_id | SÌ | L'identificatore dell'applicazione del provider di identità. |
 | ProviderName | No | Il nome del provider di identità. |
-| request_token_endpoint | Yes | L'URL dell'endpoint del token richiesta come per RFC 5849. |
-| authorization_endpoint | Sì | L'URL dell'endpoint di autorizzazione come per RFC 5849. |
-| access_token_endpoint | Sì | L'URL dell'endpoint token come per RFC 5849. |
+| request_token_endpoint | SÌ | L'URL dell'endpoint del token richiesta come per RFC 5849. |
+| authorization_endpoint | SÌ | L'URL dell'endpoint di autorizzazione come per RFC 5849. |
+| access_token_endpoint | SÌ | L'URL dell'endpoint token come per RFC 5849. |
 | ClaimsEndpoint | No | L'URL dell'endpoint di informazioni per l'utente. |
 | ClaimsResponseFormat | No | Il formato di risposta delle attestazioni.|
 
@@ -81,13 +82,13 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 
 L'elemento **CryptographicKeys** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Description |
 | --------- | -------- | ----------- |
-| client_secret | Sì | Il segreto client dell'applicazione del provider di identità.   |
+| client_secret | SÌ | Il segreto client dell'applicazione del provider di identità.   |
 
 ## <a name="redirect-uri"></a>URI di reindirizzamento
 
-Quando si configura l'URL di reindirizzamento del provider di identità, immettere `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`. Assicurarsi di sostituire il **tenant** con il nome del tenant (ad esempio, contosob2c.onmicrosoft.com) e **policyId** con l'identificatore dei criteri (ad esempio, b2c_1a_policy). L'URI di reindirizzamento deve essere tutto minuscolo. Aggiungere un URL di reindirizzamento per tutti i criteri che utilizzano l'account di accesso del provider di identità.
+Quando si configura l'URL di reindirizzamento del provider di identità, immettere `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`. Assicurarsi di sostituire il **tenant** con il nome del tenant (ad esempio, contosob2c.onmicrosoft.com) e **policyId** con l'identificatore dei criteri (ad esempio, b2c_1a_policy). L'URI di reindirizzamento deve essere composto da lettere minuscole. Aggiungere un URL di reindirizzamento per tutti i criteri che utilizzano l'account di accesso del provider di identità.
 
 Se si usa il dominio **b2clogin.com** anziché **login.microsoftonline.com** assicurarsi di usare b2clogin.com invece di login.microsoftonline.com.
 

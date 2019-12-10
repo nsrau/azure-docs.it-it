@@ -1,5 +1,6 @@
 ---
-title: Eseguire la migrazione di applicazioni e API a b2clogin.com-Azure AD B2C
+title: Eseguire la migrazione di applicazioni e API a b2clogin.com
+titleSuffix: Azure AD B2C
 description: Informazioni sull'uso di b2clogin.com negli URL di reindirizzamento per Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 426a8cedb365a3abdcef3e1eac5a64498099feb0
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e4ebde6295c3f3467dd615b58d2140302aa86a61
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74913396"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949984"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Impostare gli URL di reindirizzamento su b2clogin.com per Azure Active Directory B2C
 

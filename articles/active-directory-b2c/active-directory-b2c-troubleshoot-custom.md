@@ -1,5 +1,6 @@
 ---
-title: Risolvere i problemi relativi ai criteri personalizzati con Application Insights-Azure Active Directory B2C
+title: Risolvere i problemi relativi ai criteri personalizzati con Application Insights
+titleSuffix: Azure AD B2C
 description: Come configurare Application Insights per tracciare l'esecuzione dei criteri personalizzati.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b8bf26791ca6489c12e4f9538d56ae0f0f66cc8c
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 3aeef1614f22563e0fd348c5bc6ae7ff1e7b0b03
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73602032"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950086"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Raccogliere i log di Azure Active Directory B2C con Application Insights
 
@@ -60,7 +61,7 @@ Se non ne è già presente uno, creare un'istanza di Application Insights nella 
     * `ClientEnabled="true"` invia lo script lato client di ApplicationInsights per il rilevamento degli errori sul lato client e sulla visualizzazione pagina. È possibile visualizzarli nella tabella **browserTimings** nel portale di Application Insights. Impostando `ClientEnabled= "true"`, si aggiungono Application Insights allo script di pagina e si ottengono gli intervalli di caricamenti di pagina e chiamate AJAX, conteggi, dettagli delle eccezioni del browser e degli errori AJAX, nonché i conteggi degli utenti e delle sessioni. Questo campo è **facoltativo**e è impostato su `false` per impostazione predefinita.
     * `ServerEnabled="true"` invia l'elemento JSON UserJourneyRecorder esistente come evento personalizzato ad Application Insights.
 
-    Ad esempio:
+    ad esempio:
 
     ```XML
     <TrustFrameworkPolicy
@@ -92,7 +93,7 @@ Si verifica un breve ritardo, in genere meno di cinque minuti, prima che sia pos
 
 Di seguito è riportato un elenco di query che è possibile usare per visualizzare i log:
 
-| Query | Descrizione |
+| Query | Description |
 |---------------------|--------------------|
 `traces` | Consente di visualizzare tutti i log generati da Azure AD B2C |
 `traces | where timestamp > ago(1d)` | Consente di visualizzare tutti i log generati da Azure AD B2C nell'ultimo giorno

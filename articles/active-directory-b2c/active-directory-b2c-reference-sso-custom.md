@@ -1,5 +1,6 @@
 ---
-title: Gestione delle sessioni Single Sign-On tramite criteri personalizzati in Azure Active Directory B2C | Microsoft Docs
+title: Gestione delle sessioni Single Sign-on con criteri personalizzati
+titleSuffix: Azure AD B2C
 description: Informazioni sulla gestione delle sessioni SSO tramite criteri personalizzati in Azure AD B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5ae30b316133b7479b66a69a3467497a7151dbc8
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: ee32b13820cb50fc1649672b78b34e7e293d65b5
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065389"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950494"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Gestione delle sessioni Single Sign-On in Azure Active Directory B2C
 
@@ -89,7 +90,7 @@ Questo provider viene usato per gestire le sessioni SAML di Azure AD B2C tra le 
 
 Il profilo tecnico presenta due elementi di metadati:
 
-| Elemento | Default Value | Valori possibili | DESCRIZIONE
+| Elemento | Default value | Valori possibili | Description
 | --- | --- | --- | --- |
 | IncludeSessionIndex | true | true/false | Indica al provider che l'indice della sessione deve essere archiviato. |
 | RegisterServiceProviders | true | true/false | Indica che il provider deve registrare tutti i provider di servizi SAML a cui sia stata rilasciata un'asserzione. |

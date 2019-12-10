@@ -1,6 +1,7 @@
 ---
-title: Configurazione di sessione e single sign-on - Azure Active Directory B2C | Microsoft Docs
-description: Sessione e configurazione single sign-on in Azure Active Directory B2C.
+title: Configurazione della sessione e della Single Sign-On
+titleSuffix: Azure AD B2C
+description: Configurazione della sessione e della Single Sign-On (SSO) in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,14 +11,14 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 472e494d445ae4a22c988076994649543ec1f7f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 736dd1f0490c2c9c7c4f526df96dd5ace6a1f819
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508126"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950069"
 ---
-# <a name="session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Configurazione di sessione e single sign-on in Azure Active Directory B2C
+# <a name="session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Configurazione di sessione e Single Sign-On in Azure Active Directory B2C
 
 Questa funzionalità offre un controllo dettagliato, in base ai [singoli flussi utente](active-directory-b2c-reference-policies.md), per gli elementi seguenti:
 
@@ -37,7 +38,7 @@ Azure AD B2C supporta il [protocollo di autenticazione OpenID Connect](active-di
 I seguenti casi d'uso sono abilitati usando queste proprietà:
 
 - Soddisfare i requisiti di sicurezza e conformità del settore, impostando durate appropriate per la sessione dell'applicazione Web.
-- Imporre l'autenticazione dopo un periodo di tempo specifico durante l'interazione di un utente con una parte a sicurezza elevata dell'applicazione Web. 
+- Imporre l'autenticazione dopo un periodo di tempo specifico durante l'interazione di un utente con una parte a sicurezza elevata dell'applicazione Web.
 
 Queste impostazioni non sono disponibili per i flussi utente di reimpostazione della password.
 
@@ -46,9 +47,9 @@ Queste impostazioni non sono disponibili per i flussi utente di reimpostazione d
 Se il tenant di B2C include più applicazioni e flussi utente, è possibile gestire le interazioni degli utenti tra di essi usando la proprietà **Configurazione Single Sign-on**. È possibile impostare la proprietà su uno dei valori seguenti:
 
 - **Tenant**: questa è l'impostazione predefinita. L'uso di questa impostazione consente a più applicazioni e flussi utente del tenant di B2C di condividere la stessa sessione utente. Ad esempio, quando un utente accede a un'applicazione, può accedere contemporaneamente anche a un'altra applicazione, Contoso Pharmacy, senza alcun problema.
-- **Applicazione**: questa impostazione consente di mantenere una sessione utente esclusivamente per un'applicazione, indipendentemente dalle altre applicazioni. Ad esempio, un utente può accedere a Contoso Pharmacy, usando le stesse credenziali, anche se ha già eseguito l'accesso a Contoso Shopping, un'altra applicazione nello stesso tenant di B2C. 
+- **Applicazione**: questa impostazione consente di mantenere una sessione utente esclusivamente per un'applicazione, indipendentemente dalle altre applicazioni. Ad esempio, un utente può accedere a Contoso Pharmacy, usando le stesse credenziali, anche se ha già eseguito l'accesso a Contoso Shopping, un'altra applicazione nello stesso tenant di B2C.
 - **Criterio**: questa impostazione consente di mantenere una sessione utente esclusivamente per un flusso utente, indipendentemente dalle applicazioni che lo usano. Ad esempio, se un utente ha già effettuato l'accesso e completato un passaggio di autenticazione a più fattori (MFA), otterrà l'accesso a parti a sicurezza più elevata di più applicazioni, purché la sessione associata al flusso utente non scada.
 - **Disabilitato**: questa impostazione impone all'utente di eseguire il percorso utente completo a ogni esecuzione del flusso utente.
 
-Queste impostazioni non sono disponibili per i flussi utente di reimpostazione della password. 
+Queste impostazioni non sono disponibili per i flussi utente di reimpostazione della password.
 

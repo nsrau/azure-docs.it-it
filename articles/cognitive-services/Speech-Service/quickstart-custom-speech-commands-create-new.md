@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: 5c90c91791af8a9a16039e9650765bd24433ff38
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 081327e7c70128dad764d66942f1703a889f77fd
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815825"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951239"
 ---
 # <a name="quickstart-create-a-custom-command-preview"></a>Guida introduttiva: creare un comando personalizzato (anteprima)
 
@@ -28,16 +28,6 @@ L'applicazione rileverà un enunciato come "accendere la TV" e rispondere con un
 
   > [!NOTE]
   > Durante l'anteprima, solo l'area westus2 è supportata per le chiavi di sottoscrizione.
-
-- Chiave di creazione di un [Language Understanding](https://www.luis.ai/home) (Luis):
-  1. Aprire un Web browser e passare alla [portale di Azure](https://portal.azure.com)
-  1. Selezionare Crea una risorsa
-  1. Cercare e selezionare [Language Understanding](https://aka.ms/sc-luis-all)
-  1. Selezionare Creazione e modifica nelle opzioni crea
-  1. Dopo la distribuzione della risorsa, passare alla risorsa e copiare la chiave dalla sezione avvio rapido o chiavi
-
-      > [!div class="mx-imgBorder"]
-      > ![creare una risorsa di creazione](media/custom-speech-commands/resources-lu-authoring.png)
 
 ## <a name="go-to-the-speech-studio-for-custom-commands"></a>Vai a speech studio per i comandi personalizzati
 
@@ -58,11 +48,21 @@ La visualizzazione predefinita è un elenco delle applicazioni dei comandi perso
 1. Selezionare **nuovo progetto** per creare un nuovo progetto
 
    > [!div class="mx-imgBorder"]
-   > ![Creare un nuovo progetto](media/custom-speech-commands/create-new-project.png)
+   > ![Creare un progetto](media/custom-speech-commands/create-new-project.png)
 
-1. Immettere il nome e la lingua del progetto, quindi selezionare **Avanti** per continuare.
-1. Immettere la chiave di authoring LUIS
-1. Al termine della creazione, selezionare il progetto
+1. Immettere il nome del progetto e la lingua.
+1. Selezionare una risorsa di creazione. Se non sono presenti risorse di creazione valide, crearne una selezionando **Crea nuova risorsa**.
+
+   > [!div class="mx-imgBorder"]
+   > ![Creare una risorsa](media/custom-speech-commands/create-new-resource.png)
+
+   1. Immettere il nome della risorsa, il gruppo, la posizione e il piano tariffario.
+
+         > [!NOTE]
+         > È possibile creare gruppi di risorse immettendo il nome del gruppo di risorse desiderato nel campo "gruppo di risorse". Il gruppo di risorse verrà creato quando si seleziona **Crea** .
+
+1. Fare clic su **Crea** per creare il progetto.
+1. Al termine della creazione, selezionare il progetto.
 
 La visualizzazione dovrebbe ora essere una panoramica dell'applicazione comandi personalizzata.
 
@@ -99,25 +99,41 @@ Per il momento non sono disponibili parametri, quindi è possibile passare alle 
 
 Aggiungere ora una regola di completamento per rispondere all'utente che indica che viene eseguita un'azione.
 
+1. Creare una nuova regola di completamento selezionando l'icona `+` accanto alle regole di completamento
+1. Immettere il nome della regola
+1. Aggiungere un'azione
+   1. Creare una nuova azione di risposta vocale selezionando l'icona `+` accanto a azioni e selezionando `SpeechResponse`
+   1. Immettere la risposta
+
+   > [!NOTE]
+   > Il testo normale deve iniziare con un trattino. Per altri dettagli, vedere [qui](https://aka.ms/sc-lg-format)
+
+   > [!div class="mx-imgBorder"]
+   > ![creare una risposta vocale](media/custom-speech-commands/create-speech-response-action.png)
+
+1. Fare clic su **Salva** per salvare la regola
+
 > [!div class="mx-imgBorder"]
 > ![creare una regola di completamento](media/custom-speech-commands/create-basic-completion-response-rule.png)
+
 
 | Impostazione    | Valore consigliato                        | Description                                        |
 | ---------- | -------------------------------------- | -------------------------------------------------- |
 | Nome regola  | "ConfirmationResponse"                 | Nome che descrive lo scopo della regola          |
 | Condizioni | Nessuno                                   | Condizioni che determinano quando la regola può essere eseguita    |
-| Azioni    | SpeechResponse "OK, accendere la TV" | Azione da eseguire quando la condizione della regola è true |
+| Azioni    | SpeechResponse "-OK, accensione della TV" | Azione da eseguire quando la condizione della regola è true |
 
 ## <a name="try-it-out"></a>Provare il servizio
 
 Testare il comportamento usando il pannello test chat.
 
 > [!div class="mx-imgBorder"]
-> ![test con webchat](media/custom-speech-commands/create-basic-test-chat.png)
+> ![test con](media/custom-speech-commands/create-basic-test-chat.png) chat Web
 
 - Digitare: "accendere la TV"
 - Risposta prevista: "OK, accensione della TV"
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 > [!div class="nextstepaction"]
 > [Guida introduttiva: creare un comando personalizzato con parametri (anteprima)](./quickstart-custom-speech-commands-create-parameters.md)

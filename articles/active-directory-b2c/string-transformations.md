@@ -1,6 +1,7 @@
 ---
-title: Esempi di trasformazione di attestazioni di stringa per lo schema del framework di gestione delle identità di Azure Active Directory B2C | Microsoft Docs
-description: Esempi di trasformazione di attestazioni di stringa per lo schema del framework di gestione delle identità di Azure Active Directory B2C.
+title: Esempi di trasformazione di attestazioni di stringa per criteri personalizzati
+titleSuffix: Azure AD B2C
+description: Esempi di trasformazione delle attestazioni di stringa per lo schema Framework dell'esperienza (Identity Experience Framework) del Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 77f0b196777ae0f2ff0b870eac0a01b11854190b
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: cb3b10ca67ab283b999e4fff8e3bb79ae3b59745
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936804"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950817"
 ---
 # <a name="string-claims-transformations"></a>Trasformazioni di attestazioni di stringa
 
@@ -31,7 +32,7 @@ Confronta due attestazioni e genera un'eccezione se non sono uguali in base agli
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | Tipo della prima attestazione di cui eseguire il confronto. |
 | InputClaim | inputClaim2 | string | Tipo della seconda attestazione di cui eseguire il confronto. |
-| InputParameter | stringComparison | string | Confronto tra le stringhe con valore Ordinal o OrdinalIgnoreCase. |
+| InputParameter | stringComparison | string | Confronto tra le stringhe con valori Ordinal e OrdinalIgnoreCase. |
 
 La trasformazione dell'asserzione **AssertStringClaimsAreEqual** viene sempre eseguita da un [profilo tecnico di convalida](validation-technical-profile.md) chiamato da un [profilo tecnico autocertificato](self-asserted-technical-profile.md). I metadati del profilo tecnico autocertificato **UserMessageIfClaimsTransformationStringsAreNotEqual** controllano il messaggio di errore inviato all'utente.
 
@@ -156,7 +157,7 @@ Determina se un'attestazione di stringa è uguale a un'altra. Il risultato è un
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | Tipo della prima attestazione di cui eseguire il confronto. |
 | InputClaim | inputClaim2 | string | Tipo della seconda attestazione di cui eseguire il confronto. |
-| InputParameter | Operatore | string | I valori possibili sono: `EQUAL` o `NOT EQUAL`. |
+| InputParameter | operator | string | I possibili valori sono: `EQUAL` o `NOT EQUAL`. |
 | InputParameter | ignoreCase | boolean | Specifica se il confronto deve ignorare l'uso di maiuscole e minuscole nelle stringhe da confrontare. |
 | OutputClaim | outputClaim | boolean | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. |
 
@@ -196,8 +197,8 @@ Determina se un valore di attestazione è uguale al valore del parametro di inpu
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | Tipo della prima attestazione di cui eseguire il confronto. |
-| InputParameter | Operatore | string | I valori possibili sono: `EQUAL` o `NOT EQUAL`. |
-| InputParameter | compareTo | string | Confronto tra le stringhe con valore Ordinal o OrdinalIgnoreCase. |
+| InputParameter | operator | string | I possibili valori sono: `EQUAL` o `NOT EQUAL`. |
+| InputParameter | compareTo | string | Confronto tra le stringhe con valori Ordinal e OrdinalIgnoreCase. |
 | InputParameter | ignoreCase | boolean | Specifica se il confronto deve ignorare l'uso di maiuscole e minuscole nelle stringhe da confrontare. |
 | OutputClaim | outputClaim | boolean | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. |
 
@@ -294,7 +295,7 @@ Formatta un'attestazione in base alla stringa formato specificata. Questa trasfo
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim |string |Elemento ClaimType che funge come parametro {0} del formato della stringa. |
+| InputClaim | InputClaim |string |Elemento ClaimType che funge come parametro {0} del formato della stringa. |
 | InputParameter | stringFormat | string | Formato della stringa, ad esempio il parametro {0}. |
 | OutputClaim | outputClaim | string | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. |
 
@@ -329,8 +330,8 @@ Formatta due attestazioni in base alla stringa di formato specificata. Questa tr
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim |string | Elemento ClaimType che funge come parametro {0} del formato della stringa. |
-| InputClaim | inputClaim | string | Elemento ClaimType che funge come parametro {1} del formato della stringa. |
+| InputClaim | InputClaim |string | Elemento ClaimType che funge come parametro {0} del formato della stringa. |
+| InputClaim | InputClaim | string | Elemento ClaimType che funge come parametro {1} del formato della stringa. |
 | InputParameter | stringFormat | string | Formato della stringa, ad esempio i parametri {0} e {1}. |
 | OutputClaim | outputClaim | string | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. |
 
@@ -402,7 +403,7 @@ La trasformazione di attestazioni esegue la ricerca del testo dell'elemento e ne
 - Attestazioni di input:
     - **mapFromClaim**: B2C_V1_90001
 - Attestazioni di output:
-    - **restrictionValueClaim**: Accesso non consentito ai minorenni.
+    - **restrictionValueClaim**: Non puoi accedere perché sei un minore.
 
 ## <a name="lookupvalue"></a>LookupValue
 
@@ -465,7 +466,7 @@ Usare questa trasformazione di attestazioni per rimuovere i dati non necessari d
 ```
 
 - Attestazioni di input:
-    - **outputClaim**: App Contoso. Se continui a esplorare e a usare questo sito Web, accetti di rispettare i termini e le condizioni seguenti...
+    - **outputClaim**: Benvenuto nell'app Contoso. Se continui a esplorare e a usare questo sito Web, accetti di rispettare i termini e le condizioni seguenti...
 - Attestazioni di output:
     - **outputClaim**: NULL
 
@@ -504,9 +505,9 @@ Verifica che un'attestazione di stringa e il parametro di input `matchTo` siano 
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | string | Tipo dell'attestazione di cui eseguire il confronto. |
+| InputClaim | InputClaim | string | Tipo dell'attestazione di cui eseguire il confronto. |
 | InputParameter | matchTo | string | Stringa da confrontare con `inputClaim`. |
-| InputParameter | stringComparison | string | I valori possibili sono: `Ordinal` o `OrdinalIgnoreCase`. |
+| InputParameter | stringComparison | string | I possibili valori sono: `Ordinal` o `OrdinalIgnoreCase`. |
 | InputParameter | stringMatchMsg | string | Primo valore da impostare se le stringhe sono uguali. |
 | InputParameter | stringMatchMsgCode | string | Secondo valore da impostare se le stringhe sono uguali. |
 | OutputClaim | outputClaim1 | string | Se le stringhe sono uguali, l'attestazione di output contiene il valore del parametro di output `stringMatchMsg`. |
@@ -541,10 +542,10 @@ Verifica che un'attestazione di stringa e il parametro di input `matchTo` siano 
     - **matchTo**: V1
     - **stringComparison**: ordinalIgnoreCase
     - **stringMatchMsg**:  B2C_V1_90005
-    - **stringMatchMsgCode**:  Il tipo di servizio è aggiornato alla versione 2
+    - **stringMatchMsgCode**: Le condizioni d'uso sono aggiornate alla versione 2
 - Attestazioni di output:
     - **outputClaim1**: B2C_V1_90005
-    - **outputClaim2**: Il tipo di servizio è aggiornato alla versione 2
+    - **outputClaim2**: Le condizioni d'uso sono aggiornate alla versione 2
     - **stringCompareResultClaim**: true
 
 ## <a name="setclaimsifstringsmatch"></a>SetClaimsIfStringsMatch
@@ -555,7 +556,7 @@ Verifica che un'attestazione di stringa e il parametro di input `matchTo` siano 
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | claimToMatch | string | Tipo dell'attestazione di cui eseguire il confronto. |
 | InputParameter | matchTo | string | Stringa da confrontare con inputClaim. |
-| InputParameter | stringComparison | string | I valori possibili sono: `Ordinal` o `OrdinalIgnoreCase`. |
+| InputParameter | stringComparison | string | I possibili valori sono: `Ordinal` o `OrdinalIgnoreCase`. |
 | InputParameter | outputClaimIfMatched | string | Valore da impostare se le stringhe sono uguali. |
 | OutputClaim | outputClaim | string | Se le stringhe sono uguali, l'attestazione di output contiene il valore del parametro di output `outputClaimIfMatched`. Se le stringhe non corrispondono, il valore contenuto è null. |
 | OutputClaim | stringCompareResultClaim | boolean | Tipo dell'attestazione di output del risultato del confronto che deve essere impostato come `true` o `false` in base al risultato del confronto. |
@@ -582,9 +583,9 @@ La trasformazione di attestazioni seguente, ad esempio, controlla se il valore d
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-    - **claimToMatch**: Minorenne
+    - **claimToMatch**: Minor
 - Parametri di input:
-    - **matchTo**: Minorenne
+    - **matchTo**: Minor
     - **stringComparison**: ordinalIgnoreCase
     - **outputClaimIfMatched**:  B2C_V1_90001
 - Attestazioni di output:

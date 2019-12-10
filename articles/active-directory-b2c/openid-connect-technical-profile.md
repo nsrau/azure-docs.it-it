@@ -1,5 +1,6 @@
 ---
-title: Definire un profilo tecnico di OpenID Connect in un criterio personalizzato in Azure Active Directory B2C | Microsoft Docs
+title: Definire un profilo tecnico di OpenID Connect in un criterio personalizzato
+titleSuffix: Azure AD B2C
 description: Definire un profilo tecnico di OpenID Connect in un criterio personalizzato in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0a776c793bab9aee76cf338bc19c560ab700e787
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: fdb925f820cad79fe68e7082f4ed63292a7d9444
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258203"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951089"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di OpenID Connect in un Azure Active Directory B2C criteri personalizzati
 
@@ -71,20 +72,20 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 </OutputClaims>
 ```
 
-## <a name="metadata"></a>Metadati
+## <a name="metadata"></a>Metadata
 
-| Attributo | Richiesto | Descrizione |
+| Attributo | Obbligatoria | Description |
 | --------- | -------- | ----------- |
-| client_id | Yes | L'identificatore dell'attestazione del provider di identità. |
+| client_id | SÌ | L'identificatore dell'applicazione del provider di identità. |
 | IdTokenAudience | No | I destinatari dell'id_token. Se specificato, Azure AD B2C controlla se il token è in un'attestazione restituita dal provider di identità ed è uguale a quello specificato. |
-| METADATI | Yes | Un URL che punta a un documento di configurazione JSON formattato in base alla specifica di OpenID Connect Discovery, noto anche come un endpoint di configurazione openid. |
+| METADATI | SÌ | Un URL che punta a un documento di configurazione JSON formattato in base alla specifica di OpenID Connect Discovery, noto anche come un endpoint di configurazione openid. |
 | ProviderName | No | Il nome del provider di identità. |
 | response_types | No | Il tipo di risposta in base alla specifica di OpenID Connect Core 1.0. I valori possibili sono: `id_token`, `code` o `token`. |
 | response_mode | No | Il metodo che usa il provider di identità per restituire il risultato ad Azure AD B2C. I valori possibili sono: `query`, `form_post` (impostazione predefinita), o `fragment`. |
 | scope | No | Ambito della richiesta definito in base alla specifica di OpenID Connect Core 1,0. Ad esempio `openid`, `profile`, e `email`. |
 | HttpBinding | No | L'associazione HTTP prevista per il token di accesso e per gli endpoint del token delle attestazioni. I possibili valori sono: `GET` o `POST`.  |
 | ValidTokenIssuerPrefixes | No | Una chiave che può essere usata per accedere ai tenant quando si usa un provider di identità multi-tenant, ad esempio Azure Active Directory. |
-| UsePolicyInRedirectUri | No | Indica se usare un criterio durante la costruzione dell'URI di reindirizzamento. Quando si configura l'applicazione nel provider di identità, è necessario specificare l'URI di reindirizzamento. L'URI di reindirizzamento punta a Azure AD B2C `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp`,.  Se si specifica `false`, è necessario aggiungere un URI di reindirizzamento per ogni criterio usato. Ad esempio: `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/{policy-name}/oauth2/authresp`. |
+| UsePolicyInRedirectUri | No | Indica se usare un criterio durante la costruzione dell'URI di reindirizzamento. Quando si configura l'applicazione nel provider di identità, è necessario specificare l'URI di reindirizzamento. L'URI di reindirizzamento punta a Azure AD B2C, `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp`.  Se si specifica `false`, è necessario aggiungere un URI di reindirizzamento per ogni criterio usato. Ad esempio: `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/{policy-name}/oauth2/authresp`. |
 | MarkAsFailureOnStatusCode5xx | No | Indica se una richiesta a un servizio esterno deve essere contrassegnata come non riuscita se il codice di stato http è compreso nell'intervallo 5xx. Il valore predefinito è `false`. |
 | DiscoverMetadataByTokenIssuer | No | Indica se i metadati OIDC devono essere individuati tramite l'autorità di certificazione nel token JWT. |
 
@@ -92,13 +93,13 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 
 L'elemento **CryptographicKeys** contiene l'attributo seguente:
 
-| Attributo | Richiesto | Descrizione |
+| Attributo | Obbligatoria | Description |
 | --------- | -------- | ----------- |
-| client_secret | Yes | Il segreto client dell'applicazione del provider di identità. La chiave di crittografia è necessaria solo se i metadati **response_type** sono impostati su `code`. In questo caso, Azure AD B2C effettua un'altra chiamata per scambiare il codice di autorizzazione per un token di accesso. Se i metadati sono impostati su `id_token` è possibile omettere la chiave di crittografia.  |
+| client_secret | SÌ | Il segreto client dell'applicazione del provider di identità. La chiave di crittografia è necessaria solo se i metadati **response_type** sono impostati su `code`. In questo caso, Azure AD B2C effettua un'altra chiamata per scambiare il codice di autorizzazione per un token di accesso. Se i metadati sono impostati su `id_token` è possibile omettere la chiave di crittografia.  |
 
 ## <a name="redirect-uri"></a>Uri di reindirizzamento
 
-Quando si configura l'URI di reindirizzamento del provider di identità, immettere `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp`. Assicurarsi di sostituire `{your-tenant-name}` con il nome del tenant. L'URI di reindirizzamento deve essere tutto minuscolo.
+Quando si configura l'URI di reindirizzamento del provider di identità, immettere `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp`. Assicurarsi di sostituire `{your-tenant-name}` con il nome del tenant. L'URI di reindirizzamento deve essere composto da lettere minuscole.
 
 Esempi:
 

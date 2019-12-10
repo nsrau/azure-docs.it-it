@@ -1,6 +1,7 @@
 ---
-title: Esempi di trasformazione di attestazioni integre per lo schema del framework di gestione delle identità di Azure Active Directory B2C | Microsoft Docs
-description: Esempi di trasformazione di attestazioni integre per lo schema del framework di gestione delle identità di Azure Active Directory B2C.
+title: Esempi di trasformazione di attestazioni integer per criteri personalizzati
+titleSuffix: Azure AD B2C
+description: Esempi di trasformazione di attestazioni integer per lo schema Framework dell'esperienza (Identity Experience Framework) del Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d82f7fecfb35c63d586993fed73a83209782a890
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 7295e03f0a0f94b3450b99acc4d10d6ff86c92e7
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064221"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948888"
 ---
 # <a name="integer-claims-transformations"></a>Trasformazioni delle attestazioni integre
 
@@ -29,7 +30,7 @@ Converte un tipo di dati lungo in un tipo di dati stringa.
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | long | Il ClaimType da convertire in una stringa. |
+| InputClaim | InputClaim | long | Il ClaimType da convertire in una stringa. |
 | OutputClaim | outputClaim | string | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. |
 
 In questo esempio, l'`numericUserId` attestazione con un tipo valore lungo viene convertito in un'`UserId` attestazione con un tipo valore di stringa.
@@ -48,7 +49,7 @@ In questo esempio, l'`numericUserId` attestazione con un tipo valore lungo viene
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-    - **inputClaim**: "12334" (valore lungo)
+    - **inputClaim**: 12334 (lungo)
 - Attestazioni di output:
-    - **outputClaim**: "12334" (valore di stringa)
+    - **outputClaim**: "12334" (stringa)
 

@@ -1,5 +1,6 @@
 ---
-title: Definire un profilo tecnico OAuth2 in un criterio personalizzato in Azure Active Directory B2C | Microsoft Docs
+title: Definire un profilo tecnico OAuth2 in un criterio personalizzato
+titleSuffix: Azure AD B2C
 description: Definire un profilo tecnico OAuth2 in un criterio personalizzato in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 63500c057b5c9f497e59589286a852a4394059ec
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 33bad4982d54eb18e91be28511fb9137223f4a91
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063979"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950970"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico OAuth2 in un Azure Active Directory B2C criteri personalizzati
 
@@ -55,7 +56,7 @@ L'esempio seguente illustra le attestazioni restituite dal provider di identità
 - Il mapping dell'attestazione **first_name** viene eseguito per l'attestazione **givenName**.
 - Il mapping dell'attestazione **last_name** viene eseguito per l'attestazione **surname**.
 - Attestazione **DisplayName** senza mapping dei nomi.
-- L'attestazione **email** senza eseguire il mapping del nome.
+- L'attestazione **email** senza l'esecuzione del mapping del nome.
 
 Il profilo tecnico restituisce anche le attestazioni che non vengono restituite dal provider di identità:
 
@@ -76,13 +77,13 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 
 ## <a name="metadata"></a>Metadata
 
-| Attributo | Obbligatorio | DESCRIZIONE |
+| Attributo | Obbligatoria | Description |
 | --------- | -------- | ----------- |
-| client_id | Yes | L'identificatore dell'attestazione del provider di identità. |
+| client_id | SÌ | L'identificatore dell'applicazione del provider di identità. |
 | IdTokenAudience | No | I destinatari dell'id_token. Se specificato, Azure AD B2C controlla se il token è in un'attestazione restituita dal provider di identità ed è uguale a quello specificato. |
-| authorization_endpoint | Sì | L'URL dell'endpoint di autorizzazione come per RFC 6749. |
-| AccessTokenEndpoint | Sì | L'URL dell'endpoint token come per RFC 6749. |
-| ClaimsEndpoint | Yes | L'URL dell'endpoint di informazioni per l'utente come per RFC 6749. |
+| authorization_endpoint | SÌ | L'URL dell'endpoint di autorizzazione come per RFC 6749. |
+| AccessTokenEndpoint | SÌ | L'URL dell'endpoint token come per RFC 6749. |
+| ClaimsEndpoint | SÌ | L'URL dell'endpoint di informazioni per l'utente come per RFC 6749. |
 | AccessTokenResponseFormat | No | Il formato delle chiamate a endpoint del token di accesso. Ad esempio, Facebook richiede un metodo HTTP GET, ma la risposta del token di accesso è in formato JSON. |
 | AdditionalRequestQueryParameters | No | Parametri di query della richiesta aggiuntivi. Ad esempio, è possibile inviare parametri aggiuntivi al provider di identità. È possibile includere più parametri usando la virgola di delimitazione. |
 | ClaimsEndpointAccessTokenName | No | Il nome del parametro della stringa di query del token di accesso. Gli endpoint di alcuni provider di identità delle attestazioni supportano la richiesta HTTP GET. In questo caso, il token di connessione viene inviato usando un parametro della stringa di query anziché l'intestazione dell'autorizzazione. |
@@ -91,7 +92,7 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 | ProviderName | No | Il nome del provider di identità. |
 | response_mode | No | Il metodo che usa il provider di identità per restituire il risultato ad Azure AD B2C. I valori possibili sono: `query`, `form_post` (impostazione predefinita), o `fragment`. |
 | scope | No | Ambito della richiesta definito in base alla specifica del provider di identità OAuth2. Ad esempio `openid`, `profile`, e `email`. |
-| HttpBinding | No | L'associazione HTTP prevista per il token di accesso e per gli endpoint del token delle attestazioni. I valori possibili sono: `GET` o `POST`.  |
+| HttpBinding | No | L'associazione HTTP prevista per il token di accesso e per gli endpoint del token delle attestazioni. I possibili valori sono: `GET` o `POST`.  |
 | ResponseErrorCodeParamName | No | Il nome del parametro che contiene il messaggio di errore restituito nel messaggio HTTP 200 (Ok). |
 | ExtraParamsInAccessTokenEndpointResponse | No | Contiene altri parametri che possono essere restituiti nella risposta di **AccessTokenEndpoint** da alcuni provider di identità. Ad esempio, la risposta di **AccessTokenEndpoint** contiene un altro parametro, ad esempio `openid`, ovvero un parametro obbligatorio oltre all'access_token in una stringa di query della richiesta **ClaimsEndpoint**. Più nomi di parametro devono essere preceduti dal carattere di escape e separati da una virgola di delimitazione ','. |
 | ExtraParamsInClaimsEndpointRequest | No | Contiene altri parametri che possono essere restituiti nella richiesta **ClaimsEndpoint** da alcuni provider di identità. Più nomi di parametro devono essere preceduti dal carattere di escape e separati da una virgola di delimitazione ','. |
@@ -100,13 +101,13 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 
 L'elemento **CryptographicKeys** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | DESCRIZIONE |
+| Attributo | Obbligatoria | Description |
 | --------- | -------- | ----------- |
-| client_secret | Sì | Il segreto client dell'applicazione del provider di identità. La chiave di crittografia è necessaria solo se i metadati **response_type** sono impostati su `code`. In questo caso, Azure AD B2C effettua un'altra chiamata per scambiare il codice di autorizzazione per un token di accesso. Se i metadati sono impostati su `id_token`, è possibile omettere la chiave crittografica. |
+| client_secret | SÌ | Il segreto client dell'applicazione del provider di identità. La chiave di crittografia è necessaria solo se i metadati **response_type** sono impostati su `code`. In questo caso, Azure AD B2C effettua un'altra chiamata per scambiare il codice di autorizzazione per un token di accesso. Se i metadati sono impostati su `id_token`, è possibile omettere la chiave crittografica. |
 
 ## <a name="redirect-uri"></a>URI di reindirizzamento
 
-Quando si configura l'URL di reindirizzamento del provider di identità, immettere `https://login.microsoftonline.com/te/tenant/policyId/oauth2/authresp`. Assicurarsi di sostituire il **tenant** con il nome del tenant (ad esempio, contosob2c.onmicrosoft.com) e **policyId** con l'identificatore dei criteri (ad esempio, b2c_1a_policy). L'URI di reindirizzamento deve essere tutto minuscolo.
+Quando si configura l'URL di reindirizzamento del provider di identità, immettere `https://login.microsoftonline.com/te/tenant/policyId/oauth2/authresp`. Assicurarsi di sostituire il **tenant** con il nome del tenant (ad esempio, contosob2c.onmicrosoft.com) e **policyId** con l'identificatore dei criteri (ad esempio, b2c_1a_policy). L'URI di reindirizzamento deve essere composto da lettere minuscole.
 
 Se si usa il dominio **b2clogin.com** anziché **login.microsoftonline.com** assicurarsi di usare b2clogin.com invece di login.microsoftonline.com.
 

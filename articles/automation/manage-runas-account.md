@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ae73188fa8818c84806709dc7518e3d5760ae187
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 2ce6c27487e834325b59fb21ba0d54d1e788ea57
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849531"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951378"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gestire account RunAs di Automazione di Azure
 
@@ -67,7 +67,7 @@ Per configurare o rinnovare gli account RunAs classici, è necessario avere il r
 La procedura descritta in questa sezione consente di aggiornare un account di Automazione di Azure nel portale di Azure. Creare gli account RunAs e RunAs classico separatamente. Se non è necessario gestire le risorse classiche, è sufficiente creare l'account RunAs di Azure.
 
 1. Accedere al Portale di Azure con un account membro del ruolo Amministratori della sottoscrizione e coamministratore della sottoscrizione.
-2. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Automazione**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Account di automazione**.
+2. In portale di Azure cercare e selezionare account di **automazione**.
 3. Nella pagina **Account di automazione** selezionare l'account di Automazione dall'elenco.
 4. Nel riquadro a sinistra selezionare **Account RunAs** nella sezione **Impostazioni account**.
 5. A seconda del tipo di account necessario, selezionare **Account RunAs di Azure** o **Account RunAs classico di Azure**. Dopo aver selezionato **Account RunAs di Azure** o **Account RunAs classico di Azure**, viene visualizzato il riquadro corrispondente. Rivedere le informazioni generali e fare clic su **Crea** per procedere con la creazione dell'account RunAs.
@@ -86,7 +86,7 @@ L'elenco seguente include i requisiti per creare un account RunAs in PowerShell:
 
 Per ottenere i valori per i parametri *SubscriptionID*, *ResourceGroup* e *AutomationAccountName*, obbligatori per gli script, seguire questa procedura:
 
-1. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Automazione**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Account di automazione**.
+1. In portale di Azure cercare e selezionare account di **automazione**.
 1. Nella pagina Account di Automazione selezionare l'account di Automazione e quindi in **Impostazioni account** selezionare **Proprietà**.
 1. Prendere nota dei valori di **ID sottoscrizione**, **Nome** e **Gruppo di risorse** nella pagina **Proprietà**.
 

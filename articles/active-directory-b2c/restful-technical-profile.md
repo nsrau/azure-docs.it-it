@@ -1,5 +1,6 @@
 ---
-title: Definire un profilo tecnico RESTful nei criteri personalizzati di Azure Active Directory B2C | Microsoft Docs
+title: Definire un profilo tecnico RESTful in un criterio personalizzato
+titleSuffix: Azure AD B2C
 description: Definire un profilo tecnico RESTful nei criteri personalizzati di Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 13eedeb66d826d212b814fac321f920e78758cb8
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: aa14854807727506f5d697d7871c97e219c096a3
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063733"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950885"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico RESTful nei criteri personalizzati di Azure Active Directory B2C
 
@@ -83,10 +84,10 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 
 ## <a name="metadata"></a>Metadata
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Description |
 | --------- | -------- | ----------- |
-| ServiceUrl | Yes | L'URL dell'endpoint API REST. |
-| AuthenticationType | Sì | Tipo di autenticazione eseguita dal provider di attestazioni RESTful. I valori possibili sono: `None`, `Basic` o `ClientCertificate`. Il valore `None` indica che l'API REST non è anonimo. Il valore`Basic` indica che l'API REST viene protetta con l'autenticazione di base HTTP. Solo gli utenti verificati, tra cui Azure AD B2C, possono accedere all'API. Il valore `ClientCertificate` (scelta consigliata) indica che l'API REST limita l'accesso usando l'autenticazione del certificato client. Solo i servizi con i certificati appropriati, ad esempio Azure AD B2C, possono accedere al servizio. |
+| ServiceUrl | SÌ | L'URL dell'endpoint API REST. |
+| AuthenticationType | SÌ | Tipo di autenticazione eseguita dal provider di attestazioni RESTful. I valori possibili sono: `None`, `Basic` o `ClientCertificate`. Il valore `None` indica che l'API REST non è anonimo. Il valore`Basic` indica che l'API REST viene protetta con l'autenticazione di base HTTP. Solo gli utenti verificati, tra cui Azure AD B2C, possono accedere all'API. Il valore `ClientCertificate` (scelta consigliata) indica che l'API REST limita l'accesso usando l'autenticazione del certificato client. Solo i servizi con i certificati appropriati, ad esempio Azure AD B2C, possono accedere al servizio. |
 | SendClaimsIn | No | Specifica la modalità di invio di attestazioni di input al provider di attestazioni RESTful. I valori possibili sono: `Body` (impostazione predefinita), `Form`, `Header` o `QueryString`. Il valore `Body` è l'attestazione di input che viene inviata nel corpo della richiesta in formato JSON. Il valore`Form` è l'attestazione di input che viene inviata nel corpo della richiesta nel formato valore di chiave e commerciale "&" separata. Il valore`Header` è l'attestazione di input che viene inviata nell'intestazione della richiesta. Il valore`QueryString` è l'attestazione di input che viene inviata nella stringa di query della richiesta. |
 | ClaimsFormat | No | Specifica il formato per le attestazioni di output. I valori possibili sono: `Body` (impostazione predefinita), `Form`, `Header` o `QueryString`. Il valore `Body` è l'attestazione di output che viene inviata nel corpo della richiesta in formato JSON. Il valore`Form` è l'attestazione di output che viene inviata nel corpo della richiesta nel formato valore di chiave e commerciale "&" separata. Il valore `Header` è l'attestazione di output che viene inviata nell'intestazione della richiesta. Il valore `QueryString` è l'attestazione di output che viene inviata nella stringa di query della richiesta. |
 | DebugMode | No | Il profilo tecnico viene eseguito in modalità debug. In modalità debug, l'API REST può restituire altre informazioni. Vedere la sezione di restituzione messaggio di errore. |
@@ -109,10 +110,10 @@ Se il tipo di autenticazione è impostato su `None`, l'elemento **CryptographicK
 
 Se il tipo di autenticazione è impostato su `Basic`, l'elemento **CryptographicKeys** contiene i seguenti attributi:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Description |
 | --------- | -------- | ----------- |
-| BasicAuthenticationUsername | Yes | Il nome utente usato per l'autenticazione. |
-| BasicAuthenticationPassword | Yes | La password usata per l'autenticazione. |
+| BasicAuthenticationUsername | SÌ | Il nome utente usato per l'autenticazione. |
+| BasicAuthenticationPassword | SÌ | La password usata per l'autenticazione. |
 
 Nell'esempio seguente viene illustrato un profilo tecnico con autenticazione di base:
 
@@ -134,9 +135,9 @@ Nell'esempio seguente viene illustrato un profilo tecnico con autenticazione di 
 
 Se il tipo di autenticazione è impostato su `ClientCertificate`, l'elemento **CryptographicKeys** contiene i seguenti attributi:
 
-| Attributo | Obbligatorio | DESCRIZIONE |
+| Attributo | Obbligatoria | Description |
 | --------- | -------- | ----------- |
-| ClientCertificate | Sì | Il certificato X509 (set di chiavi RSA) da usare per l'autenticazione. |
+| ClientCertificate | SÌ | Il certificato X509 (set di chiavi RSA) da usare per l'autenticazione. |
 
 ```XML
 <TechnicalProfile Id="REST-API-SignUp">
@@ -157,13 +158,13 @@ Se il tipo di autenticazione è impostato su `ClientCertificate`, l'elemento **C
 
 L'API REST può restituire un messaggio di errore, ad esempio "Utente nel sistema CRM non trovato". Quando si verifica un errore, l'API REST deve restituire un messaggio di errore HTTP 409 (codice di stato risposta di conflitto) con gli attributi seguenti:
 
-| Attributo | Obbligatorio | DESCRIZIONE |
+| Attributo | Obbligatoria | Description |
 | --------- | -------- | ----------- |
-| version | Sì | 1.0.0 |
-| status | Sì | 409 |
+| version | SÌ | 1.0.0 |
+| status | SÌ | 409 |
 | code | No | Un codice di errore del provider di endpoint RESTful, visualizzato quando `DebugMode` è abilitato. |
 | requestId | No | Un identificatore della richiesta del provider di endpoint RESTful, visualizzato quando `DebugMode` è abilitato. |
-| userMessage | Yes | Un messaggio di errore visualizzato dall'utente. |
+| userMessage | SÌ | Un messaggio di errore visualizzato dall'utente. |
 | developerMessage | No | La descrizione dettagliata del problema e della sua risoluzione, visualizzata quando `DebugMode` è abilitato. |
 | moreInfo | No | Un URI che rimana alle informazioni aggiuntive, visualizzato quando `DebugMode` è abilitata. |
 
@@ -200,7 +201,7 @@ public class ResponseContent
 - [Integrare scambi di attestazioni API REST nel percorso utente di Azure AD B2C come convalida dell'input utente](active-directory-b2c-custom-rest-api-netfw.md)
 - [Proteggere i servizi RESTful usando l'autenticazione di base HTTP](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
 - [Proteggere il servizio RESTful usando certificati client](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
-- [Walkthrough: Integrare scambi di attestazioni API REST nel percorso utente di Azure AD B2C come convalida dell'input utente](active-directory-b2c-rest-api-validation-custom.md)
+- [Procedura dettagliata: Integrare scambi di attestazioni API REST nel percorso utente di Azure AD B2C come convalida dell'input utente](active-directory-b2c-rest-api-validation-custom.md)
 
  
 

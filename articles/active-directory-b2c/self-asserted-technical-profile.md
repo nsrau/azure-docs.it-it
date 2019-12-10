@@ -1,5 +1,6 @@
 ---
-title: Definire un profilo tecnico autocertificato nei criteri personalizzati in Azure Active Directory B2C | Microsoft Docs
+title: Definire un profilo tecnico autocertificato in un criterio personalizzato
+titleSuffix: Azure AD B2C
 description: Definire un profilo tecnico autocertificato nei criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4fec742766cebeb5b1d82655e09af77a888c375c
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: bfa8982fb49b31540d1926bdeb75a96dc1d79cf0
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063683"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950902"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico autocertificato nei criteri personalizzati di Azure Active Directory B2C
 
@@ -127,12 +128,12 @@ Il profilo tecnico di convalida può essere un qualsiasi profilo tecnico nei cri
 
 ## <a name="metadata"></a>Metadata
 
-| Attributo | Obbligatorio | DESCRIZIONE |
+| Attributo | Obbligatoria | Description |
 | --------- | -------- | ----------- |
 | setting.showContinueButton | No | Visualizza il pulsante Continua. I valori possibili sono: `true` (impostazione predefinita) o `false` |
 | setting.showCancelButton | No | Visualizza il pulsante Annulla. I valori possibili sono: `true` (impostazione predefinita) o `false` |
 | setting.operatingMode | No | Per una pagina di accesso, questa proprietà controlla il comportamento del campo del nome utente, ad esempio i messaggi di errore e di convalida di input. I valori previsti sono: `Username` o `Email`. |
-| ContentDefinitionReferenceId | Sì | Identificatore della [definizione di contenuto](contentdefinitions.md) associata a questo profilo tecnico. |
+| ContentDefinitionReferenceId | SÌ | Identificatore della [definizione di contenuto](contentdefinitions.md) associata a questo profilo tecnico. |
 | EnforceEmailVerification | No | Per la registrazione o la modifica del profilo, applica la verifica tramite posta elettronica. I valori possibili sono: `true` (impostazione predefinita) o `false`. |
 | setting.showSignupLink | No | Visualizza il pulsante di iscrizione. I valori possibili sono: `true` (impostazione predefinita) o `false` |
 | setting.retryLimit | No | Controlla il numero di volte in cui un utente può provare a specificare i dati che vengono controllati rispetto a un profilo tecnico di convalida. Un utente tenta ad esempio di iscriversi con un account che esiste già e insiste fino a quando non raggiunge il limite.

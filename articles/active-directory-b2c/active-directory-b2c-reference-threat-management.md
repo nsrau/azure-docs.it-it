@@ -1,5 +1,6 @@
 ---
-title: Gestire le minacce alle risorse e ai dati in Azure Active Directory B2C
+title: Gestire le minacce a risorse e dati
+titleSuffix: Azure AD B2C
 description: Vengono illustrate le tecniche di rilevamento e mitigazione di attacchi Denial of Service e attacchi alle password in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/26/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: eae82fbd56782faf5b15479c13fe530e189a0e3e
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: b236dba9b682bc4d62ef8cfc8b95e67370b3e0ea
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71256913"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74947741"
 ---
 # <a name="manage-threats-to-resources-and-data-in-azure-active-directory-b2c"></a>Gestire le minacce alle risorse e ai dati in Azure Active Directory B2C
 
@@ -39,16 +40,16 @@ Per gestire le impostazioni di protezione delle password, inclusa la soglia di b
 
 1. Accedere al [portale di Azure](https://portal.azure.com)
 1. Usare il filtro **directory + sottoscrizione** nel menu in alto per selezionare la directory che contiene il tenant del Azure ad B2C.
-1. Nel menu a sinistra selezionare **Azure ad B2C**. In alternativa, selezionare **tutti i servizi** e cercare e selezionare **Azure ad B2C**.
+1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
 1. In **sicurezza**selezionare **metodi di autenticazione (anteprima)** , quindi selezionare **protezione con password**.
 1. Immettere le impostazioni di protezione password desiderate e quindi selezionare **Salva**.
 
-    ![Pagina portale di Azure la protezione delle password in impostazioni Azure AD](media/active-directory-b2c-reference-threat-management/portal-02-password-protection.png)
+    ![portale di Azure pagina di protezione della password in impostazioni Azure AD](media/active-directory-b2c-reference-threat-management/portal-02-password-protection.png)
     <br />*Impostazione della soglia di blocco su 5 nelle impostazioni di **protezione delle password*** .
 
 ## <a name="view-locked-out-accounts"></a>Visualizzare gli account bloccati
 
-Per ottenere informazioni sugli account bloccati, è possibile controllare il [report sull'attività di accesso](../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)Active Directory. In **stato**selezionare **errore**. Tentativi di accesso non riusciti con un **codice di errore** di `50053` accesso indicante un account bloccato:
+Per ottenere informazioni sugli account bloccati, è possibile controllare il [report sull'attività di accesso](../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)Active Directory. In **stato**selezionare **errore**. Tentativi di accesso non riusciti con un **codice di errore di accesso** di `50053` indicare un account bloccato:
 
 ![Sezione di Azure AD report di accesso che mostra l'account bloccato](media/active-directory-b2c-reference-threat-management/portal-01-locked-account.png)
 

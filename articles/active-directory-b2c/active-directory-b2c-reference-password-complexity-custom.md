@@ -1,5 +1,6 @@
 ---
-title: Configurare la complessità delle password usando criteri personalizzati in Azure Active Directory B2C | Microsoft Docs
+title: Configurare la complessità delle password usando criteri personalizzati
+titleSuffix: Azure AD B2C
 description: Come configurare i requisiti di complessità delle password usando criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6454d380b0f34e940951e3de44d1dee0ff6b597f
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: e8718a04f9d63897b2d2472dd0cdffb196c41435
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065542"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949791"
 ---
 # <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare la complessità delle password usando criteri personalizzati in Azure Active Directory B2C
 
@@ -112,12 +113,12 @@ Durante il test delle applicazioni in Azure AD B2C, può essere utile avere rest
 ### <a name="upload-the-files"></a>Caricare i file
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C selezionando il filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene il tenant.
+2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
 4. Fare clic su **Framework dell'esperienza di gestione delle identità**.
 5. Nella pagina dei criteri personalizzati, fare clic su **Carica criterio**.
 6. Selezionare **Sovrascrivi il criterio se esistente** e quindi cercare e selezionare il file *SingUpOrSignInPasswordComplexity.xml*.
-7. Fare clic su **Upload**.
+7. Fare clic su **Carica**.
 
 ### <a name="run-the-policy"></a>Esegui il criterio
 

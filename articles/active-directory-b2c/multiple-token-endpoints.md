@@ -1,5 +1,6 @@
 ---
-title: Eseguire la migrazione di API Web basate su OWIN a b2clogin.com-Azure Active Directory B2C
+title: Eseguire la migrazione di API Web basate su OWIN in b2clogin.com
+titleSuffix: Azure AD B2C
 description: Informazioni su come abilitare un'API Web .NET per supportare i token rilasciati da più autorità di certificazione durante la migrazione delle applicazioni a b2clogin.com.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a8a6b4f90fe3f1e60341cc59e7d81870c82e843b
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: f07eb65243b4f797a2955e33aca50ed8c46d256e
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533757"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950987"
 ---
 # <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>Eseguire la migrazione di un'API Web basata su OWIN in b2clogin.com
 
@@ -26,7 +27,7 @@ Aggiungendo il supporto nell'API per accettare i token rilasciati da b2clogin.co
 Le sezioni seguenti presentano un esempio di come abilitare più autorità di certificazione in un'API Web che usa i componenti del middleware [Microsoft OWIN][katana] (Katana). Sebbene gli esempi di codice siano specifici del middleware Microsoft OWIN, la tecnica generale dovrebbe essere applicabile ad altre librerie OWIN.
 
 > [!NOTE]
-> Questo articolo è destinato a Azure ad B2C clienti con API e applicazioni attualmente distribuite che `login.microsoftonline.com` fanno riferimento a e che desiderano eseguire `b2clogin.com` la migrazione all'endpoint consigliato. Se si sta configurando una nuova applicazione, usare [b2clogin.com](b2clogin.md) come indicato.
+> Questo articolo è destinato ai clienti Azure AD B2C con le API e le applicazioni attualmente distribuite che fanno riferimento a `login.microsoftonline.com` e che desiderano eseguire la migrazione all'endpoint di `b2clogin.com` consigliato. Se si sta configurando una nuova applicazione, usare [b2clogin.com](b2clogin.md) come indicato.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -47,11 +48,11 @@ Per iniziare, selezionare uno dei flussi utente esistenti:
 
     ![Collegamento ipertestuale URI noto nella pagina Esegui ora della portale di Azure](media/multi-token-endpoints/portal-01-policy-link.png)
 
-1. Nella pagina visualizzata nel browser registrare il `issuer` valore, ad esempio:
+1. Nella pagina visualizzata nel browser registrare il valore di `issuer`, ad esempio:
 
     `https://your-b2c-tenant.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/`
 
-1. Usare l'elenco a discesa **Seleziona dominio** per selezionare l'altro dominio, quindi eseguire di nuovo i due passaggi precedenti e registrare il `issuer` relativo valore.
+1. Usare l'elenco a discesa **Seleziona dominio** per selezionare l'altro dominio, quindi eseguire di nuovo i due passaggi precedenti e registrare il relativo valore `issuer`.
 
 A questo punto dovrebbero essere registrati due URI simili ai seguenti:
 
@@ -69,7 +70,7 @@ Se sono presenti criteri personalizzati anziché flussi utente, è possibile usa
 1. Selezionare uno dei criteri di relying party, ad esempio *B2C_1A_signup_signin*
 1. Usare l'elenco a discesa **Seleziona dominio** per selezionare un dominio, ad esempio *yourtenant.b2clogin.com*
 1. Selezionare il collegamento ipertestuale visualizzato nell' **endpoint di individuazione di OpenID Connect**
-1. Registrare il `issuer` valore
+1. Registrare il valore di `issuer`
 1. Eseguire i passaggi 4-6 per l'altro dominio, ad esempio *login.microsoftonline.com*
 
 ## <a name="get-the-sample-code"></a>Scaricare il codice di esempio
@@ -88,10 +89,10 @@ In questa sezione viene aggiornato il codice per specificare che entrambi gli en
 
 1. Aprire la soluzione **B2C-WebAPI-dotnet. sln** in Visual Studio
 1. Nel progetto **TaskService** aprire il file *TaskService\\app_start\\* * Startup.auth.cs** * nell'editor
-1. Aggiungere la direttiva `using` seguente all'inizio del file:
+1. Aggiungere la direttiva di `using` seguente all'inizio del file:
 
     `using System.Collections.Generic;`
-1. Aggiungere la [`ValidIssuers`][validissuers] proprietà [`TokenValidationParameters`][tokenvalidationparameters] alla definizione e specificare entrambi gli URI registrati nella sezione precedente:
+1. Aggiungere la proprietà [`ValidIssuers`][validissuers] alla definizione [`TokenValidationParameters`][tokenvalidationparameters] e specificare entrambi gli URI registrati nella sezione precedente:
 
     ```csharp
     TokenValidationParameters tvps = new TokenValidationParameters
@@ -106,7 +107,7 @@ In questa sezione viene aggiornato il codice per specificare che entrambi gli en
     };
     ```
 
-`TokenValidationParameters`viene fornito da MSAL.NET e viene utilizzato dal middleware OWIN nella sezione successiva del codice in *Startup.auth.cs*. Se sono state specificate più autorità emittenti valide, la pipeline dell'applicazione OWIN viene resa presente che entrambi gli endpoint del token sono emittenti validi.
+`TokenValidationParameters` viene fornito da MSAL.NET e viene utilizzato dal middleware OWIN nella sezione successiva del codice in *Startup.auth.cs*. Se sono state specificate più autorità emittenti valide, la pipeline dell'applicazione OWIN viene resa presente che entrambi gli endpoint del token sono emittenti validi.
 
 ```csharp
 app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
@@ -122,9 +123,9 @@ Come indicato in precedenza, altre librerie OWIN in genere forniscono una funzio
 
 Con entrambi gli URI ora supportati dall'API Web, è ora necessario aggiornare l'applicazione Web in modo che recuperi i token dall'endpoint b2clogin.com.
 
-Ad esempio, è possibile configurare l'applicazione Web di esempio in modo che usi il nuovo endpoint `ida:AadInstance` modificando il valore nel file *TaskWebApp\\* * Web. config** * del progetto **TaskWebApp** .
+Ad esempio, è possibile configurare l'applicazione Web di esempio in modo che usi il nuovo endpoint modificando il valore `ida:AadInstance` nel file *TaskWebApp\\* * Web. config** * del progetto **TaskWebApp** .
 
-Modificare il `ida:AadInstance` valore nel *file Web. config* di TaskWebApp in modo che faccia `{your-b2c-tenant-name}.b2clogin.com` riferimento al `login.microsoftonline.com`posto di.
+Modificare il valore `ida:AadInstance` nel *file Web. config* di TaskWebApp in modo che faccia riferimento `{your-b2c-tenant-name}.b2clogin.com` invece che `login.microsoftonline.com`.
 
 Prima:
 

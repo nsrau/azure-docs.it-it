@@ -1,6 +1,7 @@
 ---
-title: Esempi di trasformazione di attestazioni StringCollection per lo schema del framework di gestione delle identità di Azure Active Directory B2C | Microsoft Docs
-description: Esempi di trasformazione di attestazioni StringCollection per lo schema del framework di gestione delle identità di Azure Active Directory B2C.
+title: Esempi di trasformazione delle attestazioni StringCollection per i criteri personalizzati
+titleSuffix: Azure AD B2C
+description: Esempi di trasformazione delle attestazioni StringCollection per lo schema Framework dell'esperienza (Identity Experience Framework) del Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9add75b8922fe958fc348fb2a6dd48a7b300eade
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: fbbd7b4bdddf2b58e66cb1203414b5a63eec2f27
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063322"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951004"
 ---
 # <a name="stringcollection-claims-transformations"></a>Trasformazioni delle attestazioni StringCollection
 
@@ -30,8 +31,8 @@ Consente di aggiungere un'attestazione di stringa a una nuova attestazione strin
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | item | string | Il ClaimType da aggiungere all'attestazione di output. |
-| InputClaim | collection | stringCollection | [Facoltativo] Se specificato, la trasformazione delle attestazioni copia gli elementi da questa raccolta e aggiunge l'elemento alla fine dell'attestazione di raccolta di output. |
-| OutputClaim | collection | stringCollection | Gli oggetti ClaimType generati dopo che l'oggetto ClaimsTransformation è stato richiamato. |
+| InputClaim | raccolta | stringCollection | [Facoltativo] Se specificato, la trasformazione delle attestazioni copia gli elementi da questa raccolta e aggiunge l'elemento alla fine dell'attestazione di raccolta di output. |
+| OutputClaim | raccolta | stringCollection | I tipi di attestazione generati dopo che ClaimsTransformation è stato richiamato. |
 
 Usare questa trasformazione delle attestazioni per aggiungere una stringa a un oggetto stringCollection nuovo o esistente. Viene comunemente usato in un profilo tecnico **AAD-UserWriteUsingAlternativeSecurityId**. Prima che venga creato un nuovo account di social networking, la trasformazione di attestazioni **CreateOtherMailsFromEmail** legge il ClaimType e aggiunge il valore al ClaimType **otherMails**.
 
@@ -63,9 +64,9 @@ Consente di aggiungere un parametro di stringa a una nuova attestazione stringCo
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | collection | stringCollection | [Facoltativo] Se specificato, la trasformazione delle attestazioni copia gli elementi da questa raccolta e aggiunge l'elemento alla fine dell'attestazione di raccolta di output. |
+| InputClaim | raccolta | stringCollection | [Facoltativo] Se specificato, la trasformazione delle attestazioni copia gli elementi da questa raccolta e aggiunge l'elemento alla fine dell'attestazione di raccolta di output. |
 | InputParameter | item | string | Il valore da aggiungere all'attestazione di output. |
-| OutputClaim | collection | stringCollection | I ClaimType generati dopo che ClaimsTransformation è stato richiamato. |
+| OutputClaim | raccolta | stringCollection | I ClaimType generati dopo che ClaimsTransformation è stato richiamato. |
 
 Usare questa trasformazione delle attestazioni per aggiungere un valore di stringa a un oggetto stringCollection nuovo o esistente. L'esempio seguente aggiunge un indirizzo di posta elettronica costante (admin@contoso.com) all'attestazione **otherMails**.
 
@@ -98,8 +99,8 @@ Consente di ottenere il primo elemento della raccolta di stringhe fornita.
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | collection | stringCollection | I ClaimType che vengono usati dalla trasformazione delle attestazioni per ottenere l'elemento. |
-| OutputClaim | extractedItem | string | Gli oggetti ClaimType generati dopo che l'oggetto ClaimsTransformation è stato richiamato. Primo elemento nella raccolta. |
+| InputClaim | raccolta | stringCollection | I ClaimType che vengono usati dalla trasformazione delle attestazioni per ottenere l'elemento. |
+| OutputClaim | extractedItem | string | I tipi di attestazione generati dopo che ClaimsTransformation è stato richiamato. Primo elemento nella raccolta. |
 
 L'esempio seguente legge l'attestazione **otherMails** e restituisce il primo elemento nell'attestazione **email**.
 

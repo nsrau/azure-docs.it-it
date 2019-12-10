@@ -1,5 +1,6 @@
 ---
-title: Proteggere i servizi RESTful tramite l'autenticazione HTTP di base in Azure Active Directory B2C | Microsoft Docs
+title: Proteggere un servizio RESTful usando l'autenticazione di base HTTP
+titleSuffix: Azure AD B2C
 description: Proteggere gli scambi di attestazioni API REST personalizzati in Azure AD B2C tramite l'autenticazione HTTP di base.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8c1251056ad816af664f95abcd18d50ceca4619d
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 1a956638e8bd74c974012834ca650195e5bee37e
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835271"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949441"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Proteggere i servizi RESTful tramite l'autenticazione di base HTTP
 
@@ -68,7 +69,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 
 ### <a name="step-13-add-an-authentication-middleware-class"></a>Passaggio 1.3: Aggiungere una classe del middleware di autenticazione
 
-Aggiungere la classe `ClientAuthMiddleware.cs` nella cartella *App_Start*. A tale scopo:
+Aggiungere la classe `ClientAuthMiddleware.cs` nella cartella *App_Start*. A tale scopo, procedere come segue:
 
 1. Fare clic con il pulsante destro del mouse sulla cartella *App_Start*, scegliere **Aggiungi** e quindi selezionare **Classe**.
 
@@ -76,7 +77,7 @@ Aggiungere la classe `ClientAuthMiddleware.cs` nella cartella *App_Start*. A tal
 
 2. Nella casella **Nome** digitare **ClientAuthMiddleware.cs**.
 
-   ![Creazione di un nuovo C# classe nella finestra di dialogo Aggiungi nuovo elemento in Visual Studio](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-OWIN-startup-auth2.png)
+   ![Creazione di una C# nuova classe nella finestra di dialogo Aggiungi nuovo elemento in Visual Studio](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-OWIN-startup-auth2.png)
 
 3. Aprire il file *App_Start\ClientAuthMiddleware.cs* e sostituire il contenuto del file con il codice seguente:
 
@@ -192,10 +193,10 @@ Aggiungere la classe `ClientAuthMiddleware.cs` nella cartella *App_Start*. A tal
 
 ### <a name="step-14-add-an-owin-startup-class"></a>Passaggio 1.4: Aggiungere una classe di avvio OWIN
 
-Aggiungere una classe di avvio OWIN denominata `Startup.cs` all'API. A tale scopo:
+Aggiungere una classe di avvio OWIN denominata `Startup.cs` all'API. A tale scopo, procedere come segue:
 1. Fare clic con il pulsante destro del mouse sul progetto, scegliere **Aggiungi** > **Nuovo elemento** e cercare **OWIN**.
 
-   ![Creazione di classe di avvio OWIN nella finestra di dialogo Aggiungi nuovo elemento in Visual Studio](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-OWIN-startup.png)
+   ![Creazione della classe di avvio OWIN nella finestra di dialogo Aggiungi nuovo elemento in Visual Studio](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-OWIN-startup.png)
 
 2. Aprire il file *Startup.cs* e sostituire il contenuto del file con il codice seguente:
 
@@ -222,7 +223,7 @@ Aprire Controllers\IdentityController.cs e aggiungere il tag `[Authorize]` alla 
 
 ![Aggiungere il tag Authorize al controller](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-authorize.png)
 
-## <a name="step-2-publish-to-azure"></a>Passaggio 2: Pubblicazione in Azure
+## <a name="step-2-publish-to-azure"></a>Passaggio 2: Pubblicare in Azure
 
 Per pubblicare il progetto, in Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **Contoso.AADB2C.API** e quindi selezionare **Pubblica**.
 
@@ -248,7 +249,7 @@ Dopo aver protetto il servizio RESTful con ID client (nomeutente) e segreto clie
 
 7. Per **Uso chiave** selezionare **Firma**.
 
-8. Selezionare **Create**.
+8. Selezionare **Create** (Crea).
 
 9. Verificare di avere creato la chiave `B2C_1A_B2cRestClientId`.
 
@@ -269,7 +270,7 @@ Dopo aver protetto il servizio RESTful con ID client (nomeutente) e segreto clie
 
 7. Per **Uso chiave** selezionare **Firma**.
 
-8. Selezionare **Create**.
+8. Selezionare **Create** (Crea).
 
 9. Verificare di avere creato la chiave `B2C_1A_B2cRestClientSecret`.
 
@@ -298,7 +299,7 @@ Dopo aver protetto il servizio RESTful con ID client (nomeutente) e segreto clie
 
     Dopo aver aggiunto il frammento di codice, il profilo tecnico dovrebbe essere simile al codice XML seguente:
 
-    ![Aggiungere elementi XML di autenticazione di base per TechnicalProfile](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-add-1.png)
+    ![Aggiungere elementi XML di autenticazione di base a TechnicalProfile](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-add-1.png)
 
 ## <a name="step-5-upload-the-policy-to-your-tenant"></a>Passaggio 5: Caricare i criteri nel tenant
 
@@ -321,12 +322,12 @@ Dopo aver protetto il servizio RESTful con ID client (nomeutente) e segreto clie
     >[!NOTE]
     >Il comando Esegui adesso richiede che nel tenant sia preregistrata almeno un'applicazione. Per informazioni su come registrare le applicazioni, vedere l'articolo di [introduzione](active-directory-b2c-get-started.md) ad Azure AD B2C o l'articolo relativo alla [registrazione delle applicazioni](active-directory-b2c-app-registration.md).
 
-2. Aprire **B2C_1A_signup_signin**, i criteri personalizzati della relying party caricati in precedenza e quindi selezionare **Esegui adesso**.
+2. Aprire **B2C_1A_signup_signin**, i criteri personalizzati della relying party caricati in precedenza, quindi selezionare **Esegui adesso**.
 
 3. Testare il processo digitando **Test** nella casella **Nome**.
     Azure AD B2C visualizza un messaggio di errore nella parte superiore della finestra.
 
-    ![Test di convalida dell'input il nome specificato nell'identità dell'API](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-test.png)
+    ![Test della convalida dell'input del nome specificato nell'API di identità](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-test.png)
 
 4. Digitare un nome (diverso da "Test") nella casella **Nome**.
     Azure AD B2C effettua l'iscrizione dell'utente e invia quindi un numero di identificazione personale (loyaltyNumber) all'applicazione. Prendere nota del numero in questo esempio:
@@ -352,10 +353,10 @@ Dopo aver protetto il servizio RESTful con ID client (nomeutente) e segreto clie
     }
     ```
 
-## <a name="optional-download-the-complete-policy-files-and-code"></a>(Facoltativo) Scaricare i file e il codice dei criteri completi
+## <a name="optional-download-the-complete-policy-files-and-code"></a>(Facoltativo) Scaricare il codice e i file dei criteri completi
 
 * Dopo aver completato la procedura [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md), è consigliabile usare file di criteri personalizzati per definire scenari specifici. Per riferimento, sono disponibili [file di criteri di esempio](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw-secure-basic).
-* È possibile scaricare il codice completo da [Sample Visual Studio solution for reference](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw-secure-basic) (Soluzione di Visual Studio di esempio per riferimento).
+* È possibile scaricare il codice completo dalla [soluzione di Visual Studio di esempio di riferimento](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw-secure-basic).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 73b5c86030d9e106cb3ea24d3100faa56e323815
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 49f3759d7c5ba178cd0f1d0164a45c09df464571
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348937"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74942223"
 ---
 # <a name="application-gateway-components"></a>Componenti del gateway applicazione
 
@@ -75,7 +75,7 @@ Esistono due tipi di listener:
 
 Dopo aver creato un listener, associarlo a una regola di routing delle richieste. Questa regola determina il modo in cui la richiesta ricevuta sul listener deve essere indirizzata al back-end.
 
-Il gateway applicazione elabora i listener nell'ordine indicato. Se il listener di base corrisponde a una richiesta in ingresso, viene elaborata per prima. Per instradare il traffico al back-end corretto, configurare un listener multisito prima di un listener di base.
+Il gateway applicazione elabora i listener nell' [ordine indicato](https://docs.microsoft.com/en-us/azure/application-gateway/configuration-overview#order-of-processing-listeners).
 
 ## <a name="request-routing-rules"></a>Regole di routing richieste
 
@@ -129,7 +129,7 @@ Un pool back-end instrada la richiesta ai server back-end che forniscono la rich
 - Set di scalabilità di macchine virtuali
 - Indirizzi IP pubblici
 - Indirizzi IP interni
-- FQDN
+- Nome di dominio completo
 - Backend multi-tenant (ad esempio il servizio app)
 
 I membri del pool back-end del gateway applicazione non sono associati a un set di disponibilità. Un gateway applicazione può comunicare con istanze all'esterno della rete virtuale in cui si trova. Di conseguenza, i membri dei pool back-end possono essere tra i cluster, tra i Data Center o all'esterno di Azure, purché sia disponibile la connettività IP.
@@ -140,7 +140,7 @@ Un gateway applicazione può anche comunicare con i server locali quando sono co
 
 È possibile creare pool back-end diversi per diversi tipi di richieste. Ad esempio, creare un pool back-end per le richieste generali e quindi un altro pool back-end per le richieste ai microservizi per l'applicazione.
 
-## <a name="health-probes"></a>Probe integrità
+## <a name="health-probes"></a>Probe di integrità
 
 Per impostazione predefinita, un gateway applicazione esegue il monitoraggio dello stato di tutte le risorse nel pool back-end e rimuove automaticamente quelle non integre. Monitora quindi le istanze non integre e le aggiunge al pool back-end integro quando diventano disponibili e rispondono ai Probe di integrità.
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/12/2019
-ms.openlocfilehash: dc842ba0e7ca0f34b7dacb98322c4dc0cd056483
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b3165daa06ed975df9ccb677699d3ceb449327ab
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931995"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941924"
 ---
 # <a name="move-files-with-azure-data-factory"></a>Spostare i file con Azure Data Factory
 
@@ -36,9 +36,11 @@ Il modello contiene cinque attività:
 - **Copia copia** un file dall'origine all'archivio di destinazione.
 - **Delete** Elimina lo stesso file dall'archivio di origine.
 
-Il modello definisce due parametri:
-- *FolderPath_SourceStore* è il percorso della cartella dell'archivio di origine da cui si desidera spostare i file. 
-- *FolderPath_DestinationStore* è il percorso della cartella dell'archivio di destinazione in cui si desidera spostare i file. 
+Il modello definisce quattro parametri:
+- *SourceStore_Location* è il percorso della cartella dell'archivio di origine da cui si desidera spostare i file. 
+- *SourceStore_Directory* è il percorso della sottocartella dell'archivio di origine da cui si desidera spostare i file.
+- *DestinationStore_Location* è il percorso della cartella dell'archivio di destinazione in cui si desidera spostare i file. 
+- *DestinationStore_Directory* è il percorso della sottocartella dell'archivio di destinazione in cui si desidera spostare i file.
 
 ## <a name="how-to-use-this-solution-template"></a>Come usare questo modello di soluzione
 
@@ -50,9 +52,7 @@ Il modello definisce due parametri:
 
     ![Creare una nuova connessione alla destinazione](media/solution-template-move-files/move-files2.png)
 
-3. Selezionare **Usa questo modello**.
-
-    ![Usa questo modello](media/solution-template-move-files/move-files3.png)
+3. Selezionare **Usa questa scheda modello** .
     
 4. Verrà visualizzata la pipeline, come nell'esempio seguente:
 

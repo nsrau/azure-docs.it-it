@@ -1,6 +1,7 @@
 ---
-title: Disponibilità dell'area & la residenza dei dati in Azure Active Directory B2C
-description: Un argomento sui tipi di tenant di Azure Active Directory B2C.
+title: Disponibilità delle aree e residenza dei dati
+titleSuffix: Azure AD B2C
+description: Disponibilità dell'area, residenza dei dati e informazioni sui tenant di Azure Active Directory B2C Preview.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,14 +11,14 @@ ms.topic: conceptual
 ms.date: 09/26/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0bb7a7ef2aabd7f93531d9afa662d7e582e05550
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 1b09eb85df6748fed042731ac90ebbf20c65b702
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273571"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950511"
 ---
-# <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: Aree di disponibilità e residenza dei dati
+# <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: aree di disponibilità e residenza dei dati
 
 Le aree di disponibilità e la residenza dei dati sono due concetti molto diversi che si applicano in modo diverso ad Azure AD B2C rispetto al resto di Azure. In questo articolo vengono illustrate le differenze tra questi due concetti e viene confrontato il modo in cui si applicano ad Azure rispetto a Azure AD B2C.
 
@@ -27,7 +28,7 @@ L'[area di disponibilità](#region-availability) si riferisce al paese in cui è
 
 La [residenza dei dati](#data-residency) si riferisce alla zona in cui i dati utente vengono memorizzati.
 
-## <a name="region-availability"></a>Aree di disponibilità
+## <a name="region-availability"></a>Disponibilità in base all'area
 
 Azure AD B2C è disponibile in tutto il mondo tramite il cloud pubblico di Azure.
 

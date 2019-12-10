@@ -1,5 +1,6 @@
 ---
-title: Definire un profilo tecnico SAML in un criterio personalizzato in Azure Active Directory B2C
+title: Definire un profilo tecnico SAML in un criterio personalizzato
+titleSuffix: Azure AD B2C
 description: Definire un profilo tecnico SAML nei criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 11/04/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b75367a90ce557f055ff4a9b1ff85f5b1f8f9637
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 74666b1dc2ba4fac25aff0a56a52d048d746d465
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603072"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950936"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico SAML nei criteri personalizzati di Azure Active Directory B2C
 
@@ -81,13 +82,13 @@ L'esempio seguente illustra la sezione di crittografia del profilo tecnico di Az
 </KeyDescriptor>
 ```
 
-## <a name="protocol"></a>Protocollo
+## <a name="protocol"></a>Protocol
 
 L'attributo **Name** dell'elemento Protocol deve essere impostato su `SAML2`.
 
 ## <a name="output-claims"></a>Attestazioni di output
 
-L'elemento **OutputClaims** contiene un elenco di attestazioni restituite dal provider di identità SAML nella sezione `AttributeStatement`. Potrebbe essere necessario eseguire il mapping dell'attestazione definita nei criteri per il nome definito nel provider di identità. È anche possibile includere le attestazioni che non vengono restituite dal provider di identità, purché sia impostato l'attributo `DefaultValue`.
+L'elemento **OutputClaims** contiene un elenco di attestazioni restituite dal provider di identità SAML nella sezione `AttributeStatement`. Può essere necessario eseguire il mapping del nome dell'attestazione definito nei criteri per il nome definito nel provider di identità. È anche possibile includere le attestazioni che non vengono restituite dal provider di identità, purché sia impostato l'attributo `DefaultValue`.
 
 Per leggere l'asserzione SAML **NamedId** in **Subject** come attestazione normalizzata, impostare l'attestazione **PartnerClaimType** su `assertionSubjectName`. Assicurarsi che **NameId** sia il primo valore nell'asserzione XML. Quando si definisce più di un'asserzione, Azure Active Directory B2C sceglie il valore del soggetto dall'ultima asserzione.
 
@@ -99,7 +100,7 @@ L'esempio seguente illustra le attestazioni restituite dal provider di identità
 - Il mapping dell'attestazione **first_name** viene eseguito per l'attestazione **givenName**.
 - Il mapping dell'attestazione **last_name** viene eseguito per l'attestazione **surname**.
 - L'attestazione **displayName** senza eseguire il mapping del nome.
-- L'attestazione **email** senza eseguire il mapping del nome.
+- L'attestazione **email** senza l'esecuzione del mapping del nome.
 
 Il profilo tecnico restituisce anche le attestazioni che non vengono restituite dal provider di identità:
 
@@ -120,9 +121,9 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 
 ## <a name="metadata"></a>Metadata
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Description |
 | --------- | -------- | ----------- |
-| PartnerEntity | Sì | URL dei metadati del provider di identità SAML. Copiare i metadati del provider di identità e aggiungerli nell'elemento CDATA `<![CDATA[Your IDP metadata]]>` |
+| PartnerEntity | SÌ | URL dei metadati del provider di identità SAML. Copiare i metadati del provider di identità e aggiungerli nell'elemento CDATA `<![CDATA[Your IDP metadata]]>` |
 | WantsSignedRequests | No | Indica se il profilo tecnico richiede che tutte le richieste di autenticazione in uscita siano firmate. I possibili valori sono: `true` o `false`. Il valore predefinito è `true`. Quando il valore è impostato su `true`, la chiave di crittografia **SamlMessageSigning** deve essere specificata e tutte le richieste di autenticazione in uscita sono firmate. Se il valore è impostato su `false`, i parametri **SigAlg** e **Signature** (stringa di query o parametro Post) vengono omessi dalla richiesta. Questi metadati controllano anche l'attributo **AuthnRequestsSigned**, emesso nei metadati del profilo tecnico di Azure AD B2C condiviso con il provider di identità. Azure AD B2C non firma la richiesta se il valore di **WantsSignedRequests** nei metadati del profilo tecnico è impostato su `false` e i metadati del provider di identità **WantAuthnRequestsSigned** sono impostati su `false` o non specificati. |
 | XmlSignatureAlgorithm | No | Metodo usato da Azure AD B2C per firmare la richiesta SAML. Questi metadati controllano il valore del parametro **SigAlg** (stringa di query o parametro Post) nella richiesta SAML. I valori possibili sono: `Sha256`, `Sha384`, `Sha512` o `Sha1`. Verificare di configurare l'algoritmo di firma per entrambe le parti con lo stesso valore. Usare solo l'algoritmo supportato dal certificato. |
 | WantsSignedAssertions | No | Indica se il profilo tecnico richiede che tutte le asserzioni in ingresso siano firmate. I possibili valori sono: `true` o `false`. Il valore predefinito è `true`. Se il valore è impostato su `true`, tutta la sezione `saml:Assertion` delle asserzioni inviate dal provider di identità del provider ad Azure AD B2C deve essere firmata. Se il valore è impostato su `false`, il provider di identità non deve firmare le asserzioni e anche se esegue questa operazione Azure AD B2C non convalida la firma. Questi metadati controllano anche il flag **WantsAssertionsSigned** emesso nei metadati del profilo tecnico di Azure AD B2C condiviso con il provider di identità. Se si disabilita la convalida delle asserzioni, è anche possibile disabilitare la convalida della firma della risposta. Per altre informazioni, vedere **ResponsesSigned**. |
@@ -139,10 +140,10 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 
 L'elemento **CryptographicKeys** contiene gli attributi seguenti:
 
-| Attributo |Obbligatorio | Descrizione |
+| Attributo |Obbligatoria | Description |
 | --------- | ----------- | ----------- |
-| SamlMessageSigning |Sì | Certificato X509 (set di chiavi RSA) da usare per firmare i messaggi SAML. Azure AD B2C usa questa chiave per firmare le richieste e inviarle al provider di identità. |
-| SamlAssertionDecryption |Sì | Certificato X509 (set di chiavi RSA) da usare per decrittografare i messaggi SAML. Questo certificato deve essere fornito dal provider di identità. Azure AD B2C usa questo certificato per decrittografare i dati inviati dal provider di identità. |
+| SamlMessageSigning |SÌ | Certificato X509 (set di chiavi RSA) da usare per firmare i messaggi SAML. Azure AD B2C usa questa chiave per firmare le richieste e inviarle al provider di identità. |
+| SamlAssertionDecryption |SÌ | Certificato X509 (set di chiavi RSA) da usare per decrittografare i messaggi SAML. Questo certificato deve essere fornito dal provider di identità. Azure AD B2C usa questo certificato per decrittografare i dati inviati dal provider di identità. |
 | MetadataSigning |No | Certificato X509 (set di chiavi RSA) da usare per firmare i metadati SAML. Azure AD B2C usa questa chiave per firmare i metadati.  |
 
 ## <a name="next-steps"></a>Passaggi successivi

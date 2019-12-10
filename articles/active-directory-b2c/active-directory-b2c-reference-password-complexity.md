@@ -1,5 +1,6 @@
 ---
-title: Complessità delle password - Azure Active Directory B2C | Microsoft Docs
+title: Configurare i requisiti di complessità delle password
+titleSuffix: Azure AD B2C
 description: Come configurare i requisiti di complessità delle password specificate dagli utenti in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 642621e2e04d3e96dc6886b1bdb28c161560b28e
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: d37d1ae3871e8b14a44540883b1d03c29b58d27e
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065452"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950562"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Configurare i requisiti di complessità delle password in Azure Active Directory B2C
 
@@ -37,7 +38,7 @@ Se si usano criteri personalizzati, è possibile [configurare la complessità de
 ## <a name="configure-password-complexity"></a>Configurare la complessità delle password
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C selezionando il filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene il tenant.
+2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
 4. Selezionare **Flussi utente**.
 2. Selezionare un flusso utente e fare clic su **Proprietà**.
@@ -45,10 +46,10 @@ Se si usano criteri personalizzati, è possibile [configurare la complessità de
 
 ### <a name="comparison-chart"></a>Grafico di confronto
 
-| Complessità | Descrizione |
+| Complessità | Description |
 | --- | --- |
 | Semplice | Una password con un numero di caratteri compreso tra 8 e 64. |
-| Alta | Una password con un numero di caratteri compreso tra 8 e 64. Richiede almeno tre dei quattro tipi di carattere seguenti: lettere minuscole, lettere maiuscole, numeri e simboli. |
+| Strong | Una password con un numero di caratteri compreso tra 8 e 64. Richiede almeno tre dei quattro tipi di carattere seguenti: lettere minuscole, lettere maiuscole, numeri e simboli. |
 | Personalizzato | Questa opzione offre il massimo controllo sulle regole di complessità delle password.  Consente infatti di configurare una lunghezza personalizzata  o di accettare password solo numeriche (PIN). |
 
 ## <a name="custom-options"></a>Opzioni personalizzate
@@ -60,7 +61,7 @@ Consente di accettare solo cifre (PIN) o l'intero set di caratteri.
 - **Solo numeri** consente di immettere solo cifre (0-9) durante la configurazione di una password.
 - **Tutti** consente qualsiasi lettera, numero o simbolo.
 
-### <a name="length"></a>Lunghezza
+### <a name="length"></a>Length
 
 Consente di controllare i requisiti di lunghezza della password.
 
@@ -71,7 +72,7 @@ Consente di controllare i requisiti di lunghezza della password.
 
 Consente di controllare i diversi tipi di carattere usati nella password.
 
-- **2 of 4: Lowercase character, Uppercase character, Number (0-9), Symbol** (2 di 4: carattere minuscolo, carattere maiuscolo, numero (0-9), simbolo): garantisce che la password contenga almeno tre tipi di carattere, ad esempio un numero e un carattere minuscolo.
+- **2 of 4: Lowercase character, Uppercase character, Number (0-9), Symbol** (2 di 4: carattere minuscolo, carattere maiuscolo, numero (0-9), simbolo): garantisce che la password contenga almeno due tipi di carattere, ad esempio un numero e un carattere minuscolo.
 - **3 of 4: Lowercase character, Uppercase character, Number (0-9), Symbol** (3 di 4: carattere minuscolo, carattere maiuscolo, numero (0-9), simbolo): garantisce che la password contenga almeno tre tipi di carattere, ad esempio un numero, un carattere minuscolo e un carattere maiuscolo.
 - **4 of 4: Lowercase character, Uppercase character, Number (0-9), Symbol** (4 di 4: carattere minuscolo, carattere maiuscolo, numero (0-9), simbolo): garantisce che la password contenga tutti i quattro tipi di carattere.
 

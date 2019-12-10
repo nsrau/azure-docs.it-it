@@ -1,5 +1,6 @@
 ---
-title: Aggiungere propri attributi ai criteri personalizzati in Azure Active Directory B2C | Microsoft Docs
+title: Aggiungere attributi personalizzati ai criteri personalizzati
+titleSuffix: Azure AD B2C
 description: Procedura dettagliata che illustra come usare proprietà di estensione e attributi personalizzati e includerli nell'interfaccia utente.
 services: active-directory-b2c
 author: mmacy
@@ -10,14 +11,14 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 82a796a3252a4de6eacabcad45c61c864e963fe0
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 92050261777482bae8055f697ef50c2295675c5b
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066162"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948778"
 ---
-# <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: Usare gli attributi personalizzati in un criterio di modifica del profilo personalizzato
+# <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: Uso di attributi personalizzati in criteri personalizzati di modifica del profilo
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -52,14 +53,14 @@ Le istruzioni sono comprese nella sezione **Passaggi successivi** di questo arti
 2. Nel menu di spostamento a sinistra fare clic su **Azure Active Directory**. Potrebbe essere necessario selezionare **Altri servizi** per trovarlo.
 3. Selezionare **Registrazioni per l'app**. Selezionare **Registrazione nuova applicazione**.
 4. Aggiungere le voci seguenti:
-    * Un nome per l'applicazione Web: **WebApp-GraphAPI-DirectoryExtensions**.
-    * Il tipo di applicazione: **App/API Web**.
+    * Nome per l'applicazione Web: **WebApp-GraphAPI-DirectoryExtensions**.
+    * Tipo di applicazione: **app Web/API**.
     * URL di accesso: **https://{tenantName}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions**.
-5. Selezionare **Create**.
+5. Selezionare **Create** (Crea).
 6. Selezionare l'applicazione Web appena creata.
 7. Selezionare **Impostazioni** > **Autorizzazioni necessarie**.
 8. Selezionare l'API **Microsoft Azure Active Directory**.
-9. Immettere un segno di spunta in Autorizzazioni dell'applicazione: **Lettura e scrittura dati directory**. Selezionare quindi **Salva**.
+9. Immettere un segno di spunta in Autorizzazioni per l'applicazione: **Legge e scrive i dati della directory**. Selezionare quindi **Salva**.
 10. Selezionare **Concedere le autorizzazioni** e quindi fare clic su **Sì** per confermare.
 11. Copiare negli Appunti e salvare gli identificatori seguenti:
     * **ID applicazione**. Esempio: `103ee0e6-f92d-4183-b576-8c3739027780`.
@@ -67,7 +68,7 @@ Le istruzioni sono comprese nella sezione **Passaggi successivi** di questo arti
 
 ## <a name="modify-your-custom-policy-to-add-the-applicationobjectid"></a>Modifica dei criteri personalizzati per l'aggiunta di **ApplicationObjectId**
 
-Quando è stata eseguita la procedura descritta in [Azure Active Directory B2C: Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md), sono stati scaricati e modificati [file di esempio](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) denominati **TrustFrameworkBase.xml**, **TrustFrameworkExtensions.xml**, **SignUpOrSignin.xml**, **ProfileEdit.xml** e **PasswordReset.xml**. In questo passaggio, vengono apportate altre modifiche a tali file.
+Con la procedura descritta in [Azure Active Directory B2C: Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md) sono stati scaricati e modificati i [file di esempio](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) denominati **TrustFrameworkBase.xml**, **TrustFrameworkExtensions.xml**, **SignUpOrSignin.xml**, **ProfileEdit.xml** e **PasswordReset.xml**. In questo passaggio, vengono apportate altre modifiche a tali file.
 
 * Aprire il file **TrustFrameworkBase.xml** e aggiungere la sezione `Metadata` come illustrato nell'esempio seguente. Inserire l'ID oggetto registrato in precedenza per il valore `ApplicationObjectId` e l'ID applicazione registrato per il valore `ClientId`:
 
@@ -294,7 +295,7 @@ Il token ID inviato all'applicazione include la nuova proprietà di estensione c
    extension_<app-guid>_ActivationStatus via Graph API.
    ```
 
-## <a name="reference"></a>Riferimenti
+## <a name="reference"></a>Riferimento
 
 Per una descrizione completa delle proprietà di estensione, vedere l'articolo [Estensioni dello schema della directory | Concetti relativi all'API Graph](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
 
@@ -302,3 +303,4 @@ Per una descrizione completa delle proprietà di estensione, vedere l'articolo [
 > * Un **TechnicalProfile** è un tipo di elemento, o una funzione, che definisce il nome di un endpoint, metadati e protocollo. L'elemento **TechnicalProfile** definisce i dettagli dello scambio di attestazioni che esegue il Framework dell'esperienza di gestione delle identità. Quando questa funzione viene chiamata in un passaggio di orchestrazione o da un altro elemento **TechnicalProfile**, gli elementi **InputClaims** e **OutputClaims** vengono forniti come parametri dal chiamante.
 > * Gli attributi di estensione nell'API Graph vengono denominati usando la convenzione `extension_ApplicationObjectID_attributename`.
 > * I criteri personalizzati fanno riferimento agli attributi di estensione, ad esempio **extension_attributename**. Con questo riferimento viene omesso **ApplicationObjectId** in XML.
+> * È necessario specificare l'ID attributo nel formato seguente **extension_attributename** ogni volta che viene fatto riferimento a tale ID.

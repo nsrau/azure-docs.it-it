@@ -1,5 +1,6 @@
 ---
-title: Configurare l'accesso con un account Google in Azure Active Directory B2C usando criteri personalizzati | Microsoft Docs
+title: Configurare l'accesso con un account Google usando criteri personalizzati
+titleSuffix: Azure AD B2C
 description: Configurare l'accesso con un account LinkedIn in Azure Active Directory B2C usando criteri personalizzati.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: cc7e7b334791194cd4f8ebbd2038e9c1877eb297
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 695e54f5fa92c177576aa56ef7c9d758f00d0129
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72240208"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948488"
 ---
 # <a name="set-up-sign-in-with-a-google-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso con un account Google usando criteri personalizzati in Azure Active Directory B2C
 

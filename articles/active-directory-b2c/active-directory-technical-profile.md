@@ -1,5 +1,6 @@
 ---
-title: Definire un profilo tecnico di Azure Active Directory in un criterio personalizzato di Azure Active Directory B2C | Microsoft Docs
+title: Definire un profilo tecnico Azure AD in un criterio personalizzato
+titleSuffix: Azure AD B2C
 description: Definire un profilo tecnico di Azure Active Directory in un criterio personalizzato in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4383980953147560b9e51e4ccab3032dd8173dd4
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 1a839c86a717122778f736f01fea4bdd08da8945
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064616"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949559"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di Azure Active Directory in un criterio personalizzato di Azure Active Directory B2C
 
@@ -252,9 +253,9 @@ Il profilo tecnico seguente elimina un account utente social mediante **alternat
 ```
 ## <a name="metadata"></a>Metadata
 
-| Attributo | Obbligatorio | DESCRIZIONE |
+| Attributo | Obbligatoria | Description |
 | --------- | -------- | ----------- |
-| Operazione | Sì | L'operazione da eseguire. I valori possibili sono: `Read`, `Write`, `DeleteClaims` o `DeleteClaimsPrincipal`. |
+| Operazione | SÌ | L'operazione da eseguire. I valori possibili sono: `Read`, `Write`, `DeleteClaims` o `DeleteClaimsPrincipal`. |
 | RaiseErrorIfClaimsPrincipalDoesNotExist | No | Genera un errore se l'oggetto utente non esiste nella directory. I possibili valori sono: `true` o `false`. |
 | UserMessageIfClaimsPrincipalDoesNotExist | No | Se deve essere generato un errore (vedere la descrizione dell'attributo RaiseErrorIfClaimsPrincipalDoesNotExist), specificare il messaggio da visualizzare all'utente se l'oggetto utente non esiste. Il valore può essere [localizzato](localization.md).|
 | RaiseErrorIfClaimsPrincipalAlreadyExists | No | Genera un errore se l'oggetto utente esiste già. I possibili valori sono: `true` o `false`.|

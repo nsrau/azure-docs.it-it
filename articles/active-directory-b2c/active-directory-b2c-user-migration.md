@@ -1,5 +1,6 @@
 ---
-title: Approcci alla migrazione degli utenti in Azure Active Directory B2C
+title: Approcci alla migrazione degli utenti
+titleSuffix: Azure AD B2C
 description: Vengono illustrati i concetti di base e avanzati sulla migrazione degli utenti usando il Azure AD API Graph e, facoltativamente, usando Azure AD B2C criteri personalizzati.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9c01e22cfa96321994c16df6b61a52ebd4137549
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: c5b7d477b0704db3f23919281fd61328be114dae
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74322924"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950222"
 ---
 # <a name="migrate-users-to-azure-active-directory-b2c"></a>Migrare gli utenti a Azure Active Directory B2C
 
@@ -27,7 +28,7 @@ Con Azure AD B2C, è possibile eseguire la migrazione degli utenti tramite la [A
 
 - **Pre-migrazione**: questo flusso si applica quando si ha accesso alle credenziali di un utente (nome utente e password) o se le credenziali sono crittografate ma è possibile decrittografarle. Il processo di pre-migrazione include la lettura degli utenti dal vecchio provider di identità e la creazione di nuovi account nella directory di Azure AD B2C.
 
-- **Pre-migrazione e reimpostazione della password**: questo flusso si applica quando la password di un utente non è accessibile, Ad esempio:
+- **Pre-migrazione e reimpostazione della password**: questo flusso si applica quando la password di un utente non è accessibile, ad esempio:
   - La password è archiviata in formato HASH.
   - La password è archiviata in un provider di identità a cui non è possibile accedere. Il vecchio provider di identità convalida le credenziali dell'utente chiamando un servizio Web.
 
@@ -228,7 +229,7 @@ Per ottenere il collegamento ai criteri di reimpostazione della password, seguir
 > [!NOTE]
 > Per controllare e modificare lo stato di migrazione degli utenti è necessario usare criteri personalizzati. È necessario completare le istruzioni di installazione di [Introduzione ai criteri personalizzati][B2C-GetStartedCustom] .
 
-Quando gli utenti provano a eseguire l'accesso senza prima reimpostare la password, i criteri dovrebbero restituire un messaggio di errore descrittivo, Ad esempio:
+Quando gli utenti provano a eseguire l'accesso senza prima reimpostare la password, i criteri dovrebbero restituire un messaggio di errore descrittivo, ad esempio:
 
 > *La password è scaduta. Per reimpostarlo, selezionare il collegamento Reimposta password.*
 
@@ -320,7 +321,7 @@ Modificare quindi il `Id` del profilo tecnico `LocalAccountSignIn` per `LocalAcc
 
 ### <a name="step-44-upload-the-policy-to-your-tenant"></a>Passaggio 4.4: Caricare i criteri nel tenant
 
-1. Nel [portale di Azure][Portal] passare al [contesto del tenant Azure AD B2C][B2C-NavContext] e quindi selezionare **Azure AD B2C**.
+1. Nel [portale di Azure][Portal] passare al [contesto del tenant di Azure AD B2C][B2C-NavContext] e quindi selezionare **Azure AD B2C**.
 1. Fare clic su **Framework dell'esperienza di gestione delle identità**.
 1. Selezionare **Tutti i criteri**.
 1. Selezionare **Carica criteri**.
@@ -330,7 +331,7 @@ Modificare quindi il `Id` del profilo tecnico `LocalAccountSignIn` per `LocalAcc
 ### <a name="step-45-test-the-custom-policy-by-using-run-now"></a>Passaggio 4.5: Testare i criteri personalizzati tramite Esegui adesso
 
 1. Selezionare **Azure ad B2C**e quindi selezionare **Framework esperienza di identità**.
-1. Aprire *B2C_1A_signup_signin*, i criteri personalizzati della relying party caricati in precedenza e quindi selezionare **Esegui adesso**.
+1. Aprire *B2C_1A_signup_signin*, i criteri personalizzati della relying party caricati in precedenza, quindi selezionare **Esegui adesso**.
 1. Immettere le credenziali di uno degli utenti migrati e quindi selezionare **Accedi**. L'API REST genera il messaggio di errore seguente:
 
     ![Pagina di iscrizione dell'accesso che mostra il messaggio di errore di modifica della password](media/active-directory-b2c-user-migration/pre-migration-error-message.png)

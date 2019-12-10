@@ -1,5 +1,6 @@
 ---
-title: Aggiungere attestazioni e input di personalizzazione dell'esperienza utente tramite criteri personalizzati - Azure Active Directory B2C | Microsoft Docs
+title: Aggiungere attestazioni e personalizzare l'input utente nei criteri personalizzati
+titleSuffix: Azure AD B2C
 description: Informazioni su come personalizzare l'input dell'esperienza utente e aggiungere attestazioni al percorso di accesso o di registrazione in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e29e2e3e61594870cc9d704d64b1040a4211a520
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 452a7f61726c3039b2c2b37280d0153fbcbca5fb
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066218"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948891"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Aggiungere attestazioni e input di personalizzazione dell'esperienza utente tramite criteri personalizzati in Azure Active Directory B2C
 
@@ -294,7 +295,7 @@ Il token inviato all'applicazione include l'attestazione `city`.
 }
 ```
 
-## <a name="optional-remove-email-verification"></a>Facoltativo: Rimuovere la verifica tramite posta elettronica
+## <a name="optional-remove-email-verification"></a>Facoltativo: rimuovere la verifica tramite posta elettronica
 
 Per ignorare la verifica tramite posta elettronica, si può scegliere di rimuovere `PartnerClaimType="Verified.Email"`. In questo caso, l'indirizzo di posta elettronica è obbligatorio ma non sarà verificato, a meno che "Required" = true non venga rimosso.  Valutare attentamente se questa opzione è adatta ai casi d'uso.
 

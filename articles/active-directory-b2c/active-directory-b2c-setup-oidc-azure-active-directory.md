@@ -1,5 +1,6 @@
 ---
-title: Configurare l'accesso per un'organizzazione Azure Active Directory-Azure Active Directory B2C
+title: Configurare l'accesso per un'organizzazione Azure AD
+titleSuffix: Azure AD B2C
 description: Configurare l'accesso per un'organizzazione Azure Active Directory specifica in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -11,12 +12,12 @@ ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 0c2e368b9c12d8ab673e5b8808632501de448b9a
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: d864561273f89c510633bbc95a2d037a270401f8
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755758"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74947677"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configurare l'accesso per un'organizzazione Azure Active Directory specifica in Azure Active Directory B2C
 

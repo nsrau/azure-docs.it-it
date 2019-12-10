@@ -1,5 +1,6 @@
 ---
-title: Scambi di attestazioni API REST come convalida in Azure Active Directory B2C
+title: Scambi di attestazioni API REST come convalida
+titleSuffix: Azure AD B2C
 description: Procedura dettagliata per la creazione di un percorso utente Azure AD B2C che interagisce con i servizi RESTful.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 45fad1fab419c448febb3f3b760996fba278e154
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 8730870bfae9f704ee43594497f79942b70a6181
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69644963"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949373"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>Procedura dettagliata: Integrare scambi di attestazioni API REST nel percorso utente di Azure AD B2C come convalida dell'input utente
 
@@ -25,7 +26,7 @@ Il framework dell'esperienza di gestione delle identità alla base di Azure Acti
 
 Al termine di questa procedura dettagliata sarà possibile creare percorsi utente di Azure AD B2C che interagiscono con i servizi RESTful.
 
-Il framework dell'esperienza di gestione delle identità invia i dati in attestazioni e riceve di nuovo i dati in attestazioni. L'interazione con l'API:
+Il Framework dell'esperienza di gestione delle identità invia i dati in attestazioni e riceve di nuovo i dati in attestazioni. L'interazione con l'API:
 
 - Può essere progettata come scambio di attestazioni API REST o come profilo di convalida all'interno di un passaggio di orchestrazione.
 - In genere viene convalidato l'input dell'utente. Se il valore fornito dall'utente viene rifiutato, l'utente può provare nuovamente a immettere un valore valido con la possibilità di restituire un messaggio di errore.
@@ -135,9 +136,9 @@ Per aggiungere lo scambio di attestazioni al profilo tecnico autocertificato:
 
 [Cambiare la modifica del profilo e la registrazione degli utenti per raccogliere informazioni dagli utenti](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 
-[Walkthrough: Integrare scambi di attestazioni API REST nei percorsi utente di Azure AD B2C come passaggio di orchestrazione](active-directory-b2c-rest-api-step-custom.md)
+[Procedura dettagliata: Integrare scambi di attestazioni API REST nei percorsi utente di Azure AD B2C come passaggio di orchestrazione](active-directory-b2c-rest-api-step-custom.md)
 
-[Informazioni di riferimento: Profilo tecnico RESTful](restful-technical-profile.md)
+[Informazioni di riferimento: profilo tecnico RESTful](restful-technical-profile.md)
 
 Per informazioni su come proteggere le API, vedere gli articoli seguenti:
 

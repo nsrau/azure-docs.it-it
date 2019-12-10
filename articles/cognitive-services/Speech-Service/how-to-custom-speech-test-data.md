@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: b2d02ed5a9fb2cb10e4cf18fe7d878da5b032fe0
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: ba95723e62cec9708684665a9d141b1e39ccb831
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816394"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951837"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparare i dati per Riconoscimento vocale personalizzato
 
@@ -62,6 +62,9 @@ Usare questa tabella per assicurarsi che i file audio siano formattati correttam
 | Formato di archiviazione | zip |
 | Dimensione massima dell'archivio | 2 GB |
 
+> [!TIP]
+> Quando si caricano i dati di training e di test, le dimensioni del file zip non possono superare i 2 GB. Se sono necessari più dati per il training e il test, suddividerli in più file con estensione zip e caricarli separatamente. Successivamente, è possibile scegliere di eseguire il training e il test da *più* set di impostazioni.
+
 Se l'audio non soddisfa queste proprietà o se si vuole verificarlo, è consigliabile scaricare [Sox](http://sox.sourceforge.net) per controllare o convertire l'audio. Di seguito sono riportati alcuni esempi di come è possibile eseguire ognuna di queste attività tramite la riga di comando:
 
 | Attività | Description | Comando Sox |
@@ -71,7 +74,7 @@ Se l'audio non soddisfa queste proprietà o se si vuole verificarlo, è consigli
 
 ## <a name="audio--human-labeled-transcript-data-for-testingtraining"></a>Dati della trascrizione audio + con etichetta umana per test/formazione
 
-Per misurare l'accuratezza dell'accuratezza del riconoscimento vocale di Microsoft durante l'elaborazione dei file audio, è necessario fornire le trascrizioni con etichetta umana (Word-by-Word) per il confronto. Sebbene la trascrizione con etichetta umana sia spesso dispendiosa in termini di tempo, è necessario valutare l'accuratezza e per eseguire il training del modello per i casi d'uso. Tenere presente che i miglioramenti apportati al riconoscimento saranno validi solo per i dati forniti. Per questo motivo, è importante che vengano caricate solo le trascrizioni di alta qualità.  
+Per misurare l'accuratezza dell'accuratezza del riconoscimento vocale di Microsoft durante l'elaborazione dei file audio, è necessario fornire le trascrizioni con etichetta umana (Word-by-Word) per il confronto. Sebbene la trascrizione con etichetta umana sia spesso dispendiosa in termini di tempo, è necessario valutare l'accuratezza e per eseguire il training del modello per i casi d'uso. Tenere presente che i miglioramenti apportati al riconoscimento saranno validi solo per i dati forniti. Per questo motivo, è importante che vengano caricate solo le trascrizioni di alta qualità.
 
 | Proprietà | Value |
 |----------|-------|
@@ -82,6 +85,9 @@ Per misurare l'accuratezza dell'accuratezza del riconoscimento vocale di Microso
 | Formato del campione | PCM, 16 bit |
 | Formato di archiviazione | zip |
 | Dimensioni massime zip | 2 GB |
+
+> [!TIP]
+> Quando si caricano i dati di training e di test, le dimensioni del file zip non possono superare i 2 GB. Se sono necessari più dati per il training e il test, suddividerli in più file con estensione zip e caricarli separatamente. Successivamente, è possibile scegliere di eseguire il training e il test da *più* set di impostazioni.
 
 Per risolvere problemi come l'eliminazione o la sostituzione di parole, per migliorare il riconoscimento è necessaria una quantità significativa di dati. In genere, è consigliabile fornire trascrizioni Word per parola per circa 10 o 1.000 ore di audio. Le trascrizioni di tutti i file WAV devono essere contenute in un unico file di testo normale. Ogni riga del file delle trascrizioni deve contenere il nome di uno dei file audio ed essere seguita dalla trascrizione corrispondente. Il nome del file deve essere separato dalla trascrizione mediante un carattere di tabulazione (\t).
 

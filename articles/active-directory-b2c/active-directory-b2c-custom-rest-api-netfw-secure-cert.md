@@ -1,5 +1,6 @@
 ---
-title: Proteggere il servizio RESTful tramite certificati client in Azure Active Directory B2C | Microsoft Docs
+title: Proteggere un servizio RESTful usando certificati client
+titleSuffix: Azure AD B2C
 description: Proteggere gli scambi di attestazioni dell'API REST personalizzate in Azure AD B2C usando certificati client
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1690adfe5336ea85328e16755c5e3bc82b6d240a
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 1d396de57a12285fb6cc682510fa6f95585465d0
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835618"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949858"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Proteggere il servizio RESTful usando certificati client
 
@@ -64,9 +65,9 @@ Dopo aver impostato `clientCertEnabled` su *true*, per la comunicazione con l'AP
 
 7. Nella casella **Password** digitare la password del certificato.
 
-    ![Carica chiave criteri nella creazione di una pagina chiave nel portale di Azure](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-upload.png)
+    ![Caricare la chiave dei criteri nella pagina creare una chiave in portale di Azure](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-upload.png)
 
-7. Selezionare **Create**.
+7. Selezionare **Create** (Crea).
 
 8. Per visualizzare le chiavi disponibili nel tenant e verificare di avere creato la chiave `B2C_1A_B2cRestClientCertificate`, selezionare **Chiavi dei criteri**.
 
@@ -99,7 +100,7 @@ Per supportare l'autenticazione del certificato client nel criterio personalizza
 
 ## <a name="step-4-upload-the-policy-to-your-tenant"></a>Passaggio 4: Caricare i criteri nel tenant
 
-1. Nel [portale di Azure](https://portal.azure.com) passare al [contesto del tenant Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) e quindi selezionare **Azure AD B2C**.
+1. Nel [portale di Azure](https://portal.azure.com) passare al [contesto del tenant di Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) e quindi selezionare **Azure AD B2C**.
 
 2. Fare clic su **Framework dell'esperienza di gestione delle identità**.
 
@@ -117,12 +118,12 @@ Per supportare l'autenticazione del certificato client nel criterio personalizza
     >[!NOTE]
     >Il comando Esegui adesso richiede che nel tenant sia preregistrata almeno un'applicazione. Per informazioni su come registrare le applicazioni, vedere l'articolo di [introduzione](active-directory-b2c-get-started.md) ad Azure AD B2C o l'articolo relativo alla [registrazione delle applicazioni](active-directory-b2c-app-registration.md).
 
-2. Aprire **B2C_1A_signup_signin**, i criteri personalizzati della relying party caricati in precedenza e quindi selezionare **Esegui adesso**.
+2. Aprire **B2C_1A_signup_signin**, i criteri personalizzati della relying party caricati in precedenza, quindi selezionare **Esegui adesso**.
 
 3. Testare il processo digitando **Test** nella casella **Nome**.
     Azure AD B2C visualizza un messaggio di errore nella parte superiore della finestra.
 
-    ![Casella di testo Nome evidenziato e input di errore di convalida visualizzati](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-test.png)
+    ![Casella di testo nome indicato evidenziato e errore di convalida dell'input visualizzato](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-test.png)
 
 4. Digitare un nome (diverso da "Test") nella casella **Nome**.
     Azure AD B2C effettua l'iscrizione dell'utente e invia quindi un numero di identificazione personale (loyaltyNumber) all'applicazione. Prendere nota del numero in questo esempio di token JWT:
@@ -299,4 +300,4 @@ Se è necessario risolvere i problemi relativi a questo passaggio, vedere [Racco
 
 ## <a name="optional-download-the-complete-policy-files-and-code"></a>(Facoltativo) Scaricare il codice e i file dei criteri completi
 * Dopo aver completato la procedura [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md), è consigliabile usare file di criteri personalizzati per definire scenari specifici. Per riferimento, sono disponibili [file di criteri di esempio](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw-secure-cert).
-* È possibile scaricare il codice completo da [Sample Visual Studio solution for reference](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/Contoso.AADB2C.API) (Soluzione di Visual Studio di esempio per riferimento).
+* È possibile scaricare il codice completo dalla [soluzione di Visual Studio di esempio di riferimento](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/Contoso.AADB2C.API).

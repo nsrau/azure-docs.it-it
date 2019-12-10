@@ -1,6 +1,7 @@
 ---
-title: Configurare il flusso delle credenziali password del proprietario della risorsa in Azure Active Directory B2C | Microsoft Docs
-description: Informazioni su come configurare il flusso delle credenziali password del proprietario della risorsa in Azure Active Directory B2C.
+title: Configurare il flusso di credenziali password del proprietario della risorsa con criteri personalizzati
+titleSuffix: Azure AD B2C
+description: Informazioni su come configurare il flusso delle credenziali password del proprietario della risorsa (ROPC) usando criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2f3eb2c0071eecb20bbf5616a01c80e55645207a
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 990493b6b2c3757849168d8fb82a4b38f55364e2
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71678133"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951065"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configurare il flusso delle credenziali password del proprietario della risorsa in Azure Active Directory B2C usando criteri personalizzati
 
@@ -39,7 +40,7 @@ I flussi seguenti non sono supportati:
 
 Completare le procedure illustrate in [Introduzione ai criteri personalizzati in Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 
-## <a name="register-an-application"></a>Registra un'applicazione
+## <a name="register-an-application"></a>Registrare un'applicazione
 
 [!INCLUDE [active-directory-b2c-appreg-ropc](../../includes/active-directory-b2c-appreg-ropc.md)]
 
@@ -133,7 +134,7 @@ Completare le procedure illustrate in [Introduzione ai criteri personalizzati in
     </TechnicalProfile>
     ```
 
-    Sostituire il **DefaultValue** di **client_id** con l'ID applicazione dell'applicazione ProxyIdentityExperienceFramework creata nell'esercitazione sui prerequisiti. Sostituire **DefaultValue** di **RESOURCE_ID** con l'ID applicazione dell'applicazione IdentityExperienceFramework creata anche nell'esercitazione sui prerequisiti.
+    Sostituire il **DefaultValue** di **client_id** con l'ID applicazione dell'applicazione ProxyIdentityExperienceFramework creata nell'esercitazione sui prerequisiti. Sostituire quindi **DefaultValue** di **RESOURCE_ID** con l'ID applicazione dell'applicazione IdentityExperienceFramework creata anche nell'esercitazione sui prerequisiti.
 
 5. Aggiungere gli elementi **ClaimsProvider** seguenti con i relativi profili tecnici all'elemento **ClaimsProviders**:
 
@@ -262,7 +263,7 @@ Usare l'applicazione di sviluppo API preferita per generare una chiamata API ed 
 
 | Chiave | Value |
 | --- | ----- |
-| userName | `user-account` |
+| Nome utente | `user-account` |
 | password | `password1` |
 | grant_type | password |
 | scope | openid `application-id` offline_access |

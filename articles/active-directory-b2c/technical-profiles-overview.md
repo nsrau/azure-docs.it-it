@@ -1,6 +1,7 @@
 ---
-title: Informazioni sui profili tecnici nei criteri personalizzati di Azure Active Directory B2C | Microsoft Docs
-description: Informazioni sull'uso dei profili tecnici nei criteri personalizzati di Azure Active Directory B2C.
+title: Panoramica dei profili tecnici nei criteri personalizzati
+titleSuffix: Azure AD B2C
+description: Informazioni sul modo in cui i profili tecnici vengono usati in un criterio personalizzato in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f90b69cde4a961457c987f004e2605e6884bf323
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: af08a24ff28d59bf743f92aa69ffa823dcdcc544
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063333"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951038"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Informazioni sui profili tecnici nei criteri personalizzati di Azure Active Directory B2C
 
@@ -48,7 +49,7 @@ Tutti i tipi di profili tecnici condividono lo stesso concetto. Si inviano attes
  
 1. **Trasformazione delle attestazioni di input**: le attestazioni di input di ogni [trasformazione delle attestazioni](claimstransformations.md) di input vengono prelevate dal contenitore delle attestazioni. Al termine dell'esecuzione, le attestazioni di output vengono inserite in tale contenitore. Le attestazioni di output di una trasformazione delle attestazioni di input possono essere le attestazioni di input di una successiva trasformazione delle attestazioni di input.
 2. **Attestazioni di input**: le attestazioni vengono prelevate dal contenitore delle attestazioni e usate per il profilo tecnico. Un [profilo tecnico autocertificato](self-asserted-technical-profile.md), ad esempio, usa le attestazioni di input per prepopolare le attestazioni di output fornite dall'utente. Un profilo tecnico API REST usa le attestazioni di input per inviare i parametri di input all'endpoint API REST. Azure Active Directory usa l'attestazione di input come identificatore univoco per la lettura, l'aggiornamento o l'eliminazione di un account.
-3. **Esecuzione del profilo tecnico**: il profilo tecnico scambia le attestazioni con l'entità configurata. Ad esempio:
+3. **Esecuzione del profilo tecnico**: il profilo tecnico scambia le attestazioni con l'entità configurata. ad esempio:
     - Reindirizza l'utente al provider di identità per completare l'accesso. Dopo aver completato l'accesso, l'utente torna indietro e l'esecuzione del profilo tecnico continua.
     - Chiama un'API REST inviando i parametri come InputClaims e ricevendo le informazioni restituite come OutputClaims.
     - Crea o aggiorna l'account utente.
@@ -56,7 +57,7 @@ Tutti i tipi di profili tecnici condividono lo stesso concetto. Si inviano attes
 4. **Profili tecnici di convalida**: per un [profilo tecnico autocertificato](self-asserted-technical-profile.md), è possibile chiamare un [profilo tecnico di convalida](validation-technical-profile.md) dell'input, che convalida i dati inclusi nel profilo dall'utente e restituisce un messaggio di errore oppure OK, con o senza attestazioni di output. Prima che Azure AD B2C crei un nuovo account, ad esempio, controlla se l'utente esiste già nei servizi directory. È possibile chiamare un profilo tecnico API REST per aggiungere logica di business personalizzata.<p>L'ambito delle attestazioni di output di un profilo tecnico di convalida è limitato al profilo tecnico da cui è richiamato e agli altri profili tecnici di convalida nello stesso profilo tecnico. Se si vogliono usare le attestazioni di output nel passaggio di orchestrazione successivo, è necessario aggiungerle al profilo tecnico che richiama il profilo tecnico di convalida.
 5. **Attestazioni di output**: le attestazioni vengono restituite al contenitore delle attestazioni. È possibile usare queste attestazioni nel passaggio di orchestrazione successivo oppure nelle trasformazioni delle attestazioni di output.
 6. **Trasformazioni delle attestazioni di output**: le attestazioni di input di ogni [trasformazione delle attestazioni](claimstransformations.md) di output vengono prelevate dal contenitore delle attestazioni. Le attestazioni di output del profilo tecnico provenienti dai passaggi precedenti possono essere le attestazioni di input di una trasformazione delle attestazioni di output. Al termine dell'esecuzione, le attestazioni di output vengono inserite nel contenitore delle attestazioni. Le attestazioni di output di una trasformazione delle attestazioni di output possono essere le attestazioni di input di una successiva trasformazione delle attestazioni di output.
-7. **Gestione delle sessioni Single Sign-On (SSO)**  -  la [gestione delle sessioni SSO](active-directory-b2c-reference-sso-custom.md) controlla l'interazione con un utente dopo la relativa autenticazione. L'amministratore può ad esempio controllare se verrà visualizzata la selezione dei provider di identità o se sarà necessario immettere nuovamente i dettagli dell'account locale.
+7. **Gestione delle sessioni Single Sign-On (SSO)** : la [gestione delle sessioni SSO](active-directory-b2c-reference-sso-custom.md) controlla l'interazione con un utente dopo la relativa autenticazione. L'amministratore può ad esempio controllare se verrà visualizzata la selezione dei provider di identità o se sarà necessario immettere nuovamente i dettagli dell'account locale.
 
 Un profilo tecnico può ereditare da un altro profilo tecnico per modificare le impostazioni o aggiungere nuove funzionalità.  L'elemento **IncludeTechnicalProfile** è un riferimento al profilo tecnico di base da cui un profilo tecnico è derivato.
 

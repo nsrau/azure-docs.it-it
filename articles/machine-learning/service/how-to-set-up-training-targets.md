@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1755d5bf3338694f53da7021579cb4c0aee623f3
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 934899a74362ec9354c772c341d38d6a8f988ab4
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74912471"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951871"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurare e usare le destinazioni di calcolo per il training del modello 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -54,7 +54,7 @@ Altre informazioni sull'[invio degli esperimenti](#submit) alla fine di questo a
 
 ## <a name="whats-an-estimator"></a>Che cos'è un estimatore?
 
-Per semplificare il training del modello usando i Framework più diffusi, il Azure Machine Learning Python SDK fornisce un'astrazione di livello superiore alternativa, la classe Estimator. È consigliabile usare un estimatore per il training poiché la classe contiene metodi che consentono di creare e personalizzare facilmente le configurazioni di esecuzione. È possibile creare e usare uno strumento di [stima](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) generico per inviare script di training che usano qualsiasi framework di apprendimento scelto, ad esempio Scikit-learn. Se è necessario rendere disponibili i file di dati per la destinazione di calcolo, vedere eseguire il [training con Azure Machine Learning set di](how-to-train-with-datasets.md)dati.
+Per semplificare il training del modello usando i Framework più diffusi, il Azure Machine Learning Python SDK fornisce un'astrazione di livello superiore alternativa, la classe Estimator.  Questa classe consente di creare facilmente configurazioni di esecuzione. È possibile creare e usare uno strumento di [stima](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) generico per inviare script di training che usano qualsiasi framework di apprendimento scelto, ad esempio Scikit-learn. Si consiglia di usare un estimatore per il training in quanto il sistema integra automaticamente oggetti incorporati come un ambiente o oggetti RunConfiguration. Per avere un maggiore controllo sulla modalità di creazione di questi oggetti e specfify i pacchetti da installare per l'esecuzione di experiement, seguire [questa procedura](#amlcompute) per inviare gli esperimenti di training usando un oggetto RunConfiguration in un calcolo Azure Machine Learning.
 
 Per le attività PyTorch, TensorFlow e Chainer, Azure Machine Learning fornisce anche i rispettivi estimatori [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)e [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) per semplificare l'uso di questi Framework.
 

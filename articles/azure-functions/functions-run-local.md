@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 24bee8ffe23d524553143b2097560979a39329d7
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 5f260ab1df5341a981a388533b06cbcda400e4da
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74784715"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941832"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Usare Strumenti di base di Funzioni di Azure
 
@@ -31,35 +31,45 @@ Per lo sviluppo di funzioni sul computer locale e la relativa pubblicazione in A
 
 ## <a name="core-tools-versions"></a>Le versioni degli strumenti di base
 
-Sono disponibili due versioni degli strumenti di base di Funzioni di Azure. La versione in uso dipende dall'ambiente di sviluppo locale, [dalla scelta della lingua](supported-languages.md) e dal livello di supporto richiesto:
+Sono disponibili tre versioni di Azure Functions Core Tools. La versione in uso dipende dall'ambiente di sviluppo locale, [dalla scelta della lingua](supported-languages.md) e dal livello di supporto richiesto:
 
-+ Versione 1.x: supporta la versione 1.x del runtime. Questa versione degli strumenti è supportata solo nei computer Windows e viene installata da un [pacchetto npm](https://docs.npmjs.com/getting-started/what-is-npm). Con questa versione, è possibile creare funzioni nei linguaggi sperimentali che non sono ufficialmente supportati. Per altre informazioni, vedere [Linguaggi supportati nelle Funzioni di Azure](supported-languages.md)
++ **Versione 1. x**: supporta la versione 1. x del runtime di funzioni di Azure. Questa versione degli strumenti è supportata solo nei computer Windows e viene installata da un [pacchetto npm](https://www.npmjs.com/package/azure-functions-core-tools).
 
-+ [Versione 2.x](#v2): supporta la [versione 2.x del runtime](functions-versions.md). Questa versione supporta [Windows](#windows-npm), [macOS](#brew) e [Linux](#linux). Usa gestori di pacchetti specifici della piattaforma o npm per l'installazione.
++ [**Versione 2. x/3. x**](#v2): supporta [la versione 2. x o 3. x del runtime di funzioni di Azure](functions-versions.md). Queste versioni supportano [Windows](#windows-npm), [MacOS](#brew)e [Linux](#linux) e usano i gestori di pacchetti specifici della piattaforma o NPM per l'installazione.
 
-Se non specificato diversamente, gli esempi in questo articolo si riferiscono alla versione 2.x.
+Se non specificato diversamente, gli esempi in questo articolo sono per la versione 3. x.
 
 ## <a name="install-the-azure-functions-core-tools"></a>Installare gli strumenti di base per Funzioni di Azure
 
 [Strumenti di base di Funzioni di Azure] comprende una versione dello stesso runtime che alimenta Funzioni di Azure che è possibile eseguire nel computer di sviluppo locale. Fornisce anche i comandi per creare le funzioni, connettersi ad Azure e distribuire i progetti della funzione.
 
-### <a name="v2"></a>Versione 2.x
+### <a name="v2"></a>Versione 2. x e 3. x
 
-La versione 2.x degli strumenti usa il runtime di Funzioni di Azure 2.x basata su .NET Core. Questa versione è supportata su tutte le piattaforme supportate da .NET Core 2.x, incluse [Windows](#windows-npm), [macOS](#brew) e [Linux](#linux). 
+La versione 2. x/3. x degli strumenti usa il runtime di funzioni di Azure compilato in .NET Core. Questa versione è supportata su tutte le piattaforme supportate da .NET Core, tra cui [Windows](#windows-npm), [MacOS](#brew)e [Linux](#linux). 
 
 > [!IMPORTANT]
-> È possibile ignorare il requisito per l'installazione di .NET Core 2. x SDK usando i [bundle di estensione].
+> È possibile ignorare il requisito per l'installazione del .NET Core SDK usando i [bundle di estensione].
 
 #### <a name="windows-npm"></a>Windows
 
 I passaggi seguenti usano npm per installare gli strumenti di base in Windows. È anche possibile usare [Chocolatey](https://chocolatey.org/). Per altre informazioni, vedere il [file leggimi degli strumenti di base](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-1. Installare [Node.js], che include npm. Per la versione 2.x degli strumenti, sono supportate solo le versioni Node.js 8.5 e successive.
+1. Installare [Node.js], che include npm.
+    - Per la versione 2.x degli strumenti, sono supportate solo le versioni Node.js 8.5 e successive.
+    - Per la versione 3. x degli strumenti, sono supportate solo le versioni node 10 e versioni successive.
 
 1. Installare il pacchetto degli strumenti di base:
 
+    ##### <a name="v2x"></a>v2.x
+
     ```bash
     npm install -g azure-functions-core-tools
+    ```
+
+    ##### <a name="v3x"></a>V3. x
+
+    ```bash
+    npm install -g azure-functions-core-tools@3
     ```
 
    Potrebbero essere necessari alcuni minuti prima che NPM scarichi e installi il pacchetto di strumenti di base.
@@ -74,13 +84,21 @@ I passaggi seguenti usano Homebrew per installare gli strumenti di base su macOS
 
 1. Installare il pacchetto degli strumenti di base:
 
+    ##### <a name="v2x"></a>v2.x
+
     ```bash
     brew tap azure/functions
     brew install azure-functions-core-tools
     ```
 
-1. Se non si prevede di usare i [bundle di estensione], installare [.NET Core 2. x SDK per MacOS](https://www.microsoft.com/net/download/macos).
+    ##### <a name="v3x"></a>V3. x
 
+    ```bash
+    brew tap azure/functions
+    brew install azure-functions-core-tools@3
+    # if upgrading on a machine that has 2.x installed
+    brew link --overwrite azure-functions-core-tools@3
+    ```
 
 #### <a name="linux"></a> Linux (Ubuntu/Debian) con APT
 
@@ -114,7 +132,7 @@ La procedura seguente usa [APT](https://wiki.debian.org/Apt) per installare gli 
     | Debian 10 | `buster` |
     | Debian 9 | `stretch` |
     | Debian 8 | `jessie` |
-    | Ubuntu 18,10    | `cosmic`    |
+    | Ubuntu 18.10    | `cosmic`    |
     | Ubuntu 18.04    | `bionic`    |
     | Ubuntu 17.04    | `zesty`     |
     | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
@@ -212,7 +230,7 @@ Quando non è impostata alcuna stringa di connessione di archiviazione valida pe
 Anche quando si usa l'emulatore di archiviazione per lo sviluppo, si può desiderare di eseguire il test con una connessione di archiviazione effettiva. Se si dispone che si è già [creato un account di archiviazione](../storage/common/storage-create-storage-account.md), è possibile ottenere una stringa di connessione di archiviazione valida in uno dei modi seguenti:
 
 - Dalla [Azure portal]cercare e selezionare **account di archiviazione**. 
-  ![selezionare account di archiviazione da portale di Azure](./media/functions-run-local/select-storage-accounts.png)
+  ![selezionare gli account di archiviazione da portale di Azure](./media/functions-run-local/select-storage-accounts.png)
   
   Selezionare l'account di archiviazione, selezionare **chiavi di accesso** in **Impostazioni**, quindi copiare uno dei valori della stringa di **connessione** .
   ![copiare la stringa di connessione da portale di Azure](./media/functions-run-local/copy-storage-connection-portal.png)
@@ -526,5 +544,5 @@ Per registrare una richiesta per un bug o una funzionalità [aprire un problema 
 [Azure portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
-[AzureWebJobsStorage]: functions-app-settings.md#azurewebjobsstorage
+[`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
 [Bundle di estensione]: functions-bindings-register.md#extension-bundles

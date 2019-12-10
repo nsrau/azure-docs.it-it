@@ -1,5 +1,6 @@
 ---
-title: Integrare scambi di attestazioni API REST nel percorso utente Azure Active Directory B2C
+title: Integrare scambi di attestazioni API REST in un percorso utente
+titleSuffix: Azure AD B2C
 description: Integrare scambi di attestazioni API REST nel percorso utente Azure AD B2C come convalida dell'input dell'utente.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 49cd049c56e0c1d80318f9323aefe2d128774f3f
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 3bea04ba077aebe9a52400a1292c5cd27c15b72e
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69645117"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950919"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrare scambi di attestazioni API REST nel percorso utente di Azure AD B2C come convalida dell'input utente
 
@@ -28,8 +29,8 @@ Con il framework dell'esperienza di gestione delle identità, che è alla base d
 Usando Azure AD B2C, è possibile aggiungere la logica di business a un percorso utente chiamando il servizio RESTful. Il framework dell'esperienza di gestione delle identità invia dati al servizio RESTful in una raccolta di *attestazioni di input* e riceve i dati da RESTful in una raccolta di *attestazioni di output*. Con l'integrazione del servizio RESTful, è possibile eseguire queste operazioni:
 
 * **Convalidare i dati di input utente**: questa azione evita che i dati in formato non corretto vengano resi permanenti in Azure AD. Se il valore immesso dall'utente non è valido, il servizio RESTful restituisce un messaggio di errore che indica all'utente di specificare una voce. È possibile ad esempio verificare che l'indirizzo di posta elettronica indicato dall'utente sia presente nel database del cliente.
-* **Sovrascrivere attestazioni di input**: Ad esempio, se un utente immette il nome in lettere tutte minuscole o tutte maiuscole, è possibile formattare il nome con solo la prima lettera maiuscola.
-* **Arricchire i dati utente eseguendo un'integrazione più approfondita con applicazioni line-of-business**: Il servizio RESTful può ricevere l'indirizzo di posta elettronica dell'utente, eseguire una query sul database del cliente e restituire il numero del programma fedeltà dell'utente ad Azure AD B2C. Le attestazioni restituite possono essere archiviate nell'account Azure AD dell'utente, valutato nei *passaggi di orchestrazione* successivi o incluso nel token di accesso.
+* **Sovrascrivere le attestazioni di input**: se ad esempio un utente immette il nome in lettere tutte minuscole o tutte maiuscole, è possibile formattare il nome con solo la prima lettera maiuscola.
+* **Arricchire i dati utente con un'ulteriore integrazione con le applicazioni line-of-business aziendali**: il servizio RESTful può ricevere l'indirizzo di posta elettronica dell'utente, eseguire una query sul database del cliente e restituire il numero di programma fedeltà dell'utente ad Azure AD B2C. Le attestazioni restituite possono essere archiviate nell'account Azure AD dell'utente, valutato nei *passaggi di orchestrazione* successivi o incluso nel token di accesso.
 * **Eseguire la logica di business personalizzata**: è possibile inviare notifiche push, aggiornare i database aziendali, eseguire un processo di migrazione utente, gestire le autorizzazioni, controllare i database ed eseguire altre azioni.
 
 È possibile progettare l'integrazione con i servizi RESTful nei modi seguenti:
@@ -47,7 +48,7 @@ Usando Azure AD B2C, è possibile aggiungere la logica di business a un percorso
 
 Questa procedura dettagliata consente di sviluppare un'API Web di .NET Framework che convalida l'input utente e indica il numero di fedeltà di un utente. L'applicazione può concedere ad esempio l'accesso a *benefit più vantaggiosi* in base al numero di fedeltà.
 
-Panoramica
+Panoramica:
 
 * Sviluppare il servizio RESTful (API Web .NET Framework)
 * Usare il servizio RESTful nel percorso utente
@@ -135,7 +136,7 @@ Creare un modello che rappresenta le attestazioni di input seguendo questa proce
     }
     ```
 
-### <a name="step-22-add-a-controller"></a>Passaggio 2.2: Aggiunta di un controller
+### <a name="step-22-add-a-controller"></a>Passaggio 2.2: Aggiungere un controller
 
 Nell'API Web un _controller_ è un oggetto che gestisce richieste HTTP. Il controller restituisce le attestazioni di output oppure, se il nome non è valido, genera un messaggio di errore di conflitto HTTP.
 
@@ -260,7 +261,7 @@ Il frammento di codice XML seguente contiene un nodo di un provider di attestazi
 
     In questo esempio il contenuto dell'attestazione `givenName` viene inviato al servizio REST come `firstName`, il contenuto dell'attestazione `surname` viene inviato al servizio REST come `lastName` e `email` viene inviato così com'è. L'elemento `OutputClaims` definisce le attestazioni che vengono recuperate dal servizio RESTful e restituite ad Azure AD B2C.
 
-* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"** : aggiunge un profilo tecnico di convalida al profilo tecnico esistente (definito nei criteri di base). Durante la fase di iscrizione il profilo tecnico di convalida richiama il profilo tecnico precedente. Se il servizio RESTful restituisce un errore HTTP 409 (un errore di conflitto), il messaggio di errore viene visualizzato dall'utente.
+* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"** : aggiunge un profilo tecnico di convalida a un profilo tecnico esistente (definito nei criteri di base). Durante la fase di iscrizione il profilo tecnico di convalida richiama il profilo tecnico precedente. Se il servizio RESTful restituisce un errore HTTP 409 (un errore di conflitto), il messaggio di errore viene visualizzato dall'utente.
 
 Individuare il nodo `<ClaimsProviders>` e quindi aggiungere il frammento XML seguente nel nodo `<ClaimsProviders>`:
 
@@ -357,9 +358,9 @@ Dopo aver aggiunto la nuova attestazione, il codice della relying party è simil
     > [!NOTE]
     > Il comando **Esegui adesso** richiede che nel tenant sia preregistrata almeno un'applicazione. Per informazioni su come registrare le applicazioni, vedere l'articolo di [introduzione](active-directory-b2c-get-started.md) ad Azure AD B2C o l'articolo relativo alla [registrazione delle applicazioni](active-directory-b2c-app-registration.md).
 
-2. Aprire **B2C_1A_signup_signin**, i criteri personalizzati della relying party caricati in precedenza e quindi selezionare **Esegui adesso**.
+2. Aprire **B2C_1A_signup_signin**, i criteri personalizzati della relying party caricati in precedenza, quindi selezionare **Esegui adesso**.
 
-    ![Pagina dei criteri personalizzati B2C_1A_signup_signin nel portale di Azure](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-run.png)
+    ![La B2C_1A_signup_signin pagina dei criteri personalizzati nell'portale di Azure](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-run.png)
 
 3. Testare il processo digitando **Test** nella casella **Nome**.
     Azure AD B2C visualizza un messaggio di errore nella parte superiore della finestra.
@@ -394,7 +395,7 @@ Dopo aver aggiunto la nuova attestazione, il codice della relying party è simil
 
 * Dopo aver completato la procedura [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md), è consigliabile usare file di criteri personalizzati per definire scenari specifici. Per riferimento, sono disponibili [file di criteri di esempio](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw).
 
-* È possibile scaricare il codice completo da [Sample Visual Studio solution for reference](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/) (Soluzione di Visual Studio di esempio per riferimento).
+* È possibile scaricare il codice completo dalla [soluzione di Visual Studio di esempio di riferimento](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -403,4 +404,4 @@ L'attività successiva consiste nel proteggere l'API RESTful usando l'autenticaz
 * [Secure your RESTful API with basic authentication (username and password)](active-directory-b2c-custom-rest-api-netfw-secure-basic.md) (Proteggere l'API RESTful con l'atenticazione di base - nome utente e password)
 * [Proteggere l'API RESTful con certificati client](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
 
-Per informazioni su tutti gli elementi disponibili in un profilo tecnico RESTful, vedere [informazioni di riferimento: Profilo](restful-technical-profile.md)tecnico RESTful.
+Per informazioni su tutti gli elementi disponibili in un profilo tecnico RESTful, vedere [riferimento: profilo tecnico RESTful](restful-technical-profile.md).

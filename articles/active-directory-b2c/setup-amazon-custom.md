@@ -1,5 +1,6 @@
 ---
-title: Configurare l'accesso con un account Amazon usando criteri personalizzati in Azure Active Directory B2C | Microsoft Docs
+title: Configurare l'accesso con un account Amazon usando criteri personalizzati
+titleSuffix: Azure AD B2C
 description: Configurare l'accesso con un account Amazon in Azure Active Directory B2C usando criteri personalizzati.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/05/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 89f753eb0a4327bc68be9ff85006e86b57bcb548
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 39a0e9442f3e41ceeb67b4d528eb193b159d8777
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827249"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950851"
 ---
 # <a name="set-up-sign-in-with-an-amazon-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso con un account Amazon usando criteri personalizzati in Azure Active Directory B2C
 
@@ -38,7 +39,7 @@ Per abilitare l'accesso per gli utenti da un account Amazon, è necessario crear
 4. Immettere un **Name**, una **Descrizione** e un **URL dell'informativa sulla Privacy**, quindi fare clic su **Salva**. L'Informativa sulla privacy è una pagina gestita dall'utente che fornisce informazioni sulla privacy per gli utenti.
 5. Nella sezione **Impostazioni Web** copiare i valori dell'**ID client**. Selezionare **Mostra il segreto** per ottenere il segreto client e quindi copiarlo. Sono necessari entrambi per configurare un account Amazon come provider di identità nel tenant. **Client Segreto** è un'importante credenziale di sicurezza.
 6. Nella sezione **Impostazioni Web**, selezionare **Modifica**, quindi immettere `https://your-tenant-name.b2clogin.com` in **Allowed JavaScript Origins** (Origini JavaScript consentite) e `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` in **Allowed Return URLs** (URL restituiti consentiti). Sostituire `your-tenant-name` con il nome del tenant. Usare lettere minuscole quando si immette il nome del tenant, anche se questo viene definito con lettere maiuscole in Azure AD B2C.
-7. Fare clic su **Salva**.
+7. Fare clic su **Salva**
 
 ## <a name="create-a-policy-key"></a>Creare una chiave dei criteri
 

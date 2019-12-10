@@ -2,18 +2,18 @@
 title: 'Infrastruttura: Apache Hadoop locali ad Azure HDInsight'
 description: Informazioni sulle procedure consigliate per l'infrastruttura relative alla migrazione di cluster Hadoop locali ad Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.author: hrasheed
-ms.openlocfilehash: adc0e5f5eef41dcb1f826ffbf0cfe91a937fac01
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 12/06/2019
+ms.openlocfilehash: d7ee8ae121e3cbb9760a87c95d12109a9b05e0c5
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499224"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951514"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Eseguire la migrazione di cluster Apache Hadoop locali ad Azure HDInsight - Procedure consigliate per l'infrastruttura
 
@@ -23,10 +23,17 @@ Questo articolo offre indicazioni per la gestione dell'infrastruttura dei cluste
 
 Le opzioni principali per la pianificazione della capacità dei cluster HDInsight sono:
 
-- **Scegliere l'area** - L'area di Azure determina il luogo in cui viene fisicamente eseguito il provisioning del cluster. Per ridurre al minimo la latenza di lettura e scrittura, è opportuno che il cluster si trovi nella stessa area dei dati.
-- **Scegliere dimensioni e posizione di archiviazione** -- L'archiviazione predefinita deve essere nella stessa area del cluster. Per un cluster a 48 nodi, è consigliabile avere un account di archiviazione da 4 a 8. Anche se è possibile che lo spazio di archiviazione complessivo sia già sufficiente, ogni account di archiviazione fornisce larghezza di banda di rete aggiuntiva per i nodi di calcolo. In caso di più account di archiviazione, usare un nome casuale per ognuno di essi, senza prefisso. La denominazione casuale ha lo scopo di diminuire le probabilità di colli di bottiglia di archiviazione (limitazione) e di errori di modo comune negli account. Per prestazioni ottimali, usare solo un contenitore per ogni account archiviazione.
-- **Scegliere tipo e dimensioni della VM (ora supportata la serie G)** - Ogni tipo di cluster contiene un set di tipi di nodo, a cui sono associate opzioni specifiche per il tipo e la dimensione della macchina virtuale. Il tipo e le dimensioni della macchina virtuale variano in base alla potenza di elaborazione della CPU, alle dimensioni della RAM e alla latenza di rete. È possibile usare un carico di lavoro simulato per determinare il tipo e le dimensioni ottimali della macchina virtuale per ogni tipo di nodo.
-- **Scegliere il numero di nodi del ruolo di lavoro** - Il numero iniziale di nodi del ruolo di lavoro può essere determinato mediante i carichi di lavoro simulati. I cluster possono essere ridimensionati in un secondo momento aggiungendo più nodi del ruolo di lavoro per soddisfare le richieste di picchi di carico. Il cluster può essere nuovamente ridimensionato in un secondo momento quando non sono richiesti nodi del ruolo di lavoro aggiuntivi.
+**Area**  
+L'area di Azure determina la posizione in cui viene effettuato il provisioning fisico del cluster. Per ridurre al minimo la latenza di lettura e scrittura, è opportuno che il cluster si trovi nella stessa area dei dati.
+
+**Posizione e dimensioni di archiviazione**  
+La risorsa di archiviazione predefinita deve trovarsi nella stessa area del cluster. Per un cluster a 48 nodi, è consigliabile avere un account di archiviazione da 4 a 8. Anche se è possibile che lo spazio di archiviazione complessivo sia già sufficiente, ogni account di archiviazione fornisce larghezza di banda di rete aggiuntiva per i nodi di calcolo. In caso di più account di archiviazione, usare un nome casuale per ognuno di essi, senza prefisso. La denominazione casuale ha lo scopo di diminuire le probabilità di colli di bottiglia di archiviazione (limitazione) e di errori di modo comune negli account. Per prestazioni ottimali, usare solo un contenitore per ogni account archiviazione.
+
+**Dimensioni e tipo della VM (supporta ora la serie G)**  
+Ogni tipo di cluster contiene un set di tipi di nodo, a cui sono associate opzioni specifiche per il tipo e la dimensione della macchina virtuale. Il tipo e le dimensioni della macchina virtuale variano in base alla potenza di elaborazione della CPU, alle dimensioni della RAM e alla latenza di rete. È possibile usare un carico di lavoro simulato per determinare il tipo e le dimensioni ottimali della macchina virtuale per ogni tipo di nodo.
+
+**Numero di nodi del ruolo di lavoro**  
+Il numero iniziale di nodi di lavoro può essere determinato usando i carichi di lavoro simulati. I cluster possono essere ridimensionati in un secondo momento aggiungendo più nodi del ruolo di lavoro per soddisfare le richieste di picchi di carico. Il cluster può essere ridimensionato in un secondo momento quando i nodi del ruolo di lavoro aggiuntivi non sono necessari.
 
 Per altre informazioni, vedere [Pianificazione della capacità per cluster HDInsight](../hdinsight-capacity-planning.md).
 
@@ -92,7 +99,7 @@ HDInsight include script predefiniti per installare i componenti seguenti nei cl
 > [!Note]  
 > HDInsight non offre supporto diretto per i componenti Hadoop personalizzati o per i componenti installati tramite azioni script.
 
-Le azioni di script possono anche essere pubblicate in Azure Marketplace come applicazione HDInsight.
+Le azioni script possono anche essere pubblicate in Azure Marketplace come applicazione HDInsight.
 
 Per altre informazioni, vedere gli articoli seguenti:
 
@@ -145,7 +152,7 @@ Per altre informazioni, vedere [Usare i nodi perimetrali vuoti sui cluster Apach
 
 ## <a name="use-scale-up-and-scale-down-feature-of-clusters"></a>Usare le funzionalità di aumento e riduzione delle prestazioni dei cluster
 
-HDInsight offre elasticità permettendo di aumentare e ridurre il numero di nodi di lavoro nei cluster. Questa funzionalità consente di ridurre un cluster nelle ore di chiusura o nei fine settimana ed espanderlo durante i picchi delle richieste aziendali. Per altre informazioni, vedere:
+HDInsight offre elasticità permettendo di aumentare e ridurre il numero di nodi di lavoro nei cluster. Questa funzionalità consente di ridurre un cluster nelle ore di chiusura o nei fine settimana ed espanderlo durante i picchi delle richieste aziendali. Per scoprire di più, vedi:
 
 * [Ridimensionare i cluster HDInsight](../hdinsight-scaling-best-practices.md).
 * [Ridimensionare i cluster](../hdinsight-administer-use-portal-linux.md#scale-clusters).
@@ -191,6 +198,4 @@ Per altre informazioni, vedere l'articolo [Connettere HDInsight alla rete locale
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Leggere l'articolo successivo di questa serie:
-
-- [Storage best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-storage.md) (Procedure consigliate per lo storage relative alla migrazione da locale ad Azure HDInsight Hadoop)
+Leggere il prossimo articolo di questa serie: [procedure consigliate per l'archiviazione per la migrazione da sito locale a Azure HDInsight Hadoop](apache-hadoop-on-premises-migration-best-practices-storage.md).

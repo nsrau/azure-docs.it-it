@@ -1,5 +1,6 @@
 ---
-title: Configurare la modifica delle password usando criteri personalizzati in Azure Active Directory B2C | Microsoft Docs
+title: Configurare la modifica della password tramite criteri personalizzati
+titleSuffix: Azure AD B2C
 description: Informazioni su come abilitare gli utenti a modificare le password usando criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0775920e1d6572223253edbfc066123a515b5480
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: fd1f623eecdd855dbfb8e27795f813db4d099f53
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065547"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950579"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare la modifica delle password usando criteri personalizzati in Azure Active Directory B2C
 
@@ -165,12 +166,12 @@ Durante il test delle applicazioni in Azure AD B2C, può essere utile avere rest
 ### <a name="upload-the-files"></a>Caricare i file
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C selezionando il filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene il tenant.
+2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
 4. Fare clic su **Framework dell'esperienza di gestione delle identità**.
 5. Nella pagina dei criteri personalizzati, fare clic su **Carica criterio**.
 6. Selezionare **Sovrascrivi il criterio se esistente**, quindi cercare e selezionare il file *TrustframeworkExtensions.xml*.
-7. Fare clic su **Upload**.
+7. Fare clic su **Carica**.
 8. Ripetere i passaggi da 5 a 7 per il file relying party, ad esempio *ProfileEditPasswordChange.xml*.
 
 ### <a name="run-the-policy"></a>Esegui il criterio
