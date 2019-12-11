@@ -1,5 +1,5 @@
 ---
-title: Diagnosticare gli errori con Azure Active Directory servizio connesso
+title: Diagnosticare gli errori con Azure AD servizio connesso
 description: Il servizio connesso di Active Directory ha rilevato un tipo di autenticazione incompatibile.
 author: ghogen
 manager: jillfra
@@ -12,12 +12,12 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6df50db564dac09785b460d158d4276ea8a215e
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 6a7528bafd9183ae917370a6de35d1d94c3783e5
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74271258"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74966453"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Diagnosi degli errori con il servizio connesso di Azure Active Directory
 

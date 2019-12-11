@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 21c1380862638ef671b31f0fdec42009d217aca7
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 5fdb189fcab3da4dad52642571ac42e669828fe3
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893213"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971656"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la continuità aziendale e il ripristino di emergenza nel servizio Azure Kubernetes
 
@@ -122,7 +122,7 @@ La strategia tipica consiste nel fornire un punto di archiviazione comune in cui
 
 Se si usa Managed Disks di Azure, è possibile scegliere la replica e le soluzioni di ripristino di emergenza, ad esempio:
 
-* [Velero in Azure](https://github.com/heptio/velero/blob/master/site/docs/master/azure-config.md)
+* [Velero in Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md)
 * [Azure Site Recovery](https://azure.microsoft.com/blog/asr-managed-disks-between-azure-regions/)
 
 ### <a name="application-based-asynchronous-replication"></a>Replica asincrona basata sull'applicazione

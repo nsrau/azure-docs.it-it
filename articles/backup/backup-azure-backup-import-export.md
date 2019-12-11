@@ -4,12 +4,12 @@ description: Informazioni sull'uso di Backup di Azure per l'invio di dati offlin
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: 331d5528c8f124f4d43142ff7be4daa3169b0381
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 47d4c4fb63c2aa0e2944456048b06070e235f012
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173295"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997361"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flusso di lavoro del backup offline in Backup di Azure
 
@@ -42,7 +42,7 @@ Le funzionalità o i carichi di lavoro seguenti di Backup di Azure supportano l'
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
   > [!NOTE]
   > I prerequisiti e il flusso di lavoro seguenti si applicano solo al backup offline di file e cartelle mediante l'[agente di Servizi di ripristino di Microsoft Azure più recente](https://aka.ms/azurebackup_agent). Per eseguire i backup offline dei carichi di lavoro con System Center DPM o il server di Backup di Azure, fare riferimento a [questo articolo](backup-azure-backup-server-import-export-.md).
@@ -122,7 +122,7 @@ L'utilità *AzureOfflineBackupDiskPrep* prepara le unità SATA da inviare al dat
 
     ```.\AzureOfflineBackupDiskPrep.exe s:<Staging Location Path>```
 
-    | . | DESCRIZIONE |
+    | Parametro | Description |
     | --- | --- |
     | s:&lt;*Percorso posizione staging*&gt; |Input obbligatorio usato per specificare il percorso di gestione temporanea immesso durante il flusso di lavoro di **avvio del backup offline**. |
     | p:&lt;*Percorso FileImpostazioniPubblicazione*&gt; |Input facoltativo usato per specificare il percorso del file delle **impostazioni di pubblicazione di Azure** immesso durante il flusso di lavoro di **avvio del backup offline**. |
@@ -206,4 +206,4 @@ Dopo aver completato il backup iniziale, è possibile eliminare in modo sicuro i
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per altre informazioni sul flusso di lavoro di Importazione/Esportazione di Azure, vedere [Usare il servizio Importazione/Esportazione di Microsoft Azure per trasferire i dati nell'archiviazione BLOB](../storage/common/storage-import-export-service.md).
-* Per domande sul flusso di lavoro, vedere la sezione relativa al backup offline delle [domande frequenti](backup-azure-backup-faq.md) di Backup di Azure.
+

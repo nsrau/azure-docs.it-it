@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 36c496b77be5bfda83b3ed424a7fdf2b53101aa4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 1e67fc3a2f878e5e04834f67027c98e0b37e9059
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580622"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973595"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Funzionamento di Azure Machine Learning: architettura e concetti
 
@@ -73,9 +73,9 @@ Usare questi strumenti per Azure Machine Learning:
 + <a href="#snapshots">Snapshot</a>
 + <a href="#training-scripts">Script di training</a>
 + <a href="#web-service-endpoint">Servizi Web</a>
-+ <a href="#workspaces">Area</a>
++ <a href="#workspaces">Area di lavoro</a>
 
-### <a name="activities"></a>attività
+### <a name="activities"></a>Attività
 
 Un'attività rappresenta un'operazione a esecuzione prolungata. Le operazioni seguenti sono esempi di attività:
 
@@ -149,7 +149,7 @@ Per altre informazioni, vedere gli articoli seguenti:
 * Esegui il [training e la registrazione dei modelli TensorFlow su larga scala con Azure Machine Learning](how-to-train-tensorflow.md).
 * Esegui il [training e la registrazione dei modelli di Chainer su larga scala con Azure Machine Learning](how-to-train-chainer.md).
 
-### <a name="experiments"></a>Sperimentazioni
+### <a name="experiments"></a>Esperimenti
 
 Un esperimento è un raggruppamento di più esecuzioni da uno script specifico. Appartiene sempre a un'area di lavoro. Quando si invia un'esecuzione, si fornisce un nome dell'esperimento. Le informazioni per l'esecuzione vengono archiviate in tale esperimento. Se si invia un'esecuzione e si specifica un nome dell'esperimento che non esiste, viene creato automaticamente un nuovo esperimento il nuovo nome specificato.
 

@@ -1,7 +1,7 @@
 ---
 title: Eseguire il training di modelli di apprendimento automatico Scikit-learn
 titleSuffix: Azure Machine Learning
-description: Informazioni su come eseguire gli script di training di Scikit-learn su scala aziendale usando la classe SKlearn Estimator di Azure Machine Learning. Gli script di esempio classificano le immagini fiore Iris per creare un modello di machine learning basato sul set di dati Iris Scikit-learn.
+description: Informazioni su come eseguire gli script di training di Scikit-learn su scala Enterprise usando la classe Azure Machine Learning SKlearn Estimator. Gli script di esempio classificano le immagini fiore Iris per creare un modello di machine learning basato sul set di dati Iris Scikit-learn.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,23 +10,23 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: a85d33a804c8aaf3081439806bf69dab5263dcf2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 2b6cdf9350d95de901e8a0f1e875d90513b33f1a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224850"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976112"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Creazione di modelli Scikit-learn su larga scala con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Questo articolo illustra come eseguire gli script di training di Scikit-learn su scala aziendale usando la classe [SKlearn Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) di Azure Machine Learning. 
+Questo articolo illustra come eseguire gli script di training di Scikit-learn su scala Enterprise usando la classe Azure Machine Learning [SKlearn Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) . 
 
 Gli script di esempio in questo articolo vengono usati per classificare le immagini Flower Iris per creare un modello di machine learning basato sul [set di dati Iris](https://archive.ics.uci.edu/ml/datasets/iris)Scikit-learn.
 
 Che tu stia eseguendo il training di un modello Scikit-learn di machine learning da zero o che crei un modello esistente nel cloud, puoi usare Azure Machine Learning per scalare in orizzontale processi di training open source con risorse di calcolo elastiche per il cloud. Con Azure Machine Learning è possibile creare, distribuire, eseguire la versione e monitorare i modelli a livello di produzione.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Eseguire questo codice in uno degli ambienti seguenti:
  - Azure Machine Learning macchina virtuale Notebook-nessun download o installazione necessaria
@@ -47,7 +47,7 @@ Eseguire questo codice in uno degli ambienti seguenti:
 
 Questa sezione Configura l'esperimento di training caricando i pacchetti Python necessari, inizializzando un'area di lavoro, creando un esperimento e caricando i dati di training e gli script di training.
 
-### <a name="import-packages"></a>Importare i pacchetti
+### <a name="import-packages"></a>Importare pacchetti
 
 Prima di tutto, importare le librerie Python necessarie.
 

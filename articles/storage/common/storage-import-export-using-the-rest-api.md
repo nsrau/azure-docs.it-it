@@ -1,19 +1,19 @@
 ---
 title: Uso dell'API REST del servizio Importazione/Esportazione di Azure | Documentazione Microsoft
 description: Informazioni su dove trovare le risorse per usare l'API REST del servizio Importazione/Esportazione di Azure, compresi i materiali di riferimento e i materiali relativi alle procedure.
-author: muralikk
+author: twooley
 services: storage
 ms.service: storage
 ms.topic: article
 ms.date: 01/15/2017
-ms.author: muralikk
+ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: 1e8b60f37cefb81fbbbbb7823be7752dd1188dc3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 833b8c79fba57b7129092e084381c0671c396496
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60320279"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978867"
 ---
 # <a name="using-the-azure-importexport-service-rest-api"></a>Uso dell'API REST del servizio Importazione/Esportazione di Azure
 
@@ -35,13 +35,13 @@ Le richieste al servizio Importazione/Esportazione devono specificare il paramet
 
 ## <a name="importexport-service-operations"></a>Operazioni del servizio Importazione/Esportazione
 
-[Creating an import job](../storage-import-export-creating-an-import-job.md) (Creazione di un processo di importazione)
+[Creazione di un processo di importazione](../storage-import-export-creating-an-import-job.md)
 
-[Creazione di un processo di esportazione](../storage-import-export-creating-an-export-job.md)
+[Creating an export job](../storage-import-export-creating-an-export-job.md) (Creazione di un processo di esportazione)
 
 [Retrieving state information for a job](storage-import-export-retrieving-state-info-for-a-job.md) (Recupero delle informazioni sullo stato per un processo)
 
-[Enumerazione dei processi](../storage-import-export-enumerating-jobs.md)
+[Enumerating jobs](../storage-import-export-enumerating-jobs.md) (Enumerazione dei processi)
 
 [Cancelling and deleting jobs](storage-import-export-cancelling-and-deleting-jobs.md) (Annullamento ed eliminazione dei processi)
 

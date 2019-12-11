@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: fb3d2e70d9485c63d6de156abe9d192afa818814
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3cf4f2314c7de2b2f7d581faeea88fe3c3177e81
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075078"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975058"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Generare un certificato autofirmato applicazione Azure gateway con una CA radice personalizzata
 
@@ -30,7 +30,7 @@ In questo articolo verrà spiegato come:
 - Creare un certificato autofirmato firmato dalla CA personalizzata
 - Caricare un certificato radice autofirmato in un gateway applicazione per autenticare il server back-end
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - **[Openssl](https://www.openssl.org/) in un computer che esegue Windows o Linux** 
 
@@ -106,7 +106,7 @@ CSR è una chiave pubblica assegnata a una CA quando viene richiesto un certific
 1. Usare il comando seguente per creare il certificato:
 
    ```
-   openssl x509 -req -in fabrikam.csr -CA public.crt -CAkey contoso.key -CAcreateserial -out fabrikam.crt -days 365 -sha256
+   openssl x509 -req -in fabrikam.csr -CA  contoso.crt -CAkey contoso.key -CAcreateserial -out fabrikam.crt -days 365 -sha256
    ```
 ### <a name="verify-the-newly-created-certificate"></a>Verificare il certificato appena creato
 
@@ -179,7 +179,7 @@ openssl s_client -connect localhost:443 -servername www.fabrikam.com -showcerts
 
 Per caricare il certificato nel gateway applicazione, è necessario esportare il certificato. CRT in un formato con estensione cer con codifica base-64. Poiché. CRT contiene già la chiave pubblica nel formato con codifica base 64, è sufficiente rinominare l'estensione di file da. CRT a. cer. 
 
-### <a name="azure-portal"></a>portale di Azure
+### <a name="azure-portal"></a>Portale di Azure
 
 Per caricare il certificato radice attendibile dal portale, selezionare le **impostazioni http** e scegliere il protocollo **https** .
 

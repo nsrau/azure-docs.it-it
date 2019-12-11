@@ -4,12 +4,12 @@ description: Informazioni su come sviluppare funzioni usando PowerShell.
 author: eamonoreilly
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.openlocfilehash: 26e52e8aa498c37bd4cef95fb2b54b2fe9322f90
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 2fa510e447d4d9b054a37f7665d010382a5db819
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226688"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974241"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guida per gli sviluppatori di PowerShell per funzioni di Azure
 
@@ -50,7 +50,7 @@ PSFunctionApp
 
 Alla radice del progetto è presente un file di [`host.json`](functions-host-json.md) condiviso che può essere usato per configurare l'app per le funzioni. Ogni funzione dispone di una cartella con il proprio file di codice (con estensione ps1) e il file di configurazione dell'associazione (`function.json`). Il nome della directory padre del file function. JSON è sempre il nome della funzione.
 
-Determinate associazioni richiedono la presenza di un file di `extensions.csproj`. Le estensioni di binding, necessarie nella [versione 2. x](functions-versions.md) del runtime di funzioni, sono definite nel file di `extensions.csproj` con i file di libreria effettivi nella cartella `bin`. Quando si sviluppa una funzione in locale, è necessario [registrare le estensioni di associazione](functions-bindings-register.md#extension-bundles). Quando si sviluppano funzioni nel portale di Azure, la registrazione viene eseguita automaticamente.
+Determinate associazioni richiedono la presenza di un file di `extensions.csproj`. Le estensioni di binding, necessarie nella [versione 2. x e nelle versioni successive](functions-versions.md) del runtime di funzioni, sono definite nel file di `extensions.csproj` con i file di libreria effettivi nella cartella `bin`. Quando si sviluppa una funzione in locale, è necessario [registrare le estensioni di associazione](functions-bindings-register.md#extension-bundles). Quando si sviluppano funzioni nel portale di Azure, la registrazione viene eseguita automaticamente.
 
 Nelle app per le funzioni di PowerShell, è possibile avere un `profile.ps1` che viene eseguito all'avvio dell'esecuzione di un'app per le funzioni. in caso contrario, è noto come *[avvio a freddo](#cold-start)* . Per altre informazioni, vedere [profilo di PowerShell](#powershell-profile).
 
@@ -73,11 +73,11 @@ Il parametro `TriggerMetadata` viene usato per fornire informazioni aggiuntive s
 $TriggerMetadata.sys
 ```
 
-| Proprietà   | DESCRIZIONE                                     | digitare     |
+| Proprietà   | Description                                     | Type     |
 |------------|-------------------------------------------------|----------|
-| UtcNow     | Quando, in UTC, la funzione è stata attivata        | DateTime |
-| MethodName | Nome della funzione attivata     | stringa   |
-| RandGuid   | GUID univoco dell'esecuzione della funzione | stringa   |
+| UtcNow     | Quando, in UTC, la funzione è stata attivata        | Data e ora |
+| MethodName | Nome della funzione attivata     | string   |
+| RandGuid   | GUID univoco dell'esecuzione della funzione | string   |
 
 Ogni tipo di trigger ha un set di metadati diverso. Ad esempio, il `$TriggerMetadata` per `QueueTrigger` contiene le `InsertionTime`, `Id``DequeueCount`, tra le altre cose. Per ulteriori informazioni sui metadati del trigger della coda, vedere la [documentazione ufficiale relativa ai trigger della coda](functions-bindings-storage-queue.md#trigger---message-metadata). Controllare la documentazione sui [trigger](functions-triggers-bindings.md) che si sta utilizzando per vedere cosa avviene all'interno dei metadati del trigger.
 
@@ -121,14 +121,14 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 * Quando l'associazione di output accetta solo un valore singleton, la chiamata di `Push-OutputBinding` una seconda volta genera un errore.
 
-#### <a name="push-outputbinding-syntax"></a>sintassi `Push-OutputBinding`
+#### <a name="push-outputbinding-syntax"></a>Sintassi `Push-OutputBinding`
 
 Di seguito sono riportati i parametri validi per chiamare `Push-OutputBinding`:
 
-| Nome | digitare | Posizione | DESCRIZIONE |
+| name | Type | Posizione | Description |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | String | 1 | Nome dell'associazione di output che si desidera impostare. |
-| **`-Value`** | Object | 2 | Valore dell'associazione di output che si vuole impostare, che viene accettato dalla pipeline ByValue. |
+| **`-Name`** | Stringa | 1 | Nome dell'associazione di output che si desidera impostare. |
+| **`-Value`** | Oggetto | 2 | Valore dell'associazione di output che si vuole impostare, che viene accettato dalla pipeline ByValue. |
 | **`-Clobber`** | SwitchParameter | denominata | Opzionale Quando specificato, impone l'impostazione del valore per un'associazione di output specificata. | 
 
 Sono supportati anche i parametri comuni seguenti: 
@@ -195,7 +195,7 @@ PS >Push-OutputBinding -Name outQueue -Value @("output #3", "output #4")
 
 Quando viene scritto nella coda, il messaggio contiene i quattro valori seguenti: "output #1", "output #2", "output #3" e "output #4".
 
-#### <a name="get-outputbinding-cmdlet"></a>cmdlet `Get-OutputBinding`
+#### <a name="get-outputbinding-cmdlet"></a>Cmdlet di `Get-OutputBinding`
 
 È possibile utilizzare il cmdlet `Get-OutputBinding` per recuperare i valori attualmente impostati per le associazioni di output. Questo cmdlet recupera una tabella hash che contiene i nomi delle associazioni di output con i rispettivi valori. 
 
@@ -232,7 +232,7 @@ La registrazione nelle funzioni di PowerShell funziona come la normale registraz
 
 | Livello di registrazione delle funzioni | Cmdlet di registrazione |
 | ------------- | -------------- |
-| Tipi di errore | **`Write-Error`** |
+| Errore | **`Write-Error`** |
 | Avviso | **`Write-Warning`**  | 
 | Informazioni | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Informazioni | Scrive nella registrazione a livello di _informazioni_ . |
 | Debug | **`Write-Debug`** |
@@ -245,7 +245,7 @@ Oltre a questi cmdlet, tutto ciò che viene scritto nella pipeline viene reindir
 
 ### <a name="configure-the-function-app-log-level"></a>Configurare il livello di registrazione dell'app per le funzioni
 
-Funzioni di Azure consente di definire il livello di soglia per facilitare il controllo del modo in cui le funzioni scrivono nei log. Per impostare la soglia per tutte le tracce scritte nella console, usare la proprietà `logging.logLevel.default` nel riferimento [`host.json` file][informazioni di riferimento su host. json]. Questa impostazione si applica a tutte le funzioni dell'app per le funzioni.
+Funzioni di Azure consente di definire il livello di soglia per facilitare il controllo del modo in cui le funzioni scrivono nei log. Per impostare la soglia per tutte le tracce scritte nella console, usare la `logging.logLevel.default` proprietà [`host.json`nel][informazioni di riferimento su host. json]. Questa impostazione si applica a tutte le funzioni dell'app per le funzioni.
 
 Nell'esempio seguente viene impostata la soglia per abilitare la registrazione dettagliata per tutte le funzioni, ma viene impostata la soglia per abilitare la registrazione di debug per una funzione denominata `MyFunction`:
 
@@ -274,11 +274,11 @@ Sono disponibili diversi trigger e associazioni da usare con l'app per le funzio
 
 Tutti i trigger e le associazioni sono rappresentati nel codice come pochi tipi di dati reali:
 
-* Hashtable
-* stringa
+* TabellaHash
+* string
 * byte[]
 * int
-* double
+* Double
 * HttpRequestContext
 * HttpResponseContext
 
@@ -294,14 +294,14 @@ I trigger e i webhook HTTP e le associazioni di output HTTP usano oggetti di ric
 
 L'oggetto Request passato nello script è del tipo `HttpRequestContext`, che presenta le proprietà seguenti:
 
-| Proprietà  | DESCRIZIONE                                                    | digitare                      |
+| Proprietà  | Description                                                    | Type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| **`Body`**    | Oggetto che contiene il corpo della richiesta. `Body` viene serializzato nel tipo migliore in base ai dati. Se, ad esempio, i dati sono JSON, vengono passati come Hashtable. Se i dati sono una stringa, viene passata come stringa. | oggetto |
+| **`Body`**    | Oggetto che contiene il corpo della richiesta. `Body` viene serializzato nel tipo migliore in base ai dati. Se, ad esempio, i dati sono JSON, vengono passati come Hashtable. Se i dati sono una stringa, viene passata come stringa. | object |
 | **`Headers`** | Dizionario che contiene le intestazioni della richiesta.                | Dictionary < String, String ><sup>*</sup> |
-| **`Method`** | Metodo HTTP della richiesta.                                | stringa                    |
+| **`Method`** | Metodo HTTP della richiesta.                                | string                    |
 | **`Params`**  | Oggetto che contiene i parametri di routing della richiesta. | Dictionary < String, String ><sup>*</sup> |
 | **`Query`** | Oggetto che contiene i parametri di query della richiesta.                  | Dictionary < String, String ><sup>*</sup> |
-| **`Url`** | URL della richiesta.                                        | stringa                    |
+| **`Url`** | URL della richiesta.                                        | string                    |
 
 <sup>*</sup> Tutte le chiavi di `Dictionary<string,string>` non fanno distinzione tra maiuscole e minuscole.
 
@@ -309,12 +309,12 @@ L'oggetto Request passato nello script è del tipo `HttpRequestContext`, che pre
 
 L'oggetto Response da restituire è del tipo `HttpResponseContext`, che presenta le proprietà seguenti:
 
-| Proprietà      | DESCRIZIONE                                                 | digitare                      |
+| Proprietà      | Description                                                 | Type                      |
 |---------------|-------------------------------------------------------------|---------------------------|
-| **`Body`**  | Oggetto che contiene il corpo della risposta.           | oggetto                    |
-| **`ContentType`** | Una breve opzione per l'impostazione del tipo di contenuto per la risposta. | stringa                    |
+| **`Body`**  | Oggetto che contiene il corpo della risposta.           | object                    |
+| **`ContentType`** | Una breve opzione per l'impostazione del tipo di contenuto per la risposta. | string                    |
 | **`Headers`** | Oggetto che contiene le intestazioni della risposta.               | Dictionary o Hashtable   |
-| **`StatusCode`**  | Codice di stato HTTP della risposta.                       | stringa o int             |
+| **`StatusCode`**  | Codice di stato HTTP della risposta.                       | Stringa o numero intero             |
 
 #### <a name="accessing-the-request-and-response"></a>Accesso a richiesta e risposta
 
@@ -420,7 +420,7 @@ Quando si aggiorna il file requirements. psd1, i moduli aggiornati vengono insta
 
 Le seguenti impostazioni dell'applicazione possono essere usate per modificare il modo in cui le dipendenze gestite vengono scaricate e installate. L'aggiornamento dell'app viene avviato entro `MDMaxBackgroundUpgradePeriod`e il processo di aggiornamento viene completato entro approssimativamente l'`MDNewSnapshotCheckPeriod`.
 
-| Impostazione app per le funzioni              | Default value             | DESCRIZIONE                                         |
+| Impostazione app per le funzioni              | Valore predefinito             | Description                                         |
 |   -----------------------------   |   -------------------     |  -----------------------------------------------    |
 | **`MDMaxBackgroundUpgradePeriod`**      | `7.00:00:00` (7 giorni)     | Ogni processo di lavoro di PowerShell avvia il controllo degli aggiornamenti del modulo sul PowerShell Gallery all'avvio del processo e ogni `MDMaxBackgroundUpgradePeriod` successivamente. Quando una nuova versione del modulo è disponibile nel PowerShell Gallery, viene installata nel file system e resa disponibile per i ruoli di lavoro di PowerShell. La riduzione di questo valore consente all'app per le funzioni di ottenere prima le versioni più recenti del modulo, ma aumenta anche l'utilizzo delle risorse dell'app (I/O di rete, CPU, archiviazione). L'aumento di questo valore comporta una riduzione dell'utilizzo delle risorse dell'app, ma può anche ritardare la distribuzione di nuove versioni dei moduli nell'app. | 
 | **`MDNewSnapshotCheckPeriod`**         | `01:00:00` (1 ora)       | Dopo aver installato le nuove versioni del modulo nella file system, è necessario riavviare tutti i processi di lavoro di PowerShell. Il riavvio dei ruoli di lavoro di PowerShell influiscono sulla disponibilità dell'app perché può interrompere l'esecuzione della funzione corrente. Fino a quando non vengono riavviati tutti i processi di lavoro di PowerShell, le chiamate di funzione possono usare le versioni dei moduli precedenti o nuove. Il riavvio di tutti i ruoli di lavoro di PowerShell viene completato in `MDNewSnapshotCheckPeriod`. L'aumento di questo valore comporta una riduzione della frequenza delle interruzioni, ma può anche aumentare il periodo di tempo durante il quale le chiamate di funzione utilizzano le versioni precedenti o nuove del modulo in modo non deterministico. |
@@ -604,7 +604,7 @@ Lo script viene eseguito a ogni chiamata. Evitare di usare `Install-Module` nell
 Per altre informazioni, vedere le seguenti risorse:
 
 * [Procedure consigliate per Funzioni di Azure](functions-best-practices.md)
-* [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md)
+* [Guida di riferimento per gli sviluppatori a Funzioni di Azure](functions-reference.md)
 * [Trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
 
 [informazioni di riferimento su host. JSON]: functions-host-json.md

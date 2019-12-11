@@ -16,18 +16,18 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 570699fe83197a1b5442909d8b89e285a1dfa73b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 268775d125e783b0c640e565c5f63e416cb197fd
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275424"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996953"
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>I collegamenti nella pagina non funzionano per un'applicazione proxy di applicazione
 
 Questo articolo semplifica la risoluzione dei problemi di funzionamento dei collegamenti nell'applicazione proxy di applicazione di Azure Active Directory.
 
-## <a name="overview"></a>Overview 
+## <a name="overview"></a>Panoramica 
 Dopo aver pubblicato un'app proxy di applicazione, gli unici collegamenti che per impostazione predefinita funzionano nell'applicazione sono i collegamenti a destinazioni contenute all'interno dell'URL radice pubblicato. I collegamenti all'interno delle applicazioni non funzionano probabilmente perché l'URL interno per l'applicazione non include tutte le destinazioni dei collegamenti nell'applicazione.
 
 **Perché si verifica questo problema?** Quando si fa clic su un collegamento in un'applicazione, il proxy di applicazione prova a risolvere l'URL come URL interno nella stessa applicazione oppure come URL disponibile esternamente. Se il collegamento punta a un URL interno che non è incluso nella stessa applicazione, non appartiene ad alcuno di questi bucket e restituisce un errore di URL non trovato.
@@ -38,7 +38,11 @@ Dopo aver pubblicato un'app proxy di applicazione, gli unici collegamenti che pe
 
 1.  Assicurarsi che l'URL interno sia una radice che contiene tutti i collegamenti rilevanti per l'applicazione. In questo modo, tutti i collegamenti possono essere risolti come contenuto pubblicato all'interno della stessa applicazione.
 
-    Se si modifica l'URL interno, ma non si vuole modificare la pagina di destinazione per gli utenti, modificare l'URL di pagina iniziale nell'URL interno precedentemente pubblicato. A questo scopo, è possibile passare a "Azure Active Directory" -&gt; Registrazioni per l'app -&gt; selezionare l'applicazione -&gt; Proprietà. In questa scheda delle proprietà è visualizzato il campo "URL pagina iniziale", che può essere impostato come pagina di destinazione desiderata.
+    Se si modifica l'URL interno, ma non si vuole modificare la pagina di destinazione per gli utenti, modificare l'URL di pagina iniziale nell'URL interno precedentemente pubblicato. A tale scopo, passare a "Azure Active Directory"-&gt; registrazioni per l'app-&gt; selezionare la personalizzazione dell'applicazione&gt;. Nella sezione personalizzazione viene visualizzato il campo "Home page URL", che può essere modificato in modo da essere la pagina di destinazione desiderata. Se si sta ancora usando l'esperienza legacy Registrazioni app la scheda Proprietà Visualizza i dettagli dell'URL della Home page. 
+    
+    > [!IMPORTANT]
+    > Per apportare le modifiche sopra riportate, è necessario disporre dei diritti per modificare gli oggetti applicazione in Azure AD. All'utente deve essere assegnato il ruolo di[amministratore dell'applicazione](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/roles-delegate-app-roles#assign-built-in-application-admin-roles), che concede i diritti modificaion dell'applicazione in Azure ad all'utente. 
+    >
 
 2.  Se le applicazioni usano nomi di dominio completi (FQDN), usare [domini personalizzati](application-proxy-configure-custom-domain.md) per pubblicare le applicazioni. Questa funzionalità permette l'uso dello stesso URL internamente ed esternamente.
 

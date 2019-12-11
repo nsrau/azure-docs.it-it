@@ -1,26 +1,26 @@
 ---
-title: Usare Azure Image Builder con una raccolta immagini per le macchine virtuali Windows (anteprima)
-description: Creare immagini Windows con Azure Image Builder e la raccolta immagini condivise.
+title: Usare Azure Image Builder con una raccolta immagini per macchine virtuali Windows (anteprima)
+description: Creare immagini di VM Windows con Azure Image Builder e la raccolta di immagini condivise.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-windows
 manager: gwallace
-ms.openlocfilehash: 33f13c09a06885523298bd7c23744e79f68e5301
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 1d9763ccc5f5967b9fc9932a11fff655e6120fd0
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698677"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976078"
 ---
-# <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Anteprima: Creare un'immagine di Windows e distribuirla in una raccolta di immagini condivise 
+# <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Anteprima: creare un'immagine di Windows e distribuirla in una raccolta di immagini condivise 
 
 Questo articolo illustra come è possibile usare il generatore di immagini di Azure per creare una versione di immagine in una [raccolta di immagini condivise](shared-image-galleries.md), quindi distribuire l'immagine a livello globale.
 
 Per configurare l'immagine verrà usato un modello JSON. Il file con estensione JSON usato è il seguente: [helloImageTemplateforWinSIG. JSON](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/helloImageTemplateforWinSIG.json). 
 
-Per distribuire l'immagine in una raccolta di immagini condivise, il modello USA [sharedImage](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#distribute-sharedimage) come valore per la `distribute` sezione del modello.
+Per distribuire l'immagine in una raccolta di immagini condivise, il modello USA [sharedImage](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#distribute-sharedimage) come valore per la sezione `distribute` del modello.
 
 > [!IMPORTANT]
 > Azure Image Builder è attualmente disponibile in anteprima pubblica.
@@ -57,7 +57,7 @@ az provider register -n Microsoft.Compute
 
 ## <a name="set-variables-and-permissions"></a>Impostare variabili e autorizzazioni 
 
-Le informazioni verranno utilizzate ripetutamente, quindi verranno create alcune variabili per archiviare tali informazioni. Sostituire i valori per le variabili, ad `username` esempio `vmpassword`e, con le proprie informazioni.
+Le informazioni verranno utilizzate ripetutamente, quindi verranno create alcune variabili per archiviare tali informazioni. Sostituire i valori per le variabili, ad esempio `username` e `vmpassword`, con le proprie informazioni.
 
 ```azurecli-interactive
 # Resource group name - we are using ibsigRG in this example
@@ -77,7 +77,7 @@ username="azureuser"
 vmpassword="passwordfortheVM"
 ```
 
-Creare una variabile per l'ID sottoscrizione. È possibile ottenerlo usando `az account show | grep id`.
+Creare una variabile per l'ID sottoscrizione. Questa operazione può essere usata `az account show | grep id`.
 
 ```azurecli-interactive
 subscriptionID="Subscription ID"
@@ -90,7 +90,7 @@ az group create -n $sigResourceGroup -l $location
 ```
 
 
-Assegnare ad Azure Image Builder l'autorizzazione per creare risorse in tale gruppo di risorse. Il `--assignee` valore è l'ID di registrazione dell'app per il servizio Generatore di immagini. 
+Assegnare ad Azure Image Builder l'autorizzazione per creare risorse in tale gruppo di risorse. Il valore `--assignee` è l'ID di registrazione dell'app per il servizio Generatore di immagini. 
 
 ```azurecli-interactive
 az role assignment create \
@@ -191,7 +191,7 @@ Creare una connessione Desktop remoto alla macchina virtuale usando il nome uten
 dir c:\
 ```
 
-Verrà visualizzata una directory denominata `buildActions` che è stata creata durante la personalizzazione delle immagini.
+Verrà visualizzata una directory denominata `buildActions` creata durante la personalizzazione delle immagini.
 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
@@ -211,7 +211,7 @@ az resource delete \
     -n helloImageTemplateforWinSIG01
 ```
 
-Ottenere la versione dell'immagine creata da Image Builder, che inizia sempre `0.`con e quindi Elimina la versione dell'immagine
+Ottenere la versione dell'immagine creata da Image Builder, che inizia sempre con `0.`e quindi Elimina la versione dell'immagine
 
 ```azurecli-interactive
 sigDefImgVersion=$(az sig image-version list \

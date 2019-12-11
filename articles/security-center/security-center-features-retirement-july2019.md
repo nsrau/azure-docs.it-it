@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: c4fe185f5d203b1b0eba306c80cded14ad82bc98
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: bb8cfae73d84135858733899e6441f564106e9d1
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72438624"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997225"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Ritiro delle funzionalità del Centro sicurezza (luglio 2019)
 
@@ -53,7 +53,7 @@ Il dashboard degli eventi è stato ritirato quando è stata selezionata un'area 
 
 Si consiglia di usare le funzionalità native di Azure Log Analytics per visualizzare gli eventi rilevanti nelle aree di lavoro.
 
-Se sono stati creati eventi rilevanti personalizzati nel centro sicurezza, saranno accessibili. In Log Analytics passare a **Seleziona area di lavoro** > **ricerche salvate**. I dati non verranno persi o modificati. Gli eventi rilevanti nativi sono disponibili anche nella stessa schermata in Log Analytics.
+Se sono stati creati eventi rilevanti personalizzati nel centro sicurezza, saranno accessibili. In Log Analytics passare all' **area di lavoro seleziona** > **ricerche salvate**. I dati non verranno persi o modificati. Gli eventi rilevanti nativi sono disponibili anche nella stessa schermata in Log Analytics.
 
 ![Ricerche salvate nell'area di lavoro][3]
 
@@ -156,7 +156,7 @@ Il Centro sicurezza può abilitare [soluzioni di sicurezza integrate in Azure](h
 
 - [Soluzioni di web application firewall e firewall di nuova generazione](https://docs.microsoft.com/azure/sentinel/connect-data-sources)
 - [Integrazione di soluzioni di sicurezza che supportano il formato di evento comune (CEF)](https://docs.microsoft.com/azure/sentinel/connect-common-event-format)
-- [Microsoft Advanced Threat Analytics](https://docs.microsoft.com/azure/sentinel/connect-azure-atp)
+- [Analisi avanzata delle minacce Microsoft](https://docs.microsoft.com/azure/sentinel/connect-azure-atp)
 - [Azure AD Identity Protection](https://docs.microsoft.com/azure/sentinel/connect-azure-ad-identity-protection)
 
 Al termine del ritiro, non è possibile aggiungere o modificare i tipi di soluzione indicati nell'elenco precedente, dall'interfaccia utente o dall'API. Il Centro sicurezza di Azure non troverà più le nuove istanze di queste soluzioni partner.
@@ -169,7 +169,7 @@ Se si hanno soluzioni connesse esistenti, si consiglia di passare ad Azure Senti
 
 Il Centro sicurezza di Azure monitora le configurazioni di sicurezza applicando un set di [più di 150 regole consigliate](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) per la protezione avanzata del sistema operativo. Queste regole riguardano firewall, controllo, criteri password e altro ancora. Se in un computer viene trovata una configurazione vulnerabile, il Centro sicurezza genera una raccomandazione di sicurezza. La [schermata Modifica configurazione sicurezza](https://docs.microsoft.com/azure/security-center/security-center-customize-os-security-config) consente ai clienti di personalizzare la configurazione di sicurezza del sistema operativo predefinita nel centro sicurezza.
 
-Questa funzionalità di anteprima è stata ritirata. Per ripristinare i valori predefiniti delle configurazioni di sicurezza dopo la data di ritiro, eseguire questa operazione tramite l'API o PowerShell usando le [istruzioni seguenti](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20samples/Reset%20security%20configurations%20customization)
+Questa funzionalità di anteprima è stata ritirata. Per reimpostare i valori predefiniti per le configurazioni di sicurezza dopo la data di ritiro, eseguire questa operazione tramite l'API o PowerShell usando le istruzioni riportate di [seguito](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20samples/Reset%20security%20configurations%20customization).
 
 ![Modificare le configurazioni di sicurezza][17]
 

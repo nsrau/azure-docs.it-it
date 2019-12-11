@@ -1,5 +1,5 @@
 ---
-title: Autenticazione nella piattaforma di identità Microsoft (v 1.0) | Azure
+title: Autenticazione della piattaforma di identità Microsoft (v 1.0) | Azure
 description: "Scopri le nozioni di base sull'autenticazione nella piattaforma di identità Microsoft: il modello di app, l'API, il provisioning e gli scenari di autenticazione più comuni supportati dalla piattaforma di identità Microsoft."
 services: active-directory
 documentationcenter: dev-center-name
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c7bf80c0471853008573bbcbb918fb33c6c43cd
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 445f301e2a526dc8f9e2c261e897fe8b1abe2f1e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73149184"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74966776"
 ---
 # <a name="what-is-authentication"></a>Informazioni sull'autenticazione
 
@@ -62,9 +62,9 @@ Nello scenario di esempio precedente è possibile classificare le app in base ai
 
 ### <a name="how-each-flow-emits-tokens-and-codes"></a>Modo in cui ogni flusso emette token e codici
 
-A seconda del modo in cui viene compilato il client, può usare uno o più dei flussi di autenticazione supportati dalla piattaforma di identità Microsoft.  Questi flussi possono produrre un'ampia gamma di token (token ID, token di aggiornamento, token di accesso) e codici di autorizzazione e richiedono token diversi per consentirne il funzionamento. Questo grafico fornisce una panoramica:
+A seconda del modo in cui viene compilato il client, può usare uno o più dei flussi di autenticazione supportati dalla piattaforma di identità Microsoft.  Questi flussi possono produrre un'ampia gamma di token (id_tokens, token di aggiornamento, token di accesso) e codici di autorizzazione e richiedono token diversi per consentirne il funzionamento. Questo grafico fornisce una panoramica:
 
-|Flusso | Richiede | id_token | token di accesso | token di aggiornamento | codice di autorizzazione | 
+|Flusso | Obbligatorio | id_token | token di accesso | token di aggiornamento | codice di autorizzazione | 
 |-----|----------|----------|--------------|---------------|--------------------|
 |[Flusso del codice di autorizzazione](v1-protocols-oauth-code.md) | | x | x | x | x|  
 |[Flusso implicito](v1-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
@@ -73,7 +73,7 @@ A seconda del modo in cui viene compilato il client, può usare uno o più dei f
 |[Flusso on-behalf-of](v1-oauth2-on-behalf-of-flow.md) | token di accesso| x| x| x| |
 |[Credenziali del client](v1-oauth2-client-creds-grant-flow.md) | | | x (solo app)| | |
 
-I token emessi tramite la modalità implicita hanno una limitazione di lunghezza perché vengono passati di nuovo al browser tramite l'URL (dove `response_mode` è `query` o `fragment`).  Alcuni browser hanno un limite per le dimensioni dell'URL che possono essere inseriti nella barra del browser e hanno esito negativo quando è troppo lungo.  Di conseguenza, questi token non hanno attestazioni `groups` o `wids`. 
+I token emessi tramite la modalità implicita hanno una limitazione di lunghezza perché vengono passati di nuovo al browser tramite l'URL (dove `response_mode` è `query` o `fragment`).  Alcuni browser hanno un limite per le dimensioni dell'URL che possono essere inseriti nella barra del browser e hanno esito negativo quando è troppo lungo.  Di conseguenza, questi token non dispongono di attestazioni `groups` o `wids`. 
 
 Ora che è disponibile una panoramica dei concetti di base, continuare a leggere per comprendere il modello dell'app e l'API di identità, le modalità di funzionamento del provisioning in Microsoft Identity Platform e i collegamenti a informazioni dettagliate sugli scenari comuni supportati da Microsoft Identity Platform.
 

@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: 5b473af780bdd68b8fc0dd3dc0430c4f4fd3255b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b2a8ad40092a2c02f00803e699de9d6dd8feebd0
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927651"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978629"
 ---
 # <a name="hyperscale-service-tier"></a>Livello di servizio Hyperscale
 
@@ -245,7 +245,7 @@ Queste sono le limitazioni correnti per il livello di servizio con iperscalabili
 | Istanza gestita | Istanza gestita di database SQL di Azure attualmente non è supportato con i database con iperscalabilità. |
 | Pool elastici |  I pool elastici non sono attualmente supportati con l'iperscalabilità del database SQL.|
 | La migrazione al livello di servizio Hyperscale è attualmente un'operazione unidirezionale | Dopo aver completato la migrazione di un database a Hyperscale, non è possibile eseguirne la migrazione direttamente a un livello di servizio diverso. Attualmente, l'unico modo per eseguire la migrazione di un database da iperscalabilità a non iperscalare consiste nell'esportare/importare utilizzando un file BACPAC o altre tecnologie di spostamento dei dati (copia bulk, Azure Data Factory, Azure Databricks, SSIS e così via).|
-| Migrazione di database con oggetti in memoria permanenti | L'iperscalabilità supporta solo oggetti in memoria non permanenti (tipi di tabella, SPs e funzioni native).  Prima di eseguire la migrazione di un database al livello di servizio iperscalare, è necessario eliminare e ricreare le tabelle in memoria permanenti e gli altri oggetti come oggetti non in memoria.|
+| Migrazione di database con oggetti OLTP in memoria | Iperscalabilità supporta solo un subset di tipi di oggetti OLTP in memoria, inclusi i tipi di tabella ottimizzata per la memoria, le stored procedure compilate in modo nativo e le funzioni. Tuttavia, quando nel database sono presenti oggetti OLTP in memoria, la migrazione diretta dai livelli di servizio Premium e business critical a iperscalabilità non è supportata. Per eseguire la migrazione di un database di questo tipo a iperscalabilità sono necessari tre passaggi: (1) eliminare tutti gli oggetti OLTP in memoria e le relative dipendenze. Per mantenere i dati in tabelle durevoli ottimizzate per la memoria, convertirle in tabelle disco. (2) modificare il livello di servizio del database in iperscalabilità. (3) ricreare oggetti eliminati precedentemente. Le tabelle ottimizzate per la memoria durevoli e non durevoli non sono attualmente supportate in iperscalabilità e devono rimanere tabelle su disco. Le variabili di tabella con ottimizzazione per la memoria sono supportate. |
 | Change Tracking | Rilevamento modifiche è attualmente disponibile in anteprima pubblica e può essere abilitato nei database con iperscalabilità nuovi o esistenti. |
 | Replica geografica  | Non è ancora possibile configurare la replica geografica per l'iperscalabilità del database SQL di Azure. |
 | Copia del database | Non è ancora possibile usare la copia del database per creare un nuovo database in Azure SQL iperscalabile. |

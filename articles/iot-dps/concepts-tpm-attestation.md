@@ -1,6 +1,6 @@
 ---
 title: Servizio Device Provisioning in hub IoT di Azure - Attestazione TPM
-description: In questo articolo viene fornita una panoramica concettuale del flusso di un'attestazione TPM con il servizio Device Provisioning IoT.
+description: Questo articolo fornisce una panoramica concettuale del flusso di attestazione TPM tramite il servizio Device provisioning (DPS).
 author: nberdy
 ms.author: nberdy
 ms.date: 04/04/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 07c5dbce0b98d1c197164f4fc77682f78ede57f0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 624171ffc10a06ac3089b6dceb1683c63c88dbda
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60746471"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975279"
 ---
 # <a name="tpm-attestation"></a>Attestazione TPM
 
@@ -21,7 +21,7 @@ Il servizio Device Provisioning in hub IoT è un servizio helper per l'hub IoT c
 
 In questo articolo viene descritto il processo di attestazione dell’identità quando si usa un [TPM](./concepts-device.md). TPM è l'acronimo di Trusted Platform Module ed è un tipo di modulo di protezione hardware (HSM). In questo articolo si presuppone che l’utente utilizzi un firmware discreto o integrato TPM. I TPM emulatori di software sono ideali per la creazione di prototipi o test, ma non forniscono lo stesso livello di sicurezza di un firmware discreto o integrato TPM. Non è consigliabile utilizzare software TPM nell'ambiente di produzione. Per altre informazioni sui tipi di moduli TPM, vedere [una breve introduzione a TPM](https://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf).
 
-Questo articolo è rilevante solo per i dispositivi con TPM 2.0 con supporto chiave HMAC e le relative chiavi di verifica dell'autenticità. Non è rilevante per l'autenticazione dei dispositivi con certificati X.509. TPM è uno standard ISO di settore appartenente al Trusted Computing Group. Per ulteriori informazioni su TPM consultare la [specifica TPM 2.0 completa](https://trustedcomputinggroup.org/tpm-library-specification/) o la [specifica ISO/IEC 11889 ](https://www.iso.org/standard/66510.html). In questo articolo si presuppone inoltre che l’utente sia familiare con coppie di chiavi pubbliche e private, e sulle relative modalità di utilizzo per la crittografia.
+Questo articolo è rilevante solo per i dispositivi con TPM 2.0 con supporto chiave HMAC e le relative chiavi di verifica dell'autenticità. Non è rilevante per l'autenticazione dei dispositivi con certificati X.509. TPM è uno standard ISO a livello di settore dalla Trusted Computing Group. per altre informazioni su TPM, vedere la specifica [tpm 2,0 completa](https://trustedcomputinggroup.org/tpm-library-specification/) o la [specifica iso/IEC 11889](https://www.iso.org/standard/66510.html). Questo articolo presuppone anche che l'utente abbia familiarità con le coppie di chiavi pubbliche e private e come vengono usate per la crittografia.
 
 Il Software Development KIT del dispositivo del servizio Device Provisioning SDK gestisce per l’utente tutte le informazioni descritte in questo articolo. Non è necessario implementare ulteriori operazioni se si utilizza l’SDK dei dispositivi. Questo articolo aiuta a comprendere concettualmente il comportamento del chip di sicurezza TPM durante il provisioning del dispositivo e spiega perché questa operazione è sicura.
 
@@ -35,7 +35,7 @@ Quando un dispositivo è stato configurato ed è pronto all'uso, viene consentit
 
 ![Acquisizione della proprietà di un TPM](./media/concepts-tpm-attestation/tpm-ownership.png)
 
-Una nota sul assunzione di proprietà del TPM: Assunzione di proprietà di un modulo TPM dipendono da fattori, inclusi produttore TPM, il set di strumenti TPM in uso e il sistema operativo del dispositivo. Seguire le istruzioni relative al sistema per diventare proprietario.
+Una nota sull’acquisizione di proprietà di un TPM: diventare proprietario di un TPM dipende da molti fattori, tra cui produttore TPM, il set di strumenti TPM in uso e il sistema operativo del dispositivo. Seguire le istruzioni relative al sistema per diventare proprietario.
 
 Il servizio Device Provisioning utilizza la parte pubblica della chiave di verifica dell'autenticità (EK_pub) per identificare e registrare i dispositivi. Il fornitore del dispositivo può leggere la EK_pub durante la produzione o le fasi finali di test e caricare la EK_pub sul servizio di provisioning in modo che il dispositivo venga riconosciuto anche quando si connette per eseguire il provisioning. Il servizio Device Provisioning non verifica la SRK o il proprietario, in tal modo "eliminando" il TPM vengono cancellati i dati dei clienti, ma la chiave di verifica dell'autenticità (e altri dati del fornitore) vengono conservati e per il dispositivo verrà comunque riconosciuto dal servizio Device Provisioning quando si connette per eseguire il provisioning.
 

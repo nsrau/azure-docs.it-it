@@ -1,17 +1,17 @@
 ---
-title: Ridimensionare un gruppo di server di database di Azure per PostgreSQL-overscale (CITUS)
+title: Ridimensionare un gruppo di server-iperscala (CITUS)-database di Azure per PostgreSQL
 description: Modificare le risorse di memoria, disco e CPU del gruppo di server per gestire un aumento del carico
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 9/17/2019
-ms.openlocfilehash: 6053ba37bf330f6b59e291dade822a5ca9de8c85
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5d8bbe493887c5340f0943a585eb6ff250bd3728
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492307"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977557"
 ---
 # <a name="scale-a-hyperscale-citus-server-group"></a>Ridimensionare un gruppo di server di scalabilità (CITUS)
 

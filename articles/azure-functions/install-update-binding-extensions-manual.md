@@ -3,16 +3,16 @@ title: Installare o aggiornare manualmente le estensioni delle associazioni di F
 description: Informazioni su come installare o aggiornare le estensioni di associazione di Funzioni di Azure per le app per le funzioni distribuite.
 ms.topic: reference
 ms.date: 09/26/2018
-ms.openlocfilehash: 49e8e2ce7eb0267d5a4e6fc0f5566dffaed82661
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 83ae2cdd16bce0b0a5b11b8c24e996306453a7a9
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226515"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977489"
 ---
 # <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>Installare o aggiornare manualmente le estensioni delle associazioni di Funzioni di Azure dal portale
 
-Il runtime di Funzioni di Azure versione 2.x usa le estensioni delle associazioni per implementare il codice per i trigger e le associazioni. Le estensioni delle associazioni sono incluse nei pacchetti NuGet. Per registrare un'estensione, essenzialmente si installa un pacchetto. Quando si sviluppano le funzioni, il modo in cui si installano le estensioni delle associazioni dipende dall'ambiente di sviluppo. Per altre informazioni, vedere [Registrare le estensioni delle associazioni](./functions-bindings-register.md) nell'articolo relativo ai trigger e alle associazioni.
+A partire dalla versione 2. x, il runtime di funzioni di Azure usa le estensioni di binding per implementare il codice per i trigger e le associazioni. Le estensioni delle associazioni sono incluse nei pacchetti NuGet. Per registrare un'estensione, essenzialmente si installa un pacchetto. Quando si sviluppano le funzioni, il modo in cui si installano le estensioni delle associazioni dipende dall'ambiente di sviluppo. Per altre informazioni, vedere [Registrare le estensioni delle associazioni](./functions-bindings-register.md) nell'articolo relativo ai trigger e alle associazioni.
 
 In alcuni casi è necessario installare o aggiornare manualmente le estensioni delle associazioni nel portale di Azure. Potrebbe essere necessario, ad esempio, eseguire l'aggiornamento di un'associazione registrata a una versione più recente. Potrebbe essere anche necessario registrare un'associazione supportata che non può essere installata nella scheda **Integrazione** nel portale.
 

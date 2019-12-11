@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: 9301f3e685116c8496dd5e0ec986218a046f0c98
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: efc9d7fb31dc9f63780c3f94238bbbfb17756089
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707700"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973629"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>Che cos'è Azure Machine Learning Designer (anteprima)? 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -93,7 +93,7 @@ Usare le risorse di calcolo dall'area di lavoro per eseguire la pipeline e ospit
 | Ambiente di calcolo di Azure Machine Learning | ✓ | |
 | Servizio Azure Kubernetes | | ✓ |
 
-Le destinazioni di calcolo sono collegate all' [area di lavoro](concept-workspace.md)Machine Learning. È possibile gestire le destinazioni di calcolo nell'area di lavoro in [Azure Machine Learning Studio](https://ml.azure.com).
+Le destinazioni di calcolo sono collegate all' [area di lavoro Azure Machine Learning](concept-workspace.md). È possibile gestire le destinazioni di calcolo nell'area di lavoro in [Azure Machine Learning Studio (classico)](https://ml.azure.com).
 
 ## <a name="deploy"></a>Distribuire
 

@@ -9,19 +9,22 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/15/2019
+ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 39b56c5e73c8ce85a020402dafb622b90c536a1e
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 4432aecee882ff2e312587baa543dd66c0372a78
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74143822"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74968919"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Come aggiungere modelli per migliorare l'accuratezza della stima
 Dopo la ricezione di espressioni di endpoint da un'app LUIS, usare un [modello](luis-concept-patterns.md) per migliorare l'accuratezza della stima per le espressioni che rivelano un modello in Word Order e Word Choice. I modelli usano una [sintassi](luis-concept-patterns.md#pattern-syntax) specifica per indicare la posizione di: [entità](luis-concept-entity-types.md), [ruoli](luis-concept-roles.md)di entità e testo facoltativo.
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
+
+> [!CAUTION]
+> I modelli includono solo elementi padre di entità apprese dal computer, non sottocomponenti.
 
 ## <a name="add-template-utterance-to-create-pattern"></a>Aggiungere l'espressione di modello per creare un criterio
 
@@ -30,14 +33,14 @@ Dopo la ricezione di espressioni di endpoint da un'app LUIS, usare un [modello](
     > [!div class="mx-imgBorder"]
     > ![screenshot dell'elenco dei modelli](./media/luis-how-to-model-intent-pattern/patterns-1.png)
 
-1. Seleziona la finalità corretta per il criterio. 
+1. Seleziona la finalità corretta per il criterio.
 
-1. Nella casella di testo del modello, digita l'espressione del modello e premi Invio. Quando vuoi inserire il nome dell'entità, usa la sintassi dell'entità corretta del criterio. Inizia la sintassi dell'entità con `{`. Viene visualizzato l'elenco di entità. Selezionare l'entità corretta. 
+1. Nella casella di testo del modello, digita l'espressione del modello e premi Invio. Quando vuoi inserire il nome dell'entità, usa la sintassi dell'entità corretta del criterio. Inizia la sintassi dell'entità con `{`. Viene visualizzato l'elenco di entità. Selezionare l'entità corretta.
 
     > [!div class="mx-imgBorder"]
     > ![screenshot dell'entità per pattern](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    Se l'entità include un [ruolo](luis-concept-roles.md), indicare il ruolo con un solo segno di due punti, `:`, dopo il nome dell'entità, ad esempio `{Location:Origin}`. I ruoli per le entità vengono visualizzati in un elenco. Seleziona il ruolo, quindi fai clic su Invio. 
+    Se l'entità include un [ruolo](luis-concept-roles.md), indicare il ruolo con un solo segno di due punti, `:`, dopo il nome dell'entità, ad esempio `{Location:Origin}`. I ruoli per le entità vengono visualizzati in un elenco. Seleziona il ruolo, quindi fai clic su Invio.
 
     > [!div class="mx-imgBorder"]
     > ![screenshot dell'entità con](./media/luis-how-to-model-intent-pattern/patterns-4.png) ruolo
@@ -48,7 +51,7 @@ Dopo la ricezione di espressioni di endpoint da un'app LUIS, usare un [modello](
     > ![screenshot del modello immesso con entrambi i tipi di entità](./media/luis-how-to-model-intent-pattern/patterns-5.png)
 
 ## <a name="train-your-app-after-changing-model-with-patterns"></a>Eseguire il training dell'app dopo la modifica del modello con i criteri
-Dopo aver aggiunto, modificato, rimosso o riassegnato un criterio, [esegui il training](luis-how-to-train.md) e [pubblica](luis-how-to-publish-app.md) l'app affinché le modifiche siano attive per le query di endpoint. 
+Dopo aver aggiunto, modificato, rimosso o riassegnato un criterio, [esegui il training](luis-how-to-train.md) e [pubblica](luis-how-to-publish-app.md) l'app affinché le modifiche siano attive per le query di endpoint.
 
 <a name="search-patterns"></a>
 <a name="edit-a-pattern"></a>

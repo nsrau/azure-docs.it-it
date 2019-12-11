@@ -1,5 +1,5 @@
 ---
-title: Analisi di flusso di Azure in IoT Edge
+title: Analisi di flusso di Azure in dispositivi perimetrali IoT
 description: Creare processi Edge in Analisi di flusso di Azure e distribuirli in dispositivi che eseguono Azure IoT Edge.
 ms.service: stream-analytics
 author: mamccrea
@@ -8,16 +8,16 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8e3b6d0fbefb8e3d3437fd5e24f929e453c573df
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 07fa43563ca9b6c9ae247df6eb28894331b004c1
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621021"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976435"
 ---
-# <a name="azure-stream-analytics-on-iot-edge"></a>Analisi di flusso di Azure in IoT Edge
+# <a name="azure-stream-analytics-on-iot-edge"></a>Analisi di flusso di Azure in dispositivi perimetrali IoT
  
-Analisi di flusso di Azure in IoT Edge permette agli sviluppatori di distribuire funzionalità di intelligence di analisi quasi in tempo reale più vicino ai dispositivi IoT, in modo da ottenere il massimo valore dai dati generati dai dispositivi. Analisi di flusso di Azure è progettato per offrire bassa latenza, resilienza, uso efficiente della larghezza di banda e conformità. Le organizzazioni possono ora distribuire una logica di controllo prossima alle operazioni industriali e integrare l'analisi di Big Data eseguita nel cloud.  
+Analisi di flusso di Azure in IoT Edge permette agli sviluppatori di distribuire funzionalità di intelligence analitica quasi in tempo reale più vicino ai dispositivi IoT, in modo da ottenere il massimo valore dai dati che generano. Analisi di flusso di Azure è progettato per offrire bassa latenza, resilienza, uso efficiente della larghezza di banda e conformità. Le organizzazioni possono ora distribuire una logica di controllo prossima alle operazioni industriali e integrare l'analisi di Big Data eseguita nel cloud.  
 
 L'Analisi di flusso di Azure su IoT Edge viene eseguita all'interno del framework di [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/). Dopo la creazione del processo in Analisi di flusso di Azure, è possibile distribuirlo e gestirlo usando l'hub IoT.
 
@@ -25,8 +25,8 @@ L'Analisi di flusso di Azure su IoT Edge viene eseguita all'interno del framewor
 ![Diagramma generale di IoT Edge](media/stream-analytics-edge/ASAedge-highlevel-diagram.png)
 
 * **Comando e controllo a bassa latenza**: ad esempio, i sistemi di sicurezza di produzione devono rispondere ai dati operativi con una latenza estremamente bassa. Con Active Server Application in IoT Edge, è possibile analizzare i dati dei sensori quasi in tempo reale ed eseguire comandi in caso di rilevamento di anomalie per arrestare una macchina o attivare avvisi.
-*   **Connettività al cloud ridotta**: per i sistemi mission-critical, come le attrezzature per le attività minerarie in remoto, le imbarcazioni connesse o le trivellazioni offshore, è fondamentale analizzare e reagire ai dati, anche quando la connettività cloud è intermittente. Con Analisi di flusso di Azure, la logica di streaming viene eseguita indipendentemente dalla connettività di rete ed è possibile scegliere cosa inviare al cloud per un'ulteriore elaborazione o archiviazione.
-* **Larghezza di banda ridotta**: il volume dei dati generati dai motori a reazione o dalle automobili connesse può essere talmente elevato che i dati devono essere filtrati o pre-elaborati prima di essere inviati al cloud. Usando Analisi di flusso di Azure, è possibile filtrare o aggregare i dati da inviare al cloud.
+*   **Connettività al cloud limitata**: per i sistemi mission-critical, come le attrezzature per le attività minerarie in remoto, le imbarcazioni connesse o le trivellazioni offshore, è fondamentale analizzare e reagire ai dati, anche quando la connettività cloud è intermittente. Con Analisi di flusso di Azure, la logica di streaming viene eseguita indipendentemente dalla connettività di rete ed è possibile scegliere cosa inviare al cloud per un'ulteriore elaborazione o archiviazione.
+* **Larghezza di banda limitata**: il volume dei dati generati dai motori a reazione o dalle automobili connesse può essere talmente elevato che i dati devono essere filtrati o pre-elaborati prima di essere inviati al cloud. Usando Analisi di flusso di Azure, è possibile filtrare o aggregare i dati da inviare al cloud.
 * **Conformità**: la conformità alle normative potrebbe richiedere che alcuni dati siano resi anonimi o aggregati in locale prima di essere inviati al cloud.
 
 ## <a name="edge-jobs-in-azure-stream-analytics"></a>Processi Edge in Analisi di flusso di Azure
@@ -104,13 +104,13 @@ Questi passaggi sono descritti nella documentazione di IoT Edge per [Windows](ht
 ##### <a name="add-asa-to-your-deployment"></a>Aggiungere Analisi di flusso di Azure alla distribuzione
 - Nel portale di Azure aprire l'hub IoT, passare a **IoT Edge** e fare clic sul dispositivo da usare come destinazione per questa distribuzione.
 - Selezionare **Imposta moduli**, quindi selezionare **+ Aggiungi** e scegliere il **modulo di Analisi di flusso di Azure**.
-- Selezionare la sottoscrizione e il processo Edge di Analisi di flusso di Azure creato. Fare clic su Save.
+- Selezionare la sottoscrizione e il processo Edge di Analisi di flusso di Azure creato. Fai clic su Salva.
 ![Aggiungere un modulo di Analisi di flusso di Azure nella distribuzione](media/stream-analytics-edge/add-stream-analytics-module.png)
 
 
 > [!Note]
 > Durante questo passaggio Analisi di flusso di Azure crea una cartella denominata "EdgeJobs" nel contenitore di archiviazione (se non esiste già). Per ogni distribuzione, viene creata una nuova sottocartella nella cartella "EdgeJobs".
-> Quando si distribuisce il lavoro nei dispositivi IoT Edge, ASA crea una firma di accesso condiviso (SAS) per il file di definizione del processo. La chiave della firma di accesso condiviso viene trasmessa in modo sicuro ai dispositivi IoT Edge tramite dispositivo gemello. Questa chiave ha una scadenza di tre anni dalla data di creazione. Quando si aggiorna un processo di IoT Edge, verrà modificata la firma di accesso condiviso, ma la versione dell'immagine non verrà modificato. Dopo aver **aggiornare**, seguire il flusso di lavoro di distribuzione e una notifica di aggiornamento viene registrata nel dispositivo.
+> Quando si distribuisce il processo in IoT Edge dispositivi, ASA crea una firma di accesso condiviso (SAS) per il file di definizione del processo. La chiave della firma di accesso condiviso viene trasmessa in modo sicuro ai dispositivi IoT Edge tramite dispositivo gemello. Questa chiave ha una scadenza di tre anni dalla data di creazione. Quando si aggiorna un processo di IoT Edge, la firma di accesso condiviso viene modificata, ma la versione dell'immagine non viene modificata. Dopo l' **aggiornamento**, seguire il flusso di lavoro di distribuzione e una notifica di aggiornamento viene registrata nel dispositivo.
 
 
 Per altre informazioni sulle distribuzioni IoT Edge, vedere [questa pagina](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
@@ -143,11 +143,11 @@ Questo esempio definisce le route seguenti:
 
 ## <a name="technical-information"></a>Informazioni tecniche
 ### <a name="current-limitations-for-iot-edge-jobs-compared-to-cloud-jobs"></a>Limitazioni correnti per i processi IoT Edge rispetto ai processi cloud
-L'obiettivo è di ottenere una parità tra i processi IoT Edge e i processi cloud. Sono supportate la maggior parte delle funzionalità del linguaggio query SQL, consentendo di eseguire la stessa logica sul cloud e IoT Edge.
+L'obiettivo è di ottenere una parità tra i processi IoT Edge e i processi cloud. La maggior parte delle funzionalità del linguaggio di query SQL è supportata, consentendo a di eseguire la stessa logica sia nel cloud che in IoT Edge.
 Tuttavia, le funzionalità seguenti non sono ancora supportate per i processi Edge:
 * Funzioni definite dall'utente in JavaScript. Le funzioni definite dall'utente sono disponibili in [C# per i processi IoT Edge](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf) (anteprima).
 * Aggregazioni definite dall'utente.
-* Funzioni di Azure Machine Learning
+* Funzioni di Azure Machine Learning.
 * Uso di più di 14 aggregati in un unico passaggio.
 * Formato AVRO per l'input/output. In questo momento sono supportati solo CSV e JSON.
 * Operatori SQL seguenti:
@@ -202,30 +202,30 @@ L'aggiornamento dei dati di riferimento in IoT Edge viene attivato da una distri
 * [Licenza di Analisi di flusso di Azure in IoT Edge](https://go.microsoft.com/fwlink/?linkid=862827). 
 * [Comunicazioni di terze parti per Analisi di flusso di Azure in IoT Edge](https://go.microsoft.com/fwlink/?linkid=862828).
 
-## <a name="azure-stream-analytics-module-image-information"></a>Informazioni sulle immagini di Azure Stream Analitica modulo 
+## <a name="azure-stream-analytics-module-image-information"></a>Informazioni sull'immagine del modulo analisi di flusso di Azure 
 
-2019-06-27 relativo all'ultimo aggiornamento di queste informazioni sulla versione:
+Le informazioni sulla versione sono state aggiornate per l'ultima volta il 2019-06-27:
 
 - Immagine: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-amd64`
-   - immagine di base: microsoft/dotnet:2.1.6-runtime-alpine3.7
-   - Piattaforma:
+   - immagine di base: Microsoft/DotNet: 2.1.6-Runtime-Alpine 3.7
+   - piattaforma
       - architettura: amd64
-      - sistema operativo: linux
+      - sistema operativo: Linux
   
 - Immagine: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-arm32v7`
-   - immagine di base: microsoft/dotnet:2.1.6-runtime-bionic-arm32v7
-   - Piattaforma:
-      - architettura: Azure Resource Manager
-      - sistema operativo: linux
+   - immagine di base: Microsoft/DotNet: 2.1.6-Runtime-Bionic-arm32v7
+   - piattaforma
+      - architettura: ARM
+      - sistema operativo: Linux
   
 - Immagine: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-windows-amd64`
-   - immagine di base: microsoft/dotnet:2.1.6-runtime-nanoserver-1809
-   - Piattaforma:
+   - immagine di base: Microsoft/DotNet: 2.1.6-Runtime-nanoserver-1809
+   - piattaforma
       - architettura: amd64
-      - sistema operativo: windows
+      - sistema operativo: Windows
       
       
-## <a name="get-help"></a>Ottenere aiuto
+## <a name="get-help"></a>Ottenere supporto
 Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passaggi successivi

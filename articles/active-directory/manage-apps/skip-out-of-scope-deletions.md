@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/03/2019
+ms.date: 12/10/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b4a8005cf308d5cfce02976e3b2eff39d5fe8c0
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: d5a40b699c01f50ceb1bedbc36e7f1467772336f
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958639"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997072"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>Ignora l'eliminazione di account utente che non rientrano nell'ambito
 
@@ -30,16 +30,16 @@ Questa guida descrive come usare l'API Microsoft Graph e il Microsoft Graph Espl
 * Se ***SkipOutOfScopeDeletions*** è impostato su 0 (false), gli account che non rientrano nell'ambito verranno disabilitati nella destinazione
 * Se ***SkipOutOfScopeDeletions*** è impostato su 1 (true), gli account che non rientrano nell'ambito non verranno disabilitati nella destinazione. questo flag viene impostato a livello di *app di provisioning* e può essere configurato usando il API Graph. 
 
-Poiché questa configurazione viene usata ampiamente con la *giornata lavorativa per Active Directory app di provisioning degli utenti* , la procedura seguente include schermate dell'applicazione per la giornata lavorativa. Tuttavia, questo può essere usato anche con altre app di provisioning.
+Poiché questa configurazione viene usata ampiamente con la *giornata lavorativa per Active Directory app di provisioning degli utenti* , la procedura seguente include schermate dell'applicazione per la giornata lavorativa. Può tuttavia essere usato anche con **tutte le altre app** , ad esempio ServiceNow, Salesforce, Dropbox e così via.
 
-## <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Passaggio 1: Recuperare l'ID dell'entità servizio dell'app di provisioning (ID oggetto)
+## <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Passaggio 1: recuperare l'ID dell'entità servizio dell'app di provisioning (ID oggetto)
 
 1. Avviare il [portale di Azure](https://portal.azure.com)e passare alla sezione proprietà dell'applicazione di provisioning. Ad esempio, se si vuole esportare la *giornata lavorativa nel mapping di un'applicazione di provisioning utenti ad* , passare alla sezione proprietà dell'app. 
 1. Nella sezione delle proprietà dell'app di provisioning, copiare il valore GUID associato al campo *Object ID* (ID oggetto). Questo valore è denominato anche **ServicePrincipalId** dell'app e verrà usato nelle operazioni di Graph Explorer.
 
    ![ID entità Servizio app Workday](./media/export-import-provisioning-mappings/wd_export_01.png)
 
-## <a name="step-2-sign-into-microsoft-graph-explorer"></a>Passaggio 2: Accedere a Microsoft Graph Explorer
+## <a name="step-2-sign-into-microsoft-graph-explorer"></a>Passaggio 2: accedere a Microsoft Graph Explorer
 
 1. Avviare [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
 1. Fare clic sul pulsante "Sign-In with Microsoft" (Accedi con Microsoft) e accedere con le credenziali di amministratore globale di AD o di amministratore dell'app.
@@ -48,7 +48,7 @@ Poiché questa configurazione viene usata ampiamente con la *giornata lavorativa
 
 1. Quando l'accesso è stato completato, vengono visualizzati i dettagli dell'account utente nel riquadro sinistro.
 
-## <a name="step-3-get-existing-app-credentials-and-connectivity-details"></a>Passaggio 3: Ottenere le credenziali e i dettagli di connettività dell'app esistente
+## <a name="step-3-get-existing-app-credentials-and-connectivity-details"></a>Passaggio 3: ottenere le credenziali e i dettagli di connettività dell'app esistente
 
 In Microsoft Graph Explorer, eseguire la query GET seguente, sostituendo [servicePrincipalId] con il **ServicePrincipalId** estratto dal [Passaggio 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id).
 
@@ -71,7 +71,7 @@ Ecco il blocco JSON da aggiungere al mapping.
         }
 ```
 
-## <a name="step-4-update-the-secrets-endpoint-with-the-skipoutofscopedeletions-flag"></a>Passaggio 4: Aggiornare l'endpoint Secrets con il flag SkipOutOfScopeDeletions
+## <a name="step-4-update-the-secrets-endpoint-with-the-skipoutofscopedeletions-flag"></a>Passaggio 4: aggiornare l'endpoint dei segreti con il flag SkipOutOfScopeDeletions
 
 In Graph Explorer eseguire il comando seguente per aggiornare l'endpoint Secrets con il flag ***SkipOutOfScopeDeletions*** . 
 
@@ -82,7 +82,7 @@ Nell'URL seguente sostituire [servicePrincipalId] con il **servicePrincipalId** 
 ```
 Copiare il testo aggiornato dal passaggio 3 nel "corpo della richiesta" e impostare l'intestazione "Content-Type" su "application/json" in "Request Headers". 
 
-   ![Inserisci richiesta](./media/skip-out-of-scope-deletions/skip-05.png)
+   ![PUT, richiesta](./media/skip-out-of-scope-deletions/skip-05.png)
 
 Fare clic su "Esegui query". 
 
@@ -90,7 +90,7 @@ L'output dovrebbe essere "operazione riuscita – codice di stato 204".
 
    ![Inserisci risposta](./media/skip-out-of-scope-deletions/skip-06.png)
 
-## <a name="step-5-verify-that-out-of-scope-users-dont-get-disabled"></a>Passaggio 5: Verificare che gli utenti non siano disabilitati
+## <a name="step-5-verify-that-out-of-scope-users-dont-get-disabled"></a>Passaggio 5: verificare che gli utenti non siano disabilitati
 
 È possibile testare questo flag per ottenere un comportamento previsto aggiornando le regole di ambito per ignorare un utente specifico. Nell'esempio seguente viene escluso il dipendente con ID 21173 (che si trovava in precedenza nell'ambito) aggiungendo una nuova regola di ambito: 
 

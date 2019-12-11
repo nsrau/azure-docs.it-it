@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: file di inclusione
+description: file di inclusione
 ms.topic: include
 ms.custom: include file
 services: time-series-insights
@@ -8,13 +8,13 @@ ms.service: time-series-insights
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.date: 11/14/2019
-ms.openlocfilehash: fa6921f8c4309f17cbd63e242a5416e7e81bb6c3
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.date: 12/06/2019
+ms.openlocfilehash: c3eeb59809a4028702022e8a18db633a26b01d5c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133495"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74981361"
 ---
 1. Nel [portale di Azure](https://ms.portal.azure.com/) selezionare **Azure Active Directory** > **Registrazioni app** > **Nuova registrazione**.
 
@@ -43,7 +43,7 @@ ms.locfileid: "74133495"
 
    [![Creare un nuovo segreto client](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
 
-   Fare clic su **Save**.
+   Fare clic su **Salva**
 
 1. Selezionare **Certificati e segreti** e quindi **Nuovo segreto client** per creare una password dell'applicazione che il client può usare per dimostrare la propria identità.
 

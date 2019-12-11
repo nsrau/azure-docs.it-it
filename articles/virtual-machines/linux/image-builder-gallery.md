@@ -1,27 +1,27 @@
 ---
-title: Usare Azure Image Builder con una raccolta immagini per le macchine virtuali Linux (anteprima)
-description: Creare immagini Linux con il generatore di immagini di Azure e la raccolta di immagini condivise.
+title: Usare Azure Image Builder con una raccolta immagini per macchine virtuali Linux (anteprima)
+description: Creare immagini di VM Linux con Azure Image Builder e la raccolta di immagini condivise.
 author: cynthn
 ms.author: cynthn
 ms.date: 04/20/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 9fc624ab24cd98d0025fe2a34bf48c29b47c50e9
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 09dceb84a20ef49b3e9d5264b94bb5e74180cd2b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68695414"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976129"
 ---
-# <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Anteprima: Creare un'immagine Linux e distribuirla in una raccolta di immagini condivise 
+# <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Anteprima: creare un'immagine Linux e distribuirla in una raccolta di immagini condivise 
 
 Questo articolo illustra come usare il generatore di immagini di Azure per creare una versione di immagine in una [raccolta di immagini condivise](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries), quindi distribuire l'immagine a livello globale.
 
 
 Per configurare l'immagine verrà usato un modello Sample. JSON. Il file con estensione JSON usato è il seguente: [helloImageTemplateforSIG. JSON](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
 
-Per distribuire l'immagine in una raccolta di immagini condivise, il modello USA [sharedImage](image-builder-json.md#distribute-sharedimage) come valore per la `distribute` sezione del modello.
+Per distribuire l'immagine in una raccolta di immagini condivise, il modello USA [sharedImage](image-builder-json.md#distribute-sharedimage) come valore per la sezione `distribute` del modello.
 
 > [!IMPORTANT]
 > Azure Image Builder è attualmente disponibile in anteprima pubblica.
@@ -77,7 +77,7 @@ imageDefName=myIbImageDef
 runOutputName=aibLinuxSIG
 ```
 
-Creare una variabile per l'ID sottoscrizione. È possibile ottenerlo usando `az account show | grep id`.
+Creare una variabile per l'ID sottoscrizione. Questa operazione può essere usata `az account show | grep id`.
 
 ```azurecli-interactive
 subscriptionID=<Subscription ID>
@@ -90,7 +90,7 @@ az group create -n $sigResourceGroup -l $location
 ```
 
 
-Assegnare ad Azure Image Builder l'autorizzazione per creare risorse in tale gruppo di risorse. Il `--assignee` valore è l'ID di registrazione dell'app per il servizio Generatore di immagini. 
+Assegnare ad Azure Image Builder l'autorizzazione per creare risorse in tale gruppo di risorse. Il valore `--assignee` è l'ID di registrazione dell'app per il servizio Generatore di immagini. 
 
 ```azurecli-interactive
 az role assignment create \
@@ -186,7 +186,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-Connettersi tramite SSH alla macchina virtuale.
+Accedere tramite SSH alla macchina virtuale.
 
 ```azurecli-interactive
 ssh aibuser@<publicIpAddress>
@@ -220,7 +220,7 @@ az resource delete \
     -n helloImageTemplateforSIG01
 ```
 
-Ottenere la versione dell'immagine creata da Image Builder, che inizia sempre `0.`con e quindi Elimina la versione dell'immagine
+Ottenere la versione dell'immagine creata da Image Builder, che inizia sempre con `0.`e quindi Elimina la versione dell'immagine
 
 ```azurecli-interactive
 sigDefImgVersion=$(az sig image-version list \

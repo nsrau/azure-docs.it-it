@@ -8,16 +8,16 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: fb092a3c6b473680480c3bba0ad6f437176833de
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 3e344afc29ae398394a1aa2aa527f2f32e24eef7
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73576409"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997191"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gestire l'accesso alle macchine virtuali con la funzionalità JIT (Just-in-Time)
 
-L'accesso alle macchine virtuali JIT (just-in-Time) può essere usato per bloccare il traffico in ingresso verso le macchine virtuali di Azure, riducendo l'esposizione agli attacchi offrendo un facile accesso per connettersi alle macchine virtuali quando necessario.
+L'accesso JIT alle macchine virtuali può essere usato per bloccare il traffico in ingresso alle macchine virtuali di Azure, riducendo l'esposizione agli attacchi e al tempo stesso offrendo un facile accesso per connettersi alle macchine virtuali quando necessario.
 
 > [!NOTE]
 > La funzionalità JIT è disponibile nel livello Standard del Centro sicurezza. Per altre informazioni sui piani tariffari di Centro sicurezza, vedere [Prezzi](security-center-pricing.md).
@@ -108,7 +108,7 @@ Dal centro sicurezza è possibile configurare un criterio JIT e richiedere l'acc
 
      3. Fare clic su **OK**.
 
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**
 
 > [!NOTE]
 >Quando è abilitata l'accesso JIT alla macchina virtuale per una macchina virtuale, il Centro sicurezza di Azure crea le regole di "nega tutto il traffico in ingresso" per le porte selezionate nei gruppi di sicurezza di rete associati e nel firewall di Azure. Se sono state create altre regole per le porte selezionate, le regole esistenti hanno la priorità sulla nuova regola "nega tutto il traffico in ingresso". Se non sono presenti regole esistenti sulle porte selezionate, la nuova regola "nega tutto il traffico in ingresso" ha la priorità nei gruppi di sicurezza di rete e nel firewall di Azure.
@@ -176,10 +176,10 @@ Per praticità, è possibile connettersi a una macchina virtuale usando JIT dire
 
 Per semplificare l'implementazione dell'accesso JIT nelle macchine virtuali, è possibile impostare una macchina virtuale per consentire solo l'accesso JIT direttamente dall'interno della macchina virtuale.
 
-1. Nel portale di Azure selezionare **Macchine virtuali**.
-2. Fare clic sulla macchina virtuale a cui si vuole limitare l'accesso solamente all'accesso JIT.
-3. Nel menu fare clic su **Configuration** (Configurazione).
-4. In **Just-in-time-access** fare clic su **Enable just-in-time policy** (Abilita criterio JIT). 
+1. Dalla [portale di Azure](https://ms.portal.azure.com)cercare e selezionare **macchine virtuali**. 
+2. Selezionare la macchina virtuale di cui si vuole limitare l'accesso just-in-time.
+3. Nel menu selezionare **configurazione**.
+4. In **accesso just-in-Time-** selezionare **Abilita criteri JIT**. 
 
 In questo modo si abilita l'accesso JIT per la macchina virtuale con le impostazioni seguenti:
 

@@ -1,30 +1,30 @@
 ---
-title: Gestire le regole del firewall in database di Azure per PostgreSQL-iperscalabilità (CITUS)
+title: Gestire le regole del firewall-iperscala (CITUS)-database di Azure per PostgreSQL
 description: Creare e gestire le regole del firewall per database di Azure per PostgreSQL-iperscalabilità (CITUS) con il portale di Azure
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 9/12/2019
-ms.openlocfilehash: 1b132eb168f3d873c8150bc33b581aa0f0f8d124
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 660c395e6cff81b0abcac07e66385f80a538695f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273714"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977540"
 ---
 # <a name="manage-firewall-rules-for-azure-database-for-postgresql---hyperscale-citus"></a>Gestire le regole del firewall per database di Azure per PostgreSQL-iperscalabilità (CITUS)
 Le regole del firewall a livello di server possono essere usate per gestire l'accesso a un nodo coordinatore iperscalabile (CITUS) da un indirizzo IP specificato o da un intervallo di indirizzi IP.
 
 ## <a name="prerequisites"></a>Prerequisiti
-Per proseguire con questa guida, si richiedono:
+Per proseguire con questa guida è necessario:
 - Un gruppo di server [Crea un gruppo di server di database di Azure per PostgreSQL – iperscala (CITUS)](quickstart-create-hyperscale-portal.md).
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Creare una regola del firewall a livello di server nel portale di Azure
 
 > [!NOTE]
 > Queste impostazioni sono accessibili anche durante la creazione di un gruppo di server di database di Azure per PostgreSQL-overscale (CITUS). Nella scheda **rete** fare clic su **endpoint pubblico**.
-> ![Portale di Azure-scheda rete](./media/howto-hyperscale-manage-firewall-using-portal/0-create-public-access.png)
+> ![scheda rete portale di Azure](./media/howto-hyperscale-manage-firewall-using-portal/0-create-public-access.png)
 
 1. Nella pagina gruppo di server PostgreSQL, sotto l'intestazione sicurezza, fare clic su **rete** per aprire le regole del firewall.
 

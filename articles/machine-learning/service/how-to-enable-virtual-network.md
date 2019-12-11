@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 11/13/2019
-ms.openlocfilehash: c5d0c517e7a3d4c011d66925b8db0c4d09dd34ca
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 6b8ebf50e14dc71426727e3754946d5d6f0c7705
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123584"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978748"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Proteggere i processi di sperimentazione e inferenza di Azure ML in una rete virtuale di Azure
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ Questo articolo fornisce inoltre informazioni dettagliate sulle *impostazioni di
 > [!WARNING]
 > Microsoft non supporta l'uso di Azure Machine Learning Designer o di Machine Learning automatizzato (da studio) con risorse all'interno di una rete virtuale.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 + Area di [lavoro](how-to-manage-workspace.md)Azure Machine Learning.
 
@@ -166,7 +166,7 @@ La configurazione della regola NSG nel portale di Azure è illustrata nell'immag
 
 ### <a name="user-defined-routes-for-forced-tunneling"></a>Route definite dall'utente per il tunneling forzato
 
-Se si usa il tunneling forzato con ambiente di calcolo di Machine Learning, aggiungere [route definite dall'utente (UDR)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) alla subnet che contiene la risorsa di calcolo.
+Se si usa il tunneling forzato con il ambiente di calcolo di Machine Learning, aggiungere [route definite dall'utente (UDR)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) alla subnet che contiene la risorsa di calcolo.
 
 * Definire un UDR per ogni indirizzo IP usato dal servizio Azure Batch nell'area in cui si trovano le risorse. Questi UdR consentono al servizio batch di comunicare con i nodi di calcolo per la pianificazione delle attività. Per ottenere un elenco di indirizzi IP del servizio batch, usare uno dei metodi seguenti:
 
@@ -200,7 +200,7 @@ Per creare un cluster di ambiente di calcolo di Machine Learning, procedere come
 
     b. Nell'elenco a discesa __gruppo di risorse__ selezionare il gruppo di risorse che contiene la rete virtuale.
 
-    C. Nell'elenco a discesa __rete virtuale__ selezionare la rete virtuale che contiene la subnet.
+    c. Nell'elenco a discesa __rete virtuale__ selezionare la rete virtuale che contiene la subnet.
 
     d. Nell'elenco a discesa __subnet__ selezionare la subnet da usare.
 

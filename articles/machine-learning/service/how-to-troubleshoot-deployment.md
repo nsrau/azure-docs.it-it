@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1dc66ae0f69c19524b32b55c654f7c8fd2d32762
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 7d7744aab6d83b3415f32ca9e311940836c6f93c
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123219"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997242"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Risoluzione dei problemi relativi a Azure Machine Learning servizio Azure Kubernetes e alla distribuzione di istanze di contenitore di Azure
 
@@ -42,7 +42,7 @@ Quando si distribuisce un modello in Azure Machine Learning, il sistema esegue u
 
 Per altre informazioni su questa procedura, vedere [Gestire e distribuire modelli con il servizio Azure Machine Learning](concept-model-management-and-deployment.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Una **sottoscrizione di Azure**. Se non si dispone di un, provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 * [SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
@@ -267,7 +267,7 @@ L'impostazione del livello di registrazione su DEBUG può causare la registrazio
 
 ## <a name="function-fails-runinput_data"></a>Errore della funzione: run(input_data)
 
-Se il servizio viene distribuito correttamente, ma si arresta in modo anomalo quando si pubblicano dati nell'endpoint di assegnazione dei punteggi, è possibile aggiungere un'istruzione di rilevamento degli errori nella funzione `run(input_data)` in modo che restituisca il messaggio di errore dettagliato. Ad esempio:
+Se il servizio viene distribuito correttamente, ma si arresta in modo anomalo quando si pubblicano dati nell'endpoint di assegnazione dei punteggi, è possibile aggiungere un'istruzione di rilevamento degli errori nella funzione `run(input_data)` in modo che restituisca il messaggio di errore dettagliato. ad esempio:
 
 ```python
 def run(input_data):
@@ -505,7 +505,7 @@ Per apportare modifiche ai file nell'immagine, è possibile connettersi al conte
     docker exec -it debug /bin/bash
     ```
 
-1. Per trovare i file usati dal servizio, usare il comando seguente dalla shell bash nel contenitore:
+1. Per trovare i file usati dal servizio, usare il comando seguente dalla shell bash nel contenitore se la directory predefinita è diversa da `/var/azureml-app`:
 
     ```bash
     cd /var/azureml-app

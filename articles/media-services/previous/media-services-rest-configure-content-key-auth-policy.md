@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: cb9b784e612b1dca6b5251cb5a20140e908158c4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2c6986409f4cd9ad7e5799a55c4c301e51d5e879
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60598429"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74968171"
 ---
-# <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Crittografia dinamica: Configurare i criteri di autorizzazione di una chiave simmetrica  
+# <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Crittografia dinamica: configurare i criteri di autorizzazione di una chiave simmetrica  
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## <a name="overview"></a>Panoramica
@@ -440,11 +440,14 @@ Aggiungere AuthorizationPolicy a ContentKey, come illustrato nella sezione "[Agg
         Widevine = 3
     }
 
+## <a name="additional-notes"></a>Note aggiuntive
+
+* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google, Inc.
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -7,22 +7,22 @@ ms.subservice: security
 ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
-author: aliceku
-ms.author: aliceku
+author: jaszymas
+ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 11/19/2019
-ms.openlocfilehash: 6676a6f7c694ffd4f2edf3f63a8181863df0016c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c8a1e2a19fa3c8691cdb381669dc3d4db189c42d
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227968"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995848"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent Data Encryption SQL di Azure con chiave gestita dal cliente
 
 Transparent Data Encryption SQL di Azure (Transparent Data Management [)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) con chiave gestita dal cliente Abilita Bring your own key (BYOK) per la protezione dei dati inattivi e consente alle organizzazioni di implementare la separazione dei compiti nella gestione di chiavi e dati. Grazie alla funzionalità Transparent Data Encryption gestita dal cliente, il cliente è responsabile di e in un controllo completo di una gestione del ciclo di vita delle chiavi (creazione, caricamento, rotazione, eliminazione), autorizzazioni di utilizzo chiave e controllo delle operazioni sulle chiavi.
 
-In questo scenario, la chiave utilizzata per la crittografia della chiave di crittografia del database, denominata protezione Transparent Data Encryption, è una chiave asimmetrica gestita dal cliente archiviata in una Azure Key Vault di proprietà del cliente e gestita dal cliente [(AKV)](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), una gestione delle chiavi esterne basata sul cloud sistema. Key Vault è un'archiviazione sicura a disponibilità elevata e scalabile per le chiavi crittografiche RSA, supportata facoltativamente da moduli di protezione hardware convalidati per FIPS 140-2 Level 2 (HSM). Non consente l'accesso diretto a una chiave archiviata, ma fornisce servizi di crittografia/decrittografia usando la chiave per le entità autorizzate. La chiave può essere generata dall'insieme di credenziali delle chiavi, importato o trasferito nell'insieme di credenziali delle [chiavi da un dispositivo HSM](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys)locale.
+In questo scenario, la chiave utilizzata per la crittografia della chiave di crittografia del database, denominata protezione Transparent Data Encryption, è una chiave asimmetrica gestita dal cliente, archiviata in un Azure Key Vault di proprietà del cliente e gestita dal cliente [(AKV)](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), un sistema di gestione delle chiavi esterne basato sul cloud. Key Vault è un'archiviazione sicura a disponibilità elevata e scalabile per le chiavi crittografiche RSA, supportata facoltativamente da moduli di protezione hardware convalidati per FIPS 140-2 Level 2 (HSM). Non consente l'accesso diretto a una chiave archiviata, ma fornisce servizi di crittografia/decrittografia usando la chiave per le entità autorizzate. La chiave può essere generata dall'insieme di credenziali delle chiavi, importato o trasferito nell'insieme di credenziali delle [chiavi da un dispositivo HSM](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys)locale.
 
 Per il database SQL di Azure e Azure SQL Data Warehouse, la protezione Transparent Data Encryption è impostata a livello di server logico e viene ereditata da tutti i database crittografati associati a tale server. Per Istanza gestita SQL di Azure, la protezione Transparent Data Encryption è impostata a livello di istanza e viene ereditata da tutti i database crittografati in tale istanza. Il termine *Server* si riferisce sia al server logico del database SQL che all'istanza gestita in tutto il documento, a meno che non venga specificato diversamente. 
 
@@ -70,7 +70,7 @@ Se la registrazione è abilitata, i revisori possono usare monitoraggio di Azure
 
 ### <a name="requirements-for-configuring-akv"></a>Requisiti per la configurazione di AKV
 
-- L'insieme di credenziali delle chiavi e l'istanza gestita/database SQL devono appartenere allo stesso tenant di Azure Active Directory. L'insieme di credenziali delle chiavi tra tenant e le interazioni tra server non sono supportate. Per spostare le risorse in un secondo momento, è necessario riconfigurare Transparent Data Encryption con AKV. Altre informazioni sullo stato di [trasferimento delle risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
+- L'insieme di credenziali delle chiavi e l'istanza gestita/database SQL devono appartenere allo stesso tenant di Azure Active Directory. Le interazioni tra tenant di insieme di credenziali delle chiavi e server non sono supportate. Per spostare le risorse in un secondo momento, è necessario riconfigurare Transparent Data Encryption con AKV. Altre informazioni sullo stato di [trasferimento delle risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
 - È necessario abilitare la funzionalità di [eliminazione](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) temporanea nell'insieme di credenziali delle chiavi, in modo da evitare la perdita di dati accidentali o l'eliminazione di Key Vault. Le risorse eliminate temporaneamente vengono conservate per 90 giorni, a meno che non vengano ripristinate o eliminate dal cliente nel frattempo. Alle azioni di *recupero* ed *eliminazione definitiva* sono associate autorizzazioni specifiche nei criteri di accesso dell'insieme di credenziali delle chiavi. La funzionalità di eliminazione temporanea è disabilitata per impostazione predefinita e può essere abilitata tramite [PowerShell](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell#enabling-soft-delete) o l' [interfaccia](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-cli#enabling-soft-delete)della riga di comando. Non può essere abilitata tramite portale di Azure.  
 

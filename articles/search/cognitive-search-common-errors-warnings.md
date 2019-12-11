@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 472c4a75f5a4253220383ae79d88d5b90cec4795
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: fb8aec10d58ed4f2eca462774aeaf61f2ea21dd0
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555053"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973969"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Risoluzione di errori e avvisi comuni dell'indicizzatore in Azure ricerca cognitiva
 
@@ -74,7 +74,7 @@ L'indicizzatore ha letto il documento dall'origine dati, ma si è verificato un 
 | Manca la chiave del documento | La chiave del documento non può essere mancante o vuota | Verificare che tutti i documenti dispongano di chiavi di documento valide |
 | La chiave del documento non è valida | La chiave del documento non può contenere più di 1024 caratteri | Modificare la chiave del documento per soddisfare i requisiti di convalida. |
 | Non è stato possibile applicare il mapping dei campi a un campo | Non è stato possibile applicare la funzione di mapping `'functionName'` al campo `'fieldName'`. La matrice non può essere null. Nome parametro: bytes | Controllare i [mapping dei campi](search-indexer-field-mappings.md) definiti nell'indicizzatore e confrontarli con i dati del campo specificato del documento non riuscito. Potrebbe essere necessario modificare i mapping dei campi o i dati del documento. |
-| Impossibile leggere il valore del campo | Impossibile leggere il valore della colonna `'fieldName'` in corrispondenza dell'indice `'fieldIndex'`. si è verificato un errore a livello di trasporto durante la ricezione dei risultati dal server. (provider: provider TCP, errore: 0-una connessione esistente è stata chiusa forzatamente dall'host remoto.) | Questi errori sono in genere causati da problemi di connettività imprevisti con il servizio sottostante dell'origine dati. Provare a eseguire di nuovo il documento tramite l'indicizzatore in un secondo momento. |
+| Impossibile leggere il valore del campo | Impossibile leggere il valore della colonna `'fieldName'` in corrispondenza dell'indice `'fieldIndex'`. si è verificato un errore a livello di trasporto durante la ricezione dei risultati dal server. (provider: Provider TCP, errore: 0 - Connessione in corso interrotta forzatamente dall'host remoto). | Questi errori sono in genere causati da problemi di connettività imprevisti con il servizio sottostante dell'origine dati. Provare a eseguire di nuovo il documento tramite l'indicizzatore in un secondo momento. |
 
 <a name="could-not-execute-skill"/>
 
@@ -307,3 +307,9 @@ Le [modalità di analisi dell'indicizzatore](https://docs.microsoft.com/rest/api
 Se non è presente alcuna byte order mark, si presuppone che il testo sia codificato come UTF-8.
 
 Per ovviare a questo avviso, determinare la codifica del testo per questo BLOB e aggiungere il byte order mark appropriato.
+
+<a name="cosmos-db-collection-has-a-lazy-indexing-policy"/>
+
+## <a name="warning-cosmos-db-collection-x-has-a-lazy-indexing-policy-some-data-may-be-lost"></a>Avviso: Cosmos DB raccolta ' X ' ha un criterio di indicizzazione Lazy. Alcuni dati potrebbero andare perduti
+
+Non è possibile eseguire query in modo coerente sulle raccolte con criteri di indicizzazione [Lazy](https://docs.microsoft.com/azure/cosmos-db/index-policy#indexing-mode) , causando la mancata corrispondenza dei dati dell'indicizzatore. Per risolvere il problema, modificare i criteri di indicizzazione in coerenza.

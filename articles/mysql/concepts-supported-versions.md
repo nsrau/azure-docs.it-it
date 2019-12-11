@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/12/2019
-ms.openlocfilehash: f9c7278e60c8342aa7d5b68ab8da7143abaf4c89
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/09/2019
+ms.openlocfilehash: b4029d49eeba53e7a502a7ac68081bb5a2d549f8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970526"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971928"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versioni supportate del Database di Azure per il server MySQL
 
@@ -26,22 +26,22 @@ Al momento il Database di Azure per MySQL supporta le versioni indicate di segui
 
 ## <a name="mysql-version-56"></a>MySQL versione 5.6
 
-Versione di correzione di bug: 5.6.44
+Versione correzione bug: 5.6.45
 
-Per ulteriori informazioni sui miglioramenti e sulle correzioni in questa versione, vedere le [Note sulla versione](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-44.html) di MySQL.
+Per ulteriori informazioni sui miglioramenti e sulle correzioni in questa versione, vedere le [Note sulla versione](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-45.html) di MySQL.
 
 ## <a name="mysql-version-57"></a>MySQL versione 5.7
 
-Versione di correzione di bug: 5.7.26
+Versione correzione bug: 5.7.27
 
-Per ulteriori informazioni sui miglioramenti e sulle correzioni in questa versione, vedere le [Note sulla versione](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-26.html) di MySQL.
+Per ulteriori informazioni sui miglioramenti e sulle correzioni in questa versione, vedere le [Note sulla versione](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-27.html) di MySQL.
 
 ## <a name="mysql-version-80"></a>MySQL versione 8,0
 
 > [!IMPORTANT]
 > MySQL 8,0 è attualmente in fase di anteprima.
 
-Versione di correzione di bug: 8.0.15
+Versione correzione bug: 8.0.15
 
 Per ulteriori informazioni sui miglioramenti e sulle correzioni in questa versione, vedere le [Note sulla versione](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) di MySQL.
 

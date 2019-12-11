@@ -4,12 +4,12 @@ description: Creare e gestire Data Manager blockchain per il servizio Azure bloc
 ms.date: 11/04/2019
 ms.topic: article
 ms.reviewer: chroyal
-ms.openlocfilehash: 9c682f449fbab823134d626870c7dcfe8a8f2847
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 03c22a7a23f1579a846746f21ce048b3425399c3
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455818"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977021"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Configurare Blockchain Data Manager con il portale di Azure
 
@@ -20,7 +20,7 @@ Per configurare un'istanza di Data Manager blockchain, è necessario:
 * Creare un'istanza di Data Manager blockchain per un nodo di transazione del servizio blockchain di Azure
 * Aggiungere le applicazioni blockchain
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * [Guida introduttiva: creare un membro blockchain usando il portale di Azure o la](create-member.md) [Guida introduttiva: creare un membro blockchain del servizio blockchain di Azure usando l'interfaccia](create-member-cli.md) della riga di comando
 * Creare un [argomento di Griglia di eventi](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
@@ -40,9 +40,9 @@ Una connessione in uscita invia i dati della blockchain a Griglia di eventi di A
 
     Immettere i dettagli seguenti:
 
-    Impostazione | DESCRIZIONE
+    Impostazione | Description
     --------|------------
-    Nome | Immettere un nome univoco per un'istanza di Blockchain Data Manager connessa. Il nome del Data Manager blockchain può contenere lettere minuscole e numeri e ha una lunghezza massima di 20 caratteri.
+    name | Immettere un nome univoco per un'istanza di Blockchain Data Manager connessa. Il nome del Data Manager blockchain può contenere lettere minuscole e numeri e ha una lunghezza massima di 20 caratteri.
     Nodo di transazione | Scegliere un nodo di transazione. Sono elencati solo i nodi di transazione per i quali si dispone dell'accesso in lettura.
     Nome connessione | Immettere un nome univoco della connessione in uscita a cui vengono inviati i dati della transazione blockchain.
     Endpoint di Griglia di eventi | Scegliere un argomento di griglia di eventi nella stessa sottoscrizione dell'istanza di Data Manager blockchain.
@@ -78,13 +78,15 @@ L'interfaccia ABI (Application Binary Interface) del contratto definisce le inte
 
 1. Salvare la matrice **abi** come file JSON. Ad esempio, *abi.json*. Questo file verrà usato in un passaggio successivo.
 
-Blockchain Data Manager richiede il bytecode distribuito per il contratto intelligente. Il bytecode distribuito è diverso dal bytecode del contratto intelligente. È possibile ottenere il bytecode distribuito dal file di metadati del contratto compilato.
+Blockchain Data Manager richiede il bytecode distribuito per il contratto intelligente. Il bytecode distribuito è diverso dal bytecode del contratto intelligente. Si usa l'estensione del kit di sviluppo di Azure blockchain per copiare il bytecode negli Appunti.
 
-1. Aprire il file di metadati del contratto disponibile nella cartella **build/contracts** del progetto Solidity. Il nome del file è il nome del contratto intelligente seguito dall'estensione **.json**.
-1. Trovare l'elemento **deployedBytecode** nel file JSON.
-1. Copiare il valore esadecimale senza virgolette.
+1. Nel riquadro di Esplora risorse di Visual Studio Code espandere la cartella **build/contracts** del progetto Solidity.
+1. Fare clic con il pulsante destro del mouse sul file JSON dei metadati del contratto. Il nome del file è il nome del contratto intelligente seguito dall'estensione **.json**.
+1. Selezionare **copia bytecode transazione**.
 
-    ![Riquadro di Visual Studio Code con il bytecode nei metadati](./media/data-manager-portal/bytecode-metadata.png)
+    ![Riquadro Visual Studio Code con la selezione del bytecode per la copia della transazione](./media/data-manager-portal/bytecode-devkit.png)
+
+    Il bytecode viene copiato negli Appunti.
 
 1. Salvare il valore **bytecode** come file JSON. Ad esempio, *bytecode.json*. Questo file verrà usato in un passaggio successivo.
 
@@ -106,9 +108,9 @@ Blockchain Data Manager richiede che i file ABI e bytecode del contratto siano a
 
     ![Creare un contenitore dell'account di archiviazione](./media/data-manager-portal/create-container.png)
 
-    | Campo | DESCRIZIONE |
+    | Campo | Description |
     |-------|-------------|
-    | Nome  | Assegnare un nome al contenitore. Ad esempio, *smartcontract* |
+    | name  | Assegnare un nome al contenitore. Ad esempio, *smartcontract* |
     | Livello di accesso pubblico | Scegliere *Privato (nessun accesso anonimo)* |
 
 1. Fare clic su **OK** per creare il contenitore.
@@ -142,9 +144,9 @@ Per ogni BLOB, generare una firma di accesso condiviso.
 
     Immettere il nome dell'applicazione blockchain e gli URL dell'ABI e del bytecode del contratto intelligente.
 
-    Impostazione | DESCRIZIONE
+    Impostazione | Description
     --------|------------
-    Nome | Immettere un nome univoco per l'applicazione blockchain da monitorare.
+    name | Immettere un nome univoco per l'applicazione blockchain da monitorare.
     Contract ABI (ABI contratto) | Percorso URL del file ABI del contratto. Per altre informazioni, vedere [Creare l'URL dell'ABI e del bytecode del contratto](#create-contract-abi-and-bytecode-url).
     Contract bytecode (Bytecode contratto) | Percorso URL del file bytecode. Per altre informazioni, vedere [Creare l'URL dell'ABI e del bytecode del contratto](#create-contract-abi-and-bytecode-url).
 

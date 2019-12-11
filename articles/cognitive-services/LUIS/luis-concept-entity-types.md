@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: diberry
-ms.openlocfilehash: 808e110ccb45b0b4f7bf34a43597c1f7a7bc0fed
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 6ee156efb5512c92d86ba05513b6a2b91df4eae8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422575"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976962"
 ---
 # <a name="entities-and-their-purpose-in-luis"></a>Entità e relativo scopo in LUIS
 
@@ -37,10 +37,10 @@ Le entità devono essere etichettate in modo coerente in tutte le espressioni di
 
  È possibile definire entità personalizzate o usare entità predefinite per risparmiare tempo per i concetti comuni, ad esempio [datetimeV2](luis-reference-prebuilt-datetimev2.md), [ordinale](luis-reference-prebuilt-ordinal.md), [e-mail](luis-reference-prebuilt-email.md)e [numero di telefono](luis-reference-prebuilt-phonenumber.md).
 
-|Espressione|Entità|Dati|
+|Espressione|Persona giuridica|Dati|
 |--|--|--|
 |Buy 3 tickets to New York|Number predefinito<br>Location.Destination|3<br>New York|
-|Buy a ticket from New York to London on March 5|Location.Origin<br>Location.Destination<br>DatetimeV2 predefinito|New York<br>Londra<br>March 5, 2018|
+|Buy a ticket from New York to London on March 5|Location.Origin<br>Location.Destination<br>DatetimeV2 predefinito|New York<br>Londra<br>5 marzo 2018|
 
 ### <a name="entities-are-optional"></a>Le entità sono facoltative
 
@@ -58,7 +58,7 @@ Si considerino le 4 espressioni seguenti:
 
 |Espressione|Finalità stimata|Entità estratte|Spiegazione|
 |--|--|--|--|
-|Guida|help|-|Nessun elemento da estrarre.|
+|Supporto|help|-|Nessun elemento da estrarre.|
 |Invia qualcosa|sendSomething|-|Nessun elemento da estrarre. Non è stato eseguito il training del modello per estrarre `something` in questo contesto e non esiste alcun destinatario.|
 |Invia Bob a presente|sendSomething|`Bob`, `present`|È stato eseguito il training del modello con l'entità predefinita [PersonName](luis-reference-prebuilt-person.md) , che ha estratto il nome `Bob`. Per estrarre `present`è stata usata un'entità Machine-Learned.|
 |Invia Bob a box di cioccolato|sendSomething|`Bob`, `box of chocolates`|Le due parti importanti dei dati, `Bob` e le `box of chocolates`, sono state estratte dalle entità.|
@@ -75,7 +75,7 @@ Le [**entità apprese dal computer**](tutorial-machine-learned-entity.md) sono l
 
 Trigger di entità appresa dal computer in base al contesto acquisito tramite espressioni di training. I **vincoli** sono regole facoltative applicate a un'entità appresa dal computer che vincola ulteriormente l'attivazione in base alla definizione di corrispondenza esatta del testo di un'entità non appresa dal computer, ad esempio un [elenco](reference-entity-list.md) o un' [espressione regolare](reference-entity-regular-expression.md). Ad esempio, un'entità `size` Machine-learned può avere un vincolo di un'entità `sizeList` list che vincola l'entità `size` a essere attivata solo quando vengono rilevati valori contenuti all'interno dell'entità `sizeList`.
 
-I [**descrittori**](luis-concept-feature.md) sono funzionalità applicate per aumentare la pertinenza delle parole o delle frasi per la stima. Sono denominati *descrittori* perché vengono usati per *descrivere* uno scopo o un'entità. I descrittori descrivono la distinzione tra tratti o attributi dei dati, ad esempio parole o frasi importanti. che LUIS osserva e apprende.
+I [**descrittori**](luis-concept-feature.md) sono funzionalità applicate per aumentare la pertinenza delle parole o delle frasi per la stima. Sono denominati *descrittori* perché vengono usati per *descrivere* uno scopo o un'entità. I descrittori descrivono la distinzione tra tratti o attributi dei dati, ad esempio parole o frasi importanti che LUIS osserva e apprende.
 
 Quando si crea una funzionalità di elenco di frasi nell'app LUIS, questa viene abilitata a livello globale per impostazione predefinita e si applica in modo uniforme a tutti gli Intent ed entità. Tuttavia, se si applica l'elenco di frasi come descrittore (funzionalità) di un'entità appresa dal computer (o *modello*), l'ambito viene ridotto in modo da applicare solo a tale modello e non viene più utilizzato con tutti gli altri modelli. L'utilizzo di un elenco di frasi come descrittore per un modello consente la scomposizione mediante l'assistenza con l'accuratezza del modello a cui viene applicato.
 
@@ -90,7 +90,7 @@ Quando si crea una funzionalità di elenco di frasi nell'app LUIS, questa viene 
 
 Scegliere l'entità in base a come devono essere estratti i dati e a come devono essere rappresentati dopo l'estrazione.
 
-|Tipo di entità|Scopo|
+|Tipo di entità|Finalità|
 |--|--|
 |[**Apprendimento automatico**](tutorial-machine-learned-entity.md)|Le entità apprese dal computer imparano dal contesto nell'espressione. Raggruppamento padre di entità, indipendentemente dal tipo di entità. In questo modo la variazione del posizionamento in espressioni di esempio è significativa. |
 |[**Elenco**](reference-entity-list.md)|Elenco di elementi e relativi sinonimi estratti con la **corrispondenza esatta del testo**.|
@@ -128,7 +128,7 @@ Se LUIS trova il `location` ma non riesce a determinare il ruolo, l'entità loca
 
 ## <a name="if-you-need-more-than-the-maximum-number-of-entities"></a>Se sono necessarie più entità rispetto al numero massimo
 
-Se è necessario più del limite, contattare il supporto tecnico. A tale scopo, raccogliere informazioni dettagliate relative al sistema, visitare il sito Web [LUIS](luis-reference-regions.md#luis-website) e quindi selezionare l'opzione relativa al **supporto**. Se la sottoscrizione di Azure include servizi di assistenza, contattare [il team di supporto di Azure](https://azure.microsoft.com/support/options/).
+Se è necessario più del limite, contattare il supporto tecnico. A tale scopo, raccogliere informazioni dettagliate relative al sistema, visitare il sito Web [LUIS](luis-reference-regions.md#luis-website) e quindi selezionare l'opzione relativa al **supporto**. Se la sottoscrizione di Azure include servizi di supporto tecnico, contattare [il supporto tecnico Azure](https://azure.microsoft.com/support/options/).
 
 ## <a name="entity-prediction-status"></a>Stato stima entità
 
@@ -138,6 +138,7 @@ Il portale LUIS Mostra quando l'entità, in un enunciato di esempio, ha una stim
 
 Informazioni sui concetti delle [espressioni](luis-concept-utterance.md) valide.
 
-Vedere [Aggiungere entità](luis-how-to-add-entities.md) per ulteriori informazioni sull'aggiunta di entità all'app LUIS.
+Vedere [Aggiungere entità](luis-how-to-add-entities.md) per altre informazioni sull'aggiunta di entità all'app LUIS.
 
 Per informazioni su come estrarre i dati strutturati da un enunciato usando l'entità di Machine Learning, vedere [esercitazione: estrarre dati strutturati da un enunciato utente con entità apprese dal computer in Language Understanding (Luis)](tutorial-machine-learned-entity.md) .
+ 

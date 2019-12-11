@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 6f6aa90553f3a69d2d287c7d59e166884a1a8f66
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 15db96824336c92611b9e1113c42c621f6508744
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113737"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978118"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Eliminazione temporanea per i BLOB di Archiviazione di Azure
 
@@ -72,10 +72,10 @@ L'eliminazione temporanea non salva i dati in caso di eliminazioni di contenitor
 
 La tabella seguente illustra il comportamento previsto quando l'eliminazione temporanea è abilitata:
 
-| Operazione API REST | Tipo di risorsa | DESCRIZIONE | Modifica del comportamento |
+| Operazione API REST | Tipo di risorsa | Description | Modifica del comportamento |
 |--------------------|---------------|-------------|--------------------|
-| [Eliminazione](/rest/api/storagerp/StorageAccounts/Delete) | Account | Elimina l'account di archiviazione, inclusi tutti i contenitori e i BLOB contenuti al suo interno.                           | Nessuna modifica. I contenitori e i BLOB contenuti nell'account eliminato non sono recuperabili. |
-| [Delete Container](/rest/api/storageservices/delete-container) | Contenitore: | Elimina il contenitore, inclusi tutti i BLOB contenuti al suo interno. | Nessuna modifica. I BLOB contenuti nell'account eliminato non sono recuperabili. |
+| [Elimina](/rest/api/storagerp/StorageAccounts/Delete) | Account | Elimina l'account di archiviazione, inclusi tutti i contenitori e i BLOB contenuti al suo interno.                           | Nessuna modifica. I contenitori e i BLOB contenuti nell'account eliminato non sono recuperabili. |
+| [Delete Container](/rest/api/storageservices/delete-container) | Contenitore | Elimina il contenitore, inclusi tutti i BLOB contenuti al suo interno. | Nessuna modifica. I BLOB contenuti nell'account eliminato non sono recuperabili. |
 | [Put Blob](/rest/api/storageservices/put-blob) | BLOB in blocchi, di accodamento e di pagine | Crea un nuovo BLOB o sostituisce un BLOB esistente all'interno di un contenitore | Se usata per sostituire un BLOB esistente, viene generato automaticamente uno snapshot dello stato del BLOB prima della chiamata. Questo vale anche per un BLOB eliminato temporaneamente in precedenza solo se è stato sostituito da un BLOB dello stesso tipo (blocco, Accodamento o pagina). Se viene sostituito da un BLOB di tipo diverso, tutti i dati eliminati temporaneamente esistenti scadranno definitivamente. |
 | [Delete Blob](/rest/api/storageservices/delete-blob) | BLOB in blocchi, di accodamento e di pagine | Contrassegna un BLOB o uno snapshot di BLOB per l'eliminazione. Il BLOB o lo snapshot verrà eliminato in seguito durante la Garbage Collection | Se usata per eliminare uno snapshot di BLOB, tale snapshot viene contrassegnato come eliminato temporaneamente. Se usata per eliminare un BLOB, tale BLOB viene contrassegnato come eliminato temporaneamente. |
 | [Copy Blob](/rest/api/storageservices/copy-blob) | BLOB in blocchi, di accodamento e di pagine | Copia un BLOB di origine in un BLOB di destinazione nello stesso account di archiviazione o in un altro account di archiviazione. | Se usata per sostituire un BLOB esistente, viene generato automaticamente uno snapshot dello stato del BLOB prima della chiamata. Questo vale anche per un BLOB eliminato temporaneamente in precedenza solo se è stato sostituito da un BLOB dello stesso tipo (blocco, Accodamento o pagina). Se viene sostituito da un BLOB di tipo diverso, tutti i dati eliminati temporaneamente esistenti scadranno definitivamente. |
@@ -146,13 +146,23 @@ Per altri dettagli sui prezzi per Archiviazione BLOB di Azure in generale, consu
 
 Quando si abilita inizialmente l'eliminazione temporanea, è consigliabile usare un periodo di conservazione ridotto per comprendere meglio in che modo la funzionalità influirà sui costi.
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Inizia oggi stesso
 
 La procedura seguente illustra come iniziare a usare l'eliminazione temporanea.
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
 
-Per abilitare l'eliminazione temporanea, selezionare l'opzione **Eliminazione temporanea** in **Servizio BLOB**. Quindi fare clic su **Abilitata** e immettere il numero di giorni per cui si vogliono conservare i dati eliminati temporaneamente.
+Abilitare l'eliminazione temporanea per i BLOB nell'account di archiviazione usando portale di Azure:
+
+1. Nella [portale di Azure](https://portal.azure.com/)selezionare l'account di archiviazione. 
+
+2. Passare all'opzione **protezione dati** in **servizio BLOB**.
+
+3. Fare clic su **abilitato** in **eliminazione temporanea BLOB**
+
+4. Immettere il numero di giorni che si desidera *mantenere per* i **criteri di conservazione**
+
+5. Scegliere il pulsante **Salva** per confermare le impostazioni di protezione dati
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-configuration.png)
 
@@ -217,7 +227,7 @@ Per trovare i criteri di conservazione dell'eliminazione temporanea corrente, us
    Get-AzStorageServiceProperty -ServiceType Blob -Context $account.Context
 ```
 
-# <a name="clitabazure-cli"></a>[CLI](#tab/azure-CLI)
+# <a name="clitabazure-cli"></a>[Interfaccia della riga di comando](#tab/azure-CLI)
 
 Per abilitare l'eliminazione temporanea, aggiornare le proprietà del servizio del client BLOB:
 
@@ -297,7 +307,7 @@ blockBlob.StartCopy(copySource);
 
 Se è possibile che i dati vengano accidentalmente modificati o eliminati da un'applicazione o da un altro utente dell'account di archiviazione, è consigliabile attivare l'eliminazione temporanea. L'abilitazione dell'eliminazione temporanea per i dati sovrascritti frequentemente può comportare un aumento degli addebiti per la capacità di archiviazione e una latenza maggiore È possibile mitigare questo costo aggiuntivo e la latenza archiviando i dati sovrascritti di frequente in un account di archiviazione separato in cui l'eliminazione temporanea è disabilitata. 
 
-## <a name="faq"></a>Domande frequenti
+## <a name="faq"></a>FAQ
 
 ### <a name="for-which-storage-services-can-i-use-soft-delete"></a>Per quali servizi di archiviazione è possibile usare l'eliminazione temporanea?
 

@@ -1,18 +1,18 @@
 ---
 title: Servizio Device provisioning in hub Azure-concetti sulla sicurezza
-description: Descrive i concetti relativi al provisioning della sicurezza specifici dei dispositivi con il servizio Device Provisioning e l'hub IoT
+description: Descrive i concetti relativi al provisioning della sicurezza specifici dei dispositivi con il servizio Device provisioning (DPS) e l'hub Internet
 author: nberdy
 ms.author: nberdy
 ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: ad392d9d979986723c17b43f210959e2504a8fb8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3191e9886604af9b2a26b71a89cee699197585c4
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228818"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973459"
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>Concetti relativi alla sicurezza del servizio Device Provisioning in hub IoT 
 
@@ -28,7 +28,7 @@ Il meccanismo di attestazione è il metodo usato per verificare l'identità di u
 Il servizio Device Provisioning supporta i seguenti tipi di attestazione:
 * **Certificati X.509** basati sul flusso di autenticazione del certificato X.509 standard.
 * **Trusted Platform Module (TPM)** basato su una richiesta di verifica nonce, che usa lo standard TPM relativo alle chiavi per presentare un token di firma di accesso condiviso (SAS). Questa attestazione non richiede un modulo TPM fisico nel dispositivo, ma il servizio prevede di eseguire l'attestazione usando la chiave di verifica dell'autenticità in base alle [specifiche TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
-* **Chiave simmetrica** basata sui [token di sicurezza](../iot-hub/iot-hub-devguide-security.md#security-tokens) della firma di accesso condiviso (SAS), che include una firma con hash e una scadenza incorporata. Per altre informazioni, vedere [Attestazione con chiave simmetrica](concepts-symmetric-key-attestation.md).
+* **Chiave simmetrica** basata sui [token di sicurezza](../iot-hub/iot-hub-devguide-security.md#security-tokens) della firma di accesso condiviso (SAS), che include una firma con hash e una scadenza incorporata. Per maggiori informazioni, vedere [Attestazione con chiave simmetrica](concepts-symmetric-key-attestation.md).
 
 
 ## <a name="hardware-security-module"></a>Modulo di protezione hardware

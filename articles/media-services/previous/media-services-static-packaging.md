@@ -14,24 +14,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: juliako
-ms.openlocfilehash: 8665f6daa698f2e885f1fe768ad6b9c87dbbe164
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e99d72a0bce51d5d61e5f248f5ba279afe13a405
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074515"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970126"
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Utilizzare Azure Media Packager per eseguire attività di creazione statica dei pacchetti  
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 
 
 ## <a name="overview"></a>Panoramica
 
 Per distribuire un video digitale tramite Internet è necessario comprimere il file multimediale. I file video digitali hanno dimensioni piuttosto elevate e possono risultare troppo grandi per la distribuzione su Internet o per la visualizzazione corretta nei dispositivi dei clienti. Mediante il processo di codifica è possibile comprimere video e audio per consentire ai clienti di visualizzare i file multimediali. Dopo essere stato codificato, un video può essere inserito in contenitori di file diversi. Il processo di collocare supporti di memorizzazione codificati in un contenitore è denominato creazione di pacchetti. Ad esempio, è possibile prendere un file MP4 e convertirlo in un contenuto Smooth Streaming o HLS usando Azure Media Packager. 
 
-Servizi Multimediali supporta pacchetti statici e dinamici. Quando si usa la creazione statica dei pacchetti, è necessario creare una copia dei contenuti in ogni formato richiesto dagli utenti. Con creazione dinamica dei pacchetti, è sufficiente consiste nel creare un asset che contenga un set di file MP4 o Smooth Streaming a bitrate adattivo. In base al formato specificato nella richiesta del manifesto o del frammento, il server di streaming on demand garantisce agli utenti che il flusso sia ricevuto nel protocollo scelto. Di conseguenza, si archiviano e si pagano solo i file in un singolo formato di archiviazione e il servizio Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client.
+Servizi Multimediali supporta pacchetti statici e dinamici. Quando si usa la creazione statica dei pacchetti, è necessario creare una copia dei contenuti in ogni formato richiesto dagli utenti. Con la creazione dinamica dei pacchetti, è sufficiente creare un asset contenente un set di file MP4 o Smooth Streaming a bitrate adattivo. In base al formato specificato nella richiesta del manifesto o del frammento, il server di streaming on demand garantisce agli utenti che il flusso sia ricevuto nel protocollo scelto. Di conseguenza, si archiviano e si pagano solo i file in un singolo formato di archiviazione e il servizio Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client.
 
 > [!NOTE]
 > Si consiglia di utilizzare [pacchetto di creazione dinamico](media-services-dynamic-packaging-overview.md).
@@ -42,7 +42,7 @@ Tuttavia, esistono alcuni scenari che richiedono la pacchetti di creazione stati
 
 * Convalida della velocità in bit adattiva di MP4 codificata con codificatori esterni (ad esempio usando codificatori di terze parti).
 
-È possibile usare anche pacchetti di creazione statici per eseguire le attività seguenti: È tuttavia consigliabile utilizzare la crittografia dinamica.
+È possibile usare anche pacchetti di creazione statici per eseguire le attività seguenti. È tuttavia è consigliabile usare la crittografia dinamica.
 
 * Utilizzare la crittografia statica per proteggere i formati Smooth e MPEG DASH con PlayReady
 * Utilizzare la crittografia statica per proteggere i pacchetti HLSv3 con AES-128
@@ -81,7 +81,7 @@ Per convalidare i file MP4 con Media Services Packager, è necessario creare un 
     </smil>
 ```
 
-Dopo aver creato il set di MP4 a bitrate adattivo, è possibile sfruttare i vantaggi della creazione dinamica dei pacchetti. I pacchetti di creazione dinamici consentono di distribuire flussi nel protocollo specificato senza creare ulteriori pacchetti. Per altre informazioni, vedere [pacchetti di creazione dinamici](media-services-dynamic-packaging-overview.md).
+Una volta ottenuto il set MP4 a velocità in bit adattiva, è possibile sfruttare i vantaggi della creazione dinamica dei pacchetti. I pacchetti di creazione dinamici consentono di distribuire flussi nel protocollo specificato senza creare ulteriori pacchetti. Per altre informazioni, vedere [pacchetti di creazione dinamici](media-services-dynamic-packaging-overview.md).
 
 L’esempio di codice seguente utilizza le estensioni di Azure Media Services .NET SDK.  Assicurarsi di aggiornare il codice in modo che punti alla cartella dove si trovano i file MP4 di input e un file con estensione .ism. E inoltre a dove si trova il file Mediapackager_validatetask. Questo file XML è definito nell'articolo [Set di impostazioni per Azure Media Packager](https://msdn.microsoft.com/library/azure/hh973635.aspx).
 
@@ -1479,9 +1479,13 @@ Assicurarsi di aggiornare il codice seguente in modo che punti alla cartella in 
     }
 ```
 
+## <a name="additional-notes"></a>Note aggiuntive
+
+* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google, Inc.
+
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

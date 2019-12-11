@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 73a76162efaf7317c5e2f1668b76325da6f018ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61a5213ea1b801b3ceeb3d9a698a20d479509811
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64868138"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974530"
 ---
 # <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Usare Servizi multimediali per distribuire licenze DRM o chiavi AES 
 
 > [!NOTE]
-> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).   > Non nuove funzionalità o funzionalità vengono aggiunti a servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).   > Non sono state aggiunte nuove funzionalità o funzionalità a Media Services V2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 >
 
 Servizi multimediali di Azure consente di inserire, codificare e proteggere contenuti e di eseguirne lo streaming. Per altre informazioni, vedere [Usare la crittografia comune dinamica Widevine e/o PlayReady](media-services-protect-with-playready-widevine.md). Alcuni clienti vogliono usare Servizi multimediali solo per distribuire licenze e/o chiavi ed eseguire le operazioni di codifica, crittografia e streaming tramite server locali. Questo articolo descrive come usare Servizi multimediali per distribuire licenze PlayReady e/o Widevine, usando server locali per tutte le altre operazioni. 
@@ -45,7 +45,7 @@ Per scaricare l'esempio descritto in questo articolo, vedere [Use Azure Media Se
 
 1. Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in [Sviluppo di applicazioni di Servizi multimediali con .NET](media-services-dotnet-how-to-use.md).
 
-2. Aggiungere gli elementi seguenti alla sezione **appSettings** definita nel file app.config:
+2. Aggiungere i seguenti elementi alla sezione **appSettings** definita nel file app.config:
 
     ```xml
     <add key="Issuer" value="http://testissuer.com"/>
@@ -344,12 +344,16 @@ namespace DeliverDRMLicenses
 }
 ```
 
+## <a name="additional-notes"></a>Note aggiuntive
+
+* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google, Inc.
+
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 * [Usare la crittografia comune dinamica Widevine e/o PlayReady](media-services-protect-with-playready-widevine.md)
 * [Usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi](media-services-protect-with-aes128.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: 25559c7a6f66a1092007054c72f601b428fa4e7b
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 0798cffdca8d5876373c35f3f5fd657551586d43
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845523"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974054"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Streaming PlayReady offline per Windows 10
 
@@ -35,7 +35,7 @@ Servizi multimediali di Azure supporta il download o la riproduzione offline con
 
 Questa sezione descrive alcuni concetti di base sulla riproduzione in modalità offline, in particolare perché:
 
-* In alcuni paesi o aree geografiche la disponibilità Internet e/o la larghezza di banda è ancora limitata. Gli utenti possono scegliere di scaricare a priori il contenuto per poterlo visualizzare in una risoluzione sufficientemente elevata a garantire un'esperienza di visualizzazione soddisfacente. In questo caso, più spesso, il problema non è la disponibilità della rete, ma una limitazione nella larghezza di banda. I provider OTT/OVP richiedono il supporto della modalità offline.
+* In alcuni paesi o aree geografiche la disponibilità Internet e/o la larghezza di banda è ancora limitata. Gli utenti possono scegliere di scaricare prima di tutto per poter controllare il contenuto con una risoluzione sufficientemente elevata per un'esperienza di visualizzazione soddisfacente. In questo caso, più spesso, il problema non è la disponibilità della rete, ma una limitazione nella larghezza di banda. I provider OTT/OVP richiedono il supporto della modalità offline.
 * Come ha dichiarato Reed Hastings, CEO di Netflix, durante la conferenza degli azionisti dell'azienda del terzo trimestre 2016, il download del contenuto è una "funzionalità molto richiesta", verso la quale "abbiamo un atteggiamento di apertura".
 * Alcuni provider di contenuti possono impedire la distribuzione di licenze DRM oltre il bordo di un paese/area geografica. Se un utente vuole consultare il contenuto durante una trasferta all'estero, è necessario il download offline.
  
@@ -66,7 +66,7 @@ Asset 1:
 Asset 2:
 
 * URL di download progressivo: [https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
-* PlayReady LA_URL (locale):[https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
+* LA_URL PlayReady (locale): [https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
 
 Per la riproduzione di test, è stata usata un'applicazione universale di Windows in Windows 10. Negli [esempi di applicazioni universali di Windows 10](https://github.com/Microsoft/Windows-universal-samples) è disponibile un esempio di lettore di base denominato [Adaptive Streaming Sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming). È sufficiente aggiungere il codice per selezionare il video scaricato e usarlo come origine, invece dell'origine del flusso adattivo. Le modifiche sono nel gestore dell'evento Click del pulsante:
 
@@ -113,7 +113,6 @@ private async void LoadUri_Click(object sender, RoutedEventArgs e)
 
 ![Riproduzione in modalità offline di un file fMP4 protetto da PlayReady](./media/offline-playready-for-windows/offline-playready1.jpg)
 
-
 Poiché il video è protetto da PlayReady, lo screenshot non sarà in grado di includere il video.
 
 In sintesi, è stata ottenuta la modalità offline in Servizi multimediali di Azure:
@@ -122,6 +121,10 @@ In sintesi, è stata ottenuta la modalità offline in Servizi multimediali di Az
 * Il contenuto può essere ospitato in Servizi multimediali di Azure o Archiviazione di Azure per il download progressivo.
 * La distribuzione delle licenze PlayReady può provenire da Servizi multimediali di Azure o altre posizioni.
 * Il contenuto Smooth Streaming preparato può comunque essere usato per lo streaming online tramite DASH o Smooth con PlayReady come DRM.
+
+## <a name="additional-notes"></a>Note aggiuntive
+
+* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google, Inc.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

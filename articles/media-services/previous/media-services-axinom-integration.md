@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: 4d4823e8dcce0d1296ebe39a0b7a7c4bbc180317
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 275fa173c5005c4d1609a858c8edb39b5c307c5e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015436"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974615"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Uso di Axinom per fornire licenze Widevine ai Servizi multimediali di Azure 
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "69015436"
 ## <a name="overview"></a>Panoramica
 Servizi multimediali di Azure (AMS) ha aggiunto la protezione dinamica Google Widevine. Per altre informazioni, vedere il [blog di Mingfei](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/). Azure Media Player (AMP) ha aggiunto anche il supporto per Widevine. Per informazioni dettagliate, vedere il [documento su AMP](https://amp.azure.net/libs/amp/latest/docs/). Ciò offre molti vantaggi per lo streaming di contenuto DASH protetto da CENC con DRM multi-native (PlayReady e Widevine) in browser moderni dotati di MSE ed EME.
 
-A partire da Servizi Multimediali .NET SDK versione 3.5.2, Servizi multimediali consente di configurare il modello di licenza Widevine e ottenere licenze Widevine. Per distribuire le licenze Widevine, è anche possibile ricorrere ai partner AMS seguenti: [Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](https://ezdrm.com/), [castLabs](https://castlabs.com/company/partners/azure/).
+A partire da Servizi Multimediali .NET SDK versione 3.5.2, Servizi multimediali consente di configurare il modello di licenza Widevine e ottenere licenze Widevine. È anche possibile usare i partner AMS seguenti per facilitare la distribuzione di licenze Widevine: [Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](https://ezdrm.com/) e [castLabs](https://castlabs.com/company/partners/azure/).
 
 Questo articolo illustra come integrare e testare il server licenze Widevine gestito da Axinom. In particolare, illustra le operazioni seguenti:  
 
@@ -45,7 +45,7 @@ Il sistema completo e il flusso di chiavi simmetriche, ID della chiave, semi chi
 ![DASH e CENC](./media/media-services-axinom-integration/media-services-axinom1.png)
 
 ## <a name="content-protection"></a>Protezione del contenuto
-Per configurare la protezione dinamica e i criteri di distribuzione delle chiavi, vedere il blog di Mingfei: [How to configure Widevine packaging with Azure Media Services](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services) (Come configurare pacchetti Widewine con Servizi multimediali di Azure).
+Per configurare la protezione dinamica e i criteri di distribuzione delle chiavi, vedere il blog di Mingfei relativo a [come configurare la creazione di pacchetti Widevine con Servizi multimediali di Azure](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services).
 
 È possibile configurare la protezione CENC dinamica con DRM multiplo per lo streaming DASH in modo che includa gli elementi seguenti:
 
@@ -176,7 +176,8 @@ Naturalmente è possibile ottenere l'ID chiave in molti modi. Ad esempio, è pos
         return key_id;
     }
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
+
 La recente aggiunta del supporto per Widevine nella protezione del contenuto di Servizi multimediali di Azure e in Azure Media Player consente di implementare lo streaming di DASH + DRM multi-native (PlayReady + Widevine) con il server licenze PlayReady nei Servizi multimediali di Azure e un server licenze Widevine di Axinom per i browser moderni seguenti:
 
 * Chrome
@@ -194,12 +195,16 @@ I parametri seguenti sono necessari nella soluzione minima che sfrutta il server
 | L'URL di acquisizione della licenza Widevine. |È necessario usare la configurazione dei criteri di recapito asset per il flusso DASH. Vedere [questa](media-services-axinom-integration.md#content-protection) sezione. |
 | ID della chiave del contenuto |Deve essere incluso come parte del valore del reclamo del messaggio di attestazione del diritto di token JWT (vedere [questa](media-services-axinom-integration.md#jwt-token-generation) sezione). |
 
+## <a name="additional-notes"></a>Note aggiuntive
+
+* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google, Inc.
+
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ### <a name="acknowledgments"></a>Ringraziamenti
-Microsoft è lieta di conferire un riconoscimento alle seguenti persone che hanno contribuito alla realizzazione di questo documento: Kristjan Jõgi di Axinom, Mingfei Yan e Amit Rajput.
+Siamo lieti di conferire un riconoscimento alle seguenti persone che hanno contribuito alla realizzazione di questo documento: Kristjan Jõgi di Axinom, Mingfei Yan e Amit Rajput.
 

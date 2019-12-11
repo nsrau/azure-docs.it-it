@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: c48bcab0a3d009b186832a6b728597f03788a7cd
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: f507619a1c8e80623a756b91f3fd6187283212f0
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382997"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996732"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creare e gestire più pool di nodi per un cluster in Azure Kubernetes Service (AKS)
 
@@ -38,7 +38,7 @@ Quando si creano e si gestiscono cluster AKS che supportano più pool di nodi, s
 * Non è possibile aggiungere o eliminare pool di nodi usando un modello di Gestione risorse esistente come per la maggior parte delle operazioni. Usare invece [un modello di gestione risorse separato](#manage-node-pools-using-a-resource-manager-template) per apportare modifiche ai pool di nodi in un cluster AKS.
 * Il nome di un pool di nodi può contenere solo caratteri alfanumerici minuscoli e deve iniziare con una lettera minuscola. Per i pool di nodi Linux la lunghezza deve essere compresa tra 1 e 12 caratteri, per i pool di nodi Windows la lunghezza deve essere compresa tra 1 e 6 caratteri.
 * Il cluster AKS può avere un massimo di otto pool di nodi.
-* Il cluster AKS può avere un massimo di 400 nodi tra questi otto pool di nodi.
+* Il cluster AKS può avere un massimo di 800 nodi tra questi otto pool di nodi.
 * Tutti i pool di nodi devono trovarsi nella stessa subnet.
 
 ## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio Azure Container
@@ -191,7 +191,7 @@ Come procedura consigliata, è consigliabile aggiornare tutti i pool di nodi in 
 ## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>Aggiornare un piano di controllo cluster con più pool di nodi
 
 > [!NOTE]
-> Kubernetes usa lo schema di controllo delle versioni [semantico](https://semver.org/) standard. Il numero di versione è espresso come *x. y. z*, dove *x* è la versione principale, *y* è la versione secondaria e *z* è la versione della patch. Ad esempio, nella versione *1.12.6*, 1 è la versione principale, 12 è la versione secondaria e 6 è la versione patch. La versione Kubernetes del piano di controllo e il pool di nodi iniziale vengono impostati durante la creazione del cluster. Tutti i pool di nodi aggiuntivi hanno la versione Kubernetes impostata quando vengono aggiunti al cluster. Le versioni di Kubernetes possono essere diverse tra i pool di nodi, nonché tra un pool di nodi e il piano di controllo.
+> Kubernetes usa lo schema di controllo delle versioni [semantico standard](https://semver.org/). Il numero di versione è espresso come *x. y. z*, dove *x* è la versione principale, *y* è la versione secondaria e *z* è la versione della patch. Ad esempio, nella versione *1.12.6*, 1 è la versione principale, 12 è la versione secondaria e 6 è la versione patch. La versione Kubernetes del piano di controllo e il pool di nodi iniziale vengono impostati durante la creazione del cluster. Tutti i pool di nodi aggiuntivi hanno la versione Kubernetes impostata quando vengono aggiunti al cluster. Le versioni di Kubernetes possono essere diverse tra i pool di nodi, nonché tra un pool di nodi e il piano di controllo.
 
 Un cluster AKS ha due oggetti risorsa cluster con le versioni Kubernetes associate.
 

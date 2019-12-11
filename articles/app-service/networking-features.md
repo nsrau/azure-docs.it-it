@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6395d62947cda47c3779f15445db08b7515d055d
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 208bf37bfcdf0f86fad11611279d1b4e642fb18a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672325"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971758"
 ---
 # <a name="app-service-networking-features"></a>Funzionalità di rete del servizio app
 
@@ -38,15 +38,15 @@ Per ogni caso di utilizzo specifico, è possibile risolvere il problema in alcun
  
 | Casi di utilizzo in ingresso | Funzionalità |
 |---------------------|-------------------|
-| Supportare le esigenze SSL basate su IP per l'app | Indirizzo assegnato dall'app |
-| Indirizzo in ingresso non condiviso e dedicato per l'app | Indirizzo assegnato dall'app |
+| Supportare le esigenze SSL basate su IP per l'app | indirizzo assegnato dall'app |
+| Indirizzo in ingresso non condiviso e dedicato per l'app | indirizzo assegnato dall'app |
 | Limitare l'accesso all'app da un set di indirizzi ben definiti | Restrizioni di accesso |
 | Esporre l'app in indirizzi IP privati nella VNet | Ambiente del servizio app con bilanciamento del carico interno </br> Gateway applicazione con endpoint di servizio |
 | Limitare l'accesso all'app dalle risorse in una VNet | Endpoint del servizio </br> Ambiente del servizio app con bilanciamento del carico interno |
 | Esporre l'app in un indirizzo IP privato nella VNet | Ambiente del servizio app con bilanciamento del carico interno </br> IP privato per il traffico in ingresso in un gateway applicazione con endpoint di servizio |
 | Proteggi l'app con un WAF | Gateway applicazione + ambiente del servizio app ILB </br> Gateway applicazione con endpoint di servizio </br> Sportello anteriore di Azure con restrizioni di accesso |
 | Bilanciare il carico del traffico verso le app personali in aree diverse | Sportello anteriore di Azure con restrizioni di accesso | 
-| Bilanciare il carico del traffico nella stessa area | Gateway applicazione con endpoint di servizio | 
+| Bilanciare il carico del traffico nella stessa area | [Gateway applicazione con endpoint di servizio][appgwserviceendpoints] | 
 
 I seguenti casi di utilizzo in uscita suggeriscono come usare le funzionalità di rete del servizio app per risolvere le esigenze di accesso in uscita per l'app. 
 
@@ -63,7 +63,7 @@ I seguenti casi di utilizzo in uscita suggeriscono come usare le funzionalità d
 
 Le unità di scala del servizio app Azure supportano molti clienti in ogni distribuzione. I piani di SKU gratuito e condiviso ospitano i carichi di lavoro dei clienti sui ruoli di lavoro multi-tenant. I piani Basic e superiori ospitano i carichi di lavoro dei clienti dedicati a un solo piano di servizio app (ASP). Se si dispone di un piano di servizio app standard, tutte le app del piano vengono eseguite nello stesso thread di lavoro. Se il ruolo di lavoro viene scalato in orizzontale, tutte le app in tale ASP verranno replicate in un nuovo ruolo di lavoro per ogni istanza di ASP. I thread di lavoro usati per Premiumv2 sono diversi da quelli usati per gli altri piani. Ogni distribuzione del servizio app ha un indirizzo IP usato per tutto il traffico in ingresso per le app nella distribuzione del servizio app. Esistono tuttavia da 4 a 11 indirizzi usati per eseguire chiamate in uscita. Questi indirizzi sono condivisi da tutte le app presenti nella distribuzione del servizio app. Gli indirizzi in uscita sono diversi in base ai diversi tipi di lavoro. Questo significa che gli indirizzi usati dagli ASP gratuito, condiviso, Basic, standard e Premium sono diversi dagli indirizzi usati per le chiamate in uscita da Premiumv2 ASP. Se si osservano le proprietà dell'app, è possibile visualizzare gli indirizzi in ingresso e in uscita usati dall'app. Se è necessario bloccare una dipendenza con un ACL IP, usare possibleOutboundAddresses. 
 
-![Proprietà app](media/networking-features/app-properties.png)
+![Proprietà dell'app](media/networking-features/app-properties.png)
 
 Il servizio app include diversi endpoint usati per gestire il servizio.  Questi indirizzi vengono pubblicati in un documento separato e si trovano anche nel tag del servizio IP AppServiceManagement. Il tag AppServiceManagement viene usato solo con un ambiente del servizio app (ASE) in cui è necessario consentire tale traffico. Gli indirizzi in ingresso del servizio app vengono rilevati nel tag del servizio IP di AppService. Non è presente alcun tag del servizio IP che contiene gli indirizzi in uscita usati dal servizio app. 
 
@@ -222,3 +222,4 @@ Un'applicazione multilivello è un'applicazione in cui è possibile accedere all
 [vnetintegrationp2s]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
 [vnetintegration]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
 [networkinfo]: https://docs.microsoft.com/azure/app-service/environment/network-info
+[appgwserviceendpoints]: https://docs.microsoft.com/azure/app-service/networking/app-gateway-with-service-endpoints

@@ -3,17 +3,17 @@ title: Informazioni sulle versioni dei modelli di dispositivo per le app Azure I
 description: Eseguire iterazioni con i modelli di dispositivo creando nuove versioni, senza determinare conseguenze per i dispositivi collegati
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 07/17/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 666c3030d91fba3c3bdfe23f808c4e830dff6ec1
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 1f2ecb37ebe156b1eb092bda95f296c39c9e2baf
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895592"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974965"
 ---
 # <a name="create-a-new-device-template-version-preview-features"></a>Creare una nuova versione del modello di dispositivo (funzionalità di anteprima)
 
@@ -32,7 +32,7 @@ Azure IoT Central consente lo sviluppo rapido di applicazioni IoT. È possibile 
 1. Selezionare il modello di dispositivo che si desidera personalizzare.
 1. Scegliere la scheda **Personalizza** .
 1. Tutte le funzionalità definite nel modello di funzionalità del dispositivo verranno elencate qui. Tutti i campi che è possibile modificare possono essere salvati e usati nell'applicazione, senza dover eseguire la versione del modello di dispositivo. Se sono presenti campi di cui si vuole modificare la modalità di sola lettura, è necessario eseguire la versione del modello di dispositivo per modificarli. Selezionare un campo che si desidera modificare e immettere i nuovi valori.
-1. Fare clic su **Save**. Ora questi valori eseguiranno l'override di qualsiasi elemento salvato inizialmente nel modello di dispositivo e verrà usato nell'applicazione.
+1. Fare clic su **Salva** Ora questi valori eseguiranno l'override di qualsiasi elemento salvato inizialmente nel modello di dispositivo e verrà usato nell'applicazione.
 
 ## <a name="versioning-a-device-template"></a>Controllo delle versioni di un modello di dispositivo
 
@@ -45,7 +45,7 @@ Per la versione di un modello di dispositivo:
 1. Passare alla pagina **modelli di dispositivo** .
 1. Selezionare il modello di dispositivo che si sta provando a eseguire la versione.
 1. Fare clic sul pulsante **Version (versione** ) nella parte superiore della pagina e assegnare al modello un nuovo nome. È stato suggerito un nuovo nome che può essere modificato.
-1. Fare clic su **Create**.
+1. Fare clic su **Create**(Crea).
 1. A questo punto il modello di dispositivo è in modalità bozza. Si noterà che le interfacce sono ancora bloccate ed è necessario eseguire il controllo delle versioni singolarmente per la modifica. 
 
 ### <a name="versioning-an-interface"></a>Controllo delle versioni di un'interfaccia
@@ -58,7 +58,7 @@ Per la versione di un'interfaccia:
 1. Selezionare il modello di dispositivo in modalità bozza.
 1. Selezionare l'interfaccia in modalità pubblicata che si desidera modificare.
 1. Fare clic sul pulsante **Version (versione** ) nella parte superiore della pagina Interface (interfaccia). 
-1. Fare clic su **Create**.
+1. Fare clic su **Create**(Crea).
 1. Ora l'interfaccia è in modalità bozza. Sarà possibile aggiungere o modificare le funzionalità dell'interfaccia senza suddividere le personalizzazioni e le visualizzazioni esistenti. 
 
 > [!NOTE]

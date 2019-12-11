@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 19552747db427bf780a140c15f11bed322d1f867
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: a56096ffa760bcddd6bd423d1262e57dc1db3e3c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420076"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973561"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: gestione dei modelli, distribuzione e monitoraggio con Azure Machine Learning
 
@@ -112,10 +112,9 @@ Per ulteriori informazioni, vedere [deploy Models](how-to-deploy-and-where.md).
 
 Per ulteriori informazioni, vedere [deploy Models](how-to-deploy-and-where.md).
 
-### <a name="analytics"></a>Analisi
+### <a name="analytics"></a>Analytics
 
 Microsoft Power BI supporta l'uso di modelli di apprendimento automatico per l'analisi dei dati. Per ulteriori informazioni, vedere [integrazione di Azure Machine Learning in Power BI (anteprima)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
-
 
 ## <a name="capture-the-governance-data-required-for-capturing-the-end-to-end-ml-lifecycle"></a>Acquisire i dati di governance necessari per l'acquisizione del ciclo di vita di Machine Learning end-to-end
 
@@ -129,6 +128,7 @@ Azure ML offre la possibilità di tenere traccia dell'audit trail end-to-end di 
 ## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>Notifica, automazione e avviso per gli eventi nel ciclo di vita ML
 Azure ML pubblica gli eventi chiave in Azure EventGrid, che possono essere usati per notificare e automatizzare gli eventi nel ciclo di vita di ML. Per ulteriori informazioni, consultare [questo documento](how-to-use-event-grid.md).
 
+
 ## <a name="monitor-for-operational--ml-issues"></a>Monitorare i problemi operativi di & ML
 
 Il monitoraggio consente di comprendere quali dati vengono inviati al modello e le stime che restituisce.
@@ -136,7 +136,6 @@ Il monitoraggio consente di comprendere quali dati vengono inviati al modello e 
 Queste informazioni consentono di comprendere la modalità di utilizzo del modello. I dati di input raccolti possono essere utili anche per il training di versioni future del modello.
 
 Per altre informazioni, vedere [Come abilitare la raccolta dei dati dei modelli](how-to-enable-data-collection.md).
-
 
 ## <a name="automate-the-ml-lifecycle"></a>Automatizzare il ciclo di vita del ML 
 

@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 155edf72a60e079a609853e953e3cf66024cc83c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f033563bbd7888e53d910773cd1e0c501eaad098
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74794250"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997106"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Prerequisiti per il provisioning di Azure AD Connect Cloud
 Questo argomento fornisce indicazioni sulla scelta e sull'uso di Azure AD Connect provisioning cloud come soluzione di identità.
@@ -39,21 +39,21 @@ Nel resto del documento vengono fornite istruzioni dettagliate per questi prereq
 
 ### <a name="in-your-on-premises-environment"></a>Nell'ambiente locale
 
-1. Identità un server host aggiunto al dominio che esegue Windows Server 2012 R2 o versione successiva con almeno 4 GB di RAM e .NET 4.7.1 + Runtime 
+1. Identificare un server host aggiunto al dominio che esegue Windows Server 2012 R2 o versione successiva con almeno 4 GB di RAM e il runtime di .NET 4.7.1 o versione successiva 
 
 2. Se è presente un firewall tra i server e Azure AD, è necessario configurare gli elementi seguenti:
-   - Verificare che gli agenti possano effettuare richieste in *uscita* per Azure ad sulle seguenti porte:
+   - Assicurarsi che gli agenti possano effettuare richieste *in uscita* ad Azure AD sulle porte seguenti:
 
      | Numero della porta | Uso |
      | --- | --- |
      | **80** | Scarica gli elenchi di revoche di certificati (CRL) durante la convalida del certificato SSL |
      | **443** | Gestisce tutte le comunicazioni in uscita con il servizio |
-     | **8080** (facoltativo) | Gli agenti segnalano il proprio stato ogni dieci minuti sulla porta 8080, se la porta 443 non è disponibile. Lo stato viene visualizzato nel portale di Azure AD. La porta 8080 _non_ viene usata per l'accesso degli utenti. |
+     | **8080** (facoltativo) | Gli agenti segnalano il proprio stato ogni dieci minuti sulla porta 8080, se la porta 443 non è disponibile. Lo stato viene visualizzato nel portale di Azure AD. |
      
      Se il firewall applica regole in base agli utenti di origine, aprire queste porte per il traffico proveniente da servizi di Windows in esecuzione come servizi di rete.
    - Se il firewall o il proxy consente di specificare suffissi sicuri, aggiungere connessioni a **\*. msappproxy.NET** e **\*. ServiceBus.Windows.NET**. In caso contrario, è necessario consentire l'accesso agli [intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653), che vengono aggiornati ogni settimana.
-   - Gli agenti devono accedere a **login.Windows.NET** e **login.microsoftonline.com** per la registrazione iniziale. Aprire il firewall anche per questi URL.
-   - Per la convalida del certificato, sbloccare gli URL seguenti: **mscrl.Microsoft.com:80**, **CRL.Microsoft.com:80**, **OCSP.msocsp.com:80**e **www\.Microsoft.com:80**. Poiché vengono usati per la convalida del certificato con altri prodotti Microsoft, questi URL potrebbero essere già sbloccati.
+   - Gli agenti devono poter accedere a **login.windows.net** e **login.microsoftonline.net** per la registrazione iniziale. Aprire il firewall anche per questi URL.
+   - Per la convalida del certificato, sbloccare questi URL: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** e **www\.microsoft.com:80**. Poiché vengono usati per la convalida del certificato con altri prodotti Microsoft, questi URL potrebbero essere già sbloccati.
 
 ### <a name="verify-the-port"></a>Verificare la porta
 Per verificare che Azure sia in ascolto sulla porta 443 e che l'agente sia in grado di comunicare con esso, è possibile usare quanto segue:
@@ -89,6 +89,6 @@ Per abilitare TLS 1.2:
 
 ## <a name="next-steps"></a>Passaggi successivi 
 
-- [Che cos'è il provisioning?](what-is-provisioning.md)
-- [Che cos'è Azure AD Connect provisioning cloud?](what-is-cloud-provisioning.md)
+- [Cos'è il provisioning?](what-is-provisioning.md)
+- [Che cos'è il provisioning cloud di Azure AD Connect?](what-is-cloud-provisioning.md)
 

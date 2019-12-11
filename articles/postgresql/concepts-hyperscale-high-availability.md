@@ -1,5 +1,5 @@
 ---
-title: Disponibilità elevata in database di Azure per PostgreSQL – iperscalabilità (CITUS)
+title: Disponibilità elevata-iperscala (CITUS)-database di Azure per PostgreSQL
 description: Concetti relativi a disponibilità elevata e ripristino di emergenza
 author: jonels-msft
 ms.author: jonels
@@ -7,16 +7,16 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 616b5bff735f52d137c12c58ac6023c38a2d4044
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 10679ab02826fb606af65c72621f2afb609bc81b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514745"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975534"
 ---
 # <a name="high-availability-in-azure-database-for-postgresql--hyperscale-citus"></a>Disponibilità elevata in database di Azure per PostgreSQL – iperscalabilità (CITUS)
 
-La disponibilità elevata (HA) evita tempi di inattività del database mantenendo le repliche di standby di ogni nodo in un gruppo di server. Se un nodo diventa inattivo, l'iperscalabilità passa le connessioni in ingresso dal nodo con errore alla relativa modalità standby. Il failover avviene entro pochi minuti e i nodi promossi hanno sempre dati aggiornati tramite la replica di streaming sincrono PostgreSQL.
+Il livello Disponibilità elevata evita il tempo di inattività dei database mantenendo repliche di standby di ogni nodo in un gruppo di server. In caso di inattività di un nodo, Hyperscale sposta le connessioni in ingresso dal nodo con errore al rispettivo standby. Il failover viene eseguito entro pochi minuti e i nodi promossi hanno sempre a disposizione dati aggiornati grazie alla replica di streaming sincrona di PostgreSQL.
 
 Per sfruttare i vantaggi offerti da disponibilità elevata nel nodo coordinatore, le applicazioni di database devono rilevare e ripetere le connessioni eliminate e le transazioni non riuscite. Il coordinatore appena innalzato di nuovo sarà accessibile con la stessa stringa di connessione.
 

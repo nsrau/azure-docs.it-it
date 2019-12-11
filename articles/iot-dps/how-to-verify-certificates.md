@@ -7,12 +7,12 @@ ms.date: 02/26/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: b701b15b3dd4463b2d5adbb38ee23bf0c3bfdfe9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b008c4ebc83200043d51fc8ef367f1983c549949
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228692"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973442"
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Come eseguire una verifica del possesso per certificati della CA X.509 con il servizio Device Provisioning
 
@@ -34,7 +34,7 @@ Per registrare un certificato della CA con il servizio di provisioning e ottener
 3. Immettere un nome visualizzato descrittivo per il certificato. Individuare il file con estensione cer o pem che rappresenta la parte pubblica del certificato X.509. Fare clic su **Carica**.
 4. Quando si riceve una notifica che il certificato è stato caricato correttamente, fare clic su **Salva**.
 
-    ![Carica certificato](./media/how-to-verify-certificates/add-new-cert.png)  
+    ![Caricamento del certificato](./media/how-to-verify-certificates/add-new-cert.png)  
 
    Il certificato verrà visualizzato nell'elenco **Esplora certificati**. Si noti che lo **STATO** di questo certificato è *Non verificato*.
 

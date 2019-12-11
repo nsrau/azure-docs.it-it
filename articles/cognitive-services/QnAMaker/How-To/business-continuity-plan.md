@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: 0e748e81de39b2bef14b543063adeb51b8b3ecdb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a31076d17ebaf8020fe4b3f82594b98a7c3bde74
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73486720"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977455"
 ---
 # <a name="create-a-business-continuity-plan-for-your-qna-maker-service"></a>Creare un piano di continuità aziendale per il servizio QnA Maker
 
@@ -33,7 +33,7 @@ L'idea generale è la seguente:
 
 4. Una volta impostati gli stack primario e secondario, usare [Gestione traffico](https://docs.microsoft.com/azure/traffic-manager/) per configurare i due endpoint e impostare un metodo di routing.
 
-5. È necessario creare un certificato SSL per l'endpoint di Gestione traffico. [Associare il certificato SSL](https://docs.microsoft.com/azure/app-service/configure-ssl-bindings) nei servizi app.
+5. È necessario creare un certificato di Secure Sockets Layer (SSL) per l'endpoint di gestione traffico. [Associare il certificato SSL](https://docs.microsoft.com/azure/app-service/configure-ssl-bindings) nei servizi app.
 
 6. Usare infine l'endpoint di Gestione traffico nel bot o nell'app.
 

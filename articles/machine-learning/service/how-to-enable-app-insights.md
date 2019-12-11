@@ -11,12 +11,12 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 19dba88bf04ee84459ebd9ef0279f125724d7522
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: f4bb399e24b2c480023eba6bf5b71990f6d39c8c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406447"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978374"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorare e raccogliere i dati dagli endpoint del servizio Web ML
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -30,7 +30,7 @@ Questo articolo illustra come raccogliere e monitorare i modelli distribuiti neg
 [Altre informazioni su applicazione Azure Insights](../../azure-monitor/app/app-insights-overview.md). 
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Se non si dispone di una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree) oggi stesso
 
@@ -39,7 +39,7 @@ Questo articolo illustra come raccogliere e monitorare i modelli distribuiti neg
 
 ## <a name="web-service-input-and-response-data"></a>Dati di input e risposta del servizio Web
 
-L'input e la risposta al servizio, corrispondenti agli input al modello ML e alla relativa stima, vengono registrati nelle tracce di applicazione Azure Insights sotto il `"model_data_collection"`del messaggio. È possibile eseguire query direttamente in applicazione Azure Insights per accedere a questi dati oppure configurare un' [esportazione continua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) in un account di archiviazione per un periodo di conservazione più lungo o un'ulteriore elaborazione. I dati del modello possono quindi essere usati nel servizio Azure ML per impostare l'assegnazione di etichette, la ripetizione del training, la spiegazione, l'analisi dei dati o altro uso. 
+L'input e la risposta al servizio, corrispondenti agli input al modello ML e alla relativa stima, vengono registrati nelle tracce di applicazione Azure Insights sotto il `"model_data_collection"`del messaggio. È possibile eseguire query direttamente in applicazione Azure Insights per accedere a questi dati oppure configurare un' [esportazione continua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) in un account di archiviazione per un periodo di conservazione più lungo o un'ulteriore elaborazione. I dati del modello possono quindi essere usati nella Azure Machine Learning per configurare l'assegnazione di etichette, la ripetizione del training, la spiegazione, l'analisi dei dati o altro uso. 
 
 ## <a name="use-the-azure-portal-to-configure"></a>Usare il portale di Azure per configurare
 
@@ -51,7 +51,7 @@ L'input e la risposta al servizio, corrispondenti agli input al modello ML e all
 
    [![Elenco dei servizi nella scheda Distribuzioni](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
 
-3. Selezionare **modifica**
+3. Selezionare **Modifica**.
 
    [![Pulsante Modifica](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
@@ -61,7 +61,7 @@ L'input e la risposta al servizio, corrispondenti agli input al modello ML e all
 
 1. Per applicare le modifiche, selezionare **Aggiorna** nella parte inferiore della schermata
 
-### <a name="disable"></a>Disabilitazione
+### <a name="disable"></a>Disabilitare
 
 1. Nella [portale di Azure](https://portal.azure.com)aprire l'area di lavoro
 1. Selezionare **distribuzioni**, selezionare il servizio, quindi fare clic su **modifica** .
@@ -121,7 +121,7 @@ Per disabilitare applicazione Azure Insights, usare il codice seguente:
 I dati del servizio vengono archiviati nell'account di applicazione Azure Insights, all'interno dello stesso gruppo di risorse Azure Machine Learning.
 Per visualizzarli:
 
-1. Passare all'area di lavoro del servizio Machine Learning in [Azure Machine Learning Studio](https://ml.azure.com) e fare clic sul collegamento Application Insights
+1. Passare all'area di lavoro Azure Machine Learning in [Azure Machine Learning Studio](https://ml.azure.com) e fare clic sul collegamento Application Insights
 
     [![AppInsightsLoc](media/how-to-enable-app-insights/AppInsightsLoc.png)](./media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
 

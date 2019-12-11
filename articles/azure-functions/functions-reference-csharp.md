@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: cshoe
-ms.openlocfilehash: 89c05d0582844f7b4c3e15c669c2c3aa81c4817d
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 13e16fef2ae66851909e03dddab293e9c7955acb
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665509"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978782"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Guida di riferimento a Funzioni di Azure per sviluppatori di script C# (.csx)
 
@@ -51,7 +51,7 @@ FunctionsProject
 
 È presente un file [host.json](functions-host-json.md) condiviso che può essere usato per configurare l'app per le funzioni. Ogni funzione ha il proprio file di codice (con estensione csx) e il file di configurazione delle associazioni (function.json).
 
-Le estensioni di associazione richieste nella [versione 2.x](functions-versions.md) del runtime di Funzioni di Azure sono definite nel file `extensions.csproj`, con gli effettivi file di libreria inclusi nella cartella `bin`. Quando si sviluppa una funzione in locale, è necessario [registrare le estensioni di associazione](./functions-bindings-register.md#extension-bundles). Quando si sviluppano funzioni nel portale di Azure, la registrazione viene eseguita automaticamente.
+Le estensioni di binding richieste nella [versione 2. x e versioni successive](functions-versions.md) del runtime di funzioni sono definite nel file di `extensions.csproj`, con i file di libreria effettivi nella cartella `bin`. Quando si sviluppa una funzione in locale, è necessario [registrare le estensioni di associazione](./functions-bindings-register.md#extension-bundles). Quando si sviluppano funzioni nel portale di Azure, la registrazione viene eseguita automaticamente.
 
 ## <a name="binding-to-arguments"></a>Associazione agli argomenti
 
@@ -370,7 +370,7 @@ Per informazioni su come caricare i file nella cartella della funzione, vedere l
 La directory che contiene il file di script della funzione viene controllata automaticamente per le modifiche agli assembly. Per controllare le modifiche agli assembly in altre directory, aggiungerle all'elenco `watchDirectories` in [host.json](functions-host-json.md).
 
 ## <a name="using-nuget-packages"></a>Uso dei pacchetti NuGet
-Per usare i pacchetti NuGet in una funzione 2 C# . x, caricare un file *Function. proj* nella cartella della funzione nell'file System dell'app per le funzioni. Di seguito è riportato un esempio di file *function.proj* che aggiunge un riferimento a *Microsoft.ProjectOxford.Face* versione *1.1.0*:
+Per usare i pacchetti NuGet in una funzione 2. x C# e versioni successive, caricare un file *Function. proj* nella cartella della funzione nell'file System dell'app per le funzioni. Di seguito è riportato un esempio di file *function.proj* che aggiunge un riferimento a *Microsoft.ProjectOxford.Face* versione *1.1.0*:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">

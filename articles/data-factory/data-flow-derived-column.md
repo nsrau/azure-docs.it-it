@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/15/2019
-ms.openlocfilehash: ce774868acc281f769e7f2991472e7d2a5da9739
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c2d4c9b089a6673a5cff716d2901cc2b9483ede1
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930385"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972252"
 ---
 # <a name="derived-column-transformation-in-mapping-data-flow"></a>Trasformazione colonna derivata nel flusso di dati di mapping
 
@@ -27,6 +27,16 @@ Per eseguire l'override di una colonna esistente, selezionarla tramite l'elenco 
 Per aggiungere altre colonne derivate, passare il mouse su una colonna derivata esistente e fare clic sull'icona del segno più. Scegliere **Aggiungi colonna** o **Aggiungi modello colonna**. I modelli di colonna possono essere utili se i nomi delle colonne sono variabili dalle origini. Per ulteriori informazioni, vedere [modelli di colonna](concepts-data-flow-column-pattern.md).
 
 ![Nuova selezione colonna derivata](media/data-flow/columnpattern.png "Nuova selezione colonna derivata")
+
+## <a name="build-schemas-in-output-schema-pane"></a>Schemi di compilazione nel riquadro Schema di output
+
+Le colonne che si stanno modificando e aggiungendo allo schema sono elencate nel riquadro Schema di output. Qui è possibile compilare in modo interattivo strutture di dati semplici e complesse. Per aggiungere altri campi, selezionare **Aggiungi colonna**. Per compilare le gerarchie, selezionare **Aggiungi sottocolonna**.
+
+![Aggiungi sottocolonna](media/data-flow/addsubcolumn.png "Aggiungi sottocolonna")
+
+Per altre informazioni sulla gestione di tipi complessi nel flusso di dati, vedere [gestione JSON nel flusso di dati di mapping](concepts-data-flow-json.md)
+
+![Aggiungi colonna complessa](media/data-flow/complexcolumn.png "Aggiungere colonne")
 
 ## <a name="data-flow-script"></a>Script del flusso di dati
 

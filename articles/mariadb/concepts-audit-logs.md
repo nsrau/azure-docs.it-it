@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 64662499b4ee782bbf04e9e706cd659e84c90eec
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/09/2019
+ms.openlocfilehash: 9c5f6aa2900570aa00ddbc50ec8be4dbb0d16a34
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74773075"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978050"
 ---
 # <a name="audit-logs-in-azure-database-for-mariadb"></a>Log di controllo nel database di Azure per MariaDB
 
@@ -27,12 +27,15 @@ Per impostazione predefinita, il log di controllo è disabilitato. Per abilitarl
 Altri parametri che è possibile modificare includono:
 
 - `audit_log_events`: controlla gli eventi da registrare. Vedere la tabella seguente per gli eventi di controllo specifici.
+- `audit_log_include_users`: MariaDB gli utenti da includere per la registrazione. Il valore predefinito per questo parametro è vuoto, che include tutti gli utenti per la registrazione. Questa operazione ha una priorità più elevata rispetto a `audit_log_exclude_users`. La lunghezza massima del parametro è di 512 caratteri.
+> [!Note]
+> `audit_log_include_users` ha una priorità maggiore rispetto a `audit_log_exclude_users`. Se, ad esempio, `audit_log_include_users` = `demouser` e `audit_log_exclude_users` = `demouser`, l'utente verrà incluso nei log di controllo perché `audit_log_include_users` ha una priorità più elevata.
 - `audit_log_exclude_users`: MariaDB gli utenti da escludere dalla registrazione. Consente al massimo quattro utenti. La lunghezza massima del parametro è di 256 caratteri.
 
 | **Event** | **Descrizione** |
 |---|---|
 | `CONNECTION` | -Avvio della connessione (esito positivo o negativo) <br> -Riautenticazione utente con diversi utenti/password durante la sessione <br> -Terminazione connessione |
-| `DML_SELECT`| Seleziona query |
+| `DML_SELECT`| Query SELECT |
 | `DML_NONSELECT` | Query di inserimento, eliminazione e aggiornamento |
 | `DML` | DML = DML_SELECT + DML_NONSELECT |
 | `DDL` | Query come "DROP DATABASE" |
@@ -121,7 +124,7 @@ Lo schema riportato di seguito si applica ai tipi di evento GENERAL, DML_SELECT,
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Nome del server |
 | `event_class_s` | `table_access_log` |
-| `event_subclass_s` | `READ`, `INSERT`, `UPDATE`o `DELETE` |
+| `event_subclass_s` | `READ`, `INSERT`, `UPDATE` o `DELETE` |
 | `connection_id_d` | ID connessione univoco generato da MariaDB |
 | `db_s` | Nome del database a cui si accede |
 | `table_s` | Nome della tabella a cui si accede |

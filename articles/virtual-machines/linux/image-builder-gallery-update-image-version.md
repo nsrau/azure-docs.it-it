@@ -1,40 +1,40 @@
 ---
-title: Creare una nuova versione dell'immagine da una versione di immagine esistente utilizzando Generatore di immagini di Azure (anteprima)
-description: Creare una nuova versione dell'immagine da una versione di immagine esistente utilizzando Generatore di immagini di Azure.
+title: Creare una nuova versione dell'immagine di macchina virtuale da una versione di immagine esistente usando il generatore di immagini di Azure (anteprima)
+description: Creare una nuova versione dell'immagine di macchina virtuale da una versione di immagine esistente usando Azure Image Builder.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 9155f6fc1243f0d2e4d63f2718ccfd6846ebbc50
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: d226a7b31dc9f8cf219c6d0d0f886fb5b21741a6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671491"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976333"
 ---
-# <a name="preview-create-a-new-image-version-from-an-existing-image-version-using-azure-image-builder"></a>Anteprima: Creare una nuova versione dell'immagine da una versione di immagine esistente utilizzando Generatore di immagini di Azure
+# <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder"></a>Anteprima: creare una nuova versione dell'immagine di macchina virtuale da una versione di immagine esistente usando Azure Image Builder
 
-Questo articolo illustra come eseguire una versione di immagine esistente in un [raccolta di immagini condivise](shared-image-galleries.md), aggiornarlo e pubblicarlo come una nuova versione dell'immagine nella raccolta.
+Questo articolo illustra come creare una versione di immagine esistente in una [raccolta di immagini condivise](shared-image-galleries.md), aggiornarla e pubblicarla come nuova versione dell'immagine nella raccolta.
 
-Si userà un modello JSON di esempio per configurare l'immagine. Il file con estensione JSON si sta usando è qui: [helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json). 
+Per configurare l'immagine verrà usato un modello Sample. JSON. Il file con estensione JSON usato è il seguente: [helloImageTemplateforSIGfromSIG. JSON](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json). 
 
 
-## <a name="register-the-features"></a>Registrare la funzionalità
+## <a name="register-the-features"></a>Registrare le funzionalità
 Per usare Azure Image Builder durante l'anteprima, è necessario registrare la nuova funzionalità.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
 ```
 
-Controllare lo stato della registrazione di funzionalità.
+Verificare lo stato della registrazione della funzionalità.
 
 ```azurecli-interactive
 az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
 ```
 
-Verificare la registrazione.
+Controllare la registrazione.
 
 ```azurecli-interactive
 az provider show -n Microsoft.VirtualMachineImages | grep registrationState
@@ -42,7 +42,7 @@ az provider show -n Microsoft.VirtualMachineImages | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
 ```
 
-Se non si dice registrato, eseguire le operazioni seguenti:
+Se non sono registrati, eseguire le operazioni seguenti:
 
 ```azurecli-interactive
 az provider register -n Microsoft.VirtualMachineImages
@@ -51,11 +51,11 @@ az provider register -n Microsoft.Storage
 ```
 
 
-## <a name="set-variables-and-permissions"></a>Impostare le variabili e le autorizzazioni
+## <a name="set-variables-and-permissions"></a>Impostare variabili e autorizzazioni
 
-Se è stata usata [creare un'immagine e distribuire in una raccolta di immagini condivise](image-builder-gallery.md) per creare la raccolta di immagini condivise, è già stato creato alcune delle variabili di cui abbiamo bisogno. In caso contrario, installare alcune variabili da usare per questo esempio.
+Se è stata usata la [creazione di un'immagine e la distribuzione in una raccolta di immagini condivise](image-builder-gallery.md) per creare la raccolta di immagini condivise, sono già state create alcune delle variabili necessarie. In caso contrario, configurare alcune variabili da usare per questo esempio.
 
-Per l'anteprima di generatore di immagini supporta solo la creazione di immagini personalizzate nello stesso gruppo di risorse come immagine gestita di origine. Aggiornare il nome del gruppo di risorse in questo esempio sia il gruppo di risorse stesso come l'immagine gestita di origine.
+Per l'anteprima, Image Builder supporterà solo la creazione di immagini personalizzate nello stesso gruppo di risorse dell'immagine gestita di origine. Aggiornare il nome del gruppo di risorse in questo esempio in modo che sia lo stesso gruppo di risorse dell'immagine gestita di origine.
 
 
 ```azurecli-interactive
@@ -73,7 +73,7 @@ imageDefName=myIbImageDef
 runOutputName=aibSIGLinuxUpdate
 ```
 
-Creare una variabile per l'ID sottoscrizione. È possibile ottenere questo usando `az account show | grep id`.
+Creare una variabile per l'ID sottoscrizione. Questa operazione può essere usata `az account show | grep id`.
 
 ```azurecli-interactive
 subscriptionID=<Subscription ID>
@@ -90,7 +90,7 @@ sigDefImgVersionId=$(az sig image-version list \
 ```
 
 
-Se si dispone già una propria raccolta di immagini condivise e non è stata seguita l'esempio precedente, è necessario assegnare le autorizzazioni per la generazione di immagini accedere al gruppo di risorse, in modo che possa accedere alla raccolta.
+Se si dispone già di una raccolta di immagini condivise e non è stata seguita l'esempio precedente, sarà necessario assegnare le autorizzazioni per il generatore di immagini per accedere al gruppo di risorse, in modo che possa accedere alla raccolta.
 
 
 ```azurecli-interactive
@@ -101,8 +101,8 @@ az role assignment create \
 ```
 
 
-## <a name="modify-helloimage-example"></a>Modificare l'esempio helloImage
-È possibile esaminare l'esempio si sta tentando di usare aprendo il file con estensione JSON qui: [helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json) con il [riferimenti dei modelli di Image Builder](image-builder-json.md). 
+## <a name="modify-helloimage-example"></a>Esempio di modifica di helloImage
+È possibile esaminare l'esempio che verrà usato aprendo il file con estensione JSON qui: [helloImageTemplateforSIGfromSIG. JSON](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json) insieme al [riferimento al modello di generatore di immagini](image-builder-json.md). 
 
 
 Scaricare l'esempio con estensione JSON e configurarlo con le variabili. 
@@ -121,7 +121,7 @@ sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateforSIGfromSIG.j
 
 ## <a name="create-the-image"></a>Creare l'immagine
 
-Inviare la configurazione dell'immagine per il servizio di generatore di immagini di macchina virtuale.
+Inviare la configurazione dell'immagine al servizio Generatore di immagini VM.
 
 ```azurecli-interactive
 az resource create \
@@ -142,7 +142,7 @@ az resource invoke-action \
      --action Run 
 ```
 
-Attendere fino a quando l'immagine è stata compilata e la replica prima di procedere al passaggio successivo.
+Attendere che l'immagine sia stata compilata e replica prima di procedere al passaggio successivo.
 
 
 ## <a name="create-the-vm"></a>Creare la VM
@@ -163,7 +163,7 @@ Creare una connessione SSH alla VM usando l'indirizzo IP pubblico della macchina
 ssh azureuser@<pubIp>
 ```
 
-Verrà visualizzata che l'immagine è stato personalizzato con un "messaggio di Day", non appena viene stabilita la connessione SSH.
+Si noterà che l'immagine è stata personalizzata con un "messaggio del giorno" non appena viene stabilita la connessione SSH.
 
 ```console
 *******************************************************
@@ -173,9 +173,9 @@ Verrà visualizzata che l'immagine è stato personalizzato con un "messaggio di 
 *******************************************************
 ```
 
-Tipo `exit` per chiudere la connessione SSH.
+Digitare `exit` per chiudere la connessione SSH.
 
-È anche possibile elencare le versioni delle immagini sono disponibili nella raccolta.
+È anche possibile elencare le versioni dell'immagine che sono ora disponibili nella raccolta.
 
 ```azurecli-interactive
 az sig image-version list -g $sigResourceGroup -r $sigName -i $imageDefName -o table
@@ -184,4 +184,4 @@ az sig image-version list -g $sigResourceGroup -r $sigName -i $imageDefName -o t
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sui componenti del file con estensione JSON utilizzato in questo articolo, vedere [riferimento a un modello generatore di immagini](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Per altre informazioni sui componenti del file con estensione JSON usato in questo articolo, vedere informazioni di [riferimento sui modelli di generatore di immagini](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

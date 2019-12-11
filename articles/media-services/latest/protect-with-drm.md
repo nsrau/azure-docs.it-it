@@ -15,17 +15,17 @@ ms.topic: conceptual
 ms.date: 05/25/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: b88257271f5177657e66cadc23abad36ad14e890
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 3d2dc7793c25fb20e267332beaa683f11ddcbfbb
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186055"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974071"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Esercitazione: usare la crittografia dinamica DRM e il servizio di distribuzione delle licenze
 
 > [!NOTE]
-> Anche se in questa esercitazione vengono usati gli esempi di [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) , i passaggi generali sono gli stessi per l' [API REST](https://docs.microsoft.com/rest/api/media/liveevents), l' [interfaccia](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)della riga di comando o altri [SDK](media-services-apis-overview.md#sdks)supportati.
+> Anche se l'esercitazione usa esempi di [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), le procedure generali sono identiche per l'[API REST](https://docs.microsoft.com/rest/api/media/liveevents), l'[interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) o altri [SDK](media-services-apis-overview.md#sdks) supportati.
 
 È possibile usare Servizi multimediali di Azure per distribuire i flussi crittografati con licenze Microsoft PlayReady, Google Widevine o Apple FairPlay. Per una spiegazione approfondita, vedere [protezione del contenuto con crittografia dinamica](content-protection-overview.md).
 
@@ -46,7 +46,7 @@ Questa esercitazione illustra come:
 > * Creare una StreamingLocator con i criteri di flusso specificati.
 > * Creare un URL usato per la riproduzione del file.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione sono necessari gli elementi seguenti:
 
@@ -92,7 +92,7 @@ Prima di creare un nuovo oggetto **Transform**, è necessario verificare se ne e
 
 ## <a name="submit-job"></a>Inviare il processo
 
-Come indicato sopra, l'oggetto **Transform** è la serie di istruzioni, mentre l'oggetto [Job](transforms-jobs-concept.md) è la richiesta effettiva inviata a Servizi multimediali per applicare l'oggetto **Transform** a determinati contenuti audio o video di input. Il **processo** specifica informazioni come il percorso del video di input e la posizione dell'output.
+Come indicato sopra, l'oggetto **Transform** è la serie di istruzioni, mentre l'oggetto [Job](transforms-jobs-concept.md) è la richiesta effettiva inviata a Servizi multimediali per applicare l'oggetto **Transform** a determinati contenuti audio o video di input. Il **processo** specifica informazioni come la posizione del video di input e quella dell'output.
 
 In questa esercitazione viene creato l'input del processo in base a un file che viene inserito direttamente da un [URL di origine HTTPS](job-input-from-http-how-to.md).
 
@@ -100,9 +100,9 @@ In questa esercitazione viene creato l'input del processo in base a un file che 
 
 ## <a name="wait-for-the-job-to-complete"></a>Attendere il completamento del processo
 
-Il completamento del processo richiede tempo. Quando si esegue questa operazione, si desidera ricevere una notifica. L'esempio di codice seguente illustra come eseguire il polling del servizio per determinare lo stato del **processo**. Il polling non è una procedura consigliata per le app di produzione a causa dei rischi di latenza. Il polling può essere limitato se usato eccessivamente su un account. In alternativa, è preferibile che gli sviluppatori usino Griglia di eventi. Vedere [Instradare gli eventi verso un endpoint Web personalizzato](job-state-events-cli-how-to.md).
+Il completamento del processo richiede qualche istante. Al termine dell'operazione, si vorrà ricevere una notifica. L'esempio di codice seguente illustra come eseguire il polling del servizio per determinare lo stato del **processo**. Il polling non è una procedura consigliata per le app di produzione a causa dei rischi di latenza. Il polling può essere limitato se usato eccessivamente su un account. In alternativa, è preferibile che gli sviluppatori usino Griglia di eventi. Vedere [Instradare gli eventi verso un endpoint Web personalizzato](job-state-events-cli-how-to.md).
 
-L'oggetto **Job** assume progressivamente gli stati seguenti: **Scheduled**, **Queued**, **Processing**, **Finished** (lo stato finale). Se si è verificato un errore nel processo, si ottiene lo stato di **errore** . Se il processo è in fase di annullamento, vengono restituiti lo stato **Annullamento in corso** e, al termine, lo stato **Annullato**.
+L'oggetto **Job** assume progressivamente gli stati seguenti: **Scheduled**, **Queued**, **Processing**, **Finished** (lo stato finale). Se nel corso del processo si verifica un errore, viene restituito lo stato **Errore**. Se il processo è in fase di annullamento, vengono restituiti lo stato **Annullamento in corso** e, al termine, lo stato **Annullato**.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#WaitForJobToFinish)]
 
@@ -150,7 +150,7 @@ In ContentKeyPolicy viene usato ContentKeyIdentifierClaim, il che significa che 
 
 ## <a name="build-a-streaming-url"></a>Creare un URL di streaming
 
-Ora che è stato creato l'oggetto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), è possibile ottenere gli URL di streaming. Per compilare un URL, è necessario concatenare il nome host [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) e il percorso del **localizzatore di streaming** . In questo esempio, viene usato l'*endpoint di streaming* **predefinito**. Quando si crea un account di Servizi multimediali per la prima volta, il *localizzatore di streaming* **predefinito** è in stato arrestato ed è quindi necessario chiamare **Start**.
+Ora che è stato creato l'oggetto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), è possibile ottenere gli URL di streaming. Per compilare un URL, è necessario concatenare il nome host [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) e il percorso del **localizzatore di streaming** . In questo esempio, viene usato l'*endpoint di streaming* **predefinito**. Quando si crea un account di Servizi multimediali per la prima volta, il **localizzatore di streaming** *predefinito* è in stato arrestato ed è quindi necessario chiamare **Start**.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetMPEGStreamingUrl)]
 
@@ -162,7 +162,7 @@ Quando si esegue l'app, viene visualizzata la schermata seguente:
 
 ## <a name="clean-up-resources-in-your-media-services-account"></a>Pulire le risorse nell'account di Servizi multimediali
 
-In genere, è consigliabile eliminare tutti gli oggetti tranne gli oggetti che si prevede di riutilizzare, in genere si riutilizzeranno le trasformazioni, StreamingLocators e così via. Se si vuole che l'account sia pulito dopo la sperimentazione, eliminare le risorse che non si intende riutilizzare. Il codice seguente, ad esempio, elimina gli oggetti Job:
+In genere, è consigliabile eliminare tutti gli oggetti tranne gli oggetti che si prevede di riutilizzare, in genere si riutilizzeranno le trasformazioni, StreamingLocators e così via. Se dopo l'attività di sperimentazione si vuole pulire l'account, eliminare le risorse che non si prevede di riutilizzare. Il codice seguente, ad esempio, elimina gli oggetti Job:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#CleanUp)]
 
@@ -176,7 +176,11 @@ Eseguire il comando dell'interfaccia della riga di comando seguente:
 az group delete --name amsResourceGroup
 ```
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
+## <a name="additional-notes"></a>Note aggiuntive
+
+* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google, Inc.
+
+## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback e ottenere aggiornamenti
 
 Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
 

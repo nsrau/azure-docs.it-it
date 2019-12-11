@@ -1,5 +1,5 @@
 ---
-title: Codici di errore di autenticazione e autorizzazione di Azure Active Directory | Microsoft Docs
+title: Azure AD codici di errore di autenticazione e autorizzazione | Azure
 description: Informazioni sui codici di errore AADSTS restituiti dal servizio token di sicurezza di Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -17,14 +17,14 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 261fe2142fc3bc45625b5d088a46ad92c34222db
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 02ed0b84a29ea0c3ce3b58db1c029798655bfb06
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193177"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965807"
 ---
-# <a name="authentication-and-authorization-error-codes"></a>Codici di errore per autenticazione e autorizzazione
+# <a name="azure-ad-authentication-and-authorization-error-codes"></a>Codici di errore Autenticazione di Azure AD e autorizzazione
 
 Se sono necessarie informazioni sui codici di errore AADSTS restituiti dal servizio token di sicurezza di Azure Active Directory (Azure AD), consultare questo documento per trovare le descrizioni degli errori AADSTS, le correzioni e alcune soluzioni alternative consigliate.
 
@@ -40,7 +40,7 @@ Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, 
 
 ## <a name="aadsts-error-codes"></a>Codici di errore AADSTS
 
-| Tipi di errore | Descrizione |
+| Errore | Description |
 |---|---|
 | AADSTS16000 | SelectUserAccount: interrupt generato da Azure AD, con conseguente attivazione dell'interfaccia utente che permette all'utente di selezionare tra più sessioni SSO valide. Questo errore è piuttosto comune e può essere restituito all'applicazione se è specificato `prompt=none`. |
 | AADSTS16001 | UserAccountSelectionInvalid: questo errore viene visualizzato se l'utente fa clic su un riquadro che è stato rifiutato dalla logica di selezione della sessione. Se attivato, questo errore permette all'utente di rimediare effettuando la selezione in un elenco aggiornato di riquadri/sessioni o scegliendo un altro account. Questo errore può essere dovuto a un problema del codice o a una race condition. |

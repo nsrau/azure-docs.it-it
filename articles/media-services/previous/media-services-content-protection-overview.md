@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: b0d71a7b010e91776a28330cfc32278c7060aab6
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 4ff4025941e9a77148daa91995ecf182231d1f0b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901260"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976282"
 ---
 # <a name="content-protection-overview"></a>Panoramica della protezione del contenuto 
 
@@ -87,6 +87,10 @@ Si applicano le considerazioni seguenti:
   * **cenc**: per PlayReady o Widevine (crittografia comune)
   * **cbcs-aapl**: per FairPlay (crittografia CBC AES)
   * **cbc**: per la crittografia della busta AES
+
+## <a name="additional-notes"></a>Note aggiuntive
+
+* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google, Inc.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Gli articoli seguenti descrivono i passaggi successivi da eseguire per iniziare a usare la protezione dei contenuti:

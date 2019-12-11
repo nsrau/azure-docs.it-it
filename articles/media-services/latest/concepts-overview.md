@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 09/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 47c7e35f71fd33cc53d498867ef015364252d5ea
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 39bdcc94b785371044b5d49fd844a06a176a8fba
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910303"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970037"
 ---
 # <a name="media-services-concepts"></a>Concetti relativi a servizi multimediali
 
@@ -84,7 +84,7 @@ Se si specificano le opzioni di crittografia nel flusso, creare i **criteri dell
 
 L'immagine seguente illustra il flusso di lavoro di protezione dei contenuti di Servizi multimediali: 
 
-![Proteggere il contenuto](./media/content-protection/content-protection.svg)
+![Proteggere contenuti](./media/content-protection/content-protection.svg)
 
 &#42;la crittografia dinamica supporta AES-128 "Clear Key", CBCS e CENC. 
 
@@ -101,6 +101,9 @@ L'immagine seguente illustra il flusso di lavoro di protezione dei contenuti di 
 - [Manifesti dinamici](filters-dynamic-manifest-overview.md)
 - [Filtri](filters-concept.md)
 
+> [!NOTE]
+> Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google, Inc.
+
 ## <a name="live-streaming"></a>Streaming live
 
 Servizi multimediali di Azure consente di offrire eventi live per i clienti nel cloud di Azure. Gli **eventi live** sono responsabili dell'inserimento e dell'elaborazione dei feed video live. Quando si crea un **evento Live**, viene creato un endpoint di input che può essere usato per inviare un segnale Live da un codificatore remoto. Una volta che il flusso è stato trasmesso nell' **evento Live**, è possibile iniziare l'evento di streaming creando un **Asset**, un **output Live**e un **localizzatore di streaming**. L' **output in tempo reale** archivia il flusso nell' **Asset** e lo rende disponibile ai visualizzatori tramite l' **endpoint di streaming**. Un **evento Live** può essere di uno dei due tipi seguenti: **pass-through** e **codifica live**.
@@ -112,11 +115,11 @@ Nell'immagine seguente viene illustrato il flusso di lavoro del tipo pass-throug
 - [Panoramica dello streaming live](live-streaming-overview.md)
 - [Eventi live e output live](live-events-outputs-concept.md)
 
-## <a name="monitoring"></a>Monitoraggio
+## <a name="monitoring"></a>Monitorare
 
-### <a name="event-grid"></a>Griglia eventi
+### <a name="event-grid"></a>Griglia di eventi
 
-Per visualizzare lo stato di avanzamento del processo, è necessario usare **griglia di eventi**. Servizi multimediali genera anche i tipi di evento Live. Con Griglia di eventi, le app possono rimanere in ascolto e reagire agli eventi praticamente da tutti i servizi di Azure, oltre che da origini personalizzate. 
+Per visualizzare lo stato di avanzamento del processo, è necessario usare **griglia di eventi**. Servizi multimediali genera anche i tipi di evento Live. Con Griglia di eventi, le tue app possono rimanere in ascolto e reagire agli eventi da virtualmente tutti i servizi di Azure, oltre che da origini personalizzate. 
 
 - [Gestione degli eventi di griglia di eventi](reacting-to-media-services-events.md)
 - [Schemi](media-services-event-schemas.md)
@@ -134,7 +137,7 @@ Monitorare le metriche e i log di diagnostica che consentono di comprendere le p
 
 - [Panoramica di Azure Media Player](use-azure-media-player.md)
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
+## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback e ottenere aggiornamenti
 
 Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
 

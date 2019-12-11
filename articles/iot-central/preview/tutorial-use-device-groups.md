@@ -3,17 +3,17 @@ title: Usare i gruppi di dispositivi nell'applicazione IoT Central di Azure | Mi
 description: Come operatore, informazioni su come usare i gruppi di dispositivi per analizzare i dati di telemetria dai dispositivi nell'applicazione IoT Central di Azure.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/29/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: 281806999b08c3babbb753459835850ad9d733eb
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 981046f9417876a68c215c6d01a63c7f0a634464
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895436"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976214"
 ---
 # <a name="tutorial-use-device-groups-to-analyze-device-telemetry-preview-features"></a>Esercitazione: usare i gruppi di dispositivi per analizzare i dati di telemetria del dispositivo (funzionalità di anteprima)
 
@@ -31,7 +31,7 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, è necessario completare il [creare un'applicazione Azure IOT Central](./quick-deploy-iot-central.md) e [aggiungere un dispositivo simulato alle guide introduttive dell'applicazione IoT Central](./quick-create-pnp-device.md) per creare il modello di dispositivo del **sensore di ambiente** da usare.
+Prima di iniziare, è necessario completare gli argomenti di avvio rapido [Creare un'applicazione Azure IoT Central](./quick-deploy-iot-central.md) e [Aggiungere un dispositivo simulato a un'applicazione IoT Central](./quick-create-pnp-device.md) per creare il modello di dispositivo di tipo **Sensore ambientale** da usare.
 
 ## <a name="create-simulated-devices"></a>Creare dispositivi simulati
 
@@ -49,7 +49,7 @@ Per creare un gruppo di dispositivi:
 
 1. Scegliere **gruppi di dispositivi** nel riquadro sinistro.
 
-1. Selezionare **+ nuovo**.
+1. Selezionare **+ Nuovo**.
 
     ![Nuovo gruppo di dispositivi](media/tutorial-use-device-groups/image1.png)
 

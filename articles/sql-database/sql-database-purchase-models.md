@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/26/2019
-ms.openlocfilehash: be223245c634b8e38dc5e4c89df4c265c22c0b57
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6dbe61c47a7323e2dec599d2f3c77453aa6f8d82
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821257"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973527"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>Scegliere tra i modelli di acquisto vCore e DTU
 
@@ -55,7 +55,7 @@ Il costo dell'archiviazione di backup è lo stesso per il livello di servizio bu
 
 Per una descrizione del modo in cui viene definita la capacità di calcolo e i costi vengono calcolati per il livello di calcolo senza server, vedere [database SQL senza server](sql-database-serverless.md).
 
-## <a name="storage-costs"></a>Costi di archiviazione
+## <a name="storage-costs"></a>Costi delle risorse di archiviazione
 
 I vari tipi di archiviazione vengono fatturati in modo diverso. Per l'archiviazione dei dati, viene addebitata l'archiviazione di cui è stato effettuato il provisioning in base alle dimensioni massime del database o del pool selezionato. Il costo non cambia a meno che non si riduca o aumenti il valore massimo. Le risorse di archiviazione dei backup sono associate ai backup automatizzati dell'istanza e vengono allocate in modo dinamico. L'aumento del periodo di conservazione del backup comporta l'aumento dell'archiviazione di backup utilizzata dall'istanza.
 
@@ -102,7 +102,7 @@ Le risorse usate dal carico di lavoro non influiscano sulle risorse disponibili 
 
 ![rettangolo di selezione](./media/sql-database-what-is-a-dtu/bounding-box.png)
 
-DTU sono particolarmente utili per comprendere le risorse relative allocate per i database SQL di Azure con diverse dimensioni di calcolo e livelli di servizio. Ad esempio:
+DTU sono particolarmente utili per comprendere le risorse relative allocate per i database SQL di Azure con diverse dimensioni di calcolo e livelli di servizio. ad esempio:
 
 - Raddoppiare il DTU aumentando le dimensioni di calcolo di un database equivale a raddoppiare il set di risorse disponibili per il database.
 - Un database P11 con livello di servizio Premium con 1750 DTU offre 350x più capacità di calcolo DTU rispetto a un database del livello di servizio Basic con 5 DTU.  
@@ -129,7 +129,7 @@ Se si vuole eseguire la migrazione di un carico di lavoro locale o SQL Server ma
 
 ### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>Carichi di lavoro che traggono vantaggio da un pool elastico di risorse
 
-I pool sono particolarmente adatti per i database con una media di utilizzo delle risorse bassa e picchi di utilizzo relativamente poco frequenti. Il database SQL valuta automaticamente l'utilizzo delle risorse cronologiche dei database in un server di database SQL esistente e consiglia la configurazione del pool appropriata nel portale di Azure. Per ulteriori informazioni, vedere [quando considerare un pool elastico del database SQL](sql-database-elastic-pool.md).
+I pool sono particolarmente adatti per i database con una media di utilizzo delle risorse bassa e picchi di utilizzo relativamente poco frequenti. Per ulteriori informazioni, vedere [quando considerare un pool elastico del database SQL](sql-database-elastic-pool.md).
 
 ## <a name="frequently-asked-questions-faqs"></a>Domande frequenti (FAQ)
 

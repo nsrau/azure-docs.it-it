@@ -3,23 +3,23 @@ title: Informazioni di riferimento su host.json per Funzioni di Azure 2.x
 description: Documentazione di riferimento per il file host.json di Funzioni di Azure con il runtime v2.
 ms.topic: conceptual
 ms.date: 09/08/2018
-ms.openlocfilehash: bb10f15db1d152ff1d8fd8d38ba22e312a2031b7
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 08d772fc9b2871262b449a017f8be59a344576b2
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74323070"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975449"
 ---
-# <a name="hostjson-reference-for-azure-functions-2x"></a>Informazioni di riferimento su host.json per Funzioni di Azure 2.x  
+# <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>informazioni di riferimento su host. JSON per funzioni di Azure 2. x e versioni successive 
 
 > [!div class="op_single_selector" title1="Selezionare la versione del runtime di funzioni di Azure in uso: "]
 > * [Versione 1](functions-host-json-v1.md)
 > * [Versione 2](functions-host-json.md)
 
-Il file di metadati *host.json* contiene le opzioni di configurazione globali che interessano tutte le funzioni dell’app per le funzioni. Questo articolo elenca le impostazioni disponibili per il runtime v2.  
+Il file di metadati *host.json* contiene le opzioni di configurazione globali che interessano tutte le funzioni dell’app per le funzioni. Questo articolo elenca le impostazioni disponibili a partire dalla versione 2. x del runtime di funzioni di Azure.  
 
 > [!NOTE]
-> Questo articolo riguarda Funzioni di Azure 2.x.  Per informazioni di riferimento su host.json in Funzioni 1.x, vedere [Informazioni di riferimento su host.json per Funzioni di Azure 1.x](functions-host-json-v1.md).
+> Questo articolo è per funzioni di Azure 2. x e versioni successive.  Per informazioni di riferimento su host.json in Funzioni 1.x, vedere [Informazioni di riferimento su host.json per Funzioni di Azure 1.x](functions-host-json-v1.md).
 
 Altre opzioni di configurazione di app per le funzioni sono gestite nelle [impostazioni dell'app](functions-app-settings.md).
 
@@ -111,7 +111,7 @@ Controlla le [funzionalità di campionamento in Application Insights](./function
 > [!NOTE]
 > Il campionamento di log potrebbe non consentire di visualizzare alcune esecuzioni nel pannello monitoraggio di Application Insights.
 
-|Proprietà  |Default | DESCRIZIONE |
+|Proprietà  |Predefinito | Description |
 |---------|---------|---------| 
 |isEnabled|true|Abilita o disabilita il campionamento.| 
 |maxTelemetryItemsPerSecond|20|La soglia oltre la quale viene avviato il campionamento.| 
@@ -181,7 +181,7 @@ Impostazioni di configurazione per il [monitoraggio integrità host](https://git
 }
 ```
 
-|Proprietà  |Default | DESCRIZIONE |
+|Proprietà  |Predefinito | Description |
 |---------|---------|---------| 
 |enabled|true|Indica se la funzionalità è abilitata. | 
 |healthCheckInterval|10 secondi|Intervallo di tempo tra i controlli dell'integrità periodici in background. | 
@@ -213,10 +213,10 @@ Controlla i comportamenti di registrazione dell'app per le funzioni, tra cui App
 }
 ```
 
-|Proprietà  |Default | DESCRIZIONE |
+|Proprietà  |Predefinito | Description |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Definisce il livello di registrazione dei file abilitato.  Le opzioni sono `never`, `always`, `debugOnly`. |
-|logLevel|N/D|Oggetto che definisce il filtro delle categorie di log per le funzioni nell'app. La versione 2.x segue il layout di ASP.NET Core per il filtro delle categorie di log. Ciò consente di filtrare la registrazione per funzioni specifiche. Per altre informazioni, vedere [Filtro dei log](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) nella documentazione di ASP.NET Core. |
+|logLevel|N/D|Oggetto che definisce il filtro delle categorie di log per le funzioni nell'app. Le versioni 2. x e successive seguono il layout ASP.NET Core per i filtri delle categorie di log. Ciò consente di filtrare la registrazione per funzioni specifiche. Per altre informazioni, vedere [Filtro dei log](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) nella documentazione di ASP.NET Core. |
 |console|N/D| Impostazione di registrazione nella [console](#console). |
 |applicationInsights|N/D| Impostazione di [ApplicationInsights](#applicationinsights). |
 
@@ -236,7 +236,7 @@ Questa impostazione è un elemento figlio di [logging](#logging). Controlla la r
 }
 ```
 
-|Proprietà  |Default | DESCRIZIONE |
+|Proprietà  |Predefinito | Description |
 |---------|---------|---------| 
 |isEnabled|false|Abilita o disabilita la registrazione nella console.| 
 
@@ -280,7 +280,7 @@ Impostazioni di configurazione per il comportamento di blocco Singleton. Per ult
 }
 ```
 
-|Proprietà  |Default | DESCRIZIONE |
+|Proprietà  |Predefinito | Description |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|Il periodo per cui vengono eseguiti blocchi a livello di funzione. I blocchi si rinnovano automaticamente.| 
 |listenerLockPeriod|00:01:00|Il periodo per cui vengono acquisiti blocchi di listener.| 

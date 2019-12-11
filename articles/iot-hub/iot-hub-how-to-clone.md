@@ -2,18 +2,17 @@
 title: Come clonare un hub Azure Internet
 description: Come clonare un hub Azure Internet
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 12/09/2019
 ms.author: robinsh
-ms.openlocfilehash: 4d8771d49f30d94aeb6dfa855f5c2ef107076afb
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 6e4d110221c7f360e8177505de2a7789f9616d51
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083277"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976146"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Come clonare un hub Azure Internet in un'altra area
 
@@ -73,9 +72,7 @@ Questo è il metodo generale consigliato per lo trasferimento di un hub Internet
    1. Aggiungere tutto ciò che non è stato esportato nel modello. 
    
        Ad esempio, i gruppi di consumer non vengono esportati nel modello. È necessario aggiungere manualmente i gruppi di consumer al modello o usare il [portale di Azure](https://portal.azure.com) dopo la creazione dell'hub. È disponibile un esempio di aggiunta di un gruppo di consumer a un modello nell'articolo [usare un modello di Azure Resource Manager per configurare il routing dei messaggi dell'hub](tutorial-routing-config-message-routing-rm-template.md)Internet.
-
-       Anche le funzionalità di [arricchimento dei messaggi](iot-hub-message-enrichments-overview.md) non vengono esportate nel modello. Questi vengono usati insieme ai messaggi di routing e dovranno essere aggiornati manualmente nel nuovo hub quando viene aggiornata la configurazione del routing dei messaggi.
-
+       
    1. Copiare i dispositivi dall'hub originale al clone. Questa operazione viene trattata nella sezione [gestione dei dispositivi registrati nell'hub](#managing-the-devices-registered-to-the-iot-hub)Internet.
 
 ## <a name="how-to-handle-message-routing"></a>Come gestire il routing del messaggio
@@ -103,9 +100,6 @@ Se l'hub usa il routing dei messaggi, sono disponibili due opzioni.
    * L'hub fa ancora riferimento alle risorse di routing originali e instrada i messaggi a tali risorse come configurato.
 
    * Si otterrà un lieve impatto sulle prestazioni perché le risorse dell'hub e dell'endpoint di routing non si trovano nella stessa posizione.
-
-> [!NOTE]
-> Se l'Hub USA i [miglioramenti dei messaggi](iot-hub-message-enrichments-overview.md), sarà necessario configurarli manualmente nel nuovo hub Internet, perché non vengono esportati con il modello di gestione risorse.
 
 ## <a name="prepare-to-migrate-the-hub-to-another-region"></a>Preparare la migrazione dell'hub a un'altra area
 
@@ -359,7 +353,7 @@ Creare il nuovo hub nella nuova posizione usando il modello. Se si dispone di ri
 
 1. Nella casella di ricerca inserire "distribuzione modello" e premere INVIO.
 
-1. Selezionare **distribuzione modello (Distribuisci usando modelli personalizzati)** . Verrà visualizzata una schermata per la Distribuzione modelli. Selezionare **Create**. Viene visualizzata la schermata seguente:
+1. Selezionare **distribuzione modello (Distribuisci usando modelli personalizzati)** . Verrà visualizzata una schermata per la Distribuzione modelli. Selezionare **Create** (Crea). Verrà visualizzata la schermata seguente:
 
    ![Screenshot che mostra il comando per la creazione di un modello personalizzato](./media/iot-hub-how-to-clone/iot-hub-custom-deployment.png)
 
@@ -391,7 +385,7 @@ Il portale esegue ora la convalida del modello e distribuisce l'hub clonato. Se 
 
 Ora che il clone è attivo e in esecuzione, è necessario copiare tutti i dispositivi dall'hub originale al clone. 
 
-Esistono diversi modi per eseguire questa operazione. Il [servizio Device provisioning (DPS) è stato](/azure/iot-dps/about-iot-dps)originariamente usato per il provisioning dei dispositivi o non è stato fatto. In caso contrario, non è difficile. In caso contrario, può essere molto complicato. 
+A tale scopo, è possibile eseguire diverse procedure. Il [servizio Device provisioning (DPS) è stato](/azure/iot-dps/about-iot-dps)originariamente usato per il provisioning dei dispositivi o non è stato fatto. In caso contrario, non è difficile. In caso contrario, può essere molto complicato. 
 
 Se non è stato usato DPS per eseguire il provisioning dei dispositivi, è possibile ignorare la sezione successiva e iniziare a [usare l'importazione/esportazione per spostare i dispositivi nel nuovo hub](#using-import-export-to-move-the-devices-to-the-new-hub).
 

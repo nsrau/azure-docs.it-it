@@ -1,5 +1,5 @@
 ---
-title: Configurare il dominio di pubblicazione di un'applicazione
+title: Configurare il dominio di pubblicazione di un'app | Azure
 titleSuffix: Microsoft identity platform
 description: Informazioni su come configurare il dominio del server di pubblicazione di un'applicazione per consentire agli utenti di sapere dove vengono inviate le informazioni.
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 032fca669a617c938473b0d0c27a754faa60b528
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2739f5db8c50449e3481ccdfb495b30edba54ce1
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917846"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74966980"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>Procedura: configurare un dominio di pubblicazione di un'applicazione
 

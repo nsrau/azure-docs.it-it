@@ -1,23 +1,23 @@
 ---
 title: Gestire le registrazioni dei dispositivi con gli SDK di Azure DPS
-description: Come gestire le registrazioni dei dispositivi nel servizio Device Provisioning in hub IoT usando gli SDK del servizio
+description: Come gestire le registrazioni dei dispositivi nel servizio Device provisioning in hub Internet (DPS) tramite gli SDK del servizio
 author: robinsh
 ms.author: robinsh
 ms.date: 04/04/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 75a24fd6b8cafe03ae8090e6f8bf71a27459c7eb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5cb0e25ec70956e66f7b867f0d0b9473160fc3ad
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228810"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975075"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Come gestire le registrazioni dei dispositivi con gli SDK del servizio Device Provisioning di Azure
 La *registrazione dei dispositivi* crea un record di un singolo dispositivo o di un gruppo di dispositivi registrato in un dato punto con il servizio Device Provisioning. Il record di registrazione contiene la configurazione iniziale desiderata per i dispositivi come parte della registrazione, incluso l'hub IoT desiderato. In questo articolo viene illustrato come gestire le registrazioni dei dispositivi per il servizio di provisioning a livello di programmazione tramite gli SDK del servizio di provisioning di Azure IoT.  Gli SDK sono disponibili su GitHub nello stesso repository degli SDK di Azure IoT.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * Ottenere la stringa di connessione da un'istanza del servizio Device Provisioning.
 * Ottenere gli elementi di sicurezza dei dispositivi per il [meccanismo di attestazione](concepts-security.md#attestation-mechanism) in uso:
     * [**TPM (Trusted Platform Module)** ](/azure/iot-dps/concepts-security#trusted-platform-module):

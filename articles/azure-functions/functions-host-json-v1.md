@@ -3,12 +3,12 @@ title: Informazioni di riferimento su host.json per Funzioni di Azure 1.x
 description: Documentazione di riferimento per il file host.json di Funzioni di Azure con il runtime v1.
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.openlocfilehash: 99a571483086343d4e7d6188b2f401abc616c1bb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 256cd47fa0f309bef46c7f72951810d5f76d0fba
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230597"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975466"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Informazioni di riferimento su host.json per Funzioni di Azure 1.x
 
@@ -19,7 +19,7 @@ ms.locfileid: "74230597"
 Il file di metadati *host.json* contiene le opzioni di configurazione globali che interessano tutte le funzioni dell’app per le funzioni. Questo articolo elenca le impostazioni disponibili per il runtime v1. Lo schema JSON è disponibile all'indirizzo http://json.schemastore.org/host.
 
 > [!NOTE]
-> Questo articolo riguarda Funzioni di Azure 1.x.  Per informazioni di riferimento su host.json in Funzioni 2.x, vedere [Informazioni di riferimento su host.json per Funzioni di Azure 2.x](functions-host-json.md).
+> Questo articolo riguarda Funzioni di Azure 1.x.  Per informazioni di riferimento su host. JSON in functions 2. x e versioni successive, vedere informazioni di [riferimento su host. JSON per funzioni di Azure 2. x](functions-host-json.md).
 
 Altre opzioni di configurazione di app per le funzioni sono gestite nelle [impostazioni dell'app](functions-app-settings.md).
 
@@ -136,7 +136,7 @@ Impostazioni di configurazione per il [trigger e le associazioni Azure Cosmos DB
 }
 ```
 
-|Proprietà  |Default | DESCRIZIONE |
+|Proprietà  |Predefinito | Description |
 |---------|---------|---------|
 |GatewayMode|Gateway|La modalità di connessione usata dalla funzione durante la connessione al servizio di Azure Cosmos DB. Le opzioni sono `Direct` e `Gateway`|
 |Protocol|Https|Il protocollo di connessione usato dalla funzione durante la connessione al servizio di Azure Cosmos DB.  Leggere [qui per una spiegazione di entrambe le modalità](../cosmos-db/performance-tips.md#networking)|
@@ -188,7 +188,7 @@ Impostazioni di configurazione per il [monitoraggio integrità host](https://git
 }
 ```
 
-|Proprietà  |Default | DESCRIZIONE |
+|Proprietà  |Predefinito | Description |
 |---------|---------|---------| 
 |enabled|true|Indica se la funzionalità è abilitata. | 
 |healthCheckInterval|10 secondi|Intervallo di tempo tra i controlli dell'integrità periodici in background. | 
@@ -211,7 +211,7 @@ Impostazione di configurazione per i [trigger e le associazioni http](functions-
 }
 ```
 
-|Proprietà  |Default | DESCRIZIONE |
+|Proprietà  |Predefinito | Description |
 |---------|---------|---------| 
 |dynamicThrottlesEnabled|false|Quando è abilitata, questa impostazione determina la pipeline di elaborazione della richiesta per il controllo periodico delle prestazioni dei contatori del sistema, ad esempio connessioni/thread/processi/memoria/CPU e così via. Se uno di questi contatori supera una soglia massima predefinita (80%), le richieste verranno rifiutate con una risposta 429 "Occupato" fino a quando i contatori non tornano a livelli normali.|
 |maxConcurrentRequests|non vincolato (`-1`)|Il numero massimo di funzioni HTTP che verrà eseguito in parallelo. Ciò consente di controllare la concorrenza e pertanto di semplificare la gestione dell'uso delle risorse. Ad esempio, potrebbe essere presente una funzione HTTP che usa una quantità di risorse di sistema (memoria/CPU/socket) tale da creare problemi quando la concorrenza è troppo elevata. Oppure potrebbe essere presente una funzione che invia richieste a un servizio di terze parti e tali chiamate devono essere a frequenza limitata. In questi casi potrebbe risultare utile l'applicazione di una limitazione.|
@@ -249,7 +249,7 @@ Controlla le operazioni di filtro per i log scritti da un [oggetto ILogger](func
 }
 ```
 
-|Proprietà  |Default | DESCRIZIONE |
+|Proprietà  |Predefinito | Description |
 |---------|---------|---------| 
 |categoryFilter|N/D|Specifica il filtro per categoria| 
 |defaultLevel|Informazioni|Per tutte le categorie non è state specificate nella matrice `categoryLevels`, inviare i log a questo livello e oltre per Application Insights.| 
@@ -271,7 +271,7 @@ Impostazione di configurazione per i [trigger e le associazioni per code di arch
 }
 ```
 
-|Proprietà  |Default | DESCRIZIONE |
+|Proprietà  |Predefinito | Description |
 |---------|---------|---------| 
 |maxPollingInterval|60000|L'intervallo massimo, in millisecondi, tra i polling di coda.| 
 |visibilityTimeout|0|L'intervallo di tempo tra i tentativi se l'elaborazione di un messaggio ha esito negativo.| 
@@ -290,9 +290,9 @@ Impostazione di configurazione per l' [associazione di output SendGrind](functio
     }
 ```
 
-|Proprietà  |Default | DESCRIZIONE |
+|Proprietà  |Predefinito | Description |
 |---------|---------|---------| 
-|Da|N/D|Indirizzo di posta elettronica del mittente in tutte le funzioni.| 
+|from|N/D|Indirizzo di posta elettronica del mittente in tutte le funzioni.| 
 
 ## <a name="servicebus"></a>serviceBus
 
@@ -308,7 +308,7 @@ Impostazione di configurazione per i [trigger e le associazioni dei bus di servi
 }
 ```
 
-|Proprietà  |Default | DESCRIZIONE |
+|Proprietà  |Predefinito | Description |
 |---------|---------|---------| 
 |maxConcurrentCalls|16|Il numero massimo di chiamate simultanee al callback che il message pump deve avviare. Per impostazione predefinita, il runtime di Funzioni elabora più messaggi contemporaneamente. Per fare in modo che il runtime elabori un solo messaggio della coda o dell'argomento alla volta, impostare `maxConcurrentCalls` su 1. | 
 |prefetchCount|N/D|Il valore predefinito di PrefetchCount che verrà utilizzato per il MessageReceiver sottostante.| 
@@ -330,7 +330,7 @@ Impostazioni di configurazione per il comportamento di blocco Singleton. Per ult
 }
 ```
 
-|Proprietà  |Default | DESCRIZIONE |
+|Proprietà  |Predefinito | Description |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|Il periodo per cui vengono eseguiti blocchi a livello di funzione. I blocchi si rinnovano automaticamente.| 
 |listenerLockPeriod|00:01:00|Il periodo per cui vengono acquisiti blocchi di listener.| 
@@ -353,7 +353,7 @@ Le impostazioni di configurazione per i log creati usando un oggetto `TraceWrite
 }
 ```
 
-|Proprietà  |Default | DESCRIZIONE |
+|Proprietà  |Predefinito | Description |
 |---------|---------|---------| 
 |consoleLevel|info|Il livello di traccia per la registrazione della console. Le opzioni sono: `off`, `error`, `warning`, `info` e `verbose`.|
 |fileLoggingMode|debugOnly|Il livello di traccia per la registrazione di file. Le opzioni sono `never`, `always`, `debugOnly`.| 

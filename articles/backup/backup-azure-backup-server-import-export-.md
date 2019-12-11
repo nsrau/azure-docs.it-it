@@ -4,12 +4,12 @@ description: Backup di Azure consente di inviare dati fuori rete usando il servi
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/08/2018
-ms.openlocfilehash: 4c62fed98a37a821907a889e45d582c452961203
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 259be99efdef29e3f7971632adf76c03175bba01
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173239"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996324"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Flusso di lavoro di backup offline per DPM e server di Backup di Azure
 
@@ -21,7 +21,7 @@ Il processo di seeding offline di Backup di Azure è strettamente integrato con 
 > Il processo di backup offline per l'agente di Servizi di ripristino di Microsoft Azure (MARS) è diverso da System Center DPM e dal server di Backup di Azure. Per informazioni sull'uso del backup offline con agente MARS, vedere [questo articolo](backup-azure-backup-import-export.md). Il backup offline non è supportato per i backup dello stato del sistema eseguiti tramite l'agente di Backup di Azure.
 >
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Con la funzionalità di seeding offline di Backup di Azure e Importazione/Esportazione di Azure, caricare i dati offline in Azure tramite dischi è molto semplice. Il processo di backup offline prevede i passaggi seguenti:
 
@@ -43,7 +43,7 @@ Il backup offline è supportato per tutti i modelli di distribuzione di Backup d
 > * Backup di tutti i carichi di lavoro e i file con System Center Data Protection Manager (SC DPM)
 > * Backup di tutti i carichi di lavoro e i file con il server di Backup di Microsoft Azure
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Verificare che i seguenti prerequisiti siano soddisfatti prima di avviare il flusso di lavoro di backup offline
 
@@ -121,7 +121,7 @@ L'utilità *AzureOfflineBackupDiskPrep* consente di preparare le unità SATA da 
 
     `*.\AzureOfflineBackupDiskPrep.exe*   s:<*Staging Location Path*>   [p:<*Path to AzurePublishSettingsFile*>]`
 
-    | . | DESCRIZIONE |
+    | Parametro | Description |
     | --- | --- |
     | s:&lt;*Percorso posizione staging*&gt; |Input obbligatorio usato per specificare il percorso di gestione temporanea immesso durante il flusso di lavoro di **avvio del backup offline** . |
     | p:&lt;*Percorso FileImpostazioniPubblicazione*&gt; |Input facoltativo usato per specificare il percorso del file delle **impostazioni di pubblicazione di Azure** immesso durante il flusso di lavoro di **avvio del backup offline**. |
@@ -162,7 +162,7 @@ L'utilità *AzureOfflineBackupDiskPrep* consente di preparare le unità SATA da 
 
    `*.\AzureOfflineBackupDiskPrep.exe*  u:  s:<*Staging Location Path*>   p:<*Path to AzurePublishSettingsFile*>`
 
-    | . | DESCRIZIONE |
+    | Parametro | Description |
     | --- | --- |
     | u: | Input obbligatorio usato per aggiornare i dettagli sulla spedizione per un processo di importazione di Azure |
     | s:&lt;*Percorso posizione staging*&gt; | Input obbligatorio quando il comando non viene eseguito nel computer di origine. Usato per specificare il percorso di gestione temporanea immesso durante il flusso di lavoro di **avvio del backup offline**. |
@@ -218,4 +218,4 @@ Al successivo backup pianificato, Backup di Azure eseguirà il backup incrementa
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per altre informazioni sul flusso di lavoro di Importazione/Esportazione di Azure, vedere [Usare il servizio Importazione/Esportazione di Microsoft Azure per trasferire i dati nell'archiviazione BLOB](../storage/common/storage-import-export-service.md).
-* Per domande sul flusso di lavoro, vedere la sezione relativa al backup offline delle [domande frequenti](backup-azure-backup-faq.md) di Backup di Azure.
+

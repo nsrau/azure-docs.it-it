@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 12/10/2019
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48ddb4c3baa40bf70fe12451f048b2228c8bd441
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 1ff874ee74864c84c976096ac5f7fa4b20cfab48
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74271508"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997004"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Autorizzazioni e consenso nell'endpoint di Microsoft Identity Platform
 
@@ -60,7 +60,7 @@ In OAuth 2.0 questi tipi di autorizzazioni vengono definiti *ambiti* o Sono anch
 * Scrittura del calendario dell'utente tramite `Calendars.ReadWrite`
 * Invio di messaggi di posta elettronica come utente tramite `Mail.Send`
 
-Un'app richiede in genere queste autorizzazioni specificando gli ambiti nelle richieste all'endpoint di autorizzazione della piattaforma di identità Microsoft. Tuttavia, alcune autorizzazioni con privilegi elevati possono essere concesse solo tramite il consenso dell'amministratore e richieste/concesse tramite l' [endpoint di consenso dell'amministratore](v2-permissions-and-consent.md#admin-restricted-permissions). Per altre informazioni, continuare la lettura.
+Un'app richiede in genere queste autorizzazioni specificando gli ambiti nelle richieste all'endpoint di autorizzazione della piattaforma di identità Microsoft. Tuttavia, alcune autorizzazioni con privilegi elevati possono essere concesse solo tramite il consenso dell'amministratore e richieste/concesse tramite l' [endpoint di consenso dell'amministratore](v2-permissions-and-consent.md#admin-restricted-permissions). Continua a leggere per scoprire di più.
 
 ## <a name="permission-types"></a>Tipi di autorizzazioni
 
@@ -98,7 +98,10 @@ L'ambito `profile` può essere usato con l'ambito `openid` e con tutti gli altri
 
 L'ambito [`offline_access`](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) consente all'app di accedere alle risorse per conto dell'utente per un periodo di tempo prolungato. Nella pagina di consenso l'ambito viene visualizzato come autorizzazione "Mantieni l'accesso ai dati per cui hai concesso l'accesso a". Quando un utente approva l'ambito di `offline_access`, l'app può ricevere i token di aggiornamento dall'endpoint del token della piattaforma Microsoft Identity. I token di aggiornamento sono di lunga durata. L'applicazione può ottenere nuovi token di accesso quando i vecchi scadono.
 
-Se l'app non richiede in modo esplicito l'ambito `offline_access`, non riceverà i token di aggiornamento. Pertanto, se si riscatta un codice di autorizzazione nel [flusso del codice di autorizzazione di OAuth 2.0](active-directory-v2-protocols.md), si riceve solo un token di accesso dall'endpoint `/token`. Il token di accesso è valido per un breve periodo. Il token di accesso ha in genere una durata di un'ora. A questo punto, l'app reindirizza l'utente all'endpoint `/authorize` per recuperare un nuovo codice di autorizzazione. Durante il reindirizzamento, a seconda del tipo di app, l'utente potrebbe dover immettere nuovamente le proprie credenziali o fornire il consenso per le autorizzazioni. Mentre l'ambito `offline_access` viene richiesto automaticamente dal server, il client deve comunque richiederlo per ricevere i token di aggiornamento.
+> [!NOTE]
+> Questa autorizzazione viene visualizzata oggi in tutte le schermate di consenso, anche per i flussi che non forniscono un token di aggiornamento ( [flusso implicito](v2-oauth2-implicit-grant-flow.md)).  Questo consente di comprendere gli scenari in cui un client può iniziare all'interno del flusso implicito e quindi passare al flusso di codice in cui è previsto un token di aggiornamento.
+
+Sulla piattaforma di identità Microsoft (richieste effettuate all'endpoint 2.0), l'app deve richiedere in modo esplicito l'ambito `offline_access` per ricevere i token di aggiornamento. Pertanto, se si riscatta un codice di autorizzazione nel [flusso del codice di autorizzazione di OAuth 2.0](active-directory-v2-protocols.md), si riceve solo un token di accesso dall'endpoint `/token`. Il token di accesso è valido per un breve periodo. Il token di accesso ha in genere una durata di un'ora. A questo punto, l'app reindirizza l'utente all'endpoint `/authorize` per recuperare un nuovo codice di autorizzazione. Durante il reindirizzamento, a seconda del tipo di app, l'utente potrebbe dover immettere nuovamente le proprie credenziali o fornire il consenso per le autorizzazioni. 
 
 Per ulteriori informazioni su come ottenere e usare i token di aggiornamento, vedere il [riferimento al protocollo Microsoft Identity Platform](active-directory-v2-protocols.md).
 
@@ -197,13 +200,13 @@ Quando si è pronti per richiedere le autorizzazioni all'amministratore dell'org
 ```
 
 
-| .     | Condizione     | DESCRIZIONE                                                                               |
+| Parametro     | Condizione     | Description                                                                               |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
-| `tenant` | obbligatori | Il tenant della directory da cui si desidera richiedere autorizzazioni. Può essere specificato in formato di GUID o nome descrittivo OPPURE con il riferimento generico `common` come illustrato nell'esempio. |
-| `client_id` | obbligatori | **ID dell'applicazione (client)** che la [portale di Azure registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) l'esperienza assegnata all'app. |
-| `redirect_uri` | obbligatori |URI di reindirizzamento in cui si desidera che venga inviata la risposta per la gestione da parte dell'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale di registrazione delle applicazioni. |
+| `tenant` | Obbligatoria | Il tenant della directory da cui si desidera richiedere autorizzazioni. Può essere specificato in formato di GUID o nome descrittivo OPPURE con il riferimento generico `common` come illustrato nell'esempio. |
+| `client_id` | Obbligatoria | **ID dell'applicazione (client)** che la [portale di Azure registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) l'esperienza assegnata all'app. |
+| `redirect_uri` | Obbligatoria |URI di reindirizzamento in cui si desidera che venga inviata la risposta per la gestione da parte dell'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale di registrazione delle applicazioni. |
 | `state` | Consigliato | Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Usare questo stato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
-|`scope`        | obbligatori      | Definisce il set di autorizzazioni richieste dall'applicazione. Può trattarsi di un ambito statico (con/.default) o di ambiti dinamici.  Possono essere inclusi gli ambiti OIDC (`openid`, `profile``email`). | 
+|`scope`        | Obbligatoria      | Definisce il set di autorizzazioni richieste dall'applicazione. Può trattarsi di un ambito statico (con/.default) o di ambiti dinamici.  Possono essere inclusi gli ambiti OIDC (`openid`, `profile``email`). | 
 
 
 A questo punto, Azure AD richiede che solo un amministratore tenant possa accedere per completare la richiesta. All'amministratore viene chiesto di approvare tutte le autorizzazioni richieste nel parametro `scope`.  Se è stato usato un valore statico (`/.default`), funzionerà come l'endpoint di consenso dell'amministratore della versione 1.0 e richiederà il consenso per tutti gli ambiti presenti nelle autorizzazioni necessarie per l'app.
@@ -216,7 +219,7 @@ Se l'amministratore approva le autorizzazioni per l'app, la risposta con esito p
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
-| . | DESCRIZIONE |
+| Parametro | Description |
 | --- | --- |
 | `tenant` | Tenant della directory che ha concesso all'applicazione le autorizzazioni richieste, in formato GUID. |
 | `state` | Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Lo stato viene usato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
@@ -230,7 +233,7 @@ Se l'amministratore non approva le autorizzazioni per l'app, la risposta di erro
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
 ```
 
-| . | DESCRIZIONE |
+| Parametro | Description |
 | --- | --- |
 | `error` | Stringa di codice di errore che può essere usata per classificare i tipi di errori che si verificano e correggerli. |
 | `error_description` | Messaggio di errore specifico che consente a uno sviluppatore di identificare la causa principale di un errore. |

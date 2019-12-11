@@ -38,6 +38,8 @@
       href: avere-vfxt-demo-links.md
     - name: Domande frequenti su Avere vFXT per Azure
       href: avere-vfxt-faq.md
+    - name: Indicazioni sul ripristino di emergenza
+      href: disaster-recovery.md
     - name: Documentazione aggiuntiva
       items:
         - name: Documentazione supplementare

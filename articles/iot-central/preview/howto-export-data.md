@@ -4,16 +4,16 @@ description: Come esportare i dati dall'applicazione IoT Central di Azure in hub
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 10/15/2019
+ms.date: 12/06/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: 35415fd1a552328faa8d1ad5812f44d8f4b6d5e4
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 1aac5af916e414178676a1caf42fead41109de68
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73894864"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974462"
 ---
 # <a name="export-your-azure-iot-central-data-preview-features"></a>Esportare i dati di Azure IoT Central (funzionalità di anteprima)
 

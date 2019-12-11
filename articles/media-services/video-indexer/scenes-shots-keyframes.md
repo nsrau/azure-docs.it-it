@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
-ms.openlocfilehash: 3740c42c6b6721af4d885f7b63ee4ca4e58f6fa6
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: a833fd808049cfce95b182910e50e38d3c39f4e5
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806711"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976605"
 ---
 # <a name="scenes-shots-and-keyframes"></a>Scene, scatti e fotogrammi chiave
 
@@ -36,7 +36,7 @@ Video Indexer determina quando un video viene modificato in base ai segnali visi
 
 ## <a name="keyframe-detection"></a>Rilevamento di fotogrammi chiave
 
-Seleziona i frame che meglio rappresentano il tentativo. I fotogrammi chiave sono i fotogrammi rappresentativi selezionati dall'intero video in base alle proprietà estetiche, ad esempio contrasto e stabilità. Video Indexer recupera un elenco di ID di fotogrammi chiave come parte dei metadati dell'immagine, in base ai clienti che possono estrarre l'anteprima del fotogramma chiave. 
+Video Indexer seleziona i frame che meglio rappresentano ogni scatto. I fotogrammi chiave sono i fotogrammi rappresentativi selezionati dall'intero video in base alle proprietà estetiche, ad esempio contrasto e stabilità. Video Indexer recupera un elenco di ID di fotogrammi chiave come parte dei metadati dell'immagine, in base ai clienti che possono estrarre il fotogramma chiave come immagine ad alta risoluzione.  
 
 ### <a name="extracting-keyframes"></a>Estrazione di fotogrammi chiave
 

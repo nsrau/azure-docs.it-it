@@ -1,18 +1,18 @@
 ---
 title: Gestire il servizio Device provisioning in hub Internet usando l'interfaccia della riga di comando di Azure & estensione Internet
-description: Di seguito viene descritto come usare l'interfaccia della riga di comando di Azure e l'estensione IoT per gestire i servizi Device Provisioning in hub IoT
+description: Informazioni su come usare l'interfaccia della riga di comando di Azure e l'estensione Internet per gestire il servizio Device provisioning in hub Internet (DPS)
 author: chrissie926
 ms.author: menchi
 ms.date: 01/17/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 0e276ca32d7cd02f9668b33b3729757404b13b00
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0ba92279632a7283ea6ede423e808e3c7be82cff
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229733"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975160"
 ---
 # <a name="how-to-use-azure-cli-and-the-iot-extension-to-manage-the-iot-hub-device-provisioning-service"></a>Come usare l'interfaccia della riga di comando di Azure e l'estensione IoT per gestire i servizi Device Provisioning in hub IoT
 
@@ -22,7 +22,7 @@ L'estensione IoT arricchisce l'interfaccia della riga di comando di Azure con fu
 
 In questa esercitazione viene completata prima di tutto la procedura per la configurazione dell'interfaccia della riga di comando di Azure e dell'estensione IoT. Viene quindi illustrato come eseguire i comandi dell'interfaccia della riga di comando per eseguire operazioni di base del servizio Device Provisioning. 
 
-## <a name="installation"></a>Installare 
+## <a name="installation"></a>Installazione 
 
 ### <a name="step-1---install-python"></a>Passaggio 1 - Installare Python
 
@@ -30,11 +30,11 @@ In questa esercitazione viene completata prima di tutto la procedura per la conf
 
 ### <a name="step-2---install-the-azure-cli"></a>Passaggio 2 - Installare l'interfaccia della riga di comando di Azure
 
-Seguire le [istruzioni di installazione](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) per configurare l'interfaccia della riga di comando di Azure nell'ambiente. La versione dell'interfaccia della riga di comando di Azure deve essere 2.0.24 o successiva. Usare il comando `az –version` per verificare. Questa versione supporta i comandi dell'estensione az e introduce il framework dei comandi Knack. Un modo semplice per eseguire l'installazione in Windows è quello di scaricare e installare il file [MSI](https://aka.ms/InstallAzureCliWindows).
+Seguire le [istruzioni di installazione](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) per configurare l'interfaccia della riga di comando di Azure nell'ambiente. La versione dell'interfaccia della riga di comando di Azure deve essere 2.0.24 o successiva. Usare `az –version` per la convalida. Questa versione supporta i comandi dell'estensione az e introduce il framework dei comandi Knack. Un approccio semplice per l'installazione su Windows consiste nel scaricare e installare [MSI](https://aka.ms/InstallAzureCliWindows).
 
 ### <a name="step-3---install-iot-extension"></a>Passaggio 3 - Installare l'estensione IoT
 
-Il [file Leggimi dell'estensione IoT](https://github.com/Azure/azure-iot-cli-extension) illustra diverse modalità per installare l'estensione. Il modo più semplice è quello di eseguire `az extension add --name azure-cli-iot-ext`. Dopo l'installazione, è possibile usare `az extension list` per convalidare le estensioni attualmente installate o `az extension show --name azure-cli-iot-ext` per visualizzare informazioni dettagliate sull'estensione IoT. Per rimuovere l'estensione, è possibile usare `az extension remove --name azure-cli-iot-ext`.
+Il [file Leggimi dell'estensione IoT](https://github.com/Azure/azure-iot-cli-extension) illustra molti modi per installare l'estensione. L'approccio più semplice consiste nell'eseguire `az extension add --name azure-cli-iot-ext`. Dopo l'installazione, è possibile usare `az extension list` per convalidare le estensioni attualmente installate o `az extension show --name azure-cli-iot-ext` per visualizzare informazioni dettagliate sull'estensione IoT. Per rimuovere l'estensione, è possibile usare `az extension remove --name azure-cli-iot-ext`.
 
 
 ## <a name="basic-device-provisioning-service-operations"></a>Operazioni di base del servizio Device Provisioning
@@ -93,7 +93,7 @@ Prima di iniziare, completare la procedura di installazione illustrata in preced
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Questa esercitazione illustra come:
+Questa esercitazione ha illustrato come:
 
 > [!div class="checklist"]
 > * Registrare il dispositivo

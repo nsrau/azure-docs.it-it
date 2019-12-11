@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: juliako
-ms.openlocfilehash: 7e3d0f4ba178ef2cf44b9c5c3dd5b8c212f1c133
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 93005b181075ac671af6c8d73a3f2a06ed9eb0d8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186155"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977744"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming live con Servizi multimediali di Azure v3
 
@@ -42,6 +42,9 @@ Con servizi multimediali è possibile sfruttare i vantaggi della creazione [dina
 ## <a name="dynamic-encryption"></a>Crittografia dinamica
 
 La crittografia dinamica consente di crittografare dinamicamente i contenuti live o su richiesta con AES-128 o uno dei tre sistemi principali Digital Rights Management (DRM): Microsoft PlayReady, Google Widevine e Apple FairPlay. Servizi multimediali offre anche un servizio per la distribuzione di chiavi AES e licenze DRM (PlayReady, Widevine e FairPlay) ai client autorizzati. Per altre informazioni, vedere [crittografia dinamica](content-protection-overview.md).
+
+> [!NOTE]
+> Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google, Inc.
 
 ## <a name="dynamic-manifest"></a>Manifesto dinamico
 
@@ -81,7 +84,7 @@ Per comprendere il flusso di lavoro di streaming live in servizi multimediali V3
 ### <a name="general-steps"></a>Passaggi generali
 
 1. Nell'account di servizi multimediali verificare che l' **endpoint di streaming** (Origin) sia in esecuzione. 
-2. Creare un [Evento live](live-events-outputs-concept.md). <br/>Quando si crea l'evento, è possibile impostarne l'avvio automatico. In alternativa, è possibile avviare l'evento quando si è pronti ad avviare lo streaming.<br/> Quando l'avvio automatico è impostato su true, l'evento live verrà avviato subito dopo la creazione. La fatturazione inizia non appena viene avviata l'esecuzione dell'evento live. È necessario chiamare esplicitamente Stop sulla risorsa evento live per interrompere la fatturazione. Per altre informazioni, vedere [Stati e fatturazione dell'evento live](live-event-states-billing.md).
+2. Creare un [Evento live](live-events-outputs-concept.md). <br/>Quando si crea l'evento, è possibile impostarne l'avvio automatico. In alternativa, è possibile avviare l'evento quando si è pronti ad avviare lo streaming.<br/> Quando l'avvio automatico è impostato su true, l'evento live verrà avviato subito dopo la creazione. La fatturazione inizia non appena viene avviata l'esecuzione dell'evento live. È necessario chiamare esplicitamente Stop sulla risorsa evento live per interrompere la fatturazione. Per altre informazioni, vedere la sezione [Stati e fatturazione dell'evento live](live-event-states-billing.md).
 3. Ottenere gli URL di inserimento e configurare il codificatore locale in modo da usare l'URL per inviare il feed di contributo.<br/>Vedere i [codificatori live consigliati](recommended-on-premises-live-encoders.md).
 4. Ottenere l'URL di anteprima e usarlo per verificare che l'input dal codificatore venga effettivamente ricevuto.
 5. Creare un nuovo oggetto **Asset**. 
@@ -116,7 +119,7 @@ L'asset a cui viene archiviata l'output Live, diventa automaticamente un asset s
 - [Stati e fatturazione](live-event-states-billing.md)
 - [Latency](live-event-latency.md)
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
+## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback e ottenere aggiornamenti
 
 Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
 

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 12/05/2019
-ms.openlocfilehash: 3572d2dffc38f18cbf02aa2e9de98b74ee8ff939
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 81f17de7627658b756edd19438a80fb32add859d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930951"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974088"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Informazioni sui risultati automatici di Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -266,4 +266,4 @@ Per altre informazioni sull'abilitazione delle funzionalità di interpretazione,
 ## <a name="next-steps"></a>Passaggi successivi
 
 + Scopri [di più su Machine](concept-automated-ml.md) learning in Azure Machine Learning.
-+ Provare il notebook di esempio per la [spiegazione del modello di Machine Learning automatizzato](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/model-explanation) .
++ Provare la [spiegazione automatica del modello di Machine Learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) dei notebook di esempio.

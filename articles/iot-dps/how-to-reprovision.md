@@ -1,22 +1,22 @@
 ---
 title: Eseguire nuovamente il provisioning dei dispositivi nel servizio Device provisioning in hub Azure
-description: Informazioni su come eseguire il provisioning dei dispositivi con l'istanza del servizio Device provisioning e i motivi per cui potrebbe essere necessario eseguire questa operazione.
+description: Informazioni su come eseguire il provisioning dei dispositivi con l'istanza del servizio Device provisioning (DPS) e i motivi per cui potrebbe essere necessario eseguire questa operazione.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: f28dc20a107e9dfdbf252ea614ed4007eafddcd4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0ded494debab19daa15a953715b1ab7b0b10ad18
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229699"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974905"
 ---
 # <a name="how-to-reprovision-devices"></a>Come rieffettuare il provisioning dei dispositivi
 
-Durante il ciclo di vita di una soluzione IoT, è comune spostare i dispositivi tra hub IoT. I motivi per eseguire lo spostamento possono includere i seguenti scenari:
+Durante il ciclo di vita di una soluzione IoT, è comune spostare i dispositivi tra hub IoT. Le ragioni di questo spostamento possono includere gli scenari seguenti:
 
 * **Georilevazione**: quando un dispositivo viene spostato tra le posizioni, la latenza della rete viene migliorata migrando il dispositivo su un hub IoT più vicino a ciascuna posizione.
 
@@ -69,9 +69,9 @@ I passaggi seguenti consentono di configurare i criteri di allocazione per la re
 
 3. Alla voce **Seleziona come gestire i dati del dispositivo durante il provisioning a un hub diverso**, scegliere uno dei seguenti criteri per rieffettuare il provisioning:
 
-    * **Rieffettuare il provisioning e migrare i dati**: questi criteri intervengono quando i dispositivi associati alla voce di registrazione presentano una nuova richiesta di provisioning. A seconda della configurazione della voce di registrazione, il dispositivo può essere riassegnato a un altro hub IoT. Se il dispositivo sta cambiando l'hub IoT, la registrazione del dispositivo con l'hub IoT iniziale verrà rimossa. Tutte le informazioni sullo stato del dispositivo da tale hub IoT iniziale verranno migrate sul nuovo hub IoT. Durante la migrazione, lo stato del dispositivo risulterà come **In fase di assegnazione**
+    * **Rieffettuare il provisioning e migrare i dati**: questi criteri intervengono quando i dispositivi associati alla voce di registrazione presentano una nuova richiesta di provisioning. A seconda della configurazione della voce di registrazione, il dispositivo può essere riassegnato a un altro hub IoT. Se il dispositivo sta cambiando hub IoT, la registrazione del dispositivo con l'hub IoT iniziale verrà rimossa. Tutte le informazioni sullo stato del dispositivo da tale hub IoT iniziale verranno migrate sul nuovo hub IoT. Durante la migrazione, lo stato del dispositivo risulterà come **In fase di assegnazione**
 
-    * **Rieffettuare il provisioning e ripristinare la configurazione iniziale**: questo criterio interviene quando i dispositivi associati alla voce di registrazione presentano una nuova richiesta di provisioning. A seconda della configurazione della voce di registrazione, il dispositivo può essere riassegnato a un altro hub IoT. Se il dispositivo sta cambiando l'hub IoT, la registrazione del dispositivo con l'hub IoT iniziale verrà rimossa. I dati di configurazione iniziali che l'istanza del servizio di provisioning ha ricevuto durante il provisioning del dispositivo vengono forniti al nuovo hub IoT. Durante la migrazione, lo stato del dispositivo risulterà come **In fase di assegnazione**.
+    * **Rieffettuare il provisioning e ripristinare la configurazione iniziale**: questo criterio interviene quando i dispositivi associati alla voce di registrazione presentano una nuova richiesta di provisioning. A seconda della configurazione della voce di registrazione, il dispositivo può essere riassegnato a un altro hub IoT. Se il dispositivo sta cambiando hub IoT, la registrazione del dispositivo con l'hub IoT iniziale verrà rimossa. I dati di configurazione iniziali che l'istanza del servizio di provisioning ha ricevuto durante il provisioning del dispositivo vengono forniti al nuovo hub IoT. Durante la migrazione, lo stato del dispositivo risulterà come **In fase di assegnazione**.
 
 4. Fare clic su **Salva** per rieffettuare il provisioning del dispositivo in base alle modifiche apportate.
 
@@ -85,7 +85,7 @@ Affinché si possa rieffettuare il provisioning dei dispositivi in base alle mod
 
 La frequenza con cui un dispositivo invia una richiesta di provisioning dipende dallo scenario. Tuttavia, si consiglia di programmare i dispositivi in modo che inviino una richiesta di provisioning a un'istanza di servizio di provisioning al riavvio del sistema e affinché supportino un [metodo](../iot-hub/iot-hub-devguide-direct-methods.md) per attivare manualmente il provisioning su richiesta. Il provisioning può essere attivato anche impostando una [proprietà desiderata](../iot-hub/iot-hub-devguide-device-twins.md#desired-property-example). 
 
-Il criterio di reprovisioning su una voce di registrazione determina in che modo l'istanza del servizio di provisioning del dispositivo gestisce queste richieste di provisioning e se i dati dello stato del dispositivo devono essere migrati durante il reprovisioning. Gli stessi criteri sono disponibili per le registrazioni individuali e di gruppi:
+Il criterio per rieffettuare il provisioning su una voce di registrazione determina in che modo l'istanza del servizio di provisioning del dispositivo gestisce queste richieste di provisioning e se i dati sullo stato del dispositivo devono essere migrati durante il nuovo provisioning. Gli stessi criteri sono disponibili per le registrazioni individuali e di gruppi:
 
 Per un esempio di codice di invio per le richieste di provisioning da un dispositivo durante una sequenza di avvio, vedere [Provisioning automatico di un dispositivo simulato](quick-create-simulated-device.md).
 

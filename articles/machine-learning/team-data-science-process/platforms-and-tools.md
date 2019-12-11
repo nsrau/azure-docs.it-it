@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8ad5c4cb4d17443144febd716391803064ccdad1
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: 97dafe292ff3ed0ef5fa46eb895136e3b32e62c5
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626368"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978510"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Piattaforme e strumenti per progetti di data science
 
-Microsoft offre una gamma completa di servizi e risorse dati e di analisi per piattaforme cloud o locali che possono essere distribuiti per rendere efficiente e scalabile l'esecuzione dei progetti di data science. Le linee guida destinate ai team per l'implementazione dei progetti di data science in modo tracciabile, con controllo della versione e collaborativo sono indicate nel [processo di data science per i team](overview.md) (TDSP, Team data Science Process).  Per una descrizione dei ruoli del personale e delle rispettive attività associate che un team di data science gestisce allo scopo di normalizzare il processo, vedere [Team Data Science Process roles and tasks](roles-tasks.md) (Ruoli e attività del processo di data science per i team).
+Microsoft offre una gamma completa di servizi e risorse dati e di analisi per piattaforme cloud o locali che possono essere distribuiti per rendere efficiente e scalabile l'esecuzione dei progetti di data science. Le linee guida destinate ai team per l'implementazione dei progetti di data science in modo tracciabile, con controllo della versione e collaborativo sono indicate nel [processo di data science per i team](overview.md) (TDSP, Team data Science Process).  Per una descrizione dei ruoli del personale e delle relative attività associate gestiti da un team di analisi scientifica dei dati, che vengono standardizzati con il processo, vedere [Team Data Science Process roles and tasks](roles-tasks.md) (Ruoli e attività del processo di analisi scientifica dei dati per i team).
 
 I servizi dati e di analisi disponibili per i team di data science che usano il processo TDSP includono:
 
@@ -44,7 +44,7 @@ La macchina virtuale data science, offerta da Microsoft sia in ambiente Windows 
 - Power BI Desktop per Windows
 - SQL Server 2016 Developer Edition in Windows e Postgres in Linux
 
-Include inoltre **strumenti di Machine Learning e intelligenza artificiale** come xgboost, mxnet e Vowpal Wabbit.
+Include anche **strumenti per ml e intelligenza artificiale** , ad esempio xgboost, MxNet e Vowpal Wabbit.
 
 La macchina virtuale data science è attualmente disponibile nei sistemi operativi **Windows** e **Linux CentOS**. Scegliere le dimensioni della macchina virtuale data science da usare (numero di core CPU e quantità di memoria) in base alle esigenze dei progetti di data science che si prevede di eseguirvi. 
 
@@ -59,10 +59,10 @@ Apache Spark è un framework open source di elaborazione parallela che supporta 
 
 Quando si crea un cluster di Spark in HDInsight, si creano risorse di calcolo di Azure con Spark installato e configurato. Per creare un cluster Spark in HDInsight, sono sufficienti circa 10 minuti. Archiviare i dati da elaborare in Archiviazione Blob di Azure. Per informazioni sull'uso di Archiviazione Blob di Azure con un cluster, vedere [Usare una risorsa di archiviazione di Azure con cluster Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-blob-storage.md).
 
-Il team TDSP di Microsoft ha pubblicato due procedure dettagliate end-to-end su come usare cluster di Azure HDInsight Spark per compilare soluzioni di data science, una tramite Python e l'altra tramite Scala. Per altre informazioni sui cluster di **Azure HDInsight Spark**, vedere [Panoramica: Apache Spark in HDInsight Linux](../../hdinsight/spark/apache-spark-overview.md). Per informazioni su come compilare una soluzione di data science tramite **Python** in un cluster di Azure HDInsight Spark, vedere [Panoramica dell'analisi scientifica dei dati con Spark in Azure HDInsight](spark-overview.md). Per informazioni su come compilare una soluzione di data science tramite **Scala** in un cluster di Azure HDInsight Spark, vedere [Analisi scientifica dei dati tramite Scala e Spark in Azure](scala-walkthrough.md). 
+Il team TDSP di Microsoft ha pubblicato due procedure dettagliate end-to-end su come usare cluster di Azure HDInsight Spark per compilare soluzioni di data science, una tramite Python e l'altra tramite Scala. Per altre informazioni sui cluster di **Azure HDInsight Spark**, vedere [Introduzione a Spark in HDInsight](../../hdinsight/spark/apache-spark-overview.md). Per informazioni su come compilare una soluzione di data science tramite **Python** in un cluster di Azure HDInsight Spark, vedere [Panoramica dell'analisi scientifica dei dati con Spark in Azure HDInsight](spark-overview.md). Per informazioni su come compilare una soluzione di data science tramite **Scala** in un cluster di Azure HDInsight Spark, vedere [Analisi scientifica dei dati tramite Scala e Spark in Azure](scala-walkthrough.md). 
 
 
-##  <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
+##  <a name="azure-sql-data-warehouse"></a>SQL Data Warehouse di Azure
 
 Azure SQL Data Warehouse consente di ridimensionare le risorse di calcolo in modo semplice e rapido, senza eseguire un provisioning o un pagamento in eccesso. Tale servizio offre anche la possibilità esclusiva di sospendere l'uso delle risorse di calcolo, consentendo pertanto di gestire in modo più efficiente i costi correlati al cloud. La possibilità di distribuire risorse di calcolo scalabili consente di trasferire tutti i dati in Azure SQL Data Warehouse. I costi di archiviazione sono minimi ed è possibile eseguire calcoli solo sulle parti dei set di dati da analizzare. 
 
@@ -103,7 +103,7 @@ R Services (In-Database) supporta il linguaggio R open source grazie a un set co
 Il team TDSP di Microsoft ha pubblicato due procedure dettagliate end-to-end che illustrano come compilare soluzioni di data science in SQL Server 2016 R Services, una per i programmatori R e una per gli sviluppatori SQL. Per i **programmatori R**, vedere [Procedura dettagliata di analisi scientifica dei dati end-to-end per R e SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). Per gli **sviluppatori SQL**, vedere [In-Database Advanced Analytics for SQL Developers (Tutorial)](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers) (Esercitazione sull'analisi avanzata In-Database per sviluppatori SQL).
 
 
-## <a name="appendix"></a>Appendice: strumenti per configurare progetti di data science
+## <a name="appendix"></a>Appendice - Strumenti per configurare progetti di data science
 
 ### <a name="install-git-credential-manager-on-windows"></a>Installare Git Credential Manager in Windows
 
@@ -124,28 +124,30 @@ Per installare Git in computer Linux (CentOS), eseguire questo comando bash:
 
 Se si usano computer Linux (CentOS) per eseguire i comandi Git, è necessario aggiungere la chiave SSH pubblica del computer per Azure DevOps Services, in modo che il computer venga riconosciuto da Azure DevOps Services. In primo luogo, è necessario generare una chiave SSH pubblica e aggiungere la chiave alle chiavi pubbliche SSH nella pagina delle impostazioni di sicurezza di Azure DevOps Services. 
 
-- Per generare la chiave SSH, eseguire questi due comandi: 
+1. Per generare la chiave SSH, eseguire questi due comandi: 
 
-        ssh-keygen
-        cat .ssh/id_rsa.pub
+   ```
+   ssh-keygen
+   cat .ssh/id_rsa.pub
+   ```
+   
+   ![Comandi per generare la chiave SSH](./media/platforms-and-tools/resources-1-generate_ssh.png)
 
-![Comandi per generare la chiave SSH](./media/platforms-and-tools/resources-1-generate_ssh.png)
-
-- Copiare l'intera chiave SSH, incluso *ssh-rsa*. 
-- Accedere a Azure DevOps Services. 
-- Fare clic su **<Your Name\>** (Nome) nell'angolo superiore destro della pagina e quindi fare clic su **Sicurezza**. 
+1. Copiare l'intera chiave SSH, incluso *ssh-rsa*. 
+1. Accedere a Azure DevOps Services. 
+1. Fare clic su **<Your Name\>** (Nome) nell'angolo superiore destro della pagina e quindi fare clic su **Sicurezza**. 
     
-    ![Fare clic sul nome utente e quindi su Sicurezza](./media/platforms-and-tools/resources-2-user-setting.png)
+   ![Fare clic sul nome utente e quindi su Sicurezza](./media/platforms-and-tools/resources-2-user-setting.png)
 
-- Fare clic su **Chiavi pubbliche SSH** e quindi fare clic su **+Aggiungi**. 
+1. Fare clic su **Chiavi pubbliche SSH** e quindi fare clic su **+Aggiungi**. 
 
-    ![Fare clic su Chiavi pubbliche SSH e quindi fare clic su +Aggiungi](./media/platforms-and-tools/resources-3-add-ssh.png)
+   ![Fare clic su Chiavi pubbliche SSH e quindi fare clic su +Aggiungi](./media/platforms-and-tools/resources-3-add-ssh.png)
 
-- Incollare la chiave SSH copiata nella casella di testo e salvare.
+1. Incollare la chiave SSH copiata nella casella di testo e salvare.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Sono anche disponibili esercitazioni dettagliate complete che illustrano tutti i passaggi del processo per **scenari specifici** . Le esercitazioni sono elencate, con collegamenti e brevi descrizioni, nell'argomento [Example walkthroughs](walkthroughs.md) (Procedure dettagliate di esempio). Le esercitazioni spiegano come combinare strumenti cloud e locali e servizi in un flusso di lavoro o in una pipeline per creare un'applicazione intelligente. 
 
-Per esempi di esecuzione dei passaggi nel processo di data science per i team, che usano Azure Machine Learning Studio, vedere il percorso di apprendimento [Con Azure ML](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Per esempi che illustrano come eseguire i passaggi nel processo di analisi scientifica dei dati per i team usando Azure Machine Learning Studio (versione classica), vedere il percorso [di apprendimento con Azure ml](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) .

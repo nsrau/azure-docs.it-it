@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: 862643cb4eb26d7d88aa81d05433066a927a69aa
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 068b8b0a6e248caa70a8f88ea55d07c30a9437f0
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74424034"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997167"
 ---
 # <a name="migrate-from-windows-azure-media-encoder-to-media-encoder-standard"></a>Eseguire la migrazione da Azure Media Encoder Windows a Media Encoder Standard
 
-Questo articolo illustra i passaggi per eseguire la migrazione dal processore di contenuti multimediali Windows Azure Media Encoder (BIAIGI) legacy, che verrà ritirato il 1 ° marzo 2020 al processore di contenuti multimediali Media Encoder Standard.
+Questo articolo illustra i passaggi per eseguire la migrazione dal processore di contenuti multimediali Windows Azure Media Encoder (BIAIGI) legacy, che verrà ritirato il 31 marzo 2020 al processore di contenuti multimediali Media Encoder Standard.
 
 Quando si codificano i file con BIAIGI, i clienti utilizzano in genere una stringa del set di impostazioni denominata, ad esempio `H264 Adaptive Bitrate MP4 Set 1080p`. Per eseguire la migrazione, è necessario aggiornare il codice in modo da usare il processore di contenuti multimediali **Media Encoder standard** invece di biaigi e uno dei [set di impostazioni di sistema](media-services-mes-presets-overview.md) equivalenti, ad esempio `H264 Multiple Bitrate 1080p`. 
 
@@ -74,7 +74,7 @@ Media Encoder Standard è più affidabile, affidabile, offre prestazioni miglior
 * Media Encoder Standard produce elementi quali file contenenti i metadati del [file di input](media-services-input-metadata-schema.md) e i [metadati dei file di output](media-services-output-metadata-schema.md).
 * Come descritto nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/#encoding) (soprattutto nella sezione delle domande frequenti), quando si codificano i video con Media Encoder standard, viene addebitato in base alla durata dei file prodotti come output. Con BIAIGI, la fatturazione viene effettuata in base alle dimensioni dei file video di input e dei file video di output.
 
-## <a name="need-help"></a>Richiesta di assistenza
+## <a name="need-help"></a>Opzioni per
 
 È possibile aprire un ticket di supporto passando a [Nuova richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 

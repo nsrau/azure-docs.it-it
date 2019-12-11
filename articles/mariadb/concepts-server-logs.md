@@ -1,17 +1,17 @@
 ---
 title: Log di query lente-database di Azure per MariaDB
 description: Descrive i log disponibili nel Database di Azure per MariaDB e i parametri disponibili per l'abilitazione di diversi livelli di registrazione.
-author: rachel-msft
-ms.author: raagyema
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 8a451b06c8166b48fd892050e53204e2b65856c3
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/09/2019
+ms.openlocfilehash: 9b9babc9db9dd7fa225b9649d4ac96b15debec2b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772105"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976316"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Log di query lente nel database di Azure per MariaDB
 Nel Database di Azure per MariaDB, il log delle query lente è disponibile per gli utenti. L'accesso al log delle transazioni non è supportato. Il log delle query lente può essere usato per identificare eventuali colli di bottiglia delle prestazioni e procedere alla risoluzione dei problemi.
@@ -24,6 +24,8 @@ Per altre informazioni sul log delle query lente, vedere la documentazione Maria
 Nel portale di Azure, selezionare il server Database di Azure per MariaDB. Nell'intestazione **Monitoraggio** selezionare la pagina **Log del server**.
 
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere [Configurare e accedere ai log del server usando l'interfaccia della riga di comando di Azure](howto-configure-server-logs-cli.md).
+
+Analogamente, è possibile inviare tramite pipe i log a monitoraggio di Azure usando i log di diagnostica. Per ulteriori informazioni, vedere di [seguito](concepts-server-logs.md#diagnostic-logs) .
 
 ## <a name="log-retention"></a>Conservazione dei log
 I log sono disponibili per un massimo di sette giorni dalla data di creazione. Se le dimensioni totali dei log disponibili superano 7 GB, i file meno recenti vengono eliminati fino a quando non è disponibile dello spazio.
@@ -39,6 +41,7 @@ Altri parametri che è possibile modificare includono:
 - **log_slow_admin_statements**: se è ON include le istruzioni a livello amministrativo come ALTER_TABLE e ANALYZE_TABLE nelle istruzioni scritte in slow_query_log.
 - **log_queries_not_using_indexes**: determina se le query che non usano gli indici vengono registrate in slow_query_log
 - **log_throttle_queries_not_using_indexes**: questo parametro limita il numero di query non di indice che possono essere scritte nel log di query lente. Questo parametro ha effetto quando log_queries_not_using_indexes è impostato su ON.
+- **log_output**: se "file", consente la scrittura del log di query lente sia nella risorsa di archiviazione del server locale che nei log di diagnostica di monitoraggio di Azure. Se "None", il log di query lente verrà scritto solo nell'archivio locale del server. 
 
 Vedere [documentazione riguardante il log delle query lente](https://mariadb.com/kb/en/library/slow-query-log-overview/) di MariaDB per una descrizione completa dei parametri del log delle query lente.
 
@@ -74,8 +77,8 @@ La tabella seguente descrive il contenuto di ogni log. A seconda del metodo di o
 | `last_insert_id_s` | [last_insert_id](https://mariadb.com/kb/en/library/last_insert_id/) |
 | `insert_id_s` | Inserisci ID |
 | `sql_text_s` | Query completa |
-| `server_id_s` | ID server |
-| `thread_id_s` | ID thread |
+| `server_id_s` | ID del server |
+| `thread_id_s` | ID del thread |
 | `\_ResourceId` | URI della risorsa |
 
 ## <a name="next-steps"></a>Passaggi successivi

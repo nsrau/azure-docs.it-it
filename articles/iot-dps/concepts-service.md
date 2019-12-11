@@ -1,6 +1,6 @@
 ---
 title: Concetti relativi al servizio Azure Device Provisioning in hub IoT | Microsoft Docs
-description: Descrive i concetti relativi al provisioning del servizio specifici dei dispositivi con il servizio Device Provisioning e l'hub IoT
+description: Descrive i concetti relativi al provisioning del servizio specifici dei dispositivi con il servizio Device provisioning (DPS) e l'hub Internet
 author: nberdy
 ms.author: nberdy
 ms.date: 09/18/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 51486da6b34c0ff1e9b6d05558c2132a416913e9
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: f42502ac4db12a060af5906243d3f8e7584c5df3
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104369"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975602"
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>Concetti relativi al servizio Device Provisioning in hub IoT
 
@@ -39,7 +39,7 @@ Il servizio Device Provisioning può effettuare il provisioning dei dispositivi 
 
 Impostazione a livello di servizio che determina in che modo il servizio Device Provisioning assegna i dispositivi a un hub IoT. Ci sono tre criteri di allocazione supportati:
 
-* **Distribuzione ponderata uniforme**: gli hub IoT collegati hanno le stesse probabilità di essere scelti per il provisioning dei dispositivi. Si tratta dell'impostazione predefinita. Se si effettua il provisioning dei dispositivi in un solo hub IoT, è possibile mantenere questa impostazione.
+* **Distribuzione ponderata uniforme**: gli hub IoT collegati hanno le stesse probabilità di essere scelti per il provisioning dei dispositivi. Si tratta dell'impostazione predefinita. Se si esegue il provisioning dei dispositivi in un solo hub IoT, è possibile mantenere questa impostazione.
 
 * **Latenza minima**: il provisioning dei dispositivi viene effettuato in un hub IoT con latenza minima per il dispositivo. Se più hub IoT collegati forniscono la stessa latenza minima, il servizio di provisioning suddivide i dispositivi tra gli hub
 
@@ -75,4 +75,4 @@ Una registrazione è il record di un dispositivo che esegue correttamente la reg
 
 ## <a name="operations"></a>Operazioni
 
-Le operazioni rappresentano l'unità di fatturazione del servizio Device Provisioning. Un'operazione si riferisce al corretto completamento di un'istruzione nel servizio. Le operazioni includono le registrazioni e le ripetizioni delle registrazioni dei dispositivi, oltre alle modifiche sul lato del servizio, come l'aggiunta di voci all'elenco di registrazione e l'aggiornamento delle voci dell'elenco di registrazione.
+Le operazioni rappresentano l'unità di fatturazione del servizio Device Provisioning. Un'operazione si riferisce al corretto completamento di un'istruzione nel servizio. Le operazioni includono le registrazioni e le ripetizioni delle registrazioni dei dispositivi, oltre alle modifiche lato server come l'aggiunta di voci all'elenco di registrazione e l'aggiornamento delle voci dell'elenco di registrazione.

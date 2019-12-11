@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 09/26/2019
-ms.openlocfilehash: 77442eda6c8b2aae71c5d647127ead9f851ec485
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 1754168478caf3ca029e003ad0187fc29e85fa8a
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74421428"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997293"
 ---
 # <a name="automated-backups"></a>Backup automatizzati
 
@@ -81,7 +81,7 @@ Come i backup di ripristino temporizzato, i backup di conservazione a lungo term
 
 Per altre informazioni, vedere [Conservazione dei backup a lungo termine](sql-database-long-term-retention.md).
 
-## <a name="storage-costs"></a>Costi di archiviazione
+## <a name="storage-costs"></a>Costi delle risorse di archiviazione
 Per i database singoli e le istanze gestite, viene fornita una quantità minima di spazio di archiviazione per il backup pari al 100% delle dimensioni del database senza costi aggiuntivi. Per i pool elastici, un importo di archiviazione di backup minimo pari al 100% dell'archiviazione dei dati allocati per il pool viene fornito senza costi aggiuntivi. L'utilizzo aggiuntivo dell'archivio di backup verrà addebitato in base a GB/mese. Questo consumo aggiuntivo dipenderà dal carico di lavoro e dalle dimensioni dei singoli database.
 
 È possibile usare l'analisi dei costi della sottoscrizione di Azure per determinare la spesa corrente per l'archiviazione di backup.
@@ -115,7 +115,7 @@ Quando si migra il database da un livello di servizio basato su DTU con una cons
 
 ## <a name="how-to-change-the-pitr-backup-retention-period"></a>Come modificare il periodo di conservazione dei backup per il recupero temporizzato
 
-È possibile modificare il periodo di conservazione predefinito del backup ripristino temporizzato usando il portale di Azure, PowerShell o l'API REST. I valori supportati sono: 7, 14, 21, 28 e 35 giorni. Gli esempi che seguono illustrano come modificare la conservazione di ripristino temporizzato a 28 giorni.
+È possibile modificare il periodo di conservazione predefinito del backup ripristino temporizzato usando il portale di Azure, PowerShell o l'API REST. Gli esempi che seguono illustrano come modificare la conservazione di ripristino temporizzato a 28 giorni.
 
 > [!WARNING]
 > Se si riduce il periodo di conservazione corrente, tutti i backup esistenti precedenti al nuovo periodo di conservazione non saranno più disponibili. Se si aumenta il periodo di conservazione corrente, Database SQL manterrà i backup esistenti fino al raggiungimento del periodo di conservazione più lungo.
@@ -159,7 +159,7 @@ Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup
 PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup/providers/Microsoft.Sql/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default?api-version=2017-10-01-preview
 ```
 
-#### <a name="request-body"></a>Corpo della richiesta
+#### <a name="request-body"></a>Request Body
 
 ```json
 {

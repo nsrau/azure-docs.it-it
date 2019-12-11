@@ -1,18 +1,18 @@
 ---
-title: 'Estensioni PostgreSQL nel database di Azure per PostgreSQL: iperscalabilità (CITUS)'
-description: Descrive la possibilità di estendere la funzionalità del database usando le estensioni nel database di Azure per PostgreSQL.
+title: Estensioni – iperscalabilità (CITUS)-database di Azure per PostgreSQL
+description: Descrive la possibilità di estendere la funzionalità del database usando le estensioni nel database di Azure per PostgreSQL-iperscalabilità (CITUS)
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 41edcc40bae7915e321a278592dd2f73621aae05
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4f7a961b04290bd17657949877c0b81bc281da50
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73482413"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975551"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>Estensioni PostgreSQL nel database di Azure per PostgreSQL: iperscalabilità (CITUS)
 

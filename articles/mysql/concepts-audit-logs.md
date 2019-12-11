@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: ea536742b6481cb06fbd3130279ca5d08ba1bc08
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/09/2019
+ms.openlocfilehash: eae7e434ce21b5f9d9f3e6c40f94261df8baa426
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74773569"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972354"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Log di controllo nel database di Azure per MySQL
 
@@ -29,7 +29,7 @@ Altri parametri che è possibile modificare includono:
 - `audit_log_events`: controlla gli eventi da registrare. Vedere la tabella seguente per gli eventi di controllo specifici.
 - `audit_log_include_users`: utenti MySQL da includere per la registrazione. Il valore predefinito per questo parametro è vuoto, che include tutti gli utenti per la registrazione. Questa operazione ha una priorità più elevata rispetto a `audit_log_exclude_users`. La lunghezza massima del parametro è di 512 caratteri.
 > [!Note]
-> `audit_log_include_users` ha una priorità maggiore rispetto `audit_log_exclude_users` ad esempio se audit_log_include_users = `demouser` e audit_log_exclude_users = `demouser`, i log vengono controllati perché `audit_log_include_users` ha una priorità più elevata.
+> `audit_log_include_users` ha una priorità maggiore rispetto a `audit_log_exclude_users`. Se, ad esempio, `audit_log_include_users` = `demouser` e `audit_log_exclude_users` = `demouser`, l'utente verrà incluso nei log di controllo perché `audit_log_include_users` ha una priorità più elevata.
 - `audit_log_exclude_users`: utenti di MySQL da escludere dalla registrazione. La lunghezza massima del parametro è di 512 caratteri.
 
 > [!Note]
@@ -38,7 +38,7 @@ Altri parametri che è possibile modificare includono:
 | **Event** | **Descrizione** |
 |---|---|
 | `CONNECTION` | -Avvio della connessione (esito positivo o negativo) <br> -Riautenticazione utente con diversi utenti/password durante la sessione <br> -Terminazione connessione |
-| `DML_SELECT`| Seleziona query |
+| `DML_SELECT`| Query SELECT |
 | `DML_NONSELECT` | Query di inserimento, eliminazione e aggiornamento |
 | `DML` | DML = DML_SELECT + DML_NONSELECT |
 | `DDL` | Query come "DROP DATABASE" |
@@ -129,7 +129,7 @@ Lo schema riportato di seguito si applica ai tipi di evento GENERAL, DML_SELECT,
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Nome del server |
 | `event_class_s` | `table_access_log` |
-| `event_subclass_s` | `READ`, `INSERT`, `UPDATE`o `DELETE` |
+| `event_subclass_s` | `READ`, `INSERT`, `UPDATE` o `DELETE` |
 | `connection_id_d` | ID connessione univoco generato da MySQL |
 | `db_s` | Nome del database a cui si accede |
 | `table_s` | Nome della tabella a cui si accede |

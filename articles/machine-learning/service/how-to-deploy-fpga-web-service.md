@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5e8dc6181660f0c1545df0688e2749f8f0187027
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b387c9d595898158ff8b5ab8c25f705825b8c248
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496901"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978220"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>Informazioni su FPGA (Field-Programmable Gate Array) e su come eseguire la distribuzione
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,7 +31,7 @@ Il diagramma e la tabella seguenti evidenziano un confronto tra i circuiti FPGA 
 
 ![Diagramma del confronto Azure Machine Learning FPGA](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
 
-|Processore||Descrizione|
+|Processore||Description|
 |---|:-------:|------|
 |Application-specific integrated circuit|ASIC|I circuiti personalizzati, ad esempio Google TensorFlow Processor Unit (TPU), offrono la massima efficienza. Non possono essere riconfigurati in base alle esigenze.|
 |Field-programmable Gate Arrays|FPGA|I circuiti FPGA, ad esempio quelli disponibili in Azure, assicurano prestazioni simili a quelle dei circuiti ASIC. Sono flessibili e possono essere riconfigurati nel corso del tempo per implementare la nuova logica.|
@@ -59,11 +59,11 @@ Questi modelli di DNN sono attualmente disponibili:
   - ResNet 152
   - DenseNet-121
   - VGG-16
-  - UNITÀ SSD-VGG
+  - SSD-VGG
 
 Gli FPGA sono disponibili nelle aree di Azure seguenti:
-  - Stati Uniti orientali
-  - Asia sudorientale
+  - Stati Uniti Orientali
+  - Asia sud-orientale
   - Europa occidentale
   - Stati Uniti occidentali 2
 
@@ -136,9 +136,9 @@ Seguire le istruzioni per:
 
 Usare [Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) per creare una definizione del servizio. Una definizione del servizio è un file che descrive una pipeline di grafici (input, utilità di funzioni e classificatore) basata su TensorFlow. Il comando di distribuzione comprime automaticamente la definizione e i grafici in un file ZIP e carica il file zip in Archiviazione BLOB di Azure. Il DNN è già distribuito per l'esecuzione nell'FPGA.
 
-### <a name="load-azure-ml-workspace"></a>Caricare l'area di lavoro di Azure ML
+### <a name="load-azure-machine-learning-workspace"></a>Carica Azure Machine Learning area di lavoro
 
-Caricare l'area di lavoro di Azure ML.
+Caricare l'area di lavoro Azure Machine Learning.
 
 ```python
 import os
@@ -380,14 +380,14 @@ ssl_enabled = address.startswith("https")
 address = address[address.find('/')+2:].strip('/')
 port = 443 if ssl_enabled else 80
 
-# Initialize AzureML Accelerated Models client
+# Initialize Azure ML Accelerated Models client
 client = PredictionClient(address=address,
                           port=port,
                           use_ssl=ssl_enabled,
                           service_name=aks_service.name)
 ```
 
-Poiché il classificatore è stato sottoposto al training sul set di dati [Imagent](http://www.image-net.org/) , eseguire il mapping delle classi alle etichette leggibili.
+Poiché il classificatore è stato sottoposto al training sul set di dati [ImageNet](http://www.image-net.org/), eseguire il mapping delle classi alle etichette leggibili.
 
 ```python
 import requests
@@ -432,9 +432,9 @@ Per proteggere i servizi Web di FPGA, vedere il documento relativo ai [servizi W
 
 Guarda i notebook, i video e i blog seguenti:
 
-+ Diversi [notebook di esempio](https://aka.ms/aml-accel-models-notebooks).
++ Diversi [notebook di esempio](https://aka.ms/aml-accel-models-notebooks)
 
-+ [Hyperscale hardware: ML at scale on top of Azure + FPGA : Build 2018 (video)](https://channel9.msdn.com/events/Build/2018/BRK3202) (Hardware iperscalabile: ML su scala basato su Azure + FPGA: Build 2018)
++ [Hardware iperscalabile: ML su larga scala in Azure + FPGA: Build 2018 (video)](https://channel9.msdn.com/events/Build/2018/BRK3202)
 
 + [Inside the Microsoft FPGA-based configurable cloud (video)](https://channel9.msdn.com/Events/Build/2017/B8063) (Informazioni sul cloud configurabile basato su Microsoft FPGA)
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: ab9725dd50487cf9df9d6fb967959b276f39979f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: c7511279e66ab598e4ae3c26f053915b7393b39d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162468"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978391"
 ---
 # <a name="widevine-license-template-overview"></a>Panoramica del modello di licenza Widevine 
 Servizi multimediali di Azure consente di configurare e richiedere licenze Google Widevine. Quando il lettore tenta di riprodurre contenuto protetto da Widevine, viene inviata una richiesta al servizio di distribuzione di licenze per ottenere una licenza. Se il servizio di licenza approva la richiesta, genera la licenza. Viene inviata al client e usata per decrittografare e riprodurre il contenuto specificato.
@@ -82,7 +82,7 @@ Ogni valore content_key_specs deve essere specificato per tutte le singole tracc
 | content_key_specs track_type |string |Nome di un tipo di traccia. Se nella richiesta di licenza è specificato un valore content_key_specs, assicurarsi di specificare esplicitamente tutti i tipi di traccia. In caso contrario, non possono essere riprodotti gli ultimi 10 secondi. |
 | content_key_specs  <br/> security_level |Valore UInt32 |Definisce i requisiti di affidabilità client per la riproduzione. <br/> - È richiesta una soluzione di crittografia white box basata su software. <br/> - Sono necessari una soluzione di crittografia software e un decodificatore offuscato. <br/> - Il materiale della chiave e le operazioni di crittografia devono essere eseguiti all'interno di un ambiente di esecuzione affidabile basato su hardware. <br/> - Le operazioni di crittografia e decodifica del contenuto devono essere eseguite all'interno di un ambiente di esecuzione affidabile basato su hardware.  <br/> - Le operazioni di crittografia, decodifica e l'intera gestione dei file multimediali (con e senza compressione) devono essere eseguite all'interno di un ambiente di esecuzione affidabile basato su hardware. |
 | content_key_specs <br/> required_output_protection.hdc |Stringa, uno di HDCP_NONE, HDCP_V1, HDCP_V2 |Indica se è necessario il protocollo HDCP. |
-| content_key_specs <br/>key |Base64<br/>codifica Base64 |Chiave simmetrica da usare per questa traccia. Se specificato, track_type o Key_ID è obbligatorio. Il provider di contenuti può usare questa opzione per inserire la chiave simmetrica della traccia ed evitare quindi che sia il server di licenze Widevine a generare o cercare una chiave. |
+| content_key_specs <br/>key |Base64<br/>codifica Base64 |Chiave simmetrica da usare per questa traccia. Se specificato, il track_type o key_id è obbligatorio. Il provider di contenuti può usare questa opzione per inserire la chiave simmetrica della traccia ed evitare quindi che sia il server di licenze Widevine a generare o cercare una chiave. |
 | content_key_specs.key_id |Stringa binaria con codifica Base64, 16 byte |Identificatore univoco della chiave. |
 
 ## <a name="policy-overrides"></a>Override dei criteri
@@ -189,6 +189,9 @@ L'esempio seguente mostra come usare le API .NET per configurare una licenza Wid
         return configuration;
     }
 
+## <a name="additional-notes"></a>Note aggiuntive
+
+* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google, Inc.
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

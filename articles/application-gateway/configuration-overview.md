@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: 38d86a9ed82c3a242364e788cce371f83575c1ea
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 79867bd048be882414e247af11c133ed481788a0
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74108733"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996642"
 ---
 # <a name="application-gateway-configuration-overview"></a>Panoramica della configurazione del gateway applicazione
 
@@ -25,7 +25,7 @@ Questa immagine illustra un'applicazione con tre listener. I primi due sono list
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="azure-virtual-network-and-dedicated-subnet"></a>Rete virtuale di Azure e subnet dedicata
 
@@ -173,7 +173,7 @@ Dopo aver creato un listener, associarlo a una regola di routing delle richieste
 
 Quando si crea un gateway applicazione usando il portale di Azure, si crea una regola predefinita (*Rule1*). Questa regola associa il listener predefinito (*appGatewayHttpListener*) con il pool back-end predefinito (*appGatewayBackendPool*) e le impostazioni http back-end predefinite (*appGatewayBackendHttpSettings*). Dopo aver creato il gateway, è possibile modificare le impostazioni della regola predefinita o creare nuove regole.
 
-### <a name="rule-type"></a>Tipo di regola
+### <a name="rule-type"></a>Tipo regola
 
 Quando si crea una regola, è possibile scegliere tra [ *base* e *basata sul percorso*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rules).
 
@@ -241,7 +241,7 @@ Per ulteriori informazioni sul reindirizzamento, vedere:
 
 #### <a name="rewrite-the-http-header-setting"></a>Riscrivere l'impostazione dell'intestazione HTTP
 
-Questa impostazione consente di aggiungere, rimuovere o aggiornare le intestazioni di richiesta e risposta HTTP mentre i pacchetti di richiesta e risposta vengono spostati tra il client e i pool back-end. Per altre informazioni, vedere:
+Questa impostazione consente di aggiungere, rimuovere o aggiornare le intestazioni di richiesta e risposta HTTP mentre i pacchetti di richiesta e risposta vengono spostati tra il client e i pool back-end. Per scoprire di più, vedi:
 
  - [Panoramica delle intestazioni HTTP di riscrittura](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
  - [Configurare la riscrittura dell'intestazione HTTP](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
@@ -256,7 +256,7 @@ Questa funzionalità è utile quando si desidera gestire una sessione utente sul
 
 ### <a name="connection-draining"></a>Esaurimento delle connessioni
 
-Lo svuotamento delle connessioni consente di rimuovere normalmente i membri del pool back-end durante gli aggiornamenti pianificati dei servizi. È possibile applicare questa impostazione a tutti i membri di un pool back-end durante la creazione della regola. Garantisce che tutte le istanze di annullamento della registrazione di un pool back-end non ricevano richieste nuove. Nel frattempo, le richieste esistenti possono essere completate entro un limite di tempo configurato. Lo svuotamento della connessione si applica alle istanze back-end che vengono rimosse in modo esplicito dal pool back-end.
+Lo svuotamento delle connessioni consente di rimuovere normalmente i membri del pool back-end durante gli aggiornamenti pianificati dei servizi. È possibile applicare questa impostazione a tutti i membri di un pool back-end durante la creazione della regola. Garantisce che tutte le istanze di annullamento della registrazione di un pool back-end continuino a mantenere le connessioni esistenti e a gestire richieste in corso per un timeout configurabile e non ricevano nuove richieste o connessioni. L'unica eccezione è costituita dalle richieste associate per la deregistrazione delle istanze a causa dell'affinità di sessione gestita dal gateway e continuerà a essere inoltrate tramite proxy alle istanze di deregistrazione. Lo svuotamento della connessione si applica alle istanze back-end che vengono rimosse in modo esplicito dal pool back-end.
 
 ### <a name="protocol"></a>Protocol
 
@@ -264,7 +264,7 @@ Il gateway applicazione supporta sia HTTP che HTTPS per il routing delle richies
 
 Questa impostazione combinata con HTTPS nel listener supporta [SSL end-to-end](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Ciò consente di trasmettere in modo sicuro dati sensibili crittografati al back-end. Ogni server back-end nel pool back-end in cui è abilitato SSL end-to-end deve essere configurato con un certificato per consentire la comunicazione protetta.
 
-### <a name="port"></a>Port
+### <a name="port"></a>Porta
 
 Questa impostazione specifica la porta in cui i server back-end ascoltano il traffico dal gateway applicazione. È possibile configurare porte comprese tra 1 e 65535.
 

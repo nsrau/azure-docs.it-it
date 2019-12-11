@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 1354f7befd8c38537a555e17733f431dd488cf60
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 60832f9438a602945c63910a436d7638f15a201d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742062"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969435"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Funzionalità e strumenti per Azure Cloud Shell
 
@@ -27,7 +27,7 @@ ms.locfileid: "68742062"
 
 Azure Cloud Shell viene eseguito su `Ubuntu 16.04 LTS`.
 
-## <a name="features"></a>Funzionalità
+## <a name="features"></a>database elastico
 
 ### <a name="secure-automatic-authentication"></a>Autenticazione automatica sicura
 
@@ -59,7 +59,7 @@ PowerShell in Cloud Shell contiene una compilazione privata del modulo Exchange 
 
  Eseguire `Get-Command -Module tmp_*`
 > [!NOTE]
-> Il nome del modulo dovrebbe iniziare `tmp_`con, se sono stati installati moduli con lo stesso prefisso, verranno visualizzati anche i relativi cmdlet. 
+> Il nome del modulo deve iniziare con `tmp_`, se sono stati installati moduli con lo stesso prefisso, verranno visualizzati anche i relativi cmdlet. 
 
 ![](media/features-powershell/exchangeonlinecmdlets.png)
 
@@ -69,7 +69,7 @@ Cloud Shell include l'autenticazione preconfigurata per strumenti open source, a
 
 ## <a name="tools"></a>Strumenti
 
-|Category   |Name   |
+|Categoria   |name   |
 |---|---|
 |Strumenti di Linux            |bash<br> zsh<br> sh<br> tmux<br> dig<br>               |
 |Strumenti di Azure            |[Interfaccia della riga di comando di Azure](https://github.com/Azure/azure-cli) e [interfaccia della riga di comando classica di Azure](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#writing-your-first-azcopy-command)<br> [INTERFACCIA della riga di comando funzioni di Azure](https://github.com/Azure/azure-functions-core-tools)<br> [Interfaccia della riga di comando di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
@@ -80,15 +80,15 @@ Cloud Shell include l'autenticazione preconfigurata per strumenti open source, a
 |Database              |Client MySQL<br> Client PostgreSql<br> [Utilità sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
 |Altro                  |Client iPython<br> [Interfaccia della riga di comando Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [Bolt marionetta](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)|
 
-## <a name="language-support"></a>Supporto per la lingua
+## <a name="language-support"></a>Supporto delle lingue
 
-|Linguaggio   |Version   |
+|Linguaggio   |Versione   |
 |---|---|
-|.NET Core  |2.0.0       |
-|Vai         |1.9        |
+|.NET Core  |2.2.402       |
+|Go         |1.9        |
 |Java       |1.8        |
-|Node.js    |8.9.4      |
-|PowerShell |[6.2.0](https://github.com/PowerShell/powershell/releases)       |
+|Node.js    |8.16.0      |
+|PowerShell |[6.2.3](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 e 3.5 (impostazione predefinita)|
 
 ## <a name="next-steps"></a>Passaggi successivi

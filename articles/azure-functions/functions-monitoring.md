@@ -4,12 +4,12 @@ description: Informazioni su come usare applicazione Azure Insights con funzioni
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: 5f7f6c130226080cba635f89280f655498e5db27
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4a182ddffd4c1ee4d2e71e7d9e6385df23e4260e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226906"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978084"
 ---
 # <a name="monitor-azure-functions"></a>Monitorare Funzioni di Azure
 
@@ -92,7 +92,7 @@ Per informazioni su come usare Application Insights, vedere la [documentazione s
 
 Le aree di Application Insights seguenti possono essere utili quando si valutano il comportamento, le prestazioni e gli errori nelle funzioni:
 
-| TAB | DESCRIZIONE |
+| TAB | Description |
 | ---- | ----------- |
 | **[Fallimenti](../azure-monitor/app/asp-net-exceptions.md)** |  Creare grafici e avvisi in base agli errori di funzione e alle eccezioni del server. Il **nome dell'operazione** corrisponde al nome della funzione. Gli errori nelle dipendenze non vengono visualizzati, a meno che non si implementino i dati di telemetria personalizzati |
 | **[Prestazioni](../azure-monitor/app/performance-counters.md)** | Analizzare i problemi di prestazioni. |
@@ -119,9 +119,9 @@ requests
 
 Le tabelle disponibili vengono visualizzate nella scheda **schema** a sinistra. Nelle tabelle seguenti è possibile trovare i dati generati dalle chiamate alla funzione:
 
-| tabella | DESCRIZIONE |
+| Table | Description |
 | ----- | ----------- |
-| **tracce** | Log creati dal runtime e dal codice della funzione. |
+| **traces** | Log creati dal runtime e dal codice della funzione. |
 | **requests** | Una richiesta per ogni chiamata di funzione. |
 | **exceptions** | Tutte le eccezioni generate dal runtime. |
 | **customMetrics** | Numero di chiamate con esito positivo e negativo, frequenza di esito positivo e durata. |
@@ -143,7 +143,7 @@ Il runtime fornisce i campi `customDimensions.LogLevel` e `customDimensions.Cate
 
 È possibile usare Application Insights senza alcuna configurazione personalizzata. La configurazione predefinita può produrre volumi elevati di dati. Se si usa una sottoscrizione di Azure di Visual Studio, si potrebbe raggiunge il limite d'uso dati per Application Insights. Più avanti in questo articolo si apprenderà come configurare e personalizzare i dati che le funzioni inviano a Application Insights. Per un'app per le funzioni, la registrazione è configurata nel file [host. JSON] .
 
-### <a name="categories"></a>categorie
+### <a name="categories"></a>Categorie
 
 Il logger di Funzioni di Azure include un *categoria* per ogni log. La categoria indica quale parte del codice runtime o del codice funzione è stata scritta dal log. 
 
@@ -161,19 +161,19 @@ Il logger di funzioni di Azure include anche un *livello di registrazione* con o
 |Debug       | 1 |
 |Informazioni | 2 |
 |Avviso     | 3 |
-|Tipi di errore       | 4 |
+|Errore       | 4 |
 |Critico    | 5 |
-|nessuno        | 6 |
+|Nessuno        | 6 |
 
 Il livello di registrazione `None` è illustrato nella sezione successiva. 
 
 ### <a name="log-configuration-in-hostjson"></a>Configurazione del log in host. JSON
 
-Il file [host. JSON] configura il numero di registrazioni che un'app per le funzioni invia ad Application Insights. Per ogni categoria, si indica il livello di registrazione minimo da inviare. Esistono due esempi: il primo esempio è destinato al [runtime di funzioni versione 2. x](functions-versions.md#version-2x) (.NET Core) e il secondo esempio è per il runtime della versione 1. x.
+Il file [host. JSON] configura il numero di registrazioni che un'app per le funzioni invia ad Application Insights. Per ogni categoria, si indica il livello di registrazione minimo da inviare. Esistono due esempi: il primo esempio è destinato alla [versione 2. x e successive](functions-versions.md#version-2x) del runtime di funzioni (con .NET Core) e il secondo esempio è per il runtime della versione 1. x.
 
-### <a name="version-2x"></a>Versione 2.x
+### <a name="version-2x-and-higher"></a>Versione 2. x e successive
 
-Il runtime della versione 2.x usa la [gerarchia di filtro del log di .NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering). 
+La versione V2. x e le versioni successive del runtime di funzioni usano la gerarchia di filtri per la [registrazione di .NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering). 
 
 ```json
 {
@@ -216,7 +216,7 @@ Il valore della categoria in [host. JSON] controlla la registrazione di tutte le
 
 Se [host. JSON] include più categorie che iniziano con la stessa stringa, viene rilevata prima la corrispondenza con quelle più lunghe. Si supponga di voler eseguire tutte le operazioni dal runtime, ad eccezione `Host.Aggregator` di registrare a livello di `Error`, ma si vuole che `Host.Aggregator` log a livello di `Information`:
 
-### <a name="version-2x"></a>Versione 2.x 
+### <a name="version-2x-and-later"></a>Versione 2. x e versioni successive
 
 ```json
 {
@@ -298,7 +298,7 @@ Come indicato nella sezione precedente, il runtime aggrega i dati sulle esecuzio
 
 Application Insights dispone di una funzionalità di [campionamento](../azure-monitor/app/sampling.md) che può impedire la produzione di troppi dati di telemetria sulle esecuzioni completate in momenti di picco del carico. Quando la frequenza delle esecuzioni in ingresso supera una soglia specificata, Application Insights inizia a ignorare in modo casuale alcune delle esecuzioni in ingresso. L'impostazione predefinita per il numero massimo di esecuzioni al secondo è 20 (cinque nella versione 1. x). È possibile configurare il campionamento nel file [host. JSON].  Ecco un esempio:
 
-### <a name="version-2x"></a>Versione 2.x 
+### <a name="version-2x-and-later"></a>Versione 2. x e versioni successive
 
 ```json
 {
@@ -337,7 +337,7 @@ Application Insights dispone di una funzionalità di [campionamento](../azure-mo
 
 Usare il parametro [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) nelle funzioni anziché il parametro `TraceWriter`. I log creati usando `TraceWriter` passano a Application Insights, ma `ILogger` consente di eseguire la [registrazione strutturata](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
-Con un oggetto `ILogger` è possibile chiamare i `Log<level>` [metodi di estensione su ILogger ](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) per creare i log. Il codice seguente scrive `Information` log con la categoria "Function".
+Con un oggetto `ILogger` è possibile chiamare i [metodi di estensione su ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) `Log<level>` per creare i log. Il codice seguente scrive `Information` log con la categoria "Function".
 
 ```cs
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)
@@ -396,7 +396,7 @@ context.log('JavaScript HTTP trigger function processed a request.' + context.in
 
 ### <a name="custom-metrics-logging"></a>Registrazione delle metriche personalizzate
 
-Quando si esegue la [versione 1. x](functions-versions.md#creating-1x-apps) del runtime di funzioni, le funzioni node. js possono usare il metodo `context.log.metric` per creare metriche personalizzate in Application Insights. Questo metodo non è attualmente supportato nella versione 2. x. Ecco un esempio di chiamata al metodo:
+Quando si esegue la [versione 1. x](functions-versions.md#creating-1x-apps) del runtime di funzioni, le funzioni node. js possono usare il metodo `context.log.metric` per creare metriche personalizzate in Application Insights. Questo metodo non è attualmente supportato nella versione 2. x e versioni successive. Ecco un esempio di chiamata al metodo:
 
 ```javascript
 context.log.metric("TestMetric", 1234);
@@ -408,9 +408,9 @@ Questo codice è un'alternativa alla chiamata di `trackMetric` usando node. js S
 
 È possibile usare il pacchetto NuGet [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) per inviare i dati di telemetria personalizzati ad Application Insights. L'esempio C# seguente usa l'[API di telemetria personalizzata](../azure-monitor/app/api-custom-events-metrics.md). L'esempio fa riferimento a una libreria di classi .NET, ma il codice di Application Insights è lo stesso per lo script C#.
 
-### <a name="version-2x"></a>Versione 2.x
+### <a name="version-2x-and-later"></a>Versione 2. x e versioni successive
 
-La versione 2.x del runtime usa le funzionalità più recenti in Application Insights per correlare automaticamente i dati di telemetria con l'operazione corrente. Non è necessario impostare manualmente i campi `Id`, `ParentId`o `Name` dell'operazione.
+La versione 2. x e le versioni successive del Runtime usano le funzionalità più recenti di Application Insights per correlare automaticamente i dati di telemetria con l'operazione corrente. Non è necessario impostare manualmente i campi `Id`, `ParentId`o `Name` dell'operazione.
 
 ```cs
 using System;
@@ -588,7 +588,7 @@ module.exports = function (context, req) {
 
 Il parametro `tagOverrides` imposta l'`operation_Id` sull'ID di chiamata della funzione. Questa impostazione consente di correlare tutti i dati di telemetria personalizzati e generati automaticamente per una chiamata di funzione specifica.
 
-## <a name="dependencies"></a>Dependencies
+## <a name="dependencies"></a>Dipendenze
 
 Funzioni V2 raccoglie automaticamente le dipendenze per le richieste HTTP, ServiceBus e SQL.
 

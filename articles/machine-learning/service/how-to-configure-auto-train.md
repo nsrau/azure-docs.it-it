@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: c70226ef58ed60a7be556b88366953796ed6fff1
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ddcf97a8c7ae6000c14638a8292bc8b4f39ed87d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580576"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978340"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare esperimenti di Machine Learning automatici in Python
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -43,7 +43,7 @@ Prima di iniziare l'esperimento, è necessario determinare il tipo di problema d
 
 Durante il processo di automazione e ottimizzazione, il processo di Machine Learning automatizzato supporta gli algoritmi seguenti. Come utente, non è necessario specificare l'algoritmo.
 
-Classificazione | regressione | Previsione delle serie temporali
+Classificazione | regressione | Previsione di una serie temporale
 |-- |-- |--
 [Regressione logistica](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)| [Rete elastica](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)| [Rete elastica](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
 [Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
@@ -171,12 +171,12 @@ Di seguito sono riportati alcuni esempi:
         n_cross_validations=5)
     ```
 
-I tre valori di parametro `task` diversi (il terzo tipo di attività è `forecasting`e usa lo stesso pool di algoritmi di `regression` attività) determina l'elenco dei modelli da applicare. Usare i parametri `whitelist` o `blacklist` per modificare ulteriormente le iterazioni con i modelli disponibili da includere o escludere. L'elenco dei modelli supportati è disponibile nella [classe SupportedModels](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py).
+I tre valori di parametro `task` diversi (il terzo tipo di attività è `forecasting`e usa un pool di algoritmi simile come attività `regression`) determina l'elenco dei modelli da applicare. Usare i parametri `whitelist` o `blacklist` per modificare ulteriormente le iterazioni con i modelli disponibili da includere o escludere. L'elenco dei modelli supportati è disponibile nella [classe SupportedModels](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py).
 
 ### <a name="primary-metric"></a>Metrica primaria
 La metrica primaria determina la metrica da utilizzare durante il training del modello per l'ottimizzazione. La metrica disponibile che è possibile selezionare è determinata dal tipo di attività scelto e la tabella seguente mostra le metriche primarie valide per ogni tipo di attività.
 
-|Classificazione | regressione | Previsione delle serie temporali
+|Classificazione | regressione | Previsione di una serie temporale
 |-- |-- |--
 |precisione| spearman_correlation | spearman_correlation
 |AUC_weighted | normalized_root_mean_squared_error | normalized_root_mean_squared_error
@@ -195,7 +195,7 @@ Per abilitare questo conteggi, specificare `"preprocess": True` per la [classe`A
 > [!NOTE]
 > I passaggi di pre-elaborazione di Machine Learning automatizzati (normalizzazione delle funzionalità, gestione dei dati mancanti, conversione di valori di testo nel formato numerico e così via) diventano parte del modello sottostante. Quando si usa il modello per le previsioni, gli stessi passaggi di pre-elaborazione applicati durante il training vengono automaticamente applicati ai dati di input.
 
-### <a name="time-series-forecasting"></a>Previsione delle serie temporali
+### <a name="time-series-forecasting"></a>Previsione di una serie temporale
 L'attività `forecasting` della serie temporale richiede parametri aggiuntivi nell'oggetto di configurazione:
 
 1. `time_column_name`: parametro obbligatorio che definisce il nome della colonna nei dati di training contenenti una serie temporale valida.
@@ -326,7 +326,7 @@ Tutti i modelli prodotti con l'utilizzo automatico di ML includono i passaggi se
 + Progettazione automatica delle funzioni (se preprocess = true)
 + Ridimensionamento/normalizzazione e algoritmo con valori di iperparametri
 
-Lo facciamo trasparente per ottenere queste informazioni dall'output di fitted_model da Machine Learning automatico.
+Il risultato è trasparente per ottenere queste informazioni dall'output del fitted_model di Machine Learning automatizzato.
 
 ```python
 automl_config = AutoMLConfig(…)
@@ -402,7 +402,7 @@ Usare queste 2 API nel primo passaggio del modello montato per comprendere megli
    |----|--------|
    |RawFeatureName|Nome della funzionalità o della colonna di input dal set di dati specificato.|
    |TypeDetected|Tipo di dati rilevato della funzionalità di input.|
-   |Eliminato|Indica se la funzionalità di input è stata eliminata o utilizzata.|
+   |Dropped|Indica se la funzionalità di input è stata eliminata o utilizzata.|
    |EngineeringFeatureCount|Numero di funzionalità generate tramite trasformazioni automatiche di progettazione delle funzionalità.|
    |Trasformazioni|Elenco di trasformazioni applicate alle funzionalità di input per generare funzionalità progettate.|
    

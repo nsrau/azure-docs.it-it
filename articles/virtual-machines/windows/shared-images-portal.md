@@ -1,5 +1,5 @@
 ---
-title: Creare immagini di macchine virtuali di Azure condivise per Windows tramite il portale
+title: Creare una raccolta di immagini condivise di Azure con il portale
 description: Informazioni su come usare portale di Azure per creare e condividere immagini di macchine virtuali.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 0823942964f2bdb9f943d6eb778a3132574af0f7
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 6273b58d9db53cfc4f6647885c70148982f0b950
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74065540"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975500"
 ---
-# <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Creare una raccolta di immagini condivise usando il portale di Azure
+# <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>Creare una raccolta di immagini condivise di Azure con il portale
 
 La [raccolta di immagini condivise](shared-image-galleries.md) semplifica la condivisione di immagini personalizzate all'interno dell'organizzazione. Le immagini personalizzate sono come le immagini di marketplace, ma si possono creare autonomamente. Le immagini personalizzate possono essere usate per l'avvio di attività di distribuzione, ad esempio il precaricamento e le configurazioni di applicazioni e altre configurazioni del sistema operativo. 
 
@@ -32,7 +32,7 @@ La raccolta è una risorsa di primo livello che offre un completo controllo degl
 
 La funzionalità di raccolta di immagini condivise presenta più tipi di risorse. Verranno usate o compilate le seguenti contenute in questo articolo:
 
-| Risorsa | DESCRIZIONE|
+| Gruppi | Description|
 |----------|------------|
 | **Immagine gestita** | Un'immagine di base che può essere usata da sola o usata per creare una **versione dell'immagine** in una raccolta di immagini. Le immagini gestite vengono create da VM [generalizzate](shared-image-galleries.md#generalized-and-specialized-images) . Un'immagine gestita è un tipo speciale di disco rigido virtuale che può essere usato per creare più macchine virtuali e può ora essere sfruttato per creare versioni di immagini condivise. |
 | **Snapshot** | Copia di un disco rigido virtuale che può essere utilizzato per creare una **versione dell'immagine**. Gli snapshot possono essere ricavati da una VM [specializzata](shared-image-galleries.md#generalized-and-specialized-images) (uno che non è stato generalizzato), quindi usati singolarmente o con snapshot di dischi dati, per creare una versione di immagine specializzata.
@@ -89,7 +89,7 @@ Se si desidera eliminare singole risorse, è necessario eliminarle in ordine inv
 - [Creare una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-create/)
 - [Creare una definizione dell'immagine in una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [Creare una versione dell'immagine in una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
-- [Creare una macchina virtuale da una versione dell'immagine](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
+- [Creare una macchina virtuale dalla versione dell'immagine](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
 Per altre informazioni sulle raccolte di immagini condivise, vedere [Panoramica](shared-image-galleries.md). Se si verificano problemi, vedere [Risoluzione dei problemi delle raccolte di immagini condivise](troubleshooting-shared-images.md).
 

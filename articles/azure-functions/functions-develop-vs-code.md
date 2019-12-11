@@ -3,12 +3,12 @@ title: Sviluppare funzioni di Azure usando Visual Studio Code
 description: Informazioni su come sviluppare e testare funzioni di Azure usando l'estensione funzioni di Azure per Visual Studio Code.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: f9ad40cd50863990b9af629c77321195dce5e97c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: cf96a0630440904282f076de2f916fb3dbf3eb1c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227061"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975585"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Sviluppare funzioni di Azure usando Visual Studio Code
 
@@ -20,7 +20,7 @@ L'estensione funzioni di Azure offre i vantaggi seguenti:
 * Pubblicazione del proprio progetto di Funzioni di Azure direttamente in Azure.
 * Scrivi le tue funzioni in diversi linguaggi sfruttando i vantaggi di Visual Studio Code.
 
-L'estensione può essere usata con i linguaggi seguenti, supportati dal runtime di funzioni di Azure versione 2. x:
+L'estensione può essere usata con i linguaggi seguenti, che sono supportati dal runtime di funzioni di Azure a partire dalla versione 2. x:
 
 * [C#compilato](functions-dotnet-class-library.md)
 * <sup>*script</sup> [ C# ](functions-reference-csharp.md)
@@ -38,7 +38,7 @@ Questo articolo fornisce informazioni dettagliate su come usare l'estensione fun
 > [!IMPORTANT]
 > Non combinare lo sviluppo locale e il portale per una singola app per le funzioni. Quando si pubblica da un progetto locale a un'app per le funzioni, il processo di distribuzione sovrascrive le funzioni sviluppate nel portale.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di installare ed [eseguire l'estensione funzioni][estensione funzioni di azure per visual studio code], è necessario soddisfare i requisiti seguenti:
 
@@ -138,7 +138,7 @@ Visual Studio Code consente di aggiungere binding al file function. JSON attenen
 
 Di seguito sono riportate alcune richieste di esempio per definire una nuova associazione di output di archiviazione:
 
-| Prompt | Valore | DESCRIZIONE |
+| Prompt | Value | Description |
 | -------- | ----- | ----------- |
 | **Selezionare la direzione di binding** | `out` | Il binding è un binding di output. |
 | **Seleziona binding con direzione** | `Azure Queue Storage` | Il binding è un binding della coda di archiviazione di Azure. |
@@ -218,7 +218,7 @@ La procedura seguente consente di pubblicare il progetto in una nuova app per le
 
 1. Dopo i prompt, fornire le seguenti informazioni:
 
-    | Prompt | Valore | DESCRIZIONE |
+    | Prompt | Value | Description |
     | ------ | ----- | ----------- |
     | Selezionare l'app per le funzioni in Azure | Crea nuovo app per le funzioni in Azure | Al prompt successivo, digitare un nome univoco globale che identifichi la nuova app per le funzioni e quindi premere INVIO. I caratteri validi per un nome di app per le funzioni sono `a-z`, `0-9` e `-`. |
     | Selezionare un sistema operativo | Windows | L'app per le funzioni viene eseguita in Windows. |
@@ -263,11 +263,11 @@ L'estensione funzioni di Azure consente di eseguire un progetto di funzioni nel 
 
 Per eseguire localmente il progetto di funzioni, è necessario soddisfare i requisiti aggiuntivi seguenti:
 
-* Installare la versione 2. x di [Azure Functions Core Tools](functions-run-local.md#v2). Il pacchetto degli strumenti di base viene scaricato e installato automaticamente quando si avvia il progetto in locale. Gli strumenti di base includono l'intero runtime di funzioni di Azure, quindi il download e l'installazione potrebbero richiedere del tempo.
+* Installare la versione 2. x o successiva di [Azure Functions Core Tools](functions-run-local.md#v2). Il pacchetto degli strumenti di base viene scaricato e installato automaticamente quando si avvia il progetto in locale. Gli strumenti di base includono l'intero runtime di funzioni di Azure, quindi il download e l'installazione potrebbero richiedere del tempo.
 
 * Installare i requisiti specifici per il linguaggio scelto:
 
-    | Lingua | Requisito |
+    | Linguaggio | Requisito |
     | -------- | --------- |
     | **C#** | [Estensione C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[Strumenti di interfaccia della riga di comando di .NET Core](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
     | **Java** | [Debugger per l'estensione Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 o versione successiva](https://maven.apache.org/) |
@@ -311,7 +311,7 @@ I valori in **ConnectionStrings** non vengono mai pubblicati.
 I valori delle impostazioni dell'applicazione di funzione possono anche essere letti nel codice come variabili di ambiente. Per ulteriori informazioni, vedere le sezioni variabili di ambiente di questi articoli di riferimento specifici della lingua:
 
 * [C# precompilato](functions-dotnet-class-library.md#environment-variables)
-* [Script C# (.csx)](functions-reference-csharp.md#environment-variables)
+* [Script C# (file con estensione csx)](functions-reference-csharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
 
@@ -383,7 +383,7 @@ Dopo aver completato questi passaggi, le chiamate effettuate agli strumenti di b
 
 L'estensione funzioni di Azure offre un'interfaccia grafica utile nell'area per interagire con le app per le funzioni in Azure. La stessa funzionalità è disponibile anche come comandi nel riquadro comandi (F1). Sono disponibili i comandi di funzioni di Azure seguenti:
 
-|Comando di funzioni di Azure  | DESCRIZIONE  |
+|Comando di funzioni di Azure  | Description  |
 |---------|---------|
 |**Aggiungi nuove impostazioni**  |  Crea una nuova impostazione dell'applicazione in Azure. Per altre informazioni, vedere [pubblicare le impostazioni dell'applicazione](#publish-application-settings). Potrebbe anche essere necessario [scaricare questa impostazione nelle impostazioni locali](#download-settings-from-azure). |
 | **Configurare l'origine della distribuzione** | Connette l'app per le funzioni in Azure a un repository git locale. Per altre informazioni, vedere [distribuzione continua per funzioni di Azure](functions-continuous-deployment.md). |

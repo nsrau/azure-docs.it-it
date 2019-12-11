@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: helohr
-ms.openlocfilehash: 54f2c39260ecaf643b0f2add8758ceb866e71afe
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: fde3ddf052e47e7550d15aba4ff26d32c91e34b9
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561125"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972389"
 ---
 # <a name="set-up-msix-app-attach"></a>Configurare la connessione all'app MSIX
 
@@ -149,7 +149,7 @@ Successivamente, sarà necessario "espandere" l'immagine MSIX decomprimerla. Per
 
 3. Passare al disco rigido virtuale montato e aprire la cartella dell'app e verificare che il contenuto del pacchetto sia presente.
 
-4. Smontare il disco rigido virtuale.
+4. Smontare il VHD.
 
 ## <a name="configure-windows-virtual-desktop-infrastructure"></a>Configurare l'infrastruttura di desktop virtuali Windows
 
@@ -167,7 +167,7 @@ Nell'ambiente desktop virtuale Windows creare una condivisione di rete e spostar
 >[!NOTE]
 > La procedura consigliata per la creazione di condivisioni di rete MSIX consiste nell'impostare la condivisione di rete con autorizzazioni di sola lettura NTFS.
 
-## <a name="install-certificates"></a>Installare i certificati
+## <a name="install-certificates"></a>Installa i certificati
 
 Se l'app usa un certificato che non è pubblico o è autofirmato, di seguito viene illustrato come installarlo:
 
@@ -337,7 +337,7 @@ $path = "C:\Program Files\WindowsApps\" + $packageName + "\AppxManifest.xml"
 
 #region register
 
-Add-AppxPackage -Path \$path -DisableDevelopmentMode -Register
+Add-AppxPackage -Path $path -DisableDevelopmentMode -Register
 
 #endregion
 ```

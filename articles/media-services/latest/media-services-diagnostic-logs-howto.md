@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 786aefbd8657046f18042defd71dfcb38528eecf
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: e00da689820778a8cc7c5ce95184d4d8c79c70f2
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74887952"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977710"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Monitorare i log di diagnostica di servizi multimediali
 
@@ -173,6 +173,10 @@ Potrebbe essere necessario attendere fino a cinque minuti prima che l'evento ven
   }
 }
 ```
+
+## <a name="additional-notes"></a>Note aggiuntive
+
+* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google, Inc.
 
 ## <a name="see-also"></a>Vedi anche
 

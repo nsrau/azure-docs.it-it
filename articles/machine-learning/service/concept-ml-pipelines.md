@@ -1,7 +1,7 @@
 ---
 title: Che cosa sono le pipeline di ML
 titleSuffix: Azure Machine Learning
-description: Questo articolo illustra i vantaggi delle pipeline di Machine Learning che è possibile creare con Azure Machine Learning SDK per Python. Le pipeline di Machine learning (ML) vengono utilizzate dai data scientist per creare, ottimizzare e gestire i flussi di lavoro di apprendimento automatico.
+description: In questo articolo vengono illustrati i vantaggi delle pipeline di Machine Learning (ML) che è possibile compilare con Azure Machine Learning SDK per Python. Le pipeline di Machine Learning vengono usate dai data scientist per creare, ottimizzare e gestire i flussi di lavoro di machine learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,24 +9,24 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/06/2019
-ms.openlocfilehash: 21aa869d53a35ee974fb2f852b9be9b10eb929b0
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 84a01597570a488652e3db2345bdf68b52d4bf5b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112408"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973578"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Che cosa sono le pipeline Azure Machine Learning?
 
 Azure Machine Learning pipeline consentono di creare flussi di lavoro nei progetti di machine learning. Questi flussi di lavoro hanno diversi vantaggi: 
 
 + Semplicità
-+ Velocità
++ speed
 + Ripetibilità
 + Flessibilità
 + Controllo delle versioni e rilevamento
 + Modularità 
-+ Garanzia di qualità
++ Controllo qualità
 + Controllo dei costi
 
 Questi vantaggi diventano significativi non appena il progetto di Machine Learning si sposta oltre l'esplorazione pura e l'iterazione. Anche le pipeline semplici di un solo passaggio possono essere utili. I progetti di Machine Learning sono spesso in uno stato complesso e possono essere un sollievo per eseguire in modo preciso un singolo flusso di lavoro in un processo semplice.
@@ -40,7 +40,7 @@ Informazioni su come [creare la prima pipeline](how-to-create-your-first-pipelin
 
 Il cloud di Azure fornisce diverse altre pipeline, ognuna con uno scopo diverso. Nella tabella seguente sono elencate le diverse pipeline e le relative operazioni di utilizzo:
 
-| Pipeline | Risultato | Pipe canonica |
+| Pipeline | Che cosa fa | Pipe canonica |
 | ---- | ---- | ---- |
 | Pipeline di Azure Machine Learning | Definisce flussi di lavoro di Machine Learning riutilizzabili che possono essere usati come modello per gli scenari di apprendimento automatico. | Modello di > dati |
 | [Pipeline di Data Factory di Azure](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Raggruppa le attività di spostamento, trasformazione e controllo dei dati necessarie per eseguire un'attività.  | Dati > dati |
@@ -185,7 +185,7 @@ Alcune situazioni che suggeriscono l'uso di una pipeline:
 
 * Accoppiamento elevato tra i passaggi della pipeline. Se il refactoring di un passaggio dipendente richiede spesso la modifica degli output di un passaggio precedente, è probabile che i passaggi distinti siano attualmente più costosi rispetto a un vantaggio. Un altro indizio che i passaggi sono eccessivamente associati sono gli argomenti di un passaggio che non sono dati, ma i flag per controllare l'elaborazione. 
 
-* Ottimizzazione prematura delle risorse di calcolo. Ad esempio, ci sono spesso diverse fasi per la preparazione dei dati e spesso è possibile vedere "Oh, qui è possibile usare un `MpiStep` per la programmazione parallela, ma in questo caso è possibile usare una `PythonScriptStep` con una destinazione di calcolo meno potente , "e così via. E forse, a lungo termine, la creazione di passaggi con granularità fine, ad esempio, potrebbe rivelarsi utile, soprattutto se esiste la possibilità di usare risultati memorizzati nella cache anziché ricalcolare sempre. Tuttavia, le pipeline non sono destinate a sostituire il modulo `multiprocessing`. 
+* Ottimizzazione prematura delle risorse di calcolo. Ad esempio, ci sono spesso diverse fasi per la preparazione dei dati e spesso è possibile vedere "Oh, qui è possibile usare un `MpiStep` per la programmazione parallela, ma in questo caso è possibile usare una `PythonScriptStep` con una destinazione di calcolo meno potente" e così via. E forse, a lungo termine, la creazione di passaggi con granularità fine, ad esempio, potrebbe rivelarsi utile, soprattutto se esiste la possibilità di usare risultati memorizzati nella cache anziché ricalcolare sempre. Tuttavia, le pipeline non sono destinate a sostituire il modulo `multiprocessing`. 
 
 Fino a quando un progetto non viene ampliato o si avvicina alla distribuzione, le pipeline devono essere più grossolane anziché granulari. Se si ritiene che il progetto ML includa _fasi_ e una pipeline per fornire un flusso di lavoro completo per spostarsi in una fase specifica, il percorso è quello giusto. 
 
@@ -193,7 +193,7 @@ Fino a quando un progetto non viene ampliato o si avvicina alla distribuzione, l
 
 I vantaggi principali dell'uso delle pipeline per i flussi di lavoro di Machine Learning sono:
 
-|Vantaggi principali|DESCRIZIONE|
+|Vantaggi principali|Description|
 |:-------:|-----------|
 |**Esecuzione&nbsp;automatica**|Pianificare i passaggi da eseguire in parallelo o in sequenza in modo affidabile e automatico. La preparazione e la modellazione dei dati possono durare giorni o settimane e le pipeline consentono di concentrarsi su altre attività durante l'esecuzione del processo. |
 |**Calcolo eterogeneo**|Usare più pipeline che vengono coordinate in modo affidabile tra le risorse di calcolo eterogenee e scalabili e i percorsi di archiviazione. Usare in modo efficiente le risorse di calcolo disponibili eseguendo singoli passaggi della pipeline su destinazioni di calcolo diverse, ad esempio HDInsight, VM di Data Science GPU e databricks.|

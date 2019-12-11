@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
-ms.openlocfilehash: 6004e08f5f30c7f3c63bb87437147db15da5e335
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: b0fec44a59bd70c6f1d0236861d93e81aaba033c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69016775"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969446"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Progettazione di un sistema di protezione del contenuto con il controllo di accesso tramite Servizi multimediali di Azure 
 
@@ -215,10 +215,10 @@ L'implementazione è costituita dai passaggi seguenti:
 
     | **DRM** | **Browser** | **Risultato per un utente con diritti** | **Risultato per un utente senza diritti** |
     | --- | --- | --- | --- |
-    | **PlayReady** |Microsoft Edge o Internet Explorer 11 in Windows 10 |Operazione riuscita |Errore |
-    | **Widevine** |Chrome, Firefox, Opera |Operazione riuscita |Errore |
-    | **FairPlay** |Safari su macOS      |Operazione riuscita |Errore |
-    | **AES-128** |Browser più moderni  |Operazione riuscita |Errore |
+    | **PlayReady** |Microsoft Edge o Internet Explorer 11 in Windows 10 |Succeed |Fail |
+    | **Widevine** |Chrome, Firefox, Opera |Succeed |Fail |
+    | **FairPlay** |Safari su macOS      |Succeed |Fail |
+    | **AES-128** |Browser più moderni  |Succeed |Fail |
 
 Per informazioni su come impostare Azure AD per un'app lettore MVC ASP.NET, vedere [Integrate an Azure Media Services OWIN MVC-based app with Azure Active Directory and restrict content key delivery based on JWT claims](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/) (Integrare un'app basata su OWIN MVC di Servizi multimediali di Azure con Azure Active Directory e limitare la distribuzione di chiavi simmetriche in base ad attestazioni JWT).
 
@@ -239,11 +239,11 @@ Usare le informazioni seguenti per la risoluzione dei problemi di implementazion
 
     In [JWT Decoder](http://jwt.calebb.net/) vengono visualizzati **aud** e **iss** come nel token JWT seguente:
 
-    ![JWT](./media/media-services-cenc-with-multidrm-access-control/media-services-1st-gotcha.png)
+    ![Token JSON Web](./media/media-services-cenc-with-multidrm-access-control/media-services-1st-gotcha.png)
 
 * Aggiungere autorizzazioni all'applicazione in Azure AD nella scheda **Configura** dell'applicazione. Le autorizzazioni sono obbligatorie per ogni applicazione, indipendentemente dal tipo di versione: locale e distribuita.
 
-    ![Autorizzazioni](./media/media-services-cenc-with-multidrm-access-control/media-services-perms-to-other-apps.png)
+    ![autorizzazioni](./media/media-services-cenc-with-multidrm-access-control/media-services-perms-to-other-apps.png)
 
 * Usare l'autorità di certificazione corretta quando si configura la protezione CENC dinamica.
 
@@ -257,7 +257,7 @@ Usare le informazioni seguenti per la risoluzione dei problemi di implementazion
 
 * Concedere i privilegi delle attestazioni di appartenenza al gruppo. Verificare che nel file manifesto dell'applicazione Azure AD sia presente quanto segue: 
 
-    "groupMembershipClaims": "All"    (il valore predefinito è null)
+    "groupMembershipClaims": "All"    (il valore predefinito è Null)
 
 * Impostare l'oggetto TokenType appropriato quando si creano i requisiti relativi alle restrizioni.
 
@@ -369,12 +369,12 @@ Quando si usa un servizio token di sicurezza personalizzato, è necessario appor
 Esistono due tipi di chiavi di sicurezza:
 
 * Chiave simmetrica: la stessa chiave viene usata per generare e verificare un token JWT.
-* Chiave asimmetrica: una coppia di chiavi pubblica-privata in un certificato X509 viene usata con una chiave privata per la crittografia/generazione di un token JWT e con la chiave pubblica per la verifica del token.
+* Chiave asimmetrica: un coppia di chiavi pubblica-privata in un certificato X509 viene usata con una chiave privata per la crittografia/generazione di un token JWT e con la chiave pubblica per la verifica del token.
 
 > [!NOTE]
 > Se si usa .NET Framework/C# come piattaforma di sviluppo, il certificato X509 usato per la chiave di sicurezza asimmetrica deve avere una lunghezza della chiave pari almeno a 2048 bit. È un requisito della classe System.IdentityModel.Tokens.X509AsymmetricSecurityKey in .NET Framework. In caso contrario, viene generata un'eccezione simile alla seguente:
 > 
-> IDX10630: 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' per la firma non può essere inferiore a 2048 bit.
+> IDX10630: 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' per la firma non può essere inferiore a '2048' bit.
 
 ## <a name="the-completed-system-and-test"></a>Sistema completato e test
 Questa sezione illustra gli scenari seguenti nel sistema end-to-end completato per offrire una panoramica generale di quanto avviene prima di ottenere un account di accesso:
@@ -462,16 +462,21 @@ La schermata seguente illustra uno scenario che usa una chiave asimmetrica trami
 
 In entrambi i casi precedenti, l'autenticazione utente è la stessa, ovvero viene eseguita tramite Azure AD. L'unica differenza è che i token JWT vengono rilasciati dal servizio token di sicurezza personalizzato invece che da Azure AD. Quando si configura la protezione CENC dinamica, la restrizione del servizio di distribuzione delle licenze specifica il tipo di token JWT, una chiave simmetrica o asimmetrica.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
+
 Questo documento ha illustrato la crittografia CENC con DRM nativo multiplo e il controllo di accesso tramite l'autenticazione token: la progettazione e l'implementazione con Azure, Servizi multimediali e Media Player.
 
 * Sono state presentate informazioni di riferimento sulla progettazione contenente tutti i componenti necessari in un sottosistema DRM/CENC.
 * Sono state presentate informazioni di riferimento sull'implementazione in Azure, Servizi multimediali e Media Player.
 * Sono stati anche illustrati alcuni argomenti direttamente correlati alla progettazione e all'implementazione.
 
+## <a name="additional-notes"></a>Note aggiuntive
+
+* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google, Inc.
+
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
  

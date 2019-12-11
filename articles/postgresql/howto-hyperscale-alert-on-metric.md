@@ -1,17 +1,17 @@
 ---
-title: Configurare gli avvisi relativi alle metriche per database di Azure per PostgreSQL-iperscalabilità (CITUS)
+title: Configurare gli avvisi-scalabilità iperscala (CITUS)-database di Azure per PostgreSQL
 description: Questo articolo descrive come configurare e accedere agli avvisi delle metriche per database di Azure per PostgreSQL-iperscalabilità (CITUS)
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d5f45df16ac294f50e99cc7e05ab6eba43c0ae85
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 68a830f344023967f07ab809d67833f99e4e2958
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516019"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977608"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Usare il portale di Azure per configurare gli avvisi sulle metriche per database di Azure per PostgreSQL-iperscalabilità (CITUS)
 
@@ -25,8 +25,8 @@ Verrà impostato un avviso da attivare quando il valore di una metrica specifica
 * Chiamare un webhook.
 
 È possibile configurare regole di avviso e ottenere informazioni su di esse tramite:
-* [Portale di Azure](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
-* [Interfaccia della riga di comando di Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [Azure portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [interfaccia della riga di comando di Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
 * [API REST di Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Creare una regola di avviso in base a una metrica dal portale di Azure

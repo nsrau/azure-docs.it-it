@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 5841826e1d8fcfd96ff5bf91b518df3b856d3ce5
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 1bdca9de0bb6fea608f2a30aa9928f2518fc9dce
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083200"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978169"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenari e disponibilità delle funzionalità di Servizi multimediali nei data center
 
 > [!NOTE]
-> Non saranno aggiunte nuove funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 
 Servizi multimediali di Microsoft Azure (AMS) consente di caricare, archiviare e codificare contenuti video o audio in modo sicuro, nonché creare pacchetti di tali contenuti per la distribuzione in streaming live e on demand a vari client (ad esempio, TV, PC e dispositivi mobili).
 
@@ -31,13 +31,13 @@ Servizi multimediali di Azure è compatibile con svariati data center in tutto i
 
 Questo argomento illustra scenari comuni per la distribuzione di contenuti [live](#live_scenarios) o su richiesta. e include anche informazioni dettagliate sulla disponibilità delle funzionalità e dei servizi multimediali nei data center.
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 
 Per iniziare a utilizzare Servizi multimediali di Azure, è necessario disporre di quanto segue:
 
-* Un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com).
+* Un account Azure. Se non si dispone di un account Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com).
 * Un account di Servizi multimediali di Azure. Per altre informazioni, vedere [Creare un account](media-services-portal-create-account.md).
 * L'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**.
 
@@ -123,7 +123,7 @@ Il diagramma seguente illustra le parti principali della piattaforma AMS coinvol
 
 ![Flusso di lavoro live](./media/scenarios-and-availability/media-services-live-streaming-current.png)
 
-Per altre informazioni, vedere [Uso di canali che ricevono il flusso live a più velocità in bit da codificatori locali](media-services-live-streaming-with-onprem-encoders.md).
+Per altre informazioni, vedere l'articolo relativo all' [uso di canali che ricevono il flusso live a velocità in bit multipla da codificatori locali](media-services-live-streaming-with-onprem-encoders.md).
 
 ### <a name="working-with-channels-that-are-enabled-to-perform-live-encoding-with-azure-media-services"></a>Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure
 
@@ -167,7 +167,7 @@ Questa sezione offre informazioni dettagliate sulla disponibilità delle funzion
 
 ### <a name="ams-accounts"></a>Account AMS
 
-#### <a name="availability"></a>Availability
+#### <a name="availability"></a>Disponibilità
 
 Per determinare se Servizi multimediali è disponibile in un data center, passare a https://azure.microsoft.com/status/ e scorrere fino alla tabella MEDIA.
 
@@ -175,16 +175,16 @@ Per determinare se Servizi multimediali è disponibile in un data center, passar
 
 I clienti di Servizi multimediali possono scegliere un endpoint di streaming **Standard** o **Premium**. Per altre informazioni, vedere la sezione relativa al [ridimensionamento](#scaling).
 
-#### <a name="availability"></a>Availability
+#### <a name="availability"></a>Disponibilità
 
-|Nome|Stato|Data center
+|name|Status|Data center
 |---|---|---|
-|Standard|GA|Tutti|
-|Premium|GA|Tutti|
+|Standard|Disponibilità a livello generale|Tutto|
+|Premium|Disponibilità a livello generale|Tutto|
 
 ### <a name="live-encoding"></a>Codifica live
 
-#### <a name="availability"></a>Availability
+#### <a name="availability"></a>Disponibilità
 
 È disponibile in tutti i data center tranne Germania, Brasile meridionale, India occidentale, India meridionale e India centrale. 
 
@@ -192,42 +192,42 @@ I clienti di Servizi multimediali possono scegliere un endpoint di streaming **S
 
 AMS offre due codificatori su richiesta: **Media Encoder Standard** e **Flusso di lavoro Premium del codificatore multimediale**. Per altre informazioni, vedere [Panoramica e confronto dei codificatori multimediali su richiesta di Azure](media-services-encode-asset.md). 
 
-#### <a name="availability"></a>Availability
+#### <a name="availability"></a>Disponibilità
 
-|Nome processore di contenuti multimediali|Stato|Data center
+|Nome processore di contenuti multimediali|Status|Data center
 |---|---|---|
-|Codificatore multimediale standard|GA|Tutti|
-|Flusso di lavoro Premium del codificatore multimediale|GA|Tutti tranne Cina|
+|Codificatore multimediale standard|Disponibilità a livello generale|Tutto|
+|Flusso di lavoro Premium del codificatore multimediale|Disponibilità a livello generale|Tutti tranne Cina|
 
 ### <a name="analytics-media-processors"></a>Processori di contenuti multimediali di analisi
 
 Analisi Servizi multimediali è una raccolta di componenti per sintesi vocale e visione artificiale che permettono a organizzazioni e aziende di derivare in modo più semplice analisi approfondite di utilità pratica dai loro file video. Per altre informazioni, vedere [Panoramica di Analisi Servizi multimediali di Azure](media-services-analytics-overview.md).
 
-#### <a name="availability"></a>Availability
+#### <a name="availability"></a>Disponibilità
 
-|Nome processore di contenuti multimediali|Stato|Data center
+|Nome processore di contenuti multimediali|Status|Data center
 |---|---|---|
-|Rilevamento multimediale volti di Azure|Anteprima|Tutti|
-|Azure Media Indexer|GA|Tutti|
-|Rilevatore multimediale di movimento Azure|Anteprima|Tutti|
-|Riconoscimento ottico dei caratteri multimediale di Azure|Anteprima|Tutti|
-|Azure Media Redactor|Anteprima|Tutti|
-|Anteprime video multimediali di Azure|Anteprima|Tutti|
-|Azure Media Indexer 2|Anteprima|Tutti tranne Cina e area Governo federale|
+|Rilevamento multimediale volti di Azure|Preview|Tutto|
+|Azure Media Indexer|Disponibilità a livello generale|Tutto|
+|Rilevatore multimediale di movimento Azure|Preview|Tutto|
+|Riconoscimento ottico dei caratteri multimediale di Azure|Preview|Tutto|
+|Azure Media Redactor|Preview|Tutto|
+|Anteprime video multimediali di Azure|Preview|Tutto|
+|Azure Media Indexer 2|Preview|Tutti tranne Cina e area Governo federale|
 
 ### <a name="protection"></a>Protezione
 
 Servizi multimediali di Microsoft Azure consente di proteggere i file multimediali dal momento in cui escono dal computer fino alle fasi di archiviazione, elaborazione e recapito. Per altre informazioni, vedere l'argomento relativo alla [protezione dei contenuti di AMS](media-services-content-protection-overview.md).
 
-#### <a name="availability"></a>Availability
+#### <a name="availability"></a>Disponibilità
 
-|Crittografia|Stato|Data center|
+|Crittografia|Status|Data center|
 |---|---|---| 
-|Archiviazione|GA|Tutti|
-|Chiavi AES-128|GA|Tutti|
-|Fairplay|GA|Tutti|
-|PlayReady|GA|Tutti|
-|Widevine|GA|Tutti tranne Germania, Governo federale e Cina.
+|Archiviazione|Disponibilità a livello generale|Tutto|
+|Chiavi AES-128|Disponibilità a livello generale|Tutto|
+|Fairplay|Disponibilità a livello generale|Tutto|
+|PlayReady|Disponibilità a livello generale|Tutto|
+|Widevine|Disponibilità a livello generale|Tutti tranne Germania, Governo federale e Cina.
 
 ### <a name="reserved-units-rus"></a>Unità riservate
 
@@ -235,7 +235,7 @@ Il numero delle unità riservate sottoposte a provisioning determina il numero d
 
 Per altre informazioni, vedere la sezione relativa al [ridimensionamento](#scaling).
 
-#### <a name="availability"></a>Availability
+#### <a name="availability"></a>Disponibilità
 
 Sono disponibili in tutti i data center.
 
@@ -245,13 +245,17 @@ Un account Servizi multimediali è associato a un tipo di unità riservata che d
 
 Per altre informazioni, vedere la sezione relativa al [ridimensionamento](#scaling).
 
-#### <a name="availability"></a>Availability
+#### <a name="availability"></a>Disponibilità
 
-|Nome tipo di unità riservata|Stato|Data center
+|Nome tipo di unità riservata|Status|Data center
 |---|---|---|
-|S1|GA|Tutti|
-|S2|GA|Tutti tranne Brasile meridionale e India occidentale|
-|S3|GA|Tutti tranne India occidentale|
+|S1|Disponibilità a livello generale|Tutto|
+|S2|Disponibilità a livello generale|Tutti tranne Brasile meridionale e India occidentale|
+|S3|Disponibilità a livello generale|Tutti tranne India occidentale|
+
+## <a name="additional-notes"></a>Note aggiuntive
+
+* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google, Inc.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -259,6 +263,6 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

@@ -3,17 +3,17 @@ title: Esportare un'applicazione IoT Central di Azure | Microsoft Docs
 description: In qualità di responsabile della soluzione, voglio esportare un modello di applicazione per poterlo riutilizzare.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/17/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 0edc1a7e470b7f0f3773b69635bbc26ab4d283b3
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 9870b18be9fb75e25941a7e1d05e4164239aacbb
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480376"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977523"
 ---
 # <a name="export-your-application-preview-features"></a>Esporta l'applicazione (funzionalità di anteprima)
 
@@ -30,7 +30,7 @@ Sono disponibili due opzioni:
 
 È possibile creare una copia di una qualsiasi applicazione, senza tuttavia includere eventuali istanze di dispositivi, la cronologia dei dati dei dispositivi e i dati degli utenti. La copia è un'applicazione con pagamento in base al consumo a cui verranno addebitati i costi. Non è possibile creare un'applicazione di valutazione copiando un'applicazione.
 
-Selezionare **copia**. Nella finestra di dialogo immettere i dettagli per la nuova applicazione con pagamento in base al consumo. Quindi selezionare **copia** per confermare che si vuole continuare. Per ulteriori informazioni sui campi nel modulo, vedere la Guida introduttiva alla [creazione di un'applicazione](quick-deploy-iot-central.md) .
+Selezionare **Copia**. Nella finestra di dialogo immettere i dettagli per la nuova applicazione con pagamento in base al consumo. Quindi selezionare **copia** per confermare che si vuole continuare. Per ulteriori informazioni sui campi nel modulo, vedere la Guida introduttiva alla [creazione di un'applicazione](quick-deploy-iot-central.md) .
 
 > [!NOTE]
 > È possibile **copiare l'applicazione** solo in **Europa** e **negli Stati Uniti** .
@@ -63,7 +63,7 @@ Quando si crea un modello di applicazione, include gli elementi seguenti dell'ap
 Quando si crea un modello di applicazione, non include gli elementi seguenti:
 
 - Dispositivi
-- Users
+- Utenti
 - Definizioni processi
 - Definizioni di esportazione dei dati continua
 

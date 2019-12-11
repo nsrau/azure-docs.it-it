@@ -6,15 +6,15 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 553234410a7b8b798d26f0e2fee6132a2602b1cc
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 3fed615a767fee2fff1700f996b2103f411db825
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770510"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973476"
 ---
 # <a name="manage-an-azure-database-for-mysql-server-using-the-azure-portal"></a>Gestire un database di Azure per il server MySQL usando il portale di Azure
-Questo articolo illustra come gestire il database incendiato per i server MySQL. Le attività di gestione includono il ridimensionamento di calcolo e archiviazione, la reimpostazione della password amministratore e la visualizzazione dei dettagli del server.
+Questo articolo illustra come gestire il database di Azure per i server MySQL. Le attività di gestione includono il ridimensionamento di calcolo e archiviazione, la reimpostazione della password amministratore e la visualizzazione dei dettagli del server.
 
 ## <a name="sign-in"></a>Accesso
 Accedere al [portale di Azure](https://portal.azure.com).

@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4666a9d084f6fc12cd68b69d5c71cafc3de0439
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 1c2036bf9995725e4bbef44e4c039f8336eb81a0
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807787"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997038"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Comprendere i connettori del proxy applicazione Azure AD
 
@@ -34,7 +34,7 @@ Per distribuire correttamente il proxy di applicazione, è necessario almeno un 
 ### <a name="windows-server"></a>Windows Server
 È necessario un server che esegue Windows Server 2012 R2 o versione successiva in cui poter installare il connettore del proxy applicazione. Questo server deve connettersi ai servizi proxy di applicazione in Azure e alle applicazioni locali che vengono pubblicate.
 
-È necessario abilitare TLS 1.2 per Windows Server prima di installare il connettore del proxy di applicazione. Per abilitare TLS 1.2 nel server:
+È necessario abilitare TLS 1.2 per Windows Server prima di installare il connettore del proxy di applicazione. Per abilitare TLS 1,2 sul server:
 
 1. Impostare le chiavi del Registro di sistema seguenti:
     
@@ -59,7 +59,7 @@ I connettori eseguono inoltre il polling del server per verificare se è disponi
 
 È possibile monitorare i connettori dal computer in cui vengono eseguiti usando il registro eventi e i contatori delle prestazioni. In alternativa è possibile vedere lo stato dalla pagina del proxy di applicazione del portale di Azure:
 
-![Esempio: Connettori Proxy di applicazione AD Azure](./media/application-proxy-connectors/app-proxy-connectors.png)
+![Esempio: Azure AD connettori del proxy di applicazione](./media/application-proxy-connectors/app-proxy-connectors.png)
 
 Non è necessario eliminare manualmente i connettori che non vengono usati. Quando un connettore è in esecuzione, rimane attivo quando si connette al servizio. I connettori inutilizzati vengono contrassegnati come _inattivi_ e vengono rimossi dopo 10 giorni di inattività. Per disinstallare un connettore, disinstallare sia il servizio connettore che il servizio di aggiornamento dal server. Riavviare il computer per rimuovere completamente il servizio.
 
@@ -86,11 +86,11 @@ I gruppi di connettori rendono più semplice gestire le distribuzioni di grandi 
 
 Per altre informazioni sui gruppi di connettori, vedere [Pubblicare applicazioni in reti e posizioni separate tramite i gruppi di connettori](application-proxy-connector-groups.md).
 
-## <a name="capacity-planning"></a>Pianificazione della capacità
+## <a name="capacity-planning"></a>pianificazione della capacità
 
-È importante assicurarsi di aver pianificato la capacità sufficiente tra i connettori per gestire il volume di traffico previsto. È consigliabile che ogni gruppo di connettori abbia almeno due connettori per assicurare scalabilità e disponibilità elevata. Con tre connettori è ottimale nel caso in cui potrebbe essere necessario un computer in qualsiasi punto del servizio.
+È importante assicurarsi di aver pianificato la capacità sufficiente tra i connettori per gestire il volume di traffico previsto. È consigliabile che ogni gruppo di connettori disponga di almeno due connettori per garantire disponibilità elevata e scalabilità. La presenza di tre connettori è ottimale nel caso in cui sia necessario servire un computer in qualsiasi momento.
 
-In generale, più utenti si hanno, più sarà grande il computer necessario. Di seguito è una tabella fornisce una descrizione del volume e latenza prevista può gestire computer diversi. Tutto è basato sulle transazioni al secondo (TPS) previste e non sugli utenti, poiché i modelli di utilizzo variano e non possono essere usati per stimare il carico. Esistono inoltre alcune differenze basate sulla dimensione delle risposte e sul tempo di risposta dell'applicazione back-end. Dimensioni di risposta più grandi e tempi di risposta più lenti comporteranno un numero massimo di TPS inferiore. È anche consigliabile avere macchine aggiuntive in modo che il carico distribuito tra il computer fornisce sempre ampiamente buffer. La capacità aggiuntiva che si ottiene garantisce elevati livelli di disponibilità e resilienza.
+In generale, più utenti si hanno, più sarà grande il computer necessario. Di seguito è riportata una tabella che fornisce un contorno del volume e la latenza prevista può essere gestita da computer diversi. Tutto è basato sulle transazioni al secondo (TPS) previste e non sugli utenti, poiché i modelli di utilizzo variano e non possono essere usati per stimare il carico. Esistono inoltre alcune differenze basate sulla dimensione delle risposte e sul tempo di risposta dell'applicazione back-end. Dimensioni di risposta più grandi e tempi di risposta più lenti comporteranno un numero massimo di TPS inferiore. Si consiglia inoltre di avere computer aggiuntivi, in modo che il carico distribuito tra le macchine fornisca sempre un ampio buffer. La capacità aggiuntiva che si ottiene garantisce elevati livelli di disponibilità e resilienza.
 
 |Core|RAM|Latenza prevista (MS)-P99|Numero massimo di TPS|
 | ----- | ----- | ----- | ----- |
@@ -99,20 +99,22 @@ In generale, più utenti si hanno, più sarà grande il computer necessario. Di 
 |8|32|270|1190|
 |16|64|245|1200*|
 
-\* Il computer usato un'impostazione personalizzata per la generazione di alcuni dei limiti di connessione predefinita di là .NET impostazioni consigliate. È consigliabile eseguire un test con le impostazioni predefinite prima di contattare il supporto per ottenere la modifica di questo limite per il tenant specifico.
+\* questo computer usava un'impostazione personalizzata per generare alcuni dei limiti di connessione predefiniti oltre le impostazioni consigliate per .NET. È consigliabile eseguire un test con le impostazioni predefinite prima di contattare il supporto per ottenere la modifica di questo limite per il tenant specifico.
 
 > [!NOTE]
-> Non c'è molta differenza nel numero massimo di TPS tra computer Core 4, 8 e 16. La differenza principale è la latenza prevista.  
+> Non c'è molta differenza nel numero massimo di TPS tra computer Core 4, 8 e 16. La differenza principale è la latenza prevista.
+>
+> Questa tabella è incentrata anche sulle prestazioni previste di un connettore in base al tipo di computer in cui è installato. Questa operazione è separata dai limiti di limitazione del servizio proxy di applicazione, vedere [limiti e restrizioni del servizio](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions).
 
 ## <a name="security-and-networking"></a>Sicurezza e rete
 
-I connettori possono essere installati in qualsiasi punto della rete che consenta loro di inviare richieste al servizio proxy dell'applicazione. È importante che il computer che esegue il connettore abbia anche accesso alle app. È possibile installare i connettori all'interno della rete aziendale o in una macchina virtuale che viene eseguita nel cloud. I connettori possono eseguiti all'interno di una rete perimetrale, nota anche come un perimetrale (DMZ), ma non è necessario perché tutto il traffico in uscita in modo che la rete è protetta.
+I connettori possono essere installati in qualsiasi punto della rete che consenta loro di inviare richieste al servizio proxy dell'applicazione. È importante che il computer che esegue il connettore abbia anche accesso alle app. È possibile installare i connettori all'interno della rete aziendale o in una macchina virtuale che viene eseguita nel cloud. I connettori possono essere eseguiti all'interno di una rete perimetrale, nota anche come zona demilitarizzata (DMZ), ma non è necessario poiché tutto il traffico è in uscita, in modo che la rete rimanga protetta.
 
 I connettori inviano le richieste soltanto in uscita. Il traffico in uscita viene inviato al servizio proxy applicazione e alle applicazioni pubblicate. Non è necessario aprire porte in ingresso perché il traffico scorre in entrambe le direzioni, dopo aver stabilito una sessione. Non è inoltre necessario configurare l'accesso in ingresso attraverso firewall.
 
 Per maggiori informazioni sulla configurazione delle regole del firewall in uscita, vedere [Usare server proxy locali esistenti](application-proxy-configure-connectors-with-proxy-servers.md).
 
-## <a name="performance-and-scalability"></a>Prestazioni e scalabilità
+## <a name="performance-and-scalability"></a>Performance e scalabilità
 
 Anche se la scalabilità per il servizio proxy di applicazione è trasparente, è comunque un fattore per i connettori. È necessario disporre di connettori sufficienti per gestire il traffico di picco. Poiché i connettori sono senza stato, non vengono influenzati dal numero di utenti o sessioni. Dipendono invece dal numero di richieste e dalle dimensioni del payload. In un traffico Web standard, un computer medio può gestire circa duemila richieste al secondo. La capacità specifica dipende dalle esatte caratteristiche del computer.
 
@@ -124,9 +126,9 @@ Se per qualsiasi motivo il connettore o il computer non sono più disponibili, i
 
 Un altro fattore che influenza le prestazioni è la qualità della connessione di rete tra i connettori, inclusi:
 
-- **Il servizio online**: Connessioni lente o a elevata latenza al servizio proxy di applicazione in Azure influenzano le prestazioni del connettore. Per ottenere prestazioni ottimali, connettere l'organizzazione ad Azure con Express Route. In caso contrario, assicurarsi che il team di rete garantisca una gestione il più possibile efficiente delle connessioni ad Azure.
-- **Applicazioni back-end**: In alcuni casi ci sono altri proxy tra il connettore e le applicazioni back-end che possono rallentare o impedire la connessione. Per risolvere questo scenario, aprire un browser dal server del connettore e tentare di accedere all'applicazione. Se si eseguono i connettori in Azure, ma le applicazioni sono locali, l'esperienza degli utenti potrebbe essere diversa da quella prevista.
-- **I controller di dominio**: Se i connettori eseguono l'accesso Single Sign-On (SSO) mediante la delega vincolata Kerberos, essi contattano i controller di dominio prima di inviare la richiesta al back-end. I connettori hanno una cache dei ticket Kerberos, ma in ambienti affollati la velocità di risposta dei controller di dominio può influenzare le prestazioni. Questa situazione è più comune per i connettori eseguiti in Azure, ma che comunicano con i controller di dominio locali.
+- **Il servizio online**: connessioni lente o a elevata latenza al servizio proxy di applicazione in Azure influenzano le prestazioni del connettore. Per ottenere prestazioni ottimali, connettere l'organizzazione ad Azure con Express Route. In caso contrario, assicurarsi che il team di rete garantisca una gestione il più possibile efficiente delle connessioni ad Azure.
+- **Applicazioni back-end:** in alcuni casi ci sono altri proxy tra il connettore e le applicazioni back-end che possono rallentare o impedire la connessione. Per risolvere questo scenario, aprire un browser dal server del connettore e tentare di accedere all'applicazione. Se si eseguono i connettori in Azure, ma le applicazioni sono locali, l'esperienza degli utenti potrebbe essere diversa da quella prevista.
+- **Controller di dominio**: se i connettori eseguono Single Sign-on (SSO) con la delega vincolata Kerberos, contattano i controller di dominio prima di inviare la richiesta al back-end. I connettori hanno una cache dei ticket Kerberos, ma in ambienti affollati la velocità di risposta dei controller di dominio può influenzare le prestazioni. Questa situazione è più comune per i connettori eseguiti in Azure, ma che comunicano con i controller di dominio locali.
 
 Per maggiori informazioni sull'ottimizzazione della rete, vedere [Considerazioni relative alla topologia di rete quando si usa il proxy di applicazione di Azure Active Directory](application-proxy-network-topology.md).
 
@@ -174,7 +176,7 @@ Per visualizzare i log, passare al Visualizzatore eventi, aprire il menu **Visua
 
 È possibile esaminare lo stato del servizio nella finestra Servizi. Il connettore è costituito da due servizi di Windows, ovvero il connettore stesso e il programma di aggiornamento. Entrambi devono essere eseguiti costantemente.
 
- ![Esempio: Finestra con servizi di Azure Active Directory locale di servizi](./media/application-proxy-connectors/aad-connector-services.png)
+ ![Esempio: finestra dei servizi che mostra Azure AD servizi locali](./media/application-proxy-connectors/aad-connector-services.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

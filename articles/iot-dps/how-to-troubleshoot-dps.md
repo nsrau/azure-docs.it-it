@@ -1,6 +1,6 @@
 ---
 title: Diagnosticare e risolvere i problemi relativi alle disconnessioni con l'hub Internet Azure
-description: Informazioni su come diagnosticare e risolvere gli errori comuni con la connettività dei dispositivi per l'hub di Azure
+description: Informazioni su come diagnosticare e risolvere gli errori comuni con la connettività dei dispositivi per il servizio Device provisioning in hub Azure
 author: xujing-ms
 manager: nberdy
 ms.service: iot-dps
@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: xujing
-ms.openlocfilehash: b596a09e2185b38e6161ea4af2aa109e80faf248
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: ffe20ff80e26bc5564b9379ea21ca99e2890b519
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70963421"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974820"
 ---
 # <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>Risoluzione dei problemi con il servizio Device provisioning in hub Azure
 
@@ -32,7 +32,7 @@ La procedura seguente descrive come visualizzare e configurare l'avviso sulla me
 4. Selezionare la metrica desiderata. 
    <br />Attualmente sono disponibili tre metriche per DPS:
 
-    | Nome della metrica | Descrizione |
+    | Nome della metrica | Description |
     |-------|------------|
     | Tentativi di attestazione | Numero di dispositivi che hanno tentato di eseguire l'autenticazione con il servizio Device provisioning|
     | Tentativi di registrazione | Numero di dispositivi che hanno tentato di eseguire la registrazione nell'hub Internet al termine dell'autenticazione|
@@ -58,7 +58,7 @@ Per altre informazioni, vedere [che cosa sono gli avvisi classici in Microsoft A
 
 5. Abilitare la raccolta dei log desiderati.
 
-    | Nome registro | Descrizione |
+    | Nome registro | Description |
     |-------|------------|
     | DeviceOperations | Log relativi agli eventi di connessione del dispositivo |
     | ServiceOperations | Log eventi correlati all'uso di Service SDK, ad esempio la creazione o l'aggiornamento di gruppi di registrazioni|
@@ -69,17 +69,17 @@ Per altre informazioni, vedere [che cosa sono gli avvisi classici in Microsoft A
 
 8. Fare clic su **Esegui** per visualizzare gli eventi recenti.
 
-9. Se sono presenti risultati `OperationName`, cercare `ResultSignature`, `ResultType`, e `ResultDescription` (messaggio di errore) per ottenere maggiori dettagli sull'errore.
+9. Se sono presenti risultati, cercare `OperationName`, `ResultType`, `ResultSignature`e `ResultDescription` (messaggio di errore) per ottenere maggiori dettagli sull'errore.
 
 
 ## <a name="common-error-codes"></a>Codici di errore comuni
 Usare questa tabella per comprendere e risolvere gli errori comuni.
 
-| Codice di errore| Descrizione | Codice di stato HTTP |
+| Codice di errore| Description | Codice di stato HTTP |
 |-------|------------|------------|
 | 400 | Il corpo della richiesta non è valido. ad esempio, non può essere analizzato o l'oggetto non può essere convalidato.| 400 formato non valido |
 | 401 | Il token di autorizzazione non può essere convalidato. ad esempio, è scaduta o non si applica all'URI della richiesta. Questo codice di errore viene anche restituito ai dispositivi come parte del flusso di attestazione TPM. | 401 - Non autorizzato|
-| 404 | L'istanza del servizio Device provisioning o una risorsa, ad esempio una registrazione, non esiste. |404 Non trovato |
+| 404 | L'istanza del servizio Device provisioning o una risorsa, ad esempio una registrazione, non esiste. |404 - Pagina non trovata |
 | 412 | Il valore ETag nella richiesta non corrisponde al valore ETag della risorsa esistente, in base al valore di RFC7232. | 412 Precondizione non riuscita |
 | 429 | Le operazioni sono limitate dal servizio. Per i limiti di servizio specifici, vedere [limiti del servizio Device provisioning in hub](https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits). | 429 numero eccessivo di richieste |
 | 500 | An internal error occurred. | 500 - Errore interno del server|

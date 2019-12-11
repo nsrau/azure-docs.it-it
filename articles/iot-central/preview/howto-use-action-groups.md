@@ -4,16 +4,16 @@ description: Eseguire più azioni da una singola regola di IoT Central e creare 
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/21/2019
+ms.date: 12/06/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: philmea
-ms.openlocfilehash: e51a2fc7e3af9a56b90a66935ef01ac907ebce3b
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: a93e96dd14411302bf5368b4825044e060b54a43
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929894"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974360"
 ---
 # <a name="group-multiple-actions-to-run-from-one-or-more-rules-preview-features"></a>Raggruppare più azioni da eseguire da una o più regole (funzionalità di anteprima)
 
@@ -21,7 +21,7 @@ ms.locfileid: "73929894"
 
 In IoT Central di Azure è possibile creare regole per eseguire azioni quando viene soddisfatta una condizione. Le regole sono basate sui dati di telemetria del dispositivo o sugli eventi. Ad esempio, è possibile inviare una notifica a un operatore quando la temperatura di un dispositivo supera una soglia. Questo articolo descrive come usare i [monitoraggio di Azure](../../azure-monitor/overview.md) *gruppi di azioni* per alleghi più azioni a una regola di IOT Central. È possibile aggiungere un gruppo di azioni a più regole. Un [gruppo di azioni](../../azure-monitor/platform/action-groups.md) è una raccolta di preferenze di notifica definite dal proprietario di una sottoscrizione di Azure.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Un'applicazione con pagamento in base al consumo
 - Un account e una sottoscrizione di Azure per creare e gestire gruppi di azioni di monitoraggio di Azure
@@ -59,9 +59,9 @@ Nella tabella seguente sono riepilogate le informazioni inviate ai tipi di azion
 
 | Tipo di azione | Formato di output |
 | ----------- | -------------- |
-| Email       | Modello di posta elettronica standard IoT Central |
-| sms         | Avviso IoT Central di Azure: $ {ApplicationName}-"$ {RuleName}" attivata in "$ {DeviceName}" in $ {triggerDate} $ {triggerTime} |
-| Chiamata vocale       | Avviso centrale Azure I. O. T: regola "$ {RuleName}" attivata sul dispositivo "$ {DeviceName}" in $ {triggerDate} $ {triggerTime}, nell'applicazione $ {applicationName} |
+| Indirizzo di posta elettronica       | Modello di posta elettronica standard IoT Central |
+| SMS         | Avviso IoT Central di Azure: $ {ApplicationName}-"$ {RuleName}" attivata in "$ {DeviceName}" in $ {triggerDate} $ {triggerTime} |
+| Voce       | Avviso centrale Azure I. O. T: regola "$ {RuleName}" attivata sul dispositivo "$ {DeviceName}" in $ {triggerDate} $ {triggerTime}, nell'applicazione $ {applicationName} |
 | webhook     | {"schemaId": "AzureIoTCentralRuleWebhook", "data": {[payload del webhook normale](howto-create-webhooks.md#payload)}} |
 
 Il testo seguente è un esempio di messaggio SMS da un gruppo di azione:

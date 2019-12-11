@@ -1,6 +1,6 @@
 ---
-title: App Web per l'accesso degli utenti (registrazione dell'app)-piattaforma di identità Microsoft
-description: Informazioni su come creare un'app Web per l'accesso degli utenti (registrazione dell'app)
+title: Registrare un'app Web che esegue l'accesso agli utenti-piattaforma di identità Microsoft | Azure
+description: Informazioni su come registrare un'app Web per l'accesso degli utenti
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d840cbaba2cc8325c619248bb7f4421d3b2f83c
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: b08dd5602196bae0e250953c83320e69ddc6da83
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766073"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964821"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>App Web che esegue l'accesso degli utenti: registrazione dell'app
 
@@ -58,7 +58,7 @@ Per registrare l'applicazione, è possibile usare:
 1. Selezionare il menu **Autenticazione** e quindi aggiungere le informazioni seguenti:
    1. Per **URL di risposta**aggiungere **https://localhost:44321/signin-oidc** di tipo **Web**.
    1. Nella sezione **Impostazioni avanzate** impostare **disconnetti URL** su **https://localhost:44321/signout-oidc** .
-   1. In **concessione implicita**selezionare **token ID**.
+   1. In **Concessione implicita** selezionare **Token ID**.
    1. Selezionare **Salva**.
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)

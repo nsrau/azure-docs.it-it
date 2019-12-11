@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti su Hyperscale
+title: Domande frequenti-iperscalabilità (CITUS)-database di Azure per PostgreSQL
 description: Risposte alle domande comuni dei clienti sul database SQL di Azure nel livello di servizio Hyperscale, detto comunemente database Hyperscale.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/12/2019
-ms.openlocfilehash: 89316811f39b4cab918b913b45ae5945686e6b15
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 377de93733d94d8cff5518eebb8ebba38154d10d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818218"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974020"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Domande frequenti sull'iperscalabilità del database SQL di Azure
 
@@ -39,19 +39,19 @@ Il livello di servizio Hyperscale è disponibile solo per i database singoli che
 
 I livelli di servizio basati su vCore sono differenziati in base alla disponibilità del database e al tipo di archiviazione, alle prestazioni e alle dimensioni massime, come descritto nella tabella seguente.
 
-| | Tipo di risorsa | Utilizzo generico |  Hyperscale | Business Critical |
+| | Tipo di risorsa | Scopo generico |  Hyperscale | Business Critical |
 |:---:|:---:|:---:|:---:|:---:|
-| **Ideale per** |Tutti|Offre opzioni di calcolo e archiviazione bilanciate a prezzi convenienti.|La maggior parte dei carichi di lavoro aziendali. Ridimensionamento automatico delle dimensioni di archiviazione fino a 100 TB, scalabilità verticale e orizzontale rapida del calcolo, ripristino rapido del database.|Applicazioni OLTP con frequenza di transazione elevata e bassa latenza di i/o. Offre la massima resilienza agli errori e a failover rapidi usando più repliche aggiornate in modo sincrono.|
+| **Ideale per** |Tutto|Offre opzioni di calcolo e archiviazione bilanciate a prezzi convenienti.|La maggior parte dei carichi di lavoro aziendali. Ridimensionamento automatico delle dimensioni di archiviazione fino a 100 TB, scalabilità verticale e orizzontale rapida del calcolo, ripristino rapido del database.|Applicazioni OLTP con frequenza di transazione elevata e bassa latenza di i/o. Offre la massima resilienza agli errori e a failover rapidi usando più repliche aggiornate in modo sincrono.|
 |  **Tipo di risorsa** ||Database singolo/pool elastico/istanza gestita | Database singolo | Database singolo/pool elastico/istanza gestita |
 | **Dimensioni di calcolo**|Database singolo/pool elastico* | Da 1 a 80 vCore | Da 1 a 80 vCore* | Da 1 a 80 vCore |
 | |Istanza gestita | 8, 16, 24, 32, 40, 64, 80 vCore | N/D | 8, 16, 24, 32, 40, 64, 80 vCore |
-| **Tipo di archiviazione** | Tutti |Archiviazione remota Premium (per istanza) | Archiviazione disaccoppiata con cache SSD locale (per istanza) | Archiviazione SSD locale estremamente veloce (per istanza) |
+| **Tipo di archiviazione** | Tutto |Archiviazione remota Premium (per istanza) | Archiviazione disaccoppiata con cache SSD locale (per istanza) | Archiviazione SSD locale estremamente veloce (per istanza) |
 | **Dimensioni archiviazione** | Database singolo/pool elastico*| 5 GB - 4 TB | Fino a 100 TB | 5 GB - 4 TB |
 | | Istanza gestita  | 32 GB - 8 TB | N/D | 32 GB - 4 TB |
 | **IOPS** | Database singolo | 500 operazioni di I/O al secondo per vCore fino a un massimo di 7000 | La funzionalità iperscalabile è un'architettura a più livelli con memorizzazione nella cache a più livelli. Gli IOPS effettivi dipendono dal carico di lavoro. | 5000 operazioni di I/O al secondo fino a un massimo di 200.000|
 | | Istanza gestita | Dipende dalle dimensioni del file | N/D | 1375 IOPS/vCore |
-|**Disponibilità**|Tutti|1 replica, nessuna scalabilità in lettura, nessuna cache locale | Più repliche, fino a 4 scalabilità in lettura, cache locale parziale | 3 repliche, 1 scalabilità in lettura, disponibilità elevata con ridondanza della zona, archiviazione locale completa |
-|**Backup**|Tutti|RA-GRS, conservazione di 7-35 giorni (7 giorni per impostazione predefinita)| RA-GRS, conservazione di 7 giorni, ripristino temporizzato temporizzato costante (ripristino temporizzato) | RA-GRS, conservazione di 7-35 giorni (7 giorni per impostazione predefinita) |
+|**Disponibilità**|Tutto|1 replica, nessuna scalabilità in lettura, nessuna cache locale | Più repliche, fino a 4 scalabilità in lettura, cache locale parziale | 3 repliche, 1 scalabilità in lettura, disponibilità elevata con ridondanza della zona, archiviazione locale completa |
+|**Backup**|Tutto|RA-GRS, conservazione di 7-35 giorni (7 giorni per impostazione predefinita)| RA-GRS, conservazione di 7 giorni, ripristino temporizzato temporizzato costante (ripristino temporizzato) | RA-GRS, conservazione di 7-35 giorni (7 giorni per impostazione predefinita) |
 
 \* pool elastici non sono supportati nel livello di servizio di iperscalabilità
 
@@ -95,7 +95,7 @@ L'iperscalabilità offre una scalabilità rapida in base alla domanda del carico
 
 ### <a name="can-i-mix-hyperscale-and-single-databases-in-a-single-logical-server"></a>È possibile combinare iperscalare e database singoli in un singolo server logico
 
-Sì,
+Sì, puoi.
 
 ### <a name="does-hyperscale-require-my-application-programming-model-to-change"></a>Il livello Hyperscale richiede la modifica del modello di programmazione dell'applicazione
 
@@ -117,7 +117,7 @@ L'iperscalabilità supporta tutti i carichi di lavoro SQL Server, ma è ottimizz
 
 Se si eseguono query di analisi interattive usando SQL Server come data warehouse, l'iperscalabilità è un'ottima opzione perché è possibile ospitare data warehouse di piccole e medie dimensioni, ad esempio pochi TB fino a 100 TB, a un costo inferiore ed è possibile eseguire la migrazione del SQL Server War data eHouse i carichi di lavoro per l'iperscalabilità con modifiche minime al codice T-SQL.
 
-Se si esegue l'analisi dei dati su larga scala con query complesse e frequenze di inserimento prolungate superiori a 100 MB/s oppure si utilizzano Parallel data warehouse (PDW), Teradata o altri data warehouse di elaborazione parallela massiva (MPP), SQL Data Warehouse può essere il scelta migliore.
+Se si esegue l'analisi dei dati su larga scala con query complesse e frequenze di inserimento prolungate superiori a 100 MB/s oppure si utilizzano Parallel data warehouse (PDW), Teradata o altri data warehouse di elaborazione parallela massiva (MPP), SQL Data Warehouse può essere la scelta migliore.
   
 ## <a name="hyperscale-compute-questions"></a>Domande di calcolo con iperscalabilità
 
@@ -278,7 +278,7 @@ Sì.  Il ripristino geografico è completamente supportato.
 
 ### <a name="can-i-set-up-geo-replication-with-hyperscale-database"></a>È possibile configurare la replica geografica con un database con iperscalabilità
 
-Attualmente non è possibile.
+Non attualmente.
 
 ### <a name="can-i-take-a-hyperscale-database-backup-and-restore-it-to-my-on-premises-server-or-on-sql-server-in-a-vm"></a>È possibile eseguire un backup del database con iperscalabilità e ripristinarlo nel server locale o in SQL Server in una macchina virtuale
 
@@ -385,6 +385,6 @@ No. I database con iperscalabilità includono spazio di archiviazione condiviso,
 
 Dal momento in cui viene eseguito il commit di una transazione nel database primario, a seconda della velocità di generazione del log corrente, può essere istantaneo o in millisecondi di basso livello.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 Per altre informazioni sul livello di servizio di iperscalabilità, vedere [livello di servizio di iperscalabilità](sql-database-service-tier-hyperscale.md).

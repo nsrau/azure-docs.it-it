@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: ec87146c721222702073eae067a259aa9848d0f7
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: d5201cd2e7c117e1229fcd04d77e8c429c1fc8ba
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048979"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977132"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guida di Azure AI per soluzioni di manutenzione predittiva
 
-## <a name="summary"></a>summary
+## <a name="summary"></a>Summary
 
 Manutenzione predittiva (**PdM**) è un'applicazione comune di analisi predittiva che può consentire alle aziende di diversi settori di usare in modo ottimale gli asset e ridurre i costi operativi. Questa guida sintetizza le linee guida e le procedure consigliate aziendali e analitiche per sviluppare e distribuire nel modo corretto soluzioni PdM tramite la tecnologia della [piattaforma Microsoft Azure per l'intelligenza artificiale](https://azure.microsoft.com/overview/ai-platform).
 
@@ -41,8 +41,8 @@ Il contenuto per i BDM non prevede alcuna conoscenza precedente della data scien
 
 ## <a name="business-case-for-predictive-maintenance"></a>Casi aziendali per la manutenzione predittiva
 
-Per le aziende è essenziale che le apparecchiature critiche funzionino con la massima efficienza e vengano usate in modo ottimale per realizzare il ritorno sul capitale investito. Questi asset possono andare da motori di velivoli, turbine, ascensori o sistemi di raffreddamento industriali, che costano milioni, fino ad apparecchiature di uso quotidiano, come fotocopiatrici, macchine per il caffè o distributori d'acqua.
-- Generalmente, la maggior parte delle aziende si affida alla _manutenzione correttiva_, in cui le parti vengono sostituite quando presentano un problema. La manutenzione correttiva garantisce che le parti vengano usate completamente (quindi evita sprechi della vita utile del componente), ma presenta costi per le aziende in termini di tempi di inattività, manodopera e requisiti di manutenzione non pianificata (attività fuori dall'orario lavorativo o in posizioni difficili da raggiungere).
+Per le aziende è essenziale che le apparecchiature strategiche funzionino con la massima efficienza e vengano usate in modo ottimale per realizzare il ritorno sul capitale investito. Questi asset possono andare da motori di velivoli, turbine, ascensori o sistemi di raffreddamento industriali, che costano milioni, fino ad apparecchiature di uso quotidiano, come fotocopiatrici, macchine per il caffè o distributori d'acqua.
+- Generalmente, la maggior parte delle aziende si affida alla _manutenzione correttiva_, in cui le parti vengono sostituite quando presentano un problema. La manutenzione correttiva garantisce che le parti vengano usate completamente (quindi evita sprechi della vita utile del componente), ma presenta costi per le aziende in termini di tempi di inattività, manodopera e requisiti di manutenzione non pianificata (ore di straordinari o località scomode).
 - Al livello successivo, alcune aziende applicano la _manutenzione preventiva_, in cui viene determinato il ciclo di vita utile per una parte, in modo da eseguire la manutenzione o la sostituzione prima che si verifichi un guasto. La manutenzione preventiva consente di evitare i problemi non pianificati e di grave entità. Tuttavia, restano ancora i problemi relativi ai costi elevati dei tempi di inattività pianificati, al sottoutilizzo dei componenti prima del termine della relativa vita utile e alla manodopera.
 - L'obiettivo della _manutenzione predittiva_ è ottimizzare l'equilibrio tra la manutenzione correttiva e quella preventiva, rendendo possibile la sostituzione _just-in-time_ dei componenti. In questo approccio, i componenti vengono sostituiti solo quando sta per verificarsi un guasto. Estendendo il ciclo di vita dei componenti (rispetto alla manutenzione preventiva) e riducendo i costi della manutenzione non pianificata e della manodopera (rispetto alla manutenzione correttiva), le aziende possono ottenere riduzioni dei costi e vantaggi competitivi.
 
@@ -203,7 +203,9 @@ I requisiti aziendali definiscono l'intervallo di tempo nel futuro rispetto al q
 #### <a name="rolling-aggregates"></a>Aggregazioni in sequenza
 Per ogni record di un asset, viene scelta una finestra con dimensione "W" che corrisponde al numero di unità di tempo per cui calcolare le aggregazioni. Vengono quindi calcolate le funzioni di ritardo usando i periodi W _prima della data_ di quel record. Nella figura 1, le linee blu indicano i valori di un sensore registrati per un asset per ogni unità di tempo. Indicano una media mobile dei valori della funzione su una finestra con dimensione W=3. La media mobile viene calcolata su tutti i record con timestamp compresi nell'intervallo da t<sub>1</sub> (in arancione) a t<sub>2</sub> (in verde). Il valore per W è in genere in minuti o ore, a seconda della natura dei dati. Tuttavia, per alcuni problemi, la selezione di un valore W elevato (ad esempio, 12 mesi) può fornire l'intera cronologia di un asset fino all'ora del record.
 
-![Figura 1. Funzioni di aggregazione in sequenza](./media/cortana-analytics-playbook-predictive-maintenance/rolling-aggregate-features.png) Figura 1. Funzioni di aggregazione in sequenza
+![Figura 1. Funzioni di aggregazione in sequenza](./media/cortana-analytics-playbook-predictive-maintenance/rolling-aggregate-features.png)
+
+Figura 1. Funzioni di aggregazione in sequenza
 
 Alcuni esempi di funzioni di aggregazione in sequenza in una finestra temporale sono il conteggio, la media, le misure CUMESUM (somma cumulativa) e i valori minimo e massimo. Inoltre, spesso vengono usati la varianza, la deviazione standard e il numero di outlier oltre N deviazioni standard. Alcuni esempi di aggregazioni che possono essere applicate per i [casi d'uso](#sample-pdm-use-cases) presentati in questa guida sono elencati di seguito. 
 - _Ritardi dei voli_: numero di codici di errore nell'ultimo giorno/settimana.
@@ -217,7 +219,9 @@ Un'altra tecnica utile in PdM consiste nell'acquisire modifiche della tendenza, 
 #### <a name="tumbling-aggregates"></a>Aggregazioni a cascata
 Per ogni record con etichetta di un asset, viene definita una finestra di dimensioni _w-<sub>k</sub>_  , dove _k_ è il numero di finestre di dimensioni _w_. Le aggregazioni vengono quindi create _su un_ valore di _Windows a cascata_ _w-k, w-<sub>(k-1)</sub>,..., w-<sub>2</sub>, w-<sub>1</sub>_  per i punti prima del timestamp di un record. _k_ può essere un numero ridotto per acquisire gli effetti a breve termine o un numero elevato per acquisire schemi di degradazione a lungo termine (vedere la figura 2).
 
-![Figura 2. Funzioni di aggregazione a cascata](./media/cortana-analytics-playbook-predictive-maintenance/tumbling-aggregate-features.png) Figura 2. Funzioni di aggregazione a cascata
+![Figura 2. Funzioni di aggregazione a cascata](./media/cortana-analytics-playbook-predictive-maintenance/tumbling-aggregate-features.png)
+
+Figura 2. Funzioni di aggregazione a cascata
 
 Ad esempio, le funzioni di ritardo per il caso d'uso delle turbine eoliche possono essere create con W=1 e k=3. Tali funzioni implicano il ritardo per ognuno degli ultimi tre mesi usando gli outlier superiore e inferiore.
 
@@ -227,7 +231,7 @@ Le specifiche tecniche delle apparecchiature come la data di fabbricazione, il n
 
 Come risultato delle operazioni di preparazione dei dati descritte finora, i dati saranno organizzati come illustrato di seguito. I dati di training, test e convalida devono avere questo schema logico (in questo esempio il tempo è espresso in unità di giorni).
 
-| ID asset | Time | Colonne della funzionalità \<> | Etichetta |
+| ID asset | Durata | Colonne della funzionalità \< | Etichette |
 | ---- | ---- | --- | --- |
 | A123 |Giorno 1 | . . . | . |
 | A123 |Giorno 2 | . . . | . |
@@ -262,7 +266,9 @@ In questa tecnica, vengono identificati due tipi di esempi di training. Un esemp
 #### <a name="label-construction-for-binary-classification"></a>Costruzione delle etichette per la classificazione binaria
 In questo caso, la domanda è: "qual è la probabilità che l'asset si guasti entro X unità di tempo?" Per rispondere a questa domanda, assegnare a X record prima dell'errore di un asset l'etichetta "possibile guasto" (etichetta = 1) e a tutti gli altri record l'etichetta "normale" (etichetta = 0) (vedere la figura 3).
 
-![Figura 3. Assegnazione di etichette per la classificazione binaria](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-binary-classification.png) Figura 3. Assegnazione di etichette per la classificazione binaria
+![Figura 3. Assegnazione di etichette per la classificazione binaria](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-binary-classification.png)
+
+Figura 3. Assegnazione di etichette per la classificazione binaria
 
 Di seguito sono elencati gli esempi della strategia di assegnazione delle etichette per alcuni dei casi d'uso.
 - _Ritardi dei voli_: per X è possibile scegliere 1 giorno, in modo da stimare i ritardi nelle 24 ore successive. A tutti i voli entro 24 ore prima dei guasti viene assegnata l'etichetta 1.
@@ -277,7 +283,9 @@ I modelli di regressione vengono usati per _calcolare la vita utile rimanente di
 #### <a name="label-construction-for-regression"></a>Costruzione delle etichette per la regressione
 In questo caso, la domanda è: "qual è la vita utile rimanente dell'apparecchiatura?" Per ogni record prima del guasto, calcolare l'etichetta come il numero di unità di tempo rimanenti prima del guasto successivo. In questo metodo le etichette sono variabili continue (vedere la figura 4).
 
-![Figura 4. Assegnazione di etichette per la regressione](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-regression.png) Figura 4. Assegnazione di etichette per la regressione
+![Figura 4. Assegnazione di etichette per la regressione](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-regression.png)
+
+Figura 4. Assegnazione di etichette per la regressione
 
 Per la regressione, l'assegnazione delle etichette viene eseguita in base a un punto di guasto. Il calcolo non è possibile se non si conosce il tempo di sopravvivenza dell'asset prima di un guasto. Pertanto, a differenza della classificazione binaria, gli asset senza errori nei dati non possono essere usati per la modellazione. La soluzione migliore per questo problema è l'uso di un'altra tecnica statistica detta [analisi di sopravvivenza](https://en.wikipedia.org/wiki/Survival_analysis). Tuttavia, possono insorgere potenziali complicazioni nell'applicare questa tecnica ai casi d'uso PdM, che prevedono dati variabili nel tempo con intervalli frequenti. Per altre informazioni sull'analisi di sopravvivenza, vedere [questo articolo](https://www.cscu.cornell.edu/news/news.php/stnews78.pdf).
 
@@ -289,11 +297,15 @@ Le tecniche di classificazione multiclasse possono essere usate nelle soluzioni 
 #### <a name="label-construction-for-multi-class-classification"></a>Costruzione delle etichette per la classificazione multiclasse
 In questo caso, la domanda è: "qual è la probabilità che un asset si guasti entro _nZ_ unità di tempo, dove _n_ è il numero di periodi?" Per rispondere a questa domanda, assegnare etichette a nZ record prima del guasto di un asset usando intervalli di tempo (3Z, 2Z, Z). Assegnare a tutti gli altri record l'etichetta "normale" (etichetta = 0). In questo metodo la variabile di destinazione contiene valori _categorici_ (vedere la figura 5).
 
-![Figura 5. Etichette per la classificazione multiclasse per la stima dell'ora del guasto](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png) Figura 5. Assegnazione di etichette per la classificazione multiclasse per la stima dell'ora del guasto
+![Figura 5. Etichette di stima del tempo di errore per la classificazione multiclasse](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png)
+
+Figura 5. Assegnazione di etichette per la classificazione multiclasse per la stima dell'ora del guasto
 
 In questo caso, la domanda è: "qual è la probabilità che l'asset si guasti entro X unità di tempo per via della causa radice o del problema _P<sub>i</sub>_ ?" dove _i_ è il numero di possibili cause radice. Per rispondere a questa domanda, assegnare a X record prima dell'errore di un asset l'etichetta "possibile guasto per via della causa radice _P<sub>i</sub>_ " (etichetta = _P<sub>i</sub>_ ). Assegnare a tutti gli altri record l'etichetta "normale" (etichetta = 0). Anche in questo metodo le etichette sono categoriche (vedere la figura 6).
 
-![Figura 6. Etichette di classificazione multiclasse per la stima delle cause radice](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png) Figura 6. Assegnazione di etichette per la classificazione multiclasse per la stima delle cause radice
+![Figura 6. Etichette di stima della causa radice per la classificazione multiclasse](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png)
+
+Figura 6. Assegnazione di etichette per la classificazione multiclasse per la stima delle cause radice
 
 Il modello assegna una probabilità di guasto a causa di ogni problema _P<sub>i</sub>_ , oltre alla probabilità che non si verifichi alcun guasto. Queste probabilità possono essere ordinate per grandezza, per consentire la stima dei problemi con la più alta possibilità che si verifichino in futuro.
 
@@ -329,7 +341,9 @@ Si supponga di avere un flusso di eventi con timestamp, ad esempio le misurazion
 
 Per la suddivisione dipendente dal tempo, selezionare un _tempo limite per il training T<sub>c</sub>_ in cui eseguire il training di un modello, con iperparametri ottimizzati usando dati cronologici fino a T<sub>c</sub>. Per impedire la perdita delle etichette future che si trovano oltre T<sub>c</sub> nei dati di training, scegliere l'ultimo intervallo di tempo per l'assegnazione di etichette agli esempi di training impostando X unità prima di T<sub>c</sub>. Nell'esempio illustrato nella figura 7, ogni quadratino rappresenta un record nel set di dati in cui le funzioni e le etichette vengono calcolate come descritto in precedenza. La figura mostra i record che dovranno essere inseriti nei set di training e di test per X=2 e W=3:
 
-![Figura 7. Suddivisione dipendente dal tempo per la classificazione binaria](./media/cortana-analytics-playbook-predictive-maintenance/time-dependent-split-for-binary-classification.png) Figura 7. Suddivisione dipendente dal tempo per la classificazione binaria
+![Figura 7. Suddivisione dipendente dal tempo per la classificazione binaria](./media/cortana-analytics-playbook-predictive-maintenance/time-dependent-split-for-binary-classification.png)
+
+Figura 7. Suddivisione dipendente dal tempo per la classificazione binaria
 
 I quadratini verdi rappresentano i record appartenenti alle unità di tempo che possono essere usate per il training. Ogni esempio di training viene generato prendendo in considerazione gli ultimi tre periodi per la generazione delle funzioni e due periodi futuri per le etichette prima di T<sub>c</sub>. Quando una parte dei due periodi di futuri è oltre T<sub>c</sub>, escludere tale esempio dal training set perché non si presuppone alcuna visibilità oltre T<sub>c</sub>.
 
@@ -409,13 +423,13 @@ Al contrario, PdM comporta un _punteggio batch_. Per essere conformi alla firma 
 
 La sezione finale di questa guida fornisce un elenco di modelli di soluzioni PdM, esercitazioni ed esperimenti implementati in Azure. In alcuni casi, queste applicazioni PdM possono essere distribuite in una sottoscrizione di Azure in pochi minuti. Possono essere usate come demo di modelli di verifica, ambienti sandbox per sperimentare alternative o acceleratori per le implementazioni effettive in produzione. Questi modelli sono disponibili in [Azure AI Gallery](https://gallery.azure.ai) o nel repository [GitHub di Azure](https://github.com/Azure). Questi diversi esempi verranno distribuiti nel modello di soluzione nel corso del tempo.
 
-| # | Titolo | DESCRIZIONE |
+| # | Title | Description |
 |--:|:------|-------------|
-| 2 | [Modello di soluzione per la manutenzione predittiva di Azure](https://github.com/Azure/AI-PredictiveMaintenance) | Un modello di soluzione open source che illustra la creazione di modelli di ML e un'infrastruttura completa di Azure capace di supportare scenari di manutenzione predittiva nel contesto di monitoraggio remoto IoT. |
+| 2 | [Modello di soluzione per la manutenzione predittiva di Azure](https://github.com/Azure/AI-PredictiveMaintenance) | Un modello di soluzione open source che illustra la modellazione di Azure ML e un'infrastruttura di Azure completa in grado di supportare scenari di manutenzione predittiva nel contesto del monitoraggio remoto. |
 | 3 | [Apprendimento avanzato per la manutenzione predittiva](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Notebook di Azure con una soluzione demo sull'uso di reti LSTM (Long Short-Term Memory), una classe delle reti neurali ricorrenti, per la manutenzione predittiva, con un [post di blog su questo esempio](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
 | 4 | [Guida alla modellazione per la manutenzione predittiva in R](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) | Guida alla modellazione PdM con script in R.|
 | 5 | [Manutenzione predittiva di Azure per il settore aerospaziale](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | Uno dei primi modelli di soluzione PdM basati su Azure Machine Learning 1.0 per la manutenzione di aerei. La guida ha avuto origine da questo progetto. |
-| 6 | [Azure AI Toolkit per IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | Intelligenza artificiale in IoT Edge tramite TensorFlow. Il toolkit consente di creare pacchetti con modelli di apprendimento avanzato per i contenitori Docker compatibili con Azure IoT Edge e di esporre tali modelli come API REST.
+| 6 | [Azure AI Toolkit per IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | AI nel IoT Edge usando TensorFlow; Toolkit pacchetti di modelli di apprendimento avanzato in contenitori Docker compatibili con Azure IoT Edge ed esporre tali modelli come API REST.
 | 7 | [Manutenzione predittiva di Azure IoT](https://github.com/Azure/azure-iot-predictive-maintenance) | Azure IoT Suite PCS - Soluzione preconfigurata. Modello PdM con IoT Suite per la manutenzione di aerei. [Un altro documento](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-overview) e una [procedura dettagliata](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-walkthrough) correlati allo stesso progetto. |
 | 8 | [Modello di manutenzione predittiva con SQL Server R Services](https://gallery.azure.ai/Tutorial/Predictive-Maintenance-Template-with-SQL-Server-R-Services-1) | Demo dello scenario relativo alla vita utile rimanente basata su R Services. |
 | 9 | [Predictive Maintenance Modeling Guide](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) (Guida alla modellazione per la manutenzione predittiva) | Funzione del set di dati per la manutenzione di aerei progettata tramite R con [esperimenti](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Experiment-1) e [set di dati](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Data-Sets-1), oltre a [notebook di Azure](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) ed [esperimenti](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2) in Azure ML 1.0|
@@ -424,7 +438,7 @@ La sezione finale di questa guida fornisce un elenco di modelli di soluzioni PdM
 
 Microsoft Azure offre percorsi di apprendimento per i concetti fondamentali alla base delle tecniche PdM, oltre a contenuto e formazione per concetti e procedure consigliati per l'intelligenza artificiale in generale.
 
-| Risorsa di formazione  | Availability |
+| Risorsa di formazione  | Disponibilità |
 |:-------------------|--------------|
 | [Percorso di apprendimento per PdM tramite alberi e foresta casuale](https://aischool.microsoft.com/learning-paths/1H5vH5wAYcAy88CoQWQcA8) | Pubblico | 
 | [Percorso di apprendimento per PdM tramite apprendimento avanzato](https://aischool.microsoft.com/learning-paths/FSIXxYkOGcauo0eUO8qAS) | Pubblico |

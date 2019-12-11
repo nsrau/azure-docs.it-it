@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
-ms.openlocfilehash: 21feed73d025e0c0a4b2c7bb07d23f450780126e
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 5d13e944cbc083b314c71936d181101ec13037b4
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766787"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997140"
 ---
 # <a name="protect-your-network-resources"></a>Proteggere le risorse di rete
 Il Centro sicurezza di Azure analizza continuamente lo stato di sicurezza delle risorse di Azure per consigliare le procedure ottimali di protezione della rete. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli necessari per rafforzare e tutelare le risorse.
@@ -27,7 +27,7 @@ Questo articolo illustra la pagina **rete** della sezione relativa alla sicurezz
 
 Per un elenco completo dei consigli per la rete, vedere [raccomandazioni](recommendations-network.md)per la rete.
 
-Questo articolo illustra le raccomandazioni applicabili alle risorse di Azure da un punto di vista della sicurezza di rete. Le raccomandazioni per le risorse di rete sono incentrate sui firewall di nuova generazione, sui gruppi di sicurezza di rete, sull'accesso Just-In-Time a VM, su regole eccessivamente permissive per il traffico in ingresso e altro ancora. Per visualizzare un elenco delle raccomandazioni per le risorse di rete e le azioni di correzione, vedere [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md).
+Questo articolo illustra le raccomandazioni applicabili alle risorse di Azure da un punto di vista della sicurezza di rete. Raccomandazioni per la rete per i firewall di nuova generazione, i gruppi di sicurezza di rete, l'accesso JIT alle VM, le regole del traffico in ingresso eccessivamente permissive e altro ancora. Per visualizzare un elenco delle raccomandazioni per le risorse di rete e le azioni di correzione, vedere [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md).
 
 > [!NOTE]
 > La pagina **Rete** consente di esaminare nei dettagli l'integrità delle risorse di Azure da una prospettiva di rete. La mappa di rete e i controlli per la rete adattiva sono disponibili solo per il livello standard del Centro sicurezza di Azure. [Se si usa il livello gratuito, è possibile fare clic sul pulsante per visualizzare le **Risorse di rete legacy** e ricevere raccomandazioni sulle risorse di rete](#legacy-networking).

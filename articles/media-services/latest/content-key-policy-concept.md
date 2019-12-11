@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 8809bf25c3bcfb26fb0ad251a2b09dfdca2a3e04
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 7ddef1e78b4f8f62145e10b4cabc4537e28aba2f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679198"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969905"
 ---
 # <a name="content-key-policies"></a>Criteri di chiave simmetrica
 
@@ -25,10 +25,7 @@ Con Servizi multimediali è possibile distribuire contenuti live e on demand cri
 
 Per specificare le opzioni di crittografia nel flusso, è necessario creare un [criterio di flusso](streaming-policy-concept.md) e associarlo al [localizzatore di streaming](streaming-locators-concept.md). I criteri della [chiave](https://docs.microsoft.com/rest/api/media/contentkeypolicies) simmetrica vengono creati per configurare il modo in cui la chiave simmetrica (che fornisce l'accesso sicuro agli [Asset](assets-concept.md)) viene fornita ai client finali. È necessario impostare i requisiti (restrizioni) per i criteri della chiave simmetrica che devono essere soddisfatti per poter recapitare le chiavi con la configurazione specificata ai client. I criteri della chiave simmetrica non sono necessari per cancellare lo streaming o il download. 
 
-In genere, i criteri della chiave simmetrica vengono associati al localizzatore di [streaming](streaming-locators-concept.md). In alternativa, è possibile specificare i criteri della chiave simmetrica in un [criterio di flusso](streaming-policy-concept.md) , quando si creano criteri di flusso personalizzati per gli scenari avanzati. 
-
-> [!NOTE]
-> Le proprietà dei criteri della chiave simmetrica di `Datetime` tipo sono sempre in formato UTC.
+In genere, i criteri della chiave simmetrica vengono associati al [localizzatore di streaming](streaming-locators-concept.md). In alternativa, è possibile specificare i criteri della chiave simmetrica in un [criterio di flusso](streaming-policy-concept.md) , quando si creano criteri di flusso personalizzati per gli scenari avanzati. 
 
 ## <a name="best-practices-and-considerations"></a>Procedure consigliate e considerazioni
 
@@ -50,11 +47,16 @@ In genere, i criteri della chiave simmetrica vengono associati al localizzatore 
 
 ## <a name="example"></a>Esempio
 
-Per ottenere la chiave, usare `GetPolicyPropertiesWithSecretsAsync`, come illustrato nell'esempio [ottenere una chiave di firma da un criterio esistente](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) .
+Per ottenere la chiave, usare `GetPolicyPropertiesWithSecretsAsync`, come illustrato nell'esempio [ottenere una chiave di firma dal criterio esistente](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) .
 
 ## <a name="filtering-ordering-paging"></a>Filtro, ordinamento, paging
 
 Vedere [Applicazione di filtri, ordinamento e restituzione di più pagine delle entità di Servizi multimediali](entities-overview.md).
+
+## <a name="additional-notes"></a>Note aggiuntive
+
+* Le proprietà dei criteri della chiave simmetrica di `Datetime` tipo sono sempre in formato UTC.
+* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google, Inc.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

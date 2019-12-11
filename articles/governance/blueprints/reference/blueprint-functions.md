@@ -1,14 +1,14 @@
 ---
 title: Funzioni per i progetti di Azure
 description: Descrive le funzioni disponibili per l'uso con gli artefatti del progetto in definizioni e assegnazioni di progetti di Azure.
-ms.date: 04/15/2019
+ms.date: 12/09/2019
 ms.topic: reference
-ms.openlocfilehash: 92539da02ddbe22f943454aff54dae4ccb5af3ce
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 0aab2fe0511ccc11842d0e132a83d6e3f7fac27f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74128764"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970891"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funzioni da usare con i progetti di Azure
 
@@ -29,11 +29,14 @@ Sono supportate le funzioni seguenti:
 
 Restituisce un oggetto di proprietà popolate con gli output degli artefatti del progetto.
 
-### <a name="parameters"></a>parametri
+> [!NOTE]
+> Impossibile utilizzare la funzione `artifacts()` dall'interno di un modello di Gestione risorse. La funzione può essere usata solo nella definizione di progetto JSON o nell'artefatto JSON quando si gestisce il progetto con Azure PowerShell o l'API REST come parte di [cianografie come codice](https://github.com/Azure/azure-blueprints/blob/master/README.md).
 
-| . | obbligatori | digitare | DESCRIZIONE |
+### <a name="parameters"></a>parameters
+
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| artifactName |Sì |stringa |Nome di un elemento del progetto. |
+| artifactName |SÌ |string |Nome di un elemento del progetto. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -103,14 +106,14 @@ Un elemento del modello di Gestione risorse con ID _myTemplateArtifact_ contenen
 
 Di seguito sono riportati alcuni esempi di recupero dei dati dall'esempio _myTemplateArtifact_ :
 
-| Espressione | digitare | Valore |
+| Expression | Type | Value |
 |:---|:---|:---|
 |`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | \["First", "Second"\] |
-|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | prima |
-|`[artifacts("myTemplateArtifact").outputs.myString]` | String | "valore stringa" |
-|`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | {"SetProperty": "valore personale", "anotherProperty": true} |
-|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | String | "valore personale" |
-|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | true |
+|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | Stringa | prima |
+|`[artifacts("myTemplateArtifact").outputs.myString]` | Stringa | "valore stringa" |
+|`[artifacts("myTemplateArtifact").outputs.myObject]` | Oggetto | {"SetProperty": "valore personale", "anotherProperty": true} |
+|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | Stringa | "valore personale" |
+|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Booleano | Vero |
 
 ## <a name="concat"></a>concat
 
@@ -118,12 +121,12 @@ Di seguito sono riportati alcuni esempi di recupero dei dati dall'esempio _myTem
 
 Combina più valori stringa e restituisce la stringa concatenata.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| string1 |Sì |stringa |Il primo valore per la concatenazione. |
-| argomenti aggiuntivi |No |stringa |Valori aggiuntivi in ordine sequenziale per la concatenazione |
+| string1 |SÌ |string |Il primo valore per la concatenazione. |
+| Argomenti aggiuntivi |No |string |Valori aggiuntivi in ordine sequenziale per la concatenazione |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -137,17 +140,17 @@ La funzione Azure Blueprint differisce dalla funzione del modello Azure Resource
 
 `concat(parameters('organizationName'), '-vm')`
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>Parametri
 
 `parameters(parameterName)`
 
 Restituisce un valore del parametro del progetto. Il nome del parametro specificato deve essere definito nella definizione del progetto o negli artefatti del progetto.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| parameterName |Sì |stringa |Nome del parametro da restituire. |
+| parameterName |SÌ |string |Nome del parametro da restituire. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -264,11 +267,11 @@ Usare quindi la funzione `resourceGroup()` nel contesto di un elemento del proge
 
 Restituisce un oggetto che rappresenta l'elemento del gruppo di risorse specificato. A differenza `resourceGroup()`, che richiede il contesto dell'artefatto, questa funzione viene usata per ottenere le proprietà di un segnaposto del gruppo di risorse specifico quando non è nel contesto di tale gruppo di risorse.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| segnaposto |Sì |stringa |Nome del segnaposto dell'artefatto del gruppo di risorse da restituire. |
+| segnaposto |SÌ |string |Nome del segnaposto dell'artefatto del gruppo di risorse da restituire. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -320,7 +323,7 @@ Usare quindi la funzione `resourceGroups()` dal contesto di qualsiasi elemento d
 }
 ```
 
-## <a name="subscription"></a>subscription
+## <a name="subscription"></a>sottoscrizione
 
 `subscription()`
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/08/2019
+ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 83fd06078500be7b5bd58e9ea92d957f9d77f892
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: f6b95f76af4c83459ac81ff1703d8588f649326c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904219"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970543"
 ---
 # <a name="language-and-region-support-for-luis"></a>Supporto di lingua e area geografica per LUIS
 
@@ -30,9 +30,10 @@ Se occorre un'applicazione client LUIS multilingue come una chatbot, sono dispon
 
 LUIS riconosce espressioni nelle lingue seguenti:
 
-| Lingua |Impostazioni locali  |  Dominio predefinito | Entità predefinite | Raccomandazioni elenco frasi | \**[Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Valutazione e<br>parole chiave)|
+| Linguaggio |Impostazioni locali  |  Dominio predefinito | Entità predefinite | Raccomandazioni elenco frasi | \**[Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Valutazione e<br>parole chiave)|
 |--|--|:--:|:--:|:--:|:--:|
 | Inglese americano |`en-US` | ✔ | ✔  |✔|✔|
+| Arabo (anteprima-arabo standard moderno) |`ar-AR`|-|-|-|-|
 | *[Cinese](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
 | Olandese |`nl-NL` |✔|  -   |-|✔|
 | Francese (Francia) |`fr-FR` |✔| ✔ |✔ |✔|
@@ -66,7 +67,7 @@ Vedere [Lingue supportate](https://docs.microsoft.com/azure/cognitive-services/S
 Per un elenco delle lingue e dello stato supportati, vedere [ Lingue supportate](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) per il Controllo ortografico Bing.
 
 ## <a name="rare-or-foreign-words-in-an-application"></a>Parole rare o in lingua straniera in un'applicazione
-Nelle impostazioni cultura `en-us`, LUIS impara a distinguere la maggior parte delle parole inglesi, compreso lo slang. Nelle impostazioni cultura `zh-cn`, LUIS impara a distinguere la maggior parte dei caratteri cinesi. Se si utilizza una parola rara in `en-us` o un carattere in `zh-cn`, e si nota che LUIS non sembra in grado di distinguere tale parola o carattere, è possibile aggiungere tale parola o carattere a una [funzione dell'elenco di frasi](luis-how-to-add-features.md). Ad esempio, le parole al di fuori della cultura dell'applicazione, ovvero le parole straniere, dovrebbero essere aggiunte a una funzione dell'elenco di frasi. 
+Nelle impostazioni cultura `en-us`, LUIS impara a distinguere la maggior parte delle parole inglesi, compreso lo slang. Nelle impostazioni cultura `zh-cn`, LUIS impara a distinguere la maggior parte dei caratteri cinesi. Se si utilizza una parola rara in `en-us` o un carattere in `zh-cn`, e si nota che LUIS non sembra in grado di distinguere tale parola o carattere, è possibile aggiungere tale parola o carattere a una [funzione dell'elenco di frasi](luis-how-to-add-features.md). Ad esempio, le parole al di fuori della cultura dell'applicazione, ovvero le parole straniere, dovrebbero essere aggiunte a una funzione dell'elenco di frasi.
 
 <!--This phrase list should be marked non-interchangeable, to indicate that the set of rare words forms a class that LUIS should learn to recognize, but they are not synonyms or interchangeable with each other.-->
 
@@ -76,8 +77,9 @@ Le lingue ibride combinano parole di due culture come l'inglese e il cinese. Que
 ## <a name="tokenization"></a>Tokenizzazione
 Per eseguire l'apprendimento automatico, LUIS suddivide un’espressione in [token](luis-glossary.md#token) basati sulla cultura.
 
-|Lingua|  ogni spazio o carattere speciale | livello di caratteri|parole composte|[entità in formato token restituita](luis-concept-data-extraction.md#tokenized-entity-returned)
+|Linguaggio|  ogni spazio o carattere speciale | livello di caratteri|parole composte|[entità in formato token restituita](luis-concept-data-extraction.md#tokenized-entity-returned)
 |--|:--:|:--:|:--:|:--:|
+|Arabo|||||
 |Cinese||✔||✔|
 |Olandese|||✔|✔|
 |Inglese (en-us)|✔ ||||
@@ -96,16 +98,16 @@ Per eseguire l'apprendimento automatico, LUIS suddivide un’espressione in [tok
 
 Le impostazioni cultura seguenti includono versioni Tokenizer personalizzate:
 
-|Impostazioni cultura|Version|Scopo|
+|Lingua|Versione|Finalità|
 |--|--|--|
 |Tedesco<br>`de-de`|1.0.0|Suddivide in token le parole suddividendo le parole usando un tokenizer basato su Machine Learning che tenta di suddividere le parole composite nei singoli componenti.<br>Se un utente immette `Ich fahre einen krankenwagen` come espressione, viene convertito in `Ich fahre einen kranken wagen`. Consente di contrassegnare `kranken` e `wagen` in modo indipendente come entità diverse.|
 |Tedesco<br>`de-de`|1.0.2|Suddivide in token le parole suddividendo gli spazi in spazi.<br> Se un utente immette `Ich fahre einen krankenwagen` come espressione, rimane un singolo token. Pertanto `krankenwagen` è contrassegnato come una singola entità. |
 
 ### <a name="migrating-between-tokenizer-versions"></a>Migrazione tra versioni di Tokenizer
 <!--
-Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID. 
+Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID.
 
-Tokenizer JSON for 1.0.0. Notice the property value for  `tokenizerVersion`. 
+Tokenizer JSON for 1.0.0. Notice the property value for  `tokenizerVersion`.
 
 ```JSON
 {
@@ -154,7 +156,7 @@ Tokenizer JSON for 1.0.0. Notice the property value for  `tokenizerVersion`.
 }
 ```
 
-Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersion`. 
+Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersion`.
 
 ```JSON
 {
@@ -204,6 +206,6 @@ Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersi
 ```
 -->
 
-La suddivisione in token viene eseguita a livello di app. Non è disponibile alcun supporto per la suddivisione in token a livello di versione. 
+La suddivisione in token viene eseguita a livello di app. Non è disponibile alcun supporto per la suddivisione in token a livello di versione.
 
-[Importare il file come una nuova app](luis-how-to-start-new-app.md), anziché una versione. Questa azione indica che la nuova app ha un ID app diverso, ma usa la versione di Tokenizer specificata nel file. 
+[Importare il file come una nuova app](luis-how-to-start-new-app.md), anziché una versione. Questa azione indica che la nuova app ha un ID app diverso, ma usa la versione di Tokenizer specificata nel file.

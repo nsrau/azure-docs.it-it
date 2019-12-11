@@ -1,21 +1,21 @@
 ---
 title: Eseguire l'onboarding nel portale di Azure Certified per le cose | Microsoft Docs
 description: Eseguire l'onboarding nel portale di Azure Certified per l'it.
-author: YasinMSFT
+author: Philmea
 manager: philmea
 ms.service: iot-pnp
 services: iot-pnp
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.author: yahajiza
-ms.openlocfilehash: b35aeff4c87c676b91e022edb56542a018cb707c
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.author: philmea
+ms.openlocfilehash: 77559636dab00a570db416118b047200320c0308
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879539"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978986"
 ---
-# <a name="onboard-to-the-azure-certified-for-iot-portal"></a>Eseguire l'onboarding nel portale di Azure Certified per le cose
+# <a name="onboard-to-the-azure-certified-for-iot-portal"></a>Eseguire l'onboarding nel portale Azure Certified per IoT
 
 È possibile usare il [portale Azure Certified per](https://aka.ms/ACFI) le cose per:
 

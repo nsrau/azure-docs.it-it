@@ -11,18 +11,18 @@ ms.workload: ''
 ms.topic: article
 ms.date: 06/21/2019
 ms.author: juliako
-ms.openlocfilehash: 6e52a51c82529a98ef679dd747b9c8b7d177b660
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: c9da29ad288811bbed225fd906f2a7eb1fd9edf7
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338827"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977727"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Domande frequenti su servizi multimediali V3
 
 Questo articolo contiene le risposte alle domande frequenti su Servizi multimediali di Azure (AMS) v3.
 
-## <a name="general"></a>Generale
+## <a name="general"></a>Informazioni di carattere generale
 
 ### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Quali ruoli di Azure possono eseguire azioni sulle risorse di servizi multimediali di Azure? 
 
@@ -90,7 +90,7 @@ Nel servizio token di sicurezza, a seconda del profilo dell'utente, aggiungere a
 
 Usare le API di servizi multimediali di Azure per la configurazione del recapito di licenze/chiavi e la crittografia degli asset (come illustrato in [questo esempio](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)).
 
-Per altre informazioni, vedere:
+Per scoprire di più, vedi:
 
 - [Panoramica della protezione del contenuto](content-protection-overview.md)
 - [Progettazione di un sistema di protezione del contenuto con DRM multiplo e controllo di accesso](design-multi-drm-system-with-access-control.md)
@@ -118,6 +118,9 @@ I clienti spesso investono in una farm di server licenze nel proprio data center
 
 * Il servizio token di sicurezza deve rilasciare token che siano accettabili e verificabili dalla farm di server licenze. Ad esempio, i server licenze Widevine forniti da Axinom richiedono uno specifico token JWT contenente un elemento "entitlement message". Per rilasciare tale token JWT, è quindi necessario un servizio token di sicurezza. 
 * Non è più necessario configurare il servizio di distribuzione delle licenze in Servizi multimediali. È sufficiente fornire gli URL di acquisizione delle licenze (per PlayReady, Widevine e FairPlay) quando si configura ContentKeyPolicies.
+
+> [!NOTE]
+> Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google, Inc.
 
 ## <a name="media-services-v2-vs-v3"></a>Servizi multimediali v2 e v3 
 

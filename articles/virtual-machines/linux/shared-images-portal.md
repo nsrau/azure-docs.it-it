@@ -1,5 +1,5 @@
 ---
-title: Creare immagini di macchine virtuali di Azure condivise per Linux tramite il portale
+title: Creare immagini di VM di Azure condivise per Linux tramite il portale
 description: Informazioni su come usare portale di Azure per creare e condividere immagini di macchine virtuali.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -13,14 +13,14 @@ ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 9dff10848c42fd730f0bc77fd325f00cec554c9d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 44df85a94ad26d3abcd48f01c31e7aa093c1123f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892873"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978697"
 ---
-# <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Creare una raccolta di immagini condivise usando il portale di Azure
+# <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>Creare una raccolta di immagini condivise di Azure con il portale
 
 La [raccolta di immagini condivise](shared-image-galleries.md) semplifica la condivisione di immagini personalizzate all'interno dell'organizzazione. Le immagini personalizzate sono come le immagini di marketplace, ma si possono creare autonomamente. Le immagini personalizzate possono essere usate per l'avvio di attività di distribuzione, ad esempio il precaricamento e le configurazioni di applicazioni e altre configurazioni del sistema operativo. 
 

@@ -1,18 +1,18 @@
 ---
 title: Come eseguire il provisioning dei dispositivi per il multitenant nel servizio Device provisioning in hub Azure
-description: Come effettuare il provisioning di dispositivi per la multi-tenancy con l'istanza del servizio di provisioning di dispositivi
+description: Come eseguire il provisioning dei dispositivi per il multitenant con l'istanza del servizio Device provisioning (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 6d9755c076763a72d54abb66cfdf01b0ac7ffb9d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5703db90307f679ff4728386dc24647437f9f9ba
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228781"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974956"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Come effettuare il provisioning per la multi-tenancy 
 
@@ -36,9 +36,9 @@ Questo articolo usa un esempio di dispositivo simulato proveniente da [Azure IoT
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-* Completamento della guida introduttiva [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md).
+* Completamento dell'avvio rapido della [configurazione del servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md).
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]

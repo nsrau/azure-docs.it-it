@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 5e435d1169d5f148bfa2910174bf1f2835806c8b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 8331d74528703df1d7c56f25af7df0f53cd1f9be
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928237"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996273"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere i problemi di Backup di Azure: problemi relativi all'agente o all'estensione
 
@@ -29,7 +29,6 @@ L'agente di macchine virtuali di Azure potrebbe essere arrestato, obsoleto, in u
   - Per le macchine virtuali Windows attenersi alla [seguente procedura](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) per riavviare l'agente guest.<br>
   - Per le VM Linux, attenersi alla [procedura seguente](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) per riavviare l'agente guest.
 
-
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError - Non è stato possibile comunicare con l'agente della macchina virtuale per lo stato dello snapshot
 
 **Codice errore**: GuestAgentSnapshotTaskStatusError<br>
@@ -44,6 +43,8 @@ Dopo la registrazione e la pianificazione di una macchina virtuale per il serviz
 **Causa 3: [Non è possibile recuperare lo stato dello snapshot o acquisire uno snapshot](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**
 
 **Causa 4: [Non è possibile aggiornare o caricare l'estensione di backup](#the-backup-extension-fails-to-update-or-load)**
+
+**Motivo 5: le [Opzioni di configurazione dell'agente VM non sono impostate (per le macchine virtuali Linux)](#vm-agent-configuration-options-are-not-set-for-linux-vms)**
 
 ## <a name="usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state"></a>UserErrorVmProvisioningStateFailed-lo stato di provisioning della macchina virtuale non è riuscito
 
@@ -196,6 +197,11 @@ Se è necessaria la registrazione dettagliata per waagent, attenersi alla proced
 1. Nel file /etc/waagent.conf individuare la riga seguente: **Enable verbose logging (y|n)**
 2. Modificare il valore di **Logs.Verbose** da *n* a *y*.
 3. Salvare la modifica e quindi riavviare waagent seguendo la procedura descritta in precedenza in questa sezione.
+
+### <a name="vm-agent-configuration-options-are-not-set-for-linux-vms"></a>Le opzioni di configurazione dell'agente VM non sono impostate (per le macchine virtuali Linux)
+
+Un file di configurazione (/etc/waagent.conf) controlla le azioni dell'agente waagent. Estensioni per le opzioni del file di configurazione **. abilitare** e **provisioning. Agent** deve essere impostato su **y** per il funzionamento del backup.
+Per un elenco completo delle opzioni del file di configurazione dell'agente VM, vedere <https://github.com/Azure/WALinuxAgent#configuration-file-options>
 
 ### <a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Non è possibile recuperare lo stato dello snapshot o acquisire uno snapshot
 

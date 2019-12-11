@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2018
-ms.openlocfilehash: 763a45446771f7b13178e22b0f7a35bd68bfc8bd
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4b1c1a963b065411f1a0ab84141bdf1835930ebb
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821272"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973544"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Set di dati pubblici per test e prototipi
 
@@ -26,7 +26,7 @@ In questo elenco di set di dati pubblici è possibile trovare dati da usare per 
 
 | Origine dati | Informazioni sui dati | Informazioni sui file |
 |---|---|---|
-| [Dati del governo degli Stati Uniti](https://www.census.gov/data.html) | Oltre 190.000 set di dati riguardanti agricoltura, clima, consumatori, ecosistemi, istruzione, energia, finanza, sanità, enti locali, produzione, mari e oceani, pubblica sicurezza, scienza e ricerca negli Stati Uniti. | File di diverse dimensioni e vari formati, tra cui HTML, XML, CSV, JSON, Excel e molti altri. È possibile filtrare i set di dati disponibili in base al formato di file. |
+| [Dati del governo degli Stati Uniti](https://catalog.data.gov/dataset) | Oltre 250.000 set di dati relativi a agricoltura, clima, consumer, ecosistemi, istruzione, energia, finanza, sanità, governo locale, produzione, marittimo, oceano, pubblica sicurezza e scienza e ricerca negli Stati Uniti | File di diverse dimensioni e vari formati, tra cui HTML, XML, CSV, JSON, Excel e molti altri. È possibile filtrare i set di dati disponibili in base al formato di file. |
 | [Dati di censimento degli Stati Uniti](https://www.census.gov/data.html) | Dati statistici sulla popolazione degli Stati Uniti. | I set di dati sono disponibili in vari formati. |
 | [Dati di scienze della Terra della NASA](https://earthdata.nasa.gov/) | Oltre 32.000 raccolte di dati riguardanti agricoltura, atmosfera, biosfera, clima, criosfera, dimensioni umane, idrosfera, superficie terrestre, oceani, interazioni Terra-Sole e altro ancora. | I set di dati sono disponibili in vari formati. |
 | [Ritardi nei voli e altri dati sui trasporti delle compagnie aeree](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | "Il Bureau of Transportation Statistics (BTS) degli Stati Uniti Department of Transports (BTS) tiene traccia delle prestazioni in tempo dei voli nazionali usati da grandi carriere aeree. Informazioni di riepilogo sul numero di voli puntuali, in ritardo, annullati o deviati sono riportate... in tabelle di riepilogo pubblicate nel sito Web". | I file sono disponibili in formato CSV. |

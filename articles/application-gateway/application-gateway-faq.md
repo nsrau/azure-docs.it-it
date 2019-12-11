@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: 68ce0dca3bc7c5d408bd6e8f267d238ac812a84d
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: c93198848058bad8c9af6903cc68253e71e2d668
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74130576"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996661"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Domande frequenti sul gateway applicazione
 
@@ -20,9 +20,9 @@ ms.locfileid: "74130576"
 
 Di seguito sono riportate le domande frequenti su applicazione Azure gateway.
 
-## <a name="general"></a>General
+## <a name="general"></a>Informazioni di carattere generale
 
-### <a name="what-is-application-gateway"></a>Informazioni sul servizio Gateway applicazione
+### <a name="what-is-application-gateway"></a>Che cos'è il gateway applicazione?
 
 Applicazione Azure gateway fornisce un servizio di controller per la distribuzione di applicazioni (ADC) come servizio. Offre diverse funzionalità di bilanciamento del carico di livello 7 per le applicazioni. Questo servizio è altamente disponibile, scalabile e completamente gestito da Azure.
 
@@ -106,7 +106,7 @@ Per la maggior parte delle distribuzioni che usano lo SKU V2 sono necessari circ
 
 No. Il gateway applicazione non supporta i protocolli di posta elettronica, ad esempio SMTP, IMAP e POP3. 
 
-## <a name="performance"></a>Prestazioni
+## <a name="performance"></a>Performance
 
 ### <a name="how-does-application-gateway-support-high-availability-and-scalability"></a>In che modo il gateway applicazione supporta la disponibilità elevata e la scalabilità?
 
@@ -128,7 +128,7 @@ No. Le istanze vengono distribuite tra domini di aggiornamento e domini di error
 
 ### <a name="does-application-gateway-support-connection-draining"></a>Il gateway applicazione supporta l'esaurimento delle connessioni?
 
-Sì. È possibile impostare lo svuotamento della connessione per modificare i membri all'interno di un pool back-end senza alcuna distorsione. Questa installazione consente di continuare a inviare connessioni esistenti alla destinazione precedente fino alla chiusura della connessione o alla scadenza di un timeout configurabile. Il drenaggio della connessione resta in attesa del completamento solo delle connessioni correnti in corso. Il gateway applicazione non è in grado di riconoscere lo stato della sessione dell'applicazione.
+Sì. È possibile impostare lo svuotamento della connessione per modificare i membri all'interno di un pool back-end senza alcuna distorsione. Per altre informazioni, vedere [la sezione svuotamento della connessione del gateway applicazione](overview.md#connection-draining).
 
 ### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>È possibile modificare le dimensioni di un'istanza da medie a grandi senza interruzioni?
 

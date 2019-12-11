@@ -10,12 +10,12 @@ ms.author: jimgries
 author: greazer
 ms.date: 09/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: dd85f3a495b90b3a1dc9d3f021d3600496792759
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 84b7f56ebcbb87a31fbfb85ea6d88c3388870872
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824361"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975993"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Introduzione ad Azure Machine Learning per Visual Studio Code
 
@@ -94,8 +94,8 @@ Per modificare il progetto in modo che Azure possa essere tenuto a conoscenza di
     import azureml
     from azureml.core import Run
 
-    # access the Azure ML run
-    # init run param to check if running within AML
+    # Access the Azure ML run
+    # Init run param to check if running within AML
     def get_AMLRun():
         try:
             run = Run.get_submitted_run()
@@ -128,7 +128,7 @@ Per modificare il progetto in modo che Azure possa essere tenuto a conoscenza di
     ...
             acc_val = acc_op.eval(feed_dict = {X: X_test, y: y_test})
 
-            # log accuracies to AML logger if using AML
+            # Log accuracies to AML logger if using AML
             if run != None:
                 run.log('Validation Accuracy', np.float(acc_val))
                 run.log('Training Accuracy', np.float(acc_train))
@@ -137,14 +137,14 @@ Per modificare il progetto in modo che Azure possa essere tenuto a conoscenza di
     ...
     ```
 ### <a name="run-the-script-in-azure"></a>Eseguire lo script in Azure
-L'operazione è terminata. Ora è sufficiente usare l'estensione per eseguire lo script nel cloud. Si noti che il video seguente illustra la libertà di comprimere la quantità di tempo necessaria per creare una nuova area di lavoro e calcolo di Azure ML, oltre al tempo necessario per eseguire lo script di training.
+L'operazione è terminata. Ora è sufficiente usare l'estensione per eseguire lo script nel cloud. Si noti che il video seguente illustra la libertà di comprimere la quantità di tempo necessaria per creare una nuova area di lavoro e calcolo di Azure Machine Learning, oltre al tempo necessario per eseguire lo script di training.
 
    [![avviare un esperimento di Azure ML](./media/vscode-tools-for-ai/start-golden-path.gif)](./media/vscode-tools-for-ai/start-golden-path.gif#lightbox)
 
 Dopo aver fatto clic sul pulsante Esegui esperimento, rispondere ai prompt come indicato di seguito:
 
-1. Scegliere la sottoscrizione di Azure
-1. Scegliere di creare una *nuova* area di lavoro di Azure ml
+1. Scegliere la sottoscrizione di Azure.
+1. Scegliere di creare una *nuova* area di lavoro Azure Machine Learning.
 1. Scegliere da un set di modelli preconfigurati per inizializzare l'ambiente Python per le esecuzioni. I modelli forniscono un punto di partenza e includono le impostazioni per:
     1. **PyTorch**, **TensorFlow**o **Scikit-learn**
     1. Training di calcolo **singolo** o **distribuito**
@@ -155,7 +155,7 @@ Dopo aver fatto clic sul pulsante Esegui esperimento, rispondere ai prompt come 
 
     [![Train nel cloud](./media/vscode-tools-for-ai/run-golden-path.gif)](./media/vscode-tools-for-ai/run-golden-path.gif#lightbox)
 
-In pochi secondi si riceverà una notifica che indica che l'esperimento è stato inviato ad Azure e che è possibile visualizzarne lo stato di avanzamento in Azure Machine Learning Studio facendo clic sul collegamento **Visualizza esecuzione esperimento** nella notifica vs code o all'interno vs code da Premere il pulsante Aggiorna nella scheda Azure.
+Entro pochi secondi si riceverà una notifica che indica che l'esperimento è stato inviato ad Azure e che è possibile visualizzarne lo stato di avanzamento in Azure Machine Learning Studio facendo clic sul collegamento **Visualizza esecuzione esperimento** nella notifica vs code o all'interno di vs code premendo il pulsante Aggiorna nella scheda Azure.
 
 Al momento, la visualizzazione delle metriche di esecuzione è supportata solo in studio. Il collegamento **Visualizza esecuzione esperimento** indicato in precedenza consente di passare all'esecuzione in cui verranno visualizzate le metriche registrate.
 [![eseguire l'esperimento nel portale](./media/vscode-tools-for-ai/experiment-run-on-portal.PNG)](./media/vscode-tools-for-ai/experiment-run-on-portal.PNG#lightbox)

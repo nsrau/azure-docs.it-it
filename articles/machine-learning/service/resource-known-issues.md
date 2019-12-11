@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: bff3547456c03ae313e7465238872670965765f1
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: ed67981a79e2bc998d0f1f64858206243c0a7070
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927673"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997208"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problemi noti e risoluzione dei problemi Azure Machine Learning
 
@@ -141,7 +141,7 @@ Quando si usano le funzionalità automatiche di Machine Learning in Azure Databr
 
 Nelle impostazioni automatiche di Machine Learning, se sono presenti più di 10 iterazioni, impostare `show_output` su `False` quando si invia l'esecuzione.
 
-### <a name="widget-for-the-azure-machine-learning-sdkautomated-machine-learning"></a>Widget per Azure Machine Learning SDK/Machine Learning automatizzato
+### <a name="widget-for-the-azure-machine-learning-sdk-and-automated-machine-learning"></a>Widget per Azure Machine Learning SDK e Machine Learning automatizzato
 
 Il widget Azure Machine Learning SDK non è supportato in un notebook di databricks perché i notebook non possono analizzare i widget HTML. È possibile visualizzare il widget nel portale usando questo codice Python nella cella Azure Databricks notebook:
 
@@ -261,6 +261,16 @@ kubectl get secret/azuremlfessl -o yaml
 ## <a name="recommendations-for-error-fix"></a>Suggerimenti per la correzione degli errori
 In base all'osservazione generale, di seguito sono riportate le raccomandazioni di Azure ML per correggere alcuni degli errori comuni in Azure ML.
 
+### <a name="metric-document-is-too-large"></a>Documento metrico troppo grande
+Azure Machine Learning servizio presenta limiti interni sulle dimensioni degli oggetti metrica che possono essere registrati contemporaneamente da un'esecuzione di training. Se si verifica un errore di "metrica documento troppo grande" durante la registrazione di una metrica con valori di elenco, provare a suddividere l'elenco in blocchi più piccoli, ad esempio:
+
+```python
+run.log_list("my metric name", my_metric[:N])
+run.log_list("my metric name", my_metric[N:])
+```
+
+ Internamente, il servizio di cronologia di esecuzione concatena i blocchi con lo stesso nome di metrica in un elenco contiguo.
+
 ### <a name="moduleerrors-no-module-named"></a>ModuleErrors (nessun modulo denominato)
 Se si esegue ModuleErrors durante l'invio di esperimenti in Azure ML, significa che lo script di training prevede l'installazione di un pacchetto, ma non viene aggiunto. Una volta fornito il nome del pacchetto, Azure ML installerà il pacchetto nell'ambiente usato per la formazione. 
 
@@ -268,10 +278,11 @@ Se si usano gli [estimatori](concept-azure-machine-learning-architecture.md#esti
 
 Azure ML fornisce anche estimatori specifici del Framework per Tensorflow, PyTorch, Chainer e SKLearn. Con questi estimatori si assicurerà che le dipendenze del Framework siano installate per conto dell'utente nell'ambiente utilizzato per il training. È possibile specificare dipendenze aggiuntive, come descritto in precedenza. 
  
- Le immagini Docker gestite da Azure ML e il relativo contenuto possono essere visualizzate nei [contenitori AzureML](https://github.com/Azure/AzureML-Containers).
+Le immagini Docker gestite da Azure ML e il relativo contenuto possono essere visualizzate nei [contenitori AzureML](https://github.com/Azure/AzureML-Containers).
 Le dipendenze specifiche del Framework sono elencate nella rispettiva documentazione di Framework- [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
 
->[Nota] Se si ritiene che un particolare pacchetto sia abbastanza comune da essere aggiunto in ambienti e immagini gestite da Azure ML, è necessario generare un problema di GitHub nei [contenitori AzureML](https://github.com/Azure/AzureML-Containers). 
+> [!Note]
+> Se si ritiene che un particolare pacchetto sia abbastanza comune da essere aggiunto in ambienti e immagini gestite da Azure ML, è necessario generare un problema di GitHub nei [contenitori AzureML](https://github.com/Azure/AzureML-Containers). 
  
  ### <a name="nameerror-name-not-defined-attributeerror-object-has-no-attribute"></a>NameError (nome non definito), AttributeError (oggetto senza attributo)
 Questa eccezione deve provenire dagli script di training. È possibile esaminare i file di log da portale di Azure per ottenere altre informazioni sul nome specifico non definito o sull'errore dell'attributo. Dall'SDK è possibile usare `run.get_details()` per esaminare il messaggio di errore. Vengono inoltre elencati tutti i file di log generati per l'esecuzione. Assicurarsi di esaminare lo script di training, correggere l'errore prima di riprovare. 

@@ -1,19 +1,19 @@
 ---
 title: Riparazione di un processo di esportazione in Importazione/Esportazione di Azure - versione 1 | Documentazione Microsoft
 description: Informazioni su come ripristinare un processo di esportazione che è stato creato ed eseguito tramite il servizio Importazione/Esportazione di Azure.
-author: muralikk
+author: twooley
 services: storage
 ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: muralikk
+ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: 915cf1e66ec400e0d2461873d9fb3d66be9883fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b2ba30bddfc6364c79e1bb01d30cde63b261a07f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61477944"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978016"
 ---
 # <a name="repairing-an-export-job"></a>Riparazione di un processo di esportazione
 Al termine di un processo di esportazione, è possibile eseguire lo strumento Importazione/Esportazione di Microsoft Azure in locale per:  
@@ -30,7 +30,7 @@ Il comando per la riparazione di un processo di importazione è **RepairExport**
 
 È possibile specificare i parametri seguenti con **RepairExport**:  
   
-|Parametro|Descrizione|  
+|Parametro|Description|  
 |---------------|-----------------|  
 |**/r:<RepairFile\>**|Richiesto. Percorso del file di ripristino che tiene traccia dell'avanzamento del ripristino e consente di riprendere un ripristino interrotto. Ogni unità deve contenere un solo file di ripristino. Quando si avvia un ripristino per una determinata unità, si viene spostati nel percorso di un file di ripristino che non esiste ancora. Per riprendere un ripristino interrotto, è consigliabile inserire il nome di un file di ripristino esistente. Il file di ripristino corrispondente all'unità di destinazione deve essere sempre specificato.|  
 |**/logdir:&lt;LogDirectory\>**|facoltativo. Directory dei log. in cui verranno scritti file di log dettagliati. Se non è specificata alcuna directory dei log, verrà usata la directory corrente.|  
@@ -154,6 +154,6 @@ Qualsiasi componente con esito negativo della verifica verrà scaricato dallo st
  
 * [Configurazione dello strumento Importazione/Esportazione di Azure](storage-import-export-tool-setup-v1.md)   
 * [Preparing hard drives for an import job](../storage-import-export-tool-preparing-hard-drives-import-v1.md) (Preparazione dei dischi rigidi per un processo di importazione)   
-* [Reviewing job status with copy log files](storage-import-export-tool-reviewing-job-status-v1.md) (Revisione dello stato dei processi con i file di log di copia)   
+* [Revisione dello stato dei processi con i file di log di copia](storage-import-export-tool-reviewing-job-status-v1.md)   
 * [Riparazione di un processo di importazione](storage-import-export-tool-repairing-an-import-job-v1.md)   
 * [Risoluzione dei problemi relativi allo strumento Importazione/Esportazione di Azure](storage-import-export-tool-troubleshooting-v1.md)

@@ -2,26 +2,24 @@
 title: Distribuire le risorse tra sottoscrizioni & gruppo di risorse
 description: Illustra come specificare come destinazione più gruppi di sottoscrizioni e risorse di Azure durante la distribuzione.
 ms.topic: conceptual
-ms.date: 06/02/2018
-ms.openlocfilehash: 99c534e1c51dcdf32c2b3a3b779c01d71b8d0c24
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 12/09/2019
+ms.openlocfilehash: 0754895215384f76b1cb44224f3ba06c80181827
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149547"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978765"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Distribuire le risorse di Azure in più gruppi di sottoscrizioni e risorse
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-In genere si distribuiscono tutte le risorse del modello in un unico [gruppo di risorse](resource-group-overview.md). ma in alcuni scenari può essere preferibile distribuire insieme un set di risorse, inserendole tuttavia in gruppi di sottoscrizioni e risorse diversi. Potrebbe essere necessario, ad esempio, distribuire la macchina virtuale di backup per Azure Site Recovery in un gruppo di risorse e in una posizione separati. Resource Manager consente di usare modelli annidati per specificare come destinazione gruppi di sottoscrizioni e risorse diversi da quello usato per il modello padre.
+In genere si distribuiscono tutte le risorse del modello in un unico [gruppo di risorse](resource-group-overview.md). ma in alcuni scenari può essere preferibile distribuire insieme un set di risorse, inserendole tuttavia in gruppi di sottoscrizioni e risorse diversi. Potrebbe essere necessario, ad esempio, distribuire la macchina virtuale di backup per Azure Site Recovery in un gruppo di risorse e in una posizione separati. Gestione risorse consente di usare modelli annidati per indirizzare più di una sottoscrizione e un gruppo di risorse.
 
 > [!NOTE]
 > Un'unica distribuzione può interessare solo cinque gruppi di risorse. Questa limitazione significa in genere che è possibile eseguire la distribuzione in un solo gruppo di risorse specificato per il modello padre e in un massimo di quattro gruppi di risorse nelle distribuzioni annidate o collegate. Tuttavia, se il modello padre contiene solo modelli annidati o collegati e non distribuisce risorse, è possibile includere fino a cinque gruppi di risorse nelle distribuzioni annidate o collegate.
 
-## <a name="specify-a-subscription-and-resource-group"></a>Specificare un gruppo di sottoscrizioni e risorse
+## <a name="specify-subscription-and-resource-group"></a>Specificare la sottoscrizione e il gruppo di risorse
 
-Per specificare come destinazione una risorsa diversa, usare un modello annidato o collegato. Il tipo di risorsa `Microsoft.Resources/deployments` fornisce parametri per `subscriptionId` e `resourceGroup`. Queste proprietà consentono di specificare un gruppo di sottoscrizioni e risorse diverso per la distribuzione nidificata. Tutti i gruppi di risorse devono esistere prima di eseguire la distribuzione. Se non si specifica un ID sottoscrizione o un gruppo di risorse, viene usato il gruppo di sottoscrizioni e risorse del modello padre.
+Per fare riferimento a un gruppo di risorse o a una sottoscrizione diversa, usare un [modello annidato o collegato](resource-group-linked-templates.md). Il tipo di risorsa `Microsoft.Resources/deployments` fornisce parametri per `subscriptionId` e `resourceGroup`che consentono di specificare la sottoscrizione e il gruppo di risorse per la distribuzione nidificata. Se non si specifica l'ID sottoscrizione o il gruppo di risorse, viene usata la sottoscrizione e il gruppo di risorse del modello padre. Tutti i gruppi di risorse devono esistere prima di eseguire la distribuzione.
 
 L'account usato per distribuire il modello deve disporre delle autorizzazioni per la distribuzione per l'ID sottoscrizione specificato. Se la sottoscrizione specificata è presente in un tenant di Azure Active Directory diverso, è necessario [aggiungere gli utenti guest da un'altra directory](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).
 
@@ -42,7 +40,7 @@ Per specificare un gruppo di risorse e una sottoscrizione differenti, usare:
 
 Se i gruppi di risorse si trovano nella stessa sottoscrizione, è possibile rimuovere il valore **subscriptionId**.
 
-L'esempio seguente distribuisce due account di archiviazione, uno nel gruppo di risorse specificato durante la distribuzione e uno in un gruppo di risorse specificato nel parametro `secondResourceGroup`:
+L'esempio seguente distribuisce due account di archiviazione. Il primo account di archiviazione viene distribuito nel gruppo di risorse specificato durante la distribuzione. Il secondo account di archiviazione viene distribuito nel gruppo di risorse specificato nei parametri `secondResourceGroup` e `secondSubscriptionID`:
 
 ```json
 {
@@ -70,6 +68,18 @@ L'esempio seguente distribuisce due account di archiviazione, uno nel gruppo di 
         "secondStorageName": "[concat(parameters('storagePrefix'), uniqueString(parameters('secondSubscriptionID'), parameters('secondResourceGroup')))]"
     },
     "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[variables('firstStorageName')]",
+            "apiVersion": "2017-06-01",
+            "location": "[resourceGroup().location]",
+            "sku":{
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {
+            }
+        },
         {
             "apiVersion": "2017-05-10",
             "name": "nestedTemplate",
@@ -100,73 +110,18 @@ L'esempio seguente distribuisce due account di archiviazione, uno nel gruppo di 
                 },
                 "parameters": {}
             }
-        },
-        {
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[variables('firstStorageName')]",
-            "apiVersion": "2017-06-01",
-            "location": "[resourceGroup().location]",
-            "sku":{
-                "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {
-            }
         }
     ]
 }
 ```
 
-Se si imposta `resourceGroup` sul nome di un gruppo di risorse che non esiste, la distribuzione ha esito negativo.
+Se si imposta `resourceGroup` sul nome di un gruppo di risorse che non esiste, la distribuzione avrà esito negativo.
 
-## <a name="use-the-resourcegroup-and-subscription-functions"></a>Usare le funzioni resourceGroup() e subscription()
+Per testare il modello precedente e visualizzare i risultati, usare PowerShell o l'interfaccia della riga di comando di Azure.
 
-Per le distribuzioni tra gruppi di risorse, le funzioni [resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) e [subscription()](resource-group-template-functions-resource.md#subscription) vengono risolte in modo diverso in base al modo in cui si specifica il modello annidato. 
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Se si incorpora un modello in un altro modello, le funzioni nel modello annidato si risolvono nel gruppo di risorse e nella sottoscrizione padre. Un modello incorporato usa il formato seguente:
-
-```json
-"apiVersion": "2017-05-10",
-"name": "embeddedTemplate",
-"type": "Microsoft.Resources/deployments",
-"resourceGroup": "crossResourceGroupDeployment",
-"properties": {
-    "mode": "Incremental",
-    "template": {
-        ...
-        resourceGroup() and subscription() refer to parent resource group/subscription
-    }
-}
-```
-
-Se si crea un collegamento a un modello separato, le funzioni nel modello collegato si risolvono nel gruppo di risorse e nella sottoscrizione annidati. Un modello collegato usa il formato seguente:
-
-```json
-"apiVersion": "2017-05-10",
-"name": "linkedTemplate",
-"type": "Microsoft.Resources/deployments",
-"resourceGroup": "crossResourceGroupDeployment",
-"properties": {
-    "mode": "Incremental",
-    "templateLink": {
-        ...
-        resourceGroup() and subscription() in linked template refer to linked resource group/subscription
-    }
-}
-```
-
-## <a name="example-templates"></a>Modelli di esempio
-
-I modelli seguenti mostrano distribuzioni tra più gruppi di risorse. Dopo la tabella sono mostrati script per distribuire i modelli.
-
-|Modello  |DESCRIZIONE  |
-|---------|---------|
-|[Modello tra più sottoscrizioni](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crosssubscription.json) |Distribuisce un account di archiviazione in un gruppo di risorse e un account di archiviazione in un secondo gruppo di risorse. Includere un valore per l'ID sottoscrizione quando il secondo gruppo di risorse è in una sottoscrizione diversa. |
-|[Modello di proprietà a più gruppi di risorse](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) |Mostra in che modo si risolve la funzione `resourceGroup()`. Non distribuisce alcuna risorsa. |
-
-### <a name="powershell"></a>PowerShell
-
-Per PowerShell, per distribuire due account di archiviazione in due gruppi di risorse nella **stessa sottoscrizione**, usare:
+Per distribuire due account di archiviazione in due gruppi di risorse nella **stessa sottoscrizione**, usare:
 
 ```azurepowershell-interactive
 $firstRG = "primarygroup"
@@ -183,7 +138,7 @@ New-AzResourceGroupDeployment `
   -secondStorageLocation eastus
 ```
 
-Per PowerShell, per distribuire due account di archiviazione in **due sottoscrizioni**, usare:
+Per distribuire due account di archiviazione in **due sottoscrizioni**, usare:
 
 ```azurepowershell-interactive
 $firstRG = "primarygroup"
@@ -207,52 +162,9 @@ New-AzResourceGroupDeployment `
   -secondSubscriptionID $secondSub
 ```
 
-Per PowerShell, per testare in che modo l'**oggetto gruppo di risorse** si risolve per il modello padre, modello inline e modello collegato, usare:
+# <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-```azurepowershell-interactive
-New-AzResourceGroup -Name parentGroup -Location southcentralus
-New-AzResourceGroup -Name inlineGroup -Location southcentralus
-New-AzResourceGroup -Name linkedGroup -Location southcentralus
-
-New-AzResourceGroupDeployment `
-  -ResourceGroupName parentGroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json
-```
-
-Nell'esempio precedente, sia **parentRG** che **inlineRG** vengono risolti in **parentGroup**. **linkedRG** viene risolto in **linkedGroup**. L'output dell'esempio precedente è:
-
-```powershell
- Name             Type                       Value
- ===============  =========================  ==========
- parentRG         Object                     {
-                                               "id": "/subscriptions/<subscription-id>/resourceGroups/parentGroup",
-                                               "name": "parentGroup",
-                                               "location": "southcentralus",
-                                               "properties": {
-                                                 "provisioningState": "Succeeded"
-                                               }
-                                             }
- inlineRG         Object                     {
-                                               "id": "/subscriptions/<subscription-id>/resourceGroups/parentGroup",
-                                               "name": "parentGroup",
-                                               "location": "southcentralus",
-                                               "properties": {
-                                                 "provisioningState": "Succeeded"
-                                               }
-                                             }
- linkedRG         Object                     {
-                                               "id": "/subscriptions/<subscription-id>/resourceGroups/linkedGroup",
-                                               "name": "linkedGroup",
-                                               "location": "southcentralus",
-                                               "properties": {
-                                                 "provisioningState": "Succeeded"
-                                               }
-                                             }
-```
-
-### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
-
-Per l'interfaccia della riga di comando di Azure, per distribuire due account di archiviazione in due gruppi di risorse nella **stessa sottoscrizione**, usare:
+Per distribuire due account di archiviazione in due gruppi di risorse nella **stessa sottoscrizione**, usare:
 
 ```azurecli-interactive
 firstRG="primarygroup"
@@ -267,7 +179,7 @@ az group deployment create \
   --parameters storagePrefix=tfstorage secondResourceGroup=$secondRG secondStorageLocation=eastus
 ```
 
-Per l'interfaccia della riga di comando di Azure, per distribuire due account di archiviazione in **due sottoscrizioni**, usare:
+Per distribuire due account di archiviazione in **due sottoscrizioni**, usare:
 
 ```azurecli-interactive
 firstRG="primarygroup"
@@ -289,7 +201,146 @@ az group deployment create \
   --parameters storagePrefix=storage secondResourceGroup=$secondRG secondStorageLocation=eastus secondSubscriptionID=$secondSub
 ```
 
-Per l'interfaccia della riga di comando di Azure, per testare in che modo l'**oggetto gruppo di risorse** si risolve per il modello padre, modello inline e modello collegato, usare:
+---
+
+## <a name="use-functions"></a>Usare le funzioni
+
+Le funzioni [resourceGroup ()](resource-group-template-functions-resource.md#resourcegroup) e [Subscription ()](resource-group-template-functions-resource.md#subscription) vengono risolte in modo diverso in base alla modalità di specifica del modello. Quando si esegue il collegamento a un modello esterno, le funzioni si risolvono sempre nell'ambito del modello. Quando si annida un modello all'interno di un modello padre, usare la proprietà `expressionEvaluationOptions` per specificare se le funzioni vengono risolte nel gruppo di risorse e nella sottoscrizione per il modello padre o il modello annidato. Impostare la proprietà su `inner` per risolvere l'ambito del modello annidato. Impostare la proprietà su `outer` per risolvere l'ambito del modello padre.
+
+La tabella seguente mostra se le funzioni vengono risolte nel gruppo di risorse padre o incorporato e nella sottoscrizione.
+
+| Tipo di modello | Scope | Risoluzione |
+| ------------- | ----- | ---------- |
+| nidificati        | Outer (impostazione predefinita) | Gruppo di risorse padre |
+| nidificati        | interno | Gruppo di risorse secondario |
+| collegate        | N/D   | Gruppo di risorse secondario |
+
+Il [modello di esempio]((https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json)) seguente mostra:
+
+* modello annidato con ambito predefinito (esterno)
+* modello annidato con ambito interno
+* modello collegato
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "defaultScopeTemplate",
+            "apiVersion": "2017-05-10",
+            "resourceGroup": "inlineGroup",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                    ],
+                    "outputs": {
+                        "resourceGroupOutput": {
+                            "type": "string",
+                            "value": "[resourceGroup().name]"
+                        }
+                    }
+                },
+                "parameters": {}
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "innerScopeTemplate",
+            "apiVersion": "2017-05-10",
+            "resourceGroup": "inlineGroup",
+            "properties": {
+                "expressionEvaluationOptions": {
+                    "scope": "inner"
+                },
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                    ],
+                    "outputs": {
+                        "resourceGroupOutput": {
+                            "type": "string",
+                            "value": "[resourceGroup().name]"
+                        }
+                    }
+                },
+                "parameters": {}
+            }
+        },
+        {
+            "apiVersion": "2017-05-10",
+            "name": "linkedTemplate",
+            "type": "Microsoft.Resources/deployments",
+            "resourceGroup": "linkedGroup",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "contentVersion": "1.0.0.0",
+                    "uri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/resourceGroupName.json"
+                },
+                "parameters": {}
+            }
+        }
+    ],
+    "outputs": {
+        "parentRG": {
+            "type": "string",
+            "value": "[concat('Parent resource group is ', resourceGroup().name)]"
+        },
+        "defaultScopeRG": {
+            "type": "string",
+            "value": "[concat('Default scope resource group is ', reference('defaultScopeTemplate').outputs.resourceGroupOutput.value)]"
+        },
+        "innerScopeRG": {
+            "type": "string",
+            "value": "[concat('Inner scope resource group is ', reference('innerScopeTemplate').outputs.resourceGroupOutput.value)]"
+        },
+        "linkedRG": {
+            "type": "string",
+            "value": "[concat('Linked resource group is ', reference('linkedTemplate').outputs.resourceGroupOutput.value)]"
+        }
+    }
+}
+```
+
+Per testare il modello precedente e visualizzare i risultati, usare PowerShell o l'interfaccia della riga di comando di Azure.
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+New-AzResourceGroup -Name parentGroup -Location southcentralus
+New-AzResourceGroup -Name inlineGroup -Location southcentralus
+New-AzResourceGroup -Name linkedGroup -Location southcentralus
+
+New-AzResourceGroupDeployment `
+  -ResourceGroupName parentGroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json
+```
+
+L'output dell'esempio precedente è:
+
+```powershell
+ Name             Type                       Value
+ ===============  =========================  ==========
+ parentRG         String                     Parent resource group is parentGroup
+ defaultScopeRG   String                     Default scope resource group is parentGroup
+ innerScopeRG     String                     Inner scope resource group is inlineGroup
+ linkedRG         String                     Linked resource group is linkedgroup
+```
+
+# <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 ```azurecli-interactive
 az group create --name parentGroup --location southcentralus
@@ -302,47 +353,30 @@ az group deployment create \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json 
 ```
 
-Nell'esempio precedente, sia **parentRG** che **inlineRG** vengono risolti in **parentGroup**. **linkedRG** viene risolto in **linkedGroup**. L'output dell'esempio precedente è:
+L'output dell'esempio precedente è:
 
 ```azurecli
-...
 "outputs": {
-  "inlineRG": {
-    "type": "Object",
-    "value": {
-      "id": "/subscriptions/<subscription-id>/resourceGroups/parentGroup",
-      "location": "southcentralus",
-      "name": "parentGroup",
-      "properties": {
-        "provisioningState": "Succeeded"
-      }
-    }
+  "defaultScopeRG": {
+    "type": "String",
+    "value": "Default scope resource group is parentGroup"
+  },
+  "innerScopeRG": {
+    "type": "String",
+    "value": "Inner scope resource group is inlineGroup"
   },
   "linkedRG": {
-    "type": "Object",
-    "value": {
-      "id": "/subscriptions/<subscription-id>/resourceGroups/linkedGroup",
-      "location": "southcentralus",
-      "name": "linkedGroup",
-      "properties": {
-        "provisioningState": "Succeeded"
-      }
-    }
+    "type": "String",
+    "value": "Linked resource group is linkedGroup"
   },
   "parentRG": {
-    "type": "Object",
-    "value": {
-      "id": "/subscriptions/<subscription-id>/resourceGroups/parentGroup",
-      "location": "southcentralus",
-      "name": "parentGroup",
-      "properties": {
-        "provisioningState": "Succeeded"
-      }
-    }
+    "type": "String",
+    "value": "Parent resource group is parentGroup"
   }
 },
-...
 ```
+
+---
 
 ## <a name="next-steps"></a>Passaggi successivi
 

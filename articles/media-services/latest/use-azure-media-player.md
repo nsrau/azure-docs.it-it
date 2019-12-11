@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: juliako
-ms.openlocfilehash: 8f1639a21e3783f587904c2a8085fd2f555ff5b8
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: a0b0a4e89242103811f20071b7235c825c9d8bd2
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900362"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74967525"
 ---
 # <a name="azure-media-player-overview"></a>Panoramica di Azure Media Player
 
@@ -50,6 +50,10 @@ Per configurare diverse opzioni di riproduzione (ad esempio, tecnologia, lingua 
 ## <a name="set-up-azure-media-player-in-your-html"></a>Configurare Azure Media Player nel codice HTML
 
 Azure Media Player è semplice da configurare. Bastano pochi istanti per ottenere la riproduzione di base di contenuti multimediali dall'account Servizi multimediali. Vedere la [documentazione di Azure Media Player](https://aka.ms/ampdocs) per informazioni dettagliate su come installare e configurare Azure Media Player. 
+
+## <a name="additional-notes"></a>Note aggiuntive
+
+* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google, Inc.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

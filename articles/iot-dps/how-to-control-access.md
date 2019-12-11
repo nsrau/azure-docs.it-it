@@ -1,6 +1,6 @@
 ---
 title: Endpoint di sicurezza nel servizio Device Provisioning in hub IoT | Microsoft Docs
-description: Concetti - Come controllare l'accesso al servizio di provisioning di dispositivi in hub IoT per app back-end. Include informazioni sui token di sicurezza.
+description: "Concetti: come controllare l'accesso al servizio Device provisioning (DPS) per le app back-end. Include informazioni sui token di sicurezza."
 author: wesmc7777
 manager: philmea
 ms.service: iot-dps
@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: wesmc
-ms.openlocfilehash: 7ff622ceac9c49eda7ba6bca1a8bb3aaabccb816
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f36a48e0cedc309deda8416face5549a54eb8c73
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60626643"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975126"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Controllo dell'accesso al servizio Device Provisioning in hub IoT di Azure
 
@@ -24,7 +24,7 @@ L'articolo illustra:
 * Le diverse autorizzazioni che è possibile concedere a un'app back-end per accedere al servizio di provisioning.
 * Il processo di autenticazione e i token usati per verificare le autorizzazioni.
 
-### <a name="when-to-use"></a>Quando usare le autorizzazioni
+### <a name="when-to-use"></a>Quando usare questa opzione
 
 È necessario avere le autorizzazioni appropriate per accedere agli endpoint del servizio di provisioning. Un'app back-end, ad esempio, deve includere un token contenente le credenziali di sicurezza con ogni messaggio inviato al servizio.
 
@@ -32,7 +32,7 @@ L'articolo illustra:
 
 Per concedere le [autorizzazioni](#device-provisioning-service-permissions) è possibile procedere nei modi seguenti:
 
-* **Criteri di autorizzazione dell'accesso condiviso**. I criteri di accesso condiviso possono concedere qualsiasi combinazione di [autorizzazioni](#device-provisioning-service-permissions). È possibile definire i criteri nel [portale di Azure][lnk-management-portal] o a livello di codice usando le [API REST del servizio Device Provisioning][lnk-resource-provider-apis]. Un servizio di provisioning appena creato ha i criteri predefiniti seguenti:
+* **Criteri di autorizzazione dell'accesso condiviso**. I criteri di accesso condiviso possono concedere qualsiasi combinazione di [autorizzazioni](#device-provisioning-service-permissions). È possibile definire i criteri nel [portale di Azure][lnk-management-portal]o a livello di codice usando le [API REST del servizio Device provisioning][lnk-resource-provider-apis]. Un servizio di provisioning appena creato ha i criteri predefiniti seguenti:
 
 * **provisioningserviceowner**: criteri con tutte le autorizzazioni.
 
@@ -44,7 +44,7 @@ Per concedere le [autorizzazioni](#device-provisioning-service-permissions) è p
 Servizio Device Provisioning in hub IoT di Azure concede l'accesso agli endpoint tramite la verifica di un token rispetto ai criteri di accesso condiviso. Le credenziali di sicurezza, ad esempio le chiavi asimmetriche, non vengono mai trasmesse in rete.
 
 > [!NOTE]
-> Il servizio Device Provisioning viene protetto tramite la sottoscrizione di Azure, analogamente a tutti i provider in [Azure Resource Manager][lnk-azure-resource-manager].
+> Il provider di risorse del servizio Device provisioning viene protetto tramite la sottoscrizione di Azure, così come tutti i provider nella [Azure Resource Manager][lnk-azure-resource-manager].
 
 Per altre informazioni sulla creazione e sull'uso di token di sicurezza, vedere la sezione seguente.
 
@@ -57,11 +57,11 @@ SharedAccessSignature sr =
 ```
 
 > [!NOTE]
-> Gli [SDK del servizio Device Provisioning in hub IoT][lnk-sdks] generano automaticamente i token durante la connessione al servizio.
+> Gli [SDK del servizio Device provisioning di Azure][lnk-sdks] , generano automaticamente i token durante la connessione al servizio.
 
 ## <a name="security-tokens"></a>Token di sicurezza
 
-Il servizio Device Provisioning usa i token di sicurezza per autenticare i servizi ed evitare l'invio in rete delle chiavi. Inoltre, i token di sicurezza hanno una validità limitata in termini di tempo e portata. Gli [SDK del servizio Device Provisioning in hub IoT][lnk-sdks] generano automaticamente i token senza richiedere una configurazione speciale. In alcuni scenari è necessario generare e usare direttamente i token di sicurezza. Questi scenari includono l'uso diretto di superfici HTTP.
+Il servizio Device Provisioning usa i token di sicurezza per autenticare i servizi ed evitare l'invio in rete delle chiavi. Inoltre, i token di sicurezza hanno una validità limitata in termini di tempo e portata. Gli [SDK del servizio Device provisioning di Azure][lnk-sdks] Internet generano automaticamente i token senza richiedere alcuna configurazione speciale. In alcuni scenari è necessario generare e usare direttamente i token di sicurezza. Questi scenari includono l'uso diretto di superfici HTTP.
 
 ### <a name="security-token-structure"></a>Formato del token di sicurezza
 
@@ -75,11 +75,11 @@ Il token di sicurezza ha il formato seguente:
 
 I valori previsti sono i seguenti:
 
-| Value | Descrizione |
+| Value | Description |
 | --- | --- |
 | {signature} |Stringa della firma HMAC-SHA256 nel formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: la chiave viene decodificata dalla codifica Base64 e usata come chiave per eseguire il calcolo di HMAC-SHA256.|
 | {expiry} |Stringhe UTF8 per il numero di secondi trascorsi dalle 00:00:00 UTC dell'1 gennaio 1970. |
-| {URL-encoded-resourceURI} | Codifica URL con lettere minuscole dell'URI della risorsa con lettere minuscole Prefisso URI (per segmento) degli endpoint a cui è possibile accedere tramite questo token e che inizia con il nome host del servizio Device Provisioning in hub IoT senza il protocollo. Ad esempio: `mydps.azure-devices-provisioning.net`. |
+| {URL-encoded-resourceURI} | Codifica URL con lettere minuscole dell'URI della risorsa con lettere minuscole Prefisso URI (per segmento) degli endpoint a cui è possibile accedere tramite questo token e che inizia con il nome host del servizio Device Provisioning in hub IoT senza il protocollo. Ad esempio `mydps.azure-devices-provisioning.net`. |
 | {policyName} |Nome del criterio di accesso condiviso a cui fa riferimento il token. |
 
 **Nota sul prefisso**: il prefisso dell'URI viene calcolato in base al segmento e non in base al carattere. Ad esempio `/a/b` è un prefisso per `/a/b/c` ma non per `/a/bc`.

@@ -3,12 +3,12 @@ title: Matrice di supporto per il backup di macchine virtuali di Azure
 description: Informazioni riepilogative su impostazioni e limitazioni del supporto durante il backup di macchine virtuali di Azure con il servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 85a32dd9ea875bdfc73d7e4a9515e5cfe0e2da42
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: fa4e01def8db4e5fef32b644d198bad1e9beab27
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559034"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996171"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matrice di supporto per il backup di macchine virtuali di Azure
 
@@ -44,7 +44,7 @@ Backup dei dischi gestiti dopo l'abilitazione del blocco del gruppo di risorse |
 Modifica dei criteri di backup per una macchina virtuale | Supportato.<br/><br/> Verrà eseguito il backup della macchina virtuale utilizzando le impostazioni pianificazione e conservazione in nuovi criteri. Se le impostazioni di conservazione vengono estese, i punti di ripristino esistenti verranno contrassegnati e mantenuti. Se sono ridotti, i punti di ripristino esistenti verranno eliminati nel processo di pulizia successivo e infine eliminati.
 Annullamento di un processo di backup| Supportata durante il processo di snapshot.<br/><br/> Non supportata quando lo snapshot viene trasferito nell'insieme di credenziali.
 Backup della macchina virtuale in un'area o una sottoscrizione diversa |Non supportati.
-Backup al giorno (tramite l'estensione della macchina virtuale di Azure) | Un backup pianificato al giorno.<br/><br/> Il servizio consente fino a nove backup su richiesta al giorno, ma Microsoft consiglia e supporta fino a quattro backup su richiesta giornalieri.
+Backup al giorno (tramite l'estensione della macchina virtuale di Azure) | Un backup pianificato al giorno.<br/><br/>Il servizio backup di Azure supporta fino a nove backup su richiesta al giorno, ma Microsoft consiglia di non avere più di quattro backup su richiesta giornalieri per garantire prestazioni ottimali.
 Backup al giorno (tramite l'agente di Servizi di ripristino di Microsoft Azure) | Tre backup pianificati al giorno.
 Backup al giorno (tramite DPM o il server di Backup di Microsoft Azure) | Due backup pianificati al giorno.
 Backup mensile/annuale| Non supportata quando si esegue il backup con l'estensione della macchina virtuale di Azure. È supportato solo il backup giornaliero e settimanale.<br/><br/> È possibile configurare i criteri in modo da conservare i backup giornalieri/settimanali per il periodo di conservazione mensile/annuale.
@@ -146,7 +146,7 @@ Eseguire il backup di macchine virtuali distribuite da [Azure Marketplace](https
 Eseguire il backup di macchine virtuali distribuite da un'immagine personalizzata (di terze parti) |Supportato.<br/><br/> È necessario che la macchina virtuale esegua un sistema operativo supportato.<br/><br/> Quando si ripristinano i file nella macchina virtuale, è possibile eseguire il ripristino solo in un sistema operativo compatibile (non in un sistema operativo precedente o successivo).
 Eseguire il backup di macchine virtuali di cui viene eseguita la migrazione in Azure| Supportato.<br/><br/> Per eseguire il backup della macchina virtuale, l'agente di macchine virtuali deve essere installato nella macchina sottoposta a migrazione.
 Backup della coerenza tra più macchine virtuali | Backup di Azure non garantisce la coerenza dei dati e delle applicazioni tra più macchine virtuali.
-Backup con [impostazioni di diagnostica](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)  | Non supportato. <br/><br/> Se il ripristino della macchina virtuale di Azure con le impostazioni di diagnostica viene attivato usando [Crea nuova](backup-azure-arm-restore-vms.md#create-a-vm) opzione, il ripristino ha esito negativo.
+Backup con [impostazioni di diagnostica](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)  | Non supportata. <br/><br/> Se il ripristino della macchina virtuale di Azure con le impostazioni di diagnostica viene attivato usando [Crea nuova](backup-azure-arm-restore-vms.md#create-a-vm) opzione, il ripristino ha esito negativo.
 Ripristino di macchine virtuali con aggiunta di zona | Supportato (per la macchina virtuale di cui è stato eseguito il backup dopo Jan 2019 e la [zona di disponibilità](https://azure.microsoft.com/global-infrastructure/availability-zones/) è disponibile).<br/><br/>È attualmente supportato il ripristino nella stessa zona bloccata nelle VM. Tuttavia, se la zona non è disponibile, il ripristino ha esito negativo.
 VM Gen2 | Supportato <br> Backup di Azure supporta il backup e il ripristino di [macchine virtuali Gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). Quando queste VM vengono ripristinate dal punto di ripristino, vengono ripristinate come [macchine virtuali Gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
 

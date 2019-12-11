@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/12/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: adwise
 ms.custom: seodec18
-ms.openlocfilehash: edb46bc361c515439a93d9c3d0b9987bebe4b1b1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4b0e5be0e5f71fa61e3a6c6fa39e720c4c298898
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229871"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74967942"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Esercitazione: Creare e gestire budget di Azure
 
@@ -27,7 +27,7 @@ I budget vengono reimpostati automaticamente alla fine di un periodo (mensile, t
 
 Gli esempi in questa esercitazione illustrano la creazione e la modifica di un budget per una sottoscrizione con contratto Enterprise di Azure.
 
-Guarda il video su [come creare un budget per monitorare la spesa con gestione costi di Azure](https://www.youtube.com/watch?v=ExIVG_Gr45A) per scoprire come creare budget in Azure per monitorare la spesa.
+Per informazioni su come creare budget in Azure per monitorare la spesa, vedere la pagina relativa all' [applicazione di budget alle sottoscrizioni usando il video portale di Azure](https://www.youtube.com/watch?v=UrkHiUx19Po) .
 
 
 In questa esercitazione si apprenderà come:
@@ -36,7 +36,7 @@ In questa esercitazione si apprenderà come:
 > * Creare un budget nel portale di Azure
 > * Modificare un budget
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Sono supportati i budget per un'ampia gamma di tipi di account Azure. Per visualizzare l'elenco completo dei tipi di account supportati, vedere [Understand Cost Management data](understand-cost-mgt-data.md) (Informazioni sui dati di Gestione costi). Per visualizzare i budget, è necessario effettuare almeno l'accesso in lettura per l'account Azure.
 
@@ -50,35 +50,35 @@ Le seguenti autorizzazioni di Azure o gli ambiti sono supportati per ogni sottos
 
 Per altre informazioni sull'assegnazione dell'autorizzazione ai dati di Gestione costi, vedere [Assegnare l'accesso ai dati di Gestione costi](assign-access-acm-data.md).
 
-## <a name="sign-in-to-azure"></a>Accedere ad Azure
+## <a name="sign-in-to-azure"></a>Accedere a Azure
 
 - Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Creare un budget nel portale di Azure
 
-È possibile creare un budget per una sottoscrizione di Azure per un periodo mensile, trimestrale o annuale. Il contenuto di spostamento nella portale di Azure determina se si crea un budget per una sottoscrizione o per un gruppo di gestione.
+È possibile creare un budget per una sottoscrizione di Azure per un periodo mensile, trimestrale o annuale. Il contenuto della navigazione nel portale di Azure determina se si crea un budget per una sottoscrizione o per un gruppo di gestione.
 
-Per creare o visualizzare un budget, aprire l'ambito desiderato nel portale di Azure e selezionare **budget** nel menu. Ad esempio, passare a **sottoscrizioni**, selezionare una sottoscrizione dall'elenco e quindi selezionare **budget** nel menu. Utilizzare la pillola **ambito** per passare a un ambito diverso, ad esempio un gruppo di gestione, in budget. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
+Per creare o visualizzare un budget, aprire l'ambito desiderato nel portale di Azure e selezionare **Budget** nel menu. Ad esempio, passare a **sottoscrizioni**, selezionare una sottoscrizione dall'elenco e quindi selezionare **budget** nel menu. Utilizzare la pillola **ambito** per passare a un ambito diverso, ad esempio un gruppo di gestione, in budget. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
 
 Dopo aver creato i budget, viene mostrata una semplice visualizzazione della spesa corrente corrispondente.
 
-Fare clic su **Add**.
+Selezionare **Aggiungi**.
 
-![Esempio che mostra un elenco di budget già creati](./media/tutorial-acm-create-budgets/budgets01.png)
+![Esempio di elenco di budget già creati](./media/tutorial-acm-create-budgets/budgets01.png)
 
-Nella finestra **crea budget** verificare che l'ambito visualizzato sia corretto. Scegliere tutti i filtri che si desidera aggiungere. I filtri consentono di creare budget per i costi specifici, ad esempio i gruppi di risorse in una sottoscrizione o un servizio come le macchine virtuali. Qualsiasi filtro che è possibile utilizzare per l'analisi dei costi può essere applicato anche a un budget.
+Nella finestra **Crea il budget** verificare che l'ambito visualizzato sia corretto. Scegliere i filtri da aggiungere. I filtri consentono di creare budget per costi specifici, ad esempio i gruppi di risorse in una sottoscrizione o un servizio come le macchine virtuali. Qualsiasi filtro che è possibile usare per l'analisi dei costi può essere applicato anche a un budget.
 
-Dopo aver identificato l'ambito e i filtri, digitare un nome di budget. Scegliere quindi un periodo di reimpostazione del budget mensile, trimestrale o annuale. Questo periodo di reimpostazione determina l'intervallo di tempo analizzato dal budget. Il costo valutato dal budget inizia a zero all'inizio di ogni nuovo periodo. Quando si crea un budget trimestrale, funziona esattamente come un budget mensile. La differenza è che l'importo di budget per il trimestre viene suddiviso in modo uniforme tra i tre mesi del trimestre. Un importo di budget annuale è diviso uniformemente tra tutti i 12 mesi dell'anno di calendario.
+Dopo aver identificato l'ambito e i filtri, digitare un nome per il budget. Scegliere quindi un periodo di reimpostazione del budget mensile, trimestrale o annuale. Questo periodo di ripristino determina l'intervallo di tempo analizzato dal budget. Il costo valutato dal budget inizia da zero all'inizio di ogni nuovo periodo. Quando si crea un budget trimestrale, funziona esattamente come un budget mensile. La differenza è che l'importo di budget per il trimestre viene suddiviso in modo uniforme tra i tre mesi del trimestre. Un importo di budget annuale viene suddiviso equamente tra tutti i 12 mesi dell'anno di calendario.
 
-Se si ha una sottoscrizione con pagamento in base al consumo, MSDN o Visual Studio, il periodo di fatturazione potrebbe non allinearsi con il mese di calendario. Per i tipi di sottoscrizione e i gruppi di risorse, è possibile creare un budget allineato al periodo di fatturazione o ai mesi del calendario. Per creare un budget allineato al periodo di fatturazione, selezionare un periodo di reimpostazione del **mese di fatturazione**, del **trimestre di fatturazione**o dell'anno di **fatturazione**. Per creare un budget allineato al mese di calendario, selezionare un periodo di ripristino **mensile**, **trimestrale**o **annuale**.
+Se si ha una sottoscrizione con pagamento in base al consumo, MSDN o Visual Studio, il periodo di fatturazione potrebbe non allinearsi con il mese di calendario. Per tali tipi di sottoscrizioni e gruppi di risorse, è possibile creare un budget allineato al periodo di fatturazione o ai mesi di calendario. Per creare un budget allineato al periodo di fatturazione, selezionare un periodo di reimpostazione del **mese di fatturazione**, del **trimestre di fatturazione**o dell'anno di **fatturazione**. Per creare un budget allineato al mese di calendario, selezionare un periodo di ripristino **mensile**, **trimestrale**o **annuale**.
 
-Successivamente, identificare la data di scadenza quando il budget diventa non valido e smette di valutare i costi.
+Identificare quindi la data di scadenza, in corrispondenza della quale il budget non è più valido e smette di valutare i costi.
 
-In base ai campi scelti nel budget fino a questo punto, viene visualizzato un grafico che consente di selezionare una soglia da usare per il budget. Il budget suggerito si basa sul costo previsto più elevato che potrebbe verificarsi nei periodi futuri. È possibile modificare l'importo del budget.
+In base ai campi scelti nel budget fino a questo punto, viene visualizzato un grafico che consente di selezionare una soglia da usare per il budget. Il budget suggerito si basa sul costo massimo previsto che potrebbe venire sostenuto nei periodi futuri. È possibile modificare l'importo del budget.
 
-![Esempio che mostra la creazione del budget con i dati dei costi mensili ](./media/tutorial-acm-create-budgets/monthly-budget01.png)
+![Esempio di creazione del budget con dati dei costi mensili ](./media/tutorial-acm-create-budgets/monthly-budget01.png)
 
-Dopo aver configurato l'importo del budget, fare clic su **Avanti** per configurare gli avvisi del budget. Per i budget sono richiesti almeno una soglia per i costi (% del budget) e un indirizzo di posta elettronica corrispondente. Facoltativamente, è possibile includere fino a cinque soglie e cinque indirizzi di posta elettronica in un unico budget. Quando viene soddisfatta una soglia di budget, le notifiche tramite posta elettronica vengono normalmente ricevute in meno di 20 ore. Per altre informazioni sulle notifiche, vedere [Use cost alerts](cost-mgt-alerts-monitor-usage-spending.md) (Usare avvisi per i costi). Nell'esempio seguente viene generato un avviso di posta elettronica quando viene raggiunto il 90% del budget. Se si crea un budget con l'API budgets, è anche possibile assegnare ruoli agli utenti per ricevere gli avvisi. L'assegnazione di ruoli agli utenti non è supportata nel portale di Azure. Per altre informazioni sull'API di Azure budgets, vedere [budgets API](/rest/api/consumption/budgets).
+Dopo aver configurato l'importo del budget, selezionare **Avanti** per configurare gli avvisi per il budget. Per i budget sono richiesti almeno una soglia per i costi (% del budget) e un indirizzo di posta elettronica corrispondente. Facoltativamente, è possibile includere fino a cinque soglie e cinque indirizzi di posta elettronica in un unico budget. Quando viene soddisfatta una soglia di budget, le notifiche tramite posta elettronica vengono normalmente ricevute in meno di 20 ore. Per altre informazioni sulle notifiche, vedere [Use cost alerts](cost-mgt-alerts-monitor-usage-spending.md) (Usare avvisi per i costi). Nell'esempio seguente viene generato un avviso di posta elettronica quando viene raggiunto il 90% del budget. Se si crea un budget con l'API budgets, è anche possibile assegnare ruoli agli utenti per ricevere gli avvisi. L'assegnazione di ruoli agli utenti non è supportata nel portale di Azure. Per altre informazioni sull'API di Azure budgets, vedere [budgets API](/rest/api/consumption/budgets).
 
 ![Esempio che mostra le condizioni di avviso](./media/tutorial-acm-create-budgets/monthly-budget-alert.png)
 
@@ -90,16 +90,16 @@ Nell'esempio precedente, è stato creato un budget per una sottoscrizione. Tutta
 
 ## <a name="trigger-an-action-group"></a>Attivare un gruppo di azione
 
-Quando si crea o si modifica un budget per un ambito di sottoscrizione o di gruppo di risorse, è possibile configurarlo in modo che chiami un gruppo di azione. Il gruppo di azioni può eseguire una serie di azioni diverse quando viene soddisfatta la soglia del budget. I gruppi di azioni sono attualmente supportati solo per gli ambiti della sottoscrizione e del gruppo di risorse. Per ulteriori informazioni sui gruppi di azioni, vedere [creare e gestire gruppi di azioni nella portale di Azure](../azure-monitor/platform/action-groups.md). Per altre informazioni sull'uso dell'automazione basata sul budget con i gruppi di azioni, vedere [gestire i costi con i budget di Azure](../billing/billing-cost-management-budget-scenario.md).
+Quando si crea o si modifica un budget per un ambito di sottoscrizione o di gruppo di risorse, è possibile configurarlo per chiamare un gruppo di azioni. Il gruppo di azioni può eseguire numerose azioni diverse quando viene raggiunta la soglia del budget. I gruppi di azioni sono attualmente supportati solo per gli ambiti della sottoscrizione e del gruppo di risorse. Per ulteriori informazioni sui gruppi di azioni, vedere [creare e gestire gruppi di azioni nella portale di Azure](../azure-monitor/platform/action-groups.md). Per altre informazioni sull'uso dell'automazione basata sul budget con i gruppi di azioni, vedere [gestire i costi con i budget di Azure](../billing/billing-cost-management-budget-scenario.md).
 
 
 
-Per creare o aggiornare i gruppi di azioni, fare clic su **Gestisci gruppi di azioni** durante la creazione o la modifica di un budget.
+Per creare o aggiornare i gruppi di azione, selezionare **Gestisci gruppi di azioni** durante la creazione o la modifica di un budget.
 
 ![Esempio di creazione di un budget per visualizzare i gruppi di azioni di gestione](./media/tutorial-acm-create-budgets/manage-action-groups01.png)
 
 
-Fare quindi clic su **Aggiungi gruppo di azione** e creare il gruppo di azioni.
+Selezionare quindi **Aggiungi gruppo di azione** e creare il gruppo di azioni.
 
 
 ![Immagine della casella di gruppo Aggiungi azione](./media/tutorial-acm-create-budgets/manage-action-groups02.png)
@@ -116,9 +116,15 @@ Nell'esempio seguente vengono illustrate le soglie del budget impostate su 50%, 
 
 L'integrazione del budget con i gruppi di azioni funziona solo per i gruppi di azioni in cui lo schema di avviso comune è disabilitato. Per ulteriori informazioni sulla disabilitazione dello schema, vedere [ricerca per categorie abilitare lo schema di avviso comune?](../azure-monitor/platform/alerts-common-schema.md#how-do-i-enable-the-common-alert-schema)
 
+## <a name="edit-an-existing-budget"></a>Modificare un budget esistente
+Se si desidera apportare modifiche a un budget esistente, passare alla finestra Budget principali e selezionare il budget che si desidera modificare. Nella finestra Dettagli Budget selezionare **modifica budget** e apportare le modifiche necessarie, quindi selezionare **Salva**.
+
+![Esempio che mostra il budget di modifica](./media/tutorial-acm-create-budgets/edit-budget.png)
+
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+Questa esercitazione ha illustrato come:
 
 > [!div class="checklist"]
 > * Creare un budget nel portale di Azure

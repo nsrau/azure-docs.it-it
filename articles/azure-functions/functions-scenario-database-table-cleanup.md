@@ -4,12 +4,12 @@ description: Usare Funzioni di Azure per pianificare un'attività che si connett
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: f70b5b83561e7c580dd7192850c8eb50be5aac0a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3dafe275dcd5eb172e744f1d163b33ebb0bac7cc
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230388"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972235"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Usare Funzioni di Azure per connettersi al database SQL di Azure
 
@@ -17,9 +17,9 @@ Questo articolo illustra come usare funzioni di Azure per creare un processo pia
 
 Se si tratta della prima esperienza di utilizzo di funzioni C#, è consigliabile leggere la [Guida di riferimento per gli sviluppatori C# di Funzioni di Azure](functions-dotnet-class-library.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-+ Completare i passaggi nell'articolo [Creare la prima funzione con Visual Studio](functions-create-your-first-function-visual-studio.md) per creare un'app per le funzioni locale destinata alla versione 2.x del runtime. È anche necessario aver pubblicato il progetto in un'app per le funzioni in Azure.
++ Completare la procedura descritta nell'articolo [creare la prima funzione usando Visual Studio](functions-create-your-first-function-visual-studio.md) per creare un'app per le funzioni locale destinata alla versione 2. x o a una versione successiva del runtime. È anche necessario aver pubblicato il progetto in un'app per le funzioni in Azure.
 
 + Questo articolo illustra un comando Transact-SQL che esegue un'operazione di pulizia in blocco nella tabella **SalesOrderHeader** nel database di esempio AdventureWorksLT. Per creare il database di esempio AdventureWorksLT, completare la procedura nell'articolo [Creare un database SQL di Azure nel portale di Azure](../sql-database/sql-database-get-started-portal.md).
 
@@ -131,7 +131,7 @@ Si vedrà ora come usare Funzioni con app per la logica per l'integrazione con a
 
 Per altre informazioni su Funzioni, vedere gli articoli seguenti:
 
-+ [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md)  
++ [Guida di riferimento per gli sviluppatori a Funzioni di Azure](functions-reference.md)  
   Informazioni di riferimento per programmatori in merito alla codifica delle funzioni e alla definizione di trigger e associazioni.
 + [Test di Funzioni di Azure](functions-test-a-function.md)  
   Descrive diversi strumenti e tecniche per il test delle funzioni.  

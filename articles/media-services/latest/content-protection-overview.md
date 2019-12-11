@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: eeb1dc44341768984bd6e337a2fe65a277f5aa77
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 1ae8645f3e782305ed5e1b7847b019a978e48dde
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581206"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977778"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Proteggi i tuoi contenuti con la crittografia dinamica di servizi multimediali
 
@@ -124,7 +124,7 @@ Il protocollo HLS supporta i formati di contenitore e gli schemi di crittografia
 
 |Formato del contenitore|Schema di crittografia|Esempio di URL|
 |---|---|---|
-|Tutti|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
+|Tutto|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
 |MPG2-TS |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbcs-aapl)`|
 |CMAF(fmp4) |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`|
 |MPG2-TS |CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cenc)`|
@@ -142,7 +142,7 @@ Il protocollo MPEG-DASH supporta i formati di contenitore e gli schemi di critto
 
 |Formato del contenitore|Schema di crittografia|Esempi di URL
 |---|---|---|
-|Tutti|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
+|Tutto|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
 |CSF(fmp4) |CENC (Widevine + PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cenc)`|
 |CMAF(fmp4)|CENC (Widevine + PlayReady)|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-cmaf,encryption=cenc)`|
 
@@ -150,7 +150,7 @@ Il protocollo MPEG-DASH supporta i formati di contenitore e gli schemi di critto
 
 Il protocollo Smooth Streaming supporta i formati di contenitore e gli schemi di crittografia seguenti.
 
-|Protocollo|Formato del contenitore|Schema di crittografia|
+|Protocol|Formato del contenitore|Schema di crittografia|
 |---|---|---|
 |fMP4|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=cbc)`|
 |fMP4 | CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=cenc)`|
@@ -236,7 +236,7 @@ Usare i modelli seguenti se si vuole specificare un servizio di distribuzione di
 * `StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate`: uguale al modello precedente, solo per Widevine. 
 * `StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate`: uguale al modello precedente, solo per FairPlay.  
 
-Ad esempio:
+ad esempio:
 
 ```csharp
 streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";
@@ -244,15 +244,18 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 
 `ContentKeyId` ha un valore della chiave richiesta. È possibile utilizzare `AlternativeMediaId` se si desidera eseguire il mapping della richiesta a un'entità da parte dell'utente. Ad esempio, è possibile usare `AlternativeMediaId` per cercare le autorizzazioni.
 
- Per esempi REST che usano URL di acquisizione di licenze/chiavi personalizzati, vedere [criteri di streaming-crea](https://docs.microsoft.com/rest/api/media/streamingpolicies/create).
+Per esempi REST che usano URL di acquisizione di licenze/chiavi personalizzati, vedere [criteri di streaming-crea](https://docs.microsoft.com/rest/api/media/streamingpolicies/create).
 
-## <a name="troubleshoot"></a>Risolvere i problemi
+> [!NOTE]
+> Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google, Inc.
+
+## <a name="troubleshoot"></a>Risolvere problemi
 
 Se viene ricevuto il messaggio di errore `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY`, assicurarsi di specificare i criteri di flusso appropriati.
 
 Se vengono visualizzati errori che terminano con `_NOT_SPECIFIED_IN_URL`, assicurarsi di specificare il formato di crittografia nell'URL. Un esempio è `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. Vedere [protocolli di streaming e tipi di crittografia](#streaming-protocols-and-encryption-types).
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
+## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback e ottenere aggiornamenti
 
 Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
 

@@ -1,19 +1,19 @@
 ---
 title: Configurazione dello strumento Importazione/Esportazione di Azure | Documentazione Microsoft
 description: Informazioni su come configurare lo strumento di preparazione e ripristino delle unità per il servizio Importazione/Esportazione di Azure.
-author: muralikk
+author: twooley
 services: storage
 ms.service: storage
 ms.topic: article
 ms.date: 06/29/2017
-ms.author: muralikk
+ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: d2ce6c409ae9cbf99589d11dfc850e2324d1b0c9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 01432ab68fc399f3e97eac2de5a7c356bef7078a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60320466"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74979037"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>Configurazione dello strumento Importazione/Esportazione di Azure
 
@@ -207,5 +207,5 @@ Examples:
 * [Previewing drive usage for an export job](../storage-import-export-tool-previewing-drive-usage-export-v1.md) (Anteprima dell'uso del disco per un processo di esportazione)
 * [Revisione dello stato dei processi con i file di log di copia](../storage-import-export-tool-reviewing-job-status-v1.md)
 * [Riparazione di un processo di importazione](../storage-import-export-tool-repairing-an-import-job-v1.md)
-* [Repairing an export job](../storage-import-export-tool-repairing-an-export-job-v1.md) (Riparazione di un processo di esportazione)
+* [Riparazione di un processo di esportazione](../storage-import-export-tool-repairing-an-export-job-v1.md)
 * [Risoluzione dei problemi relativi allo strumento Importazione/Esportazione di Azure](storage-import-export-tool-troubleshooting-v1.md)

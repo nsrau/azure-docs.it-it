@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: b5e733c93fef8920c73c8cf460dac7a7051fddb5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab3c40ee408498453bb137c63c440d980b0b7255
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61465610"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974513"
 ---
 # <a name="configure-asset-delivery-policies-with-net-sdk"></a>Configurare i criteri di distribuzione degli asset con .NET SDK
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -38,7 +38,7 @@ Questo articolo illustra perché e come creare i criteri di distribuzione degli 
 
 Se si desidera distribuire un asset con memoria crittografata, è necessario configurare i criteri di distribuzione appropriati. Prima di trasmettere in streaming l'asset in base ai criteri specificati, il server rimuove la crittografia di archiviazione. Ad esempio, per distribuire l'asset crittografato con una chiave di crittografia envelope AES (Advanced Encryption Standard), impostare il tipo di criteri su **DynamicEnvelopeEncryption**. Per rimuovere la crittografia di archiviazione e trasmettere l'asset in chiaro, impostare il tipo di criteri su **NoDynamicEncryption**. I seguenti esempi mostrano come configurare questi tipi di criteri.
 
-A seconda della modalità di configurazione dei criteri di distribuzione degli asset, sarà possibile creare dinamicamente i pacchetti, applicare la crittografia e trasmettere i protocolli di streaming seguenti: Smooth Streaming, HLS e MPEG-DASH.
+A seconda della modalità di configurazione dei criteri di distribuzione degli asset, sarà possibile creare dinamicamente i pacchetti, applicare la crittografia e trasmettere i protocolli di streaming seguenti: Smooth Streaming, HLS e MPEG DASH.
 
 L'elenco seguente mostra i formati usati per i flussi Smooth, HLS e DASH.
 
@@ -62,7 +62,7 @@ MPEG DASH
 
 ## <a name="clear-asset-delivery-policy"></a>Criteri di distribuzione degli asset Clear
 
-Il metodo **ConfigureClearAssetDeliveryPolicy** seguente specifica di non applicare la crittografia dinamica e di distribuire il flusso con uno dei protocolli seguenti:  MPEG DASH, HLS e Smooth Streaming. È possibile applicare questo criterio alle risorse crittografate di archiviazione.
+Il metodo **ConfigureClearAssetDeliveryPolicy** seguente specifica di non applicare la crittografia dinamica e di distribuire il flusso con uno dei protocolli seguenti: MPEG DASH, HLS e Smooth Streaming. È possibile applicare questo criterio alle risorse crittografate di archiviazione.
 
 Per informazioni sui valori che è possibile specificare quando si crea un oggetto AssetDeliveryPolicy, vedere la sezione [Tipi usati durante la definizione di AssetDeliveryPolicy](#types) .
 
@@ -79,7 +79,7 @@ Per informazioni sui valori che è possibile specificare quando si crea un ogget
 ```
 ## <a name="dynamiccommonencryption-asset-delivery-policy"></a>Criteri di distribuzione degli asset DynamicCommonEncryption
 
-Il metodo **CreateAssetDeliveryPolicy** seguente crea l'oggetto **AssetDeliveryPolicy** configurato in modo da applicare la crittografia dinamica di tipo common (**DynamicCommonEncryption**) a un protocollo Smooth Streaming (gli altri protocolli vengono esclusi dallo streaming). Il metodo accetta due parametri: **Asset**, cioè l'asset a cui applicare i criteri di distribuzione, e **IContentKey**, cioè la chiave simmetrica del tipo **CommonEncryption**. Per altre informazioni, vedere l'articolo relativo alla [Creazione di una chiave simmetrica](media-services-dotnet-create-contentkey.md#common_contentkey).
+Il metodo **CreateAssetDeliveryPolicy** seguente crea l'oggetto **AssetDeliveryPolicy** configurato in modo da applicare la crittografia dinamica di tipo common (**DynamicCommonEncryption**) a un protocollo Smooth Streaming (gli altri protocolli vengono esclusi dallo streaming). Il metodo accetta due parametri: **Asset**, cioè l'asset a cui applicare i criteri di distribuzione, e **IContentKey**, cioè la chiave simmetrica del tipo **CommonEncryption**. Per altre informazioni, vedere l'articolo relativo alla [creazione di una chiave simmetrica](media-services-dotnet-create-contentkey.md#common_contentkey).
 
 Per informazioni sui valori che è possibile specificare quando si crea un oggetto AssetDeliveryPolicy, vedere la sezione [Tipi usati durante la definizione di AssetDeliveryPolicy](#types) .
 
@@ -156,7 +156,7 @@ Servizi multimediali di Azure consente inoltre di aggiungere la crittografia Wid
 > 
 
 ## <a name="dynamicenvelopeencryption-asset-delivery-policy"></a>Criteri di distribuzione degli asset DynamicEnvelopeEncryption
-Il metodo **CreateAssetDeliveryPolicy** seguente crea l'oggetto **AssetDeliveryPolicy** configurato in modo da applicare la crittografia envelope dinamica (**DynamicEnvelopeEncryption**) ai protocolli Smooth Streaming, HLS e DASH (se si decide di non specificare alcuni protocolli, questi saranno esclusi dallo streaming). Il metodo accetta due parametri: **Asset**, cioè l'asset a cui applicare i criteri di distribuzione, e **IContentKey**, cioè la chiave simmetrica del tipo **EnvelopeEncryption**. Per altre informazioni, vedere l'articolo relativo alla [Creazione di una chiave simmetrica](media-services-dotnet-create-contentkey.md#envelope_contentkey).
+Il metodo **CreateAssetDeliveryPolicy** seguente crea l'oggetto **AssetDeliveryPolicy** configurato in modo da applicare la crittografia envelope dinamica (**DynamicEnvelopeEncryption**) ai protocolli Smooth Streaming, HLS e DASH (se si decide di non specificare alcuni protocolli, questi saranno esclusi dallo streaming). Il metodo accetta due parametri: **Asset**, cioè l'asset a cui applicare i criteri di distribuzione, e **IContentKey**, cioè la chiave simmetrica del tipo **EnvelopeEncryption**. Per altre informazioni, vedere l'articolo relativo alla [creazione di una chiave simmetrica](media-services-dotnet-create-contentkey.md#envelope_contentkey).
 
 Per informazioni sui valori che è possibile specificare quando si crea un oggetto AssetDeliveryPolicy, vedere la sezione [Tipi usati durante la definizione di AssetDeliveryPolicy](#types) .   
 
@@ -349,9 +349,14 @@ L'enumerazione seguente descrive i valori che è possibile impostare per configu
         WidevineLicenseAcquisitionUrl
     }
 ```
+
+## <a name="additional-notes"></a>Note aggiuntive
+
+* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google, Inc.
+
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: f2514fff2a3bb292a86c9f4c0e92c37ed2709097
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 83fa8c9c6d98728d48ff4ed8993963cdbd522724
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341036"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974122"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Modalità offline di FairPlay Streaming per iOS 
 
@@ -28,6 +28,8 @@ ms.locfileid: "67341036"
 
 - Microsoft PlayReady
 - Google Widevine
+    
+    Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google, Inc.
 - Apple FairPlay
 - Crittografia AES-128
 
@@ -36,13 +38,13 @@ La crittografia DRM (Digital Rights Management) o AES (Advanced Encryption Stand
 Oltre alla protezione del contenuto per lo streaming online su vari protocolli, anche la modalità offline per il contenuto protetto è una funzionalità molto richiesta. Il supporto della modalità offline è necessaria per gli scenari seguenti:
 
 * Riproduzione del contenuto quando la connessione Internet non è disponibile, ad esempio in viaggio.
-* Alcuni provider di contenuti potrebbero non consentire la distribuzione di licenze DRM oltre i confini di un paese/area geografica. Se gli utenti desiderano visualizzare del contenuto durante una trasferta all'esterno di paese/area geografica, è necessario scaricarlo offline.
-* In alcuni paesi/aree geografiche, disponibilità di internet e/o della larghezza di banda sono limitate. Gli utenti possono quindi scegliere di scaricare prima il contenuto per ottenere una risoluzione sufficientemente elevata a garantire un'esperienza di visualizzazione soddisfacente. In questo caso, il problema in genere non riguarda la disponibilità della rete, ma la larghezza di banda di rete limitata. I provider OTT (Over-The-Top) o OVP (Online Video Platform) richiedono il supporto della modalità offline.
+* Alcuni provider di contenuti potrebbero non consentire la distribuzione di licenze DRM oltre il bordo di un paese/area geografica. Se gli utenti desiderano guardare il contenuto mentre si recano all'esterno del paese, è necessario scaricare offline.
+* In alcuni paesi o aree geografiche la disponibilità Internet e/o la larghezza di banda è ancora limitata. Gli utenti possono quindi scegliere di scaricare prima il contenuto per ottenere una risoluzione sufficientemente elevata a garantire un'esperienza di visualizzazione soddisfacente. In questo caso, il problema in genere non riguarda la disponibilità della rete, ma la larghezza di banda di rete limitata. I provider OTT (Over-The-Top) o OVP (Online Video Platform) richiedono il supporto della modalità offline.
 
 Questo articolo illustra il supporto della modalità offline di FairPlay Streaming (FPS) per dispositivi che eseguono iOS 10 o versioni successive. Questa funzionalità non è supportata per altre piattaforme Apple, ad esempio watchOS, tvOS o Safari su macOS.
 
 > [!NOTE]
-> Tecnologia DRM offline viene fatturato solo per una singola richiesta per ottenere una licenza quando si scarica il contenuto. Tutti gli errori non vengono fatturati.
+> Il DRM offline viene addebitato solo per l'esecuzione di una singola richiesta di licenza quando si Scarica il contenuto. Eventuali errori non vengono addebitati.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -52,7 +54,7 @@ Prima di implementare la tecnologia DRM offline per FairPlay in un dispositivo i
 
     - [Configurazione e requisiti della licenza Apple FairPlay](fairplay-license-overview.md)
     - [Usare il servizio di crittografia dinamica e di distribuzione di licenze DRM](protect-with-drm.md)
-    - Un esempio di .NET che include la configurazione dello streaming FairPlay online: [ConfigureFairPlayPolicyOptions](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L505)
+    - Esempio .NET che include la configurazione dello streaming di FPS online: [ConfigureFairPlayPolicyOptions](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L505)
 * Ottenere FPS SDK da Apple Developer Network. Questo SDK è costituito da due componenti:
 
     - FPS Server SDK, che contiene il modulo KSM (Key Security Module), esempi di client, una specifica e un set di vettori di test.
@@ -121,13 +123,13 @@ L'account di Servizi multimediali è ora configurato per la distribuzione di lic
 Il supporto della modalità offline di FPS è disponibile solo in iOS 10 e versioni successive. FPS Server SDK (versione 3.0 o successive) contiene il documento di istruzioni e un esempio per la modalità offline di FPS. In particolare, FPS Server SDK (versione 3.0 o successive) contiene i due elementi seguenti correlati alla modalità offline:
 
 * Documento: "Offline Playback with FairPlay Streaming and HTTP Live Streaming" (Riproduzione offline con FairPlay Streaming e HTTP Live Streaming). Apple, 14 settembre 2016. In FPS Server SDK versione 4.0 questo documento è stato unito al documento principale di FPS.
-* Codice di esempio: esempio HLSCatalog (parte di FPS Server SDK di Apple) per la modalità offline di FPS in \FairPlay Streaming Server SDK version 3.1\Development\Client\HLSCatalog_With_FPS\HLSCatalog\. Nell'app HLSCatalog di esempio, per implementare le funzionalità della modalità offline vengono usati i file di codice seguenti:
+* Codice di esempio: esempio HLSCatalog (parte dell'SDK del server FPS di Apple) per la modalità offline di FPS in \FairPlay Streaming Server SDK versione 3.1 \ Development\Client\ HLSCatalog_With_FPS \HLSCatalog\. Nell'app HLSCatalog di esempio, per implementare le funzionalità della modalità offline vengono usati i file di codice seguenti:
 
     - File di codice AssetPersistenceManager.swift: AssetPersistenceManager è la classe principale in questo esempio che illustra quanto segue:
 
         - Come gestire il download dei flussi HLS, ad esempio le API usate per avviare e annullare i download e per eliminare asset esistenti dai dispositivi.
         - Come monitorare lo stato di avanzamento del download.
-    - File di codice AssetListTableViewController.swift e AssetListTableViewCell.swift: AssetListTableViewController è la principale interfaccia di questo esempio. Fornisce un elenco degli asset che l'esempio può usare per eseguire operazioni di riproduzione, download o eliminazione o per annullare un download. 
+    - File di codice AssetListTableViewController.swift e AssetListTableViewCell.swift: AssetListTableViewController è l'interfaccia principale di questo esempio. Fornisce un elenco degli asset che l'esempio può usare per eseguire operazioni di riproduzione, download o eliminazione o per annullare un download. 
 
 Questi passaggi illustrano come configurare un lettore iOS in esecuzione. Se si inizia dall'esempio HLSCatalog in FPS Server SDK versione 4.0.1, apportare le modifiche seguenti al codice:
 
@@ -199,11 +201,11 @@ Per Servizi multimediali sono disponibili tre test di esempio che riguardano que
 È possibile trovare gli esempi in [questo sito di demo](https://aka.ms/poc#22), con il certificato dell'applicazione corrispondente ospitato in un'app Web di Azure.
 Con l'esempio versione 3 o 4 di FPS Server SDK, se una playlist master contiene una traccia audio alternativa, durante la modalità offline viene riprodotto solo l'audio. È pertanto necessario rimuovere la traccia audio alternativa. In altre parole, il secondo e il terzo esempio elencati in precedenza funzionano in modalità online e offline. L'esempio elencato per primo riproduce solo l'audio durante la modalità offline, mentre lo streaming online funziona correttamente.
 
-## <a name="faq"></a>Domande frequenti
+## <a name="faq"></a>FAQ
 
 Questa sezione include le risposte ad alcune domande frequenti utili per la risoluzione dei problemi:
 
-- **Perché in modalità offline viene riprodotto solo l'audio senza video?** Questo comportamento sembra essere predefinito nell'app di esempio. Se in modalità offline è presente una traccia audio alternativa (come nel caso di HLS), per impostazione predefinita in iOS 10 e iOS 11 viene riprodotta tale traccia. Per ovviare a questo comportamento per la modalità offline di FPS, rimuovere la traccia audio alternativa dal flusso. Per eseguire questa operazione in Servizi multimediali, aggiungere il filtro di manifesto dinamico "audio-only=false". In altre parole, un URL HLS termina con .ism/manifest(format=m3u8-aapl,audio-only=false). 
+- **Perché in modalità offline viene riprodotto solo l'audio senza video?** Questo comportamento sembra essere predefinito nell'app di esempio. Quando è presente una traccia audio alternativa (come nel caso di HLS) durante la modalità offline, l'impostazione predefinita di iOS 10 e iOS 11 è la traccia audio alternativa. Per compensare questo comportamento per la modalità offline di FPS, rimuovere la traccia audio alternativa dal flusso. Per eseguire questa operazione in Servizi multimediali, aggiungere il filtro di manifesto dinamico "audio-only=false". In altre parole, un URL HLS termina con .ism/manifest(format=m3u8-aapl,audio-only=false). 
 - **Perché, anche dopo aver aggiunto audio-only=false, in modalità offline continua a essere riprodotto solo l'audio senza il video?** A seconda del modo in cui è progettata la chiave di cache della rete CDN, è possibile che il contenuto sia memorizzato nella cache. Ripulire la cache.
 - **La modalità offline di FPS è anche supportata in iOS 11 oltre che in iOS 10?** Sì. La modalità offline di FPS è supportata per iOS 10 e iOS 11.
 - **Il documento "Offline Playback with FairPlay Streaming and HTTP Live Streaming" non è incluso in FPS Server SDK. Perché?** A partire dalla versione 4 di FPS Server SDK, questo documento è stato incluso in "FairPlay Streaming Programming Guide" (Guida alla programmazione di FairPlay Streaming).

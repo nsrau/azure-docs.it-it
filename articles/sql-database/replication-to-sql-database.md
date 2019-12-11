@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 01/25/2019
-ms.openlocfilehash: ac198ed8eac6221831fbb280129b76e5fa4e3413
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f718bc17b987926f4324635f096d5983acdb63fc
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73815770"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997276"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replica in database SQL singoli e in pool
 
@@ -32,14 +32,17 @@ La replica di SQL Server può essere configurata in database singoli e in pool s
 
 ## <a name="versions"></a>Versioni  
 
-- I requisiti minimi per la versione del database di pubblicazione e del database di distribuzione sono i seguenti:  
-- SQL Server 2017 (14.x)
-- SQL Server 2016 (13.x)
-- SQL Server 2014 (12.x) SP1 CU3
-- SQL Server 2014 (12.x) RTM CU10
-- SQL Server 2012 (11.x) SP2 CU8 o SP3
-- Se si cerca di configurare la replica usando una versione meno recente, potrebbero essere generati gli errori MSSQL_REPL20084 (Il processo non è riuscito a connettersi al sottoscrittore) e MSSQL_REPL40532 (Impossibile aprire il server \<nome> richiesto dall'account di accesso. Accesso non riuscito).  
-- Per usare tutte le funzionalità del database SQL di Azure, è necessario usare le versioni più recenti di [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
+Gli autori e i distributori SQL Server locali devono usare almeno una delle versioni seguenti:  
+
+- SQL Server 2016 e versioni successive
+- SQL Server 2014 [RTM CU10 dalla (12.0.4427.24)](https://support.microsoft.com/help/3094220/cumulative-update-10-for-sql-server-2014) o [SP1 CU3 (12.0.2556.4)](https://support.microsoft.com/help/3094221/cumulative-update-3-for-sql-server-2014-service-pack-1)
+- SQL Server 2012 [SP2 CU8 (11.0.5634.1)](https://support.microsoft.com/help/3082561/cumulative-update-8-for-sql-server-2012-sp2) o [SP3 (11.0.6020.0)](https://www.microsoft.com/download/details.aspx?id=49996)
+
+> [!NOTE]
+> Il tentativo di configurare la replica utilizzando una versione non supportata può causare il numero di errore MSSQL_REPL20084 (il processo non è riuscito a connettersi al Sottoscrittore) e MSSQL_REPL40532 (non è possibile aprire il nome del server \<> richiesto dall'account di accesso. Accesso non riuscito).  
+
+Per usare tutte le funzionalità del database SQL di Azure, è necessario usare le versioni più recenti di [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
+
   
 ## <a name="remarks"></a>Osservazioni
 
@@ -101,9 +104,9 @@ Le opzioni seguenti non sono supportate per le sottoscrizioni del database SQL d
 - Copia regole di confronto  
 - Esecuzione in una transazione serializzata della stored procedure  
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
 
-Creare una pubblicazione e una sottoscrizione push. Per altre informazioni, vedere:
+Creare una pubblicazione e una sottoscrizione push. Per scoprire di più, vedi:
   
 - [Creare una pubblicazione](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [Creare una sottoscrizione push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) usando il nome del server di database SQL di Azure come sottoscrittore (ad esempio **N'azuresqldbdns.database.windows.net'** ) e il nome del database SQL di Azure SQL come database di destinazione (ad esempio **AdventureWorks**).  

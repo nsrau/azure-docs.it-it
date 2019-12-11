@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: a2d978a68f6f654e3bdeea07c931cd7103f5850c
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 386b49698ca6b8ded2972aba14c1968620fcbb08
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "69015538"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974496"
 ---
-# <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Crittografia dinamica: Configurare i criteri di autorizzazione di una chiave simmetrica
+# <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Crittografia dinamica: configurare i criteri di autorizzazione di una chiave simmetrica
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## <a name="overview"></a>Panoramica
- Servizi multimediali di Azure consente di distribuire flussi MPEG-DASH, Smooth Streaming e HTTP Live Streaming, ovvero HLS, protetti con Advanced Encryption Standard (AES) con chiavi di crittografia a 128 bit o [PlayReady Digital Rights Management (DRM)](https://www.microsoft.com/playready/overview/). Servizi multimediali consente anche di recapitare flussi DASH crittografati con Widevine DRM. Sia per PlayReady che per Widevine la crittografia avviene in base alla specifica di crittografia comune (ISO/IEC 23001-7 CENC).
+ Servizi multimediali di Azure consente di distribuire flussi MPEG-DASH, Smooth Streaming e HTTP Live Streaming, ovvero HLS, protetti con Advanced Encryption Standard (AES) con chiavi di crittografia a 128 bit o [PlayReady Digital Rights Management (DRM)](https://www.microsoft.com/playready/overview/). Servizi multimediali consente anche di distribuire flussi DASH crittografati con DRM Widevine. Sia per PlayReady che per Widevine la crittografia avviene in base alla specifica di crittografia comune (ISO/IEC 23001-7 CENC).
 
 Servizi multimediali offre anche un servizio di distribuzione di chiavi/licenze dal quale i client possono ottenere le chiavi AES o le licenze PlayReady/Widevine per riprodurre contenuti crittografati.
 
@@ -40,10 +40,10 @@ Servizi multimediali non offre un servizio token di sicurezza. È possibile crea
 Per altre informazioni, vedere gli articoli seguenti:
 
 - [Autenticazione tramite token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
-- [Integrare l'app basata su OWIN MVC di Servizi multimediali di Azure con Azure Active Directory e limitare la distribuzione di chiavi simmetriche in base ad attestazioni del token JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)
+- [Integrare l'app basata su OWIN MVC di Servizi multimediali di Azure con Azure Active Directory e limitare la distribuzione di chiavi simmetriche in base ad attestazioni JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)
 
 ### <a name="some-considerations-apply"></a>Considerazioni applicabili
-* Quando viene creato l'account di Servizi multimediali, viene aggiunto all'account un endpoint di streaming predefinito con stato "Arrestato". Per avviare lo streaming dei contenuti e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, lo stato dell'endpoint di streaming deve essere "In esecuzione". 
+* Quando viene creato l'account di Servizi multimediali, viene aggiunto all'account un endpoint di streaming predefinito con stato "Arrestato". Per avviare lo streaming dei contenuti e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming deve avere lo stato "In esecuzione". 
 * L'asset deve contenere un set di file MP4 o Smooth Streaming a velocità in bit adattiva. Per altre informazioni, vedere l'articolo relativo alla [codifica di un asset](media-services-encode-asset.md).
 * Caricare e codificare gli asset mediante l'opzione AssetCreationOptions.StorageEncrypted.
 * Se si prevede di avere più chiavi simmetriche che richiedono la stessa configurazione di criteri, è consigliabile creare un singolo criterio di autorizzazione e applicarlo a più chiavi simmetriche.
@@ -426,10 +426,14 @@ Per ottenere un token di test basato sulle limitazioni del token usate per i cri
     }
 ```
 
+## <a name="additional-notes"></a>Note aggiuntive
+
+* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google, Inc.
+
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi

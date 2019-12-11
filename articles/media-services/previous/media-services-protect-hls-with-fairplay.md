@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 8d5683cb060b63aebad7c68672c78f5b350a25d3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 873bc4ab5e435b91ff4400a39c92db0d0bb9baa8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073591"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74968766"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Proteggere il contenuto HLS con Apple FairPlay o Microsoft PlayReady
 
 > [!NOTE]
-> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).   > Non nuove funzionalità o funzionalità vengono aggiunti a servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).   > Non sono state aggiunte nuove funzionalità o funzionalità a Media Services V2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 >
 
 Servizi multimediali di Azure consente di crittografare dinamicamente il contenuto di HTTP Live Streaming (HLS) usando i formati seguenti:  
@@ -74,9 +74,9 @@ Se si usa Servizi multimediali per distribuire contenuto HLS crittografato con F
     3. Eseguire il comando seguente dalla riga di comando. Questo comando converte il file con estensione pem in un file con estensione pfx con la chiave privata. La password per il file con estensione pfx viene quindi richiesta da OpenSSL.
 
         "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out FairPlay-out.pfx -inkey privatekey.pem -in FairPlay-out.pem -passin file:privatekey-pem-pass.txt
-  * **Password di App Cert**: password per creare il file con estensione pfx.
-  * **ID password di App Cert**: è necessario caricare la password con una procedura simile a quella usata per caricare le altre chiavi di Servizi multimediali. Usare il valore di enumerazione **ContentKeyType.FairPlayPfxPassword** per ottenere l'ID di Servizi multimediali. Questo valore è necessario nell'opzione dei criteri di distribuzione delle chiavi.
-  * **iv**: valore casuale di 16 byte. che deve corrispondere al valore iv nei criteri di distribuzione dell'asset. Si genera l'iv e lo inserisce sia nei criteri di distribuzione dell'asset che nell'opzione dei criteri di distribuzione delle chiavi.
+  * **App Cert password**: password del cliente per creare il file con estensione pfx.
+  * **App Cert password ID**: è necessario caricare la password con una procedura simile a quella usata per caricare le altre chiavi di Servizi multimediali. Usare il valore di enumerazione **ContentKeyType.FairPlayPfxPassword** per ottenere l'ID di Servizi multimediali. Questo valore è necessario nell'opzione dei criteri di distribuzione delle chiavi.
+  * **iv**: valore casuale di 16 byte che deve corrispondere al valore iv nei criteri di distribuzione dell'asset. Si genera l'iv e lo inserisce sia nei criteri di distribuzione dell'asset che nell'opzione dei criteri di distribuzione delle chiavi.
   * **ASK**: chiave ricevuta quando si genera la certificazione usando il portale Apple Developer. Ogni team di sviluppo riceve una chiave ASK univoca. Salvare una copia della chiave ASK e archiviarla in un luogo sicuro. Successivamente è necessario configurare la chiave ASK come FairPlayAsk in Servizi multimediali.
   * **ID ASK**: ID ottenuto quando si carica la chiave privata dell'applicazione in Servizi multimediali. È necessario caricare la chiave privata dell'applicazione usando il valore di enumerazione **ContentKeyType.FairPlayASk**. Verrà restituito l'ID di Servizi multimediali che dovrà essere usato per impostare l'opzione dei criteri di distribuzione delle chiavi.
 
@@ -143,14 +143,14 @@ Si applicano le considerazioni seguenti:
 * Il tipo di crittografia non deve essere specificato nell'URL se all'asset è stata applicata una sola crittografia.
 * Il tipo di crittografia non fa distinzione tra maiuscole e minuscole.
 * Possono essere specificati i seguenti tipi di crittografia:  
-  * **cenc**:  crittografia comune (PlayReady o Widevine)
+  * **cenc**: crittografia comune (PlayReady o Widevine)
   * **cbcs-aapl**: FairPlay
   * **cbc**: crittografia busta AES
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
 
 1. Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in [Sviluppo di applicazioni di Servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
-2. Aggiungere gli elementi seguenti alla sezione **appSettings** definita nel file app.config:
+2. Aggiungere i seguenti elementi alla sezione **appSettings** definita nel file app.config:
 
     ```xml
     <add key="Issuer" value="http://testissuer.com"/>
@@ -555,8 +555,12 @@ namespace DynamicEncryptionWithFairPlay
 }
 ```
 
+## <a name="additional-notes"></a>Note aggiuntive
+
+* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google, Inc.
+
 ## <a name="next-steps-media-services-learning-paths"></a>Passaggi successivi: Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 8/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: 0026aa377a58f6b766a400860692a35440deb962
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 2ae0f3033b88b3229d3dbef35c8bc9a32510c00e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748369"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972337"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Risoluzione dei problemi Azure Data Factory
 
@@ -43,9 +43,9 @@ Per i problemi del connettore, ad esempio errore durante l'attività di copia, v
 
 - **Raccomandazione**: specificare il percorso del notebook nell'attività databricks.
 
-<br/>    
-              
-- **Messaggio**: `Cluster   ... does not exist.`
+<br/>  
+
+- **Messaggio**: `Cluster... does not exist.`
 
 - **Motivo**: `Authoring error: Databricks cluster does not exist or has been deleted.`
 
@@ -53,7 +53,7 @@ Per i problemi del connettore, ad esempio errore durante l'attività di copia, v
 
 <br/>  
 
-- **Messaggio**: `Invalid Python file URI.... Please visit Databricks user guide for supported URI schemes.`
+- **Messaggio**: `Invalid Python file URI... Please visit Databricks user guide for supported URI schemes.`
 
 - **Motivo**: `Bad authoring.`
 
@@ -334,56 +334,56 @@ La tabella seguente si applica a U-SQL.
 
 ### <a name="error-code--4121"></a>Codice di errore: 4121
 
-- **Messaggio**: `Request sent to Azure ML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure ML Service: '%externalMessage;'.`
+- **Messaggio**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **Motivo**: la credenziale usata per accedere al servizio Azure ml è scaduta.
+- **Motivo**: la credenziale usata per accedere a Azure Machine Learning è scaduta.
 
 - **Raccomandazione**: verificare che le credenziali siano valide e riprovare
 
 
 ### <a name="error-code--4122"></a>Codice di errore: 4122
 
-- **Messaggio**: `Request sent to Azure ML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure ML Service: '%externalMessage;'.`
+- **Messaggio**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **Motivo**: le credenziali fornite nel servizio collegato del servizio Azure ml non sono valide o non dispongono dell'autorizzazione per l'operazione.
+- **Motivo**: le credenziali fornite nel servizio collegato Azure Machine Learning non sono valide o non dispongono dell'autorizzazione per l'operazione.
 
-- **Raccomandazione**: verificare che le credenziali nel servizio collegato siano valide e che disponga dell'autorizzazione per accedere al servizio Azure ml.
+- **Raccomandazione**: verificare che le credenziali nel servizio collegato siano valide e che disponga delle autorizzazioni per accedere a Azure Machine Learning.
 
 
 ### <a name="error-code--4123"></a>Codice di errore: 4123
 
-- **Messaggio**: `Request sent to Azure ML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure ML Service: '%externalMessage;'.`
+- **Messaggio**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **Motivo**: `Properties of the activity such as pipelineParamters are invalid for the Azure ML pipeline.`
+- **Motivo**: le proprietà dell'attività, ad esempio pipelineParameters, non sono valide per la pipeline di Azure ml.
 
 - **Raccomandazione**: controllare il valore delle proprietà dell'attività in modo che corrisponda al payload previsto della pipeline di Azure ml pubblicata specificata nel servizio collegato.
 
 
 ### <a name="error-code--4124"></a>Codice di errore: 4124
 
-- **Messaggio**: `Request sent to Azure ML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure ML Service: '%externalMessage;'.`
+- **Messaggio**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
 - **Motivo**: l'endpoint della pipeline di Azure ml pubblicato non esiste.
 
-- **Raccomandazione**: verificare che l'endpoint della pipeline di Azure ml pubblicato specificato nel servizio collegato esista nel servizio Azure ml.
+- **Raccomandazione**: verificare che nell'Azure Machine Learning sia presente l'endpoint della pipeline Azure Machine Learning pubblicato specificato nel servizio collegato.
 
 
 ### <a name="error-code--4125"></a>Codice di errore: 4125
 
-- **Messaggio**: `Request sent to Azure ML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure ML Service: '%externalMessage;'.`
+- **Messaggio**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **Cause**: errore del server nel servizio Azure ml.
+- **Cause**: errore del Server in Azure Machine Learning.
 
-- **Raccomandazione**: riprovare più tardi. Contattare il team del servizio Azure ML per assistenza se il problema persiste.
+- **Raccomandazione**: riprovare più tardi. Se il problema persiste, contattare il team di Azure Machine Learning per assistenza.
 
 
 ### <a name="error-code--4126"></a>Codice di errore: 4126
 
-- **Messaggio**: `Azure ML pipeline run failed with status: '%amlPipelineRunStatus;'. Azure ML pipeline run Id: '%amlPipelineRunId;'. Please check in Azure ML Service for more error logs.`
+- **Messaggio**: `Azure ML pipeline run failed with status: '%amlPipelineRunStatus;'. Azure ML pipeline run Id: '%amlPipelineRunId;'. Please check in Azure Machine Learning for more error logs.`
 
 - **Motivo**: esecuzione della pipeline di Azure ml non riuscita.
 
-- **Raccomandazione**: per altri log degli errori e per correggere la pipeline ml, controllare il servizio Azure ml.
+- **Raccomandazione**: per ulteriori log degli errori e per correggere la pipeline ml, archiviare Azure Machine Learning.
 
 
 
@@ -422,7 +422,7 @@ La tabella seguente si applica a U-SQL.
 
 - **Motivo**: la stringa di connessione per l'archiviazione non è valida o il formato non è corretto.
 
-- **Consiglio**: passare al portale di Azure, trovare l'archivio, copiare la stringa di connessione e incollare il servizio collegato e riprovare.
+- **Consiglio**: passare alla portale di Azure, trovare l'archivio, copiare la stringa di connessione e incollare il servizio collegato e riprovare.
 
 
 ### <a name="error-code--2108"></a>Codice di errore: 2108
@@ -471,7 +471,7 @@ La tabella seguente si applica a U-SQL.
 
 
 
-## <a name="custom"></a>Personalizzate
+## <a name="custom"></a>Personalizzato
 
 La tabella seguente si applica a Azure Batch.
       
@@ -522,7 +522,7 @@ La tabella seguente si applica a Azure Batch.
 
 ### <a name="error-code--2507"></a>Codice di errore: 2507
 
-- **Messaggio**: `The folder path does not exist or is empty: ....`
+- **Messaggio**: `The folder path does not exist or is empty: ...`
 
 - **Causa**: nessun file si trova nell'account di archiviazione nel percorso specificato.
 
@@ -648,7 +648,7 @@ La tabella seguente si applica a Azure Batch.
 - **Motivo**: se il messaggio di errore contiene un messaggio simile a' Impossibile risolvere il nome remoto ', questo potrebbe significare che l'URI del cluster specificato non è valido.
 
 
-- **Consiglio**: assicurarsi che il cluster non sia stato eliminato e che l'URI specificato sia corretto. Quando si apre l'URI in un browser, viene visualizzata l'interfaccia utente di Ambari. Se il cluster si trova in una rete virtuale, l'URI deve essere l'URI privato. Per aprirlo, usare una macchina virtuale che fa parte della stessa rete virtuale. Per ulteriori informazioni [, vedere.](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#directly-connect-to-apache-hadoop-services)
+- **Consiglio**: assicurarsi che il cluster non sia stato eliminato e che l'URI specificato sia corretto. Quando si apre l'URI in un browser, viene visualizzata l'interfaccia utente di Ambari. Se il cluster si trova in una rete virtuale, l'URI deve essere l'URI privato. Per aprirlo, usare una macchina virtuale che fa parte della stessa rete virtuale. Per altre informazioni, vedere [this](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#directly-connect-to-apache-hadoop-services).
                   
 
 <br>
@@ -668,12 +668,12 @@ La tabella seguente si applica a Azure Batch.
 - **Motivo**: se il messaggio di errore contiene un messaggio simile a' 502-il server Web ha ricevuto una risposta non valida mentre funge da gateway o server proxy ', questo errore viene restituito dal servizio HDInsight.
 
 
-- **Raccomandazione**: esaminare la documentazione per la risoluzione dei problemi di Azure HDInsight, ad esempio https://hdinsight.github.io/ambari/ambari-ui-502-error.html, https://hdinsight.github.io/spark/spark-thriftserver-errors.html, https://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502.
+- **Raccomandazione**: esaminare la documentazione per la risoluzione dei problemi di Azure HDInsight, ad esempio https://hdinsight.github.io/ambari/ambari-ui-502-error.html , https://hdinsight.github.io/spark/spark-thriftserver-errors.html, https://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502.
                   
 
 <br>
 
-- **Causa**: quando il messaggio di errore contiene un messaggio simile a' non è possibile soddisfare la richiesta di invio del processo perché il servizio Templeton è occupato con troppe richieste di processo di invio ' o ' coda radice. joblauncher dispone già di 500 applicazioni, non accetta l'invio di applicazione ', questo significa che un numero eccessivo di processi viene inviato a HDInsight nello stesso momento.
+- **Causa**: quando il messaggio di errore contiene un messaggio simile a' non è possibile soddisfare la richiesta di invio del processo perché il servizio Templeton è occupato da un numero eccessivo di richieste di processi di invio ' o ' coda radice. joblauncher dispone già di 500 applicazioni, non può accettare l'invio dell'applicazione '. Ciò significa che troppi processi vengono inviati contemporaneamente a HDInsight.
 
 - **Raccomandazione**: è consigliabile limitare il numero di processi simultanei inviati a HDInsight. Fare riferimento a Data Factory concorrenza di attività se i processi vengono inviati dalla stessa attività. Modificare i trigger in modo che le esecuzioni di pipeline simultanee vengano distribuite nel tempo. Vedere la documentazione di HDInsight per modificare Templeton. parallellism. job. Submit come suggerito dall'errore.
 
@@ -685,7 +685,7 @@ La tabella seguente si applica a Azure Batch.
 - **Motivo**: il cluster o il servizio HDInsight presenta problemi.
 
 
-- **Raccomandazione**: questo errore si verifica quando ADF non ottiene la risposta dal cluster HDInsight durante il tentativo di ottenere lo stato del processo in esecuzione. È possibile che si verifichino problemi nel cluster stesso oppure che il servizio HDInsight sia in stato di interruzione. Per ulteriori informazioni, fare riferimento alla documentazione relativa alla risoluzione dei problemi di HDInsight in https://docs.microsoft.com/azure/hdinsight/hdinsight-troubleshoot-guideoppure contattare il supporto tecnico.
+- **Raccomandazione**: questo errore si verifica quando ADF non ottiene la risposta dal cluster HDInsight durante il tentativo di ottenere lo stato del processo in esecuzione. È possibile che si verifichino problemi nel cluster stesso oppure che il servizio HDInsight sia in stato di interruzione. Per ulteriori informazioni, fare riferimento alla documentazione relativa alla risoluzione dei problemi di HDInsight in https://docs.microsoft.com/azure/hdinsight/hdinsight-troubleshoot-guide oppure contattare il supporto tecnico.
                 
 
 
@@ -816,7 +816,7 @@ La tabella seguente si applica a Azure Batch.
 
 - **Consiglio**:  
       1. Verificare che le credenziali siano corrette aprendo l'interfaccia utente di Ambari del cluster HDInsight in un browser.
-      2. Se il cluster si trova in VNet e viene usato il runtime di integrazione self-hosted, l'URL HDI per deve essere l'URL privato in reti virtuali, ovvero deve avere '-int ' dopo il nome del cluster. Ad esempio, "https://mycluster.azurehdinsight.net/" deve essere modificato in "https://mycluster-int.azurehdinsight.net/".
+      2. Se il cluster si trova in VNet e viene usato il runtime di integrazione self-hosted, l'URL HDI per deve essere l'URL privato in reti virtuali, ovvero deve avere '-int ' dopo il nome del cluster. Ad esempio, "https://mycluster.azurehdinsight.net/ " deve essere modificato in "https://mycluster-int.azurehdinsight.net/".
       2. Se il cluster è in VNet, viene usato il runtime di integrazione self-hosted e l'URL privato è stato usato e la connessione non è ancora riuscita, la macchina virtuale in cui è installato il runtime di integrazione ha riscontrato problemi durante la connessione a HDI. Connettersi alla macchina virtuale in cui è installato IR e aprire l'interfaccia utente di Ambari in un browser. Usare l'URL privato per il cluster. Questa connessione dovrebbe funzionare dal browser. In caso contrario, contattare il team di supporto di HDInsight per ulteriore assistenza.
       3. Se non si usa il runtime di integrazione self-hosted, il cluster HDI dovrebbe essere accessibile pubblicamente. Aprire l'interfaccia utente di Ambari in un browser e verificare che venga visualizzata. Se si verificano problemi con il cluster o i servizi, contattare il team di supporto di HDInsight per ottenere assistenza.
       In generale, l'URL del cluster HDI usato nel servizio collegato di ADF deve essere accessibile per il runtime di integrazione Azure (self-hosted o Azure) per consentire il passaggio della connessione di test e per il corretto funzionamento delle esecuzioni. Questa operazione può essere verificata facilmente aprendo tale URL da un browser da una macchina virtuale o da qualsiasi computer pubblico.
@@ -1018,7 +1018,7 @@ Per usare Fiddler per creare una sessione HTTP dell'applicazione Web monitorata:
 
 1. Se l'applicazione Web usa HTTPS, passare a **strumenti** > **Opzioni Fiddler** > **https**. Selezionare **Acquisisci HTTPS connette** e **decrittografare il traffico HTTPS**.
 
-![Opzioni Fiddler](media/data-factory-troubleshoot-guide/fiddler-options.png)
+   ![Opzioni Fiddler](media/data-factory-troubleshoot-guide/fiddler-options.png)
 
 1. Se l'applicazione usa certificati SSL, aggiungere il certificato Fiddler al dispositivo. Passare a **strumenti** > **Opzioni Fiddler** > **azioni** > **https** > **esportare il certificato radice sul desktop**.
 
@@ -1028,17 +1028,17 @@ Per usare Fiddler per creare una sessione HTTP dell'applicazione Web monitorata:
 
 1. Creare una richiesta:
 
-a. Selezionare la scheda **Composer** .
+   1. Selezionare la scheda **Composer** .
 
-b. Impostare il metodo e l'URL HTTP.
+   1. Impostare il metodo e l'URL HTTP.
+   
+   1. Aggiungere intestazioni e un corpo della richiesta, se necessario.
 
-c. Aggiungere intestazioni e un corpo della richiesta, se necessario.
+   1. Scegliere **Execute**(Esegui).
 
-d. Scegliere **Execute**(Esegui).
+1. Riattivare l'acquisizione del traffico e completare la transazione problematica nella pagina.
 
-9. Riattivare l'acquisizione del traffico e completare la transazione problematica nella pagina.
-
-10. Passare a **File** > **Salva** > **tutte le sessioni**.
+1. Passare a **File** > **Salva** > **tutte le sessioni**.
 
 Per ulteriori informazioni, vedere la pagina relativa all' [Introduzione a Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler).
 
