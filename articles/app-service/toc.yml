@@ -82,7 +82,11 @@
         - name: Panoramica della sicurezza
           href: overview-security.md
     - name: Funzionalità di rete
-      href: networking-features.md
+      items:
+        - name: Panoramica
+          href: networking-features.md
+        - name: Gateway applicazione con endpoint di servizio
+          href: networking/app-gateway-with-service-endpoints.md
     - name: IP in ingresso e in uscita
       href: overview-inbound-outbound-ips.md
     - name: Integrazione della rete virtuale

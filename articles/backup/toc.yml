@@ -56,6 +56,8 @@
           href: backup-support-matrix-mars-agent.md
         - name: Matrice di supporto del backup di SAP HANA
           href: sap-hana-backup-support-matrix.md
+        - name: SKU di macchine virtuali supportate per Criteri di Azure
+          href: backup-azure-policy-supported-skus.md
     - name: Security
       items:
         - name: Controllo degli accessi in base al ruolo
@@ -174,6 +176,10 @@
               href: backup-azure-vms-encryption.md
             - name: Ripristinare le chiavi e il segreto per macchine virtuali crittografate
               href: backup-azure-restore-key-secret.md
+    - name: Criteri di Azure predefiniti per Backup di Azure
+      items:
+        - name: Abilitare automaticamente il backup durante la creazione di macchine virtuali con Criteri di Azure
+          href: backup-azure-auto-enable-backup.md
     - name: Eventi di diagnostica per insiemi di credenziali di Servizi di ripristino
       items:
         - name: Uso delle impostazioni di diagnostica per gli insiemi di credenziali di Servizi di ripristino

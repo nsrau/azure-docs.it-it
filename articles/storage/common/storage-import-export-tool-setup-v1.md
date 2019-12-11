@@ -1,26 +1,26 @@
 ---
 title: Configurazione dello strumento Importazione/Esportazione di Azure versione 1 | Documentazione Microsoft
 description: Informazioni su come configurare lo strumento di preparazione e ripristino delle unità per il servizio Importazione/Esportazione di Azure. Si riferisce alla versione 1 dello strumento Importazione/Esportazione.
-author: muralikk
+author: twooley
 services: storage
 ms.service: storage
 ms.topic: article
 ms.date: 01/15/2017
-ms.author: muralikk
+ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: aafff208b9de2ae485fb84be428cf77f237e022e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f523d1ebf5c96596142c6897af2be5f760b3d4b9
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61477570"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978952"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>Configurazione dello strumento Importazione/Esportazione di Azure
 Lo strumento Importazione/Esportazione di Microsoft Azure è lo strumento di preparazione e ripristino delle unità che è possibile usare con il servizio Importazione/Esportazione di Microsoft Azure. È possibile usare lo strumento per svolgere le funzioni seguenti:  
   
 -   Prima di creare un processo di importazione, è possibile utilizzare questo strumento per copiare i dati nei dischi rigidi che si intende fornire a un data center di Microsoft Azure.  
   
--   Al termine di un processo di importazione, è possibile utilizzare questo strumento per recuperare eventuali BLOB danneggiati, mancanti o in conflitto con altri BLOB.  
+-   Al termine di un processo di importazione, è possibile usare questo strumento per ripristinare eventuali BLOB danneggiati, mancanti o in conflitto con altri BLOB.  
   
 -   Dopo aver ricevuto le unità da un processo di esportazione completato, è possibile usare questo strumento per recuperare eventuali file danneggiati o mancanti nelle unità.  
   
@@ -251,7 +251,7 @@ Examples:
 
 * [Preparing hard drives for an import job](../storage-import-export-tool-preparing-hard-drives-import-v1.md) (Preparazione dei dischi rigidi per un processo di importazione)   
 * [Anteprima dell'uso del disco per un processo di esportazione](../storage-import-export-tool-previewing-drive-usage-export-v1.md)   
-* [Reviewing job status with copy log files](../storage-import-export-tool-reviewing-job-status-v1.md) (Revisione dello stato dei processi con i file di log di copia)   
+* [Revisione dello stato dei processi con i file di log di copia](../storage-import-export-tool-reviewing-job-status-v1.md)   
 * [Riparazione di un processo di importazione](../storage-import-export-tool-repairing-an-import-job-v1.md)   
-* [Repairing an export job](../storage-import-export-tool-repairing-an-export-job-v1.md) (Riparazione di un processo di esportazione)   
+* [Riparazione di un processo di esportazione](../storage-import-export-tool-repairing-an-export-job-v1.md)   
 * [Risoluzione dei problemi relativi allo strumento Importazione/Esportazione di Azure](storage-import-export-tool-troubleshooting-v1.md)

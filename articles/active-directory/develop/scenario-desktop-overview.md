@@ -1,5 +1,5 @@
 ---
-title: App desktop che chiama le API Web (panoramica)-piattaforma di identità Microsoft
+title: Creare un'app desktop che chiama API Web-piattaforma di identità Microsoft | Azure
 description: Informazioni su come creare un'app desktop che chiama le API Web (panoramica)
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,14 +15,14 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d56a07b46c4cd54577bcb3d81f2c45c03433fc31
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 545012629686e1fe3ece8a48ed852542e09e54fe
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268357"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965518"
 ---
-# <a name="scenario-desktop-app-that-calls-web-apis"></a>Scenario: App desktop che chiama le API Web
+# <a name="scenario-desktop-app-that-calls-web-apis"></a>Scenario: app desktop che chiama le API Web
 
 Scopri tutto quello che ti serve per creare un'app desktop che chiama le API Web
 
@@ -30,19 +30,19 @@ Scopri tutto quello che ti serve per creare un'app desktop che chiama le API Web
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 
 Se non è già stato fatto, creare la prima applicazione seguendo la Guida introduttiva per desktop .NET, la Guida introduttiva di UWP o la Guida introduttiva all'app nativa macOS:
 
 > [!div class="nextstepaction"]
-> [Avvio rapido: Acquisire un token e chiamare l'API Microsoft Graph da un'app desktop Windows](./quickstart-v2-windows-desktop.md)
+> [Guida introduttiva: acquisire un token e chiamare Microsoft Graph API da un'app desktop di Windows](./quickstart-v2-windows-desktop.md)
 
 
 > [!div class="nextstepaction"]
-> [Avvio rapido: Acquisire un token e chiamare Microsoft Graph API da un'app UWP](./quickstart-v2-uwp.md)
+> [Guida introduttiva: acquisire un token e chiamare Microsoft Graph API da un'app UWP](./quickstart-v2-uwp.md)
 
 > [!div class="nextstepaction"]
-> [Avvio rapido: Acquisire un token e chiamare Microsoft Graph API da un'app nativa macOS](./quickstart-v2-ios.md)
+> [Guida introduttiva: acquisire un token e chiamare Microsoft Graph API da un'app nativa macOS](./quickstart-v2-ios.md)
 
 ## <a name="overview"></a>Panoramica
 

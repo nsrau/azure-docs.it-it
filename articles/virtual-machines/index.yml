@@ -3,7 +3,7 @@ documentType: LandingData
 title: Documentazione delle macchine virtuali
 metadata:
   document_id: na
-  title: Documentazione di Macchine virtuali di Azure - Esercitazioni e informazioni di riferimento sulle API | Microsoft Docs
+  title: Documentazione sulle macchine virtuali di Azure - Esercitazioni e informazioni di riferimento sulle API
   meta.description: 'Learn how to create, deploy, and manage Windows or Linux virtual machines. Tutorials, API references, and other documentation.'
   services: virtual-machines
   author: georgewallace
@@ -13,8 +13,7 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/23/2017
   ms.author: gwallace
-abstract:
-  description: 'Informazioni su come creare macchine virtuali di Azure. Le esercitazioni, le informazioni di riferimento sulle API e altri documenti mostrano come creare e distribuire macchine virtuali Windows e Linux e modelli di VM.'
+  description: Informazioni su come creare e distribuire macchine virtuali Linux in Azure.
 sections:
   - title: null
     items:
