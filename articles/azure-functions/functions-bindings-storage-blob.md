@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: 65775a9c7a6d66a088eccdfdb22ce7d6b01829d2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d6a17322c360040b8fa77ac243a1b568f0d10c1f
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925395"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996494"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Binding dell'archiviazione BLOB di Azure per Funzioni di Azure
 
@@ -463,7 +463,7 @@ Le funzioni JavaScript e Java caricano in memoria l'intero BLOB e le funzioni C#
 
 ## <a name="trigger---polling"></a>Trigger - polling
 
-Se il contenitore BLOB monitorato contiene più di 10.000 BLOB (in tutti i contenitori), il runtime di funzioni analizza i file di log per controllare i BLOB nuovi o modificati. Questo processo può causare ritardi. È possibile quindi che una funzione non venga attivata per diversi minuti o più dopo la creazione del BLOB.
+Il polling funziona come ibrido tra l'ispezione dei log e l'esecuzione di analisi periodiche dei contenitori. I BLOB vengono analizzati in gruppi di 10.000 alla volta con un token di continuazione usato tra gli intervalli.
 
 > [!WARNING]
 > Per di più [i log di archiviazione vengono creati in base al principio del "massimo sforzo"](/rest/api/storageservices/About-Storage-Analytics-Logging). Non è garantito che tutti gli eventi vengano acquisiti. In alcune condizioni, l'acquisizione dei log può non riuscire.

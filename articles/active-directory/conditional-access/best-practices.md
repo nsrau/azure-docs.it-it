@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b8402279b5c2717b1f73a28f2efc02ade5e479c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: ccfbb31c29b9e240a4865c8d7d98d7b6af00d1fd
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175774"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963937"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Procedure consigliate per l'accesso condizionale in Azure Active Directory
 
@@ -45,17 +45,18 @@ Affinché il criterio funzioni, è necessario configurare quanto segue:
 
 ### <a name="how-are-conditional-access-policies-applied"></a>Come vengono applicati i criteri di accesso condizionale?
 
-Quando si accede a un'app Cloud, è possibile applicare più di un criterio di accesso condizionale. In questo caso, devono essere soddisfatti tutti i criteri applicati. Se ad esempio un criterio richiede MFA e il secondo richiede un dispositivo conforme, è necessario eseguire l'autenticazione MFA e usare un dispositivo conforme. 
+Quando si accede a un'app Cloud, è possibile applicare più di un criterio di accesso condizionale. In questo caso, devono essere soddisfatti tutti i criteri applicati. Se, ad esempio, un criterio richiede l'autenticazione a più fattori e un altro richiede un dispositivo conforme, è necessario completare l'autenticazione a più fattori e usare un dispositivo conforme. 
 
 Tutti i criteri vengono applicati in due fasi:
 
-- Nella **prima** fase vengono valutati tutti i criteri e vengono raccolti tutti i controlli di accesso non soddisfatti. 
-
-- Nella **seconda** fase viene chiesto di soddisfare i requisiti non rispettati. Se uno dei criteri blocca l'accesso, l'utente viene bloccato e non viene richiesto di soddisfare altri controlli dei criteri. Se nessuno dei criteri blocca l'utente, viene richiesto di soddisfare gli altri controlli dei criteri nell'ordine seguente:
-
-   ![Ordina](./media/best-practices/06.png)
-    
-   I provider di autenticazione a più fattori esterni e le condizioni per l'utilizzo sono prossimi.
+- Fase 1: 
+   - Raccolta Dettagli: consente di raccogliere i dettagli per identificare i criteri che verrebbero già soddisfatti.
+   - Durante questa fase, gli utenti possono visualizzare una richiesta di certificato se la conformità del dispositivo fa parte dei criteri di accesso condizionale. Questo prompt può verificarsi per le app del browser quando il sistema operativo del dispositivo non è Windows 10.
+   - La fase 1 della valutazione dei criteri viene eseguita per tutti i criteri e i criteri abilitati in [modalità di sola segnalazione](concept-conditional-access-report-only.md).
+- Fase 2:
+   - Imposizione: prendendo in considerazione i dettagli raccolti nella fase 1, richiedere all'utente di soddisfare eventuali requisiti aggiuntivi che non sono stati soddisfatti.
+   - Applicare i risultati alla sessione. 
+   - La fase 2 della valutazione dei criteri viene eseguita per tutti i criteri abilitati.
 
 ### <a name="how-are-assignments-evaluated"></a>Come vengono valutate le assegnazioni?
 

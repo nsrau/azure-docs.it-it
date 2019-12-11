@@ -1,5 +1,5 @@
 ---
-title: API Web protetta-configurazione del codice dell'app
+title: Configurare app per le API Web protette | Azure
 titleSuffix: Microsoft identity platform
 description: Informazioni su come creare un'API Web protetta e configurare il codice dell'applicazione.
 services: active-directory
@@ -17,12 +17,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb562caf2dfc83841762748f37d1a7ee325de10b
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 7f78fa35096b7e17d3736190bfa49619c2c81520
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73882634"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965399"
 ---
 # <a name="protected-web-api-code-configuration"></a>API Web protetta: configurazione del codice
 
@@ -148,7 +148,7 @@ I passaggi di convalida vengono acquisiti nei validator, che si trovano tutti ne
 
 I validator sono descritti in questa tabella:
 
-| Convalida | Descrizione |
+| Componente di convalida | Description |
 |---------|---------|
 | `ValidateAudience` | Garantisce che il token sia per l'applicazione che convalida il token (per me). |
 | `ValidateIssuer` | Assicura che il token sia stato emesso da un servizio token di sicurezza attendibile (da un utente attendibile). |

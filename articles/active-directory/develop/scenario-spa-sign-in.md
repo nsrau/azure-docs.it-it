@@ -1,5 +1,5 @@
 ---
-title: Applicazione a pagina singola (accesso)-piattaforma di identità Microsoft
+title: "Accesso all'app a pagina singola: piattaforma di identità Microsoft | Azure"
 description: Informazioni su come creare un'applicazione a singola pagina (accesso)
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +17,12 @@ ms.date: 05/06/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0fd546724b8d684746a9f4d63a03bc6b58ded52
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 5d2494a7ad89c9e9b3a525ddd04290a08eb3af58
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764645"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962424"
 ---
 # <a name="single-page-application-sign-in"></a>Applicazione a pagina singola: accesso
 

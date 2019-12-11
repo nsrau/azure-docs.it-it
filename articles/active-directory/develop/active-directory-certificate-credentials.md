@@ -1,5 +1,5 @@
 ---
-title: Credenziali del certificato in Azure AD
+title: Credenziali del certificato Azure AD
 titleSuffix: Microsoft identity platform
 description: Questo articolo illustra la registrazione e l'uso delle credenziali del certificato per l'autenticazione dell'applicazione
 services: active-directory
@@ -15,20 +15,21 @@ ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b0dd42aeaa8a7a5d9f1cc28b409a8d8dbf92304
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: d37b390e39d2b991ea01468feffbe39c9578af54
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74845366"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963869"
 ---
-# <a name="certificate-credentials-for-application-authentication"></a>Credenziali del certificato per l'autenticazione dell'applicazione
+# <a name="azure-ad-application-authentication-certificate-credentials"></a>Azure AD le credenziali del certificato di autenticazione dell'applicazione
 
 Azure Active Directory (Azure AD) consente a un'applicazione di usare le proprie credenziali per l'autenticazione, ad esempio, nel flusso di concessione delle credenziali client di OAuth 2.0 ([v1.0](v1-oauth2-client-creds-grant-flow.md), [v2.0](v2-oauth2-client-creds-grant-flow.md)) e nel flusso on-behalf-of ([v1.0](v1-oauth2-on-behalf-of-flow.md), [v2.0](v2-oauth2-on-behalf-of-flow.md)).
 
 Un tipo di credenziale che un'applicazione può usare per l'autenticazione è un'asserzione di token JSON Web (JWT) firmata con un certificato di proprietà dell'applicazione.
 
 ## <a name="assertion-format"></a>Formato di asserzione
+
 Per calcolare l'asserzione, è possibile usare una delle numerose librerie di [token JSON Web](https://jwt.ms/) nel linguaggio scelto. Le informazioni incluse nel token sono le seguenti:
 
 ### <a name="header"></a>Intestazione

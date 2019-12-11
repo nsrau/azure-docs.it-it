@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3cbb6afb96ccea32aa78d1f587377e5d67e1a5b
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: bbbe882acda532a54333ca8013693121d5b677b7
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381033"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964090"
 ---
 # <a name="require-app-protection-policy-for-cloud-app-access-with-conditional-access-preview"></a>Richiedi i criteri di protezione delle app per l'accesso alle app cloud con accesso condizionale (anteprima)
 
@@ -24,7 +24,7 @@ I dipendenti usano dispositivi mobili sia per le attività personali che per que
 
 Questo articolo illustra come configurare i criteri di accesso condizionale che possono richiedere un criterio di protezione delle app prima che l'accesso venga concesso ai dati.
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Con [l'accesso condizionale Azure ad](overview.md), è possibile ottimizzare il modo in cui gli utenti autorizzati possono accedere alle risorse. Si può, ad esempio, fare in modo che solo i dispositivi attendibili accedano alle app cloud.
 
@@ -60,7 +60,7 @@ Questo articolo presuppone che l'utente abbia familiarità con gli argomento seg
 - I concetti di base dell' [accesso condizionale in Azure Active Directory](overview.md).
 - Come [configurare un criterio di accesso condizionale](app-based-mfa.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per creare un criterio di accesso condizionale basato sulla protezione delle app, è necessario:
 
@@ -330,7 +330,7 @@ Tutti i criteri di protezione delle app di Intune sono necessari prima di conced
 
 ### <a name="configuration"></a>Configurazione
 
-**Passaggio 1: configurare un Azure AD criteri di accesso condizionale per Exchange Online**
+**Passaggio 1: configurare un Azure AD criteri di accesso condizionale per Exchange Online e SharePoint Online**
 
 Per i criteri di accesso condizionale in questo passaggio, configurare i componenti seguenti:
 
@@ -338,7 +338,7 @@ Per i criteri di accesso condizionale in questo passaggio, configurare i compone
 
 1. Immettere il nome dei criteri di accesso condizionale.
 1. In **assegnazioni**, in **utenti e gruppi**, selezionare almeno un utente o un gruppo per ogni criterio di accesso condizionale.
-1. In **app Cloud**selezionare **Office 365 Exchange Online**. 
+1. In **app Cloud**selezionare **Office 365 Exchange online** e **Office 365 SharePoint Online**. 
 
    ![Accesso condizionale](./media/app-protection-based-conditional-access/02.png)
 

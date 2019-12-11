@@ -1,23 +1,23 @@
 ---
 title: Come trasferire dati aggiuntivi tra il dispositivo e il servizio Device provisioning di Azure
-description: Questo documento descrive come trasferire dati aggiuntivi tra il dispositivo e il DPS
+description: Questo documento descrive come trasferire dati aggiuntivi tra il dispositivo e il servizio Device provisioning (DPS)
 author: menchi
 ms.author: menchi
 ms.date: 10/29/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 90402dd6fbe19811b5bb6d5ac0fbdd984b71fd33
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: e9482f7069616d61efb98f66590ce33cfe3cf350
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123172"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974854"
 ---
 # <a name="how-to-transfer-additional-data-between-device-and-dps"></a>Come trasferire dati aggiuntivi tra il dispositivo e il DPS
 Talvolta il servizio Device Provisioning necessita di una maggiore quantità di dati dai dispositivi per effettuarne il provisioning nell'hub IoT corretto e tali dati devono essere forniti dal dispositivo. Viceversa, DPS può restituire i dati al dispositivo per semplificare le logiche lato client. 
 
-## <a name="when-to-use-it"></a>Quando utilizzarlo
+## <a name="when-to-use-it"></a>Quando utilizzarli
 Questa funzionalità può essere usata come miglioramento per l' [allocazione personalizzata](https://docs.microsoft.com/azure/iot-dps/how-to-use-custom-allocation-policies). Ad esempio, si desidera allocare i dispositivi in base al modello di dispositivo senza intervento umano. In questo caso, si utilizzerà l' [allocazione personalizzata](https://docs.microsoft.com/azure/iot-dps/how-to-use-custom-allocation-policies). È possibile configurare il dispositivo in modo che segnali le informazioni del modello come parte della [chiamata del dispositivo Register](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice). DPS passerà le informazioni del dispositivo al webhook di allocazione personalizzato. E la funzione può decidere a quale Hub di tutto il dispositivo andrà a ricevere informazioni sul modello di dispositivo. Allo stesso modo, se il webhook vuole restituire alcuni dati al dispositivo, li passerà di nuovo come stringa nella risposta del webhook.  
 
 ## <a name="device-sends-data-to-dps"></a>Il dispositivo invia dati a DPS

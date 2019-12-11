@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 12/09/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1c00d0f4ba365442762df6e041f02ea0a39f099
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a14338e552250ac63c344365099a16f20616ea9a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847304"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964030"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Distribuire la reimpostazione della password senza richiedere la registrazione dell'utente finale
 
-Per distribuire la funzionalità di reimpostazione password self-service di Azure Active Directory (Azure AD) devono essere presenti i dati di autenticazione. Alcune organizzazioni richiedono agli utenti di immettere personalmente i dati di autenticazione. Tuttavia, molte organizzazioni preferiscono sincronizzare i dati già presenti in Active Directory. I dati sincronizzati sono resi disponibili ad Azure AD e alla funzionalità di reimpostazione password self-service senza richiedere l'intervento dell'utente se:
+Per distribuire la funzionalità di reimpostazione password self-service di Azure Active Directory (Azure AD) devono essere presenti i dati di autenticazione. Alcune organizzazioni richiedono agli utenti di immettere personalmente i dati di autenticazione. Altre organizzazioni preferiscono eseguire la sincronizzazione con i dati già esistenti nel Active Directory. Questi dati sincronizzati vengono resi disponibili per Azure AD e SSPR senza richiedere l'intervento dell'utente se si soddisfano i requisiti seguenti:
 
 * I dati sono formattati correttamente nella directory locale dell'utente.
 * È stata eseguita la configurazione di [Azure AD Connect usando le impostazioni rapide](../hybrid/how-to-connect-install-express.md).
@@ -41,21 +41,18 @@ Se si usano le impostazioni predefinite in Azure AD Connect, vengono eseguiti i 
 | telephoneNumber | Telefono ufficio |
 | mobile | Cellulare |
 
-Quando l'utente verifica il numero di cellulare, anche il campo Telefono in Informazioni di contatto per l'autenticazione in Azure AD viene popolato con il numero.
+Quando un utente verifica il numero di telefono cellulare, il campo *telefonico* in **informazioni di contatto per l'autenticazione** in Azure ad viene popolato anche con tale numero.
 
 ## <a name="authentication-contact-info"></a>Informazioni di contatto per l'autenticazione
 
-L'amministratore globale può impostare manualmente le informazioni di contatto per l'autenticazione per l'utente come illustrato nello screenshot seguente.
+Nella pagina **metodi di autenticazione** per un utente Azure AD nel portale di Azure, un amministratore globale può impostare manualmente le informazioni di contatto per l'autenticazione, come illustrato nella schermata di esempio seguente:
 
 ![Informazioni di contatto per l'autenticazione di un utente in Azure AD][Contact]
 
-Se il campo Telefono è popolato e l'opzione Cellulare è abilitata nei criteri SSPR, il numero verrà visualizzato nella pagina di registrazione per la reimpostazione della password e durante il flusso di lavoro di reimpostazione della password.
-
-Il campo Telefono alternativo non è usato per la reimpostazione della password.
-
-Se il campo Posta elettronica è popolato e l'opzione Posta elettronica è abilitata nei criteri SSPR, l'indirizzo di posta elettronica verrà visualizzato nella pagina di registrazione per la reimpostazione della password e durante il flusso di lavoro di reimpostazione della password.
-
-Se il campo Indirizzo di posta elettronica alternativo è popolato e l'opzione Posta elettronica è abilitata nei criteri SSPR, l'indirizzo di posta elettronica **non** verrà visualizzato nella pagina di registrazione per la reimpostazione della password ma verrà visualizzato durante il flusso di lavoro di reimpostazione della password.
+* Se il campo **telefono** è popolato e il **telefono cellulare** è abilitato nel criterio SSPR, l'utente visualizza tale numero nella pagina di registrazione per la reimpostazione della password e durante il flusso di lavoro di reimpostazione della password.
+* Il campo **telefono alternativo** non viene usato per la reimpostazione della password.
+* Se il campo **posta elettronica** è popolato e il **messaggio di posta elettronica** è abilitato nel criterio SSPR, l'utente visualizza tale messaggio nella pagina di registrazione della reimpostazione della password e durante il flusso di lavoro di reimpostazione della password.
+* Se il campo **indirizzo di posta elettronica alternativo** è popolato e il **messaggio di posta elettronica** è abilitato nel criterio SSPR, l'utente **non** visualizzerà il messaggio di posta elettronica nella pagina di registrazione per la reimpostazione della password, ma lo visualizzerà durante il flusso di lavoro
 
 ## <a name="security-questions-and-answers"></a>Domande di sicurezza e risposte
 
@@ -69,7 +66,7 @@ Quando un utente si registra, i campi seguenti vengono impostati nella pagina di
 * **Indirizzo di posta elettronica per l'autenticazione**
 * **Domande di sicurezza e risposte**
 
-Se è stato specificato un valore per **Cellulare** o **Indirizzo di posta elettronica alternativo**, gli utenti possono usare immediatamente questi valori per reimpostare le password, anche se non hanno eseguito la registrazione per il servizio. Gli utenti visualizzano e possono modificare tali valori quando si registrano per la prima volta. Dopo aver completato la registrazione, questi valori vengono salvati in modo permanente rispettivamente nei campi **Telefono per l'autenticazione** e **Indirizzo di posta elettronica per l'autenticazione**.
+Se è stato specificato un valore per **Cellulare** o **Indirizzo di posta elettronica alternativo**, gli utenti possono usare immediatamente questi valori per reimpostare le password, anche se non hanno eseguito la registrazione per il servizio. Gli utenti visualizzano e possono modificare tali valori quando si registrano per la prima volta. Una volta eseguita la registrazione, questi valori vengono salvati in permanenza rispettivamente nei campi telefono per l' **autenticazione** e **indirizzo di posta elettronica di autenticazione** .
 
 ## <a name="set-and-read-the-authentication-data-through-powershell"></a>Impostare e leggere i dati di autenticazione tramite PowerShell
 

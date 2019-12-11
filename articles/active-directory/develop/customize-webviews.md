@@ -1,7 +1,7 @@
 ---
-title: Personalizzare browser e visualizzazioni Web
+title: Personalizzare i browser & le visualizzazioni WebView | Azure
 titleSuffix: Microsoft identity platform
-description: Informazioni su come personalizzare l'esperienza del browser usata da MSAL per iOS e macOS per l'accesso degli utenti
+description: Informazioni su come personalizzare l'esperienza del browser iOS/macOS MSAL per l'accesso degli utenti.
 services: active-directory
 author: tylermsft
 manager: CelesteDG
@@ -14,16 +14,16 @@ ms.author: twhitney
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69b1e217bfa64ad08136e2763716d455332c5ba4
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: d5dbdadc6afa3a6822a76fdcecdfcaa6f2ad8c98
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74843326"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963716"
 ---
 # <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>Procedura: personalizzare browser e WebView per iOS/macOS
 
-Per l'autenticazione interattiva è necessario un Web browser. In iOS, Microsoft Authentication Library (MSAL) usa il Web browser di sistema per impostazione predefinita (che potrebbe apparire sopra l'app) per eseguire l'autenticazione interattiva per l'accesso degli utenti. L'utilizzo del browser di sistema offre il vantaggio di condividere lo stato di Single Sign-ON (SSO) con altre applicazioni e con applicazioni Web.
+Per l'autenticazione interattiva è necessario un Web browser. In iOS, Microsoft Authentication Library (MSAL) usa il Web browser di sistema per impostazione predefinita (che potrebbe apparire sopra l'app) per eseguire l'autenticazione interattiva per l'accesso degli utenti. L'utilizzo del browser di sistema offre il vantaggio di condividere lo stato di Single Sign-on (SSO) con altre applicazioni e con applicazioni Web.
 
 È possibile modificare l'esperienza personalizzando la configurazione con altre opzioni per la visualizzazione del contenuto Web, ad esempio:
 

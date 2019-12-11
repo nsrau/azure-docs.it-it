@@ -1,5 +1,5 @@
 ---
-title: Acquisire e memorizzare nella cache i token con MSAL
+title: Acquisire & token della cache con MSAL | Azure
 titleSuffix: Microsoft identity platform
 description: Informazioni sull'acquisizione e la memorizzazione nella cache dei token tramite Microsoft Authentication Library (MSAL).
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1cb16b5635afcfac51063ec569ca74a0ecd3b6b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3060f79f85db6504c38ba4fc6b7d3df97f0edb55
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917166"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963563"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Acquisire e memorizzare nella cache i token tramite Microsoft Authentication Library (MSAL)
 

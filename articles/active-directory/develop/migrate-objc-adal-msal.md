@@ -1,8 +1,7 @@
 ---
-let application: MSALPublicClientApplication!
-title: Eseguire la migrazione di app a MSAL. ObjectiveC
+title: Eseguire la migrazione di app a MSAL (iOS/macOS) | Azure
 titleSuffix: Microsoft identity platform
-description: Informazioni sulle differenze tra Microsoft Authentication Library per ObjectiveC (MSAL per iOS e macOS) e la libreria Autenticazione di Azure AD per ObjectiveC (ADAL. ObjC) e come eseguire la migrazione a MSAL per iOS e macOS.
+description: Informazioni sulle differenze tra MSAL per iOS/macOS e la libreria Autenticazione di Azure AD per ObjectiveC (ADAL. ObjC) e come eseguire la migrazione a MSAL per iOS/macOS.
 services: active-directory
 author: TylerMSFT
 manager: CelesteDG
@@ -15,12 +14,12 @@ ms.author: twhitney
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6df0fdb2ec3ab3deb8798aa7dbfc0c3e4e25f377
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 88fcb3422c900419abf68173ff5026a7dd0b87ea
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917285"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963597"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>Eseguire la migrazione di applicazioni a MSAL per iOS e macOS
 

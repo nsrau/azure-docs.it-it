@@ -1,5 +1,5 @@
 ---
-title: API Web protetta-registrazione app
+title: Registrazione dell'app per le API Web protetta | Azure
 titleSuffix: Microsoft identity platform
 description: Informazioni su come creare un'API Web protetta e le informazioni necessarie per registrare l'app.
 services: active-directory
@@ -17,12 +17,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c905dfd86fd80b9e55aa7bd5a9b9b03f277570c
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 86c36661dd8b5d43417ca1d845eef5cdb146f1e9
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802550"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962526"
 ---
 # <a name="protected-web-api-app-registration"></a>API Web protetta: registrazione dell'app
 
@@ -75,7 +75,7 @@ Gli ambiti vengono visualizzati anche nella schermata di consenso presentata agl
 1. Selezionare **Aggiungi un ambito**.
 1. Se richiesto, accettare l'URI dell'ID applicazione (`api://{clientId}`) proposto selezionando **Salva e continua**.
 1. Immettere i parametri seguenti:
-      - Per **nome ambito**usare **access_as_user**.
+      - Per **nome ambito**, utilizzare **access_as_user**.
       - Per **chi può acconsentire**, assicurarsi che **gli amministratori e gli utenti** siano selezionati.
       - In **nome visualizzato consenso amministratore**immettere **Access TodoListService come utente**.
       - Nella **Descrizione del consenso dell'amministratore**immettere **accede all'API Web TodoListService come utente**.

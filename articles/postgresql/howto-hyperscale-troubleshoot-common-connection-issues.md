@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi di connessione al database di Azure per PostgreSQL-iperscalabilità (CITUS)
+title: Risolvere i problemi relativi alle connessioni-scalabilità (CITUS)-database di Azure per PostgreSQL
 description: Informazioni su come risolvere i problemi di connessione a database di Azure per PostgreSQL-iperscalabilità (CITUS)
 keywords: connessione postgresql, stringa di connessione, problemi di connettività, errore temporaneo, errore di connessione
 author: jonels-msft
@@ -7,12 +7,12 @@ ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/8/2019
-ms.openlocfilehash: b812b730cebba4dbf0735f49f544e53bf7f8787c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: c064aca484f85c44dada9888012140784a96863f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952147"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977506"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---hyperscale-citus"></a>Risolvere i problemi di connessione al database di Azure per PostgreSQL-iperscalabilità (CITUS)
 
@@ -50,7 +50,7 @@ Se l'applicazione non riesce a connettersi in modo permanente a iperscalabilità
 
 * Configurazione del firewall del nodo coordinatore: assicurarsi che il firewall del server iperscalabile sia configurato per consentire le connessioni dal client, inclusi i server proxy e i gateway.
 * Configurazione del firewall client: il firewall del client deve consentire le connessioni al server di database. Per alcuni firewall è necessario consentire non solo l'applicazione per nome, ma consentendo gli indirizzi IP e le porte del server.
-* Errore dell'utente: controllare la stringa di connessione. È possibile che siano presenti parametri non tipizzati, come il nome del server, o un suffisso di *\@nomeserver* nel nome utente.
+* Errore dell'utente: controllare la stringa di connessione. È possibile che si disponga di parametri non tipizzati come il nome del server. È possibile trovare le stringhe di connessione per diversi framework di linguaggio e PSQL nel portale di Azure. Passare alla pagina **stringhe di connessione** nel gruppo di server con iperscalabilità (CITUS). Tenere inoltre presente che i cluster iperscalari (CITUS) hanno un solo database e il nome predefinito è **CITUS**.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Passaggi per risolvere problemi di connettività permanenti
 

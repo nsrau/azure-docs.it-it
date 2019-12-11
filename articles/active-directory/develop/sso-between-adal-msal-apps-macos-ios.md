@@ -1,5 +1,5 @@
 ---
-title: SSO tra app ADAL e MSAL in iOS e macOS-piattaforma di identità Microsoft
+title: SSO tra app ADAL e MSAL iOS/macOS-piattaforma di identità Microsoft | Azure
 description: ''
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,14 +17,14 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a554602b9648190926168e4886d4f0773692225
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 13998982b778181febf99d8366eebd25482bc2bc
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264142"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961506"
 ---
-# <a name="how-to-sso-between-adal-and-msal-apps-on-macos-and-ios"></a>Procedura: SSO tra app ADAL e MSAL in macOS e iOS
+# <a name="how-to-sso-between-adal-and-msal-apps-on-macos-and-ios"></a>Procedura: eseguire l'accesso SSO tra app ADAL e MSAL in macOS e iOS
 
 Microsoft Authentication Library (MSAL) per iOS può condividere lo stato SSO con [adal Objective-C](https://github.com/AzureAD/azure-activedirectory-library-for-objc) tra le applicazioni. Puoi eseguire la migrazione delle tue app a MSAL in base alle tue esigenze, assicurandosi che gli utenti possano comunque trarre vantaggio dall'accesso SSO tra app, anche con una combinazione di app basate su ADAL e MSAL.
 
@@ -46,7 +46,7 @@ MSAL e ADAL usano identificatori di account diversi. ADAL USA UPN come identific
 
 Quando si riceve un oggetto `MSALAccount` nel risultato MSAL, esso contiene un identificatore di account nella proprietà `identifier`. L'applicazione deve usare questo identificatore per le richieste automatiche successive.
 
-Oltre a `identifier`, l'oggetto `MSALAccount` contiene un identificatore visualizzabile chiamato `username`. Che viene convertito in `userId` in ADAL. `username` non è considerato un identificatore univoco e può essere modificato in qualsiasi momento, quindi deve essere usato solo per gli scenari di compatibilità con le versioni precedenti con ADAL. MSAL supporta le query cache con `username` o `identifier`, in cui è consigliabile eseguire una query per `identifier`.
+Oltre a `identifier`, `MSALAccount` oggetto contiene un identificatore visualizzabile chiamato `username`. Questo si traduce in `userId` in ADAL. `username` non è considerato un identificatore univoco e può essere modificato in qualsiasi momento, quindi deve essere usato solo per gli scenari di compatibilità con le versioni precedenti con ADAL. MSAL supporta le query cache usando `username` o `identifier`, in cui è consigliabile eseguire query per `identifier`.
 
 La tabella seguente riepiloga le differenze tra gli identificatori di account tra ADAL e MSAL:
 
@@ -106,11 +106,11 @@ ADAL 2.7. x restituisce il `homeAccountId` nell'oggetto `ADUserInformation` nel 
 
 `homeAccountId` in ADAL è equivalente a `identifier` in MSAL. È possibile salvare questo identificatore da usare in MSAL per le ricerche di account con l'API `accountForIdentifier:error:`.
 
-#### <a name="adals-userid"></a>@No__t di ADAL-0
+#### <a name="adals-userid"></a>`userId` di ADAL
 
-Se `homeAccountId` non è disponibile o si dispone solo dell'identificatore visualizzabile, è possibile usare il `userId` di ADAL per cercare l'account in MSAL.
+Se `homeAccountId` non è disponibile o si dispone solo dell'identificatore visualizzabile, è possibile usare l'`userId` di ADAL per cercare l'account in MSAL.
 
-In MSAL cercare prima di tutto un account per `username` o `identifier`. Utilizzare sempre `identifier` per l'esecuzione di query, se presente, e utilizzare solo `username` come fallback. Se l'account viene trovato, usare l'account nelle chiamate `acquireTokenSilent`.
+In MSAL, cercare prima di tutto un account per `username` o `identifier`. Usare sempre `identifier` per l'esecuzione di query e usare `username` solo come fallback. Se l'account viene trovato, utilizzare l'account nella `acquireTokenSilent` chiama.
 
 Objective-C:
 
@@ -208,7 +208,7 @@ Poiché `homeAccountId` non è disponibile nelle versioni precedenti di ADAL, è
                               error:(NSError * __autoreleasing *)error;
 ```
 
-Esempio:
+ad esempio:
 
 Objective-C:
 

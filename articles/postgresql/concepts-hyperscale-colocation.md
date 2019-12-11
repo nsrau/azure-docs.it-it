@@ -1,18 +1,18 @@
 ---
-title: Concetti relativi ai server in Database di Azure per PostgreSQL
-description: Questo articolo presenta alcune considerazioni e linee guida per la configurazione e la gestione di server di Database di Azure per PostgreSQL.
+title: Tabella Colocation-iperscala (CITUS)-database di Azure per PostgreSQL
+description: Come archiviare insieme le informazioni correlate per query più veloci
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 4a5ebf810771efe49ee40e272d1fa4683140eda1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7e4073ec45f4c21f33d20924a9948e72f961c7f8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73482750"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74967338"
 ---
 # <a name="table-colocation-in-azure-database-for-postgresql--hyperscale-citus"></a>Condivisione della tabella nel database di Azure per PostgreSQL: iperscalabilità (CITUS)
 
@@ -132,7 +132,7 @@ WHERE tenant_id = 6 AND path LIKE '/blog%'
 GROUP BY page_id;
 ```
 
-A causa di Filter e join su tenant_id, iperscale (CITUS) sa che è possibile rispondere all'intera query usando il set di partizioni con percorso condiviso che contengono i dati per quel particolare tenant. Un singolo nodo PostgreSQL può rispondere alla query in un singolo passaggio.
+A causa del filtro e del join in tenant_id, l'iperscalabilità (CITUS) sa che è possibile rispondere all'intera query usando il set di partizioni con percorso condiviso che contengono i dati per quel particolare tenant. Un singolo nodo PostgreSQL può rispondere alla query in un singolo passaggio.
 
 ![Query migliore](media/concepts-hyperscale-colocation/colocation-better-query.png)
 

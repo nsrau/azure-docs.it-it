@@ -1,6 +1,6 @@
 ---
-title: App daemon che chiama le API Web (configurazione app)-piattaforma di identità Microsoft
-description: Informazioni su come creare un'app daemon che chiama le API Web (configurazione dell'app)
+title: Configurare le app daemon che chiamano API Web-piattaforma di identità Microsoft | Azure
+description: Informazioni su come configurare il codice per l'applicazione daemon che chiama le API Web (configurazione dell'app)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32fbd4af78e02dad2a8a74ee21f9cb8c6ef0a976
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: b0fd50f730c604ba1359218cf5268bd20e570d3c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175502"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962645"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>App daemon che chiama API Web-configurazione del codice
 
@@ -39,7 +39,7 @@ Le librerie Microsoft che supportano le app daemon sono:
 
 ## <a name="configuration-of-the-authority"></a>Configurazione dell'autorità
 
-Dato che le applicazioni daemon non usano autorizzazioni delegate, ma le autorizzazioni dell'applicazione, il *tipo di account supportato* non può essere *account in alcuna directory organizzativa e account Microsoft personali (ad esempio, Skype, Xbox, Outlook.com)* . In realtà, non esiste alcun amministratore tenant per concedere il consenso all'applicazione daemon per gli account personali Microsoft. È necessario scegliere gli *account nell'organizzazione* o gli *account di qualsiasi organizzazione*.
+Poiché le applicazioni daemon non usano autorizzazioni delegate, ma le autorizzazioni dell'applicazione, il *tipo di account supportato* non può essere *account in alcuna directory organizzativa e account Microsoft personali (ad esempio, Skype, Xbox, Outlook.com)* . In realtà, non esiste alcun amministratore tenant per concedere il consenso all'applicazione daemon per gli account personali Microsoft. È necessario scegliere gli *account nell'organizzazione* o gli *account di qualsiasi organizzazione*.
 
 Pertanto, l'autorità specificata nella configurazione dell'applicazione deve essere tenant-ed (specificando un ID tenant o un nome di dominio associato all'organizzazione).
 

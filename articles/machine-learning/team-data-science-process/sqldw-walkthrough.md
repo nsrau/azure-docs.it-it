@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 76afafb59de762776b7d2614e383320b7d8f79e4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b32e2abcffda24fa82d3911575fe48acfc294ccc
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669412"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973170"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Processo di analisi scientifica dei dati per i team in azione: uso di SQL Data Warehouse
 In questa esercitazione verranno esaminate la compilazione e la distribuzione di un modello di Machine Learning usando SQL Data Warehouse (SQL DW) per un set di dati disponibile pubblicamente, il set di dati [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/). Il modello di classificazione binaria costruito stabilisce se sia stata lasciata o meno una mancia per una corsa. Vengono illustrati anche i modelli per la regressione e la classificazione multiclasse che consentono di stimare la distribuzione delle mance pagate.
@@ -24,7 +24,7 @@ In questa esercitazione verranno esaminate la compilazione e la distribuzione di
 La procedura segue il flusso di lavoro del [Processo di analisi scientifica dei dati per i team (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) . Viene illustrato come configurare un ambiente di scienza dei dati, come caricare i dati in SQL DW e come usare SQL DW o IPython Notebook per esplorare i dati e progettare le funzionalità da modellare. Viene quindi illustrato come compilare e distribuire un modello con Azure Machine Learning.
 
 ## <a name="dataset"></a>Set di dati NYC Taxi Trips
-I dati di NYC Taxi Trip sono costituiti da circa 20 GB di file CSV compressi (circa 48 GB non compressi) e registrano oltre 173 milioni di corse singole nonché le tariffe pagate per ogni corsa. Il record di ogni corsa include le posizioni e l'ora di partenza e arrivo, il numero della patente illegale (del tassista) reso anonimo e il numero di licenza (ID univoco del taxi). I dati sono relativi a tutte le corse per l'anno 2013 e vengono forniti nei due set di dati seguenti per ciascun mese:
+I dati di NYC Taxi Trip sono costituiti da circa 20 GB di file CSV compressi (circa 48 GB non compressi) e registrano oltre 173 milioni di corse singole nonché le tariffe pagate per ogni corsa. Il record di ogni corsa include le posizioni e l'ora di partenza e arrivo, il numero di patente (del tassista) in modalità anonima e il numero di licenza (ID univoco del taxi). I dati sono relativi a tutte le corse per l'anno 2013 e vengono forniti nei due set di dati seguenti per ciascun mese:
 
 1. Il file **trip_data.csv** contiene i dettagli delle corse, ad esempio il numero dei passeggeri, i punti di partenza e arrivo, la durata e la lunghezza della corsa. Di seguito vengono forniti alcuni record di esempio:
 
@@ -438,7 +438,7 @@ In questo esempio viene calcolata la distribuzione degli intervalli delle mance 
 | 4 |85765 |
 
 ### <a name="exploration-compute-and-compare-trip-distance"></a>Esplorazione: calcolo e confronto della distanza delle corse
-In questo esempio, la longitudine e la latitudine del prelievo e dello scarico vengono convertite in punti geografici SQL, viene calcolata la distanza della corsa tramite la differenza dei punti geografici di SQL e viene restituito un campione casuale dei risultati per il confronto. Nell'esempio i risultati vengono limitati unicamente alle coordinate valide tramite la query per la valutazione della qualità dei dati illustrata in precedenza.
+In questo esempio, la longitudine e la latitudine del prelievo e dello scarico vengono convertite in punti geografici SQL, viene calcolata la distanza della corsa mediante la differenza dei punti geografici di SQL e viene restituito un campione casuale dei risultati per il confronto. Nell'esempio i risultati vengono limitati unicamente alle coordinate valide tramite la query per la valutazione della qualità dei dati illustrata in precedenza.
 
     /****** Object:  UserDefinedFunction [dbo].[fnCalculateDistance] ******/
     SET ANSI_NULLS ON
@@ -540,7 +540,7 @@ Ecco un esempio per chiamare questa funzione per generare le funzionalità nella
 | 3 |40.761456 |-73.999886 |40.766544 |-73.988228 |0.7037227967 |
 
 ### <a name="prepare-data-for-model-building"></a>Preparazione dei dati per la creazione del modello
-Le query riportate di seguito consentono di unire le tabelle **nyctaxi\_trip** e **nyctaxi\_fare**, generare un'etichetta di classificazione binaria **tipped**, un'etichetta di classificazione multiclasse **tip\_class** e di estrarre un campione dall'intero set di dati unito. Il campionamento viene eseguito recuperando un subset delle corse in base all'orario di partenza.  Questa query può essere copiata e incollata direttamente nel modulo [Azure Machine Learning Studio](https://studio.azureml.net) [Import Data][import-data] per l'inserimento diretto dei dati dall'istanza del database SQL in Azure. La query esclude i record con le coordinate errate (0, 0).
+Le query riportate di seguito consentono di unire le tabelle **nyctaxi\_trip** e **nyctaxi\_fare**, generare un'etichetta di classificazione binaria **tipped**, un'etichetta di classificazione multiclasse **tip\_class** e di estrarre un campione dall'intero set di dati unito. Il campionamento viene eseguito recuperando un subset delle corse in base all'orario di partenza.  Questa query può essere copiata e incollata direttamente nel modulo di [importazione dati][import-data] di [Azure Machine Learning Studio (classico)](https://studio.azureml.net) per l'inserimento diretto dei dati dall'istanza del database SQL in Azure. La query esclude i record con le coordinate errate (0, 0).
 
     SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
         CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -567,15 +567,15 @@ In questa sezione verranno eseguite l'esplorazione dei dati e la generazione di 
 
 Le informazioni di Azure SQL DW necessarie nell'esempio di IPython Notebook e il file di script di Python scaricati nel computer locale sono stati collegati prima dallo script di PowerShell. Possono essere eseguiti senza alcuna modifica.
 
-Se si è già configurata un'area di lavoro di AzureML, è possibile caricare direttamente l'esempio di IPython Notebook nel servizio IPython Notebook di AzureML e avviarne l'esecuzione. Ecco i passaggi per caricare il servizio IPython Notebook di AzureML:
+Se è già stata configurata un'area di lavoro di Azure Machine Learning, è possibile caricare direttamente il notebook di IPython di esempio nel servizio AzureML IPython notebook e avviarne l'esecuzione. Ecco i passaggi da eseguire per il caricamento nel servizio AzureML IPython notebook:
 
-1. Accedere all'area di lavoro AzureML, fare clic su "Studio" in alto e fare clic su "NOTEBOOKS" a sinistra nella pagina Web.
+1. Accedere all'area di lavoro di Azure Machine Learning, fare clic su **studio "** nella parte superiore e quindi su **Notebooks (notebook** ) sul lato sinistro della pagina Web.
 
     ![Fare clic su Studio quindi su NOTEBOOK][22]
-2. Fare clic su "NEW" nell'angolo in basso a sinistra della pagina Web e selezionare "Python 2". Specificare quindi un nome per il notebook e fare clic sul segno di spunta per creare il nuovo IPython Notebook vuoto.
+2. Fare clic su **nuovo** nell'angolo inferiore sinistro della pagina Web e selezionare **Python 2**. Specificare quindi un nome per il notebook e fare clic sul segno di spunta per creare il nuovo IPython Notebook vuoto.
 
     ![Fare clic su NUOVO, quindi selezionare Python 2][23]
-3. Fare clic sul simbolo "Jupyter" nell'angolo in alto a sinistra del nuovo IPython Notebook.
+3. Fare clic sul simbolo **Jupyter** nell'angolo in alto a sinistra del nuovo notebook di IPython.
 
     ![Fare clic sul simbolo di Jupyter][24]
 4. Trascinare l'esempio di IPython Notebook nella pagina **albero** del servizio IPython Notebook di Azure Machine Learning e fare clic su **Upload** (Carica). L'esempio di IPython Notebook verrà quindi caricato nel servizio IPython Notebook di AzureML.
@@ -590,7 +590,7 @@ Per eseguire l'esempio di IPython Notebook o il file di script di Python, sono n
 - pyodbc
 - PyTables
 
-La sequenza consigliata quando si compilano soluzioni analitiche avanzate in AzureML con dati di grandi dimensioni è la seguente:
+La sequenza consigliata quando si compilano soluzioni analitiche avanzate su Azure Machine Learning con dati di grandi dimensioni è la seguente:
 
 * Leggere un piccolo campione di dati in un frame di dati in memoria.
 * Eseguire alcune visualizzazioni ed esplorazioni tramite i dati campionati.
@@ -811,14 +811,14 @@ A questo punto è possibile procedere con la creazione e la distribuzione di mod
 
 Per iniziare l'esercizio di modellazione, accedere all'area di lavoro di **Azure Machine Learning (classica)** . Se non è stata ancora creata un'area di lavoro di Machine Learning, vedere [creare un'area di lavoro di Azure Machine Learning Studio (classica)](../studio/create-workspace.md).
 
-1. Per iniziare a utilizzare Azure Machine Learning, vedere [Informazioni su Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
-2. Effettuare l'accesso ad [Azure Machine Learning Studio](https://studio.azureml.net).
-3. Nella pagina iniziale vengono fornite moltissime informazioni, video, esercitazioni, collegamenti al Riferimento ai moduli e altre risorse. Per altre informazioni su Azure Machine Learning, consultare il [Centro di documentazione di Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
+1. Per iniziare a usare Azure Machine Learning, vedere [che cos'è Azure Machine Learning Studio (classico)?](../studio/what-is-ml-studio.md)
+2. Accedere a [Azure Machine Learning Studio (versione classica)](https://studio.azureml.net).
+3. La Home page di Machine Learning Studio (classica) fornisce un'ampia gamma di informazioni, video, esercitazioni, collegamenti ai moduli di riferimento e ad altre risorse. Per altre informazioni su Azure Machine Learning, consultare il [Centro di documentazione di Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 Un tipico esperimento di training comprende i passaggi seguenti:
 
 1. Creazione di un esperimento **+NEW** .
-2. Ottenere i dati in Azure Machine Learning Studio.
+2. Ottenere i dati in Azure Machine Learning Studio (classico).
 3. Pre-elaborazione, trasformazione e manipolazione dei dati secondo le esigenze.
 4. Generazione di funzionalità, se necessario.
 5. Suddivisione dei dati in set di dati di training, convalida o test(o creazione di set di dati distinti per ciascuna tipologia).
@@ -828,7 +828,7 @@ Un tipico esperimento di training comprende i passaggi seguenti:
 9. Valutazione dei modelli per calcolare la metrica rilevante per il problema di apprendimento.
 10. Ottimizzazione dei modelli e selezione del modello migliore per la distribuzione.
 
-In questo esercizio i dati sono già stati esplorati e compilati in SQL Data Warehouse ed è stata decisa la dimensione del campione da inserire in Azure Machine Learning Studio. Ecco la procedura per compilare uno o più modelli di stima:
+In questo esercizio, abbiamo già esplorato e progettato i dati in SQL Data Warehouse e ho deciso di inserire le dimensioni del campione in Azure Machine Learning Studio (versione classica). Ecco la procedura per compilare uno o più modelli di stima:
 
 1. Ottenere i dati in Azure Machine Learning Studio (classico) usando il modulo [Import Data (Importa dati][import-data] ), disponibile nella sezione **input e output dei dati** . Per ulteriori informazioni, vedere la pagina di riferimento del modulo [Import Data][import-data] .
 
@@ -874,14 +874,16 @@ Nella figura di seguito viene fornito un esperimento di assegnazione dei puntegg
 
 ![Pubblicazione di Azure ML][11]
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 Ricapitolando quanto è stato fatto, durante questa procedura è stato creato un ambiente di analisi scientifica dei dati di Azure da usare con set di dati pubblici di grandi dimensioni, seguendo l'intero Processo di analisi scientifica dei dati per i team, dall'acquisizione dei dati al training del modello e quindi alla distribuzione di un servizio Web Azure Machine Learning.
 
 ### <a name="license-information"></a>Informazioni sulla licenza
 Questa procedura dettagliata di esempio e gli script e i blocchi di appunti IPython che la accompagnano sono condivisi da Microsoft nella licenza MIT. Selezionare il file LICENSE.txt nella directory del codice di esempio in GitHub per altre informazioni.
 
 ## <a name="references"></a>Riferimenti
-•    [Pagina di Andrés Monroy per scaricare i dati sulle corse dei taxi di NYC](https://www.andresmh.com/nyctaxitrips/) •    [Complemento dai dati sulle corse dei taxi di NYC di Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/) •    [Ricerche e statistiche su NYC Taxi and Limousine Commission](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+- [Pagina di download delle corse dei taxi di Andrés Monroy NYC](https://www.andresmh.com/nyctaxitrips/)
+- [FOILing The NYC ' s taxi trip data di Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)
+- [Ricerche e statistiche su NYC Taxi and limousine Commission](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [1]: ./media/sqldw-walkthrough/sql-walkthrough_26_1.png
 [2]: ./media/sqldw-walkthrough/sql-walkthrough_28_1.png

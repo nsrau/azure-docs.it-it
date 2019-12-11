@@ -1,6 +1,6 @@
 ---
-title: App Web che chiama web API (registrazione dell'app) - piattaforma delle identità Microsoft
-description: Informazioni su come compilare un'app web che chiama web API (registrazione dell'app)
+title: Registrare un'app Web che chiama API Web-piattaforma di identità Microsoft | Azure
+description: Informazioni su come registrare un'app Web che chiama API Web
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,26 +15,26 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5becdc287f7cad28aa6c7c07ebc107586e9a2b2a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 784de823e94aace6f91222c19c1ff8130c3f995f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65075191"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962934"
 ---
-# <a name="web-app-that-calls-web-apis---app-registration"></a>App Web che chiama l'API - registrazione dell'app web
+# <a name="web-app-that-calls-web-apis---app-registration"></a>App Web che chiama le API Web-registrazione app
 
-Un'API web di Web app chiama ha la stessa registrazione come un'App Web di firma di utenti. Sarà quindi necessario seguire le istruzioni in [app Web che esegue l'accesso gli utenti - registrazione dell'app](scenario-web-app-sign-user-app-registration.md)
+Un'app Web che chiama API Web ha la stessa registrazione degli utenti che accedono ad app Web. Sarà quindi necessario seguire le istruzioni in app Web per l'accesso [degli utenti-registrazione dell'app](scenario-web-app-sign-user-app-registration.md)
 
-Tuttavia poiché l'App Web a questo punto chiama web API, diventa un'applicazione client riservata. Ecco perché è un po' di registrazione aggiuntiva necessaria: è necessario condividere i segreti (credenziali client) con la piattaforma delle identità Microsoft.
+Tuttavia, poiché l'app Web chiama ora API Web, diventa un'applicazione client riservata. Questo è il motivo per cui è necessaria una registrazione aggiuntiva: è necessario condividere i segreti (credenziali client) con la piattaforma di identità Microsoft.
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-registration-client-secrets.md)]
 
 ## <a name="api-permissions"></a>Autorizzazioni delle API
 
-Le applicazioni Web di chiamare le API per conto dell'utente connesso. È necessario richiedere autorizzazioni delegate. Per informazioni dettagliate vedere [aggiungere le autorizzazioni per accedere alle API web](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)
+Le applicazioni Web chiamano le API per conto dell'utente che ha eseguito l'accesso. Devono richiedere autorizzazioni delegate. Per informazioni dettagliate, vedere [aggiungere autorizzazioni per accedere alle API Web](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Configurazione del codice dell'App](scenario-web-app-call-api-app-configuration.md)
+> [Configurazione del codice dell'app](scenario-web-app-call-api-app-configuration.md)

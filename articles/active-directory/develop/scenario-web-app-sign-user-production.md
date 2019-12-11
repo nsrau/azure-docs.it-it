@@ -1,5 +1,5 @@
 ---
-title: App Web che esegue l'accesso agli utenti (passa alla produzione)-piattaforma di identità Microsoft
+title: Spostare l'app Web che esegue l'accesso degli utenti all'ambiente di produzione-piattaforma di identità Microsoft | Azure
 description: Informazioni su come creare un'app Web per l'accesso degli utenti (passare alla produzione)
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efcc7ed4f80d0e3e9750d19ff95d010052a08b87
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: c49782a6e1e86320b508875e2bf931cc1cc19b4e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481887"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964771"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>App Web che esegue l'accesso agli utenti: passa alla produzione
 

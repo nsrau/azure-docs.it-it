@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/05/2019
-ms.openlocfilehash: 59d18ea11699ed77763c162e4930b159fcd19fe2
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.date: 12/9/2019
+ms.openlocfilehash: ba091d05aa243fab08138c96827d2f657d9755de
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74888666"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976299"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>Questo articolo illustra come configurare i parametri di server del Database di Azure per MariaDB usando il portale di Azure
 
@@ -37,21 +37,21 @@ L'elenco di parametri del server supportati è in continua crescita. Usare la sc
 
 Pool di buffer InnoDB e Numero max. connessioni non sono configurabili e collegati al [piano tariffario](concepts-pricing-tiers.md).
 
-|**Piano tariffario**| **vCore**|**Pool di buffer InnoDB (MB)**| **Numero massimo di connessioni**|
-|---|---|---|---|
-|Basic| 1| 1024| 50|
-|Basic| 2| 2560| 100|
-|Scopo generico| 2| 3584| 300|
-|Scopo generico| 4| 7680| 625|
-|Scopo generico| 8| 15360| 1250|
-|Scopo generico| 16| 31232| 2500|
-|Scopo generico| 32| 62976| 5000|
-|Scopo generico| 64| 125952| 10000|
-|Ottimizzate per la memoria| 2| 7168| 600|
-|Ottimizzate per la memoria| 4| 15360| 1250|
-|Ottimizzate per la memoria| 8| 30720| 2500|
-|Ottimizzate per la memoria| 16| 62464| 5000|
-|Ottimizzate per la memoria| 32| 125952| 10000|
+|**Piano tariffario**| **vCore**|**Pool di buffer InnoDB (MB)**|
+|---|---|---|
+|Basic| 1| 1024|
+|Basic| 2| 2560|
+|Scopo generico| 2| 3584|
+|Scopo generico| 4| 7680|
+|Scopo generico| 8| 15360|
+|Scopo generico| 16| 31232|
+|Scopo generico| 32| 62976|
+|Scopo generico| 64| 125952|
+|Ottimizzate per la memoria| 2| 7168|
+|Ottimizzate per la memoria| 4| 15360|
+|Ottimizzate per la memoria| 8| 30720|
+|Ottimizzate per la memoria| 16| 62464|
+|Ottimizzate per la memoria| 32| 125952|
 
 Questi parametri del server aggiuntivi non sono configurabili nel sistema:
 

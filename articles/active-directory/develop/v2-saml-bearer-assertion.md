@@ -1,5 +1,5 @@
 ---
-title: Microsoft Identity Platform e il flusso di asserzione del titolare SAML | Azure
+title: Microsoft Identity Platform & flusso di asserzione di porta SAML | Azure
 description: Informazioni su come recuperare i dati da Microsoft Graph senza richiedere all'utente le credenziali usando il flusso di asserzione di porta SAML.
 services: active-directory
 documentationcenter: ''
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13b316568ba555de764c1aaa4ddf0e72d25cf24f
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: f7f5b983a00dfc0af2e7a40571ce58fafca5914e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990949"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964561"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Microsoft Identity Platform e OAuth 2,0 SAML Bearer Flow Assertion
 Il flusso di asserzione di connessione di OAuth 2,0 SAML consente di richiedere un token di accesso OAuth usando un'asserzione SAML quando un client deve usare una relazione di trust esistente. La firma applicata all'asserzione SAML fornisce l'autenticazione dell'app autorizzata. Un'asserzione SAML è un token di sicurezza XML emesso da un provider di identità e utilizzato da un provider di servizi. Il provider di servizi si basa sul contenuto per identificare l'oggetto dell'asserzione per finalità correlate alla sicurezza.
@@ -43,7 +43,7 @@ A questo punto è possibile comprendere in che modo è possibile recuperare effe
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-Stabilire una relazione di trust tra il server di autorizzazione/ambiente (Microsoft 365) e il provider di identità o l'autorità emittente dell'asserzione di connessione di SAML 2,0 (ADFS). Per configurare ADFS per l'accesso Single Sign-on e come provider di identità, è possibile fare riferimento a [questo articolo](https://blogs.technet.microsoft.com/canitpro/2015/09/11/step-by-step-setting-up-ad-fs-and-enabling-single-sign-on-to-office-365/).
+Stabilire una relazione di trust tra il server di autorizzazione/ambiente (Microsoft 365) e il provider di identità o l'autorità emittente dell'asserzione di connessione di SAML 2,0 (ADFS). Per configurare ADFS per Single Sign-On e come provider di identità, è possibile fare riferimento a [questo articolo](https://blogs.technet.microsoft.com/canitpro/2015/09/11/step-by-step-setting-up-ad-fs-and-enabling-single-sign-on-to-office-365/).
 
 Registrare l'applicazione nel [portale](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade):
 1. Accedere al pannello [registrazione app del portale](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) . si noti che vengono usati gli endpoint della versione 2.0 per API Graph e quindi è necessario registrare l'applicazione in questo portale. In caso contrario, avremmo potuto usare le registrazioni in Azure Active Directory. 
@@ -55,7 +55,7 @@ Registrare l'applicazione nel [portale](https://ms.portal.azure.com/#blade/Micro
     1. Al termine, selezionare **Registra**.
 1. Prendere nota dell'ID dell'applicazione (client).
 1. Nel riquadro sinistro selezionare **certificati & segreti**. Fare clic su **nuovo segreto client** nella sezione **segreti client** . Copiare il nuovo segreto client, non sarà possibile recuperare quando si esce dal pannello.
-1. Nel riquadro sinistro selezionare **autorizzazioni API** e quindi **Aggiungi un'autorizzazione**. Selezionare **Microsoft Graph**, quindi **autorizzazioni delegate**e quindi selezionare Tasks **. Read** poiché si prevede di usare il API Graph di Outlook. 
+1. Nel riquadro sinistro selezionare **autorizzazioni API** e quindi **Aggiungi un'autorizzazione**. Selezionare **Microsoft Graph**, quindi **autorizzazioni delegate**e quindi selezionare **Tasks. Read** poiché si prevede di usare il API Graph di Outlook. 
 
 Installare il [post](https://www.getpostman.com/), uno strumento necessario per testare le richieste di esempio.  Successivamente, è possibile convertire le richieste in codice.
 
@@ -79,8 +79,8 @@ In questo passaggio, recuperare un token OAuth2 usando la risposta dell'asserzio
 
 1. Creare una richiesta POST come illustrato di seguito con i valori dell'intestazione:
 
-    ![Richiesta POST](./media/v2-saml-bearer-assertion/5.png)
-1. Nel corpo della richiesta sostituire **client_id**, **client_secret**e Assertion (l' asserzione SAML con codifica Base64 ha ottenuto il passaggio precedente):
+    ![POST, richiesta](./media/v2-saml-bearer-assertion/5.png)
+1. Nel corpo della richiesta sostituire **client_id**, **client_secret**e **assertion** (l'asserzione SAML con codifica Base64 ha ottenuto il passaggio precedente):
 
     ![Corpo della richiesta](./media/v2-saml-bearer-assertion/6.png)
 1. Al completamento della richiesta, si riceverà un token di accesso da Azure Active Directory.

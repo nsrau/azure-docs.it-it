@@ -1,7 +1,7 @@
 ---
 title: Eseguire il training di modelli di chaining Deep Learning
 titleSuffix: Azure Machine Learning
-description: Informazioni su come eseguire gli script di training di PyTorch su scala aziendale usando la classe di stimatore chainer di Azure Machine Learning.  Lo script di esempio classifica le immagini di cifre scritte a mano per creare una rete neurale di apprendimento avanzato usando la libreria Python del Chainer in esecuzione in numpy.
+description: Informazioni su come eseguire gli script di training di PyTorch su scala aziendale usando la classe Estimator Azure Machine Learning Chainer.  Lo script di esempio classifica le immagini di cifre scritte a mano per creare una rete neurale di apprendimento avanzato usando la libreria Python del Chainer in esecuzione in numpy.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,17 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
-ms.openlocfilehash: f384a6a870d891bbaf6fa20a896b0251e62b8d4f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 40c1b7e1e4089db3e95b0da810a961b7fd202aac
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224986"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969174"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning"></a>Esegui il training e la registrazione dei modelli di Chainer su larga scala con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Questo articolo illustra come eseguire gli script di training del [Chainer](https://chainer.org/) su scala aziendale usando la classe di [stimatore chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) di Azure Machine Learning. Lo script di training di esempio in questo articolo usa il popolare [set di dati MNIST](http://yann.lecun.com/exdb/mnist/) per classificare le cifre scritte a mano usando una rete neurale profonda (DNN) creata usando la libreria Python del Chainer in esecuzione su [numpy](https://www.numpy.org/).
+In questo articolo si apprenderà come eseguire gli script di training del [Chainer](https://chainer.org/) su scala Enterprise usando la classe [Estimator Azure Machine Learning Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) . Lo script di training di esempio in questo articolo usa il popolare [set di dati MNIST](http://yann.lecun.com/exdb/mnist/) per classificare le cifre scritte a mano usando una rete neurale profonda (DNN) creata usando la libreria Python del Chainer in esecuzione su [numpy](https://www.numpy.org/).
 
 Sia che si stia eseguendo il training di un modello di chaining di Deep Learning da zero o che si stia introducendo un modello esistente nel cloud, è possibile usare Azure Machine Learning per scalare i processi di training open source con risorse di calcolo elastiche del cloud. Con Azure Machine Learning è possibile compilare, distribuire, eseguire la versione e monitorare i modelli a livello di produzione. 
 
@@ -28,7 +28,7 @@ Scopri di più sull'apprendimento avanzato [rispetto a Machine Learning](concept
 
 Se non si dispone di una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Eseguire questo codice in uno degli ambienti seguenti:
 
@@ -48,7 +48,7 @@ Eseguire questo codice in uno degli ambienti seguenti:
 
 Questa sezione Configura l'esperimento di training caricando i pacchetti Python necessari, inizializzando un'area di lavoro, creando un esperimento e caricando i dati di training e gli script di training.
 
-### <a name="import-packages"></a>Importare i pacchetti
+### <a name="import-packages"></a>Importare pacchetti
 
 Importare prima di tutto la libreria Python azureml. core e visualizzare il numero di versione.
 

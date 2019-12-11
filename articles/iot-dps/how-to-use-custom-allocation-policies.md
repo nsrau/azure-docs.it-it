@@ -1,18 +1,18 @@
 ---
 title: Criteri di allocazione personalizzati con il servizio Device provisioning in hub Azure
-description: Come usare i criteri di allocazione personalizzati con il servizio Device Provisioning in hub IoT di Azure
+description: Come usare i criteri di allocazione personalizzati con il servizio Device provisioning in hub Azure
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/14/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 2a17cc6c9f2211de31d4551bd12e6c832d4eee38
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b6b7d4614d3c63fe93e213fb830b85d0b7f9c474
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228744"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974871"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Come usare i criteri di allocazione personalizzati
 
@@ -39,7 +39,7 @@ In questo articolo vengono eseguiti i passaggi seguenti:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 o versione successiva con il carico di lavoro [Sviluppo di applicazioni desktop con C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) abilitato.
 * La versione più recente di [Git](https://git-scm.com/download/) installata.
@@ -117,7 +117,7 @@ In questa sezione viene creata una funzione di Azure che implementa i criteri di
 
     ![Creare una app per le funzioni di Azure per ospitare la funzione di allocazione personalizzata](./media/how-to-use-custom-allocation-policies/create-function-app.png)
 
-4. Nella pagina **Riepilogo** selezionare **Crea** per creare l'app per le funzioni. La distribuzione potrebbe richiedere alcuni minuti. Al termine, selezionare **Vai alla risorsa**.
+4. Nella pagina **Riepilogo** selezionare **Crea** per creare l'app per le funzioni. Questa operazione può richiedere alcuni minuti. Al termine, selezionare **Vai alla risorsa**.
 
 5. Nel riquadro sinistro della pagina **Panoramica** dell'app per le funzioni selezionare **+** accanto a **funzioni** per aggiungere una nuova funzione.
 
@@ -349,7 +349,7 @@ Per l'esempio di questo articolo, usare i due ID di registrazione del dispositiv
 
 Se si usa una workstation Linux, è possibile usare OpenSSL per generare le chiavi del dispositivo derivate, come illustrato nell'esempio seguente.
 
-1. Sostituire il valore della **CHIAVE** con la **chiave primaria** annotata in precedenza.
+1. Sostituire il valore della **CHIAVE** con la **Chiave primaria** annotata in precedenza.
 
     ```bash
     KEY=oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA==
@@ -373,7 +373,7 @@ Se si usa una workstation Linux, è possibile usare OpenSSL per generare le chia
 
 Se si usa una workstation basata su Windows, è possibile usare PowerShell per generare la chiave del dispositivo derivata, come illustrato nell'esempio seguente.
 
-1. Sostituire il valore della **CHIAVE** con la **chiave primaria** annotata in precedenza.
+1. Sostituire il valore della **CHIAVE** con la **Chiave primaria** annotata in precedenza.
 
     ```powershell
     $KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
@@ -501,7 +501,7 @@ Questo codice di esempio simula una sequenza di avvio di dispositivo che invia l
 
     Salvare il file.
 
-2. Nel menu di Visual Studio selezionare **Debug** > **Avvia senza eseguire debug** per eseguire la soluzione. Nella richiesta di ricompilazione del progetto, selezionare **Sì**per ricompilare il progetto prima di eseguire.
+2. Nel menu di Visual Studio selezionare **Debug** > **Avvia senza eseguire debug** per eseguire la soluzione. Nella richiesta di ricompilare il progetto fare clic su **Sì** per ricompilare il progetto prima dell'esecuzione.
 
     L'output seguente è un esempio del dispositivo del tostapane simulato che esegue correttamente l'avvio e la connessione all'istanza del servizio di provisioning da assegnare all'hub degli elementi del tostapane da parte dei criteri di allocazione personalizzati:
 

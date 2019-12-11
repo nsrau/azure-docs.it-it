@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 12/09/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/23/2019
-ms.openlocfilehash: 66388f139b63c63e1f0f8ee8ee063e0ddd0f9da5
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 236e222da9e9a64d4b93002d28c94fa6fe469c08
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213047"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971998"
 ---
 # <a name="routing-and-tag-expressions"></a>Espressioni di routing e tag
 
@@ -41,7 +41,7 @@ L'unico modo per avere come destinazione registrazioni di notifiche specifiche c
 
 Un tag può essere qualsiasi stringa, fino a 120 caratteri, che contiene caratteri alfanumerici e i caratteri non alfanumerici seguenti: ‘_’, ‘@’, ‘#’, ‘.’, ‘:’, ‘-’. Nell'esempio seguente viene illustrata un'applicazione da cui è possibile ricevere notifiche di tipo avviso popup su gruppi musicali specifici. In questo scenario, un modo semplice per instradare le notifiche è etichettare le registrazioni con tag che rappresentano i diversi gruppi musicali, come illustrato nell'immagine seguente:
 
-![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags.png)
+![Cenni preliminari sui tag](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags.png)
 
 In questa immagine il messaggio con tag **Beatles** raggiunge solo il tablet registrato con il tag **Beatles**.
 
@@ -65,7 +65,7 @@ outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(to
 
 Per tag non deve necessariamente essere eseguito il pre-provisioning e questi possono fare riferimento a più concetti specifici dell'app. Ad esempio, gli utenti di questa applicazione di esempio possono commentare i gruppi e desiderano ricevere avvisi popup, non solo per i commenti sui propri gruppi preferiti, ma anche per tutti i commenti degli amici, indipendentemente dal gruppo che stanno commentando. Nell'immagine seguente viene illustrato un esempio di questo scenario:
 
-![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags2.png)
+![Tag-amici](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags2.png)
 
 In questa immagine, Alice è interessata a ricevere aggiornamenti sui Beatles e Bob è interessato a ricevere aggiornamenti sui Wailers. Bob è anche interessato ai commenti di Charlie e Charlie è interessato ai Wailers. Quando viene inviata una notifica per un commento di Charlie sui Beatles, sia Alice che Bob la ricevono.
 
@@ -80,9 +80,9 @@ Per un'esercitazione completa dettagliata su come usare i tag per l'invio a grup
 
 Un altro modo per utilizzare i tag consiste nell'identificare tutti i dispositivi di un particolare utente. Le registrazioni possono essere contrassegnate con un tag che contiene un ID utente, come illustrato nell'immagine seguente:
 
-![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags3.png)
+![Utenti tag](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags3.png)
 
-In questa immagine, il messaggio con tag uid: Alice raggiunge tutte le registrazioni con tag "uid:Alice"; di conseguenza, tutti i dispositivi di Alice.
+In questa immagine, il messaggio con tag UID: Alice raggiunge tutte le registrazioni con tag "UID: Alice"; quindi, tutti i dispositivi di Alice.
 
 ## <a name="tag-expressions"></a>Espressioni tag
 
@@ -94,7 +94,7 @@ Si consideri un'applicazione sportiva che invia un promemoria su una partita tra
 (follows_RedSox || follows_Cardinals) && location_Boston
 ```
 
-![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags4.png)
+![Espressioni tag](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags4.png)
 
 Le espressioni tag possono contenere tutti gli operatori booleani, quali AND (&&), OR (||) e NOT (!). Possono inoltre contenere parentesi. Le espressioni tag sono limitate a 20 tag se contengono solo operatori OR; in caso contrario sono limitate a 6 tag.
 

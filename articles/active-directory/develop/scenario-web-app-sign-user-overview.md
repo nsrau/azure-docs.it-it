@@ -1,5 +1,5 @@
 ---
-title: App Web che esegue l'accesso degli utenti (panoramica)-piattaforma di identità Microsoft
+title: Utenti di accesso da un'app Web-piattaforma di identità Microsoft | Azure
 description: Informazioni su come creare un'app Web per l'accesso degli utenti (panoramica)
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,22 +15,22 @@ ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 316ab055a077b251e88421ab26997f8556a6e31f
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 10a53f88a97cdba8626c9d6c421093e4ec327e19
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482488"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961608"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Scenario: app Web che accede agli utenti
 
 Scopri tutto quello che ti serve per creare un'app Web che usa la piattaforma di identità Microsoft per l'accesso degli utenti.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-## <a name="getting-started"></a>Per iniziare
+## <a name="getting-started"></a>Inizia ora
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
@@ -62,7 +62,7 @@ Se si sviluppa con Python, provare a eseguire la Guida introduttiva seguente:
 
 ---
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Aggiungere l'autenticazione all'app Web in modo che possa accedere agli utenti. L'aggiunta dell'autenticazione consente all'app Web di accedere a informazioni limitate sul profilo per personalizzare l'esperienza degli utenti. 
 

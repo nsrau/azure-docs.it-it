@@ -1,6 +1,6 @@
 ---
-title: App Web che chiama le API Web (accesso)-piattaforma di identità Microsoft
-description: Informazioni su come creare un'app Web che chiama le API Web (accesso)
+title: 'Rimuovere gli account dalla cache alla disconnessione: piattaforma di identità Microsoft | Azure'
+description: Informazioni su come rimuovere un account dalla cache dei token alla disconnessione
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,14 +15,14 @@ ms.date: 09/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cb0190f76ddce79012a5bf97e2d813f40f9f018
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 375382b1245186197657c5067e3c5b4ec2b15655
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596371"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961659"
 ---
-# <a name="web-app-that-calls-web-apis---sign-in"></a>App Web che chiama le API Web-accedi
+# <a name="remove-accounts-from-the-cache-on-global-sign-out"></a>Rimuovere gli account dalla cache nella disconnessione globale
 
 Si sa già come aggiungere l'accesso all'app Web. Si apprende che nell' [app Web per l'accesso degli utenti si aggiunge l'accesso](scenario-web-app-sign-user-sign-in.md).
 

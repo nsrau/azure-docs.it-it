@@ -1,5 +1,5 @@
 ---
-title: Account supportati nelle app (destinatari) - Microsoft Identity Platform
+title: Tipi di account supportati nella piattaforma di identità Microsoft | Azure
 description: Documentazione concettuale sui destinatari e sui tipi di account supportati nelle applicazioni
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 929479f2816ef979edb26ba5aa00cf449c49b70a
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 04aac02623fe4918db671e2385c181653bdc344a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73942163"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74966555"
 ---
 # <a name="supported-account-types"></a>Tipi di account supportati
 

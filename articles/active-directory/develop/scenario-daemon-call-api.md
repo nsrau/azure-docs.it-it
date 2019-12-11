@@ -1,6 +1,6 @@
 ---
-title: App daemon che chiama le API Web (chiamata alle API Web)-piattaforma di identità Microsoft
-description: Informazioni su come creare un'app daemon che chiama API Web (chiamando API Web)
+title: Chiamare un'API Web da un'app daemon-piattaforma di identità Microsoft | Azure
+description: Informazioni su come creare un'app daemon che chiama API Web
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8af0bb023136ba07057e4078d5abfcb4a3194a56
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 46f1676ab1bdcf2b23907824bb9bf543b5f28ce6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175375"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962611"
 ---
 # <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>App daemon che chiama le API Web: chiama un'API Web dall'app
 
@@ -29,7 +29,7 @@ Un'app daemon può chiamare un'API Web da un'applicazione daemon .NET o chiamare
 
 ## <a name="calling-a-web-api-daemon-application"></a>Chiamata di un'applicazione daemon API Web
 
-Ecco come usare il token per chiamare un'API
+Ecco come usare il token per chiamare un'API:
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 

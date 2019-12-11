@@ -1,5 +1,5 @@
 ---
-title: App desktop che chiama le API Web (registrazione app)-piattaforma di identità Microsoft
+title: Registrare un'app desktop che chiama API Web-piattaforma di identità Microsoft | Azure
 description: Informazioni su come creare un'app desktop che chiama le API Web (registrazione dell'app)
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,16 +17,16 @@ ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 648652ed32a5dea30de665b7fa49190171a7f10a
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 94f7f2dfdbf404a092773857a0f7727618cd429a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268397"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965535"
 ---
 # <a name="desktop-app-that-calls-web-apis---app-registration"></a>App desktop che chiama le API Web-registrazione app
 
-Questo articolo contiene le specifiche di registrazione delle app per un'applicazione desktop.
+Questo articolo illustra le specifiche di registrazione delle app per un'applicazione desktop.
 
 ## <a name="supported-accounts-types"></a>Tipi di account supportati
 
@@ -49,15 +49,15 @@ Gli URI di Reindirizzamento da usare nell'applicazione desktop dipenderanno dal 
 - Se si usa l' **autenticazione interattiva** o il **flusso del codice del dispositivo**, è opportuno usare `https://login.microsoftonline.com/common/oauth2/nativeclient`. Per ottenere questa configurazione, fare clic sull'URL corrispondente nella sezione **autenticazione** per l'applicazione.
   
   > [!IMPORTANT]
-  > Attualmente MSAL.NET usa un altro URI di reindirizzamento per impostazione predefinita nelle applicazioni desktop in`urn:ietf:wg:oauth:2.0:oob`esecuzione in Windows (). In futuro sarà necessario modificare questa impostazione predefinita e pertanto si consiglia di usare`https://login.microsoftonline.com/common/oauth2/nativeclient`
+  > Attualmente MSAL.NET usa un altro URI di reindirizzamento per impostazione predefinita nelle applicazioni desktop in esecuzione in Windows (`urn:ietf:wg:oauth:2.0:oob`). In futuro è opportuno modificare questa impostazione predefinita e pertanto si consiglia di usare `https://login.microsoftonline.com/common/oauth2/nativeclient`
 
-- Se si sta creando un'app Objective-C o SWIFT nativa per macOS, è opportuno registrare il redirectUri in base all'identificatore del bundle dell'applicazione nel formato seguente: **msauth. < il. app. bundle. id >://auth** (sostituisci < il. app. bundle. ID > con l'identificatore del bundle dell'applicazione)
+- Se si sta creando un'app Objective-C o SWIFT nativa per macOS, è opportuno registrare il redirectUri in base all'identificatore del bundle dell'applicazione nel formato seguente: **msauth. < il. app. bundle. id >://auth** (sostituire < il. app. bundle. ID > con l'identificatore del bundle dell'applicazione)
 - Se l'app usa solo l'autenticazione integrata di Windows o il nome utente/password, non è necessario registrare un URI di reindirizzamento per l'applicazione. Questi flussi eseguono un round trip all'endpoint Microsoft Identity Platform 2.0 e l'applicazione non verrà richiamata su un URI specifico.
-- Per distinguere il flusso del codice del dispositivo, l'autenticazione integrata di Windows e il nome utente/password da un flusso di applicazione client riservato che non dispone di URI di reindirizzamento (il flusso di credenziali client utilizzato nelle applicazioni daemon), è necessario esprimere il l'applicazione è un'applicazione client pubblica. Per ottenere questa configurazione, passare alla sezione **autenticazione** per l'applicazione. Quindi, nella sottosezione **Impostazioni avanzate** , nel paragrafo del **tipo di client predefinito** , scegliere **Sì** per l'applicazione question **treat come client pubblico**.
+- Per distinguere il flusso del codice del dispositivo, l'autenticazione integrata di Windows e il nome utente/password da un flusso di applicazioni client riservate che non dispone di URI di reindirizzamento (il flusso di credenziali client utilizzato nelle applicazioni daemon), è necessario esprimere che l'applicazione è un'applicazione client pubblica. Per ottenere questa configurazione, passare alla sezione **autenticazione** per l'applicazione. Quindi, nella sottosezione **Impostazioni avanzate** , nel paragrafo del **tipo di client predefinito** , scegliere **Sì** per l'applicazione question **treat come client pubblico**.
 
   ![Consenti client pubblico](media/scenarios/default-client-type.png)
 
-## <a name="api-permissions"></a>Autorizzazioni API
+## <a name="api-permissions"></a>Autorizzazioni delle API
 
 Le applicazioni desktop chiamano le API per l'utente che ha eseguito l'accesso. Devono richiedere autorizzazioni delegate. Tuttavia, non possono richiedere le autorizzazioni dell'applicazione, che vengono gestite solo nelle [applicazioni daemon](scenario-daemon-overview.md).
 

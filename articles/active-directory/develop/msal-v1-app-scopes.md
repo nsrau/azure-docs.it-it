@@ -1,5 +1,5 @@
 ---
-title: Ambiti per un'applicazione v1.0 (Microsoft Authentication Library) | Azure
+title: Ambiti MSAL per un'applicazione v 1.0 | Azure
 description: Informazioni sugli ambiti per un'applicazione v1.0 con Microsoft Authentication Library (MSAL).
 services: active-directory
 author: TylerMSFT
@@ -13,12 +13,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 395b5105fdb067977f8414fe5675170032262fe0
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 0606376c455733ca90f1bff3d0295cbd1a075637
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921399"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963257"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Ambiti per un'API Web che accetta i token v1.0
 
@@ -26,7 +26,7 @@ Le autorizzazioni di OAuth2 sono ambiti di autorizzazione che un'applicazione di
 
 ## <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>Ambiti per richiedere l'accesso a specifiche autorizzazioni OAuth2 di un'applicazione v1.0
 
-Per acquisire i token per ambiti specifici di un'applicazione v 1.0 (ad esempio, Azure AD Graph, ovvero https:\//graph.windows.net), è necessario creare gli ambiti concatenando un identificatore di risorsa desiderato con l'autorizzazione OAuth2 desiderata per tale risorsa.
+Per acquisire i token per ambiti specifici di un'applicazione v 1.0, ad esempio il grafico Azure AD, che è https://graph.windows.net), creare gli ambiti concatenando un identificatore di risorsa desiderato con l'autorizzazione OAuth2 desiderata per tale risorsa.
 
 Ad esempio, per accedere per conto dell'utente a un'API Web v1.0 dove l'URI dell'ID app è `ResourceId`:
 

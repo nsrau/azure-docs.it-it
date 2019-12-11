@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e9daf1be1f931bb13cda446cbb9d6e37acce3bcf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7b86d643540e46f9a4fc86c83fc77d739bfba418
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498105"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978493"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Accedere a set di dati con Python mediante la libreria client Python di Azure Machine Learning
 L'anteprima della libreria client Python di Microsoft Azure Machine Learning consente l'accesso sicuro a set di dati di Azure Machine Learning da un ambiente Python locale, nonché la creazione e la gestione di set di dati in un'area di lavoro.
@@ -56,13 +56,13 @@ Se nel proprio computer è installato Git, è possibile usare pip per installarl
     pip install git+https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python.git
 
 
-## <a name="datasetAccess"></a>Usare frammenti di codice di Studio per accedere a set di dati
+## <a name="datasetAccess"></a>Usare frammenti di codice per accedere ai set di impostazioni
 La libreria client Python consente l'accesso a livello di codice a set di dati esistenti in esperimenti in esecuzione.
 
-Dall'interfaccia Web di Studio è possibile generare frammenti di codice che includono tutte le informazioni necessarie per scaricare e deserializzare set di dati come oggetti DataFrame pandas nel computer locale.
+Dall'interfaccia Web Azure Machine Learning Studio (classica), è possibile generare frammenti di codice che includono tutte le informazioni necessarie per scaricare e deserializzare i set di dati come oggetti di dataframe Pandas nel computer locale.
 
 ### <a name="security"></a>Sicurezza per l'accesso ai dati
-I frammenti di codice forniti da Studio per essere usati con la libreria client Python includono l'ID dell'area di lavoro e il token di autorizzazione, che offrono l'accesso completo all'area di lavoro e pertanto devono essere protetti, come una password.
+I frammenti di codice forniti da Azure Machine Learning Studio (classico) per l'uso con la libreria client Python includono l'ID dell'area di lavoro e il token di autorizzazione. che offrono l'accesso completo all'area di lavoro e pertanto devono essere protetti, come una password.
 
 Per motivi di sicurezza, le funzionalità dei frammenti di codice sono disponibili solo per gli utenti il cui ruolo nell'area di lavoro è impostato su **Owner** . Il ruolo viene visualizzato in Azure Machine Learning Studio (classico) nella pagina **utenti** in **Impostazioni**.
 
@@ -72,18 +72,18 @@ Se il proprio ruolo non è impostato su **Owner**, è possibile chiedere di esse
 
 Per ottenere il token di autorizzazione, è possibile eseguire una di queste operazioni:
 
-* Chiedere un token a un proprietario. I proprietari possono accedere ai propri token di autorizzazione dalla pagina Settings dell'area di lavoro personale in Studio. Selezionare **Settings** (Impostazioni) dal riquadro sinistro e fare clic su **AUTHORIZATION TOKENS** (Token di autorizzazione) per visualizzare i token primari e secondari. Sebbene per il frammento di codice sia possibile usare sia i token di autorizzazione primari sia quelli secondari, è consigliabile che i proprietari condividano solo i token di autorizzazione secondari.
+* Chiedere un token a un proprietario. I proprietari possono accedere ai token di autorizzazione dalla pagina impostazioni dell'area di lavoro in Azure Machine Learning Studio (versione classica). Selezionare **Settings** (Impostazioni) dal riquadro sinistro e fare clic su **AUTHORIZATION TOKENS** (Token di autorizzazione) per visualizzare i token primari e secondari. Sebbene per il frammento di codice sia possibile usare sia i token di autorizzazione primari sia quelli secondari, è consigliabile che i proprietari condividano solo i token di autorizzazione secondari.
 
-![Token di autorizzazione](./media/python-data-access/ml-python-access-settings-tokens.png)
+   ![Token di autorizzazione](./media/python-data-access/ml-python-access-settings-tokens.png)
 
 * Chiedere di essere promossi al ruolo di proprietario. A questo scopo, è necessario prima essere rimossi dall'area di lavoro da un proprietario corrente dell'area di lavoro, quindi essere nuovamente invitati con il ruolo di proprietario.
 
-Dopo aver ottenuto l'ID dell'area di lavoro e il token di autorizzazione, gli sviluppatori possono usare il frammento di codice per accedere all'area di lavoro indipendentemente dal proprio ruolo.
+Una volta ottenuti l'ID dell'area di lavoro e il token di autorizzazione, gli sviluppatori sono in grado di accedere all'area di lavoro usando il frammento di codice indipendentemente dal loro ruolo.
 
 I token di autorizzazione vengono gestiti nella pagina **AUTHORIZATION TOKENS** in **SETTINGS**. È possibile rigenerarli, ma questa procedura revoca l'accesso al token precedente.
 
 ### <a name="accessingDatasets"></a>Accedere a set di dati da un'applicazione Python locale
-1. In Machine Learning Studio fare clic su **DATASETS** (Set di dati) sulla barra di spostamento a sinistra.
+1. In Machine Learning Studio (classico), fare clic su **set di impostazioni** nella barra di spostamento a sinistra.
 2. Selezionare il set di dati a cui si desidera accedere. È possibile selezionare qualsiasi set di dati dall'elenco **MY DATASETS** o **SAMPLES**.
 3. Sulla barra degli strumenti inferiore fare clic su **Generate Data Access Code**(Genera codice di accesso ai dati). Se i dati si presentano in un formato non compatibile con la raccolta client di Python, questo pulsante non è attivo.
    
@@ -96,7 +96,7 @@ I token di autorizzazione vengono gestiti nella pagina **AUTHORIZATION TOKENS** 
     ![Incollare il codice nel blocco appunti][ipython-dataset]
 
 ## <a name="accessingIntermediateDatasets"></a>Accedere a set di dati intermedi da esperimenti di Machine Learning
-Dopo aver eseguito un esperimento in Machine Learning Studio, è possibile accedere ai set di dati intermedi dai nodi di output dei moduli. I set di dati intermedi sono costituiti da dati creati e usati per i passaggi intermedi quando è in esecuzione uno strumento di modello.
+Dopo l'esecuzione di un esperimento nella versione classica di Machine Learning Studio, è possibile accedere ai set di impostazioni intermedi dai nodi di output dei moduli. I set di dati intermedi sono costituiti da dati creati e usati per i passaggi intermedi quando è in esecuzione uno strumento di modello.
 
 È possibile accedere ai set di dati intermedi sono se si trovano in un formato compatibile con la libreria client Python.
 
@@ -141,7 +141,7 @@ I passaggi seguenti illustrano un esempio in cui si crea e si esegue un esperime
 
 ## <a name="clientApis"></a>Usare la libreria client Python di Machine Learning per accedere, leggere, creare e gestire set di dati
 ### <a name="workspace"></a>Area di lavoro
-L'area di lavoro è il punto di ingresso della libreria client Python. Per creare un'istanza è necessario specificare nella classe `Workspace` l'ID della propria area di lavoro e il token di autorizzazione:
+L'area di lavoro è il punto di ingresso della libreria client Python. Fornire la classe `Workspace` con l'ID dell'area di lavoro e il token di autorizzazione per creare un'istanza:
 
     ws = Workspace(workspace_id='4c29e1adeba2e5a7cbeb0e4f4adfb4df',
                    authorization_token='f4f3ade2c6aefdb1afb043cd8bcf3daf')

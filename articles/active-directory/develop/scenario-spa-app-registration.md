@@ -1,5 +1,5 @@
 ---
-title: Applicazione a pagina singola (registrazione dell'app)-piattaforma di identità Microsoft
+title: Registrare applicazioni a pagina singola-piattaforma di identità Microsoft | Azure
 description: Informazioni su come creare un'applicazione a singola pagina (registrazione dell'app)
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ef23b08beeee4cd7e82a5fc33a01b4988ddffb6
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 03115db0ad286c7a5c24590906d8e3715e43bac7
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764696"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962441"
 ---
 # <a name="single-page-application-app-registration"></a>Applicazione a pagina singola: registrazione dell'app
 

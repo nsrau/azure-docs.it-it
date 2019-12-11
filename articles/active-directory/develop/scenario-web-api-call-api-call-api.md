@@ -1,6 +1,6 @@
 ---
-title: API Web che chiama le API (chiamata API) - piattaforma delle identità di Microsoft web
-description: Informazioni su come creare una web API che le chiamate a valle web API (chiama un'API web).
+title: API Web che chiama API Web-piattaforma di identità Microsoft | Azure
+description: Informazioni su come creare un'API Web che chiama le API Web.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,22 +15,22 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cd093cc68a21558dc326221eeaa8c034c24f1c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6063d143e2f217426bdf1db217fde46f8542d314
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074726"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965212"
 ---
-# <a name="web-api-that-calls-web-apis---call-an-api"></a>API Web che chiama le API - web chiama un'API
+# <a name="web-api-that-calls-web-apis---call-an-api"></a>API Web che chiama API Web-chiamare un'API
 
-Dopo aver ottenuto un token, è possibile chiamare un'API web protetta. Questa operazione viene eseguita dal controller dell'API web ASP.NET/ASP.NET Core.
+Una volta ottenuto un token, è possibile chiamare un'API Web protetta. Questa operazione viene eseguita dal controller dell'API Web di ASP.NET/ASP.NET Core.
 
-## <a name="controller-code"></a>Codice del controller
+## <a name="controller-code"></a>Codice controller
 
-Ecco la continuazione del codice di esempio illustrato nella [chiamate all'API web Protected web API: acquisire un token](scenario-web-api-call-api-acquire-token.md), denominato nelle azioni del controller dell'API, chiama un'API downstream (denominata todolist).
+Ecco la continuazione del codice di esempio illustrato nell' [API Web protetta chiamate API Web: acquisizione di un token](scenario-web-api-call-api-acquire-token.md), chiamato nelle azioni dei controller API, chiamata di un'API downstream (denominata todo).
 
-Una volta acquisito il token, usarlo come un token di connessione per chiamare l'API downstream.
+Una volta acquisito il token, usarlo come bearer token per chiamare l'API downstream.
 
 ```CSharp
 private async Task GetTodoList(bool isAppStarting)
@@ -61,4 +61,4 @@ HttpResponseMessage response = await _httpClient.GetAsync(TodoListBaseAddress + 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Passare alla produzione](scenario-web-api-call-api-production.md)
+> [Passa all'ambiente di produzione](scenario-web-api-call-api-production.md)

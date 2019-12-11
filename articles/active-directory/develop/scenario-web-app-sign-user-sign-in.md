@@ -1,5 +1,5 @@
 ---
-title: App Web che esegue l'accesso degli utenti (accesso)-piattaforma di identità Microsoft
+title: Scrivere un'app Web per l'accesso degli utenti a Microsoft Identity Platform | Azure
 description: Informazioni su come creare un'app Web per l'accesso degli utenti (accesso)
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81b41e46401d600ebaba1febb86aafbd55c8399a
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: c8d7d5737a8332416a225154709ab7d66e447764
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482569"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961982"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>App Web per l'accesso degli utenti: accesso e disconnessione
 

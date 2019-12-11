@@ -1,6 +1,6 @@
 ---
-title: App daemon che chiama le API Web (passa alla produzione)-piattaforma di identità Microsoft
-description: Informazioni su come creare un'app daemon che chiama API Web (passa alla produzione)
+title: Spostare l'app daemon chiamando le API Web nell'ambiente di produzione-piattaforma di identità Microsoft | Azure
+description: Informazioni su come spostare un'app daemon che chiama API Web nell'ambiente di produzione
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05418cde7b31392c1a55f64945764e978daba1bf
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 961928499008445207df3a34a51fc016723c294b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175403"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962594"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>App daemon che chiama le API Web-passa all'ambiente di produzione
 
