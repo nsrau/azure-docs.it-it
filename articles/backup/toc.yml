@@ -222,6 +222,8 @@
       items:
         - name: Creare un insieme di credenziali di Servizi di ripristino
           href: backup-azure-arm-userestapi-createorupdatevault.md
+        - name: Aggiornare le configurazioni dell'insieme di credenziali di Servizi di ripristino
+          href: use-restapi-update-vault-properties.md
         - name: Creare e aggiornare i criteri di backup
           href: backup-azure-arm-userestapi-createorupdatepolicy.md
         - name: Eseguire il backup delle VM di Azure
