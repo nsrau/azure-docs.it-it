@@ -4,7 +4,7 @@ description: Creare una data factory di Azure per copiare i dati da una posizion
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 564076a0df8ab993796dde3d134a9461ab03e050
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e78b647d27b162c55eb262a7590e1d3ed997de41
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684507"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929897"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Guida introduttiva: Creare una data factory di Azure con PowerShell
 

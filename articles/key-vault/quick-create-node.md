@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 6555e61bab4ee668578b50cd27860fde1909c4dd
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: e36e3ae9ce2e8ca116921de428b4dcc09b37afb6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546886"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978578"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-nodejs-v4"></a>Guida introduttiva: Libreria client di Azure Key Vault per Node.js (v4)
 
@@ -191,7 +191,7 @@ az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 Quando non sono più necessari, è possibile usare l'interfaccia della riga di comando di Azure o Azure PowerShell per rimuovere l'insieme di credenziali delle chiavi e il gruppo di risorse corrispondente.
 
 ```azurecli
-az group delete -g "myResourceGroup" -l "EastUS" 
+az group delete -g "myResourceGroup"
 ```
 
 ```azurepowershell

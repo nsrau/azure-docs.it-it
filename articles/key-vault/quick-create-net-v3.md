@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 11/05/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 660235331c2c2d800b52f6e29d0011b9616a748c
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 29e1af5f23b2167a524872731490b5862a14e5c1
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158488"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975398"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v3"></a>Guida introduttiva: Libreria client di Azure Key Vault per .NET (SDK v3)
 
@@ -190,7 +190,7 @@ Il segreto è ora salvato come `keyvaultSecret.Value;`.
 Quando non sono più necessari, è possibile usare l'interfaccia della riga di comando di Azure o Azure PowerShell per rimuovere l'insieme di credenziali delle chiavi e il gruppo di risorse corrispondente.
 
 ```azurecli
-az group delete -g "myResourceGroup" -l "EastUS" 
+az group delete -g "myResourceGroup"
 ```
 
 ```azurepowershell

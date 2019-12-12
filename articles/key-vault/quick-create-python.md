@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: eea929d68c824ac7cf8045aa6a7ce60430952d03
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: aeac3b5ab1894e4392152ff255d582c338ceff18
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546883"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972426"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-python"></a>Guida introduttiva: libreria client di Azure Key Vault per Python
 
@@ -188,7 +188,7 @@ az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 Quando non sono più necessari, è possibile usare l'interfaccia della riga di comando di Azure o Azure PowerShell per rimuovere l'insieme di credenziali delle chiavi e il gruppo di risorse corrispondente.
 
 ```azurecli
-az group delete -g "myResourceGroup" -l "EastUS" 
+az group delete -g "myResourceGroup"
 ```
 
 ```azurepowershell

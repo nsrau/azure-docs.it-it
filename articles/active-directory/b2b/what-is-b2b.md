@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18d60614a07895c7e9468d35b2d389a28129af4d
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: f1ca0baa98336570d870a98c75c45a5303bdfaca
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74271659"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74868907"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Che cos'è l'accesso utente guest in Azure Active Directory B2B?
 
@@ -61,7 +61,7 @@ Gli amministratori possono aggiungere facilmente utenti guest all'organizzazione
 - L'utente guest riceve immediatamente un invito personalizzabile che gli consente di accedere al proprio pannello di accesso.
 - Gli utenti guest nella directory possono essere assegnati ad app o gruppi.  
 
-![Screenshot che mostra la pagina di immissione dell'invito Nuovo utente guest](media/what-is-b2b/adding-b2b-users-admin.png)
+![Screenshot che mostra la pagina di immissione dell'invito Nuovo utente guest](media/what-is-b2b/add-a-b2b-user-to-azure-portal.png)
 
 ## <a name="let-application-and-group-owners-manage-their-own-guest-users"></a>Consentire ai proprietari di un'applicazione e di un gruppo di gestire i relativi utenti guest
 

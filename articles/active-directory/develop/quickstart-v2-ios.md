@@ -2,27 +2,23 @@
 title: Avvio rapido per l'uso di Microsoft Identity Platform con un'app iOS e macOS | Azure
 description: Informazioni su come concedere l'accesso agli utenti ed eseguire una query Microsoft Graph in un'applicazione iOS e macOS.
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2019
 ms.author: twhitney
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b515a7954d82cdd377cec72fa8525fbd9691351d
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 10225efb1dcd870f5922a6521b0bd6ec44965152
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73149502"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920685"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Guida introduttiva: Accesso utenti e chiamata dell'API Microsoft Graph da un'app iOS o macOS
 
