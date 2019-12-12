@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 155993bb3da781e698398ed8ddffa626e8f6cb2d
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 3da1902906c4fb12bf5eef473ee39e721e4efe3a
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122592"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927077"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>Guida introduttiva: Usare Azure Cache for Redis con un'app Web ASP.NET 
 
@@ -143,7 +143,7 @@ Il runtime ASP.NET unisce il contenuto del file esterno con il markup nell'eleme
 
             // Connection refers to a property that returns a ConnectionMultiplexer
             // as shown in the previous example.
-            IDatabase cache = lazyConnection.Value.GetDatabase();
+            IDatabase cache = lazyConnection.GetDatabase();
 
             // Perform cache operations using the cache object...
 
@@ -166,7 +166,7 @@ Il runtime ASP.NET unisce il contenuto del file esterno con il markup nell'eleme
             ViewBag.command5 = "CLIENT LIST";
             ViewBag.command5Result = cache.Execute("CLIENT", "LIST").ToString().Replace(" id=", "\rid=");
 
-            lazyConnection.Value.Dispose();
+            lazyConnection.Dispose();
 
             return View();
         }

@@ -5,18 +5,17 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
-manager: craigg
-ms.openlocfilehash: b0df6264eb38cbbacd5f624b634eea5f742adbc7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: anandsub
+ms.openlocfilehash: 34c2a27d047888d1e763a0a99461e7eb4b9fb203
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683336"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74925105"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Trasformare dati nel cloud usando un'attività Spark in Azure Data Factory
 In questa esercitazione si usa il portale di Azure per creare una pipeline di Azure Data Factory. Questa pipeline trasforma i dati usando un'attività Spark e un servizio collegato su richiesta di Azure HDInsight. 

@@ -4,19 +4,20 @@ description: Questa esercitazione offre istruzioni dettagliate per copiare dati 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-lt-2019
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 96b1e5a9633ee141fd4aa369468a8866d87f27f2
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 93f674cf080ccbc94b9dbdc6ee9a66eb091c3542
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683644"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926601"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copiare dati da un BLOB di Azure al database SQL di Azure con Azure Data Factory
 

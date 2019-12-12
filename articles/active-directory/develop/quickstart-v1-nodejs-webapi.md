@@ -2,26 +2,24 @@
 title: "Guida introduttiva: Proteggere l'API Web Node.js con Azure Active Directory"
 description: Informazioni su come compilare un'API Web REST per Node.js che si integra con Azure AD per l'autenticazione.
 services: active-directory
-documentationcenter: nodejs
 author: rwike77
 manager: CelesteDG
 ms.assetid: 7654ab4c-4489-4ea5-aba9-d7cdc256e42a
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 10/25/2019
 ms.author: ryanwi
 ms.custom: seo-javascript-september2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa2548ab740eafa170330fab34e12da45792812e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 9ab52cd2cb7e81e8cd00c4b619bf8e8a37781248
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73149580"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920923"
 ---
 # <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>Guida introduttiva: Proteggere l'API Web Node.js con Azure Active Directory
 

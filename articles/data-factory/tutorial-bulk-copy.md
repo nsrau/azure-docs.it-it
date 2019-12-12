@@ -1,24 +1,25 @@
 ---
-title: 'Copiare dati in blocco con Azure Data Factory '
+title: Copiare dati in blocco
 description: Informazioni su come usare Azure Data Factory e l'attività di copia per copiare dati in blocco da un archivio dati di origine a un archivio dati di destinazione.
 services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: craigg
+ms.author: jingwang
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-lt-2019
 ms.date: 01/22/2018
-ms.author: jingwang
-ms.openlocfilehash: 8ebcf7b3a8dfa4103c0b2773ace76797e5b8f899
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: a019928f710d4b94cc3e5c4c14b559ef7d491ae2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546420"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926637"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiare più tabelle in blocco con Azure Data Factory
+
 Questa esercitazione illustra la **copia di alcune tabelle dal database SQL di Azure ad Azure SQL Data Warehouse**. È possibile applicare lo stesso modello anche in altri scenari di copia, ad esempio per la copia di tabelle da SQL Server/Oracle in database SQL di Azure/SQL Data Warehouse/archivio BLOB di Azure o la copia di percorsi diversi dall'archivio BLOB alle tabelle del database SQL di Azure.
 
 A livello generale, questa esercitazione prevede la procedura seguente:

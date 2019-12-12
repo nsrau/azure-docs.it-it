@@ -3,12 +3,12 @@ title: Aggiungere un binding della coda di archiviazione di Azure alla funzione 
 description: Informazioni su come aggiungere un binding della coda di archiviazione di Azure alla funzione Python.
 ms.date: 10/02/2019
 ms.topic: quickstart
-ms.openlocfilehash: dede135da56e9ed1eaaed2ae0f7b5cd14d08195c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f2db0f470c4205919343e3838a4f73b05bf71fb0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231243"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928874"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Aggiungere un binding della coda di archiviazione di Azure alla funzione Python
 
@@ -55,7 +55,7 @@ func host start
 ```
 
 > [!NOTE]  
-> Poiché sono stati abilitati i bundle di estensioni nel file host.json, durante l'avvio è stata scaricata e configurata l'[estensione di binding di archiviazione](functions-bindings-storage-blob.md#packages---functions-2x), nonché altre estensioni di binding di Microsoft.
+> Poiché sono stati abilitati i bundle di estensioni nel file host.json, durante l'avvio è stata scaricata e configurata l'[estensione di binding di archiviazione](functions-bindings-storage-blob.md#packages---functions-2x-and-higher), nonché altre estensioni di binding di Microsoft.
 
 Copiare l'URL della funzione `HttpTrigger` dall'output del runtime e incollarlo nella barra degli indirizzi del browser. Aggiungere la stringa di query `?name=<yourname>` a questo URL ed eseguire la richiesta. Nel browser dovrebbe essere visualizzata la stessa risposta dell'articolo precedente.
 

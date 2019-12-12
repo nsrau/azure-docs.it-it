@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: quickstart
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: bc3b9eb5753d09ca3442633deb259865b07e8b20
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f9ecb8d731945847160b49c68c554fafdd7285d9
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488147"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896375"
 ---
 # <a name="embed-the-internet-analyzer-client"></a>Incorporare il client dell'analizzatore Internet
 
@@ -34,6 +34,7 @@ Opzione 1. Nella portale di Azure usare [questo collegamento](https://aka.ms/Int
 
 Opzione 2. Usando l'interfaccia della riga di comando di Azure, controllare la proprietà `scriptFileUri`.
 ```azurecli-interactive
+    az extension add --name internet-analyzer    
     az internet-analyzer test list --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile"
 ```
 
@@ -59,4 +60,4 @@ Il metodo più semplice consiste nell'usare il tag script all'interno del blocco
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Leggere [Domande frequenti sull'analizzatore Internet](internet-analyzer-faq.md)
+Leggere le [Domande frequenti sull'analizzatore Internet](internet-analyzer-faq.md)

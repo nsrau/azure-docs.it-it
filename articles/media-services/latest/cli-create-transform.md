@@ -1,6 +1,6 @@
 ---
 title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare una trasformazione | Microsoft Docs
-description: Usare lo script dell'interfaccia della riga di comando di Azure per creare una trasformazione.
+description: Le trasformazioni descrivono un semplice flusso di lavoro di attività per l'elaborazione dei file video o audio, detto spesso "recipe". Lo script dell'interfaccia della riga di comando di Azure in questo articolo mostra come creare una trasformazione.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 7fea8d997d25d6075e30620e7fd3527003c6a8bb
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: c21a16d043f972042949d6340985774741b3df6a
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71128800"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888616"
 ---
 # <a name="cli-example-create-a-transform"></a>Esempio di interfaccia della riga di comando: Creare un oggetto Transform
 

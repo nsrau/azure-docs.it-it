@@ -8,17 +8,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: tutorial
+ms.custom: seo-lt-2019
 ms.date: 09/15/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
-manager: craigg
-ms.openlocfilehash: 14871aa790bd94dbd23dea30c8a229eac7945c75
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: anandsub
+ms.openlocfilehash: 2cec7fdae1d3a2a336decc11347ef9bd1039ce7f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683573"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926558"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Effettuare il provisioning di Azure-SSIS Integration Runtime in Azure Data Factory
 
