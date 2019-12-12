@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 09/05/2019
+ms.date: 12/09/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 0d86c7d627eeb15fb41b4371f0f1aab7a08e9655
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 8f25271bcf3d7bfb342ea2838bac237b158f3477
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827812"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975704"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-text"></a>Guida introduttiva: Usare l'API Traduzione testuale per tradurre il testo
 

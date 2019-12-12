@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: ab6a0d5c2a4c4623506d90b76b77462abb8fe4af
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 1e91b204401033c7c6c47484140720ab8076f9f9
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719500"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971696"
 ---
 # <a name="quickstart-computer-vision-client-library-for-python"></a>Guida introduttiva: Libreria client di Visione artificiale per Python
 
@@ -206,5 +206,5 @@ In questo argomento di avvio rapido si è appreso come usare la libreria di Visi
 > [!div class="nextstepaction"]
 >[Informazioni di riferimento per l'API Visione artificiale (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision)
 
-* [Che cos'è l'API Visione artificiale?](../Home.md)
+* [Informazioni su Visione artificiale](../Home.md)
 * Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py).

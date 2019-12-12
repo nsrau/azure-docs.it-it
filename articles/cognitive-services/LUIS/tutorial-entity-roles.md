@@ -9,28 +9,28 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 12/05/2019
 ms.author: diberry
-ms.openlocfilehash: 3e85067439fe412822ac34a065753e9a13c7a506
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 29e43692c1eb543768934a961a2bb8ae5a023b1d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488732"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894601"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Esercitazione: Estrarre dati con una relazione di tipo contestuale da un'espressione
 
-Questa esercitazione illustra come trovare informazioni correlate di dati basati sul contesto. Ad esempio, una posizione di origine e una di destinazione per il trasferimento da una città a un'altra. Potrebbero essere necessari entrambi i dati, che sono correlati tra loro.  
+Questa esercitazione illustra come trovare informazioni correlate di dati basati sul contesto. Ad esempio, una posizione di origine e una di destinazione per il trasferimento da una città a un'altra. Potrebbero essere necessari entrambi i dati, che sono correlati tra loro.
 
-Un ruolo può essere usato con qualsiasi tipo di entità predefinita o personalizzata, e può essere usato sia nelle espressioni che nei modelli di esempio. 
+Un ruolo può essere usato con qualsiasi tipo di entità predefinita o personalizzata, e può essere usato sia nelle espressioni che nei modelli di esempio.
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+[!INCLUDE [Only valid with current portal](includes/old-portal-only.md)]
 
 **In questa esercitazione si imparerà come:**
 
 > [!div class="checklist"]
 > * Creare una nuova app
-> * Aggiungere le finalità 
+> * Aggiungere le finalità
 > * Ottenere le informazioni di origine e destinazione usando i ruoli
 > * Eseguire il training
 > * Pubblica
@@ -57,9 +57,9 @@ Un ruolo deve essere usato quando i dati dell'entità da estrarre:
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-1. Selezionare **Create new intent** (Crea nuova finalità). 
+1. Selezionare **Create new intent** (Crea nuova finalità).
 
-1. Immettere `MoveEmployeeToCity` nella finestra di dialogo popup, quindi selezionare **Done** (Fine). 
+1. Immettere `MoveEmployeeToCity` nella finestra di dialogo popup, quindi selezionare **Done** (Fine).
 
     ![Screenshot della finestra di dialogo di creazione di una nuova finalità](./media/tutorial-entity-roles/create-new-intent-move-employee-to-city.png)
 
@@ -85,24 +85,24 @@ L'entità predefinita geographyV2 estrae le informazioni sulla posizione, compre
 
 1. Selezionare **Entities** (Entità) nel riquadro di spostamento a sinistra.
 
-1. Selezionare **Add prebuilt entity** (Aggiungi entità predefinita), quindi selezionare `geo` nella barra di ricerca per filtrare le entità predefinite. 
+1. Selezionare **Add prebuilt entity** (Aggiungi entità predefinita), quindi selezionare `geo` nella barra di ricerca per filtrare le entità predefinite.
 
     ![Aggiungere l'entità predefinita geographyV2 all'app](media/tutorial-entity-roles/add-geographyV2-prebuilt-entity.png)
 1. Selezionare la casella di controllo e selezionare **Done** (Fine).
-1. Nell'elenco **Entities** (Entità) selezionare **geographyV2** per aprire la nuova entità. 
-1. Aggiungere i due ruoli `Origin` e `Destination`. 
+1. Nell'elenco **Entities** (Entità) selezionare **geographyV2** per aprire la nuova entità.
+1. Aggiungere i due ruoli `Origin` e `Destination`.
 
     ![Aggiungere i ruoli all'entità predefinita](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
 1. Selezionare **Intents** (Finalità) nel riquadro di spostamento a sinistra, quindi selezionare la finalità **MoveEmployeeToCity**. Si noti che i nomi delle città sono etichettati con l'entità predefinita **geographyV2**.
 1. Nella prima espressione dell'elenco selezionare la posizione di origine. Viene visualizzato un menu a discesa. Selezionare **geographyV2** nell'elenco, quindi seguire il menu per selezionare **Origin** (Origine).
-1. Usare il metodo del passaggio precedente per contrassegnare tutti i ruoli delle posizioni in tutte le espressioni. 
+1. Usare il metodo del passaggio precedente per contrassegnare tutti i ruoli delle posizioni in tutte le espressioni.
 
 
-## <a name="add-example-utterances-to-the-none-intent"></a>Aggiungere espressioni di esempio alla finalità None (Nessuna) 
+## <a name="add-example-utterances-to-the-none-intent"></a>Aggiungere espressioni di esempio alla finalità None (Nessuna)
 
 [!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
 
-## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Eseguire il training dell'app in modo che sia possibile testare la finalità 
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Eseguire il training dell'app in modo che sia possibile testare la finalità
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
@@ -152,9 +152,9 @@ L'entità predefinita geographyV2 estrae le informazioni sulla posizione, compre
       ]
     }
     ```
-    
+
     Viene stimata la finalità corretta e la matrice delle entità mostra sia il ruolo di origine sia il ruolo di destinazione nelle proprietà **entity** corrispondenti.
-    
+
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
@@ -173,5 +173,5 @@ L'entità predefinita geographyV2 estrae le informazioni sulla posizione, compre
 
 In questa esercitazione è stata creata una nuova finalità e sono state aggiunte espressioni di esempio per i dati acquisiti in base al contesto relativi alla posizione di origine e di destinazione. Una volta eseguiti il training e la pubblicazione dell'app, un'applicazione client può usare tali informazioni per creare un ticket di spostamento con le informazioni pertinenti.
 
-> [!div class="nextstepaction"] 
-> [Informazioni su come aggiungere un'entità composta](luis-tutorial-composite-entity.md) 
+> [!div class="nextstepaction"]
+> [Informazioni su come aggiungere un'entità composta](luis-tutorial-composite-entity.md)
