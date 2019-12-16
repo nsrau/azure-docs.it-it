@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 12/04/2019
-ms.openlocfilehash: d7a746c170d04ad17b86e8aca63384edffbe75ac
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 53c0601be29c5cac9bddc37158d705f07349323d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806797"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975024"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>Esercitazione: Eseguire la migrazione online di SQL Server a un'istanza gestita di database SQL di Azure con Servizio Migrazione del database
 
@@ -214,7 +214,7 @@ Dopo aver creato un'istanza del servizio, individuarlo nel portale di Azure, apr
 
 
 > [!NOTE]
-  > Se il Servizio Migrazione del database di Azure visualizza l'errore 'Errore di sistema 53' o 'Errore di sistema 57', è possibile che il Servizio Migrazione del database di Azure non possa accedere alla condivisione file di Azure. Se si verifica uno di questi errori, concedere all'account l'accesso alla risorsa di archiviazione dalla rete virtuale seguendo le istruzioni riportate [qui](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
+  > Se il Servizio Migrazione del database di Azure visualizza l'errore 'Errore di sistema 53' o 'Errore di sistema 57', è possibile che il Servizio Migrazione del database di Azure non possa accedere alla condivisione file di Azure. Se si verifica uno di questi errori, concedere l'accesso all'account di archiviazione dalla rete virtuale seguendo le istruzioni riportate [qui](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
 
 
 2. Selezionare **Salva**.

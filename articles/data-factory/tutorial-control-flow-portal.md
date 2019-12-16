@@ -1,24 +1,25 @@
 ---
-title: 'Diramazione in una pipeline di Azure Data Factory '
+title: Diramazione e concatenamento delle attività in una pipeline tramite il portale di Azure
 description: Informazioni su come controllare il flusso dei dati in Azure Data Factory con la diramazione e il concatenamento delle attività.
 services: data-factory
-documentationcenter: ''
 author: djpmsft
 ms.author: daperlov
-manager: jroth
+manager: anandsub
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: aada9d02c624785750c3064b7ca31a863d4080c1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 08f9310c2ffdb2e7b8d4249495c2ee90b522d694
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683824"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926786"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Diramazione e concatenamento delle attività in una pipeline di Data factory
+
 In questa esercitazione si crea una pipeline di Data Factory che illustra alcune funzionalità del flusso di controllo. La pipeline esegue una semplice copia da un contenitore nell'archivio BLOB di Azure a un altro contenitore nello stesso account di archiviazione. Se l'attività di copia ha esito positivo, la pipeline invia i dettagli dell'operazione di copia completata (ad esempio, la quantità di dati scritti) in un messaggio di posta elettronica di operazione riuscita. Se l'attività di copia ha esito negativo, la pipeline invia i dettagli dell'errore di copia (ad esempio, il messaggio di errore) in un messaggio di posta elettronica di operazione non riuscita. Nel corso dell'esercitazione verrà illustrato come passare i parametri.
 
 Panoramica generale dello scenario: ![Overview](media/tutorial-control-flow-portal/overview.png)

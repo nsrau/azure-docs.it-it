@@ -1,20 +1,20 @@
 ---
-title: Ottimizzare la velocità effettiva durante l'importazione in blocco dei dati nell'account dell'API SQL di Azure Cosmos DB
-description: Informazioni su come creare un'applicazione console .NET per ottimizzare la velocità effettiva con provisioning (UR/sec) necessaria per importare dati in Azure Cosmos DB.
+title: Importare in blocco i dati nell'account dell'API SQL di Azure Cosmos DB con .NET SDK
+description: Informazioni su come importare o inserire dati in Azure Cosmos DB creando un'applicazione console .NET che ottimizza le unità elaborate con provisioning (UR/sec) necessarie per importare dati
 author: ealsur
 ms.author: maquaran
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: d80d762338744c0ca783d1768bacb8443dbc5020
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 79771e082a4a6ffae15f33f636b0300e93bcdaba
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606210"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896269"
 ---
-# <a name="optimize-throughput-when-bulk-importing-data-to-azure-cosmos-db-sql-api-account"></a>Ottimizzare la velocità effettiva durante l'importazione in blocco dei dati nell'account dell'API SQL di Azure Cosmos DB
+# <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Importare in blocco i dati nell'account dell'API SQL di Azure Cosmos DB con .NET SDK
 
 In questa esercitazione viene illustrato come creare un'applicazione console .NET per ottimizzare la velocità effettiva con provisioning (UR/sec) necessaria per importare dati in Azure Cosmos DB. In questo articolo i dati verranno letti da un'origine dati di esempio e importati in un contenitore di Azure Cosmos.
 Questa esercitazione usa la [versione 3.0+](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) di Azure Cosmos DB .NET SDK, che può essere destinata a .NET Framework o a .NET Core.

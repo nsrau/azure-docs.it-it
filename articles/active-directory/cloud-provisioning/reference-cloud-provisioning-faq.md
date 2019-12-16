@@ -11,12 +11,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93c88b167884c455ffb995f35356b121bce8a207
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: fbaafdce6f2510b58966f4b6c18e45a3fcd4a664
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74794991"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997089"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Domande frequenti su Azure Active Directory Connect
 
@@ -42,7 +42,7 @@ Sì. Il provisioning cloud può essere usato per la sincronizzazione da più for
 
 **D: Come viene aggiornato l'agente?**
 
-Gli agenti vengono aggiornati automaticamente da Microsoft. In questo modo si riduce il carico di test e convalida delle nuove versioni degli agenti per l'IT. 
+Gli agenti vengono aggiornati automaticamente da Microsoft. Per i team IT, in questo modo si riduce il carico di test e convalida delle nuove versioni degli agenti. 
 
 **D: È possibile disabilitare l'aggiornamento automatico?**
 

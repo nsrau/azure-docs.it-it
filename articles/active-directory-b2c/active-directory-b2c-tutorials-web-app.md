@@ -1,5 +1,6 @@
 ---
-title: "Esercitazione: Abilitare l'autenticazione in un'applicazione Web - Azure Active Directory B2C"
+title: "Esercitazione: Abilitare l'autenticazione in un'applicazione Web"
+titleSuffix: Azure AD B2C
 description: Esercitazione su come usare Azure Active Directory B2C per consentire l'accesso degli utenti a un'applicazione Web ASP.NET.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: d88ad13c1326ce62b73dbffa0c79904c6f81e6f4
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: b4305e9b3cfdb5e05ce76ee1811dc0d2dcc265b7
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73641784"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950201"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Esercitazione: Abilitare l'autenticazione in un'applicazione Web con Azure Active Directory B2C
 

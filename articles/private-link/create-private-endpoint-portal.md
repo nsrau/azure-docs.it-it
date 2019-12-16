@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 2cb3c1d798e48017604d72d8a438d6a1071199ea
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 22614b28023a0628fb12c170e934aaab4d1ddfe4
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419757"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74899856"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Guida introduttiva: Creare un endpoint privato con il portale di Azure
 
@@ -144,7 +144,7 @@ In questa sezione si creerà un server SQL e vi si aggiungerà un endpoint priva
     | Subscription | Selezionare la propria sottoscrizione. |
     | Resource group | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.|
     | **DETTAGLI DELL'ISTANZA** |  |
-    | NOME | Immettere * myPrivateEndpoint*. Se il nome è già usato, creare un nome univoco. |
+    | NOME | Immettere *myPrivateEndpoint*. Se il nome è già usato, creare un nome univoco. |
     |Region|Selezionare **Stati Uniti centro-occidentali**.|
     |||
 5. Selezionare **Avanti: Risorsa**.
@@ -177,7 +177,7 @@ In questa sezione si creerà un server SQL e vi si aggiungerà un endpoint priva
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Connettersi a una VM con Desktop remoto (RDP)
 
 
-Dopo aver creato **myVm*, connettersi alla macchina virtuale da Internet come illustrato di seguito: 
+Dopo aver creato **myVm**, connettersi alla macchina virtuale da Internet come illustrato di seguito: 
 
 1. Nella barra di ricerca del portale immettere *myVm*.
 
@@ -185,7 +185,7 @@ Dopo aver creato **myVm*, connettersi alla macchina virtuale da Internet come il
 
 1. Selezionare **Scarica file RDP**. Azure crea e scarica nel computer un file Remote Desktop Protocol con estensione *.rdp*.
 
-1. Aprire il file con estensione rdp scaricato.
+1. Aprire il file *downloaded.rdp*.
 
     1. Quando richiesto, selezionare **Connetti**.
 

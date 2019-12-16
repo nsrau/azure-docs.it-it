@@ -1,5 +1,6 @@
 ---
-title: "Esercitazione: Autenticare gli utenti in un'applicazione client nativa - Azure Active Directory B2C"
+title: "Esercitazione: Autenticare gli utenti in un'applicazione client nativa"
+titleSuffix: Azure AD B2C
 description: Esercitazione su come usare Azure Active Directory B2C per consentire l'accesso degli utenti a un'applicazione desktop .NET.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 6d1c2eff9bc9ffe8a0fb2166d39c16360c0a79cc
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 54a2fe4f0eee5c926878682ea1fccdfdd005e68b
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538932"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950192"
 ---
 # <a name="tutorial-authenticate-users-in-a-native-desktop-client-using-azure-active-directory-b2c"></a>Esercitazione: Autenticare gli utenti in un client desktop nativo con Azure Active Directory B2C
 

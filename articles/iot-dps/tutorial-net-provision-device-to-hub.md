@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Effettuare il provisioning di un dispositivo con il servizio Device Provisioning in hub IoT di Azure (.NET)'
-description: Questa esercitazione mostra come effettuare il provisioning del dispositivo in un singolo hub IoT con il servizio Device Provisioning in hub IoT di Azure (.NET)
+description: Questa esercitazione illustra come effettuare il provisioning del dispositivo in un singolo hub IoT con il servizio Device Provisioning in hub IoT di Azure tramite .NET.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 98b2ef05a1abb6ebea8dac073fbf7671ed79c06e
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 9d5b1511ffb48f587d4ee5c5a7d2b0ee9216018f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701999"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976775"
 ---
 # <a name="tutorial-enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Esercitazione: Registrare il dispositivo in un hub IoT usando il client del servizio Device Provisioning in hub IoT di Azure (.NET)
 

@@ -6,12 +6,12 @@ ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
 ms.date: 12/12/2017
 ms.custom: mvc
-ms.openlocfilehash: 06f03e0005c4f98370bb1f6430fff506f9145d5a
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 0b3acb1b421962cde7d90398f42bdfeefda578e3
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688519"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971503"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>Esempi dell'interfaccia della riga di comando per Servizio app di Azure
 
@@ -32,6 +32,8 @@ La tabella seguente include collegamenti a script Bash compilati tramite l'inter
 |**Ridimensionare un'app**||
 | [Ridimensionare un'app manualmente](./scripts/cli-scale-manual.md?toc=%2fcli%2fazure%2ftoc.json) | Crea un'app del servizio app e la ridimensiona su 2 istanze. |
 | [Ridimensionare un'app a livello globale con un'architettura a disponibilità elevata](./scripts/cli-scale-high-availability.md?toc=%2fcli%2fazure%2ftoc.json) | Crea due app del servizio app in due aree geografiche diverse e le rende disponibili tramite un singolo endpoint usando Gestione traffico di Azure. |
+|**Proteggere un'app**||
+| [Integrare con il gateway applicazione di Azure](./scripts/cli-integrate-app-service-with-application-gateway.md?toc=%2fcli%2fazure%2ftoc.json) | Crea un'app del servizio app e la integra con il gateway applicazione usando l'endpoint di servizio e le restrizioni di accesso. |
 |**Collegare l'app alle risorse**||
 | [Connettere un'app a un database SQL](./scripts/cli-connect-to-sql.md?toc=%2fcli%2fazure%2ftoc.json)| Crea un'app del servizio app e un database SQL e quindi aggiunge la stringa di connessione del database alle impostazioni dell'app. |
 | [Connettere un'app a un account di archiviazione](./scripts/cli-connect-to-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Crea un'app del servizio app e un account di archiviazione e quindi aggiunge la stringa di connessione della risorsa di archiviazione alle impostazioni dell'app. |

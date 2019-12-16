@@ -8,13 +8,13 @@ ms.assetid: d5750b3e-bfbd-4fa0-b888-ebfab7d9c9ae
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
-ms.date: 09/23/2019
-ms.openlocfilehash: 182dec35d515966ae883aca405cf3a95b6f1f72c
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.date: 12/05/2019
+ms.openlocfilehash: 108d251ec6aadb4881f500edfa3483f137a09a68
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133092"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900444"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Guida introduttiva: Caricare dati in Azure Sentinel
 
@@ -24,18 +24,8 @@ Per caricare dati in Azure Sentinel, è necessario prima abilitare Azure Sentine
 
 Dopo aver connesso le origini dati, è possibile effettuare una scelta in una raccolta di cartelle di lavoro create in maniera specialistica per far emergere informazioni dettagliate in base ai dati. Tali cartelle di lavoro possono essere facilmente personalizzate in base alle esigenze.
 
->[!NOTE] 
-> I [prezzi di Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/) si basano sulla quantità di dati inseriti nell'area di lavoro Log Analytics di Monitoraggio di Azure. Per alcuni connettori di dati seguenti, l'inserimento non viene addebitato. Quando tuttavia si genera un qualsiasi tipo di avviso usando i dati archiviati inseriti nell'area di lavoro Log Analytics, verranno addebitati costi in base ai [prezzi di Log Analytics di Monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/). 
-  > - Attività di Azure (log attività per operazioni di Azure)
-  > - Azure Active Directory Identity Protection (per i tenant con licenze AAD P2)
-  > - Azure Information Protection
-  > - Azure Advanced Threat Protection (avvisi)
-  > - Centro sicurezza di Azure (avvisi)
-  > - Microsoft Cloud App Security (solo avvisi)
-  > - Microsoft Defender Advanced Threat Protection (avvisi degli agenti di monitoraggio)
-  > - Office 365 (registri di Exchange e SharePoint)
->
-> I log di controllo di Azure AD/Office365 non sono gratuiti e sono offerti come livello Premium, quindi l'inserimento di questi dati viene addebitato in base ai singoli GB. 
+>[!IMPORTANT] 
+> Per informazioni sugli addebiti relativi all'uso di Azure Sentinel, vedere [i prezzi di Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/).
   
 
 ## <a name="global-prerequisites"></a>Prerequisiti globali
@@ -44,7 +34,7 @@ Dopo aver connesso le origini dati, è possibile effettuare una scelta in una ra
 
 - Area d lavoro Log Analytics. Informazioni su [come creare un'area di lavoro Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md). Per altre informazioni sulle aree di lavoro Log Analytics, vedere [Progettazione della distribuzione dei log di Monitoraggio di Azure](../azure-monitor/platform/design-logs-deployment.md).
 
--  Per abilitare Azure Sentinel, è necessario disporre delle autorizzazioni per la sottoscrizione in cui si trova l'area di lavoro di Azure. 
+- Per abilitare Azure Sentinel, è necessario disporre delle autorizzazioni per la sottoscrizione in cui si trova l'area di lavoro di Azure. 
 - Per usare Azure Sentinel, è necessario disporre delle autorizzazioni di collaboratore o lettore per il gruppo di risorse a cui appartiene l'area di lavoro.
 - Possono essere necessarie autorizzazioni aggiuntive per connettere origini dati specifiche.
 - Azure Sentinel è un servizio a pagamento. Per informazioni sui prezzi, vedere [Informazioni su Azure Sentinel](https://go.microsoft.com/fwlink/?linkid=2104058).
@@ -54,7 +44,7 @@ Dopo aver connesso le origini dati, è possibile effettuare una scelta in una ra
 1. Accedere al portale di Azure.
 2. Verificare che la sottoscrizione in cui è stato creato Azure Sentinel sia selezionata. 
 3. Cercare Azure Sentinel. 
-   ![ricerca](./media/quickstart-onboard/search-product.png)
+   ![search](./media/quickstart-onboard/search-product.png)
 
 1. Fare clic su **+Aggiungi**.
 1. Selezionare l'area di lavoro da usare o crearne una nuova. È possibile eseguire Azure Sentinel in più di un'area di lavoro, ma i dati sono isolati in una singola area di lavoro.

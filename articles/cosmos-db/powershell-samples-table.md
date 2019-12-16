@@ -1,17 +1,17 @@
 ---
 title: Esempi di Azure PowerShell per Azure Cosmos DB - API Tabella
-description: Esempi di Azure PowerShell per Azure Cosmos DB - API Tabella
+description: Ottenere gli esempi di Azure PowerShell per eseguire varie attività comuni negli account dell'API Tabella per Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 09/20/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 95cd55bd3f87ddb4d37bfc527c8dcd28bdfa42da
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 56d8eaa0c89f5ad8edf1a44ebae682c99c94f194
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155189"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873557"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db---table-api"></a>Esempi di Azure PowerShell per Azure Cosmos DB - API Tabella
 

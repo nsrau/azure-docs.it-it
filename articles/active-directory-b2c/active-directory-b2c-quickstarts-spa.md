@@ -1,5 +1,6 @@
 ---
-title: Avvio rapido - Configurare l'accesso per un'app a singola pagina tramite Azure Active Directory B2C
+title: "Guida introduttiva: Configurare l'accesso per un'app a pagina singola"
+titleSuffix: Azure AD B2C
 description: In questo Avvio rapido eseguire un'applicazione a singola pagina di esempio che usa Azure Active Directory B2C per consentire l'accesso all'account.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/12/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7dc3a52ca9f227f8476cf74286be917b5b6ba021
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: ef6fd46ef51cff9823c93e2297a738f95494f577
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420173"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948335"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Guida introduttiva: Configurare l'accesso per un'app a singola pagina tramite Azure Active Directory B2C
 
@@ -29,7 +30,7 @@ Azure Active Directory B2C (Azure AD B2C) consente la gestione delle identità d
 - [Node.js](https://nodejs.org/en/download/)
 - Un account di social networking di Facebook, Google o Microsoft
 - Esempio di codice di GitHub: [active-directory-b2c-javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
-    
+
     È possibile [scaricare l'archivio ZIP](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) o clonare il repository:
 
     ```

@@ -2,15 +2,15 @@
 title: Importare file BACPAC SQL con i modelli
 description: Informazioni su come usare l'estensione per il database SQL per importare file BACPAC di SQL con modelli di Azure Resource Manager.
 author: mumian
-ms.date: 11/21/2019
+ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 741521551335712400e5f61822d7dda31199d3df
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 9f5e2e402e13076dc538a9c9d55e5b67e0d86d4f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422194"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978902"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>Esercitazione: Importare file BACPAC di SQL con modelli di Azure Resource Manager
 
@@ -31,7 +31,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
-* Visual Studio Code con l'estensione di Strumenti di Resource Manager. Vedere [Usare Visual Studio Code per creare modelli di Azure Resource Manager](./resource-manager-tools-vs-code.md).
+* Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Usare Visual Studio Code per creare modelli di Azure Resource Manager](./resource-manager-tools-vs-code.md).
 * Per una maggiore sicurezza, usare una password generata per l'account amministratore del server SQL. Di seguito è riportato un esempio della generazione di una password:
 
     ```azurecli-interactive
@@ -44,17 +44,15 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 
 Un file BACPAC viene condiviso in [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). Per creare un file BACPAC, vedere [Esportare un database SQL di Azure in un file BACPAC](../sql-database/sql-database-export.md). Se si sceglie di pubblicare il file in una posizione personalizzata, è necessario aggiornare il modello più avanti in questa esercitazione.
 
-Il file BACPAC deve essere archiviato in un account di archiviazione di Azure prima di poter essere importato con un modello di Resource Manager.
+Il file BACPAC deve essere archiviato in un account di archiviazione di Azure prima di poter essere importato con un modello di Resource Manager. Lo script di PowerShell seguente prepara il file BACPAC con questi passaggi:
 
-1. Aprire [Cloud Shell](https://shell.azure.com).
-1. Selezionare **Carica/Scarica file** e quindi **Carica**.
-1. Specificare l'URL seguente, quindi selezionare **Apri**.
+* Scaricare il file BACPAC.
+* Creare un account di archiviazione di Azure.
+* Creare un contenitore BLOB nell'account di archiviazione.
+* Caricare il file BACPAC nel contenitore.
+* Visualizzare la chiave dell'account di archiviazione e l'URL del BLOB.
 
-    ```url
-    https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac
-    ```
-
-1. Copiare e incollare lo script PowerShell seguente nella finestra della shell.
+1. Selezionare **Prova** per aprire Cloud Shell e quindi incollare lo script di PowerShell seguente nella finestra della shell.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
@@ -63,10 +61,16 @@ Il file BACPAC deve essere archiviato in un account di archiviazione di Azure pr
     $resourceGroupName = "${projectName}rg"
     $storageAccountName = "${projectName}store"
     $containerName = "bacpacfiles"
-    $bacpacFile = "$HOME/SQLDatabaseExtension.bacpac"
-    $blobName = "SQLDatabaseExtension.bacpac"
+    $bacpacFileName = "SQLDatabaseExtension.bacpac"
+    $bacpacUrl = "https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac"
 
+    # Download the bacpac file
+    Invoke-WebRequest -Uri $bacpacUrl -OutFile "$HOME/$bacpacFileName"
+
+    # Create a resource group
     New-AzResourceGroup -Name $resourceGroupName -Location $location
+
+    # Create a storage account
     $storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroupName `
                                            -Name $storageAccountName `
                                            -SkuName Standard_LRS `
@@ -74,15 +78,17 @@ Il file BACPAC deve essere archiviato in un account di archiviazione di Azure pr
     $storageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName `
                                                   -Name $storageAccountName).Value[0]
 
+    # Create a container
     New-AzStorageContainer -Name $containerName -Context $storageAccount.Context
 
-    Set-AzStorageBlobContent -File $bacpacFile `
+    # Upload the BACPAC file to the container
+    Set-AzStorageBlobContent -File $HOME/$bacpacFileName `
                              -Container $containerName `
-                             -Blob $blobName `
+                             -Blob $bacpacFileName `
                              -Context $storageAccount.Context
 
     Write-Host "The storage account key is $storageAccountKey"
-    Write-Host "The BACPAC file URL is https://$storageAccountName.blob.core.windows.net/$containerName/$blobName"
+    Write-Host "The BACPAC file URL is https://$storageAccountName.blob.core.windows.net/$containerName/$bacpacFileName"
     Write-Host "Press [ENTER] to continue ..."
     ```
 
@@ -101,10 +107,9 @@ Il modello usato in questa esercitazione è archiviato in [GitHub](https://raw.g
 
 3. Selezionare **Apri** per aprire il file.
 
-    Nel modello sono definite tre risorse:
+    Nel modello sono definite due risorse:
 
    * `Microsoft.Sql/servers`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.sql/servers).
-   * `Microsoft.SQL/servers/securityAlertPolicies`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/securityalertpolicies).
    * `Microsoft.SQL.servers/databases`.  Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
 
      Prima di personalizzare il modello è utile acquisirne una conoscenza di base.
@@ -138,19 +143,21 @@ Il modello usato in questa esercitazione è archiviato in [GitHub](https://raw.g
     * Per consentire all'estensione di database SQL di importare file BACPAC, è necessario consentire il traffico proveniente dai servizi di Azure. Aggiungere la definizione della regola del firewall seguente nella definizione di SQL Server:
 
         ```json
-        {
-          "type": "firewallrules",
-          "apiVersion": "2015-05-01-preview",
-          "name": "AllowAllAzureIps",
-          "location": "[parameters('location')]",
-          "dependsOn": [
-            "[variables('databaseServerName')]"
-          ],
-          "properties": {
-            "startIpAddress": "0.0.0.0",
-            "endIpAddress": "0.0.0.0"
+        "resources": [
+          {
+            "type": "firewallrules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "AllowAllAzureIps",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+              "[parameters('databaseServerName')]"
+            ],
+            "properties": {
+              "startIpAddress": "0.0.0.0",
+              "endIpAddress": "0.0.0.0"
+            }
           }
-        }
+        ]
         ```
 
         Il modello si presenterà come segue:
@@ -161,22 +168,22 @@ Il modello usato in questa esercitazione è archiviato in [GitHub](https://raw.g
 
         ```json
         "resources": [
-            {
-              "type": "extensions",
-              "apiVersion": "2014-04-01",
-              "name": "Import",
-              "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers/databases', variables('databaseServerName'), variables('databaseName'))]"
-              ],
-              "properties": {
-                "storageKeyType": "StorageAccessKey",
-                "storageKey": "[parameters('storageAccountKey')]",
-                "storageUri": "[parameters('bacpacUrl')]",
-                "administratorLogin": "[variables('databaseServerAdminLogin')]",
-                "administratorLoginPassword": "[variables('databaseServerAdminLoginPassword')]",
-                "operationMode": "Import"
-              }
+          {
+            "type": "extensions",
+            "apiVersion": "2014-04-01",
+            "name": "Import",
+            "dependsOn": [
+              "[resourceId('Microsoft.Sql/servers/databases', parameters('databaseServerName'), parameters('databaseName'))]"
+            ],
+            "properties": {
+              "storageKeyType": "StorageAccessKey",
+              "storageKey": "[parameters('storageAccountKey')]",
+              "storageUri": "[parameters('bacpacUrl')]",
+              "administratorLogin": "[parameters('adminUser')]",
+              "administratorLoginPassword": "[parameters('adminPassword')]",
+              "operationMode": "Import"
             }
+          }
         ]
         ```
 
@@ -192,6 +199,10 @@ Il modello usato in questa esercitazione è archiviato in [GitHub](https://raw.g
         * **storageUri**: specificare l'URL del file BACPAC archiviato in un account di archiviazione.
         * **administratorLoginPassword**: password dell'amministratore di SQL. Usare una password generata. Vedere [Prerequisiti](#prerequisites).
 
+Il modello completato è simile a:
+
+[!code-json[](~/resourcemanager-templates/tutorial-sql-extension/azuredeploy2.json?range=1-106&highlight=38-49,62-76,86-103)]
+
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -199,7 +210,7 @@ Il modello usato in questa esercitazione è archiviato in [GitHub](https://raw.g
 Vedere la sezione [Distribuire il modello](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) per la procedura di distribuzione. Usare invece lo script di distribuzione di PowerShell seguente:
 
 ```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
+$projectName = Read-Host -Prompt "Enter the same project name that is used earlier"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 $adminUsername = Read-Host -Prompt "Enter the SQL admin username"
 $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
@@ -207,7 +218,7 @@ $storageAccountKey = Read-Host -Prompt "Enter the storage account key"
 $bacpacUrl = Read-Host -Prompt "Enter the URL of the BACPAC file"
 $resourceGroupName = "${projectName}rg"
 
-New-AzResourceGroup -Name $resourceGroupName -Location $location
+#New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -adminUser $adminUsername `

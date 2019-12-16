@@ -1,20 +1,19 @@
 ---
 title: 'Guida introduttiva: Apache Hive in Azure HDInsight con Apache Zeppelin'
 description: Questo argomento di avvio rapido illustra come usare Apache Zeppelin per eseguire query Apache Hive.
-keywords: hdinsight,hadoop,hive,query interattiva,LLAP
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: quickstart
-ms.date: 05/06/2019
-ms.author: hrasheed
-ms.openlocfilehash: 36d9e9b34deb4bc6cd5f599cfe2d09a12f680730
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 12/03/2019
+ms.openlocfilehash: 915aca0e95fce05f74477b526de047c829c7f512
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494292"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74890400"
 ---
 # <a name="quickstart-execute-apache-hive-queries-in-azure-hdinsight-with-apache-zeppelin"></a>Guida introduttiva: Eseguire query Apache Hive in Azure HDInsight con Apache Zeppelin
 
@@ -71,9 +70,47 @@ Cluster HDInsight Interactive Query. Per creare un cluster HDInsight, vedere [Cr
 
     Rispetto a Hive tradizionale, i risultati della query vengono restituiti più velocemente.
 
+### <a name="additional-examples"></a>Esempi aggiuntivi
+
+1. Creare una tabella. Eseguire il codice seguente nel notebook Zeppelin:
+
+    ```hql
+    %jdbc(hive)
+    CREATE EXTERNAL TABLE log4jLogs (
+        t1 string,
+        t2 string,
+        t3 string,
+        t4 string,
+        t5 string,
+        t6 string,
+        t7 string)
+    ROW FORMAT DELIMITED
+    FIELDS TERMINATED BY ' '
+    STORED AS TEXTFILE;
+    ```
+
+1. Caricare i dati nella nuova tabella. Eseguire il codice seguente nel notebook Zeppelin:
+
+    ```hql
+    %jdbc(hive)
+    LOAD DATA
+    INPATH 'wasbs:///example/data/sample.log'
+    INTO TABLE log4jLogs;
+    ```
+
+1. Inserire un singolo record. Eseguire il codice seguente nel notebook Zeppelin:
+
+    ```hql
+    %jdbc(hive)
+    INSERT INTO TABLE log4jLogs2
+    VALUES ('A', 'B', 'C', 'D', 'E', 'F', 'G');
+    ```
+
+Per una sintassi aggiuntiva, vedere il [manuale del linguaggio Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
+
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Al termine dell'argomento di avvio rapido, può essere opportuno eliminare il cluster. Con HDInsight, i dati vengono archiviati in Archiviazione di Azure ed è possibile eliminare tranquillamente un cluster quando non viene usato. Vengono addebitati i costi anche per i cluster HDInsight che non sono in uso. Poiché i costi per il cluster sono decisamente superiori a quelli per l'archiviazione, economicamente ha senso eliminare i cluster quando non vengono usati.
+Al termine dell'argomento di avvio rapido, può essere opportuno eliminare il cluster. Con HDInsight, i dati vengono archiviati in Archiviazione di Azure ed è possibile eliminare tranquillamente un cluster quando non è in uso. Vengono addebitati i costi anche per i cluster HDInsight che non sono in uso. Poiché i costi per il cluster sono decisamente superiori a quelli per l'archiviazione, eliminare i cluster quando non vengono usati è una scelta economicamente conveniente.
 
 Per eliminare un cluster, vedere [Eliminare un cluster HDInsight tramite browser, PowerShell o l'interfaccia della riga di comando di Azure](../hdinsight-delete-cluster.md).
 

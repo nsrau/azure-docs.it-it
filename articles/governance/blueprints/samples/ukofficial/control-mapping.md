@@ -1,14 +1,14 @@
 ---
 title: Controlli degli esempi di progetti UK OFFICIAL e UK NHS
 description: Mapping dei controlli degli esempi di progetti UK OFFICIAL e UK NHS. Ogni controllo viene mappato a uno o più criteri di Azure che assistono nella valutazione.
-ms.date: 06/26/2019
+ms.date: 12/04/2019
 ms.topic: sample
-ms.openlocfilehash: 79c39ee058a74bc740e72b75fe85882a89f9cd85
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 5bef590013a9ef06b791e58dc6c82e74dffe1a17
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546440"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851367"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Mapping dei controlli degli esempi di progetti UK OFFICIAL e UK NHS
 
@@ -25,16 +25,19 @@ Il progetto consente di assicurarsi che il trasferimento di informazioni con i s
 
 - Devono essere abilitate solo connessioni sicure alla Cache Redis
 - Il trasferimento sicuro negli account di archiviazione deve essere abilitato
+- Mostra i risultati del controllo dai server Web Windows che non usano protocolli di comunicazione sicuri
+- Distribuisci i prerequisiti per controllare i server Web Windows che non usano protocolli di comunicazione sicuri
+- Nell'app per le API è necessario usare la versione più recente di TLS
+- Nell'app Web è necessario usare la versione più recente di TLS
+- Nell'app per le funzioni è necessario usare la versione più recente di TLS
 
 ## <a name="23-data-at-rest-protection"></a>2.3 Protezione dei dati inattivi
 
 Questo progetto consente di applicare i criteri sull'uso dei controlli crittografici assegnando definizioni di [Criteri di Azure](../../../policy/overview.md) che applicano specifici controlli crittografici e controllano l'uso di impostazioni di crittografia meno sicure.
 Identificando le risorse di Azure le cui configurazioni di crittografia potrebbero non essere ottimali, è possibile adottare azioni correttive per assicurarsi che le risorse siano configurate in conformità ai criteri di sicurezza delle informazioni. In particolare, i criteri assegnati da questo progetto richiedono la crittografia per gli account Data Lake Storage; richiedono l'applicazione di Transparent Data Encryption per i database SQL; controllano se manca la crittografia in account di archiviazione, database SQL, dischi di macchine virtuali e variabili degli account di automazione; controllano le connessioni non sicure ad account di archiviazione e cache Redis; controllano la crittografia poco sicura delle password delle macchine virtuali; infine, controllano le comunicazioni non crittografate con Service Fabric.
 
-- Transparent Data Encryption deve essere abilitata nei database SQL
 - La crittografia del disco deve essere applicata nelle macchine virtuali
 - Le variabili dell'account di automazione devono essere crittografate
-- Il trasferimento sicuro negli account di archiviazione deve essere abilitato
 - La proprietà ClusterProtectionLevel dei cluster di Service Fabric dovrebbe essere impostata su EncryptAndSign
 - Transparent Data Encryption deve essere abilitata nei database SQL
 - Distribuisci Transparent Data Encryption nel database SQL
@@ -48,9 +51,15 @@ Questo progetto consente di gestire le vulnerabilità dei sistemi informativi as
 
 - Monitorare il server senza Endpoint Protection nel Centro sicurezza di Azure
 - Gli aggiornamenti di sistema devono essere installati nelle macchine
+- Gli aggiornamenti di sistema nei set di scalabilità di macchine virtuali devono essere installati
 - Le vulnerabilità nella configurazione di sicurezza delle macchine devono essere risolte
 - Le vulnerabilità dei database SQL devono essere risolte
 - Le vulnerabilità devono essere risolte tramite una soluzione di valutazione della vulnerabilità
+- La valutazione delle vulnerabilità deve essere abilitata nei server SQL
+- La valutazione delle vulnerabilità deve essere abilitata nelle istanze gestite di SQL
+- Le vulnerabilità nella configurazione di sicurezza dei set di scalabilità di macchine virtuali devono essere risolte
+- La sicurezza dei dati avanzata deve essere abilitata nelle istanze gestite di SQL
+- Sicurezza dei dati avanzata deve essere abilitata nei server SQL
 
 ## <a name="53-protective-monitoring"></a>5.3 Monitoraggio protettivo
 
@@ -58,12 +67,27 @@ Questo progetto consente di proteggere gli asset dei sistemi informativi assegna
 
 - Controlla l'accesso di rete senza restrizioni agli account di archiviazione
 - I controlli applicazioni adattivi devono essere abilitati nelle macchine virtuali
+- Controlla macchine virtuali in cui non è configurato il ripristino di emergenza
+- Lo standard di protezione DDoS deve essere abilitato
+- È consigliabile che i Tipi di Advanced Threat Protection siano impostati su "Tutti" nelle impostazioni di Sicurezza dei dati avanzata nell'istanza gestita di SQL
+- È consigliabile che i Tipi di Advanced Threat Protection siano impostati su "Tutti" nelle impostazioni di Sicurezza dei dati avanzata in SQL Server
 - Distribuisci Rilevamento minacce nelle istanze di SQL Server
-- Distribuisci estensione IaaS antimalware Microsoft predefinita per Windows Server
+- Distribuisci estensione IaaSAntimalware Microsoft predefinita per Windows Server
 
-## <a name="9-secure-user-management--10-identity-and-authentication"></a>9 Gestione sicura degli utenti/10 Identità e autenticazione
+## <a name="9-secure-user-management"></a>9 Gestione sicura degli utenti 
 
 Azure implementa il controllo degli accessi in base al ruolo per consentire di gestire chi ha accesso alle risorse di Azure. Usando il portale di Azure, è possibile verificare chi ha accesso alle risorse di Azure e le relative autorizzazioni. Questo progetto consente di restringere e controllare i diritti di accesso assegnando definizioni di [Criteri di Azure](../../../policy/overview.md) per controllare gli account esterni con autorizzazioni di proprietario e/o di lettura/scrittura e gli account con autorizzazioni di proprietario, di lettura e/o di scrittura per cui non è abilitata l'autenticazione a più fattori.
+
+- L'autenticazione MFA deve essere abilitata negli account con autorizzazioni di proprietario per la sottoscrizione
+- L'autenticazione MFA deve essere abilitata per gli account con autorizzazioni di scrittura per la sottoscrizione
+- L'autenticazione MFA deve essere abilitata negli account con autorizzazioni di lettura per la sottoscrizione
+- Gli account esterni con autorizzazioni di proprietario devono essere rimossi dalla sottoscrizione
+- Gli account esterni con autorizzazioni di scrittura devono essere rimossi dalla sottoscrizione
+- Gli account esterni con autorizzazioni di lettura devono essere rimossi dalla sottoscrizione
+
+## <a name="10-identity-and-authentication"></a>10 Identità e autenticazione
+
+Questo progetto consente di restringere e controllare i diritti di accesso assegnando definizioni di [Criteri di Azure](../../../policy/overview.md) per controllare gli account esterni con autorizzazioni di proprietario e/o di lettura/scrittura e gli account con autorizzazioni di proprietario, di lettura e/o di scrittura per cui non è abilitata l'autenticazione a più fattori.
 
 - L'autenticazione MFA deve essere abilitata negli account con autorizzazioni di proprietario per la sottoscrizione
 - L'autenticazione MFA deve essere abilitata per gli account con autorizzazioni di scrittura per la sottoscrizione
@@ -86,20 +110,20 @@ Questo progetto assegna inoltre definizioni di Criteri di Azure per controllare 
 
 Questo progetto assegna inoltre una definizione di Criteri di Azure che controlla le autorizzazioni per il file delle password delle VM Linux per avvisare se non sono impostate correttamente. Questa configurazione consente di adottare azioni correttive per assicurare che gli autenticatori non vengano compromessi.
 
-- \[Anteprima\]: Controllare che le autorizzazioni file etc/passwd della VM Linux siano impostate su 0644
+- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Linux in cui le autorizzazioni per il file passwd non sono impostate su 0644
 
 Questo progetto consente di imporre password complesse assegnando definizioni di Criteri di Azure che controllano le VM Windows per cui non sono applicati i requisiti minimi di complessità o di altro tipo per le password. Identificando le VM in violazione dei criteri di complessità delle password, è possibile adottare azioni correttive per assicurarsi che le password di tutti gli account utente delle VM siano conformi ai criteri.
 
-- \[Anteprima\]: Distribuisci i requisiti per controllare le macchine virtuali Windows in cui non è abilitata l'impostazione relativa alla complessità della password
-- \[Anteprima\]: Distribuisci i requisiti per controllare le macchine virtuali Windows in cui la validità massima della password non è impostata su 70 giorni
-- \[Anteprima\]: Distribuisci i requisiti per controllare le macchine virtuali Windows in cui la validità minima della password non è impostata su 1 giorno
-- \[Anteprima\]: Distribuisci i requisiti per controllare le macchine virtuali Windows che non limitano la lunghezza minima della password a 14 caratteri
-- \[Anteprima\]: Distribuisci i requisiti per controllare le macchine virtuali Windows che consentono il riutilizzo delle 24 password precedenti
-- \[Anteprima\]: Controlla le macchine virtuali Windows in cui non è abilitata l'impostazione relativa alla complessità della password
-- \[Anteprima\]: Controlla le macchine virtuali Windows in cui la validità minima della password non è impostata su 70 giorni
-- \[Anteprima\]: Controlla le macchine virtuali Windows in cui la validità minima della password non è impostata su 1 giorno
-- \[Anteprima\]: Controlla le macchine virtuali Windows in cui la lunghezza minima della password non è limitata a 14 caratteri
-- \[Anteprima\]: Controlla le macchine virtuali Windows che consentono il riutilizzo delle 24 password precedenti
+- \[Anteprima\]: Distribuisci i prerequisiti per controllare le macchine virtuali Windows in cui non è abilitata l'impostazione relativa alla complessità della password
+- \[Anteprima\]: Distribuisci i prerequisiti per controllare le macchine virtuali Windows in cui la validità massima della password non è impostata su 70 giorni
+- \[Anteprima\]: Distribuisci i prerequisiti per controllare le macchine virtuali Windows in cui la validità minima della password non è impostata su 1 giorno
+- \[Anteprima\]: Distribuisci i prerequisiti per controllare le macchine virtuali Windows che non limitano la lunghezza minima della password a 14 caratteri
+- \[Anteprima\]: Distribuisci i prerequisiti per controllare le macchine virtuali Windows che consentono il riutilizzo delle 24 password precedenti
+- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Windows in cui non è abilitata l'impostazione relativa alla complessità della password
+- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Windows in cui la validità minima della password non è impostata su 70 giorni
+- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Windows in cui la validità minima della password non è impostata su 1 giorno
+- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Windows in cui la lunghezza minima della password non è limitata a 14 caratteri
+- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Windows che consentono il riutilizzo delle 24 password precedenti
 
 Questo progetto consente inoltre di controllare l'accesso alle risorse di Azure assegnando definizioni di Criteri di Azure. Questi criteri controllano l'uso dei tipi di risorse e le configurazioni che potrebbero consentire un accesso più permissivo alle risorse. Identificando le risorse in violazione di questi criteri, è possibile adottare azioni correttive per restringere l'accesso alla risorse di Azure consentendolo solo agli utenti autorizzati.
 
@@ -117,6 +141,18 @@ Invece di usare più di 25 criteri per la gestione appropriata e sicura degli ut
 
 - Controlla l'accesso di rete senza restrizioni agli account di archiviazione
 - I controlli applicazioni adattivi devono essere abilitati nelle macchine virtuali
+- Le regole per i gruppi di sicurezza di rete delle applicazioni Web in IaaS devono essere rafforzate
+- L'accesso tramite endpoint con connessione Internet deve essere limitato
+- Le regole per i gruppi di sicurezza di rete delle macchine virtuali con connessione Internet devono essere rafforzate
+- La soluzione Endpoint Protection deve essere installata nei set di scalabilità di macchine virtuali
+- Alle macchine virtuali deve essere applicato il controllo di accesso alla rete JIT
+- Controlla l'accesso di rete senza restrizioni agli account di archiviazione
+- Il debug remoto deve essere disattivato per l'app per le funzioni
+- Il debug remoto deve essere disattivato per l'applicazione Web
+- Il debug remoto deve essere disattivato per l'app per le API
+- L'applicazione Web deve essere accessibile solo tramite HTTPS
+- L'app per le funzioni deve essere accessibile solo tramite HTTPS
+- L'app per le API deve essere accessibile solo tramite HTTPS
 
 ## <a name="12-secure-service-administration"></a>12 Amministrazione sicura dei servizi
 
@@ -151,7 +187,6 @@ Questo progetto consente di assicurarsi che gli eventi di sistema vengano regist
 
 - È consigliabile abilitare il controllo nelle impostazioni di Sicurezza dei dati avanzata in SQL Server
 - Audit diagnostic setting (Controllare le impostazioni di diagnostica)
-- Controlla le impostazioni di controllo a livello del server SQL
 - \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux
 - \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows
 - Distribuisci Network Watcher quando vengono create reti virtuali

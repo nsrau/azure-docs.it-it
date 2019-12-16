@@ -1,24 +1,26 @@
 ---
-title: Copiare i dati con lo strumento Copia dati di Azure
+title: Copiare i dati da Archiviazione BLOB di Azure a SQL con lo strumento Copia dati
 description: Creare una data factory di Azure e quindi usare lo strumento Copia dati per copiare i dati da un archivio BLOB di Azure a un database SQL.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+ms.author: jingwang
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-lt-2019
 ms.date: 09/11/2018
-ms.author: jingwang
-ms.openlocfilehash: 4646d7429dc4b3286f6af8861eaf7f1e6e27a760
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4e71fc869a08192b756c37e5106568bdd36361bd
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683595"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926569"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copiare dati da un archivio BLOB di Azure a un database SQL con lo strumento Copia dati
+
 > [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory usato:"]
 > * [Versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versione corrente](tutorial-copy-data-tool.md)

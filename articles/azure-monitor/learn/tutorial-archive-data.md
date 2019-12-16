@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.subservice: metrics
-ms.openlocfilehash: 4d150a1f6793cc20d58bebc67d5c6b58c03139d4
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 2bb275b1ca129d2381fb89fcbe0111c573d4a8e7
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304700"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893349"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Archiviare dati di metrica e log di Azure con Archiviazione di Azure
 
@@ -70,7 +70,7 @@ Il monitoraggio dei dati nella sottoscrizione viene trasmesso all'account di arc
 
 ## <a name="route-resource-data-to-the-storage-account"></a>Indirizzare i dati della risorsa all'account di archiviazione
 
-Ora vengono configurati i dati a livello di risorsa, ovvero le metriche delle risorse e i log di diagnostica, da indirizzare all'account di archiviazione tramite la configurazione delle **impostazioni di diagnostica per le risorse**.
+Ora vengono configurati i dati a livello di risorsa, ovvero le metriche e i log delle risorse, da indirizzare all'account di archiviazione tramite la configurazione delle **impostazioni di diagnostica per le risorse**.
 
 1. Fare clic sul pulsante **Monitoraggio** nell'elenco di navigazione a sinistra, quindi su **Impostazioni di diagnostica**. Di seguito viene visualizzato un elenco di tutte le risorse nella sottoscrizione che genera dati di monitoraggio tramite Monitoraggio di Azure. Se nell'elenco non sono presenti risorse, è possibile [creare un'app per la logica](../../logic-apps/quickstart-create-first-logic-app-workflow.md) prima di procedere in modo da avere una risorsa per cui è possibile configurare un'impostazione di diagnostica.
 
@@ -162,7 +162,7 @@ Se è stata seguita la procedura precedente, il processo di trasmissione dei dat
 
 5. Passare al file PT1H.json facendo clic sui contenitori per l'ID di risorsa, data e ora. Fare clic sul file PT1H.json e quindi su **Download**. Ogni BLOB PT1H.json contiene un BLOB JSON di eventi che si sono verificati nell'ora specificata nell'URL BLOB (ad esempio, h=12). Durante l'ora attuale, gli eventi vengono aggiunti al file PT1H.json man mano che si verificano. Il valore dei minuti (m=00) è sempre 00, perché gli eventi del log vengono suddivisi in singoli BLOB per ogni ora.
 
-   È ora possibile visualizzare l'evento JSON che è stato archiviato nell'account di archiviazione. Per i log di diagnostica della risorsa, il formato per i BLOB è:
+   È ora possibile visualizzare l'evento JSON che è stato archiviato nell'account di archiviazione. Per i log delle risorse, il formato per i BLOB è:
 
    insights-logs-{nome categoria log}/resourceId=/{ID risorsa}/y={anno numerico a quattro cifre}/m={mese numerico a due cifre}/d={giorno numerico a due cifre}/h={ora in formato 24 ore a due cifre}/m=00/PT1H.json
 

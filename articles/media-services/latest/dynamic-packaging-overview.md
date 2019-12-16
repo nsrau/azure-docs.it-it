@@ -1,7 +1,7 @@
 ---
 title: Creazione dinamica dei pacchetti in Servizi multimediali
 titleSuffix: Azure Media Services
-description: Panoramica della creazione dinamica dei pacchetti in Servizi multimediali di Azure
+description: Questo articolo offre una panoramica della creazione dinamica dei pacchetti in Servizi multimediali di Azure.
 author: Juliako
 manager: femila
 editor: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: 304a6168ee5a4c60369b541d4a8cc7ac961913b6
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: c12ebe307eb370e07b785b4379f82a4274964492
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73574882"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977761"
 ---
 # <a name="dynamic-packaging-in-media-services"></a>Creazione dinamica dei pacchetti in Servizi multimediali
 
@@ -269,6 +269,9 @@ Per controllare il numero di tracce, i formati, la velocità in bit e gli interv
 ## <a name="dynamic-encryption"></a>Crittografia dinamica
 
 È possibile usare la *crittografia dinamica* per crittografare dinamicamente i contenuti live o on demand tramite AES-128 o con uno dei tre principali sistemi DRM (Digital Rights Management): Microsoft PlayReady, Google Widevine e Apple FairPlay. Servizi multimediali fornisce inoltre un servizio per la distribuzione di chiavi AES e licenze Digital Rights Management ai client autorizzati. Per altre informazioni, vedere [Crittografia dinamica](content-protection-overview.md).
+
+> [!NOTE]
+> Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google Inc.
 
 ## <a name="more-information"></a>Altre informazioni
 

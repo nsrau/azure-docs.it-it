@@ -4,16 +4,19 @@ description: Questa esercitazione illustra come configurare un'attività di Regi
 ms.topic: tutorial
 ms.date: 05/04/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8af8daa4233fe6461b4e129f56a063e7cc212245
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: a26f1207eccd615804babe230df689d27beae49f
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454747"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74840783"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Esercitazione: Automatizzare la compilazione di immagini dei contenitori nel cloud quando si esegue il commit di codice sorgente
 
-Oltre alle [attività rapide](container-registry-tutorial-quick-task.md), Attività del Registro Azure Container supporta le compilazioni automatizzate di contenitori Docker nel cloud quando si esegue il commit di codice sorgente in un repository Git.
+Oltre alle [attività rapide](container-registry-tutorial-quick-task.md), Attività del Registro Azure Container supporta le compilazioni automatizzate di contenitori Docker nel cloud quando si esegue il commit di codice sorgente in un repository Git. I contesti Git supportati per Attività del Registro Azure Container includono repository pubblici o privati di GitHub o di Azure.
+
+> [!NOTE]
+> Attualmente, Attività del Registro Azure Container non supporta i trigger per il commit o le richieste pull nei repository di GitHub Enterprise.
 
 In questa esercitazione, l'attività del Registro Azure Container compila ed esegue il push di una singola immagine del contenitore specificata in un Dockerfile quando si esegue il commit di codice sorgente in un repository Git. Per creare un'[attività in più passaggi](container-registry-tasks-multi-step.md) che usa un file YAML per definire i passaggi per compilare, eseguire il push e facoltativamente testare più contenitori con il commit di codice, consultare [Esercitazione: Eseguire un flusso di lavoro dei contenitori in più passaggi nel cloud quando si esegue il commit di codice sorgente](container-registry-tutorial-multistep-task.md). Per una panoramica di Attività del Registro Azure Container, consultare [Automatizzare l'applicazione di patch dei sistemi operativi e del framework con Attività del Registro Azure Container](container-registry-tasks-overview.md)
 

@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/30/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5843e6a5669cd90cdc0572e7a104c4fdf70ac2b3
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 54aea9fac946713ee6c1709e952e3962bb7288e9
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74669137"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951769"
 ---
 # <a name="about-azure-migrate"></a>Informazioni su Azure Migrate
 
@@ -34,7 +34,7 @@ Azure Migrate consente di eseguire la migrazione dall'organizzazione dall'ambien
 Sono attualmente disponibili due versioni del servizio Azure Migrate:
 
 - **Versione corrente**: usare questa versione per creare progetti di Azure Migrate, individuare i computer locali e orchestrare valutazioni e migrazioni. [Vedere altre informazioni](whats-new.md) sulle novità di questa versione.
-- **Versione precedente**: se è stata usata la versione precedente di Azure Migrate (che supporta solo la valutazione delle macchine virtuali VMware locali), è ora consigliabile passare alla versione corrente. Non è più possibile creare progetti di Azure Migrate usando la versione precedente e si consiglia di non eseguire nuove individuazioni. Per accedere ai progetti esistenti, nel portale di Azure cercare **Azure Migrate** in **Tutti i servizi**. Nel dashboard di Azure Migrate sono disponibili una notifica e un collegamento per accedere ai progetti di Azure Migrate precedenti.
+- **Versione precedente**: se è stata usata la versione precedente di Azure Migrate (che supporta solo la valutazione delle macchine virtuali VMware locali), è ora consigliabile passare alla versione corrente. Non è più possibile creare progetti di Azure Migrate usando la versione precedente e si consiglia di non eseguire nuove individuazioni. Per accedere ai progetti esistenti, nel portale di Azure cercare e selezionare **Azure Migrate**. Nel dashboard di **Azure Migrate** sono disponibili una notifica e un collegamento per accedere ai progetti di Azure Migrate precedenti.
 
 
 

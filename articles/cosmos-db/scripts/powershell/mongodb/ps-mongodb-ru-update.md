@@ -1,18 +1,18 @@
 ---
 title: Script di Azure PowerShell - Aggiornare le unità richiesta al secondo di Azure Cosmos DB per l'API MongoDB
-description: Script di Azure PowerShell - Aggiornare le unità richiesta al secondo di Azure Cosmos DB per l'API MongoDB
+description: Informazioni su come usare uno script di PowerShell per aggiornare le unità elaborate per un database o un contenitore nell'API di Azure Cosmos DB per MongoDB
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
-ms.date: 05/18/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: d2dd99d5a5f1d0f03c5fe4980fde376ffdd55bca
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 626904c4e281c7ce3ce632412daa24ecdb56938e
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178832"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871908"
 ---
 # <a name="update-rus-for-a-database-or-collection-for-azure-cosmos-db---mongodb-api"></a>Aggiornare le unità richiesta al secondo per un database o una raccolta per Azure Cosmos DB - API MongoDB
 

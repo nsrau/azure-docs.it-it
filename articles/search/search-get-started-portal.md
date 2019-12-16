@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: be2425d97573e7990ea7f0dfd4c2d999e85fe922
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 2ae0e5b53d735b95ce1c3d2f9275456e41319242
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74407005"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900994"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Guida introduttiva: Creare un indice di Ricerca cognitiva di Azure nel portale di Azure
 > [!div class="op_single_selector"]
@@ -268,7 +268,7 @@ Se si usa un servizio gratuito, tenere presente che il numero di indicizzatori e
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Sebbene il portale sia utile per l'esplorazione iniziale e per brevi attività, l'esame anticipato delle API consentirà di comprendere i concetti e il flusso di lavoro a un livello più approfondito:
+Usare una procedura guidata del portale per generare un'app Web pronta per l'uso eseguita in un browser. È possibile provare questa procedura guidata con il piccolo indice appena creato oppure usare uno dei set di dati di esempio predefiniti per un'esperienza di ricerca più completa.
 
 > [!div class="nextstepaction"]
-> [Creare un indice tramite .NET SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
+> [Creare un'app di ricerca nel portale](search-create-app-portal.md)

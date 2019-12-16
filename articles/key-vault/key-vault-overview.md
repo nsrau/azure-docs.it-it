@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 6b59995dc09c0ecf1e5700d8337bd30074083f76
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0cd6cbf21a392f68db707b9c0184320316d45ffe
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73483914"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851027"
 ---
 # <a name="what-is-azure-key-vault"></a>Cos'è l'insieme di credenziali chiave di Azure?
 
@@ -24,7 +24,7 @@ Azure Key Vault contribuisce a risolvere i problemi seguenti:
 - **Gestione dei segreti**: Azure Key Vault può essere usato per archiviare in modo sicuro e controllare rigorosamente l'accesso a token, password, certificati, chiavi API e altri segreti.
 - **Gestione delle chiavi**: Azure Key Vault può essere usato anche come soluzione di gestione delle chiavi. Con Azure Key Vault è semplice creare e controllare le chiavi di crittografia usate per crittografare i dati. 
 - **Gestione dei certificati**: Azure Key Vault è anche un servizio che facilita il provisioning, la gestione e la distribuzione dei certificati Secure Sockets Layer/Transport Layer Security (TLS/SSL) pubblici e privati da usare con Azure e le risorse connesse interne. 
-- **Archiviazione dei segreti supportati da moduli di protezione hardware**: le chiavi e i segreti possono essere protetti da software o da moduli di protezione hardware certificati FIPS 140-2 livello 2.
+- **Archiviazione dei segreti supportati da moduli di protezione hardware**: le chiavi e i segreti possono essere protetti da software o da moduli di protezione hardware certificati FIPS 140-2 livello 2
 
 ## <a name="why-use-azure-key-vault"></a>Vantaggi di Azure Key Vault
 
@@ -58,9 +58,9 @@ L'utente ha il controllo dei registri e può proteggerli limitando l'accesso. È
 
 ### <a name="simplified-administration-of-application-secrets"></a>Amministrazione semplificata dei segreti delle applicazioni
 
-Quando si archiviano dati importanti, è necessario eseguire diversi passaggi. Le informazioni di sicurezza devono essere protette, seguire un ciclo di vita e avere disponibilità elevata. Azure Key Vault semplifica il processo per soddisfare i requisiti in questi modi:
+Quando si archiviano dati importanti, è necessario eseguire diversi passaggi. Le informazioni di sicurezza devono essere protette, devono seguire un ciclo di vita e devono avere disponibilità elevata. Azure Key Vault semplifica il processo per soddisfare i requisiti in questi modi:
 
-- Eliminando la necessità di competenze interne in materia di moduli di protezione hardware
+- Eliminando la necessità di competenze interne in materia di moduli di protezione hardware.
 - Aumentando le prestazioni con breve preavviso per soddisfare i picchi d'uso dell'organizzazione.
 - Replicando i contenuti di un'area di Key Vault in un'area secondaria. La replica dei dati garantisce la disponibilità elevata ed elimina la necessità di interventi da parte dell'amministratore per l'attivazione del failover.
 - Fornendo opzioni standard di amministrazione di Azure tramite il portale, l'interfaccia della riga di comando di Azure e PowerShell.

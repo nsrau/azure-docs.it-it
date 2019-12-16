@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/02/2019
+ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acde7f30649e03d44fd891c959b53113b0e46f51
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 166fb9320672e63b8c53717133dc61aa93f57a62
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74794937"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74868644"
 ---
 # <a name="what-is-identity-provisioning"></a>Che cos'è il provisioning di identità?
 
@@ -66,5 +66,5 @@ Questo risultato si ottiene con il servizio di sincronizzazione di Azure AD Conn
  
 ## <a name="next-steps"></a>Passaggi successivi 
 
-- [Cos'è il provisioning?](what-is-provisioning.md)
 - [Che cos'è il provisioning cloud di Azure AD Connect?](what-is-cloud-provisioning.md)
+- [Installare il provisioning cloud](how-to-install.md)

@@ -1,30 +1,26 @@
 ---
-title: Accedere agli utenti e ottenere un token di accesso in un'applicazione a pagina singola JavaScript | Azure
+title: Consentire l'accesso degli utenti nelle applicazioni a pagina singola JavaScript | Azure
 titleSuffix: Microsoft identity platform
-description: Informazioni su come le applicazioni JavaScript possono chiamare un'API che richiede token di accesso tramite Microsoft Identity Platform.
+description: Informazioni su come le app JavaScript possono chiamare un'API che richiede token di accesso tramite Microsoft Identity Platform.
 services: active-directory
-documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ca9a8b87713508a581a833f60fbe863fd93919a
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 77763ac30b4ba98e4849a25690302469843b4d06
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795602"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920634"
 ---
-# <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Guida di avvio rapido: Accedere agli utenti e ottenere un token di accesso in un'applicazione a pagina singola JavaScript
+# <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Guida introduttiva: Accedere agli utenti e ottenere un token di accesso in un'applicazione a pagina singola JavaScript
 
 In questa guida di avvio rapido si usa codice di esempio per dimostrare in che modo un'applicazione a pagina singola JavaScript possa concedere l'accesso ad account personali, aziendali o dell'istituto di istruzione. Un'applicazione a pagina singola può anche ottenere un token di accesso per chiamare l'API Microsoft Graph o un'API Web. Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works).
 
@@ -80,11 +76,12 @@ Selezionare l'opzione più adatta al proprio ambiente di sviluppo:
 
 * (Facoltativo) Per eseguire il progetto con il server IIS, [scaricare il progetto di Visual Studio](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip). Estrarre il file con estensione zip in una cartella locale, ad esempio *C:\Azure-Samples*.
 
-> [!div renderon="docs"]
-> #### <a name="step-3-configure-your-javascript-app"></a>Passaggio 3: Configurare l'app JavaScript
-> Nella cartella *JavaScriptSPA* modificare *index.html* e impostare i valori `clientID` e `authority` presenti nella sezione `msalConfig`.
+#### <a name="step-3-configure-your-javascript-app"></a>Passaggio 3: Configurare l'app JavaScript
 
 > [!div renderon="docs"]
+> Nella cartella *JavaScriptSPA* modificare *index.html* e impostare i valori `clientID` e `authority` presenti nella sezione `msalConfig`.
+
+> [!div class="sxs-lookup" renderon="portal"]
 > Nella cartella *JavaScriptSPA* modificare *index.html*e sostituire `msalConfig` con il codice seguente:
 
 ```javascript
@@ -101,6 +98,10 @@ var msalConfig = {
 };
 
 ```
+> [!div renderon="portal"]
+> > [!NOTE]
+> > Questo argomento di avvio rapido supporta Enter_the_Supported_Account_Info_Here.
+
 
 > [!div renderon="docs"]
 >
@@ -115,12 +116,7 @@ var msalConfig = {
 > > Per trovare i valori di **ID applicazione (client)** , **ID della directory (tenant)** e **Tipi di account supportati**, passare alla pagina di **panoramica** dell'app nel portale di Azure.
 >
 
-> [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Passaggio 3: L'app è configurata e pronta per l'esecuzione
-> Il progetto è stato configurato con i valori delle proprietà dell'app. 
-
-> [!div renderon="docs"]
-> #### <a name="step-4-run-the-project"></a>Passaggio 4: Eseguire il progetto
+#### <a name="step-4-run-the-project"></a>Passaggio 4: Eseguire il progetto
 
 * Se si usa [Node.js](https://nodejs.org/en/download/):
 

@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Concedere l'accesso a un'API Web Node.js da un'applicazione desktop - Azure Active Directory B2C | Microsoft Docs"
+title: "Esercitazione: Concedere l'accesso a un'API Web Node.js da un'applicazione desktop"
 description: Esercitazione su come usare Active Directory B2C per proteggere un'API Web Node.js e chiamarla da un'app desktop .NET.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 0cf9a0a13a1c16f5be6d82528849e6e2cc3d466d
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: f271dd23501aa0514faff29f638f695c80c844f2
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73641838"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949773"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Esercitazione: concedere l'accesso a un'API Web Node.js da un'app desktop usando Azure Active Directory B2C
 
