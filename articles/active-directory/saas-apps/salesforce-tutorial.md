@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63cc4b902c0bd0281228e23076be6e0a18461597
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 4d137a96a967e017c67da7dfabf25502de32ba7a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241424"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970007"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Salesforce
 
@@ -46,9 +46,9 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 * Salesforce supporta l'accesso SSO avviato da **SP**
 
-* Salesforce supporta il provisioning **Just-In-Time** (JIT) degli utenti
+* Salesforce supporta [provisioning e deprovisioning utenti **automatici**](salesforce-provisioning-tutorial.md) (scelta consigliata)
 
-* Salesforce supporta il [**provisioning utenti automatico**](salesforce-provisioning-tutorial.md)
+* Salesforce supporta il provisioning **Just-In-Time** (JIT) degli utenti
 
 * È ora possibile configurare l'applicazione per dispositivi mobili Salesforce con Azure AD per abilitare l'accesso SSO. In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
@@ -65,15 +65,15 @@ Per configurare l'integrazione di Salesforce in Azure AD, è necessario aggiunge
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-salesforce"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Salesforce
 
-Configurare e testare l'accesso SSO di Azure AD con Salesforce usando un utente di test di nome **B.Simon**. Per il corretto funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Salesforce.
+Configurare e testare l'accesso SSO di Azure AD con Salesforce usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Salesforce.
 
 Per configurare e testare l'accesso SSO di Azure AD con Salesforce, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
 2. **[Configurare l'accesso Single Sign-On di Salesforce](#configure-salesforce-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-    1. **[Creare l'utente di test di Salesforce](#create-salesforce-test-user)** : per avere una controparte di B. Simon in Salesforce collegata alla rappresentazione dell'utente in Azure AD.
+    1. **[Creare l'utente di test di Salesforce](#create-salesforce-test-user)** : per avere una controparte di B.Simon in Salesforce collegata alla rappresentazione dell'utente in Azure AD.
 3. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
@@ -111,7 +111,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
-1. Nella sezione **Configura Salesforce** copiare gli URL appropriati in base alle proprie esigenze.
+1. Nella sezione **Configura Salesforce** copiare gli URL appropriati in base alle esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
@@ -206,7 +206,7 @@ In questa sezione viene creato un utente di nome B.Simon in Salesforce. Salesfor
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Salesforce nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Salesforce per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Salesforce nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Salesforce per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="test-sso-for-salesforce-mobile"></a>Testare l'accesso SSO per Salesforce (per dispositivi mobili)
 

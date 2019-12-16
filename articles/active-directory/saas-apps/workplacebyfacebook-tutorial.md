@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15e98bf83cedc22aa565ba0f98089e9f6f217728
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 6fc55130bd840de3960a44ddc1bd0617af185148
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787630"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969684"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workplace-by-facebook"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Workplace by Facebook
 
@@ -48,8 +48,8 @@ Per iniziare, sono necessari gli elementi seguenti:
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
 * Workplace by Facebook supporta l'accesso SSO avviato da **provider di servizi**
+* Workplace by Facebook supporta **[provisioning e deprovisioning utenti automatici (scelta consigliata)](workplacebyfacebook-provisioning-tutorial.md)**
 * Workplace by Facebook supporta il provisioning **JIT**
-* Workplace by Facebook supporta il **[provisioning utenti automatico](workplacebyfacebook-provisioning-tutorial.md)**
 * È ora possibile configurare l'applicazione per dispositivi mobili Workplace by Facebook con Azure AD per abilitare l'accesso SSO. In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
 ## <a name="adding-workplace-by-facebook-from-the-gallery"></a>Aggiunta di Workplace by Facebook dalla raccolta
@@ -90,10 +90,10 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<instancename>.facebook.com`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://www.facebook.com/company/<instanceID>`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://www.facebook.com/company/<instanceID>`
 
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per i valori corretti per la community Workplace, vedere la pagina di autenticazione del dashboard aziendale di Workplace.
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. Per i valori corretti per la community Workplace, vedere la pagina di autenticazione del dashboard aziendale di Workplace.
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (Base64)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
@@ -186,7 +186,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ### <a name="configuring-reauthentication-frequency"></a>Configurazione della frequenza di riautenticazione
 
-È possibile configurare Workplace per la richiesta di una verifica SAML ogni giorno, ogni 3 giorni, ogni settimana, ogni 2 settimane, ogni mese o mai.
+È possibile configurare Workplace per la richiesta di una verifica SAML ogni giorno, ogni tre giorni, ogni settimana, ogni due settimane, ogni mese o mai.
 
 > [!NOTE]
 > Il valore minimo per la verifica SAML nelle applicazioni per dispositivi mobili è impostato su una settimana.

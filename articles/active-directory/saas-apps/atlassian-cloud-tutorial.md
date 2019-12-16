@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f901bd37a54d12dc2afe805f71c7b018a277e34
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: a3a54b096019e9e38bc800ae313016a430062dab
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969618"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964311"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>Esercitazione: Integrare Atlassian Cloud con Azure Active Directory
 
@@ -46,6 +46,7 @@ Per iniziare, sono necessari gli elementi seguenti:
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. 
 
 * Atlassian Cloud supporta l'accesso SSO avviato da **SP e IdP**
+* Atlassian Cloud supporta [provisioning e deprovisioning utenti automatici](atlassian-cloud-provisioning-tutorial.md)
 
 ## <a name="adding-atlassian-cloud-from-the-gallery"></a>Aggiunta di Atlassian Cloud dalla raccolta
 
@@ -60,15 +61,15 @@ Per configurare l'integrazione di Atlassian Cloud in Azure AD, è necessario agg
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-Configurare e testare l'accesso SSO di Azure AD con Atlassian Cloud usando un utente di test di nome **B. Simon**. Per il corretto funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Atlassian Cloud.
+Configurare e testare l'accesso SSO di Azure AD con Atlassian Cloud usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Atlassian Cloud.
 
 Per configurare e testare l'accesso SSO di Azure AD con Atlassian Cloud, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
-    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
-1. **[Configurare l'accesso Single Sign-On per Atlassian Cloud](#configure-atlassian-cloud-sso)** : per configurare le impostazioni dell'accesso Single Sign-On sul lato applicazione.
-    * **[Creare un utente di test di Atlassian Cloud](#create-atlassian-cloud-test-user)** : per avere una controparte di B. Simon in Atlassian Cloud collegata alla rappresentazione dell'utente in Azure AD.
+    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Configurare l'accesso Single Sign-On per Atlassian Cloud](#configure-atlassian-cloud-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+    * **[Creare l'utente di test di Atlassian Cloud](#create-atlassian-cloud-test-user)** : per avere una controparte di B.Simon in Atlassian Cloud collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
@@ -133,12 +134,12 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
    1. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad Atlassian Cloud.
+In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad Atlassian Cloud.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
-1. Nell'elenco di applicazioni selezionare **Atlassian Cloud**.
+1. Nell'elenco delle applicazioni selezionare **Atlassian Cloud**.
 1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
 
    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
@@ -155,7 +156,7 @@ In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di 
 
 1. Per automatizzare la configurazione all'interno di Atlassian Cloud, è necessario installare l'**estensione del browser MyApps per l'accesso sicuro** facendo clic su **Installa l'estensione**.
 
-    ![Estensione MyApps](common/install-myappssecure-extension.png)
+    ![Estensione per App personali](common/install-myappssecure-extension.png)
 
 1. Dopo aver aggiunto l'estensione al browser, fare clic su **Configura Atlassian Cloud** per essere reindirizzati all'applicazione Atlassian Cloud. Da qui, fornire le credenziali di amministratore per accedere ad Atlassian Cloud. L'estensione del browser configurerà automaticamente l'applicazione per l'utente e automatizzerà i passaggi da 3 a 7.
 
@@ -215,7 +216,7 @@ Per consentire agli utenti di Azure AD di accedere ad Atlassian Cloud, effettuar
 
 ### <a name="test-sso"></a>Testare l'accesso SSO
 
-Quando si seleziona il riquadro di Atlassian Cloud nel Pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Atlassian Cloud per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si seleziona il riquadro di Atlassian Cloud nel Pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Atlassian Cloud per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

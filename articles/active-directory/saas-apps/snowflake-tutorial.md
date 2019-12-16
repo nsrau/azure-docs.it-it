@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 370ccd2508e9dda35ccc5815dce42a7b7089c07e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7acd4b8014aad7b70f1a67c91368477599a97901
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160014"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972524"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Esercitazione: Integrazione di Azure Active Directory con Snowflake
 
@@ -47,10 +47,11 @@ Per configurare l'integrazione di Azure AD con Snowflake, sono necessari gli ele
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
 * Snowflake supporta l'accesso SSO avviato da **SP e IDP**
+* Snowflake supporta [provisioning e deprovisioning utenti automatici](snowflake-provisioning-tutorial.md) (scelta consigliata)
 
 ## <a name="adding-snowflake-from-the-gallery"></a>Aggiunta di Snowflake dalla raccolta
 
-Per configurare l'integrazione di Snowflake in Azure AD, è necessario aggiungere Snowflake dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di Snowflake in Azure AD, è necessario aggiungere Snowflake dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere Snowflake dalla raccolta, seguire questa procedura:**
 
@@ -72,23 +73,23 @@ Per configurare l'integrazione di Snowflake in Azure AD, è necessario aggiunger
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Snowflake in base a un utente test di nome **Britta Simon**.
-Per il funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Snowflake.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Snowflake in base a un utente di test di nome **Britta Simon**.
+Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Snowflake.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Snowflake, è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Snowflake, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Snowflake](#configure-snowflake-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di Snowflake](#create-snowflake-test-user)** : per avere una controparte di Britta Simon in Snowflake collegata alla rappresentazione dell'utente in Azure AD.
+5. **[Creare l'utente di test di Snowflake](#create-snowflake-test-user)** : per avere una controparte di Britta Simon in Snowflake collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
 
-Per configurare Single Sign-On di Azure AD con Snowflake, seguire questa procedura:
+Per configurare l'accesso Single Sign-On di Azure AD con Snowflake, seguire questa procedura:
 
 1. Nella pagina di integrazione dell'applicazione **Snowflake** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
@@ -104,7 +105,7 @@ Per configurare Single Sign-On di Azure AD con Snowflake, seguire questa procedu
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Informazioni sull'accesso Single Sign-On per URL e dominio di Snowflake](common/idp-intiated.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Snowflake](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
 
@@ -112,7 +113,7 @@ Per configurare Single Sign-On di Azure AD con Snowflake, seguire questa procedu
 
     c. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da SP:
 
-    ![Informazioni sull'accesso Single Sign-On per URL e dominio di Snowflake](common/metadata-upload-additional-signon.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Snowflake](common/metadata-upload-additional-signon.png)
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
 
@@ -123,7 +124,7 @@ Per configurare Single Sign-On di Azure AD con Snowflake, seguire questa procedu
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
-6. Nella sezione **Configura Snowflake** copiare gli URL appropriati in base alle proprie esigenze.
+6. Nella sezione **Configura Snowflake** copiare gli URL appropriati in base alle esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
@@ -161,7 +162,7 @@ Per configurare Single Sign-On di Azure AD con Snowflake, seguire questa procedu
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -184,9 +185,9 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     d. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Snowflake.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Snowflake.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Snowflake**.
 
@@ -210,7 +211,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-snowflake-test-user"></a>Creare un utente di test di Snowflake
+### <a name="create-snowflake-test-user"></a>Creare l'utente di test di Snowflake
 
 Per consentire agli utenti di Azure AD di accedere a Snowflake, è necessario effettuarne il provisioning in Snowflake. In Snowflake il provisioning viene effettuato manualmente.
 
@@ -235,7 +236,7 @@ Per consentire agli utenti di Azure AD di accedere a Snowflake, è necessario ef
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Snowflake nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Snowflake per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Snowflake nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Snowflake per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

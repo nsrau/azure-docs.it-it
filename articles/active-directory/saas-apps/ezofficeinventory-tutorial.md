@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ebfe5f75d5d8546e0f5e8ad6f8c5d0063e5bda2
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: cc73d7ec81ea0105a5868ec698289bd27526a43b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72377283"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893502"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ezofficeinventory"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con EZOfficeInventory
 
@@ -94,11 +94,11 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. L'applicazione EZOfficeInventory prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti.
 
-    ![image](common/edit-attribute.png)
+    ![image](common/default-attributes.png)
 
 1. Oltre quelli elencati in precedenza, l'applicazione EZOfficeInventory prevede il passaggio di altri attributi nella risposta SAML. Tali attributi sono indicati di seguito. Anche questi attributi vengono prepopolati, ma è possibile esaminarli in base ai requisiti.
 
-    | Nome | Attributo di origine|
+    | NOME | Attributo di origine|
     | ---------------| --------------- |
     | First_name | user.givenname |
     | Last_name | user.surname |
@@ -144,13 +144,21 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-ezofficeinventory-sso"></a>Configurare l'accesso Single Sign-On di EZOfficeInventory
 
-1. Aprire una nuova finestra del Web browser e accedere al sito aziendale di EZOfficeInventory come amministratore.
+1. Per automatizzare la configurazione all'interno di EZOfficeInventory, è necessario installare l'**estensione del browser per l'accesso sicuro ad App personali** facendo clic su **Installa l'estensione**.
 
-2. Nell'angolo superiore destro della pagina fare clic su **Profile**  (Profilo) e quindi passare a **Settings** (Impostazioni) > **Add Ons** (Componenti aggiuntivi).
+    ![Estensione per App personali](common/install-myappssecure-extension.png)
+
+1. Dopo aver aggiunto l'estensione al browser, fare clic su **Configura EZOfficeInventory** per passare direttamente all'applicazione EZOfficeInventory. Nell'applicazione fornire le credenziali di amministratore per accedere a EZOfficeInventory. L'estensione del browser configurerà automaticamente l'applicazione e automatizzerà i passaggi da 3 a 5.
+
+    ![Eseguire la configurazione](common/setup-sso.png)
+
+1. Se si vuole configurare manualmente EZOfficeInventory, aprire una nuova finestra del Web browser, accedere al sito aziendale di EZOfficeInventory come amministratore e seguire questa procedura:
+
+1. Nell'angolo in alto a destra della pagina fare clic su **Profile** (Profilo) e quindi passare a **Settings** (Impostazioni)  > **Add Ons** (Componenti aggiuntivi).
 
     ![Configurazione di EZOfficeInventory](./media/ezofficeinventory-tutorial/configure01.png)
 
-3. Scorrere verso il basso fino alla sezione **SAML Integration** (Integrazione SAML) e seguire questa procedura:
+1. Scorrere verso il basso fino alla sezione **SAML Integration** (Integrazione SAML) e seguire questa procedura:
 
     ![Configurazione di EZOfficeInventory](./media/ezofficeinventory-tutorial/configure02.png)
 
@@ -176,7 +184,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 In questa sezione viene creato un utente di nome Britta Simon in EZOfficeInventory. EZOfficeInventory supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in EZOfficeInventory, ne viene creato uno nuovo dopo l'autenticazione.
 
-## <a name="test-sso"></a>Testare l'accesso SSO 
+## <a name="test-sso"></a>Testare l'accesso SSO
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
@@ -191,4 +199,3 @@ Quando si fa clic sul riquadro di EZOfficeInventory nel pannello di accesso, si 
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Provare EZOfficeInventory con Azure AD](https://aad.portal.azure.com/)
-
