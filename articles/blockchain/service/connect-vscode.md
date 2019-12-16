@@ -1,15 +1,15 @@
 ---
 title: Usare Visual Studio Code per connettersi al servizio Azure Blockchain
 description: Connettersi alla rete di un consorzio del servizio Azure Blockchain usando l'estensione Azure Blockchain Development Kit per Ethereum in Visual Studio Code
-ms.date: 11/19/2019
+ms.date: 12/05/2019
 ms.topic: quickstart
 ms.reviewer: chrisseg
-ms.openlocfilehash: 4d4625df1cb07818dcadb88e2c98bf9ae1da1b1f
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 1bcdfdafa9253fc4dc20ccb7cc237cb794b0af53
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455992"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977073"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-to-an-azure-blockchain-service-consortium-network"></a>Guida introduttiva: Usare Visual Studio Code per connettersi alla rete di un consorzio del servizio Azure Blockchain
 
@@ -59,12 +59,12 @@ Installare gli eventuali prerequisiti mancanti prima di continuare con questa gu
 Se non si ha accesso a un membro del consorzio del servizio Azure Blockchain, completare il prerequisito [Avvio rapido: Creare un membro della blockchain con il portale di Azure](create-member.md) o [Avvio rapido: Creare un membro della blockchain del servizio Azure Blockchain usando l'interfaccia della riga di comando di Azure](create-member-cli.md).
 
 1. Nel riquadro Explorer di VS Code espandere l'estensione **Azure Blockchain**.
-1. Selezionare **Connect to Consortium** (Connetti al consorzio).
+1. Selezionare **Connect to network** (Connetti alla rete).
 
-   ![Connect to consortium (Connetti al consorzio)](./media/connect-vscode/connect-consortium.png)
+   ![Connessione alla rete](./media/connect-vscode/connect-consortium.png)
 
     Se viene richiesta l'autenticazione di Azure, seguire le istruzioni per eseguire l'autenticazione tramite un browser.
-1. Scegliere **Connect to Azure Blockchain Service consortium** (Connetti al consorzio del servizio Azure Blockchain) nell'elenco a discesa del riquadro comandi.
+1. Scegliere **Servizio Azure Blockchain** nell'elenco a discesa del riquadro comandi.
 1. Scegliere la sottoscrizione e il gruppo di risorse associati al membro del consorzio del servizio Azure Blockchain.
 1. Scegliere il consorzio dall'elenco.
 

@@ -1,6 +1,6 @@
 ---
 title: Registrare un dispositivo TPM nel servizio Azure Device Provisioning con Node.js
-description: 'Avvio rapido: Registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT di Azure con Node.js Service SDK. Questa guida introduttiva usa registrazioni singole.'
+description: "Avvio rapido: Registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT di Azure con l'SDK per servizi Node.js. Questa guida introduttiva usa registrazioni singole."
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 890ad28d99bfc53fa8a3fb40caf0469b31aeee61
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 82e78801225659a1d79829a5d26741a885931919
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422956"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974751"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-nodejs-service-sdk"></a>Guida introduttiva: Registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT con Node.js Service SDK
 

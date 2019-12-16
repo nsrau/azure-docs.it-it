@@ -3,12 +3,12 @@ title: Panoramica dei criteri di Azure
 description: Criteri di Azure è un servizio disponibile in Azure che consente di creare, assegnare e gestire definizioni di criteri nell'ambiente Azure.
 ms.date: 11/25/2019
 ms.topic: overview
-ms.openlocfilehash: db6a7c592213b0ef8a17466300c37c859e96476b
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: a7cc5ebca74e249057d159334e4207a3efca37f5
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484011"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885467"
 ---
 # <a name="what-is-azure-policy"></a>Informazioni su Criteri di Azure
 
@@ -16,7 +16,9 @@ La governance garantisce che l'organizzazione sia in grado di conseguire i propr
 
 Se l'azienda affronta una serie di problemi IT importanti che sembrano non risolversi mai, Una valida governance IT include la pianificazione delle iniziative e la definizione delle priorità a livello strategico, per contribuire a gestire e prevenire i problemi. Criteri di Azure offre le funzionalità necessarie a riguardo.
 
-Criteri di Azure è un servizio disponibile in Azure che consente di creare, assegnare e gestire criteri. Questi criteri applicano regole ed effetti diversi alle risorse, in modo che le risorse rimangano conformi ai contratti di servizio e agli standard dell'azienda. Criteri di Azure soddisfa questa esigenza valutando le risorse per la mancata conformità con i criteri assegnati. Si possono avere, ad esempio, criteri che consentono solo determinate dimensioni di SKU per le macchine virtuali nell'ambiente. Dopo aver implementato questi criteri, le risorse nuove ed esistenti vengono valutate per la conformità. Con il tipo corretto di criteri, le risorse esistenti possono essere rese conformi. Più avanti in questa documentazione verranno forniti maggiori dettagli su come creare ed implementare i criteri con Criteri di Azure.
+Criteri di Azure è un servizio disponibile in Azure che consente di creare, assegnare e gestire criteri. Questi criteri applicano regole ed effetti diversi alle risorse, in modo che le risorse rimangano conformi ai contratti di servizio e agli standard dell'azienda. Criteri di Azure soddisfa questa esigenza valutando le risorse per la mancata conformità con i criteri assegnati. Tutti i dati archiviati da Criteri di Azure vengono crittografati quando sono inattivi.
+
+Si possono avere, ad esempio, criteri che consentono solo determinate dimensioni di SKU per le macchine virtuali nell'ambiente. Dopo aver implementato questi criteri, le risorse nuove ed esistenti vengono valutate per la conformità. Con il tipo corretto di criteri, le risorse esistenti possono essere rese conformi. Più avanti in questa documentazione verranno forniti maggiori dettagli su come creare ed implementare i criteri con Criteri di Azure.
 
 > [!IMPORTANT]
 > La valutazione della conformità di Criteri di Azure è ora disponibile per tutte le assegnazioni indipendentemente dal piano tariffario. Se le assegnazioni non mostrano i dati di conformità, assicurarsi che la sottoscrizione sia registrata con il provider di risorse Microsoft.PolicyInsights.

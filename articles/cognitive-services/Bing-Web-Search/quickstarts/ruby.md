@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 9aa8fc4c6b27c2a2c7d11a95ddb2ecca347ec0e0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4a902e869ed9fd2ae9274f0ad8eee11e43b8edc6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57858832"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974326"
 ---
 # <a name="quickstart-use-ruby-to-call-the-bing-web-search-api"></a>Avvio rapido: Usare Ruby per chiamare l'API Ricerca Web Bing  
 
@@ -43,7 +43,7 @@ require 'json'
 
 ## <a name="define-variables"></a>Definire le variabili
 
-Prima di continuare, è necessario impostare alcune variabili. Verificare che `$uri` e `path` siano validi e sostituire il valore di `accessKey` con una chiave di sottoscrizione valida del proprio account Azure. È possibile personalizzare la query di ricerca sostituendo il valore per `term`.
+Prima di continuare, è necessario impostare alcune variabili. `uri` può essere l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa. Verificare che `uri` e `path` siano validi e sostituire il valore di `accessKey` con una chiave di sottoscrizione valida del proprio account Azure. È possibile personalizzare la query di ricerca sostituendo il valore per `term`.
 
 ```ruby
 accessKey = "YOUR_SUBSCRIPTION_KEY"

@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 11/04/2019
-ms.openlocfilehash: 52dc0ff27ad2f04b9faeab24c6bdba68d9ec138e
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 62c9ac0020db92c1540d0ecb4fa996d9b8405a58
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307273"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974258"
 ---
 # <a name="tutorial-train-and-deploy-your-first-model-in-r-with-azure-machine-learning"></a>Esercitazione: Eseguire il training e distribuire il primo modello in R con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -142,7 +142,7 @@ saveRDS(accidents, file="accidents.Rd")
 ```
 
 ### <a name="upload-data-to-the-datastore"></a>Caricare i dati nell'archivio dati
-Caricare i dati nel cloud per renderli accessibili dall'ambiente di training remoto. Ogni area di lavoro di Azure ML include un archivio dati predefinito contenente le informazioni di connessione al contenitore BLOB di Azure di cui viene eseguito il provisioning nell'account di archiviazione collegato all'area di lavoro. Il codice seguente consente di caricare i dati sugli incidenti creati in precedenza nell'archivio dati.
+Caricare i dati nel cloud per renderli accessibili dall'ambiente di training remoto. Ogni area di lavoro di Azure Machine Learning include un archivio dati predefinito contenente le informazioni di connessione per il contenitore BLOB di Azure di cui viene effettuato il provisioning nell'account di archiviazione collegato all'area di lavoro. Il codice seguente consente di caricare i dati sugli incidenti creati in precedenza nell'archivio dati.
 
 ```R
 ds <- get_default_datastore(ws)
@@ -164,10 +164,10 @@ Per questa esercitazione, adattare un modello di regressione logistica ai dati c
 * Inviare il processo
 
 ### <a name="prepare-the-training-script"></a>Preparare lo script di training
-Uno script di training denominato `accidents.R` è incluso nella stessa directory dell'esercitazione. Notare i dettagli seguenti **all'interno dello script di training** che permettono di sfruttare il servizio Azure ML per il training:
+Uno script di training denominato `accidents.R` è incluso nella stessa directory dell'esercitazione. Notare i dettagli seguenti **all'interno dello script di training** che permettono di sfruttare il servizio Azure Machine Learning per il training:
 
 * Lo script di training usa un argomento `-d` per trovare la directory che contiene i dati di training. Quando si definisce e si invia il processo in un secondo momento, si fa riferimento all'archivio dati per questo argomento. Azure ML monta la cartella di archiviazione nel cluster remoto per il processo di training.
-* Lo script di training registra l'accuratezza finale come metrica per il record esecuzione in Azure ML usando `log_metric_to_run()`. Azure ML SDK offre un set di API di registrazione per registrare diverse metriche durante le esecuzioni di training. Queste metriche vengono registrate e salvate in modo persistente nel record esecuzione dell'esperimento. Le metriche sono accessibili in qualsiasi momento o visualizzate nella pagina dei dettagli dell'esecuzione in [Azure Machine Learning Studio](https://ml.azure.com). Per il set completo di metodi di registrazione `log_*()`, vedere il [riferimento](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation).
+* Lo script di training registra l'accuratezza finale come metrica per il record esecuzione in Azure ML usando `log_metric_to_run()`. Azure ML SDK offre un set di API di registrazione per registrare diverse metriche durante le esecuzioni di training. Queste metriche vengono registrate e salvate in modo persistente nel record esecuzione dell'esperimento. È possibile accedere alle metriche in qualsiasi momento e visualizzarle nella pagina dei dettagli dell'esecuzione nello [studio](https://ml.azure.com). Per il set completo di metodi di registrazione `log_*()`, vedere il [riferimento](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation).
 * Lo script di training salva il modello in una directory denominata **outputs**. La cartella `./outputs` riceve un trattamento speciale da Azure ML. Durante il training, i file scritti in `./outputs` vengono caricati automaticamente nel record esecuzione da Azure ML e salvati in modo persistente come artefatti. Salvando il modello sottoposto a training in `./outputs`, sarà possibile accedere e recuperare il file del modello anche dopo l'esecuzione e non sarà più possibile accedere all'ambiente di training remoto.
 
 ### <a name="create-an-estimator"></a>Creare un oggetto di stima

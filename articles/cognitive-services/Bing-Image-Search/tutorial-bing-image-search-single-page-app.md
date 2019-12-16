@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: aahi
-ms.openlocfilehash: 7b530b3d415761956cbdb45fdc92bfed55a1bae5
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: c0f06f02a274780085fdb3c4c270ad541a0daa8c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868251"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930691"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Esercitazione: Creare un'app di una pagina con l'API Ricerca immagini Bing
 
@@ -40,7 +40,7 @@ Il codice sorgente completo di questa esercitazione è disponibile in [GitHub](h
 
 ## <a name="manage-and-store-user-subscription-keys"></a>Gestire e archiviare le chiavi di sottoscrizione utente
 
-Questa applicazione usa l'archivio permanente dei Web browser per archiviare le chiavi di sottoscrizione API. Se non è archiviata alcuna chiave, la pagina Web richiede la chiave dell'utente e la archivia per uso futuro. Se in seguito la chiave viene rifiutata dall'API, l'app la rimuove dall'archivio.
+Questa applicazione usa l'archivio permanente dei Web browser per archiviare le chiavi di sottoscrizione API. Se non è archiviata alcuna chiave, la pagina Web richiede la chiave dell'utente e la archivia per uso futuro. Se in seguito la chiave viene rifiutata dall'API, l'app la rimuove dall'archivio. Questo esempio usa l'endpoint globale. È anche possibile usare l'endpoint [sottodominio personalizzato](../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 
 
 Occorre definire le funzioni `storeValue` e `retrieveValue` per usare l'oggetto `localStorage`, se il browser lo supporta, o un cookie.

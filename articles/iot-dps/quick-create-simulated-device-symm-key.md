@@ -1,6 +1,6 @@
 ---
 title: "Avvio rapido: Usare una chiave simmetrica per effettuare il provisioning di un dispositivo simulato nell'hub IoT di Azure con C"
-description: In questa guida introduttiva verrà usato il SDK per dispositivi C per creare un dispositivo simulato che usa una chiave simmetrica con il servizio Device Provisioning in hub IoT di Azure
+description: In questa guida di avvio rapido verrà usato l'SDK per dispositivi C per creare un dispositivo simulato che usa la chiave simmetrica con il servizio Device Provisioning in hub IoT di Azure.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 4d1e1ff5312cfb5aa0b2e378a24d5e0db7fb3605
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 20416f83c31857417e01de31b787528e20775cdf
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423540"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976673"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Guida introduttiva: Effettuare il provisioning di un dispositivo simulato con chiavi simmetriche
 

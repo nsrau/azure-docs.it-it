@@ -4,12 +4,12 @@ description: Informazioni su come aggiungere un binding di output per connettere
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: bd899c5cc7aafc5b3349cf4cec9098a849665a2d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 171479a0f60741b545a171315e99cc5e4e8bc843
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227433"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849208"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Connettere funzioni ad Archiviazione di Azure con Visual Studio
 
@@ -23,7 +23,7 @@ La maggior parte dei binding richiede una stringa di connessione archiviata che 
 
 Prima di iniziare questo articolo, è necessario: 
 
- - Completare la [parte 1 dell'argomento di avvio rapido su Visual Studio][./functions-create-first-function-vs-code.md]. 
+ - Completare la [parte 1 della guida di avvio rapido per Visual Studio](./functions-create-first-function-vs-code.md). 
 
 - Accedere alla sottoscrizione di Azure da Visual Studio.
 

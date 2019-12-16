@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 09/06/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 740b3fae81521fec2cba31e3b8fd161f767c4380
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: ce0b308077505d5af1d757f1684c50505b11831e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858979"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977795"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Esercitazione: Creare un'app Android per rilevare e incorniciare i visi in un'immagine
 
-In questa esercitazione si creerà una semplice applicazione Android che usa l'API Viso di Azure, tramite Java SDK, per rilevare i visi umani in un'immagine. L'applicazione mostra un'immagine selezionata e traccia una cornice attorno a ogni viso rilevato.
+In questa esercitazione si creerà un'applicazione Android che usa l'API Viso di Azure, tramite Java SDK, per rilevare i visi umani in un'immagine. L'applicazione mostra un'immagine selezionata e traccia una cornice attorno a ogni viso rilevato.
 
 Questa esercitazione illustra come:
 
@@ -103,7 +103,7 @@ L'app rileverà i visi chiamando il metodo **faceClient.Face.DetectWithStreamAsy
 
 Ogni elemento **Viso** restituito è racchiuso in un rettangolo che ne indica la posizione, combinata con una serie di attributi del viso facoltativi. In questo esempio sono necessari solo i rettangoli posizionati intorno ai visi.
 
-Inserire i due metodi seguenti nella classe **MainActivity**. Si noti che al termine del rilevamento volto, l'app chiama il metodo **drawFaceRectanglesOnBitmap** per modificare **ImageView**. Questo metodo verrà definito successivamente.
+Inserire i due metodi seguenti nella classe **MainActivity**. Al termine del rilevamento viso, l'app chiama il metodo **drawFaceRectanglesOnBitmap** per modificare **ImageView**. Questo metodo verrà definito successivamente.
 
 [!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_detection_methods)]
 

@@ -10,12 +10,12 @@ keywords: automazione di azure, DSC, powershell, configurazione dello stato desi
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 7a2e9d39629e4fdb349652c9c48d0084d051f9f8
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: d091b89342570b73ccde5fe496a3432102617918
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122832"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951429"
 ---
 # <a name="what-is-azure-arc-for-servers"></a>Che cos'è Azure Arc per server?
 
@@ -108,6 +108,40 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 ```
 
 È anche possibile registrare i provider di risorse usando il portale seguendo la procedura descritta nel [portale di Azure](../../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
+
+## <a name="machine-changes-after-installing-the-agent"></a>Modifiche apportate al computer dopo l'installazione dell'agente
+
+Se nell'ambiente è stata distribuita una soluzione di rilevamento delle modifiche, è possibile usare l'elenco seguente per tenere traccia, identificare e consentire le modifiche apportate dal pacchetto di installazione di **Azure Connected Machine Agent (AzCMAgent)** .
+
+Dopo l'installazione dell'agente, verranno visualizzate le modifiche seguenti apportate ai server.
+
+### <a name="windows"></a>Windows
+
+Servizi installati:
+
+* `Himds` - Servizio **Azure Connected Machine Agent**.
+* `Dscservice` o `gcd` - Servizio **Configurazione guest**.
+
+File aggiunti al server:
+
+* `%ProgramFiles%\AzureConnectedMachineAgent\*.*` - Percorso dei file di **Azure Connected Machine Agent**.
+* `%ProgramData%\GuestConfig\*.*` - Log di **Configurazione guest**.
+
+Percorsi delle chiavi del Registro di sistema:
+
+* `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Connected Machine Agent` - Chiavi del Registro di sistema per **Azure Connected Machine Agent**.
+
+### <a name="linux"></a>Linux
+
+Servizi installati:
+
+* `Himdsd` - Servizio **Azure Connected Machine Agent**.
+* `dscd` o `gcd` - Servizio **Configurazione guest**.
+
+File aggiunti al server:
+
+* `/var/opt/azcmagent/**` - Percorso dei file di **Azure Connected Machine Agent**.
+* `/var/lib/GuestConfig/**` - Log di **Configurazione guest**.
 
 ## <a name="supported-scenarios"></a>Scenari Supportati
 

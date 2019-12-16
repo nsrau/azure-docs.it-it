@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Eseguire una ricerca Web con Node.js - API REST Ricerca Web Bing'
+title: 'Guida introduttiva: Eseguire una ricerca Web con Node.js - API REST Ricerca Web Bing'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida di avvio rapido per inviare richieste all'API REST Ricerca Web Bing usando Node.js e ricevere una risposta JSON
 services: cognitive-services
@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 95a27ff17ca74f930fc1a739c0eb94a90bd82ec4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f45b6ce402a5f61faeabd1534d7e3562af81294c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834490"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973867"
 ---
-# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>Avvio rapido: Effettuare ricerche sul Web con l'API REST Ricerca Web Bing e Node.js
+# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>Guida introduttiva: Effettuare ricerche sul Web con l'API REST Ricerca Web Bing e Node.js
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca Web Bing e ricevere la risposta JSON. Questa applicazione Node.js invia una richiesta di ricerca all'API e mostra la risposta. L'applicazione è scritta in JavaScript, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
@@ -57,7 +57,7 @@ if (!SUBSCRIPTION_KEY) {
 
 ## <a name="create-a-function-to-make-the-request"></a>Creare una funzione per effettuare la richiesta
 
-Questa funzione effettuerà una richiesta GET protetta, salvando la query di ricerca come parametro di query nel percorso. `encodeURIComponent` viene usato per eseguire l'escape di caratteri non validi e la chiave di sottoscrizione viene passata in un'intestazione. Il callback riceve una [risposta](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse) che sottoscrive l'`data`evento per aggregare il corpo JSON, l'`error` evento per registrare eventuali problemi e l'`end` evento per sapere quando il messaggio deve essere considerato completo. Una volta completato, l'app stamperà le intestazioni interessanti e il corpo del messaggio. È possibile usare i colori e impostare la profondità in base alle proprie preferenze, una profondità di `1` offre un riepilogo utile della risposta.
+Questa funzione effettuerà una richiesta GET protetta, salvando la query di ricerca come parametro di query nel percorso. `hostname` può essere l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.  `encodeURIComponent` viene usato per eseguire l'escape di caratteri non validi e la chiave di sottoscrizione viene passata in un'intestazione. Il callback riceve una [risposta](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse) che sottoscrive l'`data`evento per aggregare il corpo JSON, l'`error` evento per registrare eventuali problemi e l'`end` evento per sapere quando il messaggio deve essere considerato completo. Una volta completato, l'app stamperà le intestazioni interessanti e il corpo del messaggio. È possibile usare i colori e impostare la profondità in base alle proprie preferenze, una profondità di `1` offre un riepilogo utile della risposta.
 
 ```javascript
 function bingWebSearch(query) {

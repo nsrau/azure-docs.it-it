@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: areddish
-ms.openlocfilehash: 00d3b1dce9bacc01c8319c678ab27a3d4cc8da88
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: d7e3eeeea6bb25b4cddaea1d04e86f23ab7e4f5f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718430"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969840"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>Esercitazione: Eseguire il modello TensorFlow in Python
 
@@ -31,7 +31,7 @@ Per usare l'esercitazione, è necessario seguire questa procedura:
 - Installare Python 2.7+ o Python 3.5+.
 - Installare pip.
 
-È quindi necessario installare anche i pacchetti seguenti:
+Sarà quindi necessario installare anche i pacchetti seguenti:
 
 ```
 pip install tensorflow
@@ -68,7 +68,7 @@ with open(labels_filename, 'rt') as lf:
 
 ## <a name="prepare-an-image-for-prediction"></a>Preparare un'immagine per la stima
 
-È necessario eseguire alcuni passaggi per preparare l'immagine in modo che sia della forma corretta per la stima. Questi passaggi simulano la modifica dell'immagine eseguita durante il training:
+Per preparare l'immagine per la previsione, è necessario eseguire alcuni passaggi. Questi passaggi simulano la modifica dell'immagine eseguita durante il training:
 
 ### <a name="open-the-file-and-create-an-image-in-the-bgr-color-space"></a>Aprire il file e creare un'immagine nello spazio colore BGR
 

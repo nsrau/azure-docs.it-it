@@ -1,27 +1,27 @@
 ---
 title: 'Esercitazione: Generare i metadati per le immagini di Azure'
 titleSuffix: Azure Cognitive Services
-description: In questa esercitazione si apprenderà come integrare il servizio Visione artificiale di Azure in un'app web per generare i metadati per le immagini.
+description: In questa esercitazione si apprenderà come integrare il servizio Visione artificiale di Azure in un'app Web per generare i metadati per le immagini.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: ac292f020bb64c7c70ce3ea5c7f66fe9e9ed1bb7
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 7c83350dbecaf20e9b35f159b2c01824777bc665
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73604664"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973714"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Esercitazione: Usare Visione artificiale per generare i metadati delle immagini in Archiviazione di Azure
 
 In questa esercitazione si apprenderà come integrare il servizio Visione artificiale di Azure in un'app Web per generare i metadati per le immagini caricate. Questa operazione è utile per gli scenari di [gestione delle risorse digitali (DAM)](../Home.md#computer-vision-for-digital-asset-management), ad esempio se un'azienda vuole generare rapidamente didascalie descrittive o parole chiave ricercabili per tutte le immagini.
 
-Una guida completa alle app è reperibile nel [lab Archiviazione di Azure e Servizi cognitivi](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md) su GitHub e questa esercitazione illustra essenzialmente esercizio l'5 del lab. Può essere utile creare l'applicazione end-to-end seguendo ogni passaggio, ma se si vuole solo scoprire se è possibile integrare Visione artificiale in un'app Web esistente, leggere qui di seguito.
+Una guida completa alle app è reperibile nel [lab Archiviazione di Azure e Servizi cognitivi](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md) su GitHub e questa esercitazione illustra essenzialmente esercizio l'5 del lab. Può essere utile creare l'applicazione completa seguendo ogni passaggio, ma se si vuole solo integrare Visione artificiale in un'app Web esistente, leggere qui di seguito.
 
 Questa esercitazione illustra come:
 
@@ -36,13 +36,13 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ## <a name="prerequisites"></a>Prerequisiti
 
 - [Visual Studio 2017 Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) o versione successiva, con i carichi di lavoro "Sviluppo ASP.NET e Web" e "Sviluppo di Azure".
-- Un account di archiviazione di Azure con un contenitore BLOB allocato per le immagini (seguire l'[esercizio 1 del lab di Archiviazione di Azure](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise1) se occorre assistenza per questo passaggio).
+- Un account di archiviazione di Azure con un contenitore BLOB configurato per l'archiviazione di immagini (seguire l'[esercizio 1 del lab di Archiviazione di Azure](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise1) se occorre assistenza per questo passaggio).
 - Lo strumento Azure Storage Explorer (seguire l'[esercizio 2 del lab di Archiviazione di Azure](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise2) se occorre assistenza per questo passaggio).
 - Un'applicazione Web ASP.NET con l'accesso ad Archiviazione di Azure (seguire [l'esercizio 3 del lab di Archiviazione di Azure](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise3) per creare rapidamente un'app di questo tipo).
 
 ## <a name="create-a-computer-vision-resource"></a>Creare una risorsa di Visione artificiale
 
-È necessario creare una risorsa di Visione artificiale per l'account Azure. Questa risorsa gestisce l'accesso al servizio Visione artificiale di Azure. 
+Sarà necessario creare una risorsa Visione artificiale per l'account Azure. Questa risorsa gestisce l'accesso al servizio Visione artificiale di Azure. 
 
 1. Seguire le istruzioni contenute in [Creare una risorsa di Servizi cognitivi di Azure](../../cognitive-services-apis-create-account.md) per creare una risorsa di Visione artificiale.
 
@@ -59,7 +59,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="add-computer-vision-credentials"></a>Aggiungere le credenziali dell'API Visione artificiale
 
-Aggiungere quindi le credenziali necessarie all'app in modo che possa accedere alle risorse di Visione artificiale
+Aggiungere quindi le credenziali necessarie all'app in modo che possa accedere alle risorse Visione artificiale
 
 Aprire l'applicazione Web ASP.NET in Visual Studio e passare al file **Web. config** nella radice del progetto. Aggiungere le istruzioni seguenti alla sezione `<appSettings>` del file, sostituendo `VISION_KEY` con la chiave copiata nel passaggio precedente e `VISION_ENDPOINT` con l'URL salvato nel passaggio precedente.
 
@@ -72,7 +72,7 @@ Quindi, in Esplora soluzioni, fare clic con il pulsante destro del mouse sul pro
 
 ## <a name="add-metadata-generation-code"></a>Aggiungere il codice di generazione dei metadati
 
-Successivamente, si aggiungerà il codice che sfrutta il servizio Visione artificiale per creare i metadati per le immagini. Questi passaggi si applicano all'app ASP.NET nel lab, ma possono essere adattati alla propria app. Ciò che è importante a questo punto è avere un'applicazione Web ASP.NET che possa caricare immagini in un contenitore di Archiviazione di Azure, leggere le immagini in esso contenute e visualizzarle nella vista. In caso di dubbi, è consigliabile seguire l'[esercizio 3 del lab di Archiviazione di Azure](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise3). 
+Successivamente, si aggiungerà il codice che sfrutta effettivamente il servizio Visione artificiale per creare i metadati per le immagini. Questi passaggi si applicano all'app ASP.NET nel lab, ma possono essere adattati alla propria app. Ciò che è importante a questo punto è avere un'applicazione Web ASP.NET che possa caricare immagini in un contenitore di Archiviazione di Azure, leggere le immagini in esso contenute e visualizzarle nella vista. In caso di dubbi su questo passaggio, è consigliabile seguire l'[esercizio 3 del lab di Archiviazione di Azure](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise3). 
 
 1. Aprire il file *HomeController.cs* nella cartella **controller** del progetto e aggiungere le seguenti istruzioni `using` all'inizio del file:
 
@@ -105,7 +105,7 @@ Successivamente, si aggiungerà il codice che sfrutta il servizio Visione artifi
     await photo.SetMetadataAsync();
     ```
 
-1. Passare quindi al metodo **Index** nello stesso file; questo metodo enumera i BLOB dell'immagine archiviati nel contenitore BLOB di destinazione (come le istanze **IListBlobItem**) e li passa alla vista dell'applicazione. Sostituire il blocco `foreach` in questo metodo con il codice seguente. Questo codice chiama **CloudBlockBlob.FetchAttributes** per ottenere i metadati allegati di ogni BLOB. Estrae la descrizione generata dal computer (`caption`) dai metadati e la aggiunge all'oggetto **BlobInfo**, che viene passato alla vista.
+1. Passare quindi al metodo **Index** nello stesso file. Questo metodo enumera i BLOB delle immagini archiviate nel contenitore BLOB di destinazione (come istanze di **IListBlobItem**) e li passa alla visualizzazione dell'applicazione. Sostituire il blocco `foreach` in questo metodo con il codice seguente. Questo codice chiama **CloudBlockBlob.FetchAttributes** per ottenere i metadati allegati di ogni BLOB. Estrae la descrizione generata dal computer (`caption`) dai metadati e la aggiunge all'oggetto **BlobInfo**, che viene passato alla vista.
     
     ```csharp
     foreach (IListBlobItem item in container.ListBlobs())
@@ -139,13 +139,13 @@ Per visualizzare tutti i metadati allegati, usare Azure Storage Explorer per vis
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Per continuare a lavorare sull'app Web, vedere la sezione [Passaggi successivi](#next-steps). Se non si intende continuare a usare questa applicazione, è necessario eliminare tutte le risorse specifiche delle app. A tale scopo, è sufficiente eliminare il gruppo di risorse che contiene la sottoscrizione di Archiviazione di Azure e la risorsa Visione artificiale. Verranno rimossi l'account di archiviazione, i BLOB in esso caricati e la risorsa del servizio app necessaria per connettersi con l'app Web ASP.NET. 
+Per continuare a lavorare sull'app Web, vedere la sezione [Passaggi successivi](#next-steps). Se non si intende continuare a usare questa applicazione, è necessario eliminare tutte le risorse specifiche delle app. Per eliminare le risorse, è sufficiente eliminare il gruppo di risorse che contiene la sottoscrizione di Archiviazione di Azure e la risorsa Visione artificiale. Verranno rimossi l'account di archiviazione, i BLOB in esso caricati e la risorsa del servizio app necessaria per connettersi con l'app Web ASP.NET. 
 
-Per eliminare il gruppo di risorse, aprire il pannello **Gruppi di risorse** nel portale, passare al gruppo di risorse usato per questo progetto e fare clic su **Elimina gruppo di risorse** nella parte superiore della visualizzazione. Verrà richiesto di digitare il nome del gruppo di risorse per confermare l'eliminazione, perché non sarà possibile recuperarlo una volta eliminato.
+Per eliminare il gruppo di risorse, aprire la scheda **Gruppi di risorse** nel portale, passare al gruppo di risorse usato per questo progetto e fare clic su **Elimina gruppo di risorse** nella parte superiore della visualizzazione. Verrà richiesto di digitare il nome del gruppo di risorse per confermare l'eliminazione, perché non sarà possibile recuperarlo una volta eliminato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione, il servizio Visione artificiale di Azure è stato integrato in un'app Web esistente per generare automaticamente sottotitoli e parole chiave per le immagini BLOB durante il caricamento. Successivamente, consultare l'esercizio 6 del lab di Archiviazione di Azure per informazioni su come aggiungere funzionalità di ricerca all'app Web. In tal modo si sfruttano le parole chiave di ricerca generate dal servizio Visione artificiale.
+In questa esercitazione è stato configurato il servizio Visione artificiale di Azure in un'app Web esistente per generare automaticamente didascalie e parole chiave per le immagini BLOB durante il caricamento. Successivamente, consultare l'esercizio 6 del lab di Archiviazione di Azure per informazioni su come aggiungere funzionalità di ricerca all'app Web. In tal modo si sfruttano le parole chiave di ricerca generate dal servizio Visione artificiale.
 
 > [!div class="nextstepaction"]
 > [Aggiungere ricerca all'app](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise6)

@@ -11,21 +11,21 @@ ms.author: vaidyas
 author: vaidya-s
 ms.date: 11/04/2019
 ms.custom: Ignite2019
-ms.openlocfilehash: 62a2c3324df70c7ccdbbac273d314ff94cbb7b9a
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 207e8def168227cb419d25c8e98aa15c09c72b2c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671572"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851605"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Eseguire l'inferenza batch su grandi quantità di dati usando Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In questa guida pratica si apprenderà come ottenere inferenze su grandi quantità di dati in modo asincrono e in parallelo usando Azure Machine Learning. La funzionalità di inferenza batch descritta qui è disponibile in anteprima pubblica. Offre livelli elevati di prestazioni e velocità effettiva per generare inferenze ed elaborare i dati. Fornisce funzionalità asincrone predefinite.
+Informazioni su come ottenere inferenze su grandi quantità di dati in modo asincrono e in parallelo usando Azure Machine Learning. La funzionalità di inferenza batch descritta qui è disponibile in anteprima pubblica. Offre livelli elevati di prestazioni e velocità effettiva per generare inferenze ed elaborare i dati. Fornisce funzionalità asincrone predefinite.
 
 Con l'inferenza di batch, è facile scalare le inferenze offline a grandi cluster di computer su terabyte di dati di produzione, ottenendo una maggiore produttività e ottimizzando i costi.
 
-In questa guida pratica si apprenderà come eseguire le attività seguenti:
+In questo articolo si apprenderà come eseguire le attività seguenti:
 
 > * Creare una risorsa di calcolo remota.
 > * Scrivere uno script di inferenza personalizzato.
@@ -237,6 +237,15 @@ def run(mini_batch):
     return resultList
 ```
 
+### <a name="how-to-access-other-files-in-init-or-run-functions"></a>Come accedere ad altri file in funzioni `init()` o `run()`
+
+Se è presente un altro file o un'altra cartella nella stessa directory dello script di inferenza, è possibile farvi riferimento individuando la directory di lavoro corrente.
+
+```python
+script_dir = os.path.realpath(os.path.join(__file__, '..',))
+file_path = os.path.join(script_dir, "<file_name>")
+```
+
 ## <a name="build-and-run-the-batch-inference-pipeline"></a>Compilare ed eseguire la pipeline di inferenza batch
 
 Ora si dispone di tutti gli elementi necessari per creare la pipeline.
@@ -261,11 +270,11 @@ batch_env.spark.precache_packages = False
 
 ### <a name="specify-the-parameters-for-your-batch-inference-pipeline-step"></a>Specificare i parametri per il passaggio della pipeline di inferenza batch
 
-`ParallelRunConfig` è la configurazione principale per la nuova istanza `ParallelRunStep` di inferenza batch introdotta all'interno della pipeline di Azure Machine Learning. Si usa per eseguire il wrapping dello script e configurare i parametri necessari, inclusi tutti gli elementi seguenti:
+`ParallelRunConfig` è la configurazione principale per la nuova istanza `ParallelRunStep` di inferenza batch introdotta all'interno della pipeline di Azure Machine Learning. Si usa per eseguire il wrapping dello script e configurare i parametri necessari, inclusi tutti i parametri seguenti:
 - `entry_script`: script utente come percorso di file locale che verrà eseguito in parallelo su più nodi. Se `source_directly` è presente, usare un percorso relativo. In caso contrario, usare qualsiasi percorso accessibile nel computer.
 - `mini_batch_size`: dimensioni del mini-batch passato a una singola chiamata di `run()` (facoltativo, il valore predefinito è `1`).
     - Per `FileDataset`, è il numero di file con un valore minimo di `1`. È possibile combinare più file in un solo mini-batch.
-    - Per `TabularDataset`, sono le dimensioni dei dati. Valori di esempio sono `1024`, `1024KB`, `10MB` e `1GB`. Il valore consigliato è `1MB`. Si noti che il mini-batch di `TabularDataset` non supererà mai i limiti dei file. Supponiamo ad esempio di avere una serie di file CSV di varie dimensioni, comprese tra 100 KB e 10 MB. Se si imposta `mini_batch_size = 1MB`, i file di dimensioni inferiori a 1 MB verranno considerati come un mini-batch. I file di dimensioni maggiori di 1 MB verranno suddivisi in più mini-batch.
+    - Per `TabularDataset`, sono le dimensioni dei dati. Valori di esempio sono `1024`, `1024KB`, `10MB` e `1GB`. Il valore consigliato è `1MB`. Il mini-batch di `TabularDataset` non supererà mai i limiti dei file. Supponiamo ad esempio di avere una serie di file CSV di varie dimensioni, comprese tra 100 KB e 10 MB. Se si imposta `mini_batch_size = 1MB`, i file di dimensioni inferiori a 1 MB verranno considerati come un mini-batch. I file di dimensioni maggiori di 1 MB verranno suddivisi in più mini-batch.
 - `error_threshold`: numero di errori di record per `TabularDataset` e di errori di file per `FileDataset` che devono essere ignorati durante l'elaborazione. Se il numero di errori per l'intero input supera questo valore, il processo viene arrestato. La soglia di errore è per l'intero input e non per i singoli mini-batch inviati al metodo `run()`. L'intervallo è `[-1, int.max]`. La parte `-1` indica di ignorare tutti gli errori durante l'elaborazione.
 - `output_action`: uno dei valori seguenti indica come verrà organizzato l'output:
     - `summary_only`: l'output viene archiviato dallo script utente. `ParallelRunStep` userà l'output solo per il calcolo della soglia di errore.
@@ -348,6 +357,8 @@ pipeline_run.wait_for_completion(show_output=True)
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per vedere questo processo in funzione dall'inizio alla fine, provare il [notebook relativo all'inferenza batch](https://aka.ms/batch-inference-notebooks). 
+
+Per indicazioni sul debug e la risoluzione dei problemi per le ParallelRunStep, vedere la [guida pratica](how-to-debug-batch-predictions.md).
 
 Per indicazioni sul debug e la risoluzione dei problemi per le pipeline, vedere la [guida pratica](how-to-debug-pipelines.md).
 

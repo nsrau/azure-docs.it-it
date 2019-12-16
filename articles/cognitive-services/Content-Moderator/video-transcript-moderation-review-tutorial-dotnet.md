@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: e1c3d3d95261b959a7540aab73faf12f92801d4c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2fbd4270221cb23a4f99a0f8155bb1de76472f31
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564278"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976979"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Esercitazione: Moderazione di video e trascrizioni
 
-Questa esercitazione mostra come creare una soluzione completa per la moderazione di video e trascrizioni con moderazione basata su Machine Learning e la creazione di revisioni con intervento umano.
+Questa esercitazione mostra come creare una soluzione completa per la moderazione di video e trascrizioni con moderazione basata su Machine Learning e l'integrazione di revisioni con intervento umano.
 
 Questa esercitazione illustra come:
 

@@ -10,12 +10,12 @@ keywords: automazione di Azure, DSC, powershell, configurazione dello stato desi
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: quickstart
-ms.openlocfilehash: 7fb24d53876ab8c06fca4fbfe929c06a889335f3
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e7a527fc290433390436eac3d4c291f2a32bf2b3
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786351"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951446"
 ---
 # <a name="quickstart-connect-machines-to-azure-using-azure-arc-for-servers---powershell"></a>Guida introduttiva: Connettere computer ad Azure con Azure Arc per server - PowerShell
 
@@ -55,6 +55,12 @@ Id                    : 5be92c87-01c4-42f5-bade-c1c10af87758
 Type                  :
 ```
 
+> [!NOTE] 
+> Il popolamento corretto delle autorizzazioni SPN potrebbe richiedere qualche istante. Esecuzione dell'assegnazione di ruolo seguente per impostare le autorizzazioni molto più velocemente.
+> ``` PowerShell
+> New-AzRoleAssignment -RoleDefinitionName "Azure Connected Machine Onboarding" -ServicePrincipalName $sp.ApplicationId
+> ```
+
 A questo punto, recuperare la password usando PowerShell.
 
 ```azurepowershell-interactive
@@ -66,8 +72,11 @@ Dall'output copiare **password** e **ApplicationId** (dal passaggio precedente) 
 
 Nello script di onboarding dell'agente di installazione:
 
-* La proprietà **ApplicationId** viene usata per il parametro `--service-principal-id` usato nell'agente di installazione
-* La proprietà **password** viene usata per il parametro `--service-principal-secret` usato nell'agente di installazione
+* La proprietà **ApplicationId** viene usata per il parametro `--service-principal-id` per la connessione dell'agente
+* La proprietà **password** viene usata per il parametro `--service-principal-secret` per la connessione dell'agente.
+
+> [!NOTE]
+> Assicurarsi di usare la proprietà **ApplicationId** dell'entità servizio e non la proprietà **Id**. La proprietà **Id** non funzionerà.
 
 ## <a name="manually-install-the-agent-and-connect-to-azure"></a>Installare manualmente l'agente e connettersi ad Azure
 
@@ -84,7 +93,6 @@ Per i server **Linux**, l'agente viene distribuito tramite il [repository dei pa
 > [!NOTE]
 > Durante l'anteprima pubblica è stato rilasciato un solo pacchetto, adatto per Ubuntu 16.04 o 18.04.
 
-<!-- What about this aks? -->
 L'opzione più semplice consiste nel registrare il repository del pacchetto per poi installare il pacchetto tramite la gestione pacchetti della distribuzione.
 Lo script bash disponibile all'indirizzo [https://aka.ms/azcmagent](https://aka.ms/azcmagent) esegue le azioni seguenti:
 

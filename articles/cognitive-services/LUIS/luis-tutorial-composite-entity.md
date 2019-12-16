@@ -9,27 +9,27 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 12/05/2019
 ms.author: diberry
-ms.openlocfilehash: adb8941fd60a955a44a04717958c5203b721639a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0e72563f366330f841d1a61ed67956b6314c769a
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498986"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893187"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Esercitazione: Raggruppare ed estrarre dati correlati
 Questa esercitazione illusta come aggiungere un'entità composita per aggregare i dati estratti di vario tipo in una singola entità contenitore. Aggregando i dati, l'applicazione client può estrarre facilmente i dati correlati in diversi tipi di dati.
 
-Lo scopo dell'entità composita è di raggruppare le entità correlate in un'entità di categoria padre. Prima che venga creata un'entità composita le informazioni sono entità separate. 
+Lo scopo dell'entità composita è di raggruppare le entità correlate in un'entità di categoria padre. Prima che venga creata un'entità composita le informazioni sono entità separate.
 
 L'entità composta è una buona soluzione per questo tipo di dati, perché i dati:
 
-* Sono correlati tra loro. 
+* Sono correlati tra loro.
 * Usano vari tipi di entità.
 * Devono essere raggruppati ed elaborati dall'applicazione client come un'unità di informazioni.
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+[!INCLUDE [Only valid with current portal](includes/old-portal-only.md)]
 
 **In questa esercitazione si imparerà come:**
 
@@ -37,7 +37,7 @@ L'entità composta è una buona soluzione per questo tipo di dati, perché i dat
 > [!div class="checklist"]
 > * Importare l'app di esempio
 > * Creare finalità
-> * Aggiungere un'entità composita 
+> * Aggiungere un'entità composita
 > * Eseguire il training
 > * Pubblica
 > * Ottenere finalità ed entità dall'endpoint
@@ -54,9 +54,9 @@ L'entità composta è una buona soluzione per questo tipo di dati, perché i dat
 
 ## <a name="composite-entity"></a>Entità composita
 
-In questa app, il nome del reparto è definito nell'entità elenco **Department** e include sinonimi. 
+In questa app, il nome del reparto è definito nell'entità elenco **Department** e include sinonimi.
 
-La finalità **TransferEmployeeToDepartment** contiene espressioni di esempio per richiedere lo spostamento di un dipendente in un nuovo reparto. 
+La finalità **TransferEmployeeToDepartment** contiene espressioni di esempio per richiedere lo spostamento di un dipendente in un nuovo reparto.
 
 Le espressioni di esempio per questa finalità includono:
 
@@ -64,12 +64,12 @@ Le espressioni di esempio per questa finalità includono:
 |--|
 |move John W. Smith to the accounting department|
 |transfer Jill Jones from to R&D|
- 
-La richiesta di spostamento deve includere il nome del reparto e il nome del dipendente. 
+
+La richiesta di spostamento deve includere il nome del reparto e il nome del dipendente.
 
 ## <a name="add-the-personname-prebuilt-entity-to-help-with-common-data-type-extraction"></a>Aggiungere l'entità predefinita PersonName come supporto per l'estrazione del tipo di dati comune
 
-LUIS fornisce varie entità predefinite per l'estrazione di dati comuni. 
+LUIS fornisce varie entità predefinite per l'estrazione di dati comuni.
 
 1. Selezionare **Build** (Compila) dalla barra di spostamento in alto, quindi selezionare **Intents** (Finalità) dal menu di spostamento a sinistra.
 
@@ -87,11 +87,11 @@ LUIS fornisce varie entità predefinite per l'estrazione di dati comuni.
 
 1. Selezionare **TransferEmployeeToDepartment** nell'elenco di finalità.
 
-1. Nell'espressione `place John Jackson in engineering` selezionare l'entità personName `John Jackson` e quindi selezionare **Wrap in composite entity** (Esegui wrapping nell'entità composita) nell'elenco del menu popup per l'espressione successiva. 
+1. Nell'espressione `place John Jackson in engineering` selezionare l'entità personName `John Jackson` e quindi selezionare **Wrap in composite entity** (Esegui wrapping nell'entità composita) nell'elenco del menu popup per l'espressione successiva.
 
     ![Screenshot della selezione del wrapping nell'entità composita nella finestra di dialogo a discesa](./media/luis-tutorial-composite-entity/hr-create-composite-entity-1.png)
 
-1. Quindi selezionare immediatamente l'ultima entità, `engineering`, nell'espressione. Sotto le parole selezionate viene disegnata una barra verde che indica un'entità composita. Nel menu a comparsa, immettere il nome composto `TransferEmployeeInfo` quindi premere INVIO. 
+1. Quindi selezionare immediatamente l'ultima entità, `engineering`, nell'espressione. Sotto le parole selezionate viene disegnata una barra verde che indica un'entità composita. Nel menu a comparsa, immettere il nome composto `TransferEmployeeInfo` quindi premere INVIO.
 
     ![Screenshot dell'immissione del nome composito nella finestra di dialogo a discesa](./media/luis-tutorial-composite-entity/hr-create-composite-entity-2.png)
 
@@ -103,11 +103,11 @@ LUIS fornisce varie entità predefinite per l'estrazione di dati comuni.
 
 1. In ogni espressione di esempio, selezionare l'entità più a sinistra nel composito. Selezionare quindi **Wrap in composite entity** (Esegui il wrapping in entità composita).
 
-1. Selezionare l'ultima parola nell'entità composita e quindi scegliere **TransferEmployeeInfo** dal menu di scelta rapida. 
+1. Selezionare l'ultima parola nell'entità composita e quindi scegliere **TransferEmployeeInfo** dal menu di scelta rapida.
 
-1. Verificare che tutte le espressioni nella finalità siano etichettate con l'entità composita. 
+1. Verificare che tutte le espressioni nella finalità siano etichettate con l'entità composita.
 
-## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Eseguire il training dell'app in modo che sia possibile testare la finalità 
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Eseguire il training dell'app in modo che sia possibile testare la finalità
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
@@ -115,11 +115,11 @@ LUIS fornisce varie entità predefinite per l'estrazione di dati comuni.
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Ottenere la stima di finalità ed entità dall'endpoint 
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Ottenere la stima di finalità ed entità dall'endpoint
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Andare alla fine dell'URL nell'indirizzo e immettere `Move Jill Jones to DevOps`. L'ultimo parametro querystring è `q`, la query dell'espressione. 
+2. Andare alla fine dell'URL nell'indirizzo e immettere `Move Jill Jones to DevOps`. L'ultimo parametro querystring è `q`, la query dell'espressione.
 
     Poiché questo test consiste nel verificare che il composito venga estratto in modo corretto, il test può includere un'espressione di esempio esistente o una nuova espressione. Un buon test consiste nell'includere tutte le entità figlio nell'entità composita.
 
@@ -185,7 +185,7 @@ LUIS fornisce varie entità predefinite per l'estrazione di dati comuni.
     }
     ```
 
-   Questa espressione restituisce una matrice di entità composite. A ogni entità viene assegnato un tipo e un valore. Per individuare con maggiore precisione ogni entità figlio, usare la combinazione di tipo e valore dell'elemento di matrice composita per trovare l'elemento corrispondente nella matrice delle entità.  
+   Questa espressione restituisce una matrice di entità composite. A ogni entità viene assegnato un tipo e un valore. Per individuare con maggiore precisione ogni entità figlio, usare la combinazione di tipo e valore dell'elemento di matrice composita per trovare l'elemento corrispondente nella matrice delle entità.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -202,7 +202,7 @@ LUIS fornisce varie entità predefinite per l'estrazione di dati comuni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stata creata un'entità composta per incapsulare le entità esistenti. In questo modo l'applicazione client trova un gruppo di dati correlati in diversi tipi di dati per continuare la conversazione. Un'applicazione client per questa app Human Resources potrebbe richiedere di specificare il giorno e l'ora in cui lo spostamento deve iniziare e terminare. Potrebbe richiedere anche altre informazioni sullo spostamento, come un numero di telefono fisico. 
+In questa esercitazione è stata creata un'entità composta per incapsulare le entità esistenti. In questo modo l'applicazione client trova un gruppo di dati correlati in diversi tipi di dati per continuare la conversazione. Un'applicazione client per questa app Human Resources potrebbe richiedere di specificare il giorno e l'ora in cui lo spostamento deve iniziare e terminare. Potrebbe richiedere anche altre informazioni sullo spostamento, come un numero di telefono fisico.
 
-> [!div class="nextstepaction"] 
-> [Informazioni su come aggiungere un'entità semplice con un elenco di frasi](luis-quickstart-primary-and-secondary-data.md)  
+> [!div class="nextstepaction"]
+> [Correggere le previsioni dubbie tramite la revisione delle espressioni degli endpoint](luis-tutorial-review-endpoint-utterances.md)

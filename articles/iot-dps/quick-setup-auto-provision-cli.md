@@ -1,6 +1,6 @@
 ---
 title: Configurare il servizio Device Provisioning in hub IoT di Azure con l'interfaccia della riga di comando di Azure
-description: "Avvio rapido: Configurare il servizio Device Provisioning in hub IoT di Azure con l'interfaccia della riga di comando di Azure"
+description: "Avvio rapido: configurare il servizio Device Provisioning in hub IoT di Azure con l'interfaccia della riga di comando di Azure."
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 6406929c3abc3612da2c27edc45e10fd84883d73
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f5737dccca6baa2dc2c1d98233b80d871cf86007
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228552"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974709"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Guida introduttiva: Configurare il servizio Device Provisioning in hub IoT con l'interfaccia della riga di comando di Azure
 

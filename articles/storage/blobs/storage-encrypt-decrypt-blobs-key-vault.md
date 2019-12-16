@@ -1,24 +1,24 @@
 ---
-title: 'Esercitazione: Esercitazione: Crittografare e decrittografare i BLOB in Archiviazione di Azure con Azure Key Vault | Microsoft Docs'
-description: Come crittografare e decrittografare un BLOB usando la crittografia lato client per Archiviazione di Microsoft Azure con Azure Key Vault.
+title: 'Esercitazione: Crittografare e decrittografare BLOB con Azure Key Vault'
+titleSuffix: Azure Storage
+description: Informazioni su come crittografare e decrittografare un BLOB usando la crittografia lato client con Azure Key Vault.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
-ms.date: 05/14/2019
+ms.topic: tutorial
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 34dbcaeedb544a8a8808aab3e8e3315f1790dd9a
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
-ms.translationtype: MT
+ms.openlocfilehash: c83e56a47f4b212a5612cb9e6965ce8e73228dcb
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003427"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892890"
 ---
-# <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Esercitazione: Crittografare e decrittografare i BLOB in Archiviazione di Microsoft Azure tramite Azure Key Vault
+# <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>Esercitazione: Crittografare e decrittografare BLOB con Azure Key Vault
 
-## <a name="introduction"></a>Introduzione
 Questa esercitazione illustra come usare la crittografia di archiviazione lato client con l'insieme di credenziali delle chiavi di Azure. Illustra come crittografare e decrittografare un BLOB in un'applicazione console mediante queste tecnologie.
 
 **Tempo previsto per il completamento**: 20 minuti
@@ -48,7 +48,7 @@ Ecco una breve descrizione del funzionamento della crittografia lato client:
 
 ## <a name="set-up-your-azure-key-vault"></a>Impostare l'insieme di credenziali delle chiavi di Azure
 
-Per procedere con questa esercitazione, è necessario eseguire i passaggi seguenti, descritti nella Guida introduttiva all'esercitazione [: Impostare e recuperare un segreto da Azure Key Vault usando un'app](../../key-vault/quick-create-net.md)Web .NET:
+Per procedere con questa esercitazione, è necessario effettuare le operazioni seguenti, descritte nell'esercitazione [Avvio rapido: Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web .NET](../../key-vault/quick-create-net.md):
 
 * Creare un insieme di credenziali delle chiavi.
 * Aggiungere una chiave o un segreto all'insieme di credenziali delle chiavi.
@@ -121,9 +121,9 @@ private async static Task<string> GetToken(string authority, string resource, st
 }
 ```
 
-## <a name="access-storage-and-key-vault-in-your-program"></a>Accedere all'archiviazione e all'insieme di credenziali delle chiavi nel programma
+## <a name="access-azure-storage-and-key-vault-in-your-program"></a>Accedere all'archiviazione di Azure e a Key Vault nel programma
 
-Nel metodo Main () aggiungere il codice seguente.
+Aggiungere il codice seguente al metodo Main().
 
 ```csharp
 // This is standard code to interact with Blob storage.
@@ -229,6 +229,7 @@ SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
     "https://contosokeyvault.vault.azure.net/secrets/TestSecret2/",
     CancellationToken.None).GetAwaiter().GetResult();
 ```
+
 È tutto. Buon lavoro.
 
 ## <a name="next-steps"></a>Passaggi successivi

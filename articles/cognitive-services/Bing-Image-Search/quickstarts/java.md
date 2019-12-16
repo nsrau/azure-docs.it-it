@@ -9,15 +9,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 07/22/2019
+ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 415613d99b3a7b9f3845a458886e93e5655842c8
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: c1e339643613db188819e7eb8853cad8a48ea47f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899701"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928148"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-api-an-azure-cognitive-service"></a>Guida introduttiva: Cercare immagini con l'API Ricerca immagini Bing, un servizio cognitivo di Azure 
 
@@ -48,7 +48,7 @@ Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.
     import com.google.gson.JsonParser;
     ```
 
-2. Creare variabili per l'endpoint dell'API, la chiave di sottoscrizione e il termine di ricerca.
+2. Creare variabili per l'endpoint dell'API, la chiave di sottoscrizione e il termine di ricerca. `host` può essere l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 
     ```java
     static String subscriptionKey = "enter key here";

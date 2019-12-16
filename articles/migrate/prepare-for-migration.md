@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 12/10/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 2c13bc79fccc74da431ba1a6399870b261b24c57
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 6f5535a57fae847c8a376b8b39e43955675da739
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196433"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974785"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Preparare i computer locali per la migrazione ad Azure
 
@@ -99,7 +99,7 @@ Ad esempio, se l'installazione locale usa un disco dati assegnato all'unità D p
 1. Nel computer locale (non nel server host) aprire un prompt dei comandi con privilegi elevati.
 2. Digitare **diskpart**.
 3. Digitare **SAN**. Se la lettera di unità del sistema operativo guest non viene mantenuta, verrà restituito **Porta offline tutti i dischi** o **Porta offline dischi condivisi**.
-4. Al prompt di **DISKPART** digitare **SANPOLICY=ONLINEALL**. Questa impostazione garantisce che i dischi vengano portati online e che siano leggibili e scrivibili.
+4. Al prompt di **DISKPART** digitare **SAN Policy=OnlineAll**. Questa impostazione garantisce che i dischi vengano portati online e che siano leggibili e scrivibili.
 5. Durante la migrazione di test, è possibile verificare che le lettere di unità vengano mantenute.
 
 

@@ -1,21 +1,22 @@
 ---
-title: "Guida introduttiva: usare Azure Storage Explorer per creare un BLOB nell'archiviazione di oggetti"
-description: In questa guida introduttiva verrà illustrato come usare Azure Storage Explorer per creare un contenitore e un BLOB. Verrà successivamente illustrato come scaricare il BLOB nel computer locale e come visualizzare tutti i BLOB in un contenitore. Si vedrà anche come creare uno snapshot di un BLOB, gestire i criteri di accesso al contenitore e creare una firma di accesso condiviso.
+title: 'Avvio rapido: Creare un BLOB con Azure Storage Explorer'
+titleSuffix: Azure Storage
+description: Questa guida di avvio rapido illustra come usare Azure Storage Explorer per creare un contenitore e un BLOB, scaricare il BLOB nel computer locale e visualizzare tutti i BLOB nel contenitore.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/15/2018
+ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: cd31d1c40f30ebc8341c2126da22f8a74cb05438
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: f19152b5b8bc569fa07109b6135fa85b9b55bff1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640508"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892465"
 ---
-# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Guida introduttiva: usare Azure Storage Explorer per creare un BLOB nell'archiviazione di oggetti
+# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob"></a>Guida introduttiva: Usare Azure Storage Explorer per creare un BLOB
 
 In questa guida introduttiva verrà illustrato come usare [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per creare un contenitore e un BLOB. Verrà successivamente illustrato come scaricare il BLOB nel computer locale e come visualizzare tutti i BLOB in un contenitore. Si vedrà anche come creare uno snapshot di un BLOB, gestire i criteri di accesso al contenitore e creare una firma di accesso condiviso.
 

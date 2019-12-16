@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 11/20/2019
+ms.date: 12/05/2019
 ms.author: diberry
-ms.openlocfilehash: 1d05df454e3d7a4f54e7451b81dd2a6470a8200b
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 2d3bffd025d484ac928e21003b7cba9c63d2c514
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806414"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885878"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learned-entities-in-language-understanding-luis"></a>Esercitazione: Estrarre dati strutturati da un'espressione dell'utente con entità basate su Machine Learning in Language Understanding (LUIS)
 
@@ -221,7 +221,7 @@ Testare l'app usando il pannello interattivo **Test**. Questo processo consente 
 
 [!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
 
-## <a name="get-intent-and-entity-prediction--from-http-endpoint"></a>Ottenere la stima di finalità ed entità dall'endpoint HTTP
+## <a name="get-intent-and-entity-prediction-from-http-endpoint"></a>Ottenere previsione per finalità ed entità dall'endpoint HTTP
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 

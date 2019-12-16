@@ -1,21 +1,22 @@
 ---
-title: "Esercitazione: Simulare un errore nell'accesso all'archiviazione con ridondanza e accesso in lettura in Azure | Microsoft Docs"
-description: Simulare un errore nell'accesso all'archiviazione con ridondanza geografica e accesso in lettura
+title: "Esercitazione: Simulare un errore durante la lettura dei dati dall'area primaria"
+titleSuffix: Azure Storage
+description: Simulare un errore durante la lettura dei dati dall'area primaria quando l'archiviazione con ridondanza geografica e accesso in lettura è abilitata per l'account di archiviazione.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 01/03/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
-ms.openlocfilehash: 1f5c404e410ded2714be761e35060f3c07379bd3
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 44c5d037797d845aa9c68af2d7b8e5e45bf418fb
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508086"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892448"
 ---
-# <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Esercitazione: Simulare un errore nell'accesso all'archiviazione con ridondanza e accesso in lettura
+# <a name="tutorial-simulate-a-failure-in-reading-data-from-the-primary-region"></a>Esercitazione: Simulare un errore durante la lettura dei dati dall'area primaria
 
 Questa è la seconda di una serie di esercitazioni. Si apprenderanno i vantaggi di un'[archiviazione con ridondanza geografica e accesso in lettura](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) simulando un errore.
 
@@ -44,7 +45,7 @@ Per simulare un errore con Fiddler, scaricare e [installare Fiddler](https://www
 
 ### <a name="start-and-pause-the-application"></a>Avviare e mettere in pausa l'applicazione
 
-Usare le istruzioni nell'[esercitazione precedente] [ previous-tutorial] per avviare l'esempio e scaricare il file di test, confermando che proviene da un'archiviazione primaria. A seconda della piattaforma di destinazione, è quindi possibile sospendere manualmente l'esempio o attendere un prompt dei comandi.
+Usare le istruzioni nell'[esercitazione precedente][previous-tutorial] per avviare l'esempio e scaricare il file di test, assicurandosi che provenga dalla risorsa di archiviazione primaria. A seconda della piattaforma di destinazione, è quindi possibile sospendere manualmente l'esempio o attendere un prompt dei comandi.
 
 ### <a name="simulate-failure"></a>Simulare un errore
 
@@ -68,7 +69,7 @@ Per aggiungere una route statica per un host di destinazione, digitare il comand
 route add <destination_ip> gw <gateway_ip>
 ```
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 ```
 route add <destination_ip> <gateway_ip>
@@ -86,7 +87,7 @@ Per simulare il ripristino del funzionamento dell'endpoint primario, eliminare l
 route del <destination_ip> gw <gateway_ip>
 ```
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 ```
 route delete <destination_ip>
@@ -132,7 +133,7 @@ Al termine, selezionare **File** e **Salva** per salvare le modifiche. Lasciare 
 
 ### <a name="start-and-pause-the-application"></a>Avviare e mettere in pausa l'applicazione
 
-Usare le istruzioni nell'[esercitazione precedente] [ previous-tutorial] per avviare l'esempio e scaricare il file di test, confermando che proviene da un'archiviazione primaria. A seconda della piattaforma di destinazione, è quindi possibile sospendere manualmente l'esempio o attendere un prompt dei comandi.
+Usare le istruzioni nell'[esercitazione precedente][previous-tutorial] per avviare l'esempio e scaricare il file di test, assicurandosi che provenga dalla risorsa di archiviazione primaria. A seconda della piattaforma di destinazione, è quindi possibile sospendere manualmente l'esempio o attendere un prompt dei comandi.
 
 ### <a name="simulate-failure"></a>Simulare un errore
 

@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 10/06/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 3c567c54f887afe9ac112970a682b9466515d949
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: e112fdc9e6f518e2ea3c72161e8978118cf19335
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74708739"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74890315"
 ---
 # <a name="tutorial-prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Esercitazione: Preparare un'applicazione Java Spring per la distribuzione in Azure Spring Cloud
 
@@ -176,3 +176,5 @@ In questa esercitazione si è appreso come configurare l'applicazione Java Sprin
 
 > [!div class="nextstepaction"]
 > [Informazioni su come configurare Config Server](spring-cloud-tutorial-config-server.md).
+
+Altri esempi sono disponibili in GitHub: [Esempi di Azure Spring Cloud](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).

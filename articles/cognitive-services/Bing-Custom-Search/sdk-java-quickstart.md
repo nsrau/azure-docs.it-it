@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ''
 ms.topic: quickstart
-ms.date: 09/17/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 7d1a7b2cdba082c78a1753ea0dcce6ead02ab036
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: f0a3008dace4e9382bbb6b6d9465ce1c9b4ddc6c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71148321"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976061"
 ---
 # <a name="quickstart-bing-custom-search-client-library-for-java"></a>Guida introduttiva: Libreria client di Ricerca personalizzata Bing per Java
 
@@ -102,7 +102,7 @@ public class BingCustomSearchSample {
 }
 ```
 
-Nella classe creare un metodo `main` e le variabili per l'endpoint e la chiave di Azure della risorsa. Se la variabile di ambiente è stata creata dopo l'avvio dell'applicazione, per accedervi sarà necessario chiudere e riaprire l'editor, l'IDE o la shell in cui è in esecuzione. Gli altri metodi verranno definiti successivamente.
+Nella classe creare un metodo `main` e una variabile per la chiave della risorsa. Se la variabile di ambiente è stata creata dopo l'avvio dell'applicazione, per accedervi sarà necessario chiudere e riaprire l'editor, l'IDE o la shell in cui è in esecuzione. Gli altri metodi verranno definiti successivamente.
 
 [!code-java[main method](~/cognitive-services-java-sdk-samples/Search/BingCustomSearch/src/main/java/BingCustomSearchSample.java?name=main)]
 

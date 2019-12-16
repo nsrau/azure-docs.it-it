@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: d5b0ebc2d1b64dd4be677c38de30af7f7a954637
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 9c3fac7aecaf37b5822ad6e8c655867f6f2c683c
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075096"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872707"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway-using-azure-powershell"></a>Guida introduttiva: Indirizzare il traffico Web con un gateway applicazione Azure mediante Azure PowerShell
 
@@ -71,62 +71,6 @@ New-AzPublicIpAddress `
   -AllocationMethod Static `
   -Sku Standard
 ```
-### <a name="backend-servers"></a>Server back-end
-
-Il back-end può essere costituito da schede di interfaccia di rete, set di scalabilità di macchine virtuali, IP pubblici, IP interni, nomi di dominio completi (FQDN) e back-end multi-tenant come Servizio app di Azure. In questo esempio vengono create due macchine virtuali per Azure da usare come server back-end per il gateway applicazione. È anche possibile installare IIS nelle macchine virtuali per verificare l'avvenuta creazione del gateway applicazione in Azure.
-
-#### <a name="create-two-virtual-machines"></a>Creare due macchine virtuali
-
-1. Creare un'interfaccia di rete con [New-AzNetworkInterface](/powershell/module/Az.network/new-Aznetworkinterface). 
-2. Creare una configurazione di macchina virtuale con [New-AzVMConfig](/powershell/module/Az.compute/new-Azvmconfig).
-3. Creare la macchina virtuale con [New-AzVM](/powershell/module/Az.compute/new-Azvm).
-
-Quando si esegue l'esempio di codice seguente per creare le macchine virtuali, Azure richiede le credenziali. Immettere *azureuser* per il nome utente e *Azure123456!* per la password:
-    
-```azurepowershell-interactive
-$vnet   = Get-AzVirtualNetwork -ResourceGroupName myResourceGroupAG -Name myVNet
-$subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name myBackendSubnet
-$cred = Get-Credential
-for ($i=1; $i -le 2; $i++)
-{
-  $nic = New-AzNetworkInterface `
-    -Name myNic$i `
-    -ResourceGroupName myResourceGroupAG `
-    -Location EastUS `
-    -SubnetId $subnet.Id
-  $vm = New-AzVMConfig `
-    -VMName myVM$i `
-    -VMSize Standard_DS2_v2
-  Set-AzVMOperatingSystem `
-    -VM $vm `
-    -Windows `
-    -ComputerName myVM$i `
-    -Credential $cred
-  Set-AzVMSourceImage `
-    -VM $vm `
-    -PublisherName MicrosoftWindowsServer `
-    -Offer WindowsServer `
-    -Skus 2016-Datacenter `
-    -Version latest
-  Add-AzVMNetworkInterface `
-    -VM $vm `
-    -Id $nic.Id
-  Set-AzVMBootDiagnostic `
-    -VM $vm `
-    -Disable
-  New-AzVM -ResourceGroupName myResourceGroupAG -Location EastUS -VM $vm
-  Set-AzVMExtension `
-    -ResourceGroupName myResourceGroupAG `
-    -ExtensionName IIS `
-    -VMName myVM$i `
-    -Publisher Microsoft.Compute `
-    -ExtensionType CustomScriptExtension `
-    -TypeHandlerVersion 1.4 `
-    -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
-    -Location EastUS
-}
-```
-
 ## <a name="create-an-application-gateway"></a>Creare un gateway applicazione
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Creare le configurazioni IP e la porta front-end
@@ -152,21 +96,20 @@ $frontendport = New-AzApplicationGatewayFrontendPort `
 
 ### <a name="create-the-backend-pool"></a>Creare il pool back-end
 
-1. Usare [New-AzApplicationGatewayBackendAddressPool](/powershell/module/Az.network/new-Azapplicationgatewaybackendaddresspool) per creare il pool back-end per il gateway applicazione. 
+1. Usare [New-AzApplicationGatewayBackendAddressPool](/powershell/module/Az.network/new-Azapplicationgatewaybackendaddresspool) per creare il pool back-end per il gateway applicazione. Il pool back-end sarà vuoto per il momento e quando verranno create le schede di interfaccia di rete del server back-end nella sezione successiva le si aggiungerà al pool back-end.
 2. Configurare le impostazioni per il pool back-end con [New-AzApplicationGatewayBackendHttpSetting](/powershell/module/Az.network/new-Azapplicationgatewaybackendhttpsetting).
 
 ```azurepowershell-interactive
 $address1 = Get-AzNetworkInterface -ResourceGroupName myResourceGroupAG -Name myNic1
 $address2 = Get-AzNetworkInterface -ResourceGroupName myResourceGroupAG -Name myNic2
 $backendPool = New-AzApplicationGatewayBackendAddressPool `
-  -Name myAGBackendPool `
-  -BackendIPAddresses $address1.ipconfigurations[0].privateipaddress, $address2.ipconfigurations[0].privateipaddress
+  -Name myAGBackendPool
 $poolSettings = New-AzApplicationGatewayBackendHttpSetting `
   -Name myPoolSettings `
   -Port 80 `
   -Protocol Http `
   -CookieBasedAffinity Enabled `
-  -RequestTimeout 120
+  -RequestTimeout 30
 ```
 
 ### <a name="create-the-listener-and-add-a-rule"></a>Creare il listener e aggiungere una regola
@@ -214,6 +157,66 @@ New-AzApplicationGateway `
   -HttpListeners $defaultlistener `
   -RequestRoutingRules $frontendRule `
   -Sku $sku
+```
+
+### <a name="backend-servers"></a>Server back-end
+
+Dopo aver creato il gateway applicazione, creare le macchine virtuali back-end che ospiteranno i siti Web. Il back-end può essere costituito da schede di interfaccia di rete, set di scalabilità di macchine virtuali, IP pubblici, IP interni, nomi di dominio completi (FQDN) e back-end multi-tenant come Servizio app di Azure. In questo esempio vengono create due macchine virtuali per Azure da usare come server back-end per il gateway applicazione. È anche possibile installare IIS nelle macchine virtuali per verificare l'avvenuta creazione del gateway applicazione in Azure.
+
+#### <a name="create-two-virtual-machines"></a>Creare due macchine virtuali
+
+1. Ottenere la configurazione del pool back-end del gateway applicazione creata di recente con il comando [Get-AzApplicationGatewayBackendAddressPool](/powershell/module/Az.network/get-Azapplicationgatewaybackendaddresspool)
+2. Creare un'interfaccia di rete con [New-AzNetworkInterface](/powershell/module/Az.network/new-Aznetworkinterface). 
+3. Creare una configurazione di macchina virtuale con [New-AzVMConfig](/powershell/module/Az.compute/new-Azvmconfig).
+4. Creare la macchina virtuale con [New-AzVM](/powershell/module/Az.compute/new-Azvm).
+
+Quando si esegue l'esempio di codice seguente per creare le macchine virtuali, Azure richiede le credenziali. Immettere *azureuser* per il nome utente e *Azure123456!* per la password:
+    
+```azurepowershell-interactive
+$appgw = Get-AzApplicationGateway -ResourceGroupName myResourceGroupAG -Name myAppGateway
+$backendPool = Get-AzApplicationGatewayBackendAddressPool -Name myAGBackendPool -ApplicationGateway $appgw
+$vnet   = Get-AzVirtualNetwork -ResourceGroupName myResourceGroupAG -Name myVNet
+$subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name myBackendSubnet
+$cred = Get-Credential
+for ($i=1; $i -le 2; $i++)
+{
+  $nic = New-AzNetworkInterface `
+    -Name myNic$i `
+    -ResourceGroupName myResourceGroupAG `
+    -Location EastUS `
+    -Subnet $subnet `
+    -ApplicationGatewayBackendAddressPool $backendpool
+  $vm = New-AzVMConfig `
+    -VMName myVM$i `
+    -VMSize Standard_DS2_v2
+  Set-AzVMOperatingSystem `
+    -VM $vm `
+    -Windows `
+    -ComputerName myVM$i `
+    -Credential $cred
+  Set-AzVMSourceImage `
+    -VM $vm `
+    -PublisherName MicrosoftWindowsServer `
+    -Offer WindowsServer `
+    -Skus 2016-Datacenter `
+    -Version latest
+  Add-AzVMNetworkInterface `
+    -VM $vm `
+    -Id $nic.Id
+  Set-AzVMBootDiagnostic `
+    -VM $vm `
+    -Disable
+  New-AzVM -ResourceGroupName myResourceGroupAG -Location EastUS -VM $vm
+  Set-AzVMExtension `
+    -ResourceGroupName myResourceGroupAG `
+    -ExtensionName IIS `
+    -VMName myVM$i `
+    -Publisher Microsoft.Compute `
+    -ExtensionType CustomScriptExtension `
+    -TypeHandlerVersion 1.4 `
+    -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
+    -Location EastUS
+}
 ```
 
 ## <a name="test-the-application-gateway"></a>Testare il gateway applicazione

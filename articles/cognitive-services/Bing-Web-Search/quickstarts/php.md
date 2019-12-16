@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Eseguire una ricerca con PHP - API Ricerca Web Bing'
+title: 'Guida introduttiva: Eseguire una ricerca con PHP - API Ricerca Web Bing'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida di avvio rapido per inviare richieste all'API REST Ricerca Web Bing usando PHP e ricevere una risposta JSON
 services: cognitive-services
@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: ba132adc6b0fd2b8423a7bce30ad6d52fccc898e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cf3cf1f69f7b45dd90070f4074e85fa21359837d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57858202"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961480"
 ---
-# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Avvio rapido: Usare PHP per chiamare l'API Ricerca Web Bing  
+# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Guida introduttiva: Usare PHP per chiamare l'API Ricerca Web Bing  
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca Web Bing e ricevere la risposta JSON. Questa applicazione Node.js invia una richiesta di ricerca all'API e mostra la risposta. L'applicazione è scritta in JavaScript, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
@@ -43,7 +43,7 @@ Prima di iniziare, individuare `php.ini` e rimuovere il carattere di commento da
 
 Creare un nuovo progetto PHP nell'ambiente di sviluppo integrato o nell'editor preferito. Non dimenticare di aggiungere i tag di apertura e chiusura `<?php` e `?>`.
 
-Prima di continuare, è necessario impostare alcune variabili. Verificare che il valore di `$endpoint` sia corretto e sostituire il valore di `$accesskey` con una chiave di sottoscrizione valida del proprio account Azure. È possibile personalizzare la query di ricerca sostituendo il valore per `$term`.
+Prima di continuare, è necessario impostare alcune variabili. `$endpoint` può essere l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa. Verificare che il valore di `$endpoint` sia corretto e sostituire il valore di `$accesskey` con una chiave di sottoscrizione valida del proprio account Azure. È possibile personalizzare la query di ricerca sostituendo il valore per `$term`.
 
 ```php
 $accessKey = 'enter key here';

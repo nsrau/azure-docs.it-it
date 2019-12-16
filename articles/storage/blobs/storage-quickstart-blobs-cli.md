@@ -1,21 +1,22 @@
 ---
-title: Guida di avvio rapido di Azure - Creare un BLOB nell'archivio oggetti con l'interfaccia della riga di comando di Azure | Microsoft Docs
+title: "Avvio rapido: Creare un BLOB con l'interfaccia della riga di comando di Azure"
+titleSuffix: Azure Storage
 description: Questa Guida di avvio rapido illustra come usare l'interfaccia della riga di comando di Azure per caricare un BLOB in Archiviazione di Azure, scaricare un BLOB ed elencare i BLOB in un contenitore.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/06/2019
+ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 1f3143eced90f97c090c0005375ef50fe48c5f5f
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: c913cb978796abeed5766ffa030aaeb6142320ec
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747938"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892924"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Guida di avvio rapido: Caricare, scaricare ed elencare BLOB con l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con l'interfaccia della riga di comando di Azure
 
 L'interfaccia della riga di comando di Azure è l'esperienza della riga di comando di Azure per gestire le risorse di Azure. È possibile usarla nel browser con Azure Cloud Shell. È anche possibile installarla in macOS, Linux o Windows ed eseguirla dalla riga di comando. Questa guida introduttiva spiega come usare l'interfaccia della riga di comando di Azure per caricare e scaricare dati in Archiviazione BLOB di Azure.
 

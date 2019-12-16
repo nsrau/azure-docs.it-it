@@ -10,19 +10,22 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 11/06/2019
-ms.openlocfilehash: 47c0ecb5674f821d3034fb5f165df08f176c2e93
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.date: 12/06/2019
+ms.openlocfilehash: a124c33f15318f1b9b22a750a1de15601823afa3
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646932"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74890692"
 ---
 # <a name="quickstart-create-an-instance-of-azure-database-migration-service-in-hybrid-mode-using-the-azure-portal-preview"></a>Guida introduttiva: Creare un'istanza del Servizio Migrazione del database di Azure in modalità ibrida usando il portale di Azure (anteprima)
 
 La modalità ibrida del Servizio Migrazione del database di Azure gestisce le migrazioni dei database usando un ruolo di lavoro di migrazione ospitato in locale insieme a un'istanza del Servizio Migrazione del database di Azure in esecuzione nel cloud. La modalità ibrida è particolarmente utile per gli scenari in cui si verifica una mancanza di connettività da sito a sito tra la rete locale e Azure oppure è disponibile una larghezza di banda di connettività da sito a sito limitata.
 
 In questa guida di avvio rapido viene usato il portale di Azure per creare un'istanza del Servizio Migrazione del database di Azure in modalità ibrida. Successivamente, viene scaricato, installato e configurato il ruolo di lavoro ibrido nella rete locale. In fase di anteprima è possibile usare la modalità ibrida del Servizio Migrazione del database di Azure per eseguire la migrazione dei dati da un'istanza locale di SQL Server al database SQL di Azure.
+
+> [!IMPORTANT]
+> Il programma di installazione ibrido del Servizio Migrazione del database di Azure richiede .NET 4.7.2 o versione successiva. Per trovare le versioni più recenti di .NET, vedere la pagina di [download di .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -111,6 +114,9 @@ Prima di creare la prima istanza del Servizio Migrazione del database di Azure, 
 
 3. Estrarre il file ZIP nel server che ospiterà il ruolo di lavoro ibrido del Servizio Migrazione del database di Azure.
 
+    > [!IMPORTANT]
+    > Il programma di installazione ibrido del Servizio Migrazione del database di Azure richiede .NET 4.7.2 o versione successiva. Per trovare le versioni più recenti di .NET, vedere la pagina di [download di .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
+
 4. Nella cartella di installazione individuare e aprire il file **dmsSettings.json**, specificare **ApplicationId** e **resourceId** e quindi salvare il file.
 
     ![Impostazioni del ruolo di lavoro ibrido del Servizio Migrazione del database di Azure](media/quickstart-create-data-migration-service-hybrid-portal/dms-settings.png)
@@ -125,7 +131,7 @@ Prima di creare la prima istanza del Servizio Migrazione del database di Azure, 
 
     ![Certificato del ruolo di lavoro ibrido del Servizio Migrazione del database di Azure](media/quickstart-create-data-migration-service-hybrid-portal/dms-certificate.png)
 
-6. Nel portale di Azure passare all'ID app in **Gestisci** selezionare **Certificato/segreto** e quindi selezionare **Carica certificato** per selezionare il certificato pubblico generato.
+6. Nel portale di Azure passare all'ID app in **Gestisci**, selezionare **Certificati e segreti** e quindi selezionare **Carica certificato** per selezionare il certificato pubblico generato.
 
     ![Caricamento del certificato del ruolo di lavoro ibrido del Servizio Migrazione del database di Azure](media/quickstart-create-data-migration-service-hybrid-portal/dms-app-upload-certificate.png)
 

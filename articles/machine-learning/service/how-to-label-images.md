@@ -1,18 +1,18 @@
 ---
-title: Come usare lo strumento di etichettatura dei dati di Azure Machine Learning
+title: Aggiungere tag alle immagini in un progetto di etichettatura
 title.suffix: Azure Machine Learning
-description: Questo articolo illustra come usare gli strumenti di aggiunta dei tag ai dati in un progetto di etichettatura di Azure Machine Learning.
+description: Informazioni su come usare gli strumenti di aggiunta dei tag ai dati in un progetto di etichettatura di Azure Machine Learning.
 author: lobrien
 ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: bc7eaeefcef042417b29eb7c887cc19acf8c5c02
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: b36eed1918be2c769bcf74c0d8dee09a5bd62756
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688227"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978135"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Aggiungere tag alle immagini in un progetto di etichettatura
 
@@ -108,7 +108,7 @@ Dopo aver creato i rettangoli di selezione per un'immagine, selezionare **Invia*
 
 ## <a name="finish-up"></a>Completare la procedura
 
-Quando si invia una pagina di dati con tag, Azure assegna nuovi dati non etichettati da una coda di lavoro. Se non sono disponibili altri dati senza etichetta, verrà visualizzato un messaggio con un collegamento alla home page del portale.
+Quando si invia una pagina di dati con tag, Azure assegna all'utente nuovi dati non etichettati da una coda di lavoro. Se non sono disponibili altri dati senza etichetta, verrà visualizzato un messaggio con un collegamento alla home page del portale.
 
 Al termine dell'etichettatura, selezionare il proprio nome nell'angolo in alto a destra del portale e quindi selezionare **Disconnetti**. Se non si esegue la disconnessione, la sessione di Azure dell'utente raggiungerà il "timeout" e i dati verranno assegnati a un altro etichettatore.
 

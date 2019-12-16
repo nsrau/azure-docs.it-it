@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 11/23/2019
 ms.author: victorh
-ms.openlocfilehash: a61b1a44419ac35efa5888de2b5a6e4988dfb512
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 29962fa217c34088ed17fdea68c2c1189a3bfcd2
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422303"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996579"
 ---
 # <a name="what-is-azure-application-gateway"></a>Cos'è il gateway applicazione di Azure?
 
@@ -111,7 +111,7 @@ Per altre informazioni, vedere [Supporto per WebSocket](https://docs.microsoft.c
 
 ## <a name="connection-draining"></a>Esaurimento delle connessioni
 
-Lo svuotamento delle connessioni aiuta a rimuovere in modo controllato i membri del pool back-end durante gli aggiornamenti pianificati del servizio. Questa modalità viene abilitata tramite l'impostazione http back-end e può essere applicata a tutti i membri di un pool back-end durante la creazione delle regole. Quando è abilitata, il gateway applicazione assicura che tutte le istanze di un pool back-end in fase di annullamento della registrazione non ricevano nuove richieste e che le richieste esistenti vengano completate entro un limite di tempo configurato. Questo vale sia per le istanze back-end che vengono rimosse dal pool back-end in modo esplicito mediante una chiamata API, sia per le istanze back-end che vengono segnalate come non integre, come determinato dai probe di integrità.
+Lo svuotamento delle connessioni aiuta a rimuovere in modo controllato i membri del pool back-end durante gli aggiornamenti pianificati del servizio. Questa modalità viene abilitata tramite l'impostazione http back-end e può essere applicata a tutti i membri di un pool back-end durante la creazione delle regole. Una volta abilitata, il gateway applicazione assicura che tutte le istanze di un pool back-end in fase di annullamento della registrazione non ricevano nuove richieste e che le richieste esistenti vengano completate entro un limite di tempo configurato. Questo vale sia per le istanze back-end che vengono rimosse dal pool back-end in modo esplicito mediante una modifica di configurazione dell'utente, sia per le istanze back-end che vengono segnalate come non integre, come determinato dai probe di integrità. L'unica eccezione è costituita dalle richieste associate per le istanze in fase di annullamento della registrazione per le quali la registrazione è stata annullata in modo esplicito a causa dell'affinità di sessione gestita dal gateway che continueranno a essere inviate tramite proxy alle istanze in fase di annullamento della registrazione.
 
 Per altre informazioni, vedere la sezione Svuotamento delle connessioni in [Panoramica della configurazione del gateway applicazione](https://docs.microsoft.com/azure/application-gateway/configuration-overview#connection-draining).
 

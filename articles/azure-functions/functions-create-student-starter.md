@@ -6,12 +6,12 @@ author: alexkarcher-msft
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
-ms.openlocfilehash: b86ea2367a17baa8c57b8d0c0331c0cd3cfbb481
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: aa2e0e8be8805187ec1f5b8ea6498e90e2d5a7c4
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227113"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976877"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Creare una funzione usando Azure for Students Starter
 
@@ -121,7 +121,7 @@ Azure for Student Starter offre l'accesso alla maggior parte delle funzioni del 
     * [Linguaggi supportati nei piani superiori](supported-languages.md)
 * Windows è l'unico sistema operativo supportato.
 * Il ridimensionamento è limitato a [una sola istanza di livello gratuito](https://azure.microsoft.com/pricing/details/app-service/windows/) eseguita per un massimo di 60 minuti al giorno. È possibile ridimensionare automaticamente in modalità serverless da 0 a 1 istanza quando si riceve traffico HTTP, ma non oltre.
-* È supportato solo il [runtime 2.x](functions-versions.md).
+* Sono supportate solo la [versione 2.x e successive](functions-versions.md) del runtime di Funzioni.
 * Sono supportati tutti gli strumenti di sviluppo per la modifica e la pubblicazione di funzioni, inclusi VS Code, Visual Studio, l'interfaccia della riga di comando di Azure e il portale di Azure. Se non si vuole usare il portale, occorre prima creare un'app nel portale e quindi selezionarla come destinazione della distribuzione nello strumento che si preferisce.
 
 ## <a name="next-steps"></a>Passaggi successivi

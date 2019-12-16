@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/26/2019
+ms.date: 12/06/2019
 ms.author: aahi
-ms.openlocfilehash: b369dc82e98dff58a42b63b9733e7b786593d534
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: e52101b873e03cd6fcd847e9aa2a2d801f8f583d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034661"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918857"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>Avvio rapido: Cercare immagini con l'API REST Ricerca immagini Bing e C#
 
@@ -42,7 +42,7 @@ Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.
     using Newtonsoft.Json.Linq;
     ```
 
-2. Creare variabili per l'endpoint dell'API, la chiave di sottoscrizione e il termine di ricerca.
+2. Creare variabili per l'endpoint dell'API, la chiave di sottoscrizione e il termine di ricerca. `uriBase` può essere l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 
     ```csharp
     //...

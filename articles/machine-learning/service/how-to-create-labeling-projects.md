@@ -1,20 +1,20 @@
 ---
-title: Ottenere etichette per i dati
+title: Creare un progetto di etichettatura dei dati
 titleSuffix: Azure Machine Learning
-description: Questo articolo illustra come creare ed eseguire i progetti di etichettatura per aggiungere tag ai dati per Machine Learning.
+description: Informazioni su come creare ed eseguire i progetti di etichettatura per aggiungere tag ai dati per Machine Learning.
 author: lobrien
 ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: e66a9f8a775a46c906601ea08be52ca9dfbe0171
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: bdedc3ee0c76eafc4b4bc95116fb5be846f4bee5
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689303"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978237"
 ---
-# <a name="get-labels-for-data"></a>Ottenere etichette per i dati
+# <a name="create-a-data-labeling-project-and-export-labels"></a>Creare un progetto di etichettatura dei dati ed esportare le etichette 
 
 L'etichettatura di un volume elevato di dati in progetti di Machine Learning è spesso un'operazione complicata. I progetti che includono un componente visione artificiale, ad esempio la classificazione di immagini o il rilevamento di oggetti, richiedono in genere le etichette per migliaia di immagini.
  
@@ -24,6 +24,9 @@ Machine Learning tiene traccia dello stato di avanzamento e mantiene la coda del
 
 In Machine Learning è possibile avviare e arrestare il progetto, aggiungere e rimuovere utenti e team, nonché monitorare lo stato di avanzamento. È possibile esportare i dati etichettati in formato COCO o come set di dati di Azure Machine Learning.
 
+> [!Important]
+> Attualmente sono supportati solo i progetti etichettatura per la classificazione di immagini e l'identificazione degli oggetti. Le immagini dei dati devono inoltre essere disponibili in un archivio dati BLOB di Azure. Se non si dispone di un archivio dati esistente, è possibile caricare le immagini durante la creazione del progetto. 
+
 L'articolo spiega come:
 
 > [!div class="checklist"]
@@ -32,6 +35,7 @@ L'articolo spiega come:
 > * Gestire i team e le persone che collaborano al progetto
 > * Eseguire e monitorare il progetto
 > * Esportare le etichette
+
 
 ## <a name="prerequisites"></a>Prerequisiti
 

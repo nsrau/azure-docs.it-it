@@ -1,5 +1,5 @@
 ---
-title: Esercitazione sulla progettazione di un database multi-tenant con Database di Azure per PostgreSQL - Hyperscale (Citus)
+title: 'Esercitazione: Progettare un database multi-tenant - Hyperscale (Citus) - Database di Azure per PostgreSQL'
 description: Questa esercitazione illustra come creare, popolare ed eseguire query su tabelle distribuite in Database di Azure per PostgreSQL - Hyperscale (Citus).
 author: jonels-msft
 ms.author: jonels
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: 130c3e9f5abb24ffcc4e0c4ad6b96af5fca62090
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 17ac29de243f4abfff1cfc83fc6424799978bf0e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496547"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978152"
 ---
 # <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Esercitazione: Progettare un database multi-tenant con Database di Azure per PostgreSQL - Hyperscale (Citus)
 

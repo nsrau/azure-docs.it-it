@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 95ea1718682340967d5d39fe5f550f2638273796
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 75f2969562dd2de041ffaa146c394f1a18c7756b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73743693"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961540"
 ---
 # <a name="what-is-the-azure-face-api"></a>Informazioni sull'API Viso di Azure
 
@@ -35,7 +35,7 @@ Per altre informazioni sul rilevamento del viso, vedere l'articolo che illustra 
 
 ## <a name="face-verification"></a>Verifica del viso
 
-L'API di verifica esegue un'autenticazione su due visi rilevati o un'autenticazione da un viso rilevato a un oggetto persona. In pratica, valuta se due visi appartengano alla stessa persona. Questo è potenzialmente utile negli scenari di sicurezza. Per altre informazioni, vedere l'articolo che illustra i concetti relativi al [riconoscimento del viso](concepts/face-recognition.md) o consultare la documentazione di riferimento dell'[API di verifica](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
+L'API di verifica esegue un'autenticazione in base a due visi rilevati o da un viso rilevato con un oggetto persona. In pratica, valuta se due visi appartengano alla stessa persona. Questo è potenzialmente utile negli scenari di sicurezza. Per altre informazioni, vedere l'articolo che illustra i concetti relativi al [riconoscimento del viso](concepts/face-recognition.md) o consultare la documentazione di riferimento dell'[API di verifica](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 
 ## <a name="find-similar-faces"></a>Individuazione di visi simili
 
@@ -45,11 +45,11 @@ L'esempio seguente mostra il viso di destinazione:
 
 ![Una donna sorridente](./Images/FaceFindSimilar.QueryFace.jpg)
 
-E questi sono i visi candidati:
+E queste immagini sono i visi candidati:
 
 ![Cinque immagini di persone sorridenti. Le immagini a e b mostrano la stessa persona.](./Images/FaceFindSimilar.Candidates.jpg)
 
-Per trovare quattro visi simili, la modalità matchPerson restituisce a e b, che mostrano la stessa persona del viso di destinazione. La modalità matchFace restituisce a, b, c, e d, esattamente quattro candidati, anche se alcuni non appartengono alla stessa persona della destinazione o la somiglianza è minore. Per altre informazioni, vedere l'articolo che illustra i concetti relativi al [riconoscimento del viso](concepts/face-recognition.md) o consultare la documentazione di riferimento dell'[API di individuazione di visi simili](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
+Per trovare quattro visi simili, la modalità matchPerson restituisce a e b, che mostrano la stessa persona del viso di destinazione. La modalità matchFace restituisce a, b, c, e d&mdash;esattamente quattro candidati, anche se alcuni non appartengono alla stessa persona di destinazione o presentano una somiglianza minore. Per altre informazioni, vedere l'articolo che illustra i concetti relativi al [riconoscimento del viso](concepts/face-recognition.md) o consultare la documentazione di riferimento dell'[API di individuazione di visi simili](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
 
 ## <a name="face-grouping"></a>Raggruppamento dei visi
 
