@@ -1,5 +1,6 @@
 ---
-title: Personalizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato in Azure Active Directory B2C | Microsoft Docs
+title: Personalizzare l'interfaccia utente dell'app con criteri personalizzati
+titleSuffix: Azure AD B2C
 description: Informazioni sulla personalizzazione di un'interfaccia utente mediante un criterio personalizzato in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2f0e13b4e68ee4b94a254cb8497a44cc0b8b470f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1ac0f59ea709e25f3d71a78ece5ebf40690bd3be
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209437"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949627"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato in Azure Active Directory B2C
 
@@ -23,7 +24,7 @@ ms.locfileid: "74209437"
 
 Al termine di questo articolo, saranno disponibili un criterio personalizzato per l'iscrizione e l'accesso con il proprio marchio e aspetto. Con Azure Active Directory B2C (Azure AD B2C) si ottiene il controllo quasi completo del contenuto HTML e CSS presentato agli utenti. Quando si usa un criterio personalizzato, si configura la personalizzazione dell'interfaccia utente in XML anziché usare i controlli nel portale di Azure.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Completare la procedura descritta in [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md). È necessario disporre di un criterio personalizzato di lavoro per l'iscrizione e l'accesso con account locali.
 
@@ -100,12 +101,12 @@ Per creare un contenitore pubblico nell'archivio BLOB, seguire questa procedura:
 Configurare l'archiviazione BLOB per la condivisione di risorse tra le origini eseguendo i passaggi seguenti:
 
 1. Nel menu selezionare **CORS**.
-1. Per **Origini consentite** immettere `https://your-tenant-name.b2clogin.com`. Sostituire `your-tenant-name` con il nome del tenant di Azure AD B2C. Ad esempio: `https://fabrikam.b2clogin.com`. È necessario usare solo lettere minuscole quando si immette il nome del tenant.
+1. Per **Origini consentite** immettere `https://your-tenant-name.b2clogin.com`. Sostituire `your-tenant-name` con il nome del tenant di Azure AD B2C. Ad esempio `https://fabrikam.b2clogin.com`. È necessario usare solo lettere minuscole quando si immette il nome del tenant.
 1. Per **Metodi consentiti** selezionare sia `GET` che `OPTIONS`.
 1. Per **Intestazioni consentite** immettere un asterisco (*).
 1. Per **Intestazioni esposte** immettere un asterisco (*).
 1. Per **Età massima** immettere 200.
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**
 
 ## <a name="test-cors"></a>Testare CORS
 
@@ -124,7 +125,7 @@ Per configurare la personalizzazione dell'interfaccia utente, si copia **Content
 1. Aprire il file di estensione. ad esempio *TrustFrameworkExtensions.xml*. Cercare l'elemento **BuildingBlocks**. Se l'elemento non esiste, aggiungerlo.
 1. Incollare l'intero contenuto dell'elemento **ContentDefinitions** copiato come figlio dell'elemento **BuildingBlocks**.
 1. Cercare l'elemento **ContentDefinition** che contiene `Id="api.signuporsignin"` nel codice XML copiato.
-1. Cambiare il valore di **LoadUri** nell'URL del file HTML caricato nell'archivio. Ad esempio: `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
+1. Cambiare il valore di **LoadUri** nell'URL del file HTML caricato nell'archivio. Ad esempio `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
 
     I criteri personalizzati dovrebbero essere simili ai seguenti:
 
@@ -160,7 +161,7 @@ Per configurare la personalizzazione dell'interfaccia utente, si copia **Content
 1. Selezionare il criterio personalizzato che è stato caricato e fare clic sul pulsante **Esegui adesso**.
 1. Dovrebbe essere possibile iscriversi usando un indirizzo di posta elettronica.
 
-## <a name="reference"></a>riferimento
+## <a name="reference"></a>Riferimento
 
 ### <a name="sample-templates"></a>Modelli di esempio
 È possibile trovare modelli di esempio per la personalizzazione dell'interfaccia utente qui:
@@ -171,7 +172,7 @@ git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 
 La cartella sample_templates/wingtip contiene i file HTML seguenti:
 
-| Modello HTML5 | DESCRIZIONE |
+| Modello HTML5 | Description |
 |----------------|-------------|
 | *phonefactor.html* | Usare questo file come modello per una pagina di autenticazione a più fattori. |
 | *resetpassword.html* | Usare questo file come modello per una pagina Password dimenticata. |
@@ -192,7 +193,7 @@ Ecco i passaggi per l'uso dell'esempio:
 
 Nella sezione Modificare i criteri personalizzati di iscrizione o di accesso è stata configurata la definizione del contenuto per `api.idpselections`. Il set completo di ID di definizione del contenuto riconosciuti dal framework dell'esperienza di gestione delle identità di AD B2C e le relative descrizioni sono disponibili nella tabella seguente:
 
-| ID definizione del contenuto | DESCRIZIONE |
+| ID definizione del contenuto | Description |
 |-----------------------|-------------|
 | *api.error* | **Pagina di errore**. Questa pagina viene visualizzata quando viene rilevata un'eccezione o un errore. |
 | *api.idpselections* | **Pagina di selezione del provider di identità**. Questa pagina contiene un elenco dei provider di identità che l'utente può scegliere durante la procedura di accesso. Si tratta di provider di identità aziendali, provider di identità basati su social network, ad esempio Facebook e Google+, o account locali. |
