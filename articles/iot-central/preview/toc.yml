@@ -4,8 +4,6 @@
   items:
     - name: Informazioni su Azure IoT Central
       href: overview-iot-central.md
-    - name: Opzioni per le soluzioni IoT
-      href: ../core/overview-iot-options.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
     - name: Presentazione dell'interfaccia utente
       href: overview-iot-central-tour.md
     - name: Connettersi
@@ -14,7 +12,7 @@
       href: overview-iot-central-stay-connected.md
     - name: Trasformare
       href: overview-iot-central-transform.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: 1. Creare una nuova applicazione
@@ -49,11 +47,11 @@
           href: 'https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/'
 - name: Concetti
   items:
-    - name: Architettura
+    - name: Architecture
       href: concepts-architecture.md
     - name: Che cosa i modelli di applicazione?
       href: ../core/concepts-app-templates.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Connettersi
       items:
@@ -95,13 +93,13 @@
           href: howto-create-custom-rules.md
         - name: Creare analisi personalizzate con Databricks
           href: howto-create-custom-analytics.md
-    - name: Administration
+    - name: Amministrazione
       items:
         - name: Gestire l'applicazione
           items:
             - name: Modificare le impostazioni dell'applicazione
               href: howto-administer.md
-            - name: Gestire utenti e ruoli
+            - name: Gestione di utenti e ruoli
               href: howto-manage-users-roles.md
             - name: Gestire la fattura
               href: howto-view-bill.md

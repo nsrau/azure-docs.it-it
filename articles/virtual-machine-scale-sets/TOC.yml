@@ -4,7 +4,7 @@
   items:
     - name: Che cosa sono i set di scalabilità delle macchine virtuali?
       href: overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare nel portale di Azure
@@ -64,7 +64,7 @@
 - name: Concetti
   items:
     - name: Azure Resource Manager
-      href: ../azure-resource-manager/resource-group-overview.md
+      href: ../azure-resource-manager/management/overview.md
       maintainContext: true
     - name: Regioni
       href: ../virtual-machines/windows/regions.md
@@ -233,7 +233,7 @@
           href: virtual-machine-scale-sets-convert-template-to-md.md
         - name: Usare l'istanza Spot
           href: use-spot.md
-    - name: Gestisci
+    - name: Gestione
       items:
         - name: Attività di gestione comuni
           items:
@@ -286,7 +286,7 @@
         - name: Ridimensionare automaticamente un set di scalabilità
           href: /azure/ansible/ansible-auto-scale-vmss
           maintainContext: true
-- name: riferimento
+- name: Riferimento
   items:
     - name: Azure PowerShell
       href: /powershell/azure/overview

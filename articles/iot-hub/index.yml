@@ -48,6 +48,7 @@ sections:
               - href: /azure/iot-hub/quickstart-send-telemetry-ios
           - title: Controllare un dispositivo
             values:
+              - href: null
               - href: /azure/iot-hub/quickstart-control-device-node
               - href: /azure/iot-hub/quickstart-control-device-dotnet
               - href: /azure/iot-hub/quickstart-control-device-java
@@ -55,6 +56,7 @@ sections:
               - href: /azure/iot-hub/quickstart-control-device-android
           - title: Comunicare tramite i flussi dispositivo (anteprima)
             values:
+              - href: null
               - href: /azure/iot-hub/quickstart-device-streams-echo-nodejs
               - href: /azure/iot-hub/quickstart-device-streams-echo-csharp
               - href: null
@@ -64,6 +66,7 @@ sections:
               - href: null
           - title: SSH/RDP tramite i flussi dispositivo (anteprima)
             values:
+              - href: null
               - href: /azure/iot-hub/quickstart-device-streams-proxy-nodejs
               - href: /azure/iot-hub/quickstart-device-streams-proxy-csharp
               - href: null
@@ -80,7 +83,7 @@ sections:
           - html: <a href="/azure/iot-hub/tutorial-device-twins">Configurare i dispositivi da un servizio back-end</a>
           - html: <a href="/azure/iot-hub/tutorial-firmware-update">Implementare un processo di aggiornamento del firmware del dispositivo</a>
           - html: <a href="/azure/iot-hub/tutorial-connectivity">Usare un dispositivo simulato per testare la connettività con l'hub IoT</a>
-  - title: riferimento
+  - title: Riferimento
     items:
       - type: list
         style: cards

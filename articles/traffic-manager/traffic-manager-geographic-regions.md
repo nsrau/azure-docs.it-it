@@ -482,7 +482,7 @@ In questo articolo sono elencati i paesi e le regioni usati nel metodo di routin
 
         - CF (Repubblica Centrafricana)
 
-        - CI (Costa d'Avorio)
+        - Côte d’Ivoire (Costa d’Avorio)
 
         - CM (Camerun)
 

@@ -3,18 +3,18 @@ title: Panoramica dell'esempio di progetto di definizione della base di Cloud Ad
 description: Panoramica e architettura del progetto di esempio di definizione della base di Cloud Adoption Framework (CAF) per Azure.
 ms.date: 08/20/2019
 ms.topic: sample
-ms.openlocfilehash: 8339b7335ff2946dcd602db6ece4637ac4bc1d92
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 79b47127b81caf148054f4223e5fa7ad9fbf86fe
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74545442"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562562"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Panoramica del progetto di esempio di definizione della base di Microsoft Cloud Adoption Framework per Azure
 
 Il progetto di definizione della base di Microsoft Cloud Adoption Framework (CAF) per Azure consente di distribuire un set di infrastrutture di base e controlli di criteri richiesti per la prima applicazione Azure destinata ad ambienti di produzione. Questo progetto di base è basato sul modello consigliato disponibile in Cloud Adoption Framework.
 
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 
 Il progetto di esempio di definizione della base di Cloud Adoption Framework distribuisce le risorse dell'infrastruttura consigliate in Azure che possono essere usate dalle organizzazioni per predisporre i controlli di base necessari per gestire l'ambiente cloud. Con questo esempio verranno distribuite e imposte risorse, criteri e modelli che permetteranno a un'organizzazione di iniziare a usare Azure in modo sicuro.
 
@@ -43,7 +43,7 @@ Tutti questi elementi sono conformi a procedure comprovate pubblicate in [Centro
 > Il progetto di definizione della base di Cloud Adoption Framework predispone un'architettura di base per i carichi di lavoro.
 > Sarà comunque necessario distribuire i carichi di lavoro su cui viene definita questa architettura di base.
 
-Per altre informazioni, vedere [Microsoft Cloud Adoption Framework per Azure - Idoneità](/azure/architecture/cloud-adoption/ready/azure-readiness-guide/govern-org-compliance?tabs=AzurePolicy).
+Per altre informazioni, vedere [Microsoft Cloud Adoption Framework per Azure - Idoneità](/azure/cloud-adoption-framework/ready/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

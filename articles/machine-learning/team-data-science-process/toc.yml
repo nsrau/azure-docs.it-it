@@ -28,7 +28,7 @@
       href: project-ic-tasks.md
 - name: Pianificazione del progetto
   href: team-data-science-process-project-templates.md
-- name: Sviluppo.
+- name: Sviluppo
   items:
     - name: Sviluppo Agile
       href: agile-development.md
@@ -134,7 +134,7 @@
           items:
             - name: Preparazione dei dati
               href: prepare-data.md
-            - name: Esplorazione dei dati
+            - name: Esplorare i dati
               items:
                 - name: Panoramica
                   href: explore-data.md
@@ -193,7 +193,7 @@
 - name: Risorse correlate
   items:
     - name: Azure Machine Learning
-      href: ../service/
+      href: ../
     - name: Raccolta di intelligenza artificiale per Azure
       href: 'https://gallery.azure.ai'
     - name: Cortana Analytics
@@ -206,7 +206,7 @@
           items:
             - name: Panoramica
               href: cortana-analytics-playbook-predictive-maintenance.md
-            - name: Architettura
+            - name: Architecture
               href: cortana-analytics-architecture-predictive-maintenance.md
             - name: Guida tecnica
               href: cortana-analytics-technical-guide-predictive-maintenance.md

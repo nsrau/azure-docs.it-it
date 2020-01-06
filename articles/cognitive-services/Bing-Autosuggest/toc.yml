@@ -22,11 +22,17 @@
       href: quickstarts/python.md
     - name: Ruby
       href: quickstarts/ruby.md
+- name: Libreria client
+  items:
+    - name: 'C#'
+      href: quickstarts/csharp-sdk.md
+    - name: Go
+      href: quickstarts/go-sdk.md
 - name: Esercitazioni
   items:
     - name: App Web a singola pagina
       href: tutorials/autosuggest.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Aggiornamento da v5 a v7
       href: bing-autosuggest-upgrade-guide-v5-to-v7.md
@@ -36,7 +42,7 @@
       href: concepts/get-suggestions.md
     - name: Invio di richieste
       href: concepts/sending-requests.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: API Suggerimenti automatici Bing v7
       href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference'

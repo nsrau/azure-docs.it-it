@@ -35,7 +35,7 @@
       href: rule-processing.md
     - name: Tag di servizio
       href: service-tags.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Eseguire la distribuzione tramite Azure PowerShell
       href: deploy-ps.md
@@ -53,7 +53,7 @@
       href: integrate-lb.md
     - name: Regole dell'applicazione con FQDN di SQL
       href: sql-fqdn-filtering.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/ext/azure-firewall/network/firewall
@@ -70,13 +70,13 @@
     - name: REST
       href: /rest/api/firewall
     - name: Azure Resource Manager
-      href: ../azure-resource-manager/resource-group-overview.md
+      href: ../azure-resource-manager/management/overview.md
 - name: Risorse
   items:
     - name: Domande frequenti
       href: firewall-faq.md
     - name: Creare modelli
-      href: ../azure-resource-manager/resource-group-authoring-templates.md
+      href: ../azure-resource-manager/templates/template-syntax.md
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Modelli della community

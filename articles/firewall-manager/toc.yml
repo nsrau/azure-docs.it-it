@@ -19,13 +19,13 @@
       href: trusted-security-partners.md
     - name: Logica di elaborazione delle regole
       href: rule-processing.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Distribuire partner di sicurezza affidabili
       href: deploy-trusted-security-partner.md
     - name: Eseguire la migrazione a criterio firewall
       href: migrate-to-policy.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/ext/azure-firewall/network/firewall
@@ -42,11 +42,11 @@
     - name: REST
       href: /rest/api/firewall
     - name: Azure Resource Manager
-      href: ../azure-resource-manager/resource-group-overview.md
+      href: ../azure-resource-manager/management/overview.md
 - name: Risorse
   items:
     - name: Creare modelli
-      href: ../azure-resource-manager/resource-group-authoring-templates.md
+      href: ../azure-resource-manager/templates/template-syntax.md
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Modelli della community

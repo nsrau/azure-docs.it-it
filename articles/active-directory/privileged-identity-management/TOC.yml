@@ -16,11 +16,11 @@
       href: pim-how-to-require-mfa.md
     - name: Dashboard di panoramica
       href: pim-resource-roles-overview-dashboards.md
-    - name: Notifiche tramite posta elettronica
+    - name: Notifiche di posta elettronica
       href: pim-email-notifications.md
     - name: API Microsoft Graph
       href: pim-apis.md
-- name: Guide alle procedure
+- name: Guide pratiche
   expanded: true
   items:
     - name: Distribuire PIM
@@ -45,6 +45,8 @@
           href: pim-resource-roles-activate-your-roles.md
     - name: Gestire i ruoli personali di Azure AD
       items:
+        - name: Aggiornamento delle funzionalità
+          href: azure-ad-roles-features.md
         - name: Assegnare ruoli
           href: pim-how-to-add-role-to-user.md
         - name: Approvare le richieste

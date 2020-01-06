@@ -12,12 +12,12 @@ metadata:
   author: spelluru
   ms.author: spelluru
   ms.date: 09/05/2019
-  ms.openlocfilehash: 8a4d99c195cd1341e491e5112a4f58013b074115
-  ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+  ms.openlocfilehash: defff242971a55d48b595b441c9dd3d420462801
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 09/11/2019
-  ms.locfileid: "70915413"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75437075"
 landingContent:
 - title: Informazioni su Hub eventi
   linkLists:
@@ -135,7 +135,7 @@ landingContent:
       url: event-hubs-auto-inflate.md
     - text: Risoluzione dei problemi delle eccezioni
       url: event-hubs-messaging-exceptions.md
-- title: Proteggere
+- title: Sicurezza
   linkLists:
   - linkListType: how-to-guide
     links:

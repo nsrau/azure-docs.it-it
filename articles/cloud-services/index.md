@@ -2,19 +2,18 @@
 title: Documentazione di Servizi cloud di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Esercitazioni, informazioni di riferimento sulle API e altri documenti mostrano come usare Servizi cloud per ospitare ed eseguire API e applicazioni cloud a elevata disponibilità e scalabilità.
 services: cloud-services
-author: georgewallace
-manager: gwallace
+author: tgore03
 layout: LandingPage
 ms.service: cloud-services
 ms.topic: landing-page
 ms.date: 01/23/2017
-ms.author: gwallace
-ms.openlocfilehash: f30032ff2d7189e45075c74152bb6903128217ad
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.author: tagore
+ms.openlocfilehash: 7265880f6356988d594cb2ea91a080fc45b92029
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609728"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360379"
 ---
 # <a name="cloud-services-documentation"></a>Documentazione di Servizi cloud
 
@@ -97,7 +96,7 @@ Informazioni su come usare Servizi cloud per ospitare ed eseguire API e applicaz
 
 ---
 
-<h2>riferimento</h2>
+<h2>Riferimento</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -124,10 +123,14 @@ Informazioni su come usare Servizi cloud per ospitare ed eseguire API e applicaz
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/compute/cloudservices">API REST</a></p>
+                        <p><a href="/rest/api/compute/cloudservices">REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
 </ul>
+
+
+
+

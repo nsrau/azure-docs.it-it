@@ -1,10 +1,10 @@
 - name: Documentazione di Cache Redis di Azure
-  href: index.md
+  href: index.yml
 - name: Panoramica
   items:
     - name: Informazioni su Cache Redis di Azure
       href: cache-overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: App ASP.NET
@@ -39,9 +39,9 @@
       href: cache-best-practices.md
     - name: Procedure consigliate sull'architettura per la memorizzazione nella cache
       href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
-    - name: Pianificazione
+    - name: Piano
       items:
         - name: Scegliere un livello di cache
           href: 'cache-faq.md#what-redis-cache-offering-and-size-should-i-use'
@@ -77,7 +77,7 @@
           items:
             - name: Usare l'inizializzazione Spring Boot
               href: cache-java-spring-boot-initializer-with-redis-cache.md
-    - name: Gestisci
+    - name: Gestione
       items:
         - name: Configurare nel portale di Azure
           href: cache-configure.md
@@ -113,7 +113,7 @@
           href: cache-how-to-scale.md
         - name: Usare il cluster Redis per ridurre/aumentare il numero di istanze
           href: cache-how-to-premium-clustering.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?service=redis-cache'

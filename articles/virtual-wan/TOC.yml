@@ -18,13 +18,13 @@
       href: virtual-wan-locations-partners.md
     - name: Criteri IPsec
       href: virtual-wan-ipsec.md
-    - name: Architettura
+    - name: Architecture
       items:
         - name: Eseguire la migrazione alla rete WAN virtuale
           href: migrate-from-hub-spoke-topology.md
         - name: Architettura della rete di transito globale
           href: virtual-wan-global-transit-network-architecture.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Connettere il gateway di rete virtuale alla rete WAN virtuale
       href: connect-virtual-network-gateway-vwan.md
@@ -56,7 +56,7 @@
               href: virtual-wan-route-table.md
         - name: Visualizzare le route effettive dell'hub virtuale
           href: effective-routes-virtual-hub.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Azure PowerShell
       href: '/powershell/module/az.network#networking'
@@ -73,7 +73,7 @@
     - name: Blog
       href: 'https://azure.microsoft.com/blog/topics/networking'
     - name: Sottoscrizione e limiti dei servizi
-      href: ../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/virtual-wan'
     - name: Calcolatore prezzi

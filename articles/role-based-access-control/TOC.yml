@@ -7,7 +7,7 @@
       href: overview.md
     - name: Informazioni sui diversi ruoli
       href: rbac-and-directory-admin-roles.md
-- name: Guide introduttive
+- name: Avvi rapidi
   items:
     - name: Visualizzare l'accesso per un utente
       href: check-access.md
@@ -32,7 +32,7 @@
       href: pim-azure-resource.md
     - name: Accesso condizionale per la gestione di Azure
       href: conditional-access-azure-management.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Elencare le definizioni di ruolo
       items:
@@ -94,12 +94,12 @@
       href: classic-administrators.md
     - name: Risolvere problemi
       href: troubleshooting.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Operazioni del provider di risorse
       href: resource-provider-operations.md
     - name: Limiti relativi al controllo degli accessi in base al ruolo
-      href: '../azure-subscription-service-limits.md#role-based-access-control-limits'
+      href: '../azure-resource-manager/management/azure-subscription-service-limits.md#role-based-access-control-limits'
     - name: Azure PowerShell
       href: /powershell/module/az.resources
     - name: Interfaccia della riga di comando di Azure

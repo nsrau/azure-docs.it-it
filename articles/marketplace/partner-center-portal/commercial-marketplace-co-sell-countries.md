@@ -83,7 +83,7 @@ Se un contatto copre più di un paese/area geografica, immettere ognuno dei due 
 | Congo (RDC)                         | CD        |
 | Isole Cook                        | CK        |
 | Costa Rica                          | CR        |
-| Costa d'Avorio                       | CI        |
+| Côte d’Ivoire (Costa d’Avorio)                       | CI        |
 | Croazia                             | HR        |
 | Cuba                                | CU        |
 | Curaçao                             | CW        |

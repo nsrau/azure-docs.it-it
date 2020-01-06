@@ -27,7 +27,7 @@
       href: concept-authentication-passwordless.md
     - name: Registrazione delle informazioni di sicurezza
       href: concept-registration-mfa-sspr-combined.md
-    - name: Reimpostazione delle password
+    - name: Reimpostazione della password
       items:
         - name: Funzionamento della reimpostazione della password
           href: concept-sspr-howitworks.md
@@ -49,6 +49,8 @@
           href: concept-mfa-authprovider.md
         - name: Indicazioni sulla sicurezza
           href: multi-factor-authentication-security-best-practices.md
+        - name: Residenza dei dati
+          href: concept-mfa-data-residency.md
         - name: Multi-Factor Authentication per Office 365
           href: 'https://docs.microsoft.com/office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide'
         - name: Domande frequenti su Multi-Factor Authentication
@@ -61,7 +63,7 @@
           href: concept-password-ban-bad-on-premises.md
     - name: Controlli di accesso resilienti
       href: concept-resilient-controls.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Reimpostazione della password self-service
       items:
@@ -150,7 +152,7 @@
               href: active-directory-certificate-based-authentication-android.md
             - name: Autenticazione basata sui certificati nei dispositivi iOS
               href: active-directory-certificate-based-authentication-ios.md
-    - name: Creazione di report
+    - name: Report
       items:
         - name: Utilizzo e informazioni dettagliate
           href: howto-authentication-methods-usage-insights.md
@@ -158,7 +160,7 @@
           href: howto-sspr-reporting.md
         - name: Report MFA
           href: howto-mfa-reporting.md
-        - name: Raccolta dei dati
+        - name: Raccolta dati
           href: howto-mfa-reporting-datacollection.md
     - name: Server MFA
       items:
@@ -210,7 +212,7 @@
           href: multi-factor-authentication-faq.md
         - name: Estensione del server dei criteri di rete
           href: howto-mfa-nps-extension-errors.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Manuale dell'utente di Multi-Factor Authentication
       href: ./end-user/current/multi-factor-authentication-end-user.md

@@ -80,7 +80,7 @@
       href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-overview'
 - name: Guide pratiche
   items:
-    - name: Pianificazione
+    - name: Piano
       items:
         - name: Architetture di applicazioni Web
           href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app'
@@ -112,7 +112,7 @@
           href: 'https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm'
     - name: Archiviare dati
       items:
-        - name: Blobs
+        - name: BLOB
           href: 'https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs'
         - name: Condivisioni file
           href: 'https://docs.microsoft.com/azure/storage/files/storage-dotnet-how-to-use-files'
@@ -132,7 +132,7 @@
           href: 'https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview'
         - name: App di microservizi
           href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-concepts-scalability'
-    - name: Proteggere
+    - name: Sicurezza
       items:
         - name: App Web e per dispositivi mobili
           href: 'https://docs.microsoft.com/azure/app-service/configure-ssl-bindings'
@@ -160,7 +160,7 @@
           href: 'https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-create-vmss'
         - name: Ridimensionare una macchina virtuale Windows
           href: 'https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-create-vmss'
-- name: riferimento
+- name: Riferimento
   items:
     - name: REST
       href: 'https://docs.microsoft.com/rest/api/'
@@ -189,7 +189,7 @@
 - name: Risorse
   items:
     - name: Limiti e quote di Azure
-      href: ../../azure-subscription-service-limits.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json
+      href: ../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json
     - name: Aree di Azure
       href: 'https://azure.microsoft.com/regions/'
     - name: Roadmap per Azure

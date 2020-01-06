@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Visione personalizzata
       href: home.md
-- name: Guide introduttive
+- name: Avvi rapidi
   items:
     - name: Uso del portale Web
       items:
@@ -48,7 +48,7 @@
       href: iot-visual-alerts-tutorial.md
     - name: Riconoscere i logo nel dispositivo mobile
       href: logo-detector-mobile.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Testare il modello
       href: test-your-model.md
@@ -68,11 +68,9 @@
           href: export-model-python.md
     - name: Esportare o eliminare i dati dell'account
       href: ./export-delete-data.md
-    - name: Spostare in Azure il progetto della versione di valutazione di durata limitata
-      href: ./move-your-project-to-azure.md
     - name: Aggiornare l'app all'API 3.0
       href: ./update-application-to-3.0-sdk.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: API Training di Custom Vision
       href: 'https://go.microsoft.com/fwlink/?linkid=865446'

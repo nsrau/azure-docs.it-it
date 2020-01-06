@@ -3,19 +3,17 @@ title: Documentazione di Azure Advisor
 summary: Azure Advisor analizza la configurazione di Azure e consiglia le modifiche per ottimizzare le distribuzioni, aumentare la sicurezza e risparmiare denaro.
 metadata:
   title: Documentazione di Azure Advisor
-  description: Azure Advisor è un consulente cloud personalizzato che illustra come seguire le procedure consigliate per ottimizzare le distribuzioni di Azure. Analizza la configurazione e la telemetria delle risorse. Propone le soluzioni utili per migliorare le prestazioni, la sicurezza e la disponibilità elevata delle risorse, cercando al tempo stesso le opportunità ottimali per ridurre la spesa complessiva di Azure.
-  services: advisor
-  ms.service: advisor
+  description: Azure Advisor è un consulente cloud personalizzato che illustra come seguire le procedure consigliate per ottimizzare le distribuzioni di Azure. Analizza la configurazione e la telemetria delle risorse Propone le soluzioni utili per migliorare le prestazioni, la sicurezza e la disponibilità elevata delle risorse, cercando al tempo stesso le opportunità ottimali per ridurre la spesa complessiva di Azure.
   ms.topic: landing-page
   author: rboucher
   ms.author: robb
   ms.date: 10/16/2019
-  ms.openlocfilehash: d0a5dc66a752e49dd32cd742e3856d7edac0d879
-  ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+  ms.openlocfilehash: 43e35c1d6afd96ff78ebd938fa76a503dd4e935d
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 10/27/2019
-  ms.locfileid: "72963988"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75443026"
 landingContent:
 - title: Informazioni su Azure Advisor
   linkLists:
@@ -27,13 +25,13 @@ landingContent:
     links:
     - text: Video di Azure Advisor
       url: https://azure.microsoft.com/resources/videos/index/?services=advisor
-- title: Attività iniziali
+- title: Introduzione
   linkLists:
   - linkListType: get-started
     links:
     - text: Introduzione ad Azure Advisor
       url: advisor-get-started.md
-- title: riferimento
+- title: Riferimento
   linkLists:
   - linkListType: reference
     links:

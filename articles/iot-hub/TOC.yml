@@ -4,12 +4,12 @@
   items:
     - name: Che cos'è l'hub IoT di Azure?
       href: about-iot-hub.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Inviare dati di telemetria
       items:
-        - name: Attività iniziali
+        - name: Introduzione
           href: quickstart-send-telemetry-cli.md
         - name: C
           href: quickstart-send-telemetry-c.md
@@ -83,6 +83,8 @@
       href: tutorial-connectivity.md
 - name: Concetti
   items:
+    - name: Imposizione di TLS 1.2
+      href: tls-1.2-everywhere.md
     - name: Panoramica degli arricchimenti dei messaggi
       href: iot-hub-message-enrichments-overview.md
     - name: Panoramica della gestione dei dispositivi
@@ -170,7 +172,7 @@
           href: /azure/iot-fundamentals/security-recommendations?context=azure/iot-hub/rc/rc
         - name: Sicurezza sin dall'inizio
           href: /azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-hub/rc/rc
-        - name: Procedure di sicurezza consigliate
+        - name: Procedure consigliate per la sicurezza
           href: /azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/rc/rc
         - name: Architettura di sicurezza
           href: /azure/iot-fundamentals/iot-security-architecture?context=azure/iot-hub/rc/rc
@@ -182,7 +184,7 @@
           href: iot-hub-x509ca-overview.md
         - name: Concetti relativi alla sicurezza con certificati X.509 della CA
           href: iot-hub-x509ca-concept.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Sviluppo
       items:
@@ -276,7 +278,7 @@
               href: iot-hub-java-java-schedule-jobs.md
             - name: Python
               href: iot-hub-python-python-schedule-jobs.md
-    - name: Gestisci
+    - name: Gestione
       items:
         - name: Creare un hub IoT
           items:
@@ -370,7 +372,7 @@
       items:
         - name: Disconnessioni dei dispositivi
           href: iot-hub-troubleshoot-connectivity.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/iot

@@ -99,7 +99,7 @@
       items:
         - name: Risolvere i problemi di stato danneggiato in Gestione traffico di Azure
           href: traffic-manager-troubleshooting-degraded.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?service=traffic-manager'
@@ -133,14 +133,14 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Blog
       href: 'https://azure.microsoft.com/blog/topics/networking/'
-    - name: Forum di MSDN
+    - name: Forum MSDN
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/traffic-manager/'
     - name: Calcolatore prezzi
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Limiti del servizio
-      href: '../azure-subscription-service-limits.md#traffic-manager-limits'
+      href: '../azure-resource-manager/management/azure-subscription-service-limits.md#traffic-manager-limits'
     - name: Aggiornamenti del servizio
       href: 'https://azure.microsoft.com/updates/?product=traffic-manager'
     - name: Contratto di servizio

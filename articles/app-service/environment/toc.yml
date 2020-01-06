@@ -3,7 +3,7 @@
   items:
     - name: Informazioni sugli ambienti del servizio app
       href: intro.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare un ambiente del servizio app esterno
@@ -46,7 +46,7 @@
       href: forced-tunnel-support.md
     - name: Integrazione con firewall
       href: firewall-integration.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Indirizzi di gestione
       href: management-addresses.md
@@ -83,7 +83,7 @@
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/app-service/'
     - name: Informazioni sulle quote
-      href: '../../azure-subscription-service-limits.md#app-service-limits'
+      href: '../../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits'
     - name: Aggiornamenti del servizio
       href: 'https://azure.microsoft.com/updates/?product=app-service'
     - name: Procedure consigliate

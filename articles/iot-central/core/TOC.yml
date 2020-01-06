@@ -4,11 +4,9 @@
   items:
     - name: Informazioni su Azure IoT Central
       href: overview-iot-central.md
-    - name: Opzioni per le soluzioni IoT
-      href: overview-iot-options.md
     - name: Presentazione dell'interfaccia utente
       href: overview-iot-central-tour.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare una nuova applicazione
@@ -27,13 +25,13 @@
       href: tutorial-add-device.md
 - name: Concetti
   items:
-    - name: Architettura
+    - name: Architecture
       href: concepts-architecture.md
     - name: Connettività
       href: concepts-connectivity.md
     - name: Che cosa i modelli di applicazione?
       href: concepts-app-templates.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Connettere dispositivi
       items:
@@ -97,11 +95,11 @@
           href: howto-connect-powerbi.md
         - name: Connettere altri cloud IoT
           href: howto-build-iotc-device-bridge.md
-    - name: Administration
+    - name: Amministrazione
       items:
         - name: Gestire l'applicazione
           href: howto-administer.md
-        - name: Gestire utenti e ruoli
+        - name: Gestione di utenti e ruoli
           href: howto-manage-users-roles.md
         - name: Visualizzare la fattura
           href: howto-view-bill.md

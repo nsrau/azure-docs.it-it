@@ -51,7 +51,7 @@ Le offerte di Azure Marketplace e AppSource possono essere acquistate in aree ge
 | Cile                               | CL        | USD          |
 | Colombia                            | CO        | USD          |
 | Costa Rica                          | CR        | USD          |
-| Costa d'Avorio                       | CI        | USD          |
+| Côte d’Ivoire (Costa d’Avorio)                       | CI        | USD          |
 | Croazia                             | HR        | EUR          |
 | Curaçao                             | CW        | USD          |
 | Cipro                              | CY        | EUR          |

@@ -5,7 +5,7 @@
   items:
     - name: Informazioni su File di Azure
       href: storage-files-introduction.md
-- name: Guide introduttive
+- name: Avvi rapidi
   items:
     - name: Creare/usare condivisioni file - Windows
       href: storage-files-quick-create-use-windows.md
@@ -51,10 +51,8 @@
       href: storage-files-scale-targets.md
     - name: Security
       items:
-        - name: Authorization
+        - name: Autorizzazione
           href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Sicurezza di Archiviazione di Azure
-          href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Crittografia di Archiviazione di Azure
           href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Autenticazione di Azure AD tramite SMB
@@ -63,7 +61,7 @@
           href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Offerte di conformità
           href: ../common/storage-compliance-offerings.md
-    - name: Sviluppo.
+    - name: Sviluppo
       items:
         - name: Gestire la concorrenza
           href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
@@ -85,7 +83,7 @@
       href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Domande frequenti
       href: storage-files-faq.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Create
       items:
@@ -121,7 +119,7 @@
           href: storage-files-configure-p2s-vpn-windows.md
         - name: Configurare la VPN da punto a sito in Linux
           href: storage-files-configure-p2s-vpn-linux.md
-    - name: Gestisci
+    - name: Gestione
       items:
         - name: Registrare un server con Sincronizzazione file di Azure
           href: storage-sync-files-server-registration.md
@@ -145,7 +143,7 @@
           href: storage-sync-files-storsimple-migration.md
         - name: Spostare dati con AzCopy
           items:
-            - name: Attività iniziali
+            - name: Introduzione
               href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
             - name: Usare con File
               href: ../common/storage-use-azcopy-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
@@ -165,7 +163,7 @@
           href: storage-c-plus-plus-how-to-use-files.md
         - name: Python
           href: storage-python-how-to-use-file-storage.md
-    - name: Proteggere
+    - name: Sicurezza
       items:
         - name: Configurare i firewall e le reti virtuali
           href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
@@ -189,7 +187,7 @@
           href: storage-troubleshoot-cannot-delete-files-azure-file-share.md
         - name: consente di ripristinare un account di archiviazione eliminato
           href: storage-how-to-recover-deleted-account.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Azure PowerShell
       href: /powershell/module/az.storage
@@ -199,7 +197,7 @@
       items:
         - name: File (versione 11.x)
           href: /dotnet/api/microsoft.azure.storage.file
-        - name: Spostamento dei dati
+        - name: Spostamento di dati
           href: /dotnet/api/microsoft.azure.storage.datamovement
         - name: Provider delle risorse di archiviazione
           href: /dotnet/api/overview/azure/storage/management
