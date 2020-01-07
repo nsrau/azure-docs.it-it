@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 527ab905997d18433d1dba5c16ee67c8146f5afa
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 90995b1c9d10c7b589706f5abf37f92d76e4362b
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73126457"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75560352"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-windows-for-use-with-azure-files"></a>Configurare una VPN da punto a sito in Windows per l'uso con File di Azure
 È possibile usare una connessione VPN da punto a sito per montare le condivisioni file di Azure su SMB dall'esterno di Azure, senza aprire la porta 445. Una connessione VPN da punto a sito è una connessione VPN tra Azure e un singolo client. Per usare una connessione VPN da punto a sito con File di Azure, è necessario configurarla per ogni client da connettere. Se è necessario connettere molti client alle condivisioni file di Azure dalla rete locale, è possibile usare una connessione VPN da sito a sito invece di una da punto a sito per ogni client. Per altre informazioni, vedere [Configurare una VPN da sito a sito per l'uso con File di Azure](storage-files-configure-s2s-vpn.md).
@@ -21,7 +21,7 @@ Per una descrizione completa delle opzioni di rete disponibili per File di Azure
 
 Questo articolo illustra i passaggi per configurare una VPN da punto a sito in Windows (client Windows e Windows Server) per montare le condivisioni file di Azure direttamente in locale. Se si vuole instradare il traffico di Sincronizzazione file di Azure tramite una VPN, vedere come [configurare le impostazioni di proxy e firewall di Sincronizzazione file di Azure](storage-sync-files-firewall-and-proxy.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 - La versione più recente del modulo Azure PowerShell. Per altre informazioni su come installare Azure PowerShell, vedere [Installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) e selezionare il sistema operativo in uso. Se si preferisce, è anche possibile usare l'interfaccia della riga di comando di Azure in Windows, ma le istruzioni seguenti vengono presentate per Azure PowerShell.
 
 - Il modulo DNS privato di Azure PowerShell. Questo modulo non viene attualmente distribuito con il modulo Azure PowerShell, quindi è possibile installarlo con il metodo seguente:
@@ -161,7 +161,7 @@ foreach($ipconfig in $internalNic.Properties.ipConfigurations) {
         $recordName = $fqdn.split('.', 2)[0]
         $dnsZone = $fqdn.split('.', 2)[1]
         New-AzPrivateDnsRecordSet `
-            -ResourceGroupName $resourceGroupName ` 
+            -ResourceGroupName $resourceGroupName `
             -Name $recordName `
             -RecordType A `
             -ZoneName $zone.Name `

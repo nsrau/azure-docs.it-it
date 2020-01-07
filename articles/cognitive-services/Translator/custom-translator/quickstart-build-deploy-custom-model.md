@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare, distribuire e usare un modello personalizzato - Traduttore personalizzato'
+title: 'Avvio rapido: Creare, distribuire e usare un modello personalizzato - Traduttore personalizzato'
 titleSuffix: Azure Cognitive Services
 description: Questa guida introduttiva illustra nel dettaglio il processo di creazione di un sistema di traduzione con Custom Translator.
 author: swmachan
@@ -9,18 +9,18 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: d93c6333b811885eec37e8401bee27afeedf1475
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 82f2acb811bcb239f6329ab8d8b4008e13ac6490
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975755"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446737"
 ---
-# <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Guida introduttiva: Creare, distribuire e usare un modello personalizzato per la traduzione
+# <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Avvio rapido: Creare, distribuire e usare un modello personalizzato per la traduzione
 
 Questo articolo contiene istruzioni dettagliate per creare un sistema di traduzione con Custom Translator.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 1. Per accedere al portale [Custom Translator](https://portal.customtranslator.azure.ai) è necessario un [account Microsoft](https://signup.live.com) o un [account di Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (account aziendale ospitato su Azure).
 
@@ -37,7 +37,7 @@ Nella pagina di destinazione del portale di Custom Translator fare clic su New P
 
 ## <a name="upload-documents"></a>Caricamento di documenti
 
-Quindi, caricare i set di documenti di [training](training-and-model.md#training-dataset-for-custom-translator), [ottimizzazione](training-and-model.md#tuning-dataset-for-custom-translator) e [test](training-and-model.md#testing-dataset-for-custom-translator). È possibile caricare documenti [paralleli](what-are-parallel-documents.md) e combinati. È anche possibile caricare un [dizionario](what-is-dictionary.md).
+Quindi, caricare i set di documenti di [training](training-and-model.md#training-document-type-for-custom-translator), [ottimizzazione](training-and-model.md#tuning-document-type-for-custom-translator) e [test](training-and-model.md#testing-dataset-for-custom-translator). È possibile caricare documenti [paralleli](what-are-parallel-documents.md) e combinati. È anche possibile caricare un [dizionario](what-is-dictionary.md).
 
 È possibile caricare i documenti da una delle due schede di documenti o dalla pagina di un progetto specifico.
 
@@ -45,13 +45,13 @@ Quindi, caricare i set di documenti di [training](training-and-model.md#training
 
 Durante il caricamento dei documenti, scegliere il tipo di documento (training, ottimizzazione o test) e la coppia di lingue. Durante il caricamento di documenti paralleli, è necessario specificare anche un nome di documento. Per altre informazioni, visitare [Caricare un documento](how-to-upload-document.md).
 
-## <a name="create-a-model"></a>Creare il modello
+## <a name="create-a-model"></a>Creare un modello
 
 Quando tutti i documenti richiesti saranno stati caricati il passaggio successivo consiste nella compilazione del modello.
 
-Selezionare il progetto creato. Saranno visualizzati tutti i documenti caricati che condividono una coppia di lingue con questo progetto. Selezionare i documenti che si vogliono includere nel modello. È possibile selezionare dati di [training](training-and-model.md#training-dataset-for-custom-translator), [ottimizzazione](training-and-model.md#tuning-dataset-for-custom-translator) e [test](training-and-model.md#testing-dataset-for-custom-translator) oppure selezionare solo i dati di training e permettere a Custom Translator di creare automaticamente set di ottimizzazione e test per il proprio modello.
+Selezionare il progetto creato. Saranno visualizzati tutti i documenti caricati che condividono una coppia di lingue con questo progetto. Selezionare i documenti che si vogliono includere nel modello. È possibile selezionare dati di [training](training-and-model.md#training-document-type-for-custom-translator), [ottimizzazione](training-and-model.md#tuning-document-type-for-custom-translator) e [test](training-and-model.md#testing-dataset-for-custom-translator) oppure selezionare solo i dati di training e permettere a Custom Translator di creare automaticamente set di ottimizzazione e test per il proprio modello.
 
-![Creare il modello](media/quickstart/ct-how-to-train.png)
+![Creare un modello](media/quickstart/ct-how-to-train.png)
 
 Dopo aver selezionato i documenti desiderati, fare clic sul pulsante Create Model per creare il modello e avviare il training. È possibile visualizzare lo stato del training, e i dettagli per tutti i modelli con training, nella scheda Models.
 

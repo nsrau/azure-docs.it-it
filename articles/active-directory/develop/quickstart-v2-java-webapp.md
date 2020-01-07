@@ -11,14 +11,14 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java
-ms.openlocfilehash: 1a5401ee76f60c9b9c2a75561cad8f6571d3b308
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7534d425a9a7e00c4e57c0d9faea0750d311dcaf
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920702"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75549942"
 ---
-# <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Guida introduttiva: Aggiungere l'accesso con Microsoft a un'app Web Java
+# <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Avvio rapido: Aggiungere l'accesso con Microsoft a un'app Web Java
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
@@ -28,7 +28,7 @@ Al termine dell'avvio rapido, l'applicazione accetterà accessi di account Micro
 
 ![Mostra come funziona l'app di esempio generata da questo avvio rapido](media/quickstart-v2-java-webapp/java-quickstart.svg)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Ecco i prerequisiti per eseguire questo esempio:
 
@@ -61,7 +61,7 @@ Ecco i prerequisiti per eseguire questo esempio:
 >    - Lasciare vuoto il campo **URI di reindirizzamento** per il momento e selezionare **Registra**.
 > 1. Nella pagina **Informazioni generali** individuare i valori di **ID applicazione (client)** e **ID della directory (tenant)** dell'applicazione. Copiare questi valori per un utilizzo successivo.
 > 1. Selezionare **Autenticazione** dal menu e quindi aggiungere le informazioni seguenti:
->    - In **URI di reindirizzamento** aggiungere `http://localhost:8080/msal4jsamples/secure/aad` e `http://localhost:8080/msal4jsamples/graph/me`.
+>    - In **URI di reindirizzamento** aggiungere `http://localhost:8080/msal4jsample/secure/aad` e `http://localhost:8080/msal4jsample/graph/me`.
 >    - Selezionare **Salva**.
 > 1. Nel menu a sinistra scegliere **Certificati e segreti** e nella sezione **Segreti client** fare clic su **Nuovo segreto client**:
 >
@@ -121,14 +121,14 @@ Se si esegue l'applicazione Web da un ambiente IDE, fare clic su Esegui, quindi 
 
 1. Nella pagina iniziale selezionare il pulsante **Login** (Accedi) per essere reindirizzati ad Azure Active Directory e richiedere le credenziali all'utente.
 
-1. Dopo l'autenticazione, l'utente viene reindirizzato a *http://localhost:8080/msal4jsamples/secure/aad* . Una volta eseguito l'accesso, nella pagina vengono visualizzate le informazioni sull'account. L'interfaccia utente di esempio presenta i pulsanti seguenti:
+1. Dopo l'autenticazione, l'utente viene reindirizzato a *http://localhost:8080/msal4jsample/secure/aad* . Una volta eseguito l'accesso, nella pagina vengono visualizzate le informazioni sull'account. L'interfaccia utente di esempio presenta i pulsanti seguenti:
     - *Disconnetti*: disconnette l'utente corrente dall'applicazione e lo reindirizza alla home page.
     - *Show User Info* (Mostra informazioni utente): acquisisce un token per Microsoft Graph e chiama Microsoft Graph con una richiesta contenente il token, che restituisce informazioni di base sull'utente che ha eseguito l'accesso.
 
 > [!IMPORTANT]
 > Questa applicazione della guida introduttiva usa un segreto client per identificarsi come client riservato. Poiché il segreto client viene aggiunto come testo normale ai file di progetto, per motivi di sicurezza è consigliabile usare un certificato anziché un segreto client prima di considerare l'applicazione come applicazione di produzione. Per altre informazioni sull'utilizzo di un certificato, vedere [Credenziali del certificato per l'autenticazione dell'applicazione](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials).
 
-## <a name="more-information"></a>Altre informazioni
+## <a name="more-information"></a>Ulteriori informazioni
 
 ### <a name="getting-msal"></a>Recupero di MSAL
 

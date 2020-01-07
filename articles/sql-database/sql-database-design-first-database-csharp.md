@@ -10,12 +10,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
 ms.date: 07/29/2019
-ms.openlocfilehash: 6c4a99367c7fc6a864f6a16bc614e4c10663d0ff
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0f1140bbefc7508666e763fcd4f1a04ba48cdfdd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837172"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354949"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>Esercitazione: Progettare un database relazionale in un database singolo in Database SQL di Azure con C&#x23; e ADO.NET
 
@@ -23,7 +23,7 @@ Il database SQL di Azure è un database relazionale distribuito come servizio in
 
 > [!div class="checklist"]
 > * Creare un database singolo con il portale di Azure*
-> * Configurare una regola del firewall per gli indirizzi IP a livello di server con il portale di Azure
+> * Configurare una regola del firewall IP a livello di server con il portale di Azure
 > * Connettersi al database con ADO.NET e Visual Studio
 > * Creare tabelle con ADO.NET
 > * Inserire, aggiornare ed eliminare dati con ADO.NET
@@ -34,13 +34,13 @@ Il database SQL di Azure è un database relazionale distribuito come servizio in
 > [!TIP]
 > Il modulo gratuito seguente di Microsoft Learn contiene informazioni su come [sviluppare e configurare un'applicazione ASP.NET che esegue query su un database SQL di Azure](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), inclusa la creazione di un database semplice.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Installazione di [Visual Studio 2019](https://www.visualstudio.com/downloads/) o versioni successive.
 
 ## <a name="create-a-blank-single-database"></a>Creare un database singolo vuoto
 
-Un database singolo in Database SQL di Azure viene creato con un set definito di risorse di calcolo e di archiviazione. Il database viene creato in un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) e viene gestito usando un [server di database](sql-database-servers.md).
+Un database singolo in Database SQL di Azure viene creato con un set definito di risorse di calcolo e di archiviazione. Il database viene creato in un [gruppo di risorse di Azure](../azure-resource-manager/management/overview.md) e viene gestito usando un [server di database](sql-database-servers.md).
 
 Per creare un database singolo vuoto, seguire questa procedura.
 
@@ -56,7 +56,7 @@ Per creare un database singolo vuoto, seguire questa procedura.
     | **Nome database** | *yourDatabase* | Per informazioni sui nomi di database validi, vedere [Identificatori del database](/sql/relational-databases/databases/database-identifiers). |
     | **Sottoscrizione** | *yourSubscription*  | Per informazioni dettagliate sulle sottoscrizioni, vedere [Sottoscrizioni](https://account.windowsazure.com/Subscriptions). |
     | **Gruppo di risorse** | *yourResourceGroup* | Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](/azure/architecture/best-practices/resource-naming). |
-    | **Select source** (Seleziona origine) | Database vuoto | Indica che deve essere creato un database vuoto. |
+    | **Seleziona origine** | Database vuoto | Indica che deve essere creato un database vuoto. |
 
 4. Fare clic su **Server** per usare un server di database esistente oppure crearne e configurarne uno nuovo. Selezionare un server esistente oppure fare clic su **Crea un nuovo server** e compilare il modulo **Nuovo server** con le informazioni seguenti:
 
@@ -101,7 +101,7 @@ Il servizio Database SQL crea un firewall per gli indirizzi IP a livello di serv
 
 4. Fare clic su **Aggiungi IP client** sulla barra degli strumenti per aggiungere l'indirizzo IP corrente a una nuova regola del firewall per gli indirizzi IP. Una regola del firewall per gli indirizzi IP può aprire la porta 1433 per un singolo indirizzo IP o un intervallo di indirizzi IP.
 
-5. Fare clic su **Save**. Viene creata una regola del firewall IP a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server di database SQL.
+5. Fare clic su **Salva**. Viene creata una regola del firewall IP a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server di database SQL.
 
 6. Fare clic su **OK** e quindi chiudere la pagina **Impostazioni del firewall**.
 
@@ -117,7 +117,7 @@ L'indirizzo IP può ora superare il firewall per gli indirizzi IP. È quindi pos
 Questa esercitazione ha illustrato le attività di base che è possibile eseguire con i database, ad esempio creare database e tabelle, connettersi al database, caricare dati ed eseguire query. Si è appreso come:
 
 > [!div class="checklist"]
-> * Creare un database
+> * Creazione di un database
 > * Configurare una regola del firewall
 > * Connettersi al database con [Visual Studio e C#](sql-database-connect-query-dotnet-visual-studio.md)
 > * Creare tabelle

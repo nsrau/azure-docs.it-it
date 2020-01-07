@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 906ac3b28a512a866e712cefda4355ad901c258d
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: aca1f8ce2c125cd90f2e61a7829be09bc81c3938
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74064710"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464952"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Esercitazione: Creare un'immagine personalizzata di una macchina virtuale di Azure con Azure PowerShell
 
@@ -62,7 +62,7 @@ Sysprep rimuove anche tutte le informazioni sull'account personale e prepara la 
 4. In **Opzioni di arresto** selezionare **Arresta il sistema** e fare clic su **OK**.
 5. Al termine, Sysprep arresta la macchina virtuale. **Non riavviare la VM**.
 
-### <a name="deallocate-and-mark-the-vm-as-generalized"></a>Deallocare e contrassegnare la VM come generalizzata
+### <a name="deallocate-and-mark-the-vm-as-generalized"></a>Deallocare e contrassegnare la macchina virtuale come generalizzata
 
 Per creare un'immagine, la VM deve essere deallocata e contrassegnata come generalizzata in Azure.
 

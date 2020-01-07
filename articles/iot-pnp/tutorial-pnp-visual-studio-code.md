@@ -3,18 +3,18 @@ title: Creare e testare un dispositivo di anteprima di Plug and Play IoT | Micro
 description: Uno sviluppatore di dispositivi può apprendere come usare VS Code per creare e testare un nuovo modello di funzionalità di dispositivo per un dispositivo di anteprima Plug and Play IoT.
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/10/2019
+ms.date: 12/30/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: b7b9cd1040accda4d39af4d0a18940b56a45f929
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 209c63207653e98967a5a66e36c0cae53b7e044f
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569894"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550297"
 ---
 # <a name="tutorial-create-and-test-a-device-capability-model-using-visual-studio-code"></a>Esercitazione: Creare e testare un modello di funzionalità di dispositivo usando Visual Studio Code
 
@@ -22,7 +22,7 @@ Questa esercitazione illustra come uno sviluppatore di dispositivi deve usare Vi
 
 La sezione di questa esercitazione che descrive come compilare la bozza di codice generata presuppone che si stia usando Windows.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un modello di funzionalità di dispositivo
@@ -30,7 +30,7 @@ In questa esercitazione si apprenderà come:
 > * Implementare gli stub nel codice generato
 > * Eseguire il codice per testare le interazioni con un hub IoT
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per usare il modello di funzionalità di dispositivo in questa esercitazione, è necessario:
 

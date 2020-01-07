@@ -1,7 +1,6 @@
 ---
 title: Distribuire processi di Analisi di flusso di Azure con CI/CD e Azure DevOps
 description: Questo articolo descrive come distribuire un processo di Analisi di flusso di Azure usando Azure DevOps Services.
-services: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
@@ -9,17 +8,17 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7810cf9950d919469c4b47053a878518726f4393
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d9360ff64206cdce208f9643cf8ca86515aaeb7e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72925079"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354427"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Esercitazione: Distribuire un processo di Analisi di flusso di Azure con CI/CD usando Azure Pipelines
 Questa esercitazione illustra come configurare l'integrazione continua e la distribuzione continua per un processo di Analisi di flusso di Azure usando Azure Pipelines. 
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Aggiungere il controllo del codice sorgente al progetto
@@ -27,7 +26,7 @@ In questa esercitazione si apprenderà come:
 > * Creare una pipeline di versione in Azure Pipelines
 > * Distribuire automaticamente e aggiornare un'applicazione
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Prima di iniziare, verificare di disporre degli elementi seguenti:
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
