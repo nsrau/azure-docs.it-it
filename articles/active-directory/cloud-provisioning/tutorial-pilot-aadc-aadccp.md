@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 812f9bc71cde26b6f32a1259984bb0859ba49d54
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: b83f634e9f5954e7a465761b117b6ee32f843aa2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74868763"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425089"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Creare un progetto pilota per il provisioning cloud di una foresta di AD sincronizzata esistente 
 
@@ -35,7 +35,7 @@ Prima di provare questa esercitazione, considerare quanto segue:
 
 4. Si tratta di uno scenario avanzato. Assicurarsi di seguire esattamente i passaggi descritti in questa esercitazione.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Per completare questa esercitazione sono necessari i requisiti seguenti
 - Un ambiente di test con il servizio di sincronizzazione di Azure AD Connect versione 1.4.32.0 o successiva
 - Un'unità organizzativa o un gruppo incluso nell'ambito di sincronizzazione e che è possibile usare nel progetto pilota. È consigliabile iniziare con un piccolo set di oggetti.
@@ -47,7 +47,7 @@ Per completare questa esercitazione sono necessari i requisiti seguenti
 Come minimo, è necessario avere [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.4.32.0. Per aggiornare il servizio di sincronizzazione di Azure AD Connect, completare i passaggi elencati in [Azure AD Connect: Eseguire l'aggiornamento alla versione più recente](../hybrid/how-to-upgrade-previous-version.md).  
 
 ## <a name="stop-the-scheduler"></a>Arrestare l'utilità di pianificazione
-Il servizio di sincronizzazione di Azure AD Connect sincronizza le modifiche rilevate nella directory locale usando un'utilità di pianificazione. Per modificare e aggiungere regole personalizzate, è consigliabile disabilitare l'utilità di pianificazione in modo che nel frattempo non vengano eseguite sincronizzazioni.  Seguire questa procedura:
+Il servizio di sincronizzazione di Azure AD Connect sincronizza le modifiche rilevate nella directory locale usando un'utilità di pianificazione. Per modificare e aggiungere regole personalizzate, è consigliabile disabilitare l'utilità di pianificazione in modo che nel frattempo non vengano eseguite sincronizzazioni.  Eseguire la procedura descritta di seguito:
 
 1.  Nel server che esegue il servizio di sincronizzazione di Azure AD Connect aprire PowerShell con privilegi di amministratore.
 2.  Eseguire `Stop-ADSyncSyncCycle`.  Premere INVIO.
@@ -70,7 +70,7 @@ Il servizio di sincronizzazione di Azure AD Connect sincronizza le modifiche ril
     **Descrizione:** aggiungere una descrizione significativa<br> 
     **Connected System** (Sistema connesso): scegliere il connettore AD per cui si sta scrivendo la regola di sincronizzazione personalizzata<br>
     **Connected System Object Type** (Tipo di oggetto sistema connesso): Utente<br>
-    **Metaverse Object Type** (Tipo di oggetto metaverse): Person<br>
+    **Metaverse Object Type** (Tipo di oggetto metaverse): Persona<br>
     **Link Type** (Tipo di collegamento): Join<br>
     **Precedence** (Precedenza): specificare un valore univoco nel sistema<br>
     **Tag**: lasciare vuoto questo campo<br>
@@ -78,7 +78,7 @@ Il servizio di sincronizzazione di Azure AD Connect sincronizza le modifiche ril
  
  4. Nella pagina **Scoping filter** (Filtro di ambito) immettere l'unità organizzativa o il gruppo di sicurezza in base a cui creare il progetto pilota.  Per filtrare in base a unità organizzativa, aggiungere la parte OU del nome distinto. Questa regola verrà applicata a tutti gli utenti inclusi in tale unità organizzativa.  Quindi, se il nome distinto termina con "OU=CPUsers,DC=contoso,DC=com, aggiungere questo filtro.  Quindi fare clic su **Next**. 
 
-    |Regola|Attributo|Operatore|Valore|
+    |Regola|Attributo|Operatore|valore|
     |-----|----|----|-----|
     |Scoping OU|DN|ENDSWITH|Nome distinto dell'unità organizzativa.|
     |Scoping group||ISMEMBEROF|Nome distinto del gruppo di sicurezza.|
@@ -86,7 +86,7 @@ Il servizio di sincronizzazione di Azure AD Connect sincronizza le modifiche ril
     ![Regola personalizzata](media/how-to-cloud-custom-user-rule/user3.png)</br>
  
  5. Nella pagina **Join Rules** (Regole di unione) fare clic su **Avanti**.
- 6. Nella pagina **Transformations** (Trasformazioni) aggiungere una trasformazione costante: impostare su True l'attributo cloudNoFlow. Fare clic su **Aggiungi**.
+ 6. Nella pagina **Transformations** (Trasformazioni) aggiungere una trasformazione costante: impostare su True l'attributo cloudNoFlow. Scegliere **Aggiungi**.
  ![Regola personalizzata](media/how-to-cloud-custom-user-rule/user4.png)</br>
 
 È necessario seguire la stessa procedura per tutti i tipi di oggetto (utente, gruppo e contatto). Ripetere i passaggi per ogni connettore AD e per ogni foresta AD. 
@@ -102,7 +102,7 @@ Il servizio di sincronizzazione di Azure AD Connect sincronizza le modifiche ril
     **Descrizione:** aggiungere una descrizione significativa<br> 
     **Connected System** (Sistema connesso): scegliere il connettore AAD per cui si sta scrivendo la regola di sincronizzazione personalizzata<br>
     **Connected System Object Type** (Tipo di oggetto sistema connesso): Utente<br>
-    **Metaverse Object Type** (Tipo di oggetto metaverse): Person<br>
+    **Metaverse Object Type** (Tipo di oggetto metaverse): Persona<br>
     **Link Type** (Tipo di collegamento): JoinNoFlow<br>
     **Precedence** (Precedenza): specificare un valore univoco nel sistema<br>
     **Tag**: lasciare vuoto questo campo<br>
@@ -133,21 +133,6 @@ Il servizio di sincronizzazione di Azure AD Connect sincronizza le modifiche ril
 
 7. Al termine dell'operazione verrà visualizzato l'avviso indicante che **la verifica è stata completata correttamente**.  È possibile fare clic su **Esci**.</br>
 ![Schermata iniziale](media/how-to-install/install5.png)</br>
-8. Se è ancora visualizzata la schermata iniziale, fare clic su **Chiudi**.1. Accedere al server che si userà con le autorizzazioni di amministratore dell'organizzazione.
-2. Scaricare l'agente di provisioning cloud di Azure AD Connect [qui](https://go.microsoft.com/fwlink/?linkid=2109037).
-3. Eseguire il provisioning cloud di Azure AD Connect (AADConnectProvisioningAgent.Installer)
-3. Nella schermata iniziale **accettare** le condizioni di licenza e fare clic su **Installa**.</br>
-![Schermata iniziale](media/how-to-install/install1.png)</br>
-
-4. Al termine dell'operazione verrà avviata la configurazione guidata.  Accedere con l'account amministratore globale di Azure AD.
-5. Nella schermata **Connect Active Directory** (Connetti Active Directory) fare clic su **Aggiungi directory** quindi accedere con l'account amministratore di Active Directory.  Questa operazione aggiungerà la directory locale.  Fare clic su **Avanti**.</br>
-![Schermata iniziale](media/how-to-install/install3.png)</br>
-
-6. Nella schermata **Configurazione completata** fare clic su **Conferma**.  Questa operazione registrerà e riavvierà l'agente.</br>
-![Schermata iniziale](media/how-to-install/install4.png)</br>
-
-7. Al termine dell'operazione verrà visualizzato l'avviso indicante che **la verifica è stata completata correttamente**.  È possibile fare clic su **Esci**.</br>
-![Schermata iniziale](media/how-to-install/install5.png)</br>
 8. Se è ancora visualizzata la schermata iniziale, fare clic su **Chiudi**.
 
 ## <a name="verify-agent-installation"></a>Verificare l'installazione dell'agente
@@ -158,7 +143,7 @@ Per verificare se l'agente viene visto da Azure, seguire questa procedura:
 
 1. Accedere al portale di Azure.
 2. A sinistra selezionare **Azure Active Directory**, fare clic su **Azure AD Connect** e al centro selezionare **Gestione del provisioning (anteprima)** .</br>
-![Portale di Azure](media/how-to-install/install6.png)</br>
+![Azure portal](media/how-to-install/install6.png)</br>
 
 3.  Nella schermata **Provisioning di Azure AD (anteprima)** fare clic su **Verifica tutti gli agenti**.
 ![Provisioning di Azure AD](media/how-to-install/install7.png)</br>
@@ -171,7 +156,7 @@ Per verificare se l'agente è in esecuzione, seguire questa procedura:
 1.  Accedere al server con un account amministratore
 2.  Aprire **Servizi** passando all'opzione oppure tramite Start/Esegui/Services.msc.
 3.  In **Servizi** assicurarsi che siano presenti i servizi **Microsoft Azure AD Connect Agent Updater** e **Microsoft Azure AD Connect Provisioning Agent** e che il relativo stato sia **In esecuzione**.
-![Servizi](media/how-to-troubleshoot/troubleshoot1.png)
+![Services](media/how-to-troubleshoot/troubleshoot1.png)
 
 ## <a name="configure-azure-ad-connect-cloud-provisioning"></a>Configurare il provisioning cloud di Azure AD Connect
 Per configurare il provisioning, seguire questa procedura:
@@ -207,7 +192,7 @@ A questo punto verificare che gli utenti presenti nella directory locale siano s
 È inoltre possibile verificare che l'utente e il gruppo esistano in Azure AD.
 
 ## <a name="start-the-scheduler"></a>Avviare l'utilità di pianificazione
-Il servizio di sincronizzazione di Azure AD Connect sincronizza le modifiche rilevate nella directory locale usando un'utilità di pianificazione. Ora che sono state modificate le regole, è possibile riavviare l'utilità di pianificazione.  Seguire questa procedura:
+Il servizio di sincronizzazione di Azure AD Connect sincronizza le modifiche rilevate nella directory locale usando un'utilità di pianificazione. Ora che sono state modificate le regole, è possibile riavviare l'utilità di pianificazione.  Eseguire la procedura descritta di seguito:
 
 1.  Nel server che esegue il servizio di sincronizzazione di Azure AD Connect aprire PowerShell con privilegi di amministratore
 2.  Eseguire `Set-ADSyncScheduler -SyncCycleEnabled $true`.
@@ -231,7 +216,7 @@ Dopo aver verificato che gli utenti dell'unità organizzativa pilota vengono ges
  5. Nella schermata **Connessione delle directory** fare clic su **Avanti**.
  6. Nella schermata **Filtro di domini e unità organizzative** selezionare **Sincronizza le unità organizzative e i domini selezionati**.
  7. Espandere il dominio e **deselezionare** l'unità organizzativa **CPUsers**.  Fare clic su **Avanti**.
-![scope](media/tutorial-existing-forest/scope1.png)</br>
+![ambito](media/tutorial-existing-forest/scope1.png)</br>
  9. Nella schermata **Funzionalità facoltative** fare clic su **Avanti**.
  10. Nella schermata **Ready to configure** (Pronto per la configurazione) fare clic su **Configure** (Configura).
  11. Al termine, fare clic su **Esci**. 
