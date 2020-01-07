@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 2ebc678bffbbbe5d512d620b8f77ac0a245c0aff
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: bdd364c097552d3a1b52073af97d33db70d78556
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579122"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647442"
 ---
 # <a name="enable-containers-to-use-azure-virtual-network-capabilities"></a>Abilitare i contenitori per usare le funzionalità di Rete virtuale di Azure
 
@@ -53,14 +53,14 @@ Per consentire ai pod di accedere a Internet, il plug-in configura regole *iptab
 
 ## <a name="limits"></a>Limiti
 
-Il plug-in supporta fino a 250 pod per macchina virtuale e fino a 16.000 pod in una rete virtuale. Questi limiti sono diversi per il [servizio Azure Kubernetes](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-kubernetes-service-limits).
+Il plug-in supporta fino a 250 pod per macchina virtuale e fino a 16.000 pod in una rete virtuale. Questi limiti sono diversi per il [servizio Azure Kubernetes](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-kubernetes-service-limits).
 
 ## <a name="using-the-plug-in"></a>Uso del plug-in
 
 Il plug-in può essere usato nei modi seguenti, per fornire un collegamento di rete virtuale di base per pod e contenitori Docker:
 
 - **Servizio Azure Kubernetes**: il plug-in è integrato nel servizio Azure Kubernetes e può essere usato scegliendo l'opzione *Advanced Networking* (Rete avanzata). La rete avanzata permette di distribuire un cluster Kubernetes in una rete virtuale nuova o esistente. Per altre informazioni sulla rete avanzata e sui passaggi per configurarla, vedere [Configurazione della rete in servizio Azure Kubernetes](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- **AKS-Engine**: Azure Kubernetes Engine è uno strumento che genera un modello di Azure Resource Manager per la distribuzione di un cluster Kubernetes in Azure. Per istruzioni dettagliate, vedere [Distribuire il plug-in per i cluster Kubernetes di Azure Kubernetes Engine](deploy-container-networking.md#deploy-the-azure-virtual-network-container-network-interface-plug-in).
+- **Azure Kubernetes Engine**: Azure Kubernetes Engine è uno strumento che genera un modello di Azure Resource Manager per la distribuzione di un cluster Kubernetes in Azure. Per istruzioni dettagliate, vedere [Distribuire il plug-in per i cluster Kubernetes di Azure Kubernetes Engine](deploy-container-networking.md#deploy-the-azure-virtual-network-container-network-interface-plug-in).
 - **Creazione di un cluster Kubernetes in Azure**: il plug-in può essere usato per fornire funzionalità di rete di base per i pod nei cluster Kubernetes distribuiti, senza usare il servizio Azure Kubernetes o strumenti come AKS-Engine. In questo caso, il plug-in viene installato e abilitato in ogni macchina virtuale in un cluster. Per istruzioni dettagliate, vedere [Distribuire il plug-in per un cluster Kubernetes](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster).
 - **Collegamento di rete virtuale per i contenitori Docker in Azure**: il plug-in può essere usato nei casi in cui non si vuole creare un cluster Kubernetes e si preferisce creare contenitori Docker con collegamento di rete virtuale nelle macchine virtuali. Per istruzioni dettagliate, vedere [Distribuire il plug-in per i contenitori Docker](deploy-container-networking.md#deploy-plug-in-for-docker-containers).
 

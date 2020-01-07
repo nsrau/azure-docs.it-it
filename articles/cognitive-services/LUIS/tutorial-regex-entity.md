@@ -9,19 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/04/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 8da47899e2d3d2c1d04e9cf4768a968e7893ce96
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 0ca6f2a67e01e4c604c2dcc8f8eaa9ffe8bad045
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74852446"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381529"
 ---
 # <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Esercitazione: Ottenere dati formattati in modo corretto dall'espressione
 Questa esercitazione illustra come creare un'entità di espressione regolare per estrarre i dati formattati in modo coerente da un'espressione.
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 **In questa esercitazione si imparerà come:**
 
@@ -46,7 +44,7 @@ Quando si aggiunge un'entità di espressione regolare a un'app LUIS, non è nece
 
 ## <a name="import-example-json-to-begin-app"></a>Importare il file con estensione json per iniziare l'app
 
-1.  Scaricare e salvare il [file JSON dell'app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json).
+1.  Scaricare e salvare il [file JSON dell'app](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json).
 
 [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 

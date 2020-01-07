@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Eseguire una ricerca di notizie usando PHP e l'API REST Ricerca notizie Bing"
+title: "Avvio rapido: Eseguire una ricerca di notizie usando PHP e l'API REST Ricerca notizie Bing"
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida di avvio rapido per inviare una richiesta all'API REST Ricerca notizie Bing usando PHP e ricevere una risposta JSON.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 6/18/2019
+ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: b905993c88bd4425215dd83962980d8e46a7b943
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 79f00e4138d0fecdc7320235dd9c496033693d2b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423714"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383091"
 ---
 # <a name="quickstart-perform-a-news-search-using-php-and-the-bing-news-search-rest-api"></a>Avvio rapido: Eseguire una ricerca di notizie usando PHP e l'API REST Ricerca notizie Bing
 
@@ -24,7 +24,7 @@ Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca i
 
 L'applicazione è scritta in PHP, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * PHP 5.6 o versione successiva
 
@@ -40,6 +40,7 @@ L'[API Ricerca notizie Bing](https://docs.microsoft.com/rest/api/cognitiveservic
 2. Creare un nuovo progetto PHP nell'ambiente di sviluppo integrato o nell'editor preferito.
 3. Aggiungere il codice riportato di seguito.
 4. Sostituire il valore di `accessKey` con una chiave di accesso valida per la sottoscrizione.
+5. È possibile usare l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 5. Eseguire il programma.
 
 ```php

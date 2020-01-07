@@ -1,5 +1,6 @@
 ---
-title: Esercitazione per l'uso della configurazione dinamica di Configurazione app di Azure in un'app .NET Core | Microsoft Docs
+title: "Esercitazione: Usare la configurazione dinamica in un'app .NET Core"
+titleSuffix: Azure App Configuration
 description: In questa esercitazione viene illustrato come aggiornare dinamicamente i dati di configurazione per le app .NET Core
 services: azure-app-configuration
 documentationcenter: ''
@@ -13,12 +14,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: abarora
-ms.openlocfilehash: ae753758a3cd5b7dfa8794ccf98f7a8a063f5b18
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: afecc84748ae8ce85c07e3b482bd9b596bdca251
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185184"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433668"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>Esercitazione: Usare la configurazione dinamica in un'app .NET Core
 
@@ -30,13 +31,13 @@ Questa esercitazione mostra come è possibile implementare aggiornamenti dinamic
 
 Per completare i passaggi riportati in questa esercitazione, è possibile usare qualsiasi editor di codice. [Visual Studio Code](https://code.visualstudio.com/) è un'ottima opzione ed è disponibile per le piattaforme Windows, macOS e Linux.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Configurare l'app .NET Core per aggiornarne la configurazione in risposta alle modifiche in un archivio di Configurazione app.
 > * Utilizzare la configurazione più recente nell'applicazione.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione, installare [.NET Core SDK](https://dotnet.microsoft.com/download).
 
@@ -123,7 +124,7 @@ Il metodo `ConfigureRefresh` consente di specificare le impostazioni usate per a
 
 1. Selezionare **Configuration Explorer** e aggiornare i valori delle chiavi seguenti:
 
-    | Chiave | Valore |
+    | Chiave | valore |
     |---|---|
     | TestApp:Settings:Message | Dati di Configurazione app di Azure - Aggiornati |
 

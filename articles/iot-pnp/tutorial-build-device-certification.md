@@ -3,18 +3,18 @@ title: Compilare un dispositivo di anteprima Plug and Play IoT pronto per la cer
 description: Uno sviluppatore di dispositivi può apprendere come compilare un dispositivo di anteprima Plug and Play IoT pronto per la certificazione.
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 06/28/2019
+ms.date: 12/28/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: e4dd5215812f0fd1a43afe0923601417bc8e6916
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 43fc928b1274159839dc0df395e86d065f84b4c7
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569630"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550267"
 ---
 # <a name="build-an-iot-plug-and-play-preview-device-thats-ready-for-certification"></a>Compilare un dispositivo di anteprima Plug and Play IoT pronto per la certificazione
 
@@ -28,14 +28,14 @@ I test di certificazione verificano che:
 - Il codice del dispositivo implementa l'interfaccia Device Information (Informazioni dispositivo).
 - Il modello di funzionalità e il codice del dispositivo funzionano con IoT Central.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione, sono necessari:
 
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - Pacchetto di estensione [Azure IoT Tools per VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 
-È necessario anche il dispositivo Plug and Play IoT creato nell'argomento [Avvio rapido: Usare un modello di funzionalità di dispositivo per creare un dispositivo](quickstart-create-pnp-device.md).
+È necessario anche il dispositivo Plug and Play IoT creato nell'argomento [Avvio rapido: Usare un modello di funzionalità di dispositivo per creare un dispositivo](quickstart-create-pnp-device-windows.md).
 
 ## <a name="store-a-capability-model-and-interfaces"></a>Archiviare un modello di funzionalità e le interfacce
 
@@ -58,7 +58,7 @@ Per superare il processo di certificazione, è necessario includere e implementa
 ```
 
 > [!NOTE]
-> Se è stata completato l'argomento [Avvio rapido: Usare un modello di funzionalità del dispositivo per creare un dispositivo](quickstart-create-pnp-device.md). È già stata inclusa l'interfaccia **Device Information** (Informazioni sul dispositivo) nel modello.
+> Se è stata completato l'argomento [Avvio rapido: Usare un modello di funzionalità del dispositivo per creare un dispositivo](quickstart-create-pnp-device-windows.md). È già stata inclusa l'interfaccia **Device Information** (Informazioni sul dispositivo) nel modello.
 
 Per includere l'interfaccia **Device Information** (Informazioni sul dispositivo) nel modello di dispositivo, aggiungere l'ID di interfaccia alla proprietà `implements` del modello di funzionalità:
 
@@ -105,7 +105,7 @@ Per certificare il dispositivo è necessario abilitare il provisioning attravers
 
 1. Aprire la cartella con il file DCM in VS Code, premere **CTRL + MAIUSC + P** per aprire il riquadro comandi, immettere **Plug and Play IoT** e selezionare **Generate Device Code Stub** (Genera stub codice dispositivo).
 
-1. Scegliere il file DCM che si vuole usare per generare lo stub del codice del dispositivo.
+1. Scegliere il file del modello di funzionalità di dispositivo da usare per generare lo stub del codice del dispositivo.
 
 1. Immettere il nome del progetto, ovvero il nome dell'applicazione del dispositivo.
 

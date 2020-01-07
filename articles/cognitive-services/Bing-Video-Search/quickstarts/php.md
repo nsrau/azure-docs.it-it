@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Cercare video con l'API REST e PHP - Ricerca video Bing"
+title: "Avvio rapido: Cercare video con l'API REST e PHP - Ricerca video Bing"
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per inviare richieste di ricerca video all'API REST Ricerca video Bing con PHP.
 services: cognitive-services
@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 06/26/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 481bc700f86dfd8a28c074134fd5dcc85bb748c4
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 357cc85991ac88aef4fd0958e2bc776373f56dc8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378620"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448353"
 ---
-# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Guida introduttiva: Cercare video con l'API REST Ricerca video Bing e PHP
+# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Avvio rapido: Cercare video con l'API REST Ricerca video Bing e PHP
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca video Bing e visualizzare un risultato della ricerca dalla risposta JSON. Questa semplice applicazione JavaScript invia una query di ricerca video HTTP all'API e visualizza la risposta. L'applicazione è scritta in JavaScript ed eseguita in Node.js, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 Il codice di esempio è stato scritto per funzionare con PHP 5.6.
 
 Per i dettagli tecnici sulle API, vedere le [informazioni di riferimento sulle API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * PHP 5.6 o versione successiva
 
@@ -34,10 +34,10 @@ Per i dettagli tecnici sulle API, vedere le [informazioni di riferimento sulle A
 
 L'[API Ricerca video Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) restituisce video come risultati dal motore di ricerca Bing.
 
-1. Assicurarsi che il supporto HTTP protetto sia abilitato in `php.ini` come descritto nel commento del codice.
+1. Assicurarsi che il supporto HTTP protetto sia abilitato in `php.ini` come descritto nel commento di codice.
 2. Creare un nuovo progetto PHP nell'ambiente di sviluppo integrato o nell'editor preferito.
 3. Aggiungere il codice riportato di seguito.
-4. Sostituire il valore di `accessKey` con una chiave di accesso valida per la sottoscrizione.
+4. Sostituire il valore di `$accessKey` con una chiave di accesso valida per la sottoscrizione. `$endpoint` può essere l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 5. Eseguire il programma.
 
 ```php

@@ -4,12 +4,12 @@ description: Informazioni su come usare Ansible per gestire gli inventari dinami
 keywords: ansible, azure, devops, bash, cloud shell, inventario dinamico
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: dea6b47e5e263fdd2e048a0435efbebfa90fe69e
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: f159322a19cc79758de33904bbad9dfce32ff7cc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74156169"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442779"
 ---
 # <a name="tutorial-configure-dynamic-inventories-of-your-azure-resources-using-ansible"></a>Esercitazione: Configurare gli inventari dinamici delle risorse di Azure tramite Ansible
 
@@ -24,7 +24,7 @@ Ansible può essere usato per eseguire il pull delle informazioni degli inventar
 > * Installare Nginx nelle macchine virtuali contrassegnate
 > * Configurare un inventario dinamico che include le risorse di Azure configurate
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
@@ -228,7 +228,7 @@ Lo scopo dei tag è consentire un uso facile e rapido dei sottogruppi delle macc
           become: yes
           tasks:
           - name: install nginx
-            apt: pkg=nginx state=installed
+            apt: pkg=nginx state=present
             notify:
             - start nginx
     
@@ -316,4 +316,4 @@ Questa sezione illustra una tecnica per testare l'installazione di Nginx nella m
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"] 
-> [Guida introduttiva: Configurare macchine virtuali Linux in Azure tramite Ansible](/azure/virtual-machines/linux/ansible-create-vm)
+> [Avvio rapido: Configurare macchine virtuali Linux in Azure tramite Ansible](/azure/virtual-machines/linux/ansible-create-vm)

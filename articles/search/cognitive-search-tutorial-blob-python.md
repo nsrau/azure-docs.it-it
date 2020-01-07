@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: d7b4755bb2e69c4a852901b71d917c6baa5d63ae
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: c7c4da97101ae1277474e62466d78ffbc66b1ce0
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406426"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563276"
 ---
 # <a name="tutorial-create-an-ai-enrichment-pipeline-using-rest-and-python"></a>Esercitazione: Creare una pipeline di arricchimento tramite intelligenza artificiale con REST e Python
 
@@ -40,7 +40,7 @@ Questa esercitazione viene eseguita con il servizio gratuito, ma il numero di tr
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 In questa esercitazione vengono usati i servizi, gli strumenti e i dati seguenti. 
 
@@ -50,7 +50,7 @@ In questa esercitazione vengono usati i servizi, gli strumenti e i dati seguenti
 
 + I [dati di esempio](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) sono costituiti da un piccolo set di file di tipi diversi. 
 
-+ [Creare un servizio di ricerca cognitiva di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questa esercitazione.
++ [Creare un servizio di Ricerca cognitiva di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questa esercitazione.
 
 ## <a name="get-a-key-and-url"></a>Ottenere una chiave e un URL
 
@@ -87,7 +87,7 @@ Esistono altri modi per specificare la stringa di connessione, ad esempio una fi
 ## <a name="create-a-jupyter-notebook"></a>Creare un notebook Jupyter
 
 > [!Note]
-> Questo articolo descrive come creare un'origine dati, un indice, un indicizzatore e un set di competenze tramite una serie di script Python. Per scaricare il notebook completo di esempio, visitare il [repository Azure-Search-python-samples](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment-Jupyter-Notebook).
+> Questo articolo descrive come creare un'origine dati, un indice, un indicizzatore e un set di competenze tramite una serie di script Python. Per scaricare il notebook completo di esempio, visitare il [repository Azure-Search-python-samples](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment).
 
 Usare Anaconda Navigator per avviare Jupyter Notebook e creare un nuovo notebook Python 3.
 
@@ -498,7 +498,7 @@ r = requests.delete(endpoint + "/skillsets/" + skillset_name,
 pprint(json.dumps(r.json(), indent=1))
 ```
 
-Con l'evoluzione del codice può risultare necessario perfezionare una strategia di ricompilazione. Per altre informazioni, vedere [How to rebuild an index](search-howto-reindex.md) (Come ricompilare un indice).
+Con l'evoluzione del codice può risultare necessario perfezionare una strategia di ricompilazione. Per altre informazioni, vedere [How to rebuild an index](search-howto-reindex.md) (Procedura per ricompilare un indice).
 
 ## <a name="takeaways"></a>Risultati
 
