@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Eseguire una ricerca di notizie con Python e l'API REST Ricerca notizie Bing"
+title: "Avvio rapido: Eseguire una ricerca di notizie con Python e l'API REST Ricerca notizie Bing"
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida di avvio rapido per inviare una richiesta all'API REST Ricerca notizie Bing usando Python e ricevere una risposta JSON.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 6/18/2019
+ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 2fc67cbfedccd69ff9063b0575ae51197eceb09d
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 1c424c75a4df193ec412355607c68abeda0560a5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423691"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448502"
 ---
 # <a name="quickstart-perform-a-news-search-using-python-and-the-bing-news-search-rest-api"></a>Avvio rapido: Eseguire una ricerca di notizie con Python e l'API REST Ricerca notizie Bing
 
@@ -28,15 +28,13 @@ Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca n
 
 Il codice sorgente di questo esempio è disponibile anche in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingNewsSearchv7.py).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-Vedere anche [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
-
 ## <a name="create-and-initialize-the-application"></a>Creare e inizializzare l'applicazione
 
-1. Creare un nuovo file Python nell'ambiente di sviluppo integrato o nell'editor preferito e importare il modulo di richiesta. Creare variabili per la chiave di sottoscrizione, l'endpoint e un termine di ricerca. È possibile trovare l'endpoint nel dashboard di Azure.
+1. Creare un nuovo file Python nell'ambiente di sviluppo integrato o nell'editor preferito e importare il modulo di richiesta. Creare variabili per la chiave di sottoscrizione, l'endpoint e un termine di ricerca. È possibile usare l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 
 ```python
 import requests
