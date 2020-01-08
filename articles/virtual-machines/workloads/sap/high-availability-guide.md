@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7a76515fdeb7d812c42a83d8a53fb83ac71407a2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 9fb093312365ce965c6baf3c9f50d74359cec0a7
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099773"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647697"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Disponibilità elevata per SAP NetWeaver in macchine virtuali di Azure
 
@@ -76,8 +76,8 @@ ms.locfileid: "70099773"
 [azure-ps]:https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 [dbms-guide-2.1]:../../virtual-machines-windows-sap-dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f
@@ -362,7 +362,7 @@ ms.locfileid: "70099773"
 [sap-ha-guide-figure-6003]:media/virtual-machines-shared-sap-high-availability-guide/6003-sap-multi-sid-full-landscape.png
 
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
-[resource-group-overview]:../../../../../azure-resource-manager/resource-group-overview.md
+[resource-group-overview]:../../../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]: https://support.sap.com/pam (Product Availability Matrix (PAM) SAP)
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
@@ -379,15 +379,15 @@ ms.locfileid: "70099773"
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
 [storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
+[storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
 [templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
 [virtual-machines-linux-attach-disk-portal]:../../linux/attach-disk-portal.md
 [virtual-machines-windows-attach-disk-portal]:../../virtual-machines-windows-attach-disk-portal.md
-[virtual-machines-azure-resource-manager-architecture]:../../../azure-resource-manager/resource-group-overview.md
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture]:../../../azure-resource-manager/management/overview.md
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 [virtual-machines-azurerm-versus-azuresm]:virtual-machines-windows-compare-deployment-models.md
 [virtual-machines-windows-classic-configure-oracle-data-guard]:../../virtual-machines-windows-classic-configure-oracle-data-guard.md
 [virtual-machines-linux-cli-deploy-templates]:../../linux/cli-deploy-templates.md
@@ -478,7 +478,7 @@ Queste note su SAP sono correlate all'argomento relativo a SAP in Azure:
 | [1999351] |Virtualizzazione in Windows: monitoraggio avanzato |
 | [2243692] |Use of Azure Premium SSD Storage for SAP DBMS Instance (Uso dell'archiviazione unità SSD di Azure Premium per l'istanza DBMS di SAP) |
 
-Altre informazioni sulle [limitazioni delle sottoscrizioni di Azure][azure-subscription-service-limits-subscription], incluse le limitazioni predefinite generali e le limitazioni massime.
+Altre informazioni sulle [limitazioni delle sottoscrizioni di Azure][azure-resource-manager/management/azure-subscription-service-limits-subscription], incluse le limitazioni predefinite generali e le limitazioni massime.
 
 ## <a name="42156640c6-01cf-45a9-b225-4baa678b24f1"></a>SAP a disponibilità elevata con il modello di distribuzione classica di Azure e il modello Azure Resource Manager
 I modelli di distribuzione di Azure Resource Manager e di distribuzione classica presentano le differenze seguenti:
@@ -488,7 +488,7 @@ I modelli di distribuzione di Azure Resource Manager e di distribuzione classica
 - Supporto per scenari di SAP con più SID
 
 ### <a name="f76af273-1993-4d83-b12d-65deeae23686"></a> Gruppi di risorse
-In Azure Resource Manager è possibile usare i gruppi di risorse per gestire tutte le risorse dell'applicazione nella sottoscrizione di Azure. In un approccio integrato tutte le risorse di un gruppo di risorse hanno lo stesso ciclo di vita. Ad esempio, tutte le risorse vengono create ed eliminate contemporaneamente. Altre informazioni sui [gruppi di risorse](../../../azure-resource-manager/resource-group-overview.md#resource-groups).
+In Azure Resource Manager è possibile usare i gruppi di risorse per gestire tutte le risorse dell'applicazione nella sottoscrizione di Azure. In un approccio integrato tutte le risorse di un gruppo di risorse hanno lo stesso ciclo di vita. Ad esempio, tutte le risorse vengono create ed eliminate contemporaneamente. Altre informazioni sui [gruppi di risorse](../../../azure-resource-manager/management/overview.md#resource-groups).
 
 ### <a name="3e85fbe0-84b1-4892-87af-d9b65ff91860"></a> Dipendenza del servizio di bilanciamento del carico interno di Azure nel gruppo di risorse di Azure
 
@@ -697,9 +697,9 @@ _**Figura 11:** Impostare i parametri di Azure Resource Manager di disponibilit�
     * Cluster DBMS: <*SIDSistemaSAP*>-db-<*Numero*>
 
   * **Schede di rete per tutte le macchine virtuali, con gli indirizzi IP associati**:
-    * <*SIDSistemaSAP*>-nic-di-<*Numero*>
+    * <*SIDSistemaSAP*&gt;-nic-di-&lt;*Numero*>
     * <*SIDSistemaSAP*>-nic-ascs-<*Numero*>
-    * <*SIDSistemaSAP*>-nic-db-<*Numero*>
+    * <*SIDSistemaSAP*&gt;-nic-db-&lt;*Numero*>
 
   * **Account di archiviazione di Azure**
 
@@ -1017,7 +1017,7 @@ Per usare numeri diversi per le istanze di SAP ASCS o SCS, è necessario cambiar
 2. Per tutte le regole di bilanciamento del carico appartenenti all'istanza di SAP ASCS o SCS, modificare questi valori:
 
    * Nome
-   * Port
+   * Porta
    * Porta back-end
 
    Ad esempio, per sostituire il numero di istanza di ASCS predefinito 00 con 31, è necessario apportare le modifiche per tutte le porte elencate nella tabella 1.
@@ -1638,7 +1638,7 @@ _**Figura 62:** In SIOS DataKeeper, replicare il volume locale dal nodo A al nod
 
    ![Figura 63: In Gestione cluster di failover, il gruppo di cluster <SID> SAP è in esecuzione nel nodo B del cluster][sap-ha-guide-figure-5002]
 
-   _**Figura 63**: In Gestione cluster di failover, il gruppo di cluster SAP <*SID*> è in esecuzione nel nodo B del cluster_
+   _**Figura 63**: In Gestione cluster di failover, il gruppo di cluster SAP &lt;*SID*&gt; è in esecuzione nel nodo B del cluster_
 
    Il disco condiviso è ora montato nel nodo B del cluster. SIOS DataKeeper replica i dati dall'unità S del volume di origine nel nodo B del cluster all'unità S del volume di destinazione nel nodo A del cluster, ad esempio da **pr1-ascs-1 [10.0.0.41]** a **pr1-ascs-0 [10.0.0.40]** .
 

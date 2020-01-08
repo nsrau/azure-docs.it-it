@@ -1,25 +1,16 @@
 ---
-title: Implementare le funzionalità negli attori di Azure Service Fabric | Microsoft Docs
+title: Implementare le funzionalità in Azure Service Fabric Actors
 description: Illustra come scrivere il proprio servizio Actor, implementando così funzionalità a livello di servizio nello stesso modo usato per ereditare StatefulService.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: amanbha
-ms.assetid: 45839a7f-0536-46f1-ae2b-8ba3556407fb
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 57894770ad9d27430d5803c9a93ce6973355878a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f5f9e00c374b16026f22d4efdee51ec94d2902a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62123247"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426726"
 ---
 # <a name="implement-service-level-features-in-your-actor-service"></a>Implementare le funzionalità a livello di servizio nel servizio Actor
 

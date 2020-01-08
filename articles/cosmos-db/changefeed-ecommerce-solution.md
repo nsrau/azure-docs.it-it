@@ -1,18 +1,18 @@
 ---
 title: Usare il feed di modifiche di Azure Cosmos DB per visualizzare l'analisi dei dati in tempo reale
-description: Questo articolo descrive come il feed di modifiche può essere usato da una società di vendita al dettaglio per comprendere i criteri definiti dall'utente, eseguire la visualizzazione e l'analisi dei dati in tempo reale.
+description: Questo articolo descrive il modo in cui il feed delle modifiche può essere usato da un'azienda di vendita al dettaglio per comprendere i modelli utente, eseguire analisi e visualizzazione dei dati in tempo reale
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 86d4dd706b097891db155214e4edb7e85e054858
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 50517db6a5bb1fc458ab2f563e905fca34f70cf4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616955"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442078"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Usare il feed di modifiche di Azure Cosmos DB per visualizzare l'analisi dei dati in tempo reale
 
@@ -30,7 +30,7 @@ Il diagramma seguente rappresenta il flusso di dati e i componenti coinvolti nel
 
 ![Immagine del progetto](./media/changefeed-ecommerce-solution/project-visual.png)
  
-1. **Generazione dati:** il simulatore di dati viene usato per generare i dati delle vendite al dettaglio che rappresentano gli eventi, ad esempio un utente che visualizza un elemento, aggiunge un elemento al carrello e acquista un elemento. È possibile generare grandi set di dati di esempio tramite il generatore di dati. I dati di esempio generati contengono i documenti nel formato seguente:
+1. **Generazione di dati:** il simulatore di dati viene usato per generare i dati delle vendite al dettaglio che rappresentano gli eventi, ad esempio un utente che visualizza un elemento, aggiunge un elemento al carrello e acquista un elemento. È possibile generare grandi set di dati di esempio tramite il generatore di dati. I dati di esempio generati contengono i documenti nel formato seguente:
    
    ```json
    {      
@@ -41,13 +41,13 @@ Il diagramma seguente rappresenta il flusso di dati e i componenti coinvolti nel
    }
    ```
 
-2. **Azure Cosmos DB:** I dati generati vengono archiviati in un contenitore di Azure Cosmos.  
+2. **Cosmos DB:** I dati generati vengono archiviati in un contenitore di Azure Cosmos.  
 
-3. **Feed di modifiche:** Il feed di modifiche resterà in ascolto delle modifiche apportate al contenitore Azure Cosmos. Ogni volta che viene aggiunto un nuovo documento nella raccolta (ovvero quando si verifica un evento ad esempio un utente che visualizza un elemento, aggiunge un elemento al carrello o acquista un elemento), il feed di modifiche attiverà una [funzione di Azure](../azure-functions/functions-overview.md).  
+3. **Feed delle modifiche:** Il feed di modifiche resterà in ascolto delle modifiche apportate al contenitore Azure Cosmos. Ogni volta che viene aggiunto un nuovo documento nella raccolta (ovvero quando si verifica un evento ad esempio un utente che visualizza un elemento, aggiunge un elemento al carrello o acquista un elemento), il feed di modifiche attiverà una [funzione di Azure](../azure-functions/functions-overview.md).  
 
-4. **Funzione di Azure:** la funzione di Azure elabora i nuovi dati e li invia a un [hub eventi di Azure](../event-hubs/event-hubs-about.md).  
+4. **Funzione di Azure:** la funzione di Azure elabora i nuovi dati e li invia a un [Hub eventi di Azure](../event-hubs/event-hubs-about.md).  
 
-5. **Hub eventi:** l'hub eventi di Azure archivia questi eventi e li invia ad [Analisi di flusso di Azure](../stream-analytics/stream-analytics-introduction.md) per eseguire un'altra analisi.  
+5. **Hub eventi:** Hub eventi di Azure archivia questi eventi e li invia ad [Analisi di flusso di Azure](../stream-analytics/stream-analytics-introduction.md) per eseguire un'altra analisi.  
 
 6. **Analisi di flusso di Azure:** Analisi di flusso di Azure definisce le query per elaborare gli eventi ed eseguire analisi in tempo reale dei dati. Questi dati sono quindi inviati a [Microsoft Power BI](https://docs.microsoft.com/power-bi/desktop-what-is-desktop).  
 
@@ -169,7 +169,7 @@ Per vedere come feed di modifiche elabora nuove azioni in un sito di e-commerce,
 
 3. Aggiungere i nomi della **raccolta** e del **database**. (Questi nomi devono essere **changefeedlabcollection** e **changefeedlabdatabase** a meno che non si scelga di assegnare un nome diverso.)
 
-   ![Aggiorna stringhe di connessione](./media/changefeed-ecommerce-solution/update-connection-string.png)
+   ![Aggiornare le stringhe di connessione](./media/changefeed-ecommerce-solution/update-connection-string.png)
  
 4. Salvare le modifiche su tutti i file modificati.  
 
@@ -221,7 +221,7 @@ Analisi di flusso di Azure è un servizio cloud completamente gestito per l'elab
 
 8. Tornare quindi a **streamjob1** e selezionare **Modifica query**.
 
-   ![Modifica query](./media/changefeed-ecommerce-solution/edit-query.png)
+   ![Edit query](./media/changefeed-ecommerce-solution/edit-query.png)
  
 9. Incollare la seguente query nella relativa finestra. La query **PREZZO MEDIO** calcola il prezzo medio di tutti gli elementi visualizzati da utenti, il prezzo medio di tutti gli elementi che vengono aggiunti ai carrelli degli utenti e il prezzo medio di tutti gli elementi che vengono acquistati dagli utenti. Questa metrica può aiutare le società di e-commerce a decidere a quali prezzi vendere gli elementi e in quale inventario investire. Ad esempio, se il prezzo medio degli elementi visualizzati è molto superiore al prezzo medio degli elementi acquistati, una società potrebbe scegliere di aggiungere elementi meno costosi per l'inventario.
 
@@ -250,7 +250,7 @@ Power BI è una suite di strumenti di analisi business che consente di analizzar
  
 5. Selezionare **averagePrice** da **SET DI DATI** e quindi selezionare **Avanti**.  
 
-6. Nel campo **Tipo di visualizzazione**, scegliere **Grafico a barre raggruppate** dal menu a discesa. In **Asse**, aggiungere un'azione. Lasciare in sospeso **Legenda** senza aggiungere alcun dato. Quindi, nella sezione successiva chiamata **Valore**, aggiungere **avg**. Selezionare **Avanti**, quindi dare un titolo al grafico e selezionare **Applica**. Dovrebbe essere possibile visualizzare un nuovo grafico nella dashboard!  
+6. Nel campo **Tipo di visualizzazione**, scegliere **Grafico a barre raggruppate** dal menu a discesa. In **Asse**, aggiungere un'azione. Lasciare in sospeso **Legenda** senza aggiungere alcun dato. Quindi, nella sezione successiva denominata **value**, aggiungere **AVG**. Selezionare **Avanti**, quindi denominare il grafico e selezionare **applica**. Dovrebbe essere possibile visualizzare un nuovo grafico nella dashboard!  
 
 7. A questo punto, se si desidera visualizzare altre metriche, è possibile tornare alla schermata **streamjob1** e creare altri tre output con i campi seguenti.
 
@@ -316,7 +316,7 @@ Power BI è una suite di strumenti di analisi business che consente di analizzar
 
    ![visualizzazioni](./media/changefeed-ecommerce-solution/visualizations.png)
 
-## <a name="optional-visualize-with-an-e-commerce-site"></a>Facoltativo: Visualizzazione con un sito di e-commerce
+## <a name="optional-visualize-with-an-e-commerce-site"></a>Facoltativo: visualizzazione con un sito di e-commerce
 
 A questo punto, sarà possibile osservare come è possibile usare il nuovo strumento di analisi dei dati per la connessione con un vero sito di e-commerce. Per creare il sito di e-commerce, usare un database di Azure Cosmos per archiviare l'elenco delle categorie di prodotti (donne, uomini, unisex), il catalogo dei prodotti e un elenco degli elementi più diffusi.
 

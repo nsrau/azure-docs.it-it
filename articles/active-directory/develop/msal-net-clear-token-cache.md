@@ -1,5 +1,5 @@
 ---
-title: Cancellare la cache dei token con MSAL.NET | Azure
+title: Cancellare la cache dei token (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
 description: Informazioni su come cancellare la cache dei token utilizzando Microsoft Authentication Library per .NET (MSAL.NET).
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f203bc057482466f6bddc7523c0ec7a7e9404ccc
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 11ff07e551002b8a0242afe51f3868a2f4a0ee85
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74915933"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424252"
 ---
 # <a name="clear-the-token-cache-using-msalnet"></a>Cancellare la cache dei token usando MSAL.NET
 

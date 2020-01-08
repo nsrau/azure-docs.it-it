@@ -1,17 +1,17 @@
 ---
 title: Gestire i tipi di contenuti
-description: Informazioni su come App per la logica gestisce i tipi di contenuto in fase di progettazione e in fase di esecuzione
+description: Informazioni su come gestire vari tipi di contenuto nei flussi di lavoro durante la fase di progettazione e di esecuzione nelle app per la logica di Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/20/2018
-ms.openlocfilehash: 75d9285c4a838c2057c0f23841c3a2f465789c7c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: ae0abe288edda2ce01311d8533b1f104409efce0
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791526"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666874"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Gestire tipi di contenuto in App per la logica di Azure
 
@@ -59,7 +59,7 @@ App per la logica offre la possibilità di generare token descrittivi che rappre
   
   1. Nel trigger di richiesta selezionare **Usare il payload di esempio per generare lo schema**.  
   
-  2. In **Immettere o incollare un payload JSON di esempio** specificare un payload di esempio e quindi scegliere **Fine**. ad esempio: 
+  2. In **Immettere o incollare un payload JSON di esempio** specificare un payload di esempio e quindi scegliere **Fine**. Ad esempio: 
 
      ![Fornire il payload JSON di esempio](./media/logic-apps-content-type/request-trigger.png)
 

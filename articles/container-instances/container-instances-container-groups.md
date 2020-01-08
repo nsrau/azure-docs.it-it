@@ -4,12 +4,12 @@ description: Informazioni sui gruppi di contenitori in istanze di contenitore di
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: c4d5217fe96ca2669397bb7f2a94c6394c002534
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: ca160c62160bc5233139dccc650474811c4cd784
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896588"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442288"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Gruppi di contenitori in Istanze di Azure Container
 
@@ -44,21 +44,19 @@ Per mantenere la configurazione di un gruppo di contenitori, è possibile esport
 
 ## <a name="resource-allocation"></a>Allocazione delle risorse
 
-Istanze di contenitore di Azure alloca le risorse, ad esempio CPU, memoria e facoltativamente [GPU][gpus] (anteprima) a un gruppo di contenitori, aggiungendo le [richieste di risorse][resource-requests] delle istanze nel gruppo. Assunzione di risorse della CPU come esempio, se si crea un gruppo di contenitori con due istanze, ciascuna delle quali richiede 1 CPU, al gruppo di contenitori vengono allocate 2 CPU.
+Istanze di contenitore di Azure alloca risorse come CPU, memoria e facoltativamente [GPU][gpus] (anteprima) a un gruppo multicontenitore aggiungendo le [richieste di risorse][resource-requests] delle istanze nel gruppo. Assunzione di risorse della CPU come esempio, se si crea un gruppo di contenitori con due istanze, ciascuna delle quali richiede 1 CPU, al gruppo di contenitori vengono allocate 2 CPU.
 
 ### <a name="resource-usage-by-instances"></a>Utilizzo delle risorse da istanze
 
-A ogni istanza di contenitore vengono allocate le risorse specificate nella relativa richiesta di risorsa. Tuttavia, l'utilizzo delle risorse da parte di un'istanza di contenitore in un gruppo dipende dalla modalità di configurazione della proprietà del [limite di risorse][resource-limits] facoltativo. Il limite di risorse deve essere minore di quello della proprietà obbligatoria della [richiesta di risorse][resource-requests] .
+A ogni istanza di contenitore in un gruppo vengono allocate le risorse specificate nella relativa richiesta di risorsa. Tuttavia, le risorse massime utilizzate da un'istanza in un gruppo possono essere diverse se si configura la proprietà del [limite di risorse][resource-limits] facoltativo. Il limite di risorse di un'istanza deve essere maggiore o uguale alla proprietà obbligatoria della [richiesta di risorse][resource-requests] .
 
 * Se non si specifica un limite di risorse, l'utilizzo massimo delle risorse dell'istanza è uguale a quello della relativa richiesta di risorse.
 
-* Se si specifica un limite di risorse per un'istanza, è possibile modificare l'utilizzo delle risorse dell'istanza per il proprio carico di lavoro, riducendo o aumentando l'utilizzo rispetto alla richiesta di risorse. Il limite massimo di risorse che è possibile impostare è il totale delle risorse allocate al gruppo.
+* Se si specifica un limite per un'istanza, l'utilizzo massimo dell'istanza potrebbe essere maggiore della richiesta, fino al limite impostato. Di conseguenza, l'utilizzo delle risorse da parte di altre istanze del gruppo potrebbe ridursi. Il limite massimo di risorse che è possibile impostare per un'istanza è il totale delle risorse allocate al gruppo.
     
-Ad esempio, in un gruppo con due istanze che richiedono 1 CPU, è possibile che uno dei contenitori esegua un carico di lavoro che richiede l'esecuzione di più CPU rispetto all'altra.
+Ad esempio, in un gruppo con due istanze ciascuna richiesta di 1 CPU, è possibile che uno dei contenitori esegua un carico di lavoro che richiede l'esecuzione di più CPU rispetto all'altra.
 
-In questo scenario, è possibile impostare un limite di risorse di 0,5 CPU per un'istanza e un limite di 2 CPU per il secondo. Questa configurazione limita l'utilizzo delle risorse del primo contenitore alla CPU 0,5, consentendo al secondo contenitore di usare fino a 2 CPU complete, se disponibili.
-
-Per altre informazioni, vedere la proprietà [ResourceRequirements][resource-requirements] nell'API REST dei gruppi di contenitori.
+In questo scenario è possibile impostare un limite di risorse di 2 CPU per l'istanza. Questa configurazione consente al contenitore di utilizzare fino a 2 CPU complete, se disponibili.
 
 ### <a name="minimum-and-maximum-allocation"></a>Allocazione minima e massima
 

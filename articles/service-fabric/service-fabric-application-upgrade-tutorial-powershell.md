@@ -1,25 +1,14 @@
 ---
-title: Aggiornamento di un'app di Service Fabric mediante PowerShell | Documentazione Microsoft
+title: Aggiornamento delle app di Service Fabric con PowerShell
 description: In questo articolo vengono esaminati l'esperienza di distribuzione di un'applicazione di Service Fabric, la modifica del codice e l'implementazione di un aggiornamento tramite PowerShell.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: 9bc75748-96b0-49ca-8d8a-41fe08398f25
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: db0627c72ea6e7e3b272b818697b8e61b485be78
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: b113b5a1042518e3b0d86e53796c5fe49afed418
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167518"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426792"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Aggiornamento di un'applicazione di Service Fabric mediante PowerShell
 > [!div class="op_single_selector"]
@@ -34,7 +23,7 @@ Il metodo di aggiornamento consigliato usato più frequentemente è l'aggiorname
 
 L'aggiornamento di un'applicazione in modalità monitorata può essere eseguito usando le API gestite o native, PowerShell, l'interfaccia della riga di comando di Azure, Java o REST. Per istruzioni su come eseguire un aggiornamento usando Visual Studio, vedere [Esercitazione sull'aggiornamento di un'applicazione di Service Fabric tramite Visual Studio](service-fabric-application-upgrade-tutorial.md).
 
-L'aggiornamento in sequenza in modalità monitorata di Service Fabric consente all'amministratore di applicazioni di configurare i criteri di valutazione dell'integrità usati da Service Fabric per determinare se l'applicazione è integra. L'amministratore può anche configurare l'azione da intraprendere se la valutazione dell'integrità non riesce, ad esempio l'esecuzione di un rollback automatico. Questa sezione descrive in dettaglio un aggiornamento monitorato per uno degli esempi di SDK che usa PowerShell. 
+L'aggiornamento in sequenza in modalità monitorata di Service Fabric consente all'amministratore di applicazioni di configurare i criteri di valutazione dell'integrità usati da Service Fabric per determinare se l'applicazione è integra. Inoltre, l'amministratore può configurare l'azione da intraprendere quando la valutazione dell'integrità ha esito negativo, ad esempio eseguendo un rollback automatico. Questa sezione illustra un aggiornamento monitorato per uno degli esempi di SDK che usano PowerShell. 
 
 ## <a name="step-1-build-and-deploy-the-visual-objects-sample"></a>Passaggio 1: creare e distribuire l'esempio di oggetti visivi
 Compilare e pubblicare l'applicazione facendo clic con il pulsante destro del mouse sul progetto dell'applicazione, **VisualObjectsApplication**, e selezionando il comando **Pubblica**.  Per altre informazioni, vedere [Esercitazione sull'aggiornamento di un'applicazione di Service Fabric tramite Visual Studio](service-fabric-application-upgrade-tutorial.md).  In alternativa, è possibile usare PowerShell per distribuire l'applicazione.
@@ -74,7 +63,7 @@ A questo punto il file *ApplicationManifest.xml*, disponibile nel progetto **Vis
 
 A questo punto compilare il progetto selezionando solo il progetto **ActorService** e quindi facendo clic con il pulsante destro del mouse e scegliendo l'opzione **Compila** in Visual Studio. Se si seleziona **Ricompila tutto**, è necessario aggiornare le versioni per tutti i progetti, poiché il codice è stato modificato. È quindi possibile aggiungere l'applicazione aggiornata al pacchetto facendo clic con il pulsante destro del mouse sul progetto ***VisualObjectsApplication***, scegliendo il menu Service Fabric e quindi **Pacchetto**. In questo modo viene creato un pacchetto dell'applicazione che può essere distribuito.  L'applicazione aggiornata è pronta per essere distribuita.
 
-## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>Passaggio 3:  scegliere i criteri di integrità e i parametri di aggiornamento
+## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>Passaggio 3: Scegliere i criteri di integrità e i parametri di aggiornamento
 È consigliabile acquisire familiarità con i [parametri di aggiornamento dell'applicazione](service-fabric-application-upgrade-parameters.md) e con il [processo di aggiornamento](service-fabric-application-upgrade.md) per conoscere i diversi parametri di aggiornamento, valori di timeout e criteri di integrità applicati. Per questa procedura dettagliata i criteri predefiniti di valutazione dell'integrità dei servizi sono impostati con i valori consigliati, quindi tutti i servizi e tutte le istanze saranno *integri* dopo l'aggiornamento.  
 
 Aumentare tuttavia il valore di *HealthCheckStableDuration* impostandolo su 180 secondi, in modo che i servizi siano integri per almeno 120 secondi prima che il processo di aggiornamento passi al dominio di aggiornamento successivo.  Impostare quindi *UpgradeDomainTimeout* su 1200 secondi e *UpgradeTimeout* su 3000 secondi.

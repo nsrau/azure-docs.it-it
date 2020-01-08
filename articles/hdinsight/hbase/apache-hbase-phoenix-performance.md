@@ -2,18 +2,18 @@
 title: Prestazioni di Phoenix in Azure HDInsight
 description: Procedure consigliate per ottimizzare le prestazioni Apache Phoenix per i cluster HDInsight di Azure
 author: ashishthaps
+ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/22/2018
-ms.author: ashishth
-ms.openlocfilehash: b2a40802070510939332c3f5e876293445cf2df1
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.custom: hdinsightactive
+ms.date: 12/27/2019
+ms.openlocfilehash: 7f8f20be81e815414c283f7ec48aa6503e3b60ed
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810438"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552645"
 ---
 # <a name="apache-phoenix-performance-best-practices"></a>Procedure consigliate per le prestazioni di Apache Phoenix
 
@@ -27,38 +27,38 @@ La struttura dello schema di una tabella Phoenix include la struttura della chia
 
 ### <a name="primary-key-design"></a>Struttura della chiave primaria
 
-La chiave primaria definita in una tabella Phoenix determina come sono archiviati i dati nell'oggetto rowkey della tabella HBase sottostante. In HBase l'unico modo per accedere a una particolare riga è tramite rowkey. I dati archiviati in una tabella HBase sono inoltre ordinati in base al valore rowkey. Phoenix crea il valore rowkey concatenando i valori di ognuna delle colonne nella riga, nell'ordine in cui sono definite nella chiave primaria.
+La chiave primaria definita in una tabella Phoenix determina come sono archiviati i dati nell'oggetto rowkey della tabella HBase sottostante. In HBase l'unico modo per accedere a una particolare riga è tramite rowkey. I dati archiviati in una tabella HBase sono inoltre ordinati in base al valore rowkey. Phoenix compila il valore RowKey concatenando i valori di ogni colonna nella riga, nell'ordine in cui sono definiti nella chiave primaria.
 
 Una tabella di contatti, ad esempio, ha nome, cognome, numero di telefono e indirizzo nella stessa famiglia di colonne. È possibile definire una chiave primaria in base a un numero di sequenza crescente:
 
-|rowkey|       Address|   telefono| firstName| lastName|
+|rowkey|       address|   phone| firstName| lastName|
 |------|--------------------|--------------|-------------|--------------|
 |  1000|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole|
 |  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji|
 
 Tuttavia, se si eseguono spesso query in base al valore di lastName, questa chiave primaria potrebbe non essere ottimale, perché ogni query richiede un'analisi completa della tabella per leggere il valore di ogni oggetto lastName. In alternativa, è possibile definire una chiave primaria in base alle colonne lastName, firstName e socialSecurityNum. L'ultima colonna permette di evitare ambiguità tra due persone che risiedono allo stesso indirizzo e hanno lo stesso nome, ad esempio padre e figlio.
 
-|rowkey|       Address|   telefono| firstName| lastName| socialSecurityNum |
+|rowkey|       address|   phone| firstName| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
 |  1000|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
 |  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 Con questa nuova chiave primaria, i valori rowkey generati da Phoenix sono:
 
-|rowkey|       Address|   telefono| firstName| lastName| socialSecurityNum |
+|rowkey|       address|   phone| firstName| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
 |  Dole-John-111|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
 |  Raji-Calvin-222|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 Nella prima riga sopra, i dati per rowkey sono rappresentati come illustrato:
 
-|rowkey|       key|   value| 
+|rowkey|       Key|   Valore|
 |------|--------------------|---|
-|  Dole-John-111|Address |1111 San Gabriel Dr.|  
-|  Dole-John-111|telefono |1-425-000-0002|  
+|  Dole-John-111|address |1111 San Gabriel Dr.|  
+|  Dole-John-111|phone |1-425-000-0002|  
 |  Dole-John-111|firstName |John|  
 |  Dole-John-111|lastName |Dole|  
-|  Dole-John-111|socialSecurityNum |111| 
+|  Dole-John-111|socialSecurityNum |111|
 
 L'oggetto rowkey archivia ora una copia duplicata dei dati. Prendere in considerazione le dimensioni e il numero di colonne incluse nella chiave primaria, perché questo valore è incluso in ogni cella nella tabella HBase sottostante.
 
@@ -72,8 +72,8 @@ Se inoltre ad alcune colonne si accede in genere contemporaneamente, inserire ta
 
 ### <a name="column-design"></a>Struttura delle colonne
 
-* Mantenere le colonne VARCHAR al di sotto di 1 MB circa, a causa dei costi di I/O per le colonne di grandi dimensioni. Quando elabora le query, HBase materializza completamente le celle prima di inviarle al client e il client le riceve completamente prima di passarle al codice dell'applicazione.
-* Archiviare i valori di colonna usando un formato compatto, ad esempio protobuf, Avro, msgpack o BSON. JSON non è consigliato, in quanto di dimensioni maggiori.
+* Mantieni le colonne VARCHAR in circa 1 MB a causa dei costi di I/O delle colonne di grandi dimensioni. Quando elabora le query, HBase materializza completamente le celle prima di inviarle al client e il client le riceve completamente prima di passarle al codice dell'applicazione.
+* Archiviare i valori di colonna usando un formato compatto, ad esempio protobuf, Avro, msgpack o BSON. JSON non è consigliato, perché è più grande.
 * Prendere in considerazione la compressione dei dati prima dell'archiviazione, per ridurre la latenza e i costi di I/O.
 
 ### <a name="partition-data"></a>Dati di partizione
@@ -109,11 +109,11 @@ Gli indici secondari possono migliorare le prestazioni di lettura trasformando q
 
 ### <a name="use-covered-indexes"></a>Usare gli indici di copertura
 
-Gli indici di copertura sono indici che includono i dati della riga oltre ai valori indicizzati. Dopo aver trovato la voce di indice desiderata, non è necessario accedere alla tabella primaria.
+Gli indici di copertura sono indici che includono i dati della riga oltre ai valori indicizzati. Dopo aver individuato la voce di indice desiderata, non è necessario accedere alla tabella primaria.
 
 Nella tabella di contatti di esempio, è possibile creare ad esempio un indice secondario solo per la colonna socialSecurityNum. Questo indice secondario consente di eseguire più velocemente le query che richiedono un filtro in base ai valori di socialSecurityNum, ma per recuperare altri valori dei campi sarà necessaria un'altra operazione di lettura nella tabella principale.
 
-|rowkey|       Address|   telefono| firstName| lastName| socialSecurityNum |
+|rowkey|       address|   phone| firstName| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
 |  Dole-John-111|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
 |  Raji-Calvin-222|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
@@ -153,7 +153,7 @@ In [SQLLine](http://sqlline.sourceforge.net/) usare il comando EXPLAIN seguito d
 
 Si supponga, ad esempio, di avere una tabella denominata FLIGHTS che archivia le informazioni sui ritardi dei voli.
 
-Per selezionare tutti i voli con valore di airlineid pari a `19805`, dove airlineid è un campo che non si trova nella chiave primaria né in un indice:
+Per selezionare tutti i voli con un airlineid di `19805`, dove airlineid è un campo che non si trova nella chiave primaria o in un indice:
 
     select * from "FLIGHTS" where airlineid = '19805';
 
@@ -208,15 +208,15 @@ Le linee guida seguenti descrivono alcuni modelli comuni.
 
 ### <a name="read-heavy-workloads"></a>Carichi di lavoro con intensa attività di lettura
 
-Per i casi d'uso con intensa attività di lettura, assicurarsi di usare gli indici. Per risparmiare l'overhead del tempo di lettura, è inoltre consigliabile creare indici di copertura.
+Per i casi d'uso intensivo di lettura, assicurarsi di usare gli indici. Per risparmiare l'overhead del tempo di lettura, è inoltre consigliabile creare indici di copertura.
 
 ### <a name="write-heavy-workloads"></a>Carichi di lavoro con intensa attività di scrittura
 
-Per i carichi di lavoro con intensa attività di scrittura in cui la chiave primaria è a incremento progressivo costante, creare bucket di tipo salt per evitare la scrittura di aree sensibili, a discapito della velocità effettiva complessiva di lettura a causa delle analisi aggiuntive necessarie. Quando si usa UPSERT per scrivere un numero elevato di record, disattivare inoltre il commit automatico e creare batch dei record.
+Per carichi di lavoro a elevato utilizzo di scrittura in cui la chiave primaria è a incremento progressivo costante, creare bucket di Salt per evitare la scrittura di hotspot, a scapito della velocità effettiva di lettura complessiva, a causa delle analisi aggiuntive necessarie. Quando si usa UPSERT per scrivere un numero elevato di record, disattivare inoltre il commit automatico e creare batch dei record.
 
 ### <a name="bulk-deletes"></a>Eliminazione in blocco
 
-Quando si elimina un set di dati di grandi dimensioni, attivare il commit automatico prima di eseguire la query di eliminazione, in modo che il client non debba ricordare i valori rowkey per tutte le righe eliminate. Il commit automatico impedisce al client di eseguire il buffering delle righe interessate dall'eliminazione, in modo che Phoenix possa eliminarle direttamente nei server di area senza doverle restituire al client.
+Quando si elimina un set di dati di grandi dimensioni, attivare autocommit prima di emettere la query di eliminazione, in modo che il client non debba ricordare le chiavi di riga per tutte le righe eliminate. Il commit automatico impedisce al client di eseguire il buffering delle righe interessate dall'eliminazione, in modo che Phoenix possa eliminarle direttamente nei server di area senza doverle restituire al client.
 
 ### <a name="immutable-and-append-only"></a>Caratteristiche non modificabili e di solo accodamento
 

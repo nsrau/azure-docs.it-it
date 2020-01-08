@@ -5,21 +5,21 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 12/18/2019
 ms.author: alzam
-ms.openlocfilehash: 2836a89f491d731a11e6bc6fc56e0d049f01ac9a
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 59af4189b52c2ad7a1109ffb03accedbc69dc6c6
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151410"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647918"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication-preview"></a>Configurare un client VPN per le connessioni del protocollo OpenVPN P2S: autenticazione Azure AD (anteprima)
 
 Questo articolo illustra come configurare un client VPN per connettersi a una rete virtuale usando la VPN da punto a sito e l'autenticazione Azure Active Directory. Prima di poter connettersi ed eseguire l'autenticazione con Azure AD, è necessario innanzitutto configurare il tenant di Azure AD. Per altre informazioni, vedere [configurare un tenant di Azure ad](openvpn-azure-ad-tenant.md).
 
 > [!NOTE]
-> Azure AD autenticazione è supportata solo per le connessioni di protocollo OpenVPN®.
+> L'autenticazione di Azure AD è supportata solo per le connessioni tramite il protocollo OpenVPN®.
 >
 
 ## <a name="profile"></a>Utilizzo dei profili client
@@ -28,7 +28,7 @@ Per connettersi, è necessario scaricare il client VPN di Azure (anteprima) e co
 
 ### <a name="to-download-the-azure-vpn-client"></a>Per scaricare il client VPN di Azure
 
-Usare questo [collegamento](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab) per scaricare il client VPN di Azure (anteprima).
+Usare questo [collegamento](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab) per scaricare il Client VPN di Azure (anteprima).
 
 ### <a name="cert"></a>Per creare un profilo client basato su certificati
 
@@ -38,7 +38,11 @@ Quando si utilizza un profilo basato su certificato, verificare che nel computer
 
 ### <a name="radius"></a>Per creare un profilo client RADIUS
 
-  ![raggio](./media/openvpn-azure-ad-client/create/create-radius1.jpg)
+  ![radius](./media/openvpn-azure-ad-client/create/create-radius1.jpg)
+  
+> [!NOTE]
+> Il segreto server può essere esportato nel profilo client VPN P2S.  Le istruzioni su come esportare un profilo client sono disponibili [qui](about-vpn-profile-download.md).
+>
 
 ### <a name="export"></a>Per esportare e distribuire un profilo client
 
@@ -46,11 +50,11 @@ Quando si dispone di un profilo di lavoro ed è necessario distribuirlo ad altri
 
 1. Evidenziare il profilo client VPN che si vuole esportare, selezionare il **...** e quindi selezionare **Esporta**.
 
-    ![esportazione](./media/openvpn-azure-ad-client/export/export1.jpg)
+    ![esportare](./media/openvpn-azure-ad-client/export/export1.jpg)
 
 2. Selezionare il percorso in cui si desidera salvare il profilo, lasciare il nome del file così com'è, quindi selezionare **Salva** per salvare il file XML.
 
-    ![esportazione](./media/openvpn-azure-ad-client/export/export2.jpg)
+    ![esportare](./media/openvpn-azure-ad-client/export/export2.jpg)
 
 ### <a name="import"></a>Per importare un profilo client
 
@@ -70,17 +74,17 @@ Quando si dispone di un profilo di lavoro ed è necessario distribuirlo ad altri
 
     ![import](./media/openvpn-azure-ad-client/import/import4.jpg)
 
-5. Una volta stabilita la connessione, l'icona diventerà verde e si **disconnetterà**.
+5. Una volta stabilita la connessione, l'icona diventerà verde mostrerà lo stato **Connesso**.
 
     ![import](./media/openvpn-azure-ad-client/import/import5.jpg)
 
 ### <a name="delete"></a>Per eliminare un profilo client
 
-1. Selezionare i puntini di sospensione accanto al profilo client che si desidera eliminare. Quindi, selezionare **Rimuovi**.
+1. Selezionare i puntini di sospensione accanto al profilo client che si desidera eliminare. Selezionare quindi **Rimuovi**.
 
     ![delete](./media/openvpn-azure-ad-client/delete/delete1.jpg)
 
-2. Selezionare **Rimuovi** per eliminare.
+2. Per procedere all'eliminazione, selezionare **Rimuovi**.
 
     ![delete](./media/openvpn-azure-ad-client/delete/delete2.jpg)
 
@@ -88,23 +92,23 @@ Quando si dispone di un profilo di lavoro ed è necessario distribuirlo ad altri
 
 1. Nella pagina selezionare **+** , quindi **+ Aggiungi**.
 
-    ![connection](./media/openvpn-azure-ad-client/create/create1.jpg)
+    ![connessione](./media/openvpn-azure-ad-client/create/create1.jpg)
 
 2. Inserire le informazioni di connessione. Se non si è certi dei valori, contattare l'amministratore. Dopo aver compilato i valori, selezionare **Salva**.
 
-    ![connection](./media/openvpn-azure-ad-client/create/create2.jpg)
+    ![connessione](./media/openvpn-azure-ad-client/create/create2.jpg)
 
 3. Selezionare **Connetti** per connettersi alla VPN.
 
-    ![connection](./media/openvpn-azure-ad-client/create/create3.jpg)
+    ![connessione](./media/openvpn-azure-ad-client/create/create3.jpg)
 
 4. Selezionare le credenziali appropriate e quindi fare clic su **continua**.
 
-    ![connection](./media/openvpn-azure-ad-client/create/create4.jpg)
+    ![connessione](./media/openvpn-azure-ad-client/create/create4.jpg)
 
 5. Una volta stabilita la connessione, l'icona diventerà verde e si **disconnetterà**.
 
-    ![connection](./media/openvpn-azure-ad-client/create/create5.jpg)
+    ![connessione](./media/openvpn-azure-ad-client/create/create5.jpg)
 
 ### <a name="autoconnect"></a>Per connettersi automaticamente
 
@@ -128,21 +132,41 @@ Questi passaggi consentono di configurare la connessione per la connessione auto
 
 ## <a name="diagnose"></a>Diagnosticare i problemi di connessione
 
-1. Per diagnosticare i problemi di connessione, è possibile usare lo strumento di **diagnostica** . Selezionare il **...** accanto alla connessione VPN che si desidera diagnosticare per visualizzare il menu. Selezionare quindi **diagnostica**.
+1. Per diagnosticare i problemi di connessione, è possibile usare lo strumento **Diagnosi**. Selezionare il **...** accanto alla connessione VPN che si desidera diagnosticare per visualizzare il menu. Selezionare quindi **Diagnosi**.
 
-    ![diagnosticare](./media/openvpn-azure-ad-client/diagnose/diagnose1.jpg)
+    ![diagnosi](./media/openvpn-azure-ad-client/diagnose/diagnose1.jpg)
 
 2. Nella pagina **Proprietà connessione** selezionare **Esegui diagnosi**.
 
-    ![diagnosticare](./media/openvpn-azure-ad-client/diagnose/diagnose2.jpg)
+    ![diagnosi](./media/openvpn-azure-ad-client/diagnose/diagnose2.jpg)
 
-3. Accedere con le proprie credenziali.
+3. Accedere con le credenziali personali.
 
-    ![diagnosticare](./media/openvpn-azure-ad-client/diagnose/diagnose3.jpg)
+    ![diagnosi](./media/openvpn-azure-ad-client/diagnose/diagnose3.jpg)
 
 4. Visualizzare i risultati della diagnosi.
 
-    ![diagnosticare](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
+    ![diagnosi](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
+
+## <a name="faq"></a>FAQ
+
+### <a name="how-do-i-add-dns-suffixes-to-the-vpn-client"></a>Ricerca per categorie aggiungere suffissi DNS al client VPN?
+
+È possibile modificare il file XML del profilo scaricato e aggiungere il **\<dnssuffixes >\<dnssufix > \</dnssufix >\</dnssuffixes** > Tag
+
+```
+<azvpnprofile>
+<clientconfig>
+
+    <dnssuffixes>
+          <dnssuffix>.mycorp.com</dnssuffix>
+          <dnssuffix>.xyz.com</dnssuffix>
+          <dnssuffix>.etc.net</dnssuffix>
+    </dnssuffixes>
+    
+</clientconfig>
+</azvpnprofile>
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

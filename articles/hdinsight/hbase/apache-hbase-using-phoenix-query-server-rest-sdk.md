@@ -1,19 +1,19 @@
 ---
 title: Phoenix Query Server REST SDK - Azure HDInsight
 description: Installare e usare REST SDK per Phoenix Query Server in Azure HDInsight.
-ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
-ms.custom: hdinsightactive
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 12/04/2017
-ms.openlocfilehash: c9e9258fb7ace93d0866463563d328456cbd1daa
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.custom: hdinsightactive
+ms.date: 01/01/2020
+ms.openlocfilehash: 84c2bad1004029fe61dcfc19321957a170284587
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311671"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612258"
 ---
 # <a name="apache-phoenix-query-server-rest-sdk"></a>Apache Phoenix Query Server REST SDK
 
@@ -71,7 +71,7 @@ await client.ConnectionSyncRequestAsync(connId, connProperties, options);
 
 Ecco alcune proprietà di interesse:
 
-| Proprietà | Descrizione |
+| Proprietà | Description |
 | -- | -- |
 | AutoCommit | Valore booleano che indica se l'opzione `autoCommit` è abilitata per le transazioni Phoenix. |
 | ReadOnly | Valore booleano che indica se la connessione è di sola lettura. |
@@ -82,7 +82,7 @@ Ecco alcune proprietà di interesse:
 
 Ecco i valori di `TransactionIsolation`:
 
-| Valore di isolamento | Descrizione |
+| Valore di isolamento | Description |
 | -- | -- |
 | 0 | Le transazioni non sono supportate. |
 | 1 | Possono verificarsi letture dirty, letture non ripetibili e letture fantasma. |
@@ -94,7 +94,7 @@ Ecco i valori di `TransactionIsolation`:
 
 HBase, come qualsiasi altro sistema RDBMS, archivia i dati nelle tabelle. Phoenix usa query SQL standard per creare nuove tabelle, definendo la chiave primaria e i tipi di colonna.
 
-In questo esempio e tutti gli esempi successivi, usare l'oggetto `PhoenixClient` di cui è stata creata un'istanza come definito in [Creare un'istanza di un nuovo oggetto PhoenixClient](#instantiate-new-phoenixclient-object).
+In questo esempio e in tutti gli esempi successivi, usare l'oggetto `PhoenixClient` di cui è stata creata un'istanza come definito in [creare un'istanza di un nuovo oggetto PhoenixClient](#instantiate-new-phoenixclient-object).
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
@@ -170,7 +170,7 @@ Questo esempio mostra una singola operazione di inserimento di dati, che fa rife
 var states = new List<string> { "AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY" };
 ```
 
-Il valore della colonna `StateProvince` della tabella verrà usato in un'operazione select successiva.
+Il valore della colonna `StateProvince` della tabella verrà utilizzato in un'operazione SELECT successiva.
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
@@ -277,7 +277,7 @@ finally
 }
 ```
 
-La struttura per l'esecuzione di un'istruzione insert è simile a quella per la creazione di una nuova tabella. Si noti che alla fine del blocco `try` viene eseguito in modo esplicito il commit della transazione. Questo esempio ripete una transazione di inserimento 300 volte. L'esempio seguente mostra un processo di inserimento in batch più efficiente.
+La struttura per l'esecuzione di un'istruzione insert è simile a quella per la creazione di una nuova tabella. Alla fine del blocco `try`, viene eseguito il commit in modo esplicito della transazione. Questo esempio ripete una transazione di inserimento 300 volte. L'esempio seguente mostra un processo di inserimento in batch più efficiente.
 
 ## <a name="batch-insert-data"></a>Inserire dati in batch
 
@@ -537,7 +537,7 @@ MH: 6
 FM: 5
 ```
 
-## <a name="next-steps"></a>Passaggi successivi 
+## <a name="next-steps"></a>Passaggi successivi
 
 * [Apache Phoenix in HDInsight](../hdinsight-phoenix-in-hdinsight.md)
 * [Usare Apache HBase REST SDK](apache-hbase-rest-sdk.md)

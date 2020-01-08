@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd8e46ecf7e65d768d16c8680fb7ab6796c74ea6
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 94fc50bf238a74b7d8b45625d88b2d23d7dd1a13
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849336"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613764"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workday per il provisioning utenti automatico
 
 Questa esercitazione descrive i passaggi da eseguire per importare i profili di lavoro da giorni lavorativi in Active Directory e Azure Active Directory, con Write-back facoltativo dell'indirizzo di posta elettronica e nome utente per la giornata lavorativa.
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Il [servizio di provisioning utenti di Azure Active Directory](../manage-apps/user-provisioning.md) si integra con l'[API Human Resources di Workday](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) per il provisioning degli account utente. Azure AD usa questa connessione per consentire i flussi di lavoro di provisioning utenti seguenti:
 
@@ -69,7 +69,7 @@ Questa sezione descrive l'architettura della soluzione end-to-end di provisionin
 * **Flusso di dati rilevante delle risorse umane, da Workday ad Active Directory locale:** in questo flusso gli eventi del ruolo di lavoro (ad esempio, nuove assunzioni, trasferimenti e risoluzioni) si verificano prima nel tenant di risorse umane Workday nel cloud e quindi i dati degli eventi vengono trasmessi nell'istanza locale di Active Directory tramite Azure AD e l'agente di provisioning. A seconda dell'evento, può determinare operazioni di creazione/aggiornamento/abilitazione o disabilitazione in Active Directory.
 * **Flusso di writeback per la posta elettronica e il nome utente: dalla Active Directory locale alla giornata lavorativa:** Una volta che la creazione dell'account è stata completata in Active Directory, viene sincronizzata con Azure AD tramite Azure AD Connect e il messaggio di posta elettronica e l'attributo username possono essere riscritti nella giornata lavorativa.
 
-![Panoramica](./media/workday-inbound-tutorial/wd_overview.png)
+![Overview](./media/workday-inbound-tutorial/wd_overview.png)
 
 ### <a name="end-to-end-user-data-flow"></a>Flusso di dati end-to-end dell'utente
 
@@ -120,7 +120,7 @@ Per semplificare i flussi di lavoro di provisioning tra Workday e Active Directo
 > La normale app "Workday" viene usata per la configurazione del Single Sign-On tra Azure Active Directory e Workday.
 
 Usare il diagramma di flusso decisionale seguente per identificare le app di provisioning di Workday attinenti allo scenario.
-    ![Diagramma di flusso decisionale](./media/workday-inbound-tutorial/wday_app_flowchart.png "DecisDiagramma di flusso Ion ")
+    ![Diagramma di flusso decisionale](./media/workday-inbound-tutorial/wday_app_flowchart.png "Diagramma di flusso decisionale")
 
 Usare il sommario per passare alla sezione rilevante di questa esercitazione.
 
@@ -366,9 +366,9 @@ Questa sezione fornisce i passaggi per configurare il provisioning degli account
 
 **Per configurare il provisioning da Workday in Active Directory:**
 
-1. Vai a <https://portal.azure.com>
+1. Passare a <https://portal.azure.com>.
 
-2. Sulla barra di spostamento a sinistra selezionare **Azure Active Directory**
+2. Nel portale di Azure cercare e selezionare **Azure Active Directory**.
 
 3. Selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 
@@ -376,9 +376,9 @@ Questa sezione fornisce i passaggi per configurare il provisioning degli account
 
 5. Cercare **Workday Provisioning to Active Directory** (Provisioning Workday in Active Directory) e aggiungere tale app dalla raccolta.
 
-6. Dopo avere aggiunto l'app e visualizzato la schermata dei dettagli dell'app, selezionare **Provisioning**
+6. Dopo aver aggiunto l'app e visualizzato la schermata dei dettagli dell'app, selezionare **provisioning**.
 
-7. Impostare **Modalità di** **provisioning** su **Automatico**
+7. Impostare la **modalità** di **provisioning** su **automatico**.
 
 8. Fare clic sul banner informativo visualizzato per scaricare l'agente di provisioning. 
 
@@ -442,7 +442,7 @@ Trasferire il programma di installazione dell'agente scaricato nell'host del ser
    
 1. Verificare l'installazione dell'agente e accertarsi che sia in esecuzione aprendo lo snap-in "Services" e cercare il servizio denominato "Microsoft Azure AD Connect Provisioning Agent" (Agente di provisioning Microsoft Azure Active Directory Connect)
   
-   ![Services](./media/workday-inbound-tutorial/services.png)
+   ![Servizi](./media/workday-inbound-tutorial/services.png)
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory"></a>Parte 3: nell'app di provisioning configurare la connettività con la giornata lavorativa e Active Directory
 In questo passaggio viene stabilita la connettività con la giornata lavorativa e Active Directory nel portale di Azure. 
@@ -468,7 +468,7 @@ In questo passaggio viene stabilita la connettività con la giornata lavorativa 
    * **Indirizzo di posta elettronica per le notifiche:** immettere l'indirizzo di posta elettronica e selezionare la casella di controllo per inviare una notifica di posta elettronica in caso di errore.
 
      > [!NOTE]
-     > Il servizio di provisioning di Azure AD invia una notifica di posta elettronica se il processo di provisioning entra in uno stato di [quarantena](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#quarantine).
+     > Il servizio di provisioning di Azure AD invia una notifica di posta elettronica se il processo di provisioning entra in uno stato di [quarantena](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
    * Fare clic sul pulsante **Test connessione**. Se il test della connessione ha esito positivo, fare clic sul pulsante **Salva** nella parte superiore. In caso contrario, verificare che le credenziali di Workday e Active Directory configurate nel programma di installazione dell'agente siano valide.
 
@@ -593,7 +593,7 @@ Le sezioni seguenti descrivono i passaggi per la configurazione del provisioning
 
 1. Passare a <https://portal.azure.com>.
 
-2. Sulla barra di spostamento a sinistra selezionare **Azure Active Directory**
+2. Nel portale di Azure cercare e selezionare **Azure Active Directory**.
 
 3. Selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 
@@ -601,9 +601,9 @@ Le sezioni seguenti descrivono i passaggi per la configurazione del provisioning
 
 5. Cercare **Workday to Azure AD provisioning** (Provisioning Workday in Azure AD) e aggiungere tale app dalla raccolta.
 
-6. Dopo avere aggiunto l'app e visualizzato la schermata dei dettagli dell'app, selezionare **Provisioning**
+6. Dopo aver aggiunto l'app e visualizzato la schermata dei dettagli dell'app, selezionare **provisioning**.
 
-7. Impostare **Modalità di** **provisioning** su **Automatico**
+7. Impostare la **modalità** di **provisioning** su **automatico**.
 
 8. Completare la sezione **Credenziali amministratore** come segue:
 
@@ -688,9 +688,9 @@ Seguire queste istruzioni per configurare il writeback degli indirizzi di posta 
 
 **Per configurare il connettore di Workday Writeback:**
 
-1. Vai a <https://portal.azure.com>
+1. Passare a <https://portal.azure.com>.
 
-2. Sulla barra di spostamento a sinistra selezionare **Azure Active Directory**
+2. Nel portale di Azure cercare e selezionare **Azure Active Directory**.
 
 3. Selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 
@@ -698,9 +698,9 @@ Seguire queste istruzioni per configurare il writeback degli indirizzi di posta 
 
 5. Cercare **Workday Writeback** (Writeback Workday) e aggiungere tale applicazione dalla raccolta.
 
-6. Dopo avere aggiunto l'app e visualizzato la schermata dei dettagli dell'app, selezionare **Provisioning**
+6. Dopo aver aggiunto l'app e visualizzato la schermata dei dettagli dell'app, selezionare **provisioning**.
 
-7. Impostare **Modalità di** **provisioning** su **Automatico**
+7. Impostare la **modalità** di **provisioning** su **automatico**.
 
 8. Completare la sezione **Credenziali amministratore** come segue:
 
@@ -737,7 +737,7 @@ Dopo aver completato le configurazioni dell'app di provisioning Workday, è poss
 
 1. Nella scheda **Provisioning** impostare **Stato provisioning** su **Attivato**.
 
-2. Fare clic su **Salva**
+2. Fare clic su **Salva**.
 
 3. Questa operazione avvierà la sincronizzazione iniziale, che può richiedere un numero variabile di ore a seconda del numero di utenti nel tenant di Workday. 
 
@@ -845,7 +845,7 @@ Quando si suggerisce una nuova idea, verificare se altri utenti hanno già sugge
 #### <a name="how-do-i-know-the-version-of-my-provisioning-agent"></a>Come capire la versione dell'agente di provisioning?
 
 * Accedere al server Windows in cui è installato l'agente di provisioning.
-* Passare al menu **Control Panel** -> (Pannello di controllo)**Uninstall or Change a Program** (Disinstalla o modifica programma)
+* Passare al menu **Pannello di controllo** -> **Disinstalla o modifica programma**
 * Cercare la versione corrispondente alla voce **Microsoft Azure AD Connect Provisioning Agent** (Agente di provisioning Microsoft Azure AD Connect)
 
   ![Portale di Azure](./media/workday-inbound-tutorial/pa_version.png)
@@ -905,7 +905,7 @@ Sì, un agente di provisioning può essere configurato per gestire più domini d
   Get-PublishedResources -TenantId "[tenant ID]"
   ```
 
-* Nell'elenco di agenti che vengono visualizzati: copiare il valore del campo "id" dalla risorsa la cui proprietà *resourceName* è uguale al nome di dominio Active Directory.
+* Dall'elenco di agenti visualizzato: copiare il valore del campo `id` dalla risorsa *il cui nome* è uguale a quello del dominio ad.
 * Incollare il valore ID in questo comando ed eseguire il comando in PowerShell.
 
   ```powershell
@@ -918,7 +918,7 @@ Sì, un agente di provisioning può essere configurato per gestire più domini d
 #### <a name="how-do-i-uninstall-the-provisioning-agent"></a>Come si disinstalla l'agente di provisioning?
 
 * Accedere al server Windows in cui è installato l'agente di provisioning.
-* Passare al menu **Control Panel** -> (Pannello di controllo)**Uninstall or Change a Program** (Disinstalla o modifica programma)
+* Passare al menu **Pannello di controllo** -> **Disinstalla o modifica programma**
 * Disinstallare i programmi seguenti:
   * Microsoft Azure AD Connect Provisioning Agent
   * Microsoft Azure AD Connect Agent Updater
@@ -946,7 +946,7 @@ Vedere anche la pagina relativa alla
 
 Questa configurazione può essere ottenuta impostando **Azioni oggetto di destinazione** nel pannello **Mapping degli attributi** come illustrato di seguito:
 
-![Aggiorna azione](./media/workday-inbound-tutorial/wd_target_update_only.png)
+![Operazione di aggiornamento](./media/workday-inbound-tutorial/wd_target_update_only.png)
 
 Selezionare la casella di controllo "Update" (Aggiorna) solo per le operazioni di aggiornamento da Workday ad Active Directory. 
 
@@ -960,7 +960,7 @@ La soluzione attualmente non supporta l'impostazione di attributi binari come *t
 * Fare clic sui mapping degli attributi 
 * In **Mapping** selezionare **Synchronize Workday Workers to On Premises Active Directory** (Sincronizza ruoli di lavoro Workday in Active Directory locale) o **Synchronize Workers to Azure AD** (Sincronizza ruoli di lavoro Workday in Azure AD).
 * Nella pagina dei mapping degli attributi, scorrere verso il basso e selezionare la casella "Show Advanced Options" (Mostra opzioni avanzate).  Selezionare **Edit attribute list for Workday** (Modifica elenco attributi per Workday)
-* Nel pannello visualizzato, individuare l'attributo "Mobile" e fare clic sulla riga in modo che sia possibile modificare l'**espressione API** ![GDPR per dispositivi mobili](./media/workday-inbound-tutorial/mobile_gdpr.png)
+* Nel pannello che si apre individuare l'attributo "mobile" e fare clic sulla riga per poter modificare l' **espressione API** ![Mobile GDPR](./media/workday-inbound-tutorial/mobile_gdpr.png)
 
 * Sostituire l'**espressione API** con la nuova espressione seguente, che recupera il numero del cellulare di lavoro solo se "Public Usage Flag" (Flag di utilizzo pubblico) è impostato su "True" in Workday.
 
@@ -1095,7 +1095,7 @@ Quando viene rilevata una nuova assunzione in Workday (si supponga con ID dipend
 
 Quando si fa clic su uno dei record relativi a log di controllo, verrà visualizzata la pagina **Activity Details** (Dettagli attività). Ecco ciò che mostra la pagina **Activity Details** (Dettagli attività) per ogni tipo di record di log.
 
-* Record di **importazione giorni lavorativi** : questo record di log Visualizza le informazioni di lavoro recuperate dalla giornata lavorativa. Usare le informazioni nella sezione del record del log *Additional Details* (Altri dettagli) per risolvere i problemi con il recupero dei dati da Workday. Di seguito viene illustrato un record di esempio è illustrato insieme a riferimenti sull'interpretazione di ogni campo.
+* Record di **importazione giorni lavorativi** : questo record di log Visualizza le informazioni di lavoro recuperate dalla giornata lavorativa. Usare le informazioni nella sezione del record del log *Additional Details* (Altri dettagli) per risolvere i problemi con il recupero dei dati da Workday. Di seguito viene illustrato un record di esempio insieme a riferimenti sull'interpretazione di ogni campo.
 
   ```JSON
   ErrorCode : None  // Use the error code captured here to troubleshoot Workday issues
@@ -1104,7 +1104,7 @@ Quando si fa clic su uno dei record relativi a log di controllo, verrà visualiz
   SourceAnchor : a071861412de4c2486eb10e5ae0834c3 // set to the WorkdayID (WID) associated with the record
   ```
 
-* Record di **importazione ad** : questo record di log Visualizza le informazioni dell'account recuperato da ad. Poiché durante la creazione iniziale dell'utente non esiste un account AD, *Activity Status Reason* (Motivo dello stato attività) indicherà che non è stato trovato alcun account con il valore dell'attributo ID corrispondente in Active Directory. Usare le informazioni nella sezione del record del log *Additional Details* (Altri dettagli) per risolvere i problemi con il recupero dei dati da Workday. Di seguito viene illustrato un record di esempio è illustrato insieme a riferimenti sull'interpretazione di ogni campo.
+* Record di **importazione ad** : questo record di log Visualizza le informazioni dell'account recuperato da ad. Poiché durante la creazione iniziale dell'utente non esiste un account AD, *Activity Status Reason* (Motivo dello stato attività) indicherà che non è stato trovato alcun account con il valore dell'attributo ID corrispondente in Active Directory. Usare le informazioni nella sezione del record del log *Additional Details* (Altri dettagli) per risolvere i problemi con il recupero dei dati da Workday. Di seguito viene illustrato un record di esempio insieme a riferimenti sull'interpretazione di ogni campo.
 
   ```JSON
   ErrorCode : None // Use the error code captured here to troubleshoot Workday issues
@@ -1124,7 +1124,7 @@ Quando si fa clic su uno dei record relativi a log di controllo, verrà visualiz
 
   ![Risultati LDAP](media/workday-inbound-tutorial/wd_event_viewer_04.png)
 
-* Record **azione regola di sincronizzazione** : questo record di log consente di visualizzare i risultati delle regole di mapping degli attributi e i filtri di ambito configurati insieme all'azione di provisioning che verrà eseguita per elaborare l'evento della giornata lavorativa in arrivo. Usare le informazioni nella sezione del record del log *Additional Details* (Altri dettagli) per risolvere i problemi con l'azione di sincronizzazione. Di seguito viene illustrato un record di esempio è illustrato insieme a riferimenti sull'interpretazione di ogni campo.
+* Record **azione regola di sincronizzazione** : questo record di log consente di visualizzare i risultati delle regole di mapping degli attributi e i filtri di ambito configurati insieme all'azione di provisioning che verrà eseguita per elaborare l'evento della giornata lavorativa in arrivo. Usare le informazioni nella sezione del record del log *Additional Details* (Altri dettagli) per risolvere i problemi con l'azione di sincronizzazione. Di seguito viene illustrato un record di esempio insieme a riferimenti sull'interpretazione di ogni campo.
 
   ```JSON
   ErrorCode : None // Use the error code captured here to troubleshoot sync issues
@@ -1135,7 +1135,7 @@ Quando si fa clic su uno dei record relativi a log di controllo, verrà visualiz
 
   Se si verificano problemi con le espressioni di mapping di attributi o i dati in ingresso di Workday presentano problemi (ad esempio: valori vuoti oppure null per gli attributi obbligatori), sarà possibile osservare un errore in questa fase con il codice di errore che ne fornisce i dettagli.
 
-* Record di **esportazione ad** : questo record di log Visualizza il risultato dell'operazione di creazione dell'account ad insieme ai valori di attributo impostati nel processo. Usare le informazioni nella sezione del record del log *Additional Details* (Altri dettagli) per risolvere i problemi con l'operazione di creazione account. Di seguito viene illustrato un record di esempio è illustrato insieme a riferimenti sull'interpretazione di ogni campo. Nella sezione "Additional Details" (Dettagli aggiuntivi), "EventName" è impostato su "EntryExportAdd", "JoiningProperty" è impostata sul valore dell'attributo ID di abbinamento, "SourceAnchor" è impostato su WorkdayID (WID) associato al record e "TargetAnchor" è impostato sul valore dell'attributo AD "ObjectGuid" dell'utente appena creato. 
+* Record di **esportazione ad** : questo record di log Visualizza il risultato dell'operazione di creazione dell'account ad insieme ai valori di attributo impostati nel processo. Usare le informazioni nella sezione del record del log *Additional Details* (Altri dettagli) per risolvere i problemi con l'operazione di creazione account. Di seguito viene illustrato un record di esempio insieme a riferimenti sull'interpretazione di ogni campo. Nella sezione "Additional Details" (Dettagli aggiuntivi), "EventName" è impostato su "EntryExportAdd", "JoiningProperty" è impostata sul valore dell'attributo ID di abbinamento, "SourceAnchor" è impostato su WorkdayID (WID) associato al record e "TargetAnchor" è impostato sul valore dell'attributo AD "ObjectGuid" dell'utente appena creato. 
 
   ```JSON
   ErrorCode : None // Use the error code captured here to troubleshoot AD account creation issues
@@ -1191,7 +1191,7 @@ Questa sezione illustra gli errori più comuni riscontrati con il provisioning u
 |#|Scenario di errore |Possibili cause|Risoluzione consigliata|
 |--|---|---|---|
 |1.| Si è verificato un errore durante l'installazione dell'agente di provisioning con messaggio di errore: *Impossibile avviare il servizio ' Microsoft Azure ad Connect provisioning Agent ' (AADConnectProvisioningAgent). Verificare di disporre di privilegi sufficienti per avviare il sistema.* | Questo errore viene in genere visualizzato se si sta provando a installare l'agente di provisioning in un controller di dominio e il criterio di gruppo impedisce l'avvio del servizio.  Viene visualizzato anche se si dispone di una versione precedente dell'agente in esecuzione e non è stato disinstallato prima di avviare una nuova installazione.| Installare l'agente di provisioning in un server non DC. Assicurarsi che le versioni precedenti dell'agente vengano disinstallate prima di installare il nuovo agente.|
-|2.| Il servizio Windows "Microsoft Azure AD Connect Provisioning Agent" è in stato di *avvio* e non passa allo stato di *esecuzione*. | Come parte dell'installazione, la procedura guidata dell'agente crea un account locale (**NT Service\\AADConnectProvisioningAgent**) nel server che corrisponde all'account di **accesso** usato per l'avvio del servizio. Questo errore si verifica se un criterio di sicurezza nel server Windows impedisce agli account locali di eseguire i servizi. | Aprire la *console dei servizi*. Fare clic con il pulsante destro del mouse su "Microsoft Azure AD Connect Provisioning Agent" (Agente di provisioning di Microsoft Azure Active Directory Connect) e specificare l'account dell'amministratore di dominio nella scheda di accesso per eseguire il servizio. Riavviare il servizio. |
+|2.| Il servizio Windows "Microsoft Azure AD Connect Provisioning Agent" è in stato di *avvio* e non passa allo stato di *esecuzione*. | Durante l'installazione, tramite la procedura guidata dell'agente viene creato un account locale (**NT Service\\AADConnectProvisioningAgent**) nel server e questo è l'account di accesso utilizzato per l'avvio del servizio. Questo errore si verifica se un criterio di sicurezza nel server Windows impedisce agli account locali di eseguire i servizi. | Aprire la *console dei servizi*. Fare clic con il pulsante destro del mouse sul servizio Windows ' Microsoft Azure AD Connetti agente di provisioning ' e nella scheda accesso specificare l'account di un amministratore di dominio per eseguire il servizio. Riavviare il servizio. |
 |3.| Quando si configura l'agente di provisioning con il dominio di AD nel passaggio *Connect Active Directory* (Connetti Active Directory), la procedura guidata richiede troppo tempo a caricare lo schema di AD infine raggiunge il timeout. | Questo errore in genere viene visualizzato se la procedura guidata non riesce a contattare il server di controller di dominio AD a causa di problemi relativi al firewall. | Nella schermata di procedura guidata *Connect Active Directory* (Connetti Active Directory), pur fornendo le credenziali per il dominio AD, è presente un'opzione chiamata *Select domain controller priority* (Seleziona la priorità del controller di dominio). Usare questa opzione per selezionare un controller di dominio che sia presente nello stesso sito dell'agente del server e assicurarsi che non siano presenti regole firewall che bloccano la comunicazione. |
 
 #### <a name="connectivity-errors"></a>Errori di connettività

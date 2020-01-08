@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: aa92b72b09ed28b41d85ac7c7605077761657d40
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 5ffee146bdbd666d4175af2f49f6b447743b2bc0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721569"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457662"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Introduzione all'archiviazione code di Azure con .NET
 
@@ -21,7 +21,7 @@ ms.locfileid: "68721569"
 
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 L'archivio code di Azure fornisce la messaggistica cloud tra i componenti dell'applicazione. Durante la progettazione di applicazioni scalabili, i componenti dell'applicazione vengono spesso separati, per poter essere scalati in modo indipendente. L'archivio code fornisce la messaggistica asincrona per la comunicazione tra i componenti dell'applicazione, che possono essere eseguiti nel cloud, in un desktop, in un server locale o in un dispositivo mobile. Archiviazione code supporta anche la gestione di attività asincrone e la creazione di flussi di lavoro dei processi.
 
@@ -29,7 +29,7 @@ L'archivio code di Azure fornisce la messaggistica cloud tra i componenti dell'a
 
 Questa esercitazione illustra come scrivere codice .NET per alcuni scenari comuni dell'archiviazione code di Azure. Gli scenari presentati includono creazione ed eliminazione di code, nonché aggiunta, lettura ed eliminazione di messaggi nella coda.
 
-**Tempo previsto per il completamento**: 45 minuti
+**Tempo previsto per il completamento:** 45 minuti
 
 ### <a name="prerequisites"></a>Prerequisiti
 
@@ -43,7 +43,7 @@ Questa esercitazione illustra come scrivere codice .NET per alcuni scenari comun
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
-## <a name="set-up-your-development-environment"></a>Configurazione dell'ambiente di sviluppo
+## <a name="set-up-your-development-environment"></a>Configurare l'ambiente di sviluppo
 
 Configurare quindi l'ambiente di sviluppo in Visual Studio per poter provare gli esempi di codice di questa guida.
 
@@ -52,7 +52,7 @@ Configurare quindi l'ambiente di sviluppo in Visual Studio per poter provare gli
 In Visual Studio creare una nuova applicazione console di Windows. La procedura seguente illustra come creare un'applicazione console in Visual Studio 2019. La procedura è simile per le altre versioni di Visual Studio.
 
 1. Selezionare **File** > **Nuovo** > **Progetto**
-2. Selezionare le**finestre** della **piattaforma** > 
+2. Seleziona **piattaforma** > **Windows**
 3. Selezionare **App console (.NET Framework)**
 4. Selezionare **Avanti**
 5. Nel campo **nome progetto** , immettere un nome per l'applicazione
@@ -66,11 +66,11 @@ Tutti gli esempi di codice in questa esercitazione possono essere aggiunti al me
 
 Per completare questa esercitazione, è necessario fare riferimento ai tre pacchetti seguenti nel progetto:
 
-* [Archiviazione di Microsoft Azure libreria client comune per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): questo pacchetto fornisce l'accesso a livello di codice alle risorse dati nell'account di archiviazione.
-* [Archiviazione di Microsoft Azure libreria di Accodamento per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/): Questa libreria client consente di utilizzare il Archiviazione di Microsoft Azure Servizio di accodamento per archiviare i messaggi a cui è possibile accedere da un client.
+* [Archiviazione di Microsoft Azure libreria client comune per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): questo pacchetto fornisce l'accesso a livello di codice alle risorse di dati nell'account di archiviazione.
+* [Archiviazione di Microsoft Azure Library Queue per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/): questa libreria client consente di utilizzare il archiviazione di Microsoft Azure servizio di Accodamento per archiviare i messaggi a cui è possibile accedere da un client.
 * [Libreria Gestione configurazione di Microsoft Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): questo pacchetto fornisce una classe per l'analisi di una stringa di connessione in un file di configurazione, indipendentemente dalla posizione in cui viene eseguita l'applicazione.
 
-È possibile usare NuGet per ottenere questi pacchetti. Attenersi ai passaggi riportati di seguito.
+È possibile usare NuGet per ottenere questi pacchetti. A tale scopo, seguire questa procedura:
 
 1. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**.
 2. Selezionare **Esplora**
@@ -89,7 +89,7 @@ Sono disponibili due opzioni relative all'ambiente per l'esecuzione degli esempi
 * È possibile eseguire il codice con un account di archiviazione di Azure nel cloud.
 * È possibile eseguire il codice nell'emulatore di archiviazione di Azure. L'emulatore di archiviazione è un ambiente locale che emula un account di archiviazione di Azure nel cloud. L'emulatore è un'opzione gratuita per il test e il debug del codice durante lo sviluppo dell'applicazione. L'emulatore usa un account e una chiave noti. Per altre informazioni, vedere [Usare l'emulatore di archiviazione di Azure per sviluppo e test](../common/storage-use-emulator.md).
 
-Se si specifica come destinazione un account di archiviazione nel cloud, immettere la chiave di accesso primaria per tale account tramite il portale di Azure. Per altre informazioni, vedere [Chiavi di accesso](../common/storage-account-manage.md#access-keys).
+Se si specifica come destinazione un account di archiviazione nel cloud, immettere la chiave di accesso primaria per tale account tramite il portale di Azure. Per altre informazioni, vedere [gestire le chiavi di accesso all'account di archiviazione](../common/storage-account-keys-manage.md).
 
 > [!NOTE]
 > È possibile impostare come destinazione l'emulatore di archiviazione per evitare di incorrere negli eventuali costi associati al servizio Archiviazione di Azure. Se però si sceglie di impostare come destinazione un account di archiviazione di Azure nel cloud, i costi per eseguire questa esercitazione saranno minimi.
@@ -103,7 +103,7 @@ Per altre informazioni sulle stringhe di connessione, vedere [Configurare le str
 > [!NOTE]
 > La chiave dell’account di archiviazione è simile alla password radice per l'account di archiviazione. È consigliabile proteggere sempre la chiave dell'account di archiviazione. Evitare di distribuirla ad altri utenti, impostarla come hardcoded o salvarla in un file di testo normale accessibile ad altri. Rigenerare la chiave tramite il portale di Azure se si ritiene che possa essere stata compromessa.
 
-Per configurare la stringa di connessione, aprire il file **app. config** da Esplora soluzioni in Visual Studio. Aggiungere il contenuto dell'elemento **\<appSettings\>** illustrato di seguito. Sostituire *account-name* con il nome dell'account di archiviazione e la *chiave di account* con la chiave di accesso dell'account:
+Per configurare la stringa di connessione, aprire il file **app. config** da Esplora soluzioni in Visual Studio. Aggiungere il contenuto dell'elemento **\>appSettings di\<** riportato di seguito. Sostituire *account-name* con il nome dell'account di archiviazione e la *chiave di account* con la chiave di accesso dell'account:
 
 ```xml
 <configuration>
@@ -163,7 +163,7 @@ CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
 A questo punto si è pronti a scrivere codice che legge e scrive i dati nell'archivio code.
 
-## <a name="create-a-queue"></a>Crea una coda
+## <a name="create-a-queue"></a>Creare una coda
 
 Questo esempio illustra come creare una coda, se non esiste già:
 

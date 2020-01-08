@@ -1,17 +1,17 @@
 ---
-title: Convertire una macchina virtuale Windows da dischi non gestiti a Managed disks-Azure Managed Disks
+title: Convertire i dischi non gestiti di una VM Windows in dischi gestiti
 description: Come convertire i dischi non gestiti di una VM Windows in dischi gestiti usando PowerShell nel modello di distribuzione Resource Manager
 author: roygara
 ms.service: virtual-machines-windows
 ms.topic: conceptual
 ms.date: 07/12/2018
 ms.author: rogarana
-ms.openlocfilehash: 92f70cbfcf261c218ea43b159ed49126f7b2ecd5
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 8c180cfc597c0ade27b1fe8cca5a8751176ea12e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033905"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460123"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Convertire i dischi non gestiti di una VM Windows in dischi gestiti
 
@@ -24,7 +24,7 @@ Se si hanno macchine virtuali (VM) Windows che usano dischi non gestiti, è poss
 
 * Vedere [Pianificare la migrazione a Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks).
 
-* Consultare le [domande frequenti sulla migrazione a Managed Disks](faq-for-disks.md#migrate-to-managed-disks).
+* Vedere le [domande frequenti sulla migrazione a Managed Disks](faq-for-disks.md#migrate-to-managed-disks).
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 
@@ -32,7 +32,7 @@ Se si hanno macchine virtuali (VM) Windows che usano dischi non gestiti, è poss
 
 
 ## <a name="convert-single-instance-vms"></a>Convertire VM a istanza singola
-Questa sezione descrive come convertire i dischi delle macchine virtuali di Azure a istanza singola da non gestiti a gestiti. Se le VM sono in un set di disponibilità, vedere la sezione successiva. 
+Questa sezione descrive come convertire i dischi delle macchine virtuali di Azure a istanza singola da non gestiti a gestiti. Se le macchine virtuali si trovano in un set di disponibilità, vedere la sezione successiva. 
 
 1. Deallocare la macchina virtuale mediante il cmdlet [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm). L'esempio seguente dealloca la macchina virtuale denominata `myVM` nel gruppo di risorse `myResourceGroup`: 
 

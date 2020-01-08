@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: e0ce8b97df6f2d6e95255d3f4dfc9f76fa08a594
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b2c16c27c0dfc0c30a99c52544cc4d2278eadfc7
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123547"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647731"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Gestire cluster ML Services in Azure HDInsight
 
@@ -23,7 +23,7 @@ Questo articolo illustra come gestire un cluster di servizi di gestione delle ri
 
 * Un cluster ML Services in HDInsight. Vedere [Creare cluster di Apache Hadoop usando il portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selezionare **ML Services** per **Tipo di cluster**.
 
-* Un client Secure Shell (SSH): il client SSH viene usato per connettersi da remoto al cluster HDInsight e per eseguire i comandi direttamente sul cluster. Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Un client Secure Shell (SSH): un client SSH viene usato per connettersi in modalità remota al cluster HDInsight ed eseguire i comandi direttamente nel cluster. Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="enable-multiple-concurrent-users"></a>Abilitare più utenti simultanei
 
@@ -70,7 +70,7 @@ Quando viene richiesto di immettere la password Kerberos corrente, è sufficient
 
 ### <a name="step-3-use-rstudio-community-version-with-the-user-created"></a>Passaggio 3: Usare la versione Community di RStudio con l'utente creato
 
-Accedere a RStudio da https://CLUSTERNAME.azurehdinsight.net/rstudio/. Se si sta eseguendo il primo accesso dopo la creazione del cluster, immettere le credenziali amministratore del cluster seguite dalle credenziali utente SSH create. Se non si tratta del primo accesso, immettere solo le credenziali per l'utente SSH create.
+Accedere a RStudio da `https://CLUSTERNAME.azurehdinsight.net/rstudio/`. Se si sta eseguendo il primo accesso dopo la creazione del cluster, immettere le credenziali amministratore del cluster seguite dalle credenziali utente SSH create. Se non si tratta del primo accesso, immettere solo le credenziali per l'utente SSH create.
 
 Si può anche accedere simultaneamente da un'altra finestra del browser con le credenziali originali (per impostazione predefinita, *sshuser*).
 
@@ -78,7 +78,7 @@ Si noti anche gli utenti appena aggiunti non hanno privilegi a livello radice ne
 
 ## <a name="connect-remotely-to-microsoft-ml-services"></a>Connettersi in modalità remota a Microsoft ML Services
 
-È possibile configurare l'accesso al contesto di calcolo HDInsight Spark da un'istanza remota di ML Client in esecuzione nel computer desktop. A tale scopo, è necessario specificare le opzioni (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches e sshProfileScript) quando si definisce il contesto di calcolo RxSpark nel computer desktop: Esempio:
+È possibile configurare l'accesso al contesto di calcolo HDInsight Spark da un'istanza remota di ML Client in esecuzione nel computer desktop. A tale scopo, è necessario specificare le opzioni (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches e sshProfileScript) quando si definisce il contesto di calcolo RxSpark nel computer desktop, ad esempio:
 
     myNameNode <- "default"
     myPort <- 0
@@ -196,7 +196,7 @@ Per installare pacchetti R nei nodi di lavoro del cluster, è necessario usare u
 
    * Selezionare la casella di controllo solo per **Lavoro**.
 
-   * **Parametri**: i pacchetti R da installare. Ad esempio: `bitops stringr arules`
+   * **Parametri**: i pacchetti R da installare. Ad esempio, usare `bitops stringr arules`
 
    * Selezionare la casella di controllo **Persist this script action** (Salva questa azione script in modo permanente).  
 

@@ -2,13 +2,14 @@
 title: Distribuire un gruppo di contenitori in rete virtuale di Azure
 description: Informazioni su come distribuire gruppi di contenitori in una rete virtuale Azure nuova o esistente.
 ms.topic: article
-ms.date: 07/11/2019
-ms.openlocfilehash: f211924eb74035f4bb30db2d2b848e0a2591de09
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.date: 12/17/2019
+ms.author: danlep
+ms.openlocfilehash: 9c9f1d114ea3883a947fb454d5958c1479bd4a4e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533276"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442236"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuire le istanze di contenitore in una rete virtuale di Azure
 
@@ -45,8 +46,8 @@ I limiti delle risorse del contenitore possono differire dai limiti delle istanz
 ### <a name="unsupported-networking-scenarios"></a>Scenari di rete non supportati 
 
 * **Azure Load Balancer** l'inserimento di un Azure Load Balancer davanti alle istanze di contenitore in un gruppo di contenitori in rete non è supportato
-* **Peering di rete virtuale** : non è possibile eseguire il peering di una rete virtuale che contiene una subnet delegata a istanze di contenitore di Azure a un'altra rete virtuale
-* **Tabelle di route** : le route definite dall'utente non possono essere configurate in una subnet delegata alle istanze di contenitore di Azure
+* **Peering di rete virtuale** : il peering VNet non funzionerà per ACI se la rete a cui viene eseguito il peering di ACI VNet usa uno spazio IP pubblico. Per consentire il funzionamento del peering, la rete con peering deve avere uno spazio IP privato RFC1918. Inoltre, è attualmente possibile eseguire il peering della VNet in un altro VNet
+* **Routing del traffico della rete virtuale** : le route del cliente non possono essere configurate in indirizzi IP pubblici. È possibile configurare le route nello spazio IP privato della subnet delegata in cui vengono distribuite le risorse ACI 
 * **Gruppi di sicurezza di rete** : le regole di sicurezza in uscita in gruppi applicate a una subnet delegata alle istanze di contenitore di Azure non sono attualmente applicate 
 * **IP pubblico o etichetta DNS** : i gruppi di contenitori distribuiti in una rete virtuale non supportano attualmente l'esposizione di contenitori direttamente a Internet con un indirizzo IP pubblico o un nome di dominio completo
 * **Risoluzione dei nomi interna** : la risoluzione dei nomi per le risorse di Azure nella rete virtuale tramite il DNS interno di Azure non è supportata

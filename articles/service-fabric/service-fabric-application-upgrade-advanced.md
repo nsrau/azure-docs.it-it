@@ -1,25 +1,14 @@
 ---
-title: Argomenti avanzati sull'aggiornamento di un'applicazione | Documentazione Microsoft
+title: Argomenti avanzati sull'aggiornamento delle applicazioni
 description: Questo articolo illustra alcuni degli argomenti avanzati relativi all'aggiornamento di un'applicazione di Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: e29585ff-e96f-46f4-a07f-6682bbe63281
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: c37ee8177ba31ac8a5da90fef175a6fbd63a6d75
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: bd95d651e02cb61bcbe7a108db92afce8b5484bd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167594"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457522"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Aggiornamento di un'applicazione di Service Fabric: argomenti avanzati
 ## <a name="adding-or-removing-service-types-during-an-application-upgrade"></a>Aggiunta o rimozione di tipi di servizio durante l'aggiornamento di un'applicazione

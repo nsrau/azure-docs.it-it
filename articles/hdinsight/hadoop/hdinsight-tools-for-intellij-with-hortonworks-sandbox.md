@@ -3,18 +3,18 @@ title: Usare Azure Toolkit for IntelliJ con Hortonworks Sandbox
 description: Informazioni su come usare gli strumenti HDInsight in Azure Toolkit for IntelliJ con Hortonworks Sandbox.
 keywords: strumenti hadoop,query hive,intellij,hortonworks sandbox,azure toolkit for intellij
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
+ms.custom: hdinsightactive
 ms.date: 05/16/2018
-ms.author: hrasheed
-ms.openlocfilehash: 783d7fc8bc26ce2c715c774e63ecf60c5b75a439
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 65a15a8506b88e95e14af8c87bcbe33087301519
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076266"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647833"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Usare gli strumenti HDInsight per IntelliJ con Hortonworks Sandbox
 
@@ -63,7 +63,7 @@ In questa sezione verrà creato un progetto Scala di esempio usando IntelliJ IDE
    1. Nella casella **Project name** (Nome progetto) immettere un nome per il progetto.
    2. Nella casella **Project location** (Percorso progetto) immettere un percorso per il progetto.
    3. Accanto all'elenco a discesa **Project SDK** (SDK progetto) selezionare **New** (Nuovo), **JDK** e quindi specificare la cartella per Java JDK 1.7 o versione successiva. Selezionare **Java 1.8** per il cluster Spark 2.x. Selezionare **Java 1.7** per il cluster Spark 1.x. Il percorso predefinito è C:\Programmi\Java\jdk1.8.x_xxx.
-   4. Nell'elenco a discesa **Spark version** (Versione di Spark) la creazione guidata del progetto Scala inserisce la versione corretta per Spark SDK e Scala SDK. Se la versione del cluster Spark è precedente alla 2.0, selezionare **Spark 1.x**. In caso contrario, selezionare **Spark 2.x**. In questo esempio viene usata la versione Spark 1.6.2 (Scala 2.10.5). Assicurarsi di usare il repository contrassegnato come **Scala 2.10.x**. Non usare il repository contrassegnato come Scala 2.11.x.
+   4. Nell'elenco a discesa **Spark version** (Versione di Spark) la creazione guidata del progetto Scala inserisce la versione corretta per Spark SDK e Scala SDK. Se la versione del cluster Spark è precedente alla 2.0, selezionare **Spark 1.x**. In caso contrario, selezionare **Spark2.x**. In questo esempio viene usata la versione Spark 1.6.2 (Scala 2.10.5). Assicurarsi di usare il repository contrassegnato come **Scala 2.10.x**. Non usare il repository contrassegnato come Scala 2.11.x.
     
       ![Proprietà della creazione del progetto IntelliJ Scala](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
 
@@ -139,7 +139,7 @@ Dopo aver collegato IntelliJ IDEA all'emulatore è possibile inviare il progetto
 Per inviare un progetto a un emulatore:
 
 1. In **Project Explorer** (Esplora progetti) fare clic con il pulsante destro del mouse sul progetto e quindi scegliere **Submit Spark Application to HDInsight** (Invia applicazione Spark a HDInsight).
-2. Completare questi passaggi:
+2. Completare i passaggi seguenti:
 
     1. Nell'elenco a discesa **Spark cluster (Linux only)** (Cluster Spark - solo Linux) selezionare l'ambiente Hortonworks Sandbox locale.
     2. Nella casella **Main class name** (Nome classe principale) scegliere o immettere il nome della classe principale. Per questo articolo, il nome è **GroupByTest**.
@@ -158,4 +158,3 @@ Per inviare un progetto a un emulatore:
 
 - Leggere le informazioni su come [usare gli strumenti HDInsight in Azure Toolkit for Eclipse per creare applicazioni Apache Spark](../spark/apache-spark-eclipse-tool-plugin.md).
 
-- Per un video sugli strumenti HDInsight per Eclipse, vedere [Use HDInsight Tool for Eclipse to create Spark applications](https://mix.office.com/watch/1rau2mopb6fha) (Usare gli strumenti HDInsight per Eclipse per creare applicazioni Spark).

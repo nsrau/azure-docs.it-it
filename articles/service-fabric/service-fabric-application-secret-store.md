@@ -1,18 +1,14 @@
 ---
-title: Archivio di Service Fabric Secrets | Microsoft Docs
+title: Archivio dei segreti Service Fabric
 description: Questo articolo descrive come usare Service Fabric archivio dei segreti.
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 07/25/2019
-ms.author: atsenthi
-ms.openlocfilehash: 5315a8806f45e40204e8500e97c3440bfa9ab8b2
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 16608d9eaf12fc9abc535ef316d7b5e8b74a8b37
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077349"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457516"
 ---
 #  <a name="service-fabric-secrets-store"></a>Archivio dei segreti Service Fabric
 Questo articolo descrive come creare e usare i segreti in applicazioni Service Fabric usando l'archivio di Service Fabric Secrets (CSS). CSS è una cache di archivio Secret locale, usata per conservare i dati sensibili, ad esempio una password, i token e le chiavi crittografate in memoria.
@@ -24,8 +20,8 @@ Questo articolo descrive come creare e usare i segreti in applicazioni Service F
     [
         ...
     {
+        "name":  "CentralSecretService",
         "parameters":  [
-            "name":  "CentralSecretService"
                 {
                     "name":  "IsEnabled",
                     "value":  "true"
@@ -46,6 +42,9 @@ Questo articolo descrive come creare e usare i segreti in applicazioni Service F
                 ],
             },
             ]
+     }
+        ...
+     ]
 ```
 ## <a name="declare-secret-resource"></a>Dichiarare la risorsa segreta
 È possibile creare una risorsa segreta usando il modello di Gestione risorse o l'API REST.

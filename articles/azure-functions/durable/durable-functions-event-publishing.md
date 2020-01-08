@@ -3,12 +3,12 @@ title: Pubblicazione di Funzioni durevoli in Griglia di eventi di Azure (antepri
 description: Informazioni su come configurare la pubblicazione automatica di Griglia di eventi di Azure per Funzioni durevoli.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: f0fbb46320b896008b6a1343357f016a9f57b0fe
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5d1960f0e8d249ac77f3c64e18b332a3d55d5180
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231439"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613126"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Pubblicazione di Funzioni durevoli in Griglia di eventi di Azure (anteprima)
 
@@ -24,7 +24,7 @@ Di seguito sono indicati alcuni scenari in cui questa funzionalità è utile:
 
 [!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Installare [Microsoft. Azure. webjobs. Extensions. DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) nel progetto Durable Functions.
 * Installare l'[emulatore di archiviazione di Azure](../../storage/common/storage-use-emulator.md).
@@ -86,7 +86,7 @@ Aggiungere `eventGridTopicEndpoint` e `eventGridKeySettingName` in una propriet�
 
 Le possibili proprietà di configurazione di griglia di eventi di Azure sono disponibili nella [documentazione di host. JSON](../functions-host-json.md#durabletask). Dopo aver configurato il file di `host.json`, l'app per le funzioni Invia gli eventi del ciclo di vita all'argomento di griglia di eventi. Questa operazione funziona quando si esegue l'app per le funzioni sia localmente che in Azure .''
 
-Definire l'impostazione dell'app per la chiave dell'argomento nell'app per le funzioni e in `local.setting.json`. Il codice JSON seguente è un esempio di `local.settings.json` per il debug locale. Sostituire `<topic_key>` con la chiave dell'argomento.  
+Definire l'impostazione dell'app per la chiave dell'argomento nell'app per le funzioni e in `local.settings.json`. Il codice JSON seguente è un esempio di `local.settings.json` per il debug locale. Sostituire `<topic_key>` con la chiave dell'argomento.  
 
 ```json
 {

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: mlearned
-ms.openlocfilehash: 6fc1af356d035c4db73f761ce679f7ad16126d4f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 5f3e6cf8c5de8d5f3de17ad0b5d4bb4c004c06df
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013005"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442991"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Proteggere l'accesso al server API usando gli intervalli di indirizzi IP autorizzati in Azure Kubernetes Service (AKS)
 
@@ -21,7 +21,7 @@ In Kubernetes, il server API riceve le richieste per eseguire le azioni nel clus
 Questo articolo illustra come usare gli intervalli di indirizzi IP autorizzati del server API per limitare gli indirizzi IP e CIDRs che possono accedere al piano di controllo.
 
 > [!IMPORTANT]
-> Nei nuovi cluster, gli intervalli di indirizzi IP autorizzati del server API sono supportati solo nel servizio di bilanciamento del carico SKU *standard* . I cluster esistenti con lo SKU di *base* Load Balancer e gli intervalli di indirizzi IP autorizzati del server API configurati continueranno a funzionare così com'è. I cluster esistenti possono anche essere aggiornati e continueranno a funzionare.
+> Nei nuovi cluster, gli intervalli di indirizzi IP autorizzati del server API sono supportati solo nel servizio di bilanciamento del carico SKU *standard* . I cluster esistenti con lo SKU di *base* Load Balancer e gli intervalli di indirizzi IP autorizzati del server API configurati continueranno a funzionare così come sono, ma non è possibile eseguirne la migrazione a un servizio di bilanciamento del carico *standard* . I cluster esistenti continueranno a funzionare anche se la versione o il piano di controllo di Kubernetes viene aggiornato.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -102,7 +102,7 @@ az aks create \
 
 ## <a name="update-a-clusters-api-server-authorized-ip-ranges"></a>Aggiornare gli intervalli IP autorizzati del server API del cluster
 
-Per aggiornare gli intervalli di indirizzi IP autorizzati del server API in un cluster esistente, usare il comando [AZ AKS Update][az-aks-update] e usare *--API-server-Authorized-IP-Ranges*, *--Load-Balancer-Outbound-IP-prefissis*, *--Load-Balancer-Outbound-IPS*, o *--Load-Balancer-Outbound-IP-prefissi* parametri.
+Per aggiornare gli intervalli IP autorizzati del server API in un cluster esistente, usare il comando [AZ AKS Update][az-aks-update] e usare i parametri *--API-server-Authorized-IP-Ranges*, *--Load-Balancer-Outbound-IP-* prefissis, *--Load-Balancer-Outbound-IPSS*o *--Load-Balancer*
 
 L'esempio seguente aggiorna gli intervalli IP autorizzati del server API nel cluster denominato *myAKSCluster* nel gruppo di risorse denominato *myResourceGroup*. L'intervallo di indirizzi IP da autorizzare è *73.140.245.0/24*:
 

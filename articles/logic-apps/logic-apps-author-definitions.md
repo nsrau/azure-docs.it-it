@@ -1,21 +1,21 @@
 ---
-title: Creare, modificare o estendere le definizioni delle app per la logica
-description: Come scrivere, modificare ed estendere le definizioni JSON delle app per la logica in app per la logica di Azure
+title: Creare, modificare o estendere le definizioni del flusso di lavoro JSON dell'app per la logica
+description: Come scrivere, modificare ed estendere le definizioni del flusso di lavoro JSON dell'app per la logica in app per la logica di Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: bffbc29322a57d6bb9b8497299add5dbb0478d2c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 95e9f7211c8cd6cb4edd59d099ae9c189bae3780
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792584"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666925"
 ---
-# <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>Creare, modificare o estendere JSON per le definizioni di app per la logica - App per la logica di Azure
+# <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>Creare, modificare o estendere JSON per le definizioni del flusso di lavoro delle app per la logica in app per la logica
 
-Quando si creano soluzioni di integrazione a livello aziendale con flussi di lavoro automatizzati in [App per la logica di Azure](../logic-apps/logic-apps-overview.md), le definizioni di app per la logica sottostanti usano il semplice linguaggio dichiarativo JSON (JavaScript Object Notation) insieme allo [schema del linguaggio di definizione del flusso di lavoro](../logic-apps/logic-apps-workflow-definition-language.md) per la descrizione e la convalida. Questi formati rendono le definizioni di app per la logica più semplici da leggere e da comprendere, senza dover necessariamente avere familiarità con il codice. Quando si vuole automatizzare la creazione e la distribuzione di app per la logica, è possibile includere le definizioni di app per la logica come [risorse di Azure](../azure-resource-manager/resource-group-overview.md) all'interno di [modelli di Azure Resource Manager](../azure-resource-manager/template-deployment-overview.md). Per creare, gestire e distribuire app per la logica, è quindi possibile usare [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), l'[interfaccia della riga di comando di Azure](../azure-resource-manager/resource-group-template-deploy-cli.md) o le [API REST di App per la logica di Azure](https://docs.microsoft.com/rest/api/logic/).
+Quando si creano soluzioni di integrazione a livello aziendale con flussi di lavoro automatizzati in [App per la logica di Azure](../logic-apps/logic-apps-overview.md), le definizioni di app per la logica sottostanti usano il semplice linguaggio dichiarativo JSON (JavaScript Object Notation) insieme allo [schema del linguaggio di definizione del flusso di lavoro](../logic-apps/logic-apps-workflow-definition-language.md) per la descrizione e la convalida. Questi formati rendono le definizioni di app per la logica più semplici da leggere e da comprendere, senza dover necessariamente avere familiarità con il codice. Quando si vuole automatizzare la creazione e la distribuzione di app per la logica, è possibile includere le definizioni di app per la logica come [risorse di Azure](../azure-resource-manager/management/overview.md) all'interno di [modelli di Azure Resource Manager](../azure-resource-manager/template-deployment-overview.md). Per creare, gestire e distribuire app per la logica, è quindi possibile usare [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), l'[interfaccia della riga di comando di Azure](../azure-resource-manager/resource-group-template-deploy-cli.md) o le [API REST di App per la logica di Azure](https://docs.microsoft.com/rest/api/logic/).
 
 Per usare le definizioni di app per la logica in JSON, aprire l'editor della visualizzazione Codice quando si lavora nel portale di Azure o in Visual Studio oppure copiare la definizione nell'editor che si preferisce. Se non si ha familiarità con le app per la logica, vedere [come creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -39,11 +39,11 @@ Prima di usare la definizione dell'app per logica in Visual Studio, assicurarsi 
 
 In Visual Studio è possibile aprire le app per la logica che sono state create e distribuite direttamente dal portale di Azure o come progetti di Azure Resource Manager da Visual Studio.
 
-1. Aprire la soluzione di Visual Studio o il progetto del [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) contenente l'app per la logica.
+1. Aprire la soluzione di Visual Studio o il progetto del [gruppo di risorse di Azure](../azure-resource-manager/management/overview.md) contenente l'app per la logica.
 
 2. Individuare e aprire la definizione dell'app per la logica, che per impostazione predefinita viene visualizzata in un [modello di Resource Manager](../azure-resource-manager/template-deployment-overview.md), denominato **LogicApp.json**. È possibile usare e personalizzare questo modello per la distribuzione in ambienti diversi.
 
-3. Aprire il menu di scelta rapida per la definizione e il modello dell'app per la logica. Selezionare **Open With Logic App Designer** (Apri con Progettazione app per la logica).
+3. Aprire il menu di scelta rapida per la definizione e il modello dell'app per la logica. Selezionare **Open With Logic App Designer** (Apri con Progettazione app per la logica)
 
    ![Aprire un'app per la logica in una soluzione di Visual Studio](./media/logic-apps-author-definitions/open-logic-app-designer.png)
 
@@ -56,9 +56,9 @@ In Visual Studio è possibile aprire le app per la logica che sono state create 
 
 5. Per tornare alla visualizzazione della finestra di progettazione, nella parte inferiore dell'editor della visualizzazione Codice, scegliere **Progettazione**.
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>Parametri
 
-Il ciclo di vita della distribuzione ha in genere ambienti diversi per lo sviluppo, il test, la gestione temporanea e la produzione. Quando si hanno valori che si vuole riusare nell'app per la logica senza hardcoded o che variano in base alle esigenze di distribuzione, è possibile creare un [modello di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) per la definizione del flusso di lavoro, in modo da poter automatizzare la distribuzione delle app per la logica. 
+Il ciclo di vita della distribuzione ha in genere ambienti diversi per lo sviluppo, il test, la gestione temporanea e la produzione. Quando si hanno valori che si vuole riusare nell'app per la logica senza hardcoded o che variano in base alle esigenze di distribuzione, è possibile creare un [modello di Azure Resource Manager](../azure-resource-manager/management/overview.md) per la definizione del flusso di lavoro, in modo da poter automatizzare la distribuzione delle app per la logica. 
 
 Attenersi alla procedura generale per *parametrizzare*o definire e utilizzare i parametri per tali valori. È quindi possibile fornire i valori in un file di parametri separato che passa tali valori al modello. In questo modo, è possibile modificare i valori più facilmente senza dover aggiornare e ridistribuire l'app per la logica. Per informazioni dettagliate, vedere [Panoramica: automatizzare la distribuzione per le app per la logica con i modelli Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md).
 
@@ -72,7 +72,7 @@ Attenersi alla procedura generale per *parametrizzare*o definire e utilizzare i 
 
    Quando si specificano i valori per i parametri di definizione del flusso di lavoro, è possibile fare riferimento ai parametri del modello usando la sezione Parameters che non rientra nella definizione del flusso di lavoro ma ancora all'interno della definizione di risorsa per l'app per la logica. In questo modo, è possibile passare i valori dei parametri di modello nei parametri della definizione del flusso di lavoro.
 
-1. Archiviare i valori per i parametri in un [file di parametri](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) separato e includere il file con la distribuzione.
+1. Archiviare i valori per i parametri in un [file di parametri](../azure-resource-manager/templates/parameter-files.md) separato e includere il file con la distribuzione.
 
 ## <a name="process-strings-with-functions"></a>Elaborare le stringhe con le funzioni
 

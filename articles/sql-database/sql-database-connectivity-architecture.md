@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: 6f6c64acf814b39d38138ed0e6a9c6075b693c7d
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 6a90e9ba264c4abddf2c26cb7b1761a7a51b1778
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707976"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647680"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architettura della connettività di SQL di Azure
 
@@ -39,11 +39,11 @@ I passaggi seguenti descrivono come viene stabilita una connessione a un databas
 
 Il database SQL di Azure supporta le tre opzioni seguenti per l'impostazione dei criteri di connessione di un server di database SQL.
 
-- **Reindirizzamento (scelta consigliata):** I client stabiliscono connessioni direttamente al nodo che ospita il database, con conseguente riduzione della latenza e miglioramento in tutto. Per le connessioni a usare questa modalità i client devono
+- **Reindirizzamento (scelta consigliata):** I client stabiliscono connessioni direttamente al nodo che ospita il database, con conseguente riduzione della latenza e della velocità effettiva migliorata. Per le connessioni a usare questa modalità i client devono
    - Consentire le comunicazioni in ingresso e in uscita dal client a tutti gli indirizzi IP di Azure nell'area sulle porte nell'intervallo 11000 11999.  
    - Consentire le comunicazioni in ingresso e in uscita dal client agli indirizzi IP del gateway del database SQL di Azure sulla porta 1433.
 
-- **Proxy:** In questa modalità, tutte le connessioni vengono inviate tramite proxy tramite i gateway del database SQL di Azure, con conseguente aumento della latenza e riduzione. Per le connessioni per usare questa modalità, i client devono consentire le comunicazioni in ingresso e in uscita dal client agli indirizzi IP del gateway del database SQL di Azure sulla porta 1433.
+- **Proxy:** In questa modalità, tutte le connessioni vengono inviate tramite proxy tramite i gateway del database SQL di Azure, con conseguente aumento della latenza e della velocità effettiva ridotta. Per le connessioni per usare questa modalità, i client devono consentire le comunicazioni in ingresso e in uscita dal client agli indirizzi IP del gateway del database SQL di Azure sulla porta 1433.
 
 - **Impostazione predefinita:** Si tratta dei criteri di connessione attivati in tutti i server dopo la creazione, a meno che i criteri di connessione non vengano modificati in modo esplicito in `Proxy` o `Redirect`. Il criterio predefinito è`Redirect` per tutte le connessioni client che provengono da Azure, ad esempio da una macchina virtuale di Azure, e `Proxy`per tutte le connessioni client che hanno origine all'esterno, ad esempio le connessioni dalla workstation locale.
 
@@ -87,7 +87,7 @@ Per informazioni dettagliate sul modo in cui verrà eseguita la migrazione del t
 | Cina settentrionale          | 139.219.15.17      |
 | Cina settentrionale 2        | 40.73.50.0         |
 | Asia orientale            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
-| Stati Uniti Orientali              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
+| Stati Uniti orientali              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
 | Stati Uniti orientali 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107, 104.208.150.3 | 
 | Francia centrale       | 40.79.137.0, 40.79.129.1 |
 | Germania centrale      | 51.4.144.100       |

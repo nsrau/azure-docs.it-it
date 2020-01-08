@@ -1,18 +1,14 @@
 ---
 title: Domande generali sul servizio Azure Site Recovery
 description: Questo articolo descrive le domande generali più diffuse su Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.author: raynew
-ms.openlocfilehash: fb88d28ea47495dcbdb0844901a03ee7efa4e4eb
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: f64b885e82d2f790d7d146e16bb6ccb44e207465
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74078530"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497545"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Domande generali su Azure Site Recovery
 
@@ -22,10 +18,10 @@ Questo articolo riepiloga le domande frequenti su Azure Site Recovery. Per scena
 - [Domande sul ripristino di emergenza di macchine virtuali VMware in Azure](vmware-azure-common-questions.md)
 - [Domande sul ripristino di emergenza di macchine virtuali Hyper-V in Azure](hyper-v-azure-common-questions.md)
  
-## <a name="general"></a>General
+## <a name="general"></a>Informazioni di carattere generale
 
 ### <a name="what-does-site-recovery-do"></a>Quali sono le funzioni di Site Recovery?
-Site Recovery favorisce l'attuazione della strategia di continuità aziendale e ripristino di emergenza mediante la gestione e l'automatizzazione delle operazioni di replica delle macchine virtuali di Azure tra le aree, delle macchine virtuali e dei server fisici locali in Azure o in un data center secondario. [Altre informazioni](site-recovery-overview.md).
+Site Recovery favorisce l'attuazione della strategia di continuità aziendale e ripristino di emergenza mediante la gestione e l'automatizzazione delle operazioni di replica delle macchine virtuali di Azure tra le aree, delle macchine virtuali e dei server fisici locali in Azure o in un data center secondario. [Altre informazioni](site-recovery-overview.md)
 
 ### <a name="can-i-protect-a-virtual-machine-that-has-a-docker-disk"></a>È possibile proteggere una macchina virtuale con un disco Docker?
 
@@ -80,7 +76,7 @@ No, non sono previsti addebiti aggiuntivi per la cache. Quando si esegue la repl
 
 Sì. Per ogni istanza protetta non vengono addebitati costi per Azure Site Recovery per i primi 31 giorni. Se ad esempio si proteggono 10 istanze negli ultimi 6 mesi e si connette un'undicesima istanza a Azure Site Recovery, non sono previsti addebiti per l'undicesima istanza per i primi 31 giorni. Le prime 10 istanze continuano a sostenere Azure Site Recovery addebiti perché sono state protette per più di 31 giorni.
 
-### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Durante i primi 31 giorni, sono previsti altri addebiti per Azure?
+### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Durante i primi 31 giorni, vengono addebitati altri costi per Azure?
 
 Sì, anche se Site Recovery è gratuita durante i primi 31 giorni di un'istanza protetta, è possibile che vengano addebitati costi per archiviazione di Azure, transazioni di archiviazione e trasferimento di dati. Per una macchina virtuale ripristinata possono venire addebitati anche i costi di calcolo di Azure.
 
@@ -91,7 +87,7 @@ Non sono previsti costi separati per le esercitazioni sul ripristino di emergenz
 
 
 
-## <a name="security"></a>Security
+## <a name="security"></a>Sicurezza
 
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>I dati di replica vengono inviati al servizio Site Recovery?
 No, Site Recovery non intercetta i dati replicati né raccoglie informazioni su ciò che è in esecuzione sulle macchine virtuali o sui server fisici.
@@ -158,7 +154,7 @@ Il nostro partner, Riverbed, fornisce istruzioni dettagliate sull'uso di Azure S
 ### <a name="can-i-use-expressroute-to-replicate-virtual-machines-to-azure"></a>È possibile usare ExpressRoute per replicare macchine virtuali in Azure?
 Sì, [è possibile](concepts-expressroute-with-site-recovery.md).
 
-- Azure Site Recovery replica i dati in una risorsa di archiviazione di Azure su un endpoint pubblico. È necessario configurare il [peering Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) o usare un [peering pubblico](../expressroute/expressroute-circuit-peerings.md#publicpeering) esistente (deprecato per i nuovi circuiti) per usare ExpressRoute per la replica Site Recovery.
+- Azure Site Recovery replica i dati in una risorsa di archiviazione di Azure su un endpoint pubblico. È necessario configurare il [peering Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) o usare un [peering pubblico](../expressroute/about-public-peering.md) esistente (deprecato per i nuovi circuiti) per usare ExpressRoute per la replica Site Recovery.
 - Il peering Microsoft è il dominio di routing consigliato per la replica.
 - La replica non è supportata su peering privato.
 - Se si stanno proteggendo computer VMware o computer fisici, verificare anche che siano soddisfatti i [requisiti di rete](vmware-azure-configuration-server-requirements.md#network-requirements) per il server di configurazione. La connettività a URL specifici è richiesta dal server di configurazione per l'orchestrazione della replica Site Recovery. Non è possibile usare ExpressRoute per questa connettività.
@@ -197,7 +193,7 @@ Sì. Per altre informazioni sulla limitazione della larghezza di banda, vedere q
 ## <a name="failover"></a>Failover
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-vms-after-failover"></a>Se si esegue il failover in Azure, come è possibile accedere alle macchine virtuali di Azure dopo il failover?
 
-È possibile accedere alle VM di Azure tramite una connessione Internet sicura, una connessione VPN da sito a sito o ExpressRoute di Azure. Per la connessione è necessario preparare una serie di operazioni. [Altre informazioni](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+È possibile accedere alle VM di Azure tramite una connessione Internet sicura, una connessione VPN da sito a sito o ExpressRoute di Azure. Per la connessione è necessario preparare una serie di operazioni. [Altre informazioni](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 
 
 ### <a name="if-i-fail-over-to-azure-how-does-azure-make-sure-my-data-is-resilient"></a>Se si esegue il failover in Azure, in che modo Azure si assicura che i dati siano resilienti?
@@ -219,7 +215,7 @@ Per avviarlo in automatico, è possibile usare Orchestrator o Operations Manager
 Sì, è possibile usare il ripristino nel percorso alternativo per eseguire il failback in un host diverso da Azure.
 
 * [Per macchine virtuali VMware](concepts-types-of-failback.md#alternate-location-recovery-alr)
-* [Per macchine virtuali Hyper-V](hyper-v-azure-failback.md#perform-failback)
+* [Per macchine virtuali Hyper-V](hyper-v-azure-failback.md#fail-back-to-an-alternate-location)
 
 ## <a name="automation"></a>Automazione
 

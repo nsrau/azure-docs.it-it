@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5fdb189fcab3da4dad52642571ac42e669828fe3
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ff55257891ff379bea9ff44aa5136195ced44354
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74971656"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613109"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la continuità aziendale e il ripristino di emergenza nel servizio Azure Kubernetes
 
@@ -114,7 +114,7 @@ Le applicazioni potrebbero usare archiviazione di Azure per i propri dati. Poich
 
 È possibile che le applicazioni richiedano una risorsa di archiviazione permanente anche dopo l'eliminazione di un pod. In Kubernetes è possibile usare i volumi permanenti per salvare in modo permanente l'archivio dati. I volumi permanenti vengono montati in una macchina virtuale del nodo e quindi esposti ai pod. I volumi permanenti seguono i pod anche se i pod vengono spostati in un altro nodo all'interno dello stesso cluster.
 
-La strategia di replica usata dipende dalla soluzione di archiviazione. Soluzioni di archiviazione comuni come [Gluster](https://docs.gluster.org/en/latest/Administrator%20Guide/Geo%20Replication/), [Ceph](https://docs.ceph.com/docs/master/cephfs/disaster-recovery/), [Rook](https://rook.io/docs/rook/master/disaster-recovery.html)e [Portworx](https://docs.portworx.com/scheduler/kubernetes/going-production-with-k8s.html#disaster-recovery-with-cloudsnaps) forniscono indicazioni personalizzate sul ripristino di emergenza e la replica.
+La strategia di replica usata dipende dalla soluzione di archiviazione. Soluzioni di archiviazione comuni come [Gluster](https://docs.gluster.org/en/latest/Administrator%20Guide/Geo%20Replication/), [Ceph](https://docs.ceph.com/docs/master/cephfs/disaster-recovery/), [Rook](https://rook.io/docs/rook/v1.2/ceph-disaster-recovery.html)e [Portworx](https://docs.portworx.com/scheduler/kubernetes/going-production-with-k8s.html#disaster-recovery-with-cloudsnaps) forniscono indicazioni personalizzate sul ripristino di emergenza e la replica.
 
 La strategia tipica consiste nel fornire un punto di archiviazione comune in cui le applicazioni possono scrivere i propri dati. Questi dati vengono poi replicati tra le aree e sono quindi accessibili in locale.
 

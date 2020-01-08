@@ -1,27 +1,21 @@
 ---
-title: Tenere traccia dei dati durante la ricerca in Azure Sentinel con i segnalibri di caccia | Microsoft Docs
+title: Usare i segnalibri di caccia per le indagini sui dati in Sentinel di Azure
 description: Questo articolo descrive come usare i segnalibri di ricerca di Azure Sentinel per tenere traccia dei dati.
-services: sentinel
-documentationcenter: na
 author: cabailey
+ms.author: cabailey
 manager: rkarlin
-editor: ''
 ms.assetid: 320ccdad-8767-41f3-b083-0bc48f1eeb37
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: conceptual
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/24/2019
-ms.author: cabailey
-ms.openlocfilehash: f4714dd09ada01f1adaa9081819e836601599a53
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 457898e257aa7a347ff99d0987c5ad594637b5f4
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935316"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563735"
 ---
 # <a name="keep-track-of-data-during-hunting-with-azure-sentinel"></a>Tenere traccia dei dati durante la ricerca con Azure Sentinel
 
@@ -29,7 +23,7 @@ Per la ricerca di minacce è in genere necessario esaminare le montagne dei dati
 
 I segnalibri di Hunting in Azure Sentinel consentono di eseguire questa operazione, conservando le query eseguite in **Azure Sentinel-logs**, insieme ai risultati della query ritenuti rilevanti. È anche possibile registrare le osservazioni contestuali e fare riferimento ai risultati aggiungendo note e tag. I dati con segnalibro sono visibili all'utente e ai colleghi per una facile collaborazione.
 
-È possibile rivedere i dati con segnalibro in qualsiasi momento nella scheda **segnalibri** del riquadro di **ricerca** . È possibile utilizzare le opzioni di filtro e di ricerca per trovare rapidamente dati specifici per l'analisi corrente. In alternativa, è possibile visualizzare i dati con segnalibro direttamente nella tabella **HuntingBookmark** dell'area di lavoro log Analytics. ad esempio:
+È possibile rivedere i dati con segnalibro in qualsiasi momento nella scheda **segnalibri** del riquadro di **ricerca** . È possibile utilizzare le opzioni di filtro e di ricerca per trovare rapidamente dati specifici per l'analisi corrente. In alternativa, è possibile visualizzare i dati con segnalibro direttamente nella tabella **HuntingBookmark** dell'area di lavoro log Analytics. Ad esempio:
 
 > [!div class="mx-imgBorder"]
 > ![visualizzare la tabella HuntingBookmark](./media/bookmarks/bookmark-table.png)
@@ -40,13 +34,13 @@ Attualmente in anteprima, se si trova un elemento che deve essere risolto in mod
 
 Inoltre, in anteprima, è possibile visualizzare i dati con segnalibro, facendo clic **su analizza** nei dettagli del segnalibro. In questo modo viene avviata l'esperienza di analisi in cui è possibile visualizzare, analizzare e comunicare visivamente le conclusioni usando un diagramma e una sequenza temporale interattive.
 
-## <a name="add-a-bookmark"></a>Aggiungi un segnalibro
+## <a name="add-a-bookmark"></a>Aggiungere un segnalibro
 
 1. Nella portale di Azure passare a **Sentinel** > **Threat Management** > **Hunting** per eseguire query per un comportamento sospetto e anomalo.
 
 2. Selezionare una delle query di caccia e a destra nei dettagli della query di caccia selezionare **Esegui query**. 
 
-3. Selezionare **Visualizza risultati query**. ad esempio:
+3. Selezionare **Visualizza risultati query**. Ad esempio:
     
     > [!div class="mx-imgBorder"]
     > ![visualizzare i risultati delle query da Azure Sentinel Hunting](./media/bookmarks/new-processes-observed-example.png)
@@ -62,7 +56,7 @@ Inoltre, in anteprima, è possibile visualizzare i dati con segnalibro, facendo 
 
 6. A destra, nel riquadro **Aggiungi segnalibro** , facoltativamente, aggiornare il nome del segnalibro, aggiungere i tag e le note per facilitare l'identificazione dell'elemento interessante.
 
-7. Nella sezione **informazioni query** utilizzare le caselle di riepilogo a discesa per estrarre informazioni dai risultati della query per i tipi di entità **account**, **host**e **indirizzo IP** . Questa azione esegue il mapping del tipo di entità selezionato a una colonna specifica dal risultato della query. ad esempio:
+7. Nella sezione **informazioni query** utilizzare le caselle di riepilogo a discesa per estrarre informazioni dai risultati della query per i tipi di entità **account**, **host**e **indirizzo IP** . Questa azione esegue il mapping del tipo di entità selezionato a una colonna specifica dal risultato della query. Ad esempio:
     
     > [!div class="mx-imgBorder"]
     > ![mappare i tipi di entità per il segnalibro Hunting](./media/bookmarks/map-entity-types-bookmark.png)
@@ -124,7 +118,7 @@ Per istruzioni sull'uso del grafico di indagine, vedere [usare il grafico di ind
 Per visualizzare il segnalibro nell'evento imprevisto: passare a **Sentinel** > **Threat Management** > **eventi imprevisti** e selezionare l'evento imprevisto con il segnalibro. Selezionare **Visualizza dettagli completi**, quindi selezionare la scheda **segnalibri** .
 
 > [!TIP]
-> In alternativa all'opzione **azioni evento imprevisto (anteprima)** sulla barra dei comandi, è possibile utilizzare il menu di scelta rapida ( **...** ) per uno o più segnalibri per selezionare le opzioni per la creazione di un **nuovo evento**imprevisto, l' **aggiunta a un evento imprevisto esistente**e la **rimozione da evento imprevisto**. 
+> In alternativa all'opzione **azioni evento imprevisto (anteprima)** sulla barra dei comandi, è possibile utilizzare il menu di scelta rapida ( **...** ) per uno o più segnalibri per selezionare le opzioni per la creazione di un **nuovo evento**imprevisto, l' **aggiunta all'evento**imprevisto esistente e la **rimozione da evento imprevisto**. 
 
 ## <a name="view-bookmarked-data-in-logs"></a>Visualizzare i dati con segnalibro nei log
 

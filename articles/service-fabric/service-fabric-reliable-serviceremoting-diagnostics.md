@@ -1,25 +1,16 @@
 ---
-title: Monitoraggio e diagnostica di Azure ServiceFabric | Microsoft Docs
+title: Diagnostica e monitoraggio di Azure ServiceFabric
 description: Questo articolo illustra le funzionalità monitoraggio delle prestazioni disponibili nel runtime di Service Fabric Reliable ServiceRemoting, inclusi i contatori delle prestazioni emessi dal runtime.
-services: service-fabric
-documentationcenter: .net
 author: suchiagicha
-manager: chackdan
-editor: suchiagicha
-ms.assetid: 1c229923-670a-4634-ad59-468ff781ad18
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/29/2017
 ms.author: pepogors
-ms.openlocfilehash: a7c5ec023eb03d7d68a43ffecdc74aa4e505a0ce
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 31095a619fc4d756fa4ef9c29691d1d511d59ece
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170484"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426707"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnostica e monitoraggio delle prestazioni per Reliable Service Remoting
 Il runtime Reliable ServiceRemoting genera [i contatori delle prestazioni](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx) che forniscono informazioni utili per comprendere il funzionamento di ServiceRemoting e per eseguire la risoluzione dei problemi e il monitoraggio delle prestazioni.
@@ -28,7 +19,7 @@ Il runtime Reliable ServiceRemoting genera [i contatori delle prestazioni](https
 ## <a name="performance-counters"></a>Contatori delle prestazioni
 Il runtime di Reliable ServiceRemoting definisce le categorie di contatori delle prestazioni seguenti.
 
-| Category | Descrizione |
+| Categoria | Description |
 | --- | --- |
 | Servizio Service Fabric |Contatori specifici per Azure Service Fabric Serivce Remoting, ad esempio tempo medio impiegato per elaborare la richiesta |
 | Metodo del servizio Service Fabric |Contatori specifici dei metodi implementati da Service Fabric Remoting Service, ad esempio per la frequenza con cui viene richiamato un metodo di un servizio |
@@ -83,7 +74,7 @@ Nell'esempio precedente `ivoicemailboxservice.leavemessageasync` è il nome del 
 
 Il runtime di Reliable Service pubblica i contatori delle prestazioni seguenti relativi all'esecuzione dei metodi dei servizi.
 
-| Nome categoria | Nome contatore | Descrizione |
+| Nome della categoria | Nome contatore | Description |
 | --- | --- | --- |
 | Metodo del servizio Service Fabric |Invocations/Sec |Numero di volte in cui il metodo del servizio viene richiamato al secondo |
 | Metodo del servizio Service Fabric |Average milliseconds per invocation |Tempo necessario per eseguire il metodo del servizio in millisecondi |
@@ -92,11 +83,11 @@ Il runtime di Reliable Service pubblica i contatori delle prestazioni seguenti r
 ### <a name="service-request-processing-performance-counters"></a>Contatori delle prestazioni di elaborazione delle richieste dei servizi
 Quando un client richiama un metodo tramite un oggetto proxy di servizio, viene generato un messaggio di richiesta inviato in rete al servizio remoting. Il servizio elabora il messaggio di richiesta e invia una risposta al client. Il runtime di Reliable ServiceRemoting pubblica i contatori delle prestazioni seguenti relativi all’elaborazione delle richieste dei servizi.
 
-| Nome categoria | Nome contatore | Descrizione |
+| Nome della categoria | Nome contatore | Description |
 | --- | --- | --- |
 | Servizio Service Fabric |# of outstanding requests |Numero di richieste elaborate nel servizio |
 | Servizio Service Fabric |Average milliseconds per request |Tempo richiesto (in millisecondi) dal servizio per elaborare una richiesta |
-| Servizio Service Fabric |Durata media in millisecondi per deserializzazione richiesta |Tempo richiesto (in millisecondi) per deserializzare il messaggio di richiesta del servizio quando viene ricevuto nel servizio |
+| Servizio Service Fabric |Average milliseconds for request deserialization |Tempo richiesto (in millisecondi) per deserializzare il messaggio di richiesta del servizio quando viene ricevuto nel servizio |
 | Servizio Service Fabric |Average milliseconds for response serialization |Tempo richiesto (in millisecondi) per serializzare il messaggio di risposta del servizio nel servizio prima dell’invio della risposta al client |
 
 ## <a name="next-steps"></a>Passaggi successivi

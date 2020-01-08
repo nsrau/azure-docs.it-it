@@ -1,25 +1,16 @@
 ---
-title: Proteggere un cluster di Azure Service Fabric in Windows usando i certificati | Microsoft Docs
+title: Proteggere un cluster in Windows usando i certificati
 description: Proteggere le comunicazioni all'interno del cluster autonomo o locale di Azure Service Fabric nonché tra i client e il cluster.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: fe0ed74c-9af5-44e9-8d62-faf1849af68c
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: ee2ce03fccc3e6556f9d261687edb050c8cfa1cc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5a18f957dfb7143f403d5ac30ea184023021f12c
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60628150"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613925"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Proteggere un cluster autonomo in Windows usando i certificati X.509
 Questo articolo descrive come proteggere la comunicazione tra i vari nodi del cluster di Windows autonomo. Descrive inoltre come autenticare i client che si connettono a questo cluster usando i certificati X.509. Questa autenticazione garantisce che solo gli utenti autorizzati possano accedere al cluster e alle applicazioni distribuite ed eseguire attività di gestione. La sicurezza basata su certificati deve essere abilitata nel cluster durante la creazione del cluster.  
@@ -261,8 +252,8 @@ Per proteggere i cluster che eseguono carichi di lavoro di produzione, è necess
 
 Per i cluster usati solo a scopo di test, si può scegliere di usare un certificato autofirmato.
 
-## <a name="optional-create-a-self-signed-certificate"></a>Facoltativo: Creare un certificato autofirmato
-Un modo per creare un certificato autofirmato che possa essere protetto correttamente consiste nell'usare lo script CertSetup.ps1 della cartella Service Fabric SDK nella directory C:\Programmi\Microsoft SDKs\Service Fabric\ClusterSetup\Secure. Modificare questo file per cambiare il nome predefinito del certificato (individuare il valore CN=ServiceFabricDevClusterCert). Eseguire questo script come `.\CertSetup.ps1 -Install`.
+## <a name="optional-create-a-self-signed-certificate"></a>Facoltativo: creare un certificato autofirmato
+Un modo per creare un certificato autofirmato che possa essere protetto correttamente consiste nell'usare lo script CertSetup.ps1 della cartella Service Fabric SDK nella directory C:\Programmi\Microsoft SDKs\Service Fabric\ClusterSetup\Secure. Modificare questo file per cambiare il nome predefinito del certificato (Cercare il valore CN = ServiceFabricDevClusterCert). Eseguire questo script come `.\CertSetup.ps1 -Install`.
 
 Esportare ora il certificato in un file con estensione pfx con una password protetta. Ottenere per prima cosa l'identificazione personale del certificato. 
 1. Dal menu **Start** eseguire **Gestisci i certificati computer**. 

@@ -3,18 +3,18 @@ title: Stima dei costi del piano di consumo in funzioni di Azure
 description: Informazioni su come stimare meglio i costi che possono verificarsi quando si esegue l'app per le funzioni in un piano a consumo in Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9d81c99f3602e3d7ed5508884b0b313ef2f2fcaf
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 38a3435ddbc6e7cce5d18c99e227d405fdc2e7dd
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230867"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613059"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Stima dei costi del piano a consumo
 
-Esistono attualmente tre tipi di piani di hosting per un'app eseguita in funzioni di Azure, ognuno dei quali ha un proprio modello di determinazione dei prezzi: 
+Esistono attualmente tre tipi di piani di hosting per un'app in esecuzione in funzioni di Azure, ognuno dei quali ha un proprio modello di determinazione dei prezzi: 
 
-| Pianificare | DESCRIZIONE |
+| Pianificare | Description |
 | ---- | ----------- |
 | [**Consumo**](functions-scale.md#consumption-plan) | Viene addebitato solo il tempo di esecuzione dell'app per le funzioni. Questo piano include una[pagina dei prezzi] di [concessione gratuita]per ogni sottoscrizione.|
 | [**Premium**](functions-scale.md#premium-plan) | Fornisce le stesse funzionalità e il meccanismo di scalabilità del piano a consumo, ma con prestazioni migliorate e accesso VNET. Il costo si basa sul piano tariffario scelto. Per altre informazioni, vedere [piano Premium di funzioni di Azure](functions-premium-plan.md). |
@@ -45,7 +45,7 @@ Per le funzioni in esecuzione in un piano a consumo, il costo totale è il costo
 
 Quando si stimano i costi complessivi dell'app per le funzioni e dei servizi correlati, usare il [calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/calculator/?service=functions). 
 
-| Costo correlato | DESCRIZIONE |
+| Costo correlato | Description |
 | ------------ | ----------- |
 | **Account di archiviazione** | Per ogni app per le funzioni è necessario avere un [account di archiviazione di Azure](../storage/common/storage-introduction.md#types-of-storage-accounts)associato per utilizzo generico, [fatturato separatamente](https://azure.microsoft.com/pricing/details/storage/). Questo account viene utilizzato internamente dal runtime di funzioni, ma è possibile utilizzarlo anche per i trigger e le associazioni di archiviazione. Se non si ha un account di archiviazione, ne viene creato uno automaticamente quando viene creata l'app per le funzioni. Per altre informazioni, vedere [requisiti dell'account di archiviazione](functions-scale.md#storage-account-requirements).|
 | **Application Insights** | Si basa su [Application Insights](../azure-monitor/app/app-insights-overview.md) per offrire un'esperienza di monitoraggio ad alte prestazioni per le app per le funzioni. Sebbene non sia necessario, è necessario [abilitare l'integrazione Application Insights](functions-monitoring.md#enable-application-insights-integration). Ogni mese viene inclusa una concessione gratuita dei dati di telemetria. Per altre informazioni, vedere [la pagina dei prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/). |
@@ -63,25 +63,25 @@ I comportamenti seguenti delle funzioni possono avere un effetto sul tempo di es
 
 Nella [fattura](/azure/billing/billing-download-azure-invoice)è possibile visualizzare i dati relativi ai costi delle **esecuzioni totali, funzioni** e tempi di **esecuzione**, oltre ai costi effettivi fatturati. Tuttavia, i dati della fattura sono aggregati mensili per un periodo di fatturazione precedente. 
 
-Per comprendere meglio l'impatto sui costi delle funzioni, è possibile usare monitoraggio di Azure per visualizzare le metriche relative ai costi attualmente generate dalle app per le funzioni. Per ottenere questi dati, è possibile usare [Esplora metriche di monitoraggio di Azure](../azure-monitor/platform/metrics-getting-started.md) nella [portale di Azure] o nelle API REST.
+Per comprendere meglio l'impatto sui costi delle funzioni, è possibile usare monitoraggio di Azure per visualizzare le metriche relative ai costi attualmente generate dalle app per le funzioni. Per ottenere questi dati, è possibile usare [Esplora metriche di monitoraggio di Azure](../azure-monitor/platform/metrics-getting-started.md) nella [Azure portal] o nelle API REST.
 
 ### <a name="monitor-metrics-explorer"></a>Esplora metriche di monitoraggio
 
 Usare [Esplora metriche di monitoraggio di Azure](../azure-monitor/platform/metrics-getting-started.md) per visualizzare i dati relativi ai costi per le app per le funzioni del piano a consumo in formato grafico. 
 
-1. Nella parte superiore del [portale di Azure] in **Cerca servizi, risorse e documenti** cercare `monitor` e selezionare **monitoraggio** in **Servizi**.
+1. Nella parte superiore del [Azure portal] in **Cerca servizi, risorse e documenti** cercare `monitor` e selezionare **monitoraggio** in **Servizi**.
 
 1. A sinistra selezionare **metrica** > **selezionare una risorsa**e quindi usare le impostazioni sotto l'immagine per scegliere l'app per le funzioni.
 
     ![Selezionare la risorsa dell'app per le funzioni](media/functions-consumption-costing/select-a-resource.png)
 
       
-    |Impostazione  |Valore consigliato  |DESCRIZIONE  |
+    |Impostazione  |Valore consigliato  |Description  |
     |---------|---------|---------|
-    | sottoscrizione    |  Sottoscrizione in uso  | Sottoscrizione con l'app per le funzioni.  |
-    | Resource group     | Gruppo di risorse in uso  | Il gruppo di risorse che contiene l'app per le funzioni.   |
+    | Sottoscrizione    |  Sottoscrizione in uso  | Sottoscrizione con l'app per le funzioni.  |
+    | Gruppo di risorse     | Gruppo di risorse in uso  | Il gruppo di risorse che contiene l'app per le funzioni.   |
     | Tipo di risorsa     |  Servizi app | Le app per le funzioni vengono visualizzate come istanze di servizi app in monitoraggio. |
-    | Risorsa     |  App per le funzioni  | App per le funzioni da monitorare.        |
+    | Gruppi     |  App per le funzioni  | App per le funzioni da monitorare.        |
 
 1. Selezionare **applica** per scegliere l'app per le funzioni come risorsa da monitorare.
 
@@ -97,7 +97,7 @@ Il grafico risultante contiene i totali per entrambe le metriche di esecuzione n
 
 Poiché il numero di unità di esecuzione è molto superiore al numero di esecuzioni, il grafico mostra solo le unità di esecuzione.
 
-Questo grafico mostra un totale di 1,11 miliardi `Function Execution Units` utilizzati in un periodo di due ore, misurato in MB-millisecondi. Per eseguire la conversione in GB-secondi, dividere per 1024000. In questo esempio l'app per le funzioni è stata usata `1110000000 / 1024000 = 1083.98` GB-secondi. È possibile utilizzare questo valore e moltiplicare per il prezzo corrente del tempo di esecuzione nella[pagina]dei prezzi relativa alle [funzioni], che offre il costo di queste due ore, presupponendo che siano già state utilizzate concessioni gratuite del tempo di esecuzione. 
+Questo grafico mostra un totale di 1,11 miliardi `Function Execution Units` utilizzati in un periodo di due ore, misurato in MB-millisecondi. Per eseguire la conversione in GB-secondi, dividere per 1024000. In questo esempio l'app per le funzioni è stata usata `1110000000 / 1024000 = 1083.98` GB-secondi. È possibile utilizzare questo valore e moltiplicare per il prezzo corrente del tempo di esecuzione nella[dei prezzi relativa alle pagina][pagina dei prezzi], che offre il costo di queste due ore, presupponendo che siano già state utilizzate concessioni gratuite del tempo di esecuzione. 
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
@@ -188,7 +188,7 @@ Questo comando restituisce un payload JSON simile all'esempio seguente:
   ]
 }
 ```
-Questa particolare risposta indica che da `2019-09-11T21:46` a `2019-09-11T23:18`, durante i quali l'app ha utilizzato 1,11 miliardi MB-millisecondi (1083,98 GB-secondi).
+Questa particolare risposta Mostra che dal `2019-09-11T21:46` al `2019-09-11T23:18`, l'app ha utilizzato 1,11 miliardi MB-millisecondi (1083,98 GB-secondi).
 
 ## <a name="determine-memory-usage"></a>Determinare l'utilizzo della memoria
 
@@ -206,7 +206,7 @@ performanceCounters
 
 I risultati sono simili all'esempio seguente:
 
-| timestamp \[UTC\]          | Nome          | Valore       |
+| timestamp \[UTC\]          | name          | Valore       |
 |----------------------------|---------------|-------------|
 | 9/12/2019, 1:05:14\.947 AM | Private Bytes | 209.932.288 |
 | 9/12/2019, 1:06:14\.994 AM | Private Bytes | 212.189.184 |
@@ -226,7 +226,7 @@ customMetrics
 | summarize averageDurationMilliseconds=avg(averageDuration) by name
 ```
 
-| Nome                       | averageDurationMilliseconds |
+| name                       | averageDurationMilliseconds |
 |----------------------------|-----------------------------|
 | AvgDurationMs QueueTrigger | 16\.087                     |
 | MaxDurationMs QueueTrigger | 90\.249                     |
@@ -238,4 +238,4 @@ customMetrics
 > [Altre informazioni sul monitoraggio delle app per le funzioni](functions-monitoring.md)
 
 [pagina dei prezzi]: https://azure.microsoft.com/pricing/details/functions/
-[Portale di Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com

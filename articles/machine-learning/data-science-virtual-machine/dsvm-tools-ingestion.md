@@ -6,16 +6,16 @@ keywords: strumenti di analisi scientifica dei dati, macchina virtuale per l'ana
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
-author: gvashishtha
-ms.author: gopalv
+author: lobrien
+ms.author: laobri
 ms.topic: conceptual
-ms.date: 10/11/2019
-ms.openlocfilehash: 72a881a2ab508caa2274f3b9299157921cb8ceff
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.date: 12/12/2019
+ms.openlocfilehash: d86858f8d7f09628457b718ca3c481934d720081
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330683"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612630"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Strumenti di inserimento dati della macchina virtuale per data science
 
@@ -69,7 +69,7 @@ Ecco alcuni strumenti di spostamento dei dati disponibili in DSVM.
 | Collegamenti agli esempi      | [CosmosDB importare dati](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
 | Strumenti correlati in DSVM      | AzCopy, AdlCopy      |
 
-## <a name="azure-storage-explorer"></a>Esplora archivi Azure
+## <a name="azure-storage-explorer"></a>Azure Storage Explorer
 
 |    |           |
 | ------------- | ------------- |

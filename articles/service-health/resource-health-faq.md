@@ -1,24 +1,20 @@
 ---
-title: Domande frequenti su Integrità risorse di Azure | Microsoft Docs
+title: Domande frequenti su Integrità risorse di Azure
 description: Panoramica su Integrità risorse di Azure
-author: stephbaron
-ms.author: stbaron
 ms.topic: conceptual
-ms.service: service-health
 ms.date: 01/29/2019
-ms.workload: Supportability
-ms.openlocfilehash: 03c5fb0f399e43af2584743655eeea8af4c5b2f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a15ded1c279e700fb71e5ea7aa866e5afc29f8a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64924454"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426513"
 ---
 # <a name="azure-resource-health-faq"></a>Domande frequenti su Integrità risorse di Azure
 Risposte alle domande comuni su Integrità risorse di Azure.
 
 ## <a name="what-is-azure-resource-health"></a>Che cos'è Integrità risorse di Azure?
-Integrità risorse consente di eseguire una diagnosi e di ottenere supporto quando un problema di Azure ha effetto sulle risorse. Informa sull'integrità corrente e passata delle risorse e consente di attenuare i problemi. Integrità risorse offre supporto tecnico quando è necessaria assistenza per problemi con i servizi di Azure.  
+Integrità risorse consente di eseguire una diagnosi e di ottenere supporto quando un problema di Azure ha effetto sulle risorse. Ti informa sull'integrità attuale e passata delle risorse e ti assiste nell'attenuazione dei problemi. Integrità risorse ti fornisce supporto tecnico quando ti serve assistenza per risolvere i problemi del servizio di Azure.  
 
 ## <a name="what-is-the-resource-health-intended-for"></a>A cosa serve Integrità risorse?
 Quando viene rilevato un problema relativo a una risorsa, Integrità risorse consente di diagnosticarne la causa radice. Offre suggerimenti per attenuare il problema e supporto tecnico quando è necessaria ulteriore assistenza per risolvere problemi legati ai servizi di Azure.
@@ -31,7 +27,7 @@ Integrità risorse esegue vari controlli in base al [tipo di risorsa](resource-h
 
 ## <a name="what-does-each-of-the-health-status-mean"></a>Cosa significa ciascuno stato di integrità delle risorse?
 Esistono tre stati di integrità diversi:
-- Disponibile: non si sono verificati problemi noti nella piattaforma di Azure che potrebbero influire sulla risorsa
+- Disponibile: non si sono verificati problemi noti nella piattaforma Azure che potrebbero influire sulla risorsa
 - Non disponibile: Integrità risorse ha rilevato problemi che influiscono sulla risorsa
 - Sconosciuto: Integrità risorse non può determinare l'integrità di una risorsa perché non riceve più informazioni su di essa. 
 
@@ -50,7 +46,7 @@ Sì, quando una risorsa non è disponibile, Integrità risorse identifica la cau
 Nel portale le azioni avviate dall'utente sono indicate da un'icona di notifica blu, mentre gli eventi pianificati e non pianificati sono indicati da un'icona di avviso rossa. Altri dettagli sono disponibili in [Panoramica su Integrità risorse di Azure](Resource-health-overview.md).  
 
 ## <a name="can-i-integrate-resource-health-with-my-monitoring-tools"></a>È possibile aggiungere Integrità risorse agli strumenti di monitoraggio personali?
-Integrità risorse ha [anteprima del supporto](resource-health-alert-arm-template-guide.md) per avvisi basati su Log attività. Usare avvisi del Log attività [gruppi di azioni](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) per notificare agli utenti che è stato attivato un avviso. Gruppi di azioni supportano diversi canali di notifica, ad esempio indirizzo di posta elettronica, SMS, webhook e le azioni di gestione dei servizi IT.
+Integrità risorse dispone del [supporto in anteprima](resource-health-alert-arm-template-guide.md) per gli avvisi basati sul log attività. Gli avvisi del log attività usano i [gruppi di azioni](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) per notificare agli utenti che è stato attivato un avviso. I gruppi di azione supportano un'ampia gamma di canali di notifica, ad esempio le azioni di posta elettronica, SMS, webhook e ITSM.
 
 ## <a name="where-do-i-find-resource-health"></a>Dove si trova Integrità risorse?
 Dopo avere eseguito l'accesso al portale di Azure, è possibile accedere a Integrità risorse in diversi modi:

@@ -1,5 +1,5 @@
 ---
-title: Uso del Servizio Migrazione del database di Azure per monitorare l'attività di migrazione | Microsoft Docs
+title: Monitorare l'attività di migrazione-servizio migrazione del database di Azure
 description: Informazioni sull'uso del Servizio Migrazione del database di Azure per monitorare l'attività di migrazione.
 services: database-migration
 author: HJToland3
@@ -8,17 +8,17 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 325bbee3f3d5ad5097f710cb56fe03baff97388a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b3ba634ddb084b5637d0a0c97c0ac4ff72193c1d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60532749"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437926"
 ---
-# <a name="monitor-migration-activity"></a>Monitorare l'attività di migrazione
+# <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Monitorare l'attività di migrazione con il servizio migrazione del database di Azure
 Questo articolo illustra come monitorare lo stato di avanzamento di una migrazione sia a livello di database sia a livello di tabella.
 
 ## <a name="monitor-at-the-database-level"></a>Monitoraggio a livello di database
@@ -46,7 +46,7 @@ Nella tabella seguente sono elencati i campi del pannello a livello di database 
       <td>Attività di migrazione in esecuzione.</td>
     </tr>
     <tr>
-      <td>Succeeded</td>
+      <td>Operazione completata</td>
       <td>Attività di migrazione completata senza problemi.</td>
     </tr>
     <tr>
@@ -63,11 +63,11 @@ Nella tabella seguente sono elencati i campi del pannello a livello di database 
       <td>La pipeline del Servizio Migrazione del database è in esecuzione e sta eseguendo la migrazione.</td>
     </tr>
     <tr>
-      <td>Complete</td>
+      <td>Soluzione completa</td>
       <td>Migrazione completata.</td>
     </tr>
     <tr>
-      <td>Failed</td>
+      <td>Operazione non riuscita</td>
       <td>Migrazione non riuscita. Fare clic sui dettagli della migrazione per visualizzare gli errori di migrazione.</td>
     </tr>
     <tr>
@@ -108,7 +108,7 @@ Nella parte inferiore del pannello sono elencate le tabelle ed è presente un br
 
 La tabella seguente descrive i campi visualizzati nei dettagli a livello di tabella.
 
-| Nome campo        | Descrizione       |
+| Nome campo        | Description       |
 | ------------- | ------------- |
 | **Caricamento completo completato**      | Numero di tabelle per cui il caricamento completo dei dati è stato completato. |
 | **Caricamento completo accodato**      | Numero di tabelle in coda per il caricamento completo.      |
@@ -129,14 +129,14 @@ Sono presenti due schede che mostrano lo stato di avanzamento della migrazione p
 
 La tabella seguente descrive i campi visualizzati nello stato di avanzamento della migrazione a livello di tabella.
 
-| Nome campo        | Descrizione       |
+| Nome campo        | Description       |
 | ------------- | ------------- |
 | **Stato - Sincronizzazione**      | Sincronizzazione continua in esecuzione. |
 | **Inserimento**      | Numero di inserimenti CDC nelle righe applicati alla destinazione.      |
 | **Aggiornamento** | Numero di aggiornamenti CDC nelle righe applicati alla destinazione.      |
 | **Elimina**      | Numero di eliminazioni CDC nelle righe applicate alla destinazione. |
 | **Totale applicato**      | Totale di aggiornamenti, inserimenti ed eliminazioni CDC nelle righe applicati alla destinazione. |
-| **Errori di dati** | Numero di errori di dati che si sono verificati nella tabella. Di seguito sono riportati alcuni esempi di errori. *511: Impossibile creare una riga con dimensione %d, perché tale valore è maggiore della dimensione di riga massima consentita %d. 8114: Errore durante la conversione dei dati di tipo da %ls a %ls.*  Per visualizzare i dettagli dell'errore, è necessario eseguire una query dalla tabella dms_apply_exceptions nella destinazione di Azure.    |
+| **Errori di dati** | Numero di errori di dati che si sono verificati nella tabella. Alcuni esempi di errori sono: *511: Cannot create a row of size %d which is greater than the allowable maximum row size of %d (Non è possibile creare una riga di dimensione %d, perché tale valore è maggiore della dimensione di riga massima consentita %d), 8114: Error converting data type %ls to %ls (Errore durante la conversione del tipo di dati %ls in %ls).*  Per visualizzare i dettagli dell'errore, è necessario eseguire una query dalla tabella dms_apply_exceptions nella destinazione di Azure.    |
 
 > [!NOTE]
 > I valori CDC di Inserimento, Aggiornamento, Eliminazione e Totale applicato possono diminuire quando viene eseguita la migrazione completa del database o quando la migrazione viene riavviata.

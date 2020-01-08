@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: a4258b51acfa603c156bc35cdb2cbc3b16f37ab0
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 85b1d6b532ba11819947558226291e62af6b5119
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278421"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690922"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Monitorare visivamente Azure Data Factory
 
@@ -30,14 +30,14 @@ La visualizzazione di monitoraggio predefinita è l'elenco delle esecuzioni di p
 | **Nome colonna** | **Descrizione** |
 | --- | --- |
 | Nome pipeline | Nome della pipeline |
-| Actions | Icone che consentono di visualizzare i dettagli delle attività, annullare o eseguire di nuovo la pipeline |
+| Azioni | Icone che consentono di visualizzare i dettagli delle attività, annullare o eseguire di nuovo la pipeline |
 | Inizio esecuzione | Data e ora di inizio dell'esecuzione della pipeline (MM/gg/aaaa, HH: MM: SS AM/PM) |
 | Durata | Durata dell'esecuzione (HH:MM:SS) |
 | Attivato da | Nome del trigger che ha avviato la pipeline |
 | Stato | **Non riuscito**, **riuscito**, **in corso**, **annullato**o in **coda** |
-| Annotazioni | Tag filtrabili associati a una pipeline  |
-| parametri | Parametri per l'esecuzione della pipeline (coppie nome/valore) |
-| Tipi di errore | Se la pipeline ha avuto esito negativo, l'errore di esecuzione |
+| annotazioni | Tag filtrabili associati a una pipeline  |
+| Parametri | Parametri per l'esecuzione della pipeline (coppie nome/valore) |
+| Errore | Se la pipeline ha avuto esito negativo, l'errore di esecuzione |
 | ID esecuzione | ID dell'esecuzione pipeline |
 
 ![Visualizzazione elenco per il monitoraggio delle esecuzioni di pipeline](media/monitor-visually/pipeline-runs.png)
@@ -54,13 +54,13 @@ Per visualizzare le esecuzioni di attività per ogni esecuzione della pipeline, 
 | --- | --- |
 | Nome attività | Nome dell'attività all'interno della pipeline |
 | Tipo di attività | Tipo di attività, ad esempio **Copy**, **ExecuteDataFlow**o **AzureMLExecutePipeline** |
-| Actions | Icone che consentono di visualizzare informazioni di input JSON, informazioni di output JSON o esperienze di monitoraggio dettagliate specifiche delle attività | 
+| Azioni | Icone che consentono di visualizzare informazioni di input JSON, informazioni di output JSON o esperienze di monitoraggio dettagliate specifiche delle attività | 
 | Inizio esecuzione | Data e ora di inizio dell'esecuzione dell'attività (MM/gg/aaaa, HH: MM: SS AM/PM) |
 | Durata | Durata dell'esecuzione (HH:MM:SS) |
 | Stato | **Non riuscito**, **riuscito**, **in corso**o **annullato** |
 | Integration Runtime | Integration Runtime su cui è stata eseguita l'attività |
 | Proprietà utente | Proprietà definite dall'utente dell'attività |
-| Tipi di errore | Se l'attività ha avuto esito negativo, l'errore di esecuzione |
+| Errore | Se l'attività ha avuto esito negativo, l'errore di esecuzione |
 | ID esecuzione | ID dell'esecuzione attività |
 
 ![Visualizzazione elenco per le esecuzioni delle attività di monitoraggio](media/monitor-visually/activity-runs.png)
@@ -93,7 +93,7 @@ Consente di specificare se le esecuzioni della pipeline saranno in ordine decres
 | Nome pipeline | Filtrare in base al nome della pipeline. |
 | Inizio esecuzione |  Determinare l'intervallo di tempo in cui vengono visualizzate le esecuzioni della pipeline. Le opzioni includono filtri rapidi per le **ultime 24 ore**, **settimana scorsa**e **ultimi 30 giorni** oppure per selezionare una data e un'ora personalizzate. |
 | Stato dell'esecuzione | Filtro eseguito in base allo stato: **riuscito**, **non riuscito**, **accodato**, **annullato**o **in corso**. |
-| Annotazioni | Filtrare in base ai tag applicati a ogni pipeline |
+| annotazioni | Filtrare in base ai tag applicati a ogni pipeline |
 | Esecuzioni | Filtrare se si desidera visualizzare le pipeline riesegue |
 
 ![Opzioni per il filtro](media/monitor-visually/filter.png)
@@ -113,6 +113,12 @@ Aumentare e diminuire la larghezza delle colonne nella visualizzazione elenco pa
 ![Visualizzare le esecuzioni di attività](media/monitor-visually/rerun-activities-image1.png)
 
 ![Selezionare un'esecuzione di attività](media/monitor-visually/rerun-activities-image2.png)
+
+### <a name="rerun-from-failed-activity"></a>Riesegui da attività non riuscita
+
+Se un'attività ha esito negativo, si verifica un timeout o viene annullata, è possibile eseguire di nuovo la pipeline da tale attività non riuscita selezionando **Riesegui da attività non riuscita**.
+
+![Riesegui attività non riuscita](media/monitor-visually/rerun-failed-activity.png)
 
 ### <a name="view-rerun-history"></a>Visualizzare la cronologia di riesecuzione
 
@@ -143,7 +149,7 @@ Selezionare l'icona **informazioni** in basso a sinistra. Selezionare quindi **T
 
 ![Presentazioni guidate](media/monitor-visually/guided-tours.png)
 
-## <a name="alerts"></a>Alerts
+## <a name="alerts"></a>Avvisi
 
 È possibile generare avvisi sulle metriche supportate in Data Factory. Per iniziare, selezionare **monitoraggio** > **avvisi & metriche** nella pagina Monitoraggio data factory.
 

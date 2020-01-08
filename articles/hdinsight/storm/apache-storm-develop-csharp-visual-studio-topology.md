@@ -1,19 +1,19 @@
 ---
 title: Topologie Apache Storm con Visual Studio e Visual C# - Azure HDInsight
 description: Informazioni su come creare topologie Storm in C#. Creare una topologia di conteggio parole in Visual Studio usando gli strumenti di Hadoop per Visual Studio.
-ms.service: hdinsight
+ROBOTS: NOINDEX
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/06/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: f59328c5894a53b6337ecc04e3daebb2ef180c59
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.date: 12/31/2019
+ms.openlocfilehash: 1903c2faab865152d1f3666f3c9dadd745058b56
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927887"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612292"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Sviluppare topologie C# per Apache Storm tramite gli strumenti Data Lake per Visual Studio
 
@@ -21,20 +21,17 @@ Informazioni su come creare una topologia Apache Storm C# usando gli strumenti A
 
 Viene anche spiegato come creare topologie ibride che usano componenti C# e Java.
 
-> [!NOTE]  
-> Anche se i passaggi illustrati in questo documento si basano su un ambiente di sviluppo Windows con Visual Studio, il progetto compilato può essere inviato a un cluster HDInsight basato su Linux o su Windows. Solo i cluster basati su Linux creati dopo il 28 ottobre 2016 supportano le topologie SCP.NET.
-
-Per usare una C# topologia con un cluster basato su Linux, è necessario aggiornare il pacchetto NuGet `Microsoft.SCP.Net.SDK` usato dal progetto alla versione 0.10.0.6 o successiva. La versione del pacchetto deve anche corrispondere alla versione principale di Storm installata in HDInsight.
+C#le topologie usano .NET 4,5 e usano mono per l'esecuzione nel cluster HDInsight. Per informazioni sulle potenziali incompatibilità, vedere [compatibilità mono](https://www.mono-project.com/docs/about-mono/compatibility/). Per usare una C# topologia, è necessario aggiornare il pacchetto NuGet `Microsoft.SCP.Net.SDK` usato dal progetto alla versione 0.10.0.6 o successiva. La versione del pacchetto deve anche corrispondere alla versione principale di Storm installata in HDInsight.
 
 | Versione HDInsight | Versione di Apache Storm | Versione di SCP.NET | Versione Mono predefinita |
 |:-----------------:|:-------------:|:---------------:|:--------------------:|
-| 3.3 |0.10.x |0.10.x.x</br>(solo in HDInsight per Windows) | ND |
 | 3.4 | 0.10.0.x | 0.10.0.x | 3.2.8 |
 | 3,5 | 1.0.2.x | 1.0.0.x | 4.2.1 |
 | 3.6 | 1.1.0.x | 1.0.0.x | 4.2.8 |
 
-> [!IMPORTANT]  
-> Le topologie C# nei cluster basati su Linux devono usare .NET 4.5 e devono usare Mono per l'esecuzione nel cluster HDInsight. Per informazioni sulle potenziali incompatibilità, vedere [compatibilità mono](https://www.mono-project.com/docs/about-mono/compatibility/).
+## <a name="prerequisite"></a>Prerequisito
+
+Un cluster Apache Storm in HDInsight. Consultare [Creare cluster di Apache Hadoop usando il portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selezionare **Storm** per **Tipo di cluster**.
 
 ## <a name="install-visual-studio"></a>Installazione di Visual Studio
 
@@ -52,7 +49,7 @@ Quando si invia una topologia Storm da Visual Studio, SCP.NET genera un file con
 
 2. Impostare la variabile di ambiente `JAVA_HOME` sulla directory che contiene Java.
 
-3. Impostare la variabile di ambiente `PATH` per includere la directory *% JAVA_HOME% \ bin* .
+3. Impostare la variabile di ambiente `PATH` per includere la directory `%JAVA_HOME%\bin`.
 
 È possibile compilare ed eseguire l'applicazione C# console seguente per verificare che Java e JDK siano installati correttamente:
 
@@ -144,8 +141,6 @@ Dopo aver creato il progetto, è necessario disporre dei seguenti file:
 * *Bolt.cs*: bolt di esempio che tiene conto dei numeri generati dallo spout.
 
 Quando si crea il progetto, NuGet scarica la versione più recente del [pacchetto SCP.NET](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/).
-
-[!INCLUDE [scp.net version important](../../../includes/hdinsight-storm-scpdotnet-version.md)]
 
 ### <a name="implement-the-spout"></a>Implementare lo spout
 
@@ -408,14 +403,15 @@ return topologyBuilder;
 
 ## <a name="submit-the-topology"></a>Inviare la topologia
 
-A questo punto è possibile inviare la topologia al cluster HDInsight.
+A questo punto si è pronti per inviare la topologia al cluster HDInsight.
+
+1. Passare a **visualizza** > **Esplora server**.
+
+1. Fare clic con il pulsante destro del mouse su **Azure**, scegliere **Connetti a Microsoft Azure sottoscrizione...** e completare il processo di accesso.
 
 1. In **Esplora soluzioni**fare clic con il pulsante destro del mouse sul progetto e scegliere **Invia a Storm in HDInsight**.
 
-    > [!NOTE]  
-    > Se richiesto, immettere le credenziali per la sottoscrizione di Azure. Se si dispone di più di una sottoscrizione, accedere a quella che contiene il cluster Storm in HDInsight.
-
-2. Nella finestra di dialogo **Invia topologia** , nell'elenco a discesa **cluster Storm** , scegliere il cluster Storm in HDInsight e quindi selezionare **Invia**. È possibile verificare se l'invio è riuscito visualizzando il riquadro di **output** .
+1. Nella finestra di dialogo **Invia topologia** , nell'elenco a discesa **cluster Storm** , scegliere il cluster Storm in HDInsight e quindi selezionare **Invia**. È possibile verificare se l'invio è riuscito visualizzando il riquadro di **output** .
 
     Quando la topologia è stata inviata correttamente, verrà visualizzata la finestra di **visualizzazione delle topologie Storm** per il cluster. Scegliere la topologia **WordCount** dall'elenco per visualizzare le informazioni sulla topologia in esecuzione.
 
@@ -426,7 +422,7 @@ A questo punto è possibile inviare la topologia al cluster HDInsight.
 
     Per visualizzare informazioni sui componenti della topologia, selezionare un componente nel diagramma.
 
-3. Nella sezione **Riepilogo topologia** selezionare **Kill** per arrestare la topologia.
+1. Nella sezione **Riepilogo topologia** selezionare **Kill** per arrestare la topologia.
 
     > [!NOTE]  
     > Le topologie Storm continuano l'esecuzione fino a quando non vengono disattivate o il cluster non viene eliminato.
@@ -492,7 +488,7 @@ La versione 0.9.4.203 di SCP.Net introduce una nuova classe e un nuovo metodo ap
 > [!NOTE]  
 > È comunque necessario usare il `CustomizedInteropJSONSerializer` per serializzare i dati prodotti dal beccuccio.
 
-## <a id="configurationmanager"></a>Usare ConfigurationManager
+## <a name="use-configurationmanager"></a>Usare ConfigurationManager
 
 Non usare **ConfigurationManager** per recuperare i valori di configurazione dai componenti bolt e spout. Questa operazione può generare un'eccezione del puntatore null. Al contrario, passare la configurazione per il progetto alla topologia Storm come coppia chiave/valore nel contesto della topologia. Ogni componente basato sui valori di configurazione deve recuperarli dal contesto durante l'inizializzazione.
 
@@ -552,7 +548,7 @@ Quando si usa una C# topologia con un cluster HDInsight basato su Linux, i compo
 
 La configurazione per il progetto viene passata nella topologia Storm come coppia chiave/valore nel contesto della topologia Può essere recuperato dall'oggetto dizionario passato ai componenti quando vengono inizializzati.
 
-Per ulteriori informazioni, vedere la sezione [utilizzare ConfigurationManager](#configurationmanager) di questo documento.
+Per ulteriori informazioni, vedere la sezione [utilizzare ConfigurationManager](#use-configurationmanager) di questo documento.
 
 ### <a name="systemtypeloadexception"></a>System.TypeLoadException
 
@@ -698,7 +694,7 @@ Sebbene sia facile distribuire una topologia in un cluster, in alcuni casi potre
 > [!NOTE]  
 > Assicurarsi di impostare di nuovo il **tipo di progetto** su libreria di **classi** nelle proprietà del progetto prima della distribuzione in un cluster Storm in HDInsight.
 
-### <a name="log-information"></a>Informazioni di log
+### <a name="log-information"></a>Informazioni sui log
 
 È possibile registrare facilmente le informazioni provenienti dai componenti della topologia usando `Context.Logger`. Il comando seguente, ad esempio, crea una voce di log informativa:
 
@@ -725,7 +721,7 @@ Per visualizzare gli errori che si sono verificati in una topologia in esecuzion
 
 Se si verificano errori durante l'invio di una topologia a HDInsight, è possibile trovare i log per i componenti lato server che gestiscono l'invio della topologia nel cluster HDInsight. Per scaricare questi log, usare il comando seguente da una riga di comando:
 
-```shell
+```cmd
 scp sshuser@clustername-ssh.azurehdinsight.net:/var/log/hdinsight-scpwebapi/hdinsight-scpwebapi.out .
 ```
 

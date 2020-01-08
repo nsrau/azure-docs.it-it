@@ -8,18 +8,18 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 9bfe88c34c78d18f2f5aefb8ae6946b9786030ad
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6ecba85a859e902922dfa2b7563a3ceb96a9ef4d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74023505"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457468"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
 Replica il percorso di origine nel percorso di destinazione.
 
-## <a name="synopsis"></a>Sinossi
+## <a name="synopsis"></a>Riepilogo
 
 Per il confronto vengono usate le ore dell'Ultima modifica. Il file viene ignorato se l'ora dell'Ultima modifica della destinazione è più recente.
 
@@ -42,7 +42,7 @@ Il comando di sincronizzazione differisce dal comando copy in diversi modi:
 - [Trasferire dati con AzCopy e l'archivio file](storage-use-azcopy-files.md)
 - [Configurare, ottimizzare e risolvere i problemi di AzCopy](storage-use-azcopy-configure.md)
 
-### <a name="advanced"></a>Avanzate
+### <a name="advanced"></a>Funzionalità avanzate
 
 Se non si specifica un'estensione di file, AzCopy rileva automaticamente il tipo di contenuto dei file durante il caricamento dal disco locale, in base all'estensione o al contenuto del file (se non è specificata alcuna estensione).
 
@@ -58,7 +58,7 @@ In Windows i tipi MIME vengono estratti dal registro di sistema.
 azcopy sync <source> <destination> [flags]
 ```
 
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 
 Sincronizzare un singolo file:
 
@@ -78,7 +78,7 @@ Sincronizzare un'intera directory, incluse le relative sottodirectory (si noti c
 azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]"
 ```
 
-oppure
+Oppure
 
 ```azcopy
 azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --put-md5
@@ -106,8 +106,9 @@ Sincronizzare un singolo BLOB:
 
 ```azcopy
 azcopy sync "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
+```
 
-Sync a virtual directory:
+Sincronizzare una directory virtuale:
 
 ```azcopy
 azcopy sync "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]?[SAS]" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --recursive=true
@@ -138,6 +139,8 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--Exclude-Attributes** String (solo Windows) escludere i file i cui attributi corrispondono all'elenco di attributi. Ad esempio: A; S R
 
+**--Exclude-Path** String escludere questi percorsi durante la copia. Questa opzione non supporta i caratteri jolly (*). Verifica il prefisso del percorso relativo (ad esempio: cartella, cartella/subDirName/file. pdf). Se usato in combinazione con l'attraversamento dell'account, i percorsi non includono il nome del contenitore.
+
 **--Exclude-pattern** String esclude i file in cui il nome corrisponde all'elenco di modelli. Ad esempio: *. jpg;* . PDF; exactname
 
 **-h,--** Guida alla sincronizzazione
@@ -154,11 +157,11 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 ## <a name="options-inherited-from-parent-commands"></a>Opzioni ereditate dai comandi padre
 
-|Opzione|DESCRIZIONE|
+|Opzione|Description|
 |---|---|
 |--Cap-Mbps UInt32|Viene riversata la velocità di trasferimento, in megabit al secondo. Una velocità effettiva momentanea potrebbe variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non è limitata.|
 |--output-tipo stringa|Formato dell'output del comando. Le scelte includono: text, JSON. Il valore predefinito è "Text".|
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [azcopy](storage-ref-azcopy.md)

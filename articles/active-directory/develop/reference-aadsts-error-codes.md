@@ -1,5 +1,5 @@
 ---
-title: Azure AD codici di errore di autenticazione e autorizzazione | Azure
+title: Codici di errore di autorizzazione Azure AD & di autenticazione
 description: Informazioni sui codici di errore AADSTS restituiti dal servizio token di sicurezza di Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 08/30/2019
+ms.date: 12/18/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02ed0b84a29ea0c3ce3b58db1c029798655bfb06
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 8979481452b0c4e8bf862c306a7916ddcabf1307
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965807"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423974"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Codici di errore Autenticazione di Azure AD e autorizzazione
 
@@ -133,6 +133,8 @@ Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, 
 | AADSTS50178 | SessionControlNotSupportedForPassthroughUsers: il controllo della sessione non è supportato per gli utenti pass-through. |
 | AADSTS50180 | WindowsIntegratedAuthMissing: è necessaria l'autenticazione integrata di Windows. Abilitare il tenant per Seamless SSO. |
 | AADSTS50187 | DeviceInformationNotProvided: il servizio non è stato in grado di eseguire l'autenticazione del dispositivo. |
+| AADSTS50196 | LoopDetected-è stato rilevato un ciclo client. Controllare la logica dell'app per assicurarsi che la memorizzazione nella cache dei token venga implementata e che le condizioni di errore siano gestite correttamente.  L'app ha effettuato troppe richieste in un periodo troppo breve, a indicare che si trova in uno stato di errore o che richiede i token in maniera abusiva. |
+| AADSTS50199 | CmsiInterrupt: è necessaria l'interazione dell'utente per l'autenticazione.  Poiché si tratta di un errore di "interaction_required", il client deve eseguire l'autenticazione interattiva.  Questo problema si verifica perché è stata usata una visualizzazione di sistema per richiedere un token per un'applicazione nativa. è necessario che all'utente venga chiesto se si tratta effettivamente dell'app a cui si intende accedere.|
 | AADSTS51000 | RequiredFeatureNotEnabled: la funzionalità è disabilitata. |
 | AADSTS51001 | DomainHintMustbePresent: deve essere presente il suggerimento di dominio con l'ID di sicurezza locale o l'UPN locale. |
 | AADSTS51004 | UserAccountNotInDirectory: l'account utente non è presente nella directory. |

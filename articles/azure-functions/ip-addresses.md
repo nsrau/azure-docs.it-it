@@ -3,12 +3,12 @@ title: Indirizzi IP in Funzioni di Azure
 description: Informazioni su come trovare gli indirizzi IP in ingresso e in uscita per le app per le funzioni e sugli elementi che ne causano la modifica.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 327d616c36bcbbb1562349afffd529efb2b5d27f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a1c4174b8f1f2349cbd35c32cbee468ee5b4cd4a
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230334"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612888"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Indirizzi IP in Funzioni di Azure
 
@@ -86,9 +86,9 @@ L'indirizzo IP in ingresso **potrebbe** cambiare in caso di:
 
 - Eliminazione di un'app per le funzioni e successiva ricreazione in un gruppo di risorse diverso.
 - Eliminazione dell'ultima app per le funzioni in una combinazione di gruppo di risorse e area e successiva ricreazione.
-- Eliminazione di un binding SSL, ad esempio durante il [rinnovo del certificato](../app-service/configure-ssl-certificate.md#renew-certificate).
+- Eliminare un'associazione SSL, ad esempio durante il [rinnovo del certificato](../app-service/configure-ssl-certificate.md#renew-certificate).
 
-Quando l'app per le funzioni viene eseguita in un [piano a consumo](functions-scale.md#consumption-plan), l'indirizzo IP in ingresso potrebbe cambiare anche quando non sono state eseguite azioni come quelle elencate.
+Quando l'app per le funzioni viene eseguita in un [piano a consumo](functions-scale.md#consumption-plan), è possibile che anche l'indirizzo IP in ingresso cambi anche quando non sono state eseguite azioni come quelle [elencate in precedenza](#inbound-ip-address-changes).
 
 ## <a name="outbound-ip-address-changes"></a>Modifiche degli indirizzi IP in uscita
 
@@ -97,7 +97,7 @@ Il set di indirizzi IP in uscita disponibili per un'app per le funzioni potrebbe
 * Esecuzione di un'azione che può modificare l'indirizzo IP in ingresso.
 * Modifica del piano tariffario del servizio app. L'elenco di tutti i possibili indirizzi IP in uscita utilizzabili dall'app, per tutti i piani tariffari, è disponibile nella proprietà `possibleOutboundIPAddresses`. Vedere [Trovare gli indirizzi IP in uscita](#find-outbound-ip-addresses).
 
-Quando l'app per le funzioni viene eseguita in un [piano a consumo](functions-scale.md#consumption-plan), l'indirizzo IP in uscita potrebbe cambiare anche quando non sono state eseguite azioni come quelle elencate.
+Quando l'app per le funzioni viene eseguita in un [piano a consumo](functions-scale.md#consumption-plan), l'indirizzo IP in uscita potrebbe cambiare anche se non sono state eseguite azioni come quelle [elencate in precedenza](#inbound-ip-address-changes).
 
 Per forzare deliberatamente la modifica di un indirizzo IP in uscita:
 

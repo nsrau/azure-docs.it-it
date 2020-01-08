@@ -3,7 +3,7 @@ title: Considerazioni su Novell Android (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
 description: Per informazioni su considerazioni specifiche, vedere l'articolo relativo all'uso di Novell Android con Microsoft Authentication Library per .NET (MSAL.NET).
 services: active-directory
-author: TylerMSFT
+author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -14,12 +14,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cb28b8465bf74351c5c6efe9d80dcc01137be5d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 678b581e09fe1eac49e4f2bf07eabbbc944c8d4e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74915519"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424159"
 ---
 # <a name="xamarin-android-specific-considerations-with-msalnet"></a>Novell considerazioni specifiche per Android con MSAL.NET
 Questo articolo illustra alcune considerazioni specifiche quando si usa Novell Android con Microsoft Authentication Library per .NET (MSAL.NET).
@@ -35,7 +35,7 @@ var authResult = AcquireTokenInteractive(scopes)
 ```
 È anche possibile impostare questa impostazione a livello di PublicClientApplication (in MSAL 4.2 +) tramite un callback.
 
-```CSharp
+```csharp
 // Requires MSAL.NET 4.2 or above
 var pca = PublicClientApplicationBuilder
   .Create("<your-client-id-here>")
@@ -45,7 +45,7 @@ var pca = PublicClientApplicationBuilder
 
 Si consiglia di usare CurrentActivityPlugin [qui](https://github.com/jamesmontemagno/CurrentActivityPlugin).  Il codice del generatore PublicClientApplication sarà simile al seguente:
 
-```CSharp
+```csharp
 // Requires MSAL.NET 4.2 or above
 var pca = PublicClientApplicationBuilder
   .Create("<your-client-id-here>")
@@ -83,6 +83,23 @@ Il `AndroidManifest.xml` deve contenere i valori seguenti:
 </activity>
 ```
 
+In alternativa, è possibile [creare l'attività nel codice](https://docs.microsoft.com/xamarin/android/platform/android-manifest#the-basics) e non modificare manualmente `AndroidManifest.xml`. A tale proposito, è necessario creare una classe con l'attributo `Activity` e `IntentFilter`. Una classe che rappresenta gli stessi valori del codice XML precedente è la seguente:
+
+```csharp
+  [Activity]
+  [IntentFilter(new[] { Intent.ActionView },
+        Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
+        DataHost = "auth",
+        DataScheme = "msal{client_id}")]
+  public class MsalActivity : BrowserTabActivity
+  {
+  }
+```
+
+### <a name="xamarinforms-43x-manifest"></a>Manifesto XamarinForms 4.3. X
+
+Il codice generato da XamarinForms 4.3. x imposta l'attributo `package` su `com.companyname.{appName}` nel `AndroidManifest.xml`. Potrebbe essere necessario modificare il valore in modo che corrisponda allo spazio dei nomi `MainActivity.cs`, se si utilizza il `DataScheme` come `msal{client_id}`.
+
 ## <a name="use-the-embedded-web-view-optional"></a>Usare la visualizzazione Web incorporata (facoltativo)
 
 Per impostazione predefinita, MSAL.NET usa il Web browser di sistema, che consente di ottenere SSO con le applicazioni Web e altre app. In alcuni casi rari, è possibile specificare che si desidera utilizzare la visualizzazione Web incorporata. Per altre informazioni, vedere [MSAL.NET usa un Web browser e un](msal-net-web-browsers.md) [browser di sistema Android](msal-net-system-browser-android-considerations.md).
@@ -96,7 +113,7 @@ var authResult = AcquireTokenInteractive(scopes)
  .ExecuteAsync();
 ```
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 Se si crea una nuova applicazione Novell. Forms e si aggiunge un riferimento al pacchetto NuGet MSAL.Net, questo funzionerà semplicemente.
 Tuttavia, se si desidera aggiornare un'applicazione Novell. Forms esistente a MSAL.NET Preview 1.1.2 o versione successiva, è possibile che si verifichino problemi di compilazione.
 

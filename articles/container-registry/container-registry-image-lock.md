@@ -3,12 +3,12 @@ title: Bloccare immagini
 description: Impostare gli attributi per un'immagine del contenitore o un repository in modo che non possa essere eliminato o sovrascritto in un registro contenitori di Azure.
 ms.topic: article
 ms.date: 09/30/2019
-ms.openlocfilehash: 9e55a6688be9f51f1c1b237ae86bd57692a86592
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 8eb2a549e9d9f3a7ed4a482ac6a9ea4ba61ea4f2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456321"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442226"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Bloccare un'immagine del contenitore in un registro contenitori di Azure
 
@@ -23,7 +23,11 @@ Per questo articolo è necessario eseguire l'interfaccia della riga di comando d
 
 Per impostazione predefinita, un'immagine con tag in Azure Container Registry è *modificabile*, quindi, con le autorizzazioni appropriate, è possibile aggiornare ripetutamente ed effettuare il push di un'immagine con lo stesso tag a un registro. Le immagini del contenitore possono anche essere [eliminate](container-registry-delete.md) in base alle esigenze. Questo comportamento è utile quando si sviluppano immagini ed è necessario mantenere una dimensione per il registro.
 
-Tuttavia, quando si distribuisce un'immagine del contenitore in produzione, potrebbe essere necessaria un'immagine del contenitore non *modificabile* . Un'immagine non modificabile non può essere eliminata o sovrascritta accidentalmente. Usare il comando [AZ ACR repository update][az-acr-repository-update] per impostare gli attributi del repository, in modo da poter:
+Tuttavia, quando si distribuisce un'immagine del contenitore in produzione, potrebbe essere necessaria un'immagine del contenitore non *modificabile* . Un'immagine non modificabile non può essere eliminata o sovrascritta accidentalmente.
+
+Vedere le raccomandazioni per l'assegnazione di tag e il [controllo delle versioni delle immagini del contenitore](container-registry-image-tag-version.md) per le strategie per le immagini tag e versione nel registro.
+
+Usare il comando [AZ ACR repository update][az-acr-repository-update] per impostare gli attributi del repository, in modo da poter:
 
 * Bloccare una versione dell'immagine o un intero repository
 
@@ -31,7 +35,7 @@ Tuttavia, quando si distribuisce un'immagine del contenitore in produzione, potr
 
 * Impedisci le operazioni di lettura (pull) su una versione dell'immagine o un intero repository
 
-Per esempi, vedere le sezioni seguenti.
+Per esempi, vedere le sezioni seguenti. 
 
 ## <a name="lock-an-image-or-repository"></a>Bloccare un'immagine o un repository 
 

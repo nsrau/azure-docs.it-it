@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 212f10bd33479e5a9f7244d5b2090c0324f937c2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 358f26af8d990d29f226978387fdf8093d2b8644
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226769"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612973"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Come risolvere il problema del "runtime di Funzioni di Azure non raggiungibile"
 
@@ -20,7 +20,7 @@ Questo documento è destinato a risolvere l'errore seguente quando visualizzato 
 
 `Error: Azure Functions Runtime is unreachable. Click here for details on storage configuration`
 
-### <a name="summary"></a>summary
+### <a name="summary"></a>Riepilogo
 Questo problema si verifica quando non è possibile avviare il runtime di Funzioni di Azure. Il motivo più comune per cui si verifica questo errore è che l'app per le funzioni perde l'accesso al relativo account di archiviazione. [Altre informazioni sui requisiti dell'account di archiviazione sono reperibili qui](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
 
 ### <a name="troubleshooting"></a>Risoluzione dei problemi
@@ -31,6 +31,8 @@ Verranno esaminati i quattro casi di errore più comuni, come identificare e com
 1. Credenziali dell'account di archiviazione non valide
 1. Account di archiviazione inaccessibile
 1. Quota di esecuzione giornaliera completa
+1. L'app è dietro un firewall
+
 
 ## <a name="storage-account-deleted"></a>Account di archiviazione eliminato
 
@@ -48,7 +50,7 @@ Nel passaggio precedente, se non si disponeva di una stringa di connessione dell
 
 ### <a name="required-application-settings"></a>Impostazioni dell'applicazione necessarie
 
-* obbligatori
+* Obbligatorio
     * [`AzureWebJobsStorage`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)
 * Obbligatoria per funzioni di Piano a consumo
     * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
@@ -56,7 +58,7 @@ Nel passaggio precedente, se non si disponeva di una stringa di connessione dell
 
 [Informazioni su queste impostazioni dell'applicazione qui](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
 
-### <a name="guidance"></a>Indicazioni
+### <a name="guidance"></a>Guida
 
 * Non selezionare "impostazione slot" per qualsiasi di queste impostazioni. Quando si scambiano gli slot di distribuzione la funzione verrà interrotta.
 * Non modificare queste impostazioni come parte delle distribuzioni automatiche.
@@ -81,13 +83,19 @@ Se si dispone di una Quota di esecuzione giornaliera configurata, verrà disabil
     * `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
 * Rimuovere la quota e riavviare l'app per risolvere il problema.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="app-is-behind-a-firewall"></a>L'app è dietro un firewall
+
+Il runtime della funzione non sarà raggiungibile se l'app per le funzioni è ospitata in un [ambiente del servizio app con carico bilanciato internamente](../app-service/environment/create-ilb-ase.md) ed è configurata per bloccare il traffico Internet in ingresso oppure è configurata una [restrizione IP in ingresso](functions-networking-options.md#inbound-ip-restrictions) per bloccare l'accesso a Internet. Il portale di Azure effettua chiamate dirette all'app in esecuzione per recuperare l'elenco di funzioni e effettua anche la chiamata http all'endpoint KUDU. Le impostazioni a livello di piattaforma nella scheda `Platform Features` saranno ancora disponibili.
+
+* Per verificare la configurazione dell'ambiente del servizio app, passare a NSG della subnet in cui si trova l'ambiente del servizio app e convalidare le regole in entrata per consentire il traffico proveniente dall'IP pubblico del computer a cui si sta accedendo. È anche possibile usare il portale da un computer connesso alla rete virtuale che esegue l'app o una macchina virtuale in esecuzione nella rete virtuale. [Per altre informazioni sulla configurazione delle regole in ingresso, vedere qui](https://docs.microsoft.com/azure/app-service/environment/network-info#network-security-groups)
+
+## <a name="next-steps"></a>Fasi successive
 
 Ora che l'app per le funzioni è nuovamente operativa, esaminare i riferimenti per sviluppatori e i modelli di avvio rapido per iniziare a usare nuovamente l'app.
 
 * [Creare la prima funzione di Azure](functions-create-first-azure-function.md)  
   Informazioni su come iniziare immediatamente a creare la prima funzione tramite Avvio rapido di Funzioni di Azure. 
-* [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md)  
+* [Guida di riferimento per gli sviluppatori a Funzioni di Azure](functions-reference.md)  
   Include informazioni più tecniche sul runtime di Funzioni di Azure, nonché informazioni di riferimento per la codifica di funzioni e la definizione di trigger e associazioni.
 * [Test di Funzioni di Azure](functions-test-a-function.md)  
   Descrive diversi strumenti e tecniche per il test delle funzioni.

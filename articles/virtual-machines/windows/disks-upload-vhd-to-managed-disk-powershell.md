@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: dcd2f5f00c00ce0f74c07bfb7ba8e81316d9a53e
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 8a7e5243428eb88a2757b675c7d66dbfb3c66a30
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456658"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459994"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-powershell"></a>Caricare un disco rigido virtuale in Azure usando Azure PowerShell
 
@@ -23,11 +23,11 @@ Se si fornisce una soluzione di backup per le macchine virtuali IaaS in Azure, s
 
 Attualmente, il caricamento diretto è supportato per HDD standard, unità SSD standard e Managed disks SSD Premium. Non è ancora supportata per le unità SSD ultra.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Scaricare la versione più recente [di AzCopy V10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Installare Azure PowerShell modulo](/powershell/azure/install-Az-ps).
-- Se si intende caricare un disco rigido virtuale da un disco rigido virtuale che [è stato preparato per Azure](prepare-for-upload-vhd-image.md), archiviato localmente.
+- Se si intende caricare un disco rigido virtuale da locale: un disco rigido virtuale [preparato per Azure](prepare-for-upload-vhd-image.md), archiviato localmente.
 - In alternativa, un disco gestito in Azure, se si intende eseguire un'azione di copia.
 
 ## <a name="create-an-empty-managed-disk"></a>Creare un disco gestito vuoto

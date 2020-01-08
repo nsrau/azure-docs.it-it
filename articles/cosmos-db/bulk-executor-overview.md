@@ -1,5 +1,5 @@
 ---
-title: Eseguire importazioni e aggiornamenti bulk di dati in Azure Cosmos DB usando la libreria dell'executor bulk
+title: Panoramica della libreria dell'executor bulk di Azure Cosmos DB
 description: Eseguire operazioni bulk in Azure Cosmos DB tramite API di importazione e aggiornamento bulk rese disponibili dalla libreria dell'executor bulk.
 author: tknandu
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 8d2cb30e0f18485d500344e571b3ac5f2cde008f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 9d335bcf6daf0b38e7a68ca2d40894dd64c93e40
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615715"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442162"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Panoramica della libreria dell'executor bulk di Azure Cosmos DB
  
@@ -32,7 +32,7 @@ La libreria dell'executor bulk consente di sfruttare la velocità effettiva e la
 
 * Evita le tediose attività di scrittura della logica delle applicazioni per gestire la limitazione della frequenza delle richieste, i timeout delle richieste e altre eccezioni temporanee consentendo di controllare queste condizioni in modo efficiente all'interno della libreria.  
 
-* Fornisce un meccanismo semplificato per le applicazioni che eseguono operazioni bulk per la scalabilità orizzontale. Una singola istanza dell'executor bulk in esecuzione in una macchina virtuale di Azure può usare più di 500 K unità richiesta al secondo. È possibile ottenere una velocità effettiva superiore tramite l'aggiunta di istanze aggiuntive nel client di singole macchine virtuali.  
+* Fornisce un meccanismo semplificato per le applicazioni che eseguono operazioni bulk per la scalabilità orizzontale. Una singola istanza dell'executor in blocco in esecuzione in una macchina virtuale di Azure può consumare più di 500.000 UR/s ed è possibile ottenere una velocità effettiva più elevata aggiungendo istanze aggiuntive nelle singole macchine virtuali client.  
  
 * È possibile eseguire l'importazione del bulk di più di un terabyte di dati entro un'ora usando un'architettura di scalabilità orizzontale.  
 

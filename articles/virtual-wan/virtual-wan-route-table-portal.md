@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a route table using the portal.
-ms.openlocfilehash: 6b78b97004498fdacccdf9408d59158424ff6c07
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: c0681024b60827cf589906041c264d912ab209bb
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534141"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612361"
 ---
 # <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>Creare una tabella di route dell'hub WAN virtuale per appliance virtuali: portale di Azure
 
@@ -67,7 +67,7 @@ Creare l'hub. Ai fini di questo esercizio, è possibile usare i valori seguenti:
 
 Aggiornare l'hub con una tabella di route Hub. Ai fini di questo esercizio, è possibile usare i valori seguenti:
 
-* **Spazi di indirizzi VNet spoke indiretta:** (VNet1 e VNet2) 10.0.2.0/24 e 10.0.3.0/24
+* **Spazi di indirizzi VNet spoke:** (VNet1 e VNet2) 10.0.2.0/24 e 10.0.3.0/24
 * **Indirizzo IP privato dell'interfaccia di rete DMZ rete virtuale:** 10.0.4.5
 
 1. Passare alla rete WAN virtuale.

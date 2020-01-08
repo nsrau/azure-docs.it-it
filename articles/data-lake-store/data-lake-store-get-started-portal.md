@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: e5a3df82fae9d81a870d3dba929bc7e4cd4123d2
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 1bfb9362aa0e893a8bf1a758e5a0069e85ab227b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904686"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438752"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Iniziare a usare Azure Data Lake Storage Gen1 tramite il portale di Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "73904686"
 
 Informazioni su come usare la portale di Azure per creare un account di Data Lake Storage Gen1 ed eseguire operazioni di base, ad esempio creare cartelle, caricare e scaricare file di dati, eliminare l'account e così via. Per ulteriori informazioni, vedere [Panoramica di Azure Data Lake storage Gen1](data-lake-store-overview.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione sono necessari gli elementi seguenti:
 
@@ -42,7 +42,7 @@ Prima di iniziare questa esercitazione sono necessari gli elementi seguenti:
 
    * **Nome**. Immettere un nome univoco per l'account Data Lake Storage Gen1.
    * **Sottoscrizione**. Selezionare la sottoscrizione in cui si vuole creare un nuovo account Data Lake Storage Gen1.
-   * **Gruppo di risorse**. Selezionare un gruppo di risorse esistente oppure selezionare l'opzione **Crea nuovo** per crearne uno. Un gruppo di risorse è un contenitore che contiene risorse correlate per un'applicazione. Per altre informazioni, vedere [Gruppi di risorse in Azure](../azure-resource-manager/resource-group-overview.md#resource-groups).
+   * **Gruppo di risorse**. Selezionare un gruppo di risorse esistente oppure selezionare l'opzione **Crea nuovo** per crearne uno. Un gruppo di risorse è un contenitore che contiene risorse correlate per un'applicazione. Per altre informazioni, vedere [Gruppi di risorse in Azure](../azure-resource-manager/management/overview.md#resource-groups).
    * **Località**: selezionare una località dove creare l'account Data Lake Storage Gen1.
    * **Impostazioni crittografia**. Sono disponibili tre opzioni:
 
@@ -56,7 +56,7 @@ Prima di iniziare questa esercitazione sono necessari gli elementi seguenti:
 
         Per altre informazioni, vedere [Crittografia dei dati in Azure Data Lake Storage Gen1](./data-lake-store-encryption.md).
 
-4. Fare clic su **Create**(Crea). Se si è scelto di aggiungere l'account al dashboard, viene visualizzato di nuovo il dashboard, dove è possibile visualizzare lo stato di avanzamento del provisioning dell'account Data Lake Storage Gen1. Una volta eseguito il provisioning dell'account Data Lake Storage Gen1, viene visualizzato il pannello dell'account.
+4. Fare clic su **Crea**. Se si è scelto di aggiungere l'account al dashboard, viene visualizzato di nuovo il dashboard, dove è possibile visualizzare lo stato di avanzamento del provisioning dell'account Data Lake Storage Gen1. Una volta eseguito il provisioning dell'account Data Lake Storage Gen1, viene visualizzato il pannello dell'account.
 
 ## <a name="assign-permissions-to-azure-key-vault"></a>Assegnare le autorizzazioni per Azure Key Vault
 
@@ -105,7 +105,7 @@ Se sono state usate le chiavi di un'istanza di Azure Key Vault per configurare l
 
     ![Caricare i dati](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Caricare dati")
 
-Se si stanno cercando dati di esempio da caricare, è possibile ottenere la cartella **Ambulance Data** dal [repository Git di Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
+Se si stanno cercando dati di esempio da caricare, è possibile ottenere la cartella **Ambulance Data** dal [Repository GitHub per Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
 ## <a name="properties"></a>Azioni disponibili sui dati archiviati
 
@@ -113,11 +113,11 @@ Fare clic sull'icona con i puntini di sospensione per un file e dal menu a compa
 
 ![Proprietà dei dati](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "Proprietà sui dati")
 
-## <a name="secure-your-data"></a>Protezione dei dati
+## <a name="secure-your-data"></a>Proteggere i dati
 
 È possibile proteggere i dati archiviati nell'account Data Lake Storage Gen1 usando Azure Active Directory e il controllo di accesso (ACL). Per istruzioni su come eseguire questa operazione, vedere [Protezione dei dati in Azure Data Lake Storage Gen1](data-lake-store-secure-data.md).
 
-## <a name="delete-your-account"></a>Elimina l'account
+## <a name="delete-your-account"></a>Eliminare l'account
 
 Per eliminare un account Data Lake Storage Gen1, dal pannello di Data Lake Storage Gen1 fare clic su **Elimina**. Per confermare l'azione, verrà chiesto di immettere il nome dell'account che si desidera eliminare. Immettere il nome dell’account e quindi fare clic su **Elimina**.
 

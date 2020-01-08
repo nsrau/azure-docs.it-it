@@ -7,12 +7,12 @@ ms.date: 06/19/2019
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 5cadd0479a6ddc97cc7ee7d9b5aee1bbffba02bb
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: c4351afe7781f4340dfd943828d65e94efbdc0a7
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120976"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659305"
 ---
 # <a name="networking-limit-increase"></a>Aumento del limite delle connessioni di rete
 
@@ -27,7 +27,7 @@ Per visualizzare l'utilizzo e la quota correnti della rete, è possibile visitar
 
 Seguire le istruzioni riportate di seguito per creare una richiesta di supporto tramite il pannello "Guida e supporto" di Azure disponibile nel portale di Azure. 
 
-1. In https://portal.azure.comselezionare **Guida e supporto**.
+1. In https://portal.azure.com selezionare **Guida e supporto**.
 
     ![Guida e supporto](./media/resource-manager-core-quotas-request/helpsupport.png)
  
@@ -64,13 +64,13 @@ Seguire le istruzioni riportate di seguito per creare una richiesta di supporto 
 
 Seguire le istruzioni riportate di seguito per creare una richiesta di supporto tramite il pannello "utilizzo e quota" di Azure disponibile nel portale di Azure. 
 
-1. In https://portal.azure.com, selezionare **Sottoscrizioni**.
+1. In https://portal.azure.com , selezionare **Sottoscrizioni**.
 
     ![Sottoscrizioni](./media/resource-manager-core-quotas-request/subscriptions.png)
 
 2. Selezionare la sottoscrizione per cui è necessario ottenere un aumento della quota.
 
-    ![Selezionare la sottoscrizione](./media/resource-manager-core-quotas-request/select-subscription.png)
+    ![Seleziona sottoscrizione](./media/resource-manager-core-quotas-request/select-subscription.png)
 
 3. Selezionare **Utilizzo e quote**.
 
@@ -84,4 +84,4 @@ Seguire le istruzioni riportate di seguito per creare una richiesta di supporto 
 
 ## <a name="about-networking-limits"></a>Informazioni sui limiti di rete
 
-Per altre informazioni sui limiti di rete, vedere la [sezione rete](../azure-subscription-service-limits.md#networking-limits) della pagina limiti o domande frequenti sui limiti di rete
+Per altre informazioni sui limiti di rete, vedere la [sezione rete](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) della pagina limiti o domande frequenti sui limiti di rete

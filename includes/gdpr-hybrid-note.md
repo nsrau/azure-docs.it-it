@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/01/2018
 ms.author: lizross
 ms.custom: include file
-ms.openlocfilehash: 236ba117fd324a75ecc20ea7f94e110d75e3ee63
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 968ebe89de65de5fa49e56a90a1bc92109a16861
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67179963"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613763"
 ---
 >[!Note]
->Se si è interessati a visualizzare o eliminare dati personali, vedere le linee guida di Microsoft nel sito [Richieste del soggetto dei dati per l'RGPD in Azure](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-windows). Per informazioni generali sul regolamento GDPR, vedere la [sezione di Service Trust Portal dedicata al GDPR](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
+>Se si vuole visualizzare o eliminare dati personali, consultare il materiale sussidiario di Microsoft sul sito [Richieste del soggetto dei dati per l'RGPD in Windows](https://docs.microsoft.com/microsoft-365/compliance/gdpr-data-subject-requests). Se si cercano le informazioni generali sull'RGPD, vedere la [sezione sull'RGPD del portale del servizio attendibile](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).

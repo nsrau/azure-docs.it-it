@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 38655a9da103d1d669f87c6195be7f17702f9348
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 0002e61827817af958007e1f789219e9291990d8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71056686"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647765"
 ---
 # <a name="what-is-an-endpoint-access-control-list"></a>Informazioni sugli elenchi di controllo di accesso agli endpoint
 
 > [!IMPORTANT]
-> Azure offre due diversi [modelli di distribuzione](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per creare e usare le risorse: Gestione risorse e classica. Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di distribuzione Resource Manager per le distribuzioni più recenti. 
+> Azure offre due [modelli di distribuzione](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per creare e usare le risorse: Resource Manager e la distribuzione classica. Questo articolo illustra l'uso del modello di distribuzione classica. È consigliabile usare il modello di distribuzione di Resource Manager per le distribuzioni più recenti. 
 
 Un elenco di controllo di accesso (ACL) agli endpoint è un miglioramento della sicurezza disponibile per la distribuzione di Azure. Offre la possibilità di consentire o negare in modo selettivo il traffico per un endpoint di macchina virtuale. Questa funzionalità di filtro per i pacchetti garantisce un ulteriore livello di sicurezza. È possibile specificare elenchi di controllo di accesso di rete solo per gli endpoint e non per una rete virtuale o una subnet specifica in essa contenuta. È consigliabile usare i gruppi di sicurezza di rete invece degli elenchi di controllo di accesso, laddove possibile. Quando si usano gruppi di sicurezza di rete, l'elenco di controllo di accesso degli endpoint viene sostituito e non più applicato. Per altre informazioni sui gruppi di accesso di rete, vedere [Panoramica dei gruppi di sicurezza di rete](security-overview.md).
 
@@ -39,7 +39,7 @@ Con gli elenchi di controllo di accesso di rete, è possibile effettuare le oper
 * Usare l'ordinamento delle regole per assicurarsi che venga applicato il set di regole corretto per un endpoint specifico di macchina virtuale (dalla più bassa alla più alta).
 * Specificare un elenco di controllo di accesso per un indirizzo IPv4 di una subnet remota specifica.
 
-Per i limiti degli elenchi di controllo di accesso, vedere l'articolo [Limiti di Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
+Per i limiti degli elenchi di controllo di accesso, vedere l'articolo [Limiti di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
 
 ## <a name="how-acls-work"></a>Funzionamento degli elenchi di controllo di accesso
 Un elenco di controllo di accesso è un oggetto che contiene un elenco di regole. Quando si crea e si applica un elenco di controllo di accesso a un endpoint di macchina virtuale, viene eseguito il filtro dei pacchetti nel nodo host della macchina virtuale. Questo significa che il traffico proveniente dagli indirizzi IP remoti non viene filtrato nella macchina virtuale, bensì dal nodo host per la corrispondenza con le regole degli elenchi di controllo di accesso. In questo modo si evita che la macchina virtuale usi preziosi cicli della CPU per filtrare i pacchetti.
@@ -82,7 +82,7 @@ Poiché è possibile specificare più regole per un endpoint, è necessario trov
 
 | **N. regola** | **Subnet remota** | **Endpoint** | **Consenti/Nega** |
 | --- | --- | --- | --- |
-| 100 |175.1.0.1/24 |80 |Nega |
+| 100 |175.1.0.1/24 |80 |Deny |
 | 200 |175.0.0.0/8 |80 |Consenti |
 
 ## <a name="network-acls-and-load-balanced-sets"></a>Elenchi di controllo di accesso di rete e set con carico bilanciato

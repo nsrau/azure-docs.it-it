@@ -11,18 +11,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: d9ee060b7d1f7a443357c7116c01e8aaf972e666
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 96adcfa4bbfc4ed0066ccfbdbe57f9840e8b07f8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682532"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438798"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Usare modelli per creare entità di Azure Data Factory
 > [!NOTE]
 > Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. 
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 Durante l'uso di Azure Data Factory per le esigenze di integrazione dei dati, può essere necessario riusare lo stesso modello in ambienti diversi o implementare ripetutamente la stessa attività all'interno di una soluzione. I modelli consentono di implementare e gestire questi scenari in modo semplificato. I modelli di Azure Data Factory rappresentano la soluzione ideale per gli scenari che implicano riusabilità e ripetizione.
 
 Si consideri la situazione in cui un'organizzazione ha 10 impianti di produzione a livello globale. I log provenienti da ogni impianto vengono archiviati in un database SQL Server locale separato. La società vuole creare una singola data warehouse nel cloud per l'analisi ad hoc. Vuole inoltre sfruttare la stessa logica, ma configurazioni diverse per gli ambienti di sviluppo, test e produzione.
@@ -32,7 +32,7 @@ In questo caso, è necessario ripetere un'attività all'interno dello stesso amb
 L'organizzazione vuole inoltre distribuire le 10 data factory più volte in ambienti diversi, pertanto i modelli possono sfruttare questa **riusabilità** utilizzando file dei parametri separati per gli ambienti di sviluppo, test e produzione.
 
 ## <a name="templating-with-azure-resource-manager"></a>Creazione di modelli con Azure Resource Manager
-I [modelli di Azure Resource Manager](../../azure-resource-manager/template-deployment-overview.md) rappresentano un'ottima soluzione per la creazione di modelli in Azure Data Factory. I modelli di Resource Manager consentono di definire l'infrastruttura e la configurazione della soluzione di Azure tramite un file JSON. Poiché i modelli di Azure Resource Manager funzionano con tutti i servizi di Azure o con la maggior parte di essi, Resource Manager può essere ampiamente usato per gestire facilmente tutte le risorse degli asset di Azure. Per informazioni generali sui modelli di Azure Resource Manager, vedere [Creazione di modelli di Gestione risorse di Azure](../../azure-resource-manager/resource-group-authoring-templates.md).
+I [modelli di Azure Resource Manager](../../azure-resource-manager/template-deployment-overview.md) rappresentano un'ottima soluzione per la creazione di modelli in Azure Data Factory. I modelli di Resource Manager consentono di definire l'infrastruttura e la configurazione della soluzione di Azure tramite un file JSON. Poiché i modelli di Azure Resource Manager funzionano con tutti i servizi di Azure o con la maggior parte di essi, Resource Manager può essere ampiamente usato per gestire facilmente tutte le risorse degli asset di Azure. Per informazioni generali sui modelli di Azure Resource Manager, vedere [Creazione di modelli di Gestione risorse di Azure](../../azure-resource-manager/templates/template-syntax.md).
 
 ## <a name="tutorials"></a>Esercitazioni
 Per istruzioni dettagliate sulla creazione di entità di Data Factory tramite i modelli di Resource Manager, vedere le esercitazioni seguenti:
@@ -231,7 +231,7 @@ Per informazioni dettagliate sulle proprietà JSON per la definizione di attivit
 Per le procedure consigliate sull'uso dei parametri, vedere [Procedure consigliate per la creazione di modelli di Azure Resource Manager](../../azure-resource-manager/resource-manager-template-best-practices.md). In generale l'utilizzo dei parametri deve essere ridotto al minimo, soprattutto se è possibile usare variabili anziché parametri. Specificare i parametri solo negli scenari seguenti:
 
 * Le impostazioni variano a seconda dell'ambiente, ad esempio di sviluppo, test e produzione
-* Segreti (ad esempio password)
+* Segreti (password)
 
 Se è necessario eseguire il pull di segreti dall'[Insieme di credenziali delle chiavi di Azure](../../key-vault/key-vault-overview.md) quando si distribuiscono entità di Azure Data Factory tramite modelli, specificare l'**insieme di credenziali delle chiavi** e il **nome del segreto** come illustrato nell'esempio seguente:
 

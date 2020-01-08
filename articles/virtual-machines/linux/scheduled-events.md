@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: c0b30ecb9bc2b029141e528139f2b8a308c3a8dd
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f03dbb783fe1374fe138f251d813b3333ed9e025
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892839"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613840"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Servizio metadati di Azure: eventi pianificati per macchine virtuali Linux
 
@@ -54,7 +54,7 @@ Gli eventi pianificati informano sugli eventi nei casi d'uso seguenti:
 
   Il servizio metadati presenta informazioni sulle macchine virtuali in esecuzione usando un endpoint REST accessibile dall'interno della macchina virtuale. Le informazioni sono disponibili tramite un indirizzo IP non instradabile, in modo da non essere esposte al di fuori della macchina virtuale.
 
-### <a name="scope"></a>Scope
+### <a name="scope"></a>Ambito
 Gli eventi pianificati vengono recapitati a:
 
 - Macchine virtuali autonome.
@@ -78,7 +78,7 @@ Il servizio eventi pianificati è un servizio con versione. Le versioni sono obb
 | - | - | - | - | 
 | 2017-11-01 | Disponibilità generale | Tutto | <li> Aggiunta del supporto per la rimozione della macchina virtuale spot ' preemptive '<br> | 
 | 2017-08-01 | Disponibilità generale | Tutto | <li> È stato rimosso il carattere di sottolineatura all'inizio dei nomi delle risorse per le macchine virtuali IaaS<br><li>Requisito dell'intestazione dei metadati applicato per tutte le richieste | 
-| 2017-03-01 | Preview | Tutto | <li>Versione iniziale
+| 2017-03-01 | Anteprima | Tutto | <li>Versione iniziale
 
 
 > [!NOTE] 
@@ -96,7 +96,7 @@ Se si riavvia una macchina virtuale, viene pianificato un evento di tipo `Reboot
 
 ## <a name="use-the-api"></a>Usare l'API
 
-### <a name="headers"></a>headers
+### <a name="headers"></a>Headers
 Quando si eseguono query sul servizio metadati, è necessario specificare l'intestazione `Metadata:true` per garantire che la richiesta non sia stata reindirizzata accidentalmente. L'intestazione `Metadata:true` è obbligatoria per tutte le richieste di eventi pianificati. Se non si include l'intestazione nella richiesta, il servizio metadati restituisce una risposta di richiesta non valida.
 
 ### <a name="query-for-events"></a>Query per gli eventi
@@ -131,7 +131,7 @@ Nel caso in cui siano presenti eventi pianificati, la risposta contiene una matr
 | EventId | Identificatore globalmente univoco per l'evento. <br><br> Esempio: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
 | EventType | Impatto che l'evento causa. <br><br> Valori: <br><ul><li> `Freeze`: è pianificata una sospensione della macchina virtuale per alcuni secondi. La connettività CPU e di rete potrebbe essere sospesa, ma non si verifica alcun effetto sulla memoria o sui file aperti.<li>`Reboot`: è pianificato un riavvio della macchina virtuale. La memoria non permanente andrà persa. <li>`Redeploy`: è pianificato uno spostamento della macchina virtuale in un altro nodo. I dischi temporanei andranno persi. <li>`Preempt`: è in corso l'eliminazione della macchina virtuale spot. i dischi temporanei andranno perduti.|
 | ResourceType | Tipo di risorsa interessata dall'evento. <br><br> Valori: <ul><li>`VirtualMachine`|
-| resources| Elenco di risorse interessate dall'evento. L'elenco contiene sicuramente i computer al massimo di un [dominio di aggiornamento](manage-availability.md), ma potrebbe non contenere tutti i computer del dominio. <br><br> Esempio: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| Risorse| Elenco di risorse interessate dall'evento. L'elenco contiene sicuramente i computer al massimo di un [dominio di aggiornamento](manage-availability.md), ma potrebbe non contenere tutti i computer del dominio. <br><br> Esempio: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Stato dell'evento. <br><br> Valori: <ul><li>`Scheduled`: l'avvio dell'evento è pianificato in seguito al tempo specificato nella proprietà `NotBefore`.<li>`Started`: l'evento si è avviato.</ul> Lo stato `Completed` o simile non viene mai restituito. Al termine dell'evento, quest'ultimo non viene più restituito.
 | NotBefore| Tempo al termine del quale l'evento può essere avviato. <br><br> Esempio: <br><ul><li> Lun 19 set 2016 18:29:47 GMT  |
 
@@ -176,20 +176,20 @@ L'esempio seguente esegue query sul servizio metadati per gli eventi pianificati
 #!/usr/bin/python
 
 import json
-import urllib2
 import socket
-import sys
+import urllib2
 
-metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01"
-headers = "{Metadata:true}"
+metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01"
 this_host = socket.gethostname()
 
+
 def get_scheduled_events():
-   req = urllib2.Request(metadata_url)
-   req.add_header('Metadata', 'true')
-   resp = urllib2.urlopen(req)
-   data = json.loads(resp.read())
-   return data
+    req = urllib2.Request(metadata_url)
+    req.add_header('Metadata', 'true')
+    resp = urllib2.urlopen(req)
+    data = json.loads(resp.read())
+    return data
+
 
 def handle_scheduled_events(data):
     for evt in data['Events']:
@@ -198,19 +198,20 @@ def handle_scheduled_events(data):
         resources = evt['Resources']
         eventtype = evt['EventType']
         resourcetype = evt['ResourceType']
-        notbefore = evt['NotBefore'].replace(" ","_")
+        notbefore = evt['NotBefore'].replace(" ", "_")
         if this_host in resources:
-            print "+ Scheduled Event. This host " + this_host + " is scheduled for " + eventtype + " not before " + notbefore
+            print("+ Scheduled Event. This host " + this_host +
+                " is scheduled for " + eventtype + " not before " + notbefore)
             # Add logic for handling events here
 
 
 def main():
-   data = get_scheduled_events()
-   handle_scheduled_events(data)
+    data = get_scheduled_events()
+    handle_scheduled_events(data)
+
 
 if __name__ == '__main__':
-  main()
-  sys.exit(0)
+    main()
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi 

@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/19/2019
 ms.author: memildin
-ms.openlocfilehash: 0ca7bfb276f49da720264305a92d31e81857cfd5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4cc88e7c04d10907a9a6386b1266eb8031d60926
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229313"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552679"
 ---
 # <a name="azure-container-registry-integration-with-security-center-preview"></a>Integrazione di Azure Container Registry con Centro sicurezza (anteprima)
 
 Azure Container Registry (ACR) è un servizio di registro Docker privato gestito che archivia e gestisce le immagini del contenitore per le distribuzioni di Azure in un registro centrale. Si basa sul registro Docker open source 2,0.
 
-Per una maggiore visibilità delle vulnerabilità del registro di sistema e delle immagini, gli utenti del livello standard del Centro sicurezza di Azure possono abilitare il bundle facoltativo dei registri contenitori. Per altre informazioni, vedere la pagina relativa ai [prezzi](security-center-pricing.md). Con il bundle abilitato, il Centro sicurezza analizza automaticamente le immagini nel registro di sistema ogni volta che viene eseguito il push di un'immagine nel registro.
+Per una maggiore visibilità delle vulnerabilità del registro di sistema e delle immagini, gli utenti del livello standard del Centro sicurezza di Azure possono abilitare il bundle facoltativo dei registri contenitori. Il costo per l'utilizzo di questa funzionalità viene addebitato per ogni immagine, non per analisi. Per altre informazioni, vedere la pagina relativa ai [prezzi](security-center-pricing.md). Con il bundle abilitato, il Centro sicurezza analizza automaticamente le immagini nel registro di sistema ogni volta che viene eseguito il push di un'immagine nel registro.
 
 > [!NOTE]
 > La prima analisi del Centro sicurezza di un registro si verificherà solo dopo l'abilitazione del bundle dei registri contenitori e il push di un'immagine nel registro di sistema.

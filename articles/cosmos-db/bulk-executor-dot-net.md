@@ -1,5 +1,5 @@
 ---
-title: Utilizzo della libreria .NET Executor per eseguire operazioni di importazione e aggiornamento bulk in Azure Cosmos DB
+title: Utilizzare la libreria .NET Executor in blocco Azure Cosmos DB per operazioni di importazione e aggiornamento bulk
 description: Eseguire l'importazione e l'aggiornamento bulk dei documenti di Azure Cosmos DB utilizzando la libreria .NET Executor in blocco.
 author: tknandu
 ms.service: cosmos-db
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: d76426e738d78391b92b008e821672017520b7d2
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: d7600267dcd196a9a5c06c29774ea21d582cd7ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71218394"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442185"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utilizzare la libreria .NET Executor in blocco per eseguire operazioni bulk in Azure Cosmos DB
 
@@ -28,7 +28,7 @@ Attualmente, la libreria di esecuzioni bulk è supportata solo dagli account Azu
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 
-* È possibile [provare Microsoft Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure, gratuitamente e senza impegno. In alternativa, è possibile usare l' [emulatore Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) con l' `https://localhost:8081` endpoint. La chiave primaria viene fornita in [Autenticazione delle richieste](local-emulator.md#authenticating-requests).
+* È possibile [provare Microsoft Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure, gratuitamente e senza impegno. In alternativa, è possibile usare l' [emulatore di Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) con l'endpoint di `https://localhost:8081`. La chiave primaria viene fornita in [Autenticazione delle richieste](local-emulator.md#authenticating-requests).
 
 * Creare un account API SQL di Azure Cosmos DB tramite la procedura descritta nella sezione [Creare un account di database](create-sql-api-dotnet.md#create-account) dell'articolo sulla guida introduttiva per .NET.
 
@@ -115,15 +115,15 @@ L'applicazione "BulkImportSample" genera documenti casuali ed esegue l'importazi
    |NumberOfDocumentsImported (long)   |  Il numero totale di documenti che sono stati importati correttamente dal totale dei documenti forniti alla chiamata all'API di importazione bulk.       |
    |TotalRequestUnitsConsumed (double)   |   Le unità richiesta (UR) totali usate dalla chiamata API di importazione in blocco.      |
    |TotalTimeTaken (TimeSpan)    |   Tempo totale impiegato dalla chiamata dell'API di importazione bulk per completare l'esecuzione.      |
-   |BadInputDocuments (elenca\<> oggetti)   |     L'elenco di documenti con formato non valido che non sono stati importati correttamente nella chiamata API di importazione in blocco. Correggere i documenti restituiti e ripetere l'importazione. I documenti con formato non valido includono i documenti con un valore ID diverso da stringa, ad esempio con un valore null o con qualsiasi altro tipo di dati.    |
+   |BadInputDocuments (elenca\<oggetto >)   |     L'elenco di documenti con formato non valido che non sono stati importati correttamente nella chiamata API di importazione in blocco. Correggere i documenti restituiti e ripetere l'importazione. I documenti con formato non valido includono i documenti con un valore ID diverso da stringa, ad esempio con un valore null o con qualsiasi altro tipo di dati.    |
 
 ## <a name="bulk-update-data-in-your-azure-cosmos-account"></a>Aggiornare in blocco i dati nell'account Azure Cosmos
 
-È possibile aggiornare i documenti esistenti tramite l'API BulkUpdateAsync. In questo esempio il `Name` campo viene impostato su un nuovo valore e il `Description` campo viene rimosso dai documenti esistenti. Per il set completo di operazioni di aggiornamento supportate, vedere la [documentazione dell'API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
+È possibile aggiornare i documenti esistenti tramite l'API BulkUpdateAsync. In questo esempio il campo `Name` viene impostato su un nuovo valore e il campo `Description` viene rimosso dai documenti esistenti. Per il set completo di operazioni di aggiornamento supportate, vedere la [documentazione dell'API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
 
 1. Passare alla cartella "BulkImportSample" e aprire il file "BulkImportSample.sln".  
 
-2. Definire gli elementi di aggiornamento insieme alle operazioni di aggiornamento dei campi corrispondenti. In `SetUpdateOperation` questo esempio verrà usato per aggiornare il `Name` campo e `UnsetUpdateOperation` per rimuovere il `Description` campo da tutti i documenti. È possibile anche eseguire altre operazioni, ad esempio incrementare un campo del documento per un valore specifico, eseguire il push di valori specifici in un campo di matrice o rimuovere un valore specifico da un campo di matrice. Per informazioni sui diversi metodi forniti dall'API di aggiornamento in blocco, vedere la [documentazione dell'API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
+2. Definire gli elementi di aggiornamento insieme alle operazioni di aggiornamento dei campi corrispondenti. In questo esempio si userà `SetUpdateOperation` per aggiornare il campo `Name` e `UnsetUpdateOperation` per rimuovere il campo `Description` da tutti i documenti. È possibile anche eseguire altre operazioni, ad esempio incrementare un campo del documento per un valore specifico, eseguire il push di valori specifici in un campo di matrice o rimuovere un valore specifico da un campo di matrice. Per informazioni sui diversi metodi forniti dall'API di aggiornamento in blocco, vedere la [documentazione dell'API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
 
    ```csharp
    SetUpdateOperation<string> nameUpdate = new SetUpdateOperation<string>("Name", "UpdatedDoc");
@@ -171,11 +171,11 @@ Quando si usa la libreria Executor bulk, considerare i punti seguenti per ottene
 
 * Per ottenere prestazioni ottimali, eseguire l'applicazione da una macchina virtuale di Azure che si trova nella stessa area dell'area di scrittura dell'account Azure Cosmos.  
 
-* Si consiglia di creare un'istanza di un singolo `BulkExecutor` oggetto per l'intera applicazione all'interno di una singola macchina virtuale che corrisponde a un contenitore Azure Cosmos specifico.  
+* Si consiglia di creare un'istanza di un singolo oggetto `BulkExecutor` per l'intera applicazione all'interno di una singola macchina virtuale che corrisponde a un contenitore Azure Cosmos specifico.  
 
-* Poiché una singola esecuzione dell'API per operazioni bulk utilizza un gran numero di operazioni di i/o di rete e CPU del computer client (ciò avviene generando più attività internamente). Evitare la generazione di più attività simultanee nel processo dell'applicazione che eseguono chiamate API per operazioni bulk. Se una singola chiamata API per operazioni bulk in esecuzione in una singola macchina virtuale non è in grado di utilizzare la velocità effettiva dell'intero contenitore (se la velocità effettiva del contenitore > 1 milione ur/sec), è preferibile creare macchine virtuali separate per l'esecuzione simultanea chiamate API per operazioni bulk.  
+* Poiché una singola esecuzione dell'API per operazioni bulk utilizza un gran numero di operazioni di i/o di rete e CPU del computer client (ciò avviene generando più attività internamente). Evitare la generazione di più attività simultanee nel processo dell'applicazione che eseguono chiamate API per operazioni bulk. Se una singola chiamata API per operazioni bulk in esecuzione in una singola macchina virtuale non è in grado di utilizzare la velocità effettiva dell'intero contenitore (se la velocità effettiva del contenitore > 1 milione ur/sec), è preferibile creare macchine virtuali separate per eseguire simultaneamente le chiamate API per operazioni bulk.  
 
-* Verificare che `InitializeAsync()` il metodo venga richiamato dopo avere creato un'istanza di un oggetto BulkExecutor per recuperare la mappa di partizione del contenitore Cosmos di destinazione.  
+* Verificare che il metodo `InitializeAsync()` venga richiamato dopo la creazione di un'istanza di un oggetto BulkExecutor per recuperare la mappa di partizione del contenitore Cosmos di destinazione.  
 
 * In App.Config dell'applicazione verificare che **gcServer** sia abilitato per assicurare prestazioni migliori.
   ```xml  

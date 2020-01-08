@@ -1,5 +1,5 @@
 ---
-title: Modellazione di relazioni nella progettazione di tabelle di archiviazione di Azure | Microsoft Docs
+title: Modellazione delle relazioni nella progettazione di archiviazione tabelle di Azure | Microsoft Docs
 description: Informazioni sul processo di modellazione durante la progettazione della soluzione di archiviazione tabelle.
 services: storage
 author: MarkMcGeeAtAquent
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 5d83e61282d2f21a3016997e324d0f58eff15e78
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 25082c107fbc0feeb533aa2b4fc56cff960e778d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60502546"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457554"
 ---
 # <a name="modeling-relationships"></a>Modellazione di relazioni
 Questo articolo illustra il processo di modellazione per semplificare la progettazione di soluzioni di archiviazione tabelle di Azure.

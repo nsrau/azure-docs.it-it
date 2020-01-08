@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 92ac1e6a85023d49ceb8242b93651a60da3d2166
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 996893f95b11d716feb4253688d3ab1d62d140ee
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064177"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659526"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Esempi JavaScript da usare in Azure Active Directory B2C
 
@@ -28,7 +28,11 @@ ms.locfileid: "71064177"
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Selezionare un layout di pagina per gli elementi dell'interfaccia utente dell'applicazione. Se si intende usare JavaScript, è necessario definire una versione del layout di pagina per tutte le definizioni di contenuto nel criterio personalizzato.
+### <a name="select-a-page-layout"></a>Selezionare un layout di pagina
+
+* [Selezionare un layout di pagina](page-layout.md) per gli elementi dell'interfaccia utente dell'applicazione.
+
+    Se si intende usare JavaScript, è necessario [definire una versione del layout di pagina](page-layout.md#replace-datauri-values) per *tutte* le definizioni di contenuto nel criterio personalizzato.
 
 ## <a name="add-the-scriptexecution-element"></a>Aggiungere l'elemento ScriptExecution
 

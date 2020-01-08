@@ -1,20 +1,19 @@
 ---
 title: Creare una soluzione IoT tramite Analisi di flusso di Azure
 description: Esercitazione introduttiva per la soluzione IoT di Analisi di flusso relativa allo scenario di un casello
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4b250a5e14ab37553d93453d05f8ff388bf1ba84
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: f506cc526a824d45ae2d6b7a75e1c1a99dae4d64
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620512"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426453"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilare una soluzione IoT con Analisi di flusso
 
@@ -33,7 +32,7 @@ Dopo aver completato questa soluzione, sarà possibile:
 Per completare questa soluzione, è necessario soddisfare i prerequisiti seguenti:
 * Una [sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/)
 
-## <a name="scenario-introduction-hello-toll"></a>Introduzione dello scenario: "Ciao, casello!"
+## <a name="scenario-introduction-hello-toll"></a>Presentazione dello scenario: il casello
 Un casello rappresenta una situazione piuttosto comune. Se ne incontrano sulle autostrade e su molti ponti e tunnel in tutto il mondo. Ogni barriera è costituita da più caselli. In quelli manuali ci si ferma per pagare il pedaggio a un addetto. In quelli automatizzati al passaggio attraverso il casello un sensore posto al di sopra di esso analizza una scheda RFID posizionata sul parabrezza del veicolo. È semplice visualizzare il passaggio dei veicoli nei caselli come un flusso di eventi, sui quali è possibile eseguire alcune operazioni interessanti.
 
 ![Immagine di automobili ai caselli](media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth.jpg)
@@ -44,7 +43,7 @@ Questa soluzione usa due flussi di dati. Il primo flusso viene prodotto da senso
 ### <a name="entry-data-stream"></a>Flusso di dati di ingresso
 Il flusso di dati di ingresso contiene informazioni sulle automobili che entrano nel casello. Gli eventi dei dati di uscita vengono trasmessi live in una coda di Hub eventi da un'app Web inclusa nell'app di esempio.
 
-| ID casello | Tempo ingresso | Targa | Stato | Assicurarsi | Modello | Tipo veicolo | Peso veicolo | Casello | Tag |
+| ID casello | Tempo ingresso | Targa | Statale | Realizza le tue idee | Modello | Tipo veicolo | Peso veicolo | Casello | Tag |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 |2014-09-10 12:01:00.000 |JNB 7001 |NY |Honda |CRV |1 |0 |7 | |
 | 1 |2014-09-10 12:02:00.000 |YXZ 1001 |NY |Toyota |Camry |1 |0 |4 |123456789 |
@@ -55,13 +54,13 @@ Il flusso di dati di ingresso contiene informazioni sulle automobili che entrano
 
 Ecco una breve descrizione delle colonne:
 
-| Colonna | DESCRIZIONE |
+| Colonna | Description |
 | --- | --- |
 | ID casello |ID casello che identifica in modo univoco un casello |
 | Tempo ingresso |Data e ora (UTC) di ingresso del veicolo nel casello |
 | Targa |Numero di targa del veicolo |
-| Stato |Stato degli Stati Uniti |
-| Assicurarsi |Il produttore dell'automobile |
+| Statale |Stato degli Stati Uniti |
+| Realizza le tue idee |Il produttore dell'automobile |
 | Modello |Numero di modello dell'automobile |
 | Tipo veicolo |1 per autovetture o 2 per veicoli commerciali |
 | Peso veicolo |Peso del veicolo in tonnellate, 0 per veicoli passeggeri |
@@ -73,16 +72,16 @@ Il flusso di dati di uscita contiene informazioni sulle automobili che escono da
 
 | **ID casello** | **Tempo ingresso** | **Targa** |
 | --- | --- | --- |
-| 1 |2014-09-10T12:03:00.0000000Z |JNB 7001 |
-| 1 |2014-09-10T12:03:00.0000000Z |YXZ 1001 |
-| 3 |2014-09-10T12:04:00.0000000Z |ABC 1004 |
-| 2 |2014-09-10T12:07:00.0000000Z |XYZ 1003 |
-| 1 |2014-09-10T12:08:00.0000000Z |BNJ 1007 |
-| 2 |2014-09-10T12:07:00.0000000Z |CDE 1007 |
+| 1 |2014-09-10T12:03:00.0000000 Z |JNB 7001 |
+| 1 |2014-09-10T12:03:00.0000000 Z |YXZ 1001 |
+| 3 |2014-09-10T12:04:00.0000000 Z |ABC 1004 |
+| 2 |2014-09-10T12:07:00.0000000 Z |XYZ 1003 |
+| 1 |2014-09-10T12:08:00.0000000 Z |BNJ 1007 |
+| 2 |2014-09-10T12:07:00.0000000 Z |CDE 1007 |
 
 Ecco una breve descrizione delle colonne:
 
-| Colonna | DESCRIZIONE |
+| Colonna | Description |
 | --- | --- |
 | ID casello |ID casello che identifica in modo univoco un casello |
 | Tempo ingresso |Data e ora (UTC) di uscita del veicolo dal casello |
@@ -102,7 +101,7 @@ Questa soluzione usa uno snapshot statico di un database di registrazione di vei
 
 Ecco una breve descrizione delle colonne:
 
-| Colonna | DESCRIZIONE |
+| Colonna | Description |
 | --- | --- |
 | Targa |Numero di targa del veicolo |
 | ID registrazione |ID registrazione del veicolo |
@@ -172,7 +171,7 @@ Diverse risorse possono essere facilmente distribuite in un gruppo di risorse in
    - L'input **Registration** è una connessione all'archiviazione BLOB di Azure che punta a un file JSON di registrazione statico, usato per le ricerche in base alle necessità. Questo input di dati di riferimento viene usato in variazioni successive della sintassi di query.
 
 4. Esaminare gli output del processo di esempio TollApp.
-   - **COSMOS DB** output è un contenitore di database Cosmos che riceve gli eventi di sink di output. Notare che questo output viene usato nella clausola INTO della query di streaming.
+   - **Cosmos DB** output è un contenitore di Cosmos database che riceve gli eventi sink di output. Notare che questo output viene usato nella clausola INTO della query di streaming.
 
 ## <a name="start-the-tollapp-streaming-job"></a>Avviare il processo di streaming TollApp
 Per avviare il processo di streaming, completare questi passaggi:
@@ -284,7 +283,7 @@ Output di esempio:
 ```
 
 ## <a name="scale-out-the-job"></a>Scalare orizzontalmente il processo
-Analisi di flusso di Azure è progettato per offrire scalabilità elastica in modo da gestire volumi elevati di dati. La query di Analisi di flusso di Azure può usare la clausola **PARTITION BY** per indicare al sistema che questo passaggio aumenterà il numero di istanze. **PartitionId** è una colonna speciale aggiunta dal sistema e corrispondente all'ID partizione dell'input, ovvero l'hub eventi.
+Analisi di flusso di Azure è progettato per offrire scalabilità elastica in modo da gestire volumi elevati di dati. La query di analisi di flusso di Azure può usare una clausola **Partition by** per indicare al sistema la scalabilità orizzontale di questo passaggio. **PartitionID** è una colonna speciale aggiunta dal sistema in base all'ID di partizione dell'input (hub eventi).
 
 Per scalare orizzontalmente la query nelle partizioni, modificare la sintassi di query in base al codice seguente:
 ```sql
@@ -322,7 +321,7 @@ L'area **MONITORAGGIO** contiene le statistiche relative al processo in esecuzio
 
 3. Selezionare **Elimina gruppo di risorse**. Digitare il nome del gruppo di attività per confermare l'eliminazione.
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 Questa soluzione ha presentato il servizio Analisi di flusso di Azure. È stato illustrato come configurare input e output per il processo di Analisi di flusso. Usando lo scenario dei dati del casello, la soluzione ha descritto tipi comuni di problemi che si verificano nello spazio dei dati in movimento e come risolverli con semplici query di tipo SQL in Analisi di flusso di Azure. La soluzione ha descritto i costrutti di estensioni SQL per l'uso di dati temporali. È stato illustrato come creare un join tra flussi di dati, come arricchire il flusso di dati con dati di riferimento statici e come aumentare il numero di istanze di una query per ottenere una maggiore produttività.
 
 Anche se questa soluzione offre una buona introduzione, non può ritenersi completa. Per altri modelli di query che usano il linguaggio SAQL, vedere [Esempi di query per modelli di uso comune di Analisi di flusso](stream-analytics-stream-analytics-query-patterns.md).

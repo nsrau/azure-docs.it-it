@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 8bfff7790fa4984241e1c3dda19a20c8b13591fb
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 819929fb157444ae53df113c0318dd18146156c9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872180"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442015"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Livelli di coerenza e API di Azure Cosmos DB
 
@@ -21,7 +21,6 @@ Azure Cosmos DB fornisce il supporto nativo per le API compatibili con il protoc
 Quando si usa l'API SQL, l'API Gremlin e API Tabella, viene usato il livello di coerenza predefinito configurato nell'account Azure Cosmos. 
 
 Quando si usa API Cassandra o l'API Azure Cosmos DB per MongoDB, le applicazioni ottengono un set completo di livelli di coerenza offerti rispettivamente da Apache Cassandra e MongoDB, con garanzie di coerenza e durabilità ancora più solide. Questo documento illustra i livelli di coerenza Azure Cosmos DB corrispondenti per i livelli di coerenza Apache Cassandra e MongoDB.
-
 
 ## <a id="cassandra-mapping"></a>Eseguire il mapping tra i livelli di coerenza di Azure Cosmos DB e Apache Cassandra
 
@@ -57,6 +56,6 @@ La tabella seguente illustra come viene eseguito il mapping dei problemi di scri
 
 Leggere altre informazioni sui livelli di coerenza e la compatibilità tra le API di Azure Cosmos DB e le API open source. Vedere gli articoli seguenti:
 
-* [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md) (Compromessi nella disponibilità e nelle prestazioni per vari livelli di coerenza)
+* [Compromessi nella disponibilità e nelle prestazioni per vari livelli di coerenza](consistency-levels-tradeoffs.md)
 * [Funzionalità di MongoDB supportate dall'API Azure Cosmos DB per MongoDB](mongodb-feature-support.md)
 * [Funzionalità di Apache Cassandra supportate dall'API Cassandra di Azure Cosmos DB](cassandra-support.md)

@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione di Novell iOS ADAL a MSAL.NET
+title: Eseguire la migrazione di app Novell usando Broker in MSAL.NET
 titleSuffix: Microsoft identity platform
 description: Informazioni su come eseguire la migrazione di app Novell iOS che usano Microsoft Authenticator da ADAL.NET a MSAL.NET.
 author: jmprieur
@@ -13,12 +13,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e70865c897e408f1cebb7359d0890d27b11243b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c830b7f6d13d9b85eae34b6193ad2a10e7bfb410
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921819"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424205"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Eseguire la migrazione di applicazioni iOS che usano Microsoft Authenticator da ADAL.NET a MSAL.NET
 
@@ -52,14 +52,14 @@ In ADAL.NET il supporto del broker è stato abilitato in base al contesto di aut
 
 `useBroker` flag su true nel costruttore `PlatformParameters` per chiamare Service Broker:
 
-```CSharp
+```csharp
 public PlatformParameters(
         UIViewController callerViewController, 
         bool useBroker)
 ```
 Inoltre, nel codice specifico della piattaforma, in questo esempio, nel renderer di pagina per iOS, impostare il `useBroker` 
 flag su true:
-```CSharp
+```csharp
 page.BrokerParameters = new PlatformParameters(
           this, 
           true, 
@@ -67,7 +67,7 @@ page.BrokerParameters = new PlatformParameters(
 ```
 
 Quindi, includere i parametri nella chiamata al token di acquisizione:
-```CSharp
+```csharp
  AuthenticationResult result =
                     await
                         AuthContext.AcquireTokenAsync(
@@ -83,7 +83,7 @@ In MSAL.NET il supporto del broker è abilitato per ogni PublicClientApplication
 
 `WithBroker()` parametro (impostato su true per impostazione predefinita) per chiamare Service Broker:
 
-```CSharp
+```csharp
 var app = PublicClientApplicationBuilder
                 .Create(ClientId)
                 .WithBroker()
@@ -91,7 +91,7 @@ var app = PublicClientApplicationBuilder
                 .Build();
 ```
 Nella chiamata al token di acquisizione:
-```CSharp
+```csharp
 result = await app.AcquireTokenInteractive(scopes)
              .WithParentActivityOrWindow(App.RootViewController)
              .ExecuteAsync();
@@ -107,7 +107,7 @@ Un UIViewController viene passato in
 
 `PlatformParameters` nella piattaforma specifica di iOS.
 
-```CSharp
+```csharp
 page.BrokerParameters = new PlatformParameters(
           this, 
           true, 
@@ -122,16 +122,16 @@ In MSAL.NET è possibile eseguire due operazioni per impostare la finestra ogget
 **Ad esempio:**
 
 In `App.cs`:
-```CSharp
+```csharp
    public static object RootViewController { get; set; }
 ```
 In `AppDelegate.cs`:
-```CSharp
+```csharp
    LoadApplication(new App());
    App.RootViewController = new UIViewController();
 ```
 Nella chiamata al token di acquisizione:
-```CSharp
+```csharp
 result = await app.AcquireTokenInteractive(scopes)
              .WithParentActivityOrWindow(App.RootViewController)
              .ExecuteAsync();
@@ -140,7 +140,7 @@ result = await app.AcquireTokenInteractive(scopes)
 </table>
 
 ### <a name="step-3-update-appdelegate-to-handle-the-callback"></a>Passaggio 3: aggiornare AppDelegate per gestire il callback
-Sia ADAL che MSAL chiamano il broker e il broker a sua volta richiama l'applicazione tramite il metodo `OpenUrl` della classe `AppDelegate`. Per altre informazioni, vedere [questa documentazione](msal-net-use-brokers-with-xamarin-apps.md#step-2-update-appdelegate-to-handle-the-callback).
+Sia ADAL che MSAL chiamano il broker e il broker a sua volta richiama l'applicazione tramite il metodo `OpenUrl` della classe `AppDelegate`. Per altre informazioni, vedere [questa documentazione](msal-net-use-brokers-with-xamarin-apps.md#step-3-update-appdelegate-to-handle-the-callback).
 
 Non sono state apportate modifiche tra ADAL.NET e MSAL.NET.
 
@@ -162,7 +162,7 @@ come prefisso, seguito dalla `CFBundleURLName`
 
 Ad esempio: `$"msauth.(BundleId")`
 
-```CSharp
+```csharp
  <key>CFBundleURLTypes</key>
     <array>
       <dict>
@@ -195,7 +195,7 @@ Utilizzi
 `msauth`
 
 
-```CSharp
+```csharp
 <key>LSApplicationQueriesSchemes</key>
 <array>
      <string>msauth</string>
@@ -207,10 +207,11 @@ Utilizzi
 `msauthv2`
 
 
-```CSharp
+```csharp
 <key>LSApplicationQueriesSchemes</key>
 <array>
      <string>msauthv2</string>
+     <string>msauthv3</string>
 </array>
 ```
 </table>
@@ -237,7 +238,7 @@ Esempio:
 
 </table>
 
-Per altre informazioni su come registrare l'URI di reindirizzamento nel portale, vedere [sfruttare il broker nelle applicazioni Novell. iOS](msal-net-use-brokers-with-xamarin-apps.md#step-7-make-sure-the-redirect-uri-is-registered-with-your-app).
+Per altre informazioni su come registrare l'URI di reindirizzamento nel portale, vedere [sfruttare il broker nelle applicazioni Novell. iOS](msal-net-use-brokers-with-xamarin-apps.md#step-8-make-sure-the-redirect-uri-is-registered-with-your-app).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

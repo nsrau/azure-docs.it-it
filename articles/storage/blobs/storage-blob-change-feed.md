@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 19a65e688d66738db0b6e4dcca383c6e4abed262
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b26e54c7130469eee87a9237f4847f46cb3b7698
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974403"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75691036"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Supporto del feed delle modifiche nell'archivio BLOB di Azure (anteprima)
 
@@ -55,7 +55,7 @@ Ecco alcuni aspetti da tenere presenti quando si Abilita il feed delle modifiche
 > [!IMPORTANT]
 > Il feed delle modifiche è in anteprima pubblica ed è disponibile nelle aree **westcentralus** e **westus2** . Vedere la sezione [condizioni](#conditions) di questo articolo. Per iscriversi all'anteprima, vedere la sezione [registrare la sottoscrizione](#register) di questo articolo. Per poter abilitare il feed delle modifiche negli account di archiviazione, è necessario registrare la sottoscrizione.
 
-### <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
+### <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 
 Abilitare il feed delle modifiche nell'account di archiviazione usando portale di Azure:
 
@@ -96,7 +96,7 @@ Abilitare il feed delle modifiche usando PowerShell:
 5. Abilitare il feed delle modifiche per l'account di archiviazione.
 
    ```powershell
-   Update-AzStorageBlobServiceProperty -ResourceGroupName -StorageAccountName -EnableChangeFeed $true
+   Update-AzStorageBlobServiceProperty -EnableChangeFeed $true
    ```
 
 ### <a name="templatetabtemplate"></a>[Modello](#tab/template)

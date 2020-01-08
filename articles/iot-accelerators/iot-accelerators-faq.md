@@ -8,18 +8,18 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: b448099dab0e79dca38310396896be46cf2e0ff6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7a2b167f90b4ec79f5fa515ded1c676ca7085e72
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826264"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647714"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Domande frequenti sugli acceleratori di soluzioni IoT
 
 Vedere anche le [Domande frequenti specifiche per Connected Factory](iot-accelerators-faq-cf.md) e le [Domande frequenti specifiche per il monitoraggio remoto](iot-accelerators-faq-rm-v2.md).
 
-### <a name="where-can-i-find-the-source-code-for-the-solution-accelerators"></a>Dove è possibile visualizzare il codice sorgente degli acceleratori di soluzioni?
+### <a name="where-can-i-find-the-source-code-for-the-solution-accelerators"></a>Dove posso trovare il codice sorgente per gli acceleratori di soluzione?
 
 Il codice sorgente è memorizzato nei repository di GitHub seguenti:
 
@@ -28,7 +28,7 @@ Il codice sorgente è memorizzato nei repository di GitHub seguenti:
 * [Acceleratore di soluzioni di manutenzione predittiva](https://github.com/Azure/azure-iot-predictive-maintenance)
 * [Acceleratore di soluzioni di connected factory](https://github.com/Azure/azure-iot-connected-factory)
 
-### <a name="what-sdks-can-i-use-to-develop-device-clients-for-the-solution-accelerators"></a>Quali SDK è possibile usare per sviluppare i client di dispositivi per gli acceleratori di soluzioni?
+### <a name="what-sdks-can-i-use-to-develop-device-clients-for-the-solution-accelerators"></a>Quali SDK posso usare per sviluppare i client di dispositivi per gli acceleratori di soluzione?
 
 È possibile trovare collegamenti agli SDK dei dispositivi IoT per i vari linguaggi (C, .NET, Java, Node.js, Python) nel repository GitHub [Microsoft Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks).
 
@@ -82,7 +82,7 @@ Sì. Qualsiasi soluzione esistente oggi continua a essere inclusa nella sottoscr
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>Di quante istanze dell'hub IoT è possibile eseguire il provisioning in una sottoscrizione?
 
-Per impostazione predefinita, è possibile eseguire il provisioning di [10 hub IoT per ogni sottoscrizione](../azure-subscription-service-limits.md#iot-hub-limits). È possibile creare un [ticket di supporto di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per aumentare questo limite. Di conseguenza, poiché ogni acceleratore di soluzioni effettua il provisioning di un nuovo hub IoT, è possibile effettuare il provisioning solo di un massimo di 10 acceleratori di soluzioni in una determinata sottoscrizione.
+Per impostazione predefinita, è possibile eseguire il provisioning di [10 hub IoT per ogni sottoscrizione](../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-limits). È possibile creare un [ticket di supporto di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per aumentare questo limite. Di conseguenza, poiché ogni acceleratore di soluzioni effettua il provisioning di un nuovo hub IoT, è possibile effettuare il provisioning solo di un massimo di 10 acceleratori di soluzioni in una determinata sottoscrizione.
 
 ### <a name="how-many-azure-cosmos-db-instances-can-i-provision-in-a-subscription"></a>Di quante istanze di Azure Cosmos DB è possibile effettuare il provisioning in una sottoscrizione?
 

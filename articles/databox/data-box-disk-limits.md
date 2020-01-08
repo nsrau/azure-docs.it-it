@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
-ms.openlocfilehash: cd40c5d11414c91ff2f2febc0621e1e06f79e9cf
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 1bb8300f1e54cf03563704cf00549ce9e09a3916
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646972"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613789"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limiti di Azure Data Box Disk
 
@@ -59,7 +59,7 @@ Per informazioni aggiornate su limiti del servizio Archiviazione di Azure e le p
 
 ## <a name="azure-storage-account-size-limits"></a>Limiti delle dimensioni dell'account di archiviazione di Azure
 
-Di seguito vengono indicati i limiti sulle dimensioni dei dati copiati nell'account di archiviazione. Verificare che i dati caricati siano conformi a tali limiti. Per informazioni più aggiornate su questi limiti, vedere [Obiettivi di scalabilità dell'archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) e [Obiettivi di scalabilità di File di Azure](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
+Di seguito vengono indicati i limiti sulle dimensioni dei dati copiati nell'account di archiviazione. Verificare che i dati caricati siano conformi a tali limiti. Per informazioni più aggiornate su questi limiti, vedere [Obiettivi di scalabilità dell'archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/scalability-targets#scale-targets-for-blob-storage) e [Obiettivi di scalabilità di File di Azure](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account#scale-targets-for-standard-storage-accounts).
 
 | Dimensioni dei dati copiati nell'account di archiviazione di Azure                      | Limite predefinito          |
 |---------------------------------------------------------------------|------------------------|
@@ -75,20 +75,20 @@ Di seguito vengono indicate le dimensioni degli oggetti Azure che possono essere
 | BLOB in blocchi        | Circa 4,75 TiB                                                 |
 | BLOB di pagine         | 8 TiB <br> Ogni file caricato nel formato BLOB di pagine deve essere allineato a 512 byte. in caso contrario, il caricamento ha esito negativo. <br> Il disco rigido virtuale e il VHDX sono allineati a 512 byte. |
 |File di Azure        | 1 TiB <br> Max. le dimensioni della condivisione sono pari a 5 TiB     |
-| Dischi gestiti     |4 TiB <br> Per ulteriori informazioni sulle dimensioni e sui limiti, vedere: <li>[Obiettivi di scalabilità per Managed Disks](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
+| Managed Disks     |4 TiB <br> Per ulteriori informazioni sulle dimensioni e sui limiti, vedere: <li>[Obiettivi di scalabilità per Managed Disks](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
 
 
 ## <a name="azure-block-blob-page-blob-and-file-naming-conventions"></a>Convenzioni di denominazione per BLOB in blocchi, BLOB di pagine e file
 
-| Entità                                       | Convenzioni                                                                                                                                                                                                                                                                                                               |
+| Persona giuridica                                       | Convenzioni                                                                                                                                                                                                                                                                                                               |
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Nomi di contenitori BLOB in blocchi e BLOB di pagine <br> Nomi FileShare per File di Azure | Deve essere un nome DNS valido compreso tra 3 e 63 caratteri. <br>  Deve iniziare con una lettera o un numero. <br> Può contenere solo lettere minuscole, numeri e trattini (-). <br> Ogni trattino (-) deve essere immediatamente preceduto e seguito da una lettera o un numero. <br> I trattini consecutivi non sono consentiti nei nomi. |
 | Nomi dei file e delle directory per i file di Azure     |<li> Mantengono le maiuscole/minuscole, non fanno distinzione tra maiuscole e minuscole e non devono superare i 255 caratteri. </li><li> Non possono terminare con la barra (/). </li><li>Se inserita, verrà automaticamente rimossa. </li><li> I caratteri seguenti non sono consentiti: <code>" \\ / : \| < > * ?</code></li><li> I caratteri URL riservati devono essere preceduti da una sequenza di escape. </li><li> Non sono ammessi i caratteri di percorsi URL non validi. I punti di codice come \\uE000 non sono caratteri Unicode validi. Non sono consentiti anche alcuni caratteri ASCII o Unicode, ad esempio i caratteri di controllo (da 0x00 a 0x1F, \\u0081 e così via). Per le regole che controllano le stringhe Unicode in HTTP/1.1, vedere RFC 2616, sezione 2.2: Basic Rules e RFC 3987. </li><li> Non sono ammessi i nomi file seguenti: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK$, punto (.) e due punti (..).</li>|
-| Nomi di BLOB per blob in blocchi e blob di pagine      | I nomi di BLOB fanno distinzione tra maiuscole e minuscole e possono contenere una qualsiasi combinazione di caratteri. <br> La lunghezza di un nome di BLOB deve essere compresa tra 1 e 1.024 caratteri. <br> I caratteri URL riservati devono essere preceduti da una sequenza di escape. <br>Il numero di segmenti del percorso che includono il nome BLOB non può essere superiore a 254. Un segmento di percorso è la stringa tra caratteri di delimitatore consecutivi, ad esempio, la barra rovesciata '/', che corrisponde al nome di una directory virtuale. |
+| Nomi di BLOB per BLOB in blocchi e BLOB di pagine      | I nomi di BLOB fanno distinzione tra maiuscole e minuscole e possono contenere una qualsiasi combinazione di caratteri. <br> La lunghezza di un nome di BLOB deve essere compresa tra 1 e 1.024 caratteri. <br> I caratteri URL riservati devono essere preceduti da una sequenza di escape. <br>Il numero di segmenti del percorso che includono il nome BLOB non può essere superiore a 254. Un segmento di percorso è la stringa tra caratteri di delimitatore consecutivi, ad esempio, la barra rovesciata '/', che corrisponde al nome di una directory virtuale. |
 
 ## <a name="managed-disk-naming-conventions"></a>Convenzioni di denominazione dei dischi gestiti
 
-| Entità | Convenzioni                                             |
+| Persona giuridica | Convenzioni                                             |
 |-------------------|-----------------------------------------------------------|
 | Nomi dei dischi gestiti       | <li> Il nome deve avere una lunghezza di 1 e 80 caratteri. </li><li> Il nome deve iniziare con una lettera o un numero, terminare con una lettera, un numero o un carattere di sottolineatura. </li><li> Il nome può contenere solo lettere, numeri, caratteri di sottolineatura, punti o trattini. </li><li>   Il nome non deve contenere spazi o `/`.                                              |
 

@@ -1,5 +1,6 @@
 ---
-title: 'Esercitazione: Usare Servizio Migrazione del database di Azure per eseguire la migrazione online da SQL Server a un database singolo o in pool in Database SQL di Azure | Microsoft Docs'
+title: 'Esercitazione: eseguire la migrazione di SQL Server online a un database SQL singolo'
+titleSuffix: Azure Database Migration Service
 description: Informazioni su come eseguire la migrazione online da SQL Server in locale a un database singolo o in pool in Database SQL di Azure con Servizio Migrazione del database di Azure.
 services: dms
 author: HJToland3
@@ -8,22 +9,23 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 09/22/2019
-ms.openlocfilehash: 619c36257f9166492e98d88335d767f358e3feca
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
-ms.translationtype: HT
+ms.date: 01/07/2020
+ms.openlocfilehash: 60334666c0ace76bd29ded03712549ec44d68732
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179116"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690981"
 ---
-# <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>Esercitazione: Eseguire la migrazione online di SQL Server a un database singolo o in pool in Database SQL di Azure con Servizio Migrazione del database
+# <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>Esercitazione: eseguire la migrazione di SQL Server a un database singolo o a un database in pool nel database SQL di Azure Online tramite DMS
 
 È possibile usare il servizio Migrazione del database di Azure per eseguire la migrazione dei database da un'istanza di SQL Server locale al [database SQL di Azure](https://docs.microsoft.com/azure/sql-database/) con tempi di inattività minimi. In questa esercitazione si esegue la migrazione del database **AdventureWorks2012** ripristinato in un'istanza locale di SQL Server 2016 o versione successiva verso un database singolo o in pool in Database SQL di Azure usando Servizio Migrazione del database di Azure.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
+>
 > - Valutare il database locale usando Data Migration Assistant.
 > - Eseguire la migrazione dello schema di esempio con Data Migration Assistant.
 > - Creare un'istanza del Servizio Migrazione del database di Azure.
@@ -54,24 +56,24 @@ Per completare questa esercitazione, è necessario:
     > Se si usa SQL Server Integration Services (SSIS) e si intende eseguire la migrazione del database di catalogo per i progetti/pacchetti SSIS (SSISDB) da SQL Server al database SQL di Azure, il database SSISDB di destinazione verrà creato e gestito automaticamente per conto dell'utente quando si esegue il provisioning di SSIS in Azure Data Factory (ADF). Per altre informazioni sulla migrazione dei pacchetti SSIS, vedere l'articolo [Eseguire la migrazione di pacchetti SQL Server Integration Services in Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
 
 - Scaricare e installare [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) 3.3 o versione successiva.
-- Creare una rete virtuale di Azure per Servizio Migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager, che offre la connettività da sito a sito per i server di origine locali con [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Per altre informazioni sulla creazione di una rete virtuale, vedere [Documentazione sulla rete virtuale](https://docs.microsoft.com/azure/virtual-network/), in particolare gli articoli di avvio rapido con istruzioni dettagliate.
+- Creare una Rete virtuale di Microsoft Azure per il servizio migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager, che fornisce la connettività da sito a sito ai server di origine locali usando [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Per ulteriori informazioni sulla creazione di una rete virtuale, vedere la [documentazione relativa alla rete virtuale](https://docs.microsoft.com/azure/virtual-network/)e, in particolare, gli articoli introduttivi con informazioni dettagliate.
 
     > [!NOTE]
-    > Durante la configurazione della rete virtuale, se si usa ExpressRoute con peering di rete per Microsoft, aggiungere gli [endpoint](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) di servizio seguenti alla subnet in cui verrà effettuato il provisioning del servizio:
+    > Durante la configurazione della rete virtuale, se si usa ExpressRoute con il peering di rete a Microsoft, aggiungere i seguenti [endpoint](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) di servizio alla subnet in cui verrà eseguito il provisioning del servizio:
     > - Endpoint del database di destinazione (ad esempio endpoint SQL, endpoint Cosmos DB e così via)
     > - Endpoint di archiviazione
     > - Endpoint bus di servizio
     >
     > Questa configurazione è necessaria perché Servizio Migrazione del database di Azure non dispone di connettività Internet.
 
-- Verificare che le regole del gruppo di sicurezza di rete per la rete virtuale non blocchino le porte di comunicazione in ingresso nel Servizio Migrazione del database di Azure: 443, 53, 9354, 445, 12000. Per informazioni dettagliate sui filtri del traffico dei gruppi di sicurezza di rete relativi alla rete virtuale di Azure, vedere l'articolo [Filtrare il traffico di rete con gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+- Verificare che le regole del gruppo di sicurezza di rete della rete virtuale non blocchino le porte di comunicazione in ingresso seguenti al servizio migrazione del database di Azure: 443, 53, 9354, 445, 12000. Per altri dettagli sul filtro del traffico NSG in rete virtuale di Azure, vedere l'articolo [filtrare il traffico di rete con gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Configurare [Windows Firewall per l'accesso al motore di database](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Aprire Windows Firewall per consentire al Servizio Migrazione del database di Azure di accedere a SQL Server di origine (per impostazione predefinita attraverso la porta TCP 1433).
 - Se si eseguono più istanze di SQL Server denominate usando le porte dinamiche, è consigliabile abilitare il Servizio browser SQL e consentire l'accesso alla porta UDP 1434 attraverso i firewall, in modo che il Servizio Migrazione del database di Azure possa connettersi a un'istanza denominata nel server di origine.
 - Quando si usa un'appliance firewall all'ingresso dei database di origine, potrebbe essere necessario aggiungere regole del firewall per consentire al Servizio Migrazione del database di Azure di accedere ai database di origine per la migrazione.
-- Creare una [regola del firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) a livello di server per il server di database SQL di Azure per consentire al Servizio Migrazione del database di Azure di accedere ai database di destinazione. Specificare l'intervallo di subnet della rete virtuale usato per il Servizio Migrazione del database di Azure.
+- Creare una [regola del firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) a livello di server per il server di database SQL di Azure per consentire al Servizio Migrazione del database di Azure di accedere ai database di destinazione. Fornire l'intervallo di subnet della rete virtuale usata per il servizio migrazione del database di Azure.
 - Assicurarsi che le credenziali usate per connettersi all'istanza di origine di SQL Server abbiano le autorizzazioni [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql).
-- Assicurarsi che le credenziali usate per connettersi all'istanza del database SQL di Azure di destinazione abbiano l'autorizzazione CONTROL DATABASE nei database SQL di Azure di destinazione.
+- Verificare che le credenziali usate per la connessione all'istanza del database SQL di Azure di destinazione dispongano dell'autorizzazione CONTROL DATABASE per le istanze del database SQL di Azure di destinazione.
 - La versione dell'istanza di SQL Server di origine deve essere SQL Server 2005 o superiore. Per determinare la versione eseguita dall'istanza di SQL Server, vedere l'articolo [Come determinare la versione, l'edizione e il livello di aggiornamento di SQL Server e dei relativi componenti](https://support.microsoft.com/help/321185/how-to-determine-the-version-edition-and-update-level-of-sql-server-an).
 - I database devono essere in modalità di recupero con registrazione minima delle operazioni bulk o in modalità di recupero con registrazione completa. Per determinare il modello di recupero configurato per l'istanza di SQL Server, vedere l'articolo [Visualizzare o modificare il modello di recupero di un database (SQL Server)](https://docs.microsoft.com/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server?view=sql-server-2017).
 - Assicurarsi di eseguire i backup completi dei database. Per creare un backup completo del database, vedere l'articolo [Procedura: Creazione di un backup completo del database (Transact-SQL)](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms191304(v=sql.105)).
@@ -230,9 +232,9 @@ Per eseguire la migrazione dello schema di **AdventureWorks2012** a un database 
 
 5. Selezionare una rete virtuale esistente o crearne una nuova.
 
-    La VNet consente al Servizio Migrazione del database di Azure di accedere all'istanza di SQL Server di origine e all'istanza del database SQL di Azure di destinazione.
+    La rete virtuale fornisce al servizio migrazione del database di Azure l'accesso alla SQL Server di origine e all'istanza del database SQL di Azure di destinazione.
 
-    Per altre informazioni su come creare una rete virtuale nel portale di Azure, vedere l'articolo [Creare una rete virtuale usando il portale di Azure](https://aka.ms/DMSVnet).
+    Per altre informazioni su come creare una rete virtuale nella portale di Azure, vedere l'articolo [creare una rete virtuale usando il portale di Azure](https://aka.ms/DMSVnet).
 
 6. Selezione di un piano tariffario.
 
@@ -341,7 +343,6 @@ Al termine del caricamento completo iniziale, i database vengono contrassegnati 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Laboratorio pratico sulla [migrazione SQL con il servizio Migrazione del database di Azure](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=3b671509-c3cd-4495-8e8f-354acfa09587).
 - Per informazioni sulle limitazioni e i problemi noti, vedere l'articolo relativo a [problemi noti e soluzioni alternative per le migrazioni online al database SQL di Azure](known-issues-azure-sql-online.md).
 - Per informazioni sul Servizio Migrazione del database di Azure, vedere l'articolo [Definizione del Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/dms-overview).
 - Per informazioni sul database SQL di Azure, vedere l'articolo [Servizio database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview).

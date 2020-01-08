@@ -1,20 +1,20 @@
 ---
 title: Connetti a Google Drive
-description: Creare e gestire i file con le API REST di Google Drive e App per la logica di Azure
+description: Automatizzare i flussi di lavoro che creano e gestiscono file per Google Drive usando app per la logica di Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 11/07/2016
 tags: connectors
-ms.openlocfilehash: 6310c3b7e5b84915fa336708bc702e94317ad04c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 155a579438747ca7de67eba6449b8a0191e86e2c
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789711"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666840"
 ---
-# <a name="get-started-with-the-google-drive-connector"></a>Introduzione all'API Google Drive
+# <a name="create-and-manage-files-for-google-drive-by-using-azure-logic-apps"></a>Creare e gestire file per Google Drive usando app per la logica di Azure
 
 Connettersi a Google Drive per creare file, recuperare righe e così via. Con Google Drive è possibile: 
 
@@ -33,8 +33,8 @@ Dopo aver creato la connessione immettere le proprietà di Google Drive, ad esem
 
 ## <a name="connector-specific-details"></a>Dettagli specifici del connettore
 
-Per visualizzare eventuali azioni e trigger definiti in Swagger ed eventuali limiti, vedere i [dettagli del connettore](/connectors/googledrive/).
+Per informazioni tecniche su trigger, azioni e limiti, descritti dalla descrizione di spavalderia del connettore, vedere la [pagina di riferimento del connettore](/connectors/googledrive/).
 
-## <a name="more-connectors"></a>Altri connettori
+## <a name="next-steps"></a>Passaggi successivi
 
-Tornare all' [elenco di API](apis-list.md).
+* Informazioni su altri [connettori di App per la logica](apis-list.md)

@@ -15,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: kumud
-ms.openlocfilehash: 208cff3c816b8243bc31b3db819f13dafe58c1d1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e278172bc1c3ec4e81860c3f6d6a4b644731e2c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64683212"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647782"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-powershell"></a>Creare una macchina virtuale con un indirizzo IP pubblico statico usando PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-È possibile creare una macchina virtuale con un indirizzo IP pubblico statico. Un indirizzo IP pubblico consente di comunicare con una macchina virtuale da Internet. Assegnare un indirizzo IP pubblico statico, anziché un indirizzo dinamico, per assicurarsi che l'indirizzo non cambi mai. Altre informazioni sugli [indirizzi IP pubblici statici](virtual-network-ip-addresses-overview-arm.md#allocation-method). Per modificare da dinamico a statico un indirizzo IP pubblico assegnato a una macchina virtuale esistente o per usare indirizzi IP privati, vedere [Aggiungere, modificare o rimuovere indirizzi IP](virtual-network-network-interface-addresses.md). Gli indirizzi IP pubblici hanno un [costo nominale](https://azure.microsoft.com/pricing/details/ip-addresses)ed esiste un [limite](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) al numero di indirizzi IP pubblici che è possibile usare per ogni sottoscrizione.
+È possibile creare una macchina virtuale con un indirizzo IP pubblico statico. Un indirizzo IP pubblico consente di comunicare con una macchina virtuale da Internet. Assegnare un indirizzo IP pubblico statico, anziché un indirizzo dinamico, per assicurarsi che l'indirizzo non cambi mai. Altre informazioni sugli [indirizzi IP pubblici statici](virtual-network-ip-addresses-overview-arm.md#allocation-method). Per modificare da dinamico a statico un indirizzo IP pubblico assegnato a una macchina virtuale esistente o per usare indirizzi IP privati, vedere [Aggiungere, modificare o rimuovere indirizzi IP](virtual-network-network-interface-addresses.md). Gli indirizzi IP pubblici hanno un [costo nominale](https://azure.microsoft.com/pricing/details/ip-addresses)ed esiste un [limite](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) al numero di indirizzi IP pubblici che è possibile usare per ogni sottoscrizione.
 
-## <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
+## <a name="create-a-virtual-machine"></a>Crea una macchina virtuale
 
 È possibile eseguire la procedura seguente dal computer locale o tramite Azure Cloud Shell. Per usare il computer locale, assicurarsi che [Azure PowerShell sia installato](/powershell/azure/install-az-ps?toc=%2fazure%2fvirtual-network%2ftoc.json). Per usare Azure Cloud Shell, selezionare **Prova** nell'angolo superiore destro di una qualsiasi finestra di comando riportata di seguito. Cloud Shell consente di accedere ad Azure.
 
@@ -39,7 +39,7 @@ ms.locfileid: "64683212"
    New-AzResourceGroup -Name myResourceGroup -Location EastUS
    ```
 
-3. Creare una macchina virtuale con il [New-AzVM](/powershell/module/az.Compute/New-azVM) comando. L'opzione `-AllocationMethod "Static"` assegna un indirizzo IP pubblico statico alla macchina virtuale. L'esempio seguente crea una macchina virtuale Windows Server con un indirizzo IP pubblico statico SKU Basic denominato *myPublicIpAddress*. Quando richiesto, immettere un nome utente e una password da usare come credenziali di accesso per la macchina virtuale:
+3. Creare una macchina virtuale con il comando [New-AzVM](/powershell/module/az.Compute/New-azVM) . L'opzione `-AllocationMethod "Static"` assegna un indirizzo IP pubblico statico alla macchina virtuale. L'esempio seguente crea una macchina virtuale Windows Server con un indirizzo IP pubblico statico SKU Basic denominato *myPublicIpAddress*. Quando richiesto, immettere un nome utente e una password da usare come credenziali di accesso per la macchina virtuale:
 
    ```azurepowershell-interactive
    New-AzVm `
@@ -52,7 +52,7 @@ ms.locfileid: "64683212"
 
    Se l'indirizzo IP pubblico deve essere uno SKU standard, è necessario [creare un indirizzo IP pubblico](virtual-network-public-ip-address.md#create-a-public-ip-address), [creare un'interfaccia di rete](virtual-network-network-interface.md#create-a-network-interface), [assegnare l'indirizzo IP pubblico all'interfaccia di rete](virtual-network-network-interface-addresses.md#add-ip-addresses) e quindi [creare una macchina virtuale con l'interfaccia di rete](virtual-network-network-interface-vm.md#add-existing-network-interfaces-to-a-new-vm) in passaggi separati. Altre informazioni sugli [SKU di indirizzi IP pubblici](virtual-network-ip-addresses-overview-arm.md#sku). Se la macchina virtuale verrà aggiunta al pool back-end di un Azure Load Balancer pubblico, lo SKU dell'indirizzo IP pubblico della macchina virtuale deve corrispondere allo SKU dell'indirizzo IP pubblico del bilanciamento del carico. Per informazioni dettagliate, vedere [Azure Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#skus).
 
-4. Visualizzare l'indirizzo IP pubblico assegnato e verificare che sia stato creato come un indirizzo statico, con [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress):
+4. Visualizzare l'indirizzo IP pubblico assegnato e verificare che sia stato creato come indirizzo statico, con [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress):
 
    ```azurepowershell-interactive
    Get-AzPublicIpAddress `

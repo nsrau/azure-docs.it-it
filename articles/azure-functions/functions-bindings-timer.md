@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: de36f760fb637ad02446265927e7df7aa91b2abf
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d5e78c3ab08e791a5f484e45d487c3a85dc95de7
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928386"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613092"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Trigger timer per Funzioni di Azure 
 
@@ -166,7 +166,9 @@ public void keepAlive(
 
 Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attributo [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs).
 
-Il costruttore dell'attributo accetta un'espressione CRON o un valore `TimeSpan`. È possibile usare `TimeSpan` solo se l'app per le funzioni viene eseguita in un piano di servizio app. L'esempio seguente mostra un'espressione CRON:
+Il costruttore dell'attributo accetta un'espressione CRON o un valore `TimeSpan`. È possibile usare `TimeSpan` solo se l'app per le funzioni è in esecuzione in un piano di servizio app. `TimeSpan` non è supportato per le funzioni di consumo o Premium elastico.
+
+L'esempio seguente mostra un'espressione CRON:
 
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
@@ -227,7 +229,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 > [!CAUTION]
 > L'impostazione di **runOnStartup** su `true` non è consigliata in ambienti di produzione. Con questa impostazione, il codice viene eseguito in momenti estremamente imprevedibili. In alcune impostazioni di produzione queste esecuzioni aggiuntive possono determinare costi molto più elevati per le app ospitate in piani a consumo. Con **runOnStartup** abilitato, ad esempio, il trigger viene richiamato ogni volta che l'app per le funzioni viene ridimensionata. Prima di abilitare **runOnStartup** in un ambiente di produzione assicurarsi di avere ben compreso il comportamento in produzione delle proprie funzioni.   
 
-## <a name="usage"></a>Utilizzo
+## <a name="usage"></a>Uso
 
 Quando viene richiamata una funzione di trigger del timer, nella funzione viene passato un oggetto timer. Il codice JSON seguente è una rappresentazione di esempio dell'oggetto timer.
 
@@ -254,7 +256,7 @@ Funzioni di Azure usa la libreria [NCronTab](https://github.com/atifaziz/NCronta
 
 Ogni campo può avere uno dei tipi di valori seguenti:
 
-|Type  |Esempio  |Quando viene attivato  |
+|Tipo  |Esempio  |Quando viene attivato  |
 |---------|---------|---------|
 |Valore specifico |<nobr>"0 5 * * * *"</nobr>|Alle hh.05.00, dove hh corrisponde a ogni ora (una volta all'ora)|
 |Tutti i valori (`*`)|<nobr>"0 * 5 * * *"</nobr>|Alle 5.mm.00 ogni giorno, dove mm è ogni minuto dell'ora (60 volte al giorno)|
@@ -302,7 +304,7 @@ In alternativa, è possibile creare un'impostazione per l'app per le funzioni de
 
 Quando si usa `WEBSITE_TIME_ZONE`, l'ora viene regolata per modifiche all'ora nel fuso orario specifico, ad esempio l'ora legale. 
 
-## <a name="timespan"></a>Intervallo di tempo
+## <a name="timespan"></a>TimeSpan
 
  `TimeSpan` può essere usato solo per un'app per le funzioni in esecuzione in un piano di servizio app.
 
@@ -338,7 +340,7 @@ Il trigger del timer usa un blocco di archiviazione per assicurarsi che sia pres
 
 Diversamente dal trigger di coda, il trigger timer non viene ripetuto se una funzione non riesce. Quando una funzione non riesce, non viene chiamata di nuovo fino alla volta successiva nella pianificazione.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Per informazioni su cosa fare quando il trigger timer non funziona come previsto, vedere [Investigating and reporting issues with timer triggered functions not firing](https://github.com/Azure/azure-functions-host/wiki/Investigating-and-reporting-issues-with-timer-triggered-functions-not-firing) (Analisi e segnalazione di problemi quando non vengono eseguite le funzioni attivate da timer).
 

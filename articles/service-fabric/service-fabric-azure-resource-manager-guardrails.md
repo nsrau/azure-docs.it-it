@@ -1,31 +1,24 @@
 ---
-title: Guardrails Azure Resource Manager distribuzione Service Fabric | Microsoft Docs
+title: Service Fabric di distribuzione Azure Resource Manager Guardrails
 description: Questo articolo fornisce una panoramica degli errori comuni effettuati durante la distribuzione di un cluster di Service Fabric tramite Azure Resource Manager e come evitarli.
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
-manager: gamonroy
-editor: ''
-ms.assetid: 803c9c63-373a-4d6a-8ef2-ea97e16e88dd
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/30/2019
 ms.author: pepogors
-ms.openlocfilehash: 3ea6f850685a695644cfc3073fc939a58901658c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: fe5ff2a5eeb4b2c73165d1577702eb6af7079b61
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73828630"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426744"
 ---
 # <a name="service-fabric-guardrails"></a>Service Fabric Guardrails 
 Quando si distribuisce un cluster di Service Fabric, vengono messi a posto Guardrails, che non riusciranno a eseguire una distribuzione Azure Resource Manager in caso di configurazione del cluster non valida. Nelle sezioni seguenti viene fornita una panoramica dei problemi comuni di configurazione del cluster e dei passaggi necessari per attenuare tali problemi. 
 
 ## <a name="durability-mismatch"></a>Durabilità non corrispondente
-### <a name="overview"></a>Panoramica
+### <a name="overview"></a>Overview
 Il valore di durabilità per un tipo di nodo Service Fabric viene definito in due sezioni diverse di un modello di Azure Resource Manager. La sezione estensione del set di scalabilità di macchine virtuali della risorsa del set di scalabilità di macchine virtuali e il tipo di nodo della risorsa cluster Service Fabric. È necessario che il valore di durabilità in queste sezioni corrisponda, in caso contrario la distribuzione delle risorse avrà esito negativo.
 
 La sezione seguente contiene un esempio di una mancata corrispondenza di durabilità tra l'impostazione di durabilità dell'estensione del set di scalabilità di macchine virtuali e il Service Fabric impostazione di durabilità del tipo di nodo:  
@@ -68,7 +61,7 @@ La sezione seguente contiene un esempio di una mancata corrispondenza di durabil
 * La durabilità del set di scalabilità di macchine virtuali corrisponde al livello di durabilità del Service Fabric corrente o al livello di durabilità del tipo di nodo Service Fabric di destinazione 
 
 
-### <a name="mitigation"></a>Mitigazione
+### <a name="mitigation"></a>Strategia di riduzione del rischio
 Per correggere una mancata corrispondenza di durabilità, indicata da uno dei messaggi di errore seguenti:
 1. Aggiornare il livello di durabilità nella sezione estensione del set di scalabilità di macchine virtuali o tipo di nodo Service Fabric del modello di Azure Resource Manager per assicurarsi che i valori corrispondano.
 2. Ridistribuire il modello di Azure Resource Manager con i valori aggiornati.
