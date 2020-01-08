@@ -6,7 +6,9 @@
       href: api-management-key-concepts.md
     - name: Disponibilità delle funzioni di Gestione API
       href: api-management-features.md
-- name: Guide introduttive
+    - name: Gestire i microservizi distribuiti nel servizio Azure Kubernetes
+      href: api-management-kubernetes.md
+- name: Avvi rapidi
   expanded: true
   items:
     - name: 'Creare un''istanza: portale'
@@ -63,7 +65,7 @@
       href: api-management-api-import-restrictions.md
     - name: Panoramica del gateway self-hosted
       href: self-hosted-gateway-overview.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Definire API
       items:
@@ -163,7 +165,7 @@
           href: api-management-developer-portal-templates-reference.md
         - name: API
           href: api-management-api-templates.md
-        - name: Prodotti
+        - name: Products
           href: api-management-product-templates.md
         - name: APPLICAZIONI
           href: api-management-application-templates.md
@@ -231,7 +233,7 @@
               href: ../service-fabric/service-fabric-api-management-overview.md
             - name: Esercitazione
               href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Azure PowerShell
       href: /powershell/module/az.apimanagement/?view=azps-2.6.0
@@ -249,7 +251,7 @@
       href: 'https://aka.ms/apimpricing'
     - name: Disponibilità internazionale
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: Guida di orientamento
+    - name: Roadmap
       href: 'https://aka.ms/apimroadmap'
     - name: Richieste di funzionalità
       href: 'https://aka.ms/apimwish'

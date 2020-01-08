@@ -14,8 +14,12 @@
       href: azure-portal-dashboard-share-access.md
     - name: Creare i dashboard di Azure a livello di codice
       href: azure-portal-dashboards-create-programmatically.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
+    - name: Impostare le preferenze del portale di Azure
+      href: set-preferences.md
+    - name: Configurare le impostazioni di timeout per inattività per tutti gli utenti
+      href: admin-timeout.md
     - name: Attivare un contrasto elevato o cambiare tema
       href: azure-portal-change-theme-high-contrast.md
     - name: 'Aggiungere, rimuovere e ordinare i preferiti'
@@ -28,7 +32,7 @@
       href: azure-portal-export-delete-settings.md
     - name: Serie di video di procedure per il portale di Azure
       href: azure-portal-video-series.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Tasti di scelta rapida
       href: azure-portal-keyboard-shortcuts.md

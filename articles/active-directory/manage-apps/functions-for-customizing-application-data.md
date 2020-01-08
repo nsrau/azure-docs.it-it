@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a346b264afc23e21ccf3e6d5dbf7a8f5d96518d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 93b8387d4453a3d83bcce55c739548d914545f2f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74842255"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430074"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Scrittura di espressioni per il mapping degli attributi in Azure Active Directory
 Quando si configura il provisioning in un'applicazione SaaS, come mapping degli attributi è possibile specificare il mapping di espressioni. Per questo tipo di mapping è necessario scrivere un'espressione analoga a uno script, che permette di trasformare i dati utente in formati più idonei all'applicazione SaaS.
@@ -29,7 +29,7 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 
 * L'intera espressione deve essere definita in termini di funzioni, che sono costituite da un nome seguito da argomenti racchiusi tra parentesi: <br>
   *FunctionName(`<<argument 1>>`,`<<argument N>>`)*
-* È possibile annidare le funzioni in altre funzioni. ad esempio: <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
+* È possibile annidare le funzioni in altre funzioni. Ad esempio: <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
 * È possibile passare tre tipi diversi di argomenti nelle funzioni:
   
   1. Attributi, che devono essere racchiusi tra parentesi quadre. Ad esempio: [NomeAttributo]
@@ -38,20 +38,148 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 * Eventuali barre rovesciate ( \ ) o virgolette ( " ) da inserire nella costante di stringa dovranno essere precedute dal simbolo di barra rovesciata ( \ ) come carattere di escape. Ad esempio: "nome società: \\" contoso\\""
 
 ## <a name="list-of-functions"></a>Elenco di funzioni
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;[&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;](#replace) &nbsp;&nbsp;[SelectUniqueValue](#selectuniquevalue) &nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
 
 ---
-### <a name="append"></a>Append
+### <a name="append"></a>Accoda
 **Funzione:**<br> Append(source, suffix)
 
 **Descrizione:**<br> Accetta un valore di stringa di origine e aggiunge un suffisso alla fine del valore.
 
 **Parametri:**<br> 
 
-| name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Tipo | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |Stringa |In genere è il nome dell'attributo dell'oggetto di origine. |
-| **suffix** |Obbligatoria |Stringa |Stringa da aggiungere alla fine del valore di origine. |
+| **source** |Obbligatorio |string |In genere è il nome dell'attributo dell'oggetto di origine. |
+| **suffix** |Obbligatorio |string |Stringa da aggiungere alla fine del valore di origine. |
+
+---
+### <a name="bitand"></a>BitAnd
+**Funzione:**<br> BitAnd (value1, value2)
+
+**Descrizione:**<br> Questa funzione converte entrambi i parametri nella rappresentazione binaria e imposta un bit su:
+
+0: se uno o entrambi i bit corrispondenti in value1 e value2 sono 0                                                  
+1: se entrambi i bit corrispondenti sono pari a 1.                                    
+
+In altre parole, restituisce 0 in tutti i casi tranne quando i bit corrispondenti di entrambi i parametri sono pari a 1.
+
+**Parametri:**<br> 
+
+| Nome | Obbligatorio/Ripetuto | Tipo | Note |
+| --- | --- | --- | --- |
+| **value1** |Obbligatorio |num |Valore numerico che deve essere unire con and con value2|
+| **value2** |Obbligatorio |num |Valore numerico che deve essere unire con and con value1|
+
+**Esempio:**<br>
+BitAnd(&HF, &HF7)                                                                                
+11110111 e 00000111 = 00000111, quindi BitAnd restituisce 7, il valore binario 00000111
+
+---
+### <a name="cbool"></a>CBool
+**Funzione:**<br> CBool (espressione)
+
+**Descrizione:**<br> CBool restituisce un valore booleano basato sull'espressione valutata. Se l'espressione restituisce un valore diverso da zero, CBool restituisce true; in caso contrario, restituisce false.
+
+**Parametri:**<br> 
+
+| Nome | Obbligatorio/Ripetuto | Tipo | Note |
+| --- | --- | --- | --- |
+| **expression** |Obbligatorio | expression | Qualsiasi espressione valida |
+
+**Esempio:**<br>
+CBool ([attribute1] = [attribute2])                                                                    
+Restituisce True se entrambi gli attributi hanno lo stesso valore.
+
+---
+### <a name="coalesce"></a>Unisci
+**Funzione:**<br> COALESCE (source1, source2,..., defaultValue)
+
+**Descrizione:**<br> Restituisce il primo valore di origine che non è NULL. Se tutti gli argomenti sono NULL e defaultValue è presente, viene restituito defaultValue. Se tutti gli argomenti sono NULL e defaultValue non è presente, COALESCE restituisce NULL.
+
+**Parametri:**<br> 
+
+| Nome | Obbligatorio/Ripetuto | Tipo | Note |
+| --- | --- | --- | --- |
+| **source1 … sourceN** | Obbligatorio | string |Obbligatorio, numero variabile di volte. In genere è il nome dell'attributo dell'oggetto di origine. |
+| **defaultValue** | Facoltativo | string | Valore predefinito da utilizzare quando tutti i valori di origine sono NULL. Può essere una stringa vuota ("").
+
+---
+### <a name="converttobase64"></a>ConvertToBase64
+**Funzione:**<br> ConvertToBase64 (origine)
+
+**Descrizione:**<br> La funzione ConvertToBase64 converte una stringa in una stringa Base 64 Unicode.
+
+**Parametri:**<br> 
+
+| Nome | Obbligatorio/Ripetuto | Tipo | Note |
+| --- | --- | --- | --- |
+| **source** |Obbligatorio |string |Stringa da convertire in base 64|
+
+**Esempio:**<br>
+ConvertToBase64("Hello world!")                                                                                                        
+Restituisce "SABlAGwAbABvACAAdwBvAHIAbABkACEA"
+
+---
+### <a name="converttoutf8hex"></a>ConvertToUTF8Hex
+**Funzione:**<br> ConvertToUTF8Hex (origine)
+
+**Descrizione:**<br> La funzione ConvertToUTF8Hex converte una stringa in un valore con codifica esadecimale UTF8.
+
+**Parametri:**<br> 
+
+| Nome | Obbligatorio/Ripetuto | Tipo | Note |
+| --- | --- | --- | --- |
+| **source** |Obbligatorio |string |Stringa da convertire in esadecimale UTF8|
+
+**Esempio:**<br>
+ConvertToUTF8Hex("Hello world!")                                                                                                         
+Restituisce 48656C6C6F20776F726C6421
+
+---
+### <a name="count"></a>Conteggio
+**Funzione:**<br> Conteggio (attributo)
+
+**Descrizione:**<br> La funzione Count restituisce il numero di elementi in un attributo multivalore.
+
+**Parametri:**<br> 
+
+| Nome | Obbligatorio/Ripetuto | Tipo | Note |
+| --- | --- | --- | --- |
+| **attribute** |Obbligatorio |attributo |Attributo multivalore che avrà elementi conteggiati|
+
+---
+### <a name="cstr"></a>CStr
+**Funzione:**<br> CStr (valore)
+
+**Descrizione:**<br> La funzione CStr converte un valore in un tipo di dati String.
+
+**Parametri:**<br> 
+
+| Nome | Obbligatorio/Ripetuto | Tipo | Note |
+| --- | --- | --- | --- |
+| **value** |Obbligatorio | numeric, Reference o Boolean | può essere un valore numerico, un attributo di riferimento o un valore booleano. |
+
+**Esempio:**<br>
+CStr([dn])                                                            
+Restituisce "CN = Joe, DC = contoso, DC = com"
+
+---
+### <a name="datefromnum"></a>DateFromNum
+**Funzione:**<br> DateFromNum (valore)
+
+**Descrizione:**<br> La funzione DateFromNum converte un valore nel formato di data di Active Directory in un tipo di data/ora.
+
+**Parametri:**<br> 
+
+| Nome | Obbligatorio/Ripetuto | Tipo | Note |
+| --- | --- | --- | --- |
+| **value** |Obbligatorio | Data | Data di annuncio da convertire nel tipo DateTime |
+
+**Esempio:**<br>
+DateFromNum([lastLogonTimestamp])                                                                                                   
+DateFromNum(129699324000000000)                                                            
+Restituisce un valore di data/ora che rappresenta 2012-01-01 23:00:00
 
 ---
 ### <a name="formatdatetime"></a>FormatDateTime
@@ -61,11 +189,115 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 
 **Parametri:**<br> 
 
-| name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Tipo | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |Stringa |In genere è il nome dell'attributo dell'oggetto di origine. |
-| **inputFormat** |Obbligatoria |Stringa |Formato previsto del valore source. Per informazioni sui formati supportati, vedere [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
-| **outputFormat** |Obbligatoria |Stringa |Formato della data di output. |
+| **source** |Obbligatorio |string |In genere è il nome dell'attributo dell'oggetto di origine. |
+| **inputFormat** |Obbligatorio |string |Formato previsto del valore source. Per informazioni sui formati supportati, vedere [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **outputFormat** |Obbligatorio |string |Formato della data di output. |
+
+---
+### <a name="guid"></a>GUID
+**Funzione:**<br> Guid()
+
+**Descrizione:**<br> La funzione Guid genera un nuovo GUID casuale
+
+---
+### <a name="instr"></a>InStr
+**Funzione:**<br> InStr (value1, value2, Start, compareType)
+
+**Descrizione:**<br> La funzione InStr trova la prima occorrenza di una sottostringa in una stringa.
+
+**Parametri:**<br> 
+
+| Nome | Obbligatorio/Ripetuto | Tipo | Note |
+| --- | --- | --- | --- |
+| **value1** |Obbligatorio |string |Stringa da cercare |
+| **value2** |Obbligatorio |string |Stringa da trovare |
+| **start** |Facoltativo |Integer |Posizione iniziale per trovare la sottostringa|
+| **compareType** |Facoltativo |Enum |Può essere vbTextCompare o vbBinaryCompare |
+
+**Esempio:**<br>
+InStr("The quick brown fox","quick")                                                                             
+Restituisce 5
+
+InStr("repEated","e",3,vbBinaryCompare)                                                                                  
+Restituisce 7
+
+---
+### <a name="isnull"></a>IsNull
+**Funzione:**<br> IsNull (espressione)
+
+**Descrizione:**<br> Se l'espressione restituisce Null, la funzione IsNull restituisce True. Per un attributo, Null è espresso dall'assenza dell'attributo.
+
+**Parametri:**<br> 
+
+| Nome | Obbligatorio/Ripetuto | Tipo | Note |
+| --- | --- | --- | --- |
+| **expression** |Obbligatorio |expression |Espressione da valutare |
+
+**Esempio:**<br>
+IsNull([displayName])                                                                                                
+Restituisce true se l'attributo non è presente.
+
+---
+### <a name="isnullorempty"></a>IsNullorEmpty
+**Funzione:**<br> IsNullOrEmpty (espressione)
+
+**Descrizione:**<br> Se l'espressione è Null o una stringa vuota, la funzione IsNullOrEmpty restituisce True. Per un attributo, verrà restituito True se l'attributo è assente oppure se è presente, ma è una stringa vuota.
+La funzione inversa di questa funzione è denominata IsPresent.
+
+**Parametri:**<br> 
+
+| Nome | Obbligatorio/Ripetuto | Tipo | Note |
+| --- | --- | --- | --- |
+| **expression** |Obbligatorio |expression |Espressione da valutare |
+
+**Esempio:**<br>
+IsNullOrEmpty ([displayName])                                               
+Restituisce true se l'attributo non è presente o è una stringa vuota
+
+---
+### <a name="ispresent"></a>IsPresent
+**Funzione:**<br> IsNullOrEmpty (espressione)
+
+**Descrizione:**<br> Se l'espressione restituisce una stringa non Null e non vuota, la funzione IsPresent restituisce True. La funzione inversa di questa funzione è denominata IsNullOrEmpty.
+
+**Parametri:**<br> 
+
+| Nome | Obbligatorio/Ripetuto | Tipo | Note |
+| --- | --- | --- | --- |
+| **expression** |Obbligatorio |expression |Espressione da valutare |
+
+**Esempio:**<br>
+Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])
+
+---
+### <a name="isstring"></a>IsString
+**Funzione:**<br> Stringa (espressione)
+
+**Descrizione:**<br> Se l'espressione può essere valutata come tipo stringa, la funzione IsString restituisce True.
+
+**Parametri:**<br> 
+
+| Nome | Obbligatorio/Ripetuto | Tipo | Note |
+| --- | --- | --- | --- |
+| **expression** |Obbligatorio |expression |Espressione da valutare |
+
+---
+### <a name="item"></a>Elemento
+**Funzione:**<br> Item (attributo, indice)
+
+**Descrizione:**<br> La funzione Item restituisce un elemento da una stringa o un attributo multivalore.
+
+**Parametri:**<br> 
+
+| Nome | Obbligatorio/Ripetuto | Tipo | Note |
+| --- | --- | --- | --- |
+| **attribute** |Obbligatorio |Attributo |Attributo multivalore da cercare |
+| **index** |Obbligatorio |Integer | Indice di un elemento nella stringa multivalore|
+
+**Esempio:**<br>
+Elemento ([proxyAddresses], 1)
 
 ---
 ### <a name="join"></a>Join
@@ -77,10 +309,30 @@ Se uno dei valori di origine è un attributo multivalore, verranno uniti tutti i
 
 **Parametri:**<br> 
 
-| name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Tipo | Note |
 | --- | --- | --- | --- |
-| **separator** |Obbligatoria |Stringa |Stringa usata per separare i valori di origine quando sono concatenati in una stringa. Può essere "" se non sono necessari separatori. |
-| **source1 … sourceN** |Obbligatorio per un numero variabile di volte |Stringa |Valori stringa da unire. |
+| **separator** |Obbligatorio |string |Stringa usata per separare i valori di origine quando sono concatenati in una stringa. Può essere "" se non sono necessari separatori. |
+| **source1 … sourceN** |Obbligatorio per un numero variabile di volte |string |Valori stringa da unire. |
+
+---
+### <a name="left"></a>Left
+**Funzione:**<br> Left (stringa, NumChars)
+
+**Descrizione:**<br> La funzione Left restituisce un numero di caratteri specificato a partire da sinistra di una stringa. Se numChars = 0, restituisce una stringa vuota.
+Se numChars < 0, restituisce una stringa di input.
+Se string è Null, restituisce una stringa vuota.
+Se string contiene un numero di caratteri inferiore al numero specificato in numChars, viene restituita una stringa identica a string (ovvero contenente tutti i caratteri nel parametro 1).
+
+**Parametri:**<br> 
+
+| Nome | Obbligatorio/Ripetuto | Tipo | Note |
+| --- | --- | --- | --- |
+| **Stringa** |Obbligatorio |Attributo | Stringa da cui restituire i caratteri |
+| **NumChars** |Obbligatorio |Integer | Numero che identifica il numero di caratteri da restituire dall'inizio (sinistra) della stringa|
+
+**Esempio:**<br>
+Left ("John Doe", 3)                                                            
+Restituisce "Joh"
 
 ---
 ### <a name="mid"></a>Mid
@@ -90,11 +342,11 @@ Se uno dei valori di origine è un attributo multivalore, verranno uniti tutti i
 
 **Parametri:**<br> 
 
-| name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Tipo | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |Stringa |Corrisponde in genere al nome dell'attributo. |
-| **start** |Obbligatoria |integer |Indice nella stringa **source** che indica il punto di inizio della sottostringa. L'indice del primo carattere della stringa sarà pari a 1, quello del secondo carattere a 2 e così via. |
-| **length** |Obbligatoria |integer |Lunghezza della sottostringa. Se la lunghezza eccede la stringa **source**, la funzione restituirà una sottostringa dall'indice **start** fino alla fine della stringa **source**. |
+| **source** |Obbligatorio |string |Corrisponde in genere al nome dell'attributo. |
+| **start** |Obbligatorio |integer |Indice nella stringa **source** che indica il punto di inizio della sottostringa. L'indice del primo carattere della stringa sarà pari a 1, quello del secondo carattere a 2 e così via. |
+| **length** |Obbligatorio |integer |Lunghezza della sottostringa. Se la lunghezza eccede la stringa **source**, la funzione restituirà una sottostringa dall'indice **start** fino alla fine della stringa **source**. |
 
 ---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
@@ -104,21 +356,37 @@ Se uno dei valori di origine è un attributo multivalore, verranno uniti tutti i
 
 **Parametri:**<br> 
 
-| name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Tipo | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |Stringa | In genere un attributo nome o cognome. |
+| **source** |Obbligatorio |string | In genere un attributo nome o cognome. |
 
 ---
-### <a name="not"></a>not
+### <a name="not"></a>Not
 **Funzione:**<br> Not(source)
 
 **Descrizione:**<br> Inverte il valore booleano di **source**. Se il valore di **source** è "*True*", restituisce "*False*". In caso contrario, restituisce "*True*".
 
 **Parametri:**<br> 
 
-| name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Tipo | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |Stringa booleana |I valori previsti per **source** sono "True" o "False". |
+| **source** |Obbligatorio |Stringa booleana |I valori previsti per **source** sono "True" o "False". |
+
+---
+### <a name="removeduplicates"></a>RemoveDuplicates
+**Funzione:**<br> RemoveDuplicates (attributo)
+
+**Descrizione:**<br> La funzione RemoveDuplicates accetta una stringa multivalore e verifica che ogni valore sia univoco.
+
+**Parametri:**<br> 
+
+| Nome | Obbligatorio/Ripetuto | Tipo | Note |
+| --- | --- | --- | --- |
+| **attribute** |Obbligatorio |Attributo multivalore |Attributo multivalore in cui vengono rimossi i duplicati|
+
+**Esempio:**<br>
+RemoveDuplicates([proxyAddresses])                                                                                                       
+Restituisce un attributo proxyAddress purificato in cui sono stati rimossi tutti i valori duplicati
 
 ---
 ### <a name="replace"></a>Replace
@@ -129,32 +397,32 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 * Se vengono forniti **oldValue** e **replacementValue**:
   
-  * Sostituisce tutte le occorrenze di **OldValue** nell' **origine** con **replacementValue**
+  * Sostituisce tutte le occorrenze di **oldValue** in **source** con **replacementValue**
 * Se vengono forniti **oldValue** e **template**:
   
   * Sostituisce tutte le occorrenze di **oldValue** in **template** con il valore **source**
-* Quando sono disponibili **regexPattern** e **replacementValue** :
+* Se vengono forniti **regexPattern** e **replacementValue**:
 
-  * La funzione applica **regexPattern** alla stringa di **origine** ed è possibile usare i nomi dei gruppi Regex per costruire la stringa per **replacementValue**
+  * La funzione applica **regexPattern** alla stringa **source** ed è possibile usare i nomi del gruppo di regex per creare la stringa per **replacementValue**
 * Se vengono forniti **regexPattern**, **regexGroupName** e **replacementValue**:
   
-  * La funzione applica **regexPattern** alla stringa di **origine** e sostituisce tutti i valori corrispondenti a **regexgroupname e** con **replacementValue**
-* Quando vengono specificati **regexPattern**, **regexgroupname e**, **replacementAttributeName** :
+  * La funzione applica **regexPattern** alla stringa **source** e sostituisce tutti i valori che corrispondono a **regexGroupName** con **replacementValue**
+* Se vengono forniti **regexPattern**, **regexGroupName** e **replacementAttributeName**:
   
   * Se **source** non ha alcun valore, viene restituito **source**
-  * Se l' **origine** ha un valore, la funzione applica **regexPattern** alla stringa di **origine** e sostituisce tutti i valori corrispondenti a **regexgroupname e** con il valore associato a **replacementAttributeName**
+  * Se **source** include un valore, la funzione applica **regexPattern** alla stringa **source** e sostituisce tutti i valori corrispondenti a **regexGroupName** con il valore associato a **replacementAttributeName**
 
 **Parametri:**<br> 
 
-| name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Tipo | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |Stringa |In genere il nome dell'attributo dall'oggetto di **origine** . |
-| **oldValue** |Facoltativo |Stringa |Valore da sostituire in **source** o **template**. |
-| **regexPattern** |Facoltativo |Stringa |Criterio di espressione regolare per il valore da sostituire in **source**. In alternativa, quando si usa **replacementPropertyName** , modello per estrarre il valore da **replacementPropertyName**. |
-| **regexGroupName** |Facoltativo |Stringa |Nome del gruppo in **regexPattern**. Solo quando si usa **replacementPropertyName** , il valore di questo gruppo verrà estratto come **replacementValue** da **replacementPropertyName**. |
-| **replacementValue** |Facoltativo |Stringa |Nuovo valore con cui sostituire il precedente. |
-| **replacementAttributeName** |Facoltativo |Stringa |Nome dell'attributo da utilizzare per il valore di sostituzione |
-| **template** |Facoltativo |Stringa |Quando viene specificato il valore del **modello** , si cercherà **OldValue** all'interno del modello e lo si sostituirà con il valore **source** . |
+| **source** |Obbligatorio |string |In genere è il nome dell'attributo dell'oggetto **source**. |
+| **oldValue** |Facoltativo |string |Valore da sostituire in **source** o **template**. |
+| **regexPattern** |Facoltativo |string |Criterio di espressione regolare per il valore da sostituire in **source**. Se invece si usa **replacementPropertyName**, corrisponde al modello usato per estrarre il valore da **replacementPropertyName**. |
+| **regexGroupName** |Facoltativo |string |Nome del gruppo in **regexPattern**. Solo se si usa **replacementPropertyName**, il valore di questo gruppo verrà estratto come **replacementValue** da **replacementPropertyName**. |
+| **replacementValue** |Facoltativo |string |Nuovo valore con cui sostituire il precedente. |
+| **replacementAttributeName** |Facoltativo |string |Nome dell'attributo da usare per il valore di sostituzione |
+| **template** |Facoltativo |string |Se viene fornito il valore **template**, il valore **oldValue** verrà cercato in template e sostituito con il valore di **source**. |
 
 ---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
@@ -164,16 +432,16 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 > [!NOTE]
 > - Si tratta di una funzione di primo livello che non può essere annidata.
-> - Questa funzione non può essere applicata agli attributi con precedenza corrispondente.  
+> - Questa funzione non può essere applicata agli attributi con precedenza abbinamento.  
 > - Questa funzione è destinata a essere usata solo per la creazione di voci. Se viene usata con un attributo, impostare la proprietà **Applica questo mapping** su **Solo durante la creazione dell'oggetto**.
-> - Questa funzione è attualmente supportata solo per il "giorno lavorativo per il provisioning degli utenti Active Directory". Non può essere usato con altre applicazioni di provisioning. 
+> - Questa funzione è attualmente supportata solo per il "provisioning utenti da Workday ad Active Directory". Non può essere usata con altre applicazioni di provisioning. 
 
 
 **Parametri:**<br> 
 
-| name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Tipo | Note |
 | --- | --- | --- | --- |
-| **uniqueValueRule1  … uniqueValueRuleN** |Sono necessari almeno 2 argomenti, nessun limite superiore |Stringa | Elenco delle regole di generazione di valori univoci da valutare. |
+| **uniqueValueRule1  … uniqueValueRuleN** |Sono necessari almeno 2 argomenti, nessun limite superiore |string | Elenco delle regole di generazione di valori univoci da valutare. |
 
 
 ---
@@ -184,22 +452,22 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 **Parametri:**<br> 
 
-| name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Tipo | Note |
 | --- | --- | --- | --- |
-| **[appRoleAssignments]** |Obbligatoria |Stringa |Oggetto **[appRoleAssignments]** . |
+| **[appRoleAssignments]** |Obbligatorio |string |Oggetto **[appRoleAssignments]** . |
 
 ---
 ### <a name="split"></a>Split
 **Funzione:**<br> Split(source, delimiter)
 
-**Descrizione:**<br> Suddivide una stringa in una matrice multivalore, usando il carattere delimitatore specificato.
+**Descrizione:**<br> Divide una stringa in una matrice multi-valore usando il carattere di delimitazione specificato.
 
 **Parametri:**<br> 
 
-| name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Tipo | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |Stringa |**source** da aggiornare. |
-| **delimiter** |Obbligatoria |Stringa |Specifica il carattere che verrà usato per dividere la stringa (esempio: ",") |
+| **source** |Obbligatorio |string |**source** da aggiornare. |
+| **delimiter** |Obbligatorio |string |Specifica il carattere che verrà usato per dividere la stringa (esempio: ",") |
 
 ---
 ### <a name="stripspaces"></a>StripSpaces
@@ -209,24 +477,24 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 **Parametri:**<br> 
 
-| name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Tipo | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |Stringa |**source** da aggiornare. |
+| **source** |Obbligatorio |string |**source** da aggiornare. |
 
 ---
-### <a name="switch"></a>Switch
+### <a name="switch"></a>Opzione
 **Funzione:**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
 
 **Descrizione:**<br> Quando il valore **source** corrisponde a **key**, verrà restituito un parametro **value** per tale oggetto **key**. Se il valore del parametro **source** non corrisponde ad alcuna chiave, verrà restituito **defaultValue**.  I parametri **key** e **value** devono essere sempre accoppiati. Le funzioni prevedono sempre un numero pari di parametri. La funzione non deve essere usata per gli attributi referenziali, ad esempio Manager. 
 
 **Parametri:**<br> 
 
-| name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Tipo | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |Stringa |**Source** da aggiornare. |
-| **defaultValue** |Facoltativo |Stringa |Valore predefinito da usare se l'origine non corrisponde ad alcuna chiave. Può essere una stringa vuota (""). |
-| **key** |Obbligatoria |Stringa |Parametro **key** con cui confrontare il valore di **source**. |
-| **value** |Obbligatoria |Stringa |Valore di sostituzione per il valore **source** corrispondente al parametro key. |
+| **source** |Obbligatorio |string |**Source** da aggiornare. |
+| **defaultValue** |Facoltativo |string |Valore predefinito da usare se l'origine non corrisponde ad alcuna chiave. Può essere una stringa vuota (""). |
+| **key** |Obbligatorio |string |Parametro **key** con cui confrontare il valore di **source**. |
+| **value** |Obbligatorio |string |Valore di sostituzione per il valore **source** corrispondente al parametro key. |
 
 ---
 ### <a name="tolower"></a>ToLower
@@ -236,10 +504,10 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 **Parametri:**<br> 
 
-| name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Tipo | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |Stringa |In genere è il nome dell'attributo dell'oggetto di origine. |
-| **Impostazioni cultura** |Facoltativo |Stringa |Il formato per il nome delle impostazioni cultura basato su RFC 4646 è *languagecode2-country/regioncode2*, in cui *languagecode2* è il codice lingua a due lettere e *country/regioncode2* è il codice di impostazioni cultura secondarie a due lettere. Tra gli esempi sono inclusi ja-JP per Giapponese (Giappone) ed en-US per Inglese (Stati Uniti). Nei casi in cui non è disponibile un codice lingua a due lettere, viene usato un codice a tre lettere derivato da ISO 639-2.|
+| **source** |Obbligatorio |string |In genere è il nome dell'attributo dell'oggetto di origine. |
+| **Impostazioni cultura** |Facoltativo |string |Il formato per il nome delle impostazioni cultura basato su RFC 4646 è *languagecode2-country/regioncode2*, in cui *languagecode2* è il codice lingua a due lettere e *country/regioncode2* è il codice di impostazioni cultura secondarie a due lettere. Tra gli esempi sono inclusi ja-JP per Giapponese (Giappone) ed en-US per Inglese (Stati Uniti). Nei casi in cui non è disponibile un codice lingua a due lettere, viene usato un codice a tre lettere derivato da ISO 639-2.|
 
 ---
 ### <a name="toupper"></a>ToUpper
@@ -249,12 +517,39 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 **Parametri:**<br> 
 
-| name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Tipo | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |Stringa |In genere è il nome dell'attributo dell'oggetto di origine. |
-| **Impostazioni cultura** |Facoltativo |Stringa |Il formato per il nome delle impostazioni cultura basato su RFC 4646 è *languagecode2-country/regioncode2*, in cui *languagecode2* è il codice lingua a due lettere e *country/regioncode2* è il codice di impostazioni cultura secondarie a due lettere. Tra gli esempi sono inclusi ja-JP per Giapponese (Giappone) ed en-US per Inglese (Stati Uniti). Nei casi in cui non è disponibile un codice lingua a due lettere, viene usato un codice a tre lettere derivato da ISO 639-2.|
+| **source** |Obbligatorio |string |In genere è il nome dell'attributo dell'oggetto di origine. |
+| **Impostazioni cultura** |Facoltativo |string |Il formato per il nome delle impostazioni cultura basato su RFC 4646 è *languagecode2-country/regioncode2*, in cui *languagecode2* è il codice lingua a due lettere e *country/regioncode2* è il codice di impostazioni cultura secondarie a due lettere. Tra gli esempi sono inclusi ja-JP per Giapponese (Giappone) ed en-US per Inglese (Stati Uniti). Nei casi in cui non è disponibile un codice lingua a due lettere, viene usato un codice a tre lettere derivato da ISO 639-2.|
 
-## <a name="examples"></a>esempi
+---
+### <a name="word"></a>Word
+**Funzione:**<br> Word (stringa, WordNumber, delimitatori)
+
+**Descrizione:**<br> La funzione Word restituisce una parola contenuta in una stringa, in base ai parametri che descrivono i delimitatori da usare e il numero della parola da restituire. Ogni stringa di caratteri contenuta nella stringa con valori separati da uno dei caratteri specificati nei delimitatori viene identificata come una parola:
+
+Se number è < 1, restituisce una stringa vuota.
+Se string è Null, restituisce una stringa vuota.
+Se la stringa contiene meno delle parole specificate in number o se non contiene alcuna parola identificata da delimiters, viene restituita una stringa vuota.
+
+**Parametri:**<br> 
+
+| Nome | Obbligatorio/Ripetuto | Tipo | Note |
+| --- | --- | --- | --- |
+| **Stringa** |Obbligatorio |Attributo multivalore |Stringa da cui restituire una parola.|
+| **WordNumber** |Obbligatorio | Integer | Numero che identifica il numero di parola da restituire|
+| **delimitatori** |Obbligatorio |string| Stringa che rappresenta i delimitatori da usare per identificare le parole|
+
+**Esempio:**<br>
+Word ("The Quick Brown Fox", 3, "")                                                                                       
+Restituisce "brown"
+
+Word ("This, String! has & molti separatori", 3, ",! & #")                                                                       
+Restituisce "has"
+
+---
+
+## <a name="examples"></a>Esempi
 ### <a name="strip-known-domain-name"></a>Rimuovere un nome di dominio noto
 Occorre rimuovere un nome di dominio noto dall'indirizzo di posta elettronica di un utente per ottenere il nome utente. <br>
 Ad esempio, se il dominio è "contoso.com", è possibile usare l'espressione seguente:
@@ -379,6 +674,18 @@ In base al nome, al secondo nome e al cognome dell'utente, è necessario generar
 * **OUTPUT**: "John.Smith@contoso.com" se il valore UPN di John.Smith@contoso.com non esiste già nella directory
 * **OUTPUT**: "J.Smith@contoso.com" se il valore UPN di John.Smith@contoso.com esiste già nella directory
 * **OUTPUT**: "Jo.Smith@contoso.com" se i due valori UPN precedenti esistono già nella directory
+
+### <a name="flow-mail-value-if-not-null-otherwise-flow-userprincipalname"></a>Valore della posta del flusso se non NULL; in caso contrario, Flow userPrincipalName
+Si desidera che il flusso dell'attributo mail sia presente. In caso contrario, si vuole invece propagare il valore di userPrincipalName.
+
+**Espressione:** <br>
+`Coalesce([mail],[userPrincipalName])`
+
+**Input/output di esempio:** <br>
+
+* **Input** (mail): null
+* **Input** (userPrincipalName): "John.Doe@contoso.com"
+* **OUTPUT**: "John.Doe@contoso.com"
 
 ## <a name="related-articles"></a>Articoli correlati
 * [Automatizzare il provisioning e il deprovisioning utenti in app SaaS](user-provisioning.md)

@@ -1,0 +1,136 @@
+- name: Documentazione delle applicazioni gestite di Azure
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Informazioni sulle applicazioni gestite
+      href: overview.md
+- name: Avvi rapidi
+  expanded: true
+  items:
+    - name: Pubblicare una definizione di applicazione
+      href: publish-managed-app-definition-quickstart.md
+    - name: Distribuire un'app del catalogo di servizi
+      href: deploy-service-catalog-quickstart.md
+- name: Esercitazioni
+  items:
+    - name: Creare file di definizioni
+      href: publish-service-catalog-app.md
+    - name: Pubblicare un'applicazione del Marketplace
+      href: publish-marketplace-app.md
+    - name: Creare l'applicazione gestita con il provider personalizzato
+      href: tutorial-create-managed-app-with-custom-provider.md
+- name: Esempi
+  items:
+    - name: Interfaccia della riga di comando di Azure
+      href: cli-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
+    - name: Soluzioni di applicazioni gestite
+      href: sample-projects.md
+- name: Concetti
+  items:
+    - name: Artefatto di definizione delle visualizzazioni
+      href: concepts-view-definition.md
+    - name: Criteri di Azure per le associazioni
+      href: concepts-built-in-policy.md
+    - name: Artefatto di definizione dei ruoli
+      href: concepts-custom-role-definition.md
+- name: Guide pratiche
+  items:
+    - name: Autori
+      items:
+        - name: Creare l'interfaccia del portale
+          href: create-uidefinition-overview.md
+        - name: Testare l'interfaccia del portale
+          href: test-createuidefinition.md
+        - name: Richiedere l'accesso just-in-time
+          href: request-just-in-time-access.md
+        - name: Aggiornare le risorse gestite
+          href: update-managed-resources.md
+        - name: Usare il portale per pubblicare le definizioni di applicazione
+          href: publish-portal.md
+        - name: Usare un segreto da Key Vault
+          href: key-vault-access.md
+        - name: Distribuire con Identità gestita
+          href: publish-managed-identity.md
+        - name: Distribuire con le notifiche
+          href: publish-notifications.md
+    - name: Consumer
+      items:
+        - name: Monitorare un'applicazione gestita
+          href: monitor-managed-application-portal.md
+        - name: Approvare l'accesso just-in-time
+          href: approve-just-in-time-access.md
+- name: Riferimento
+  items:
+    - name: Artefatti dell'applicazione
+      items:
+        - name: Elementi dell'interfaccia utente
+          href: reference-createuidefinition-artifact.md
+        - name: Modello di distribuzione
+          href: reference-main-template-artifact.md
+        - name: Visualizzare la definizione
+          href: reference-view-definition-artifact.md
+    - name: Interfaccia della riga di comando di Azure
+      href: /cli/azure/managedapp
+    - name: PowerShell
+      href: /powershell/module/az.resources
+    - name: REST
+      href: /rest/api/resources/
+    - name: Funzioni dell'interfaccia utente
+      href: create-uidefinition-functions.md
+    - name: Elementi dell'interfaccia utente
+      href: create-uidefinition-elements.md
+      items:
+        - name: Comuni
+          items:
+            - name: DropDown
+              href: microsoft-common-dropdown.md
+            - name: FileUpload
+              href: microsoft-common-fileupload.md
+            - name: InfoBox
+              href: microsoft-common-infobox.md
+            - name: OptionsGroup
+              href: microsoft-common-optionsgroup.md
+            - name: PasswordBox
+              href: microsoft-common-passwordbox.md
+            - name: Sezione
+              href: microsoft-common-section.md
+            - name: TagsByResource
+              href: microsoft-common-tagsbyresource.md
+            - name: TextBlock
+              href: microsoft-common-textblock.md
+            - name: TextBox
+              href: microsoft-common-textbox.md
+        - name: Calcolo
+          items:
+            - name: CredentialsCombo
+              href: microsoft-compute-credentialscombo.md
+            - name: SizeSelector
+              href: microsoft-compute-sizeselector.md
+            - name: UserNameTextBox
+              href: microsoft-compute-usernametextbox.md
+        - name: Rete
+          items:
+            - name: PublicIPAddressCombo
+              href: microsoft-network-publicipaddresscombo.md
+            - name: VirtualNetworkCombo
+              href: microsoft-network-virtualnetworkcombo.md
+        - name: Archiviazione
+          items:
+            - name: MultiStorageAccountCombo
+              href: microsoft-storage-multistorageaccountcombo.md
+            - name: StorageAccountSelector
+              href: microsoft-storage-storageaccountselector.md
+- name: Risorse
+  items:
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/managed-applications/'
+    - name: Calcolatore prezzi
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Procedure consigliate per i modelli di Resource Manager
+      href: 'https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-managedapps'

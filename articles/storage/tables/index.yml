@@ -1,0 +1,58 @@
+### YamlMime:Landing
+title: Documentazione di archiviazione tabelle di Azure
+summary: L'archiviazione tabelle di Azure è un servizio che archivia dati NoSQL strutturati nel cloud, mettendo a disposizione un archivio di chiavi/attributi senza schema.
+metadata:
+  title: Documentazione di archiviazione tabelle di Azure
+  description: L'archiviazione tabelle di Azure è un servizio che archivia dati NoSQL strutturati nel cloud, mettendo a disposizione un archivio di chiavi/attributi senza schema.
+  ms.service: storage
+  ms.subservice: tables
+  ms.topic: landing-page
+  ms.collection: collection
+  author: tamram
+  ms.author: tamram
+  ms.date: 12/23/2019
+  ms.openlocfilehash: 73dc70fb31508667ebcab4803a9263c716ce35c2
+  ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 12/31/2019
+  ms.locfileid: "75551897"
+landingContent:
+- title: Informazioni sull'archiviazione tabelle
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è l'archiviazione tabelle di Azure?
+      url: table-storage-overview.md
+    - text: Scegliere l'archiviazione tabelle o l'API Tabelle
+      url: ../../cosmos-db/table-support.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fstorage%2Ftables%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fbread%2Ftoc.json
+- title: Linee guida per la progettazione delle tabelle
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Progettazione per letture e scritture efficienti
+      url: table-storage-design-guidelines.md
+    - text: Progettazione per le query
+      url: table-storage-design-for-query.md
+    - text: Progettazione per la modifica dei dati
+      url: table-storage-design-for-modification.md
+    - text: Modelli di progettazione tabella
+      url: table-storage-design-patterns.md
+- title: Ottimizzazione di prestazioni, scalabilità e costi
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Elenco di controllo per le prestazioni dell'archiviazione tabelle
+      url: storage-performance-checklist.md
+    - text: Progettazione per prestazioni ottimali
+      url: table-storage-design.md
+  - linkListType: reference
+    links:
+    - text: Obiettivi di scalabilità per l'archiviazione tabelle
+      url: scalability-targets.md
+- title: Introduzione
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Creare una tabella nel portale di Azure
+      url: table-storage-quickstart-portal.md

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3b87e04c2d6380a0ee4157e73db0cd4057fadee1
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 4056ecba7ac80436952228da9e1b74dc7382448c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704921"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448962"
 ---
 # <a name="query-expression-syntax"></a>Sintassi delle espressioni di query
 
@@ -28,23 +28,24 @@ Ogni attributo di entità che può essere incluso in un'espressione di query ha 
 
 Alcuni dei dati delle entità vengono archiviati come attributi compositi, come indicato dal punto "." nel nome dell'attributo. Ad esempio, le informazioni su autore/affiliazione vengono rappresentate come attributo composito. Contiene 4 componenti: AuN, AuId, AfN, AfId. Questi componenti sono dati separati che costituiscono un singolo valore dell'attributo di entità.
 
+Nota: tutte le espressioni di query devono essere in lettere minuscole e senza caratteri speciali.
 
-**Attributo stringa: valore singolo** (include le corrispondenze ai sinonimi)  
+**Attributo di stringa: valore singolo** (include le corrispondenze ai sinonimi)  
 Ti='indexing by latent semantic analysis'  
 Composite(AA.AuN='sue dumais')
 
-**Attributo stringa: valore singolo esatto** (corrisponde solo ai valori canonici)  
+**Attributo di stringa: valore singolo esatto** (corrisponde solo ai valori canonici)  
 Ti=='indexing by latent semantic analysis'  
 Composite(AA.AuN=='susan t dumais')
      
-**Attributo stringa: valore del prefisso**   
+**Attributo di stringa: valore del prefisso**   
 Ti='indexing by latent seman'...  
 Composite(AA.AuN='sue du'...)
 
 **Attributo numerico: valore singolo**  
 Y=2010
  
-**Attributo numerico: valore intervallo**  
+**Attributo numerico: valore dell'intervallo**  
 Y>2005  
 Y>=2005  
 Y<2010  
@@ -58,7 +59,7 @@ Y='19'... (qualsiasi valore numerico che inizia con 19)
 **Attributo di data: valore singolo**  
 D='2010-02-04'
 
-**Attributo di data: valore intervallo**  
+**Attributo di data: valore dell'intervallo**  
 D>'2010-02-03'  
 D=['2010-02-03','2010-02-05']
 
@@ -105,7 +106,7 @@ And(Composite(C.A=1), Composite(C.B=2))
 ```
 <br>cerca le entità che hanno un valore per C, in cui C.A è 1, e hanno anche un valore per C, in cui C.B è 2. Sia E1 che E2 corrispondono a questa query.
 
-Nota bene:  
+Nota:  
 - Non è possibile fare riferimento a una parte di un attributo composito al di fuori di una funzione Composite().
 - Non è possibile fare riferimento a parti di due diversi attributi compositi nella stessa funzione Composite().
 - Non è possibile fare riferimento a un attributo che non fa parte di un attributo composito in una funzione Composite().

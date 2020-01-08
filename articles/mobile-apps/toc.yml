@@ -6,7 +6,7 @@
       href: stages-overview.md
     - name: Scegliere il framework di sviluppo per dispositivi mobili
       href: front-end-development-platform.md
-    - name: Pianificare e progettare app per dispositivi mobili con servizi back-end
+    - name: Pianificare e progettare un'app per dispositivi mobili con servizi back-end
       items:
         - name: Authentication
           href: authentication.md
@@ -22,9 +22,9 @@
       href: code-hosting-services.md
     - name: DevOps
       items:
-        - name: Informazioni su DevOps
+        - name: Che cos'è DevOps?
           href: devops.md
-        - name: Creazione e integrazione continue
+        - name: Compilazione e integrazione continue
           href: continuous-integration.md
         - name: Test su dispositivi reali
           href: test.md
@@ -32,7 +32,7 @@
           href: continuous-delivery.md
     - name: Analizzare l'utilizzo e il comportamento degli utenti
       href: analytics.md
-    - name: Report sugli arresti anomali in tempo reale
+    - name: Report degli errori in tempo reale
       href: diagnostics.md
     - name: Notifiche push
       href: push-notifications.md
@@ -42,7 +42,7 @@
       href: cognitive-services.md
     - name: Mappe di Azure
       href: azure-maps.md
-    - name: Rete CDN di Azure
+    - name: Rete per la distribuzione di contenuti di Azure
       href: azure-cdn.md
     - name: Ricerca cognitiva di Azure
       href: azure-search.md

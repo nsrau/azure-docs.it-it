@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 0dccefa47789b4658a7bca828b5a820db0d448e5
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: ce51c6415389ee52cf0371dfbddb98cb48747b05
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688663"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430457"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Creare un ambiente del servizio app usando un modello di Azure Resource Manager
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -69,7 +69,7 @@ Ottenere un certificato SSL valido usando le autorità di certificazione interne
 * **Soggetto**: questo attributo deve essere impostato su * *.your-root-domain-here.com*.
 * **Nome alternativo soggetto**: questo attributo deve includere sia * *.your-root-domain-here.com* che * *.scm.your-root-domain-here.com*. Le connessioni SSL al sito SCM/Kudu associato a ogni app usano un indirizzo nel formato *your-app-name.scm.your-root-domain-here.com*.
 
-Dopo aver ottenuto un certificato SSL valido sono necessari altri due passaggi preliminari. Convertire/salvare il certificato SSL come file con estensione pfx. Tenere presente che il file con estensione pfx deve includere tutti i certificati intermedi e quelli radice. Proteggerlo con una password.
+Dopo aver ottenuto un certificato SSL valido sono necessari altri due passaggi preliminari. Convertire/Salvare il certificato SSL come file con estensione pfx. Tenere presente che il file con estensione pfx deve includere tutti i certificati intermedi e quelli radice. Proteggerlo con una password.
 
 Il file con estensione pfx deve essere convertito in una stringa Base 64 perché il certificato SSL viene caricato usando un modello di Resource Manager. Poiché i modelli di Resource Manager sono file di testo, il file PFX deve essere convertito in una stringa Base 64. In questo modo può essere incluso come parametro del modello.
 
@@ -181,7 +181,7 @@ Per creare un ASEv1 usando un modello di Gestione risorse, vedere creare un ambi
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
-[ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
+[ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../../app-service/configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md

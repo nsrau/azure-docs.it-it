@@ -17,6 +17,8 @@
           href: ./hdinsight-administer-use-dotnet-sdk.md
         - name: Gestire cluster HDInsight - Powershell
           href: ./hdinsight-administer-use-powershell.md
+        - name: Creare cluster con i runbook
+          href: ./manage-clusters-runbooks.md
         - name: Creare una pipeline ETL
           href: ./hdinsight-sales-insights-etl.md
     - name: Esempi
@@ -73,14 +75,29 @@
               href: ./hdinsight-hadoop-create-linux-clusters-curl-rest.md
             - name: Creare cluster con .NET
               href: ./hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
-        - name: Usare l'archiviazione cluster
-          items:
-            - name: Uso di Archiviazione di Azure
-              href: hdinsight-hadoop-use-blob-storage.md
-            - name: Uso di Azure Data Lake Storage Gen2
-              href: hdinsight-hadoop-use-data-lake-storage-gen2.md
-            - name: Uso di Azure Data Lake Storage Gen1
-              href: hdinsight-hadoop-use-data-lake-store.md
+            - name: Errori di creazione del cluster
+              href: ./create-cluster-error-dictionary.md
+              title: null
+              summary: null
+              abstract: null
+              achievement: null
+              iconUrl: null
+              levels:
+                - null
+              roles:
+                - null
+              products:
+                - null
+              units:
+                - null
+                - name: Usare l'archiviazione cluster
+                  items:
+                    - name: Uso di Archiviazione di Azure
+                      href: hdinsight-hadoop-use-blob-storage.md
+                    - name: Uso di Azure Data Lake Storage Gen2
+                      href: hdinsight-hadoop-use-data-lake-storage-gen2.md
+                    - name: Uso di Azure Data Lake Storage Gen1
+                      href: hdinsight-hadoop-use-data-lake-store.md
         - name: Estendere i cluster
           items:
             - name: Installare app HDInsight
@@ -105,7 +122,7 @@
                   href: 'https://msdn.microsoft.com/library/mt706515.aspx'
                 - name: Pubblicare app HDInsight in Azure Marketplace
                   href: hdinsight-apps-publish-applications.md
-        - name: Proteggere
+        - name: Sicurezza
           items:
             - name: Usare SSH con HDInsight
               href: hdinsight-hadoop-linux-use-ssh-unix.md
@@ -129,7 +146,7 @@
               href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-data-migration.md
             - name: Procedure consigliate - Sicurezza e DevOps
               href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-security-devops.md
-        - name: Gestisci
+        - name: Gestione
           items:
             - name: Gestire i cluster con l'interfaccia utente Web di Apache Ambari
               href: ./hdinsight-hadoop-manage-ambari.md
@@ -201,7 +218,7 @@
               href: ./hdinsight-key-scenarios-to-monitor.md
             - name: Monitorare la disponibilità dei cluster con i log di Ambari e di Monitoraggio di Azure
               href: ./hdinsight-cluster-availability.md
-    - name: riferimento
+    - name: Riferimento
       items:
         - name: Azure PowerShell
           href: /powershell/module/az.hdinsight
@@ -257,7 +274,7 @@
       items:
         - name: Informazioni su Apache Spark in HDInsight
           href: ./spark/apache-spark-overview.md
-    - name: Guide introduttive
+    - name: Avvi rapidi
       items:
         - name: Creare un cluster Apache Spark - Portale
           href: ./spark/apache-spark-jupyter-spark-sql-use-portal.md
@@ -333,7 +350,7 @@
                   href: ./hdinsight-using-spark-query-hbase.md
                 - name: Analizzare i log di Application Insights Telemetry
                   href: ./spark/apache-spark-analyze-application-insight-logs.md
-        - name: Gestisci
+        - name: Gestione
           items:
             - name: Gestire le risorse cluster
               href: ./spark/apache-spark-resource-manager.md
@@ -401,7 +418,7 @@
       items:
         - name: Informazioni su Apache Hadoop in HDInsight
           href: ./hadoop/apache-hadoop-introduction.md
-    - name: Guide introduttive
+    - name: Avvi rapidi
       items:
         - name: Creare un cluster Apache Hadoop - Portale
           href: ./hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md
@@ -466,7 +483,7 @@
                   href: ./hadoop/apache-hadoop-mahout-linux-mac.md
                 - name: Analisi avanzate per HDInsight
                   href: ./hadoop/apache-hadoop-deep-dive-advanced-analytics.md
-        - name: Gestisci
+        - name: Gestione
           items:
             - name: Usare nodi perimetrali vuoti
               href: ./hdinsight-apps-use-edge-node.md
@@ -514,7 +531,7 @@
       items:
         - name: Informazioni su Apache Kafka in HDInsight
           href: ./kafka/apache-kafka-introduction.md
-    - name: Guide introduttive
+    - name: Avvi rapidi
       items:
         - name: Creare un cluster Apache Kafka - Portale
           href: ./kafka/apache-kafka-get-started.md
@@ -533,6 +550,8 @@
           href: ./hdinsight-apache-kafka-spark-structured-streaming.md
     - name: Concetti
       items:
+        - name: Eseguire la migrazione dei carichi di lavoro Kafka alla versione 4.0
+          href: ./kafka/migrate-versions.md
         - name: Archiviazione e scalabilità
           href: ./kafka/apache-kafka-scalability.md
         - name: Disponibilità elevata dei dati
@@ -545,6 +564,8 @@
       items:
         - name: Sviluppo
           items:
+            - name: Usare il proxy REST Kafka
+              href: ./kafka/rest-proxy.md
             - name: Abilitare la creazione automatica di argomenti
               href: ./kafka/apache-kafka-auto-create-topics.md
             - name: Usare Apache Kafka con l'hub IoT
@@ -557,7 +578,7 @@
                   href: ./hdinsight-apache-spark-with-kafka.md
                 - name: Usare Kafka con il servizio Azure Container
                   href: ./kafka/apache-kafka-azure-container-services.md
-        - name: Gestisci
+        - name: Gestione
           items:
             - name: Usare Apache Kafka in una rete virtuale
               href: ./kafka/apache-kafka-connect-vpn-gateway.md
@@ -565,7 +586,7 @@
               href: ./kafka/apache-kafka-mirroring.md
             - name: Analizzare i log di Apache Kafka
               href: ./kafka/apache-kafka-log-analytics-operations-management.md
-            - name: BYOK (Bring Your Own Key)
+            - name: Bring Your Own Key
               href: ./kafka/apache-kafka-byok.md
             - name: Autenticazione e crittografia SSL
               href: ./kafka/apache-kafka-ssl-encryption-authentication.md
@@ -579,7 +600,7 @@
       items:
         - name: Informazioni su Apache HBase in HDInsight
           href: ./hbase/apache-hbase-overview.md
-    - name: Guide introduttive
+    - name: Avvi rapidi
       items:
         - name: Eseguire query su Apache HBase - Apache Phoenix
           href: ./hbase/apache-hbase-query-with-phoenix.md
@@ -605,7 +626,7 @@
               href: ./hbase/apache-hbase-using-phoenix-query-server-rest-sdk.md
             - name: Caricamento bulk di dati in Apache Phoenix tramite psql
               href: ./hbase/apache-hbase-phoenix-psql.md
-        - name: Gestisci
+        - name: Gestione
           items:
             - name: Scritture accelerate
               href: ./hbase/apache-hbase-accelerated-writes.md
@@ -651,7 +672,7 @@
       items:
         - name: Informazioni su Interactive Query in HDInsight
           href: ./interactive-query/apache-interactive-query-get-started.md
-    - name: Guide introduttive
+    - name: Avvi rapidi
       items:
         - name: Eseguire query Apache Hive - Apache Zeppelin
           href: ./interactive-query/hdinsight-connect-hive-zeppelin.md
@@ -691,7 +712,7 @@
               href: ./hadoop/apache-hadoop-hive-java-udf.md
             - name: Query Hive con PowerShell e ODBC
               href: ./interactive-query/apache-hive-query-odbc-driver-powershell.md
-        - name: Gestisci
+        - name: Gestione
           items:
             - name: Eseguire la migrazione di carichi di lavoro Hive ad HDInsight 4.0
               href: ./interactive-query/apache-hive-migrate-workloads.md
@@ -707,6 +728,8 @@
               href: ./interactive-query/interactive-query-troubleshoot-query-performance.md
             - name: Riduttore lento
               href: ./interactive-query/interactive-query-troubleshoot-slow-reducer.md
+            - name: Timeout del gateway Apache Hive
+              href: ./interactive-query/troubleshoot-gateway-timeout.md
             - name: Timeout della visualizzazione Apache Hive
               href: ./interactive-query/interactive-query-troubleshoot-view-time-out.md
             - name: Errore di autorizzazione durante la creazione di una tabella
@@ -729,7 +752,7 @@
       items:
         - name: Informazioni su ML Services in HDInsight
           href: ./r-server/r-server-overview.md
-    - name: Guide introduttive
+    - name: Avvi rapidi
       items:
         - name: Processo di esempio - RStudio Server
           href: ./r-server/machine-learning-services-quickstart-job-rstudio.md
@@ -749,7 +772,7 @@
               href: ./r-server/r-server-compute-contexts.md
             - name: ScaleR e SparkR
               href: ./hdinsight-hadoop-r-scaler-sparkr.md
-        - name: Gestisci
+        - name: Gestione
           items:
             - name: Gestire cluster ML Services
               href: ./r-server/r-server-hdinsight-manage.md
@@ -763,7 +786,7 @@
       items:
         - name: Informazioni su Apache Storm in HDInsight
           href: ./storm/apache-storm-overview.md
-    - name: Guide introduttive
+    - name: Avvi rapidi
       items:
         - name: Creare una topologia Apache Storm in HDInsight
           href: ./storm/apache-storm-quickstart.md
@@ -795,7 +818,7 @@
                   href: 'https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/'
                 - name: 'Hub eventi e Apache Storm (C# e Java)'
                   href: ./storm/apache-storm-develop-csharp-event-hub-topology.md
-        - name: Gestisci
+        - name: Gestione
           items:
             - name: Monitorare le topologie
               href: ./storm/apache-storm-deploy-monitor-topology-linux.md
@@ -835,14 +858,14 @@
           href: ./hdinsight-service-tags.md
     - name: Procedure
       items:
+        - name: Usare il broker di identità per la gestione delle credenziali
+          href: ./domain-joined/identity-broker.md
         - name: Creare cluster ESP e sincronizzarli con l'istanza locale
           href: ./domain-joined/apache-domain-joined-create-configure-enterprise-security-cluster.md
         - name: Creare reti virtuali per HDInsight
           href: ./hdinsight-create-virtual-network.md
         - name: Connettere HDInsight alla rete locale
           href: ./connect-on-premises-network.md
-        - name: Configurare la sicurezza aziendale in HDInsight
-          href: ./domain-joined/apache-domain-joined-configure.md
         - name: Configurare cluster ESP con Azure Active Directory Domain Services
           href: ./domain-joined/apache-domain-joined-configure-using-azure-adds.md
         - name: Sincronizzare gli utenti di Azure AD con un cluster HDInsight

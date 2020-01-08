@@ -4,7 +4,7 @@
   items:
     - name: Introduzione ad Azure Cosmos DB
       href: introduction.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare le risorse di Cosmos DB
@@ -129,6 +129,8 @@
           href: set-throughput.md
         - name: Effettuare il provisioning della velocità effettiva - Modalità Autopilot
           href: provision-throughput-autopilot.md
+        - name: Domande frequenti su Autopilot
+          href: autopilot-faq.md
     - name: Informazioni di riferimento sulle query SQL
       items:
         - name: Introduzione
@@ -313,12 +315,12 @@
                     - name: ST_ISVALIDDETAILED
                       displayName: 'ST_ISVALIDDETAILED, st isvaliddetailed, is valid detailed, built-in functions'
                       href: sql-query-st-isvaliddetailed.md
-                - name: Funzioni stringa
+                - name: Funzioni per i valori stringa
                   items:
-                    - name: Funzioni stringa
+                    - name: Funzioni per i valori stringa
                       displayName: 'string functions, string, system functions, built-in functions'
                       href: sql-query-string-functions.md
-                    - name: CONCAT
+                    - name: CONCATENA
                       displayName: 'CONCAT, concatenate, built-in functions'
                       href: sql-query-concat.md
                     - name: CONTAINS
@@ -345,7 +347,7 @@
                     - name: REPLACE
                       displayName: 'REPLACE, built-in functions'
                       href: sql-query-replace.md
-                    - name: REPLICA
+                    - name: REPLICATE
                       displayName: 'REPLICATE, built-in functions'
                       href: sql-query-replicate.md
                     - name: REVERSE
@@ -545,7 +547,7 @@
           href: cassandra-introduction.md
         - name: Supporto dei protocolli di collegamento
           href: cassandra-support.md
-        - name: Guide introduttive
+        - name: Avvi rapidi
           items:
             - name: .NET
               href: create-cassandra-dotnet.md
@@ -566,7 +568,7 @@
             - name: 4 - Eseguire la migrazione dei dati
               displayName: import
               href: cassandra-import-data.md
-        - name: Guide alle procedure
+        - name: Guide pratiche
           items:
             - name: Feed delle modifiche
               href: cassandra-change-feed.md
@@ -583,7 +585,7 @@
                   href: cassandra-spark-hdinsight.md
                 - name: Creare keyspace e tabella
                   href: cassandra-spark-ddl-ops.md
-                - name: Inserire dati
+                - name: Inserire i dati
                   href: cassandra-spark-create-ops.md
                 - name: Leggere i dati
                   href: cassandra-spark-read-ops.md
@@ -609,7 +611,7 @@
           href: mongodb-feature-support.md
         - name: Supporto del protocollo di collegamento (3.6)
           href: mongodb-feature-support-36.md
-        - name: Guide introduttive
+        - name: Avvi rapidi
           items:
             - name: .NET
               href: create-mongodb-dotnet.md
@@ -653,7 +655,7 @@
               href: tutorial-query-mongodb.md
             - name: 4 - Distribuire i dati a livello globale
               href: tutorial-global-distribution-mongodb.md
-        - name: Guide alle procedure
+        - name: Guide pratiche
           items:
             - name: Guida alla pre-migrazione
               href: mongodb-pre-migration.md
@@ -699,7 +701,7 @@
           href: graph-introduction.md
         - name: Supporto dei protocolli di collegamento
           href: gremlin-support.md
-        - name: Guide introduttive
+        - name: Avvi rapidi
           items:
             - name: Console Gremlin
               href: create-graph-gremlin-console.md
@@ -717,7 +719,7 @@
           items:
             - name: 1 - Eseguire query sui dati
               href: tutorial-query-graph.md
-        - name: riferimento
+        - name: Riferimento
           items:
             - name: Intestazioni della risposta
               href: gremlin-headers.md
@@ -725,7 +727,7 @@
               href: gremlin-limits.md
             - name: Compatibilità
               href: gremlin-compatibility.md
-        - name: Guide alle procedure
+        - name: Guide pratiche
           items:
             - name: Modellazione di dati del grafico
               href: graph-modeling.md
@@ -756,7 +758,7 @@
       items:
         - name: Introduzione
           href: table-introduction.md
-        - name: Guide introduttive
+        - name: Avvi rapidi
           items:
             - name: .NET
               href: create-table-dotnet.md
@@ -796,7 +798,7 @@
             - name: 'F#'
               href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
               maintainContext: true
-        - name: Guide alle procedure
+        - name: Guide pratiche
           items:
             - name: Creare app con l'API Tabella
               href: table-support.md
@@ -808,7 +810,7 @@
               href: powershell-samples-table.md
             - name: Gestire con l'interfaccia della riga di comando di Azure
               href: cli-samples-table.md
-        - name: riferimento
+        - name: Riferimento
           items:
             - name: .NET
               href: table-sdk-dotnet.md
@@ -828,13 +830,13 @@
           href: etcd-api-introduction.md
         - name: Azure Kubernetes con Azure Cosmos DB
           href: bootstrap-kubernetes-cluster.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Usare l'account Azure Cosmos
       href: how-to-manage-database-account.md
     - name: Usare le risorse di Azure Cosmos DB
       items:
-        - name: Tramite PowerShell
+        - name: Utilizzo di PowerShell
           href: manage-with-powershell.md
         - name: Utilizzare l'interfaccia della riga di comando di Azure
           href: manage-with-cli.md
@@ -982,6 +984,8 @@
       items:
         - name: Monitorare Cosmos DB
           href: monitor-cosmos-db.md
+        - name: Monitorare con i log di diagnostica
+          href: cosmosdb-monitor-resource-logs.md
         - name: Monitoraggio di Azure per Cosmos (anteprima)
           href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json
         - name: Visualizzare le metriche dall'account Cosmos DB
@@ -1062,7 +1066,7 @@
           href: bulk-executor-dot-net.md
         - name: BulkExecutor - Libreria Java
           href: bulk-executor-java.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: .NET
       href: sql-api-sdk-dotnet.md

@@ -12,12 +12,12 @@ metadata:
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: 2b83d09932aaa39e31d04f30bc660541efcbb50b
-  ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+  ms.openlocfilehash: 7ebb44ec1f3483b9bf3f29ddb6dc7a73266b8cea
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 11/09/2019
-  ms.locfileid: "73882793"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75443370"
 landingContent:
 - title: Informazioni sulla gestione delle applicazioni
   linkLists:
@@ -53,22 +53,22 @@ landingContent:
     links:
     - text: Informazioni sul provisioning utenti automatico
       url: user-provisioning.md
-  - linkListType: concept
+    - text: Come funziona il provisioning
+      url: how-provisioning-works.md
+  - linkListType: tutorial
     links:
-    - text: Usare SCIM per il provisioning di utenti e gruppi
-      url: use-scim-to-provision-users-and-groups.md
+    - text: Esercitazioni sul provisioning di app SaaS
+      url: /azure/active-directory/saas-apps/
   - linkListType: how-to-guide
     links:
-    - text: Configurare il provisioning automatico degli utenti
+    - text: Si vuole creare un'app? Usare SCIM per il provisioning automatico
+      url: use-scim-to-provision-users-and-groups.md
+    - text: Si vuole aggiungere un'app della raccolta? Configurare il provisioning per l'app
       url: configure-automatic-user-provisioning-portal.md
     - text: Personalizzare i mapping degli attributi
       url: customize-application-attributes.md
-    - text: Verificare lo stato del provisioning
-      url: application-provisioning-when-will-provisioning-finish-specific-user.md
-  - linkListType: reference
-    links:
-    - text: Scrivere espressioni per il mapping degli attributi
-      url: functions-for-customizing-application-data.md
+    - text: Usare i filtri per la definizione dell'ambito
+      url: define-conditional-rules-for-provisioning-user-accounts.md
 - title: Pubblicare app locali con Application Proxy
   linkLists:
   - linkListType: overview

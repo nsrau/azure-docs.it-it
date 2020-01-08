@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Backup di Azure
       href: backup-overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Eseguire il backup di una macchina virtuale - Portale
@@ -36,6 +36,14 @@
       href: tutorial-backup-windows-server-to-azure.md
     - name: Ripristinare i file in Windows Server
       href: tutorial-backup-restore-files-windows-server.md
+    - name: Database SAP HANA in macchine virtuali di Azure - Interfaccia della riga di comando
+      items:
+        - name: Backup di database SAP HANA - Interfaccia della riga di comando
+          href: tutorial-sap-hana-backup-cli.md
+        - name: Ripristino di database SAP HANA - Interfaccia della riga di comando
+          href: tutorial-sap-hana-restore-cli.md
+        - name: Gestire i backup dei database SAP HANA - Interfaccia della riga di comando
+          href: tutorial-sap-hana-manage-cli.md
 - name: Esempi
   items:
     - name: Azure PowerShell
@@ -244,6 +252,8 @@
           href: manage-monitor-sql-database-backup.md
     - name: Database SAP HANA nelle VM di Azure
       items:
+        - name: Panoramica del backup di SAP HANA in macchine virtuali di Azure
+          href: sap-hana-db-about.md
         - name: Eseguire il backup di database SAP HANA in macchine virtuali di Azure
           href: backup-azure-sap-hana-database.md
         - name: Ripristinare i database SAP HANA nelle VM di Azure
@@ -304,7 +314,7 @@
           href: backup-azure-monitoring-built-in-monitor.md
         - name: Uso di Monitoraggio di Azure
           href: backup-azure-monitoring-use-azuremonitor.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.recoveryservices.backup

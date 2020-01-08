@@ -4,7 +4,7 @@
   items:
     - name: Informazioni sul servizio Azure SignalR
       href: signalr-overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: 'ASP.NET Core - C#'
@@ -25,6 +25,10 @@
   items:
     - name: Creare un'app in tempo reale serverless con l'autenticazione
       href: signalr-tutorial-authenticate-azure-functions.md
+    - name: Monitorare
+      items:
+        - name: Usare i log di diagnostica per monitorare il servizio SignalR
+          href: signalr-tutorial-diagnostic-logs.md
 - name: Esempi
   items:
     - name: Esempi di codice
@@ -57,15 +61,15 @@
       href: signalr-concept-authenticate-oauth.md
     - name: Gestione degli eventi
       href: signalr-concept-event-grid-integration.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Scalabilità
       items:
         - name: Istanza singola
           href: signalr-howto-scale-signalr.md
-        - name: Più istanze
+        - name: Istanze multiple
           href: signalr-howto-scale-multi-instances.md
-    - name: Proteggere
+    - name: Sicurezza
       items:
         - name: Rotazione delle chiavi di accesso
           href: signalr-howto-key-rotation.md
@@ -100,7 +104,7 @@
     - name: Domande frequenti
       href: signalr-resource-faq.md
     - name: Limiti dei livelli di sottoscrizione del Servizio SignalR
-      href: 'https://docs.microsoft.com/azure/azure-subscription-service-limits#signalr-service-limits'
+      href: 'https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#signalr-service-limits'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/signalr-service/'
     - name: Video

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: 7f5fdd625eb49bfcac0bd58bca7a8415ac877517
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 643d4b918dd8677e8ed02a7def383efa77e71fce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036002"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430299"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Come installare e configurare MongoDB in una macchina virtuale Linux
 
@@ -39,7 +39,7 @@ Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/gro
 az group create --name myResourceGroup --location eastus
 ```
 
-Creare una macchina virtuale con il comando [az vm create](/cli/azure/vm). L'esempio seguente crea una macchina virtuale denominata *myVM* con un utente chiamato *azureuser* usando l'autenticazione con chiave pubblica SSH
+Creare una VM con il comando [az vm create](/cli/azure/vm). L'esempio seguente crea una macchina virtuale denominata *myVM* con un utente chiamato *azureuser* usando l'autenticazione con chiave pubblica SSH
 
 ```azurecli
 az vm create \
@@ -215,7 +215,7 @@ In questi esempi si effettua la connessione all'istanza di MongoDB locale dalla 
 
 Questi esempi consentono di distribuire l'ambiente MongoDB di base per scopi di sviluppo. Applicare le opzioni di configurazione della sicurezza necessarie per l'ambiente in uso. Per altre informazioni, vedere i [documenti sulla sicurezza di MongoDB](https://docs.mongodb.com/manual/security/).
 
-Per altre informazioni sulla creazione tramite modelli, vedere [Panoramica di Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+Per altre informazioni sulla creazione tramite modelli, vedere [Panoramica di Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 
 I modelli di Azure Resource Manager usano l'estensione dello script personalizzata per scaricare ed eseguire script nelle VM. Per altre informazioni, vedere [Using the Azure Custom Script Extension with Linux Virtual Machines](extensions-customscript.md) (Usare l'estensione dello script personalizzata di Azure con macchine virtuali Linux).
 

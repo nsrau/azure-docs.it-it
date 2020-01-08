@@ -4,7 +4,7 @@
   items:
     - name: Informazioni sulle macchine virtuali
       href: overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: 'Creare una VM: portale'
@@ -86,7 +86,7 @@
               href: ../scripts/virtual-machines-windows-powershell-sample-create-snapshot-from-vhd.md
             - name: Copiare uno snapshot
               href: ../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-same-or-different-subscription.md
-        - name: Proteggere
+        - name: Sicurezza
           items:
             - name: Crittografare una VM e i relativi dischi dati
               href: ./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md?
@@ -130,7 +130,7 @@
           items:
             - name: Proteggere il traffico di rete tra VM
               href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-nsg.md
-        - name: Proteggere
+        - name: Sicurezza
           items:
             - name: Crittografare una VM e i dischi dati
               href: ./../scripts/virtual-machines-windows-cli-sample-encrypt-vm.md
@@ -141,7 +141,7 @@
 - name: Concetti
   items:
     - name: Azure Resource Manager
-      href: ../../azure-resource-manager/resource-group-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Regioni
       href: regions.md
     - name: Disponibilità e prestazioni
@@ -186,6 +186,8 @@
               href: sizes-gpu.md
             - name: Configurare i driver GPU
               href: n-series-driver-setup.md
+            - name: Configurare i driver per la GPU AMD
+              href: n-series-amd-driver-setup.md
         - name: High Performance Computing (HPC)
           displayName: H-series
           href: sizes-hpc.md
@@ -262,7 +264,7 @@
       href: backup-recovery.md
     - name: Esempio di infrastruttura
       href: infrastructure-example.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Creare VM
       items:
@@ -313,7 +315,7 @@
           href: security-recommendations.md
         - name: Accesso just-in-time
           href: ../../security-center/security-center-just-in-time.md
-        - name: Crittografare il contenuto
+        - name: Encrypt
           items:
             - name: Scenari di crittografia dei dischi per Windows
               href: disk-encryption-windows.md
@@ -648,7 +650,7 @@
               href: migration-classic-resource-manager-faq.md
 - name: Risolvere problemi
   href: ../troubleshooting/index.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/vm
@@ -672,7 +674,7 @@
 - name: Risorse
   items:
     - name: Creare modelli
-      href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      href: ../../azure-resource-manager/templates/template-syntax.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Sviluppare le proprie competenze con Microsoft Learn
       href: /learn/browse/?products=azure-virtual-machines
     - name: Roadmap per Azure

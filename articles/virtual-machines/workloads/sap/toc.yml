@@ -1,6 +1,6 @@
 - name: Panoramica
   items:
-    - name: Attività iniziali
+    - name: Introduzione
       href: get-started.md
     - name: Certificazioni
       href: sap-certifications.md
@@ -24,7 +24,7 @@
           href: hana-data-tiering-extension-nodes.md
         - name: Responsabilità e modello operativo
           href: hana-operations-model.md
-    - name: Architettura
+    - name: Architecture
       items:
         - name: Architettura generale
           href: hana-architecture.md
@@ -104,6 +104,8 @@
           href: hana-vm-troubleshoot-scale-out-ha-on-sles.md
         - name: Scalabilità orizzontale di SAP HANA con nodo di standby con Azure NetApp Files in SLES
           href: sap-hana-scale-out-standby-netapp-files-suse.md
+        - name: Sistema SAP HANA scale-out con nodo di standby con Azure NetApp Files in RHEL
+          href: sap-hana-scale-out-standby-netapp-files-rhel.md
     - name: Panoramica del backup di SAP HANA
       href: sap-hana-backup-guide.md
     - name: Backup a livello di file di SAP HANA
@@ -214,6 +216,8 @@
               href: sap-ascs-ha-multi-sid-wsfc-shared-disk.md
             - name: Windows con condivisione file SOFS per l'istanza (A)SCS
               href: sap-ascs-ha-multi-sid-wsfc-file-share.md
+            - name: SLES con multi-SID Pacemaker per l'istanza A(SCS)
+              href: high-availability-guide-suse-multi-sid.md
     - name: Azure Site Recovery per il ripristino di emergenza di SAP
       href: '../../../site-recovery/site-recovery-workload.md#protect-sap'
     - name: Gruppi di selezione host di prossimità di Azure per una latenza di rete ottimale con le applicazioni SAP

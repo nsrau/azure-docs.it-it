@@ -4,7 +4,7 @@
   items:
     - name: Informazioni sulle macchine virtuali
       href: overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: 'Creare una VM: interfaccia della riga di comando di Azure'
@@ -43,8 +43,10 @@
       href: tutorial-azure-security.md
     - name: 14 - Distribuire Jenkins
       href: tutorial-jenkins-github-docker-cicd.md
-    - name: 15 - CI/CD con Azure Pipelines
+    - name: 15 - Distribuire con Azure Pipelines
       href: tutorial-build-deploy-jenkins.md
+    - name: 15b - CI/CD con Azure Pipelines
+      href: tutorial-build-deploy-azure-pipelines.md
     - name: 16a - Creare uno stack LAMP
       href: tutorial-lamp-stack.md
     - name: 16b - Creare uno stack LEMP
@@ -62,7 +64,7 @@
 - name: Concetti
   items:
     - name: Azure Resource Manager
-      href: ../../azure-resource-manager/resource-group-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Regioni
       href: regions.md
     - name: Disponibilità e prestazioni
@@ -178,7 +180,7 @@
       href: backup-recovery.md
     - name: Linee guida per l'infrastruttura
       href: infrastructure-example.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Creare VM
       items:
@@ -213,7 +215,7 @@
           href: security-recommendations.md
         - name: Accesso just-in-time
           href: ../../security-center/security-center-just-in-time.md
-        - name: Crittografare il contenuto
+        - name: Encrypt
           items:
             - name: Scenari di crittografia dei dischi per Linux
               href: disk-encryption-linux.md
@@ -301,7 +303,7 @@
         - name: Aggiungere una macchina virtuale ad Azure Active Directory
           displayName: AAD
           items:
-            - name: Red Hat Enterprise Linux.
+            - name: Red Hat Enterprise Linux
               href: ../../active-directory-domain-services/join-rhel-linux-vm.md
             - name: CentOS
               href: ../../active-directory-domain-services/join-centos-linux-vm.md
@@ -429,7 +431,7 @@
       items:
         - name: Ansible
           items:
-            - name: Installare e configurare
+            - name: Installazione e configurazione
               href: ansible-install-configure.md
             - name: Creare una macchina virtuale Linux
               href: ansible-create-vm.md
@@ -437,7 +439,7 @@
               href: ansible-manage-linux-vm.md
         - name: Terraform
           items:
-            - name: Installare e configurare
+            - name: Installazione e configurazione
               href: terraform-install-configure.md
             - name: Creare una VM completa
               href: terraform-create-complete-vm.md
@@ -526,7 +528,7 @@
           href: 'https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/'
         - name: IBM Db2 pureScale
           items:
-            - name: Architettura
+            - name: Architecture
               href: ibm-db2-purescale-azure.md
             - name: Distribuzione
               href: deploy-ibm-db2-purescale-azure.md
@@ -655,7 +657,7 @@
               href: ../windows/migration-classic-resource-manager-community-tools.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Domande frequenti
               href: migration-classic-resource-manager-faq.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/vm

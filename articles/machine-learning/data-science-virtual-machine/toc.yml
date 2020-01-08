@@ -8,9 +8,9 @@
       href: overview.md
     - name: Che cos'è la Data Science Virtual Machine con intelligenza artificiale geografica?
       href: geo-ai-dsvm-overview.md
-    - name: Strumenti inclusi in DSVM
+    - name: Strumenti inclusi nella DSVM
       href: tools-included.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare una Data Science Virtual Machine Windows
@@ -24,24 +24,24 @@
 - name: Concetti
   items:
     - name: Apprendimento avanzato e framework AI
-      href: dsvm-deep-learning-ai-frameworks.md
+      href: dsvm-tools-deep-learning-frameworks.md
     - name: Linguaggi di programmazione
-      href: dsvm-languages.md
+      href: dsvm-tools-languages.md
     - name: Strumenti di sviluppo
       href: dsvm-tools-development.md
     - name: Strumenti di data science e ML
-      href: dsvm-ml-data-science-tools.md
+      href: dsvm-tools-data-science.md
     - name: Piattaforme di dati
-      href: dsvm-data-platforms.md
+      href: dsvm-tools-data-platforms.md
     - name: Strumenti per l'inserimento di dati
       href: dsvm-tools-ingestion.md
-    - name: Strumenti per la visualizzazione e l'esplorazione dei dati
-      href: dsvm-tools-explore-and-visualize.md
+    - name: Strumenti per la produttività
+      href: dsvm-tools-productivity.md
     - name: Indicazioni e sicurezza aziendale
       href: dsvm-enterprise-overview.md
 - name: Esempi
   href: dsvm-samples-and-walkthroughs.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Usare una Data Science Virtual Machine Windows
       href: vm-do-ten-things.md
@@ -63,7 +63,7 @@
       href: 'https://stackoverflow.com/search?q=dsvm'
     - name: Guida per sviluppatori R
       href: /azure/architecture/data-guide/technology-choices/r-developers-guide?context=azure/machine-learning/data-science-virtual-machine/context/ml-context
-- name: riferimento
+- name: Riferimento
   items:
     - name: DSVM Ubuntu
       href: reference-ubuntu-vm.md

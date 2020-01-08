@@ -14,11 +14,11 @@
       href: use.md
 - name: Concetti
   items:
-    - name: Architettura
+    - name: Architecture
       href: architecture.md
     - name: Modelli di integrazione
       href: integration-patterns.md
-- name: Guide alle procedure
+- name: Guide pratiche
   expanded: true
   items:
     - name: Distribuire Workbench
@@ -43,7 +43,7 @@
           href: data-powerbi.md
         - name: Usare i dati in SQL Management Studio
           href: data-sql-management-studio.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Configurazione
       href: configuration.md
@@ -55,14 +55,16 @@
       href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'
 - name: Risorse
   items:
-    - name: Blog
-      href: 'https://azure.microsoft.com/blog/topics/blockchain/'
     - name: Esempi di codice
       href: 'https://github.com/Azure-Samples/blockchain'
-    - name: Community
-      href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
-    - name: Forum di supporto
+    - name: Blog
+      href: 'https://azure.microsoft.com/blog/topics/blockchain/'
+    - name: Forum di supporto MSDN
       href: 'https://aka.ms/workbenchforum'
+    - name: Supporto della community
+      href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
+    - name: Supporto di Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-blockchain-workbench'
     - name: Feedback sul prodotto
       href: 'https://aka.ms/blockchainuservoice'
 - name: Modelli di soluzioni

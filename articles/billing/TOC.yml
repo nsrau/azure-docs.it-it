@@ -3,6 +3,12 @@
 - name: Informazioni sulla fatturazione di Azure
   expanded: true
   items:
+    - name: Account di fatturazione e ambiti
+      href: billing-view-all-accounts.md
+    - name: Account di fatturazione del contratto del cliente Microsoft
+      href: billing-mca-overview.md
+    - name: Account di fatturazione del Contratto Microsoft Partner
+      href: mpa-overview.md
     - name: Informazioni sulla fattura
       href: billing-understand-your-bill.md
     - name: Comprendere la fattura - Contratto del cliente Microsoft
@@ -29,10 +35,6 @@
       href: billing-mpa-invoice-terms-explained.md
     - name: Come pagare la fattura - Contratto del cliente Microsoft
       href: billing-how-to-pay-bill.md
-    - name: Account di fatturazione del contratto del cliente Microsoft
-      href: billing-mca-overview.md
-    - name: Account di fatturazione del Contratto Microsoft Partner
-      href: mpa-overview.md
 - name: Gestire i costi
   items:
     - name: Evitare i costi imprevisti
@@ -147,8 +149,6 @@
       href: billing-understand-mca-roles.md
     - name: Collegare l'ID partner
       href: billing-partner-admin-link-started.md
-    - name: Visualizzare gli account di fatturazione
-      href: billing-view-all-accounts.md
     - name: Organizzazione dei costi con le sezioni della fattura
       href: billing-mca-section-invoice.md
     - name: Attività del Contratto Enterprise nel contratto del cliente Microsoft
@@ -163,13 +163,13 @@
           href: billing-understand-ea-roles.md
         - name: Amministrazione di Azure EA Portal
           href: billing-ea-portal-administration.md
-        - name: Contratti ed emendamenti di Azure EA
+        - name: Contratti Azure EA e modifiche
           href: billing-ea-portal-agreements.md
         - name: Fatture per la registrazione Enterprise
           href: billing-ea-portal-enrollment-invoices.md
         - name: API REST Azure Enterprise
           href: billing-ea-portal-rest-apis.md
-        - name: Istanze riservate di VM Azure EA
+        - name: Istanze riservate di VM per Azure EA
           href: billing-ea-portal-vm-reservations.md
         - name: Risolvere i problemi di accesso ad Azure EA Portal
           href: billing-ea-portal-troubleshoot.md
@@ -216,7 +216,7 @@
     - name: Collegare un tenant di Azure AD
       href: ../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json
     - name: Limiti e quote
-      href: ../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
 - name: Risolvere problemi
   items:
     - name: Non sono state trovate sottoscrizioni
@@ -251,7 +251,7 @@
           href: 'https://github.com/Azure-Samples/billing-dotnet-usage-api'
         - name: Esempio di codice per l'API RateCard
           href: 'https://github.com/Azure-Samples/billing-dotnet-ratecard-api'
-- name: riferimento
+- name: Riferimento
   items:
     - name: Scenari di automazione della fatturazione
       href: billing-cost-management-automation-scenarios.md

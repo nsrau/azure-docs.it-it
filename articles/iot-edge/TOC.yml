@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Azure IoT Edge
       href: about-iot-edge.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Distribuire codice in un dispositivo Linux
@@ -77,7 +77,7 @@
           href: iot-edge-modules.md
         - name: Proprietà dell'agente e dell'hub IoT Edge
           href: module-edgeagent-edgehub.md
-    - name: Sviluppo.
+    - name: Sviluppo
       items:
         - name: Sviluppare moduli
           href: module-development.md
@@ -93,7 +93,7 @@
       href: offline-capabilities.md
     - name: Dispositivo IoT Edge come gateway
       href: iot-edge-as-gateway.md
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Sicurezza in Azure IoT Edge
           href: security.md
@@ -101,13 +101,13 @@
           href: iot-edge-security-manager.md
         - name: Certificati di IoT Edge
           href: iot-edge-certs.md
-    - name: Supporto delle piattaforme
+    - name: Piattaforme supportate
       href: support.md
     - name: Elenco di controllo della distribuzione di produzione
       href: production-checklist.md
     - name: Glossario di IoT Edge
       href: iot-edge-glossary.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Registrare un dispositivo IoT Edge
       href: how-to-register-device.md
@@ -123,8 +123,12 @@
           href: how-to-install-iot-edge-windows-server-vm.md
         - name: Macchina virtuale Ubuntu
           href: how-to-install-iot-edge-ubuntuvm.md
-        - name: kubernetes
+        - name: Kubernetes
           href: how-to-install-iot-edge-kubernetes.md
+        - name: Installare i certificati di produzione
+          href: how-to-install-production-certificates.md
+        - name: Creare certificati di test
+          href: how-to-create-test-certificates.md
         - name: Aggiornare la versione del runtime
           href: how-to-update-iot-edge.md
     - name: Effettuare il provisioning automatico con il servizio Device Provisioning

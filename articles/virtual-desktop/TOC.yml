@@ -20,7 +20,7 @@
       href: manage-resources-using-ui.md
     - name: 7. Configurare gli avvisi dei servizi
       href: set-up-service-alerts.md
-- name: Procedura
+- name: Procedure
   items:
     - name: Connettersi alle risorse di Desktop virtuale Windows
       items:
@@ -56,6 +56,8 @@
           href: customize-rdp-properties.md
         - name: Bilanciamento del carico per pool di host in pool
           href: configure-host-pool-load-balancing.md
+        - name: Tipo di assegnazione desktop personale
+          href: configure-host-pool-personal-desktop-assignment-type.md
     - name: Usare la licenza del Desktop virtuale Windows
       href: apply-windows-license.md
     - name: Personalizzare l'immagine dell'host sessione
@@ -68,8 +70,12 @@
       href: set-up-scaling-script.md
     - name: Personalizzare il feed
       href: customize-feed-for-virtual-desktop-users.md
-    - name: Distribuire lo strumento di diagnostica
-      href: deploy-diagnostics.md
+    - name: Usare la diagnostica del servizio
+      items:
+        - name: Distribuire lo strumento di diagnostica
+          href: deploy-diagnostics.md
+        - name: Usare la diagnostica con Log Analytics
+          href: diagnostics-log-analytics.md
     - name: Pubblicare app predefinite
       href: publish-apps.md
     - name: Configurare la connessione all'app MSIX
@@ -78,8 +84,6 @@
   items:
     - name: Ambiente di Desktop virtuale Windows
       href: environment-setup.md
-    - name: Raccomandazioni relative alla larghezza di banda per le sessioni remote
-      href: bandwidth-recommendations.md
     - name: Determinare la latenza della connessione utente
       href: connection-latency.md
     - name: Accesso delegato in Desktop virtuale Windows
@@ -110,13 +114,15 @@
       href: troubleshoot-windows-7-vm.md
     - name: Risolvere i problemi relativi allo strumento di gestione di Desktop virtuale Windows
       href: troubleshoot-management-tool.md
-    - name: Connessioni client di Desktop remoto
-      href: troubleshoot-client-connection.md
+    - name: Connessioni di Servizi Desktop remoto
+      href: troubleshoot-service-connection.md
+    - name: Problemi del client Desktop remoto
+      href: troubleshoot-client.md
     - name: PowerShell con Desktop virtuale Windows
       href: troubleshoot-powershell.md
     - name: Diagnosticare i problemi di prestazioni della grafica
       href: remotefx-graphics-performance-counters.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: PowerShell
       href: /powershell/windows-virtual-desktop/overview

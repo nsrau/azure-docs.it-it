@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Mappe di Azure
       href: about-azure-maps.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare un'app Web
@@ -31,6 +31,16 @@
           href: tutorial-ev-routing.md
         - name: Analizzare i dati meteo con Azure Notebooks (Python)
           href: weather-service-tutorial.md
+    - name: Eseguire la migrazione da Google Maps
+      items:
+        - name: Eseguire la migrazione da Google Maps
+          href: migrate-from-google-maps.md
+        - name: Eseguire la migrazione di un'app Web
+          href: migrate-from-google-maps-web-app.md
+        - name: Eseguire la migrazione di un'app Android
+          href: migrate-from-google-maps-android-app.md
+        - name: Eseguire la migrazione di un servizio Web
+          href: migrate-from-google-maps-web-services.md
 - name: Concetti
   items:
     - name: Autenticazione con Mappe di Azure
@@ -63,7 +73,7 @@
       href: mobility-service-data-structure.md
     - name: Concetti relativi al servizio meteo
       href: weather-services-concepts.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Gestire gli account di Mappe
       items:
@@ -103,44 +113,48 @@
               href: create-data-source-web-sdk.md
             - name: Aggiungere un livello per i simboli
               href: map-add-pin.md
+            - name: Aggiungere un popup
+              href: map-add-popup.md
             - name: Aggiungere un livello per le bolle
               href: map-add-bubble-layer.md
+            - name: Aggiungere i marcatori HTML
+              href: map-add-custom-html.md
             - name: Aggiungere un livello per le linee
               href: map-add-line-layer.md
             - name: Aggiungere un livello per i poligoni
               href: map-add-shape.md
-            - name: Aggiungere un livello per i poligoni di estrusione
+            - name: Aggiungere un livello per l'estrusione di poligoni
               href: map-extruded-polygon.md
             - name: Aggiungere un livello per le mappe termiche
               href: map-add-heat-map-layer.md
-            - name: Aggiungere un popup
-              href: map-add-popup.md
+            - name: Aggiungere un livello per le immagini
+              href: map-add-image-layer.md
+            - name: Aggiungere livelli per i riquadri
+              href: map-add-tile-layer.md
+            - name: Visualizzare il traffico
+              href: map-show-traffic.md
             - name: Clustering dei dati dei punti di interesse
               href: clustering-point-data-web-sdk.md
             - name: Usare espressioni di stile basate sui dati
               href: data-driven-style-expressions-web-sdk.md
             - name: Come usare i modelli di immagine
               href: how-to-use-image-templates-web-sdk.md
-            - name: Aggiungere un livello per le immagini
-              href: map-add-image-layer.md
-            - name: Aggiungere livelli per i riquadri
-              href: map-add-tile-layer.md
-            - name: Marcatori HTML
-              href: map-add-custom-html.md
-            - name: Visualizzare il traffico
-              href: map-show-traffic.md
             - name: Reazione agli eventi
               href: map-events.md
             - name: Rendere accessibile l'app
               href: map-accessibility.md
         - name: Strumenti di disegno
           items:
+            - name: Usare il modulo Strumenti di disegno
+              href: set-drawing-options.md
             - name: Aggiungere la barra degli strumenti di disegno
               href: map-add-drawing-toolbar.md
-            - name: Impostare le opzioni di disegno
-              href: set-drawing-options.md
             - name: Ottenere i dati della forma
               href: map-get-shape-data.md
+            - name: Reagire agli eventi di disegno
+              href: drawing-tools-events.md
+            - name: Tipi di interazione e scelte rapide da tastiera
+              href: drawing-tools-interactions-keyboard-shortcuts.md
         - name: Modulo di servizi
           items:
             - name: Usare il modulo di servizi
@@ -169,7 +183,7 @@
           href: how-to-add-tile-layer-android-map.md
     - name: Inviare commenti e suggerimenti sui dati
       href: how-to-use-feedback-tool.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Estensioni di API e parametri
       items:
@@ -231,6 +245,8 @@
       href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs'
     - name: Video di Mappe di Azure
       href: 'https://aka.ms/AzureMapsVideos'
+    - name: Progetti open source
+      href: open-source-projects.md
     - name: Case study di Mappe di Azure
       href: 'https://aka.ms/AzureMapsCaseStudies'
     - name: Glossario di Mappe di Azure

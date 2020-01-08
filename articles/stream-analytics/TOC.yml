@@ -6,7 +6,7 @@
       href: stream-analytics-introduction.md
     - name: Modelli di soluzioni end-to-end
       href: stream-analytics-solution-patterns.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare un processo - Portale di Azure
@@ -49,7 +49,7 @@
           href: stream-analytics-define-inputs.md
         - name: Input dei dati di riferimento
           href: stream-analytics-use-reference-data.md
-        - name: Scrivere deserializzatori .NET personalizzati
+        - name: Leggere gli input in qualsiasi formato tramite deserializzatori personalizzati
           href: custom-deserializer-examples.md
     - name: Tipi di output per un processo
       items:
@@ -81,7 +81,7 @@
       href: stream-analytics-output-error-policy.md
 - name: Guide pratiche
   items:
-    - name: Gestisci
+    - name: Gestione
       items:
         - name: Aggiornare le credenziali
           href: stream-analytics-login-credentials-inputs-outputs.md
@@ -174,9 +174,9 @@
       items:
         - name: Installare gli strumenti
           href: stream-analytics-tools-for-visual-studio-install.md
-        - name: Test con dati di esempio
+        - name: Testare in locale con dati di esempio
           href: stream-analytics-vs-tools-local-run.md
-        - name: Test con dati attivi
+        - name: Testare in locale con dati reali
           href: stream-analytics-live-data-local-testing.md
         - name: Visualizzare i processi in Visual Studio
           href: stream-analytics-vs-tools.md
@@ -188,12 +188,14 @@
           href: stream-analytics-edge-csharp-udf-methods.md
     - name: Visual Studio Code
       items:
-        - name: Test con dati di esempio
-          href: vscode-local-run.md
+        - name: Testare in locale con dati di esempio
+          href: visual-studio-code-local-run.md
+        - name: Testare in locale con dati reali
+          href: visual-studio-code-local-run-live-input.md
         - name: Configurare una pipeline di integrazione continua/recapito continuo
           href: setup-cicd-vs-code.md
         - name: Esplorare i processi
-          href: vscode-explore-jobs.md
+          href: visual-studio-code-explore-jobs.md
     - name: Risolvere problemi
       items:
         - name: Input
@@ -432,7 +434,7 @@
             - name: CHARINDEX
               href: /stream-analytics-query/charindex-azure-stream-analytics
               maintainContext: true
-            - name: CONCAT
+            - name: CONCATENA
               href: /stream-analytics-query/concat-azure-stream-analytics
               maintainContext: true
             - name: LEN
@@ -551,7 +553,7 @@
     - name: Garanzie di recapito degli eventi
       href: /stream-analytics-query/event-delivery-guarantees-azure-stream-analytics
       maintainContext: true
-- name: riferimento
+- name: Riferimento
   items:
     - name: Azure PowerShell
       href: /powershell/module/az.streamanalytics

@@ -7,18 +7,35 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: b597ecb67ab30c8617029fe741af1014444a9b70
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b577b82585ffad0547818b4f19554a2f39cb830c
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693159"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75498094"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Risolvere i problemi di failback da Azure all'ambiente locale
 
 In questo articolo viene illustrato come risolvere i problemi che possono verificarsi durante il failback di macchine virtuali di Azure all'infrastruttura VMware locale, dopo il failover ad Azure mediante [Azure Site Recovery](site-recovery-overview.md).
 
 Il failback è composto essenzialmente da due passaggi. Innanzitutto, dopo il failover, è necessario riproteggere le macchine virtuali di Azure in locale, in modo da avviarne la replica. Il secondo passaggio consiste nell'eseguire un failover da Azure, in modo da eseguire il failback al sito locale.
+
+## <a name="common-issues"></a>Problemi comuni
+
+- Se si esegue l'individuazione di vCenter con utente di sola lettura e la protezione delle macchine virtuali, la protezione funziona e il failover viene eseguito. Durante la riprotezione, il failover ha esito negativo perché non è possibile individuare gli archivi dati. Se durante la riprotezione gli archivi dati non vengono elencati, è possibile che si sia verificato questo problema. Per risolverlo, è possibile aggiornare le credenziali di vCenter usando un account appropriato con le dovute autorizzazioni e quindi ripetere il processo.
+- Quando si esegue il failback di una macchina virtuale Linux e l'esecuzione è locale, si nota che il pacchetto di gestione reti viene disinstallato dal computer. Tale installazione si verifica perché, quando la macchina virtuale viene ripristinata in Azure, il pacchetto di gestione reti viene rimosso.
+- Se per la configurazione di una macchina virtuale Linux viene usato un indirizzo IP statico e viene eseguito il failover in Azure, l'indirizzo IP viene acquisito da DHCP. Se il failover viene eseguito in locale, la macchina virtuale continua a usare il protocollo DHCP per acquisire l'indirizzo IP. Se necessario, accedere manualmente al computer e quindi impostare di nuovo l'indirizzo IP su un indirizzo statico. Una macchina virtuale Windows può acquisire ancora l'indirizzo IP statico.
+- Se si usa l'edizione gratuita di ESXi 5.5 o di vSphere 6 Hypervisor, è possibile effettuare il failover, ma il failback non riesce. Per abilitare il failback, scegliere l'aggiornamento alla licenza di valutazione del programma.
+- Se non è possibile raggiungere il server di configurazione dal server di elaborazione, usare Telnet per verificare la connettività al server di configurazione sulla porta 443. È anche possibile provare a eseguire il ping del server di configurazione dal server di elaborazione. Un server di elaborazione deve avere anche un heartbeat quando è connesso al server di configurazione.
+- Non è possibile eseguire il failback da Azure a un sito locale di un server Windows Server 2008 R2 SP1 protetto come server locale fisico.
+- Non è possibile eseguire il failback nelle circostanze seguenti:
+    - È stata eseguita la migrazione di macchine virtuali ad Azure. [Altre informazioni](migrate-overview.md#what-do-we-mean-by-migration)
+    - Una macchina virtuale è stata spostata in un altro gruppo di risorse.
+    - La macchina virtuale Azure è stata eliminata.
+    - È stata disabilitata la protezione della macchina virtuale.
+    - La macchina virtuale è stata creata manualmente in Azure. Prima della riprotezione è necessario che la macchina virtuale sia stata inizialmente protetta in locale e che ne sia stato eseguito il failover in Azure.
+    - È possibile eseguire il failback solo a un host ESXi. Non è possibile eseguire il failback di macchine virtuali VMware o server fisici a host Hyper-V, computer fisici o workstation VMware.
+
 
 ## <a name="troubleshoot-reprotection-errors"></a>Risolvere gli errori di riprotezione
 
@@ -65,7 +82,7 @@ Per riproteggere la macchina virtuale sottoposta a failover, la machina virtuale
 
 **L'archivio dati non è accessibile dall'host ESXi.**
 
-Verificare i [prerequisiti del server di destinazione master](vmware-azure-reprotect.md#deploy-a-separate-master-target-server) e gli archivi dati supportati per il failback.
+Verificare i [prerequisiti del server di destinazione master](vmware-azure-prepare-failback.md#deploy-a-separate-master-target-server) e gli archivi dati supportati per il failback.
 
 
 ## <a name="troubleshoot-failback-errors"></a>Risolvere gli errori di failback

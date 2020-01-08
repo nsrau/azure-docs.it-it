@@ -11,7 +11,7 @@
       items:
         - name: Introduzione all'archiviazione BLOB
           href: storage-blobs-introduction.md
-    - name: Guide introduttive
+    - name: Avvi rapidi
       items:
         - name: Gestire i BLOB senza codice
           items:
@@ -115,11 +115,11 @@
           href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Security
           items:
-            - name: Panoramica della sicurezza
-              href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Suggerimenti per la sicurezza
+              href: security-recommendations.md
             - name: Crittografia di Archiviazione di Azure
               href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Authorization
+            - name: Autorizzazione di operazioni sui dati
               href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               items:
                 - name: Autorizzare con Azure AD
@@ -130,6 +130,8 @@
                   href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Accesso anonimo ai BLOB
                   href: storage-manage-access-to-resources.md
+            - name: Autorizzazione di operazioni di gestione
+              href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: BLOB non modificabili
               href: storage-blob-immutable-storage.md
             - name: Protezione avanzata dalle minacce
@@ -165,8 +167,6 @@
               href: storage-lifecycle-management-concepts.md
         - name: 'Ottimizzazione di prestazioni, scalabilità e costi'
           items:
-            - name: Obiettivi di scalabilità e prestazioni
-              href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Elenco di controllo di prestazioni e scalabilità
               href: storage-performance-checklist.md
             - name: Latenza in Archiviazione BLOB
@@ -205,7 +205,7 @@
                   href: ../common/storage-import-export-data-to-files.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Esportare dati dai BLOB
                   href: ../common/storage-import-export-data-from-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Procedura
+                - name: Procedure
                   items:
                     - name: Visualizzare lo stato dell'unità
                       href: ../common/storage-import-export-view-drive-status.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -259,11 +259,9 @@
           items:
             - name: Creare un account di archiviazione per utilizzo generico
               displayName: 'Resource Manager, Resource Manager template, template, ARM'
-              href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Creare un account di archiviazione BLOB in blocchi
               href: storage-blob-create-account-block-blob.md
-            - name: Gestire un account di archiviazione
-              href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Aggiornare un account di archiviazione
               href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Ottenere il tipo di account e il nome dello SKU (.NET)
@@ -276,8 +274,6 @@
               href: storage-blob-containers-list.md
             - name: Gestire proprietà e metadati (.NET)
               href: storage-blob-container-properties-metadata.md
-            - name: Configurare e gestire criteri di immutabilità
-              href: storage-blob-immutability-policies-manage.md
         - name: Creare e gestire gli account di accesso
           items:
             - name: Elencare i BLOB (.NET)
@@ -296,8 +292,10 @@
                   items:
                     - name: Portale
                       href: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: PowerShell o interfaccia della riga di comando di Azure
-                      href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: PowerShell
+                      href: ../common/authorize-active-directory-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: Interfaccia della riga di comando di Azure
+                      href: ../common/authorize-active-directory-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Gestire i diritti di accesso con il controllo degli accessi in base al ruolo
                   items:
                     - name: Portale
@@ -314,6 +312,8 @@
                       href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Autorizzare con la chiave condivisa
                   items:
+                    - name: Visualizzare e gestire le chiavi dell'account
+                      href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: Configurare le stringhe di connessione
                       href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: Usare l'API REST di Archiviazione di Azure
@@ -368,6 +368,8 @@
                   href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Abilitare Transport Layer Security
                   href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Configurare e gestire criteri di immutabilità
+              href: storage-blob-immutability-policies-manage.md
         - name: Ripristino di emergenza
           items:
             - name: Avviare il failover di un account
@@ -394,7 +396,7 @@
           items:
             - name: AzCopy
               items:
-                - name: Attività iniziali
+                - name: Introduzione
                   href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Usare con BLOB
                   href: ../common/storage-use-azcopy-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -440,8 +442,20 @@
           items:
             - name: Problemi di latenza
               href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: riferimento
+    - name: Riferimento
       items:
+        - name: Obiettivi di scalabilità e prestazioni
+          items:
+            - name: Archiviazione BLOB
+              href: scalability-targets.md
+            - name: Account di archiviazione standard
+              href: ../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Account di archiviazione BLOB in blocchi Premium
+              href: scalability-targets-premium-block-blobs.md
+            - name: Account di archiviazione BLOB di pagine Premium
+              href: scalability-targets-premium-page-blobs.md
+            - name: Provider di risorse di archiviazione
+              href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Azure PowerShell
           href: /powershell/module/az.storage
         - name: Interfaccia della riga di comando di Azure
@@ -450,7 +464,7 @@
           items:
             - name: BLOB (versione 12.x)
               href: /dotnet/api/azure.storage.blobs
-            - name: Spostamento dei dati
+            - name: Spostamento di dati
               href: /dotnet/api/microsoft.azure.storage.datamovement
             - name: Provider delle risorse di archiviazione
               href: /dotnet/api/overview/azure/storage/management
@@ -607,7 +621,7 @@
       items:
         - name: Introduzione a Data Lake Storage
           href: ../blobs/data-lake-storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Guide introduttive
+    - name: Avvi rapidi
       items:
         - name: Analizzare i dati con Databricks
           href: ../blobs/data-lake-storage-quickstart-create-databricks-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -675,8 +689,6 @@
           items:
             - name: Creare un account di archiviazione per Data Lake
               href: ../blobs/data-lake-storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Gestire un account di archiviazione
-              href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Gestire i dati con Storage Explorer
               href: ../blobs/data-lake-storage-explorer.md
             - name: Aggiornare un account di archiviazione
@@ -699,7 +711,7 @@
           items:
             - name: AzCopy
               items:
-                - name: Attività iniziali
+                - name: Introduzione
                   href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Usare con Data Lake Storage Gen2
                   href: ../common/storage-use-azcopy-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -743,18 +755,6 @@
               href: ../blobs/data-lake-storage-performance-tuning-mapreduce.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Ottimizzare Storm in HDInsight
               href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Gestire i file (BLOB)
-          items:
-            - name: Panoramica
-              href: ../blobs/data-lake-storage-performance-tuning-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Ottimizzare Spark in HDInsight
-              href: ../blobs/data-lake-storage-performance-tuning-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Ottimizzare Hive in HDInsight
-              href: ../blobs/data-lake-storage-performance-tuning-hive.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Ottimizzare MapReduce in HDInsight
-              href: ../blobs/data-lake-storage-performance-tuning-mapreduce.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Ottimizzare Storm in HDInsight
-              href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Eseguire la migrazione dei dati
           items:
             - name: Eseguire l'aggiornamento da Data Lake Storage Gen1
@@ -765,7 +765,7 @@
           href: ../blobs/data-lake-storage-use-hdfs-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Uso con Power BI
           href: ../blobs/data-lake-storage-use-power-bi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: riferimento
+    - name: Riferimento
       items:
         - name: PowerShell
           href: /powershell/module/azure.storage
@@ -775,7 +775,7 @@
           items:
             - name: BLOB (versione 12.x)
               href: /dotnet/api/azure.storage.blobs
-            - name: Spostamento dei dati
+            - name: Spostamento di dati
               href: /dotnet/api/microsoft.azure.storage.datamovement
             - name: Provider delle risorse di archiviazione
               href: /dotnet/api/overview/azure/storage/management

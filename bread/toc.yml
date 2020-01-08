@@ -139,6 +139,10 @@
     - name: Monitoraggio di Azure
       tocHref: /azure/azure-monitor/
       topicHref: /azure/azure-monitor/
+      items:
+        - name: Application Insights
+          tocHref: /azure/azure-monitor/azure-monitor-app-hub
+          topicHref: /azure/azure-monitor/azure-monitor-app-hub
     - name: Ancoraggi nello spazio di Azure
       tocHref: /azure/spatial-anchors/
       topicHref: /azure/spatial-anchors/
@@ -170,7 +174,7 @@
     - name: Soluzione Azure VMware di CloudSimple
       tocHref: /azure/vmware-cloudsimple/
       topicHref: /azure/vmware-cloudsimple/
-    - name: Personalizzazione del portale di Azure
+    - name: Documentazione sul portale di Azure
       tocHref: /azure/azure-portal/
       topicHref: /azure/azure-portal/\
     - name: Internet delle cose
@@ -226,6 +230,19 @@
     - name: Gestione risorse
       tocHref: /azure/azure-resource-manager/
       topicHref: /azure/azure-resource-manager/
+      items:
+        - name: Modelli
+          tocHref: /azure/azure-resource-manager/templates/
+          topicHref: /azure/azure-resource-manager/templates/
+        - name: Gestione
+          tocHref: /azure/azure-resource-manager/management/
+          topicHref: /azure/azure-resource-manager/management/
+        - name: Applicazioni gestite
+          tocHref: /azure/azure-resource-manager/managed-applications/
+          topicHref: /azure/azure-resource-manager/managed-applications/
+        - name: Provider personalizzati di Azure
+          tocHref: /azure/azure-resource-manager/custom-providers/
+          topicHref: /azure/azure-resource-manager/custom-providers/
     - name: Servizio SignalR
       tocHref: /azure/azure-signalr/
       topicHref: /azure/azure-signalr/
@@ -235,7 +252,7 @@
     - name: Utente di Azure Stack
       tocHref: /azure/azure-stack/user/
       topicHref: /azure/azure-stack/user/
-    - name: Supporto
+    - name: Facilità di supporto
       tocHref: /azure/azure-supportability/
       topicHref: /azure/azure-supportability/
     - name: Backup
@@ -395,7 +412,7 @@
     - name: Istanze di Container
       tocHref: /azure/container-instances/
       topicHref: /azure/container-instances/
-    - name: servizio Azure Container
+    - name: Servizio Azure Kubernetes
       tocHref: /azure/aks/
       topicHref: /azure/aks/
     - name: OpenShift
@@ -408,7 +425,7 @@
         - name: DC/OS e Swarm
           tocHref: /azure/container-service/dcos-swarm/
           topicHref: /azure/container-service/dcos-swarm/
-        - name: kubernetes
+        - name: Kubernetes
           tocHref: /azure/container-service/kubernetes/
           topicHref: /azure/container-service/kubernetes/
     - name: Bastion
@@ -659,6 +676,9 @@
         - name: Sviluppo
           tocHref: /azure/security/develop/
           topicHref: /azure/security/develop/
+        - name: Benchmark
+          tocHref: /azure/security/benchmarks/
+          topicHref: /azure/security/benchmarks/
     - name: Centro sicurezza
       tocHref: /azure/security-center/
       topicHref: /azure/security-center/
@@ -699,7 +719,7 @@
       tocHref: /azure/storage/
       topicHref: /azure/storage/
       items:
-        - name: Blobs
+        - name: BLOB
           tocHref: /azure/storage/blobs/
           topicHref: /azure/storage/blobs/storage-blobs-introduction
         - name: Data Lake Storage Gen2
@@ -708,7 +728,7 @@
         - name: File
           tocHref: /azure/storage/files/
           topicHref: /azure/storage/files/storage-files-introduction
-        - name: Queues
+        - name: Code
           tocHref: /azure/storage/queues/
           topicHref: /azure/storage/queues/storage-queues-introduction
         - name: Tabelle

@@ -12,12 +12,12 @@ ms.date: 10/29/2019
 ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9e1af654f0e82017bab4db5eb529b7d65b44714
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 83b3f0d97daf0b4ac17f74981119b380d1776d97
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786436"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430212"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>Configurare il flusso di lavoro di consenso dell'amministratore (anteprima)
 
@@ -95,7 +95,7 @@ Per esaminare le richieste di consenso dell'amministratore e intraprendere l'azi
    * **Negare la richiesta**. Per negare una richiesta, è necessario fornire una giustificazione che verrà fornita a tutti i richiedenti. Una volta negata una richiesta, a tutti i richiedenti viene notificato che è stato negato l'accesso all'applicazione. La negazione di una richiesta non impedisce agli utenti di richiedere il consenso dell'amministratore per l'app in futuro.  
    * **Blocca la richiesta**. Per bloccare una richiesta, è necessario fornire una giustificazione che verrà fornita a tutti i richiedenti. Una volta bloccata una richiesta, a tutti i richiedenti viene notificato che è stato negato l'accesso all'applicazione. Bloccando una richiesta viene creato un oggetto entità servizio per l'applicazione nel tenant con stato disabilitato. Gli utenti non saranno in grado di richiedere il consenso dell'amministratore per l'applicazione in futuro.
  
-## <a name="email-notifications"></a>Notifiche tramite posta elettronica
+## <a name="email-notifications"></a>Notifiche di posta elettronica
  
 Se configurato, tutti i revisori riceveranno le notifiche tramite posta elettronica quando:
 
@@ -123,7 +123,7 @@ La tabella seguente descrive gli scenari e i valori di controllo disponibili per
 |Amministratore che Abilita il flusso di lavoro della richiesta di consenso        |Verifiche di accesso           |UserManagement           |Crea modello di criteri di governance          |Contesto dell'app            |Attualmente non è possibile trovare il contesto utente            |
 |Amministratore che disabilita il flusso di lavoro della richiesta di consenso       |Verifiche di accesso           |UserManagement           |Elimina modello criteri di governance          |Contesto dell'app            |Attualmente non è possibile trovare il contesto utente           |
 |Amministratore che aggiorna le configurazioni del flusso di lavoro di consenso        |Verifiche di accesso           |UserManagement           |Aggiornare il modello di criteri di governance          |Contesto dell'app            |Attualmente non è possibile trovare il contesto utente           |
-|Creazione di una richiesta di consenso dell'amministratore per un'app da parte dell'utente finale       |Verifiche di accesso           |Policy         |Crea richiesta           |Contesto dell'app            |Attualmente non è possibile trovare il contesto utente           |
+|Creazione di una richiesta di consenso dell'amministratore per un'app da parte dell'utente finale       |Verifiche di accesso           |Criterio         |Crea richiesta           |Contesto dell'app            |Attualmente non è possibile trovare il contesto utente           |
 |Revisori che approvano una richiesta di consenso dell'amministratore       |Verifiche di accesso           |UserManagement           |Approva tutte le richieste nel flusso aziendale          |Contesto dell'app            |Attualmente non è possibile trovare il contesto utente o l'ID app a cui è stato concesso il consenso dell'amministratore.           |
 |Revisori che negano una richiesta di consenso dell'amministratore       |Verifiche di accesso           |UserManagement           |Approva tutte le richieste nel flusso aziendale          |Contesto dell'app            | Attualmente non è possibile trovare il contesto utente dell'attore che ha negato una richiesta di consenso dell'amministratore          |
 
@@ -153,8 +153,10 @@ Se si è preoccupati di concedere il consenso dell'amministratore e consentire a
 
 Per altre informazioni sul consenso alle applicazioni, vedere [framework di consenso di Azure Active Directory](../develop/consent-framework.md).
 
-[Consenso e integrazione di applicazioni con Azure Active Directory](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)
+[Configurare la modalità con cui gli utenti finali accettano le applicazioni](configure-user-consent.md)
 
-[Consenso e concessione delle autorizzazioni per le app con convergenza di Azure Active Directory v2.0](../develop/active-directory-v2-scopes.md)
+[Concedere il consenso dell'amministratore a livello di tenant a un'applicazione](grant-admin-consent.md)
 
-[Azure AD in Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[Autorizzazioni e consenso nella piattaforma di identità Microsoft](../develop/active-directory-v2-scopes.md)
+
+[Azure AD in StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

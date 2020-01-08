@@ -3,7 +3,7 @@ title: Documentazione di Istanze di Azure Container
 summary: Eseguire contenitori Docker su richiesta in un ambiente Azure gestito e serverless. Istanze di Azure Container è una soluzione adatta a qualsiasi scenario e funziona anche in contenitori isolati, senza orchestrazione. Eseguire applicazioni basate su eventi, eseguire rapidamente la distribuzione dalle pipeline di sviluppo del contenitore ed eseguire processi di elaborazione dati e compilazione.
 metadata:
   title: Documentazione di Istanze di Azure Container - Contenitori serverless su richiesta
-  description: Eseguire contenitori Docker in un ambiente Azure gestito serverless.
+  description: Istanze di Azure Container consente di eseguire contenitori Docker in un ambiente cloud gestito serverless, senza dover configurare macchine virtuali, cluster o agenti di orchestrazione.
   services: 
   ms.service: container-instances
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   author: dlepow
   ms.author: danlep
   ms.date: 09/25/2019
-  ms.openlocfilehash: a031f70cfaad9369f79a0e18f3527250eb82bfeb
-  ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+  ms.openlocfilehash: 4e7be5b6da633d370a2ccdce7331788f2fbe0440
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 09/27/2019
-  ms.locfileid: "71326961"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75445763"
 landingContent:
 - title: Informazioni su Istanze di Azure Container
   linkLists:
@@ -28,7 +28,7 @@ landingContent:
       url: container-instances-container-groups.md
     - text: Domande frequenti
       url: container-instances-faq.md
-- title: Attività iniziali
+- title: Introduzione
   linkLists:
   - linkListType: quickstart
     links:

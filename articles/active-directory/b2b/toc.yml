@@ -7,7 +7,7 @@
           href: what-is-b2b.md
         - name: Confrontare B2B e B2C
           href: compare-with-b2c.md
-    - name: Guide introduttive
+    - name: Avvi rapidi
       items:
         - name: Aggiungere utenti guest nel portale
           href: b2b-quickstart-add-guest-users-portal.md
@@ -28,6 +28,8 @@
     - name: Concetti
       expanded: false
       items:
+        - name: Procedure consigliate B2B
+          href: b2b-fundamentals.md
         - name: Licenze B2B
           href: licensing-guidance.md
         - name: Condivisione esterna di Office 365 e B2B
@@ -48,7 +50,7 @@
           href: hybrid-organizations.md
         - name: Limitazioni correnti
           href: current-limitations.md
-    - name: Guide alle procedure
+    - name: Guide pratiche
       expanded: true
       items:
         - name: Gestire la condivisione B2B
@@ -95,7 +97,7 @@
           href: auditing-and-reporting.md
         - name: Risoluzione dei problemi di B2B
           href: troubleshoot.md
-    - name: riferimento
+    - name: Riferimento
       items:
         - name: API di gestione degli inviti
           href: customize-invitation-api.md

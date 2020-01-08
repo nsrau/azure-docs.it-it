@@ -7,7 +7,7 @@
       href: active-directory-b2c-overview.md
     - name: Panoramica degli aspetti tecnici e delle funzionalità
       href: technical-overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Configurare l'accesso - ASP.NET
@@ -72,12 +72,15 @@
           href: active-directory-b2c-overview-custom.md
     - name: Account utente
       href: user-overview.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Integrazione di app
       items:
-        - name: Registrare un'applicazione
+        - name: Registrare un'applicazione OIDC
           href: tutorial-register-applications.md
+        - name: Registrare un provider di servizi SAML
+          href: connect-with-saml-service-providers.md
+          displayName: 'SP, RP, service provider, connect'
         - name: Aggiungere un'applicazione API Web
           href: add-web-application.md
         - name: Aggiungere un'applicazione client nativa
@@ -150,7 +153,7 @@
           href: idp-pass-through-user-flow.md
     - name: Criteri personalizzati
       items:
-        - name: Creare un criterio
+        - name: Creare criteri
           items:
             - name: Introduzione ai criteri personalizzati
               href: active-directory-b2c-get-started-custom.md
@@ -160,6 +163,9 @@
               href: active-directory-b2c-reference-kmsi-custom.md
             - name: Modifica della password
               href: active-directory-b2c-reference-password-change-custom.md
+            - name: Iscrizione e accesso tramite telefono
+              href: phone-authentication.md
+              displayName: 'otp, passwordless, phone number'
         - name: Personalizzazione dell'esperienza utente
           items:
             - name: Configurare l'input utente
@@ -168,6 +174,9 @@
               href: active-directory-b2c-ui-customization-custom.md
             - name: Personalizzare l'interfaccia utente in modo dinamico
               href: active-directory-b2c-ui-customization-custom-dynamic.md
+            - name: Posta elettronica personalizzata
+              href: custom-email.md
+              displayName: verification
             - name: Layout di pagina
               href: page-layout.md
             - name: Abilitare JavaScript
@@ -196,8 +205,10 @@
               items:
                 - name: AD FS
                   href: active-directory-b2c-custom-setup-adfs2016-idp.md
+                  displayName: SAML
                 - name: Salesforce
                   href: active-directory-b2c-setup-sf-app-custom.md
+                  displayName: SAML
         - name: Token e gestione delle sessioni
           items:
             - name: Personalizzare i token
@@ -230,7 +241,7 @@
               href: active-directory-b2c-guide-troubleshooting-custom.md
         - name: Analisi dell'utilizzo
           href: active-directory-b2c-custom-guide-eventlogger-appins.md
-        - name: riferimento
+        - name: Riferimento
           items:
             - name: Definizione di framework attendibilità
               href: active-directory-b2c-reference-trustframeworks-defined-ief-custom.md
@@ -244,7 +255,7 @@
                 - name: ClaimsTransformations
                   href: claimstransformations.md
                   items:
-                    - name: boolean
+                    - name: Boolean
                       href: boolean-transformations.md
                     - name: Data
                       href: date-transformations.md
@@ -254,6 +265,8 @@
                       href: integer-transformations.md
                     - name: JSON
                       href: json-transformations.md
+                    - name: Numero di telefono
+                      href: phone-number-claims-transformations.md
                     - name: Account esterni
                       href: social-transformations.md
                     - name: StringCollection
@@ -277,6 +290,9 @@
                   items:
                     - name: Informazioni sui profili tecnici
                       href: technical-profiles-overview.md
+                    - name: Azure Multi-Factor Authentication
+                      href: multi-factor-auth-technical-profile.md
+                      displayName: mfa
                     - name: Resolver di attestazioni
                       href: claim-resolver-overview.md
                     - name: Azure Active Directory
@@ -289,6 +305,9 @@
                       href: oauth1-technical-profile.md
                     - name: OAuth2
                       href: oauth2-technical-profile.md
+                    - name: Password monouso
+                      href: one-time-password-technical-profile.md
+                      displayName: otp
                     - name: OpenID Connect
                       href: openid-connect-technical-profile.md
                     - name: REST
@@ -301,6 +320,11 @@
                       href: active-directory-b2c-reference-sso-custom.md
                     - name: Convalida
                       href: validation-technical-profile.md
+            - name: DisplayControls
+              href: display-controls.md
+              items:
+                - name: Verifica
+                  href: display-control-verification.md
             - name: UserJourneys
               href: userjourneys.md
             - name: RelyingParty
@@ -340,7 +364,7 @@
           href: active-directory-b2c-user-migration.md
         - name: Eseguire la migrazione di utenti con identità esterne
           href: active-directory-b2c-social-migration.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Note sulla versione di Identity Experience Framework
       href: active-directory-b2c-developer-notes-custom.md

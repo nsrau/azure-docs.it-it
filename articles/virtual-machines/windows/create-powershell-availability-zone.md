@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: aacb8c951de1fb29dc08bdb6ef0b68b23966f326
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 5cecc6e43dfeda3838ae52fdd0c028a7739ff227
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033881"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497938"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-powershell"></a>Creare una macchina virtuale Windows in una zona di disponibilità con PowerShell
 
@@ -30,7 +30,7 @@ Per usare una zona di disponibilità, creare la macchina virtuale in un'[area di
 
  
 
-## <a name="sign-in-to-azure"></a>Accedere ad Azure
+## <a name="sign-in-to-azure"></a>Accedere a Azure
 
 Accedere alla sottoscrizione di Azure con il comando `Connect-AzAccount` e seguire le istruzioni visualizzate.
 
@@ -89,7 +89,7 @@ $vnet = New-AzVirtualNetwork -ResourceGroupName myResourceGroup -Location eastus
 
 # Create a public IP address in an availability zone and specify a DNS name
 $pip = New-AzPublicIpAddress -ResourceGroupName myResourceGroup -Location eastus2 -Zone 2 `
-    -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "mypublicdns$(Get-Random)"
+    -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "mypublicdns$(Get-Random)" -Sku Standard
 ```
 
 ### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>Creare un gruppo di sicurezza di rete e una regola del gruppo di sicurezza di rete 
@@ -120,7 +120,7 @@ $nic = New-AzNetworkInterface -Name myNic -ResourceGroupName myResourceGroup -Lo
     -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 ```
 
-## <a name="create-virtual-machine"></a>Creare una macchina virtuale
+## <a name="create-virtual-machine"></a>Crea macchina virtuale
 
 Creare una configurazione di macchina virtuale. Questa configurazione include le impostazioni utilizzate quando si distribuisce la macchina virtuale, ad esempio l'immagine della macchina virtuale, la dimensione e la configurazione di autenticazione. La dimensione *Standard_DS1_v2* usata in questo esempio è supportata nelle zone di disponibilità. Questa configurazione specifica anche la zona di disponibilità impostata durante la creazione dell'indirizzo IP. Quando si esegue questo passaggio vengono chieste le credenziali. I valori immessi sono configurati come nome utente e password per la macchina virtuale.
 

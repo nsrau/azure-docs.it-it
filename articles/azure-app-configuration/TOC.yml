@@ -6,7 +6,7 @@
       href: overview.md
     - name: Domande frequenti
       href: faq.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Configurazione
@@ -67,7 +67,7 @@
       items:
         - name: Resilienza e ripristino di emergenza
           href: concept-disaster-recovery.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Integrazione con l'identità gestita di Azure
       href: howto-integrate-azure-managed-service-identity.md
@@ -77,7 +77,7 @@
       href: howto-app-configuration-event.md
     - name: Procedure consigliate
       href: howto-best-practices.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Configurazione
       items:
@@ -87,7 +87,7 @@
           href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
         - name: Generatore di .NET Framework
           href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
-        - name: .NET Azure SDK
+        - name: Azure SDK per .NET
           href: 'https://go.microsoft.com/fwlink/?linkid=2092056'
         - name: Provider Java Spring
           href: 'https://go.microsoft.com/fwlink/?linkid=2074659'

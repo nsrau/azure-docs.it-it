@@ -6,7 +6,7 @@
       href: Overview/overview.md
     - name: Novità
       href: whats-new.md
-- name: Guide introduttive
+- name: Avvi rapidi
   items:
     - name: Creare una nuova knowledge base
       href: quickstarts/create-publish-knowledge-base.md
@@ -14,6 +14,8 @@
       href: quickstarts/add-question-metadata-portal.md
     - name: Ottenere risposte con Postman o cURL
       href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
+    - name: Eseguire test con file batch
+      href: Quickstarts/batch-testing.md
     - name: Uso delle API REST
       items:
         - name: Creare una nuova knowledge base
@@ -25,7 +27,7 @@
             - name: Java
               href: Quickstarts/create-new-kb-java.md
             - name: Node.js
-              href: Quickstarts/create-knowledge-rest-api-nodejs.md
+              href: Quickstarts/publish-kb-nodejs.md
             - name: Python
               href: Quickstarts/create-new-kb-python.md
         - name: Pubblicare una knowledge base
@@ -37,7 +39,7 @@
             - name: Java
               href: Quickstarts/publish-kb-java.md
             - name: Node.js
-              href: 'Quickstarts/create-knowledge-rest-api-nodejs.md##publish-a-knowledge-base'
+              href: 'Quickstarts/publish-kb-nodejs.md#publish-a-knowledge-base'
             - name: Python
               href: Quickstarts/publish-kb-python.md
         - name: Ottenere la risposta
@@ -88,7 +90,7 @@
     - name: Origini dati supportate
       href: Concepts/data-sources-supported.md
       displayName: 'metadata, pair, sharepoint, authentication, permissions, faq, pdf, excel, xls, rtf, html, txt, tsv, url, end of line, new line, carriage return, markdown, commonmark, format, standard'
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Modificare la knowledge base
       items:
@@ -126,7 +128,7 @@
           displayName: 'active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning, clusterHead, totalAutoSuggestedCount, totalUserSuggestedCount, autoSuggestedCount, userSuggestedCount'
     - name: Gestire il servizio
       items:
-        - name: Gestire risorse
+        - name: Gestione di risorse
           href: How-To/set-up-qnamaker-service-azure.md
           displayName: 'azure, resource, key, upgrade, pricing, tier,'
         - name: Ottenere l'analisi
@@ -135,7 +137,7 @@
           href: Tutorials/choosing-capacity-qnamaker-deployment.md
         - name: Creare un piano di continuità aziendale
           href: How-To/business-continuity-plan.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Languages
       href: Overview/language-support.md

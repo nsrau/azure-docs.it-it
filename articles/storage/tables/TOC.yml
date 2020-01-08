@@ -8,7 +8,7 @@
     - name: Scegliere l'archiviazione tabelle o l'API Tabelle
       href: /azure/cosmos-db/table-support
       maintainContext: true
-- name: Guide introduttive
+- name: Avvi rapidi
   items:
     - name: Creare una tabella nel portale di Azure
       href: table-storage-quickstart-portal.md
@@ -45,11 +45,6 @@
   items:
     - name: Account di archiviazione
       href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-      items:
-        - name: Gestire un account di archiviazione
-          href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-        - name: Aggiornare un account di archiviazione
-          href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
     - name: Ridondanza dei dati
       items:
         - name: Replica di Archiviazione di Azure
@@ -62,10 +57,8 @@
           href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
         - name: Archiviazione con ridondanza della zona geografica
           href: ../common/storage-redundancy-gzrs.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-    - name: Prestazioni e ridimensionamento
+    - name: 'Ottimizzazione di prestazioni, scalabilità e costi'
       items:
-        - name: Obiettivi di scalabilità e prestazioni
-          href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
         - name: Elenco di controllo di prestazioni e scalabilità
           href: storage-performance-checklist.md
         - name: Progettare tabelle scalabili ad alte prestazioni
@@ -82,14 +75,18 @@
       href: table-storage-design-modeling.md
     - name: Modelli di progettazione tabella
       href: table-storage-design-patterns.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Creare un account di archiviazione
       displayName: 'resource manager, resource manager template, template, ARM'
-      href: /azure/storage/common/storage-quickstart-create-account
+      href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
       maintainContext: true
+    - name: Aggiornare un account di archiviazione
+      href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+    - name: Visualizzare e gestire le chiavi dell'account
+      href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
     - name: Come usare l'emulatore di archiviazione
-      href: /azure/storage/common/storage-use-emulator
+      href: /azure/storage/common/storage-use-emulator?toc=%2fazure%2fstorage%2ftables%2ftoc.json
       maintainContext: true
     - name: Trasferire i dati
       items:
@@ -105,8 +102,16 @@
       items:
         - name: Problemi di latenza
           href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-- name: Risorse
+- name: Riferimento
   items:
+    - name: Obiettivi di scalabilità e prestazioni
+      items:
+        - name: Archiviazione tabelle
+          href: scalability-targets.md
+        - name: Account di archiviazione standard
+          href: ../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+        - name: Provider di risorse di archiviazione
+          href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
     - name: API REST dell'archivio tabelle
       href: 'https://docs.microsoft.com/rest/api/storageservices/table-service-rest-api'
       maintainContext: true

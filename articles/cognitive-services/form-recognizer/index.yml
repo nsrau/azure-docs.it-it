@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentazione di Riconoscimento modulo
-summary: Riconoscimento modulo di Azure è un servizio cognitivo che usa tecnologia di Machine Learning per identificare ed estrarre coppie chiave-valore e dati di tabella da documenti modulo. Restituisce quindi dati strutturati che includono le relazioni nel file originale. L'apprendimento non supervisionato consente al modello di riconoscere il layout e le relazioni tra campi e voci senza assegnazione manuale di etichette dati o impegnative attività di creazione di codice e manutenzione.
+summary: Riconoscimento modulo di Azure è un servizio cognitivo che usa tecnologia di Machine Learning per identificare ed estrarre coppie chiave-valore e dati di tabella da documenti modulo. Restituisce quindi dati strutturati che includono le relazioni nel file originale. L'apprendimento non supervisionato consente al modello di riconoscere il layout e i dati dei campi senza assegnazione manuale di etichette dati o scrittura di codice. È anche possibile scegliere l'apprendimento supervisionato con dati etichettati manualmente. I modelli sottoposti a training con dati etichettati possono offrire prestazioni migliori e garantire un corretto funzionamento con documenti più complessi.
 metadata:
   title: 'Documentazione di Riconoscimento modulo: avvii rapidi, esercitazioni, informazioni di riferimento sulle API - Servizi cognitivi di Azure | Microsoft Docs'
-  description: Riconoscimento modulo di Azure è un servizio cognitivo che usa tecnologia di Machine Learning per identificare ed estrarre coppie chiave-valore e dati di tabella da documenti modulo. Restituisce quindi dati strutturati che includono le relazioni nel file originale. L'apprendimento non supervisionato consente al modello di riconoscere il layout e le relazioni tra campi e voci senza assegnazione manuale di etichette dati o impegnative attività di creazione di codice e manutenzione.
+  description: Riconoscimento modulo di Azure è un servizio cognitivo che usa tecnologia di Machine Learning per identificare ed estrarre coppie chiave-valore e dati di tabella da documenti modulo. Restituisce quindi dati strutturati che includono le relazioni nel file originale. L'apprendimento non supervisionato consente al modello di riconoscere il layout e i dati dei campi senza assegnazione manuale di etichette dati o scrittura di codice. È anche possibile scegliere l'apprendimento supervisionato con dati etichettati manualmente. I modelli sottoposti a training con dati etichettati possono offrire prestazioni migliori e garantire un corretto funzionamento con documenti più complessi.
   services: cognitive-services
   ms.service: cognitive-services
   ms.subservice: form-recognizer
@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 3a3146c6a918916792a331c0dab74683db82a02d
-  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+  ms.openlocfilehash: 835eb7bece58e93375c09c51149381d7882702de
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 10/25/2019
-  ms.locfileid: "72931295"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75446499"
 landingContent:
 - title: Informazioni su Riconoscimento modulo
   linkLists:
@@ -24,6 +24,10 @@ landingContent:
     links:
     - text: Informazioni su Riconoscimento modulo
       url: overview.md
+  - linkListType: whats-new
+    links:
+    - text: Novità di Riconoscimento modulo
+      url: whats-new.md
   - linkListType: video
     links:
     - text: Automazione dei processi basata su intelligenza artificiale con Riconoscimento modulo
@@ -38,18 +42,38 @@ landingContent:
       url: quickstarts/python-train-extract.md
     - text: Uso dell'API REST (cURL)
       url: quickstarts/curl-train-extract.md
-- title: Estrarre dati dalle ricevute
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: Uso di .NET SDK
-      url: quickstarts/dotnet-sdk.md
 - title: Creare un set di dati di training
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Creare un set di dati di training
       url: build-training-data-set.md
+- title: Eseguire il training di un modello personalizzato con le etichette
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Dati etichettati
+      url: overview.md#train-with-labels
+  - linkListType: quickstart
+    links:
+    - text: Eseguire il training usando lo strumento di etichettatura di esempio
+      url: quickstarts/label-tool.md
+    - text: Eseguire il training con le etichette usando l'API REST e Python
+      url: quickstarts/python-labeled-data.md
+- title: Estrarre dati dalle ricevute
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Uso dell'API REST (Python)
+      url: quickstarts/python-receipts.md
+    - text: Uso dell'API REST (cURL)
+      url: quickstarts/curl-receipts.md
+- title: Ottenere informazioni sul layout del testo
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Uso dell'API REST (Python)
+      url: quickstarts/python-layout.md
 - title: Usare i contenitori
   linkLists:
   - linkListType: get-started
@@ -64,12 +88,14 @@ landingContent:
     links:
     - text: Usare istanze di contenitore
       url: deploy-form-recognizer-on-container-instances.md
-- title: riferimento
+- title: Riferimento
   linkLists:
   - linkListType: reference
     links:
-    - text: API di Riconoscimento modulo
-      url: https://aka.ms/form-recognizer/api
+    - text: API Riconoscimento modulo v2.0
+      url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm
+    - text: API Riconoscimento modulo v1.0
+      url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel
     - text: .NET SDK
       url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview
     - text: Azure PowerShell

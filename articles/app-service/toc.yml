@@ -10,7 +10,7 @@
       href: environment/intro.md
     - name: Confrontare le opzioni di hosting
       href: /azure/architecture/guide/technology-choices/compute-decision-tree
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare un'app .NET Core
@@ -163,7 +163,7 @@
               href: configure-authentication-provider-twitter.md
         - name: Autenticazione avanzata
           href: app-service-authentication-how-to.md
-        - name: Limitare gli indirizzi IP
+        - name: Limitare l'accesso
           href: app-service-ip-restrictions.md
         - name: Usare un'identità gestita
           href: overview-managed-identity.md
@@ -195,7 +195,7 @@
           href: app-service-plan-manage.md
         - name: Eseguire il backup di un'app
           href: manage-backup.md
-        - name: Ripristino di un backup
+        - name: Ripristinare un backup
           href: web-sites-restore.md
         - name: Ripristinare uno snapshot
           href: app-service-web-restore-snapshots.md
@@ -203,6 +203,8 @@
           href: app-service-web-app-cloning.md
         - name: Spostare le risorse
           href: '../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service%2ftoc.json#app-service-limitations'
+        - name: Ripristinare un servizio app eliminato
+          href: app-service-undelete.md
     - name: Eseguire attività in background
       items:
         - name: Creare processi Web
@@ -213,7 +215,7 @@
           href: webjobs-sdk-get-started.md
         - name: Usare WebJobs SDK
           href: webjobs-sdk-how-to.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/appservice
@@ -234,7 +236,7 @@
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/app-service/'
     - name: Informazioni sulle quote
-      href: '../azure-subscription-service-limits.md#app-service-limits'
+      href: '../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits'
     - name: Aggiornamenti del servizio
       href: 'https://azure.microsoft.com/updates/?product=app-service'
     - name: Guide di Migration Assistant

@@ -9,7 +9,7 @@
       href: user-provisioning.md
     - name: Informazioni sul proxy dell'applicazione per app locali
       href: what-is-application-proxy.md
-- name: Guide introduttive
+- name: Avvi rapidi
   items:
     - name: Aggiungere un'app cloud dalla raccolta
       href: add-application-portal.md
@@ -21,6 +21,10 @@
       href: /azure/active-directory/saas-apps/
     - name: Aggiungere un'app locale con proxy dell'applicazione
       href: application-proxy-add-on-premises-application.md
+- name: Esempi
+  items:
+    - name: Esempi di Azure PowerShell per il proxy di applicazione
+      href: application-proxy-powershell-samples.md
 - name: Concetti
   expanded: true
   items:
@@ -54,7 +58,7 @@
           items:
             - name: Cos'è l'accesso SSO con un clic
               href: one-click-sso-tutorial.md
-        - name: 'Sicurezza delle applicazioni:'
+        - name: Sicurezza dell'applicazione
           items:
             - name: Opzioni di accesso alle app
               href: what-is-access-management.md
@@ -70,12 +74,10 @@
               href: end-user-experiences.md
     - name: Provisioning di applicazioni (SCIM)
       items:
+        - name: Come funziona il provisioning
+          href: how-provisioning-works.md
         - name: Pianificare una distribuzione automatica del provisioning utenti
           href: plan-auto-user-provisioning.md
-        - name: Provisioning automatico nelle app abilitate per SCIM
-          href: use-scim-to-provision-users-and-groups.md
-        - name: Provisioning manuale o automatico
-          href: application-provisioning-config-how-to.md
     - name: Provisioning HR nel cloud
       items:
         - name: Pianificare una distribuzione del provisioning HR nel cloud
@@ -98,7 +100,7 @@
           href: application-proxy-high-availability-load-balancing.md
         - name: Confronto tra soluzioni di accesso remoto
           href: application-proxy-migration.md
-- name: Guide alle procedure
+- name: Guide pratiche
   expanded: true
   items:
     - name: App cloud e Single Sign-On
@@ -139,6 +141,8 @@
           items:
             - name: Configurare il consenso utente
               href: configure-user-consent.md
+            - name: Concedere il consenso amministratore a livello di tenant
+              href: grant-admin-consent.md
             - name: Configurare il flusso di lavoro di consenso dell'amministratore (anteprima)
               href: configure-admin-consent-workflow.md
             - name: Metodi per l'assegnazione di utenti e gruppi a un'app
@@ -233,28 +237,32 @@
                   href: access-panel-troubleshoot-self-service-access.md
     - name: Provisioning di applicazioni (SCIM)
       items:
-        - name: Configurare il provisioning di app
+        - name: Configurare il provisioning per un'app della raccolta
+          href: configure-automatic-user-provisioning-portal.md
+        - name: Creare un endpoint SCIM e configurare il provisioning
+          href: use-scim-to-provision-users-and-groups.md
+        - name: Modificare i mapping degli attributi
           items:
-            - name: Configurare il provisioning automatico degli utenti
-              href: configure-automatic-user-provisioning-portal.md
-            - name: Usare SCIM per il provisioning automatico
-              href: use-scim-to-provision-users-and-groups.md
             - name: Personalizzare i mapping degli attributi
               href: Customize-application-attributes.md
             - name: Scrivere espressioni per il mapping degli attributi
               href: functions-for-customizing-application-data.md
+        - name: Includere o escludere utenti e gruppi dall'ambito
+          items:
             - name: Definire l'ambito di utenti o gruppi di cui effettuare il provisioning
               href: define-conditional-rules-for-provisioning-user-accounts.md
             - name: Ignorare l'eliminazione per gli utenti fuori ambito
               href: skip-out-of-scope-deletions.md
+        - name: Monitorare e creare report sul provisioning
+          items:
             - name: Monitorare lo stato e le prestazioni del provisioning
               href: application-provisioning-when-will-provisioning-finish-specific-user.md
             - name: Report sul provisioning di app
               href: check-status-user-account-provisioning.md
             - name: Esportare e importare la configurazione
               href: export-import-provisioning-configuration.md
-            - name: Automatizzare la configurazione con MS Graph
-              href: application-provisioning-configure-api.md
+        - name: Automatizzare la configurazione con MS Graph
+          href: application-provisioning-configure-api.md
         - name: Risolvere i problemi del provisioning utenti
           items:
             - name: Risolvere i problemi del provisioning di app
@@ -377,7 +385,7 @@
       items:
         - name: Proteggere le app legacy con reti o controller di distribuzione delle app
           href: secure-hybrid-access.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Provisioning di applicazioni (SCIM)
       items:

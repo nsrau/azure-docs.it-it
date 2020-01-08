@@ -6,9 +6,19 @@
       href: overview.md
     - name: Modifiche della terminologia
       href: terminology.md
-- name: Guide introduttive
+- name: Avvi rapidi
   items:
-    - name: APPLICAZIONI
+    - name: Monitorare la risorsa di Azure
+      href: learn/quick-monitor-azure-resource.md
+    - name: Monitorare le macchine virtuali
+      items:
+        - name: Raccolta - Macchine virtuali di Azure
+          href: learn/quick-collect-azurevm.md
+        - name: Raccolta - Computer Linux
+          href: learn/quick-collect-linux-computer.md
+        - name: Raccolta - Computer Windows
+          href: learn/quick-collect-windows-computer.md
+    - name: Monitorare le applicazioni
       items:
         - name: Applicazione .NET
           href: learn/quick-monitor-portal.md
@@ -20,26 +30,20 @@
           href: learn/mobile-center-quickstart.md
         - name: Applicazione Web
           href: app/website-monitoring.md
-    - name: Macchine virtuali
-      items:
-        - name: Raccolta - Macchine virtuali di Azure
-          href: learn/quick-collect-azurevm.md
-        - name: Raccolta - Computer Linux
-          href: learn/quick-collect-linux-computer.md
-        - name: Raccolta - Computer Windows
-          href: learn/quick-collect-windows-computer.md
 - name: Esercitazioni
   items:
-    - name: Log
-      items:
-        - name: Log Analytics
-          href: log-query/get-started-portal.md
-        - name: Query di log
-          href: log-query/get-started-queries.md
-        - name: Dashboard con i dati dei log
-          href: learn/tutorial-logs-dashboards.md
-        - name: Avvisi per i dati di log
-          href: learn/tutorial-response.md
+    - name: Creare un grafico delle metriche
+      href: learn/tutorial-metrics-explorer.md
+    - name: Raccogliere i log dalla risorsa di Azure
+      href: learn/tutorial-resource-logs.md
+    - name: Scrivere query sui log
+      href: log-query/get-started-queries.md
+    - name: Creare un dashboard dalla query su log
+      href: learn/tutorial-logs-dashboards.md
+    - name: Creare un avviso dalla query su log
+      href: learn/tutorial-response.md
+    - name: Scalabilità automatica su prestazioni e pianificazione
+      href: learn/tutorial-autoscale-performance-schedule.md
     - name: Application Insights
       items:
         - name: Trovare le eccezioni di runtime dell'applicazione
@@ -52,10 +56,6 @@
           href: learn/tutorial-users.md
         - name: Dashboard con i dati delle applicazioni
           href: learn/tutorial-app-dashboards.md
-    - name: Archiviare dati metrici e di log della piattaforma
-      href: learn/tutorial-archive-data.md
-    - name: Scalabilità automatica su prestazioni e pianificazione
-      href: learn/tutorial-autoscale-performance-schedule.md
 - name: Esempi
   items:
     - name: Azure PowerShell
@@ -117,7 +117,7 @@
         - name: Application Insights
           displayName: FAQ
           href: app/troubleshoot-faq.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Gestire Monitoraggio di Azure
       items:
@@ -479,50 +479,46 @@
           href: insights/monitor-azure-resource.md
         - name: Monitorare i gruppi di risorse
           href: insights/resource-group-insights.md
-        - name: Panoramica dei log della piattaforma
-          href: platform/platform-logs-overview.md
-        - name: Log risorse
+        - name: Log della piattaforma
           items:
             - name: Panoramica
-              displayname: Resource logs
-              href: platform/resource-logs-overview.md
-            - name: Raccogliere dati nei log di Monitoraggio di Azure
-              displayname: Resource logs
-              href: platform/resource-logs-collect-workspace.md
-            - name: Archiviare nello spazio di archiviazione
-              displayname: Resource logs
-              href: platform/resource-logs-collect-storage.md
-            - name: Trasmettere un flusso a Hub eventi
-              displayname: Resource logs
-              href: platform/resource-logs-stream-event-hubs.md
-        - name: Log attività
-          items:
-            - name: Panoramica
-              displayname: Activity log
-              href: platform/activity-logs-overview.md
-            - name: Raccogliere i log con le impostazioni di diagnostica
-              displayname: Activity log
-              href: platform/diagnostic-settings-subscription.md
-            - name: Visualizzare e recuperare
-              displayname: Activity log
+              displayName: 'Platform logs, Resource logs, Activity log'
+              href: platform/platform-logs-overview.md
+            - name: Visualizzare il log attività
+              displayName: Platform logs
               href: platform/activity-log-view.md
-            - name: Raccogliere e analizzare
-              displayname: Activity log
-              href: platform/activity-log-collect.md
-            - name: Raccogliere in più tenant
-              displayname: Activity log
-              href: platform/activity-log-collect-tenants.md
-            - name: Esportazione
-              displayname: Activity log
-              href: platform/activity-log-export.md
-            - name: SCHEMA
-              displayname: Activity log
-              href: platform/activity-log-schema.md
+            - name: Destinazioni di invio
+              items:
+                - name: Area di lavoro Log Analytics
+                  displayname: 'Resource logs, Activity log, Platform logs'
+                  href: platform/resource-logs-collect-workspace.md
+                - name: Archiviazione di Azure
+                  displayname: 'Resource logs, Activity log, Platform logs'
+                  href: platform/resource-logs-collect-storage.md
+                - name: Hub eventi
+                  displayname: 'Resource logs, Activity log, Platform logs'
+                  href: platform/resource-logs-stream-event-hubs.md
+            - name: Raccolta di log attività legacy
+              items:
+                - name: Panoramica
+                  displayName: Resource logs
+                  href: platform/diagnostic-settings-legacy.md
+                - name: Raccogliere e analizzare
+                  displayname: Activity log
+                  href: platform/activity-log-collect.md
+                - name: Raccogliere in più tenant
+                  displayname: Activity log
+                  href: platform/activity-log-collect-tenants.md
+                - name: Esportazione
+                  displayname: Activity log
+                  href: platform/activity-log-export.md
         - name: Impostazioni di diagnostica
           items:
             - name: Creare l'impostazione di diagnostica
+              displayName: 'Platform logs, Resource logs, Activity log'
               href: platform/diagnostic-settings.md
-            - name: Creare l'impostazione di diagnostica con Resource Manager
+            - name: Creare con Resource Manager
+              displayName: 'diagnostic setting, Platform logs, Resource logs, Activity log'
               href: platform/diagnostic-settings-template.md
             - name: Passare al formato di archiviazione BLOB
               displayname: Diagnostic settings
@@ -531,7 +527,7 @@
           href: platform/stream-monitoring-data-event-hubs.md
     - name: Monitorare macchine virtuali e risorse di calcolo
       items:
-        - name: Agents
+        - name: Agenti
           items:
             - name: Panoramica degli agenti
               href: platform/agents-overview.md
@@ -579,6 +575,8 @@
                   href: platform/log-analytics-agent.md
                 - name: Agenti di Windows
                   href: platform/agent-windows.md
+                - name: Agenti Linux
+                  href: platform/agent-linux.md
                 - name: Estensione macchina virtuale per Windows
                   href: ../virtual-machines/windows/extensions-oms.md
                 - name: Estensione macchina virtuale per Linux
@@ -897,7 +895,7 @@
           href: platform/rest-api-walkthrough.md
     - name: Visualizzare i dati
       items:
-        - name: Visualizzazioni
+        - name: Viste
           items:
             - name: Progettazione viste
               href: platform/view-designer.md
@@ -1109,7 +1107,7 @@
               href: insights/solutions-resources-automation.md
             - name: Avvisi e ricerche nei log
               href: insights/solutions-resources-searches-alerts.md
-            - name: Visualizzazioni
+            - name: Viste
               href: insights/solutions-resources-views.md
             - name: Procedure consigliate
               href: insights/solutions-best-practices.md
@@ -1121,7 +1119,7 @@
           href: insights/scom-assessment.md
         - name: Connettere Configuration Manager
           href: platform/collect-sccm.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Limiti del servizio
       href: service-limits.md
@@ -1133,7 +1131,7 @@
           href: app/correlation.md
         - name: Pacchetti NuGet
           href: app/nuget.md
-        - name: Supporto delle piattaforme
+        - name: Piattaforme supportate
           href: app/platforms.md
         - name: Override degli endpoint
           href: app/custom-endpoints.md
@@ -1161,10 +1159,16 @@
       items:
         - name: Metriche supportate
           href: platform/metrics-supported.md
+        - name: Metriche esportabili con le impostazioni di diagnostica
+          href: platform/metrics-supported-export-diagnostic-settings.md
         - name: Metriche supportate per avvisi più recenti
           href: platform/alerts-metric-near-real-time.md
-    - name: 'Servizi, categorie e schemi dei log della piattaforma'
-      href: platform/diagnostic-logs-schema.md
+    - name: Log della piattaforma
+      items:
+        - name: 'Servizi, categorie e schemi dei log delle risorse'
+          href: platform/diagnostic-logs-schema.md
+        - name: Schema del log attività
+          href: platform/activity-log-schema.md
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/monitor?view=azure-cli-latest
     - name: Interfaccia della riga di comando di Azure - Application Insights (anteprima)

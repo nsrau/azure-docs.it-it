@@ -1,19 +1,19 @@
 ---
 title: Opzioni del contesto di calcolo per ML Services in HDInsight - Azure
 description: Informazioni sulle diverse opzioni del contesto di calcolo disponibili per gli utenti con ML Services in HDInsight
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/27/2018
-ms.openlocfilehash: a2c66c5c4f1abe535eb51dba9101757ce6d26157
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.custom: hdinsightactive
+ms.date: 01/02/2020
+ms.openlocfilehash: b67bd5b6310e1f8ce35dc14690757209ef62c9d7
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444334"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660257"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Opzioni del contesto di calcolo per ML Services in HDInsight
 
@@ -22,9 +22,11 @@ ML Services in Azure HDInsight controlla l'esecuzione delle chiamate, impostando
 Il nodo perimetrale di un cluster offre una posizione pratica per connettersi al cluster ed eseguire gli script R. Con un nodo perimetrale è possibile eseguire le funzioni distribuite parallelizzate di RevoScaleR nei core del server del nodo perimetrale. È anche possibile eseguire tali funzioni tra i nodi del cluster usando contesti di calcolo Hadoop MapReduce o Apache Spark di RevoScaleR.
 
 ## <a name="ml-services-on-azure-hdinsight"></a>ML Services in Azure HDInsight
-[ML Services in Azure HDInsight](r-server-overview.md) fornisce le funzionalità più recenti per l'analisi basata su R. Può usare i dati archiviati in un contenitore Apache Hadoop HDFS nell'account di archiviazione [BLOB di Azure](../../storage/common/storage-introduction.md "Archiviazione BLOB di Azure"), in un Data Lake Store o nel file system locale di Linux. Poiché ML Services si basa su R open source, le applicazioni basate su R compilate dall'utente possono applicare gli oltre 8000 pacchetti R open source. Possono anche usare le routine di [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), il pacchetto di analisi dei Big Data di Microsoft incluso in ML Services.  
+
+[ML Services in Azure HDInsight](r-server-overview.md) fornisce le funzionalità più recenti per l'analisi basata su R. Può usare i dati archiviati in un contenitore Apache Hadoop HDFS nell'account di archiviazione [BLOB di Azure](../../storage/common/storage-introduction.md "Archiviazione BLOB di Azure") , in un data Lake Store o nel file system Linux locale. Poiché i servizi ML sono basati su R Open Source, le applicazioni basate su R compilate possono applicare i pacchetti R Open Source di 8000 +. Possono anche usare le routine di [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), il pacchetto di analisi dei Big Data di Microsoft incluso in ML Services.  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>Contesti di calcolo per un nodo perimetrale
+
 In generale, uno script R eseguito nel cluster ML Services nel nodo perimetrale viene eseguito all'interno dell'interprete R in tale nodo. L'eccezione è costituita dai passaggi che chiamano una funzione RevoScaleR. Le chiamate RevoScaleR vengono eseguite in un ambiente di calcolo determinato dall'impostazione del contesto di calcolo di RevoScaleR.  Quando si esegue lo script R da un nodo perimetrale, i valori possibili del contesto di calcolo sono:
 
 - sequenziale locale (*local*)
@@ -45,7 +47,7 @@ Nella tabella seguente vengono riepilogate le varie opzioni di contesto di calco
 
 ## <a name="guidelines-for-deciding-on-a-compute-context"></a>Linee guida per la scelta di un contesto di calcolo
 
-Quale delle tre opzioni consenta l'esecuzione parallelizzata dipende dalla natura del proprio lavoro di analitica, dalle dimensioni e dalla posizione dei dati. Non esiste una formula fissa che indichi quale contesto di calcolo usare. Esistono tuttavia alcuni principi guida che consentono di effettuare la scelta appropriata, o almeno consentono di limitare le scelte prima di eseguire un benchmark. Ecco alcuni dei principi guida:
+Quale delle tre opzioni consenta l'esecuzione parallelizzata dipende dalla natura del proprio lavoro di analitica, dalle dimensioni e dalla posizione dei dati. Non esiste una formula semplice che indichi il contesto di calcolo da usare. Esistono tuttavia alcuni principi guida che consentono di effettuare la scelta appropriata, o almeno consentono di limitare le scelte prima di eseguire un benchmark. Ecco alcuni dei principi guida:
 
 - Il file system locale di Linux è più veloce rispetto ad HDFS.
 - Le analisi ripetute risultano più veloci se i dati sono locali e in formato XDF.
@@ -55,15 +57,18 @@ Quale delle tre opzioni consenta l'esecuzione parallelizzata dipende dalla natur
 
 Dati questi principi, la sezione seguente illustra alcune regole generali per la selezione di un contesto di calcolo.
 
-### <a name="local"></a>Local
-* Se la quantità di dati da analizzare è limitata e non sono richieste analisi ripetute, eseguirne il flusso direttamente in una routine di analisi usando *local* o *localpar*.
-* Se la quantità di dati da analizzare è limitata o media e richiede analisi ripetute, copiare i dati nel file system locale, importarli in XDF e analizzarli con *local* o *localpar*.
+### <a name="local"></a>Locale
+
+- Se la quantità di dati da analizzare è limitata e non richiede un'analisi ripetuta, trasmettere il flusso direttamente alla routine di analisi usando *local* o *localpar*.
+- Se la quantità di dati da analizzare è limitata o media e richiede analisi ripetute, copiare i dati nel file system locale, importarli in XDF e analizzarli con *local* o *localpar*.
 
 ### <a name="apache-spark"></a>Apache Spark
-* Se la quantità di dati da analizzare è grande, importare i dati in un DataFrame Spark usando **RxHiveData** o **RxParquetData** oppure in HDFS in formato XDF, a meno che lo spazio di archiviazione non sia un problema, e analizzarli usando il contesto di calcolo di Spark.
+
+- Se la quantità di dati da analizzare è grande, importare i dati in un DataFrame Spark usando **RxHiveData** o **RxParquetData** oppure in HDFS in formato XDF, a meno che lo spazio di archiviazione non sia un problema, e analizzarli usando il contesto di calcolo di Spark.
 
 ### <a name="apache-hadoop-map-reduce"></a>Apache Hadoop MapReduce
-* Usare il contesto di calcolo MapReduce solo se si riscontra un problema insormontabile riguardo al contesto di calcolo Spark, poiché di norma risulta essere più lento.  
+
+- Usare il contesto di calcolo di riduzione della mappa solo se si riscontra un problema insormontabile con il contesto di calcolo di Spark perché è generalmente più lento.  
 
 ## <a name="inline-help-on-rxsetcomputecontext"></a>Guida in linea su rxSetComputeContext
 Per altre informazioni ed esempi di contesti di calcolo di RevoScaleR, vedere la guida in linea di R sul metodo rxSetComputeContext, ad esempio:
@@ -73,8 +78,8 @@ Per altre informazioni ed esempi di contesti di calcolo di RevoScaleR, vedere la
 È anche possibile fare riferimento alla [panoramica sull'elaborazione distribuita](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing) nella [documentazione di Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/).
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 In questo articolo sono state descritte le opzioni disponibili per specificare se e come l'esecuzione venga parallelizzata tra i core del nodo perimetrale o del cluster HDInsight. Per altre informazioni sull'uso di ML Services con i cluster HDInsight, vedere gli argomenti seguenti:
 
-* [Panoramica di ML Services per Apache Hadoop](r-server-overview.md)
-* [Opzioni di Archiviazione di Azure per ML Services in HDInsight](r-server-storage.md)
-
+- [Panoramica di ML Services per Apache Hadoop](r-server-overview.md)
+- [Opzioni di Archiviazione di Azure per ML Services in HDInsight](r-server-storage.md)

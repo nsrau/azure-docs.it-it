@@ -2,17 +2,17 @@
 title: Creare un endpoint privato di Azure usando Azure PowerShell | Microsoft Docs
 description: Informazioni sul collegamento privato di Azure
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 83f1cbc3f8da61370c90744be3f0a7b230e016c3
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 60032677594537f1e7791b7108eebd5d4cfad5b4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229394"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430329"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Creare un endpoint privato usando Azure PowerShell
 Un endpoint privato è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con risorse Collegamento privato. 
@@ -59,6 +59,9 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
   -PrivateEndpointNetworkPoliciesFlag "Disabled" `
   -VirtualNetwork $virtualNetwork
 ```
+
+> [!CAUTION]
+> È facile confondere il parametro `PrivateEndpointNetworkPoliciesFlag` con un altro flag disponibile, `PrivateLinkServiceNetworkPoliciesFlag`, perché sono entrambe parole lunghe e hanno un aspetto simile.  Assicurarsi di usare quello giusto, `PrivateEndpointNetworkPoliciesFlag`.
 
 ### <a name="associate-the-subnet-to-the-virtual-network"></a>Associare la subnet alla rete virtuale
 
@@ -138,7 +141,7 @@ $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName "myResourceGroup" `
   -PrivateLinkServiceConnection $privateEndpointConnection
 ``` 
 
-## <a name="configure-the-private-dns-zone"></a>Configurare la zona di DNS privato 
+## <a name="configure-the-private-dns-zone"></a>Configurare la zona DNS privato 
 Creare una zona DNS privata per il dominio del server di database SQL e creare un collegamento di associazione con la rete virtuale: 
 
 ```azurepowershell
@@ -206,7 +209,7 @@ mstsc /v:<publicIpAddress>
     Address:  10.0.0.5
     Aliases:   myserver.database.windows.net
     ```
-3. Installa SQL Server Management Studio
+3. Installare SQL Server Management Studio
 4. In Connetti al server immettere o selezionare le informazioni seguenti: impostazione tipo di server valore selezionare motore di database.
       Nome server selezionare myserver.database.windows.net nomeutente immettere un nome utente specificato durante la creazione.
       Password immettere una password specificata durante la creazione.
@@ -224,4 +227,4 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Scopri di più sul [collegamento privato di Azure](private-link-overview.md)
+- Altre informazioni su [Collegamento privato di Azure](private-link-overview.md)

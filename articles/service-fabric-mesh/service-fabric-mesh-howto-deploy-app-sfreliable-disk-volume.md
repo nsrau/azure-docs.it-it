@@ -1,25 +1,17 @@
 ---
-title: Usare un volume del disco affidabile Service Fabric a disponibilità elevata in un'applicazione di Azure Service Fabric mesh | Microsoft Docs
+title: Service Fabric volume del disco affidabile con Service Fabric mesh
 description: Informazioni sull'archiviazione dello stato in un'applicazione Azure Service Fabric Mesh con il montaggio di un volume basato su Reliable Disk di Service Fabric all'interno del contenitore usando l'interfaccia della riga di comando di Azure.
-services: service-fabric-mesh
-documentationcenter: .net
 author: ashishnegi
-manager: raunakpandya
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 25bd298c412db38ec4d3b7859580d58ac9b151fb
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: f26fe70afe7d9e2872f06ac6da7143556278b1b0
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036144"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497958"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Montare il volume basato su Reliable Disk di Service Fabric a disponibilità elevata in un'applicazione Service Fabric Mesh 
 Il metodo comune per rendere persistente lo stato con le app contenitore è usare una risorsa di archiviazione remota, ad esempio Archiviazione file di Azure o un database come Azure Cosmos DB. Ciò comporta un notevole latenza di rete per la lettura e la scrittura nell'archivio remoto.
@@ -35,7 +27,7 @@ In questo esempio, l'applicazione Contatore ha un servizio ASP.NET Core con una 
 
 Per completare questa attività è possibile usare Azure Cloud Shell o un'installazione locale dell'interfaccia della riga di comando di Azure. Per usare l'interfaccia della riga di comando di Azure con questo articolo, assicurarsi che `az --version` restituisca almeno `azure-cli (2.0.43)`.  Per installare (o aggiornare) il modulo dell'estensione dell'interfaccia della riga di comando di Azure Service Fabric Mesh, seguire queste [istruzioni](service-fabric-mesh-howto-setup-cli.md).
 
-## <a name="sign-in-to-azure"></a>Accedi ad Azure
+## <a name="sign-in-to-azure"></a>Accedere a Azure
 
 Accedere ad Azure e impostare la sottoscrizione.
 

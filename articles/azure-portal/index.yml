@@ -3,21 +3,21 @@ title: Documentazione sul portale di Azure
 summary: Il portale di Azure è una console unificata basata sul Web che offre un'alternativa agli strumenti da riga di comando. È possibile usare il portale di Azure per gestire la sottoscrizione di Azure. Creare, gestire e monitorare praticamente tutto, da semplici app Web fino a complesse distribuzioni cloud. Creare dashboard personalizzati per una visualizzazione organizzata delle risorse e configurare le opzioni di accessibilità per un'esperienza ottimale.
 metadata:
   title: Documentazione sul portale di Azure
-  description: Informazioni su come gestire la sottoscrizione e le risorse di Azure con la console del portale di Azure basata sul Web.
+  description: Informazioni su come gestire le sottoscrizioni e le risorse di Azure con la console del portale di Azure basata sul Web. Il portale di Azure rappresenta un'alternativa all'utilizzo degli strumenti da riga di comando.
   services: Azure portal
   ms.service: azure-portal
   ms.subservice: 
   ms.topic: landing-page
   ms.collection: collection
-  author: kfollis
-  ms.author: kfollis
-  ms.date: 09/17/2019
-  ms.openlocfilehash: 7fdd6f95ee2f84abc151f5c6e6e7929df2bc57a1
-  ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+  author: mblythe
+  ms.author: mblythe
+  ms.date: 12/19/2019
+  ms.openlocfilehash: 4c04ae88f69ab4e17ea70e94683ce0add4823040
+  ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 09/17/2019
-  ms.locfileid: "71076647"
+  ms.lasthandoff: 01/03/2020
+  ms.locfileid: "75640041"
 landingContent:
 - title: Informazioni sul portale di Azure
   linkLists:
@@ -31,6 +31,8 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: Impostare le preferenze del portale
+      url: set-preferences.md
     - text: Creare e condividere dashboard personalizzati
       url: azure-portal-dashboards.md
     - text: Gestire i preferiti
@@ -49,7 +51,7 @@ landingContent:
       url: /learn/paths/manage-resources-in-azure/
     - text: Proteggere le risorse di Azure con il controllo degli accessi in base al ruolo
       url: /learn//modules/secure-azure-resources-with-rbac/
-- title: Attività iniziali
+- title: Introduzione
   linkLists:
   - linkListType: quickstart
     links:

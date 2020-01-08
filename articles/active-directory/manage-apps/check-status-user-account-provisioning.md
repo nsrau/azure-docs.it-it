@@ -15,12 +15,12 @@ ms.date: 09/09/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1eea9cc738897c6de86c2fd73a0967e39b8afd4
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: e6a6714a1a9e7a2724d07584dd7b548ada2f201b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275054"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430216"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Esercitazione: creazione di report sul provisioning automatico degli account utente
 
@@ -55,8 +55,8 @@ Da qui è possibile accedere sia all'indicatore di stato del provisioning che ai
 L'indicatore di [stato del provisioning](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar) è visibile nella scheda **provisioning** per l'applicazione specificata. Si trova nella sezione **Current status** sotto **Settings**e Mostra lo stato del ciclo iniziale o incrementale corrente. In questa sezione vengono inoltre illustrate le operazioni seguenti:
 
 * Il numero totale di utenti e gruppi che sono stati sincronizzati e che attualmente si trovano nell'ambito per il provisioning tra il sistema di origine e il sistema di destinazione.
-* Ora dell'ultima sincronizzazione. In genere, le sincronizzazioni si verificano ogni 20-40 minuti, dopo il completamento di un [ciclo iniziale](user-provisioning.md#what-happens-during-provisioning) .
-* Indica se un [ciclo iniziale](user-provisioning.md#what-happens-during-provisioning) è stato completato o meno.
+* Ora dell'ultima sincronizzazione. In genere, le sincronizzazioni si verificano ogni 20-40 minuti, dopo il completamento di un [ciclo iniziale](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) .
+* Indica se un [ciclo iniziale](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) è stato completato o meno.
 * Eventuale quarantena applicata a un processo di provisioning e motivo dello stato di quarantena, ad esempio errore di comunicazione con il sistema di destinazione a causa di credenziali di amministratore non valide.
 
 Lo **stato corrente** deve essere il primo aspetto degli amministratori per controllare l'integrità operativa del processo di provisioning.

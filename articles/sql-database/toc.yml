@@ -49,7 +49,7 @@
               href: sql-database-service-tier-hyperscale-faq.md
             - name: Eseguire la migrazione da Premium RS
               href: sql-database-service-tiers-prs.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Database SQL
@@ -69,7 +69,9 @@
         - name: Panoramica della sicurezza
           href: sql-database-security-overview.md
           displayName: 'compliance, fedramp, soc, fact, fisc, hitrust, pci, iso'
-        - name: gestione degli accessi
+        - name: Procedure consigliate per la sicurezza
+          href: sql-database-security-best-practice.md
+        - name: Gestione degli accessi
           items:
             - name: Controllo di accesso
               href: sql-database-control-access.md
@@ -90,9 +92,9 @@
               href: transparent-data-encryption-byok-azure-sql-key-rotation.md
             - name: Rimuovere la protezione TDE
               href: transparent-data-encryption-byok-azure-sql-remove-tde-protector.md
-        - name: Protezione dati
+        - name: Protezione dei dati
           items:
-            - name: Transparent data encryption (TDE)
+            - name: Transparent Data Encryption (TDE)
               items:
                 - name: TDE con Azure SQL
                   href: transparent-data-encryption-azure-sql.md
@@ -212,7 +214,7 @@
               href: sql-database-automated-backups.md
             - name: Ripristino con backup
               href: sql-database-recovery-using-backups.md
-            - name: Ripristino accelerato del database
+            - name: Recupero del database accelerato
               href: sql-database-accelerated-database-recovery.md
             - name: Conservazione del backup a lungo termine
               href: sql-database-long-term-retention.md
@@ -292,7 +294,7 @@
               href: sql-database-elastic-scale-introduction.md
             - name: Glossario
               href: sql-database-elastic-scale-glossary.md
-            - name: Libreria di client elastici - Consolidamento
+            - name: Libreria di client elastici
               href: sql-database-elastic-database-client-library.md
             - name: Mappe delle partizioni
               href: sql-database-elastic-scale-shard-map-management.md
@@ -471,7 +473,7 @@
           href: sql-database-elastic-pool.md
         - name: Server di database
           href: sql-database-servers.md
-    - name: Guide introduttive
+    - name: Avvi rapidi
       items:
         - name: Create
           items:
@@ -560,11 +562,11 @@
               href: sql-database-machine-learning-services-overview.md
             - name: Differenze principali
               href: sql-database-machine-learning-services-differences.md
-            - name: Guide introduttive
+            - name: Avvi rapidi
               items:
                 - name: Creare script R
                   href: sql-database-quickstart-r-create-script.md
-                - name: Eseguire il training e assegnare punteggi a un modello
+                - name: Eseguire il training di un modello e assegnare un punteggio
                   href: sql-database-quickstart-r-train-score-model.md
             - name: Esercitazioni
               items:
@@ -683,22 +685,23 @@
         - name: Esempi di codice
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
 - name: Istanza gestita di SQL
+  href: sql-database-managed-instance-index.yml
   items:
-    - name: Documentazione sull'istanza gestita
-      href: sql-database-managed-instance-index.yml
     - name: Panoramica
-      href: sql-database-managed-instance.md
-    - name: Pool di istanze
-      href: sql-database-instance-pools.md
-    - name: Domande frequenti
-      href: sql-database-managed-instance-faq.md
-    - name: Guide introduttive
+      items:
+        - name: Istanza gestita
+          href: sql-database-managed-instance.md
+        - name: Pool di istanze
+          href: sql-database-instance-pools.md
+        - name: Domande frequenti
+          href: sql-database-managed-instance-faq.md
+    - name: Avvi rapidi
       items:
         - name: Create
           items:
             - name: Uso del portale di Azure
               href: sql-database-managed-instance-get-started.md
-            - name: Tramite PowerShell
+            - name: Utilizzo di PowerShell
               href: scripts/sql-database-create-configure-managed-instance-powershell.md
             - name: Creare pool di istanze
               href: sql-database-instance-pools-how-to.md
@@ -710,7 +713,7 @@
               href: sql-database-managed-instance-configure-vm.md
             - name: Connessione da punto a sito
               href: sql-database-managed-instance-configure-p2s.md
-        - name: Caricare i dati
+        - name: Caricare dati
           items:
             - name: Ripristinare il backup del database
               href: sql-database-managed-instance-get-started-restore.md
@@ -718,14 +721,18 @@
       items:
         - name: Eseguire la migrazione con il Servizio Migrazione del database
           href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
-        - name: Configurare la replica transazionale
-          href: replication-with-sql-database-managed-instance.md
         - name: Configurare la sicurezza
           href: sql-database-managed-instance-aad-security-tutorial.md
         - name: Aggiungere l'istanza gestita a un gruppo di failover
           href: sql-database-managed-instance-failover-group-tutorial.md
         - name: Eseguire la migrazione di utenti e gruppi locali
           href: tutorial-managed-instance-azure-active-directory-migration.md
+        - name: Replica transazionale
+          items:
+            - name: Pubblicazione istanza gestita in sottoscrizione di istanza gestita
+              href: replication-with-sql-database-managed-instance.md
+            - name: 'Pubblicazione istanza gestita, distribuzione istanza gestita, sottoscrizione di SQL'
+              href: sql-database-managed-instance-configure-replication-tutorial.md
     - name: Concetti
       items:
         - name: Informazioni di riferimento sull'API Gestione
@@ -788,7 +795,7 @@
           href: sql-database-resource-manager-samples.md?tabs=managed-instance
         - name: Esempi di codice
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
-- name: riferimento
+- name: Riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/sql

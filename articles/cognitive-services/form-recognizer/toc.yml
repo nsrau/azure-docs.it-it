@@ -4,30 +4,60 @@
   items:
     - name: Informazioni su Riconoscimento modulo
       href: overview.md
-- name: Guide introduttive
+    - name: Novità
+      href: whats-new.md
+- name: Avvi rapidi
   expaned: true
   items:
+    - name: Utilizzo dello strumento di etichettatura di esempio
+      items:
+        - name: Eseguire il training del modello personalizzato con le etichette
+          href: quickstarts/label-tool.md
     - name: Utilizzo dell'API REST
       items:
-        - name: Eseguire il training del modello personalizzato ed estrarre i dati
+        - name: Eseguire il training e usare il modello personalizzato senza le etichette
           items:
-            - name: cURL
-              href: quickstarts/curl-train-extract.md
+            - name: v2.0
+              items:
+                - name: cURL
+                  href: quickstarts/curl-train-extract.md
+                - name: Python
+                  href: quickstarts/python-train-extract.md
+            - name: v1.0
+              items:
+                - name: cURL
+                  href: quickstarts/curl-train-extract-v1.md
+                - name: Python
+                  href: quickstarts/python-train-extract-v1.md
+        - name: Eseguire il training e usare il modello personalizzato con le etichette
+          items:
             - name: Python
-              href: quickstarts/python-train-extract.md
+              href: quickstarts/python-labeled-data.md
         - name: Usare un modello di ricevute predefinito
           items:
-            - name: cURL
-              href: quickstarts/curl-receipts.md
+            - name: v2.0
+              items:
+                - name: cURL
+                  href: quickstarts/curl-receipts.md
+                - name: Python
+                  href: quickstarts/python-receipts.md
+            - name: v1.0
+              items:
+                - name: cURL
+                  href: quickstarts/curl-receipts-v1.md
+                - name: Python
+                  href: quickstarts/python-receipts-v1.md
+        - name: Ottenere informazioni sul layout del testo
+          items:
             - name: Python
-              href: quickstarts/python-receipts.md
+              href: quickstarts/python-layout.md
     - name: Uso di .NET SDK
       href: quickstarts/dotnet-sdk.md
 - name: Esercitazioni
   items:
     - name: Usare Riconoscimento modulo con App per la logica
       href: tutorial-form-recognizer-with-logic-apps.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Creare un set di dati di training
       href: build-training-data-set.md
@@ -41,10 +71,12 @@
           displayName: 'docker, container, run, billing, apikey, logging'
         - name: Usare istanze di contenitore
           href: deploy-form-recognizer-on-container-instances.md
-- name: riferimento
+- name: Riferimento
   items:
-    - name: API di Riconoscimento modulo
-      href: 'https://aka.ms/form-recognizer/api'
+    - name: API Riconoscimento modulo v2.0
+      href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm'
+    - name: API Riconoscimento modulo v1.0
+      href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel'
     - name: SDK
       items:
         - name: .NET

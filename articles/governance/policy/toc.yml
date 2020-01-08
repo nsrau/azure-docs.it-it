@@ -5,7 +5,7 @@
     - name: Informazioni su Criteri di Azure
       displayName: 'rbac, assign, initiative, parameters, count'
       href: overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Assegnare un criterio - Portale
@@ -68,7 +68,7 @@
             - name: Applicare un tag e il relativo valore a gruppi di risorse
               displayName: 'deny, concat'
               href: samples/enforce-tag-on-resource-groups.md
-        - name: Località
+        - name: Percorsi
           items:
             - name: Percorsi consentiti
               displayName: 'deny, builtin, location'
@@ -277,7 +277,7 @@
     - name: Controllare le VM con la configurazione guest
       displayName: 'provider, tools, definition'
       href: ./concepts/guest-configuration.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Estensione Criteri di Azure per VS Code
       displayName: visual studio code
@@ -300,6 +300,11 @@
     - name: Correggere le risorse non conformi
       displayName: 'managed identity, task, definition, roleDefinitionIds'
       href: ./how-to/remediate-resources.md
+    - name: Integrazione dell'insieme di credenziali delle chiavi di Azure
+      items:
+        - name: Integrare Key Vault con Criteri di Azure
+          displayName: 'key vault, certificate, key'
+          href: ../../key-vault/azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
     - name: Integrazione di Azure Lighthouse
       items:
         - name: Distribuire un criterio su larga scala
@@ -313,7 +318,7 @@
         - name: Abilitare Monitoraggio di Azure per le macchine virtuali (anteprima)
           displayName: 'monitor, insights, log analytics, builtin'
           href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
-- name: riferimento
+- name: Riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/policy

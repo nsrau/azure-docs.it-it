@@ -1,0 +1,89 @@
+### YamlMime:Landing
+title: Documentazione delle applicazioni gestite
+summary: Le applicazioni gestite consentono di offrire soluzioni cloud semplici da distribuire e gestire per i consumer.
+metadata:
+  title: Documentazione delle applicazioni gestite di Azure
+  description: Le applicazioni gestite di Azure consentono di offrire soluzioni cloud semplici da distribuire e gestire per i consumer.
+  ms.service: managed-applications
+  ms.topic: landing-page
+  ms.collection: na
+  author: tfitzmac
+  ms.author: tomfitz
+  ms.date: 01/02/2020
+  ms.openlocfilehash: 60f7d4b9c9bd9057e0869b3efe1843eeb8d873f8
+  ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 01/03/2020
+  ms.locfileid: "75648379"
+landingContent:
+- title: Informazioni sulle applicazioni gestite
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cosa sono le applicazioni gestite di Azure?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Artefatto di definizione delle visualizzazioni
+      url: concepts-view-definition.md
+    - text: Criteri di Azure per le associazioni
+      url: concepts-built-in-policy.md
+    - text: Artefatto di definizione dei ruoli
+      url: concepts-custom-role-definition.md
+- title: Creare applicazioni gestite
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Pubblicare una definizione di applicazione
+      url: publish-managed-app-definition-quickstart.md
+    - text: Distribuire un'app del catalogo di servizi
+      url: deploy-service-catalog-quickstart.md
+  - linkListType: tutorial
+    links:
+    - text: Creare file di definizioni
+      url: publish-service-catalog-app.md
+    - text: Pubblicare un'applicazione del Marketplace
+      url: publish-marketplace-app.md
+    - text: Creare l'applicazione gestita con il provider personalizzato
+      url: tutorial-create-managed-app-with-custom-provider.md
+  - linkListType: how-to-guide
+    links:
+    - text: Usare un segreto da Key Vault
+      url: key-vault-access.md
+    - text: Pubblicare tramite il portale
+      url: publish-portal.md
+- title: Controllo di accesso
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Richiedere l'accesso just-in-time
+      url: request-just-in-time-access.md
+    - text: Approvare l'accesso just-in-time
+      url: approve-just-in-time-access.md
+    - text: Distribuire con Identità gestita
+      url: publish-managed-identity.md
+- title: Creare l'interfaccia utente del portale
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Creare l'interfaccia del portale
+      url: create-uidefinition-overview.md
+    - text: Testare l'interfaccia del portale
+      url: test-createuidefinition.md
+    - text: Artefatti degli elementi dell'interfaccia utente
+      url: reference-createuidefinition-artifact.md
+    - text: Elementi dell'interfaccia
+      url: create-uidefinition-elements.md
+    - text: Funzioni dell'interfaccia
+      url: create-uidefinition-functions.md
+- title: Gestione di risorse
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Monitorare l'istanza distribuita
+      url: monitor-managed-application-portal.md
+    - text: Distribuire con le notifiche
+      url: publish-notifications.md
+    - text: Aggiornare le risorse gestite
+      url: update-managed-resources.md

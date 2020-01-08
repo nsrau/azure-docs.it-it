@@ -1,19 +1,19 @@
 ---
 title: Connettività dei dispositivi e dati di telemetria in ingresso-dispositivi gemelli digitali di Azure | Microsoft Docs
-description: Informazioni su come connettersi e caricare un dispositivo nei dispositivi gemelli digitali di Azure.
+description: Informazioni su come connettersi, caricare e inviare dati di telemetria da un dispositivo Internet delle cose nei dispositivi gemelli digitali di Azure.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.openlocfilehash: 529baf6a3eedf1d7490e8138642e90928a209876
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 01/03/2020
+ms.openlocfilehash: f9f0a74a6ca57f90ed8bd217d0d2f57e4bc16749
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74010118"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660342"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Connettività dei dispositivi e dati di telemetria in ingresso
 
@@ -45,7 +45,7 @@ Eseguire una chiamata GET sull'API del dispositivo con un parametro `includes=Co
 YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_GUID?includes=ConnectionString
 ```
 
-| . | Sostituire con |
+| Parametro | Sostituire con |
 | --- | --- |
 | *YOUR_DEVICE_GUID* | ID dispositivo |
 
@@ -67,11 +67,11 @@ Nel payload di risposta, copiare la proprietà **connectionString** del disposit
 
  Il contenuto del payload di un **messaggio** può essere costituito da dati arbitrari con dimensioni massime di 256 KB. Per le proprietà del tipo [`Message.Properties`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet) sono previsti alcuni requisiti. La tabella mostra le proprietà obbligatorie e facoltative supportate dal sistema.
 
-| Nome proprietà | Valore | obbligatori | DESCRIZIONE |
+| Nome proprietà | Valore | Obbligatorio | Description |
 |---|---|---|---|
 | **DigitalTwins-Telemetry** | 1.0 | Sì | Valore costante che identifica un messaggio al sistema. |
 | **DigitalTwins-SensorHardwareId** | `string(72)` | Sì | Identificatore univoco del sensore che invia il **messaggio**. Questo valore deve corrispondere alla proprietà **HardwareId** di un oggetto affinché il sistema possa elaborarlo. Ad esempio: `00FF0643BE88-CO2`. |
-| **CreationTimeUtc** | `string` | No | Stringa di data in formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) che identifica l'ora di campionamento del payload. Ad esempio: `2018-09-20T07:35:00.8587882-07:00`. |
+| **CreationTimeUtc** | `string` | No | Stringa di data in formato [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) che identifica l'ora di campionamento del payload. Ad esempio: `2018-09-20T07:35:00.8587882-07:00`. |
 | **CorrelationId** | `string` | No | UUID usato per tracciare gli eventi nel sistema. Ad esempio: `cec16751-ab27-405d-8fe6-c68e1412ce1f`.
 
 ### <a name="send-your-message-to-digital-twins"></a>Inviare il messaggio a Gemelli digitali

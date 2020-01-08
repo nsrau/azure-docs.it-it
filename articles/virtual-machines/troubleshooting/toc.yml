@@ -159,6 +159,8 @@
       href: troubleshoot-deploy-vm-linux.md
     - name: Windows
       href: troubleshoot-deploy-vm-windows.md
+    - name: 'Riavvio, arresto o arresto dei servizi'
+      href: boot-error-troubleshoot-windows.md
 - name: Modifiche ai nomi dei dispositivi
   href: troubleshoot-device-names-problems.md
 - name: Accesso di ripristino di macchine virtuali

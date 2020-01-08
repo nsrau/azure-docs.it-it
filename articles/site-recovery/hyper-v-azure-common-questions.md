@@ -1,24 +1,20 @@
 ---
 title: Domande comuni sul ripristino di emergenza di Hyper-V con Azure Site Recovery
 description: Questo articolo presenta un riepilogo delle domande frequenti relative alla configurazione del ripristino di emergenza per le macchine virtuali Hyper-V locali in Azure tramite Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.author: raynew
-ms.openlocfilehash: 8f3a04c70b88987fc91dbed3c186d04826b75726
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 7c5f55fbea67567ddf7a2afa6a61f6c76568d829
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954054"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75498197"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Domande frequenti - Ripristino di emergenza da Hyper-V ad Azure
 
 Questo articolo fornisce le risposte alle domande frequenti relative alla replica di macchine virtuali Hyper-V locali in Azure. 
 
-## <a name="general"></a>General
+## <a name="general"></a>Informazioni di carattere generale
 
 ### <a name="how-is-site-recovery-priced"></a>Come viene stabilito il prezzo di Site Recovery?
 Vedere [Dettagli relativi ai prezzi di Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
@@ -64,7 +60,7 @@ Sono necessari una sottoscrizione di Azure, un insieme di credenziali di Servizi
 È necessario un account di archiviazione con ridondanza locale o con ridondanza geografica. È consigliabile usare l'archiviazione con ridondanza geografica per una maggiore resilienza dei dati in caso di interruzione del servizio a livello di area o se non è possibile recuperare l'area primaria. L'account di archiviazione Premium è supportato.
 
 ### <a name="does-my-azure-account-need-permissions-to-create-vms"></a>L'account Azure deve avere le autorizzazioni per creare macchine virtuali?
-L'amministratore della sottoscrizione ha le autorizzazioni di replica necessarie. Se non si ha questo ruolo, sono necessarie le autorizzazioni per creare una macchina virtuale di Azure nel gruppo di risorse e nella rete virtuale specificata durante la configurazione di Site Recovery e le autorizzazioni di scrittura per l'account di archiviazione selezionato. [Altre informazioni](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
+L'amministratore della sottoscrizione ha le autorizzazioni di replica necessarie. Se non si ha questo ruolo, sono necessarie le autorizzazioni per creare una macchina virtuale di Azure nel gruppo di risorse e nella rete virtuale specificata durante la configurazione di Site Recovery e le autorizzazioni di scrittura per l'account di archiviazione selezionato. [Altre informazioni](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines)
 
 ### <a name="is-replication-data-sent-to-site-recovery"></a>I dati di replica vengono inviati a Site Recovery?
 No, Site Recovery non intercetta i dati replicati né raccoglie informazioni su ciò che è in esecuzione sulle macchine virtuali. I dati di replica vengono scambiati tra gli host Hyper-V e Archiviazione di Azure. Site Recovery non è in grado di intercettare i dati. Al servizio Site Recovery vengono inviati solo i metadati necessari per gestire la replica e il failover.  
@@ -98,7 +94,7 @@ Sono necessarie una o più macchine virtuali in esecuzione in uno o più host Hy
 
 ### <a name="can-i-replicate-vms-located-on-a-hyper-v-cluster"></a>È possibile replicare le macchine virtuali situate in un cluster Hyper-V?
 
-Sì, Site Recovery supporta gli host Hyper-V in cluster. Si noti che:
+Sì, Site Recovery supporta gli host Hyper-V in cluster. Tenere presente quanto segue:
 
 - Tutti i nodi del cluster devono essere registrati nello stesso insieme di credenziali.
 - Se non si usa VMM, tutti gli host Hyper-V nel cluster devono essere aggiunto allo stesso sito Hyper-V.
@@ -179,7 +175,7 @@ I dischi dinamici possono essere replicati. Il disco del sistema operativo deve 
 
 
 
-## <a name="security"></a>Security
+## <a name="security"></a>Sicurezza
 
 ### <a name="what-access-does-site-recovery-need-to-hyper-v-hosts"></a>A quale scopo Site Recovery deve accedere agli host Hyper-V?
 
@@ -202,14 +198,17 @@ Site Recovery non installa esplicitamente alcun componente nelle macchine virtua
 ### <a name="how-do-i-fail-over-to-azure"></a>Come si effettua il failover in Azure?
 
 È possibile eseguire un failover pianificato o non pianificato dalle macchine virtuali Hyper-V locali ad Azure.
-    - Se si esegue un failover pianificato, le macchine virtuali di origine vengono arrestate per assicurare che non si verifichino perdite di dati.
-    - È possibile eseguire un failover non pianificato se il sito primario non è accessibile.
-    - È possibile eseguire il failover di un solo computer o creare piani di ripristino per orchestrare il failover di più computer.
-    - Eseguire un failover. Al termine della prima fase, le macchine virtuali di replica create dovrebbero essere visualizzate in Azure. È possibile assegnare un indirizzo IP pubblico alla VM, se necessario. È quindi necessario eseguire il commit del failover per iniziare ad accedere al carico di lavoro dalla macchina virtuale di Azure di replica.
+
+- Se si esegue un failover pianificato, le macchine virtuali di origine vengono arrestate per assicurare che non si verifichino perdite di dati.
+- È possibile eseguire un failover non pianificato se il sito primario non è accessibile.
+- È possibile eseguire il failover di un solo computer o creare piani di ripristino per orchestrare il failover di più computer.
+- Il failover è in due parti:
+    - Al termine della prima fase, le macchine virtuali di replica create dovrebbero essere visualizzate in Azure. È possibile assegnare un indirizzo IP pubblico alla VM, se necessario.
+    - È quindi necessario eseguire il commit del failover per iniziare ad accedere al carico di lavoro dalla macchina virtuale di Azure di replica.
    
 
 ### <a name="how-do-i-access-azure-vms-after-failover"></a>Come si accede alle macchine virtuali di Azure dopo il failover?
-Dopo il failover, è possibile accedere alle macchine virtuali di Azure tramite una connessione Internet sicura, una connessione VPN da sito a sito o ExpressRoute di Azure. Per poter eseguire la connessione, è necessario completare una serie di operazioni. [Altre informazioni](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
+Dopo il failover, è possibile accedere alle macchine virtuali di Azure tramite una connessione Internet sicura, una connessione VPN da sito a sito o ExpressRoute di Azure. Per poter eseguire la connessione, è necessario completare una serie di operazioni. [Altre informazioni](failover-failback-overview.md#connect-to-azure-after-failover)
 
 ### <a name="is-failed-over-data-resilient"></a>I dati di cui è stato effettuato il failover sono resilienti?
 Azure è progettato nell'ottica della resilienza. Site Recovery è progettato per il failover a un data center secondario di Azure in conformità con il contratto di servizio di Azure. Al momento del failover, Microsoft si assicura che i metadati e gli insiemi di credenziali rimangano nella stessa area geografica selezionata per l'insieme di credenziali.
@@ -232,4 +231,4 @@ Quando l'infrastruttura locale è di nuovo operativa, è possibile eseguire il f
 5. Al termine del failback dei carichi di lavoro, abilitare la replica inversa, in modo che le macchine virtuali locali vengano replicate di nuovo in Azure.
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>È possibile eseguire il failback in una posizione diversa?
-Sì, se è stato effettuato il failover ad Azure, è possibile eseguire il failback in una posizione diversa se quella originale non è disponibile. [Altre informazioni](hyper-v-azure-failback.md#failback-to-an-alternate-location-in-hyper-v-environment).
+Sì, se è stato effettuato il failover ad Azure, è possibile eseguire il failback in una posizione diversa se quella originale non è disponibile. [Altre informazioni](hyper-v-azure-failback.md#fail-back-to-an-alternate-location)

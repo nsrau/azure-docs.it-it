@@ -4,21 +4,37 @@
   items:
     - name: Informazioni su Plug and Play IoT
       href: overview-iot-plug-and-play.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
-    - name: Creare un dispositivo - Windows
-      href: quickstart-create-pnp-device.md
-    - name: Creare un dispositivo - Linux
-      href: quickstart-create-pnp-device-linux.md
-    - name: Connettere un dispositivo all'hub IoT - Windows
-      href: quickstart-connect-pnp-device.md
-    - name: Connettere un dispositivo all'hub IoT - Linux
-      href: quickstart-connect-pnp-device-linux.md
+    - name: Creare un dispositivo
+      items:
+        - name: C Linux
+          href: quickstart-create-pnp-device-linux.md
+        - name: C Windows
+          href: quickstart-create-pnp-device-windows.md
+    - name: Connettere un dispositivo all'hub IoT
+      items:
+        - name: C Linux
+          href: quickstart-connect-pnp-device-c-linux.md
+        - name: C Windows
+          href: quickstart-connect-pnp-device-c-windows.md
+        - name: 'C#'
+          href: quickstart-connect-pnp-device-csharp.md
+        - name: Java
+          href: quickstart-connect-pnp-device-java.md
+        - name: Node.js
+          href: quickstart-connect-pnp-device-node.md
     - name: Connettere un dispositivo a IoT Central
-      href: ../iot-central/preview/quick-create-pnp-device.md
+      href: ../iot-central/preview/tutorial-connect-pnp-device.md
     - name: Connettersi a un dispositivo nella soluzione
-      href: quickstart-connect-pnp-device-solution.md
+      items:
+        - name: 'C#'
+          href: quickstart-connect-pnp-device-solution-csharp.md
+        - name: Java
+          href: quickstart-connect-pnp-device-solution-java.md
+        - name: Node.js
+          href: quickstart-connect-pnp-device-solution-node.md
 - name: Esercitazioni
   items:
     - name: Creare un dispositivo con VS Code
@@ -39,7 +55,7 @@
       href: concepts-model-discovery.md
     - name: Limiti e quote
       href: concepts-limits-quotas.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Sviluppare con Visual Studio e Visual Studio Code
       href: howto-develop-with-vs-vscode.md
@@ -53,7 +69,7 @@
       href: howto-manage-models.md
     - name: Connettersi a un dispositivo e interagire con esso
       href: howto-develop-solution.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: REST
       href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/createorupdatemodel'

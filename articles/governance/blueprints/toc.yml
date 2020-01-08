@@ -5,7 +5,7 @@
     - name: Informazioni su Azure Blueprint
       displayName: 'templates, policy, definition, assignment, rbac'
       href: overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare un progetto - Portale
@@ -63,6 +63,17 @@
         - name: Procedura per la distribuzione
           displayName: 'standards, fedramp, moderate'
           href: ./samples/fedramp-m/deploy.md
+    - name: HIPAA HITRUST
+      items:
+        - name: Panoramica
+          displayName: 'standards, HIPAA HITRUST'
+          href: ./samples/HIPAA-HITRUST/index.md
+        - name: Mapping dei controlli
+          displayName: 'standards, HIPAA HITRUST'
+          href: ./samples/HIPAA-HITRUST/control-mapping.md
+        - name: Procedura per la distribuzione
+          displayName: 'standards, HIPAA HITRUST'
+          href: ./samples/HIPAA-HITRUST/deploy.md
     - name: IRS 1075
       items:
         - name: Panoramica
@@ -184,7 +195,7 @@
     - name: Blocco delle risorse In Azure Blueprint
       displayName: 'mode, state, read only, edit, denyAssignments'
       href: ./concepts/resource-locking.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Gestire le assegnazioni con PowerShell
       displayName: 'create, update, remove'
@@ -203,7 +214,7 @@
 - name: Risolvere problemi
   displayName: 'errors, violation'
   href: ./troubleshoot/general.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Azure PowerShell
       href: '/powershell/module/az.blueprint/#blueprint'

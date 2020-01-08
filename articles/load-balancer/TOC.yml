@@ -15,13 +15,13 @@
     - name: Creare un'istanza di Load Balancer Standard - Azure PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
     - name: Creare un'istanza di Load Balancer Standard - Modello
+      href: quickstart-load-balancer-standard-public-template.md
     - name: Creare un'istanza di Load Balancer Basic - Portale
       href: quickstart-create-basic-load-balancer-portal.md
     - name: Creare un'istanza di Load Balancer Basic - Interfaccia della riga di comando di Azure
       href: quickstart-create-basic-load-balancer-cli.md
     - name: Creare un'istanza di Load Balancer Basic - Azure PowerShell
-      href: quickstart-load-balancer-standard-public-template.md
-      displayName: ARM
+      href: quickstart-create-basic-load-balancer-powershell.md
 - name: Esercitazioni
   items:
     - name: Bilanciare il carico del traffico Internet verso le macchine virtuali
@@ -140,7 +140,7 @@
       items:
         - name: Risolvere i problemi di Azure Load Balancer
           href: load-balancer-troubleshoot.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?service=load-balancer'

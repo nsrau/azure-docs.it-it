@@ -6,9 +6,9 @@
       href: security-center-intro.md
     - name: Piattaforme supportate
       href: security-center-os-coverage.md
-    - name: Funzionalità supportate
+    - name: Caratteristiche supportate
       href: security-center-services.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Sottoscrizioni Azure
@@ -49,6 +49,8 @@
       items:
         - name: Panoramica sugli avvisi di sicurezza
           href: security-center-alerts-overview.md
+        - name: Elenco di riferimento degli avvisi
+          href: alerts-reference.md
         - name: Gestire gli avvisi di sicurezza
           href: security-center-managing-and-responding-alerts.md
         - name: Gestire gli eventi imprevisti della sicurezza
@@ -61,7 +63,7 @@
           href: security-center-alerts-data-services.md
         - name: Rilevamento delle minacce per livelli di servizi di Azure
           href: security-center-alerts-service-layer.md
-        - name: Integrazione con prodotti Azure per la sicurezza
+        - name: Rilevamento delle minacce per Azure WAF e protezione DDoS di Azure
           href: security-center-alerts-integration.md
         - name: Correlazione tra avvisi intelligenti cloud (incidenti)
           href: security-center-alerts-cloud-smart.md
@@ -69,12 +71,20 @@
           href: security-center-threat-intel.md
         - name: Convalida degli avvisi (file di test EICAR)
           href: security-center-alert-validation.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Migliorare il punteggio di sicurezza
       href: security-center-secure-score.md
     - name: Eseguire l'aggiornamento alla sicurezza avanzata
       href: security-center-onboarding.md
+    - name: Analizzare le macchine virtuali per individuare le vulnerabilità
+      items:
+        - name: Panoramica dell'analisi delle vulnerabilità
+          href: security-center-vulnerability-assessment-recommendations.md
+        - name: Rilevatore di vulnerabilità integrato per le macchine virtuali
+          href: built-in-vulnerability-assessment.md
+        - name: Uso di rilevatori esterni
+          href: partner-vulnerability-assessment.md
     - name: Proteggere i server con Microsoft Defender ATP
       href: security-center-wdatp.md
     - name: Usare la sicurezza dei dati avanzata per SQL in VM di Azure
@@ -125,14 +135,12 @@
           href: security-center-remediate-recommendations.md
         - name: Migliorare il comportamento di sicurezza
           href: security-center-monitoring.md
+        - name: Elenco di riferimento delle raccomandazioni
+          href: recommendations-reference.md
         - name: Proteggere i computer e le app
           href: security-center-virtual-machine-protection.md
-        - name: Informazioni di riferimento sulle raccomandazioni per computer e app
-          href: recommendations-compute-and-apps.md
         - name: Proteggere le risorse di rete
           href: security-center-network-recommendations.md
-        - name: Informazioni di riferimento sulle raccomandazioni per la rete
-          href: recommendations-network.md
         - name: Proteggere i dati e i servizi di archiviazione
           href: security-center-sql-service-recommendations.md
         - name: Proteggere le identità e gli accessi
@@ -155,8 +163,6 @@
           href: security-center-apply-system-updates.md
         - name: Installa Endpoint Protection
           href: security-center-install-endpoint-protection.md
-        - name: La valutazione della vulnerabilità non è installata
-          href: security-center-vulnerability-assessment-recommendations.md
         - name: Report sulle minacce
           href: security-center-threat-report.md
         - name: Punteggio di attendibilità degli avvisi
@@ -169,7 +175,7 @@
           href: security-center-playbooks.md
         - name: Pianificazione e gestione
           href: security-center-planning-and-operations-guide.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: API REST
       href: 'https://docs.microsoft.com/rest/api/securitycenter/'

@@ -1,17 +1,17 @@
 ---
 title: Connettersi a un account Azure Cosmos con collegamento privato di Azure
 description: Informazioni su come accedere in modo sicuro all'account Azure Cosmos da una macchina virtuale creando un endpoint privato.
-author: asudbring
+author: malopMSFT
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: allensu
-ms.openlocfilehash: e54aa00df9efa60cce0fd6fa1da32720f2947b12
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 13b0f7bd37956b51c6dce780d0709abfb3546336
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851197"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430310"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Connettersi privatamente a un account Azure Cosmos usando il collegamento privato di Azure
 
@@ -33,13 +33,13 @@ In questa sezione si creerà una rete virtuale e la subnet per ospitare la macch
 
 1. In **Crea rete virtuale** immettere o selezionare queste informazioni:
 
-    | Impostazione | Value |
+    | Impostazione | Valore |
     | ------- | ----- |
-    | name | Immettere *MyVirtualNetwork*. |
+    | Nome | Immettere *MyVirtualNetwork*. |
     | Spazio degli indirizzi | Immettere *10.1.0.0/16*. |
     | Sottoscrizione | Selezionare la propria sottoscrizione.|
     | Gruppo di risorse | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare **OK**. |
-    | Località | Selezionare **Stati Uniti centro-occidentali**.|
+    | Percorso | Selezionare **Stati Uniti centro-occidentali**.|
     | Subnet - Nome | Immettere *mySubnet*. |
     | Subnet - Intervallo di indirizzi | Immettere *10.1.0.0/24*. |
     |||
@@ -52,14 +52,14 @@ In questa sezione si creerà una rete virtuale e la subnet per ospitare la macch
 
 1. In **Creare una macchina virtuale - Informazioni di base**, immettere o selezionare queste informazioni:
 
-    | Impostazione | Value |
+    | Impostazione | Valore |
     | ------- | ----- |
     | **DETTAGLI DEL PROGETTO** | |
     | Sottoscrizione | Selezionare la propria sottoscrizione. |
     | Gruppo di risorse | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.  |
     | **DETTAGLI DELL'ISTANZA** |  |
     | Nome macchina virtuale | Immettere *myVm*. |
-    | Area geografica | Selezionare **Stati Uniti centro-occidentali**. |
+    | Area | Selezionare **Stati Uniti centro-occidentali**. |
     | Opzioni di disponibilità | Lasciare l'impostazione predefinita **Nessuna ridondanza dell'infrastruttura necessaria**. |
     | Immagine | Selezionare **Windows Server 2019 Datacenter**. |
     | Dimensioni | Lasciare l'impostazione predefinita **DS1 Standard v2**. |
@@ -79,7 +79,7 @@ In questa sezione si creerà una rete virtuale e la subnet per ospitare la macch
 
 1. In **Creare una macchina virtuale - Rete**, selezionare queste informazioni:
 
-    | Impostazione | Value |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Rete virtuale | Lasciare l'impostazione predefinita **MyVirtualNetwork**.  |
     | Spazio degli indirizzi | Lasciare l'impostazione predefinita **10.1.0.0/24**.|
@@ -153,7 +153,7 @@ In questa sezione si effettuerà la connessione privata all'account Azure Cosmos
 
 1. Selezionare **Avanti**.
 
-1. Selezionare **Connessione**.
+1. Selezionare **Connetti**.
 
 1. Esplorare i database e i contenitori di Azure Cosmos da *mycosmosaccount*.
 

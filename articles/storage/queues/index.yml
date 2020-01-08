@@ -12,12 +12,12 @@ metadata:
   author: mhopkins-msft
   ms.author: mhopkins
   ms.date: 08/27/2019
-  ms.openlocfilehash: 4dcf6ae4e9a5a65e060b647f02761b2c46238d13
-  ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+  ms.openlocfilehash: 871447957b905157625ab487269b9ce1ca105935
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 09/04/2019
-  ms.locfileid: "70277909"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75457294"
 landingContent:
 - title: Informazioni sulle code di Azure
   linkLists:
@@ -25,16 +25,24 @@ landingContent:
     links:
     - text: Che cosa sono le code di Azure?
       url: storage-queues-introduction.md
-- title: Attività iniziali
+- title: Introduzione
   linkLists:
   - linkListType: quickstart
     links:
     - text: Creare una coda e aggiungere un messaggio con il portale di Azure
       url: storage-quickstart-queues-portal.md
-    - text: Usare .NET per creare una coda in Archiviazione di Azure
-      url: storage-quickstart-queues-dotnet.md
 - title: Sviluppare con code
   linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Archiviazione code di Azure per .NET
+      url: storage-quickstart-queues-dotnet.md
+    - text: Archiviazione code di Azure per Java
+      url: storage-quickstart-queues-java.md
+    - text: Archiviazione code di Azure per Python
+      url: storage-quickstart-queues-python.md
+    - text: Archiviazione code di Azure per JavaScript
+      url: storage-quickstart-queues-nodejs.md
   - linkListType: how-to-guide
     links:
     - text: Introduzione all'archiviazione code di Azure con .NET

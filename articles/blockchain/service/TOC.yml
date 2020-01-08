@@ -4,7 +4,7 @@
   items:
     - name: Informazioni sul servizio Azure Blockchain
       href: overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare un membro - Portale
@@ -37,7 +37,7 @@
       href: limits.md
     - name: 'Applicazione di patch, aggiornamento e controllo delle versioni'
       href: ledger-versions.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Configurare l'accesso di Azure AD
       href: configure-aad.md
@@ -61,23 +61,23 @@
       href: data-manager-cosmosdb.md
 - name: Risorse
   items:
+    - name: Kit di sviluppo Azure Blockchain
+      href: 'https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki'
     - name: API REST Blockchain
       href: 'https://docs.microsoft.com/rest/api/blockchain/'
-    - name: Blog
-      href: 'https://azure.microsoft.com/blog/topics/blockchain/'
-    - name: Estensione Visual Studio Code per il servizio Azure Blockchain
-      href: 'https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki'
     - name: Esempi di codice
       href: 'https://github.com/Azure-Samples/blockchain'
-    - name: Community
-      href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
-    - name: Forum
+    - name: Blog
+      href: 'https://azure.microsoft.com/blog/topics/blockchain/'
+    - name: Forum di supporto MSDN
       href: 'https://aka.ms/workbenchforum'
+    - name: Supporto della community
+      href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
+    - name: Supporto di Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/AzureBlockchainService'
     - name: Feedback sul prodotto
       href: 'https://feedback.azure.com/forums/921130-azure-blockchain-service'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/blockchain-service'
     - name: Aree di disponibilità
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=blockchainservice'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/AzureBlockchainService'

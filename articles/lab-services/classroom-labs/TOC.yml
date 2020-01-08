@@ -26,8 +26,10 @@
       items:
         - name: Usare i lab per gestire le classi
           href: classroom-labs-scenarios.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
+    - name: Guida dell'amministratore
+      href: administrator-guide.md
     - name: Lab per le classi - Tipi di classe
       items:
         - name: Panoramica dei tipi di classi
@@ -52,6 +54,8 @@
           href: how-to-connect-peer-virtual-network.md
         - name: Collegare o scollegare una raccolta immagini condivisa
           href: how-to-attach-detach-shared-image-gallery.md
+        - name: Aggiungere un utente come proprietario a un lab per la classe
+          href: how-to-add-user-lab-owner.md
     - name: Creare e configurare lab per le classi (istruttore)
       items:
         - name: Creare e gestire i lab per le classi
@@ -70,6 +74,8 @@
           href: how-to-use-shared-image-gallery.md
         - name: Abilitare Connessione desktop remoto per Linux
           href: how-to-enable-remote-desktop-linux.md
+        - name: Abilitare l'arresto automatico alla disconnessione
+          href: how-to-enable-shutdown-disconnect.md
         - name: Abilitare la virtualizzazione annidata in una VM modello
           href: how-to-enable-nested-virtualization-template-vm.md
         - name: Preparare una VM modello Windows
@@ -82,7 +88,7 @@
           href: how-to-use-remote-desktop-linux-student.md
         - name: Impostare o reimpostare le password per le macchine virtuali
           href: how-to-set-virtual-machine-passwords-student.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: API REST
       href: 'https://docs.microsoft.com/rest/api/labservices/'
