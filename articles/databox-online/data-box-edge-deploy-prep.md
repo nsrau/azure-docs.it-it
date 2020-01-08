@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 364ceabc3c9e7a577bd126b81bcd5256d947bbe3
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: d9778544fd9e20dc3244a37c644117d1cd505a96
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66476787"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438674"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>Esercitazione: Preparare la distribuzione di Azure Data Box Edge  
 
@@ -22,7 +22,7 @@ Questa è la prima di una serie di esercitazioni sulla distribuzione necessarie 
 
 Per completare il processo di installazione e configurazione sono necessari privilegi di amministratore. La preparazione del portale richiede meno di 10 minuti.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare una nuova risorsa
@@ -30,7 +30,7 @@ In questa esercitazione si apprenderà come:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-### <a name="get-started"></a>Attività iniziali
+### <a name="get-started"></a>Introduzione
 
 Per distribuire Data Box Edge, fare riferimento alle esercitazioni seguenti nella sequenza indicata.
 
@@ -44,7 +44,7 @@ Per distribuire Data Box Edge, fare riferimento alle esercitazioni seguenti nell
 
 È ora possibile iniziare a configurare il portale di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Di seguito sono indicati i prerequisiti di configurazione per la risorsa Data Box Edge, il dispositivo Data Box Edge e la rete del data center.
 
@@ -105,16 +105,16 @@ Per creare la risorsa Data Box Edge, completare i passaggi seguenti nel portale 
 
 3. Nella scheda **Informazioni di base** immettere o selezionare quanto segue in **Dettagli del progetto**.
     
-    |Impostazione  |Valore  |
+    |Impostazione  |valore  |
     |---------|---------|
-    |Sottoscrizione    |Questo campo viene popolato automaticamente in base alla selezione precedente. La sottoscrizione viene collegata all'account di fatturazione. |
-    |Gruppo di risorse  |Selezionare un gruppo esistente o crearne uno nuovo.<br>Altre informazioni sui [gruppi di risorse di Azure](../azure-resource-manager/resource-group-overview.md).     |
+    |Subscription    |Questo campo viene popolato automaticamente in base alla selezione precedente. La sottoscrizione viene collegata all'account di fatturazione. |
+    |Resource group  |Selezionare un gruppo esistente o crearne uno nuovo.<br>Altre informazioni sui [gruppi di risorse di Azure](../azure-resource-manager/management/overview.md).     |
 
 4. Immettere o selezionare quanto segue in **Dettagli istanza**.
 
-    |Impostazione  |Valore  |
+    |Impostazione  |valore  |
     |---------|---------|
-    |NOME   | Nome descrittivo per identificare la risorsa.<br>Il nome deve contenere da 2 a 50 caratteri tra lettere, numeri e trattini.<br> Il nome deve iniziare e finire con una lettera o un numero.        |
+    |Nome   | Nome descrittivo per identificare la risorsa.<br>Il nome deve contenere da 2 a 50 caratteri tra lettere, numeri e trattini.<br> Il nome deve iniziare e finire con una lettera o un numero.        |
     |Region     |Per questa versione, per la distribuzione della risorsa sono disponibili le aree Stati Uniti orientali, Asia sud-orientale ed Europa occidentale. Se si usa Azure per enti pubblici, sono disponibili tutte le aree per enti pubblici riportate in [Aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Scegliere la località più vicina all'area geografica in cui si vuole distribuire il dispositivo.|
 
     ![Dettagli del progetto e dell'istanza](media/data-box-edge-deploy-prep/data-box-edge-resource.png)

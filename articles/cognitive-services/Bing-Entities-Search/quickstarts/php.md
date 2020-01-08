@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Inviare una richiesta di ricerca all'API REST con PHP - Ricerca entità Bing"
+title: "Avvio rapido: Inviare una richiesta di ricerca all'API REST con PHP - Ricerca entità Bing"
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per inviare una richiesta all'API REST Ricerca entità Bing con PHP e ricevere una risposta JSON.
 services: cognitive-services
@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 07/24/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: 2328313e15fafb3c0f96fdb77f3023afc1e4774f
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 41fa0b469d0d86b8c1d9234455ade0395fa86f3d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74323592"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383946"
 ---
-# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>Guida introduttiva: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing con PHP
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>Avvio rapido: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing con PHP
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca entità Bing e visualizzare la risposta JSON. Questa semplice applicazione PHP invia una query di ricerca notizie all'API e visualizza la risposta. 
 
 L'applicazione è scritta in PHP, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [PHP 5.6.x](https://php.net/downloads.php) o versione successiva
 
@@ -36,7 +36,8 @@ Per eseguire l'applicazione, seguire questa procedura.
 1. Creare un nuovo progetto PHP nell'ambiente di sviluppo integrato preferito.
 2. Aggiungere il codice riportato di seguito.
 3. Sostituire il valore di `key` con una chiave di accesso valida per la sottoscrizione.
-4. Eseguire il programma.
+4. È possibile usare l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
+5. Eseguire il programma.
 
 ```php
 <?php

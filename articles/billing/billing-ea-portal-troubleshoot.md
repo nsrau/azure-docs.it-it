@@ -4,16 +4,16 @@ description: Questo articolo descrive alcuni problemi comuni che possono verific
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.topic: troubleshooting
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: ff8408a098049d860a614900bdeea80da1bd95e4
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f48aaee34dd35f065fd7e2d065316674b72db7c5
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841388"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644427"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Risolvere i problemi di accesso ad Azure EA Portal
 
@@ -41,7 +41,7 @@ Per aggiornare il livello di autenticazione:
 3. Fare clic sulla scheda **Registrazione**.
 4. In **Dettagli della registrazione** selezionare **Livello di autenticazione**.
 5. Fare clic sul simbolo della matita.
-6. Fare clic su **Save**.
+6. Fare clic su **Salva**.
 
 ![Esempio che illustra i livelli di autenticazione ](./media/billing-ea-portal-troubleshoot/create-ea-authentication-level-types.png)
 

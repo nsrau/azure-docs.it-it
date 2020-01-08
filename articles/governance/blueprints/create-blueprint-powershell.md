@@ -1,20 +1,20 @@
 ---
-title: 'Guida introduttiva: Creare un progetto con PowerShell'
+title: 'Avvio rapido: Creare un progetto con PowerShell'
 description: In questo argomento di avvio rapido viene usato Azure Blueprints per creare, definire e distribuire artefatti con PowerShell.
 ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: ed337fa040804159dae3194de1befc43ff2b698f
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 8b418fa2b5244c42b8597bbbe7ed4773133d03a8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327473"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436643"
 ---
-# <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Guida introduttiva: Definire e assegnare un progetto Azure Blueprint con PowerShell
+# <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Avvio rapido: Definire e assegnare un progetto Azure Blueprint con PowerShell
 
 Imparare a creare e assegnare progetti consente di definire modelli comuni per sviluppare configurazioni riutilizzabili e rapidamente distribuibili in base a modelli di Resource Manager, criteri, sicurezza e altro ancora. In questa esercitazione viene descritto come usare Azure Blueprint per eseguire alcune della attività comuni di creazione, pubblicazione e assegnazione di un progetto all'interno dell'organizzazione, ad esempio:
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free) prima di iniziare.
 
@@ -379,7 +379,9 @@ Dopo aver pubblicato un progetto usando PowerShell, è possibile assegnarlo a un
      > [!IMPORTANT]
      > I progetti non gestiscono l'identità gestita assegnata dall'utente. Gli utenti sono responsabili dell'assegnazione di ruoli e autorizzazioni sufficienti, altrimenti l'assegnazione del progetto non riesce.
 
-## <a name="unassign-a-blueprint"></a>Annullare l'assegnazione di un progetto
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+### <a name="unassign-a-blueprint"></a>Annullare l'assegnazione di un progetto
 
 È possibile rimuovere un progetto da una sottoscrizione. La rimozione viene spesso eseguita quando le risorse dell'elemento non sono più necessarie. Quando un progetto viene rimosso, gli elementi assegnati nell'ambito del progetto vengono mantenuti. Per rimuovere l'assegnazione di un progetto, usare il cmdlet `Remove-AzBlueprintAssignment`:
 

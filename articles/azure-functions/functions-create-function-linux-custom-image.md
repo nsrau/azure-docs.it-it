@@ -4,12 +4,12 @@ description: Informazioni su come creare Funzioni di Azure in esecuzione in un'i
 ms.date: 09/27/2019
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 7bf079f84978539735f3bbf5bb13b18130871fb1
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 5a7fbecca2dc7585ff7110d53deccbbbbf23087c
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484389"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551489"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Creare una funzione in Linux tramite un'immagine personalizzata
 
@@ -19,7 +19,7 @@ In questa esercitazione si vedrà come distribuire funzioni in Azure come un'imm
 
 Questa esercitazione illustra come usare Azure Functions Core Tools per creare una funzione in un'immagine Linux personalizzata. L'immagine viene pubblicata in Azure, in un'app per le funzioni creata tramite l'interfaccia della riga di comando di Azure. Successivamente, si aggiorna la funzione per connettersi all'archiviazione code di Azure. Si abilita inoltre la distribuzione continua.  
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un'app per le funzioni e un Dockerfile usando Core Tools.
@@ -35,7 +35,7 @@ In questa esercitazione si apprenderà come:
 
 I passaggi seguenti sono supportati in computer Mac, Windows o Linux. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di eseguire questo esempio, è necessario disporre di quanto segue:
 
@@ -175,8 +175,7 @@ storageConnectionString=$(az storage account show-connection-string \
 
 az functionapp config appsettings set --name <app_name> \
 --resource-group myResourceGroup \
---settings AzureWebJobsDashboard=$storageConnectionString \
-AzureWebJobsStorage=$storageConnectionString
+--settings AzureWebJobsStorage=$storageConnectionString
 ```
 
 > [!NOTE]
@@ -190,12 +189,12 @@ AzureWebJobsStorage=$storageConnectionString
 
 <!-- we should replace this with a CLI or API-based approach, when we get something better than REST -->
 
-La funzione attivata da HTTP creata richiede una [chiave di funzione](functions-bindings-http-webhook.md#authorization-keys) per chiamare l'endpoint. A questo punto, il modo più semplice per ottenere l'URL della funzione, inclusa la chiave, è dal [portale di Azure]. 
+La funzione attivata da HTTP creata richiede una [chiave di funzione](functions-bindings-http-webhook.md#authorization-keys) per chiamare l'endpoint. A questo punto, il modo più semplice per ottenere l'URL della funzione, inclusa la chiave, è dal [Azure portal]. 
 
 > [!TIP]
 > È anche possibile ottenere le chiavi di funzione usando le [API di gestione delle chiavi](https://github.com/Azure/azure-functions-host/wiki/Key-management-API), che richiedono la presentazione di un [token di connessione per l'autenticazione](/cli/azure/account#az-account-get-access-token).
 
-Individuare la nuova app per le funzioni nel [portale di Azure] digitando il nome dell'app per le funzioni nella casella **Cerca** nella parte superiore della pagina e selezionando la risorsa **Servizio app**.
+Individuare la nuova app per le funzioni nel [Azure portal] digitando il nome dell'app per le funzioni nella casella **Cerca** nella parte superiore della pagina e selezionando la risorsa **Servizio app**.
 
 Selezionare la funzione **MyHttpTrigger**, selezionare **</> Recupera URL della funzione** > **predefinito (chiave di funzione)**  > **Copia**.
 
@@ -374,4 +373,4 @@ Ora che il contenitore personalizzato è stato distribuito in un'app per le funz
 + [Opzioni di scalabilità e hosting](functions-scale.md)
 + [Hosting serverless basato su Kubernetes](functions-kubernetes-keda.md)
 
-[Portale di Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com

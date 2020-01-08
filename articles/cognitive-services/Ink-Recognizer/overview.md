@@ -3,19 +3,19 @@ title: Informazioni su Riconoscimento input penna - API Riconoscimento input pen
 titleSuffix: Azure Cognitive Services
 description: Integrare Riconoscimento input penna in applicazioni, siti Web, strumenti e altre soluzioni per consentire l'identificazione dei dati del tratto input penna e l'utilizzo degli stessi come input.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: overview
-ms.date: 07/24/2019
-ms.author: erhopf
-ms.openlocfilehash: c90d656539a2ed64b416dc9b8e7e11e205b98ee6
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.date: 12/17/2019
+ms.author: aahi
+ms.openlocfilehash: 2d00a489af35f5960aaeb1dda7add5337d48d57d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478388"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448159"
 ---
 # <a name="what-is-the-ink-recognizer-api"></a>Informazioni sull'API di Riconoscimento input penna
 
@@ -28,7 +28,7 @@ Il servizio cognitivo Riconoscimento input penna fornisce un'API REST basata sul
 
 Con l'API Riconoscimento input penna, è possibile riconoscere con facilità il contenuto scritto a mano nelle applicazioni. 
 
-|Funzionalità  |DESCRIZIONE  |
+|Funzionalità  |Descrizione  |
 |---------|---------|
 | Riconoscimento della grafia | Riconosce il contenuto scritto a mano in 63 [lingue e impostazioni locali](language-support.md) principali. | 
 | Riconoscimento del layout | Fornisce informazioni strutturali sul contenuto dell'input penna. Il contenuto viene diviso in aree di scrittura, paragrafi, righe, parole, elenchi puntati. L'applicazione può quindi usare le informazioni sul layout per sviluppare altre funzionalità, come la formattazione automatica degli elenchi e l'allineamento delle forme. |
@@ -52,7 +52,7 @@ Dopo aver eseguito l'iscrizione:
 Provare a seguire una guida di avvio rapido nei linguaggi seguenti per iniziare a effettuare chiamate all'API Riconoscimento input penna.
 * [C#](quickstarts/csharp.md)
 * [Java](quickstarts/java.md)
-* [JavaScript](quickstarts/csharp.md)
+* [JavaScript](quickstarts/javascript.md)
 
 Per vedere come funziona l'API Riconoscimento input penna in un'app di input penna, esaminare le applicazioni di esempio seguenti in GitHub:
 * [C# e piattaforma UWP (Universal Windows Platform)](https://go.microsoft.com/fwlink/?linkid=2089803)  

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: 1b619ca7bb3b095a5707077beb3e0750dee1c2b7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4f7ad05402745f17ff60dbaab8d736acc8f92196
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74923475"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439397"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Caricare dati in modo incrementale da un database SQL di Azure all'archiviazione BLOB di Azure tramite il rilevamento delle modifiche 
 
@@ -67,7 +67,7 @@ In questa esercitazione vengono create due pipeline che eseguono le due operazio
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 * **Database SQL di Azure**. Usare il database come archivio dati di **origine**. Se non si ha un database SQL di Azure, vedere la procedura per crearne uno nell'articolo [Creare un database SQL di Azure](../sql-database/sql-database-get-started-portal.md).
 * **Account di archiviazione di Azure**. Usare l'archivio BLOB come archivio dati **sink**. Se non si ha un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md) per informazioni su come crearne uno. Creare un contenitore denominato **adftutorial**. 
 
@@ -169,11 +169,11 @@ Installare i moduli di Azure PowerShell più recenti seguendo le istruzioni desc
       - Selezionare **Usa esistente**e scegliere un gruppo di risorse esistente dall'elenco a discesa. 
       - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.   
          
-        Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/resource-group-overview.md).  
+        Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/management/overview.md).  
 4. Selezionare **V2 (anteprima)** per **Versione**.
 5. Selezionare la **località** per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
 6. Selezionare **Aggiungi al dashboard**.     
-7. Fare clic su **Create**(Crea).      
+7. Fare clic su **Crea**.      
 8. Nel dashboard viene visualizzato il riquadro seguente con lo stato: **Deploying data factory** (Distribuzione della data factory). 
 
     ![Riquadro Deploying data factory (Distribuzione della data factory)](media/tutorial-incremental-copy-change-tracking-feature-portal/deploying-data-factory.png)
@@ -201,7 +201,7 @@ In questo passaggio l'account di archiviazione di Azure viene collegato alla dat
 
     1. Immettere **AzureStorageLinkedService** per **Nome**. 
     2. Selezionare il proprio account di archiviazione di Azure per **Nome account di archiviazione**. 
-    3. Fare clic su **Save**. 
+    3. Fare clic su **Salva**. 
     
    ![Impostazioni account di archiviazione di Azure](./media/tutorial-incremental-copy-change-tracking-feature-portal/azure-storage-linked-service-settings.png)
 
@@ -414,7 +414,7 @@ In questo passaggio viene creata una pipeline con le attività seguenti, eseguit
     2. Selezionare **Import parameter** (Importa parametro). 
     3. Nella sezione **Parametri stored procedure** specificare i valori seguenti per i parametri: 
 
-        | NOME | Type | Valore | 
+        | Nome | Type | valore | 
         | ---- | ---- | ----- | 
         | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
         | TableName | string | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 

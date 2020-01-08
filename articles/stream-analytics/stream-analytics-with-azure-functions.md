@@ -1,21 +1,19 @@
 ---
 title: 'Esercitazione: Eseguire Funzioni di Azure in processi di Analisi di flusso di Azure'
 description: Questa esercitazione descrive come configurare Funzioni di Azure come sink di output per i processi di Analisi di flusso.
-services: stream-analytics
 author: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
-ms.workload: data-services
 ms.date: 06/05/2019
 ms.author: mamccrea
-ms.reviewer: jasonh
-ms.openlocfilehash: 189f38c075c5faa91295633d1e4cbde1f7e573a2
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.reviewer: mamccrea
+ms.openlocfilehash: 84df3edcebb1ca9f14a68125ae9793f004e56c4d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707300"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369321"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Esercitazione: Eseguire Funzioni di Azure da processi di Analisi di flusso di Azure 
 
@@ -23,7 +21,7 @@ ms.locfileid: "74707300"
 
 Analisi di flusso richiama Funzioni tramite trigger HTTP. L'adattatore di output di Funzioni consente agli utenti di connettere Funzioni ad Analisi di flusso, in modo che gli eventi possano essere attivati in base alle query di Analisi di flusso. 
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare ed eseguire un processo di Analisi di flusso

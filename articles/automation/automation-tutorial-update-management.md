@@ -2,19 +2,16 @@
 title: Gestire gli aggiornamenti e le patch per le macchine virtuali di Azure
 description: Questo articolo offre una panoramica dell'uso di Gestione aggiornamenti di Automazione di Azure per gestire gli aggiornamenti e le patch per le VM di Azure e non di Azure.
 services: automation
-author: mgoedtel
-ms.service: automation
 ms.subservice: update-management
 ms.topic: tutorial
 ms.date: 12/03/2019
-ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 44372f32227bbfef46a72afa6f9b0bd88b29905b
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 0fd25863d26c38608b6f64f22782422b844fdec8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806559"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420650"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gestire gli aggiornamenti e le patch per le macchine virtuali di Azure
 
@@ -22,7 +19,7 @@ ms.locfileid: "74806559"
 
 Per informazioni sui prezzi, vedere [Prezzi di Automazione per la gestione degli aggiornamenti](https://azure.microsoft.com/pricing/details/automation/).
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Caricare una VM per Gestione aggiornamenti
@@ -31,7 +28,7 @@ In questa esercitazione si apprenderà come:
 > * Pianificare la distribuzione degli aggiornamenti
 > * Visualizzare i risultati di una distribuzione
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione, sono necessari:
 
@@ -93,9 +90,9 @@ L'account di Automazione è già selezionato come risorsa. Se si desidera modifi
 
 Fare clic su **Aggiungi condizione** e selezionare il segnale appropriato per la distribuzione degli aggiornamenti. Nella tabella di seguito vengono illustrati i dettagli dei due segnali disponibili per le distribuzioni degli aggiornamenti:
 
-|Nome segnale|Dimensioni|DESCRIZIONE|
+|Nome segnale|Dimensioni|Descrizione|
 |---|---|---|
-|**Esecuzioni totali della distribuzione di aggiornamenti**|- Nome della distribuzione degli aggiornamenti</br>- Stato|Questo segnale viene usato per inviare avvisi sullo stato generale della distribuzione di un aggiornamento.|
+|**Esecuzioni totali della distribuzione di aggiornamenti**|- Nome della distribuzione di aggiornamenti</br>- Stato|Questo segnale viene usato per inviare avvisi sullo stato generale della distribuzione di un aggiornamento.|
 |**Esecuzioni totali della distribuzione di aggiornamenti del computer**|- Nome della distribuzione di aggiornamenti</br>- Stato</br>- Computer di destinazione</br>- ID di esecuzione della distribuzione di aggiornamenti|Questo segnale viene usato per inviare avvisi sullo stato di una distribuzione di aggiornamenti destinata a computer specifici|
 
 Per i valori di dimensione, selezionare un valore valido dall'elenco. Se il valore desiderato non è presente nell'elenco, fare clic sul segno **\+** accanto alla dimensione e digitare il nome personalizzato. È quindi possibile selezionare il valore desiderato. Se si desidera selezionare tutti i valori da una dimensione, fare clic sul pulsante **Seleziona\*** . Se non si sceglie un valore per la dimensione, durante la valutazione questa verrà ignorata.
@@ -136,7 +133,7 @@ Per pianificare una nuova distribuzione di aggiornamenti per la macchina virtual
 
 In **Nuova distribuzione di aggiornamenti** specificare le informazioni seguenti:
 
-* **Nome**: immettere un nome univoco per la distribuzione degli aggiornamenti.
+* **Name**: immettere un nome univoco per la distribuzione degli aggiornamenti.
 
 * **Sistema operativo**: selezionare il sistema operativo di destinazione per la distribuzione degli aggiornamenti.
 
@@ -150,7 +147,7 @@ In **Nuova distribuzione di aggiornamenti** specificare le informazioni seguenti
 
    |OS  |Type  |
    |---------|---------|
-   |Windows     | Aggiornamenti critici</br>Aggiornamenti della sicurezza</br>Aggiornamenti cumulativi</br>Feature Pack</br>Service Pack</br>Aggiornamenti della definizione</br>Strumenti</br>Aggiornamenti        |
+   |Windows     | Aggiornamenti critici</br>Aggiornamenti per la sicurezza</br>Aggiornamenti cumulativi</br>Feature Pack</br>Service Pack</br>Aggiornamenti della definizione</br>Strumenti</br>Aggiornamenti        |
    |Linux     | Aggiornamenti critici e della sicurezza</br>Altri aggiornamenti       |
 
    Per una descrizione dei tipi di classificazione, vedere le [classificazioni degli aggiornamenti](automation-view-update-assessments.md#update-classifications).
@@ -209,8 +206,8 @@ In **Risultati aggiornamento** è disponibile un riepilogo che fornisce il numer
 L'elenco seguente mostra i valori disponibili:
 
 * **Tentativo non eseguito**: l'aggiornamento non è stato installato poiché, in base alla durata definita per la finestra di manutenzione, il tempo disponibile non era sufficiente.
-* **Completato**: aggiornamento completato.
-* **Operazione non riuscita**: aggiornamento non riuscito.
+* **Riuscito**: aggiornamento completato.
+* **Non riuscito**: aggiornamento non riuscito.
 
 Selezionare **Tutti i log** per visualizzare tutte le voci di log create dalla distribuzione.
 
@@ -224,7 +221,7 @@ Dopo il completamento della distribuzione dell'aggiornamento, viene inviato un m
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Caricare una VM per Gestione aggiornamenti

@@ -1,21 +1,21 @@
 ---
-title: 'Guida introduttiva: Tradurre la voce in voce, C++ (Windows) - Servizio Voce'
+title: 'Avvio rapido: Tradurre la voce in voce, C++ (Windows) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
-description: Da definire
+description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: eb43e7843c6fece39cd626744e2e6495bf566c87
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e4136a7c843b543f75ae55d39f324e160dc8cbc0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74981547"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75469449"
 ---
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice C++ su GitHub](https://aka.ms/speech/github-cpp)

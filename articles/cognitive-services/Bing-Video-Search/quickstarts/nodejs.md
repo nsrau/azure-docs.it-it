@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Cercare video con l'API REST e Node.js - Ricerca video Bing"
+title: "Avvio rapido: Cercare video con l'API REST e Node.js - Ricerca video Bing"
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per inviare richieste di ricerca di video all'API REST Ricerca video Bing usando JavaScript.
 services: cognitive-services
@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 06/26/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: e9d7aeabceb77597d826d6c76dbdddc625ad45cc
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 6ae8afefae9a539812748c0ae5380ddaf1fb084c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383804"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382668"
 ---
-# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>Guida introduttiva: Cercare video con l'API REST Ricerca video Bing e Node.js
+# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>Avvio rapido: Cercare video con l'API REST Ricerca video Bing e Node.js
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca video Bing e visualizzare un risultato della ricerca dalla risposta JSON. Questa semplice applicazione JavaScript invia una query di ricerca video HTTP all'API e visualizza la risposta. L'applicazione è scritta in JavaScript ed eseguita in Node.js, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingVideoSearchv7.js) con altre annotazioni di codice e informazioni sulla gestione degli errori.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Node.js](https://nodejs.org/en/download/)
 
@@ -39,7 +39,7 @@ Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca v
     let https = require('https');
     ```
 
-2. Creare variabili per l'endpoint API, la chiave di sottoscrizione e il termine di ricerca.
+2. Creare variabili per l'endpoint API, la chiave di sottoscrizione e il termine di ricerca. `host` può essere l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 
     ```javascript
     let subscriptionKey = 'enter key here';

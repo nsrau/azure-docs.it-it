@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Ottenere notizie usando l'API REST Ricerca notizie Bing e Go"
+title: "Avvio rapido: Ottenere notizie usando l'API REST Ricerca notizie Bing e Go"
 titleSuffix: Azure Cognitive Services
 description: In questo argomento di avvio rapido viene usato il linguaggio Go per chiamare l'API Ricerca notizie Bing. I risultati includono i nomi e gli URL delle fonti di notizie identificate dalla stringa di query.
 services: cognitive-services
@@ -8,31 +8,31 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 2/21/2019
+ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: e08fe23f99cbf2fac7fc0528b04360f36d22b875
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a72859e378bc1f97ebaed6a11ea3b250a33651d5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74222128"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448535"
 ---
-# <a name="quickstart-get-news-results-using-the-bing-news-search-rest-api-and-go"></a>Guida introduttiva: Ottenere i risultati delle notizie usando l'API REST Ricerca notizie Bing e Go
+# <a name="quickstart-get-news-results-using-the-bing-news-search-rest-api-and-go"></a>Avvio rapido: Ottenere i risultati delle notizie usando l'API REST Ricerca notizie Bing e Go
 
 In questo argomento di avvio rapido viene usato il linguaggio Go per chiamare l'API Ricerca notizie Bing. I risultati includono i nomi e gli URL delle fonti di notizie identificate dalla stringa di query.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 * Installare i [file binari Go](https://golang.org/dl/)
 * Installare la libreria go-spew per visualizzare i risultati tramite lo strumento per la riformattazione
     * Installare questa libreria: `$ go get -u https://github.com/davecgh/go-spew`
 
-[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
 ## <a name="create-a-project-and-import-libraries"></a>Creare un progetto e importare le librerie
 
 Creare un nuovo progetto Go nell'ambiente di sviluppo integrato o nell'editor preferito. Importare quindi `net/http` per le richieste, `ioutil` per leggere la risposta e `encoding/json` per gestire il testo JSON dei risultati. Per analizzare il codice JSON è necessaria la libreria go-spew. 
 
-```
+```go
 package main
 
 import (
@@ -49,7 +49,7 @@ import (
 
 Lo struct `NewsAnswer` formatta i dati forniti nella risposta. La risposta JSON include più livelli ed è piuttosto complessa.  L'implementazione seguente illustra i concetti essenziali.
 
-```
+```go
 // This struct formats the answer provided by the Bing News Search API.
 type NewsAnswer struct {
     ReadLink       string `json: "readLink"` 
@@ -87,9 +87,9 @@ type NewsAnswer struct {
 
 ## <a name="declare-the-main-function-and-define-variables"></a>Dichiarare la funzione principale e definire le variabili  
 
-Il codice seguente dichiara la funzione main e assegna le variabili obbligatorie. Verificare che l'endpoint sia corretto e sostituire il valore di `token` con una chiave di sottoscrizione valida del proprio account Azure.
+Il codice seguente dichiara la funzione main e assegna le variabili obbligatorie. Verificare che l'endpoint sia corretto e sostituire il valore di `token` con una chiave di sottoscrizione valida del proprio account Azure. È possibile usare l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 
-```
+```go
 func main() {
     // Verify the endpoint URI and replace the token string with a valid subscription key.  
     const endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/news/search"
@@ -110,7 +110,7 @@ func main() {
 
 Aggiungere la stringa di query e l'intestazione della chiave di accesso
 
-```
+```go
 // Add the query to the request.  
 param := req.URL.Query()
 param.Add("q", searchTerm)
@@ -125,7 +125,7 @@ req.Header.Add("Ocp-Apim-Subscription-Key", token)
 
 Creare il client e inviare la richiesta GET. 
 
-```
+```go
 // Instantiate a client.  
 client := new(http.Client)
 
@@ -141,7 +141,7 @@ if err != nil {
 
 Inviare la richiesta e leggere i risultati usando `ioutil`.
 
-```
+```go
 resp, err := client.Do(req)
     if err != nil {
         panic(err)
@@ -162,7 +162,7 @@ if err != nil {
 
 La funzione `Unmarshall` estrae le informazioni dal testo JSON restituito dall'API Ricerca notizie.  È quindi possibile visualizzare i nodi dai risultati usando lo strumento `go-spew` per la riformattazione.
 
-```
+```go
 // Create a new answer object 
 ans := new(NewsAnswer)
 err = json.Unmarshal(body, &ans)

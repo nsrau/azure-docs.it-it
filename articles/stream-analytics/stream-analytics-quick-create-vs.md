@@ -1,20 +1,19 @@
 ---
 title: 'Avvio rapido: Creare un processo di Analisi di flusso di Azure con Visual Studio'
 description: Questa guida introduttiva descrive come iniziare a creare un processo di Analisi di flusso, configurare gli input e gli output e definire una query con Visual Studio.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.openlocfilehash: ec3318201fd3fe8f7daf78d05bf316fb88914daf
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 21dbd4128cad7df11aeb713286d868879a58519b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707342"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431534"
 ---
-# <a name="quickstart-create-an-azure-stream-analytics-job-by-using-visual-studio"></a>Guida introduttiva: Creare un processo di Analisi di flusso di Azure con Visual Studio Code
+# <a name="quickstart-create-an-azure-stream-analytics-job-by-using-visual-studio"></a>Avvio rapido: Creare un processo di Analisi di flusso di Azure con Visual Studio Code
 
 Questa guida introduttiva descrive come creare ed eseguire un processo di Analisi di flusso usando gli strumenti di Analisi di flusso di Azure per Visual Studio. Il processo di esempio legge i dati in streaming da un dispositivo hub IoT. Viene definito un processo che calcola la temperatura media quando supera i 27° e scrive gli eventi di output risultanti in un nuovo file nell'archiviazione BLOB.
 
@@ -168,7 +167,7 @@ Si notino gli elementi che sono inclusi in un progetto di Analisi di flusso di A
 
 2. Sostituire il segnaposto nella riga 15 con la stringa di connessione del dispositivo hub IoT di Azure salvato in una sezione precedente.
 
-3. Fare clic su **Run**. L'output mostra i dati del sensore e i messaggi inviati all'hub IoT.
+3. Fare clic su **Esegui**. L'output mostra i dati del sensore e i messaggi inviati all'hub IoT.
 
    ![Simulatore online Azure IoT Raspberry Pi](./media/stream-analytics-quick-create-portal/ras-pi-connection-string.png)
 
@@ -188,11 +187,11 @@ Si notino gli elementi che sono inclusi in un progetto di Analisi di flusso di A
 
 4. Per visualizzare i risultati, dal menu **Visualizza** scegliere **Cloud Explorer** e passare all'account di archiviazione nel gruppo di risorse. In **Contenitori BLOB** fare doppio clic su **container1** e quindi sul percorso del file di **output**.
 
-   ![Visualizzare i risultati](./media/stream-analytics-quick-create-vs/stream-analytics-vs-results.png)
+   ![Visualizzazione dei risultati](./media/stream-analytics-quick-create-vs/stream-analytics-vs-results.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non sono più necessari, eliminare il gruppo di risorse, il processo di streaming e tutte le risorse correlate. Eliminando il processo si evita di pagare per le unità di streaming utilizzate dal processo. Se si prevede di usare il processo in futuro, è possibile arrestarlo e riavviarlo in un secondo momento, quando è necessario. Se non si intende continuare a usare il processo, eliminare tutte le risorse create tramite questa guida introduttiva seguendo questa procedura:
+Quando non sono più necessari, eliminare il gruppo di risorse, il processo di streaming e tutte le risorse correlate. Eliminando il processo si evita di pagare per le unità di streaming usate dal processo. Se si prevede di usare il processo in futuro, è possibile arrestarlo e riavviarlo in un secondo momento, quando è necessario. Se non si intende continuare a usare il processo, eliminare tutte le risorse create tramite questa guida introduttiva seguendo questa procedura:
 
 1. Scegliere **Gruppi di risorse** dal menu a sinistra del portale di Azure e quindi selezionare il nome della risorsa creata.  
 

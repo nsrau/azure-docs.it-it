@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Libreria client di Ricerca visiva Bing per Java | Microsoft Docs'
+title: 'Avvio rapido: Libreria client di Ricerca visiva Bing per Java | Microsoft Docs'
 description: Caricare un'immagine usando l'SDK di Ricerca visiva Bing e ottenere informazioni dettagliate su di essa.
 services: cognitive-services
 author: aahill
@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ''
 ms.topic: quickstart
-ms.date: 09/30/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 7fb00fd3ce588aeeba4f315f191f6b82d6b75715
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 5a6d39fa6e10ad0ad102f9d25ffd252ec9e0fa8a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "71695725"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75379496"
 ---
-# <a name="quickstart-bing-visual-search-client-library-for-java"></a>Guida introduttiva: Libreria client di Ricerca visiva Bing per Java
+# <a name="quickstart-bing-visual-search-client-library-for-java"></a>Avvio rapido: Libreria client di Ricerca visiva Bing per Java
 
 Questo argomento costituisce un'introduzione alla libreria client di Ricerca visiva Bing per Java. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. 
 
@@ -27,20 +27,13 @@ Usare la libreria client di Ricerca visiva Bing per Java per:
 
 [Documentazione di riferimento](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-java-stable) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingVisualSearch) | [Artefatto (Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-visualsearch/) | [Esempi](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * La versione corrente di [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * Lo [strumento di compilazione Gradle](https://gradle.org/install/) o un'altra utilità di gestione dipendenze
 
-## <a name="setting-up"></a>Configurazione
-
-### <a name="create-a-bing-visual-search-azure-resource"></a>Creare una risorsa di Azure per Ricerca visiva Bing
-
-I Servizi cognitivi di Azure sono rappresentati dalle risorse di Azure a cui si effettua la sottoscrizione. Creare una risorsa per Ricerca visiva Bing usando il [portale di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) nel computer locale. È anche possibile:
-
-* Ottenere un [codice di valutazione gratuito](https://azure.microsoft.com/try/cognitive-services/#decision) valido per 7 giorni. Dopo aver eseguito l'iscrizione, sarà disponibile sul [sito Web di Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
-* Visualizzare questa risorsa nel [portale di Azure](https://portal.azure.com/).
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 Dopo aver ottenuto una chiave dalla sottoscrizione di valutazione o dalla risorsa, [creare una variabile di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la chiave, denominata `BING_SEARCH_V7_SUBSCRIPTION_KEY`.
 

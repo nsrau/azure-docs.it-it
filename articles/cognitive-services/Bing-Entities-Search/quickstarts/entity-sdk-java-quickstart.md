@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Cercare entità con l'SDK per Java - Ricerca entità Bing"
+title: "Avvio rapido: Cercare entità con l'SDK per Java - Ricerca entità Bing"
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per cercare entità con l'SDK di Ricerca entità Bing per Java
 services: cognitive-services
@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 07/24/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: f39355613382bd5d02b7ef6918598f38737e850f
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: b907b1ed945cd72d51d0b1acd037dbfc93be4873
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327147"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448651"
 ---
-# <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-java"></a>Guida introduttiva: Inviare una richiesta di ricerca con l'SDK di Ricerca entità Bing per Java
+# <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-java"></a>Avvio rapido: Inviare una richiesta di ricerca con l'SDK di Ricerca entità Bing per Java
 
 Usare questa guida introduttiva per iniziare a cercare entità con l'SDK di Ricerca entità Bing per Java. Mentre Ricerca entità Bing ha un'API REST compatibile con la maggior parte dei linguaggi di programmazione, l'SDK offre un modo semplice per integrare il servizio nelle applicazioni. Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingEntitySearch).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/)
 
@@ -67,7 +67,7 @@ Installare le dipendenze dell'SDK di Ricerca entità Bing usando Maven, Gradle o
 
 ## <a name="create-a-search-client"></a>Creare un client di ricerca
 
-1. Implementare il client `dominantEntityLookup`, che richiede l'endpoint API, e un'istanza della classe `ServiceClientCredentials`.
+1. Implementare il client `dominantEntityLookup`, che richiede l'endpoint API, e un'istanza della classe `ServiceClientCredentials`. È possibile usare l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 
     ```java
     public static EntitySearchAPIImpl getClient(final String subscriptionKey) {

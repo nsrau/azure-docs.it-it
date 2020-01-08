@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/17/2019
 ms.author: jgao
-ms.openlocfilehash: 1e993ec50694d8672fbe05f982d5dbc45a815abb
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: d3c1070577ee57f18018e9b74be5e29998cc3e64
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71161480"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453675"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault tramite un modello di Resource Manager
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>Avvio rapido: Impostare e recuperare un segreto da Azure Key Vault tramite un modello di Resource Manager
 
 [Azure Key Vault](./key-vault-overview.md) è un servizio cloud che offre un archivio sicuro per i segreti, ad esempio le chiavi, le password, i certificati e così via. Questo argomento di avvio rapido illustra il processo di distribuzione di un modello di Resource Manager per creare un insieme di credenziali delle chiavi e un segreto.
 
@@ -25,7 +25,7 @@ Un [modello di Resource Manager](../azure-resource-manager/template-deployment-o
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
@@ -153,6 +153,6 @@ Write-Host "Press [ENTER] to continue..."
 In questo argomento di avvio rapido si sono creati un insieme di credenziali delle chiavi e un segreto usando un modello di Azure Resource Manager ed è stata convalidata la distribuzione. Per altre informazioni su Key Vault e Azure Resource Manager, continuare con gli articoli seguenti.
 
 - Leggere una [panoramica di Azure Key Vault](key-vault-overview.md)
-- Vedere altre informazioni su [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
+- Vedere altre informazioni su [Azure Resource Manager](../azure-resource-manager/management/overview.md)
 - Leggere altri dettagli su [chiavi, segreti e certificati](about-keys-secrets-and-certificates.md)
 - Esaminare le [procedure consigliate per Azure Key Vault](key-vault-best-practices.md)

@@ -15,12 +15,12 @@ ms.date: 10/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 1fe1d50f24c70c89ea0fbaa952673cdeacc4f1bf
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 8dbccdfdcf2a309c8324328f46336bab74839da4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803151"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75357524"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Ruoli di amministratore sottoscrizione classico, ruoli di controllo degli accessi in base al ruolo di Azure e ruoli di amministratore di Azure AD
 
@@ -50,7 +50,7 @@ Amministratore account, Amministratore del servizio e Coamministratore sono i tr
 
 Nel portale di Azure è possibile gestire i coamministratori o visualizzare l'amministratore del servizio usando la scheda **Amministratori (versione classica)** .
 
-![Amministratori della sottoscrizione classica di Azure nel portale di Azure](./media/rbac-and-directory-admin-roles/classic-administrators.png)
+![Amministratori della sottoscrizione classica di Azure nel portale di Azure](./media/rbac-and-directory-admin-roles/subscription-view-classic-administrators.png)
 
 Nel portale di Azure è possibile visualizzare o cambiare l'amministratore del servizio o visualizzare l'amministratore account nel pannello delle proprietà della sottoscrizione.
 
@@ -70,7 +70,7 @@ Gli account e le sottoscrizioni sono gestiti nel [Centro account di Azure](https
 
 ## <a name="azure-rbac-roles"></a>Ruoli di controllo degli accessi in base al ruolo di Azure
 
-Il controllo degli accessi in base al ruolo di Azure è un sistema di autorizzazione basato su [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) che offre una gestione degli accessi dettagliata alle risorse in Azure, ad esempio alle risorse di calcolo e di archiviazione. Il controllo degli accessi in base al ruolo di Azure include oltre 70 ruoli predefiniti. Sono disponibili quattro ruoli principali di controllo degli accessi in base al ruolo. I primi tre si applicano a tutti i tipi di risorse:
+Il controllo degli accessi in base al ruolo di Azure è un sistema di autorizzazione basato su [Azure Resource Manager](../azure-resource-manager/management/overview.md) che offre una gestione degli accessi dettagliata alle risorse in Azure, ad esempio alle risorse di calcolo e di archiviazione. Il controllo degli accessi in base al ruolo di Azure include oltre 70 ruoli predefiniti. Sono disponibili quattro ruoli principali di controllo degli accessi in base al ruolo. I primi tre si applicano a tutti i tipi di risorse:
 
 | Ruolo Controllo degli accessi in base al ruolo di Azure | Autorizzazioni | Note |
 | --- | --- | --- |

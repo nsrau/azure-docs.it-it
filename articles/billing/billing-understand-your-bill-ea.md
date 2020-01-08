@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.author: banders
-ms.openlocfilehash: cc4b552143917f5a9ca66ad402cca79956186d08
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 112bcf7f5cb33fec56cdc36c5fe8cfe92145705a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841270"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644495"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Informazioni sulla fattura del contratto Enterprise di Azure
 
@@ -48,7 +48,7 @@ Si riceve una fattura di Azure quando si verifica uno degli eventi seguenti dura
 ## <a name="review-charges-for-most-customers"></a>Controllare gli addebiti per la maggior parte dei clienti
 Questa sezione non si applica ai clienti di Azure in Australia, Giappone o Singapore. Se ci si trova in uno di questi paesi, vedere [Controllare gli addebiti per altri clienti](#review-charges-for-other-customers).
 
-Per rivedere e verificare gli addebiti sulla propria fattura, bisogna essere l'amministratore di Enterprise. Per altre informazioni, consultare [Informazioni sui ruoli amministrativi del Contratto Enterprise di Azure in Azure](billing-understand-ea-roles.md). Se non si sa chi è l'amministratore di Enterprise della propria organizzazione, [contattare l'assistenza](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Per rivedere e verificare gli addebiti sulla propria fattura, bisogna essere l'amministratore di Enterprise. Per altre informazioni, vedere [Informazioni sui ruoli amministrativi per il Contratto Enterprise di Azure](billing-understand-ea-roles.md). Se non si sa chi è l'amministratore di Enterprise della propria organizzazione, [contattare l'assistenza](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 La fattura mostra tutto l'utilizzo di Azure, seguito da eventuali addebiti del Marketplace. Se si dispone di un saldo dei crediti, questo viene applicato all'utilizzo di Azure.
 
@@ -89,7 +89,7 @@ Se durante il periodo di fatturazione vengono fatturati separatamente l'eccedenz
 
 Questa sezione si applica solo se si risiede in Australia, Giappone o Singapore.
 
-Per rivedere e verificare gli addebiti sulla propria fattura, bisogna essere l'amministratore di Enterprise. Per altre informazioni, consultare [Informazioni sui ruoli amministrativi del Contratto Enterprise di Azure in Azure](billing-understand-ea-roles.md). Se non si sa chi è l'amministratore di Enterprise della propria organizzazione, [contattare l'assistenza](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Per rivedere e verificare gli addebiti sulla propria fattura, bisogna essere l'amministratore di Enterprise. Per altre informazioni, vedere [Informazioni sui ruoli amministrativi per il Contratto Enterprise di Azure](billing-understand-ea-roles.md). Se non si sa chi è l'amministratore di Enterprise della propria organizzazione, [contattare l'assistenza](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="review-service-overage-invoice"></a>Fattura per l'eccedenza del servizio di revisione
 
@@ -105,7 +105,7 @@ Confrontare l'importo totale dell'utilizzo in Enterprise Portal in **Report** > 
 
 La tabella seguente elenca i termini e le descrizioni mostrate nella fattura e sul **Riepilogo uso** nel portale Enterprise:
 
-|Termine di fatturazione|Termine Riepilogo uso|DESCRIZIONE|
+|Termine di fatturazione|Termine Riepilogo uso|Descrizione|
 |---|---|---|
 |Importo totale esteso|Uso totale|L'addebito di uso totale al lordo delle imposte per il periodo specifico prima che venga applicato il credito.|
 |Uso dell'impegno|Uso dell'impegno|Il credito applicato durante tale periodo specifico.|

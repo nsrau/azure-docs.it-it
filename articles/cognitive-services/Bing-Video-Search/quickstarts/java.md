@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Cercare video con l'API REST e Java - Ricerca video Bing"
+title: "Avvio rapido: Cercare video con l'API REST e Java - Ricerca video Bing"
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per inviare richieste di ricerca di video all'API REST Ricerca video Bing usando Java.
 services: cognitive-services
@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 06/19/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 30234758761e06c65e621c7f512ed8cafa02e090
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 8cab88b9d3a861c72d382534705ea5c087fe9ecb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378655"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382651"
 ---
-# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-java"></a>Guida introduttiva: Cercare video con l'API REST Ricerca video Bing e Java
+# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-java"></a>Avvio rapido: Cercare video con l'API REST Ricerca video Bing e Java
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca video Bing e visualizzare un risultato della ricerca dalla risposta JSON. Questa semplice applicazione Java invia una query di ricerca video HTTP all'API e visualizza la risposta. L'applicazione è scritta in Java, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingVideoSearchv7.java) con altre annotazioni di codice, funzionalità e informazioni sulla gestione degli errori.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
 
@@ -59,7 +59,7 @@ Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca v
     }
     ```
 
-3. Creare un nuovo metodo denominato `SearchVideos()` con le variabili per l'host e il percorso dell'endpoint API, la chiave della sottoscrizione e un termine di ricerca. Verrà restituito un oggetto `SearchResults`. 
+3. Creare un nuovo metodo denominato `SearchVideos()` con le variabili per l'host e il percorso dell'endpoint API, la chiave della sottoscrizione e un termine di ricerca. Verrà restituito un oggetto `SearchResults`. `host` può essere l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 
     ```java
     public static SearchResults SearchVideos (String searchQuery) throws Exception {

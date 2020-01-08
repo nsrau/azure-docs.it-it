@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Inviare una richiesta di ricerca all'API REST con C# - Ricerca entità Bing"
+title: "Avvio rapido: Inviare una richiesta di ricerca all'API REST con C# - Ricerca entità Bing"
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per inviare una richiesta all'API REST Ricerca entità Bing con C# e ricevere una risposta JSON.
 services: cognitive-services
@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: efb2c646d364a93910d2105edb6527ad1116ccb2
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: c343c160f67eda2dd390ffc39f3b4f1ff49cacb6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327165"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448662"
 ---
-# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Guida introduttiva: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing usando C#
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Avvio rapido: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing usando C#
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca entità Bing e visualizzare la risposta JSON. Questa semplice applicazione C# invia una query di ricerca notizie all'API e visualizza la risposta. Il codice sorgente di questa applicazione è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingEntitySearchv7.cs).
 
 L'applicazione è scritta in C#, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Qualsiasi edizione di [Visual Studio 2017 o versioni successive](https://www.visualstudio.com/downloads/).
 
@@ -50,7 +50,7 @@ L'applicazione è scritta in C#, ma l'API è un servizio Web RESTful compatibile
     using System.Text;
     ```
 
-2. Creare una nuova classe, quindi aggiungere le variabili per l'endpoint API, la chiave della sottoscrizione e la query della ricerca.
+2. Creare una nuova classe, quindi aggiungere le variabili per l'endpoint API, la chiave della sottoscrizione e la query della ricerca. È possibile usare l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 
     ```csharp
     namespace EntitySearchSample

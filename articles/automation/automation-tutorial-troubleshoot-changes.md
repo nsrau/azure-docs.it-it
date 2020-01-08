@@ -2,21 +2,17 @@
 title: Risolvere i problemi delle modifiche in una macchina virtuale di Azure | Microsoft Docs
 description: Usare Rilevamento modifiche per risolvere i problemi relativi alle modifiche in una macchina virtuale di Azure.
 services: automation
-ms.service: automation
 ms.subservice: change-inventory-management
 keywords: modifica, rilevamento, automazione
-author: jennyhunter-msft
-ms.author: jehunte
 ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
-manager: carmonm
-ms.openlocfilehash: 92f25d956bc8f1f930ae6ebbf7ee48c144bf8a30
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 60ca1ef3d5c14a0f3dea5b662fc5c95184e6574d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476867"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420645"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Risolvere i problemi delle modifiche nell'ambiente
 
@@ -34,7 +30,7 @@ In questa esercitazione si apprenderà come:
 > * Visualizzare le modifiche
 > * Configurare gli avvisi
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione, sono necessari:
 

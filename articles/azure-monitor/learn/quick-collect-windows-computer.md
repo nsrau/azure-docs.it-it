@@ -3,7 +3,7 @@ title: Raccogliere dati da un computer Windows ibrido con Monitoraggio di Azure
 description: Questo argomento di avvio rapido descrive come distribuire l'agente di Log Analytics per computer Windows in esecuzione all'esterno di Azure e come abilitare la raccolta di dati con i log di Monitoraggio di Azure.
 services: azure-monitor
 documentationcenter: azure-monitor
-author: mgoedtel
+author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/22/2019
-ms.author: magoedte
+ms.author: bwren
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 26919a64313df823dddad5dcfca6de5d08dcd993
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 11c51ab702399c73dc93f850d4abde49b45b3775
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199034"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398953"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>Raccogliere dati da un computer Windows in un ambiente ibrido con Monitoraggio di Azure
 

@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 12/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52b3b7ea34d48c37a4e07ab073e611d5a60399a9
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: c8a8f3895f41ac987b934b86f8d646b281c37c93
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706932"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561983"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con ServiceNow
 
@@ -33,7 +32,7 @@ Questa esercitazione descrive come integrare ServiceNow con Azure Active Directo
 
 Per altre informazioni sull'integrazione di app SaaS (Software as a Service) con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per iniziare, sono necessari gli elementi seguenti:
 
@@ -121,7 +120,7 @@ In questa sezione verrà creato un utente di test, di nome B.Simon, nel portale 
    1. Selezionare **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
    1. Selezionare **Create** (Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a ServiceNow.
 
@@ -314,7 +313,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
         * Verificare che il campo **NameID Policy** (Criterio NameID) sia impostato sul valore `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
 
-        * Selezionare **Advanced** (Avanzate). Nella casella di testo **User Field** (Campo utente) immettere **email** o **user_name**, a seconda di quale campo viene usato per identificare in modo univoco gli utenti nella distribuzione ServiceNow.
+        * Fare clic su **Avanzate**. Nella casella di testo **User Field** (Campo utente) immettere **email** o **user_name**, a seconda di quale campo viene usato per identificare in modo univoco gli utenti nella distribuzione ServiceNow.
 
             > [!NOTE]
             > È possibile configurare Azure AD per l'emissione dell'ID utente di Azure AD (nome dell'entità utente) o dell'indirizzo di posta elettronica come identificatore univoco nel token SAML. A tale scopo, passare alla sezione **ServiceNow** > **Attributi** > **Single Sign-On** del portale di Azure e mappare il campo desiderato all'attributo **nameidentifier**. Il valore archiviato per l'attributo selezionato in Azure AD, ad esempio il nome dell'entità utente, deve corrispondere al valore archiviato in ServiceNow per il campo immesso, ad esempio user_name.

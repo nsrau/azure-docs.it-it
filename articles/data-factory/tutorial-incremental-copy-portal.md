@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: 5d82971cbd7781a298f3f3aeeba47e4be471e248
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1c8df388bcd3956746edba9a721b0598025b827e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927989"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439184"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Caricare i dati in modo incrementale da un database SQL di Azure ad archiviazione BLOB di Azure tramite il portale di Azure
 
@@ -35,7 +35,7 @@ In questa esercitazione vengono completati i passaggi seguenti:
 > * Esaminare i risultati
 > * Aggiungere altri dati all'origine.
 > * Eseguire di nuovo la pipeline.
-> * Monitorare la seconda esecuzione della pipeline.
+> * Monitorare la seconda esecuzione della pipeline
 > * Esaminare i risultati della seconda esecuzione.
 
 
@@ -62,7 +62,7 @@ Di seguito sono descritti i passaggi fondamentali per la creazione di questa sol
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 * **Database SQL di Azure**. Usare il database come archivio dati di origine. Se non è disponibile un database SQL, vedere [Creare un database SQL di Azure](../sql-database/sql-database-get-started-portal.md) per crearne uno.
 * **Archiviazione di Azure**. Usare l'archivio BLOB come archivio dati sink. Se non si ha un account di archiviazione, vedere [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md) per informazioni su come crearne uno. Creare un contenitore denominato adftutorial. 
 
@@ -150,7 +150,7 @@ END
 ## <a name="create-a-data-factory"></a>Creare una data factory
 
 1. Avviare il Web browser **Microsoft Edge** o **Google Chrome**. L'interfaccia utente di Data Factory è attualmente supportata solo nei Web browser Microsoft Edge e Google Chrome.
-2. Nel menu a sinistra selezionare **Crea una risorsa** > **Analytics** > **Data Factory**: 
+2. Nel menu a sinistra selezionare **Crea una risorsa** > **Analisi** > **Data factory**: 
    
    ![Selezione di Data Factory nel riquadro "Nuovo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -165,10 +165,10 @@ END
       - Selezionare **Usa esistente**e scegliere un gruppo di risorse esistente dall'elenco a discesa. 
       - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.   
          
-        Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/resource-group-overview.md).  
+        Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/management/overview.md).  
 6. Selezionare **V2** per **version**.
 7. Selezionare la **località** per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
-8. Fare clic su **Create**(Crea).      
+8. Fare clic su **Crea**.      
 9. Al termine della creazione verrà visualizzata la pagina **Data factory**, come illustrato nell'immagine.
    
    ![Home page di Data factory](./media/doc-common-process/data-factory-home-page.png)
@@ -253,10 +253,10 @@ In questa esercitazione si crea una pipeline con due attività di ricerca, un'at
     2. Selezionare il proprio account di archiviazione di Azure per **Nome account di archiviazione**.
     3. Verificare la connessione e quindi fare clic su **Fine**. 
 
-27. Nella finestra **Imposta proprietà** verificare che per **Servizio collegato** sia selezionato **AzureStorageLinkedService**. Selezionare quindi **Fine**.
+27. Nella finestra **Imposta proprietà** verificare che per **Servizio collegato** sia selezionato **AzureStorageLinkedService**. Quindi selezionare **Fine**.
 28. Passare alla scheda **Connessione** di SinkDataset e seguire questa procedura:
     1. Per il campo **Percorso file**, immettere **adftutorial/incrementalcopy**. **adftutorial** è il nome del contenitore BLOB e **incrementalcopy** è il nome della cartella. Questo frammento di codice presuppone che nell'archivio BLOB sia presente un contenitore BLOB denominato adftutorial. Creare il contenitore se non esiste oppure impostare il nome di un contenitore esistente. Se non esiste, la cartella di output **incrementalcopy** viene creata automaticamente da Azure Data Factory. È anche possibile usare il pulsante **Sfoglia** per **Percorso file** per passare a una cartella in un contenitore BLOB.
-    2. Per la parte **File** del campo **Percorso file**, fare clic su **Aggiungi contenuto dinamico [AL+P]** e quindi immettere `@CONCAT('Incremental-', pipeline().RunId, '.txt')` nella finestra che viene aperta. Selezionare quindi **Fine**. Il nome file viene generato in modo dinamico usando l'espressione. Ogni esecuzione della pipeline ha un ID univoco, che viene usato dall'attività di copia per generare il nome file. 
+    2. Per la parte **File** del campo **Percorso file**, fare clic su **Aggiungi contenuto dinamico [AL+P]** e quindi immettere `@CONCAT('Incremental-', pipeline().RunId, '.txt')` nella finestra che viene aperta. Quindi selezionare **Fine**. Il nome file viene generato in modo dinamico usando l'espressione. Ogni esecuzione della pipeline ha un ID univoco, che viene usato dall'attività di copia per generare il nome file. 
 
 28. Passare all'editor di **pipeline** facendo clic sulla scheda della pipeline in alto oppure sul nome della pipeline nella visualizzazione albero a sinistra. 
 29. Nella casella degli strumenti **Attività** espandere **Generale** e trascinare l'attività **Stored procedure** dalla casella degli strumenti **Attività** all'area di progettazione della pipeline. **Connettere** l'output contrassegnato in verde (come operazione riuscita) dell'attività **Copia** all'attività **Stored procedure**. 
@@ -270,7 +270,7 @@ In questa esercitazione si crea una pipeline con due attività di ricerca, un'at
     1. In **Nome stored procedure** selezionare **usp_write_watermark**. 
     2. Per specificare i valori dei parametri della stored procedure, fare clic su **Import parameter** (Importa parametro) e immettere i valori seguenti per i parametri: 
 
-        | NOME | Type | Valore | 
+        | Nome | Type | valore | 
         | ---- | ---- | ----- | 
         | LastModifiedtime | Datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | string | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
@@ -393,7 +393,7 @@ In questa esercitazione sono stati eseguiti i passaggi seguenti:
 > * Esaminare i risultati
 > * Aggiungere altri dati all'origine.
 > * Eseguire di nuovo la pipeline.
-> * Monitorare la seconda esecuzione della pipeline.
+> * Monitorare la seconda esecuzione della pipeline
 > * Esaminare i risultati della seconda esecuzione.
 
 In questa esercitazione, la pipeline ha copiato dati da una singola tabella di un database SQL a un archivio BLOB. Passare all'esercitazione successiva per informazioni sulla copia di dati da più tabelle di un database di SQL Server locale a un database SQL. 

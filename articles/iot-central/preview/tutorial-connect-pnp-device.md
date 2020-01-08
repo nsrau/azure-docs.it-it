@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 2cb07a94b2ae85cc0755e1e7069a76e1ef2a5252
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 233d8f345eceb188fcc849457c5243a3c64aaec2
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977336"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548854"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-device-and-connect-it-to-your-iot-central-application"></a>Esercitazione: Usare un modello di funzionalità di dispositivo per creare un dispositivo Plug and Play IoT e connetterlo all'applicazione IoT Central
 
@@ -21,16 +21,16 @@ ms.locfileid: "74977336"
 
 Un _modello di funzionalità di dispositivo_ descrive le funzionalità di un dispositivo [Plug and Play IoT](../../iot-pnp/overview-iot-plug-and-play.md). IoT Central può usare un modello di funzionalità di dispositivo per creare un modello e le visualizzazioni per un dispositivo alla prima connessione del dispositivo.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Usare Visual Studio Code per creare un dispositivo Plug and Play IoT usando un modello di funzionalità di dispositivo.
 > * Eseguire il codice del dispositivo in Windows per connetterlo all'applicazione IoT Central.
 > * Visualizzare i dati di telemetria simulati inviati dal dispositivo.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-Completare l'argomento di avvio rapido [Creare un'applicazione Azure IoT Central (funzionalità di anteprima)](./quick-deploy-iot-central.md) per creare un'applicazione IoT Central usando il modello **App personalizzata > Anteprima applicazione**.
+Completare l'avvio rapido [Creare un'applicazione Azure IoT Central (funzionalità di anteprima)](./quick-deploy-iot-central.md) per creare un'applicazione IoT Central usando il modello **App personalizzata > Anteprima applicazione**.
 
 Per completare questa esercitazione, è necessario installare il software seguente nel computer locale:
 
@@ -166,10 +166,10 @@ Per compilare lo stub del codice del dispositivo generato, si usa l'SDK per disp
     cmake .. -G "Visual Studio 14 2015" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="<directory of your Vcpkg repo>\scripts\buildsystems\vcpkg.cmake"
     ```
 
-1. Al termine della compilazione, eseguire l'applicazione dallo stesso prompt dei comandi. Sostituire `<scopeid>` e `<devicekey>` con i valori annotati in precedenza:
+1. Al termine della compilazione, eseguire l'applicazione dallo stesso prompt dei comandi. Sostituire `<scopeid>` e `<primarykey>` con i valori annotati in precedenza:
 
     ```cmd
-    .\Release\devkit_device.exe mxchip-001 <scopeid> <devicekey>
+    .\Release\devkit_device.exe mxchip-001 <scopeid> <primarykey>
     ```
 
 1. L'applicazione del dispositivo inizia a inviare dati all'hub IoT. A volte viene visualizzato l'errore `Error registering device for DPS` la prima volta che si esegue il comando precedente. Se viene visualizzato questo errore, ripetere il comando.

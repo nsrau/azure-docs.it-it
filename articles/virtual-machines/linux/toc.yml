@@ -33,7 +33,7 @@
       href: tutorial-virtual-network.md
     - name: 9 - Eseguire il backup delle macchine virtuali
       href: tutorial-backup-vms.md
-    - name: 10 - Configurare la governance delle VM
+    - name: 10 - Gestire le macchine virtuali
       href: tutorial-govern-resources.md
     - name: 11 - Tenere traccia delle macchine virtuali e aggiornarle
       href: tutorial-config-management.md

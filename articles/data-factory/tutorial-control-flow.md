@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 277616d9fcd15affc7ddc8ede5d9af3ff68c62f8
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 31ae3483ca7cefbb65726f976244d582f1587aaf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926606"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439449"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Diramazione e concatenamento delle attività in una pipeline di Data factory
 
@@ -42,7 +42,7 @@ In questa esercitazione viene usato .NET SDK. È possibile usare altri meccanism
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Account di archiviazione di Azure. Come archivio dati di origine si usa un archivio BLOB. Se non si ha un account di archiviazione di Azure, vedere [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md).
 * Azure Storage Explorer Per installare lo strumento, vedere [Azure Storage Explorer](https://storageexplorer.com/).
@@ -273,7 +273,7 @@ Nel progetto C# creare una classe denominata `EmailRequest`. Questa classe defin
 * Message. Corpo del messaggio di posta elettronica. Per una copia corretta, questa proprietà contiene la quantità di dati scritti. Per una copia non riuscita, contiene i dettagli dell'errore.
 * dataFactoryName. Nome della data factory.
 * pipelineName. Nome della pipeline.
-* receiver. Parametro passato. Questa proprietà specifica il destinatario del messaggio di posta elettronica.
+* Destinatario. Parametro passato. Questa proprietà specifica il destinatario del messaggio di posta elettronica.
 
 ```csharp
     class EmailRequest
@@ -342,7 +342,7 @@ Dopo aver salvato il flusso di lavoro, copiare e salvare il valore di **URL POST
 
 ## <a name="fail-email-workflow"></a>Flusso di lavoro del messaggio di posta elettronica di operazione non riuscita
 
-Clonare **CopySuccessEmail** creando un altro flusso di lavoro di app per la logica denominato *CopyFailEmail*. Nel trigger di richiesta, `Request Body JSON schema` è uguale. Modificare la formattazione del messaggio di posta elettronica, ad esempio `Subject`, per adattarlo a un messaggio di posta elettronica di operazione non riuscita. Di seguito è fornito un esempio:
+Clonare **CopySuccessEmail** creando un altro flusso di lavoro di app per la logica denominato *CopyFailEmail*. Nel trigger di richiesta, `Request Body JSON schema` è uguale. Modificare la formattazione del messaggio di posta elettronica, ad esempio `Subject`, per adattarlo a un messaggio di posta elettronica di operazione non riuscita. Esempio:
 
 ![Progettazione app per la logica: flusso di lavoro del messaggio di posta elettronica di operazione non riuscita](media/tutorial-control-flow/fail-email-workflow.png)
 
@@ -608,10 +608,7 @@ Creating linked service AzureStorageLinkedService...
 {
   "type": "AzureStorage",
   "typeProperties": {
-    "connectionString": {
-      "type": "SecureString",
-      "value": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=***"
-    }
+    "connectionString": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=***"
   }
 }
 Creating dataset SourceStorageDataset...

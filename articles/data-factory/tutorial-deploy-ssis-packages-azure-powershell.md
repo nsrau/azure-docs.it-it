@@ -14,12 +14,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: ff40867bc1e2778ec6f21f479360866b50d0c184
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f374bd386996cd02ab7e8bff975f757aec1a0bfc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926503"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439381"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory-with-powershell"></a>Eseguire il provisioning del runtime di integrazione SSIS di Azure in Azure Data Factory con PowerShell
 
@@ -35,7 +35,7 @@ Questa esercitazione illustra la procedura di provisioning di Azure-SSIS Integra
 > * Rivedere lo script completo
 > * Distribuire pacchetti SSIS
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -133,7 +133,7 @@ if(![string]::IsNullOrEmpty($SSISDBServerEndpoint))
 
 Per creare un database SQL di Azure come parte dello script, vedere l'esempio seguente: 
 
-Impostare i valori per le variabili che non sono già state definite. Ad esempio:  SSISDBServerName, FirewallIPAddress. 
+Impostare i valori per le variabili che non sono già state definite. Ad esempio: SSISDBServerName, FirewallIPAddress. 
 
 ```powershell
 New-AzSqlServer -ResourceGroupName $ResourceGroupName `
@@ -150,7 +150,7 @@ New-AzSqlServerFirewallRule -ResourceGroupName $ResourceGroupName -ServerName $S
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Creare un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) con il comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite come gruppo.
+Creare un [gruppo di risorse di Azure](../azure-resource-manager/management/overview.md) con il comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite come gruppo.
 
 Se il gruppo di risorse esiste già, non copiare questo codice nello script. 
 
@@ -381,7 +381,7 @@ Vedere anche gli articoli seguenti della documentazione relativa a SSIS:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come: 
+In questa esercitazione sono state illustrate le procedure per: 
 
 > [!div class="checklist"]
 > * Creare una data factory.

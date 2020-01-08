@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 07/12/2019
+ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 424fdc9fa0f31b3de664945ff49b119939488fed
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: e128daa82eca8142a636df0958ddca574e398713
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423615"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383116"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Esercitazione: Creare app Web a pagina singola
 
@@ -61,7 +61,7 @@ Il codice HTML contiene anche le divisioni, ovvero tag HTML `<div>`, in cui veng
 
 Per evitare di includere la chiave di sottoscrizione dell'API di ricerca Bing nel codice, viene usata l'archiviazione permanente del browser per archiviare la chiave. Prima che la chiave venga archiviata, viene richiesta la chiave dell'utente. Se in un secondo momento la chiave viene rifiutata dall'API, la chiave archiviata viene invalidata e l'utente riceverà nuovamente la richiesta.
 
-Vengono definite le funzioni `storeValue` e `retrieveValue` che usano l'oggetto `localStorage`, non supportato da tutti i browser, o un cookie. La funzione `getSubscriptionKey()` usa queste funzioni per archiviare e recuperare la chiave dell'utente.
+Vengono definite le funzioni `storeValue` e `retrieveValue` che usano l'oggetto `localStorage`, non supportato da tutti i browser, o un cookie. La funzione `getSubscriptionKey()` usa queste funzioni per archiviare e recuperare la chiave dell'utente. È possibile usare l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 
 ``` javascript
 // Cookie names for data we store
@@ -101,12 +101,12 @@ La figura seguente mostra la casella di testo della query e le opzioni che defin
 
 Il modulo HTML include elementi con i nomi seguenti:
 
-|Elemento|DESCRIZIONE|
+|Elemento|Descrizione|
 |-|-|
 | `where` | Un menu a discesa per la selezione del mercato (località e lingua) usato per la ricerca. |
 | `query` | Il campo di testo in cui inserire i termini di ricerca. |
-| `category` | Caselle di controllo per innalzare il livello di determinati tipi di risultati. Innalzare il livello di Salute, ad esempio, aumenta la classifica delle notizie relative alla salute. |
-| `when` | Menu a discesa per limitare facoltativamente la ricerca al giorno, settimana o mese più recente. |
+| `category` | Caselle di controllo per alzare di livello determinati tipi di risultati. Innalzare il livello di Salute, ad esempio, aumenta la classifica delle notizie relative alla salute. |
+| `when` | Menu a discesa per limitare facoltativamente la ricerca all'ultimo giorno, settimana o mese. |
 | `safe` | Una casella di controllo che indica se usare la funzionalità SafeSearch di Bing per filtrare i risultati con contenuti "per soli adulti". |
 | `count` | Campo nascosto. Il numero di risultati della ricerca da restituire per ogni richiesta. Modificarlo per visualizzare un numero maggiore o minore di risultati per pagina. |
 | `offset`|  Campo nascosto. Lo scostamento del primo risultato della ricerca nella richiesta; utilizzato per il paging. Viene reimpostato su `0` per una nuova richiesta. |
@@ -267,11 +267,11 @@ function handleBingResponse() {
 ```
 
 > [!IMPORTANT]
-> Una richiesta HTTP corretta *non* indica necessariamente che la ricerca stessa sia andata a buon fine. Se si verifica un errore nell'operazione di ricerca, l'API Ricerca notizie Bing restituisce un codice di stato HTTP non-200 e include le informazioni sull'errore nella risposta JSON. Inoltre, se la richiesta era a frequenza limitata, l'API restituisce una risposta vuota.
+> Una richiesta HTTP corretta *non* indica necessariamente che la ricerca sia andata a buon fine. Se si verifica un errore nell'operazione di ricerca, l'API Ricerca notizie Bing restituisce un codice di stato HTTP non-200 e include le informazioni sull'errore nella risposta JSON. Inoltre, se la richiesta era a frequenza limitata, l'API restituisce una risposta vuota.
 
 La maggior parte del codice in entrambe le funzioni precedenti è dedicata alla gestione degli errori. Possono verificarsi errori nelle fasi seguenti:
 
-|Fase|Errori potenziali|Gestito da|
+|Fase|Errori potenziali|Gestiti da|
 |-|-|-|
 |Compilazione dell'oggetto richiesta JavaScript|URL non valido|Blocco `try`/`catch`|
 |Invio della richiesta|Errori di rete, connessioni interrotte|Gestori degli eventi `error` e `abort`|
@@ -280,7 +280,7 @@ La maggior parte del codice in entrambe le funzioni precedenti è dedicata alla 
 Gli errori vengono gestiti chiamando `renderErrorMessage()` con tutti i dettagli noti dell'errore. Se la risposta supera la serie completa dei test di errore, viene chiamato `renderSearchResults()` per visualizzare i risultati della ricerca nella pagina.
 
 ## <a name="displaying-search-results"></a>Visualizzazione dei risultati della ricerca
-La funzione principale per la visualizzazione dei risultati della ricerca è `renderSearchResults()`. Questa funzione accetta la stringa JSON restituita dal servizio Ricerca notizie Bing e viene eseguito il rendering dei risultati delle notizie e delle ricerche correlate, se presenti.
+La funzione principale per la visualizzazione dei risultati della ricerca è `renderSearchResults()`. Questa funzione accetta la stringa JSON restituita dal servizio Ricerca notizie Bing ed esegue il rendering dei risultati delle notizie e delle ricerche correlate, se presenti.
 
 ```javascript
 // render the search results given the parsed JSON response
@@ -296,7 +296,7 @@ La funzione principale per la visualizzazione dei risultati della ricerca è `re
         showDiv("sidebar", renderRelatedItems(results.relatedSearches));
 }
 ```
-I risultati della ricerca principale vengono restituiti come oggetto di primo livello `value` nella risposta JSON. Questi vengono inviati alla funzione `renderResults()`che li scorre e chiama una funzione separata per il rendering di ciascun elemento in HTML. Il codice HTML risultante viene restituito a `renderSearchResults()`, dove viene inserito nella divisione `results` della pagina.
+I risultati della ricerca principale vengono restituiti come oggetto di primo livello `value` nella risposta JSON. Questi vengono inviati alla funzione `renderResults()` che esegue un'iterazione su essi e chiama una funzione separata per il rendering di ciascun elemento in HTML. Il codice HTML risultante viene restituito a `renderSearchResults()`, dove viene inserito nella divisione `results` della pagina.
 
 ```javascript
 function renderResults(items) {
@@ -313,9 +313,9 @@ function renderResults(items) {
     return html.join("\n\n");
 }
 ```
-L'API di Ricerca notizie Bing restituisce fino a quattro tipi di risultati correlati, ognuno dei quali nel proprio oggetto di primo livello. Sono:
+L'API di Ricerca notizie Bing restituisce fino a quattro tipi di risultati correlati, ognuno dei quali nel proprio oggetto di primo livello. ovvero:
 
-|Relazione|DESCRIZIONE|
+|Relazione|Descrizione|
 |-|-|
 |`pivotSuggestions`|Query che sostituiscono una parola pivot nella ricerca originale con una parola diversa. Ad esempio, se si cerca "fiori rossi", una parola pivot potrebbe essere "rossi" e un suggerimento pivot potrebbe essere "fiori gialli".|
 |`queryExpansions`|Query che restringono la ricerca originale con l'aggiunta di nuovi termini. Ad esempio, se si cerca "Microsoft Surface", un'espansione della query potrebbe essere "Microsoft Surface Pro".|
@@ -338,7 +338,7 @@ searchItemRenderers = {
 ```
 Una funzione renderer può accettare i parametri seguenti:
 
-|Parametro|DESCRIZIONE|
+|Parametro|Descrizione|
 |-|-|
 |`item`| L'oggetto JavaScript che contiene le proprietà dell'elemento, ad esempio l'URL e la relativa descrizione.|
 |`index`| L'indice dell'elemento di risultato all'interno della raccolta.|
@@ -399,7 +399,7 @@ I criteri di sicurezza del browser (CORS) potrebbero impedire che l'intestazione
 
 A scopo di sviluppo, è possibile effettuare la richiesta API Ricerca Web Bing tramite un proxy CORS. La risposta da un proxy di questo tipo ha un'intestazione `Access-Control-Expose-Headers` che accetta le intestazioni di risposta e le rende disponibili a JavaScript.
 
-È facile installare un proxy CORS per consentire all'applicazione di esercitazione di accedere all'intestazione ID client. Se non è disponibile, per prima cosa [installare Node.js](https://nodejs.org/en/download/). Digitare quindi il comando seguente in una finestra di comando:
+È facile installare un proxy CORS per consentire all'applicazione di esercitazione di accedere all'intestazione ID client. Per prima cosa [installare Node.js](https://nodejs.org/en/download/), se non è già disponibile. Digitare quindi il comando seguente in una finestra di comando:
 
     npm install -g cors-proxy-server
 
@@ -411,7 +411,7 @@ Infine avviare il proxy CORS con il comando seguente:
 
     cors-proxy-server
 
-Lasciare aperta la finestra di comando mentre si usa l'app dell'esercitazione. La chiusura della finestra determina l'arresto del proxy. Nella sezione Intestazioni HTTP espandibile sotto i risultati della ricerca è ora possibile vedere l'intestazione `X-MSEdge-ClientID`, tra le altre, e verificare che sia la stessa per ogni richiesta.
+Lasciare aperta la finestra di comando mentre si usa l'app dell'esercitazione. La chiusura della finestra determina l'arresto del proxy. Nella sezione Intestazioni HTTP espandibile sotto i risultati della ricerca è ora possibile visualizzare l'intestazione `X-MSEdge-ClientID` (tra le altre) e verificare che sia la stessa per ogni richiesta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]

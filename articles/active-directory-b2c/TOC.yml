@@ -372,6 +372,8 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=active-directory-b2c'
     - name: Definizioni dei cookie
       href: cookie-definitions.md
+    - name: Codici di errore
+      href: error-codes.md
     - name: Aree di disponibilità e residenza dei dati
       href: active-directory-b2c-reference-tenant-type.md
     - name: Abilitare la fatturazione

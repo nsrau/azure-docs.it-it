@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: 08f9310c2ffdb2e7b8d4249495c2ee90b522d694
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 609b1c4500e1602c38f3383df6cbe176a3333bff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926786"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439559"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Diramazione e concatenamento delle attività in una pipeline di Data factory
 
@@ -38,7 +38,7 @@ In questa esercitazione vengono completati i passaggi seguenti:
 
 Questa esercitazione usa il portale di Azure. È possibile usare altri meccanismi per interagire con Azure Data Factory. Vedere "Guide introduttive" nel sommario.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * **Sottoscrizione di Azure**. Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * **Account di archiviazione di Azure**. Usare l'archivio BLOB come archivio dati di **origine**. Se non si ha un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md) per informazioni su come crearne uno.
@@ -91,7 +91,7 @@ La richiesta nella finestra di progettazione dell'app per la logica avrà un asp
 
 ![Progettazione app per la logica: richiesta](media/tutorial-control-flow-portal/logic-app-designer-request.png)
 
-Per l'azione **Invia un messaggio di posta elettronica** personalizzare la formattazione del messaggio nel modo desiderato, utilizzando le proprietà passate nello schema JSON del corpo della richiesta. Di seguito è fornito un esempio:
+Per l'azione **Invia un messaggio di posta elettronica** personalizzare la formattazione del messaggio nel modo desiderato, utilizzando le proprietà passate nello schema JSON del corpo della richiesta. Esempio:
 
 ![Progettazione app per la logica: azione Invia un messaggio di posta elettronica](media/tutorial-control-flow-portal/send-email-action-2.png)
 
@@ -103,7 +103,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 ```
 
 ### <a name="fail-email-workflow"></a>Flusso di lavoro del messaggio di posta elettronica di operazione non riuscita 
-Seguire la stessa procedura per creare un flusso di lavoro di App per la logica di **CopyFailEmail**. Nel trigger di richiesta, `Request Body JSON schema` è uguale. Modificare la formattazione del messaggio di posta elettronica, ad esempio `Subject`, per adattarlo a un messaggio di posta elettronica di operazione non riuscita. Di seguito è fornito un esempio:
+Seguire la stessa procedura per creare un flusso di lavoro di App per la logica di **CopyFailEmail**. Nel trigger di richiesta, `Request Body JSON schema` è uguale. Modificare la formattazione del messaggio di posta elettronica, ad esempio `Subject`, per adattarlo a un messaggio di posta elettronica di operazione non riuscita. Esempio:
 
 ![Progettazione app per la logica: flusso di lavoro del messaggio di posta elettronica di operazione non riuscita](media/tutorial-control-flow-portal/fail-email-workflow-2.png)
 
@@ -144,11 +144,11 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
       - Selezionare **Usa esistente**e scegliere un gruppo di risorse esistente dall'elenco a discesa. 
       - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.   
          
-        Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/resource-group-overview.md).  
+        Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/management/overview.md).  
 4. Selezionare **V2** per **version**.
 5. Selezionare la **località** per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
 6. Selezionare **Aggiungi al dashboard**.     
-7. Fare clic su **Create**(Crea).      
+7. Fare clic su **Crea**.      
 8. Nel dashboard viene visualizzato il riquadro seguente con lo stato: **Deploying data factory** (Distribuzione della data factory). 
 
     ![Riquadro Deploying data factory (Distribuzione della data factory)](media/tutorial-control-flow-portal/deploying-data-factory.png)
@@ -195,7 +195,7 @@ In questo passaggio viene creata una pipeline con un'attività Copia e due attiv
 
     1. Immettere **AzureStorageLinkedService** per **Nome**.
     2. Selezionare l'account di archiviazione di Azure per **Nome account di archiviazione**.
-    3. Fare clic su **Save**.
+    3. Fare clic su **Salva**.
 
    ![Nuovo servizio collegato di archiviazione di Azure](./media/tutorial-control-flow-portal/new-azure-storage-linked-service.png)
 12. Immettere `@pipeline().parameters.sourceBlobContainer` per la cartella e `emp.txt` per il nome file. Usare il parametro sourceBlobContainer della pipeline per configurare il percorso della cartella per il set di dati. 

@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Nuova assegnazione di criteri con i modelli'
+title: 'Avvio rapido: Nuova assegnazione di criteri con i modelli'
 description: In questo argomento di avvio rapido viene usato un modello di Resource Manager per creare un'assegnazione di criteri per identificare le risorse non conformi.
 ms.date: 11/25/2019
 ms.topic: quickstart
-ms.openlocfilehash: 61bffcdeb5d562fe18df98fda091d5d6aa4b4051
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: e22c14768622408fb3afb0e491d4179b6113e4ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482335"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436459"
 ---
-# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Guida introduttiva: Creare un'assegnazione di criteri per identificare le risorse non conformi tramite un modello di Resource Manager
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Avvio rapido: Creare un'assegnazione di criteri per identificare le risorse non conformi tramite un modello di Resource Manager
 
 Il primo passaggio per comprendere la conformità in Azure consiste nell'identificare lo stato delle risorse.
 Questa guida introduttiva illustra il processo di creazione di un'assegnazione di criteri per identificare le macchine virtuali che non usano dischi gestiti.
 
 Alla fine di questo processo, verranno identificate le macchine virtuali che non usano dischi gestiti e che sono quindi _non conformi_ all'assegnazione di criteri.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -39,13 +39,13 @@ Di seguito è riportata una copia del modello:
 
 1. Selezionare o immettere i valori seguenti:
 
-   | NOME | Valore |
+   | Nome | valore |
    |------|-------|
    | Subscription | Selezionare la sottoscrizione di Azure. |
    | Resource group | Selezionare **Crea nuovo**, specificare un nome e quindi fare clic su **OK**. Nello screenshot il nome del gruppo di risorse è _mypolicyquickstart\<Data in MMGG\>rg_. |
    | Location | Scegliere un'area, Ad esempio **Stati Uniti centrali**. |
    | Nome assegnazione criteri | Specificare un nome per l'assegnazione di criteri. È anche possibile usare il nome visualizzato della definizione dei criteri, ad esempio **Controlla macchine virtuali che non usano dischi gestiti**. |
-   | Nome gruppo di risorse | Specificare il nome di un gruppo di risorse a cui si vogliono assegnare i criteri. In questo argomento di avvio rapido usare il valore predefinito **[resourceGroup().name]** . **[resourceGroup()](../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)** è una funzione di modello che recupera il gruppo di risorse. |
+   | Nome gruppo di risorse | Specificare il nome di un gruppo di risorse a cui si vogliono assegnare i criteri. In questo argomento di avvio rapido usare il valore predefinito **[resourceGroup().name]** . **[resourceGroup()](../../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)** è una funzione di modello che recupera il gruppo di risorse. |
    | ID definizione criteri | Specificare **/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a**. |
    | Accetto le condizioni riportate sopra | (selezionare) |
 
@@ -55,7 +55,7 @@ Alcune risorse aggiuntive:
 
 - Per altri modelli di esempio, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).
 - Per informazioni di riferimento sul modello, vedere [Informazioni di riferimento sui modelli di Azure](/azure/templates/microsoft.authorization/allversions).
-- Per informazioni su come sviluppare modelli di Resource Manager, vedere [Documentazione di Resource Manager in Azure](../../azure-resource-manager/resource-group-overview.md).
+- Per informazioni su come sviluppare modelli di Resource Manager, vedere [Documentazione di Resource Manager in Azure](../../azure-resource-manager/management/overview.md).
 - Per informazioni sulla distribuzione a livello di sottoscrizione, vedere [Creare gruppi di risorse e risorse a livello di sottoscrizione](../../azure-resource-manager/deploy-to-subscription.md).
 
 ## <a name="identify-non-compliant-resources"></a>Identificare le risorse non conformi

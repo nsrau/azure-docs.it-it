@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Chiamare l'endpoint di Ricerca personalizzata Bing usando C# SDK | Microsoft Docs"
+title: "Avvio rapido: Chiamare l'endpoint di Ricerca personalizzata Bing usando C# SDK"
 titleSuffix: Azure Cognitive Services
 description: Usare questo argomento di avvio rapido per iniziare a richiedere risultati della ricerca dall'istanza di Ricerca personalizzata Bing con C# SDK.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: scottwhi
-ms.openlocfilehash: 21b192d29f30d66e3d5f0ce6e04317d3ca7c860e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 5e932b1ff597fc0170a6bb83841bc6ca7306693a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977149"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448724"
 ---
-# <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-c-sdk"></a>Guida introduttiva: Chiamare l'endpoint di Ricerca personalizzata Bing usando C# SDK 
+# <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-c-sdk"></a>Avvio rapido: Chiamare l'endpoint di Ricerca personalizzata Bing usando C# SDK 
 
 Usare questo argomento di avvio rapido per iniziare a richiedere risultati della ricerca dall'istanza di Ricerca personalizzata Bing con C# SDK. Benché Ricerca personalizzata Bing includa un'API REST compatibile con la maggior parte dei linguaggi di programmazione, l'SDK offre un semplice strumento per integrare il servizio nelle applicazioni. Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingCustomWebSearch).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Un'istanza di Ricerca personalizzata Bing. Vedere [Avvio rapido: Creare la prima istanza di Ricerca personalizzata Bing](quick-start.md) per altre informazioni.
 - Microsoft [.NET Core](https://www.microsoft.com/net/download/core)

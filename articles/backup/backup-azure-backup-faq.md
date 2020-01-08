@@ -1,14 +1,14 @@
 ---
 title: Risposte alle domande comuni
-description: 'Risposte alle domande frequenti su: funzionalità di Backup di Azure, inclusi insieme di credenziali di Servizi di ripristino, elementi di cui è possibile eseguire il backup, funzionamento, crittografia e limiti. '
+description: 'Risposte alle domande comuni su: funzionalità di Backup di Azure, inclusi insieme di credenziali di Servizi di ripristino, elementi di cui è possibile eseguire il backup, funzionamento, crittografia e limiti. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 4005b171ef61fa02821b4a32db3be26cfb94c9ff
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
-ms.translationtype: MT
+ms.openlocfilehash: c8449ef27ca73cd6e0c2908ce4cbebea2c513dbc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668088"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450101"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Domande frequenti su Backup di Azure
 
@@ -24,14 +24,14 @@ Sì. Si possono creare fino a 500 insiemi di credenziali di Servizi di ripristin
 
 È possibile registrare fino a 1000 macchine virtuali di Azure per insieme di credenziali. Se si usa l'agente di Backup di Microsoft Azure, è possibile registrare fino a 50 agenti di Backup di Microsoft Azure per insieme di credenziali. È possibile registrare 50 server MAB/server DPM in un insieme di credenziali.
 
-### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>Quante origini dati/elementi possono essere protetti in un insieme di credenziali?
+### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>Quante origini dati o quanti elementi è possibile proteggere in un insieme di credenziali?
 
-Puoi proteggere fino a 2000 origini dati/elementi in tutti i carichi di lavoro (VM IaaS, SQL, AFS e così via) in un insieme di credenziali.
-Ad esempio, se sono già state protette 500 VM e 400 condivisioni File di Azure nell'insieme di credenziali, è possibile proteggere solo fino a 1100 database SQL.
+In un insieme di credenziali è possibile proteggere fino a 2000 origini dati/elementi tra tutti i carichi di lavoro (macchine virtuali IaaS, SQL, AFS e così via).
+Ad esempio, se sono già state protette 500 macchine virtuali e 400 condivisioni di File di Azure nell'insieme di credenziali, è possibile proteggere solo fino a 1100 database SQL.
 
 ### <a name="how-many-policies-can-i-create-per-vault"></a>Quanti criteri è possibile creare per ogni insieme di credenziali?
 
-È possibile avere fino a 200 criteri per ogni insieme di credenziali.
+È possibile creare fino a 200 criteri per ogni insieme di credenziali.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-data-from-different-servers-in-the-vault-when-restoring-data"></a>Se l'organizzazione ha un insieme di credenziali, come è possibile isolare i dati di server diversi nell'insieme di credenziali durante il ripristino dei dati?
 
@@ -39,7 +39,7 @@ I dati del server che si desidera ripristinare insieme usano la stessa passphras
 
 ### <a name="can-i-move-my-vault-between-subscriptions"></a>È possibile spostare l'insieme di credenziali tra sottoscrizioni?
 
-Sì. Per spostare un insieme di credenziali di servizi di ripristino, vedere questo [articolo](backup-azure-move-recovery-services-vault.md)
+Sì. Per spostare un insieme di credenziali di Servizi di ripristino, vedere questo [articolo](backup-azure-move-recovery-services-vault.md).
 
 ### <a name="can-i-move-backup-data-to-another-vault"></a>È possibile spostare i dati di backup in un altro insieme di credenziali?
 
@@ -51,15 +51,15 @@ No. Un insieme di credenziali di Servizi di ripristino può solo modificare le o
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>È possibile eseguire un ripristino a livello di elemento per le macchine virtuali di cui è stato eseguito il backup in un insieme di credenziali di Servizi di ripristino?
 
-- Il ripristino a livello di elemento è supportato per le macchine virtuali di Azure sottoposte a backup con il servizio Backup di Azure. Per ulteriori informazioni, vedere l' [articolo](backup-azure-restore-files-from-vm.md)
-- ILR non è supportato per i punti di ripristino online delle macchine virtuali locali di cui è stato eseguito il backup dal server di backup di Azure o da System Center DPM.
+- Il ripristino a livello di elemento è supportato per le macchine virtuali di Azure sottoposte a backup con il servizio Backup di Azure. Per altre informazioni, vedere [questo articolo](backup-azure-restore-files-from-vm.md).
+- Il ripristino a livello di elemento non è supportato per i punti di ripristino online di macchine virtuali locali di cui è stato eseguito il backup con il server di Backup di Azure o System Center DPM.
 
 ## <a name="azure-backup-agent"></a>Agente di Backup di Azure
 
 ### <a name="where-can-i-find-common-questions-about-the-azure-backup-agent-for-azure-vm-backup"></a>Dove sono reperibili le domande comuni sull'agente di Backup di Azure per il backup della macchina virtuale di Azure?
 
 - Per l'agente in esecuzione sulle macchine virtuali di Azure, leggere queste [domande frequenti](backup-azure-vm-backup-faq.md).
-- Per l'agente usato per eseguire il backup delle cartelle di file di Azure, leggere le [domande frequenti](backup-azure-file-folder-backup-faq.md).
+- Per l'agente usato per eseguire il backup delle cartelle di file di Azure, leggere queste [domande frequenti](backup-azure-file-folder-backup-faq.md).
 
 ## <a name="general-backup"></a>Backup generale
 
@@ -83,7 +83,7 @@ Windows 8.1 a 64 bit | Enterprise, Pro | I computer devono eseguire i Service Pa
 Windows 8 a 64 bit | Enterprise, Pro | I computer devono eseguire i Service Pack e gli aggiornamenti più recenti.
 Windows 7 a 64 bit | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | I computer devono eseguire i Service Pack e gli aggiornamenti più recenti.
 Server | |
-Windows Server 2019 64 bit | Standard, Datacenter, Essentials | Con i service pack o gli aggiornamenti più recenti.
+Windows Server 2019 a 64 bit | Standard, Datacenter, Essentials | Con i service pack o gli aggiornamenti più recenti.
 Windows Server 2016 a 64 bit | Standard, Datacenter, Essentials | Con i service pack o gli aggiornamenti più recenti.
 Windows Server 2012 R2 a 64 bit | Standard, Datacenter, Foundation | Con i service pack o gli aggiornamenti più recenti.
 Windows Server 2012 a 64 bit | Datacenter, Foundation, Standard | Con i service pack o gli aggiornamenti più recenti.
@@ -107,7 +107,7 @@ Windows 8 o versione successiva | 54400 GB
 Windows 7 |1700 GB
 Windows Server 2012 o versioni successive | 54400 GB
 Windows Server 2008, Windows Server 2008 R2 | 1700 GB
-Macchina virtuale di Azure | 16 dischi dati<br/><br/> Disco dati fino a 4.095 GB
+Macchina virtuale di Azure | 16 dischi dati<br/> Per iscriversi all'anteprima privata delle macchine virtuali con più di 16 dischi (massimo 32), scrivere all'indirizzo AskAzureBackupTeam@microsoft.com <br><br> Disco dati fino a 32 TB
 
 ### <a name="how-is-the-data-source-size-determined"></a>Come vengono determinate le dimensioni dell'origine dati?
 
@@ -118,7 +118,7 @@ La tabella seguente illustra come vengono determinate le dimensioni di ogni orig
 Volume |Quantità di dati sottoposti a backup della macchina virtuale a volume singolo sottoposta a backup.
 Database SQL Server |Dimensioni di un singolo database SQL di cui viene eseguito il backup.
 SharePoint | Somma dei database di contenuto e configurazione in una farm di SharePoint di cui viene eseguito il backup.
-Scambia |Somma di tutti i database di Exchange in un server di Exchange di cui viene eseguito il backup.
+Exchange |Somma di tutti i database di Exchange in un server di Exchange di cui viene eseguito il backup.
 Stato del sistema/ripristino bare metal |Ogni copia del ripristino bare metal o dello stato del sistema del computer di cui viene eseguito il backup.
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>È previsto un limite per la quantità di dati sottoposti a backup con un insieme di credenziali di Servizi di ripristino?
@@ -155,7 +155,7 @@ Sì, è possibile personalizzare i criteri. Ad esempio, è possibile configurare
 
 ### <a name="can-i-use-different-times-for-backup-scheduling-and-retention-policies"></a>È possibile usare orari diversi per la pianificazione del backup e i criteri di conservazione?
 
-No. I criteri di conservazione possono essere applicati solo ai punti di backup. Questa immagine, ad esempio, Mostra un criterio di conservazione per i backup eseguiti alle 12am e alle 18.00.
+No. I criteri di conservazione possono essere applicati solo ai punti di backup. Ad esempio, questa immagine mostra un criterio di conservazione per i backup eseguiti alle 12:00 e alle 18.00.
 
 ![Pianifica backup e conservazione](./media/backup-azure-backup-faq/Schedule.png)
 
@@ -178,7 +178,7 @@ Per ogni istanza protetta, è possibile creare fino a 9999 punti di ripristino. 
 
 - Altre informazioni sul [backup e la conservazione](./backup-support-matrix.md).
 
-### <a name="how-many-times-can-i-recover-data-thats-backed-up-to-azure"></a>Quante volte è possibile ripristinare i dati di cui è stato eseguito il backup in Azure?
+### <a name="how-many-times-can-i-recover-data-thats-backed-up-to-azure"></a>Quante volte è possibile ripristinare i dati di cui viene eseguito il backup in Azure?
 
 Non esistono limiti al numero di ripristini da Backup di Azure.
 

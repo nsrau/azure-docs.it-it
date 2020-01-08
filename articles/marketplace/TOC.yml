@@ -51,6 +51,9 @@
           items:
             - name: Procedure consigliate per le inserzioni di offerte
               href: ./gtm-offer-listing-best-practices.md
+              items:
+                - name: Categorie
+                  href: ./gtm-offer-listing-best-practices-categories.md
             - name: Come essere in primo piano
               href: ./gtm-how-to-get-featured.md
             - name: Convalida del contenuto di Marketplace
