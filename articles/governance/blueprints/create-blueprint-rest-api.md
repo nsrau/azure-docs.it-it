@@ -1,20 +1,20 @@
 ---
-title: "Guida introduttiva: Creare un progetto con l'API REST"
+title: "Avvio rapido: Creare un progetto con l'API REST"
 description: In questa guida di avvio rapido si userà Azure Blueprints per creare, definire e distribuire artefatti con l'API REST.
 ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: 0338afb3dbcb7b2c6d7d204d4387873ac7607182
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 13a6cce25b17fdfbfa5f62dbf16cd2cfbbdc4fe2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74322164"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436604"
 ---
-# <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Guida introduttiva: Definire e assegnare un progetto Azure Blueprint con l'API REST
+# <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Avvio rapido: Definire e assegnare un progetto Azure Blueprint con l'API REST
 
 Imparare a creare e assegnare progetti consente di definire modelli comuni per sviluppare configurazioni riutilizzabili e rapidamente distribuibili in base a modelli di Resource Manager, criteri, sicurezza e altro ancora. In questa esercitazione viene descritto come usare Azure Blueprint per eseguire alcune della attività comuni di creazione, pubblicazione e assegnazione di un progetto all'interno dell'organizzazione, ad esempio:
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free) prima di iniziare.
 
@@ -407,7 +407,9 @@ In ogni URI dell'API REST vengono usate variabili che è necessario sostituire c
      > [!IMPORTANT]
      > I progetti non gestiscono l'identità gestita assegnata dall'utente. Gli utenti sono responsabili dell'assegnazione di ruoli e autorizzazioni sufficienti, altrimenti l'assegnazione del progetto non riesce.
 
-## <a name="unassign-a-blueprint"></a>Annullare l'assegnazione di un progetto
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+### <a name="unassign-a-blueprint"></a>Annullare l'assegnazione di un progetto
 
 È possibile rimuovere un progetto da una sottoscrizione. La rimozione viene spesso eseguita quando le risorse dell'elemento non sono più necessarie. Quando un progetto viene rimosso, gli elementi assegnati nell'ambito del progetto vengono mantenuti. Per rimuovere un'assegnazione del progetto, usare l'operazione API REST seguente:
 
@@ -417,7 +419,7 @@ In ogni URI dell'API REST vengono usate variabili che è necessario sostituire c
   DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2018-11-01-preview
   ```
 
-## <a name="delete-a-blueprint"></a>Eliminare un progetto
+### <a name="delete-a-blueprint"></a>Eliminare un progetto
 
 Per rimuovere il progetto stesso, usare l'operazione API REST seguente:
 

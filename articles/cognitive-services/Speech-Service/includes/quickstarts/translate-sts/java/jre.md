@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Tradurre la voce in voce, Java (Windows, Linux) - Servizio Voce'
+title: 'Avvio rapido: Tradurre la voce in voce, Java (Windows, Linux) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
-description: Da definire
+description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: a9d8f61ba3a4bfd2b52efc1e14e39be6a2b1fac7
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d9333fb745cdbee91eb3bd08268a217d18058f89
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74980462"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75469033"
 ---
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare, assicurarsi di:
 

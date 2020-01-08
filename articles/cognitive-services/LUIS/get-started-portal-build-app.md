@@ -8,18 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: cbfb0ddb0ee901545443fc127f80a1837c7bde9b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 55ba025b9174f727a54ce0cd63da11c8661af91c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278593"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381988"
 ---
-# <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Guida introduttiva: Creare una nuova app nel portale LUIS
-
-[!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
+# <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Avvio rapido: Creare una nuova app nel portale LUIS
 
 Questo argomento di avvio rapido illustra come creare una nuova app nel portale LUIS. Creare prima le parti fondamentali di un'app, le **finalità** e le **entità**. Testare quindi l'app specificando un'espressione utente di esempio nel pannello di test interattivo per ottenere la finalità stimata.
 
@@ -35,10 +33,10 @@ La creazione di un'app è gratuita e non richiede una sottoscrizione di Azure. Q
 
 1. Nella finestra popup configurare l'app con le impostazioni seguenti e quindi selezionare **Done** (Fine).
 
-   |Nome impostazione| Valore | Scopo|
+   |Nome impostazione| valore | Scopo|
    |--|--|--|
    |Nome|`myEnglishApp`|Nome univoco dell'app LUIS;<br>obbligatorio|
-   |Impostazioni cultura|**English**|Lingua delle espressioni degli utenti, **en-us**;<br>Obbligatoria|
+   |Impostazioni cultura|**English**|Lingua delle espressioni degli utenti, **en-us**;<br>obbligatorio|
    |Descrizione (facoltativa)|`App made with LUIS Portal`|Descrizione dell'app;<br>facoltativo|
    |Risorsa di previsione (facoltativa) |-  |Non selezionare. LUIS offre una chiave iniziale da usare gratuitamente per la creazione e per 1.000 richieste di endpoint di previsione. |
 

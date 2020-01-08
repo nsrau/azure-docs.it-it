@@ -1,7 +1,6 @@
 ---
 title: "Esercitazione: Scrivere funzioni C# definite dall'utente per i processi di Analisi di flusso di Azure in Visual Studio (anteprima)"
 description: Questa esercitazione mostra come scrivere funzioni C# definite dall'utente per i processi di Analisi di flusso in Visual Studio.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -9,25 +8,25 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: d600c891f35a0719012707bdc2cb45101e14e090
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 1d71f4c5616efb05efe2733c49507b085ca2dcf6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707350"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426291"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-job-preview"></a>Esercitazione: Scrivere una funzione C# definita dall'utente per un processo di Analisi di flusso di Azure (anteprima)
 
 Le funzioni C# definite dall'utente create in Visual Studio consentono di estendere il linguaggio di query di Analisi di flusso di Azure con le proprie funzioni. È possibile riutilizzare il codice esistente (incluse le DLL) e usare logica matematica o complessa con C#. Vi sono tre modi per implementare le funzioni definite dall'utente: file CodeBehind in un progetto di Analisi di flusso, funzioni definite dall'utente da un progetto C# locale o funzioni definite dall'utente da un pacchetto esistente da un account di archiviazione. Questa esercitazione usa il metodo CodeBehind per implementare una funzione C# di base. La funzionalità per la creazione di funzioni definite dall'utente per i processi di Analisi di flusso di Azure è attualmente in anteprima e non deve essere usata nei carichi di lavoro di produzione.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare una funzione C# definita dall'utente con CodeBehind.
 > * Testare il progetto di Analisi di flusso in locale.
 > * Pubblicare il processo in Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare, verificare che i prerequisiti seguenti siano disponibili:
 

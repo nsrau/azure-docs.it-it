@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 07/29/2019
-ms.openlocfilehash: d3fecd54e36c8a3dd43c88f5aa4e4233057c3f91
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 9764c4bc794eb8d133270b762fa2bca30a056fea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838584"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459622"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Esercitazione: Progettare un database relazionale in un database singolo in Database SQL di Azure con SSMS
 
@@ -33,9 +33,9 @@ Il database SQL di Azure è un database relazionale distribuito come servizio in
 > [!TIP]
 > Il modulo gratuito seguente di Microsoft Learn contiene informazioni su come [sviluppare e configurare un'applicazione ASP.NET che esegue query su un database SQL di Azure](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), inclusa la creazione di un database semplice.
 > [!NOTE]
-> Per le finalità di questa esercitazione viene usato un database singolo. È anche possibile usare un database in un pool elastico o un database di un'istanza gestita. Per la connettività a un'istanza gestita, vedere queste guide introduttive relative alle istanze gestite: [Guida introduttiva: Configurare una macchina virtuale di Azure per la connessione a Istanza gestita di database SQL di Azure](sql-database-managed-instance-configure-vm.md) e [Guida introduttiva: Configurare una connessione da punto a sito a Istanza gestita di database SQL di Azure da un computer locale](sql-database-managed-instance-configure-p2s.md).
+> Per le finalità di questa esercitazione viene usato un database singolo. È anche possibile usare un database in un pool elastico o un database di un'istanza gestita. Per la connettività a un'istanza gestita, vedere queste guide introduttive relative alle istanze gestite: [Avvio rapido: Configurare una macchina virtuale di Azure per la connessione a Istanza gestita di database SQL di Azure](sql-database-managed-instance-configure-vm.md) e [Guida introduttiva: Configurare una connessione da punto a sito a Istanza gestita di database SQL di Azure da un computer locale](sql-database-managed-instance-configure-p2s.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione, assicurarsi di aver installato quanto segue:
 
@@ -48,7 +48,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-single-database"></a>Creare un database singolo vuoto
 
-Un database singolo in Database SQL di Azure viene creato con un set definito di risorse di calcolo e di archiviazione. Il database viene creato in un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) e viene gestito usando un [server di database](sql-database-servers.md).
+Un database singolo in Database SQL di Azure viene creato con un set definito di risorse di calcolo e di archiviazione. Il database viene creato in un [gruppo di risorse di Azure](../azure-resource-manager/management/overview.md) e viene gestito usando un [server di database](sql-database-servers.md).
 
 Per creare un database singolo vuoto, seguire questa procedura.
 
@@ -64,7 +64,7 @@ Per creare un database singolo vuoto, seguire questa procedura.
     | **Nome database** | *yourDatabase* | Per informazioni sui nomi di database validi, vedere [Identificatori del database](/sql/relational-databases/databases/database-identifiers). |
     | **Sottoscrizione** | *yourSubscription*  | Per informazioni dettagliate sulle sottoscrizioni, vedere [Sottoscrizioni](https://account.windowsazure.com/Subscriptions). |
     | **Gruppo di risorse** | *yourResourceGroup* | Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](/azure/architecture/best-practices/resource-naming). |
-    | **Select source** (Seleziona origine) | Database vuoto | Indica che deve essere creato un database vuoto. |
+    | **Seleziona origine** | Database vuoto | Indica che deve essere creato un database vuoto. |
 
 4. Fare clic su **Server** per usare un server di database esistente oppure crearne e configurarne uno nuovo. Selezionare un server esistente oppure fare clic su **Crea un nuovo server** e compilare il modulo **Nuovo server** con le informazioni seguenti:
 
@@ -111,7 +111,7 @@ Il servizio Database SQL crea un firewall per gli indirizzi IP a livello di serv
 
 1. Fare clic su **Aggiungi IP client** sulla barra degli strumenti per aggiungere l'indirizzo IP corrente a una nuova regola del firewall per gli indirizzi IP. Una regola del firewall per gli indirizzi IP può aprire la porta 1433 per un singolo indirizzo IP o un intervallo di indirizzi IP.
 
-1. Fare clic su **Save**. Viene creata una regola del firewall IP a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server di database SQL.
+1. Fare clic su **Salva**. Viene creata una regola del firewall IP a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server di database SQL.
 
 1. Fare clic su **OK** e quindi chiudere la pagina **Impostazioni del firewall**.
 
@@ -120,14 +120,14 @@ L'indirizzo IP può ora superare il firewall per gli indirizzi IP. È quindi pos
 > [!IMPORTANT]
 > Per impostazione predefinita, l'accesso attraverso il firewall per gli indirizzi IP di Database SQL è abilitato per tutti i servizi di Azure. Selezionando **NO** in questa pagina permette di disabilitare tutti i servizi di Azure.
 
-## <a name="connect-to-the-database"></a>Connettersi al database
+## <a name="connect-to-the-database"></a>Stabilire la connessione al database
 
 Usare [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) per stabilire una connessione al database singolo.
 
 1. Aprire SQL Server Management Studio.
-2. Nella finestra di dialogo **Connetti al server** immettere le informazioni seguenti:
+2. Immettere le informazioni seguenti nella finestra di dialogo **Connetti al server**:
 
-   | Impostazione       | Valore consigliato | DESCRIZIONE |
+   | Impostazione       | Valore consigliato | Descrizione |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Tipo di server** | Motore di database | Questo valore è obbligatorio. |
    | **Nome server** | Nome completo del server | Ad esempio, *yourserver.database.windows.net*. |
@@ -135,7 +135,7 @@ Usare [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms
    | **Accesso** | Account amministratore del server | Account specificato quando è stato creato il server. |
    | **Password** | Password per l'account amministratore del server | Password specificata quando è stato creato il server. |
 
-   ![connetti al server](./media/sql-database-design-first-database/connect.png)
+   ![Connetti al server](./media/sql-database-design-first-database/connect.png)
 
 3. Fare clic su **Opzioni** nella finestra di dialogo **Connetti al server**. Nella sezione **Connetti al database** immettere *yourDatabase* per connettersi a tale database.
 
@@ -151,7 +151,7 @@ Usare [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms
 
 Creare uno schema di database con quattro tabelle che modellano un sistema di gestione degli studenti per le università tramite [Transact-SQL](/sql/t-sql/language-reference):
 
-- Person
+- Persona
 - Corso
 - Studente
 - Riconoscimenti

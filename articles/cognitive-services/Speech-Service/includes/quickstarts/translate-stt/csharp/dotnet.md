@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Tradurre la voce in testo, C# (.NET Framework Windows) - Servizio Voce'
+title: 'Avvio rapido: Tradurre la voce in testo, C# (.NET Framework Windows) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
-description: Da definire
+description: TBD
 services: cognitive-services
 author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: a2ff5a5d920bd7f3df1befc8375691298af8b4ab
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 6bbccfaedcc9a935726a5ca631301cc554689c00
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74981276"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75468014"
 ---
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare, assicurarsi di:
 

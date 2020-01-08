@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/05/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ae1d04043c740456368b0831bee84490778f0171
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 3bbc2dcc86d50e0a88e2f3e96c426cb317f41dea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687201"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75375033"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Creare e usare un ambiente del servizio app con bilanciamento del carico interno 
 
@@ -126,7 +126,7 @@ Per altre informazioni su come configurare l'ambiente del servizio app ILB con u
 
 Gli ambienti del servizio app con bilanciamento del carico interno creati prima del maggio 2019 richiedevano di impostare il suffisso di dominio durante la creazione dell'ambiente del servizio app. Richiedevano inoltre di caricare un certificato predefinito basato sul suffisso di dominio. In più, con un ambiente del servizio app ILB precedente, non è possibile eseguire l'accesso Single Sign-On alla console Kudu con le app che si trovano nell'ambiente. Durante la configurazione del DNS per un ambiente del servizio app ILB precedente, è necessario impostare il record A con caratteri jolly in una zona corrispondente al suffisso di dominio. 
 
-## <a name="get-started"></a>Attività iniziali ##
+## <a name="get-started"></a>Introduzione ##
 
 * Per iniziare a usare gli ambienti del servizio app, vedere [Introduzione agli ambienti del servizio app][Intro]. 
 
@@ -150,7 +150,7 @@ Gli ambienti del servizio app con bilanciamento del carico interno creati prima 
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
-[ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
+[ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md

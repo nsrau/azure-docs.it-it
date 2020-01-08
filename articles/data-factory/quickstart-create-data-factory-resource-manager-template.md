@@ -10,12 +10,12 @@ ms.date: 02/20/2019
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: d7cafa6ec385ed296a5341efdaec1b16f7742683
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7ad0367a89730c3aba37c5f75158cb42ae4ae668
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928800"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440066"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Esercitazione: Creare una data factory di Azure usando un modello di Azure Resource Manager
 
@@ -38,7 +38,7 @@ Installare i moduli di Azure PowerShell più recenti seguendo le istruzioni desc
 
 ## <a name="resource-manager-templates"></a>Modelli di Gestione risorse
 
-Per informazioni generali sui modelli di Azure Resource Manager, vedere [Creazione di modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+Per informazioni generali sui modelli di Azure Resource Manager, vedere [Creazione di modelli di Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
 
 La sezione seguente contiene il modello di Resource Manager completo per la definizione di entità di Data Factory. In questo modo sarà possibile eseguire rapidamente l'esercitazione e testare il modello. Per conoscere come viene definita ogni entità di Data Factory, vedere la sezione [Entità di Data Factory nel modello](#data-factory-entities-in-the-template).
 
@@ -287,7 +287,7 @@ Creare un file JSON denominato **ADFTutorialARM-Parameters.json** contenente i p
 
 > [!IMPORTANT]
 > - Specificare il nome e la chiave dell'account di archiviazione di Azure per i parametri **storageAccountName** e **storageAccountKey** in questo file dei parametri. È stato creato il contenitore adftutorial ed è stato caricato il file di esempio (emp.txt) nella cartella di input in questo archivio BLOB di Azure.
-> - Specificare un nome univoco globale per la data factory per il parametro **dataFactoryName**. Ad esempio:  ARMTutorialFactoryJohnDoe11282017.
+> - Specificare un nome univoco globale per la data factory per il parametro **dataFactoryName**. Ad esempio: ARMTutorialFactoryJohnDoe11282017.
 > - Per **triggerStartTime** specificare la giornata corrente con formato `2019-09-08T00:00:00`.
 > - Per **triggerEndTime** specificare il giorno successivo con formato `2019-09-09T00:00:00`. È anche possibile selezionare l'ora UTC corrente e specificare l'ora o le due ore successive come ora di fine. Ad esempio, se l'ora UTC è attualmente 1:32 AM, specificare `2019-09-09:03:00:00` come ora di fine. In questo caso il trigger esegue due volte la pipeline (alle 2:00 e alle 3:00).
 

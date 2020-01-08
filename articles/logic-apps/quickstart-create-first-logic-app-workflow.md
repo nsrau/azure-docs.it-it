@@ -7,14 +7,14 @@ ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 45b9cdc74fc57e53ca2cd76f8b1f98671f5bbc7e
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 6fd9166168a5b21900aa49d42a1dd5b81039dbcd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791872"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428754"
 ---
-# <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>Guida introduttiva: Creare il primo flusso di lavoro con App per la logica di Azure - Portale di Azure
+# <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>Avvio rapido: Creare il primo flusso di lavoro con App per la logica di Azure - Portale di Azure
 
 Questa guida di avvio rapido introduce i concetti generali di base sulla creazione del primo flusso di lavoro usando [App per la logica di Azure](../logic-apps/logic-apps-overview.md), ad esempio la creazione di un'app per la logica vuota, l'aggiunta di un trigger e un'azione e il test dell'app per la logica. In questa guida di avvio rapido viene creata un'app per la logica che verifica la presenza di nuovi elementi nel feed RSS di un sito Web a intervalli regolari. Se sono presenti nuovi elementi, l'app per la logica invia un messaggio di posta elettronica per ogni elemento. Al termine, a livello generale l'app per la logica dovrebbe avere un flusso di lavoro simile al seguente:
 
@@ -42,13 +42,13 @@ Accedere al [portale di Azure](https://portal.azure.com) con le credenziali dell
 
    ![Specificare i dettagli per la nuova app per la logica](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
-   | Proprietà | Valore | DESCRIZIONE |
+   | Proprietà | valore | Descrizione |
    |----------|-------|-------------|
    | **Nome** | <*logic-app-name*> | Il nome dell'app per la logica, che può contenere solo lettere, numeri, trattini (`-`), caratteri di sottolineatura (`_`), parentesi (`(`, `)`) e punti (`.`). Questo esempio usa "My-First-Logic-app". |
    | **Sottoscrizione** | <*nome sottoscrizione di Azure*> | Il nome della sottoscrizione di Azure |
-   | **Gruppo di risorse** | <*Azure-resource-group-name*> | Nome del [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) usato per organizzare le risorse correlate. Questo esempio usa "My-First-LA-RG". |
+   | **Gruppo di risorse** | <*Azure-resource-group-name*> | Nome del [gruppo di risorse di Azure](../azure-resource-manager/management/overview.md) usato per organizzare le risorse correlate. Questo esempio usa "My-First-LA-RG". |
    | **Posizione** | <*Area di Azure*> | L'area in cui archiviare le informazioni sull'app per la logica. Questo esempio usa "Stati Uniti occidentali". |
-   | **Log Analytics** | Off | Lasciare l'impostazione **No** per la registrazione diagnostica. |
+   | **Log Analytics** | Disattivato | Lasciare l'impostazione **No** per la registrazione diagnostica. |
    ||||
 
 1. Dopo che Azure ha distribuito l'app, sulla barra degli strumenti di Azure selezionare **Notifiche** > **Vai alla risorsa** per l'app per la logica distribuita.
@@ -77,7 +77,7 @@ Aggiungere quindi un [trigger](../logic-apps/logic-apps-overview.md#logic-app-co
 
    ![Configurare un trigger con feed RSS, frequenza e intervallo](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-settings.png)
 
-   | Proprietà | Valore | DESCRIZIONE |
+   | Proprietà | valore | Descrizione |
    |----------|-------|-------------|
    | **URL feed RSS** | `http://feeds.reuters.com/reuters/topNews` | Collegamento per il feed RSS che si vuole monitorare |
    | **Interval** | 1 | Numero di intervalli di attesa tra i controlli |
@@ -147,7 +147,7 @@ Aggiungere un'[azione](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
 
       ![Selezionare le proprietà per il contenuto del corpo del messaggio di posta elettronica](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-body.png)
 
-      | Proprietà | DESCRIZIONE |
+      | Proprietà | Descrizione |
       |----------|-------------|
       | **Titolo feed** | Titolo dell'elemento |
       | **Data di pubblicazione del feed** | Data e ora di pubblicazione dell'elemento |

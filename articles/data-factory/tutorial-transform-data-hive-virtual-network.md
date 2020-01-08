@@ -10,12 +10,12 @@ manager: anandsub
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: f90933dea5421d68116d29df6b9429d298bb0d88
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: ab8df188027ada2119334e058ffc5a10cca23914
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925072"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439160"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Trasformare dati nella rete virtuale di Azure usando l'attività Hive in Azure Data Factory
 
@@ -32,7 +32,7 @@ In questa esercitazione si usa Azure PowerShell per creare una pipeline di Data 
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -174,10 +174,7 @@ Creare un file JSON usando l'editor preferito, copiare la definizione JSON segue
     "properties": {
       "type": "AzureStorage",
       "typeProperties": {
-        "connectionString": {
-          "value": "DefaultEndpointsProtocol=https;AccountName=<storageAccountName>;AccountKey=<storageAccountKey>",
-          "type": "SecureString"
-        }
+        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<storageAccountName>;AccountKey=<storageAccountKey>"
       },
       "connectVia": {
         "referenceName": "MySelfhostedIR",
@@ -221,7 +218,7 @@ Creare un file JSON usando l'editor preferito, copiare la definizione JSON segue
 Aggiornare i valori per le proprietà seguenti nella definizione del servizio collegato:
 
 - **userName**. Nome utente dell'account di accesso del cluster specificato durante la creazione del cluster. 
-- **password**. Password dell'utente.
+- **password**. La password dell'utente.
 - **clusterUri**. Specificare l'URL del cluster HDInsight nel formato seguente: `https://<clustername>.azurehdinsight.net`.  Questo articolo presuppone che sia disponibile l'accesso al cluster tramite Internet, ad esempio che sia possibile connettersi al cluster all'indirizzo `https://clustername.azurehdinsight.net`. Questo indirizzo usa il gateway pubblico, che non è disponibile se sono stati usati gruppi di sicurezza di rete o route definite dall'utente per limitare l'accesso da Internet. Per consentire a Data Factory di inviare processi ai cluster HDInsight nella rete virtuale di Azure, è necessario configurare la rete virtuale di Azure in modo che l'URL possa essere risolto nell'indirizzo IP privato del gateway usato da HDInsight.
 
   1. Nel portale di Azure aprire la rete virtuale in cui si trova il cluster HDInsight. Aprire l'interfaccia di rete avente il nome che inizia con `nic-gateway-0`. Annotarne l'indirizzo IP privato, ad esempio 10.6.0.15. 
@@ -280,8 +277,8 @@ In questo passaggio si crea una nuova pipeline con un'attività Hive. L'attivit�
 
 Tenere presente quanto segue:
 
-- **scriptPath** punta al percorso dello script Hive nell'account di archiviazione di Azure usato per MyStorageLinkedService. Il percorso fa distinzione tra maiuscole e minuscole.
-- **Output** è un argomento usato nello script Hive. Usare il formato `wasb://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` in modo che l'output punti a una cartella esistente nell'archivio di Azure. Il percorso fa distinzione tra maiuscole e minuscole. 
+- **scriptPath** punta al percorso dello script Hive nell'account di archiviazione di Azure usato per MyStorageLinkedService. Per il percorso viene applicata la distinzione tra maiuscole e minuscole.
+- **Output** è un argomento usato nello script Hive. Usare il formato `wasb://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` in modo che l'output punti a una cartella esistente nell'archivio di Azure. Per il percorso viene applicata la distinzione tra maiuscole e minuscole. 
 
 Passare alla cartella in cui sono stati creati i file JSON ed eseguire questo comando per distribuire la pipeline: 
 

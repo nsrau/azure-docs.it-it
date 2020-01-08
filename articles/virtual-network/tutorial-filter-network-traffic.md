@@ -14,16 +14,16 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
-ms.openlocfilehash: a700cc83c6bd34f5f726b9cc1c97bd7e1476963b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b5a136ae05b3cd410ca252b6d5a1df443aff6f7a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73519285"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350133"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Esercitazione: Filtrare il traffico di rete con un gruppo di sicurezza di rete usando il portale di Azure
 
-È possibile filtrare il traffico di rete in ingresso e in uscita da una subnet di rete virtuale con un gruppo di sicurezza di rete. I gruppi di sicurezza di rete contengono regole di sicurezza per filtrare il traffico di rete in base a indirizzo IP, porta e protocollo. Le regole di sicurezza vengono applicate alle risorse distribuite in una subnet. In questa esercitazione si apprenderà come:
+È possibile filtrare il traffico di rete in ingresso e in uscita da una subnet di rete virtuale con un gruppo di sicurezza di rete. I gruppi di sicurezza di rete contengono regole di sicurezza per filtrare il traffico di rete in base a indirizzo IP, porta e protocollo. Le regole di sicurezza vengono applicate alle risorse distribuite in una subnet. In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un gruppo di sicurezza di rete e le regole di sicurezza
@@ -41,16 +41,16 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="create-a-virtual-network"></a>Crea rete virtuale
 
-1. Nel menu del portale di Azure o nella pagina **Home** selezionare **Crea una risorsa**. 
+1. Nel menu del portale di Azure o dalla pagina **Home** selezionare **Crea una risorsa**. 
 2. Selezionare **Rete** e quindi **Rete virtuale**.
 3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite rimanenti e quindi selezionare **Crea**:
 
-    | Impostazione                 | Valore                                              |
+    | Impostazione                 | valore                                              |
     | ---                     | ---                                                |
     | Nome                    | myVirtualNetwork                                   |
     | Spazio degli indirizzi           | 10.0.0.0/16                                        |
-    | Sottoscrizione            | Selezionare la propria sottoscrizione.                          |
-    | Gruppo di risorse          | Selezionare **Crea nuovo** e immettere *myResourceGroup*. |
+    | Subscription            | Selezionare la propria sottoscrizione.                          |
+    | Resource group          | Selezionare **Crea nuovo** e immettere *myResourceGroup*. |
     | Location                | Selezionare **Stati Uniti orientali**.                                |
     | Subnet - Nome            | mySubnet                                           |
     | Subnet - Intervallo di indirizzi  | 10.0.0.0/24                                        |
@@ -59,37 +59,37 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 Un gruppo di sicurezza delle applicazioni consente di raggruppare i server con funzioni simili, ad esempio i server Web.
 
-1. Nel menu del portale di Azure o nella pagina **Home** selezionare **Crea una risorsa**. 
+1. Nel menu del portale di Azure o dalla pagina **Home** selezionare **Crea una risorsa**. 
 2. Nella casella **Cerca nel Marketplace** immettere *Gruppo di sicurezza delle applicazioni*. Quando **Gruppo di sicurezza delle applicazioni** viene visualizzato nei risultati della ricerca, selezionarlo, selezionare ancora **Gruppo di sicurezza delle applicazioni** in **Tutto** e quindi selezionare **Crea**.
 3. Immettere o selezionare le informazioni seguenti e quindi selezionare **Crea**:
 
-    | Impostazione        | Valore                                                         |
+    | Impostazione        | valore                                                         |
     | ---            | ---                                                           |
-    | NOME           | myAsgWebServers                                               |
+    | Nome           | myAsgWebServers                                               |
     | Subscription   | Selezionare la propria sottoscrizione.                                     |
     | Resource group | Selezionare **Usa esistente** e quindi **myResourceGroup**. |
     | Location       | Stati Uniti orientali                                                       |
 
 4. Completare di nuovo il passaggio 3, specificando i valori seguenti:
 
-    | Impostazione        | Valore                                                         |
+    | Impostazione        | valore                                                         |
     | ---            | ---                                                           |
-    | NOME           | myAsgMgmtServers                                              |
+    | Nome           | myAsgMgmtServers                                              |
     | Subscription   | Selezionare la propria sottoscrizione.                                     |
     | Resource group | Selezionare **Usa esistente** e quindi **myResourceGroup**. |
     | Location       | Stati Uniti orientali                                                       |
 
 ## <a name="create-a-network-security-group"></a>Creare un gruppo di sicurezza di rete
 
-1. Nel menu del portale di Azure o nella pagina **Home** selezionare **Crea una risorsa**. 
+1. Nel menu del portale di Azure o dalla pagina **Home** selezionare **Crea una risorsa**. 
 2. Selezionare **Rete** e quindi selezionare **Gruppo di sicurezza di rete**.
 3. Immettere o selezionare le informazioni seguenti e quindi selezionare **Crea**:
 
-    |Impostazione|Valore|
+    |Impostazione|valore|
     |---|---|
-    |NOME|myNsg|
+    |Nome|myNsg|
     |Subscription| Selezionare la propria sottoscrizione.|
-    |Gruppo di risorse | Selezionare **Usa esistente** e quindi *myResourceGroup*.|
+    |Resource group | Selezionare **Usa esistente** e quindi *myResourceGroup*.|
     |Location|Stati Uniti orientali|
 
 ## <a name="associate-network-security-group-to-subnet"></a>Associare il gruppo di sicurezza di rete alla subnet
@@ -109,22 +109,22 @@ Un gruppo di sicurezza delle applicazioni consente di raggruppare i server con f
 
 2. Creare una regola di sicurezza che consenta le porte 80 e 443 per il gruppo di sicurezza delle applicazioni **myAsgWebServers**. In **Aggiungi regola di sicurezza in ingresso** immettere o selezionare i valori seguenti, accettare le impostazioni predefinite restanti e quindi selezionare **Aggiungi**:
 
-    | Impostazione                 | Valore                                                                                                           |
+    | Impostazione                 | valore                                                                                                           |
     | ---------               | ---------                                                                                                       |
     | Destination             | Selezionare **Gruppo di sicurezza delle applicazioni** e quindi selezionare **myAsgWebServers** per **Gruppo di sicurezza delle applicazioni**.  |
     | Intervalli di porte di destinazione | Immettere 80,443                                                                                                    |
     | Protocollo                | Selezionare TCP                                                                                                      |
-    | NOME                    | Allow-Web-All                                                                                                   |
+    | Nome                    | Allow-Web-All                                                                                                   |
 
 3. Completare di nuovo il passaggio 2, usando i valori seguenti:
 
-    | Impostazione                 | Valore                                                                                                           |
+    | Impostazione                 | valore                                                                                                           |
     | ---------               | ---------                                                                                                       |
     | Destination             | Selezionare **Gruppo di sicurezza delle applicazioni** e quindi selezionare **myAsgMgmtServers** per **Gruppo di sicurezza delle applicazioni**. |
     | Intervalli di porte di destinazione | Immettere 3389                                                                                                      |
     | Protocollo                | Selezionare TCP                                                                                                      |
     | Priorità                | Immettere 110                                                                                                       |
-    | NOME                    | Allow-RDP-All                                                                                                   |
+    | Nome                    | Allow-RDP-All                                                                                                   |
 
     In questa esercitazione RDP (porta 3389) è esposto a Internet per la VM assegnata al gruppo di sicurezza delle applicazioni *myAsgMgmtServers*. Per gli ambienti di produzione, anziché esporre la porta 3389 a Internet, è consigliabile connettersi alle risorse di Azure da gestire tramite una connessione di rete VPN o privata.
 
@@ -138,15 +138,15 @@ Creare due VM nella rete virtuale.
 
 ### <a name="create-the-first-vm"></a>Creare la prima VM
 
-1. Nel menu del portale di Azure o nella pagina **Home** selezionare **Crea una risorsa**. 
+1. Nel menu del portale di Azure o dalla pagina **Home** selezionare **Crea una risorsa**. 
 2. Selezionare **Calcolo** e quindi **Windows Server 2016 Datacenter**.
 3. Immettere o selezionare le informazioni seguenti e accettare le impostazioni predefinite delle opzioni rimanenti:
 
-    |Impostazione|Valore|
+    |Impostazione|valore|
     |---|---|
     |Subscription| Selezionare la propria sottoscrizione.|
     |Resource group| Selezionare **Usa esistente** e selezionare **myResourceGroup**.|
-    |NOME|myVmWeb|
+    |Nome|myVmWeb|
     |Location| Selezionare **Stati Uniti orientali**.|
     |Nome utente| Immettere un nome utente a scelta.|
     |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
@@ -156,11 +156,11 @@ Creare due VM nella rete virtuale.
 4. Selezionare una dimensione per la VM e quindi selezionare **Seleziona**.
 5. In **Rete** selezionare i valori seguenti e accettare le impostazioni predefinite delle opzioni rimanenti:
 
-    |Impostazione|Valore|
+    |Impostazione|valore|
     |---|---|
     |Rete virtuale |Selezionare **myVirtualNetwork**.|
-    |Gruppo di sicurezza di rete della scheda di interfaccia di rete |Selezionare **Advanced** (Avanzate).|
-    |Porte in ingresso pubbliche|Selezionare **Nessuno**. |
+    |Gruppo di sicurezza di rete della scheda di interfaccia di rete |Selezionare **Nessuno**.|
+  
 
 6. Selezionare **Rivedi e crea** nell'angolo inferiore sinistro, quindi selezionare **Crea** per avviare la distribuzione della VM.
 

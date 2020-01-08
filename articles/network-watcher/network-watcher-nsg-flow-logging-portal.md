@@ -18,16 +18,16 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: afa1d2ca59bacec2695aaff0cacb119a8fbf787b
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: f6740076600854f612cfdd6324d93325f0cd5c05
+ms.sourcegitcommit: 541e6139c535d38b9b4d4c5e3bfa7eef02446fdc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766600"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75667507"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Esercitazione: Registrare il traffico di rete da e verso una macchina virtuale tramite il portale di Azure
 
-Un gruppo di sicurezza di rete (NSG) consente di filtrare il traffico in ingresso verso e quello in uscita da una macchina virtuale. È possibile registrare il traffico di rete che scorre attraverso una NSG con la funzionalità di log del flusso di NSG di Network Watcher. In questa esercitazione si apprenderà come:
+Un gruppo di sicurezza di rete (NSG) consente di filtrare il traffico in ingresso verso e quello in uscita da una macchina virtuale. È possibile registrare il traffico di rete che scorre attraverso una NSG con la funzionalità di log del flusso di NSG di Network Watcher. In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare una macchina virtuale con un gruppo di sicurezza di rete
@@ -44,13 +44,13 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 2. Selezionare **Calcolo** e quindi **Windows Server 2016 Datacenter** o una versione di **Ubuntu Server**.
 3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite rimanenti e quindi scegliere **OK**:
 
-    |Impostazione|Valore|
+    |Impostazione|valore|
     |---|---|
-    |NOME|myVm|
+    |Nome|myVm|
     |Nome utente| Immettere un nome utente a scelta.|
     |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscription| Selezionare la propria sottoscrizione.|
-    |Gruppo di risorse| Selezionare **Crea nuovo** e immettere **myResourceGroup**.|
+    |Resource group| Selezionare **Crea nuovo** e immettere **myResourceGroup**.|
     |Location| Selezionare **Stati Uniti orientali**.|
 
 4. Selezionare una dimensione per la VM e quindi selezionare **Seleziona**.
@@ -63,7 +63,7 @@ La creazione della VM richiede alcuni minuti. Non proseguire con i passaggi rima
 
 Se si dispone già di Network Watcher abilitato nell'area Stati Uniti orientali, passare al paragrafo [Registrare il provider Insights](#register-insights-provider).
 
-1. Nel portale selezionare **Tutti i servizi**. Nella **casella del filtro** immettere *Network Watcher*. Selezionare **Network Watcher** quando viene visualizzato tra i risultati.
+1. Nel portale selezionare **Tutti i servizi**. Nella **casella del filtro** immettere *Network Watcher*. Quando **Network Watcher** viene visualizzato tra i risultati, selezionarlo.
 2. Selezionare **Area** per espandere e quindi selezionare **...** a destra di **Stati Uniti orientali**, come mostrato nell'immagine seguente:
 
     ![Abilitare Network Watcher](./media/network-watcher-nsg-flow-logging-portal/enable-network-watcher.png)
@@ -87,17 +87,13 @@ La registrazione del flusso di NSG richiede il provider **Microsoft.Insights**. 
 2. Selezionare **Storage** (Archiviazione) e quindi **Storage account - blob, file, table, queue** (Account di archiviazione: BLOB, File, Tabelle, Code).
 3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite rimanenti e quindi selezionare **Crea**.
 
-    | Impostazione        | Valore                                                        |
+    | Impostazione        | valore                                                        |
     | ---            | ---   |
-    | NOME           | Può essere di lunghezza compresa tra 3 e 24 caratteri, può contenere solo lettere minuscole e numeri e deve essere univoco in tutti gli account di archiviazione di Azure.                                                               |
+    | Nome           | Può essere di lunghezza compresa tra 3 e 24 caratteri, può contenere solo lettere minuscole e numeri e deve essere univoco in tutti gli account di archiviazione di Azure.                                                               |
     | Location       | Selezionare **Stati Uniti orientali**.                                           |
     | Resource group | Selezionare **Usa esistente** e quindi **myResourceGroup** |
 
-    La creazione dell'account di archiviazione può richiedere all'incirca un minuto. Non proseguire con i passaggi rimanenti finché non è stato creato l'account di archiviazione. Se si usa un account di archiviazione esistente invece di crearne uno, assicurarsi di selezionarne uno con l'impostazione predefinita **Tutte le reti** selezionata in **Firewall e reti virtuali** nelle **IMPOSTAZIONI** dell'account di archiviazione. In tutti i casi, l'account di archiviazione deve trovarsi nella stessa area del gruppo di sicurezza di rete. 
-    
-    > [!NOTE]
-    > Mentre i provider Microsoft.Insight e Microsoft.Network sono attualmente supportati come [servizi Microsoft considerati attendibili per Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services), non è ancora stato eseguito l'onboarding completo dei log dei flussi del gruppo di sicurezza di rete. Per abilitare la registrazione dei flussi del gruppo di sicurezza di rete, è necessario selezionare **Tutte le reti** come indicato sopra.
-    
+    La creazione dell'account di archiviazione può richiedere all'incirca un minuto. Non proseguire con i passaggi rimanenti finché non è stato creato l'account di archiviazione. Se si usa un account di archiviazione esistente invece di crearne uno, assicurarsi di selezionarne uno con l'impostazione predefinita **Tutte le reti** selezionata in **Firewall e reti virtuali** nelle **IMPOSTAZIONI** dell'account di archiviazione. In tutti i casi, l'account di archiviazione deve trovarsi nella stessa area del gruppo di sicurezza di rete.     
 4. Nell'angolo in alto a sinistra del portale selezionare **Tutti i servizi**. Nella **casella del filtro** digitare *Network Watcher*. Selezionare **Network Watcher** quando viene visualizzato tra i risultati della ricerca.
 5. In **LOGS** (LOG) selezionare **Log del flusso del NSG**, come illustrato nell'immagine seguente:
 
@@ -116,8 +112,6 @@ La registrazione del flusso di NSG richiede il provider **Microsoft.Insights**. 
    > * Negli account di archiviazione è abilitato lo [spazio dei nomi gerarchico](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace).
 1. Nell'angolo in alto a sinistra del portale selezionare **Tutti i servizi**. Nella **casella del filtro** digitare *Network Watcher*. Selezionare **Network Watcher** quando viene visualizzato tra i risultati della ricerca.
 10. Impostare **Conservazione (giorni)** su 5 e poi selezionare **Salva**.
-    > [!IMPORTANT]
-    > Attualmente si verifica un problema per cui [i log dei flussi del gruppo di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md) per Network Watcher non vengono eliminati automaticamente dall'archiviazione BLOB in base alle impostazioni dei criteri di conservazione. Se è impostato un criterio di conservazione diverso da zero, è consigliabile eliminare periodicamente i BLOB di archiviazione che superano il periodo di conservazione per evitare eventuali addebiti. Per altre informazioni su come eliminare i BLOB di archiviazione dei log dei flussi del gruppo di sicurezza di rete, vedere [Eliminare i BLOB di archiviazione dei log dei flussi del gruppo di sicurezza di rete](network-watcher-delete-nsg-flow-log-blobs.md).
 
 ## <a name="download-flow-log"></a>Scaricare il log del flusso
 
@@ -217,7 +211,7 @@ Il valore per **mac** negli output precedenti è l'indirizzo MAC dell'interfacci
 | 44931        | Porta di origine            | La porta di origine del flusso.                                           |
 | 443         | Porta di destinazione       | La porta di destinazione del flusso. Poiché il traffico è destinato alla porta 443, il flusso è stato elaborato dalla regola denominata **UserRule_default-allow-rdp** nel file di log.                                                |
 | T            | Protocollo               | Indica se il protocollo del flusso era TCP (T) o UDP (U).                                  |
-| O            | Direzione              | Indica se il traffico era in ingresso (I) o in uscita (O).                                     |
+| O            | Direction              | Indica se il traffico era in ingresso (I) o in uscita (O).                                     |
 | Una            | Azione                 | Indica se il traffico è stato consentito (A) o negato (D).  
 | C            | Stato del flusso **solo versione 2** | Acquisisce lo stato del flusso. Gli stati possibili sono **B**: indica la creazione di un flusso. Non vengono fornite statistiche. **C**: indica un flusso in corso. Vengono fornite statistiche a intervalli di 5 minuti. **E**: indica un flusso terminato. Vengono fornite statistiche. |
 | 30 | Pacchetti inviati - Da origine a destinazione **solo versione 2** | Numero totale di pacchetti TCP o UDP inviati dall'origine alla destinazione dall'ultimo aggiornamento. |

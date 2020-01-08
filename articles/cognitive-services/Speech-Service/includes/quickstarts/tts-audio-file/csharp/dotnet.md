@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Eseguire la sintesi vocale in un file audio, C# (.NET) - Servizio Voce'
+title: 'Avvio rapido: Eseguire la sintesi vocale in un file audio, C# (.NET) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
-description: Da definire
+description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 0b34c65f6b7003cbdd4d99b684fe2b5a3249c410
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: dfe2d5925e19697a2e3ed4491958da1325df5574
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818042"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75469463"
 ---
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare, assicurarsi di:
 
@@ -70,7 +70,7 @@ var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRe
 
 ## <a name="create-an-audio-configuration"></a>Creare una configurazione audio
 
-A questo punto, è necessario creare un oggetto ````AudioConfig```` che punti al file audio. Questo oggetto viene creato all'interno di un'istruzione using per garantire il corretto rilascio di risorse non gestite. Inserire questo codice nel metodo `SynthesisToAudioFileAsync()`, immediatamente sotto la configurazione di Voce.
+A questo punto, è necessario creare un oggetto ````AudioConfig```` che punti al file audio. Questo oggetto viene creato all'interno di un'istruzione using per garantire il corretto rilascio delle risorse non gestite. Inserire questo codice nel metodo `SynthesisToAudioFileAsync()`, immediatamente sotto la configurazione di Voce.
 
 ````C#
 var fileName = "helloworld.wav";
@@ -125,7 +125,7 @@ else if (result.Reason == ResultReason.Canceled)
 
 ## <a name="check-your-code"></a>Controllare il codice
 
-A questo punto, il codice dovrà avere questo aspetto:
+A questo punto il codice dovrà avere questo aspetto:
 
 ````C#
 //
@@ -186,7 +186,7 @@ namespace helloworld
 A questo punto è possibile compilare l'app e testare la sintesi vocale con il servizio Voce.
 
 1. **Compilare il codice**: sulla barra dei menu di Visual Studio scegliere **Compila** > **Compila soluzione**.
-2. **Avviare l'app**: sulla barra dei menu scegliere **Debug** > **Avvia debug** o premere **F5**.
+2. **Avviare l'app**: dalla barra dei menu scegliere **Debug** > **Avvia debug** o premere **F5**.
 3. **Avviare la sintesi**: il testo viene convertito in voce e salvato nei dati audio specificati.
 
    ```text

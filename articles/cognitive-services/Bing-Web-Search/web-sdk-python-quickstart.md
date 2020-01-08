@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Usare l'SDK di Ricerca Web Bing per Python"
+title: "Avvio rapido: Usare l'SDK di Ricerca Web Bing per Python"
 titleSuffix: Azure Cognitive Services
 description: L'SDK di Ricerca Web Bing facilita l'integrazione di Ricerca Web Bing nell'applicazione Python. In questa guida introduttiva si apprenderà come inviare una richiesta, ricevere una risposta JSON e filtrare e analizzare i risultati.
 services: cognitive-services
@@ -10,20 +10,20 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 0f6dceac3e46f8e36d2da52c15c0b0696e026a0e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 64ef052478bed627c896cd0e0b5301961a8b6f21
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977217"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562868"
 ---
-# <a name="quickstart-use-the-bing-web-search-sdk-for-python"></a>Guida introduttiva: Usare l'SDK di Ricerca Web Bing per Python
+# <a name="quickstart-use-the-bing-web-search-sdk-for-python"></a>Avvio rapido: Usare l'SDK di Ricerca Web Bing per Python
 
 L'SDK di Ricerca Web Bing facilita l'integrazione di Ricerca Web Bing nell'applicazione Python. In questa guida introduttiva si apprenderà come inviare una richiesta, ricevere una risposta JSON e filtrare e analizzare i risultati.
 
 Per vedere il codice subito, gli [esempi dell'SDK di Ricerca Web Bing per Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) sono disponibili in GitHub.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 L'SDK di Ricerca Web Bing è compatibile con Python 2.7, 3.3, 3.4, 3.5 e 3.6. Per questa guida introduttiva è consigliabile usare un ambiente virtuale.
 
 * Python 2.7, 3.3, 3.4, 3.5 o 3.6
@@ -63,6 +63,12 @@ Creare un ambiente virtuale con `venv` per Python 3.x:
 
 ```console
 python -m venv mytestenv
+```
+
+Attivare l'ambiente:
+
+```console
+mytestenv\Scripts\activate.bat
 ```
 
 Installare le dipendenze di Bing Web Search SDK:

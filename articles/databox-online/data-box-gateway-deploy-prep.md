@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 428b42e62f44d182de109740359544135561e54b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: fdb4b7c370d5edadf3e0e5bc0d1ae548da6bcaa9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441500"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438651"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Esercitazione: Preparare la distribuzione di Azure Data Box Gateway
 
@@ -22,14 +22,14 @@ Questa è la prima di una serie di esercitazioni sulla distribuzione necessarie 
 
 Per completare il processo di installazione e configurazione sono necessari privilegi di amministratore. La preparazione del portale richiede meno di 10 minuti.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare una nuova risorsa
 > * Scaricare l'immagine del dispositivo virtuale
 > * Ottenere la chiave di attivazione
 
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Introduzione
 
 Per distribuire il Data Box Gateway, vedere le esercitazioni seguenti nella sequenza indicata.
 
@@ -42,7 +42,7 @@ Per distribuire il Data Box Gateway, vedere le esercitazioni seguenti nella sequ
 
 È ora possibile iniziare a configurare il portale di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Di seguito sono elencati i prerequisiti di configurazione per la risorsa Data Box Gateway, il dispositivo Data Box Gateway e la rete del data center.
 
@@ -100,16 +100,16 @@ Per creare una risorsa Data Box Gateway, seguire questa procedura nel portale di
 
 4. Nella scheda **Informazioni di base** immettere o selezionare quanto segue in **Dettagli del progetto**.
     
-    |Impostazione  |Valore  |
+    |Impostazione  |valore  |
     |---------|---------|
-    |Sottoscrizione    |Questo campo viene popolato automaticamente in base alla selezione precedente. La sottoscrizione viene collegata all'account di fatturazione. |
-    |Gruppo di risorse  |Selezionare un gruppo esistente o crearne uno nuovo.<br>Altre informazioni sui [gruppi di risorse di Azure](../azure-resource-manager/resource-group-overview.md).     |
+    |Subscription    |Questo campo viene popolato automaticamente in base alla selezione precedente. La sottoscrizione viene collegata all'account di fatturazione. |
+    |Resource group  |Selezionare un gruppo esistente o crearne uno nuovo.<br>Altre informazioni sui [gruppi di risorse di Azure](../azure-resource-manager/management/overview.md).     |
 
 5. Immettere o selezionare quanto segue in **Dettagli istanza**.
 
-    |Impostazione  |Valore  |
+    |Impostazione  |valore  |
     |---------|---------|
-    |NOME   | Nome descrittivo per identificare la risorsa.<br>Il nome deve contenere da 2 a 50 caratteri tra lettere, numeri e trattini.<br> Il nome deve iniziare e finire con una lettera o un numero.        |   
+    |Nome   | Nome descrittivo per identificare la risorsa.<br>Il nome deve contenere da 2 a 50 caratteri tra lettere, numeri e trattini.<br> Il nome deve iniziare e finire con una lettera o un numero.        |   
     |Region     |Per questa versione, per la distribuzione della risorsa sono disponibili le aree Stati Uniti orientali, Asia sud-orientale ed Europa occidentale. Per Azure per enti pubblici sono disponibili tutte le aree per enti pubblici elencate in [Aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/). <br> Scegliere la località più vicina all'area geografica in cui si vuole distribuire il dispositivo.|
     
     ![Creazione della risorsa Data Box Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-resource.png)
@@ -177,7 +177,7 @@ Passare all'esercitazione successiva per informazioni su come effettuare il prov
 > [!div class="nextstepaction"]
 > [Effettuare il provisioning di Data Box Gateway in Hyper-V](./data-box-gateway-deploy-provision-hyperv.md)
 
-Oppure
+o
 
 > [!div class="nextstepaction"]
 > [Effettuare il provisioning di Data Box Gateway in VMware](./data-box-gateway-deploy-provision-vmware.md)

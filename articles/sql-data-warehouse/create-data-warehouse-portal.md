@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare ed eseguire una query a un data warehouse - Portale di Azure'
+title: 'Avvio rapido: Creare ed eseguire una query a un data warehouse - Portale di Azure'
 description: Creare un data warehouse ed eseguirvi una query con Azure SQL Data Warehouse nel portale di Azure.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -11,14 +11,14 @@ ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4ae1d9ce8a4683f8d55962843fb1070ef24b3a87
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 841041cb9fa20b034dd4522a5231813b71558bd7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815810"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457803"
 ---
-# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Guida introduttiva: Creare un'istanza di Azure SQL Data Warehouse nel portale di Azure ed eseguire query
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Avvio rapido: Creare un'istanza di Azure SQL Data Warehouse nel portale di Azure ed eseguire query
 
 Creare rapidamente un'istanza di Azure SQL Data Warehouse Azure ed eseguire query usando il portale di Azure.
 
@@ -37,7 +37,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-a-data-warehouse"></a>Creare un data warehouse
 
-L'istanza di Azure SQL Data Warehouse viene creata con un set definito di [risorse di calcolo](memory-concurrency-limits.md). Il database viene creato in un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) e in un [server logico di Azure SQL](../sql-database/sql-database-logical-servers.md). 
+L'istanza di Azure SQL Data Warehouse viene creata con un set definito di [risorse di calcolo](memory-concurrency-limits.md). Il database viene creato in un [gruppo di risorse di Azure](../azure-resource-manager/management/overview.md) e in un [server logico di Azure SQL](../sql-database/sql-database-logical-servers.md). 
 
 Seguire questa procedura per creare un'istanza di SQL Data Warehouse contenente i dati dell'esempio AdventureWorksDW. 
 
@@ -49,7 +49,7 @@ Seguire questa procedura per creare un'istanza di SQL Data Warehouse contenente 
 
 3. Compilare il modulo di SQL Data Warehouse con le informazioni seguenti:
 
-    | Impostazione | Valore consigliato | DESCRIZIONE |
+    | Impostazione | Valore consigliato | Descrizione |
     | :------ | :-------------- | :---------- |
     | **Sottoscrizione** | Sottoscrizione in uso | Per informazioni dettagliate sulle sottoscrizioni, vedere [Sottoscrizioni](https://account.windowsazure.com/Subscriptions). |
     | **Gruppo di risorse** | myResourceGroup | Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](/azure/architecture/best-practices/resource-naming). |
@@ -136,9 +136,9 @@ In questa sezione si usa [SQL Server Management Studio](/sql/ssms/download-sql-s
 
 1. Aprire SQL Server Management Studio.
 
-2. Nella finestra di dialogo **Connetti al server** immettere le informazioni seguenti:
+2. Immettere le informazioni seguenti nella finestra di dialogo **Connetti al server**:
 
-   | Impostazione | Valore consigliato | DESCRIZIONE |
+   | Impostazione | Valore consigliato | Descrizione |
    | :------ | :-------------- | :---------- |
    | Tipo di server | Motore di database | Questo valore è obbligatorio |
    | Nome server | Nome completo del server | Di seguito è riportato un esempio: **mynewserver-20180430.database.windows.net**. |
@@ -147,9 +147,9 @@ In questa sezione si usa [SQL Server Management Studio](/sql/ssms/download-sql-s
    | Password | Password per l'account amministratore del server | Password specificata quando è stato creato il server. |
    ||||
 
-    ![connetti al server](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
+    ![Connetti al server](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
 
-3. Fare clic su **Connetti**. La finestra Esplora oggetti viene visualizzata in SSMS. 
+3. Fare clic su **Connetti**. In SSMS si apre la finestra Esplora oggetti. 
 
 4. In Esplora oggetti espandere **Database**. Espandere quindi **mySampleDatabase** per visualizzare gli oggetti nel nuovo database.
 
@@ -159,7 +159,7 @@ In questa sezione si usa [SQL Server Management Studio](/sql/ssms/download-sql-s
 
 SQL Data Warehouse usa T-SQL come linguaggio di query. Per aprire una finestra di query ed eseguire alcune query T-SQL, seguire questa procedura:
 
-1. Fare clic con il pulsante destro del mouse su **mySampleDataWarehouse** e scegliere **Nuova query**. Verrà visualizzata una nuova finestra di query.
+1. Fare clic con il pulsante destro del mouse su **mySampleDataWarehouse** e scegliere **Nuova query**. Viene visualizzata una nuova finestra di query.
 2. Nella finestra di query immettere il comando seguente per visualizzare un elenco di database.
 
     ```sql

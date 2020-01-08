@@ -3,19 +3,19 @@ title: "Avvio rapido: Aggiungere un dispositivo simulato all'applicazione Azure 
 description: Questa guida di avvio rapido mostra come creare un modello di dispositivo e aggiungere un dispositivo simulato all'applicazione IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/24/2019
+ms.date: 12/10/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 46d325fd609363a5425fc16845552e75b575c231
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 669bdcddc7e4bb0c63250d9b571ff7ef4343ef5c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706704"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434834"
 ---
-# <a name="quickstart-add-a-simulated-device-to-your-iot-central-application-preview-features"></a>Guida introduttiva: Aggiungere un dispositivo simulato all'applicazione IoT Central (funzionalità di anteprima)
+# <a name="quickstart-add-a-simulated-device-to-your-iot-central-application-preview-features"></a>Avvio rapido: Aggiungere un dispositivo simulato all'applicazione IoT Central (funzionalità di anteprima)
 
 *Questo articolo è rivolto a operatori, autori e amministratori.*
 
@@ -30,7 +30,7 @@ In questo avvio rapido viene creato un modello di dispositivo **Sensore ambienta
 * Risponde a comandi quali l'attivazione e la disattivazione.
 * Segnala le proprietà generiche del dispositivo, ad esempio la versione del firmware e il numero di serie.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Completare l'avvio rapido [Creare un'applicazione Azure IoT Central (funzionalità di anteprima)](./quick-deploy-iot-central.md) per creare un'applicazione IoT Central usando il modello **App personalizzata > Anteprima applicazione**.
 
@@ -72,8 +72,8 @@ Un modello di dispositivo può includere proprietà cloud. Le proprietà cloud e
 
     | Nome visualizzato      | Tipo semantico | SCHEMA |
     | ----------------- | ------------- | ------ |
-    | Data ultimo utilizzo | Nessuna          | Data   |
-    | Nome del cliente     | Nessuna          | string |
+    | Data ultimo utilizzo | nessuno          | Data   |
+    | Nome del cliente     | nessuno          | string |
 
 1. Fare clic su **Salva** per salvare le modifiche:
 

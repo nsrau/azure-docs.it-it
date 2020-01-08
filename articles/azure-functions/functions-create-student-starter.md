@@ -6,12 +6,12 @@ author: alexkarcher-msft
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
-ms.openlocfilehash: aa2e0e8be8805187ec1f5b8ea6498e90e2d5a7c4
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 5c0228feb88296e0c82efa52648ce38d70e5b921
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976877"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75409891"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Creare una funzione usando Azure for Students Starter
 
@@ -43,11 +43,11 @@ Per ospitare l'esecuzione delle funzioni è necessaria un'app per le funzioni. U
 
     <img src="./media/functions-create-student-starter/Function-create-start.png" width="315">
 
-    | Impostazione      | Valore consigliato  | DESCRIZIONE                                        |
+    | Impostazione      | Valore consigliato  | Descrizione                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nome app** | Nome globalmente univoco | Nome che identifica la nuova app per le funzioni. I caratteri validi sono `a-z`, `0-9` e `-`.  | 
     | **Sottoscrizione** | Sottoscrizione in uso | Sottoscrizione in cui viene creata questa nuova app per le funzioni. | 
-    | **[Gruppo di risorse](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Nome del nuovo gruppo di risorse in cui creare l'app per le funzioni. |
+    | **[Gruppo di risorse](../azure-resource-manager/management/overview.md)** |  myResourceGroup | Nome del nuovo gruppo di risorse in cui creare l'app per le funzioni. |
    | **[Piano di servizio app/Località](./functions-scale.md)** | Nuovo | Il piano di hosting che controlla l'area in cui viene distribuita l'app per le funzioni e la densità delle risorse. Più app per le funzioni distribuite nello stesso piano condividono la stessa singola istanza gratuita. Si tratta di una restrizione del piano Student Starters. Le opzioni di hosting complete sono [illustrate qui.](./functions-scale.md)|
     | **Stack di runtime** | Lingua preferita | Scegliere un runtime che supporti il linguaggio di programmazione della funzione preferito. Scegliere **.NET** per le funzioni C# e F #. |
     |**[Application Insights](./functions-monitoring.md)**| Attivato | Application Insights viene usato per archiviare e analizzare i log dell'app per le funzioni. È abilitato per impostazione predefinita se si sceglie una località che supporta Application Insights. Application Insights può essere abilitato per qualsiasi funzione scegliendo manualmente un'area nelle vicinanze in cui distribuirlo. Senza Application Insights è possibile solo visualizzare i log in streaming live.

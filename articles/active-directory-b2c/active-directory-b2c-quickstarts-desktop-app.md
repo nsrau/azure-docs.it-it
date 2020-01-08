@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Configurare l'accesso per un'app desktop"
+title: "Avvio rapido: Configurare l'accesso per un'app desktop"
 titleSuffix: Azure AD B2C
 description: In questo Avvio rapido eseguire un'applicazione desktop WPF di esempio che usa Azure Active Directory B2C per consentire l'accesso all'account.
 services: active-directory-b2c
@@ -12,20 +12,20 @@ ms.custom: mvc
 ms.date: 09/12/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8265bad5b756ee2ac23bc41c9c58452251ce0717
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 48362b269f38928fec8b1987ea21397b74e7dfb2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950648"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75368046"
 ---
-# <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Guida introduttiva: Configurare l'accesso per un'app desktop tramite Azure Active Directory B2C
+# <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Avvio rapido: Configurare l'accesso per un'app desktop tramite Azure Active Directory B2C
 
 Azure Active Directory B2C (Azure AD B2C) consente la gestione delle identità del cloud per garantire la protezione costante dell'applicazione, delle attività aziendali e dei clienti. Azure AD B2C consente alle applicazioni di eseguire l'autenticazione per account di social networking e account aziendali usando protocolli standard aperti. In questa guida introduttiva si usa un'applicazione desktop WPF (Windows Presentation Foundation) per eseguire l'accesso con un provider di identità basato su social network e chiamare un'API Web protetta da Azure AD B2C.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) con il carico di lavoro **Sviluppo ASP.NET e Web**.
 - Un account di social networking di Facebook, Google o Microsoft.
@@ -77,9 +77,9 @@ Azure AD B2C offre funzionalità che consentono agli utenti di aggiornare il pro
 
 Fare clic su **Call API** (Chiama API) per inviare una richiesta alla risorsa protetta.
 
-    ![Call API](media/active-directory-b2c-quickstarts-desktop-app/call-api-wpf.png)
+![Call API (Chiama API)](media/active-directory-b2c-quickstarts-desktop-app/call-api-wpf.png)
 
-    The application includes the Azure AD access token in the request to the protected web API resource. The web API sends back the display name contained in the access token.
+L'applicazione include il token di accesso di Azure AD nella richiesta alla risorsa dell'API Web protetta. L'API Web restituisce il nome visualizzato contenuto nel token di accesso.
 
 È stato usato l'account utente Azure AD B2C per eseguire una chiamata autorizzata a un'API Web protetta da Azure AD B2C.
 

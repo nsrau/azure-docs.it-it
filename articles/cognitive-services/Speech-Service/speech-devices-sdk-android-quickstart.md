@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Eseguire Speech Devices SDK su Android - Servizio Voce'
+title: 'Avvio rapido: Eseguire Speech Devices SDK su Android - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Prerequisiti e istruzioni per iniziare a usare Speech Devices SDK per Android.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
+ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: ccc6c2554576d91d2236fb84f81c8aeccdc07be7
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 2def0eaa2e1ee22498202228cf62257605d940e5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815348"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75380321"
 ---
-# <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Guida introduttiva: Eseguire l'app di esempio Speech Devices SDK su Android
+# <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Avvio rapido: Eseguire l'app di esempio Speech Devices SDK su Android
 
 In questa guida di avvio rapido si apprenderà come usare Speech Devices SDK per Android per compilare un prodotto abilitato al riconoscimento vocale o usarlo come dispositivo di [trascrizione conversazione](conversation-transcription-service.md).
 
@@ -25,7 +25,7 @@ Per riprodurre le procedure di questa guida, è necessario un account di [Serviz
 
 Il codice sorgente dell'applicazione di esempio è incluso in Speech Devices SDK ed è anche [disponibile in GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare a usare Speech Devices SDK, è necessario:
 

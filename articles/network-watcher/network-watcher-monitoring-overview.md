@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: e6ff3e6798fadca89455790efa28891c02e9e459
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 45470733c9cfed104e39786be48a6edae20ad489
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996966"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645209"
 ---
 # <a name="what-is-azure-network-watcher"></a>Informazioni su Azure Network Watcher
 
-Azure Network Watcher fornisce gli strumenti per il monitoraggio, la diagnostica, la visualizzazione delle metriche e l'abilitazione o la disabilitazione dei log per le risorse in una rete virtuale di Azure. Network Watcher è progettato per monitorare e risolvere i problemi di integrità della rete dei prodotti dell'infrastruttura distribuita come servizio (IaaS, Infrastructure-as-a-Service), che includono macchine virtuali, reti virtuali, gateway applicazione, sistemi di bilanciamento del carico e così via. Note: non è destinato al monitoraggio di piattaforme distribuite come servizio (PaaS, Platform-as-a-service) o all'analisi del Web e non funzionerà in questi contesti. 
+Azure Network Watcher fornisce gli strumenti per il monitoraggio, la diagnostica, la visualizzazione delle metriche e l'abilitazione o la disabilitazione dei log per le risorse in una rete virtuale di Azure. Network Watcher è progettato per monitorare e risolvere i problemi di integrità della rete dei prodotti dell'infrastruttura distribuita come servizio (IaaS, Infrastructure-as-a-Service), che includono macchine virtuali, reti virtuali, gateway applicazione, sistemi di bilanciamento del carico e così via. Nota: non è destinato al monitoraggio di piattaforme distribuite come servizio (PaaS, Platform-as-a-service) o all'analisi del Web e non funzionerà in questi contesti. 
 
 ## <a name="monitoring"></a>Monitoraggio
 
@@ -79,7 +79,7 @@ Le regole di sicurezza effettive per un'interfaccia di rete sono una combinazion
 
 ## <a name="metrics"></a>Metriche
 
-Sono previsti [limiti](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#azure-resource-manager-virtual-networking-limits) per il numero di risorse di rete che è possibile creare in un'area e in una sottoscrizione di Azure. Se si raggiungono tali limiti, non è possibile creare altre risorse all'interno dell'area o della sottoscrizione. La funzionalità *limite sottoscrizioni di rete* fornisce un riepilogo della quantità di risorse di rete di ogni tipo distribuite in una sottoscrizione e in un'area e l'indicazione del limite per tale risorsa. La figura seguente mostra l'output parziale delle risorse di rete distribuite nell'area Stati Uniti orientali per una sottoscrizione di esempio:
+Sono previsti [limiti](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#azure-resource-manager-virtual-networking-limits) per il numero di risorse di rete che è possibile creare in un'area e in una sottoscrizione di Azure. Se si raggiungono tali limiti, non è possibile creare altre risorse all'interno dell'area o della sottoscrizione. La funzionalità *limite sottoscrizioni di rete* fornisce un riepilogo della quantità di risorse di rete di ogni tipo distribuite in una sottoscrizione e in un'area e l'indicazione del limite per tale risorsa. La figura seguente mostra l'output parziale delle risorse di rete distribuite nell'area Stati Uniti orientali per una sottoscrizione di esempio:
 
 ![Limiti delle sottoscrizioni](./media/network-watcher-monitoring-overview/subscription-limit.png)
 

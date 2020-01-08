@@ -1,21 +1,21 @@
 ---
-title: 'Guida introduttiva: Riconoscimento vocale da un microfono - Servizio Voce'
+title: 'Avvio rapido: Riconoscimento vocale da un microfono - Servizio Voce'
 titleSuffix: Azure Cognitive Services
-description: Da definire
+description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 11/20/2019
 ms.author: erhopf
-ms.openlocfilehash: a72597163a8c11cd8b515d052dc69992784e61e0
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: ab51fe0323ea23c16cb52aa7a0570f8d51d40b2f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818816"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75468516"
 ---
 In questo argomento di avvio rapido si userà [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) per riconoscere in modo interattivo contenuti vocali dall'input del microfono e ottenere la trascrizione del testo dall'audio acquisito. È facile integrare questa funzionalità nelle app o nei dispositivi per le attività di riconoscimento comuni, ad esempio la trascrizione di conversazioni. Può essere usato anche per integrazioni più complesse, ad esempio l'uso di Bot Framework con Speech SDK per creare assistenti vocali.
 

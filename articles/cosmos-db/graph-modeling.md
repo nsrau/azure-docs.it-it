@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 12/02/2019
 ms.author: lbosq
-ms.openlocfilehash: 7bc5544249b7e476afde08281aa005569ef6f8ce
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: d1e21827dda26f1c577f6cc70a5e34bb09a34d9c
+ms.sourcegitcommit: 801e9118fae92f8eef8d846da009dddbd217a187
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873727"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75500052"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modellazione di dati del grafo per l'API Gremlin di Azure Cosmos DB
 
@@ -23,7 +23,7 @@ Il documento seguente include raccomandazioni utili per la modellazione di dati 
 Il processo descritto in questa guida è basato sui presupposti seguenti:
  * Le **entità** nello spazio del problema sono identificate. Queste entità devono essere utilizzate _in modo atomico_ per ogni richiesta. Questo significa che il sistema di database non è progettato per il recupero dei dati di una singola entità in più richieste di query.
  * I **requisiti di lettura e scrittura** del sistema di database sono noti. Questi requisiti verranno usati per le ottimizzazioni necessarie per il modello di dati del grafo.
- * I principi dello [standard per grafi di proprietà Apache Tinkerpop](http://tinkerpop.apache.org/docs/current/reference/#graph-computing) sono stati compresi.
+ * I principi dello [standard per grafi di proprietà Apache Tinkerpop](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) sono stati compresi.
 
 ## <a name="when-do-i-need-a-graph-database"></a>Quando è necessario un database a grafo?
 
@@ -41,7 +41,7 @@ Il passaggio successivo consiste nel determinare se il grafo verrà usato per sc
 
 ## <a name="how-to-use-graph-objects"></a>Come usare gli oggetti del grafo
 
-Nello [standard per grafi di proprietà Apache Tinkerpop](http://tinkerpop.apache.org/docs/current/reference/#graph-computing) sono definiti due tipi di oggetti, ovvero **vertici** e **archi**. 
+Nello [standard per grafi di proprietà Apache Tinkerpop](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) sono definiti due tipi di oggetti, ovvero **vertici** e **archi**. 
 
 Di seguito sono riportate le procedure consigliate per le proprietà negli oggetti del grafo:
 

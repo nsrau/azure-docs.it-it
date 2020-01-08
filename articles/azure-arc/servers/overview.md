@@ -10,12 +10,12 @@ keywords: automazione di azure, DSC, powershell, configurazione dello stato desi
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: d091b89342570b73ccde5fe496a3432102617918
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 06e3b490f4f9cef64ae8bca5aed4d0518f10ba0e
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951429"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659622"
 ---
 # <a name="what-is-azure-arc-for-servers"></a>Che cos'è Azure Arc per server?
 
@@ -41,7 +41,7 @@ La versione di anteprima pubblica è progettata a scopo di valutazione e non dev
 
 ## <a name="azure-subscription-and-service-limits"></a>Limiti del servizio e della sottoscrizione di Azure
 
-Assicurarsi di tenere conto dei limiti di Azure Resource Manager e di pianificare il numero di computer da connettere in base alle linee guida elencate per la [sottoscrizione](../../azure-subscription-service-limits.md#subscription-limits---azure-resource-manager) e per i [gruppi di risorse](../../azure-subscription-service-limits.md#resource-group-limits). In particolare, per impostazione predefinita è previsto un limite di 800 server per gruppo di risorse.
+Assicurarsi di tenere conto dei limiti di Azure Resource Manager e di pianificare il numero di computer da connettere in base alle linee guida elencate per la [sottoscrizione](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits---azure-resource-manager) e per i [gruppi di risorse](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits). In particolare, per impostazione predefinita è previsto un limite di 800 server per gruppo di risorse.
 
 ## <a name="networking-configuration"></a>Configurazione delle impostazioni di rete
 
@@ -107,7 +107,7 @@ az provider register --namespace 'Microsoft.HybridCompute'
 az provider register --namespace 'Microsoft.GuestConfiguration'
 ```
 
-È anche possibile registrare i provider di risorse usando il portale seguendo la procedura descritta nel [portale di Azure](../../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
+È anche possibile registrare i provider di risorse usando il portale seguendo la procedura descritta nel [portale di Azure](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
 ## <a name="machine-changes-after-installing-the-agent"></a>Modifiche apportate al computer dopo l'installazione dell'agente
 

@@ -1,20 +1,20 @@
 ---
-title: 'Guida introduttiva: Tradurre la voce in più lingue - Servizio Voce'
+title: 'Avvio rapido: Tradurre la voce in più lingue - Servizio Voce'
 titleSuffix: Azure Cognitive Services
-description: Da definire
+description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: 2cdd3c42f2498f5c4b7a72e6ab66e106efbd625b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: fb56b34dc3206953ce4afd737d1dea96d0bee79c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74981304"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75468497"
 ---
 Visualizzare o scaricare tutti gli <a href="https://aka.ms/speech/github">esempi di Speech SDK</a> in GitHub.

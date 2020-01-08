@@ -1,26 +1,24 @@
 ---
 title: 'Esercitazione: Creare e gestire un processo di Analisi di flusso usando il portale di Azure'
 description: Questa esercitazione offre una dimostrazione completa relativa all'uso di Analisi di flusso di Azure per analizzare le chiamate fraudolente in un flusso di telefonate.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
-ms.openlocfilehash: cca9f25fae9646b4207db7aa98f4c334457fc426
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 488664b028568b3014b9b839122705d35104861e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707392"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459564"
 ---
 # <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Esercitazione: Analizzare i dati delle telefonate con Analisi di flusso di Azure e visualizzare i risultati in una dashboard Power BI
 
 Questa esercitazione spiega come analizzare i dati delle telefonate con Analisi di flusso di Azure. I dati delle telefonate, generati da un'applicazione client, contengono alcune chiamate fraudolente che verranno filtrate dal processo di Analisi di flusso.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Generare dati delle telefonate di esempio e inviarli a Hub eventi di Azure
@@ -30,7 +28,7 @@ In questa esercitazione si apprenderà come:
 > * Testare e avviare il processo
 > * Visualizzare i risultati in Power BI
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare, eseguire queste azioni:
 
@@ -53,7 +51,7 @@ Per creare un nuovo hub eventi e inviare i dati delle chiamate, seguire la proce
 
    |**Impostazione**  |**Valore consigliato** |**Descrizione**  |
    |---------|---------|---------|
-   |NOME     | myEventHubsNS        |  Nome univoco che identifica lo spazio dei nomi dell'hub eventi.       |
+   |Nome     | myEventHubsNS        |  Nome univoco che identifica lo spazio dei nomi dell'hub eventi.       |
    |Subscription     |   \<Sottoscrizione in uso\>      |   Selezionare una sottoscrizione di Azure in cui creare l'hub eventi.      |
    |Resource group     |   MyASADemoRG      |  Selezionare **Crea nuovo** e immettere il nome di un nuovo gruppo di risorse per l'account.       |
    |Location     |   Stati Uniti occidentali 2      |    Località in cui lo spazio dei nomi dell'hub eventi può essere distribuito.     |

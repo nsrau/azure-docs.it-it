@@ -1,32 +1,23 @@
 ---
-title: Monitorare un cluster di Service Fabric in Azure | Microsoft Docs
+title: Monitorare un cluster di Service Fabric in Azure
 description: In questa esercitazione viene illustrato come monitorare un cluster visualizzando gli eventi di Service Fabric, eseguendo query sulle API di EventStore, monitorando i contatori delle prestazioni e visualizzando i report sull'integrità.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: srrengar
 ms.custom: mvc
-ms.openlocfilehash: 63069dcdebf19c64d7bcde298fa234622a6d9a2b
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: ab58d622511e0d5793eb6df312bc3fd6dd15bfd6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385269"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376631"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Esercitazione: Monitorare un cluster di Service Fabric in Azure
 
 Il monitoraggio e la diagnostica sono essenziali per lo sviluppo, il test e la distribuzione di carichi di lavoro in qualsiasi ambiente cloud. Questa esercitazione è la seconda parte di una serie e mostra come monitorare e diagnosticare un cluster di Service Fabric usando eventi, contatori delle prestazioni e report sull'integrità.   Per altre informazioni, vedere la panoramica sul [monitoraggio del cluster](service-fabric-diagnostics-overview.md#platform-cluster-monitoring) e sul [monitoraggio dell'infrastruttura](service-fabric-diagnostics-overview.md#infrastructure-performance-monitoring).
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Visualizzare gli eventi di Service Fabric
@@ -45,7 +36,7 @@ In questa serie di esercitazioni si apprenderà come:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare questa esercitazione:
 
@@ -484,7 +475,7 @@ Get-ServiceFabricService -ApplicationName fabric:/System | Get-ServiceFabricServ
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Visualizzare gli eventi di Service Fabric
