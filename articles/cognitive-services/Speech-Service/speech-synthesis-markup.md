@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 6ffa17010f874eeb82fe8f4c367f0a0ac429979b
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: d97073666a18a3ffb7a88e1d2350f213ef589e6a
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815512"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562528"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>Speech Synthesis Markup Language (SSML)
 
@@ -57,9 +57,9 @@ Ogni documento SSML viene creato con elementi SSML (o tag). Questi elementi veng
 
 | Attributo | Description | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
-| version | Indica la versione della specifica SSML usata per interpretare il markup del documento. La versione corrente è 1,0. | Obbligatoria |
-| xml:lang | Specifica la lingua del documento radice. Il valore può contenere un codice di lingua minuscolo di due lettere (ad esempio, **en**) o il codice della lingua e il paese/area geografica maiuscolo (ad esempio, **en-US**). | Obbligatoria |
-| xmlns | Specifica l'URI del documento che definisce il vocabolario di markup (i tipi di elemento e i nomi di attributo) del documento SSML. L'URI corrente è https://www.w3.org/2001/10/synthesis. | Obbligatoria |
+| version | Indica la versione della specifica SSML usata per interpretare il markup del documento. La versione corrente è 1,0. | Obbligatorio |
+| xml:lang | Specifica la lingua del documento radice. Il valore può contenere un codice di lingua minuscolo di due lettere (ad esempio, **en**) o il codice della lingua e il paese/area geografica maiuscolo (ad esempio, **en-US**). | Obbligatorio |
+| xmlns | Specifica l'URI del documento che definisce il vocabolario di markup (i tipi di elemento e i nomi di attributo) del documento SSML. L'URI corrente è https://www.w3.org/2001/10/synthesis. | Obbligatorio |
 
 ## <a name="choose-a-voice-for-text-to-speech"></a>Scegliere una voce per la sintesi vocale
 
@@ -77,7 +77,7 @@ L'elemento `voice` è obbligatorio. Viene usato per specificare la voce usata pe
 
 | Attributo | Description | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
-| name | Identifica la voce utilizzata per l'output da sintesi vocale. Per un elenco completo delle voci supportate, vedere [supporto](language-support.md#text-to-speech)per le lingue. | Obbligatoria |
+| name | Identifica la voce utilizzata per l'output da sintesi vocale. Per un elenco completo delle voci supportate, vedere [supporto](language-support.md#text-to-speech)per le lingue. | Obbligatorio |
 
 **Esempio**
 
@@ -100,7 +100,7 @@ All'interno dell'elemento `speak` è possibile specificare più voci per l'outpu
 
 | Attributo | Description | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
-| name | Identifica la voce utilizzata per l'output da sintesi vocale. Per un elenco completo delle voci supportate, vedere [supporto](language-support.md#text-to-speech)per le lingue. | Obbligatoria |
+| name | Identifica la voce utilizzata per l'output da sintesi vocale. Per un elenco completo delle voci supportate, vedere [supporto](language-support.md#text-to-speech)per le lingue. | Obbligatorio |
 
 **Esempio**
 
@@ -142,11 +142,13 @@ Le modifiche vengono applicate a livello di frase e lo stile varia in base alla 
 
 Usare questa tabella per determinare quali stili di pronuncia sono supportati per ogni voce neurale.
 
-| Voce | Type | Description |
+| Voce | Tipo | Description |
 |-------|------|-------------|
 | `en-US-JessaNeural` | tipo =`cheerful` | Esprime un'emozione positiva e felice |
 | | tipo =`empathy` | Esprime un senso di attenzione e comprensione |
 | | tipo =`chat` | Pronunciare un tono informale e rilassato |
+| | tipo =`newscast` | Esprime un tono formale, simile alle trasmissioni di notizie |
+| | tipo =`customerservice` | Parla in modo semplice e paziente come servizio clienti |
 | `zh-CN-XiaoxiaoNeural` | tipo =`newscast` | Esprime un tono formale, simile alle trasmissioni di notizie |
 | | tipo =`sentiment` | Trasmette un messaggio di contatto o una storia |
 
@@ -182,7 +184,7 @@ Usare l'elemento `break` per inserire pause (o interruzioni) tra le parole oppur
 
 | Attributo | Description | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
-| Forza | Specifica la durata relativa di una pausa utilizzando uno dei valori seguenti:<ul><li>None</li><li>x-debole</li><li>debole</li><li>media (impostazione predefinita)</li><li>complessa</li><li>x-forte</li></ul> | Facoltativo |
+| forza | Specifica la durata relativa di una pausa utilizzando uno dei valori seguenti:<ul><li>none</li><li>x-debole</li><li>debole</li><li>media (impostazione predefinita)</li><li>complessa</li><li>x-forte</li></ul> | Facoltativo |
 | time | Specifica la durata assoluta di una pausa in secondi o millisecondi. Esempi di valori validi sono 2S e 500 | Facoltativo |
 
 | Forza | Description |
@@ -290,8 +292,8 @@ Poiché i valori dell'attributo prosodica possono variare in base a un intervall
 
 | Attributo | Description | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
-| passo | Indica il passo della linea di base per il testo. È possibile esprimere il passo come:<ul><li>Valore assoluto, espresso come numero seguito da "Hz" (hertz). Ad esempio, 600Hz.</li><li>Valore relativo, espresso come numero preceduto da "+" o "-", seguito da "Hz" o "St", che specifica una quantità per modificare il pitch. Ad esempio: + 80Hz o-2ST. Il valore "St" indica che l'unità di modifica è semitono, ovvero la metà di un tono (un mezzo) sulla scala diatonica standard.</li><li>Valore costante:<ul><li>x-basso</li><li>bassa</li><li>media</li><li>elevata</li><li>x-alto</li><li>default</li></ul></li></ul>. | Facoltativo |
-| contorno | Il contorno non è supportato per le voci neurali. Contour rappresenta le modifiche in pitch per il contenuto vocale come matrice di destinazioni in posizioni temporali specificate nell'output del riconoscimento vocale. Ogni destinazione è definita da insiemi di coppie di parametri. ad esempio: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Il primo valore di ogni set di parametri specifica la posizione della modifica del passo come percentuale della durata del testo. Il secondo valore specifica la quantità da elevare o abbassare il pitch, usando un valore relativo o un valore di enumerazione per pitch (vedere `pitch`). | Facoltativo |
+| passo | Indica il passo della linea di base per il testo. È possibile esprimere il passo come:<ul><li>Valore assoluto, espresso come numero seguito da "Hz" (hertz). Ad esempio, 600Hz.</li><li>Valore relativo, espresso come numero preceduto da "+" o "-", seguito da "Hz" o "St", che specifica una quantità per modificare il pitch. Ad esempio: + 80Hz o-2ST. Il valore "St" indica che l'unità di modifica è semitono, ovvero la metà di un tono (un mezzo) sulla scala diatonica standard.</li><li>Valore costante:<ul><li>x-basso</li><li>low</li><li>media</li><li>high</li><li>x-alto</li><li>default</li></ul></li></ul>. | Facoltativo |
+| contorno | Il contorno non è supportato per le voci neurali. Contour rappresenta le modifiche in pitch per il contenuto vocale come matrice di destinazioni in posizioni temporali specificate nell'output del riconoscimento vocale. Ogni destinazione è definita da insiemi di coppie di parametri. Ad esempio: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Il primo valore di ogni set di parametri specifica la posizione della modifica del passo come percentuale della durata del testo. Il secondo valore specifica la quantità da elevare o abbassare il pitch, usando un valore relativo o un valore di enumerazione per pitch (vedere `pitch`). | Facoltativo |
 | range  | Valore che rappresenta l'intervallo di pitch per il testo. È possibile esprimere `range` usando gli stessi valori assoluti, i valori relativi o i valori di enumerazione usati per descrivere `pitch`. | Facoltativo |
 | rate  | Indica la velocità di pronuncia del testo. È possibile esprimere `rate` come:<ul><li>Valore relativo, espresso come numero che funge da moltiplicatore del valore predefinito. Il valore *1* , ad esempio, non comporta alcuna modifica nella frequenza. Il valore *0,5* comporta una dimezzazione della frequenza. Il valore *3* comporta un triplo della frequenza.</li><li>Valore costante:<ul><li>x-lento</li><li>lento</li><li>media</li><li>veloce</li><li>x-veloce</li><li>default</li></ul></li></ul> | Facoltativo |
 | duration  | Periodo di tempo che deve trascorrere mentre il servizio di sintesi vocale (TTS) legge il testo, in secondi o millisecondi. Ad esempio, *2S* o *1800ms*. | Facoltativo |
@@ -373,7 +375,7 @@ Le modifiche di pitch possono essere applicate alle voci standard a livello di p
 
 | Attributo | Description | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
-| interpreta come | Indica il tipo di contenuto del testo dell'elemento. Per un elenco di tipi, vedere la tabella seguente. | Obbligatoria |
+| interpreta come | Indica il tipo di contenuto del testo dell'elemento. Per un elenco di tipi, vedere la tabella seguente. | Obbligatorio |
 | format | Fornisce informazioni aggiuntive sulla formattazione precisa del testo dell'elemento per i tipi di contenuto che possono avere formati ambigui. SSML definisce i formati per i tipi di contenuto che li usano (vedere la tabella riportata di seguito). | Facoltativo |
 | dettagli | Indica il livello di dettaglio da pronunciare. Questo attributo, ad esempio, può richiedere che il motore di sintesi vocale pronunci segni di punteggiatura. Nessun valore standard definito per `detail`. | Facoltativo |
 
@@ -383,10 +385,10 @@ Di seguito sono riportati i tipi di contenuto supportati per gli attributi `inte
 
 | interpreta come | format | Interpretazione |
 |--------------|--------|----------------|
-| Address | | Il testo viene pronunciato come indirizzo. Il motore di sintesi vocale pronuncia:<br /><br />`I'm at <say-as interpret-as="address">150th CT NE, Redmond, WA</say-as>`<br /><br />"Sto a 150 Court North East Redmond Washington". |
+| address | | Il testo viene pronunciato come indirizzo. Il motore di sintesi vocale pronuncia:<br /><br />`I'm at <say-as interpret-as="address">150th CT NE, Redmond, WA</say-as>`<br /><br />"Sto a 150 Court North East Redmond Washington". |
 | Cardinale, numero | | Il testo viene pronunciato come numero cardinale. Il motore di sintesi vocale pronuncia:<br /><br />`There are <say-as interpret-as="cardinal">3</say-as> alternatives`<br /><br />"Esistono tre alternative". |
 | caratteri, ortografia | | Il testo viene pronunciato come singole lettere (digitato). Il motore di sintesi vocale pronuncia:<br /><br />`<say-as interpret-as="characters">test</say-as>`<br /><br />Come "T E S T". |
-| date  | DMY, MDY, ymd, AGM, YM, My, MD, DM, d, m, y | Il testo viene pronunciato come data. L'attributo `format` specifica il formato della data (*d = giorno, m = mese e y = anno*). Il motore di sintesi vocale pronuncia:<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />Come "oggi è il 19 ottobre 2016". |
+| Data  | DMY, MDY, ymd, AGM, YM, My, MD, DM, d, m, y | Il testo viene pronunciato come data. L'attributo `format` specifica il formato della data (*d = giorno, m = mese e y = anno*). Il motore di sintesi vocale pronuncia:<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />Come "oggi è il 19 ottobre 2016". |
 | cifre, number_digit | | Il testo viene pronunciato come sequenza di singole cifre. Il motore di sintesi vocale pronuncia:<br /><br />`<say-as interpret-as="number_digit">123456789</say-as>`<br /><br />Come "1 2 3 4 5 6 7 8 9". |
 | frazione | | Il testo viene pronunciato come numero frazionario. Il motore di sintesi vocale pronuncia:<br /><br /> `<say-as interpret-as="fraction">3/8</say-as> of an inch`<br /><br />"Tre ottavi di pollice". |
 | ordinal  | | Il testo viene pronunciato come numero ordinale. Il motore di sintesi vocale pronuncia:<br /><br />`Select the <say-as interpret-as="ordinal">3rd</say-as> option`<br /><br />Come "selezionare la terza opzione". |

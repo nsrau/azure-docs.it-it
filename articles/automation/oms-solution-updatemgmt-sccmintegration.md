@@ -2,19 +2,15 @@
 title: Gestire gli aggiornamenti usando raccolte SCCM in Gestione aggiornamenti di Automazione di Azure
 description: Questo articolo fornisce supporto per la configurazione di System Center Configuration Manager con questa soluzione per gestire gli aggiornamenti dei computer gestiti da SCCM.
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/19/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 345adeee37f5f9bc4c794eb9bb624e7797197f22
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: b52db95b6a6ce21a5e5b68342ac123526d11ca62
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850211"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75417631"
 ---
 # <a name="integrate-system-center-configuration-manager-with-update-management"></a>Integrare System Center Configuration Manager con Gestione aggiornamenti
 

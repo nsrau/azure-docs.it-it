@@ -1,25 +1,14 @@
 ---
-title: Governance delle risorse di Azure Service Fabric per contenitori e i servizi | Microsoft Docs
+title: Governance delle risorse per contenitori e servizi
 description: Azure Service Fabric consente di specificare limiti di risorse per i servizi in esecuzione all'interno o all'esterno di contenitori.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/9/2017
-ms.author: atsenthi
-ms.openlocfilehash: 44abb297b9ce0eafadd3af9539d5b12751360319
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 0a4cdc7dd7c2e81447201ca85843c9ba4c7e2af4
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242914"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609453"
 ---
 # <a name="resource-governance"></a>Governance delle risorse
 
@@ -206,7 +195,7 @@ Mentre l'applicazione della governance delle risorse ai servizi Service Fabric g
 * Nodi che terminano in uno stato non integro
 * API di gestione cluster Service Fabric non risponde
 
-Per evitare che si verifichino queste situazioni, Service Fabric consente di *imporre i limiti delle risorse per tutti i servizi utente Service fabric in esecuzione nel nodo* , sia governati che non governati, per garantire che i servizi utente non usino mai più del quantità di risorse specificata. Questa operazione viene eseguita impostando il valore per la configurazione EnforceUserServiceMetricCapacities nella sezione PlacementAndLoadBalancing di ClusterManifest su true. Questa impostazione è disattivata per impostazione predefinita.
+Per evitare che si verifichino queste situazioni, Service Fabric consente di *imporre i limiti delle risorse per tutti i servizi utente Service fabric in esecuzione nel nodo* , sia governati che non governati, per garantire che i servizi utente non usino mai più della quantità specificata di risorse. Questa operazione viene eseguita impostando il valore per la configurazione EnforceUserServiceMetricCapacities nella sezione PlacementAndLoadBalancing di ClusterManifest su true. Questa impostazione è disattivata per impostazione predefinita.
 
 ```xml
 <SectionName="PlacementAndLoadBalancing">
@@ -217,7 +206,7 @@ Per evitare che si verifichino queste situazioni, Service Fabric consente di *i
 Osservazioni aggiuntive:
 
 * L'imposizione del limite di risorse si applica solo alle metriche delle risorse `servicefabric:/_CpuCores` e `servicefabric:/_MemoryInMB`
-* L'imposizione del limite di risorse funziona solo se le capacità del nodo per le metriche delle risorse sono disponibili per Service Fabric, tramite il meccanismo di rilevamento automatico o tramite gli utenti che specificano manualmente le capacità del nodo, come illustrato nella [configurazione del cluster per l'abilitazione sezione Governance delle risorse](service-fabric-resource-governance.md#cluster-setup-for-enabling-resource-governance) ). Se le capacità del nodo non sono configurate, non è possibile usare la funzionalità di imposizione del limite di risorse perché Service Fabric non è in grado di conoscere la quantità di risorse da riservare per i servizi utente. Service Fabric genererà un avviso di integrità se "EnforceUserServiceMetricCapacities" è true, ma le capacità del nodo non sono configurate.
+* L'imposizione del limite di risorse funziona solo se le capacità del nodo per le metriche delle risorse sono disponibili per Service Fabric, tramite il meccanismo di rilevamento automatico o tramite gli utenti che specificano manualmente le capacità dei nodi, come illustrato nella sezione [configurazione del cluster per l'abilitazione della governance delle risorse](service-fabric-resource-governance.md#cluster-setup-for-enabling-resource-governance) . Se le capacità del nodo non sono configurate, non è possibile usare la funzionalità di imposizione del limite di risorse perché Service Fabric non è in grado di conoscere la quantità di risorse da riservare per i servizi utente. Service Fabric genererà un avviso di integrità se "EnforceUserServiceMetricCapacities" è true, ma le capacità del nodo non sono configurate.
 
 ## <a name="other-resources-for-containers"></a>Altre risorse per i contenitori
 

@@ -1,25 +1,15 @@
 ---
-title: Configurare un ambiente di sviluppo Windows per i microservizi di Azure | Microsoft Docs
+title: Configurare un ambiente di sviluppo Windows
 description: Installare il runtime, l'SDK e gli strumenti e creare un cluster di sviluppo locale. Al termine della configurazione, sarà possibile iniziare a creare applicazioni in Windows.
-services: service-fabric
-documentationcenter: .net
 author: peterpogorski
-manager: chackdan
-editor: ''
-ms.assetid: b94e2d2e-435c-474a-ae34-4adecd0e6f8f
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/18/2019
-ms.author: atsenthi
-ms.openlocfilehash: 1eb8e5893d93ef0261d68df4629b072876096711
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 9e055a0674804a15d307a879fd8cb609e3c2631d
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185668"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614384"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparare l'ambiente di sviluppo in Windows
 > [!div class="op_single_selector"]
@@ -31,15 +21,15 @@ ms.locfileid: "74185668"
 
 Per compilare ed eseguire [applicazioni Azure Service Fabric][1] nel computer di sviluppo Windows, installare il Service Fabric Runtime, l'SDK e gli strumenti. È anche necessario [abilitare l'esecuzione di script Windows PowerShell](#enable-powershell-script-execution) inclusi nell'SDK.
 
-## <a name="prerequisites"></a>prerequisiti
-### <a name="supported-operating-system-versions"></a>Versioni del sistema operativo supportate
+## <a name="prerequisites"></a>Prerequisiti
+### <a name="supported-operating-system-versions"></a>Versioni di sistema operativo supportate
 Per lo sviluppo, sono supportati i sistemi operativi seguenti:
 
 * Windows 7
 * Windows 8 e Windows 8.1
 * Windows Server 2012 R2
 * Windows Server 2016
-* Windows 10
+* Windows 10
 
 > [!NOTE]
 > Supporto per Windows 7:

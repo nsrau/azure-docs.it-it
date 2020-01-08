@@ -1,25 +1,16 @@
 ---
-title: Creare un servizio basato su attori in Azure Service Fabric | Microsoft Docs
+title: Creare un servizio basato su attori in Azure Service Fabric
 description: Informazioni su come creare, eseguire debug e distribuire il primo servizio basato su attori in C# usando Service Fabric Reliable Actors.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: d4aebe72-1551-4062-b1eb-54d83297f139
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/10/2019
 ms.author: vturecek
-ms.openlocfilehash: d870690416f96a2e1c24e6de16bdc8faa060f6bd
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: a6e4fb48653572139463738c82de632ff7d55074
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68225125"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466244"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Introduzione a Reliable Actors
 > [!div class="op_single_selector"]
@@ -116,7 +107,7 @@ Creare una semplice applicazione console per chiamare il servizio attore.
 
     Assicurarsi che il pacchetto NuGet e tutte le relative dipendenze siano installati nel progetto ActorClient.
 
-5. Il progetto client richiede inoltre un riferimento al progetto interfaccia.  Nel progetto ActorClient fare clic con il pulsante destro del mouse su **Dipendenze** e quindi scegliere **Aggiungere riferimento...** .  Se l'opzione non è già selezionata, selezionare **Progetti > Soluzione** e quindi selezionare la casella di controllo accanto a **HelloWorld.Interfaces**.  Fare clic su **OK**.
+5. Il progetto client richiede inoltre un riferimento al progetto interfaccia.  Nel progetto ActorClient fare clic con il pulsante destro del mouse su **dipendenze** e quindi scegliere **Aggiungi riferimento.**  Selezionare **progetti > soluzione** (se non è già selezionata), quindi selezionare la casella di controllo accanto a **HelloWorld. Interfaces**.  Fare clic su **OK**.
     
     ![Finestra di dialogo Aggiunta riferimento][7]
 

@@ -4,73 +4,16 @@ description: Informazioni su come gestire e monitorare i backup degli agenti Ser
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: f299bdeebab4f42721255d462101f0065a640fab
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: b7e947e7fd473ec787d49ffe82532ffd5b6a98d1
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665594"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75496983"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gestire i backup degli agenti Servizi di ripristino di Microsoft Azure (MARS) con il servizio backup di Azure
 
 Questo articolo descrive come gestire i file e le cartelle di cui viene eseguito il backup con l'agente di Servizi di ripristino di Microsoft Azure.
-
-## <a name="create-a-backup-policy"></a>Creare un criterio di backup
-
-Il criterio di backup specifica quando creare snapshot dei dati per creare punti di ripristino e per quanto tempo mantenere i punti di ripristino. È possibile configurare i criteri di backup usando l'agente MARS.
-
-Creare un criterio come segue:
-
-1. Dopo aver scaricato e registrato l'agente MARS, avviare la console di Agent. È possibile trovarlo se si cerca **Backup di Microsoft Azure**nel computer.  
-2. In **azioni**fare clic su **Pianifica backup**.
-
-    ![Pianificare un backup di Windows Server](./media/backup-configure-vault/schedule-first-backup.png)
-3. Nella pianificazione guidata backup > **Guida introduttiva**fare clic su **Avanti**.
-4. In **Seleziona elementi di cui eseguire il backup**fare clic su **Aggiungi elementi**.
-
-    ![Selezionare gli elementi di cui eseguire il backup](./media/backup-azure-manage-mars/select-item-to-backup.png)
-
-5. In **Seleziona elementi selezionare gli elementi**di cui si desidera eseguire il backup e fare clic su **OK**.
-
-    ![Elementi selezionati di cui eseguire il backup](./media/backup-azure-manage-mars/selected-items-to-backup.png)
-
-6. Nella pagina **selezionare gli elementi da sottoporre a backup** fare clic su **Avanti**.
-7. Nella pagina **impostazione pianificazione backup** specificare quando si desidera eseguire backup giornalieri o settimanali. Quindi fare clic su **Next**.
-
-    - Quando viene creato un backup, viene creato un punto di ripristino.
-    - Il numero di punti di ripristino creati nell'ambiente dipende dalla pianificazione del backup.
-
-8. È possibile pianificare i backup giornalieri, fino a tre volte al giorno. Ad esempio, lo screenshot mostra due backup giornalieri, uno a mezzanotte e uno alle 6:00 PM.
-
-    ![Pianificazione giornaliera](./media/backup-configure-vault/day-schedule.png)
-
-9. È anche possibile eseguire backup settimanali. Ad esempio, lo screenshot mostra i backup eseguiti ogni alternativa domenica & mercoledì alle 9:30 AM e 1:00 AM.
-
-    ![Pianificazione settimanale](./media/backup-configure-vault/week-schedule.png)
-
-10. Nella pagina **Seleziona criteri di conservazione** specificare la modalità di archiviazione delle copie cronologiche dei dati. Quindi fare clic su **Next**.
-
-    - Le impostazioni di conservazione specificano i punti di ripristino da archiviare e la durata di archiviazione.
-    - Ad esempio, quando si imposta un'impostazione di conservazione giornaliera, si indica che nel momento specificato per la conservazione giornaliera, il punto di ripristino più recente verrà mantenuto per il numero di giorni specificato. Oppure, come altro esempio, è possibile specificare un criterio di conservazione mensile per indicare che il punto di ripristino creato il 30 di ogni mese deve essere archiviato per 12 mesi.
-    - La conservazione dei punti di ripristino giornaliera e settimanale in genere coincide con la pianificazione del backup. Ciò significa che quando il backup viene attivato in base alla pianificazione, il punto di ripristino creato dal backup viene archiviato per la durata indicata nei criteri di conservazione giornalieri o settimanali.
-    - Ad esempio, nella schermata seguente: i backup giornalieri a mezzanotte e 6:00 PM vengono conservati per sette giorni.
-            -I backup eseguiti a mezzanotte e 6:00 PM vengono conservati per quattro settimane.
-            -I backup eseguiti il sabato l'ultima settimana del mese a mezzanotte e 6:00 PM vengono conservati per 12 mesi.
-            -I backup eseguiti a sabato nell'ultima settimana di marzo sono conservati per 10 anni.
-
-    ![Esempio di conservazione](./media/backup-configure-vault/retention-example.png)
-
-11. In **Scegli il tipo di backup iniziale** decidere se si vuole eseguire il backup iniziale sulla rete o usare il backup offline. per altre informazioni, vedere questo [articolo](backup-azure-backup-import-export.md). Per eseguire il backup iniziale sulla rete, selezionare **automaticamente in rete** e fare clic su **Avanti**.
-
-    ![Tipo di backup iniziale](./media/backup-azure-manage-mars/choose-initial-backup-type.png)
-
-12. In **conferma**esaminare le informazioni e quindi fare clic su **fine**.
-    ![confermare il tipo di backup](./media/backup-azure-manage-mars/confirm-backup-type.png)
-
-13. Dopo aver creato la pianificazione del backup tramite la procedura guidata, fare clic su **Chiudi**.
-  ![confermare la modifica del processo di backup](./media/backup-azure-manage-mars/confirm-modify-backup-process.png)
-
-È necessario creare un criterio in ogni computer in cui è installato l'agente.
 
 ## <a name="modify-a-backup-policy"></a>Modificare un criterio di backup
 
@@ -83,7 +26,7 @@ Quando si modificano i criteri di backup, è possibile aggiungere nuovi elementi
   - Riselezionando questi elementi, viene effettuato un primo backup completo e le nuove modifiche ai criteri non vengono applicate ai backup precedenti.
   - La deselezione di un intero volume mantiene il backup passato senza alcun ambito per la modifica dei criteri di conservazione.
 - **Impostazioni di esclusione** usare questa opzione per escludere elementi specifici dal backup.
-  
+
 ### <a name="add-new-items-to-existing-policy"></a>Aggiungi nuovi elementi a criteri esistenti
 
 1. In **azioni**fare clic su **Pianifica backup**.
@@ -158,13 +101,18 @@ Esistono due modi per arrestare la protezione del backup di file e cartelle:
 ### <a name="stop-protection-and-retain-backup-data"></a>Arrestare la protezione e conservare i dati di backup
 
 1. Aprire la console di gestione di MARS, passare al **riquadro azioni**e **selezionare Pianifica backup**.
-    ![modificare o arrestare un backup pianificato.](./media/backup-azure-manage-mars/mars-actions.png)
+
+    ![Modificare o arrestare un backup pianificato.](./media/backup-azure-manage-mars/mars-actions.png)
 1. Nella pagina **Selezione elemento criteri** selezionare **Modifica pianificazione backup per file e cartelle** e fare clic su **Avanti**.
-    ![modificare o arrestare un backup pianificato.](./media/backup-azure-manage-mars/select-policy-item-retain-data.png)
-1. Nella pagina **modificare o arrestare un backup pianificato** selezionare **Interrompi utilizzando questa pianificazione del backup, ma Mantieni i backup archiviati fino a quando non viene attivata nuovamente una pianificazione**. Quindi selezionare **Avanti**.  
-    ![modificare o arrestare un backup pianificato.](./media/backup-azure-manage-mars/stop-schedule-backup.png)
-1. In **Sospendi backup pianificato** esaminare le informazioni e fare clic su **fine** ![modificare o arrestare un backup pianificato.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
-1. in **Modifica processo di backup** controllare che la pianificazione della sospensione del backup sia in stato di esito positivo e fare clic su **Chiudi** per terminare.
+
+    ![Modificare o arrestare un backup pianificato.](./media/backup-azure-manage-mars/select-policy-item-retain-data.png)
+1. Nella pagina **modificare o arrestare un backup pianificato** selezionare **Interrompi utilizzando questa pianificazione del backup, ma Mantieni i backup archiviati fino a quando non viene attivata nuovamente una pianificazione**. Quindi selezionare **Avanti**.
+
+    ![Modificare o arrestare un backup pianificato.](./media/backup-azure-manage-mars/stop-schedule-backup.png)
+1. In **Sospendi backup pianificato** esaminare le informazioni e fare clic su **fine**.
+
+    ![Modificare o arrestare un backup pianificato.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
+1. In **Modifica processo di backup** controllare che la pianificazione della sospensione del backup sia in stato di esito positivo e fare clic su **Chiudi** per terminare.
 
 ### <a name="stop-protection-and-delete-backup-data"></a>Arrestare la protezione ed eliminare i dati di backup
 
@@ -194,15 +142,34 @@ Dopo aver eliminato gli elementi di backup locali, seguire i passaggi successivi
 Se la protezione è stata interrotta durante la conservazione dei dati e si è deciso di riprendere la protezione, è possibile riattivare la pianificazione del backup utilizzando modifica criteri di backup.
 
 1. In **azioni** selezionare **Pianifica backup**.
-1. Selezionare **riabilita pianificazione backup. È anche possibile modificare gli elementi o le ore di backup** e fare clic su **Avanti**.
-    ![eliminare l'infrastruttura di backup.](./media/backup-azure-manage-mars/re-enable-policy-next.png)
+1. Selezionare **riabilita pianificazione backup. È anche possibile modificare gli elementi o le ore di backup** e fare clic su **Avanti**.<br>
+
+    ![Eliminare l'infrastruttura di backup.](./media/backup-azure-manage-mars/re-enable-policy-next.png)
 1. In **Seleziona elementi di cui eseguire il backup**fare clic su **Avanti**.
-    ![eliminare l'infrastruttura di backup.](./media/backup-azure-manage-mars/re-enable-next.png)
+
+    ![Eliminare l'infrastruttura di backup.](./media/backup-azure-manage-mars/re-enable-next.png)
 1. In **specificare la pianificazione del backup**specificare la pianificazione del backup e fare clic su **Avanti**.
 1. In **Seleziona criteri di conservazione**specificare durata conservazione e fare clic su **Avanti**.
-1. Infine, nella schermata di **conformità** , rivedere i dettagli dei criteri e fare clic su **fine**.
+1. Infine, nella schermata di **conferma** esaminare i dettagli dei criteri e fare clic su **fine**.
+
+## <a name="re-generate-passphrase"></a>Genera di nuovo passphrase
+
+Viene usata una passphrase per crittografare e decrittografare i dati durante il backup o il ripristino del computer locale o locale usando l'agente MARS da o verso Azure. Se la passphrase è stata persa o dimenticata, è possibile rigenerare la passphrase (purché il computer sia ancora registrato con l'insieme di credenziali di servizi di ripristino e il backup sia configurato) attenendosi alla procedura seguente:
+
+- Dalla console dell'agente MARS andare al **riquadro azioni** > **modificare le proprietà** >. Passare quindi alla **scheda crittografia**.<br>
+- Selezionare la casella di controllo **Cambia passphrase** .<br>
+- Immettere una nuova passphrase o fare clic su **genera passphrase**.
+- Fare clic su **Sfoglia** per salvare la nuova passphrase.
+
+    ![Genera passphrase.](./media/backup-azure-manage-mars/passphrase.png)
+- Fai clic su **OK** per applicare le modifiche.  Se la [funzionalità di sicurezza](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#enable-security-features) è abilitata nella portale di Azure per l'insieme di credenziali di servizi di ripristino, verrà richiesto di immettere il pin di sicurezza. Per ricevere il PIN, seguire i passaggi elencati in questo [articolo](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#authentication-to-perform-critical-operations).<br>
+- Incollare il PIN di sicurezza dal portale e fare clic su **OK** per applicare le modifiche.<br>
+
+    ![Genera passphrase.](./media/backup-azure-manage-mars/passphrase2.png)
+- Verificare che la passphrase venga salvata in modo sicuro in un percorso alternativo (diverso dalla macchina di origine), preferibilmente nella Azure Key Vault. Tenere traccia di tutte le passphrase se è stato eseguito il backup di più computer con gli agenti MARS.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni sugli scenari e le limitazioni supportati, vedere la [matrice di supporto per Mars](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
+- Per informazioni sugli scenari e le limitazioni supportati, vedere la [matrice di supporto per l'agente Mars](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
 - Altre informazioni sul [comportamento di conservazione dei criteri di backup su richiesta](backup-configure-vault.md#on-demand-backup-policy-retention-behavior).

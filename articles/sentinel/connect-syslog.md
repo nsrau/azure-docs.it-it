@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2019
+ms.date: 12/30/2019
 ms.author: rkarlin
-ms.openlocfilehash: b2be563efa3c09cffaf14dec2b871f3881af1a7a
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: d5f3d24d10262f28023523668c22f4571799cff9
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240042"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610472"
 ---
 # <a name="connect-your-external-solution-using-syslog"></a>Connettere la soluzione esterna usando syslog
 
@@ -35,7 +35,11 @@ Syslog è un protocollo di registrazione di eventi comunemente usato in Linux. L
 Per altre informazioni, vedere [origini dati syslog in monitoraggio di Azure](../azure-monitor/platform/data-sources-syslog.md).
 
 > [!NOTE]
-> L'agente può raccogliere log da più origini, ma deve essere installato nel computer proxy dedicato.
+> - L'agente può raccogliere log da più origini, ma deve essere installato nel computer proxy dedicato.
+> - Per supportare i connettori sia per CEF che per syslog nella stessa VM, seguire questa procedura per evitare la duplicazione dei dati:
+>    1. Seguire le istruzioni per [connettere il CEF](connect-common-event-format.md).
+>    2. Per connettere i dati syslog, passare a **impostazioni** > **impostazioni dell'area di lavoro** > **impostazioni avanzate** > **i dati** > **syslog** e impostare le funzionalità e le relative priorità in modo che non siano le stesse funzionalità e le stesse proprietà usate nella configurazione CEF. <br></br>Se si seleziona **applica la configurazione seguente ai computer**, questi vengono applicati a tutte le VM connesse a questa area di lavoro.
+
 
 ## <a name="connect-your-syslog-appliance"></a>Connettere l'appliance syslog
 
@@ -53,9 +57,9 @@ Per altre informazioni, vedere [origini dati syslog in monitoraggio di Azure](..
 
 4. Selezionare **Apri la configurazione impostazioni avanzate dell'area di lavoro**.
 
-5. Nel pannello **Impostazioni avanzate** selezionare**syslog**per **i dati** > . Aggiungere quindi le funzionalità per il connettore da raccogliere.
+5. Nel pannello **Impostazioni avanzate** selezionare **dati** > **syslog**. Aggiungere quindi le funzionalità per il connettore da raccogliere.
     
-    Aggiungere le funzionalità incluse nell'appliance syslog nelle intestazioni dei log. È possibile visualizzare questa configurazione nel dispositivo syslog in **syslog-d** nella `/etc/rsyslog.d/security-config-omsagent.conf` cartella e in **r-syslog** da `/etc/syslog-ng/security-config-omsagent.conf`.
+    Aggiungere le funzionalità incluse nell'appliance syslog nelle intestazioni dei log. È possibile visualizzare questa configurazione nel dispositivo syslog in **syslog-d** nella cartella `/etc/rsyslog.d/security-config-omsagent.conf` e in **r-syslog** da `/etc/syslog-ng/security-config-omsagent.conf`.
     
     Se si vuole usare il rilevamento anomalo degli accessi SSH con i dati raccolti, aggiungere **AUTH** e **authpriv**. Per ulteriori informazioni, vedere la [sezione seguente](#configure-the-syslog-connector-for-anomalous-ssh-login-detection) .
 
@@ -83,10 +87,10 @@ Azure Sentinel può applicare Machine Learning (ML) ai dati syslog per identific
  
 Questo rilevamento richiede una configurazione specifica del connettore dati syslog: 
 
-1. Per il passaggio 5 della procedura precedente, assicurarsi che sia **AUTH** che **authpriv** siano selezionati come funzionalità da monitorare. Mantieni le impostazioni predefinite per le opzioni di gravità, in modo che siano tutte selezionate. Esempio:
+1. Per il passaggio 5 della procedura precedente, assicurarsi che sia **AUTH** che **authpriv** siano selezionati come funzionalità da monitorare. Mantieni le impostazioni predefinite per le opzioni di gravità, in modo che siano tutte selezionate. Ad esempio:
     
     > [!div class="mx-imgBorder"]
-    > ![Funzionalità necessarie per il rilevamento anomalo degli accessi SSH](./media/connect-syslog/facilities-ssh-detection.png)
+    > ![le funzionalità necessarie per il rilevamento anomalo degli accessi SSH](./media/connect-syslog/facilities-ssh-detection.png)
 
 2. Consente di ottenere tempo sufficiente per la raccolta delle informazioni syslog. Passare quindi ad **Azure Sentinel-logs**e copiare e incollare la query seguente:
     
@@ -96,9 +100,11 @@ Questo rilevamento richiede una configurazione specifica del connettore dati sys
     
     Se il conteggio risultante è pari a zero, confermare la configurazione del connettore e verificare che l'attività di accesso dei computer monitorati sia riuscita per il periodo di tempo specificato per la query.
     
-    Se il conteggio risultante è maggiore di zero, i dati syslog sono appropriati per il rilevamento anomalo degli accessi SSH. È possibile abilitare questo rilevamento dal**rilevamento di accessi SSH anomali**dei**modelli** > di regola di **analisi** >  (anteprima).
+    Se il conteggio risultante è maggiore di zero, i dati syslog sono appropriati per il rilevamento anomalo degli accessi SSH. È possibile abilitare questo rilevamento da **Analytics** >  **modelli di regola** >  **(anteprima) rilevamento anomalo di accesso SSH**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento si è appreso come connettere le appliance syslog locali ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
-- Scopri come [ottenere visibilità sui dati e potenziali minacce](quickstart-get-visibility.md).
-- Iniziare a [rilevare le minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Informazioni su come [ottenere visibilità sui dati e sulle potenziali minacce](quickstart-get-visibility.md).
+- Iniziare a [rilevare minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).
+- [Utilizzare le cartelle di lavoro](tutorial-monitor-your-data.md) di per monitorare i dati.
+

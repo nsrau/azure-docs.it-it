@@ -3,17 +3,17 @@ title: Usare l'estensione Azure per l'interfaccia della riga di comando di Azure
 description: Installare l'estensione Azure per l'interfaccia della riga di comando di Azure e usarla per interagire con i dispositivi Plug and Play connessi all'hub Internet.
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 09/08/2019
+ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: eb4f607672c39d45b7791ccaeeb6f7cff9393cb9
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: f4e255309d32026b7f2bb4de67fce7ec37c753f6
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571009"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529576"
 ---
 # <a name="install-and-use-the-azure-iot-extension-for-the-azure-cli"></a>Installare e usare l'estensione Azure per l'interfaccia della riga di comando di Azure
 
@@ -36,11 +36,11 @@ Questo articolo illustra come:
 
 ### <a name="step-1---install-the-azure-cli"></a>Passaggio 1: installare l'interfaccia della riga di comando di Azure
 
-Seguire le [istruzioni di installazione](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) per configurare l'interfaccia della riga di comando di Azure nell'ambiente in uso. Per usare tutti i comandi seguenti, la versione dell'interfaccia della riga di comando di Azure deve essere 2.0.73 o versione successiva. Usare `az -–version` per la convalida.
+Seguire le [istruzioni di installazione](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) per configurare l'interfaccia della riga di comando di Azure nell'ambiente in uso. Per usare tutti i comandi seguenti, la versione dell'interfaccia della riga di comando di Azure deve essere 2.0.73 o versione successiva. Usare il comando `az -–version` per verificare.
 
 ### <a name="step-2---install-iot-extension"></a>Passaggio 2: installare l'estensione Internet
 
-Il [file Leggimi dell'estensione IoT](https://github.com/Azure/azure-iot-cli-extension) illustra diverse modalità per installare l'estensione. L'approccio più semplice consiste nell'eseguire `az extension add --name azure-cli-iot-ext`. Dopo l'installazione, è possibile usare `az extension list` per convalidare le estensioni attualmente installate o `az extension show --name azure-cli-iot-ext` per visualizzare informazioni dettagliate sull'estensione IoT. Per rimuovere l'estensione, è possibile usare `az extension remove --name azure-cli-iot-ext`.
+Il [file Leggimi dell'estensione IoT](https://github.com/Azure/azure-iot-cli-extension) illustra diverse modalità per installare l'estensione. Il modo più semplice è quello di eseguire `az extension add --name azure-cli-iot-ext`. Dopo l'installazione, è possibile usare `az extension list` per convalidare le estensioni attualmente installate o `az extension show --name azure-cli-iot-ext` per visualizzare informazioni dettagliate sull'estensione IoT. Per rimuovere l'estensione, è possibile usare `az extension remove --name azure-cli-iot-ext`.
 
 ## <a name="use-azure-iot-extension-for-the-azure-cli"></a>Usare l'estensione Azure per l'interfaccia della riga di comando di Azure
 

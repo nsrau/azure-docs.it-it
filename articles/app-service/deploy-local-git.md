@@ -1,17 +1,17 @@
 ---
-title: Distribuisci dal repository git locale
+title: Distribuire dal repository GIT locale
 description: Informazioni su come abilitare la distribuzione dell'archivio Git locale nel servizio app di Azure. Uno dei modi più semplici per distribuire il codice dal computer locale.
 ms.assetid: ac50a623-c4b8-4dfd-96b2-a09420770063
 ms.topic: article
 ms.date: 06/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 91d5827a08a600c19c24ac0a96a5f4e3e98e22f2
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 2ae8b71a7d48949cd82765112752192aba54521f
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671773"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680954"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Distribuzione git locale al servizio app Azure
 
@@ -97,7 +97,9 @@ Se l'account dispone delle autorizzazioni necessarie, è possibile configurare A
 
 Per abilitare la distribuzione git locale per l'app con Azure Pipelines (anteprima):
 
-1. Passare alla pagina dell'app del servizio app Azure nel [portale di Azure](https://portal.azure.com)e selezionare **centro distribuzione** nel menu a sinistra.
+1. Nella [portale di Azure](https://portal.azure.com)cercare e selezionare **Servizi app**. 
+
+1. Selezionare l'app di servizio app Azure e selezionare **centro distribuzione** nel menu a sinistra.
    
 1. Nella pagina **centro distribuzione** selezionare **git locale**e quindi fare clic su **continua**. 
    
@@ -112,7 +114,7 @@ Per abilitare la distribuzione git locale per l'app con Azure Pipelines (antepri
    > [!NOTE]
    > Se l'organizzazione DevOps di Azure esistente non è elencata, potrebbe essere necessario collegarla alla sottoscrizione di Azure. Per altre informazioni, vedere [definire la pipeline di rilascio del CD](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps#cd).
    
-1. A seconda del piano [tariffario](https://azure.microsoft.com/pricing/details/app-service/plans/)del piano di servizio app, è possibile che venga visualizzata una pagina **Distribuisci in staging** . Scegliere se [abilitare gli slot di distribuzione](deploy-staging-slots.md), quindi selezionare **continua**.
+1. A seconda del [piano tariffario](https://azure.microsoft.com/pricing/details/app-service/plans/) del piano di servizio app, è possibile che venga visualizzata una pagina **Distribuisci in staging** . Scegliere se [abilitare gli slot di distribuzione](deploy-staging-slots.md), quindi selezionare **continua**.
    
 1. Nella pagina **Riepilogo** verificare le impostazioni e quindi fare clic su **fine**.
    
@@ -140,10 +142,10 @@ Per abilitare la distribuzione git locale per l'app con Azure Pipelines (antepri
 
 Quando si usa Git per la pubblicazione in un'app del servizio app in Azure, è possibile che vengano visualizzati i messaggi di errore comuni seguenti:
 
-|Message|Causa|Risoluzione
+|Messaggio|Causa|Risoluzione
 ---|---|---|
 |`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|L'app non è in esecuzione.|avviare l'app nel portale di Azure. La distribuzione Git non è disponibile quando l'app Web è arrestata.|
-|`Couldn't resolve host 'hostname'`|Le informazioni sull'indirizzo per il controllo remoto ' Azure ' non sono corrette.|Usare il comando `git remote -v` per elencare tutti i computer remoti, insieme all'URL associato. Verificare che l'URL del repository remoto 'azure' sia corretto. Se necessario, rimuovere e ricreare questo repository remoto usando l'URL corretto.|
+|`Couldn't resolve host 'hostname'`|Le informazioni sull'indirizzo per il controllo remoto ' Azure ' non sono corrette.|usare il comando `git remote -v` per elencare tutti i repository remoti, insieme agli URL associati. Verificare che l'URL del repository remoto 'azure' sia corretto. Se necessario, rimuovere e ricreare questo repository remoto usando l'URL corretto.|
 |`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`|Non è stato specificato un ramo durante `git push`o non è stato impostato il valore di `push.default` in `.gitconfig`.|Eseguire di nuovo `git push`, specificando il ramo master: `git push azure master`.|
 |`src refspec [branchname] does not match any.`|Si è tentato di effettuare il push in un ramo diverso dal master nel computer remoto ' Azure '.|Eseguire di nuovo `git push`, specificando il ramo master: `git push azure master`.|
 |`RPC failed; result=22, HTTP code = 5xx.`|questo errore può verificarsi se si tenta di eseguire il push di un repository Git di grandi dimensioni tramite HTTPS.|Modificare la configurazione git nel computer locale per rendere il `postBuffer` più grande. Ad esempio: `git config --global http.postBuffer 524288000`.|

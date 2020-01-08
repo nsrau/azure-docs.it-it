@@ -1,23 +1,14 @@
 ---
 title: Monitorare l'integrità del cluster Kubernetes con monitoraggio di Azure per i contenitori | Microsoft Docs
 description: Questo articolo descrive come visualizzare e analizzare l'integrità dei cluster AKS e non AKS con monitoraggio di Azure per i contenitori.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 11/18/2019
-ms.author: magoedte
-ms.openlocfilehash: 08f7cf5a26108608aa3719085d69ec9543f4aa51
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.date: 12/01/2019
+ms.openlocfilehash: 9ee710eb916923756633e65f3287751ba9a9dde3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279644"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75405089"
 ---
 # <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>Informazioni sull'integrità del cluster Kubernetes con Monitoraggio di Azure per i contenitori
 
@@ -61,9 +52,9 @@ Le icone utilizzate per indicare lo stato sono le seguenti:
 
 |Icona|Significato|  
 |--------|-----------|  
-|![Icona di segno di spunta verde indica integro](./media/container-insights-health/healthyicon.png)|Operazione riuscita, integrità OK (verde)|  
-|![Il triangolo giallo e il punto esclamativo è un avviso](./media/container-insights-health/warningicon.png)|Avviso (giallo)|  
-|![Il pulsante rosso con una X bianca indica lo stato critico](./media/container-insights-health/criticalicon.png)|Critico (rosso)|  
+|![L'icona con il segno di spunta verde indica lo stato integro](./media/container-insights-health/healthyicon.png)|Operazione riuscita, integrità corretta (verde)|  
+|![Il triangolo giallo con un punto esclamativo indica un avviso](./media/container-insights-health/warningicon.png)|Avviso (giallo)|  
+|![Il pulsante rosso con una X bianca indica lo stato critico](./media/container-insights-health/criticalicon.png)|Stato critico (rosso)|  
 |![Icona in grigio](./media/container-insights-health/grayicon.png)|Sconosciuto (grigio)|  
 
 ## <a name="monitor-configuration"></a>Configurazione del monitoraggio

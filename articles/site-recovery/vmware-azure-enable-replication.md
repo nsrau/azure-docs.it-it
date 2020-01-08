@@ -6,23 +6,34 @@ ms.service: site-recovery
 ms.date: 06/28/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 1cc1ee82b45ecab17e4bcfb3a909fc90b33a1545
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 10b3e572ec61d1eff342f24a6a5a7bcba6276983
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954446"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495383"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Abilitare la replica per le macchine virtuali VMware in Azure
 
 Questo articolo descrive come abilitare la replica delle macchine virtuali VMware locali in Azure.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="resolve-common-issues"></a>Risolvere i problemi comuni
+
+* Ogni disco deve essere inferiore a 4 TB.
+* Il disco del sistema operativo deve essere un disco di base e non un disco dinamico.
+* Per le macchine virtuali abilitate per la generazione 2/UEFI, la famiglia di sistemi operativi deve essere Windows e il disco di avvio deve essere inferiore a 300 GB.
+
+## <a name="prerequisites"></a>Prerequisiti
 
 Questo articolo presuppone che l'utente abbia:
 
 - [Configurare l'ambiente di origine locale](vmware-azure-set-up-source.md).
 - [Configurare l'ambiente di destinazione in Azure](vmware-azure-set-up-target.md).
+- [Verificare i requisiti e i prerequisiti](vmware-physical-azure-support-matrix.md) prima di iniziare. Gli aspetti importanti da tenere presenti sono:
+    - [Sistemi operativi supportati](vmware-physical-azure-support-matrix.md#replicated-machines) per i computer replicati.
+    - Supporto di [archiviazione/dischi](vmware-physical-azure-support-matrix.md#storage) .
+    - [Requisiti di Azure](vmware-physical-azure-support-matrix.md#azure-vm-requirements) con cui i computer locali devono essere conformi.
+
 
 ## <a name="before-you-start"></a>Prima di iniziare
 Quando si esegue la replica di macchine virtuali VMware, tenere presenti queste informazioni:
@@ -123,11 +134,7 @@ I clienti di Microsoft Software Assurance possono usare Vantaggio Azure Hybrid p
 
 Altre informazioni sul [Vantaggio Azure Hybrid](https://aka.ms/azure-hybrid-benefit-pricing).
 
-## <a name="resolve-common-issues"></a>Risolvere i problemi comuni
 
-* Ogni disco deve essere inferiore a 4 TB.
-* Il disco del sistema operativo deve essere un disco di base e non un disco dinamico.
-* Per le macchine virtuali abilitate per la generazione 2/UEFI, la famiglia di sistemi operativi deve essere Windows e il disco di avvio deve essere inferiore a 300 GB.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

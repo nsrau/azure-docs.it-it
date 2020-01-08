@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 5/30/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 6dc846ab6af0ed4d6d48c6f6db0abbce06427c36
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: e1db978dbb7b63aaa4e9d189486faa0dfef520d1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035884"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75662922"
 ---
 Azure Data Factory è un servizio multi-tenant con i limiti predefiniti seguenti per assicurarsi che le sottoscrizioni dei clienti siano protette tra loro. Per aumentare i limiti fino al valore massimo per la sottoscrizione, contattare il supporto tecnico.
 
 ### <a name="version-2"></a>Versione 2
 
-| Resource | Limite predefinito | Limite massimo |
+| Gruppi | Limite predefinito | Limite massimo |
 | -------- | ------------- | ------------- |
 | Data factory in una sottoscrizione di Azure | 50 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Numero totale di entità, ad esempio pipeline, set di dati, trigger, servizi collegati e runtime di integrazione, all'interno di un data factory | 5\.000 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
@@ -27,13 +27,14 @@ Azure Data Factory è un servizio multi-tenant con i limiti predefiniti seguenti
 | Esecuzioni simultanee di pipeline per data factory condivise tra tutte le pipeline della Factory | 10,000  | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Esecuzioni di attività esterne simultanee per ogni sottoscrizione per [Azure Integration Runtime area](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)<br><small>Le attività esterne vengono gestite in Integration Runtime, ma vengono eseguite su servizi collegati, tra cui databricks, stored procedure, HDInsights e altri.</small> | 3000 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Esecuzioni di attività pipeline simultanee per ogni sottoscrizione per [Azure Integration Runtime area](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location) <br><small>Le attività della pipeline vengono eseguite in Integration Runtime, tra cui Lookup, GetMetadata ed Delete.</small>| 1000 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Operazioni di creazione simultanee per ogni sottoscrizione per [Azure Integration Runtime area](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)<br><small>Including test connection, sfogliare l'elenco di cartelle e l'elenco di tabelle, visualizzare l'anteprima dei dati. | 200 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Unità di integrazione dati simultanee<sup>1</sup> consumo per sottoscrizione per [area Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)| Gruppo di aree 1<sup>2</sup>: 6000<br>Gruppo di aree<sup>2 2:</sup> 3000<br>Gruppo di aree 3<sup>2</sup>: 1500 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Operazioni di creazione simultanee per ogni sottoscrizione per [Azure Integration Runtime area](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)<br><small>tra cui test connection, browse Folder List e Table list, Preview data. | 200 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Unità di integrazione dati simultanee<sup>1</sup> consumo per sottoscrizione per [area Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)| Gruppo di aree 1<sup>2</sup>: 6000<br>Gruppo di aree 2<sup>2</sup>: 3000<br>Gruppo di aree 3<sup>2</sup>: 1500 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Numero massimo di attività per pipeline, incluse le attività interne per i contenitori | 40 | 40 |
 | Numero massimo di runtime di integrazione collegati che è possibile creare in un singolo runtime di integrazione self-hosted | 100 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Numero massimo di parametri per pipeline | 50 | 50 |
-| Elementi ForEach | 100,000 | 100,000 |
+| Elementi ForEach | 100.000 | 100.000 |
 | Parallelismo ForEach | 20 | 50 |
+| Numero massimo di esecuzioni in coda per pipeline | 100 | 100 |
 | Caratteri per espressione | 8,192 | 8,192 |
 | Intervallo di trigger della finestra a cascata minima | 15 min | 15 min |
 | Timeout massimo per le esecuzioni delle attività della pipeline | 7 giorni | 7 giorni |
@@ -53,7 +54,7 @@ Azure Data Factory è un servizio multi-tenant con i limiti predefiniti seguenti
 
 <sup>2</sup> [Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) è [disponibile a livello globale](https://azure.microsoft.com/global-infrastructure/services/) per garantire la conformità dei dati, l'efficienza e i costi di uscita della rete ridotti. 
 
-| Gruppo di aree | Regions | 
+| Gruppo di aree | Aree | 
 | -------- | ------ |
 | Gruppo di aree 1 | Stati Uniti centrali, Stati Uniti orientali, East Uniti, Europa settentrionale, Europa occidentale, Stati Uniti occidentali, Stati Uniti occidentali 2 |
 | Gruppo di aree 2 | Australia orientale, Australia sudorientale, Brasile meridionale, India centrale, Giappone orientale, Northcentral US, del Stati Uniti, Asia sudorientale, Stati Uniti centro-occidentali |
@@ -65,7 +66,6 @@ Azure Data Factory è un servizio multi-tenant con i limiti predefiniti seguenti
 
 | **Risorsa** | **Limite predefinito** | **Limite massimo** |
 | --- | --- | --- |
-| Data factory in una sottoscrizione di Azure |50 |[Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Pipeline in una data factory |2\.500 |[Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Set di dati all'interno di un data factory |5\.000 |[Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Sezioni simultanee per set di dati |10 |10 |
@@ -88,4 +88,4 @@ Azure Data Factory è un servizio multi-tenant con i limiti predefiniti seguenti
 | Valore di timeout del tentativo |1 secondo |1 secondo |
 
 #### <a name="web-service-call-limits"></a>Limiti di chiamata del servizio Web
-Azure Resource Manager presenta limiti per le chiamate API. È possibile effettuare chiamate API a una velocità all'interno di [limiti API di gestione risorse di Azure](../articles/azure-subscription-service-limits.md#resource-group-limits).
+Azure Resource Manager presenta limiti per le chiamate API. È possibile effettuare chiamate API a una velocità all'interno di [limiti API di gestione risorse di Azure](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits).

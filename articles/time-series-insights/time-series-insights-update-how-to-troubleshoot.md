@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 12/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: df8300e84309a874faa4b1c06891a4c5b549fce6
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 0e4ec63ffe715b17f55fde2a53c15d96d391cdba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014769"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452549"
 ---
 # <a name="diagnose-and-troubleshoot-a-preview-environment"></a>Diagnosticare e risolvere i problemi di un ambiente di anteprima
 
@@ -25,7 +25,7 @@ Questo articolo riepiloga i diversi problemi comuni che possono verificarsi quan
 
 Questo problema può verificarsi se non si dispone delle autorizzazioni per accedere all'ambiente di Time Series Insights. Gli utenti necessitano di un ruolo di lettore a livello di accesso per visualizzare l'ambiente Time Series Insights. Per verificare i livelli di accesso correnti e concedere accesso aggiuntivo, passare alla sezione **criteri di accesso ai dati** nella Time Series Insights risorsa nel [portale di Azure](https://portal.azure.com/).
 
-  [Ambiente ![](media/v2-update-diagnose-and-troubleshoot/environment.png)](media/v2-update-diagnose-and-troubleshoot/environment.png#lightbox)
+  [![verificare i criteri di accesso ai dati.](media/preview-troubleshoot/verify-data-access-policies.png)](media/preview-troubleshoot/verify-data-access-policies.png#lightbox)
 
 ## <a name="problem-no-data-is-seen-in-the-preview-explorer"></a>Problema: non vengono visualizzati dati in Esplora anteprime
 
@@ -35,7 +35,7 @@ Ecco alcuni motivi per cui i dati potrebbero non essere visualizzati nello [stru
 
     Verificare che l'origine evento, ovvero un hub eventi o un hub IoT, riceva dati da tag o istanze. Per verificare ciò, passare alla pagina di panoramica della risorsa nel portale di Azure.
 
-    [![dashboard-Insights](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png)](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png#lightbox)
+    [![rivedere i Cenni preliminari sulle metriche del dashboard.](media/preview-troubleshoot/verify-dashboard-metrics.png)](media/preview-troubleshoot/verify-dashboard-metrics.png#lightbox)
 
 - I dati dell'origine evento non sono in formato JSON.
 
@@ -45,14 +45,15 @@ Ecco alcuni motivi per cui i dati potrebbero non essere visualizzati nello [stru
 
   * Per un hub IoT è necessario fornire la chiave con l'autorizzazione di **connessione al servizio**.
 
-    [![Configurazione](media/v2-update-diagnose-and-troubleshoot/configuration.png)](media/v2-update-diagnose-and-troubleshoot/configuration.png#lightbox)
+    [![verificare le autorizzazioni dell'hub Internet.](media/preview-troubleshoot/verify-correct-permissions.png)](media/preview-troubleshoot/verify-correct-permissions.png#lightbox)
 
-  * Come illustrato nell'immagine precedente, entrambi i criteri **iothubowner** e **service** funzionano, in quanto entrambi dispongono dell'autorizzazione di **connessione al servizio**.
+    * I criteri **iothubowner** e **servizio** funzionano perché hanno l'autorizzazione di **connessione al servizio** .
+
   * Per un hub eventi è necessario fornire la chiave con l'autorizzazione di **ascolto**.
   
-    [Autorizzazioni ![](media/v2-update-diagnose-and-troubleshoot/permissions.png)](media/v2-update-diagnose-and-troubleshoot/permissions.png#lightbox)
+    [![verificare le autorizzazioni dell'hub eventi.](media/preview-troubleshoot/verify-eh-permissions.png)](media/preview-troubleshoot/verify-eh-permissions.png#lightbox)
 
-  * Come illustrato nell'immagine precedente, entrambi i criteri **read** e **manage** funzionano, in quanto entrambi dispongono dell'autorizzazione di **ascolto**.
+    * Sia i criteri di **lettura** che quelli di **gestione** funzionano perché hanno l'autorizzazione **Listen** .
 
 - Il gruppo di consumer specificato non è esclusivo di Time Series Insights.
 
@@ -98,7 +99,7 @@ Se la proprietà Timestamp non è specificata in modo esplicito, l'hub IoT o hub
 
    I modelli Time Series sono supportati solo negli ambienti con pagamento in base al consumo. Per altre informazioni su come accedere all'ambiente S1 o S2 da Esplora Time Series Insights Preview, vedere visualizzare i [dati in Esplora risorse](./time-series-insights-update-explorer.md).
 
-   [Accesso ![](media/v2-update-diagnose-and-troubleshoot/access.png)](media/v2-update-diagnose-and-troubleshoot/access.png#lightbox)
+   [Non ![alcun evento nell'ambiente.](media/preview-troubleshoot/troubleshoot-no-events.png)](media/preview-troubleshoot/troubleshoot-no-events.png#lightbox)
 
 - Non si dispone delle autorizzazioni per visualizzare e modificare il modello.
 
@@ -108,10 +109,12 @@ Se la proprietà Timestamp non è specificata in modo esplicito, l'hub IoT o hub
 
 Questo problema può verificarsi se l'ambiente non dispone di una gerarchia di modelli Time Series definita. Per altre informazioni, vedere [Lavorare con modelli di Time Series](./time-series-insights-update-how-to-tsm.md).
 
-  [![modelli Time Series](media/v2-update-diagnose-and-troubleshoot/tsm.png)](media/v2-update-diagnose-and-troubleshoot/tsm.png#lightbox)
+  [![istanze con stato non associato verrà visualizzato un avviso.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Leggere [Lavorare con modelli di Time Series](./time-series-insights-update-how-to-tsm.md).
+
 - Informazioni sulle [forme JSON supportate](./how-to-shape-query-json.md).
+
 - Esaminare la [pianificazione e i limiti](./time-series-insights-update-plan.md) in Azure Time Series Insights Preview.

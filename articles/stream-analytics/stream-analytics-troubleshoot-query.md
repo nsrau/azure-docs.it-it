@@ -1,7 +1,6 @@
 ---
 title: Risolvere i problemi delle query di Analisi di flusso di Azure
 description: Questo articolo descrive alcune tecniche per la risoluzione dei problemi delle query nei processi di Analisi di flusso di Azure.
-services: stream-analytics
 author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
@@ -9,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 586ddb237144daddf0cbfd19785fcba7658469a0
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 22e542715afa8c87ffb742bec6c22f758cd16587
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621482"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354271"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Risolvere i problemi delle query di Analisi di flusso di Azure
 
@@ -33,7 +32,7 @@ Questo articolo descrive problemi comuni di sviluppo delle query di Analisi di f
     - Quando si usano le funzioni finestra, attendere la durata dell'intera finestra per vedere l'output dalla query.
     - Il timestamp per gli eventi precede l'ora di inizio del processo, perciò gli eventi vengono eliminati.
 
-4.  Assicurarsi che i criteri di ordinamento degli eventi siano configurati come previsto. Passare a **Impostazioni** e selezionare [ **Ordinamento eventi**](stream-analytics-out-of-order-and-late-events.md). Il criterio *non* viene applicato quando si usa il pulsante **Test** per testare la query. Questo aspetto rappresenta una differenza tra il test nel browser e l'esecuzione del processo in produzione. 
+4.  Assicurarsi che i criteri di ordinamento degli eventi siano configurati come previsto. Passare a **Impostazioni** e selezionare [**Ordinamento eventi**](stream-analytics-out-of-order-and-late-events.md). Il criterio *non* viene applicato quando si usa il pulsante **Test** per testare la query. Questo aspetto rappresenta una differenza tra il test nel browser e l'esecuzione del processo in produzione. 
 
 5. Eseguire il debug usando i log di controllo e diagnostica:
     - Usare i [log di controllo](../azure-resource-manager/resource-group-audit.md) e filtrare per identificare gli errori ed eseguirne il debug.
@@ -90,7 +89,7 @@ Questa volta i dati nell'output vengono formattati e popolati come previsto.
 
 ![Query di analisi di flusso della tabella finale SELECT INTO](./media/stream-analytics-select-into/stream-analytics-select-into-final-table.png)
 
-## <a name="get-help"></a>Ottenere aiuto
+## <a name="get-help"></a>Ottenere supporto
 
 Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 

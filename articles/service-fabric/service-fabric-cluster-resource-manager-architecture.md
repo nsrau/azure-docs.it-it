@@ -1,25 +1,16 @@
 ---
-title: Architettura di Resource Manager | Microsoft Docs
-description: An architectural overview of Service Fabric Cluster Resource Manager.
-services: service-fabric
-documentationcenter: .net
+title: Architettura Gestione risorse
+description: Panoramica delle informazioni sull'architettura e sul servizio Gestione risorse cluster di Azure Service Fabric.
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 6c4421f9-834b-450c-939f-1cb4ff456b9b
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: bfbdb05e8d2764d2b878e22d236cae30519da176
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 94ed906533d108081d620e9b183ecfee249d85ca
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62113972"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551693"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>Panoramica dell'architettura di Cluster Resource Manager
 Il Cluster Resource Manager di Service Fabric è un servizio centrale in esecuzione nel cluster. Gestisce lo stato desiderato dei servizi del cluster, in particolare in relazione all'uso delle risorse e alle regole di selezione. 
@@ -52,7 +43,7 @@ Si veda il diagramma seguente:
 
 <center>
 
-![Architettura di Resource Balancer][Image1]
+![architettura del servizio di bilanciamento risorse][Image1]
 </center>
 
 Durante il runtime possono essere apportate numerose modifiche. Ad esempio, si supponga che la quantità di risorse consumate da determinati servizi venga modificata, che alcuni servizi abbiano esito negativo e che alcuni nodi si aggiungano o lascino il cluster. Tutte le modifiche in un nodo vengono aggregate e inviate periodicamente al servizio Cluster Resource Manager (1,2) in cui vengono nuovamente aggregate, analizzate e archiviate. Il servizio esamina tutte le modifiche a intervalli di pochi secondi e determina eventuali azioni necessarie (3). Ad esempio potrebbe notare che sono stati aggiunti dei nodi vuoti al cluster. Di conseguenza, decide di spostare alcuni servizi in tali nodi. Cluster Resource Manager potrebbe anche notare che un determinato nodo è sovraccarico o che alcuni servizi presentano anomalie (o sono stati eliminati), liberando risorse altrove.
@@ -61,7 +52,7 @@ Verrà ora descritto il diagramma seguente. Si supponga che Cluster Resource Man
 
 <center>
 
-![Architettura di Resource Balancer][Image2]
+![architettura del servizio di bilanciamento risorse][Image2]
 </center>
 
 ## <a name="next-steps"></a>Passaggi successivi

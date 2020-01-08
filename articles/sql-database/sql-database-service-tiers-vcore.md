@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: c5c7883295a30aa217e722abd905f54b982761d3
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: d57f1e87c503a86a522fdb3004b021fbcb5c6ff1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547562"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351421"
 ---
 # <a name="vcore-model-overview"></a>Panoramica del modello vCore
 
@@ -97,7 +97,7 @@ Per abilitare l'hardware della serie M per una sottoscrizione e un'area, è nece
 
 |Generazione dell'hardware  |Calcolo  |Memoria  |
 |:---------|:---------|:---------|
-|Gen4     |-Processori Intel E5-2673 V3 (Haswell) a 2,4 GHz<br>-Provisioning fino a 24 Vcore (1 vCore = 1 core fisico)  |-7 GB per vCore<br>-Effettuare il provisioning fino a 168 GB|
+|Quarta generazione     |-Processori Intel E5-2673 V3 (Haswell) a 2,4 GHz<br>-Provisioning fino a 24 Vcore (1 vCore = 1 core fisico)  |-7 GB per vCore<br>-Effettuare il provisioning fino a 168 GB|
 |Quinta generazione     |**Calcolo con provisioning**<br>-Processori Intel E5-2673 V4 (Broadwell) a 2,3 GHz e Intel SP-8160 (Skylake)<br>-Provisioning fino a 80 Vcore (1 vCore = 1 Hyper-thread)<br><br>**Calcolo serverless**<br>-Processori Intel E5-2673 V4 (Broadwell) a 2,3 GHz e Intel SP-8160 (Skylake)<br>-Scalabilità automatica fino a 16 Vcore (1 vCore = 1 Hyper-thread)|**Calcolo con provisioning**<br>-5,1 GB per vCore<br>-Effettuare il provisioning fino a 408 GB<br><br>**Calcolo serverless**<br>-Scalabilità automatica fino a 24 GB per vCore<br>-Scalabilità automatica fino a 48 GB max|
 |Serie Fsv2     |-Processori Intel Xeon Platinum 8168 (SkyLake)<br>-Con una velocità massima di clock core a 3,4 GHz e una velocità massima di clock singolo core di 3,7 GHz.<br>-Provisioning 72 Vcore (1 vCore = 1 Hyper-thread)|-1,9 GB per vCore<br>-Provisioning di 136 GB|
 |Serie M     |-Processori Intel Xeon E7-8890 V3 2,5 GHz<br>-Provisioning 128 Vcore (1 vCore = 1 Hyper-thread)|-29 GB per vCore<br>-Provisioning 3,7 TB|
@@ -126,11 +126,57 @@ Selezionare la generazione hardware desiderata:
 
 Per un database, nella pagina Panoramica selezionare il collegamento piano **tariffario** :
 
-  ![modifica hardware](media/sql-database-service-tiers-vcore/change-hardware.png)
+  ![modifica dell'hardware](media/sql-database-service-tiers-vcore/change-hardware.png)
 
 Per un pool, nella pagina Overview (panoramica) selezionare **Configure (Configura**).
 
 Seguire i passaggi per modificare la configurazione e selezionare la generazione hardware come descritto nei passaggi precedenti.
+
+**Per selezionare una generazione hardware durante la creazione di un'istanza gestita**
+
+Per informazioni dettagliate, vedere [creare un'istanza gestita](sql-database-managed-instance-get-started.md).
+
+Nella scheda **nozioni di base** selezionare il collegamento **Configura database** nella sezione **calcolo e archiviazione** e quindi selezionare generazione hardware desiderata:
+
+  ![Configura istanza gestita](media/sql-database-service-tiers-vcore/configure-managed-instance.png)
+  
+**Per modificare la generazione di hardware di un'istanza gestita esistente**
+
+Usare lo script di PowerShell seguente:
+
+```powershell-interactive
+$subscriptionId = "**************"
+Select-AzSubscription -Subscription $subscriptionId
+
+$instanceName = "********"
+$resourceGroup = "****"
+
+# THIS IS IMPORTANT PARAMETER:
+$sku = @{name = "GP_Gen5" }
+
+# NOTE: These properties are not necessary, but it would be good to set them to the current values:
+# You might want to change vCores or storage with hardware generation
+# $admin_login = "******"
+# $admin_pass = "******"
+# $location = "***** # for example: ""northeurope"
+# $vCores = 8
+# $maxStorage = 1024
+# $license = "BasePrice"
+# $subnetId = "/subscriptions/****/subnets/*******"
+
+## NOTE: Uncomment some of the properties below if you have set them.
+$properties = New-Object System.Object
+# $properties | Add-Member -type NoteProperty -name subnetId -Value $subnetId
+# $properties | Add-Member -type NoteProperty -name administratorLogin -Value $admin_login
+# $properties | Add-Member -type NoteProperty -name administratorLoginPassword -Value $admin_pass
+# $properties | Add-Member -type NoteProperty -name vCores -Value $vCores
+# $properties | Add-Member -type NoteProperty -name storageSizeInGB -Value $maxStorage
+# $properties | Add-Member -type NoteProperty -name licenseType -Value $license
+
+Set-AzResource -Properties $properties -ResourceName $instanceName -ResourceType "Microsoft.SQL/managedInstances" -Sku $sku -ResourceGroupName $resourceGroup -Force -ApiVersion "2015-05-01-preview"
+```
+
+Assicurarsi di immettere l'ID sottoscrizione, il nome e il gruppo di risorse dell'istanza gestita.
 
 ### <a name="hardware-availability"></a>Disponibilità hardware
 

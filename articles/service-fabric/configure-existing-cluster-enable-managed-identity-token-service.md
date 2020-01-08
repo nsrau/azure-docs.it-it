@@ -1,18 +1,14 @@
 ---
-title: Azure Service Fabric-configurare un cluster di Azure Service Fabric esistente per abilitare il supporto per le identità gestite | Microsoft Docs
+title: Azure Service Fabric-configurare un cluster di Azure Service Fabric esistente per abilitare il supporto per le identità gestite
 description: Questo articolo illustra come configurare un cluster di Azure Service Fabric esistente per abilitare il supporto per le identità gestite
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
 ms.topic: article
-ms.date: 07/25/2019
-ms.author: atsenthi
-ms.openlocfilehash: adc21358011454c8687998dc5d257052959b933b
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.date: 12/09/2019
+ms.openlocfilehash: 13b8b38a206b0dae0877263a5cda56a134d4788d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640742"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351602"
 ---
 # <a name="configure-an-existing-azure-service-fabric-cluster-to-enable-managed-identity-support-preview"></a>Configurare un cluster di Azure Service Fabric esistente per abilitare il supporto per le identità gestite (anteprima)
 Per accedere alla funzionalità di identità gestita per le applicazioni Azure Service Fabric, è necessario abilitare prima il **servizio token di identità gestito** nel cluster. Questo servizio è responsabile dell'autenticazione delle applicazioni Service Fabric usando le identità gestite e per ottenere i token di accesso per loro conto. Quando il servizio è abilitato, è possibile visualizzarlo in Service Fabric Explorer nella sezione **sistema** nel riquadro sinistro, in esecuzione con il nome **Fabric:/System/ManagedIdentityTokenService**.
@@ -20,7 +16,7 @@ Per accedere alla funzionalità di identità gestita per le applicazioni Azure S
 > [!NOTE]
 > Per abilitare il **servizio token di identità gestito**, è necessario Service Fabric versione di runtime 6.5.658.9590 o successiva.  
 > 
-> È possibile trovare la versione Service Fabric di un cluster dalla portale di Azure aprendo la risorsa cluster e controllando la proprietà **versione Service Fabric** nella sezione informazioni di base.
+> È possibile trovare la versione Service Fabric di un cluster dalla portale di Azure aprendo la risorsa cluster e controllando la proprietà **versione Service Fabric** **nella sezione informazioni** di base.
 > 
 > Se il cluster è in modalità di aggiornamento **manuale** , è necessario prima aggiornarlo a 6.5.658.9590 o versione successiva.
 
@@ -42,7 +38,7 @@ Per abilitare il servizio token di identità gestito in un cluster esistente, è
 ]
 ```
 
-Per rendere effettive le modifiche, sarà anche necessario modificare i criteri di aggiornamento per specificare un riavvio forzato del runtime di Service Fabric in ogni nodo durante l'avanzamento dell'aggiornamento attraverso il cluster. Questo riavvio garantisce che il servizio di sistema appena abilitato venga avviato e in esecuzione in ogni nodo. Nel frammento di codice `forceRestart` riportato di seguito è l'impostazione essenziale. utilizzare i valori esistenti per il resto delle impostazioni.  
+Per rendere effettive le modifiche, sarà anche necessario modificare i criteri di aggiornamento per specificare un riavvio forzato del runtime di Service Fabric in ogni nodo durante l'avanzamento dell'aggiornamento attraverso il cluster. Questo riavvio garantisce che il servizio di sistema appena abilitato venga avviato e in esecuzione in ogni nodo. Nel frammento di codice seguente `forceRestart` è l'impostazione essenziale. usare i valori esistenti per il resto delle impostazioni.  
 
 ```json
 "upgradeDescription": {
@@ -57,7 +53,7 @@ Per rendere effettive le modifiche, sarà anche necessario modificare i criteri 
 ```
 
 > [!NOTE]
-> Al termine dell'aggiornamento, non dimenticare di eseguire il rollback dell' `forceRestart` impostazione per ridurre al minimo l'effetto degli aggiornamenti successivi. 
+> Al termine dell'aggiornamento, non dimenticare di eseguire il rollback dell'impostazione di `forceRestart` per ridurre al minimo l'effetto degli aggiornamenti successivi. 
 
 ## <a name="errors-and-troubleshooting"></a>Errori e risoluzione dei problemi
 

@@ -7,14 +7,14 @@ ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendleton
+manager: cpendle
 ms.custom: codepen
-ms.openlocfilehash: 4a583f77aac036028fd75d3c05af805031f08ebd
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 56d9a9a629e64430c97cf392ee4381e1ad7ca906
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480560"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433025"
 ---
 # <a name="clustering-point-data"></a>Dati punto di clustering
 
@@ -48,11 +48,11 @@ var datasource = new atlas.source.DataSource(null, {
 
 La classe `DataSource` dispone anche dei seguenti metodi correlati al clustering:
 
-| Metodo | Tipo restituito | DESCRIZIONE |
+| Metodo | Tipo restituito | Description |
 |--------|-------------|-------------|
-| getClusterChildren (clusterId: numero) | Promise&lt;matrice&lt;funzionalità&lt;geometria, qualsiasi&gt; \| forma&gt;&gt; | Recupera gli elementi figlio del cluster specificato al livello di zoom successivo. Questi elementi figlio possono essere costituiti da una combinazione di forme e sottocluster. I sottocluster saranno funzionalità con proprietà corrispondenti a ClusteredProperties. |
+| getClusterChildren (clusterId: numero) | Promise&lt;matrice&lt;funzionalità&lt;geometria, qualsiasi&gt; \| forma&gt; | Recupera gli elementi figlio del cluster specificato al livello di zoom successivo. Questi elementi figlio possono essere costituiti da una combinazione di forme e sottocluster. I sottocluster saranno funzionalità con proprietà corrispondenti a ClusteredProperties. |
 | getClusterExpansionZoom (clusterId: numero) | Promise&lt;numero&gt; | Calcola un livello di zoom in corrispondenza del quale il cluster inizierà ad espandersi o suddividere. |
-| getClusterLeaves(clusterId: number, limit: number, offset: number) | Promise&lt;matrice&lt;funzionalità&lt;geometria, qualsiasi&gt; \| forma&gt;&gt; | Recupera tutti i punti in un cluster. Impostare il `limit` per restituire un subset dei punti e usare il `offset` per eseguire la pagina nei punti. |
+| getClusterLeaves(clusterId: number, limit: number, offset: number) | Promise&lt;matrice&lt;funzionalità&lt;geometria, qualsiasi&gt; \| forma&gt; | Recupera tutti i punti in un cluster. Impostare il `limit` per restituire un subset dei punti e usare il `offset` per eseguire la pagina nei punti. |
 
 ## <a name="display-clusters-using-a-bubble-layer"></a>Visualizzare i cluster con un livello Bubble
 
@@ -88,12 +88,12 @@ Vedere la <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>mappa termica ponde
 
 Quando si verificano eventi del mouse su un livello che contiene punti dati cluster, il punto dati del cluster verrà restituito all'evento come oggetto funzionalità punto GeoJSON. Questa funzionalità del punto avrà le proprietà seguenti:
 
-| Nome proprietà | digitare | DESCRIZIONE |
-|---------------|------|-------------|
-| cluster | boolean | Indica se la funzionalità rappresenta un cluster. |
-| cluster_id | stringa | ID univoco per il cluster che può essere utilizzato con i metodi DataSource `getClusterExpansionZoom`, `getClusterChildren`e `getClusterLeaves`. |
-| point_count | number | Numero di punti contenuti nel cluster. |
-| point_count_abbreviated | stringa | Stringa che abbrevia il valore `point_count` se è lungo. (ad esempio, 4.000 diventa 4K) |
+| Nome proprietà             | Tipo    | Description   |
+|---------------------------|---------|---------------|
+| `cluster`                 | boolean | Indica se la funzionalità rappresenta un cluster. |
+| `cluster_id`              | string  | ID univoco per il cluster che può essere utilizzato con i metodi DataSource `getClusterExpansionZoom`, `getClusterChildren`e `getClusterLeaves`. |
+| `point_count`             | d'acquisto  | Numero di punti contenuti nel cluster.  |
+| `point_count_abbreviated` | string  | Stringa che abbrevia il valore `point_count` se è lungo. (ad esempio, 4.000 diventa 4K)  |
 
 In questo esempio viene utilizzato un livello Bubble che esegue il rendering dei punti del cluster e aggiunge un evento click che, quando viene attivato, calcola e ingrandisce la mappa fino al livello di zoom successivo in cui il cluster si suddividerà utilizzando il metodo `getClusterExpansionZoom` della classe `DataSource` e la proprietà `cluster_id` del punto dati del cluster selezionato. 
 
@@ -128,7 +128,7 @@ Vedere le <a href='https://codepen.io/azuremaps/pen/jgYyRL/'>aggregazioni del cl
 Per altre informazioni sulle classi e sui metodi usati in questo articolo, vedere:
 
 > [!div class="nextstepaction"]
-> [Classe DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)
+> [Classe origine dati](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
 > [Oggetto DataSourceOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.datasourceoptions?view=azure-iot-typescript-latest)

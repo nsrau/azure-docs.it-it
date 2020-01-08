@@ -1,25 +1,14 @@
 ---
-title: Configurare Azure Active Directory per l'autenticazione client di Service Fabric | Microsoft Docs
+title: Configurare Azure Active Directory per l'autenticazione client
 description: Informazioni su come configurare Azure Active Directory (Azure AD) per autenticare i client per i cluster di Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: chackdan
-ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 6/28/2019
-ms.author: atsenthi
-ms.openlocfilehash: 77814d04daca0ebb649ffa2e8ff46becddec4f0f
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: bbad991e955a31e3f3c53931889f630e521e1a8c
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901512"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614690"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Configurare Azure Active Directory per l'autenticazione client
 
@@ -31,6 +20,11 @@ Un cluster di Service Fabric offre diversi punti di accesso alle proprie funzion
 
 > [!NOTE]
 > In Linux è necessario completare i passaggi seguenti prima di creare il cluster. In Windows è inoltre possibile [configurare l'autenticazione Azure ad per un cluster esistente](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/Configure%20Azure%20Active%20Directory%20Authentication%20for%20Existing%20Cluster.md).
+
+> [!NOTE]
+> Si tratta di un [problema noto](https://github.com/microsoft/service-fabric/issues/399) che non è possibile visualizzare nel portale di Azure le applicazioni e i nodi nei cluster abilitati per AAD Linux.
+
+
 
 ## <a name="prerequisites"></a>Prerequisiti
 In questo articolo si presuppone che sia già stato creato un tenant. In caso contrario, vedere prima di tutto [Come ottenere un tenant di Azure Active Directory][active-directory-howto-tenant].
@@ -44,7 +38,7 @@ Per semplificare alcuni dei passaggi richiesti per la configurazione di Azure AD
 
 Verranno usati gli script per creare due Azure AD applicazioni per controllare l'accesso al cluster: un'applicazione Web e un'applicazione nativa. Dopo aver creato le applicazioni per rappresentare il cluster, verranno creati utenti per i [ruoli supportati da Service Fabric](service-fabric-cluster-security-roles.md): sola lettura e amministratore.
 
-Eseguire `SetupApplications.ps1` e indicare l'ID tenant, il nome del cluster e l'URL di risposta dell'applicazione Web come parametri.  Specificare anche i nomi utente e le password per gli utenti. ad esempio:
+Eseguire `SetupApplications.ps1` e indicare l'ID tenant, il nome del cluster e l'URL di risposta dell'applicazione Web come parametri.  Specificare anche i nomi utente e le password per gli utenti. Ad esempio:
 
 ```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '0e3d2646-78b3-4711-b8be-74a381d9890c' -ClusterName 'mysftestcluster' -WebApplicationReplyUrl 'https://mysftestcluster.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
@@ -53,7 +47,7 @@ $Configobj = .\SetupApplications.ps1 -TenantId '0e3d2646-78b3-4711-b8be-74a381d9
 ```
 
 > [!NOTE]
-> Per i cloud nazionali (ad esempio, Azure per enti pubblici, Azure Cina o Azure Germania), specificare anche il parametro `-Location`.
+> Per i cloud nazionali (ad esempio Azure per enti pubblici, Azure Cina o Azure Germania), specificare anche il parametro `-Location`.
 
 È possibile trovare il *TenantId* eseguendo il comando di PowerShell `Get-AzureSubscription`. Eseguendo questo comando, viene visualizzato il TenantId per ogni sottoscrizione.
 

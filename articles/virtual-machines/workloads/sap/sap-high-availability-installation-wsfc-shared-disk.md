@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a22d77de80c7440fc120d2c48f9e73e606388848
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bfbff1f95eaad41813ee0741a6b133dccdae181d
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078179"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647527"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Installare la disponibilità elevata di SAP NetWeaver in un cluster di failover Windows e nel disco condiviso per un'istanza ASCS/SCS di SAP in Azure
 
@@ -33,8 +33,8 @@ ms.locfileid: "70078179"
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -142,7 +142,7 @@ ms.locfileid: "70078179"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
@@ -152,7 +152,7 @@ Questo articolo descrive come installare e configurare un sistema SAP a disponib
 
 Prima di iniziare l'installazione, esaminare questi documenti:
 
-* [Guida all'architettura: Cluster di un'istanza di SAP ASC/SCS in un cluster di failover Windows tramite un disco condiviso del cluster][sap-high-availability-guide-wsfc-shared-disk]
+* [Guida all'architettura: cluster di un'istanza di SAP ASC/SCS in un cluster di failover Windows tramite un disco condiviso del cluster][sap-high-availability-guide-wsfc-shared-disk]
 
 * [Preparare l'infrastruttura di Azure per la disponibilità elevata di SAP usando un cluster di failover Windows e un disco condiviso per un'istanza di SAP ASC/SCS][sap-high-availability-infrastructure-wsfc-shared-disk]
 
@@ -388,9 +388,9 @@ Installare un'istanza di Additional Application Server (AAS) SAP in tutte le mac
 
 Il gruppo di cluster SAP PR1 è in esecuzione nel nodo A del cluster, ad esempio in pr1-ascs-0. Assegnare al nodo A del cluster l'unità disco condivisa S, appartenente al gruppo di cluster SAP PR1 e usata anche dall'istanza di ASCS/SCS. 
 
-![Figura 6: Gestione cluster di failover: Il gruppo \<di\> cluster SID di SAP è in esecuzione nel nodo a del cluster][sap-ha-guide-figure-5000]
+![Figura 6: Gestione cluster di failover: il gruppo di cluster \<SID\> di SAP è in esecuzione nel nodo A del cluster][sap-ha-guide-figure-5000]
 
-_**Figura 6:** Gestione cluster di failover: Il gruppo \<di\> cluster SID di SAP è in esecuzione nel nodo a del cluster_
+_**Figura 6:** Gestione cluster di failover: il gruppo di cluster \<SID\> SAP è in esecuzione nel nodo A del cluster_
 
 Nello strumento di configurazione e gestione di SIOS DataKeeper è possibile verificare che i dati di dischi condivisi vengano replicati in modo sincrono dall'unità S del volume di origine nel nodo A del cluster all'unità S del volume di destinazione nel nodo B del cluster, ad esempio da pr1-ascs-0 [10.0.0.40] a pr1-ascs-1 [10.0.0.41].
 
@@ -417,9 +417,9 @@ _**Figura 7:** In SIOS DataKeeper replicare il volume locale dal nodo A al nodo 
 
    Dopo il failover, il gruppo di cluster \<SID\> di SAP è in esecuzione nel nodo B del cluster, ad esempio in pr1-ascs-1.
 
-   ![Figura 8: In Gestione cluster di failover, il gruppo \<di\> cluster SID di SAP è in esecuzione nel nodo B del cluster][sap-ha-guide-figure-5002]
+   ![Figura 8: In Gestione cluster di failover il gruppo di cluster \<SID\> di SAP è in esecuzione nel nodo B del cluster][sap-ha-guide-figure-5002]
 
-   _**Figura 8**: In Gestione cluster di failover, il gruppo \<di\> cluster SID di SAP è in esecuzione nel nodo B del cluster_
+   _**Figura 8:** In Gestione cluster di failover il gruppo di cluster \<SID\> di SAP è in esecuzione nel nodo B del cluster_
 
    Il disco condiviso è ora montato nel nodo B del cluster. SIOS DataKeeper replica i dati dall'unità S del volume di origine nel nodo B del cluster all'unità S del volume di destinazione nel nodo A del cluster, ad esempio da pr1-ascs-1 [10.0.0.41] a pr1-ascs-0 [10.0.0.40].
 

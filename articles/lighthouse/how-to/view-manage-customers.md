@@ -1,14 +1,14 @@
 ---
 title: Visualizzare e gestire clienti e risorse delegate
 description: I provider di servizi che usano la gestione risorse delegate di Azure possono visualizzare tutte le sottoscrizioni e le risorse dei clienti delegate passando a Clienti personali nel portale di Azure.
-ms.date: 10/23/2019
+ms.date: 12/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: f115ecad09b01869a465f50485e191671970d521
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: ac268d2899dcc3d940072bfbfd17770044dc3c66
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463831"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456827"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>Visualizzare e gestire clienti e risorse delegate
 
@@ -16,7 +16,9 @@ I provider di servizi che usano la [gestione risorse delegate di Azure](../conce
 
 Per accedere alla pagina **Clienti personali** nel portale di Azure, selezionare **Tutti i servizi**, quindi cercare **Clienti personali** e selezionarla. È possibile trovarla anche immettendo "Clienti personali" nella casella di ricerca nella parte superiore del portale di Azure.
 
-Tenere presente che la sezione superiore della pagina **Clienti personali** mostra solo le informazioni sui clienti che hanno gruppi di risorse o sottoscrizioni delegate. Se si interagisce con altri clienti (ad esempio tramite il [programma Cloud Solution Provider](https://docs.microsoft.com/partner-center/csp-overview)), le informazioni su tali clienti verranno visualizzate qui solo se si esegue l'onboarding delle risorse per la gestione risorse delegate. Più in basso nella pagina, nella sezione **Cloud Solution Provider (anteprima)** vengono visualizzate le informazioni e le risorse di fatturazione per i clienti CSP che hanno [firmato il Contratto del cliente Microsoft](https://docs.microsoft.com/partner-center/confirm-customer-agreement) e che operano nell'ambito del piano di Azure, indipendentemente dal fatto che siano stati destinati o meno alla gestione delle risorse delegate di Azure. Per altre informazioni, vedere [Introduzione all'account di fatturazione del Contratto Microsoft Partner](https://docs.microsoft.com/azure/billing/mpa-overview).
+Tenere presente che la sezione **clienti** principali della pagina **clienti personali** Mostra solo le informazioni sui clienti che hanno sottoscrizioni delegate o gruppi di risorse. Se si lavora con altri clienti, ad esempio tramite il [programma Cloud Solution Provider](https://docs.microsoft.com/partner-center/csp-overview), non verranno visualizzate informazioni sui clienti nella sezione **Customers** , a meno che non siano state caricate le risorse per la gestione delle risorse delegate di Azure.
+
+Nella parte inferiore della pagina, una sezione separata denominata **Cloud Solution Provider (anteprima)** Mostra le informazioni e le risorse di fatturazione per i clienti CSP che hanno [firmato il contratto](https://docs.microsoft.com/partner-center/confirm-customer-agreement) per i clienti Microsoft e si trovano nel [piano Azure](https://docs.microsoft.com/partner-center/azure-plan-get-started). Per altre informazioni, vedere [Introduzione all'account di fatturazione del Contratto Microsoft Partner](../../billing/mpa-overview.md). Si noti che questi clienti CSP vengono visualizzati in questa sezione indipendentemente dal fatto che siano stati caricati o meno anche per la gestione delle risorse delegate di Azure. Analogamente, non è necessario che un cliente CSP venga visualizzato nella sezione del **provider di soluzioni cloud (anteprima)** dei **clienti** per poterli caricare per la gestione delle risorse delegate di Azure.
 
 > [!NOTE]
 > I clienti possono visualizzare le informazioni sui provider di servizi passando a **Provider di servizi** nel portale di Azure. Per altre informazioni, vedere [Visualizzare e gestire i provider di servizi](view-manage-service-providers.md).
@@ -28,7 +30,7 @@ Per visualizzare i dettagli dei clienti, selezionare **Clienti** sul lato sinist
 Per ogni cliente, verranno visualizzati il nome del cliente, l'ID del cliente (ID del tenant) e l'offerta associata all'engagement. Nella colonna **Deleghe** saranno visualizzati il numero di sottoscrizioni delegate e/o il numero di gruppi di risorse delegati.
 
 > [!IMPORTANT]
-> Per visualizzare una delega, è necessario che agli utenti sia stato concesso il ruolo [Lettore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) (o un altro ruolo predefinito che include l'accesso in lettura) nel processo di onboarding.
+> Per visualizzare una delega, è necessario che agli utenti sia stato concesso il ruolo [Lettore](../../role-based-access-control/built-in-roles.md#reader) (o un altro ruolo predefinito che include l'accesso in lettura) nel processo di onboarding.
 
 I filtri nella parte superiore della pagina consentono di ordinare e raggruppare le informazioni sui clienti o filtrare in base a clienti, offerte o parole chiave specifiche.
 
@@ -48,7 +50,7 @@ Gli utenti e le autorizzazioni associati a ogni delega vengono visualizzati nell
 
 ## <a name="work-in-the-context-of-a-delegated-subscription"></a>Lavorare nel contesto di una sottoscrizione delegata
 
-È possibile lavorare direttamente nel contesto di una sottoscrizione delegata all'interno del portale di Azure, senza cambiare la directory che si sta usando. A tale scopo, procedere come segue:
+È possibile lavorare direttamente nel contesto di una sottoscrizione delegata all'interno del portale di Azure, senza cambiare la directory che si sta usando. A tale scopo, procedere come indicato di seguito:
 
 1. Selezionare l'icona **Directory e sottoscrizione** nella parte superiore del portale di Azure.
 2. Nel filtro **sottoscrizioni globali** verificare che sia selezionata solo la casella di tale sottoscrizione delegata. È possibile usare la casella a discesa **Directory corrente e delegate** per mostrare solo le sottoscrizioni in una directory specifica. Non usare l'opzione **Cambia directory** perché cambierebbe la directory a cui è stato eseguito l'accesso.

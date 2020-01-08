@@ -10,15 +10,15 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: 8fd88c3bfad962f264efa030d0a3aea44e95dc8c
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: cc7ce8a8725e3cbc5c4f0d4db8bfcc3f1b1d657b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839753"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427695"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio-classic"></a>Analizzare la varianza dei clienti usando Azure Machine Learning Studio (versione classica)
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 In questo articolo viene presentata un'implementazione di riferimento di un progetto di analisi della varianza del cliente compilato utilizzando Azure Machine Learning Studio (versione classica). L'articolo illustra i modelli generici associati per la risoluzione olistica dei problemi di varianza del cliente industriale. Viene inoltre misurata l'accuratezza dei modelli compilati usando Machine Learning e vengono poi valutate direzioni di sviluppo ulteriore.  
 
 ### <a name="acknowledgements"></a>Riconoscimenti
@@ -71,7 +71,7 @@ Un'aggiunta interessante in questo ambito è l'analisi dei Big Data. Negli attua
  
 
 ## <a name="implementing-the-modeling-archetype-in-machine-learning-studio-classic"></a>Implementazione dell'archetipo di modellazione in Machine Learning Studio (classico)
-Dato il problema descritto, qual è il modo migliore per implementare un sistema di modellazione e classificazione integrato? In questa sezione verrà illustrato il modo in cui è stata eseguita questa operazione utilizzando la versione classica di Azure Machine Learning Studio.  
+Dato il problema descritto, qual è il modo migliore per implementare un sistema di modellazione e classificazione integrato? In questa sezione verrà illustrato il modo in cui è stata eseguita questa operazione utilizzando Azure Machine Learning Studio (classico).  
 
 L'approccio multi modello è indispensabile quando si progetta un archetipo globale per la varianza. Anche la parte (predittiva) dell'approccio correlata al punteggio deve essere multi modello.  
 
@@ -135,7 +135,7 @@ Inoltre, il set di dati di valutazione è stato inviato a un modello analogo com
 In questa sezione vengono presentati i risultati relativi all'accuratezza dei modelli in base al set di dati di punteggio.  
 
 ### <a name="accuracy-and-precision-of-scoring"></a>Accuratezza e precisione dei valori
-In genere, l'implementazione nella versione classica di Azure Machine Learning Studio si trova dietro la firma di accesso condiviso con precisione di circa il 10-15% (area sotto curva o AUC).  
+In genere, l'implementazione in Azure Machine Learning Studio (classico) è dietro alla firma di accesso condiviso con precisione di circa il 10-15% (area in curva o AUC).  
 
 La metrica più importante in ambito di varianza è tuttavia il tasso di errata classificazione, ovvero, tra i primi X candidati alla varianza, secondo le previsioni del classificatore, quali di essi **non** sono variati, ricevendo tuttavia il trattamento speciale? Nel diagramma seguente vengono confrontati tali tassi di errata classificazione per tutti i modelli:  
 
@@ -200,13 +200,13 @@ Questa importante osservazione è spesso sottovalutata dalle aziende, dove in ge
 
 Tuttavia, la promessa di analisi in modalità self-service tramite Machine Learning Studio (classico) è che le quattro categorie di informazioni, ordinate per divisione o reparto, diventano una fonte preziosa per l'apprendimento automatico sulla varianza.  
 
-Un'altra funzionalità interessante disponibile nella versione classica di Azure Machine Learning Studio è la possibilità di aggiungere un modulo personalizzato al repository di moduli predefiniti già disponibili. Essenzialmente, tale capacità consente di creare un'opportunità per selezionare raccolte e creare modelli per mercati verticali. Si tratta di un importante differenziatore della versione classica di Azure Machine Learning Studio sul mercato.  
+Un'altra funzionalità interessante disponibile in Azure Machine Learning Studio (classico) è la possibilità di aggiungere un modulo personalizzato al repository di moduli predefiniti già disponibili. Essenzialmente, tale capacità consente di creare un'opportunità per selezionare raccolte e creare modelli per mercati verticali. Si tratta di un importante differenziatore di Azure Machine Learning Studio (classico) nella posizione del mercato.  
 
 Si prevede di continuare a trattare questo argomento in futuro, specialmente per quanto riguarda l'analisi dei Big Data.
   
 
-## <a name="conclusion"></a>Conclusione
-In questo documento viene descritto un approccio intelligente alla gestione di un problema comune, vale a dire la varianza dei clienti, usando un framework generico. È stato considerato un prototipo per la valutazione dei modelli e la relativa implementazione tramite la versione classica di Azure Machine Learning Studio. Infine, sono state valutate l'accuratezza e le prestazioni della soluzione prototipo rispetto ad algoritmi paragonabili in SAS.  
+## <a name="conclusion"></a>Conclusioni
+In questo documento viene descritto un approccio intelligente alla gestione di un problema comune, vale a dire la varianza dei clienti, usando un framework generico. Abbiamo considerato un prototipo per l'assegnazione dei punteggi ai modelli e l'implementazione tramite Azure Machine Learning Studio (versione classica). Infine, sono state valutate l'accuratezza e le prestazioni della soluzione prototipo rispetto ad algoritmi paragonabili in SAS.  
 
  
 

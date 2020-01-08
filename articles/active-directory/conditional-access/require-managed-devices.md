@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0caf8e8d5e18efc0a7332f97acccc394051ed360
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 6cd3a0341d9cf041155b09d41d8ff84d0b0cc3dc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452391"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424812"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Procedura: richiedere i dispositivi gestiti per l'accesso alle app cloud con accesso condizionale
 
@@ -24,7 +24,7 @@ In un mondo in cui i dispositivi mobili e il cloud hanno sempre più importanza,
 
 Questo articolo illustra come configurare i criteri di accesso condizionale che richiedono ai dispositivi gestiti di accedere ad alcune app Cloud nell'ambiente in uso. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 La richiesta di dispositivi gestiti per i vincoli di accesso alle app Cloud **Azure ad l'accesso condizionale** e la **gestione dei dispositivi Azure ad** insieme. Se non si ha ancora familiarità con una di queste aree, è consigliabile leggere innanzitutto gli argomenti seguenti:
 
@@ -91,8 +91,9 @@ Per un dispositivo contrassegnato come conforme, è possibile presupporre che:
 - Le informazioni della società sono protette grazie alla possibilità di controllare il modo in cui la forza lavoro vi accede e le condivide
 - Il dispositivo e le relative app sono conformi ai requisiti di sicurezza aziendali
 
-> [!NOTE]
-> Se si configura un criterio per richiedere i dispositivi conformi, è possibile che venga richiesto agli utenti Mac, iOS e Android di selezionare un certificato del dispositivo durante la valutazione dei criteri. Si tratta di un comportamento noto.
+### <a name="known-behavior"></a>Comportamento noto
+
+In Windows 7, iOS, Android, macOS e alcuni Web browser di terze parti Azure AD identifica il dispositivo usando un certificato client di cui viene effettuato il provisioning quando il dispositivo viene registrato con Azure AD. Quando un utente accede per la prima volta tramite il browser, all'utente viene richiesto di selezionare il certificato. L'utente finale deve selezionare questo certificato prima di poter continuare a utilizzare il browser.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

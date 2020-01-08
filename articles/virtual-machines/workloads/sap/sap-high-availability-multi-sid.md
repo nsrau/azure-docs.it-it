@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 75d4c4e38069cb192917f275245d87bb4c63d502
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ff01bd0d6586cf75dcfdb7277c34120c6ec22894
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078158"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647493"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Creare una configurazione di SAP NetWeaver a più SID
 
@@ -33,7 +33,7 @@ ms.locfileid: "70078158"
 [sap-ha-guide-figure-6004]:./media/virtual-machines-shared-sap-high-availability-guide/6004-sap-multi-sid-dns.png
 [sap-ha-guide-figure-6005]:./media/virtual-machines-shared-sap-high-availability-guide/6005-sap-multi-sid-azure-portal.png
 [sap-ha-guide-figure-6006]:./media/virtual-machines-shared-sap-high-availability-guide/6006-sap-multi-sid-sios-replication.png
-[networking-limits-azure-resource-manager]:../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
+[networking-limits-azure-resource-manager]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
 [sap-ha-guide-9.1.1]:sap-high-availability-guide.md#a97ad604-9094-44fe-a364-f89cb39bf097 
 [sap-ha-guide-8.8]:sap-high-availability-guide.md#f19bd997-154d-4583-a46e-7f5a69d0153c
 [sap-ha-guide-8.12.3.3]:sap-high-availability-guide.md#d9c1fc8e-8710-4dff-bec2-1f535db7b006 
@@ -72,7 +72,7 @@ L'obiettivo è l'installazione di più istanze cluster di SAP ABAP ASCS o SAP Ja
 >Il numero massimo di istanze di SAP ASCS/SCS in un cluster WSFC è uguale al numero massimo di indirizzi IP front-end privati per ogni servizio di bilanciamento del carico interno di Azure.
 >
 
-Per informazioni sui limiti del servizio di bilanciamento del carico vedere "IP front-end privato per ogni servizio di bilanciamento del carico" in [Limiti relativi alle reti: Azure Resource Manager][networking-limits-azure-resource-manager].
+Per altre informazioni sui limiti del servizio di bilanciamento del carico, vedere "IP front-end privato per ogni servizio di bilanciamento del carico" in [limiti di rete: Azure Resource Manager][networking-limits-azure-resource-manager].
 
 Il panorama generale con due sistemi SAP a disponibilità elevata si presenta come segue:
 
@@ -88,7 +88,7 @@ Il panorama generale con due sistemi SAP a disponibilità elevata si presenta co
 ## <a name="prepare-the-infrastructure"></a>Preparare l'infrastruttura
 Per preparare l'infrastruttura, è possibile installare un'istanza aggiuntiva di SAP ASCS/SCS con i parametri seguenti:
 
-| Nome parametro | Value |
+| Nome parametro | Valore |
 | --- | --- |
 | SID di SAP ASCS/SCS |pr1-lb-ascs |
 | Servizio di bilanciamento del carico interno di SAP DBMS | PR5 |
@@ -219,7 +219,7 @@ Dopo l'esecuzione dello script, i risultati vengono visualizzati nel portale di 
 
 È necessario aggiungere un nuovo disco cluster condiviso per ogni istanza di SAP ASCS/SCS aggiuntiva. Attualmente, il disco cluster condiviso Windows Server 2012 R2 WSFC viene usato dalla soluzione software SIOS DataKeeper.
 
-Seguire questa procedura:
+Eseguire le operazioni seguenti:
 1. Aggiungere un altro disco o più dischi con la stessa dimensione (da sottoporre a striping) su ciascuno dei nodi del cluster e formattarli.
 2. Configurare la replica di archiviazione con SIOS DataKeeper.
 
@@ -269,6 +269,6 @@ La procedura di alto livello è la seguente:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Limiti relativi alla rete: Azure Resource Manager][networking-limits-azure-resource-manager]
+- [Limiti di rete: Azure Resource Manager][networking-limits-azure-resource-manager]
 - [Più indirizzi VIP per Azure Load Balancer][load-balancer-multivip-overview]
 - [Guida alla disponibilità elevata di SAP NetWeaver in macchine virtuali Windows][sap-ha-guide]

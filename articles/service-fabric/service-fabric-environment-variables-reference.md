@@ -1,29 +1,22 @@
 ---
-title: Variabili di ambiente di Azure Service Fabric | Microsoft Docs
-description: Documentazione di riferimento sulle variabili di ambiente di Service Fabric
-documentationcenter: .net
+title: Variabili di ambiente di Azure Service Fabric
+description: Informazioni sulle variabili di ambiente in Service Fabric di Azure. Contiene un riferimento a un elenco completo di variabili e dei relativi utilizzi.
 author: mikkelhegn
-manager: msfussell
-editor: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: reference
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/07/2017
 ms.author: mikhegn
-ms.openlocfilehash: 1c8400898dba59f312ba9d994ee711a5e241973a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b13522b1d9f2acd2aa3f7923c1b623fab696056d
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60946723"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645685"
 ---
 # <a name="service-fabric-environment-variables"></a>Variabili di ambiente di Service Fabric
 
 Service Fabric dispone di variabili di ambiente predefinite, impostate per ciascuna istanza di servizio. La tabella seguente include l'elenco completo delle variabili di ambiente:
 
-| Variabile di ambiente                         | Descrizione                                                            | Esempio                                                              |
+| Variabile di ambiente                         | Description                                                            | Esempio                                                              |
 |----------------------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------|
 | Fabric_ApplicationName                       | Nome URI dell'applicazione nell'infrastruttura                                 | fabric:/MyApplication                                                |
 | Fabric_CodePackageName                       | Nome del pacchetto di codice a cui appartiene il processo              | Codice                                                                 |

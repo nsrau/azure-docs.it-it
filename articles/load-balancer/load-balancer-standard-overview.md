@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/21/2019
 ms.author: allensu
-ms.openlocfilehash: 3b6a16436b2719d1571f5d5a3c16711a9100b75d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: ce60062a49f08bb3409c8445e0aaf79c0d361865
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894416"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552815"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Panoramica di Azure Load Balancer Standard
 
@@ -182,14 +182,6 @@ Gli SKU non sono modificabili. Seguire i passaggi di questa sezione per passare 
 3. Rimuovere le risorse SKU Basic (Load Balancer e IP pubblici, secondo il caso) da tutte le istanze VM. Assicurarsi di rimuovere anche tutte le istanze VM di un set di disponibilità.
 
 4. Collegare tutte le istanze di macchina virtuale alle nuove risorse SKU Standard.
-
-### <a name="migrate-from-standard-to-basic-sku"></a>Migrare dallo SKU Standard a Basic
-
-1. Creare una nuova risorsa Basic, Load Balancer o IP pubblico in base alle esigenze. Ricreare le regole e le definizioni dei probe.  Sostituire un probe HTTPS con un probe TCP su 443/tcp. 
-
-2. Rimuovere le risorse SKU Standard (Load Balancer e IP pubblici, secondo il caso) da tutte le istanze VM. Assicurarsi di rimuovere anche tutte le istanze VM di un set di disponibilità.
-
-3. Collegare tutte le istanze di macchina virtuale alle nuove risorse SKU Basic.
 
 >[!IMPORTANT]
 >

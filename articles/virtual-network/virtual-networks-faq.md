@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 5fae340ae933b8165a2ea9bb9f6337189fd576d6
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: ef7e29351717daf91981f844f1d911a404cf9402
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457032"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646881"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Domande frequenti sulla rete virtuale di Azure
 
@@ -35,7 +35,7 @@ Usare le reti virtuali per:
 
 * Abilitare scenari cloud ibridi. Le reti virtuali offrono la flessibilità per supportare una gamma di scenari cloud ibridi. È possibile connettere applicazioni basate sul cloud in modo sicuro a qualsiasi tipo di sistema locale, come mainframe e sistemi Unix.
 
-### <a name="how-do-i-get-started"></a>Come iniziare?
+### <a name="how-do-i-get-started"></a>Come posso iniziare a usare la soluzione?
 Per iniziare, vedere l'articolo [Documentazione sulla rete virtuale](https://docs.microsoft.com/azure/virtual-network/), che contiene una panoramica e informazioni sulla distribuzione per tutte le funzionalità di rete virtuale.
 
 ### <a name="can-i-use-vnets-without-cross-premises-connectivity"></a>È possibile usare reti virtuali senza connettività cross-premise?
@@ -49,7 +49,7 @@ Sì. È possibile distribuire [appliance virtuali di rete per l'ottimizzazione W
 ### <a name="what-tools-do-i-use-to-create-a-vnet"></a>Quali strumenti si usano per creare una rete virtuale?
 Per creare o configurare una rete virtuale, è possibile usare gli strumenti seguenti:
 
-* portale di Azure
+* Portale di Azure
 * PowerShell
 * Interfaccia della riga di comando di Azure
 * Un file di configurazione di rete (netcfg - solo per reti virtuali classiche). Vedere l'articolo [Configurare una rete virtuale usando un file di configurazione di rete](virtual-networks-using-network-configuration-file.md).
@@ -66,7 +66,7 @@ Qualsiasi intervallo di indirizzi IP definito in [RFC 1918](https://tools.ietf.o
 Sì. Per altre informazioni sugli intervalli di indirizzi IP pubblici, vedere [Create a virtual network](manage-virtual-network.md#create-a-virtual-network) (Creare una rete virtuale). Gli indirizzi IP pubblici non sono accessibili direttamente da Internet.
 
 ### <a name="is-there-a-limit-to-the-number-of-subnets-in-my-vnet"></a>Esiste un limite al numero di subnet nella rete virtuale?
-Sì. Vedere [Limiti di Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) per informazioni dettagliate. Gli spazi degli indirizzi della subnet non possono sovrapporsi.
+Sì. Vedere [Limiti di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) per informazioni dettagliate. Gli spazi degli indirizzi della subnet non possono sovrapporsi.
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>Esistono restrizioni sull'uso di indirizzi IP all'interno di tali subnet?
 Sì. Azure riserva 5 indirizzi IP all'interno di ogni subnet. Sono x. x.x. x. 0-x. x.x. x. 3 e l'ultimo indirizzo della subnet. x. x.x. x. 1-x.x. x. 3 è riservato in ogni subnet per i servizi di Azure.   
@@ -112,7 +112,7 @@ Sì. Tutti i servizi distribuiti all'interno di una rete virtuale possono effett
 Sì, reti virtuali può essere solo IPv4 o doppio stack (IPv4 + IPv6).  Per informazioni dettagliate, vedere [Panoramica di IPv6 per le reti virtuali di Azure](./ipv6-overview.md).
 
 ### <a name="can-a-vnet-span-regions"></a>Una rete virtuale può estendersi a più aree?
-No. Una rete virtuale è limitata a una singola area. Tuttavia, una rete virtuale si estende su zone di disponibilità. Per altre informazioni sulle zone di disponibilità, vedere [Panoramica di Zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). È possibile connettere reti virtuali in diverse aree con il peering di rete virtuale. Per informazioni dettagliate, vedere [Panoramica del peering di rete virtuale](virtual-network-peering-overview.md).
+No. Una rete virtuale è limitata a una singola area. Tuttavia, una rete virtuale si estende su zone di disponibilità. Per altre informazioni sulle zone di disponibilità, vedere [Panoramica delle zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). È possibile connettere reti virtuali in diverse aree con il peering di rete virtuale. Per informazioni dettagliate, vedere [Panoramica del peering di rete virtuale](virtual-network-peering-overview.md).
 
 ### <a name="can-i-connect-a-vnet-to-another-vnet-in-azure"></a>È possibile connettere una rete virtuale a un'altra rete virtuale in Azure?
 Sì. È possibile connettere una rete virtuale a un'altra usando:
@@ -128,7 +128,7 @@ Usare la tabella delle decisioni nella pagina [Risoluzione dei nomi per le VM e 
 Sì. È possibile specificare gli indirizzi IP del server DNS nelle impostazioni della rete virtuale. L'impostazione viene applicata come server DNS predefiniti per tutte le macchine virtuali nella rete virtuale.
 
 ### <a name="how-many-dns-servers-can-i-specify"></a>Quanti server DNS è possibile specificare?
-Fare riferimento a [Limiti di Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
+Fare riferimento a [Limiti di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
 
 ### <a name="can-i-modify-my-dns-servers-after-i-have-created-the-network"></a>È possibile modificare i server DNS dopo aver creato la rete?
 Sì. È possibile modificare l'elenco dei server DNS per la rete virtuale in qualsiasi momento. Se si modifica l'elenco dei server DNS, è necessario eseguire un rinnovo del lease DHCP in tutte le macchine virtuali interessate nella VNet per rendere effettive le nuove impostazioni DNS. Per le macchine virtuali che eseguono il sistema operativo Windows è possibile eseguire questa operazione digitando `ipconfig /renew` direttamente nella macchina virtuale. Per altri tipi di sistema operativo, fare riferimento alla documentazione relativa al rinnovo dei lease DHCP per il tipo di sistema operativo specifico. 
@@ -161,13 +161,13 @@ Sì. Tutte le scheda di interfaccia di rete collegate a una macchina virtuale di
 No. Non è possibile riservare un indirizzo IP privato. Se un indirizzo IP privato è disponibile, viene assegnato a una macchina virtuale o a un'istanza del ruolo dal server DHCP, indipendentemente dal fatto che la macchina virtuale sia o meno quella a cui si vuole assegnare l'indirizzo IP privato. È possibile tuttavia cambiare l'indirizzo IP privato di una macchina virtuale già creata con qualsiasi indirizzo IP privato disponibile.
 
 ### <a name="do-private-ip-addresses-change-for-vms-in-a-vnet"></a>Gli indirizzi IP privati vengono modificati per le macchine virtuali in una rete virtuale?
-Dipende. Se la macchina virtuale è stata distribuita tramite Resource Manager, non vengono modificati, indipendentemente dal fatto che l'indirizzo IP sia stato assegnato con il metodo di allocazione statica o dinamica. Se la macchina virtuale è stata distribuita tramite il modello di distribuzione classica, gli indirizzi IP possono essere modificati quando una macchina virtuale viene avviata dopo essere stata arrestata (deallocata). L'indirizzo viene rilasciato da una macchina virtuale distribuita tramite uno dei modelli di distribuzione quando la macchina virtuale viene eliminata.
+Dipende, Se la macchina virtuale è stata distribuita tramite Resource Manager, non vengono modificati, indipendentemente dal fatto che l'indirizzo IP sia stato assegnato con il metodo di allocazione statica o dinamica. Se la macchina virtuale è stata distribuita tramite il modello di distribuzione classica, gli indirizzi IP possono essere modificati quando una macchina virtuale viene avviata dopo essere stata arrestata (deallocata). L'indirizzo viene rilasciato da una macchina virtuale distribuita tramite uno dei modelli di distribuzione quando la macchina virtuale viene eliminata.
 
 ### <a name="can-i-manually-assign-ip-addresses-to-nics-within-the-vm-operating-system"></a>È possibile assegnare manualmente indirizzi IP alle schede di interfaccia di rete all'interno del sistema operativo di una macchina virtuale?
 Sì, ma non è consigliabile a meno che non sia necessario, ad esempio quando si assegnano più indirizzi IP a una macchina virtuale. Per informazioni dettagliate, vedere [Aggiunta di più indirizzi IP a una macchina virtuale](virtual-network-multiple-ip-addresses-portal.md#os-config). Se l'indirizzo IP assegnato a una scheda di interfaccia di rete di Azure collegata a una macchina virtuale viene modificato e l'indirizzo IP all'interno del sistema operativo della macchina virtuale è differente, si perde la connessione alla macchina virtuale.
 
 ### <a name="if-i-stop-a-cloud-service-deployment-slot-or-shutdown-a-vm-from-within-the-operating-system-what-happens-to-my-ip-addresses"></a>Se si arresta il funzionamento di uno slot di distribuzione del servizio cloud o di una macchina virtuale dall'interno del sistema operativo, cosa accade agli indirizzi IP?
-Niente. Gli indirizzi IP, pubblici, privati o indirizzi VIP pubblici, rimangano assegnati alla relativa macchina virtuale o allo slot di distribuzione del servizio cloud.
+Nessuno. Gli indirizzi IP, pubblici, privati o indirizzi VIP pubblici, rimangano assegnati alla relativa macchina virtuale o allo slot di distribuzione del servizio cloud.
 
 ### <a name="can-i-move-vms-from-one-subnet-to-another-subnet-in-a-vnet-without-redeploying"></a>È possibile spostare le macchine virtuali da una subnet a un'altra in una rete virtuale senza ripetere la distribuzione?
 Sì. Per altre informazioni, vedere l'articolo [Come spostare una macchina virtuale o un'istanza del ruolo in un'altra subnet](virtual-networks-move-vm-role-to-subnet.md).
@@ -207,7 +207,7 @@ Le risorse distribuite tramite alcuni servizi PaaS di Azure, ad esempio archivia
 ### <a name="can-i-move-my-services-in-and-out-of-vnets"></a>È possibile spostare i servizi all’interno e all’esterno delle reti virtuali?
 No. Non è possibile spostare i servizi all'interno e all'esterno delle reti virtuali. Per spostare una risorsa in un'altra rete virtuale, è necessario eliminarla e ridistribuirla.
 
-## <a name="security"></a>Security
+## <a name="security"></a>Sicurezza
 
 ### <a name="what-is-the-security-model-for-vnets"></a>Che cos'è il modello di sicurezza per le reti virtuali?
 Le reti virtuali sono isolate l'una dall'altra e gli altri servizi sono ospitati nell'infrastruttura di Azure. Una rete virtuale è un limite di attendibilità.
@@ -245,7 +245,7 @@ Se le due reti virtuali in due aree diverse eseguono il peering sul peering VNet
 Le risorse seguenti possono usare i bilanciamenti del carico di base, che significa che non è possibile raggiungerli tramite l'indirizzo IP Front-End Load Balancer rispetto al peering VNet globale. È tuttavia possibile usare il peering VNet globale per raggiungere le risorse direttamente tramite gli IP VNet privati, se consentito. 
 - Macchine virtuali dietro i bilanciamenti del carico Basic
 - Set di scalabilità di macchine virtuali con bilanciamento del carico di base 
-- Cache Redis 
+- Redis Cache 
 - SKU del gateway applicazione (V1)
 - Service Fabric
 - MI SQL
@@ -403,12 +403,12 @@ Non ci sono limiti per il numero totale di endpoint di servizio di rete virtuale
 |---|---|
 |Servizio di Azure| Limiti per le regole della rete virtuale|
 |Archiviazione di Azure| 100|
-|SQL di Azure| 128|
-|Azure SQL Data Warehouse|  128|
+|Azure SQL| 128|
+|SQL Data Warehouse di Azure|  128|
 |Azure KeyVault|    127|
 |Azure Cosmos DB|   64|
 |Hub eventi di Azure|   128|
-|Bus di servizio di Azure| 128|
+|Service Bus di Azure| 128|
 |Azure Data Lake Store V1|  100|
  
 >[!NOTE]

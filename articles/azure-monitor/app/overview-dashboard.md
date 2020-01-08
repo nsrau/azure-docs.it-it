@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/03/2019
-ms.openlocfilehash: 218ae158512326bcad8efd6c598f68d296fe9370
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 45c04cc32733873061bd6ff44b2e5484b106a893
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819164"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406647"
 ---
 # <a name="application-insights-overview-dashboard"></a>Dashboard panoramica di Application Insights
 
@@ -28,7 +28,7 @@ Il nuovo dashboard panoramica ora avvia per impostazione predefinita:
 
 La selezione dell'intervallo di tempo è stata semplificata in una semplice interfaccia con un solo clic.
 
-![Intervallo di tempo](./media/overview-dashboard/app-insights-overview-dashboard-03.png)
+![Intervallo di ore](./media/overview-dashboard/app-insights-overview-dashboard-03.png)
 
 Le prestazioni complessive sono state notevolmente migliorate. È disponibile l'accesso con un clic a funzionalità comuni, ad esempio **Ricerca** e **Analitica**. Ciascun riquadro KPI con aggiornamento dinamico predefinito fornisce informazioni dettagliate sulle funzionalità Application Insights corrispondenti. Per altre informazioni sulle richieste non riuscite, selezionare **Errori** sotto l'intestazione **Analisi**:
 
@@ -55,7 +55,7 @@ Per tornare all'esperienza panoramica, selezionare:
 
 ![Pulsante Panoramica](./media/overview-dashboard/app-insights-overview-dashboard-07.png)
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se si seleziona **Configura le impostazioni del riquadro** e si imposta un intervallo di tempo personalizzato superiore a 31 giorni, il dashboard non visualizzerà oltre 31 giorni di dati, anche con la conservazione dei dati predefinita di 90 giorni. Attualmente non esiste alcuna soluzione alternativa per questo comportamento.
 

@@ -3,17 +3,17 @@ title: Generare un token di sicurezza per accedere al repository Plug and Play P
 description: Generare un token di firma di accesso condiviso da usare quando si accede a un archivio del modello Plug and Play di anteprima a livello di codice.
 author: Philmea
 ms.author: philmea
-ms.date: 08/06/2019
+ms.date: 12/27/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: f6c4f5b9784eeff9d03b6e93953674736fb78c6c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 2530c5b3561ad90eac0556770a8a356cfaa6a52c
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976027"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531288"
 ---
 # <a name="generate-sas-token"></a>Generare il token di firma di accesso condiviso
 
@@ -74,7 +74,7 @@ public static string generateSasToken(string hostName, string repoId, string key
 
 ## <a name="use-the-sas-token"></a>Usare il token SAS
 
-Dopo aver generato un token di firma di accesso condiviso, è possibile usarlo per effettuare una richiesta HTTP POST. ad esempio:
+Dopo aver generato un token di firma di accesso condiviso, è possibile usarlo per effettuare una richiesta HTTP POST. Ad esempio:
 
 ```text
 POST https:///models/{modelId}?repositoryId={repositoryId}&api-version=2019-07-01-preview

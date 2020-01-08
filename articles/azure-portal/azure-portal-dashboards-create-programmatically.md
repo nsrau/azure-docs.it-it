@@ -1,10 +1,10 @@
 ---
 title: Creare dashboard di Azure a livello di codice | Microsoft Docs
-description: Questo articolo descrive come creare dashboard di Azure a livello di codice.
+description: È possibile usare un dashboard nel portale di Azure come modello per creare dashboard di Azure a livello di codice. Include il riferimento JSON.
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
-manager: dougeby
+manager: mtillman
 editor: tysonn
 ms.service: azure-portal
 ms.devlang: NA
@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
-ms.author: kfollis
-ms.openlocfilehash: b24a0397a1365479907fedc6348caa54508dbbb0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mblythe
+ms.openlocfilehash: 498e0255cfa289f7d8ccb93040980c362cf510a0
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60552199"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640347"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Creare dashboard di Azure a livello di codice
 
@@ -26,7 +26,7 @@ Questo documento descrive in modo dettagliato il processo di creazione e pubblic
 
 ![Dashboard di esempio](./media/azure-portal-dashboards-create-programmatically/sample-dashboard.png)
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 I dashboard condivisi in Azure sono [risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) molto simili alle macchine virtuali e agli account di archiviazione.  Di conseguenza, possono essere gestiti a livello di codice tramite le [API REST di Azure Resource Manager](/rest/api/), l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure) e i [comandi di Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps). Inoltre, molte funzionalità del [portale di Azure](https://portal.azure.com) sono basate su queste API per semplificare la gestione delle risorse.  
 

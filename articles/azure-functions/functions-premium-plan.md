@@ -5,16 +5,16 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: 9c1a9a9e3b9e1c12c3960a8586c25436c8d937e0
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 5f6825243b7e410b49b54d04a028b5d71610ea68
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532895"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561955"
 ---
 # <a name="azure-functions-premium-plan"></a>Piano Premium di Funzioni di Azure
 
-Il piano Premium di funzioni di Azure è un'opzione di hosting per le app per le funzioni. Il piano Premium offre funzionalità come la connettività VNet, l'avvio a freddo e l'hardware Premium.  È possibile distribuire più app per le funzioni nello stesso piano Premium e il piano consente di configurare le dimensioni dell'istanza di calcolo, le dimensioni del piano di base e la dimensione massima del piano.  Per un confronto tra il piano Premium e altri tipi di piano e hosting, vedere [Opzioni di scalabilità e hosting delle funzioni](functions-scale.md).
+Il piano Premium di funzioni di Azure, noto anche come piano Premium elastico, è un'opzione di hosting per le app per le funzioni. Il piano Premium offre funzionalità come la connettività VNet, l'avvio a freddo e l'hardware Premium.  È possibile distribuire più app per le funzioni nello stesso piano Premium e il piano consente di configurare le dimensioni dell'istanza di calcolo, le dimensioni del piano di base e la dimensione massima del piano.  Per un confronto tra il piano Premium e altri tipi di piano e hosting, vedere [Opzioni di scalabilità e hosting delle funzioni](functions-scale.md).
 
 ## <a name="create-a-premium-plan"></a>Creare un piano Premium
 
@@ -45,7 +45,7 @@ Nel piano Premium è possibile fare in modo che l'app sia già riscaldata su un 
 
 ![Impostazioni di scalabilità elastica](./media/functions-premium-plan/scale-out.png)
 
-È anche possibile configurare istanze pre-surriscaldate per un'app con l'interfaccia della riga di comando di Azure
+È anche possibile configurare istanze pre-surriscaldate per un'app con l'interfaccia della riga di comando di Azure.
 
 ```azurecli-interactive
 az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites
@@ -76,7 +76,7 @@ Quando si crea il piano, si configurano due impostazioni: il numero minimo di is
 
 Se l'app richiede istanze oltre le dimensioni del piano, può continuare a eseguire la scalabilità orizzontale finché il numero di istanze raggiunge il limite massimo di picchi.  Vengono addebitati i costi per le istanze oltre le dimensioni del piano solo quando sono in esecuzione e affittate all'utente.  Verrà effettuato il massimo sforzo per la scalabilità dell'app al limite massimo definito, mentre le istanze del piano minimo sono garantite per l'app.
 
-È possibile configurare le dimensioni del piano e i valori massimi nell'portale di Azure selezionando le opzioni **scale out** nel piano o in un'app per le funzioni distribuita in tale piano (in **funzionalità della piattaforma**).
+È possibile configurare le dimensioni del piano e i valori massimi nel portale di Azure selezionando le opzioni **scale out** nel piano o in un'app per le funzioni distribuita in tale piano (in **funzionalità della piattaforma**).
 
 È anche possibile aumentare il limite massimo di picchi dall'interfaccia della riga di comando di Azure:
 
@@ -98,32 +98,33 @@ Quando si crea o si ridimensiona il piano, è possibile scegliere tra tre dimens
 
 Di seguito sono elencate le aree attualmente supportate per ogni sistema operativo.
 
-|Area geografica| Windows | Linux |
+|Area| Windows | Linux |
 |--| -- | -- |
 |Australia centrale| ✔<sup>1</sup> | |
 |Australia centrale 2| ✔<sup>1</sup> | |
 |Australia orientale| ✔ | |
-|Australia sud-orientale | ✔ | ✔ |
+|Australia sudorientale | ✔ | ✔<sup>1</sup> |
 |Brasile meridionale| ✔<sup>2</sup> |  |
 |Canada centrale| ✔ |  |
 |Stati Uniti centrali| ✔ |  |
 |Asia orientale| ✔ |  |
-|Stati Uniti Orientali | ✔ | ✔ |
+|Stati Uniti orientali | ✔ | ✔<sup>1</sup> |
 |Stati Uniti orientali 2| ✔ |  |
 |Francia centrale| ✔ |  |
-|Giappone orientale| ✔ | ✔ |
+|Germania centro-occidentale| ✔ | |
+|Giappone orientale| ✔ | ✔<sup>1</sup> |
 |Giappone occidentale| ✔ | |
 |Corea centrale| ✔ |  |
 |Stati Uniti centro-settentrionali| ✔ |  |
-|Europa settentrionale| ✔ | ✔ |
-|Stati Uniti centro-meridionali| ✔ |  |
+|Europa settentrionale| ✔ | ✔<sup>1</sup> |
+|Stati Uniti centro-meridionali| ✔ | ✔<sup>1</sup> |
 |India meridionale | ✔ | |
-|Asia sud-orientale| ✔ | ✔ |
+|Asia sud-orientale| ✔ | ✔<sup>1</sup> |
 |Regno Unito meridionale| ✔ | |
 |Regno Unito occidentale| ✔ |  |
-|Europa occidentale| ✔ | ✔ |
+|Europa occidentale| ✔ | ✔<sup>1</sup> |
 |India occidentale| ✔ |  |
-|Stati Uniti occidentali| ✔ | ✔ |
+|Stati Uniti occidentali| ✔ | ✔<sup>1</sup> |
 |Stati Uniti occidentali 2| ✔ |  |
 
 <sup>1</sup> Scalabilità orizzontale massima limitata a 20 istanze.  

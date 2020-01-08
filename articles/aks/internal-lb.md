@@ -7,19 +7,19 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: mlearned
-ms.openlocfilehash: 5842003d43d4268d0f663e8a57e40562a480e252
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6b4bbac5d8555a705b2311abcea8396c1151da90
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67615142"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430760"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Usare un servizio di bilanciamento del carico interno con il servizio Azure Kubernetes
 
 Per limitare l'accesso alle applicazioni nel servizio Azure Kubernetes, è possibile creare e usare un bilanciamento del carico interno. Un bilanciamento del carico interno rende accessibile un servizio Kubernetes solo alle applicazioni in esecuzione nella stessa rete virtuale del cluster Kubernetes. Questo articolo descrive come usare un servizio di bilanciamento del carico interno con il servizio Azure Kubernetes.
 
 > [!NOTE]
-> Azure Load Balancer è disponibile in due SKU: *Basic* e *Standard*. Per impostazione predefinita, viene usato lo SKU *Basic* quando viene usato un manifesto del servizio per creare un servizio di bilanciamento del carico in AKS. Per altre informazioni, vedere [confronto tra SKU di bilanciamento del carico di Azure][azure-lb-comparison].
+> Azure Load Balancer è disponibile in due SKU: *Basic* e *Standard*. Per impostazione predefinita, quando si crea un cluster AKS viene usato lo SKU standard.  Quando si crea un servizio con tipo come LoadBalancer, si otterrà lo stesso tipo di LB di quando si esegue il provisioning del cluster. Per altre informazioni, vedere [confronto tra SKU di bilanciamento del carico di Azure][azure-lb-comparison].
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 

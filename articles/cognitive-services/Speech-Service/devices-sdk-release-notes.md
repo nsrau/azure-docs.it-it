@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: wellsi
-ms.openlocfilehash: 3a74f3eb9aece3535f5505d69833a074c2dd0ed2
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 4d5d3cc6159a4601f0a398e87b89eea9b8d3aba6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091190"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446951"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Note sulla versione: SDK per dispositivi vocali
 
@@ -23,14 +23,14 @@ L'elenco nelle sezioni seguenti è modificato nelle versioni più recenti.
 
 ## <a name="speech-devices-sdk-170"></a>1\.7.0 SDK per dispositivi vocali:
 
-*   Il ARM Linux è ora supportato.
-*   Sono disponibili i file binari iniziali per Roobov2 (ARM64 Linux).
-*   Gli utenti di Windows possono usare AudioConfig. fromDefaultMicrophoneInput () o AudioConfig. fromMicrophoneInput (DeviceName) per specificare il microfono da usare.
-*   La dimensione della libreria è stata ottimizzata.
-*   Supporto per il riconoscimento a più turni utilizzando lo stesso oggetto riconoscimento vocale/Intent.
-*   Correzione di un blocco occasionale che si verifica durante l'arresto del riconoscimento.
-*   Le app di esempio contengono ora un file partecipante di esempio. Properties per illustrare il formato del file.
-*   Aggiornamento del componente [SDK vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) alla versione 1.7.0. Per altre informazioni, vedere le relative [Note sulla versione](https://aka.ms/csspeech/whatsnew).
+- Il ARM Linux è ora supportato.
+- Sono disponibili i file binari iniziali per Roobo V2 (ARM64 Linux).
+- Gli utenti di Windows possono usare `AudioConfig.fromDefaultMicrophoneInput()` o `AudioConfig.fromMicrophoneInput(deviceName)` per specificare il microfono da usare.
+- La dimensione della libreria è stata ottimizzata.
+- Supporto per il riconoscimento a più turni utilizzando lo stesso oggetto riconoscimento vocale/Intent.
+- Correzione di un blocco occasionale che si verifica durante l'arresto del riconoscimento.
+- Le app di esempio contengono ora un file partecipante di esempio. Properties per illustrare il formato del file.
+- Aggiornamento del componente [SDK vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) alla versione 1.7.0. Per altre informazioni, vedere le relative [Note sulla versione](https://aka.ms/csspeech/whatsnew).
 
 ## <a name="speech-devices-sdk-160"></a>Speech Devices SDK 1.6.0:
 
@@ -68,8 +68,8 @@ L'elenco nelle sezioni seguenti è modificato nelle versioni più recenti.
 
 - L' [installazione di una parola chiave](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) è stata semplificata ed è ora inclusa nell'app e non è necessaria un'installazione separata sul dispositivo.
 - Il riconoscimento delle parole chiave è stato modificato e sono supportati due eventi.
-  - RecognizingKeyword, indica che il risultato del riconoscimento vocale contiene testo della parola chiave non verificato.
-  - RecognizedKeyword, indica che il riconoscimento delle parole chiave ha completato il riconoscimento della parola chiave specificata.
+  - `RecognizingKeyword,` indica che il risultato del riconoscimento vocale contiene testo della parola chiave non verificato.
+  - `RecognizedKeyword`indica che il riconoscimento delle parole chiave ha completato il riconoscimento della parola chiave specificata.
 
 ## <a name="speech-devices-sdk-110-2018-nov-release"></a>Speech Devices SDK 1.1.0:2018-versione nov
 

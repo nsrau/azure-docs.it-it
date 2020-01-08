@@ -3,19 +3,15 @@ title: Creazione di configurazioni DSC in Desired State Configuration (DSC) di A
 description: Informazioni su come creare configurazioni usando risorse composite in Desired State Configuration (DSC) di Automazione di Azure
 keywords: powershell dsc, Desired State Configuration, powershell dsc azure
 services: automation
-ms.service: automation
 ms.subservice: dsc
-author: mgoedtel
-ms.author: magoedte
 ms.date: 08/21/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: e9552adad1f15422eb60c34f2548324aeb03ee74
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 2c6d9aa13c8c320dc46f6634f3a60e0c1730c710
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849565"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75418738"
 ---
 # <a name="composing-dsc-configurations-in-azure-automation-state-configuration-dsc-using-composite-resources"></a>Creazione di configurazioni DSC in Desired State Configuration (DSC) di Automazione di Azure usando risorse composite
 
@@ -45,7 +41,7 @@ Quando la compilazione viene completata correttamente, la nuova configurazione v
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per iniziare, vedere [Introduzione alla configurazione dello stato di Automazione di Azure](automation-dsc-getting-started.md)
+- Per iniziare, vedere [Introduzione a Configurazione stato di Automazione di Azure](automation-dsc-getting-started.md)
 - Per informazioni sull'onboarding dei nodi, vedere [Onboarding di computer per la gestione tramite Configurazione stato di Automazione di Azure](automation-dsc-onboarding.md)
 - Per informazioni sulla compilazione di configurazioni DSC da assegnare ai nodi di destinazione, vedere [Compilazione di configurazioni in Configurazione stato di Automazione di Azure](automation-dsc-compile.md)
 - Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Azure Automation State Configuration cmdlets](/powershell/module/azurerm.automation/#automation) (Cmdlet per Configurazione stato di Automazione di Azure)

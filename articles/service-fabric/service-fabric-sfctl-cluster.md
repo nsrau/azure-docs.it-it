@@ -1,25 +1,16 @@
 ---
-title: Interfaccia della riga di comando Azure Service Fabric - sfctl cluster | Microsoft Docs
-description: Descrive i comandi dell'interfaccia della riga di comando Service Fabric sfctl cluster.
-services: service-fabric
-documentationcenter: na
+title: INTERFACCIA della riga di comando di Azure Service Fabric-cluster sfctl
+description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric. Include un elenco di comandi per la gestione dei cluster.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: a42062f6f6b671d853f47e3f170b366799829a62
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 807457f3edaef8e0edcdbf53b482e2e4ffee174c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901498"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639157"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Selezionare, gestire e usare dei cluster di Service Fabric.
@@ -37,10 +28,10 @@ Selezionare, gestire e usare dei cluster di Service Fabric.
 | provision | Esegue il provisioning dei pacchetti di codici o configurazioni di un cluster di Service Fabric. |
 | recover-system | Indica al cluster di Service Fabric che deve provare a recuperare i servizi di sistema attualmente bloccati in una perdita di quorum. |
 | report-health | Invia un report di integrità nel cluster di Service Fabric. |
-| seleziona | Si connette a un endpoint di cluster di Service Fabric. |
+| Proprietà | Si connette a un endpoint di cluster di Service Fabric. |
 | show-connection | Mostra i cluster di Service Fabric a cui è connessa l'istanza sfctl. |
 | unprovision | Annulla il provisioning dei pacchetti di codici o configurazioni di un cluster di Service Fabric. |
-| Aggiornamento | Avvia l'aggiornamento della versione codice o configurazione di un cluster di Service Fabric. |
+| aggiornamento | Avvia l'aggiornamento della versione codice o configurazione di un cluster di Service Fabric. |
 | upgrade-resume | Consente all'aggiornamento del cluster di passare al dominio di aggiornamento successivo. |
 | upgrade-rollback | Esegue il rollback dell'aggiornamento di un cluster di Service Fabric. |
 | upgrade-status | Mostra lo stato di avanzamento dell'aggiornamento del cluster corrente. |
@@ -56,17 +47,17 @@ Mostra un elenco di informazioni sulle versioni del codice di un'infrastruttura 
 |Argomento|Description|
 | --- | --- |
 | --code-version | Versione del prodotto di Service Fabric. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 ## <a name="sfctl-cluster-config-versions"></a>sfctl cluster config-versions
 Mostra un elenco di versioni di configurazione di un'infrastruttura di cui viene effettuato il provisioning in un cluster di Service Fabric.
@@ -78,17 +69,17 @@ Mostra un elenco di informazioni sulle versioni di configurazione di un'infrastr
 |Argomento|Description|
 | --- | --- |
 | --config-version | Versione di configurazione di Service Fabric. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 ## <a name="sfctl-cluster-health"></a>sfctl cluster health
 Mostra l'integrità di un cluster di Service Fabric.
@@ -99,22 +90,22 @@ Usare EventsHealthStateFilter per filtrare la raccolta di eventi di stato riport
 
 |Argomento|Description|
 | --- | --- |
-| --applications-health-state-filter | Consente di filtrare gli oggetti dello stato di integrità delle applicazioni restituiti nel risultato della query sull'integrità dei cluster in base al relativo stato di integrità. I valori possibili per questo parametro includono il valore intero ottenuto da membri o operazioni bit per bit sui membri dell'enumerazione HealthStateFilter. Vengono restituite solo le applicazioni che corrispondono al filtro. Tutte le applicazioni vengono usate per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore indicato è 6, viene restituito lo stato di integrità delle applicazioni il cui valore di HealthState è OK (2) e Warning (4).  <br> - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore è zero.  <br> - None - Il filtro non corrisponde ad alcun valore di stato di integrità. Usato per non restituire alcun risultato in un determinato insieme di stati. Il valore è 1.  <br> -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2.  <br> -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso. Il valore è 4.  <br> - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8.  <br> -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535. |
-| --events-health-state-filter | Consente di filtrare la raccolta di oggetti HealthEvent restituiti in base allo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno dei seguenti stati di integrità. Vengono restituiti solo gli eventi che corrispondono al filtro. Tutti gli eventi vengono usati per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore fornito è 6, vengono restituiti tutti gli eventi con valore dello stato di integrità OK (2) e di Avviso (4).  <br> - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore è zero.  <br> - None - Il filtro non corrisponde ad alcun valore di stato di integrità. Usato per non restituire alcun risultato in un determinato insieme di stati. Il valore è 1.  <br> -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2.  <br> -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso. Il valore è 4.  <br> - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8.  <br> -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535. |
-| --exclude-health-statistics | Indica se le statistiche di integrità devono essere restituite come parte del risultato della query. False per impostazione predefinita. Le statistiche mostrano il numero di entità figlio il cui stato di integrità è Ok, Warning ed Error |
+| --applications-health-state-filter | Consente di filtrare gli oggetti dello stato di integrità delle applicazioni restituiti nel risultato della query sull'integrità dei cluster in base al relativo stato di integrità. I valori possibili per questo parametro includono il valore intero ottenuto da membri o operazioni bit per bit sui membri dell'enumerazione HealthStateFilter. Vengono restituite solo le applicazioni che corrispondono al filtro. Tutte le applicazioni vengono usate per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore indicato è 6, viene restituito lo stato di integrità delle applicazioni il cui valore di HealthState è OK (2) e Warning (4).  <br> - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore predefinito è zero.  <br> - None - Il filtro non corrisponde ad alcun valore di stato di integrità. Usato per non restituire alcun risultato in un determinato insieme di stati. Il valore è uguale a 1.  <br> -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2.  <br> -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso. Il valore è 4.  <br> - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8.  <br> -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535. |
+| --events-health-state-filter | Consente di filtrare la raccolta di oggetti HealthEvent restituiti in base allo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno dei seguenti stati di integrità. Vengono restituiti solo gli eventi che corrispondono al filtro. Tutti gli eventi vengono usati per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore fornito è 6, vengono restituiti tutti gli eventi con valore dello stato di integrità OK (2) e di Avviso (4).  <br> - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore predefinito è zero.  <br> - None - Il filtro non corrisponde ad alcun valore di stato di integrità. Usato per non restituire alcun risultato in un determinato insieme di stati. Il valore è uguale a 1.  <br> -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2.  <br> -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso. Il valore è 4.  <br> - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8.  <br> -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535. |
+| --exclude-health-statistics | Indica se le statistiche di integrità devono essere restituite come parte del risultato della query. False per impostazione predefinita. Le statistiche indicano il numero di entità figlio il cui stato di integrità è Ok, Avviso ed Errore. |
 | --include-system-application-health-statistics | Indica se le statistiche di integrità devono includere l'infrastruttura\: le statistiche di integrità dell'applicazione/System. False per impostazione predefinita. Se IncludeSystemApplicationHealthStatistics sono impostati su true, le statistiche di integrità includono le entità che appartengono all'applicazione/System dell'infrastruttura\:. In caso contrario, il risultato della query includerà soltanto le statistiche di integrità per le applicazioni utente. Per applicare questo parametro, è necessario includere le statistiche di integrità nel risultato della query. |
-| --nodes-health-state-filter | Consente di filtrare gli oggetti dello stato di integrità dei nodi restituiti nel risultato della query sull'integrità dei cluster in base al relativo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno dei seguenti stati di integrità. Vengono restituiti solo i nodi che corrispondono al filtro. Tutti i nodi vengono usati per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore fornito è 6, viene restituito lo stato di integrità dei nodi con valore di HealthState OK (2) e Warning (4).  <br> - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore è zero.  <br> - None - Il filtro non corrisponde ad alcun valore di stato di integrità. Usato per non restituire alcun risultato in un determinato insieme di stati. Il valore è 1.  <br> -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2.  <br> -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso. Il valore è 4.  <br> - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8.  <br> -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Valore predefinito\: 60. |
+| --nodes-health-state-filter | Consente di filtrare gli oggetti dello stato di integrità dei nodi restituiti nel risultato della query sull'integrità dei cluster in base al relativo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno dei seguenti stati di integrità. Vengono restituiti solo i nodi che corrispondono al filtro. Tutti i nodi vengono usati per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore fornito è 6, viene restituito lo stato di integrità dei nodi con valore di HealthState OK (2) e Warning (4).  <br> - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore predefinito è zero.  <br> - None - Il filtro non corrisponde ad alcun valore di stato di integrità. Usato per non restituire alcun risultato in un determinato insieme di stati. Il valore è uguale a 1.  <br> -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2.  <br> -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso. Il valore è 4.  <br> - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8.  <br> -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 ## <a name="sfctl-cluster-manifest"></a>sfctl cluster manifest
 Mostra il manifesto del cluster di Service Fabric.
@@ -125,17 +116,17 @@ Mostra il manifesto del cluster di Service Fabric. Il manifesto del cluster cont
 
 |Argomento|Description|
 | --- | --- |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 ## <a name="sfctl-cluster-operation-cancel"></a>sfctl cluster operation-cancel
 Annulla un'operazione di errore indotta dall'utente.
@@ -148,17 +139,17 @@ Le API seguenti avviano le operazioni di errore che possono essere annullate usa
 | --- | --- |
 | --operation-id [obbligatorio] | Una GUID che identifica una chiamata dell'API.  Viene passato all'API GetProgress corrispondente. |
 | --force | Indica se eseguire normalmente il rollback e pulire lo stato di sistema interno modificato eseguendo l'operazione indotta dall'utente. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 ## <a name="sfctl-cluster-operation-list"></a>sfctl cluster operation-list
 Mostra un elenco di operazioni di errore indotte dall'utente filtrato in base all'input specificato.
@@ -170,18 +161,18 @@ Mostra l'elenco di operazioni di errore indotte dall'utente filtrato in base all
 |Argomento|Description|
 | --- | --- |
 | --state-filter | Usato per filtrare le operazioni indotte dall'utente negli elementi OperationState. -65535-Seleziona tutto-1-Seleziona in esecuzione-2-Selezionare RollingBack-8-seleziona completato-16-seleziona Errori-32-seleziona annullato-64-selezionare ForceCancelled.  Impostazione predefinita\: 65535. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 | --type-filter | Usato per filtrare le operazioni indotte dall'utente negli elementi OperationType. -65535-selezionare All-1-Select PartitionDataLoss. -2-Selezionare PartitionQuorumLoss. -4: selezionare PartitionRestart. -8: selezionare NodeTransition.  Impostazione predefinita\: 65535. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 ## <a name="sfctl-cluster-provision"></a>sfctl cluster provision
 Esegue il provisioning dei pacchetti di codici o configurazioni di un cluster di Service Fabric.
@@ -194,38 +185,38 @@ Esegue la convalida e il provisioning dei pacchetti di codici o configurazioni d
 | --- | --- |
 | --cluster-manifest-file-path | Percorso file del manifesto del cluster. |
 | --code-file-path | Percorso file del pacchetto di codice del cluster. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 ## <a name="sfctl-cluster-recover-system"></a>sfctl cluster recover-system
 Indica al cluster di Service Fabric che deve provare a recuperare i servizi di sistema attualmente bloccati in una perdita di quorum.
 
-Indica al cluster di Service Fabric che deve provare a recuperare i servizi di sistema attualmente bloccati in una perdita di quorum. Questa operazione può essere eseguita solo se è noto che non è possibile recuperare le repliche che non sono attive. Un utilizzo non corretto di questa API può causare una perdita di dati.
+Indica al cluster di Service Fabric che deve provare a recuperare i servizi di sistema attualmente bloccati in una perdita di quorum. Questa operazione può essere eseguita solo se è noto che non è possibile recuperare le repliche che non sono attive. Un uso non corretto di questa API può causare una perdita di dati.
 
 ### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 ## <a name="sfctl-cluster-report-health"></a>sfctl cluster report-health
 Invia un report di integrità nel cluster di Service Fabric.
@@ -238,23 +229,23 @@ Invia un report di stato su un cluster Service Fabric. Il report deve contenere 
 | --- | --- |
 | --health-property [obbligatorio] | Proprietà delle informazioni sull'integrità. <br><br> Un'entità può avere report sull'integrità per proprietà diverse. La proprietà è una stringa e non un'enumerazione fissa, che assicura al reporter la flessibilità necessaria per definire la categoria della condizione di stato che attiva il report. Ad esempio, un reporter con SourceId "LocalWatchdog" può monitorare lo stato del disco disponibile in un nodo e può quindi segnalare la proprietà "AvailableDisk" in tale nodo. Lo stesso reporter può monitorare la connettività del nodo e può quindi segnalare una proprietà "Connectivity" nello stesso nodo. Entrambi questi report vengono considerati come eventi di integrità separati nell'archivio integrità per il nodo specificato. Insieme a SourceId, la proprietà identifica in modo univoco le informazioni sull'integrità. |
 | --health-state    [obbligatorio] | I valori possibili sono\: "Invalid", "Ok", "Warning", "Error", "Unknown". |
-| --source-id [Obbligatorio] | Nome di origine che identifica il componente client/watchdog/sistema che ha generato le informazioni sull'integrità. |
+| --source-id       [obbligatorio] | Nome di origine che identifica il componente client/watchdog/sistema che ha generato le informazioni sull'integrità. |
 | --description | Descrizione delle informazioni sull'integrità. <br><br> Rappresenta il testo libero usato per aggiungere informazioni leggibili sul report. La lunghezza massima della stringa per la descrizione è pari a 4096 caratteri. Se la stringa immessa è più lunga, verrà automaticamente troncata. Quando viene troncata, gli ultimi caratteri della descrizione contengono un marcatore "[Truncated]" e la dimensione totale della stringa è pari a 4096 caratteri. La presenza del marcatore indica agli utenti che si è verificato un troncamento. Si noti che quando viene troncata, la descrizione contiene meno di 4096 caratteri della stringa originale. |
 | --immediate | Flag che indica se il report deve essere inviato immediatamente. <br><br> Un report sull'integrità viene inviato a un'applicazione del gateway di Service Fabric, che lo inoltra all'archivio integrità. Se Immediate è impostato su True, il report viene inviato immediatamente dal gateway HTTP all'archivio integrità, indipendentemente dalle impostazioni del client Fabric usate dall'applicazione gateway HTTP. Questo è utile per i report critici che devono essere inviati appena possibile. A seconda della tempistica e di altre condizioni, l'invio del report può tuttavia avere esito negativo, ad esempio se il gateway HTTP è chiuso o il messaggio non raggiunge il gateway. Se Immediate è impostato su False, il report viene inviato in base alle impostazioni del client di integrità dal gateway HTTP. Verrà quindi inviato in batch in base alla configurazione di HealthReportSendInterval. Questa è l'impostazione consigliata perché consente al client di integrità di ottimizzare la segnalazione di messaggi sull'integrità all'archivio integrità e l'elaborazione di report sull'integrità. Per impostazione predefinita, i report non vengono inviati immediatamente. |
 | --remove-when-expired | Valore che indica se il report viene rimosso dall'archivio integrità quando scade. <br><br> Se impostato su True, il report viene rimosso dall'archivio integrità dopo la scadenza. Se impostato su False, il report viene considerato come errore quando è scaduto. Il valore di questa proprietà è False per impostazione predefinita. Quando i client creano report periodicamente, RemoveWhenExpired sarà impostato su False (valore predefinito). In questo modo, se il reporter presenta problemi (ad esempio, un deadlock) e non può creare report, l'entità viene considerata in stato di errore quando scade il report sull'integrità. L'entità viene quindi contrassegnata con lo stato di integrità di errore. |
 | --sequence-number | Numero di sequenza per questo report sull'integrità come stringa numerica. <br><br> Il numero di sequenza del report viene usato dall'archivio integrità per rilevare i report non aggiornati. Se non specificato, un numero di sequenza viene generato automaticamente dal client di integrità quando viene aggiunto un report. |
-| --timeout -t | Valore predefinito\: 60. |
+| --timeout -t | Impostazione predefinita\: 60. |
 | --ttl | Durata in cui questo report sull'integrità è valido. Questo campo usa il formato ISO8601 per specificare la durata. <br><br> Quando i client creano report periodicamente, devono inviare i report con una frequenza maggiore della durata (TTL). Se i client segnalano la transizione, possono impostare il tempo di esecuzione fino a infinito. Quando la durata (TTL) scade, l'evento di integrità che contiene le informazioni sull'integrità viene rimosso dall'archivio integrità, se RemoveWhenExpired è True, o considerato in stato di errore, se RemoveWhenExpired è False. Se non è specificato, la durata (TTL) viene impostata su un valore infinito. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 ## <a name="sfctl-cluster-select"></a>sfctl cluster select
 Si connette a un endpoint di cluster di Service Fabric.
@@ -277,11 +268,11 @@ In caso di connessione a un cluster sicuro, specificare un percorso assoluto a u
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 ## <a name="sfctl-cluster-show-connection"></a>sfctl-cluster-show-connection
 Mostra i cluster di Service Fabric a cui è connessa l'istanza sfctl.
@@ -290,11 +281,11 @@ Mostra i cluster di Service Fabric a cui è connessa l'istanza sfctl.
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 ## <a name="sfctl-cluster-unprovision"></a>sfctl cluster unprovision
 Annulla il provisioning dei pacchetti di codici o configurazioni di un cluster di Service Fabric.
@@ -307,17 +298,17 @@ Annulla il provisioning dei pacchetti di codici o configurazioni di un cluster d
 | --- | --- |
 | --code-version | Versione del pacchetto di codice del cluster. |
 | --config-version | Versione del manifesto del cluster. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 ## <a name="sfctl-cluster-upgrade"></a>sfctl cluster upgrade
 Avvia l'aggiornamento della versione codice o configurazione di un cluster di Service Fabric.
@@ -341,7 +332,7 @@ Convalida i parametri di aggiornamento forniti e avvia l'aggiornamento della ver
 | --health-check-wait | Intervallo di tempo di attesa dopo il completamento di un dominio di aggiornamento prima di avviare il processo dei controlli integrità. |
 | --replica-set-check-timeout | Tempo massimo per bloccare l'elaborazione di un dominio di aggiornamento ed evitare la perdita di disponibilità quando si verificano problemi imprevisti. <br><br> Quando il timeout scade, l'elaborazione del dominio di aggiornamento procede indipendentemente dai problemi di perdita di disponibilità. Il timeout viene reimpostato all'inizio di ogni dominio di aggiornamento. I valori validi sono compresi tra 0 e 42949672925 inclusi. |
 | --rolling-upgrade-mode | I valori possibili sono\: "Invalid", "UnmonitoredAuto", "UnmonitoredManual", "Monitored".  Impostazione predefinita\: UnmonitoredAuto. |
-| --timeout -t | Valore predefinito\: 60. |
+| --timeout -t | Impostazione predefinita\: 60. |
 | --unhealthy-applications | Percentuale massima consentita di applicazioni non integre prima che venga segnalato un errore. <br><br> Ad esempio, per consentire il 10% di applicazioni non integre, questo valore deve corrispondere a 10. La percentuale rappresenta la percentuale massima tollerata di applicazioni che possono risultare non integre prima che per il cluster venga impostato lo stato Error. Se la percentuale viene rispettata ma esiste almeno un'applicazione non integra, l'integrità viene valutata come Avviso. Questa viene calcolata dividendo il numero di applicazioni non integre rispetto al numero totale di istanze dell'applicazione nel cluster, escluse le applicazioni di tipi inclusi nel parametro ApplicationTypeHealthPolicyMap. Il calcolo viene arrotondato per eccesso per tollerare un errore su un numero limitato di applicazioni. |
 | --unhealthy-nodes | Percentuale massima consentita di nodi non integri prima che venga segnalato un errore. <br><br> Ad esempio, per consentire il 10% di nodi non integri, questo valore deve corrispondere a 10. La percentuale rappresenta la percentuale massima tollerata di nodi che possono risultare non integri prima che per il cluster venga impostato lo stato Error. Se la percentuale viene rispettata ma esiste almeno un nodo non integro, l'integrità viene valutata come Avviso. Tale percentuale viene calcolata dividendo il numero dei nodi non integri per il numero totale di nodi nel cluster. Il calcolo viene arrotondato per eccesso per tollerare un errore su un numero limitato di nodi. Questa percentuale dovrà essere configurata in modo da tenere conto del fatto che in cluster di grandi dimensioni sono sempre presenti nodi inattivi o in fase di riparazione. |
 | --upgrade-domain-delta-unhealthy-nodes | Percentuale massima di riduzione dell'integrità dei nodi del dominio di aggiornamento consentita durante gli aggiornamenti del cluster.  Impostazione predefinita\: 15. <br><br> Il valore delta è misurato tra lo stato dei nodi di dominio all'inizio dell'aggiornamento e lo stato dei nodi di dominio al momento della valutazione dell'integrità. Il controllo viene eseguito dopo il completamento dell'aggiornamento di ciascun dominio di aggiornamento per tutti i domini di aggiornamento completati per assicurarsi che lo stato complessivo dei domini di aggiornamento rientri nei limiti di tolleranza. |
@@ -353,11 +344,11 @@ Convalida i parametri di aggiornamento forniti e avvia l'aggiornamento della ver
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 ## <a name="sfctl-cluster-upgrade-resume"></a>sfctl cluster upgrade-resume
 Consente all'aggiornamento del cluster di passare al dominio di aggiornamento successivo.
@@ -369,17 +360,17 @@ Consente all'aggiornamento del codice o della configurazione del cluster di pass
 |Argomento|Description|
 | --- | --- |
 | --upgrade-domain [Obbligatorio] | Dominio di aggiornamento successivo per questo aggiornamento del cluster. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 ## <a name="sfctl-cluster-upgrade-rollback"></a>sfctl cluster upgrade-rollback
 Esegue il rollback dell'aggiornamento di un cluster di Service Fabric.
@@ -390,17 +381,17 @@ Esegue il rollback dell'aggiornamento di codici o configurazioni di un cluster d
 
 |Argomento|Description|
 | --- | --- |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 ## <a name="sfctl-cluster-upgrade-status"></a>sfctl cluster upgrade-status
 Mostra lo stato di avanzamento dell'aggiornamento del cluster corrente.
@@ -411,17 +402,17 @@ Mostra lo stato di avanzamento corrente dell'aggiornamento del cluster in corso.
 
 |Argomento|Description|
 | --- | --- |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 ## <a name="sfctl-cluster-upgrade-update"></a>sfctl cluster upgrade-update
 Aggiorna i parametri di aggiornamento di un cluster di Service Fabric.
@@ -441,7 +432,7 @@ Aggiorna i parametri di aggiornamento di un cluster di Service Fabric.
 | --health-check-wait | Intervallo di tempo di attesa dopo il completamento di un dominio di aggiornamento prima di avviare il processo dei controlli integrità. |
 | --replica-set-check-timeout | Tempo massimo per bloccare l'elaborazione di un dominio di aggiornamento ed evitare la perdita di disponibilità quando si verificano problemi imprevisti. <br><br> Quando il timeout scade, l'elaborazione del dominio di aggiornamento procede indipendentemente dai problemi di perdita di disponibilità. Il timeout viene reimpostato all'inizio di ogni dominio di aggiornamento. I valori validi sono compresi tra 0 e 42949672925 inclusi. |
 | --rolling-upgrade-mode | I valori possibili sono\: "Invalid", "UnmonitoredAuto", "UnmonitoredManual", "Monitored".  Impostazione predefinita\: UnmonitoredAuto. |
-| --timeout -t | Valore predefinito\: 60. |
+| --timeout -t | Impostazione predefinita\: 60. |
 | --unhealthy-applications | Percentuale massima consentita di applicazioni non integre prima che venga segnalato un errore. <br><br> Ad esempio, per consentire il 10% di applicazioni non integre, questo valore deve corrispondere a 10. La percentuale rappresenta la percentuale massima tollerata di applicazioni che possono risultare non integre prima che per il cluster venga impostato lo stato Error. Se la percentuale viene rispettata ma esiste almeno un'applicazione non integra, l'integrità viene valutata come Avviso. Questa viene calcolata dividendo il numero di applicazioni non integre rispetto al numero totale di istanze dell'applicazione nel cluster, escluse le applicazioni di tipi inclusi nel parametro ApplicationTypeHealthPolicyMap. Il calcolo viene arrotondato per eccesso per tollerare un errore su un numero limitato di applicazioni. |
 | --unhealthy-nodes | Percentuale massima consentita di nodi non integri prima che venga segnalato un errore. <br><br> Ad esempio, per consentire il 10% di nodi non integri, questo valore deve corrispondere a 10. La percentuale rappresenta la percentuale massima tollerata di nodi che possono risultare non integri prima che per il cluster venga impostato lo stato Error. Se la percentuale viene rispettata ma esiste almeno un nodo non integro, l'integrità viene valutata come Avviso. Tale percentuale viene calcolata dividendo il numero dei nodi non integri per il numero totale di nodi nel cluster. Il calcolo viene arrotondato per eccesso per tollerare un errore su un numero limitato di nodi. Questa percentuale dovrà essere configurata in modo da tenere conto del fatto che in cluster di grandi dimensioni sono sempre presenti nodi inattivi o in fase di riparazione. |
 | --upgrade-domain-delta-unhealthy-nodes | Percentuale massima di riduzione dell'integrità dei nodi del dominio di aggiornamento consentita durante gli aggiornamenti del cluster.  Impostazione predefinita\: 15. <br><br> Il valore delta è misurato tra lo stato dei nodi di dominio all'inizio dell'aggiornamento e lo stato dei nodi di dominio al momento della valutazione dell'integrità. Il controllo viene eseguito dopo il completamento dell'aggiornamento di ciascun dominio di aggiornamento per tutti i domini di aggiornamento completati per assicurarsi che lo stato complessivo dei domini di aggiornamento rientri nei limiti di tolleranza. |
@@ -454,11 +445,11 @@ Aggiorna i parametri di aggiornamento di un cluster di Service Fabric.
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -7,12 +7,12 @@ ms.service: app-service
 ms.topic: conceptual
 ms.date: 01/06/2017
 ms.author: yegu
-ms.openlocfilehash: 8e15d51062993bc6e9913d49d3fe67c1a8b9cd03
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 11c854491ab030394eb61964979cb04a5a4b489b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122628"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433389"
 ---
 # <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>Creare un'app Web e Cache Redis di Azure usando un modello
 
@@ -20,12 +20,12 @@ ms.locfileid: "74122628"
 
 In questo argomento viene illustrato come creare un modello di Azure Resource Manager che consente di distribuire un'app Web di Azure con Cache Redis di Azure. Verrà illustrato come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze.
 
-Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](../azure-resource-manager/resource-group-authoring-templates.md). Per informazioni sulla sintassi e le proprietà JSON per i tipi di risorse cache, vedere [Tipi di risorse Microsoft.Cache](/azure/templates/microsoft.cache/allversions).
+Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](../azure-resource-manager/templates/template-syntax.md). Per informazioni sulla sintassi e le proprietà JSON per i tipi di risorse cache, vedere [Tipi di risorse Microsoft.Cache](/azure/templates/microsoft.cache/allversions).
 
 Per il modello completo, vedere [Web App with Azure Cache for Redis template](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-with-redis-cache/azuredeploy.json) (Modello di app Web con Cache Redis di Azure).
 
 ## <a name="what-you-will-deploy"></a>Elementi distribuiti
-In questo modello verrà distribuito quanto segue:
+In questo modello, verrà distribuito quanto segue:
 
 * App Web di Azure
 * Cache Redis di Azure
@@ -40,7 +40,7 @@ Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
 [!INCLUDE [cache-deploy-parameters](../../includes/cache-deploy-parameters.md)]
 
 ## <a name="variables-for-names"></a>Variabili per i nomi
-Questo modello si serve di variabili per costruire i nomi delle risorse. Tramite la funzione [uniqueString](../azure-resource-manager/resource-group-template-functions-string.md#uniquestring) viene creato un valore in base all'ID del gruppo di risorse.
+Questo modello si serve di variabili per costruire i nomi delle risorse. Tramite la funzione [uniqueString](../azure-resource-manager/templates/template-functions-string.md#uniquestring) viene creato un valore in base all'ID del gruppo di risorse.
 
     "variables": {
       "hostingPlanName": "[concat('hostingplan', uniqueString(resourceGroup().id))]",
@@ -76,7 +76,7 @@ Il modello crea la cache nella stessa posizione in cui si trova il gruppo di ris
     }
 
 
-### <a name="web-app"></a>App Web
+### <a name="web-app"></a>app Web
 Crea l'app Web con il nome specificato nella variabile **webSiteName** .
 
 Si noti che l'app Web è configurata con proprietà di impostazione dell'app che consentono di usare Cache Redis di Azure. Queste impostazioni dell'app vengono create dinamicamente in base ai valori forniti durante la distribuzione.

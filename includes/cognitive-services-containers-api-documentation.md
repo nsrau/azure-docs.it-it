@@ -5,17 +5,17 @@ ms.date: 08/22/2019
 ms.service: cognitive-services
 ms.topic: include
 ms.openlocfilehash: 081155c8984f39cc9cc8e905eb108c07dee98d2e
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
+ms.lasthandoff: 12/28/2019
 ms.locfileid: "70034436"
 ---
 ## <a name="validate-that-a-container-is-running"></a>Verificare che il contenitore sia in esecuzione 
 
-Per verificare se il contenitore è in esecuzione, sono disponibili diverse opzioni. Individuare l'indirizzo *IP esterno* e la porta esposta del contenitore in questione e aprire il Web browser preferito. Usare i vari URL di richiesta indicati di seguito per verificare che il contenitore sia in esecuzione. Gli URL di richiesta di esempio elencati `http://localhost:5000`di seguito sono, ma il contenitore specifico può variare. Tenere presente che si sta per fare affidamento sull'indirizzo *IP esterno* del contenitore e sulla porta esposta.
+Per verificare se il contenitore è in esecuzione, sono disponibili diverse opzioni. Individuare l'indirizzo *IP esterno* e la porta esposta del contenitore in questione e aprire il Web browser preferito. Usare i vari URL di richiesta indicati di seguito per verificare che il contenitore sia in esecuzione. Gli URL di richiesta di esempio elencati di seguito sono `http://localhost:5000`, ma il contenitore specifico può variare. Tenere presente che si sta per fare affidamento sull'indirizzo *IP esterno* del contenitore e sulla porta esposta.
 
-| URL richiesta | Scopo |
+| URL richiesta | Finalità |
 |--|--|
 | `http://localhost:5000/` | Il contenitore fornisce una home page. |
 | `http://localhost:5000/status` | Richiesta con HTTP GET, per verificare che il contenitore sia in esecuzione senza causare una query dell'endpoint. Questa richiesta può essere usata per i [probe di attività e di idoneità](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) di Kubernetes. |

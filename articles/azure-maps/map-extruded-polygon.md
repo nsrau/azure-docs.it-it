@@ -1,6 +1,6 @@
 ---
-title: Aggiungere un livello poligono di estrusione a Maps di Azure | Microsoft Docs
-description: Come aggiungere un livello poligono di estrusione ad Azure Maps Web SDK.
+title: Aggiungere un livello di estrusione poligono a Maps di Azure | Microsoft Docs
+description: Come aggiungere un livello di estrusione poligono ad Azure Maps Web SDK.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 10/08/2019
@@ -9,14 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: e6858359549f6a54513eda7bc692adcbc7d7e71b
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: a357545bedde6a4e859a671005083a0fc665340d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484344"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432847"
 ---
-# <a name="add-an-extrusion-polygon-layer-to-the-map"></a>Aggiungere un livello poligono di estrusione alla mappa
+# <a name="add-a-polygon-extrusion-layer-to-the-map"></a>Aggiungere un livello di estrusione poligono alla mappa
 
 Questo articolo illustra come usare il livello di estrusione poligono per eseguire il rendering delle aree di `Polygon` e `MultiPolygon` geometrie di funzionalità come forme estruse sulla mappa. Azure Maps Web SDK supporta anche la creazione di geometrie Circle come definito nello [schema GeoJSON esteso](extend-geojson.md#circle). Questi cerchi vengono trasformati in poligoni quando vengono sottoposti a rendering sulla mappa. Tutte le geometrie della funzionalità possono essere facilmente aggiornate anche se incapsulate con l' [Atlante. Classe Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) .
 

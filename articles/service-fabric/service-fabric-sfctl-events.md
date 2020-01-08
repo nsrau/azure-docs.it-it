@@ -1,25 +1,16 @@
 ---
-title: INTERFACCIA della riga di comando di Azure Service Fabric-eventi sfctl | Microsoft Docs
+title: INTERFACCIA della riga di comando di Azure Service Fabric-eventi sfctl
 description: Descrive i comandi degli eventi sfctl dell'interfaccia della riga Service Fabric di comando.
-services: service-fabric
-documentationcenter: na
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: 858fd1971a22b1db2d243838558c3792d3a60cc9
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 35dfbdb3f8b84e797d35c8d7ec1020509f7e8b57
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901976"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466040"
 ---
 # <a name="sfctl-events"></a>eventi sfctl
 Recuperare gli eventi dall'archivio eventi, se il servizio EventStore è già installato.
@@ -56,17 +47,17 @@ La risposta è un elenco di oggetti ApplicationEvent.
 | --Events-types-filtro | Si tratta di una stringa separata da virgole che specifica i tipi di FabricEvents che devono essere inclusi solo nella risposta. |
 | --Exclude-Analysis-Events | Questo param Disabilita il recupero di AnalysisEvents se true viene passato. |
 | --Skip-Correlation-Lookup | Questo param Disabilita la ricerca di informazioni CorrelatedEvents se viene passato true. in caso contrario, il CorrelationEvents viene elaborato e il campo HasCorrelatedEvents in ogni FabricEvent viene popolato. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 ## <a name="sfctl-events-all-nodes-list"></a>elenco tutti i nodi di eventi sfctl
 Ottiene tutti gli eventi correlati ai nodi.
@@ -82,17 +73,17 @@ La risposta è un elenco di oggetti NodeEvent.
 | --Events-types-filtro | Si tratta di una stringa separata da virgole che specifica i tipi di FabricEvents che devono essere inclusi solo nella risposta. |
 | --Exclude-Analysis-Events | Questo param Disabilita il recupero di AnalysisEvents se true viene passato. |
 | --Skip-Correlation-Lookup | Questo param Disabilita la ricerca di informazioni CorrelatedEvents se viene passato true. in caso contrario, il CorrelationEvents viene elaborato e il campo HasCorrelatedEvents in ogni FabricEvent viene popolato. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 ## <a name="sfctl-events-all-partitions-list"></a>tutti gli eventi di sfctl-partizioni-elenco
 Ottiene tutti gli eventi correlati alle partizioni.
@@ -108,17 +99,17 @@ La risposta è un elenco di oggetti PartitionEvent.
 | --Events-types-filtro | Si tratta di una stringa separata da virgole che specifica i tipi di FabricEvents che devono essere inclusi solo nella risposta. |
 | --Exclude-Analysis-Events | Questo param Disabilita il recupero di AnalysisEvents se true viene passato. |
 | --Skip-Correlation-Lookup | Questo param Disabilita la ricerca di informazioni CorrelatedEvents se viene passato true. in caso contrario, il CorrelationEvents viene elaborato e il campo HasCorrelatedEvents in ogni FabricEvent viene popolato. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 ## <a name="sfctl-events-all-services-list"></a>tutti gli eventi di sfctl-Services-List
 Ottiene tutti gli eventi correlati ai servizi.
@@ -134,17 +125,17 @@ La risposta è un elenco di oggetti ServiceEvent.
 | --Events-types-filtro | Si tratta di una stringa separata da virgole che specifica i tipi di FabricEvents che devono essere inclusi solo nella risposta. |
 | --Exclude-Analysis-Events | Questo param Disabilita il recupero di AnalysisEvents se true viene passato. |
 | --Skip-Correlation-Lookup | Questo param Disabilita la ricerca di informazioni CorrelatedEvents se viene passato true. in caso contrario, il CorrelationEvents viene elaborato e il campo HasCorrelatedEvents in ogni FabricEvent viene popolato. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 ## <a name="sfctl-events-application-list"></a>applicazione eventi sfctl-elenco
 Ottiene gli eventi correlati all'applicazione.
@@ -161,17 +152,17 @@ La risposta è un elenco di oggetti ApplicationEvent.
 | --Events-types-filtro | Si tratta di una stringa separata da virgole che specifica i tipi di FabricEvents che devono essere inclusi solo nella risposta. |
 | --Exclude-Analysis-Events | Questo param Disabilita il recupero di AnalysisEvents se true viene passato. |
 | --Skip-Correlation-Lookup | Questo param Disabilita la ricerca di informazioni CorrelatedEvents se viene passato true. in caso contrario, il CorrelationEvents viene elaborato e il campo HasCorrelatedEvents in ogni FabricEvent viene popolato. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 ## <a name="sfctl-events-cluster-list"></a>cluster di eventi sfctl-elenco
 Ottiene tutti gli eventi correlati al cluster.
@@ -187,17 +178,17 @@ La risposta è un elenco di oggetti ClusterEvent.
 | --Events-types-filtro | Si tratta di una stringa separata da virgole che specifica i tipi di FabricEvents che devono essere inclusi solo nella risposta. |
 | --Exclude-Analysis-Events | Questo param Disabilita il recupero di AnalysisEvents se true viene passato. |
 | --Skip-Correlation-Lookup | Questo param Disabilita la ricerca di informazioni CorrelatedEvents se viene passato true. in caso contrario, il CorrelationEvents viene elaborato e il campo HasCorrelatedEvents in ogni FabricEvent viene popolato. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 ## <a name="sfctl-events-node-list"></a>elenco di nodi degli eventi di sfctl
 Ottiene gli eventi correlati al nodo.
@@ -214,17 +205,17 @@ La risposta è un elenco di oggetti NodeEvent.
 | --Events-types-filtro | Si tratta di una stringa separata da virgole che specifica i tipi di FabricEvents che devono essere inclusi solo nella risposta. |
 | --Exclude-Analysis-Events | Questo param Disabilita il recupero di AnalysisEvents se true viene passato. |
 | --Skip-Correlation-Lookup | Questo param Disabilita la ricerca di informazioni CorrelatedEvents se viene passato true. in caso contrario, il CorrelationEvents viene elaborato e il campo HasCorrelatedEvents in ogni FabricEvent viene popolato. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 ## <a name="sfctl-events-partition-all-replicas-list"></a>sfctl di eventi partizione-tutti-repliche-elenco
 Ottiene tutti gli eventi correlati alle repliche per una partizione.
@@ -241,17 +232,17 @@ La risposta è un elenco di oggetti ReplicaEvent.
 | --Events-types-filtro | Si tratta di una stringa separata da virgole che specifica i tipi di FabricEvents che devono essere inclusi solo nella risposta. |
 | --Exclude-Analysis-Events | Questo param Disabilita il recupero di AnalysisEvents se true viene passato. |
 | --Skip-Correlation-Lookup | Questo param Disabilita la ricerca di informazioni CorrelatedEvents se viene passato true. in caso contrario, il CorrelationEvents viene elaborato e il campo HasCorrelatedEvents in ogni FabricEvent viene popolato. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 ## <a name="sfctl-events-partition-list"></a>elenco di partizioni degli eventi di sfctl
 Ottiene gli eventi correlati alla partizione.
@@ -268,17 +259,17 @@ La risposta è un elenco di oggetti PartitionEvent.
 | --Events-types-filtro | Si tratta di una stringa separata da virgole che specifica i tipi di FabricEvents che devono essere inclusi solo nella risposta. |
 | --Exclude-Analysis-Events | Questo param Disabilita il recupero di AnalysisEvents se true viene passato. |
 | --Skip-Correlation-Lookup | Questo param Disabilita la ricerca di informazioni CorrelatedEvents se viene passato true. in caso contrario, il CorrelationEvents viene elaborato e il campo HasCorrelatedEvents in ogni FabricEvent viene popolato. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 ## <a name="sfctl-events-partition-replica-list"></a>partizione degli eventi di sfctl-replica-elenco
 Ottiene gli eventi correlati alla replica di partizione.
@@ -296,17 +287,17 @@ La risposta è un elenco di oggetti ReplicaEvent.
 | --Events-types-filtro | Si tratta di una stringa separata da virgole che specifica i tipi di FabricEvents che devono essere inclusi solo nella risposta. |
 | --Exclude-Analysis-Events | Questo param Disabilita il recupero di AnalysisEvents se true viene passato. |
 | --Skip-Correlation-Lookup | Questo param Disabilita la ricerca di informazioni CorrelatedEvents se viene passato true. in caso contrario, il CorrelationEvents viene elaborato e il campo HasCorrelatedEvents in ogni FabricEvent viene popolato. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 ## <a name="sfctl-events-service-list"></a>servizio eventi sfctl-elenco
 Ottiene un evento correlato al servizio.
@@ -323,15 +314,15 @@ La risposta è un elenco di oggetti ServiceEvent.
 | --Events-types-filtro | Si tratta di una stringa separata da virgole che specifica i tipi di FabricEvents che devono essere inclusi solo nella risposta. |
 | --Exclude-Analysis-Events | Questo param Disabilita il recupero di AnalysisEvents se true viene passato. |
 | --Skip-Correlation-Lookup | Questo param Disabilita la ricerca di informazioni CorrelatedEvents se viene passato true. in caso contrario, il CorrelationEvents viene elaborato e il campo HasCorrelatedEvents in ogni FabricEvent viene popolato. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 

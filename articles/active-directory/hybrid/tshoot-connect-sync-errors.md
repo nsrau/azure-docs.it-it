@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d824606b1b602d006e53be619d6d955ac2cfb71f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 745ddcc95bb91e61478307265aec1ac8a7ebba54
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74213021"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609197"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Risoluzione degli problemi durante la sincronizzazione
 Gli errori potrebbero verificarsi durante la sincronizzazione dei dati dell'identità da Windows Server Active Directory (AD DS) ad Azure Active Directory (Azure AD). L'articolo offre una panoramica delle diverse tipologie di errori di sincronizzazione, di alcuni scenari possibili che causano tali errori e delle possibili soluzioni per correggere questi errori. In questo articolo vengono descritti soltanto gli errori più comuni.
@@ -41,14 +41,14 @@ Quando si verificano un errore durante l'esportazione in Azure AD significa che 
 
 ## <a name="data-mismatch-errors"></a>Errori di mancata corrispondenza dei dati
 ### <a name="invalidsoftmatch"></a>InvalidSoftMatch
-#### <a name="description"></a>DESCRIZIONE
+#### <a name="description"></a>Description
 * Quando il \(motore di sincronizzazione\) di Azure AD Connect invia il comando ad Azure Active Directory di aggiungere o aggiornare gli oggetti, Azure AD associa l'oggetto in ingresso usando l'attributo **sourceAnchor** all'attributo **immutableId** degli oggetti presenti in Azure AD. Tale corrispondenza viene detta **corrispondenza rigida**.
 * Quando Azure AD **non trova** alcun oggetto che corrisponda all'attributo **immutableId** con l'attributo **sourceAnchor** dell'oggetto in ingresso, prima di eseguire il provisioning di un nuovo oggetto, esegue il fallback per usare gli attributi UserPrincipalName e ProxyAddresses per trovare una corrispondenza. Tale corrispondenza viene detta **corrispondenza flessibile**. La corrispondenza flessibile è pensata per associare gli oggetti già presenti in Azure AD (che sono distribuiti in Azure AD) ai nuovi oggetti aggiunti o aggiornati durante la sincronizzazione che rappresentano la stessa entità (utenti, gruppi) in locale.
 * L'errore **InvalidSoftMatch** si verifica quando la corrispondenza rigida non trova oggetti corrispondenti **E** la corrispondenza flessibile trova un oggetto corrispondente, che però ha un differente valore dell'attributo *immutableId* rispetto all'attributo *SourceAnchor* dell'oggetto in ingresso, indicando che l'oggetto corrispondente è stato sincronizzato con un altro oggetto dall'Active Directory locale.
 
 In altre parole, affinché la corrispondenza flessibile funzioni, l'oggetto con cui stabilire una corrispondenza di questo tipo non deve avere alcun valore per l'attributo *immutableId*. Se la corrispondenza rigida di un qualsiasi oggetto con l'attributo *immutableId* impostato con un valore non riesce, ma tale oggetto soddisfa i criteri della corrispondenza flessibile, l'operazione restituirà come risultato un errore di sincronizzazione di tipo InvalidSoftMatch.
 
-Schema di Azure Active Directory non consente a due o più oggetti di avere lo stesso valore degli attributi seguenti. \(L'elenco è incompleto.\)
+Lo schema di Azure Active Directory non consente a due o più oggetti di avere lo stesso valore degli attributi seguenti, \)L'elenco è incompleto.\(
 
 * ProxyAddresses
 * UserPrincipalName
@@ -109,7 +109,7 @@ I report sugli errori di sincronizzazione all'interno di Azure AD Connect Health
 * [Gli attributi duplicati o non validi impediscono la sincronizzazione delle directory in Office 365](https://support.microsoft.com/kb/2647098)
 
 ### <a name="objecttypemismatch"></a>ObjectTypeMismatch
-#### <a name="description"></a>DESCRIZIONE
+#### <a name="description"></a>Description
 Quando Azure AD tenta una corrispondenza flessibile tra due oggetti, è possibile che i due oggetti appartenenti a una "tipologia di oggetto" differente (ad esempio, utente, gruppo, contatto e così via) abbiano gli stessi valori per gli attributi usati per eseguire tale corrispondenza. Poiché la duplicazione di questi attributi non è consentita in Azure AD, l'operazione può portare alla restituzione di un errore di sincronizzazione "ObjectTypeMismatch".
 
 #### <a name="example-scenarios-for-objecttypemismatch-error"></a>Scenari di esempio per l'errore ObjectTypeMismatch
@@ -130,8 +130,8 @@ La causa più comune dell'errore ObjectTypeMismatch è che due oggetti di tipo d
 
 ## <a name="duplicate-attributes"></a>Attributi duplicati
 ### <a name="attributevaluemustbeunique"></a>AttributeValueMustBeUnique
-#### <a name="description"></a>DESCRIZIONE
-Schema di Azure Active Directory non consente a due o più oggetti di avere lo stesso valore degli attributi seguenti. vale a dire che ogni oggetto in Azure AD è obbligato ad avere un valore univoco di questi attributi a una determinata istanza.
+#### <a name="description"></a>Description
+Lo schema di Azure Active Directory non consente a due o più oggetti di avere lo stesso valore degli attributi seguenti, vale a dire che ogni oggetto in Azure AD è obbligato ad avere un valore univoco di questi attributi a una determinata istanza.
 
 * ProxyAddresses
 * UserPrincipalName
@@ -168,7 +168,7 @@ La causa più comune dell'errore AttributeValueMustBeUnique è che due oggetti c
 
 ## <a name="data-validation-failures"></a>Errori di convalida dei dati
 ### <a name="identitydatavalidationfailed"></a>IdentityDataValidationFailed
-#### <a name="description"></a>DESCRIZIONE
+#### <a name="description"></a>Description
 Azure Active Directory applica varie restrizioni sui dati prima di consentire la scrittura dei dati nella directory al fine di garantire agli utenti finali di beneficiare delle migliori esperienze mentre usano le applicazioni che dipendono da questi dati.
 
 #### <a name="scenarios"></a>Scenari
@@ -182,7 +182,7 @@ a. Assicurarsi che l'attributo userPrincipalName contenga caratteri supportati e
 * [Preparazione per il provisioning degli utenti tramite la sincronizzazione delle directory a Office 365](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
 ### <a name="federateddomainchangeerror"></a>FederatedDomainChangeError
-#### <a name="description"></a>DESCRIZIONE
+#### <a name="description"></a>Description
 Questo è un caso che restituisce un errore di sincronizzazione **"FederatedDomainChangeError"** quando il suffisso dell'attributo UserPrincipalName di un utente viene modificato da un dominio federato a un altro dominio federato.
 
 #### <a name="scenarios"></a>Scenari
@@ -204,7 +204,7 @@ Se il suffisso UserPrincipalName di un utente è stato aggiornato da bob@**conto
 * [Le modifiche non sono sincronizzate dallo strumento di sincronizzazione di Azure Active Directory dopo aver modificato l'UPN di un account utente per usare un dominio federato diverso](https://support.microsoft.com/help/2669550/changes-aren-t-synced-by-the-azure-active-directory-sync-tool-after-you-change-the-upn-of-a-user-account-to-use-a-different-federated-domain)
 
 ## <a name="largeobject"></a>LargeObject
-### <a name="description"></a>DESCRIZIONE
+### <a name="description"></a>Description
 Quando un attributo supera il limite di dimensioni consentite, di lunghezza o di conteggio impostati dallo schema di Azure Active Directory, la sincronizzazione restituisce come risultato un errore di sincronizzazione di tipo **LargeObject** o **ExceededAllowedLength**. In genere questo errore si verifica per gli attributi seguenti:
 
 * userCertificate
@@ -223,7 +223,7 @@ Quando un attributo supera il limite di dimensioni consentite, di lunghezza o di
 
 ## <a name="existing-admin-role-conflict"></a>Conflitto tra ruoli di amministratore esistenti
 
-### <a name="description"></a>DESCRIZIONE
+### <a name="description"></a>Description
 Un **conflitto tra ruoli di amministratore esistenti** si verifica per un oggetto utente durante la sincronizzazione quando tale oggetto ha:
 
 - autorizzazioni amministrative e
@@ -235,12 +235,12 @@ Azure AD Connect non è autorizzato a stabilire una corrispondenza flessibile di
 
 
 ### <a name="how-to-fix"></a>Modalità di correzione
-Per risolvere il problema, eseguire una di queste operazioni:
+Per risolvere il problema, eseguire questi passaggi:
 
- - Rimuovere l'account Azure AD (proprietario) da tutti i ruoli di amministratore. 
- - **Eliminare** definitivamente l'oggetto in quarantena nel cloud. 
- - Il ciclo di sincronizzazione successivo si occuperà della corrispondenza flessibile dell'utente locale con l'account cloud (poiché l'utente del cloud non è più una GA globale). 
- - Ripristinare le appartenenze ai ruoli per il proprietario. 
+1. Rimuovere l'account Azure AD (proprietario) da tutti i ruoli di amministratore. 
+2. **Eliminare** definitivamente l'oggetto in quarantena nel cloud. 
+3. Il ciclo di sincronizzazione successivo si occuperà della corrispondenza flessibile dell'utente locale con l'account cloud (poiché l'utente del cloud non è più una GA globale). 
+4. Ripristinare le appartenenze ai ruoli per il proprietario. 
 
 >[!NOTE]
 >Dopo aver stabilito la corrispondenza flessibile tra i due oggetti, sarà possibile assegnare nuovamente il ruolo amministrativo all'oggetto utente esistente.

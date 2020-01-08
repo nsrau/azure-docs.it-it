@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 10/23/2019
 ms.author: cynthn
-ms.openlocfilehash: 68315b1b0d290b107fe2d28a9e3b49be009b78b8
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: d2c8e599e44e48517920862e1fcf83e1a5e24910
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74782242"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647629"
 ---
 # <a name="preview-azure-spot-vms-for-virtual-machine-scale-sets"></a>Anteprima: VM di Azure spot per i set di scalabilità di macchine virtuali 
 
@@ -51,11 +51,11 @@ Gli utenti possono acconsentire esplicitamente a ricevere notifiche in-VM tramit
 
 Per distribuire le VM spot nei set di scalabilità, è possibile impostare il nuovo flag di *priorità* su *spot*. Tutte le macchine virtuali nel set di scalabilità verranno impostate su spot. Per creare un set di scalabilità con macchine virtuali spot, usare uno dei metodi seguenti:
 - [Azure portal](#portal)
-- [interfaccia della riga di comando di Azure](#azure-cli)
+- [Interfaccia della riga di comando di Azure](#azure-cli)
 - [Azure PowerShell](#powershell)
 - [Modelli di Gestione risorse di Azure](#resource-manager-templates)
 
-## <a name="portal"></a>di Microsoft Azure
+## <a name="portal"></a>Portale
 
 Il processo per creare un set di scalabilità che usa le VM spot è identico a quello descritto nell' [articolo introduttivo](quick-create-portal.md). Quando si distribuisce un set di scalabilità, è possibile scegliere di impostare il flag spot e i criteri di rimozione: ![creare un set di scalabilità con macchine virtuali spot](media/virtual-machine-scale-sets-use-spot/vmss-spot-portal-max-price.png)
 
@@ -151,7 +151,7 @@ Nell'esempio seguente viene creato un set di scalabilità di *Linux denominato s
 
 **D:** Come viene gestita la quota per spot?
 
-**R:** Le istanze di spot e le istanze standard avranno pool di quote distinti. La quota spot verrà condivisa tra le macchine virtuali e le istanze del set di scalabilità. Per altre informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+**R:** Le istanze di spot e le istanze standard avranno pool di quote distinti. La quota spot verrà condivisa tra le macchine virtuali e le istanze del set di scalabilità. Per altre informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 
 **D:** È possibile richiedere una quota aggiuntiva per spot?
@@ -192,8 +192,8 @@ Nell'esempio seguente viene creato un set di scalabilità di *Linux denominato s
 
 | Canali di Azure               | Disponibilità di macchine virtuali di Azure spot       |
 |------------------------------|-----------------------------------|
-| Contratto Enterprise Agreement         | SÌ                               |
-| Pagamento in base al consumo                | SÌ                               |
+| Contratto Enterprise Agreement         | Sì                               |
+| Pagamento in base al consumo                | Sì                               |
 | Provider di servizi cloud | [Contatta il tuo partner](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
 | Vantaggi                     | Non disponibile                     |
 | Eventi sponsorizzati                    | Non disponibile                     |

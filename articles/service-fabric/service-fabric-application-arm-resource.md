@@ -1,25 +1,14 @@
 ---
-title: Distribuire e aggiornare applicazioni e servizi con Azure Resource Manager | Microsoft Docs
+title: Distribuire e aggiornare con Azure Resource Manager
 description: Informazioni su come distribuire applicazioni e servizi in un cluster di Service Fabric usando un modello di Azure Resource Manager.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/06/2017
-ms.author: atsenthi
-ms.openlocfilehash: 0bec430cbb98452f8c852c96053f3f699ce5098e
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: a2dfe54bf2c6b4fa8814f10c10576a73727a7417
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71153595"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610251"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gestire applicazioni e servizi come risorse di Azure Resource Manager
 
@@ -28,8 +17,8 @@ ms.locfileid: "71153595"
 È consigliabile distribuire in questo modo tutte le applicazioni di configurazione, governance o gestione cluster necessarie nel cluster, come [Patch Orchestration Application](service-fabric-patch-orchestration-application.md), i watchdog e tutte le applicazioni che devono essere eseguite nel cluster prima della distribuzione di altre applicazioni o servizi. 
 
 Se possibile, gestire le applicazioni come risorse di Resource Manager in modo da usufruire dei vantaggi seguenti.
-* Audit Trail: Gestione risorse controlla ogni operazione e mantiene un *log attività* dettagliato che consente di tracciare le modifiche apportate a queste applicazioni e al cluster.
-* Controllo degli accessi in base al ruolo (RBAC): La gestione dell'accesso ai cluster e alle applicazioni distribuite nel cluster può essere eseguita tramite lo stesso modello di Gestione risorse.
+* Audit trail: Resource Manager controlla ogni operazione e mantiene un *log attività* dettagliato che consente di tenere traccia di tutte le modifiche apportate a queste applicazioni e al cluster.
+* Controllo degli accessi in base al ruolo: è possibile gestire l'accesso ai cluster e alle applicazioni distribuite nel cluster tramite lo stesso modello di Resource Manager.
 * Azure Resource Manager, tramite il portale di Azure, diventa un punto di accesso centralizzato per la gestione del cluster e delle distribuzioni di applicazioni critiche.
 
 Il frammento seguente illustra le diverse tipologie di risorse che è possibile gestire tramite un modello:
@@ -67,7 +56,7 @@ Il frammento seguente illustra le diverse tipologie di risorse che è possibile 
 1. Preparare il modello di Resource Manager del cluster per la distribuzione. Per altre informazioni in proposito, vedere [Creare un cluster di Service Fabric usando Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 2. Esaminare alcune delle applicazioni che si intende distribuire nel cluster. Esistono applicazioni che saranno sempre in esecuzione e con cui altre applicazioni potrebbero stabilire dipendenze? È prevista la distribuzione di applicazioni di configurazione o governance del cluster? Questi tipi di applicazioni possono essere gestiti in modo ottimale tramite un modello di Resource Manager, come illustrato in precedenza. 
 3. Dopo aver individuato le applicazioni da distribuire in questo modo, è necessario crearne un pacchetto, comprimerlo e inserirlo in una condivisione file. La condivisione deve essere accessibile tramite un endpoint REST per poter essere utilizzata da Azure Resource Manager durante la distribuzione.
-4. Nel modello di Resource Manager, sotto la dichiarazione del cluster descrivere le proprietà di ogni applicazione. Tali proprietà includono il numero di repliche o istanze e tutte le catene di dipendenze tra le risorse (altre applicazioni o servizi). Per un elenco completo delle proprietà, vedere le [specifiche dell'API REST Swagger](https://aka.ms/sfrpswaggerspec). Si noti che ciò non sostituisce i manifesti dell'applicazione o del servizio, ma descrive parte del loro contenuto all'interno del modello di Resource Manager del cluster. Di seguito è riportato un modello di esempio che include la distribuzione di un servizio senza stato *Service1* e un servizio con stato *Service2* come parte di *Application1*:
+4. Nel modello di Resource Manager, sotto la dichiarazione del cluster descrivere le proprietà di ogni applicazione. Tali proprietà includono il numero di repliche o istanze e tutte le catene di dipendenze tra le risorse (altre applicazioni o servizi). Per un elenco delle proprietà complete, vedere la [specifica di spavalderia dell'API REST](https://aka.ms/sfrpswaggerspec). Si noti che questa operazione non sostituisce i manifesti dell'applicazione o del servizio, ma descrive alcuni elementi che li contiene come parte del modello di Gestione risorse del cluster. Di seguito è riportato un modello di esempio che include la distribuzione di un servizio senza stato *Service1* e un servizio con stato *Service2* come parte di *Application1*:
 
    ```json
    {
@@ -275,7 +264,7 @@ La semplice rimozione di Microsoft. ServiceFabric/cluster/applicazione dal model
 Se il cluster è già attivo e si vogliono gestire come risorse di Resource Manager alcune applicazioni già distribuite nel cluster, invece di rimuovere le applicazioni e ridistribuirle è possibile eseguire una chiamata PUT usando le stesse API affinché le applicazioni vengano riconosciute come risorse di Resource Manager. Per altre informazioni, vedere [che cos'è il modello di risorsa Service Fabric applicazione?](https://docs.microsoft.com/azure/service-fabric/service-fabric-concept-resource-model)
 
 > [!NOTE]
-> Per consentire l'aggiornamento di un cluster per ignorare le app non integre, il cliente può specificare "maxPercentUnhealthyApplications: 100 "nella sezione" upgradeDescription/healthPolicy "; le descrizioni dettagliate di tutte le impostazioni sono disponibili nella [documentazione dei criteri di aggiornamento del cluster API REST di Service Fabrics](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
+> Per consentire un aggiornamento del cluster e ignorare le app non integre, il cliente può specificare "maxPercentUnhealthyApplications: 100" nella sezione "upgradeDescription/healthPolicy". Descrizioni dettagliate per tutte le impostazioni sono disponibili nella [documentazione dei criteri di aggiornamento del cluster API REST di Service Fabric](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

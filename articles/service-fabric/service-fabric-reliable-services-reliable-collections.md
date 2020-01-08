@@ -1,25 +1,14 @@
 ---
-title: Introduzione a Reliable Collections nei servizi con stato di Azure Service Fabric | Microsoft Docs
+title: Introduzione a reliable Collections
 description: I servizi con stato di Service Fabric forniscono raccolte Reliable Collections che consentono di sviluppare applicazioni cloud a disponibilità elevata, scalabili e a bassa latenza.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: masnider,rajak,zhol
-ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 1/3/2019
-ms.author: atsenthi
-ms.openlocfilehash: a7b30003fd02f8ab2e367311cdb3f56c80dbb4b2
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 48fa682f4c017f66911729e1f581f3aa91cdc28d
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599274"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609724"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Introduzione alle Reliable Collections nei servizi con stato di Service Fabric
 
@@ -34,11 +23,11 @@ La differenza principale tra le raccolte Reliable Collections e altre tecnologie
 
 Le raccolte Reliable Collections possono essere considerate l'evoluzione naturale delle classi **System.Collections** , ovvero un nuovo set di raccolte progettate per le applicazioni per il cloud e più computer che non aumentano le complessità per gli sviluppatori. Come tali, le raccolte Reliable Collections sono:
 
-* Replicate: le modifiche dello stato vengono replicate per assicurare disponibilità elevata.
-* Persistenti: i dati vengono salvati in modo permanente sul disco per assicurarne la durabilità in caso di guasti su larga scala, ad esempio l'interruzione dell'alimentazione in un data center.
+* Replicate: le modifiche apportate allo stato vengono replicate per assicurare disponibilità elevata.
+* Persistenti: i dati vengono resi persistenti sul disco per assicurarne la durabilità in caso di guasti su larga scala, ad esempio l'interruzione dell'alimentazione in un data center.
 * Poiché le scritture sono persistenti e replicate, non è possibile creare una raccolta ReliableDictionary o ReliableQueue volatile o un'altra raccolta affidabile che salva i dati in modo permanente solo in memoria.
-* Asincrone: le API sono asincrone per assicurare che i thread non vengano bloccati durante le operazioni di I/O.
-* Transazionali: le API usano l'astrazione delle transazioni per consentire all'utente di gestire facilmente più raccolte affidabili all'interno di un servizio.
+* Asincrone: le API sono asincrone per assicurare che i thread non vengano bloccati durante le operazioni di IO.
+* Transazionali: le API utilizzano l'astrazione delle transazioni per consentire all'utente di gestire facilmente più raccolte Reliable Collections all'interno di un servizio.
 
 Le raccolte Reliable Collections offrono garanzie predefinite di coerenza assoluta, per facilitare la definizione della logica relativa allo stato delle applicazioni.
 La coerenza assoluta è ottenuta assicurando che i commit delle transazioni siano completati solo dopo che l'intera transazione è stata registrata su un quorum di repliche di maggioranza, inclusa quella primaria.
@@ -46,15 +35,15 @@ Per ottenere una coerenza più debole, le applicazioni possono rinviare un ackno
 
 Le API Reliable Collections sono un'evoluzione delle API delle raccolte disponibili nello spazio dei nomi **System.Collections.Concurrent** :
 
-* Asincrone: restituiscono un'attività dal momento che, a differenza delle raccolte simultanee, le operazioni vengono replicate e salvate in modo permanente.
-* Senza parametri out: usano `ConditionalValue<T>` per restituire una `bool` e un valore anziché parametri out. `ConditionalValue<T>` è come `Nullable<T>` ma non richiede una T per essere una struttura.
-* Transazioni: usano un oggetto transazione per consentire all'utente di raggruppare azioni di più raccolte affidabili in una transazione.
+* Asincrone: restituiscono un'attività dal momento che, a differenza delle raccolte Concurrent Collections, le operazioni vengono replicate e rese persistenti.
+* Nessun parametro out: USA `ConditionalValue<T>` per restituire una `bool` e un valore anziché parametri out. `ConditionalValue<T>` è come `Nullable<T>` ma non richiede una T per essere una struttura.
+* Transazioni: usano un oggetto transazione per consentire all'utente di raggruppare azioni su più raccolte Reliable Collections in una transazione.
 
 Attualmente **Microsoft.ServiceFabric.Data.Collections** include tre raccolte:
 
-* [Dizionario affidabile](https://msdn.microsoft.com/library/azure/dn971511.aspx): rappresenta una raccolta replicata, transazionale e asincrona di coppie chiave/valore. Simile a **ConcurrentDictionary**, sia la chiave che il valore possono essere di qualsiasi tipo.
-* [Coda affidabile](https://msdn.microsoft.com/library/azure/dn971527.aspx): rappresenta una coda FIFO (First-In First-Out) replicata, transazionale e asincrona. Simile a **ConcurrentQueue**, il valore può essere di qualsiasi tipo.
-* [Coda simultanea affidabile](service-fabric-reliable-services-reliable-concurrent-queue.md): rappresenta una coda di ordinamento ottimale replicata, transazionale e asincrona per la velocità effettiva elevata. Simile a **ConcurrentQueue**, il valore può essere di qualsiasi tipo.
+* [ReliableDictionary](https://msdn.microsoft.com/library/azure/dn971511.aspx): rappresenta una raccolta replicata, transazionale e asincrona di coppie chiave/valore. Simile a **ConcurrentDictionary**, sia la chiave che il valore possono essere di qualsiasi tipo.
+* [ReliableQueue](https://msdn.microsoft.com/library/azure/dn971527.aspx): rappresenta una coda FIFO (First-In First-Out) replicata, transazionale e asincrona. Simile a **ConcurrentQueue**, il valore può essere di qualsiasi tipo.
+* [ReliableConcurrentQueue](service-fabric-reliable-services-reliable-concurrent-queue.md): rappresenta una coda di ordinamento ottimale replicata, transazionale e asincrona per la velocità effettiva elevata. Simile a **ConcurrentQueue**, il valore può essere di qualsiasi tipo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

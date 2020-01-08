@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 95083809f8fcfe42ae76faa0af507c7ce4acd709
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 268a7e7c94285d3c4fdcb0c5fb91b685c09b58c8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083422"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436904"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Monitoraggio, metriche e avvisi di ExpressRoute
 
@@ -24,19 +24,19 @@ Questo articolo illustra il monitoraggio, le metriche e gli avvisi di ExpressRou
 
 ## <a name="expressroute-metrics"></a>Metriche ExpressRoute
 
-Per visualizzare le **metriche**, passare alla pagina *monitoraggio di Azure* e fare clic su *metriche*. Per visualizzare le metriche **ExpressRoute** , il filer in base al tipo di risorsa *circuiti ExpressRoute*. Per visualizzare **copertura globale** metriche, filtrare in base al tipo di risorsa *circuiti ExpressRoute* e selezionare una risorsa del circuito ExpressRoute con copertura globale abilitata. Per visualizzare le metriche **dirette di ExpressRoute** , filtrare il tipo di risorsa per le *porte ExpressRoute*. 
+Per visualizzare le **metriche**, passare alla pagina *monitoraggio di Azure* e fare clic su *metriche*. Per visualizzare le metriche di **ExpressRoute** , filtrare in base al tipo di risorsa *circuiti ExpressRoute*. Per visualizzare **copertura globale** metriche, filtrare in base al tipo di risorsa *circuiti ExpressRoute* e selezionare una risorsa del circuito ExpressRoute con copertura globale abilitata. Per visualizzare le metriche **dirette di ExpressRoute** , filtrare il tipo di risorsa per le *porte ExpressRoute*. 
 
 Una volta selezionata la metrica, verrà applicata l'aggregazione predefinita. Facoltativamente, è possibile applicare la suddivisione, che mostrerà la metrica con dimensioni diverse.
 
 ### <a name="available-metrics"></a>Metriche disponibili
 |**Metrica**|**Categoria**|**Dimensione/i**|**Funzionalità**|
 | --- | --- | --- | --- |
-|Disponibilità ARP|Availability|<ui><li>Peer (router ExpressRoute primario/secondario)</ui></li><ui><li> Tipo di peering (privato/pubblico/Microsoft)</ui></li>|ExpressRoute|
-|Disponibilità BGP|Availability|<ui><li> Peer (router ExpressRoute primario/secondario)</ui></li><ui><li> Tipo di peering</ui></li>|ExpressRoute|
+|Disponibilità ARP|Disponibilità|<ui><li>Peer (router ExpressRoute primario/secondario)</ui></li><ui><li> Tipo di peering (privato/pubblico/Microsoft)</ui></li>|ExpressRoute|
+|Disponibilità BGP|Disponibilità|<ui><li> Peer (router ExpressRoute primario/secondario)</ui></li><ui><li> Tipo di peering</ui></li>|ExpressRoute|
 |BitsInPerSecond|Traffico|<ui><li> Tipo di peering (ExpressRoute)</ui></li><ui><li>Link (ExpressRoute Direct)</ui></li>| <li> ExpressRoute</li><li>ExpressRoute Direct|
 |BitsOutPerSecond|Traffico| <ui><li>Tipo di peering (ExpressRoute)</ui></li><ui><li> Collegamento (ExpressRoute Direct) | <ui><li><ui> ExpressRoute<li>ExpressRoute Direct</ui></li> |
-|GlobalReachBitsInPerSecond|Traffico|<ui><li>Skey del circuito con peering (chiave del servizio)</ui></li>|Copertura globale|
-|GlobalReachBitsOutPerSecond|Traffico|<ui><li>Skey del circuito con peering (chiave del servizio)</ui></li>|Copertura globale|
+|GlobalReachBitsInPerSecond|Traffico|<ui><li>Skey del circuito con peering (chiave del servizio)</ui></li>|Portata globale|
+|GlobalReachBitsOutPerSecond|Traffico|<ui><li>Skey del circuito con peering (chiave del servizio)</ui></li>|Portata globale|
 |AdminState|Connettività fisica|Collegamento|ExpressRoute Direct|
 |LineProtocol|Connettività fisica|Collegamento|ExpressRoute Direct|
 |RxLightLevel|Connettività fisica|<ui><li></ui> di collegamento</li><ui><li></ui> corsia</li>|ExpressRoute Direct|

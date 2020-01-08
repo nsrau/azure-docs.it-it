@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 20a17e52064c5beb09ce4db5815ddd6faf7cbcba
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 235efd746562ea4bd52b9cb57da0d8165d60de02
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035529"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561321"
 ---
 # <a name="configure-prerequisites"></a>Configurazione dei prerequisiti
 
@@ -28,7 +28,7 @@ Prima di usare l'offerta Marketplace per distribuire un cluster OpenShift contai
  
 ## <a name="deploy-using-the-marketplace-offer"></a>Eseguire la distribuzione usando l'offerta Marketplace
 
-Il modo più semplice per distribuire un cluster OpenShift container Platform 3,11 autonomo in Azure consiste nell'usare l' [offerta di Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
+Il modo più semplice per distribuire un cluster OpenShift container Platform 3,11 autonomo in Azure consiste nell'usare l' [offerta di Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/osatesting.open-shift-azure-proxy).
 
 Questa opzione è la più semplice, ma offre anche funzionalità di personalizzazione limitate. L'offerta Marketplace distribuisce OpenShift container Platform 3.11.82 e include le opzioni di configurazione seguenti:
 
@@ -63,13 +63,13 @@ Per ottenere informazioni su uno dei parametri di input, passare il puntatore **
 
 Immettere i valori per i parametri di input e fare clic su **OK**.
 
-| Parametro di input | Descrizione parametro |
+| Parametro di input | Descrizione dei parametri |
 |-----------------------|-----------------|
 | Nome utente amministratore VM | Utente amministratore da creare in tutte le istanze di macchina virtuale |
 | Chiave pubblica SSH per l'utente amministratore | Chiave pubblica SSH usata per accedere alla macchina virtuale: non deve avere una passphrase |
-| sottoscrizione | Sottoscrizione di Azure in cui distribuire il cluster |
-| gruppo di risorse | Creare un nuovo gruppo di risorse o selezionare un gruppo di risorse vuoto esistente per le risorse cluster |
-| Location | Area di Azure in cui distribuire il cluster |
+| Sottoscrizione | Sottoscrizione di Azure in cui distribuire il cluster |
+| Gruppo di risorse | Creare un nuovo gruppo di risorse o selezionare un gruppo di risorse vuoto esistente per le risorse cluster |
+| Percorso | Area di Azure in cui distribuire il cluster |
 
    ![Pannello nozioni di base sull'offerta](media/openshift-marketplace-self-managed/ocp-basics.png)  
 <br>
@@ -78,7 +78,7 @@ Immettere i valori per i parametri di input e fare clic su **OK**.
 
 Immettere i valori per i parametri di input e fare clic su **OK**.
 
-| Parametro di input | Descrizione parametro |
+| Parametro di input | Descrizione dei parametri |
 |-----------------------|-----------------|
 | Prefisso del nome del cluster OCP | Prefisso del cluster usato per configurare i nomi host per tutti i nodi. Da 1 a 20 caratteri |
 | Dimensioni nodo master | Accettare le dimensioni predefinite della macchina virtuale oppure fare clic su **modifica dimensioni** per selezionare dimensioni diverse per la macchina virtuale.  Selezionare le dimensioni della VM appropriate per il carico di lavoro |
@@ -104,7 +104,7 @@ Per selezionare dimensioni diverse per la macchina virtuale, fare clic su ***mod
 
 **Rete virtuale esistente**
 
-| Parametro di input | Descrizione parametro |
+| Parametro di input | Descrizione dei parametri |
 |-----------------------|-----------------|
 | Nome rete virtuale esistente | Nome del vNet esistente |
 | Nome della subnet per i nodi master | Nome della subnet esistente per i nodi master.  Deve contenere almeno 16 indirizzi IP e seguire la RFC 1918 |
@@ -117,7 +117,7 @@ Per selezionare dimensioni diverse per la macchina virtuale, fare clic su ***mod
 
 **Intervallo IP personalizzato**
 
-| Parametro di input | Descrizione parametro |
+| Parametro di input | Descrizione dei parametri |
 |-----------------------|-----------------|
 | Intervallo di indirizzi per la rete virtuale | CIDR personalizzato per vNet |
 | Intervallo di indirizzi per la subnet contenente i nodi master | CIDR personalizzato per la subnet master |
@@ -131,7 +131,7 @@ Per selezionare dimensioni diverse per la macchina virtuale, fare clic su ***mod
 
 Immettere i valori per i parametri di input e fare clic su **OK** .
 
-| Parametro di input | Descrizione parametro |
+| Parametro di input | Descrizione dei parametri |
 |-----------------------|-----------------|
 | Password utente amministratore di OpenShift | Password per l'utente OpenShift iniziale.  Questo utente sarà anche l'amministratore del cluster |
 | Conferma password utente amministratore OpenShift | Digitare nuovamente la password dell'utente amministratore di OpenShift |
@@ -152,7 +152,7 @@ Il pannello impostazioni aggiuntive consente la configurazione del sistema nervo
 
 Immettere i valori per i parametri di input e fare clic su **OK** .
 
-| Parametro di input | Descrizione parametro |
+| Parametro di input | Descrizione dei parametri |
 |-----------------------|-----------------|
 | Configurare l'archiviazione nativa del contenitore | Installa lo SNC nel cluster OpenShift e lo Abilita come archiviazione. Sarà il valore predefinito se il provider di Azure è disabilitato |
 | Configurare la registrazione del cluster | Installa la funzionalità di registrazione EFK nel cluster.  Ridimensionare i nodi infra in modo appropriato per ospitare i pod EFK |
@@ -164,7 +164,7 @@ Immettere i valori per i parametri di input e fare clic su **OK** .
 
 **Impostazioni aggiuntive-parametri aggiuntivi**
 
-| Parametro di input | Descrizione parametro |
+| Parametro di input | Descrizione dei parametri |
 |-----------------------|-----------------|
 | NOMI comuni Dimensioni del nodo | Accettare le dimensioni predefinite del nodo oppure selezionare **modifica dimensioni** per selezionare una nuova dimensione della macchina virtuale |
 | Immettere il sottodominio personalizzato | Il dominio di routing personalizzato da usare per esporre le applicazioni tramite il router nel cluster OpenShift.  Assicurarsi di creare la voce DNS con caratteri jolly appropriata] |
@@ -172,7 +172,7 @@ Immettere i valori per i parametri di input e fare clic su **OK** .
    ![Offrire un'installazione aggiuntiva del sistema nervoso](media/openshift-marketplace-self-managed/ocp-additionalcnsall.png)  
 <br>
 
-**Riepilogo**
+**Summary**
 
 La convalida viene eseguita in questa fase per verificare che la quota di Core sia sufficiente per distribuire il numero totale di macchine virtuali selezionate per il cluster.  Esaminare tutti i parametri immessi.  Se gli input sono accettabili, fare clic su **OK** per continuare.
 
@@ -189,7 +189,7 @@ Confermare le informazioni di contatto nella pagina Acquista e fare clic su **Ac
 
 ## <a name="connect-to-the-openshift-cluster"></a>Eseguire la connessione al cluster OpenShift
 
-Al termine della distribuzione, recuperare la connessione dalla sezione di output della distribuzione. Connettersi alla console di OpenShift con il browser usando l' **URL della console di OpenShift**. è anche possibile usare SSH per l'host Bastion. Di seguito è riportato un esempio in cui il nome utente amministratore è clusteradmin e il nome di dominio completo DNS dell'indirizzo IP pubblico bastion è bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com:
+Al termine della distribuzione, recuperare la connessione dalla sezione di output della distribuzione. Connettersi alla console di OpenShift con il browser usando l' **URL della console di OpenShift**. È anche possibile usare SSH per l'host Bastion. Di seguito è riportato un esempio in cui il nome utente amministratore è clusteradmin e il nome di dominio completo DNS dell'indirizzo IP pubblico bastion è bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com:
 
 ```bash
 $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com

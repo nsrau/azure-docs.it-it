@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: bcc60c0f934111f779e3fdedc399881acb16f208
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: f3f8f377ac8e65d375f8f78c803db5427fd31007
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872792"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75394478"
 ---
 # <a name="azure-monitor-workbook-visualizations"></a>Visualizzazioni delle cartelle di lavoro di monitoraggio di Azure
 
@@ -197,7 +197,7 @@ Nell'esempio seguente vengono illustrate le metriche di integrità del contenito
 | `Show the expander on` | Colonna in cui visualizzare l'espansore della struttura ad albero. È normale che le griglie dell'albero nascondano il proprio ID e il campo ID padre perché non sono leggibili. Al contrario, l'espansore viene visualizzato in un campo con un valore più leggibile, ad esempio il nome dell'entità |
 | `Expand the top level of the tree` | Se questa opzione è selezionata, la griglia dell'albero verrà espansa al livello superiore. Utile se si desidera visualizzare ulteriori informazioni per impostazione predefinita |
 
-## <a name="graphs"></a>Grafi
+## <a name="graphs"></a>Grafici
 
 Le cartelle di lavoro supportano la visualizzazione di grafici arbitrari basati sui dati dei log per mostrare le relazioni tra le entità di monitoraggio.
 

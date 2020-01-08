@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/23/2019
+ms.date: 12/30/2019
 ms.author: rkarlin
-ms.openlocfilehash: ff5a8f940348c36ca2a19fb31a173b2dfc4f4d6b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 273bea7fa8629dd907c228416d06dac087b0ec85
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514134"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610591"
 ---
 # <a name="connect-your-f5-big-ip-appliance"></a>Connettere il dispositivo F5 BIG-IP 
 
@@ -53,6 +53,8 @@ Potrebbero essere necessari fino a 20 minuti prima che i log si avviino in Log A
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento si è appreso come connettere F5 BIG-IP ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
-- Scopri come [ottenere visibilità sui dati e potenziali minacce](quickstart-get-visibility.md).
-- Iniziare a [rilevare le minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Informazioni su come [ottenere visibilità sui dati e sulle potenziali minacce](quickstart-get-visibility.md).
+- Iniziare a [rilevare minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).
+- [Utilizzare le cartelle di lavoro](tutorial-monitor-your-data.md) di per monitorare i dati.
+
 

@@ -1,6 +1,6 @@
 ---
-title: Monitorare i dati usando i dashboard basati sulle cartelle di lavoro di monitoraggio di Azure in Sentinel di Azure | Microsoft Docs
-description: Usare questa esercitazione per informazioni su come monitorare i dati usando i dashboard basati sulle cartelle di lavoro in Sentinel di Azure.
+title: Visualizzare i dati usando i dashboard basati sulle cartelle di lavoro di monitoraggio di Azure in Sentinel di Azure | Microsoft Docs
+description: Usare questa esercitazione per informazioni su come visualizzare i dati usando i dashboard basati sulle cartelle di lavoro in Sentinel di Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,28 +12,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/17/2019
+ms.date: 01/01/2020
 ms.author: rkarlin
-ms.openlocfilehash: c5f4bd079fa215e3fbd4241f603aa29d19f7aad7
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 7baf8cf2e954d773376b7c3c989bce01f60ae0a6
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158861"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610455"
 ---
-# <a name="tutorial-monitor-your-data"></a>Esercitazione: monitorare i dati
+# <a name="tutorial-visualize-and-monitor-your-data"></a>Esercitazione: visualizzare e monitorare i dati
 
 
 
-Dopo aver [connesso le origini dati](quickstart-onboard.md) ad Azure Sentinel, è possibile monitorare i dati tramite l'integrazione di Sentinel di Azure con le cartelle di lavoro di monitoraggio di Azure, che offre versatilità nella creazione di dashboard personalizzati. Mentre le cartelle di lavoro vengono visualizzate in modo diverso in Sentinel di Azure, può essere utile vedere come [creare report interattivi con le cartelle di lavoro di monitoraggio di Azure](../azure-monitor/app/usage-workbooks.md). Azure Sentinel consente di creare cartelle di lavoro personalizzate tra i dati e include anche modelli di cartella di lavoro predefiniti per ottenere rapidamente informazioni dettagliate sui dati non appena si connette un'origine dati.
+Dopo aver [connesso le origini dati](quickstart-onboard.md) ad Azure Sentinel, è possibile visualizzarli e monitorarli usando le cartelle di lavoro di monitoraggio di Azure per l'adozione di Azure Sentinel, che offre versatilità nella creazione di dashboard personalizzati. Mentre le cartelle di lavoro vengono visualizzate in modo diverso in Sentinel di Azure, può essere utile vedere come [creare report interattivi con le cartelle di lavoro di monitoraggio di Azure](../azure-monitor/app/usage-workbooks.md). Azure Sentinel consente di creare cartelle di lavoro personalizzate tra i dati e include anche modelli di cartella di lavoro predefiniti per ottenere rapidamente informazioni dettagliate sui dati non appena si connette un'origine dati.
 
 
-Questa esercitazione consente di monitorare i dati in Sentinel di Azure.
+Questa esercitazione consente di visualizzare i dati in Sentinel di Azure.
 > [!div class="checklist"]
 > * Usare cartelle di lavoro predefinite
 > * Creare nuove cartelle di lavoro
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Per il gruppo di risorse dell'area di lavoro di Azure Sentinel è necessario disporre almeno delle autorizzazioni di collaboratore Reader o cartella di lavoro.
 

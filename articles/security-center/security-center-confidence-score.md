@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
 ms.author: memildin
-ms.openlocfilehash: 5b7e53291e10db17f848553b17dae2f84bdb08b7
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: ca2afaa9f4e01ac56657681ce71e32e3c5375fdf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558970"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355636"
 ---
-# <a name="alert-confidence-score"></a>Punteggio di attendibilità degli avvisi 
+# <a name="alert-confidence-score-preview"></a>Punteggio di confidenza degli avvisi (anteprima)
 
 Centro sicurezza di Azure offre visibilità tra le risorse eseguite in Azure e avvisa l'utente quando rileva potenziali problemi. Per un team responsabile per le operazioni di sicurezza, la mole di avvisi da verificare singolarmente può essere molto ampia, pertanto è necessario assegnare priorità agli avvisi da analizzare. L'analisi degli avvisi può essere complessa e richiedere molto tempo, di conseguenza, alcuni avvisi vengono ignorati.
 
-Il punteggio di attendibilità nel Centro sicurezza consente la valutazione dei team e l'assegnazione di priorità degli avvisi. Il Centro sicurezza applica automaticamente le procedure consigliate, gli algoritmi intelligenti e i processi usati dagli analisti per determinare se una minaccia sia legittima e se vengono fornite informazioni dettagliate significative sotto forma di punteggio di attendibilità.
+Il Punteggio di confidenza (attualmente in anteprima) nel centro sicurezza può aiutare il team a valutare e assegnare priorità agli avvisi. Il Centro sicurezza applica automaticamente le procedure consigliate, gli algoritmi intelligenti e i processi usati dagli analisti per determinare se una minaccia sia legittima e se vengono fornite informazioni dettagliate significative sotto forma di punteggio di attendibilità.
 
 ## <a name="how-the-confidence-score-is-triggered"></a>Come viene attivato il punteggio di attendibilità
 

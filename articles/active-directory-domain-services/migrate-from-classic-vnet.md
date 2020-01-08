@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: iainfou
-ms.openlocfilehash: 8cba2cbf8fcbad1acae8c36892308c3249fc4181
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: aafefeb94f3b150789a91c3cf669520ccb522dd8
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72674912"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893060"
 ---
 # <a name="preview---migrate-azure-ad-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Anteprima: eseguire la migrazione Azure AD Domain Services dal modello di rete virtuale classica al Gestione risorse
 
@@ -306,12 +306,13 @@ Azure AD DS necessita di un gruppo di sicurezza di rete per proteggere le porte 
 
 Se si verifica un errore quando si esegue il cmdlet di PowerShell per preparare la migrazione nel passaggio 2 o per la migrazione stessa nel passaggio 3, il dominio gestito Azure AD DS può eseguire il rollback alla configurazione originale. Per eseguire il rollback è necessaria la rete virtuale classica originale. Si noti che gli indirizzi IP possono comunque cambiare dopo il rollback.
 
-Eseguire il cmdlet `Migrate-Aadds` utilizzando il parametro *-Abort* . Fornire *-ManagedDomainFqdn* per il dominio gestito di Azure AD DS preparato in una sezione precedente, ad esempio *contoso.com*:
+Eseguire il cmdlet `Migrate-Aadds` utilizzando il parametro *-Abort* . Specificare *-ManagedDomainFqdn* per il dominio gestito di Azure AD DS preparato in una sezione precedente, ad esempio *contoso.com*, e il nome della rete virtuale classica, ad esempio *myClassicVnet*:
 
 ```powershell
 Migrate-Aadds `
     -Abort `
     -ManagedDomainFqdn contoso.com `
+    -ClassicVirtualNetworkName myClassicVnet `
     -Credentials $creds
 ```
 
@@ -321,7 +322,7 @@ Come ultima risorsa, è possibile ripristinare Azure AD Domain Services dall'ult
 
 Per ripristinare il dominio gestito di Azure AD DS dal backup, [aprire un ticket del caso di supporto usando il portale di Azure][azure-support]. Specificare l'ID directory, il nome di dominio e il motivo per il ripristino. Il completamento del processo di supporto e ripristino può richiedere più giorni.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se si verificano problemi dopo la migrazione al modello di distribuzione Gestione risorse, esaminare alcune delle seguenti aree comuni di risoluzione dei problemi:
 
@@ -360,4 +361,4 @@ Con il dominio gestito di Azure AD DS migrato al modello di distribuzione Gestio
 [get-credential]: /powershell/module/microsoft.powershell.security/get-credential
 
 <!-- EXTERNAL LINKS -->
-[powershell-script]: https://www.powershellgallery.com/packages/Migrate-Aadds/1.0
+[powershell-script]: https://www.powershellgallery.com/packages/Migrate-Aadds/

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 12/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: 3366f3470e01e455acacf8748830f2b15c826f49
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: f78f416aaeedb2905cd77e94589121050757a202
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997157"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425702"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Configurare i client OpenVPN per il gateway VPN di Azure
 
@@ -63,7 +63,7 @@ Verificare di aver completato i passaggi per configurare OpenVPN per il gateway 
 
 1. Scaricare e installare un client OpenVPN, ad esempio [Tunnelblick](https://tunnelblick.net/downloads.html). 
 2. Scaricare il profilo VPN per il gateway. Questa operazione può essere eseguita dalla scheda Configurazione da punto a sito nel portale di Azure o tramite il comando "New-AzVpnClientConfiguration" in PowerShell.
-3. Decomprimere il profilo. Aprire il file di configurazione vpnconfig.ovpn dalla cartella OpenVPN nel Blocco note.
+3. Decomprimere il profilo. Aprire il file di configurazione vpnconfig. ovpn dalla cartella OpenVPN in un editor di testo.
 4. Completare la sezione relativa al certificato client da punto a sito con la chiave pubblica del certificato client da punto a sito in formato Base 64. In un certificato in formato PEM è possibile aprire semplicemente il file con estensione cer e copiare la chiave in formato Base 64 tra le intestazioni del certificato. Visualizzare come [esportare la chiave pubblica](vpn-gateway-certificates-point-to-site.md#cer) per informazioni sull'esportazione di un certificato per ottenere la chiave pubblica codificata.
 5. Completare la sezione relativa alla chiave privata con la chiave privata del certificato client da punto a sito in formato Base 64. Per informazioni su come estrarre una chiave privata, vedere [Export your private key](https://openvpn.net/community-resources/how-to/#pki) (Esportare la chiave privata).
 6. Lasciare invariati tutti gli altri campi. Usare la configurazione così completata nell'input del client per connettersi alla rete VPN.
@@ -74,6 +74,39 @@ Verificare di aver completato i passaggi per configurare OpenVPN per il gateway 
 > [!IMPORTANT]
 >Solo iOS 11.0 e versioni successive; MacOS 10.13 e versioni successive sono supportati con protocollo OpenVPN.
 >
+## <a name="iOS"></a>client iOS
+
+1. Installare il client OpenVPN (versione 2,4 o successiva) dall'App Store.
+2. Scaricare il profilo VPN per il gateway. Questa operazione può essere eseguita dalla scheda Configurazione da punto a sito nel portale di Azure o tramite il comando "New-AzVpnClientConfiguration" in PowerShell.
+3. Decomprimere il profilo. Aprire il file di configurazione vpnconfig. ovpn dalla cartella OpenVPN in un editor di testo.
+4. Completare la sezione relativa al certificato client da punto a sito con la chiave pubblica del certificato client da punto a sito in formato Base 64. In un certificato in formato PEM è possibile aprire semplicemente il file con estensione cer e copiare la chiave in formato Base 64 tra le intestazioni del certificato. Visualizzare come [esportare la chiave pubblica](vpn-gateway-certificates-point-to-site.md#cer) per informazioni sull'esportazione di un certificato per ottenere la chiave pubblica codificata.
+5. Completare la sezione relativa alla chiave privata con la chiave privata del certificato client da punto a sito in formato Base 64. Per informazioni su come estrarre una chiave privata, vedere [Export your private key](https://openvpn.net/community-resources/how-to/#pki) (Esportare la chiave privata).
+6. Lasciare invariati tutti gli altri campi.
+7. Inviare tramite posta elettronica il file del profilo (con estensione ovpn) al proprio account di posta elettronica configurato nell'app di posta elettronica sull'iPhone. 
+8. Aprire il messaggio di posta elettronica nell'app di posta elettronica sull'iPhone e toccare il file allegato
+
+    ![Apri posta elettronica](./media/vpn-gateway-howto-openvpn-clients/ios2.png)
+
+9. Toccare **altro** se non viene visualizzata l'opzione **copia in OpenVPN**
+
+    ![Copia in OpenVPN](./media/vpn-gateway-howto-openvpn-clients/ios3.png)
+
+10. Toccare **copia in OpenVPN** 
+
+    ![Copia in OpenVPN](./media/vpn-gateway-howto-openvpn-clients/ios4.png)
+
+11. Toccare **Aggiungi** nella pagina **Importa profilo**
+
+    ![Copia in OpenVPN](./media/vpn-gateway-howto-openvpn-clients/ios5.png)
+
+12. Toccare **Aggiungi** nella pagina **profilo importato**
+
+    ![Copia in OpenVPN](./media/vpn-gateway-howto-openvpn-clients/ios6.png)
+
+13. Avviare l'app OpenVPN e scorrere l'opzione nella pagina del **profilo** a destra per connettersi
+
+    ![Connect](./media/vpn-gateway-howto-openvpn-clients/ios8.png)
+
 
 ## <a name="linux"></a>Client Linux
 

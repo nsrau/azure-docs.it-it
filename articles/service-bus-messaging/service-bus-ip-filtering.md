@@ -9,20 +9,20 @@ editor: spelluru
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2019
+ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: 02d6e150e638321e11a8dec9838e360faa00783e
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 59afdb0e273511f3d8255a9c859b86f93e0b7269
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280946"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462401"
 ---
-# <a name="use-firewall-rules"></a>Usare le regole del firewall
+# <a name="azure-service-bus---use-firewall-rules"></a>Bus di servizio di Azure: usare le regole del firewall
 
 Per gli scenari in cui bus di servizio di Azure deve essere accessibile solo da determinati siti noti, le regole del firewall consentono di configurare regole per accettare il traffico proveniente da indirizzi IPv4 specifici, ad esempio quelli di un gateway NAT aziendale.
 
-## <a name="when-to-use"></a>Quando usare la funzionalità
+## <a name="when-to-use"></a>Quando usare questa opzione
 
 Se si desidera configurare il bus di servizio di Microsoft Azure in modo che riceva il traffico solo da un intervallo specificato di indirizzi IP e rifiutare tutto il resto, è possibile usare un *Firewall* per bloccare gli endpoint del bus di servizio di Microsoft Azure da altri indirizzi IP. Si usa ad esempio il bus di servizio con [Azure Express Route][express-route] per creare connessioni private all'infrastruttura locale. 
 
@@ -46,13 +46,13 @@ Le regole del filtro IP vengono applicate in ordine e la prima regola corrispond
 > I servizi Microsoft attendibili non sono supportati quando sono implementate le funzionalità di filtro IP (regole del firewall), ma saranno presto disponibili.
 >
 > Scenari comuni di Azure che non supportano il filtro IP (l'elenco **NON** è esaustivo)
-> - Azure Stream Analytics
+> - Analisi di flusso di Azure
 > - Integrazione con Griglia di eventi di Azure
 > - Route dell'hub IoT di Azure
 > - Azure IoT Device Explorer
 >
 > I servizi Microsoft seguenti devono essere in una rete virtuale
-> - servizio app di Azure
+> - Servizio app di Azure
 > - Funzioni di Azure
 
 ### <a name="creating-a-virtual-network-and-firewall-rule-with-azure-resource-manager-templates"></a>Creazione di una regola di rete virtuale e di una regola del firewall con i modelli di Azure Resource Manager
@@ -70,11 +70,11 @@ Parametri del modello:
 > Sebbene non siano possibili regole di rifiuto, il modello di Azure Resource Manager ha l'azione predefinita impostata su **"Consenti"** , che non limita le connessioni.
 > Quando si creano regole di rete virtuale o del firewall, occorre modificare ***"defaultAction"***
 > 
-> Da
+> da
 > ```json
 > "defaultAction": "Allow"
 > ```
-> To
+> to
 > ```json
 > "defaultAction": "Deny"
 > ```

@@ -1,26 +1,18 @@
 ---
-title: Versioni di Threat Modeling Tool - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+title: Microsoft Threat Modeling Tool versione 1/29/2019-Azure
 description: Documentazione delle note sulla versione per lo strumento di modellazione delle minacce
-services: security
-documentationcenter: na
 author: jegeib
-manager: jegeib
-editor: jegeib
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
-ms.author: jegeib
-ms.openlocfilehash: d9c91752a599debcd8fda6c8396141e6a92e0f06
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: cec5abe358189184648c5a40a809b570f243fbf4
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68928096"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548790"
 ---
 # <a name="threat-modeling-tool-update-release-71601261---1292019"></a>Aggiornamento di Threat Modeling Tool versione 7.1.60126.1 - 29/01/2019
 
@@ -37,7 +29,7 @@ La versione 7.1.60126.1 di Microsoft Threat Modeling Tool è stata rilasciata il
 
 ### <a name="model-validation-option"></a>Opzione di convalida del modello
 
-In base al feedback dei clienti, allo strumento è stata aggiunta un'opzione per abilitare o disabilitare la convalida del modello. In precedenza, se il modello usava un flusso di dati unidirezionale singolo tra due oggetti, è possibile che si sia ricevuto un messaggio di errore nella cornice messaggi: ObjectsName richiede almeno un "Any". La disabilitazione della convalida del modello impedirà la visualizzazione di questi avvisi nella vista.
+In base al feedback dei clienti, allo strumento è stata aggiunta un'opzione per abilitare o disabilitare la convalida del modello. In precedenza, se il modello usava un singolo flusso di dati unidirezionali tra due oggetti, è possibile che sia stato ricevuto un messaggio di errore nel frame dei messaggi che informa: ObjectName richiede almeno uno "any". La disabilitazione della convalida del modello impedirà la visualizzazione di questi avvisi nella vista.
 
 L'opzione per abilitare e disabilitare la convalida del modello è reperibile in File->Settings->Options menu (File ->Impostazioni->Menu delle opzioni). Il valore predefinito per questa impostazione è Disabilitato.
 

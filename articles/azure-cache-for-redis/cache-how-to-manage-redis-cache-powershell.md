@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: 06d1895a807b4e618be3dc1f816da2c1b3faaf3b
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 6eeabb279f5bd5165ebb249651b8bc926deb92a6
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122149"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530919"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Gestire Cache Redis di Azure con Azure PowerShell
 > [!div class="op_single_selector"]
@@ -28,8 +28,8 @@ Questo argomento illustra come eseguire attività comuni, come creare, aggiornar
 
 Per altre informazioni sul modello di distribuzione classica vedere [Confronto tra distribuzione Azure Resource Manager e classica: comprensione dei modelli di distribuzione e dello stato delle risorse](../azure-resource-manager/resource-manager-deployment-model.md).
 
-## <a name="prerequisites"></a>prerequisiti
-Se è già installato PowerShell di Microsoft Azure, è necessario installare Azure PowerShell versione 1.0.0 o versione successiva. Per verificare quale versione di Azure PowerShell è installata, è possibile usare il comando del relativo prompt di Microsoft PowerShell.
+## <a name="prerequisites"></a>Prerequisiti
+Se è già installato PowerShell di Microsoft Azure, è necessario installare Azure PowerShell versione 1.0.0 o versione successiva. Per verificare quale versione di Azure PowerShell è installata, è possibile utilizzare il comando del relativo prompt di Microsoft PowerShell.
 
     Get-Module Az | format-table version
 
@@ -70,7 +70,7 @@ Per connettersi ad Azure Government Cloud, usare uno dei comandi seguenti.
 
     Connect-AzAccount -EnvironmentName AzureUSGovernment
 
-oppure
+Oppure
 
     Connect-AzAccount -Environment (Get-AzEnvironment -Name AzureUSGovernment)
 
@@ -86,7 +86,7 @@ Per connettersi ad Azure China Cloud, usare uno dei comandi seguenti.
 
     Connect-AzAccount -EnvironmentName AzureChinaCloud
 
-oppure
+Oppure
 
     Connect-AzAccount -Environment (Get-AzEnvironment -Name AzureChinaCloud)
 
@@ -95,7 +95,7 @@ Per creare una cache in Azure China Cloud, usare una delle località seguenti.
 * Cina orientale
 * Cina settentrionale
 
-Per altre informazioni su Azure China Cloud, vedere la pagina relativa ad [Azure China Cloud per Azure gestito da 21Vianet in Cina](http://www.windowsazure.cn/).
+Per altre informazioni su Azure China Cloud, vedere la pagina relativa ad [Azure China Cloud per Azure gestito da 21Vianet in Cina](https://www.windowsazure.cn/).
 
 ### <a name="to-connect-to-microsoft-azure-germany"></a>Per connettersi a Microsoft Azure Germania
 Per connettersi a Microsoft Azure Germania, usare uno dei comandi seguenti.
@@ -103,7 +103,7 @@ Per connettersi a Microsoft Azure Germania, usare uno dei comandi seguenti.
     Connect-AzAccount -EnvironmentName AzureGermanCloud
 
 
-oppure
+Oppure
 
     Connect-AzAccount -Environment (Get-AzEnvironment -Name AzureGermanCloud)
 
@@ -117,16 +117,16 @@ Per altre informazioni su Microsoft Azure Germania, vedere [Microsoft Azure Germ
 ### <a name="properties-used-for-azure-cache-for-redis-powershell"></a>Proprietà usate per PowerShell nella Cache Redis di Azure
 La tabella seguente contiene le proprietà e le descrizioni dei parametri usati durante la creazione e la gestione di istanze di Cache Redis di Azure con Azure PowerShell.
 
-| . | DESCRIZIONE | Default |
+| Parametro | Description | Predefinito |
 | --- | --- | --- |
 | Nome |Nome della cache | |
-| Location |Percorso della cache | |
+| Percorso |Percorso della cache | |
 | ResourceGroupName |Nome del gruppo di risorse in cui creare la cache | |
-| Dimensione |Dimensioni della cache. I valori validi sono: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 MB, 1 GB, 2,5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1 GB |
+| Dimensioni |Dimensioni della cache. I valori validi sono: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 MB, 1 GB, 2,5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1 GB |
 | ShardCount |Numero di partizioni da creare quando si crea una cache Premium con clustering abilitato. I valori validi sono: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
-| Sku |Specifica gli SKU della cache. I valori validi sono: Basic, Standard e Premium |Standard |
+| SKU |Specifica gli SKU della cache. I valori validi sono: Basic, Standard e Premium |Standard |
 | RedisConfiguration |Specifica le impostazioni di configurazione di Redis. Per i dettagli di ogni impostazione, vedere la tabella [Proprietà di RedisConfiguration](#redisconfiguration-properties) seguente. | |
-| EnableNonSslPort |Indica se la porta non SSL è abilitata. |False |
+| EnableNonSslPort |Indica se la porta non SSL è abilitata. |Falso |
 | MaxMemoryPolicy |Questo parametro è stato deprecato, usare invece RedisConfiguration. | |
 | StaticIP |Quando si ospita la cache in una rete virtuale, specifica l'indirizzo IP univoco nella subnet per la cache. Se non specificato, ne verrà scelto uno dalla subnet. | |
 | Subnet |Quando si ospita la cache in una rete virtuale, specifica il nome della subnet in cui distribuire la cache. | |
@@ -134,7 +134,7 @@ La tabella seguente contiene le proprietà e le descrizioni dei parametri usati 
 | KeyType |Specifica la chiave di accesso da rigenerare quando si rinnovano le chiavi di accesso. Valori validi: Primario, Secondario | |
 
 ### <a name="redisconfiguration-properties"></a>Proprietà di RedisConfiguration
-| Proprietà | DESCRIZIONE | Piani tariffari |
+| Proprietà | Description | Piani tariffari |
 | --- | --- | --- |
 | rdb-backup-enabled |Indica se la [persistenza dei dati Redis](cache-how-to-premium-persistence.md) è abilitata |Solo Premium |
 | rdb-storage-connection-string |Stringa di connessione dell'account di archiviazione per la [persistenza dei dati Redis](cache-how-to-premium-persistence.md) |Solo Premium |
@@ -147,7 +147,7 @@ La tabella seguente contiene le proprietà e le descrizioni dei parametri usati 
 | set-max-intset-entries |Configura l' [ottimizzazione della memoria](https://redis.io/topics/memory-optimization) per tipi di dati aggregati di piccole dimensioni |Standard e Premium |
 | zset-max-ziplist-entries |Configura l' [ottimizzazione della memoria](https://redis.io/topics/memory-optimization) per tipi di dati aggregati di piccole dimensioni |Standard e Premium |
 | zset-max-ziplist-value |Configura l' [ottimizzazione della memoria](https://redis.io/topics/memory-optimization) per tipi di dati aggregati di piccole dimensioni |Standard e Premium |
-| database |Configura il numero di database. Questa proprietà può essere configurata solo durante la creazione della cache. |Standard e Premium |
+| databases |Configura il numero di database. Questa proprietà può essere configurata solo durante la creazione della cache. |Standard e Premium |
 
 ## <a name="to-create-an-azure-cache-for-redis"></a>Come creare un'istanza di Cache Redis di Azure
 Le nuove istanze di Cache Redis di Azure vengono create con il cmdlet [New-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/new-azrediscache).
@@ -338,7 +338,7 @@ Il comando seguente aggiorna maxmemory-policy per la Cache Redis di Azure denomi
 > 
 > 
 
-L'esempio seguente illustra come ridimensionare una cache denominata `myCache` configurando una dimensione di 2,5 GB. Si noti che questo comando funziona sia con una cache Basic che una cache Standard.
+L'esempio seguente illustra come ridimensionare una cache denominata `myCache` in una cache di 2,5 GB. Si noti che questo comando funziona sia con una cache Basic che una cache Standard.
 
     Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 

@@ -6,12 +6,12 @@ ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: d628031515a9b0fdf3aa7b7ec88ee1b6b7f41f51
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 68cabbd00dd0b738590109cc39d8df82f5b7362d
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672201"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75681176"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gestire un piano di servizio app in Azure
 
@@ -24,11 +24,15 @@ Un [piano di servizio app di Azure](overview-hosting-plans.md) fornisce le risor
 
 È possibile creare un piano di servizio app vuoto, o creare un piano come parte della creazione di app.
 
-1. Nella [portale di Azure](https://portal.azure.com)selezionare **nuovo** > **app Web** o un altro tipo di app del servizio app.
+1. Nel [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa**.
 
-   ![Creare un'app nel portale di Azure.][createWebApp]
+   ![Creare una risorsa nel portale di Azure.][createResource] 
 
-2. Configurare la sezione **Dettagli istanza** prima di configurare il piano di servizio app. Impostazioni quali la **pubblicazione** e i **sistemi operativi** possono modificare i piani tariffari disponibili per il piano di servizio app. **Region** determina la posizione in cui viene creato il piano di servizio app.
+1. Selezionare **nuovo** > **app Web** o un altro tipo di app del servizio app.
+
+   ![Creare un'app nel portale di Azure.][createWebApp] 
+
+2. Configurare la sezione **Dettagli istanza** prima di configurare il piano di servizio app. Impostazioni quali la **pubblicazione** e i **sistemi operativi** possono modificare i piani tariffari disponibili per il piano di servizio app. **Region** determina la posizione in cui viene creato il piano di servizio app. 
    
 3. Nella sezione **piano di servizio app** selezionare un piano esistente o creare un piano selezionando **Crea nuovo**.
 
@@ -48,7 +52,7 @@ Un [piano di servizio app di Azure](overview-hosting-plans.md) fornisce le risor
 > Non è possibile specificare lo spazio Web desiderato quando si crea un piano, ma è possibile fare in modo che un piano venga creato nello stesso spazio Web di un piano esistente. In breve, tutti i piani creati con la stessa combinazione di gruppo di risorse e area geografica vengono distribuiti nello stesso spazio Web. Se, ad esempio, è stato creato un piano nel gruppo di risorse A e nell'area geografica B, qualsiasi piano successivamente creato nel gruppo di risorse A e nell'area geografica B verrà distribuito nello stesso spazio Web. Un piano non può essere spostato in uno spazio Web dopo essere stato creato, pertanto non è possibile spostare un piano nello "stesso spazio Web" di un altro spostandolo in un altro gruppo di risorse.
 > 
 
-1. Nel [portale di Azure](https://portal.azure.com) selezionare l'app che si intende spostare.
+1. Nella [portale di Azure](https://portal.azure.com)cercare e selezionare **Servizi app** e selezionare l'app che si vuole spostare.
 
 2. Nel menu a sinistra selezionare **modifica piano di servizio app**.
 
@@ -97,3 +101,4 @@ Per evitare costi imprevisti, quando si elimina l'ultima app in un piano di serv
 [change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
+[createResource]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-a-resource.png

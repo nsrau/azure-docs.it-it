@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: amsriva
-ms.openlocfilehash: b65b47389611bcc0e5acb3c7ebff672f72a87581
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 966df2a01d0178c19c2ae6e698a6610bf0e321c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60761585"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425813"
 ---
 # <a name="vpn-gateway-classic-to-resource-manager-migration"></a>Migrazione dal modello classico al modello Resource Manager con gateway VPN
-I gateway VPN possono ora essere migrati dal modello di distribuzione classica a quello Resource Manager. Altre informazioni su [funzionalità e vantaggi di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Questo articolo descrive in dettaglio come eseguire la migrazione da distribuzioni classiche al modello più recente basato su Resource Manager. 
+I gateway VPN possono ora essere migrati dal modello di distribuzione classica a quello Resource Manager. Altre informazioni su [funzionalità e vantaggi di Azure Resource Manager](../azure-resource-manager/management/overview.md). Questo articolo descrive in dettaglio come eseguire la migrazione da distribuzioni classiche al modello più recente basato su Resource Manager. 
 
 I gateway VPN vengono migrati come parte della migrazione della rete virtuale dal modello classico a quello Resource Manager. Viene eseguita la migrazione di una rete virtuale alla volta. Non esiste alcun requisito aggiuntivo in termini di strumenti o prerequisiti alla migrazione. I passaggi di migrazione sono identici alla migrazione di rete virtuale esistente e sono documentati nella [pagina sulla migrazione delle risorse IaaS](../virtual-machines/windows/migration-classic-resource-manager-ps.md). La migrazione non comporta un tempo di inattività del percorso di dati e quindi i carichi di lavoro esistenti continueranno a funzionare senza perdita della connettività locale durante la migrazione. L'indirizzo IP pubblico associato al gateway VPN non cambia durante il processo di migrazione. Non è quindi necessario riconfigurare il router locale dopo il completamento della migrazione.  
 

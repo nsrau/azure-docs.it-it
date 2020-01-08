@@ -1,25 +1,16 @@
 ---
-title: Aggregazione di eventi di Azure Service Fabric con Diagnostica di Azure per Linux | Microsoft Docs
+title: Aggregazione di eventi con Linux Diagnostica di Azure
 description: Informazioni sull'aggregazione e la raccolta di eventi con LAD per il monitoraggio e la diagnostica dei cluster di Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 212158d9a76fa2e49c60be0b5c52f281497c155b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fdb78498d33416ef21b2e2b0f498e7afa6a58d99
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393130"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609962"
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Aggregazione e raccolta di eventi con Diagnostica di Azure per Linux
 > [!div class="op_single_selector"]
@@ -30,7 +21,7 @@ ms.locfileid: "60393130"
 
 Quando si esegue un cluster Azure Service Fabric, è consigliabile raccogliere i log da tutti i nodi in una posizione centrale. Il salvataggio dei log in una posizione centrale semplifica l'analisi e la risoluzione di eventuali problemi nel cluster o nelle applicazioni e nei servizi in esecuzione nel cluster.
 
-Un modo per caricare e raccogliere i log consiste nell'usare l'estensione Diagnostica di Azure per Linux, ovvero LAD, che consente di caricare i log nell'Archiviazione di Azure e di inviarli ad Azure Application Insights o Hub eventi. È anche possibile usare un processo esterno per leggere gli eventi di archiviazione e inserirli in una piattaforma di analisi come [monitoraggio di Azure registra](../log-analytics/log-analytics-service-fabric.md) o un'altra soluzione di analisi di log.
+Un modo per caricare e raccogliere i log consiste nell'usare l'estensione Diagnostica di Azure per Linux, ovvero LAD, che consente di caricare i log nell'Archiviazione di Azure e di inviarli ad Azure Application Insights o Hub eventi. È anche possibile usare un processo esterno per leggere gli eventi dalla risorsa di archiviazione e inserirli in un prodotto della piattaforma di analisi, ad esempio i [log di monitoraggio di Azure](../log-analytics/log-analytics-service-fabric.md) o un'altra soluzione di analisi dei log.
 
 ## <a name="log-and-event-sources"></a>Origini di log ed eventi
 

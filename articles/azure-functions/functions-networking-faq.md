@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.author: alkarche
 ms.reviewer: glenga
-ms.openlocfilehash: 4534e20a1156f1d3550d247dfd15d9dc538e9d80
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: acb1e942c1f342ce6fee7d8aeacafcc1d7b6fd91
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226840"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75409540"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Domande frequenti sulla rete in funzioni di Azure
 
@@ -51,9 +51,7 @@ Con l'integrazione della rete virtuale è possibile accedere alle risorse protet
 
 È possibile consentire la chiamata dei trigger HTTP da una rete virtuale usando gli [endpoint di servizio](./functions-networking-options.md#private-site-access). 
 
-È anche possibile attivare una funzione da una risorsa in una rete virtuale distribuendo l'app per le funzioni in un ambiente del servizio app. Per informazioni dettagliate sull'uso di un ambiente del servizio app, vedere [creare e usare un servizio di bilanciamento del carico interno con una ambiente del servizio app](../app-service/environment/create-ilb-ase.md).
-
-Il piano di servizio app e Premium supportano i trigger HTTP da una rete virtuale, ma solo un ambiente del servizio app supporta tutti gli altri tipi di trigger di funzione tramite una rete virtuale.
+È anche possibile attivare una funzione da tutte le altre risorse in una rete virtuale distribuendo l'app per le funzioni in un piano Premium, in un piano di servizio app o in ambiente del servizio app. Per ulteriori informazioni [, vedere trigger della rete virtuale non http.](./functions-networking-options.md#virtual-network-triggers-non-http)
 
 ## <a name="how-can-i-deploy-my-function-app-in-a-virtual-network"></a>Come si distribuisce l'app per le funzioni in una rete virtuale?
 

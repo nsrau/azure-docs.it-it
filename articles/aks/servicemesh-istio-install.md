@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/15/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 2768c2d4cef68dcf25e25c047aaa69653af5e0b6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 85ef34f8644d95f6cfd2c7262bfe4bbc0683547f
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74170843"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561739"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Installare e utilizzare Istio nel servizio Azure Kubernetes
 
@@ -25,7 +25,7 @@ Questo articolo illustra come installare Istio. Il file binario client `istioctl
 >
 > Le versioni `1.4.x` di Istio sono state testate dal team Istio in base alle versioni di Kubernetes `1.13`, `1.14``1.15`. È possibile trovare altre versioni di Istio in [GitHub-Istio releases][istio-github-releases], informazioni su ogni versione di [Istio News][istio-release-notes] e versioni supportate di Kubernetes in [Istio domande frequenti generali][istio-faq].
 
-In questo articolo viene spiegato come:
+In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Scaricare e installare il file binario client istioctl di Istio
@@ -136,7 +136,7 @@ spec:
 Installare Istio usando il comando `istioctl apply` e il file spec del piano di controllo Istio `istio.aks.yaml` precedente, come indicato di seguito:
 
 ```console
-istioctl manifest apply -f istio.aks.yaml
+istioctl manifest apply -f istio.aks.yaml --logtostderr --set installPackagePath=./install/kubernetes/operator/charts
 ```
 
 Il programma di installazione distribuirà un numero di [CRD][kubernetes-crd] e quindi gestirà le dipendenze per installare tutti gli oggetti rilevanti definiti per questa configurazione di Istio. Dovrebbe essere visualizzato un frammento di output simile al seguente.
@@ -361,7 +361,9 @@ istioctl dashboard envoy <pod-name>.<namespace>
 Per rimuovere Istio dal cluster AKS, usare il comando `istioctl manifest generate` con il `istio.aks.yaml` file di spec del piano di controllo Istio. In questo modo verrà generato il manifesto distribuito, che verrà inviato tramite pipe a `kubectl delete` per rimuovere tutti i componenti installati e lo spazio dei nomi `istio-system`.
 
 ```console
-istioctl manifest generate -f istio.aks.yaml | kubectl delete -f -
+istioctl manifest generate -f istio.aks.yaml -o istio-components-aks --logtostderr --set installPackagePath=./install/kubernetes/operator/charts 
+
+kubectl delete -f istio-components-aks -R
 ```
 
 ### <a name="remove-istio-crds-and-secrets"></a>Rimuovere Istio CRD e segreti

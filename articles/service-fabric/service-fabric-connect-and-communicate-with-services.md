@@ -1,25 +1,16 @@
 ---
-title: Connettersi e comunicare con i servizi in Azure Service Fabric | Documentazione Microsoft
+title: Connettersi e comunicare con i servizi in Azure Service Fabric
 description: Informazioni su come risolvere, connettersi e comunicare con i servizi in Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: msfussell
-ms.assetid: 7d1052ec-2c9f-443d-8b99-b75c97266e6c
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 55a0a1a8097ea46c7a3407b5f42824973edcf1a2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e57d169decf482f8b8be1e3b31a07690bc222c5d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60882326"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458234"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Connettersi e comunicare con i servizi in Service Fabric
 In Service Fabric un servizio viene eseguito in una posizione nel cluster di Service Fabric, in genere distribuito su più macchine virtuali. Può essere spostato da una posizione all'altra, dal proprietario del servizio o automaticamente da Service Fabric. I servizi non sono statisticamente associati a un computer o a un indirizzo specifico.
@@ -29,21 +20,21 @@ Un'applicazione di Service Fabric è in genere costituita da molti servizi diver
 ## <a name="bring-your-own-protocol"></a>Usare un protocollo personalizzato
 Service Fabric semplifica la gestione del ciclo di vita dei servizi ma non prende alcuna decisione sulle operazioni che devono essere eseguite dai servizi, incluse le comunicazioni. incluse le comunicazioni. Quando il servizio viene aperto da Service Fabric, può configurare un endpoint per le richieste in ingresso, usando qualsiasi protocollo o stack di comunicazione. Il servizio rimarrà in ascolto su un indirizzo **IP:porta** normale usando qualsiasi schema di indirizzamento, ad esempio un URI. In questo caso, dovranno usare porte diverse o un meccanismo di condivisione di porte, ad esempio il driver del kernel http.sys in Windows. In entrambi i casi, ogni istanza o replica del servizio in un processo host deve essere indirizzabile in modo univoco.
 
-![Endpoint del servizio][1]
+![endpoint di servizio][1]
 
 ## <a name="service-discovery-and-resolution"></a>Individuazione e risoluzione del servizio
-In un sistema distribuito è possibile che i servizi si spostino da un computer a un altro nel tempo per vari motivi, incluso il bilanciamento delle risorse, aggiornamenti, failover o aumento del numero di istanze. Gli indirizzi dell'endpoint di servizio subiscono quindi modifiche quando il servizio si sposta in nodi con indirizzi IP diversi ed è possibile che si aprano su porte diverse se il servizio usa una porta selezionata in modo dinamico.
+In un sistema distribuito è possibile che i servizi si spostino da un computer a un altro nel tempo Questo problema può verificarsi per diversi motivi, tra cui il bilanciamento delle risorse, gli aggiornamenti, i failover o il ridimensionamento orizzontale. Questo significa che gli indirizzi degli endpoint di servizio cambiano quando il servizio viene spostato nei nodi con indirizzi IP diversi e possono essere aperti in porte diverse se il servizio usa una porta selezionata dinamicamente.
 
 ![Distribuzione dei servizi][7]
 
 Service Fabric offre un servizio di individuazione e risoluzione denominato servizio Naming. Il servizio Naming gestisce una tabella che esegue il mapping delle istanze del servizio denominato agli indirizzi dell'endpoint su cui rimangono in ascolto. Tutte le istanze del servizio denominato in Service Fabric hanno nomi univoci rappresentati come URI, ad esempio `"fabric:/MyApplication/MyService"`. Il nome del servizio non cambia per tutta la durata del servizio. Solo gli indirizzi dell'endpoint possono essere modificati quando i servizi si spostano. analogamente ai siti Web che hanno URL costanti, ma il cui indirizzo IP può cambiare. Analogamente a DNS sul Web, che risolve URL di siti Web in indirizzi IP, Service Fabric ha un registrar che esegue il mapping dei nomi di servizio ai rispettivi indirizzi di endpoint.
 
-![Endpoint del servizio][2]
+![endpoint di servizio][2]
 
 La risoluzione e la connessione ai servizi prevedono l'esecuzione in ciclo dei passaggi seguenti:
 
-* **Risoluzione**: ottenere dal Naming Service l'endpoint pubblicato da un servizio.
-* **Connessione**: connettersi al servizio tramite il protocollo usato nell'endpoint.
+* **Risoluzione**: ottenere dal servizio Naming l'endpoint pubblicato da un servizio.
+* **Connessione**: connettersi al servizio sul protocollo usato nell'endpoint.
 * **Ripetizione dei tentativi**: è possibile che un tentativo di connessione abbia esito negativo per svariati motivi, ad esempio se il servizio si è spostato dopo l'ultima risoluzione dell'indirizzo dell'endpoint. In questo caso, è necessario provare a ripetere i passaggi precedenti di risoluzione e connessione e il ciclo viene ripetuto finché la connessione non riesce.
 
 ## <a name="connecting-to-other-services"></a>Connessione ad altri servizi
@@ -55,14 +46,14 @@ Poiché molti servizi, in particolare quelli in contenitori, possono avere un no
 
 Come mostrato nel diagramma seguente, il servizio DNS, in esecuzione sul cluster di Service Fabric, esegue il mapping dei nomi DNS ai nomi dei servizi, che vengono quindi risolti da Naming Service per restituire gli indirizzi degli endpoint a cui connettersi. Il nome DNS per il servizio viene fornito al momento della creazione. 
 
-![Endpoint del servizio][9]
+![endpoint di servizio][9]
 
 Per altre informazioni su come usare il servizio DNS, vedere l'articolo [DNS service in Azure Service Fabric](service-fabric-dnsservice.md) (Servizio DNS in Azure Service Fabric).
 
 ### <a name="reverse-proxy-service"></a>Servizio di proxy inverso
 Il proxy inverso indirizza i servizi presenti nel cluster che espongono endpoint HTTP, incluso HTTPS. Il proxy inverso semplifica in misura significativa la chiamata di altri servizi e dei relativi metodi grazie alla disponibilità di un formato URI specifico. Gestisce inoltre i passaggi di risoluzione, connessione e ripetizione necessari per consentire a un servizio di comunicare con un altro servizio mediante Naming Service. In altri termini, durante la chiamata di altri servizi nasconde Naming Service all'utente, rendendo l'operazione semplice quanto la chiamata a un URL.
 
-![Endpoint del servizio][10]
+![endpoint di servizio][10]
 
 Per altre informazioni su come usare il servizio di proxy inverso, vedere l'articolo [Proxy inverso in Azure Service Fabric](service-fabric-reverseproxy.md).
 
@@ -168,11 +159,11 @@ Ad esempio, per accettare il traffico esterno sulla porta **80**, è necessario 
 
 È importante ricordare che il servizio di bilanciamento del carico di Azure e il probe riconoscono solo i *nodi*, non i *servizi* in esecuzione sui nodi. Il servizio di bilanciamento del carico di Azure invierà sempre il traffico ai nodi che rispondono al probe, quindi occorre assicurarsi che i servizi siano disponibili sui nodi che sono in grado di rispondere al probe.
 
-## <a name="reliable-services-built-in-communication-api-options"></a>Reliable Services: Opzioni predefinite per l'API di comunicazione
+## <a name="reliable-services-built-in-communication-api-options"></a>Reliable Services: opzioni predefinite per l'API di comunicazione
 Il framework Reliable Services include alcune opzioni di comunicazione predefinite. la cui scelta dipende dal modello di programmazione adottato, dal framework di comunicazione e dal linguaggio di programmazione usato per scrivere i servizi.
 
-* **Nessun protocollo specifico**:  se non si ha una preferenza particolare per il framework di comunicazione, ma si vuole essere immediatamente operativi, l'opzione ideale è data dalle [comunicazioni remote del servizio](service-fabric-reliable-services-communication-remoting.md), che consentono chiamate a procedure remote fortemente tipizzate per Reliable Services e Reliable Actors. Questo è il modo più semplice e veloce per iniziare a comunicare con i servizi. Le comunicazioni remote del servizio gestiscono la risoluzione degli indirizzi del servizio, la connessione, la ripetizione dei tentativi e la gestione degli errori. Questo è disponibile sia per applicazioni C# che per applicazioni Java.
-* **HTTP**: per comunicazioni indipendenti dal linguaggio, HTTP costituisce la scelta standard di settore, con strumenti e server HTTP disponibili in molti linguaggi diversi, tutti supportati da Service Fabric. I servizi possono usare qualsiasi stack HTTP disponibile, inclusa l'[API Web ASP.NET](service-fabric-reliable-services-communication-webapi.md) per applicazioni C#. I client scritti in C# possono sfruttare le classi `ICommunicationClient` e `ServicePartitionClient`. Per Java usare invece le classi `CommunicationClient` e `FabricServicePartitionClient` [per la risoluzione del servizio, le connessioni HTTP e i cicli di ripetizione dei tentativi](service-fabric-reliable-services-communication.md).
+* **Nessun protocollo specifico:** se non si ha una preferenza particolare per il framework di comunicazione, ma si vuole essere immediatamente operativi, l'opzione ideale è costituita dalle [comunicazioni remote del servizio](service-fabric-reliable-services-communication-remoting.md), che consentono chiamate a procedure remote fortemente tipizzate per Reliable Services e Reliable Actors. Questo è il modo più semplice e veloce per iniziare a comunicare con i servizi. Le comunicazioni remote del servizio gestiscono la risoluzione degli indirizzi del servizio, la connessione, la ripetizione dei tentativi e la gestione degli errori. Questo è disponibile sia per applicazioni C# che per applicazioni Java.
+* **HTTP**: per comunicazioni indipendenti dal linguaggio, HTTP costituisce la scelta standard di settore, con strumenti e server HTTP disponibili in molti linguaggi diversi, tutti supportati da Service Fabric. I servizi possono usare qualsiasi stack HTTP disponibile, inclusa l'[API Web ASP.NET](service-fabric-reliable-services-communication-webapi.md) per applicazioni C#. I client scritti in C# possono sfruttare le classi `ICommunicationClient` e `ServicePartitionClient`. Per Java usare invece le classi `CommunicationClient` e `FabricServicePartitionClient`[per la risoluzione del servizio, le connessioni HTTP e i cicli di ripetizione dei tentativi](service-fabric-reliable-services-communication.md).
 * **WCF**: se il codice esistente usa WCF come framework di comunicazione, è possibile scegliere `WcfCommunicationListener` per il lato server e le classi `WcfCommunicationClient` e `ServicePartitionClient` per il client. Questo comunque è disponibile solo per applicazioni C# in cluster basati su Windows. Per altre informazioni, vedere l'articolo [Stack di comunicazione basato su WCF per Reliable Services](service-fabric-reliable-services-communication-wcf.md).
 
 ## <a name="using-custom-protocols-and-other-communication-frameworks"></a>Uso di protocolli personalizzati e altri framework di comunicazione

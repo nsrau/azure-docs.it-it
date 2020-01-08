@@ -6,14 +6,14 @@ manager: philmea
 ms.service: iot-pnp
 services: iot-pnp
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 12/26/2019
 ms.author: philmea
-ms.openlocfilehash: 4320a975f74d000bd492d291f5e610f591536b0d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 7e71c940d0c083642954114cf4fa1617b93335b9
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74979105"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531260"
 ---
 # <a name="manage-models-in-the-repository"></a>Gestire i modelli nel repository
 
@@ -37,7 +37,7 @@ Esistono due tipi di repository di modelli per l'archiviazione di modelli e inte
 Nel [portale di Azure Certified per](https://preview.catalog.azureiotsolutions.com)l'it è possibile completare le attività seguenti:
 
 - [Completare il processo di certificazione per il dispositivo Internet delle](./tutorial-certification-test.md)cose.
-- Trovare i modelli di funzionalità del dispositivo Plug and Play. È possibile usare questi modelli per [creare rapidamente dispositivi pronti per l'uso e integrarli con soluzioni](./quickstart-connect-pnp-device-solution.md).
+- Trovare i modelli di funzionalità del dispositivo Plug and Play. È possibile usare questi modelli per [creare rapidamente dispositivi pronti per l'uso e integrarli con soluzioni](./quickstart-connect-pnp-device-solution-node.md).
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 

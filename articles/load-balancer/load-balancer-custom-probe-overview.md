@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: fdc7254b4c6e798c0f32f5fac3575474ed6ec1d0
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c093cea9f8719722cc44c9d6424c06039360e90f
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077063"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690401"
 ---
 # <a name="load-balancer-health-probes"></a>Probe di integrità di Load Balancer
 
-Quando si usano le regole di bilanciamento del carico con Azure Load Balancer, è necessario specificare un probe di integrità per consentire Load Balancer di rilevare lo stato dell'endpoint back-end.  La configurazione del probe di integrità e delle risposte di probe determina quali istanze del pool back-end riceveranno nuovi flussi. È possibile usare i probe di integrità per rilevare l'errore di un'applicazione in un endpoint back-end. È anche possibile generare una risposta personalizzata per un probe di integrità e usare il probe per il controllo di flusso, al fine di gestire un carico o tempi di inattività pianificati. Quando un probe di integrità ha esito negativo, Load Balancer smetterà di inviare nuovi flussi alla rispettiva istanza non integra.
+Quando si usano le regole di bilanciamento del carico con Azure Load Balancer, è necessario specificare un probe di integrità per consentire Load Balancer di rilevare lo stato dell'endpoint back-end.  La configurazione del probe di integrità e delle risposte di probe determina quali istanze del pool back-end riceveranno nuovi flussi. È possibile usare i probe di integrità per rilevare l'errore di un'applicazione in un endpoint back-end. È anche possibile generare una risposta personalizzata per un probe di integrità e usare il probe per il controllo di flusso, al fine di gestire un carico o tempi di inattività pianificati. Quando un probe di integrità ha esito negativo, Load Balancer smetterà di inviare nuovi flussi alla rispettiva istanza non integra. La connettività in uscita non ha alcun effetto sulla connettività in ingresso.
 
 I probe di integrità supportano più protocolli. La disponibilità di uno specifico protocollo di probe di integrità varia in base Load Balancer SKU.  Inoltre, il comportamento del servizio varia in base Load Balancer SKU, come illustrato nella tabella seguente:
 
@@ -49,8 +49,8 @@ La configurazione del probe di integrità è costituita dagli elementi seguenti:
 - Porta del probe
 - Percorso HTTP da usare per HTTP GET quando si usano Probe HTTP (S)
 
-> [!NOTE]
-> Una definizione di probe non è obbligatoria o verificata quando si usa Azure PowerShell, interfaccia della riga di comando di Azure, modelli o API. I test di convalida dei probe vengono eseguiti solo quando si usa il portale di Azure.
+>[!NOTE]
+>Una definizione di probe non è obbligatoria o verificata quando si usa Azure PowerShell, interfaccia della riga di comando di Azure, modelli o API. I test di convalida dei probe vengono eseguiti solo quando si usa il portale di Azure.
 
 ## <a name="understanding-application-signal-detection-of-the-signal-and-reaction-of-the-platform"></a>Informazioni sul segnale dell'applicazione, sul rilevamento del segnale e sulla reazione della piattaforma
 
@@ -84,7 +84,7 @@ Il protocollo usato dal probe di integrità può essere configurato in uno dei s
 
 I protocolli disponibili dipendono dallo SKU Load Balancer usato:
 
-|| TCP | http | HTTPS |
+|| TCP | HTTP | HTTPS |
 | --- | --- | --- | --- |
 | SKU Standard |    &#9989; |   &#9989; |   &#9989; |
 | SKU Basic |   &#9989; |   &#9989; | &#10060; |
@@ -112,7 +112,7 @@ Di seguito viene illustrato come è possibile esprimere questo tipo di configura
       },
 ```
 
-### <a name="httpprobe"></a> <a name="httpsprobe"></a> Probe HTTP/HTTPS
+### <a name="httpprobe"></a><a name="httpsprobe"></a> Probe http/https
 
 >[!NOTE]
 >Il probe HTTPS è disponibile solo per [Load Balancer Standard](load-balancer-standard-overview.md).
@@ -120,6 +120,9 @@ Di seguito viene illustrato come è possibile esprimere questo tipo di configura
 I probe HTTP e HTTPS si basano sul probe TCP ed emettono una richiesta HTTP GET con il percorso specificato. Entrambi i probe supportano i percorsi relativi per HTTP GET. I probe HTTPS sono uguali ai probe HTTP con l'aggiunta di un wrapper Transport Layer Security (TLS, precedente noto come SSL). Il probe di integrità viene contrassegnato come inattivo quando l'istanza risponde con uno stato HTTP 200 entro il periodo di timeout.  Per impostazione predefinita, il probe di integrità tenta di controllare la porta del probe di integrità configurata ogni 15 secondi. L'intervallo minimo del probe è di 5 secondi. La durata totale di tutti gli intervalli non può superare i 120 secondi.
 
 I probe HTTP/HTTPS possono essere utili anche per implementare una logica personalizzata per rimuovere le istanze dalla rotazione del servizio di bilanciamento del carico se la porta Probe è anche il listener per il servizio stesso. Ad esempio, si potrebbe scegliere di rimuovere un'istanza se indica oltre il 90% di uso della CPU e restituisce uno stato HTTP diverso da 200. 
+
+> [!NOTE] 
+> Il probe HTTPS richiede l'uso di certificati basati che hanno un hash di firma minimo di SHA256 nell'intera catena.
 
 Se si usano servizi cloud e ruoli Web che usano w3wp.exe, si ottiene anche il monitoraggio automatico del sito Web. Gli errori nel codice del sito Web restituiscono uno stato diverso da 200 al probe del servizio di bilanciamento del carico.
 
@@ -240,7 +243,7 @@ Se si dispone di più interfacce nella macchina virtuale, è necessario assicura
 
 Non abilitare i [timestamp TCP](https://tools.ietf.org/html/rfc1323).  L'abilitazione dei timestamp TCP può causare l'esito negativo dei probe di integrità a causa dell'eliminazione dei pacchetti TCP dallo stack TCP del sistema operativo guest della macchina virtuale, il che determina Load Balancer contrassegnare il rispettivo endpoint.  I timestamp TCP sono abilitati periodicamente per impostazione predefinita sulle immagini delle macchine virtuali con sicurezza elevata e devono essere disattivati.
 
-## <a name="monitoring"></a>Monitoraggio
+## <a name="monitoring"></a>Monitorare
 
 Sia public che Internal [Load Balancer standard](load-balancer-standard-overview.md) espongono lo stato del probe di integrità per endpoint e endpoint back-end come metriche multidimensionali tramite monitoraggio di Azure. Queste metriche possono essere utilizzate da altri servizi di Azure o da applicazioni partner. 
 

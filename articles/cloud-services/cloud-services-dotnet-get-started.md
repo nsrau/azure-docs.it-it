@@ -3,23 +3,23 @@ title: Introduzione a Servizi cloud di Azure e ASP.NET | Microsoft Docs
 description: Informazioni sulla creazione di un app a più livelli con ASP.NET MVC e Azure. L'app viene eseguita in un servizio cloud, con un ruolo Web e un ruolo di lavoro. Usa Entity Framework, il database SQL e le code e i BLOB di archiviazione di Azure.
 services: cloud-services, storage
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 manager: carmonm
 ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: gwallace
-ms.openlocfilehash: 3f2c60be29d679d0b0d30b6bf471f083c66ba93f
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.author: tagore
+ms.openlocfilehash: f5ebb8874b7e277d15ef89aa419c4d26560a6e76
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827667"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386732"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introduzione a Servizi cloud di Azure e ASP.NET
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 Questa esercitazione illustra come creare un'applicazione .NET multilivello con un front-end MVC ASP.NET e come distribuirla in un [servizio cloud di Azure](cloud-services-choose-me.md). L'applicazione usa il [database SQL di Azure](/previous-versions/azure/ee336279(v=azure.100)), il [servizio BLOB di Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) e il [Servizio di accodamento di Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). È possibile [scaricare il progetto di Visual Studio](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) da MSDN Code Gallery.
 
 Questa esercitazione illustra come compilare ed eseguire localmente l'applicazione, come distribuirla in Azure ed eseguirla nel cloud e come creare un'applicazione completamente nuova. È possibile iniziare creando un'applicazione completamente nuova, quindi eseguire i passaggi relativi a test e distribuzione in un secondo momento, se si preferisce.
@@ -105,7 +105,7 @@ Per eseguire l'applicazione nel cloud, eseguire i passaggi seguenti:
 
 * Creare un servizio cloud di Azure.
 * Creare un database SQL di Azure.
-* Creare un account di archiviazione di Azure
+* Creare un account di archiviazione di Azure.
 * Configurare la soluzione per l'uso del database SQL di Azure in caso di esecuzione in Azure.
 * Configurare la soluzione per l'uso dell'account di archiviazione di Azure in caso di esecuzione in Azure.
 * Distribuire il progetto nel servizio cloud di Azure.
@@ -124,7 +124,7 @@ Un servizio cloud in Azure è l'ambiente in cui sarà eseguita l'applicazione.
 5. Scegliere l'area geografica in cui si vuole distribuire l'applicazione.
 
     Questo campo specifica in quale data center viene ospitato il servizio cloud. Per un'applicazione di produzione, scegliere l'area più vicina ai clienti. Per questa esercitazione, scegliere l'area geografica più vicina alla propria ubicazione.
-5. Fare clic su **Create**(Crea).
+5. Fare clic su **Crea**.
 
     L'immagine seguente illustra la creazione di un servizio cloud il cui URL è CSvccontosoads.cloudapp.net.
 
@@ -153,7 +153,7 @@ Quando l'app è in esecuzione nel cloud, userà un database basato sul cloud.
 9. Fare clic su **Seleziona** per il nuovo server.
 
     ![Nuovo server di database SQL](./media/cloud-services-dotnet-get-started/newdbserver.png)
-10. Fare clic su **Create**(Crea).
+10. Fare clic su **Crea**.
 
 ### <a name="create-an-azure-storage-account"></a>Creare un account di archiviazione di Azure
 Un account di archiviazione di Azure offre risorse per l'archiviazione di dati di code e BLOB nel cloud.
@@ -176,7 +176,7 @@ In un'applicazione effettiva si creano in genere account separati per i dati del
     Quando il servizio cloud e l'account di archiviazione si trovano in data center diversi (aree diverse), la latenza aumenterà e verrà addebitato il costo relativo alla larghezza di banda esterna al data center. La larghezza di banda nell'ambito di un data center è gratuita.
 
     I gruppi di affinità di Azure offrono un meccanismo per ridurre la distanza tra le risorse in un data center e di conseguenza la latenza. In questa esercitazione non vengono utilizzati gruppi di affinità. Per altre informazioni, vedere [Come creare un gruppo di affinità in Azure](/previous-versions/azure/reference/gg715317(v=azure.100)).
-7. Fare clic su **Create**(Crea).
+7. Fare clic su **Crea**.
 
     ![Nuovo account di archiviazione](./media/cloud-services-dotnet-get-started/newstorage.png)
 
@@ -229,7 +229,7 @@ Le stringhe di connessione per l'account di archiviazione di Azure per il proget
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **ContosoAdsWeb** nella sezione **Ruoli** del progetto **ContosoAdsCloudService**, quindi scegliere **Proprietà**.
 
     ![Proprietà del ruolo](./media/cloud-services-dotnet-get-started/roleproperties.png)
-2. Fare clic sulla scheda **Impostazioni**. Nella casella di riepilogo **Configurazione servizio** selezionare **Cloud**.
+2. Fare clic sulla scheda **Impostazioni** . Nella casella di riepilogo a discesa **configurazione servizio** scegliere **cloud**.
 
     ![Configurazione del cloud](./media/cloud-services-dotnet-get-started/sccloud.png)
 3. Se si seleziona la voce **StorageConnectionString**, verrà visualizzato un pulsante con puntini di sospensione ( **...** ) all'estremità destra della riga. Fare clic su tale pulsante per aprire la finestra di dialogo **Crea Stringa di connessione all'account di archiviazione** .
@@ -361,7 +361,7 @@ Dopo la creazione della soluzione, esaminare il codice univoco per i progetti di
 
     Questo assembly è usato dal back-end per convertire le immagini in anteprime.
 
-### <a name="configure-connection-strings"></a>Configurare le stringhe di connessione
+### <a name="configure-connection-strings"></a>Configurare stringhe di connessione
 In questa sezione verranno configurate le stringhe di connessione di Archiviazione di Azure e SQL per il test in locale. Le istruzioni di distribuzione disponibili in precedenza in questa esercitazione illustrano come configurare le stringhe di connessione per l'esecuzione dell'app nel cloud.
 
 1. Nel progetto ContosoAdsWeb aprire il file Web.config dell'applicazione e inserire il seguente elemento `connectionStrings` dopo l'elemento `configSections`.
@@ -388,7 +388,7 @@ In questa sezione verranno configurate le stringhe di connessione di Archiviazio
 8. Nella finestra delle proprietà di **ContosoAdsWorker [Ruolo]** aggiungere un'altra stringa di connessione:
 
    * Nome: ContosoAdsDbConnectionString
-   * Digitare: string
+   * Tipo: String
    * Valore: incollare la stessa stringa di connessione usata per il progetto di ruolo Web. L'esempio seguente si riferisce a Visual Studio 2013, quindi se si copia questo esempio e si usa Visual Studio 2015 o versione successiva è necessario modificare l'origine dati.
 
        ```
@@ -738,7 +738,7 @@ Questo codice legge il database per ottenere l'URL dell'immagine. converte l'imm
 >
 >
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 In caso di problemi durante l'esecuzione delle istruzioni di questa esercitazione, di seguito sono indicati alcuni errori comuni e le relative soluzioni.
 
 ### <a name="serviceruntimeroleenvironmentexception"></a>ServiceRuntime.RoleEnvironmentException
@@ -772,7 +772,10 @@ Per un video introduttivo relativo alle procedure consigliate e ai modelli per A
 
 Per altre informazioni, vedere le seguenti risorse:
 
-* [Azure Cloud Services Part 1: Introduzione](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
+* [Servizi cloud di Azure - Parte 1: Introduzione](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Come gestire i servizi cloud](cloud-services-how-to-manage-portal.md)
 * [Archiviazione di Azure](https://docs.microsoft.com/azure/storage/)
 * [Come scegliere un provider di servizi cloud](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
+
+
+

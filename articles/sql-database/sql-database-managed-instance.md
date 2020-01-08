@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 11/27/2019
-ms.openlocfilehash: 1a9c24846606c53fefa1ffc1de59f358524020c4
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: d5b3733947876958b4d72da4cb7bb0f10a3a9165
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707634"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614953"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Che cos'è l'istanza gestita di database SQL di Azure?
 
@@ -29,7 +29,7 @@ Nel diagramma seguente vengono descritte le funzionalità principali delle istan
 
 ![funzionalità principali](./media/sql-database-managed-instance/key-features.png)
 
-Il modello di distribuzione dell'istanza gestita è progettato per i clienti che desiderano eseguire la migrazione di un numero maggiore di app da un ambiente locale o IaaS, creato personalmente o un ambiente fornito da un ISV per la gestione completa dell'ambiente cloud PaaS, con il minor numero di operazioni di migrazione possibile. Tramite il [Servizio Migrazione del database](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) completamente automatico di Azure, i clienti possono trasferire il proprio server SQL locale in un'istanza gestita che garantisce la compatibilità con SQL Server in locale e il completo isolamento delle istanze del cliente con il supporto delle reti virtuali native.  Con Software Assurance è possibile scambiare le licenze esistenti con tariffe scontate per un'istanza gestita tramite il [Vantaggio Azure Hybrid per SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).  Un'istanza gestita è la destinazione di migrazione migliore nel cloud per le istanze di SQL Server che richiedono un livello di sicurezza elevato e una superficie di programmazione avanzata.
+Il modello di distribuzione dell'istanza gestita è progettato per i clienti che desiderano eseguire la migrazione di un numero maggiore di app da un ambiente locale o IaaS, creato personalmente o un ambiente fornito da un ISV per la gestione completa dell'ambiente cloud PaaS, con il minor numero di operazioni di migrazione possibile. Tramite il [Servizio Migrazione del database](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) completamente automatico di Azure, i clienti possono trasferire il proprio server SQL locale in un'istanza gestita che garantisce la compatibilità con SQL Server in locale e il completo isolamento delle istanze del cliente con il supporto delle reti virtuali native.  Con Software Assurance è possibile scambiare le licenze esistenti con tariffe scontate per un'istanza gestita usando il [vantaggio Azure Hybrid per SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).  Un'istanza gestita è la destinazione di migrazione migliore nel cloud per le istanze di SQL Server che richiedono un livello di sicurezza elevato e una superficie di programmazione avanzata.
 
 L'opzione di distribuzione dell'istanza gestita mira a offrire una compatibilità della superficie di attacco prossima al 100% con l'ultima versione di SQL Server in locale tramite un piano di rilascio a fasi.
 
@@ -56,15 +56,15 @@ Nella tabella seguente sono elencate le principali funzionalità delle istanze g
 |Funzionalità | Description|
 |---|---|
 | Versione/build di SQL Server | Motore di database di SQL Server (ultima versione stabile) |
-| Backup automatici gestiti | SÌ |
-| Monitoraggio predefinito e metriche dell'istanza e del database | SÌ |
-| Applicazione automatica di patch software | SÌ |
-| Funzionalità più recenti del motore di database | SÌ |
+| Backup automatici gestiti | Sì |
+| Monitoraggio predefinito e metriche dell'istanza e del database | Sì |
+| Applicazione automatica di patch software | Sì |
+| Funzionalità più recenti del motore di database | Sì |
 | Numero di file di dati (RIGHE) per il database | Multipli |
 | Numero di file di log (LOG) per il database | 1 |
-| Rete virtuale: distribuzione di Azure Resource Manager | SÌ |
+| Rete virtuale: distribuzione di Azure Resource Manager | Sì |
 | Rete virtuale: modello di distribuzione classica | No |
-| Supporto del portale | SÌ|
+| Supporto del portale | Sì|
 | Integration Services (SSIS) incorporato | No - SSIS fa parte di [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Analysis Services (SSAS) incorporato | No - SSAS fa parte di una [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) distinta |
 | Reporting Services (SSRS) incorporato | No - usare Power BI o SSRS IaaS |
@@ -154,13 +154,13 @@ Nella tabella seguente sono riepilogate le operazioni e le durate generali tipic
 |Distribuzione |Creazione della prima istanza di 4 Vcore, in una subnet vuota o non vuota|Creazione di un cluster virtuale * *|90% di operazioni completate tra 4 ore|
 |Distribuzione |Creazione dell'istanza successiva all'interno della subnet non vuota (2a, terza e così via)|Ridimensionamento di cluster virtuali|90% di operazioni completate tra 2,5 ore|
 |**Aggiornamento** |Modifica proprietà istanza (password amministratore, accesso ad AAD, flag di Vantaggio Azure Hybrid)|N/D|Fino a 1 minuto|
-|Aggiornare |Scalabilità verticale/orizzontale per l'archiviazione delle istanze (per utilizzo generico livello di servizio)|-Ridimensionamento cluster virtuale<br>-Connessione dei file di database|90% di operazioni completate tra 2,5 ore|
-|Aggiornare |Scalabilità verticale/orizzontale per l'archiviazione delle istanze (business critical livello di servizio)|-Ridimensionamento cluster virtuale<br>-Always On seeding del gruppo di disponibilità|90% di operazioni completate tra 2,5 ore + tempo per il seeding di tutti i database (220 GB/ora)|
-|Aggiornare |Scalabilità verticale (VCore) di calcolo dell'istanza (per utilizzo generico)|-Ridimensionamento cluster virtuale<br>-Connessione dei file di database|90% di operazioni completate tra 2,5 ore|
-|Aggiornare |Scalabilità verticale (VCore) di calcolo dell'istanza (business critical)|-Ridimensionamento cluster virtuale<br>-Always On seeding del gruppo di disponibilità|90% di operazioni completate tra 2,5 ore + tempo per il seeding di tutti i database (220 GB/ora)|
-|Aggiornare |Ridimensionamento dell'istanza fino a 4 Vcore (per utilizzo generico)|-Il ridimensionamento del cluster virtuale (se eseguito per la prima volta, potrebbe richiedere la creazione di un cluster virtuale * *)<br>-Connessione dei file di database|90% di operazioni completate in 4 h 5 min * *|
-|Aggiornare |Ridimensionamento dell'istanza fino a 4 Vcore (per utilizzo generico)|-Il ridimensionamento del cluster virtuale (se eseguito per la prima volta, potrebbe richiedere la creazione di un cluster virtuale * *)<br>-Always On seeding del gruppo di disponibilità|90% di operazioni completate tra 4 ore + tempo per il seeding di tutti i database (220 GB/ora)|
-|Aggiornare |Modifica del livello di servizio dell'istanza (per utilizzo generico business critical e viceversa)|-Ridimensionamento cluster virtuale<br>-Always On seeding del gruppo di disponibilità|90% di operazioni completate tra 2,5 ore + tempo per il seeding di tutti i database (220 GB/ora)|
+|Aggiornamento |Scalabilità verticale/orizzontale per l'archiviazione delle istanze (per utilizzo generico livello di servizio)|Associazione di file di database|90% di operazioni completate in 5 minuti|
+|Aggiornamento |Scalabilità verticale/orizzontale per l'archiviazione delle istanze (business critical livello di servizio)|-Ridimensionamento cluster virtuale<br>-Always On seeding del gruppo di disponibilità|90% di operazioni completate tra 2,5 ore + tempo per il seeding di tutti i database (220 GB/ora)|
+|Aggiornamento |Scalabilità verticale (VCore) di calcolo dell'istanza (per utilizzo generico)|-Ridimensionamento cluster virtuale<br>-Connessione dei file di database|90% di operazioni completate tra 2,5 ore|
+|Aggiornamento |Scalabilità verticale (VCore) di calcolo dell'istanza (business critical)|-Ridimensionamento cluster virtuale<br>-Always On seeding del gruppo di disponibilità|90% di operazioni completate tra 2,5 ore + tempo per il seeding di tutti i database (220 GB/ora)|
+|Aggiornamento |Ridimensionamento dell'istanza fino a 4 Vcore (per utilizzo generico)|-Il ridimensionamento del cluster virtuale (se eseguito per la prima volta, potrebbe richiedere la creazione di un cluster virtuale * *)<br>-Connessione dei file di database|90% di operazioni completate in 4 h 5 min * *|
+|Aggiornamento |Ridimensionamento dell'istanza fino a 4 Vcore (business critical)|-Il ridimensionamento del cluster virtuale (se eseguito per la prima volta, potrebbe richiedere la creazione di un cluster virtuale * *)<br>-Always On seeding del gruppo di disponibilità|90% di operazioni completate tra 4 ore + tempo per il seeding di tutti i database (220 GB/ora)|
+|Aggiornamento |Modifica del livello di servizio dell'istanza (per utilizzo generico business critical e viceversa)|-Ridimensionamento cluster virtuale<br>-Always On seeding del gruppo di disponibilità|90% di operazioni completate tra 2,5 ore + tempo per il seeding di tutti i database (220 GB/ora)|
 |**Eliminazione**|Eliminazione di un'istanza|Backup della parte finale del log per tutti i database|90% le operazioni vengono completate fino a un minuto.<br>Nota: se viene eliminata l'ultima istanza della subnet, questa operazione pianifica l'eliminazione del cluster virtuale dopo 12 ore * * *|
 |Eliminazione|Eliminazione di un cluster virtuale (operazione avviata dall'utente)|Eliminazione cluster virtuale|90% di operazioni completate in un massimo di 1,5 ore|
 
@@ -174,14 +174,45 @@ Nella tabella seguente sono riepilogate le operazioni e le durate generali tipic
 
 Le istanze gestite non sono disponibili per le applicazioni client durante le operazioni di distribuzione ed eliminazione.
 
-Le istanze gestite sono disponibili durante le operazioni di aggiornamento, ma si verifica un breve tempo di inattività causato dal failover che si verifica alla fine degli aggiornamenti che in genere durano fino a 10 secondi.
+Le istanze gestite sono disponibili durante le operazioni di aggiornamento, ma si verifica un breve tempo di inattività causato dal failover che si verifica alla fine degli aggiornamenti che in genere durano fino a 10 secondi. L'eccezione è rappresentata dall'aggiornamento dello spazio di archiviazione riservato in per utilizzo generico livello di servizio che non comporta il failover né influisce sulla disponibilità dell'istanza.
 
 > [!IMPORTANT]
 > La durata di un failover può variare in modo significativo in caso di transazioni a esecuzione prolungata che si verificano nei database a causa del [tempo di recupero prolungato](sql-database-accelerated-database-recovery.md#the-current-database-recovery-process). Non è quindi consigliabile ridimensionare le risorse di calcolo o di archiviazione dell'istanza gestita di database SQL di Azure o per modificare il livello di servizio contemporaneamente con le transazioni a esecuzione prolungata (importazione di dati, processi di elaborazione dei dati, ricompilazione dell'indice e così via). Il failover del database che verrà eseguito al termine dell'operazione Annulla le transazioni in corso e genera tempi di ripristino prolungati.
 
+> [!TIP]
+> L'aggiornamento dello spazio di archiviazione riservato in per utilizzo generico livello di servizio non comporta il failover né influisce sulla disponibilità dell'istanza.
+
 Il [recupero accelerato del database](sql-database-accelerated-database-recovery.md) non è attualmente disponibile per le istanze gestite del database SQL di Azure. Una volta abilitata, questa funzionalità ridurrà significativamente la variabilità del tempo di failover, anche in caso di transazioni a esecuzione prolungata.
 
+### <a name="canceling-management-operations"></a>Annullamento di operazioni di gestione
 
+Nella tabella seguente è riepilogata la possibilità di annullare operazioni di gestione specifiche e le durate generali tipiche:
+
+Categoria  |Operazione  |Annullabile  |Durata stimata annullamento  |
+|---------|---------|---------|---------|
+|Distribuzione |Creazione di istanze |No |  |
+|Aggiornamento |Scalabilità verticale/orizzontale di archiviazione dell'istanza (per utilizzo generico) |No |  |
+|Aggiornamento |Scalabilità verticale/orizzontale di archiviazione dell'istanza (business critical) |Sì |90% di operazioni completate in 5 minuti |
+|Aggiornamento |Scalabilità verticale (VCore) di calcolo dell'istanza (per utilizzo generico) |Sì |90% di operazioni completate in 5 minuti |
+|Aggiornamento |Scalabilità verticale (VCore) di calcolo dell'istanza (business critical) |Sì |90% di operazioni completate in 5 minuti |
+|Aggiornamento |Modifica del livello di servizio dell'istanza (per utilizzo generico business critical e viceversa) |Sì |90% di operazioni completate in 5 minuti |
+|Elimina |Eliminazione di un'istanza |No |  |
+|Elimina |Eliminazione di un cluster virtuale (operazione avviata dall'utente) |No |  |
+
+Per annullare l'operazione di gestione, passare al pannello panoramica e fare clic sulla casella di notifica dell'operazione in corso. Dal lato destro verrà visualizzata una schermata con l'operazione in corso e sarà presente un pulsante per annullare l'operazione. Dopo aver eseguito il primo clic, verrà chiesto di fare nuovamente clic e confermare che si desidera annullare l'operazione.
+
+[![](./media/sql-database-managed-instance/canceling-operation.png)](./media/sql-database-managed-instance/canceling-operation.png#lightbox)
+
+Dopo l'invio e l'elaborazione della richiesta di annullamento, si riceverà una notifica in caso di esito positivo dell'annullamento dell'invio. 
+
+In caso di annullamento dell'esito positivo, l'operazione di gestione verrà annullata in pochi minuti causando un errore.
+
+![annullamento del risultato dell'operazione](./media/sql-database-managed-instance/canceling-operation-result.png)
+
+Se la richiesta di annullamento ha esito negativo o il pulsante Annulla non è attivo, significa che l'operazione di gestione non è stata annullata e che verrà completata in pochi minuti. L'esecuzione dell'operazione di gestione continuerà fino al completamento.
+
+> [!IMPORTANT]
+> L'operazione di annullamento è attualmente supportata solo nel portale.
 
 ## <a name="advanced-security-and-compliance"></a>Sicurezza e conformità avanzate
 
@@ -211,7 +242,7 @@ Database SQL di Azure fornisce un set di funzionalità di sicurezza avanzato che
 - Il [controllo dell'istanza gestita](sql-database-managed-instance-auditing.md) tiene traccia degli eventi del database e li registra in un log di controllo nell'account di archiviazione di Azure. Il controllo consente di agevolare la conformità alle normative, comprendere le attività del database e ottenere informazioni su eventuali discrepanze e anomalie che potrebbero indicare problemi aziendali o sospette violazioni della sicurezza.
 - Crittografia dei dati in transito: un'istanza gestita protegge i dati fornendo la crittografia per i dati in transito tramite Transport Layer Security. Oltre alla sicurezza a livello di trasporto, l'opzione di distribuzione dell'istanza gestita offre protezione per i dati sensibili in movimento, inattivi e durante l'elaborazione di query con [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Always Encrypted è una tecnologia leader del settore che offre un livello di sicurezza dei dati senza uguali, per la protezione da violazioni che implicano il furto di dati critici. Con Always Encrypted, ad esempio, i numeri delle carte di credito sono sempre archiviati in forma crittografata nel database, anche durante l'elaborazione di query, e la decrittografia è consentita nella posizione di utilizzo da parte di personale o applicazioni autorizzati che devono elaborare tali dati.
 - [Advanced Threat Protection](sql-database-managed-instance-threat-detection.md) è complementare al [controllo](sql-database-managed-instance-auditing.md) fornendo un ulteriore livello di intelligence per la sicurezza incorporato nel servizio che rileva tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database. L'utente viene avvisato di attività sospette, vulnerabilità potenziali e attacchi SQL injection, nonché di modelli anomali di accesso al database. Gli avvisi di Advanced Threat Protection possono essere visualizzati dal [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/) e forniscono informazioni dettagliate sulle attività sospette e consigliano azioni su come analizzare e mitigare la minaccia.  
-- La funzione [Maschera dati dinamica](/sql/relational-databases/security/dynamic-data-masking) limita l'esposizione dei dati sensibili, nascondendoli agli utenti senza privilegi. La maschera dati dinamica impedisce l'accesso non autorizzato ai dati sensibili consentendo di definire la quantità di dati sensibili da rivelare, con un impatto minimo sul livello dell'applicazione. Si tratta di una funzionalità di sicurezza basata su criteri che consente di nascondere i dati sensibili nel set di risultati di una query in campi del database designati, senza alcuna modifica dei dati contenuti nel database.
+- La funzione [Maschera dati dinamica](/sql/relational-databases/security/dynamic-data-masking) limita l'esposizione dei dati sensibili, nascondendoli agli utenti senza privilegi. La maschera dati dinamica impedisce l'accesso non autorizzato ai dati sensibili consentendo di definire la quantità di dati sensibili da rivelare, con un impatto minimo sul livello dell'applicazione. Si tratta di una funzionalità di sicurezza basata su criteri che consente di nascondere i dati sensibili nel set di risultati di una query in campi di database designati, senza modificare i dati nel database.
 - La [sicurezza a livello di riga](/sql/relational-databases/security/row-level-security) consente di controllare l'accesso alle righe in una tabella di database in base alle caratteristiche dell'utente che esegue una query, ad esempio l'appartenenza a un gruppo o il contesto di esecuzione. La sicurezza a livello di riga semplifica la progettazione e la codifica della sicurezza nell'applicazione. Consente di implementare limitazioni per l'accesso alle righe di dati, assicurando ad esempio che i collaboratori possano accedere solo alle righe di dati pertinenti per il proprio reparto o limitando l'accesso ai dati ai soli dati di pertinenti.
 - La funzione [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) esegue la crittografia dei file di dati delle istanze gestite, noti anche come dati inattivi crittografati. TDE esegue la crittografia e la decrittografia delle operazioni di I/O di file di dati e log in tempo reale. La crittografia usa una chiave di crittografia del database (DEK) che viene archiviata nel record di avvio del database per la disponibilità durante il ripristino. È possibile proteggere tutti i database in un'istanza gestita con la crittografia dei dati trasparente. TDE è la tecnologia di crittografia dei dati inattivi collaudata di SQL Server, richiesta da molti standard di conformità per la protezione in caso di furto di supporti di archiviazione.
 
@@ -227,7 +258,7 @@ Viene introdotta una nuova sintassi per creare Azure AD entità server (account 
 
 L'opzione di distribuzione dell'istanza gestita consente di gestire a livello centralizzato le identità degli utenti di database e altri servizi Microsoft grazie all'[integrazione in Azure Active Directory](sql-database-aad-authentication.md). Questa funzionalità semplifica la gestione delle autorizzazioni e ottimizza la sicurezza. Azure Active Directory supporta l'[autenticazione a più fattori](sql-database-ssms-mfa-authentication-configure.md) (MFA) per una maggiore sicurezza di dati e applicazioni, supportando allo stesso tempo un processo di accesso singolo.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticazione
 
 Per autenticazione dell'istanza gestita si intende il modo in cui l'utente dimostra la propria identità durante la connessione al database. Il database SQL supporta due tipi di autenticazione:  
 
@@ -238,7 +269,7 @@ Per autenticazione dell'istanza gestita si intende il modo in cui l'utente dimos
 
   Questo metodo di autenticazione usa identità gestite da Azure Active Directory ed è supportato per domini gestiti e integrati. [Quando possibile](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode), usare l'autenticazione di Active Directory (sicurezza integrata).
 
-### <a name="authorization"></a>Authorization
+### <a name="authorization"></a>Autorizzazione
 
 Per autorizzazione si intendono le operazioni che l'utente può eseguire in un database SQL di Azure, che sono controllate dalle appartenenze ai ruoli del database e dalle autorizzazioni a livello di oggetto dell'account utente. Un'istanza gestita ha le stesse funzionalità di autorizzazione di SQL Server 2017.
 
@@ -292,7 +323,7 @@ L'opzione di distribuzione dell'istanza gestita consente all'amministratore di s
 
 La tabella seguente mostra diverse proprietà, accessibili tramite Transact SQL, che è possibile usare per rilevare se l'applicazione funziona con l'istanza gestita e recuperare proprietà importanti.
 
-|Proprietà|Value|Comment|
+|Proprietà|Valore|Comment|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Questo valore è uguale a quello del database SQL.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Questo valore è uguale a quello del database SQL.|

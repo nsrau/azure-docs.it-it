@@ -4,15 +4,15 @@ description: Questo articolo offre informazioni dettagliate per configurare l'ag
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 05/04/2017
-ms.openlocfilehash: 60f09035f4aabcbd6348fb5608b812ca4b001b45
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 75fd0453534e3a656bb1d8e2940b716dadfdf869
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932461"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395842"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Raccogliere i contatori delle prestazioni per applicazioni Linux in Monitoraggio di Azure 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -46,7 +46,7 @@ Nella tabella seguente sono descritte le voci presenti nel file di autenticazion
 |:--|:--|
 | Porta | Rappresenta la porta corrente su cui è in ascolto l'istanza di MySQL. La porta 0 indica che per l'istanza predefinita vengono usate le proprietà seguenti. |
 | Bind-address| Valore bind-address corrente di MySQL. |
-| Nome utente| Utente di MySQL usato per monitorare l'istanza del server MySQL. |
+| username| Utente di MySQL usato per monitorare l'istanza del server MySQL. |
 | Password con codifica Base64| Password dell'utente di monitoraggio di MySQL con codifica Base64. |
 | AutoUpdate| Specifica se ripetere la ricerca di modifiche nel file my.cnf e se sovrascrivere il file di autenticazione di OMI MySQL quando viene aggiornato il provider OMI MySQL. |
 

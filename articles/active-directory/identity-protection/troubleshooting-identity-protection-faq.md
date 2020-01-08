@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: troubleshooting
-ms.date: 10/18/2019
+ms.date: 12/13/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d22973867782ddb64ced2ac95e84c0b27a3addd
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 140ad45d9c4f6b6f49a4ea4aefb9298e58a2cf10
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72887598"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443579"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Domande frequenti sulla protezione delle identità in Azure Active Directory
 
@@ -42,6 +42,14 @@ Attivando **Visualizza date come** viene nascosta la colonna **ULTIMO AGGIORNAME
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
+### <a name="why-is-a-user-is-at-risk"></a>Perché un utente è a rischio?
+
+Se si è un cliente Azure AD Identity Protection, passare alla visualizzazione [utenti a rischio](howto-identity-protection-investigate-risk.md#risky-users) e fare clic su un utente a rischio. Nel cassetto nella parte inferiore della scheda ' cronologia dei rischi ' visualizzerà tutti gli eventi che hanno portato a una modifica dei rischi dell'utente. Per visualizzare tutti gli accessi a rischio per l'utente, fare clic su "accessi a rischio utente". Per visualizzare tutti i rilevamenti dei rischi per questo utente, fare clic su "rilevamento rischi utente".
+
+### <a name="how-can-i-get-a-report-of-detections-of-a-specific-type"></a>Come è possibile ottenere un report dei rilevamenti di un tipo specifico?
+
+Passare alla visualizzazione rilevamento dei rischi e filtrare per "tipo di rilevamento". È quindi possibile scaricare il report in. CSV o. Formato JSON con il pulsante **download** nella parte superiore. Per altre informazioni, vedere l'articolo [procedura: analizzare i rischi](howto-identity-protection-investigate-risk.md#risk-detections).
+
 ### <a name="why-cant-i-set-my-own-risk-levels-for-each-risk-detection"></a>Perché non è possibile impostare i propri livelli di rischio per ogni rilevamento dei rischi?
 
 I livelli di rischio in Identity Protection si basano sulla precisione del rilevamento e si avvalgono della tecnologia di Machine Learning. Per personalizzare ciò che viene presentato agli utenti, l'amministratore può includere o escludere determinati utenti o gruppi dai criteri di rischio utente e di rischio di accesso.
@@ -49,6 +57,20 @@ I livelli di rischio in Identity Protection si basano sulla precisione del rilev
 ### <a name="why-does-the-location-of-a-sign-in-not-match-where-the-user-truly-signed-in-from"></a>Cause per cui la posizione di accesso non corrisponde a quella in cui l'utente ha effettivamente eseguito l'accesso.
 
 Il mapping di georilevazione IP costituisce una sfida a livello di settore. Se si ritiene che la località elencata nel report degli accessi non corrisponda alla posizione effettiva, contattare il supporto tecnico Microsoft. 
+
+### <a name="how-can-i-close-specific-risk-detections-like-i-did-in-the-old-ui"></a>Come è possibile chiudere specifici rilevamenti di rischio come nell'interfaccia utente precedente?
+
+È possibile inviare commenti e suggerimenti sui rilevamenti dei rischi confermando l'accesso collegato come compromesso o sicuro. Il feedback fornito durante l'accesso si riduce a tutti i rilevamenti effettuati su tale accesso. Se si desidera chiudere i rilevamenti non collegati a un accesso, è possibile fornire tali commenti a livello di utente. Per altre informazioni, vedere l'articolo [How to: Give Risk feedback in Azure ad Identity Protection](howto-identity-protection-risk-feedback.md).
+
+### <a name="how-far-can-i-go-back-in-time-to-understand-whats-going-on-with-my-user"></a>Fino a che punto è possibile tornare indietro nel tempo per capire cosa accade con l'utente?
+
+- La visualizzazione [utenti a rischio](howto-identity-protection-investigate-risk.md#risky-users) indica il rischio di un utente in base a tutti gli accessi passati. 
+- La visualizzazione [accessi a rischio](howto-identity-protection-investigate-risk.md#risky-sign-ins) Mostra segni a rischio negli ultimi 30 giorni. 
+- La visualizzazione [rilevamento](howto-identity-protection-investigate-risk.md#risk-detections) dei rischi Mostra i rilevamenti dei rischi effettuati negli ultimi 90 giorni.
+
+### <a name="how-can-i-learn-more-about-a-specific-detection"></a>Come è possibile ottenere ulteriori informazioni su un rilevamento specifico?
+
+Tutti i rilevamenti dei rischi sono documentati nell'articolo relativo al [rischio](concept-identity-protection-risks.md#risk-types-and-detection). È possibile passare il puntatore del mouse sul simbolo (i) accanto al rilevamento sul portale di Azure per ottenere altre informazioni su un rilevamento.
 
 ### <a name="how-do-the-feedback-mechanisms-in-identity-protection-work"></a>Come funzionano i meccanismi dei feedback in Identity Protection?
 

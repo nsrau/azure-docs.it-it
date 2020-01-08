@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: 8eb8075454dc3a49e9525d566c34c64bab8be5a0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fe6e581963753cac33092285fee0c8d16959bde8
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083440"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530103"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Distribuire IBM DB2 pureScale in Azure
 
@@ -27,7 +27,7 @@ Questo articolo illustra come distribuire un'[architettura di esempio](ibm-db2-p
 
 Per seguire le procedure di migrazione, vedere gli script di installazione nel repository [DB2onAzure](https://aka.ms/db2onazure) su GitHub. Questi script sono basati sull'architettura per un tipico carico di lavoro OLTP (Online Transaction Processing) di medie dimensioni.
 
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Inizia oggi stesso
 
 Per distribuire questa architettura, scaricare ed eseguire lo script deploy.sh disponibile nel repository [DB2onAzure](https://aka.ms/db2onazure) su GitHub.
 
@@ -40,33 +40,35 @@ Il repository contiene anche script da usare per configurare un dashboard Grafan
 
 Lo script deploy.sh crea e configura le risorse di Azure per questa architettura. Lo script chiede all'utente di specificare la sottoscrizione di Azure e le macchine virtuali usate nell'ambiente di destinazione, quindi esegue le operazioni seguenti:
 
--   Configura il gruppo di risorse, la rete virtuale e le subnet in Azure per l'installazione
+-   Configura il gruppo di risorse, la rete virtuale e le subnet in Azure per l'installazione.
 
--   Configura i gruppi di sicurezza di rete e SSH per l'ambiente
+-   Configura i gruppi di sicurezza di rete e SSH per l'ambiente.
 
--   Configura le schede di interfaccia di rete nelle macchine virtuali GlusterFS e DB2 pureScale
+-   Configura più schede di rete sia nell'archiviazione condivisa che nelle macchine virtuali DB2 pureScale.
 
--   Crea le macchine virtuali di archiviazione GlusterFS
+-   Crea le macchine virtuali di archiviazione condivise. Se si usa Spazi di archiviazione diretta o un'altra soluzione di archiviazione, vedere [Panoramica di spazi di archiviazione diretta](/windows-server/storage/storage-spaces/storage-spaces-direct-overview).
 
--   Crea la macchina virtuale jumpbox
+-   Crea la macchina virtuale jumpbox.
 
--   Crea le macchine virtuali DB2 pureScale
+-   Crea le macchine virtuali DB2 pureScale.
 
--   Crea la macchina virtuale di controllo a cui DB2 pureScale effettua il ping
+-   Crea la macchina virtuale di controllo che DB2 pureScale ping. Ignorare questa parte della distribuzione se la versione di DB2 pureScale non richiede un server di controllo del mirroring.
 
--   Crea una macchina virtuale Windows da usare per i test ma non vi installa nulla
+-   Crea una macchina virtuale Windows da utilizzare per il testing, ma non installa alcun elemento.
 
-Gli script di distribuzione configurano quindi la rete di archiviazione virtuale (vSAN) iSCSI per lo spazio di archiviazione condiviso in Azure. In questo esempio iSCSI si connette a GlusterFS. Questa soluzione consente anche di installare le destinazioni iSCSI come singolo nodo di Windows. iSCSI fornisce un'interfaccia di archiviazione a blocchi condivisa su TCP/IP che consente alla procedura di configurazione di DB2 pureScale di usare l'interfaccia di un dispositivo per connettersi a uno spazio di archiviazione condiviso. Per informazioni di base su GlusterFS, vedere l'argomento [Architecture: Types of volumes](https://docs.gluster.org/en/latest/Quick-Start-Guide/Architecture/) (Architettura - Tipi di volumi) nella documentazione di Gluster.
+Gli script di distribuzione configurano quindi la rete di archiviazione virtuale (vSAN) iSCSI per lo spazio di archiviazione condiviso in Azure. In questo esempio iSCSI si connette al cluster di archiviazione condivisa. Nella soluzione del cliente originale è stato usato GlusterFS. Tuttavia, IBM non supporta più questo approccio. Per mantenere il supporto tecnico da IBM, è necessario usare un file system supportato compatibile con iSCSI. Microsoft offre Spazi di archiviazione diretta (S2D) come opzione.
+
+Questa soluzione consente anche di installare le destinazioni iSCSI come singolo nodo di Windows. iSCSI fornisce un'interfaccia di archiviazione a blocchi condivisa su TCP/IP che consente alla procedura di configurazione di DB2 pureScale di usare l'interfaccia di un dispositivo per connettersi a uno spazio di archiviazione condiviso.
 
 Gli script di distribuzione eseguono questi passaggi generali:
 
-1.  Usare GlusterFS per configurare un cluster di archiviazione condivisa in Azure. Per questo passaggio servono almeno due nodi Linux. Per informazioni dettagliate sulla configurazione, vedere [Setting up Red Hat Gluster Storage in Microsoft Azure](https://access.redhat.com/documentation/en-us/red_hat_gluster_storage/3.1/html/deployment_guide_for_public_cloud/chap-documentation-deployment_guide_for_public_cloud-azure-setting_up_rhgs_azure) (Configurazione di Red Hat Gluster Storage in Microsoft Azure) nella documentazione di Red Hat Gluster.
+1.  Configurare un cluster di archiviazione condivisa in Azure. Per questo passaggio servono almeno due nodi Linux.
 
-2.  Configurare un'interfaccia iSCSI Direct nei server Linux di destinazione per GlusterFS. Per informazioni dettagliate sulla configurazione, vedere [GlusterFS iSCSI](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/) (iSCSI in GlusterFS) nella guida all'amministrazione di GlusterFS.
+2.  Configurare un'interfaccia iSCSI diretta nei server Linux di destinazione per il cluster di archiviazione condivisa.
 
-3.  Configurare l'iniziatore iSCSI nelle macchine virtuali Linux. L'iniziatore accederà al cluster GlusterFS mediante una destinazione iSCSI. Per informazioni dettagliate sulla configurazione, vedere [How To Configure An iSCSI Target And Initiator In Linux](https://www.rootusers.com/how-to-configure-an-iscsi-target-and-initiator-in-linux/) (Come configurare una destinazione e un iniziatore iSCSI in Linux) nella documentazione di RootUsers.
+3.  Configurare l'iniziatore iSCSI nelle macchine virtuali Linux. L'iniziatore accederà al cluster di archiviazione condivisa utilizzando una destinazione iSCSI. Per informazioni dettagliate sulla configurazione, vedere [How To Configure An iSCSI Target And Initiator In Linux](https://www.rootusers.com/how-to-configure-an-iscsi-target-and-initiator-in-linux/) (Come configurare una destinazione e un iniziatore iSCSI in Linux) nella documentazione di RootUsers.
 
-4.  Installare GlusterFS come livello di archiviazione dell'interfaccia iSCSI.
+4.  Installare il livello di archiviazione condiviso per l'interfaccia iSCSI.
 
 Dopo che gli script creano il dispositivo iSCSI, il passaggio finale consiste nell'installare DB2 pureScale. Nell'ambito dell'installazione di DB2 pureScale, [IBM Spectrum Scale](https://www.ibm.com/support/knowledgecenter/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0057167.html) (noto in precedenza come GPFS) viene compilato e installato nel cluster GlusterFS. Questo file system a cluster consente a DB2 pureScale di condividere dati tra le macchine virtuali che eseguono il motore di DB2 pureScale. Per altre informazioni, vedere la documentazione di [IBM Spectrum Scale](https://www.ibm.com/support/knowledgecenter/en/STXKQY_4.2.0/ibmspectrumscale42_welcome.html) nel sito Web IBM.
 
@@ -79,7 +81,7 @@ Il repository GitHub include il file di risposta DB2server.rsp, che consente di 
 
 | Nome schermata               | Campo                                        | Valore                                                                                                 |
 |---------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------|
-| Procedura guidata                   |                                              | New Install (Nuova installazione)                                                                                           |
+| Benvenuti                   |                                              | New Install (Nuova installazione)                                                                                           |
 | Choose a Product (Scegliere un prodotto)          |                                              | DB2 Version 11.1.3.3. Server Editions with DB2 pureScale                                              |
 | Configurazione             | Directory                                    | /data1/opt/ibm/db2/V11.1                                                                              |
 |                           | Select the installation type (Selezionare il tipo di installazione)                 | Typical (Tipica)                                                                                               |
@@ -87,7 +89,7 @@ Il repository GitHub include il file di risposta DB2server.rsp, che consente di 
 | Instance Owner (Proprietario istanza)            | Existing User For Instance, User name (Utente esistente per istanza, Nome utente)        | DB2sdin1                                                                                              |
 | Fenced User (Utente confinato)               | Existing User, User name (Utente esistente, Nome utente)                     | DB2sdfe1                                                                                              |
 | Cluster File System (File system cluster)       | Shared disk partition device path (Percorso dispositivo partizione disco condiviso)            | /dev/dm-2                                                                                             |
-|                           | Punto di montaggio                                  | /DB2sd\_1804a                                                                                         |
+|                           | Mount point (Punto di montaggio)                                  | /DB2sd\_1804a                                                                                         |
 |                           | Shared disk for data (Disco condiviso per i dati)                         | /dev/dm-1                                                                                             |
 |                           | Mount point (Data) (Punto di montaggio - Dati)                           | /DB2fs/datafs1                                                                                        |
 |                           | Shared disk for log (Disco condiviso per il log)                          | /dev/dm-0                                                                                             |
@@ -141,8 +143,6 @@ Per altre informazioni su questi e altri problemi noti, vedere il file kb.md nel
 
 ## <a name="next-steps"></a>Passaggi successivi
 
--   [GlusterFS iSCSI](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/) (iSCSI in GlusterFS)
-
 -   [Creating required users for a DB2 pureScale Feature installation](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2) (Creazione degli utenti necessari per l'installazione della funzionalità DB2 pureScale)
 
 -   [DB2icrt - Create instance command](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html) (DB2icrt - Comando Crea istanza)
@@ -151,6 +151,6 @@ Per altre informazioni su questi e altri problemi noti, vedere il file kb.md nel
 
 -   [IBM Data Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
 
--   [Platform Modernization Alliance: IBM DB2 on Azure](https://www.platformmodernization.org/pages/ibmdb2azure.aspx) (Platform Modernization Alliance: IBM DB2 in Azure)
+-   [Alleanza di modernizzazione della piattaforma: IBM DB2 in Azure](https://www.platformmodernization.org/pages/ibmdb2azure.aspx)
 
 -   [Data center virtuale di Azure: guida al lift and shift](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)

@@ -1,6 +1,6 @@
 ---
 title: Connettere Windows Internet core all'applicazione IoT Central di Azure | Microsoft Docs
-description: Informazioni su come connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central nello sviluppo di dispositivi.
+description: Informazioni su come connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central in qualità di sviluppatore di dispositivi.
 author: miriambrus
 ms.author: miriamb
 ms.date: 08/22/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 43e99c54249738436f24369ed3525e78ff971a12
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 452d18908406214bb7e1253363a42d8ba8287d96
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930198"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454023"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Connettere un dispositivo Windows IoT Core all'applicazione Azure IoT Central
 
@@ -25,19 +25,24 @@ Questo articolo descrive come connettere un dispositivo Windows IoT Core all'app
 
 Per seguire la procedura descritta in questo articolo, sono necessari gli elementi seguenti:
 
-- Un'applicazione Azure IoT Central creata dal modello di applicazione **Sample Devkits**. Per altre informazioni, vedere la [guida introduttiva per la creazione di un'applicazione](quick-deploy-iot-central.md).
+- Un'applicazione IoT Central di Azure creata dal modello di applicazione dell' **applicazione legacy** . Per altre informazioni, vedere la [guida introduttiva per la creazione di un'applicazione](quick-deploy-iot-central.md).
 
 - Un dispositivo che esegue il sistema operativo Windows 10 IoT Core. Per ulteriori informazioni, vedere [la pagina relativa alla configurazione del dispositivo Core Windows 10](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup).
 
 - Un computer di sviluppo in cui è installato [node. js](https://nodejs.org/) versione 8.0.0 o successiva. Per controllare la versione, è possibile eseguire `node --version` nella riga di comando. Node.js è disponibile per un'ampia gamma di sistemi operativi.
 
-## <a name="the-sample-devkits-application"></a>Applicazione devkits di esempio
+## <a name="add-a-device-template"></a>Aggiungere un modello di dispositivo
 
-Un'applicazione creata dal modello di applicazione **Sample Devkits** include un modello di dispositivo **Windows IoT Core** con le caratteristiche seguenti:
+Nell'applicazione IoT Central di Azure aggiungere un nuovo modello di dispositivo **principale di Windows** per dispositivi con le caratteristiche seguenti:
 
 - Misurazioni di telemetria per il dispositivo: **umidità**, **temperatura**e **pressione**.
 - Impostazione per controllare la **velocità della ventola**.
 - **Numero** delle proprietà del dispositivo e **posizione**della proprietà del cloud.
+
+1. Selezionare **+ nuovo** da modelli di dispositivo ![modello di dispositivo](media/howto-connect-windowsiotcore/adddevicetemplate.png)
+   
+
+2. Selezionare **Windows** Internet Internet core e creare il modello di dispositivo Core di Windows per dispositivi ![Aggiungi modello di dispositivo](media/howto-connect-windowsiotcore/newdevicetemplate.png)
 
 Per informazioni dettagliate sulla configurazione del modello di dispositivo, vedere la pagina relativa ai [Dettagli del modello di dispositivo principale di Windows](#device-template-details).
 
@@ -104,26 +109,26 @@ Un'applicazione creata dal modello di applicazione **Sample Devkits** include un
 
 ### <a name="telemetry-measurements"></a>Misure di telemetria
 
-| Nome campo     | Unità  | Minima | Massima | Cifre decimali |
+| Nome campo     | Unità  | Minima | Massimo | Cifre decimali |
 | -------------- | ------ | ------- | ------- | -------------- |
 | umidità       | %      | 0       | 100     | 0              |
 | temp           | °C     | -40     | 120     | 0              |
 | pressure       | hPa    | 260     | 1260    | 0              |
 
-### <a name="settings"></a>Settings
+### <a name="settings"></a>Impostazioni
 
 Impostazioni numeriche
 
-| Nome visualizzato | Nome campo | Unità | Cifre decimali | Minima | Massima | Initial |
+| Nome visualizzato | Nome campo | Unità | Cifre decimali | Minima | Massimo | Initial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Velocità della ventola    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
 ### <a name="properties"></a>Proprietà
 
-| digitare            | Nome visualizzato | Nome campo | Tipo di dati |
+| Tipo            | Nome visualizzato | Nome campo | Tipo di dati |
 | --------------- | ------------ | ---------- | --------- |
-| Proprietà dispositivo | Numero stampo   | dieNumber  | number    |
-| Text            | Location     | location   | N/D       |
+| Proprietà dispositivo | Numero stampo   | dieNumber  | d'acquisto    |
+| Testo            | Percorso     | posizione   | N/D       |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

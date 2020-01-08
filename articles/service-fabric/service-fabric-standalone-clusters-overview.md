@@ -1,25 +1,16 @@
 ---
-title: Panoramica dei cluster di Service Fabric autonomi | Microsoft Docs
+title: Panoramica di cluster Service Fabric autonomo
 description: I cluster di Service Fabric vengono eseguiti in Windows Server e Linux, per poter distribuire e ospitare le applicazioni di Service Fabric in qualsiasi ambiente che esegue Windows Server o Linux.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: 5997526098980220014d9bb2d47efe6c9aedee3d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8912ef5bc0fd6009443b736031fc9af57ab6c5b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752343"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465636"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Panoramica dei cluster di Service Fabric autonomi
 
@@ -29,7 +20,7 @@ Un tipo di nodo definisce le dimensioni, il numero e le proprietà di un set di 
 
 Il processo di creazione di un cluster di Service Fabric locale è simile al processo di creazione di un cluster in qualsiasi ambiente cloud con un set di macchine virtuali. I passaggi iniziali per effettuare il provisioning delle macchine virtuali saranno controllati dal provider cloud o dall'ambiente locale corrente. Dopo aver ottenuto un set di macchine virtuali con connettività di rete abilitata, i passaggi successivi per configurare il pacchetto di Service Fabric, modificare le impostazioni del cluster ed eseguire gli script di creazione e gestione del cluster risulteranno identici. In questo modo, l'esperienza e le conoscenze relative all'uso e alla gestione dei cluster di Service Fabric potranno essere usate anche quando si scelgono nuovi ambienti host.
 
-## <a name="cluster-security"></a>Sicurezza del cluster
+## <a name="cluster-security"></a>Sicurezza dei cluster
 Un cluster di Service Fabric è una risorsa di cui si è proprietari.  È responsabilità dell'utente proteggere i cluster per evitare che utenti non autorizzati si connettano a essi. Un cluster sicuro è particolarmente importante quando si eseguono carichi di lavoro nel cluster.
 
 ### <a name="node-to-node-security"></a>Sicurezza da nodo a nodo
@@ -47,11 +38,11 @@ Oltre ai certificati client, è possibile configurare Azure Active Directory anc
 Per altre informazioni, vedere [Sicurezza da client a nodo](service-fabric-cluster-security.md#client-to-node-security)
 
 ### <a name="role-based-access-control-rbac"></a>Controllo degli accessi in base al ruolo
-Service Fabric supporta anche il controllo di accesso per limitare l'accesso a determinate operazioni di cluster per gruppi di utenti diversi. In questo modo il cluster è più sicuro. Per i client che si connettono a un cluster sono supportati due tipi di controllo di accesso diversi: il ruolo di amministratore e il ruolo utente.  
+Service Fabric supporta anche il controllo di accesso per limitare l'accesso a determinate operazioni di cluster per gruppi di utenti diversi. In questo modo il cluster è più sicuro. Per i client che si connettono a un cluster, sono supportati due tipi di controllo di accesso diversi: il ruolo di amministratore e il ruolo utente.  
 
 Per altre informazioni, vedere [Controllo degli accessi in base al ruolo](service-fabric-cluster-security.md#role-based-access-control-rbac).
 
-## <a name="scaling"></a>Ridimensionamento
+## <a name="scaling"></a>Scalabilità
 
 Le richieste delle applicazioni cambiano nel tempo. Potrebbe essere necessario aumentare le risorse del cluster per supportare l'aumento del carico di lavoro delle applicazioni o del traffico di rete oppure ridurre le risorse del cluster quando le richieste si riducono. Dopo aver creato un cluster di Service Fabric, è possibile scalare il cluster in orizzontale (modificare il numero di nodi) o in verticale (modificare le risorse dei nodi). È possibile ridimensionare il cluster in qualsiasi momento, anche quando sono in esecuzione carichi di lavoro nel cluster. Quando si ridimensiona il cluster, vengono automaticamente ridimensionate anche le applicazioni.
 

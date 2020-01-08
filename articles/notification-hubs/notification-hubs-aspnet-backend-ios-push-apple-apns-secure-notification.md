@@ -1,5 +1,5 @@
 ---
-title: Push sicuro degli hub di notifica di Azure
+title: Push sicuro di hub di notifica di Azure per iOS
 description: Informazioni su come inviare notifiche push sicure a un'app per iOS da Azure. Gli esempi di codice sono scritti in Objective-C e C#.
 documentationcenter: ios
 author: sethmanheim
@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 4a175b14d44ef7ba019c28fbd03bac98ada7a2a3
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 96d1dd514f6fb9c11d7194714337583d6b4387cf
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212141"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530749"
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Push sicuro degli hub di notifica di Azure
 
@@ -30,7 +30,7 @@ ms.locfileid: "71212141"
 > * [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
 > * [Android](notification-hubs-aspnet-backend-android-secure-google-gcm-push-notification.md)
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Il supporto per le notifiche push in Microsoft Azure consente di accedere a un'infrastruttura push di facile utilizzo, multipiattaforma con scalabilità orizzontale, che semplifica considerevolmente l'implementazione delle notifiche push sia per le applicazioni consumer sia per quelle aziendali per piattaforme mobili.
 

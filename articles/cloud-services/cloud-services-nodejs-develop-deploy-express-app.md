@@ -1,25 +1,26 @@
 ---
 title: Creare e distribuire un'app Express in Node.js in Servizi cloud di Azure
+titleSuffix: Azure Cloud Services
 description: Creare e distribuire un'applicazione Express.js in Node.js in Servizi cloud di Azure
 services: cloud-services
 documentationcenter: nodejs
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: gwallace
-ms.openlocfilehash: 080ec61df2042a4cf2eac9d5175c4681f98fd9df
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.author: tagore
+ms.openlocfilehash: 79a998930a384420b22add8825ee4b2269eb4539
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306782"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360753"
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Creare e distribuire un'applicazione Web Node.js usando Express in Servizi cloud di Azure
 
 Node.js include un set minimo di funzionalità nel runtime core.
-Gli sviluppatori usano spesso moduli di terze parti per fornire funzionalità aggiuntive durante lo sviluppo di un'applicazione Node.js. In questa esercitazione si creerà una nuova applicazione usando il modulo [Express](https://github.com/expressjs/express), che fornisce un framework MVC per la creazione di applicazioni Web Node.js.
+Gli sviluppatori usano spesso moduli di terze parti per fornire funzionalità aggiuntive durante lo sviluppo di un'applicazione Node.js. In questa esercitazione si creerà una nuova applicazione usando il modulo [Express](https://github.com/expressjs/express) che fornisce un framework MVC per la creazione di applicazioni Web Node.js.
 
 Di seguito è riportata una schermata dell'applicazione completata:
 
@@ -119,5 +120,8 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js](https
 [Node.js Web Application]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
 [Express]: https://expressjs.com/
 [http://jade-lang.com]: http://jade-lang.com
+
+
+
 
 

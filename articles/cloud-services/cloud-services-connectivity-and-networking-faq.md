@@ -1,5 +1,6 @@
 ---
-title: Domande frequenti relative ai problemi di connettività e rete per Servizi cloud di Microsoft Azure| Microsoft Docs
+title: Problemi di connettività e di rete
+titleSuffix: Azure Cloud Services
 description: Questo articolo elenca le domande frequenti relative alla connettività e alla rete per Servizi cloud di Microsoft Azure.
 services: cloud-services
 documentationcenter: ''
@@ -14,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: c6d470b9c14f53558d09e6876701cb25ddc15183
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: e41c2424e970c9493d612da99b64b8c2d649002f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154881"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386749"
 ---
-# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di connettività e rete per servizi cloud di Azure: Domande frequenti (FAQ)
+# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di connettività e rete per Servizi cloud di Azure: domande frequenti
 
 Questo articolo include le domande frequenti relative ai problemi di connettività e rete per [Servizi cloud di Azure](https://azure.microsoft.com/services/cloud-services). Per informazioni sulle dimensioni, vedere la [pagina Dimensioni delle macchine virtuali per i servizi cloud](cloud-services-sizes-specs.md).
 

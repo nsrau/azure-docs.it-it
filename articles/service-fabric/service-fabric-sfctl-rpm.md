@@ -1,25 +1,16 @@
 ---
-title: Interfaccia della riga di comando di Azure Service Fabric - sfctl rpm | Microsoft Docs
-description: Descrive i comandi dell'interfaccia della riga di comando di Service Fabric sfctl rpm.
-services: service-fabric
-documentationcenter: na
+title: INTERFACCIA della riga di comando di Azure Service Fabric-sfctl rpm
+description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric. Include un elenco di comandi per il servizio di gestione della riparazione.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: 9c37dc8131f14a3b35e68b3e88502c91f96810f6
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 674970276046034d13801db7c1bb4ab5175385fb
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901025"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639089"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 Consente di eseguire query e inviare comandi al servizio di gestione di ripristino.
@@ -48,11 +39,11 @@ Questa API supporta la piattaforma Service Fabric. non deve essere utilizzata di
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 ## <a name="sfctl-rpm-delete"></a>sfctl rpm delete
 Elimina un'attività di ripristino completata.
@@ -70,11 +61,11 @@ Questa API supporta la piattaforma Service Fabric. non deve essere utilizzata di
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 ## <a name="sfctl-rpm-list"></a>sfctl rpm list
 Recupera un elenco di attività di ripristino corrispondenti ai filtri specificati.
@@ -93,11 +84,11 @@ Questa API supporta la piattaforma Service Fabric. non deve essere utilizzata di
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

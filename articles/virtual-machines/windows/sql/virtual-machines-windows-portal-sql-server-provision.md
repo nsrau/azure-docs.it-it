@@ -15,12 +15,12 @@ ms.date: 11/07/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 28f00db3b604534be5ff9cee79c0aacc41f066b5
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 1fdf776570b6f10a363fb98dfe343387d86219d6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464158"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350897"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Come effettuare il provisioning di una macchina virtuale Windows di SQL Server nel portale di Azure
 
@@ -53,7 +53,7 @@ Quando si crea una macchina virtuale di SQL Server, è possibile selezionare una
    > Per altre informazioni su queste opzioni, vedere [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Guida ai prezzi per le VM di SQL Server in Azure).
 
 
-1. Selezionare **Create**.
+1. Selezionare **Create** (Crea).
 
 
 ## <a name="1-configure-basic-settings"></a>1. configurare le impostazioni di base
@@ -64,10 +64,10 @@ Nella scheda **Nozioni di base** specificare le informazioni seguenti:
 * In **Dettagli progetto**verificare che sia selezionata la sottoscrizione corretta. 
 *  Nella sezione **gruppo di risorse** selezionare un gruppo di risorse esistente dall'elenco oppure scegliere **Crea nuovo** per creare un nuovo gruppo di risorse. Un gruppo di risorse è una raccolta di risorse correlate in Azure, ovvero macchine virtuali, account di archiviazione, reti virtuali e così via. 
 
-    ![sottoscrizione](media/quickstart-sql-vm-create-portal/basics-project-details.png)
+    ![Sottoscrizione](media/quickstart-sql-vm-create-portal/basics-project-details.png)
 
   > [!NOTE]
-  > L'uso di un nuovo gruppo di risorse risulta utile se si stanno solo eseguendo test o se si sta iniziando a usare le distribuzioni di SQL Server in Azure. Dopo aver completato il test, eliminare il gruppo di risorse per eliminare automaticamente la macchina virtuale e tutte le risorse associate a tale gruppo di risorse. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md).
+  > L'uso di un nuovo gruppo di risorse risulta utile se si stanno solo eseguendo test o se si sta iniziando a usare le distribuzioni di SQL Server in Azure. Dopo aver completato il test, eliminare il gruppo di risorse per eliminare automaticamente la macchina virtuale e tutte le risorse associate a tale gruppo di risorse. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../../../azure-resource-manager/management/overview.md).
 
 
 * In **Dettagli istanza**:
@@ -118,7 +118,7 @@ Nella scheda **rete** configurare le opzioni di rete.
 
 ![Impostazioni di rete VM SQL](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-networking.png)
 
-#### <a name="monitoring"></a>Monitoraggio
+#### <a name="monitoring"></a>Monitorare
 
 Nella scheda **monitoraggio** configurare il monitoraggio e l'arresto automatico. 
 
@@ -135,8 +135,8 @@ Nella scheda **impostazioni SQL Server** configurare impostazioni e ottimizzazio
 | Impostazione |
 | --- |
 | [Connettività](#connectivity) |
-| [Autenticazione](#authentication) |
-| [Integrazione dell'insieme di credenziali delle chiavi di Azure](#azure-key-vault-integration) |
+| [autenticazione](#authentication) |
+| [Integrazione di Azure Key Vault](#azure-key-vault-integration) |
 | [Configurazione dell'archiviazione](#storage-configuration) |
 | [Applicazione automatica delle patch](#automated-patching) |
 | [Backup automatico](#automated-backup) |
@@ -185,7 +185,7 @@ Per archiviare i segreti di sicurezza in Azure per la crittografia, selezionare 
 
 La tabella seguente include l'elenco dei parametri necessari per configurare l'integrazione dell'insieme di credenziali delle chiavi di Azure.
 
-| PARAMETRO | Descrizione | ESEMPIO |
+| PARAMETRO | DESCRIZIONE | ESEMPIO |
 | --- | --- | --- |
 | **URL dell'insieme di credenziali delle chiavi** |Percorso dell'insieme di credenziali delle chiavi. |https:\//contosokeyvault.vault.azure.net/ |
 | **Nome dell'entità** |Nome dell'entità servizio di Azure Active Directory. È detto anche ID client. |fde2b411-33d5-4e11-af04eb07b669ccf2 |
@@ -221,7 +221,7 @@ Se sei un cliente di Software Assurance, puoi usare il [vantaggio Azure Hybrid](
 
 ![Applicazione automatica delle patch per VM SQL](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-automated-patching.png)
 
-Per altre informazioni, vedere [Applicazione automatizzata di patch per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-automated-patching.md).
+Per altre informazioni, vedere [Applicazione automatica delle patch per SQL Server nelle macchine virtuali di Azure (Resource Manager)](virtual-machines-windows-sql-automated-patching.md).
 
 ### <a name="automated-backup"></a>Backup automatico
 
@@ -242,7 +242,7 @@ Per crittografare il backup, fare clic su **Abilita**. Specificare quindi la **P
 Per altre informazioni, vedere [Backup automatizzato per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-automated-backup.md).
 
 
-### <a name="machine-learning-services"></a>Machine Learning Services
+### <a name="machine-learning-services"></a>Servizi di Machine Learning
 
 È possibile abilitare [Machine Learning Services](/sql/advanced-analytics/). Questa opzione consente di usare Machine Learning con Python e R in SQL Server 2017. Selezionare **Abilita** nella finestra **Impostazioni SQL Server** .
 

@@ -1,5 +1,5 @@
 ---
-title: Supporto AD FS in Microsoft Authentication Library per Java
+title: Supporto di AD FS (MSAL per Java)
 titleSuffix: Microsoft identity platform
 description: Informazioni sul supporto di Active Directory Federation Services (AD FS) in Microsoft Authentication Library per Java (MSAL4j).
 services: active-directory
@@ -14,16 +14,16 @@ ms.author: sagonzal
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 665cef55965f6871a654b9baceaad3e4f5d196c7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 04079a6e284deac076d7e296cc44774c97462534
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916656"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424358"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-java"></a>Supporto Active Directory Federation Services in MSAL per Java
 
-Active Directory Federation Services (AD FS) in Windows Server consente di aggiungere l'autenticazione e l'autorizzazione basate su OpenID Connect e OAuth 2,0 all'app Microsoft Authentication Library per Java (MSAL per Java). Una volta integrato, l'app è in grado di autenticare gli utenti in AD FS, federati tramite Azure AD. Per ulteriori informazioni sugli scenari, vedere [ad FS scenari per gli sviluppatori](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers).
+Active Directory Federation Services (AD FS) in Windows Server consente di aggiungere l'autenticazione e l'autorizzazione basate su OpenID Connect e OAuth 2,0 all'app Microsoft Authentication Library per Java (MSAL per Java). Una volta integrato, l'app è in grado di autenticare gli utenti in AD FS, federati tramite Azure AD. Per ulteriori informazioni sugli scenari, vedere [ad FS scenari per gli sviluppatori](/windows-server/identity/ad-fs/ad-fs-development).
 
 Un'app che usa MSAL per Java comunicherà con Azure Active Directory (Azure AD), che quindi federa a AD FS.
 

@@ -8,17 +8,17 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/22/2019
 ms.reviewer: olegan
-ms.openlocfilehash: 94ae9035c1657c1ce20c40234ddca95ae30d9edd
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: f7f32cc7f160a7ac9253b60e8c0c13926c110ac2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677544"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407095"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configurazione di Application Insights SDK con ApplicationInsights.config o .xml
 Application Insights .NET SDK è costituito da alcuni pacchetti NuGet. Il [pacchetto di base](https://www.nuget.org/packages/Microsoft.ApplicationInsights) fornisce l'API per l'invio di dati di telemetria ad Application Insights. [Altri pacchetti](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) forniscono *moduli* e *inizializzatori* di telemetria per il rilevamento automatico dei dati di telemetria dall'applicazione e dal rispettivo contesto. Modificando il file di configurazione, è possibile abilitare o disabilitare i moduli e gli inizializzatori di telemetria e impostare i parametri per alcuni di essi.
 
-Il file di configurazione è denominato `ApplicationInsights.config` o `ApplicationInsights.xml`, a seconda del tipo di applicazione. Viene aggiunto automaticamente al progetto quando si installa la [maggior parte delle versioni dell'SDK][start]. Per impostazione predefinita, quando si usa l'esperienza automatizzata dei progetti modello di Visual Studio che supportano l' **aggiunta di > Application Insights Telemetry**, il file ApplicationInsights. config viene creato nella cartella radice del progetto e, al momento della conformità, viene copiato nel cartella bin. Viene anche aggiunto a un'app Web da [Status Monitor su un server IIS][redfield]. Il file di configurazione viene ignorato se si usa l' [estensione per il sito Web di Azure](azure-web-apps.md) o l' [estensione per VM di Azure e set di scalabilità di macchine virtuali](azure-vm-vmss-apps.md) .
+Il file di configurazione è denominato `ApplicationInsights.config` o `ApplicationInsights.xml`, a seconda del tipo di applicazione. Viene aggiunto automaticamente al progetto quando si installa la [maggior parte delle versioni dell'SDK][start]. Per impostazione predefinita, quando si usa l'esperienza automatica dei progetti modello di Visual Studio che supportano l' **aggiunta di > Application Insights Telemetry**, il file ApplicationInsights. config viene creato nella cartella radice del progetto e, al momento della conformità, viene copiato nella cartella bin. Viene anche aggiunto a un'app Web da [Status Monitor su un server IIS][redfield]. Il file di configurazione viene ignorato se si usa l' [estensione per il sito Web di Azure](azure-web-apps.md) o l' [estensione per VM di Azure e set di scalabilità di macchine virtuali](azure-vm-vmss-apps.md) .
 
 Non esiste un file equivalente per controllare l' [SDK in una pagina Web][client].
 
@@ -230,47 +230,23 @@ Determina le dimensioni massime in MB assegnate all'archivio permanente sul disc
    </ApplicationInsights>
 ```
 
-#### <a name="local-forwarder"></a>Server d'inoltro locale
-
-Il [server d'inoltro locale](opencensus-local-forwarder.md) è un agente che raccoglie dati di telemetria di Application Insights o [OpenCensus](https://opencensus.io/) da un'ampia gamma di SDK e framework e li instrada ad Application Insights. Può essere eseguito sia in Windows sia in Linux. Se usato in combinazione con Application Insights Java SDK il server d'inoltro locale offre il supporto completo per [Live Metrics](../../azure-monitor/app/live-stream.md) e il campionamento adattivo.
-
-```xml
-<Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
-<EndpointAddress><!-- put the hostname:port of your LocalForwarder instance here --></EndpointAddress>
-
-<!-- The properties below are optional. The values shown are the defaults for each property -->
-
-<FlushIntervalInSeconds>5</FlushIntervalInSeconds><!-- must be between [1, 500]. values outside the bound will be rounded to nearest bound -->
-<MaxTelemetryBufferCapacity>500</MaxTelemetryBufferCapacity><!-- units=number of telemetry items; must be between [1, 1000] -->
-</Channel>
-```
-
-Se si usa Spring Boot Starter, aggiungere il codice seguente al file di configurazione (application.properties):
-
-```yml
-azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->
-azure.application-insights.channel.local-forwarder.flush-interval-in-seconds=<!--optional-->
-azure.application-insights.channel.local-forwarder.max-telemetry-buffer-capacity=<!--optional-->
-```
-
-I valori predefiniti sono gli stessi per la configurazione di application.properties di Spring Boot e di applicationinsights.xml.
-
 ## <a name="instrumentationkey"></a>InstrumentationKey
 Determina la risorsa di Application Insights in cui vengono visualizzati i dati. In genere, viene creata una risorsa separata, con una chiave separata, per ognuna delle applicazioni.
 
 Se si vuole impostare la chiave in modo dinamico, ad esempio se si intende inviare i risultati dall'applicazione a diverse risorse, è possibile omettere la chiave dal file di configurazione e impostarla nel codice.
 
-Per impostare la chiave per tutte le istanze di TelemetryClient, inclusi i moduli di telemetria standard, impostare la chiave in TelemetryConfiguration. Active. Eseguire questa operazione in un metodo di inizializzazione, ad esempio global.aspx.cs in un servizio ASP.NET:
+Per impostare la chiave per tutte le istanze di TelemetryClient, inclusi i moduli di telemetria standard. Eseguire questa operazione in un metodo di inizializzazione, ad esempio global.aspx.cs in un servizio ASP.NET:
 
 ```csharp
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.ApplicationInsights;
 
     protected void Application_Start()
     {
-      Microsoft.ApplicationInsights.Extensibility.
-        TelemetryConfiguration.Active.InstrumentationKey =
-          // - for example -
-          WebConfigurationManager.AppSettings["ikey"];
-      //...
+        TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+        configuration.InstrumentationKey = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
+        var telemetryClient = new TelemetryClient(configuration);
+   
 ```
 
 Se si vuole inviare un set specifico di eventi a una risorsa diversa, è possibile impostare la chiave per un oggetto TelemetryClient specifico:

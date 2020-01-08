@@ -1,25 +1,24 @@
 ---
-title: Usare i deserializzatori .NET per i processi di analisi di flusso di Azure
+title: Leggere l'input in qualsiasi formato usando deserializzatori personalizzati .NET in analisi di flusso di Azure
 description: Questo articolo illustra il formato di serializzazione e le interfacce che definiscono i deserializzatori .NET personalizzati per i processi cloud e Edge di analisi di flusso di Azure.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/06/2019
-ms.openlocfilehash: f1452e56054948edffc6e9b3c98fa48d2589cb2a
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.date: 12/30/2019
+ms.openlocfilehash: a64912921e5ce8c0dc76fbf2ae0be8fb34bacf1a
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73024931"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75553019"
 ---
-# <a name="use-net-deserializers-for-azure-stream-analytics-jobs"></a>Usare i deserializzatori .NET per i processi di analisi di flusso di Azure
+# <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Leggere l'input in qualsiasi formato usando i deserializzatori personalizzati di .NET
 
-I deserializzatori .NET personalizzati consentono al processo di analisi di flusso di Azure di leggere i dati da formati al di fuori dei tre [formati di dati predefiniti](stream-analytics-parsing-json.md). Questo articolo illustra il formato di serializzazione e le interfacce che definiscono i deserializzatori .NET personalizzati per i processi cloud e Edge di analisi di flusso di Azure. Sono disponibili anche deserializzatori di esempio per il buffer del protocollo e il formato CSV.
+I deserializzatori personalizzati .NET consentono al processo di analisi di flusso di Azure di leggere i dati da formati al di fuori dei tre [formati di dati predefiniti](stream-analytics-parsing-json.md). Questo articolo illustra il formato di serializzazione e le interfacce che definiscono i deserializzatori personalizzati .NET per i processi cloud e Edge di analisi di flusso di Azure. Sono disponibili anche deserializzatori di esempio per il buffer del protocollo e il formato CSV.
 
-## <a name="custom-net-deserializer"></a>Deserializzatore .NET personalizzato
+## <a name="net-custom-deserializer"></a>Deserializzatore personalizzato .NET
 
 Gli esempi di codice seguenti sono le interfacce che definiscono il deserializzatore personalizzato e implementano `StreamDeserializer<T>`.
 
@@ -226,12 +225,12 @@ Il codice JavaScript seguente è un esempio del formato di serializzazione di .N
 
 Questa funzionalità è disponibile nelle aree geografiche seguenti:
 
-* Stati Uniti centro-occidentali (disponibili)
-* Europa settentrionale (disponibile)
-* Stati Uniti orientali (disponibili)
-* Stati Uniti occidentali (implementazione a breve)
-* Stati Uniti orientali 2 (implementazione a breve)
-* Europa occidentale (implementazione a breve)
+* Stati Uniti centro-occidentali
+* Europa settentrionale
+* Stati Uniti orientali
+* Stati Uniti occidentali
+* Stati Uniti orientali 2
+* Europa occidentale
 
 È possibile [richiedere supporto](https://aka.ms/ccodereqregion) per aree aggiuntive.
 
@@ -239,7 +238,7 @@ Questa funzionalità è disponibile nelle aree geografiche seguenti:
 
 ### <a name="when-will-this-feature-be-available-in-all-azure-regions"></a>Quando sarà disponibile questa funzionalità in tutte le aree di Azure?
 
-Questa funzionalità è disponibile in 6 aree (supporto di #region). Se si è interessati all'uso di questa funzionalità in un'altra area, è possibile [inviare una richiesta](https://aka.ms/ccodereqregion). Il supporto per tutte le aree di Azure è nella roadmap.
+Questa funzionalità è disponibile in [6 aree](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples#region-support). Se si è interessati all'uso di questa funzionalità in un'altra area, è possibile [inviare una richiesta](https://aka.ms/ccodereqregion). Il supporto per tutte le aree di Azure è nella roadmap.
 
 ### <a name="can-i-access-metadatapropertyvalue-from-my-inputs-similar-to-getmetadatapropertyvalue-function"></a>È possibile accedere a MetadataPropertyValue da input simili alla funzione GetMetadataPropertyValue?
 
@@ -251,4 +250,4 @@ Una volta implementato il deserializzatore, è possibile consentire ad altri ute
 
 ## <a name="next-steps"></a>Fasi successive
 
-* [Deserializzatori .NET personalizzati per i processi cloud di analisi di flusso di Azure](custom-deserializer.md)
+* [Deserializzatori personalizzati .NET per i processi cloud di analisi di flusso di Azure](custom-deserializer.md)

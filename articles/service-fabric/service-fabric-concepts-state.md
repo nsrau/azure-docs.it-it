@@ -1,25 +1,16 @@
 ---
-title: Gestione dello stato nei servizi Microsoft Azure Service Fabric| Microsoft Docs
-description: Come definire e gestire lo stato del servizio, all'interno dei servizi Service Fabric.
-services: service-fabric
-documentationcenter: .net
+title: Gestire lo stato nei servizi Service Fabric di Azure
+description: Informazioni sullo stato in Service Fabric di Azure, incluse informazioni su come definire e gestire lo stato del servizio in servizi Service Fabric.
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: f5e618a5-3ea3-4404-94af-122278f91652
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: e3ab36def2d210bd763f3ce2dc5df155e37e2dba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9acd3031d1071d1822791b333976aaf76161600f
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60870894"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614571"
 ---
 # <a name="service-state"></a>Stato del servizio
 **Stato del servizio** si riferisce ai dati in memoria o su disco di cui un servizio necessita per funzionare. Si tratta ad esempio delle strutture di dati e delle variabili membro che vengono lette e scritte dal servizio per il funzionamento. A seconda di come è progettato il servizio, può anche includere file o altre risorse archiviati su disco. I file ad esempio che un database userebbe per archiviare log delle transazioni e dati.

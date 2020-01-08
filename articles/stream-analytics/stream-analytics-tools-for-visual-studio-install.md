@@ -1,26 +1,24 @@
 ---
 title: Installare gli strumenti di Analisi di flusso di Azure per Visual Studio
 description: Questo articolo descrive i requisiti di installazione e come configurare gli strumenti di analisi di flusso di Azure per Visual Studio.
-services: stream-analytics
 author: su-jie
 ms.author: sujie
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/22/2018
-ms.openlocfilehash: 447fa07953c15fe67b8a2e313fe9534164f47bbd
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: fa3990d2239da71fb27f4c9a06699f758fcfe7a0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130517"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354374"
 ---
 # <a name="install-azure-stream-analytics-tools-for-visual-studio"></a>Installare gli strumenti di Analisi di flusso di Azure per Visual Studio
 
 Visual Studio 2019 e Visual Studio 2017 supportano Azure Data Lake e gli strumenti di analisi di flusso. Questo articolo descrive come installare e disinstallare gli strumenti.
 
-Per ulteriori informazioni sull'utilizzo degli strumenti di, [vedere Guida introduttiva: Creare un processo di analisi di flusso di Azure tramite](stream-analytics-quick-create-vs.md)Visual Studio.
+Per altre informazioni sull'uso degli strumenti, vedere [Guida introduttiva: creare un processo di analisi di flusso di Azure con Visual Studio](stream-analytics-quick-create-vs.md).
 
 ## <a name="install"></a>Installazione
 
@@ -30,7 +28,7 @@ Si consiglia Visual Studio 2019.
 
 ### Installare per Visual Studio 2019 e 2017<a name="recommended-visual-studio-2019-and-2017"></a>
 
-Gli strumenti di analisi di flusso e Azure Data Lake fanno parte dei carichi di lavoro di sviluppo e **archiviazione dei dati e di elaborazione** di **Azure** . Abilitare uno di questi due carichi di lavoro durante l'installazione. Se Visual Studio è già installato, selezionare **strumenti** > **Ottieni strumenti e funzionalità** per aggiungere i carichi di lavoro.
+Gli strumenti di analisi di flusso e Azure Data Lake fanno parte dei carichi di lavoro di sviluppo e **archiviazione dei dati e di elaborazione** di **Azure** . Abilitare uno di questi due carichi di lavoro durante l'installazione. Se Visual Studio è già installato, selezionare **strumenti** > **ottenere gli strumenti e le funzionalità** per aggiungere i carichi di lavoro.
 
 Scaricare [Visual studio 2019 (Preview 2 o versione successiva) o Visual studio 2017 (15,3 o](https://www.visualstudio.com/) versione successiva) e seguire le istruzioni per l'installazione.
 
@@ -68,6 +66,6 @@ Per Visual Studio 2015 e Visual Studio 2013, gli strumenti verificano automatica
 
 ## <a name="uninstall"></a>Disinstallare
 
-È possibile disinstallare Azure Data Lake e gli strumenti di analisi di flusso. Per Visual Studio 2019 o Visual Studio 2017, scegliere **strumenti** > **Ottieni strumenti e funzionalità**. Per **modificare**, deselezionare **Azure Data Lake e gli strumenti di analisi di flusso**. Viene visualizzato nel carico di lavoro **elaborazione e archiviazione dati** o nel carico di lavoro **sviluppo di Azure** .
+È possibile disinstallare Azure Data Lake e gli strumenti di analisi di flusso. Per Visual Studio 2019 o Visual Studio 2017, selezionare **strumenti** > **ottenere strumenti e funzionalità**. Per **modificare**, deselezionare **Azure Data Lake e gli strumenti di analisi di flusso**. Viene visualizzato nel carico di lavoro **elaborazione e archiviazione dati** o nel carico di lavoro **sviluppo di Azure** .
 
-Per disinstallare da Visual Studio 2015 o Visual Studio 2013, passare a **Pannello** > di controllo**programmi e funzionalità**. Disinstallare **Microsoft Azure Data Lake e gli strumenti di analisi di flusso per Visual Studio**.
+Per disinstallare da Visual Studio 2015 o Visual Studio 2013, passare a **Pannello di controllo** > **programmi e funzionalità**. Disinstallare **Microsoft Azure Data Lake e gli strumenti di analisi di flusso per Visual Studio**.

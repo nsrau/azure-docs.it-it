@@ -1,5 +1,5 @@
 ---
-title: Gestire l'accesso utente con le verifiche di accesso-Azure Active Directory | Microsoft Docs
+title: Gestire l'accesso utente con le verifiche di accesso-Azure AD
 description: Informazioni su come gestire l'accesso degli utenti come appartenenza a un gruppo o assegnazione a un'applicazione con le verifiche di accesso di Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 06/21/2018
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70b6d925772548e6703b57c265ebacf6b7f3f4c9
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 57956573dfe913828fb20db08397fac52528403d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499646"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422441"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Gestire l'accesso utente con le verifiche di accesso di Azure AD
 
@@ -32,7 +32,7 @@ Con Azure Active Directory (Azure AD), è possibile verificare facilmente che gl
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Azure AD P2 Premium
+- Azure AD Premium P2
 
 Per altre informazioni, vedere [quali utenti devono avere licenze?](access-reviews-overview.md#which-users-must-have-licenses).
 

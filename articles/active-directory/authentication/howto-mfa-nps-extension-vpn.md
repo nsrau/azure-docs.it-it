@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c2ccfc2219c063a9cef25f82cef33f446993a02
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f446f1549b3efcd5f27752fac972dfd80c8650d6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848375"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425418"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrare l'infrastruttura VPN con Azure MFA usando l'estensione Server dei criteri di rete per Azure
 
@@ -326,13 +326,13 @@ Come parte della configurazione dell'estensione Server dei criteri di rete, è n
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore globale del tenant di Azure.
 
-2. Selezionare il pulsante **Azure Active Directory** nel riquadro sinistro.
+2. Nel menu portale di Azure selezionare **Azure Active Directory**oppure cercare e selezionare **Azure Active Directory** da qualsiasi pagina.
 
 3. Selezionare **Proprietà**.
 
 4. Per copiare l'ID di Azure AD, selezionare il pulsante **Copia**.
 
-    ![ID directory Azure AD nell'portale di Azure](./media/howto-mfa-nps-extension-vpn/image35.png)
+    ![ID directory Azure AD nell'portale di Azure](./media/howto-mfa-nps-extension-vpn/azure-active-directory-id-in-azure-portal.png)
 
 ### <a name="install-the-nps-extension"></a>Installare l'estensione di Server dei criteri di rete
 

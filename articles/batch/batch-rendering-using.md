@@ -1,18 +1,18 @@
 ---
-title: Funzionalità di rendering - Azure Batch
-description: Come usare le funzionalità per il rendering di Azure Batch
+title: Uso delle funzionalità di rendering-Azure Batch
+description: Come usare le funzionalità di rendering Azure Batch. Provare a utilizzare l'applicazione Batch Explorer, direttamente o richiamata da un plug-in di applicazione client.
 services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2dff44f0b5b4b02c39c4c63f23ff64d55ca9d833
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d181b9b2495ebd106bb068b78131fa90c2f6d62c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60337605"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449673"
 ---
 # <a name="using-azure-batch-rendering"></a>Uso del rendering di Azure Batch
 
@@ -32,7 +32,7 @@ Sono disponibili diversi modi per usare il rendering di Azure Batch:
 
 Il modo migliore per usare il rendering di Azure Batch e anche il più semplice per gli utenti finali, che non sono sviluppatori ed esperti di Azure, consiste nell'usare l'applicazione Batch Explorer, direttamente o richiamandola da un plug-in dell'applicazione client.
 
-## <a name="using-batch-explorer"></a>Uso di Batch Explorer
+## <a name="using-batch-explorer"></a>Uso dello strumento di esplorazione di Batch
 
 Per un'esercitazione dettagliata sull'uso di Batch Explorer per eseguire il rendering, vedere l'[esercitazione di Blender](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender).
 

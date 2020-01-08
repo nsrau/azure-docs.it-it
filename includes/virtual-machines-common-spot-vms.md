@@ -1,6 +1,6 @@
 ---
-title: file di inclusione
-description: file di inclusione
+title: File di inclusione
+description: File di inclusione
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/23/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: b671fe9a4ecd35cbe9d70f398f8d39664203fc58
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 8d28566cb10ddd1637eb81dffd102df6bd7b6e7a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74782112"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75663122"
 ---
 L'uso di macchine virtuali con spot consente di sfruttare la capacità inutilizzata con un notevole risparmio sui costi. In qualsiasi momento, quando Azure necessita della capacità, l'infrastruttura di Azure eliminerà le VM spot. Quindi, le VM spot sono ottime per i carichi di lavoro in grado di gestire le interruzioni, ad esempio processi di elaborazione batch, ambienti di sviluppo/test, carichi di lavoro di calcolo di grandi dimensioni e altro ancora.
 
@@ -78,7 +78,7 @@ Con i prezzi variabili è possibile impostare un prezzo massimo, in dollari stat
 
 **D:** Come viene gestita la quota per le VM spot?
 
-**R:** Le macchine virtuali spot avranno un pool di quote separato. La quota spot verrà condivisa tra le macchine virtuali e le istanze del set di scalabilità. Per altre informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+**R:** Le macchine virtuali spot avranno un pool di quote separato. La quota spot verrà condivisa tra le macchine virtuali e le istanze del set di scalabilità. Per altre informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 
 **D:** È possibile richiedere una quota aggiuntiva per spot?
@@ -94,8 +94,8 @@ Con i prezzi variabili è possibile impostare un prezzo massimo, in dollari stat
 
 | Canali di Azure               | Disponibilità di macchine virtuali di Azure spot       |
 |------------------------------|-----------------------------------|
-| Contratto Enterprise Agreement         | SÌ                               |
-| Pagamento in base al consumo                | SÌ                               |
+| Contratto Enterprise Agreement         | Sì                               |
+| Pagamento in base al consumo                | Sì                               |
 | Provider di servizi cloud | [Contatta il tuo partner](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
 | Vantaggi                     | Non disponibile                     |
 | Eventi sponsorizzati                    | Non disponibile                     |

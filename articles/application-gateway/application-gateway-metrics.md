@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/29/2019
 ms.author: absha
-ms.openlocfilehash: f0937ee53e66cb1bf0c5d6b55a8dde045570e924
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 12ecacf1266c0d8211f5928a933cfd4acf8c49f0
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309771"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551387"
 ---
 # <a name="metrics-for-application-gateway"></a>Metriche per il gateway applicazione
 
@@ -22,19 +22,21 @@ Il gateway applicazione pubblica i punti dati, detti metrica, in [monitoraggio d
 
 ### <a name="timing-metrics"></a>Metriche temporali
 
-Sono disponibili le metriche seguenti relative alla tempistica della richiesta e della risposta. Analizzando queste metriche, è possibile determinare se il rallentamento dell'applicazione a causa della WAN, del gateway applicazione, della rete tra il gateway applicazione e il back-end o le prestazioni dell'applicazione.
+Sono disponibili le metriche seguenti relative alla tempistica della richiesta e della risposta. Analizzando queste metriche per un listener specifico, è possibile determinare se il rallentamento dell'applicazione a causa della WAN, del gateway applicazione, della rete tra il gateway applicazione e l'applicazione back-end o le prestazioni dell'applicazione back-end.
+
+> [!NOTE]
+>
+> Se sono presenti più listener nel gateway applicazione, filtrare sempre in base alla dimensione del *listener* confrontando le metriche di latenza diverse per ottenere un'inferenza significativa.
 
 - **RTT client**
 
-  Tempo medio round trip tra i client e il gateway applicazione. Questa metrica indica il tempo necessario per stabilire le connessioni e restituire i riconoscimenti.
+  Tempo medio round trip tra i client e il gateway applicazione. Questa metrica indica il tempo necessario per stabilire le connessioni e restituire i riconoscimenti. 
 
 - **Tempo totale del gateway applicazione**
 
   Tempo medio necessario per l'elaborazione di una richiesta e la relativa risposta da inviare. Viene calcolato come media dell'intervallo dal momento in cui il gateway applicazione riceve il primo byte di una richiesta HTTP al momento in cui termina l'operazione di invio della risposta. È importante tenere presente che questo in genere include il tempo di elaborazione del gateway applicazione, il tempo in cui i pacchetti di richiesta e risposta vengono spostati in rete e il tempo impiegato dal server back-end per rispondere.
-
-- **Tempo di connessione back-end**
-
-  Tempo impiegato per stabilire una connessione con un server back-end. 
+  
+Se il *RTT del client* è molto più del *tempo totale del gateway applicazione*, è possibile dedurre che la latenza osservata dal client è dovuta alla connettività di rete tra il client e il gateway applicazione. Se entrambe le latenze sono confrontabili, la latenza elevata potrebbe essere dovuta a uno dei seguenti: gateway applicazione, rete tra il gateway applicazione e l'applicazione back-end o le prestazioni dell'applicazione back-end.
 
 - **Tempo di risposta primo byte back-end**
 
@@ -43,6 +45,13 @@ Sono disponibili le metriche seguenti relative alla tempistica della richiesta e
 - **Tempo di risposta ultimo byte back-end**
 
   Intervallo di tempo tra l'inizio del tentativo di stabilire una connessione al server back-end e la ricezione dell'ultimo byte del corpo della risposta
+  
+Se il *tempo totale del gateway applicazione* è molto più del *tempo di risposta ultimo byte back-end* per un listener specifico, è possibile dedurre che la latenza elevata potrebbe essere dovuta al gateway applicazione. D'altra parte, se le due metriche sono confrontabili, il problema potrebbe essere dovuto alla rete tra il gateway applicazione e l'applicazione back-end o le prestazioni dell'applicazione back-end.
+
+- **Tempo di connessione back-end**
+
+  Tempo impiegato per stabilire una connessione a un'applicazione back-end. Nel caso di SSL, include il tempo impiegato per l'handshake. Si noti che questa metrica è diversa da quella delle altre metriche di latenza, poiché questo misura solo il tempo di connessione e pertanto non deve essere confrontato direttamente in grandezza con le altre latenze. Tuttavia, confrontando il modello di *tempo di connessione back-end* con il modello delle altre latenze è possibile indicare se è possibile dedurre un aumento in altre latenze a causa di una variazione nella rete tra l'applicazione Gatway e l'applicazione back-end. 
+  
 
 ### <a name="application-gateway-metrics"></a>Metriche del gateway applicazione
 
@@ -62,7 +71,7 @@ Per il gateway applicazione sono disponibili le metriche seguenti:
 
 - **Unità di capacità correnti**
 
-   Numero di unità di capacità utilizzate. Le unità di capacità misurano i costi in base al consumo addebitati in aggiunta al costo fisso. Esistono tre fattori determinanti per la capacità: unità di calcolo, connessioni permanenti e velocità effettiva. Ogni unità di capacità è costituita al massimo da: 1 unità di calcolo o 2500 connessioni permanenti o velocità effettiva di 2,22 Mbps.
+   Numero di unità di capacità utilizzate. Le unità di capacità misurano i costi in base al consumo addebitati in aggiunta al costo fisso. Esistono tre fattori determinanti per la capacità: unità di calcolo, connessioni permanenti e velocità effettiva. Ogni unità di capacità è composta al massimo: 1 unità di calcolo o 2500 connessioni permanenti o velocità effettiva di 2,22 Mbps.
 
 - **Unità di calcolo correnti**
 
@@ -115,6 +124,10 @@ Per il gateway applicazione sono disponibili le metriche seguenti:
 
 Per il gateway applicazione sono disponibili le metriche seguenti:
 
+- **Utilizzo CPU**
+
+  Visualizza l'utilizzo delle CPU allocate al gateway applicazione.  In condizioni normali, l'utilizzo della CPU non deve superare regolarmente il 90%, in quanto ciò potrebbe causare una latenza nei siti Web ospitati dietro il gateway applicazione e compromettere l'esperienza del client. È possibile controllare indirettamente o migliorare l'utilizzo della CPU modificando la configurazione del gateway applicazione aumentando il numero di istanze o passando a dimensioni di SKU maggiori o eseguendo entrambe le azioni.
+
 - **Connessioni correnti**
 
   Numero di connessioni correnti stabilite con il gateway applicazione
@@ -157,7 +170,7 @@ Passare a un gateway applicazione, in **monitoraggio** selezionare **metriche**.
 
 Nella figura seguente è illustrato un esempio con tre metriche visualizzate per gli ultimi 30 minuti:
 
-[![](media/application-gateway-diagnostics/figure5.png "Visualizzazione delle metriche")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
+[![](media/application-gateway-diagnostics/figure5.png "Metric view")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
 
 Per un elenco delle metriche correnti, vedere [Metriche supportate con il monitoraggio di Azure](../azure-monitor/platform/metrics-supported.md).
 

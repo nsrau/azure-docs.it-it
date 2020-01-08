@@ -1,5 +1,6 @@
 ---
-title: Configurare un nome di dominio personalizzato per l'istanza di Gestione API di Azure | Microsoft Docs
+title: Configurare il nome di dominio personalizzato per l'istanza di gestione API di Azure
+titleSuffix: Azure API Management
 description: Questo argomento descrive come configurare un nome di dominio personalizzato per l'istanza di Gestione API di Azure.
 services: api-management
 documentationcenter: ''
@@ -11,12 +12,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/12/2019
 ms.author: apimpm
-ms.openlocfilehash: ba2288fa4add6df6b7861b5f8a99bcd3ee8b4c12
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8fe07318d33980ad3ec9fc3d6e8749c6c9aed42e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472195"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442554"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurare un nome di dominio personalizzato
 
@@ -59,7 +60,7 @@ Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
 1. Selezionare l'endpoint che si vuole aggiornare.
 1. Nella finestra di destra fare clic su **Personalizzato**.
 
-    - In **Nome di dominio personalizzato** specificare il nome che si vuole usare. Ad esempio, `api.contoso.com`.
+    - In **Nome di dominio personalizzato** specificare il nome che si vuole usare. Ad esempio: `api.contoso.com`.
     - Nel **certificato**selezionare un certificato da Key Vault. È anche possibile caricare un valido. File PFX e fornire la relativa **password**, se il certificato è protetto con una password.
 
     > [!NOTE]

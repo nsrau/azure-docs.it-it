@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: c5ab994ce7b4e3d195ec3a4c83094974c5767e66
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: bcaf45af4c02dad22e2cc611fa7ea5a32ad3a853
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643778"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443873"
 ---
 # <a name="azure-operational-security-overview"></a>Panoramica sulla sicurezza operativa di Azure
 
@@ -42,15 +42,15 @@ Un team operativo IT è responsabile della gestione dell'infrastruttura dei data
 
 [Automazione di Azure](/azure/automation/automation-intro) offre agli utenti la possibilità di automatizzare le attività manuali, a esecuzione prolungata, soggette a errori e ripetute di frequente comunemente eseguite negli ambienti cloud e aziendali. Consente di risparmiare tempo e aumenta l'affidabilità delle attività amministrative. Consente persino di pianificare queste attività in modo che vengano eseguite automaticamente a intervalli regolari. È possibile automatizzare i processi utilizzando runbook o automatizzare la gestione della configurazione tramite Configurazione dello stato desiderato.
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>Eseguire il backup
 
 [Backup di Azure](/azure/backup/backup-introduction-to-azure-backup) è il servizio basato su Azure che consente di eseguire il backup (o proteggere) e il ripristino dei dati in Microsoft Cloud. Backup di Azure sostituisce la soluzione di backup locale o esterna esistente con una soluzione basata sul cloud affidabile, sicura e concorrenziale in termini di costi.
 
 Backup di Azure offre componenti che vengono scaricati e distribuiti nel computer o server appropriato o nel cloud. Il componente o l'agente distribuito dipende da ciò che si intende proteggere. Tutti i componenti di Backup di Azure consentono di eseguire il backup dei dati in Servizi di ripristino di Microsoft Azure, a prescindere che i dati da proteggere si trovino in locale o nel cloud.
 
-Per altre informazioni, vedere la [scheda dei componenti del Backup di Azure](/azure/backup/backup-introduction-to-azure-backup#which-backup-agent-should-i-use).
+Per altre informazioni, vedere la [scheda dei componenti del Backup di Azure](/azure/backup/backup-overview#what-can-i-back-up).
 
-### <a name="site-recovery"></a>Site Recovery
+### <a name="site-recovery"></a>Ripristino sito
 
 [Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery) garantisce la continuità aziendale orchestrando la replica delle macchine virtuali e dei computer fisici locali in Azure o in un sito secondario. Se il sito primario non è disponibile, viene eseguito il failover nella posizione secondaria in modo che gli utenti possano continuare a lavorare. Nel momento in cui i sistemi tornano operativi, Azure Site Recovery esegue il failback. Usare Centro sicurezza di Azure per eseguire un rilevamento delle minacce più avanzato ed efficace.
 
@@ -64,7 +64,7 @@ Per altre informazioni, vedere la [scheda dei componenti del Backup di Azure](/a
 
 Azure AD include inoltre una suite completa di [funzionalità di gestione delle identità](/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports), tra cui:
 
-- [Multi-Factor Authentication](/azure/multi-factor-authentication/multi-factor-authentication)
+- [Autenticazione a più fattori](/azure/multi-factor-authentication/multi-factor-authentication)
 - [Gestione delle password self-service](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)
 - [Gestione di gruppi self-service](/azure/active-directory/active-directory-passwords-update-your-own-password)
 - [Gestione degli account con privilegi](/azure/active-directory/active-directory-privileged-identity-management-configure)
@@ -75,7 +75,7 @@ Azure AD include inoltre una suite completa di [funzionalità di gestione delle 
 
 Con Azure Active Directory tutte le applicazioni che si pubblicano per i partner e i clienti (aziende o utenti privati) hanno le stesse funzionalità di gestione delle identità e degli accessi. Ciò consente una riduzione notevole dei costi operativi.
 
-## <a name="azure-security-center"></a>Centro sicurezza di Azure
+## <a name="azure-security-center"></a>Centro sicurezza Azure
 
 [Centro sicurezza di Azure](/azure/security-center/security-center-intro) impedisce, rileva e risponde alle minacce mediante visibilità e controllo avanzati della sicurezza delle risorse di Azure. Integra il monitoraggio della sicurezza e la gestione dei criteri in tutte le sottoscrizioni. Aiuta a rilevare le minacce che potrebbero altrimenti passare inosservate e opera con un ampio ecosistema di soluzioni per la sicurezza.
 
@@ -122,7 +122,7 @@ I log di diagnostica differiscono dal [log attività](/azure/monitoring-and-diag
 
 Monitoraggio di Azure consente di usare i dati di telemetria per ottenere visibilità sulle prestazioni e sull'integrità dei carichi di lavoro in Azure. Il tipo di dati di telemetria di Azure più importante è rappresentato dalle [metriche](/azure/monitoring-and-diagnostics/monitoring-overview-metrics) (altrimenti dette contatori delle prestazioni) generate dalla maggior parte delle risorse di Azure. Il monitoraggio di Azure offre alcuni modi per configurare e usare queste metriche per il monitoraggio e la risoluzione dei problemi.
 
-### <a name="azure-diagnostics"></a>Diagnostica Azure
+### <a name="azure-diagnostics"></a>Diagnostica di Azure
 
 Diagnostica di Azure consente la raccolta di dati di diagnostica in un'applicazione distribuita. È possibile usare l'estensione Diagnostica da varie origini. Sono attualmente supportati [ruoli Web e di lavoro del servizio cloud di Azure](/azure/vs-azure-tools-configure-roles-for-cloud-service), [macchine virtuali di Azure](/azure/vs-azure-tools-configure-roles-for-cloud-service) che eseguono Microsoft Windows e [Microsoft Azure Service Fabric](/azure/monitoring-and-diagnostics/azure-diagnostics).
 
@@ -166,7 +166,7 @@ Blueprint offre un modo dichiarativo per orchestrare la distribuzione di più mo
 
 - Assegnazioni di ruoli
 - Assegnazioni di criteri
-- Modelli di Gestione risorse di Azure
+- Modelli di Azure Resource Manager
 - Gruppi di risorse
 
 ## <a name="devops"></a>DevOps

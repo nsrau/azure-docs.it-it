@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2019
-ms.openlocfilehash: 1719c917ee2a4c0a11e4a79953a8b67e946d5931
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 5a47f5c2f9c9d4e22e8205853d85214997a2bea7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74889125"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406954"
 ---
 # <a name="eventcounters-introduction"></a>Introduzione a EventCounters
 
@@ -55,7 +55,7 @@ Per le app in esecuzione in .NET Core 3,0, i contatori seguenti vengono raccolti
 |`Microsoft.AspNetCore.Hosting` | `failed-requests` |
 
 > [!NOTE]
-> I contatori della categoria Microsoft. AspNetCore. Hosting vengono aggiunti solo nelle applicazioni Asp.Net core.
+> I contatori della categoria Microsoft. AspNetCore. Hosting vengono aggiunti solo nelle applicazioni ASP.NET Core.
 
 ## <a name="customizing-counters-to-be-collected"></a>Personalizzazione dei contatori da raccogliere
 
@@ -95,19 +95,19 @@ Nell'esempio seguente viene illustrato come aggiungere o rimuovere i contatori. 
 
 ## <a name="event-counters-in-metric-explorer"></a>Contatori di eventi in Esplora metriche
 
-Per visualizzare le metriche di EventCounter in [Esplora metriche](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts), selezionare Application Insights risorsa e scegliere metriche basate su log come spazio dei nomi metrica. Quindi le metriche EventCounter vengono visualizzate nella categoria PerformanceCounter.
+Per visualizzare le metriche di EventCounter in [Esplora metriche](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts), selezionare Application Insights risorsa e scegliere metriche basate su log come spazio dei nomi metrica. Quindi, le metriche EventCounter vengono visualizzate in categoria personalizzata.
 
 > [!div class="mx-imgBorder"]
 > ![contatori di eventi segnalati in Application Insights](./media/event-counters/metrics-explorer-counter-list.png)
 
 ## <a name="event-counters-in-analytics"></a>Contatori di eventi in Analytics
 
-È anche possibile cercare e visualizzare i report dei contatori degli eventi in [Analytics](../../azure-monitor/app/analytics.md)nella tabella **PerformanceCounters** .
+È anche possibile cercare e visualizzare i report dei contatori di eventi in [Analytics](../../azure-monitor/app/analytics.md)nella tabella **customMetrics** .
 
 Eseguire ad esempio la query seguente per visualizzare i contatori raccolti e disponibili per le query:
 
 ```Kusto
-performanceCounters | summarize avg(value) by name
+customMetrics | summarize avg(value) by name
 ```
 
 > [!div class="mx-imgBorder"]
@@ -116,7 +116,7 @@ performanceCounters | summarize avg(value) by name
 Per ottenere un grafico di un contatore specifico (ad esempio: `ThreadPool Completed Work Item Count`) nel periodo recente, eseguire la query seguente.
 
 ```Kusto
-performanceCounters 
+customMetrics 
 | where name contains "System.Runtime|ThreadPool Completed Work Item Count"
 | where timestamp >= ago(1h)
 | summarize  avg(value) by cloud_RoleInstance, bin(timestamp, 1m)
@@ -125,7 +125,7 @@ performanceCounters
 > [!div class="mx-imgBorder"]
 > ![la chat di un singolo contatore in Application Insights](./media/event-counters/analytics-completeditems-counters.png)
 
-Come altri dati di telemetria, **performanceCounters** contiene anche una colonna `cloud_RoleInstance` che indica l'identità dell'istanza del server host in cui viene eseguita l'app. La query precedente Mostra il valore del contatore per ogni istanza e può essere utilizzata per confrontare le prestazioni delle diverse istanze del server.
+Analogamente ad altri dati di telemetria, **customMetrics** include anche una colonna `cloud_RoleInstance` che indica l'identità dell'istanza del server host in cui è in esecuzione l'app. La query precedente Mostra il valore del contatore per ogni istanza e può essere utilizzata per confrontare le prestazioni delle diverse istanze del server.
 
 ## <a name="alerts"></a>Avvisi
 Analogamente ad altre metriche, è possibile [impostare un avviso](../../azure-monitor/app/alerts.md) per avvisare l'utente se un contatore di eventi supera un limite specificato. Aprire il riquadro Avvisi e fare clic su Aggiungi avviso.
@@ -138,7 +138,7 @@ Le metriche in tempo reale non mostrano EventCounters a partire da oggi. Usare E
 
 ### <a name="which-platforms-can-i-see-the-default-list-of-net-core-30-counters"></a>Quali piattaforme è possibile visualizzare l'elenco predefinito dei contatori di .NET Core 3,0?
 
-EventCounter non richiede alcuna autorizzazione speciale ed è supportato in tutte le piattaforme .NET Core 3,0 è supportato. Sono inclusi:
+EventCounter non richiede alcuna autorizzazione speciale ed è supportato in tutte le piattaforme .NET Core 3,0 è supportato. ad esempio:
 
 * **Sistema operativo**: Windows, Linux o MacOS.
 * **Metodo di hosting**: in-process o out-of-process.

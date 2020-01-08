@@ -1,25 +1,16 @@
 ---
-title: Backup e ripristino di Service Fabric | Documentazione Microsoft
-description: Documentazione concettuale per il backup e ripristino di Service Fabric
-services: service-fabric
-documentationcenter: .net
+title: Service Fabric backup e ripristino
+description: Documentazione concettuale per Service Fabric backup e ripristino, un servizio per la configurazione del backup di servizi con stato affidabili e Reliable Actors.
 author: mcoskun
-manager: chackdan
-editor: subramar,zhol
-ms.assetid: 91ea6ca4-cc2a-4155-9823-dcbd0b996349
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/29/2018
 ms.author: mcoskun
-ms.openlocfilehash: cd40f59cfa7846911c68206c3bc1e85a770b0fcc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 712069a34b6bc5d8aa4bcbab3fdbf9fc9cd8958b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60723853"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645549"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Eseguire il backup e il ripristino di Reliable Services e Reliable Actors
 Azure Service Fabric è una piattaforma a disponibilità elevata che replica lo stato in più nodi per mantenere questa disponibilità elevata.  Anche in caso di errore di un nodo nel cluster, il servizio rimarrà quindi comunque disponibile. Anche se questa ridondanza predefinita fornita dalla piattaforma può essere sufficiente per alcune situazioni, in determinati casi è preferibile che il servizio esegua il backup dei dati in un archivio esterno.
@@ -44,7 +35,7 @@ Ad esempio, è possibile che in un servizio sia consigliabile eseguire il backup
 La funzionalità Backup/Ripristino consente ai servizi basati sull'API Reliable Services di creare e ripristinare i backup. Le API di backup fornite dalla piattaforma consentono il backup dello stato di una partizione del servizio senza bloccare le operazioni di lettura o scrittura. Le API di ripristino consentono il ripristino dello stato di una partizione del servizio da un backup specificato.
 
 ## <a name="types-of-backup"></a>Tipi di backup
-Esistono due opzioni di backup: completo e incrementale.
+Sono disponibili due opzioni di backup: completo e incrementale.
 Un backup completo contiene tutti i dati necessari per ricreare lo stato della replica, ossia i checkpoint e tutti i record di log.
 Visto che contiene i checkpoint e il log, un backup completo può ripristinarsi autonomamente.
 
@@ -106,7 +97,7 @@ private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo, Cancellation
 
 Nell'esempio precedente `ExternalBackupStore` corrisponde alla classe di esempio usata per interfacciarsi con il servizio di archiviazione BLOB di Azure e `UploadBackupFolderAsync` è il metodo che comprime la cartella e la inserisce nell'archivio BLOB di Azure.
 
-Si noti che:
+Tenere presente quanto segue:
 
   - In un dato momento può essere in corso una sola operazione di backup per replica. Se si hanno più chiamate `BackupAsync` simultanee, `FabricBackupInProgressException` limita a una le esecuzioni dei backup.
   - In caso di failover di una replica durante l'esecuzione di un backup, è possibile che il backup non venga completato. Al termine del failover, il servizio dovrà quindi riavviare il backup chiamando `BackupAsync`, se necessario.
@@ -175,7 +166,7 @@ Se non si sa con esattezza quali siano i backup danneggiati, è possibile distri
 
 È ora possibile usare la procedura illustrata nella sezione "Servizio eliminato o perso" per ripristinare lo stato del servizio sul valore precedente al danneggiamento da parte del codice con bug.
 
-Si noti che:
+Tenere presente quanto segue:
 
   - Quando si esegue il ripristino è possibile che il backup ripristinato sia precedente allo stato della partizione prima della perdita dei dati. È quindi necessario procedere al ripristino solo come ultima risorsa per recuperare la quantità maggiore possibile di dati.
   - La stringa che rappresenta il percorso della cartella di backup e i percorsi dei file nella cartella di backup può superare i 255 caratteri, in base al percorso FabricDataRoot e alla lunghezza del nome del tipo di applicazione. Questo approccio può far sì che alcuni metodi .NET, come `Directory.Move`, generino l'eccezione `PathTooLongException`. Una soluzione alternativa consiste nel chiamare direttamente le API kernel32, come `CopyFile`.
@@ -246,12 +237,12 @@ Quando si esegue il ripristino da una catena di backup, in maniera simile a Reli
 ## <a name="under-the-hood-more-details-on-backup-and-restore"></a>Approfondimento: altri dettagli sul backup e ripristino
 Ecco altri dettagli sul backup e ripristino.
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>Eseguire il backup
 Reliable State Manager consente di creare backup coerenti senza bloccare alcuna operazione di lettura o scrittura. A questo scopo, utilizza un checkpoint e un meccanismo di persistenza dei log.  Reliable State Manager accetta checkpoint fuzzy (semplici) in determinati punti per ridurre la pressione sul log transazionale e migliorare i tempi di ripristino.  Quando si chiama `BackupAsync`, Reliable State Manager indica a tutti gli oggetti Reliable di copiare i file di checkpoint più recenti in una cartella di backup locale.  Reliable State Manager copia quindi tutti i record del log a partire dal "puntatore iniziale" fino all'ultimo record del log nella cartella di backup.  Nel backup sono inclusi tutti i record di log fino all'ultimo e Reliable State Manager conserva i log write-ahead, di conseguenza Reliable State Manager assicura che nel backup siano incluse tutte le transazioni di cui viene eseguito il commit, ovvero di cui viene restituito correttamente `CommitAsync`.
 
 Eventuali transazioni di cui viene eseguito il commit dopo la chiamata di `BackupAsync` potrebbero essere incluse o meno nel backup.  Dopo il popolamento della cartella di backup locale da parte della piattaforma, ovvero dopo un backup locale completato dal runtime, verrà richiamato il callback del backup del servizio.  Il callback è responsabile dello spostamento della cartella di backup in una posizione esterna, ad esempio nell'Archiviazione di Azure.
 
-### <a name="restore"></a>Restore
+### <a name="restore"></a>Ripristinare
 Reliable State Manager consente di eseguire il ripristino da un backup con l'API `RestoreAsync`.  
 È possibile chiamare il metodo `RestoreAsync` su `RestoreContext` solo all'interno del metodo `OnDataLossAsync`.
 Il valore booleano restituito da `OnDataLossAsync` indica se il servizio ha ripristinato il rispettivo stato da un'origine esterna.

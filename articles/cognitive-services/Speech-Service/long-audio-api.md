@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/26/2019
 ms.author: erhopf
-ms.openlocfilehash: ed00a9df46660cc6bfb4ec5fd9a93c80f5d6653e
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: ff8cdf78d923394caf36610534eb5dcc7de571a4
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815325"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562545"
 ---
 # <a name="long-audio-api-preview"></a>API Long audio (anteprima)
 
@@ -42,15 +42,24 @@ Questo diagramma fornisce una panoramica di alto livello del flusso di lavoro.
 Quando si prepara il file di testo, verificare che:
 
 * Testo normale (con estensione txt) o testo SSML (. txt)
-  * Per testo normale, ogni paragrafo viene **separato premendo l'** esempio di [input di testo normale](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt)
-  * Per il testo SSML, ogni elemento SSML è considerato un paragrafo. Le parti SSML devono essere separate da paragrafi diversi, [ad esempio visualizzare input di testo SSML](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt). Per il codice lingua, vedere [linguaggio di markup sintesi vocale (SSML)](speech-synthesis-markup.md)
 * Codificata come [UTF-8 con BOM (Byte Order Mark)](https://www.w3.org/International/questions/qa-utf8-bom.en#bom)
-* Contiene più di 10.000 caratteri o più di 50 paragrafi
 * È un singolo file, non un file zip
+* Contiene più di 400 caratteri per testo normale o 400 [caratteri fatturabili](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech#pricing-note) per il testo SSML e meno di 10.000 paragrafi
+  * Per testo normale, ogni paragrafo viene **separato premendo l'** esempio di [input di testo normale](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt)
+  * Per il testo SSML, ogni elemento SSML è considerato un paragrafo. Le parti SSML devono essere separate da paragrafi diversi, [ad esempio visualizzare input di testo SSML](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt)
+> [!NOTE]
+> Per il cinese (terraferma), il cinese (Hong Kong), il cinese (Taiwan), il giapponese e il coreano, una parola viene conteggiata come due caratteri. 
+
+## <a name="submit-synthesis-requests"></a>Invia richieste di sintesi
+
+Dopo aver preparato il contenuto di input, seguire la [Guida introduttiva alla sintesi audio a lungo](https://aka.ms/long-audio-python) termine per inviare la richiesta. Se è presente più di un file di input, sarà necessario inviare più richieste. È necessario tenere presenti alcune limitazioni: 
+* Il client può inviare fino a 5 richieste al server al secondo per ogni account della sottoscrizione di Azure. Se supera la limitazione, il client otterrà un codice di errore 429 (troppe richieste). Ridurre il numero di richieste al secondo
+* Il server può eseguire e accodare fino a 120 richieste per ogni account della sottoscrizione di Azure. Se supera la limitazione, il server restituirà un codice di errore 429 (troppe richieste). Attendere ed evitare di inviare una nuova richiesta fino al completamento di alcune richieste
+* Il server manterrà fino a 20.000 richieste per ogni account della sottoscrizione di Azure. Se il problema supera il limite, eliminare alcune richieste prima di inviarne di nuove
 
 ## <a name="audio-output-formats"></a>Formati di output audio
 
-I formati di output audio seguenti sono supportati da Long audio API:
+Sono supportati formati di output audio flessibili. È possibile generare output audio per paragrafo o concatenare gli audio in un output impostando il parametro ' concatenateResult '. I formati di output audio seguenti sono supportati da Long audio API:
 
 > [!NOTE]
 > Il formato audio predefinito è riff-16kHz-16 bit-mono-PCM.

@@ -1,6 +1,6 @@
 ---
-title: 'Portale di Azure: replica geografica'
-description: Configurare la replica geografica per un database singolo o in pool nel database SQL di Azure usando il portale di Azure e avviare il failover
+title: 'Esercitazione: failover della replica geografica & nel portale'
+description: Configurare la replica geografica per un database singolo o in pool nel database SQL di Azure usando il portale di Azure e avviare il failover.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/13/2019
-ms.openlocfilehash: 7ddaefb0f65db1cfc828e4baa844f6d8e01f9d2e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 601c537a51e29ae1f107127e1b83c07448eee9ab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73808114"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75348888"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurare la replica geografica attiva per il database SQL di Azure nel portale di Azure e avviare il failover
 
@@ -69,7 +69,7 @@ Il database secondario può diventare il database primario.
 2. Nel pannello del database SQL selezionare **Tutte le impostazioni** > **Replica geografica**.
 3. Nell'elenco **SECONDARI** selezionare il database che si vuole usare come nuovo database primario e fare clic su **Failover**.
 
-    ![Failover](./media/sql-database-geo-replication-failover-portal/secondaries.png)
+    ![failover](./media/sql-database-geo-replication-failover-portal/secondaries.png)
 4. Fare clic su **Sì** per avviare il failover.
 
 Il comando passa immediatamente il database secondario al ruolo di database primario. Questo processo normalmente dovrebbe essere completato entro 30 secondi o meno.

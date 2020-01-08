@@ -5,12 +5,12 @@ author: ahmedelnably
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: aelnably
-ms.openlocfilehash: 18ba99077592a7d03e19fda86bc61e5839b82b5e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f30211b2b5863294976420d3f903a36abe76deba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226921"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433170"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Recapito continuo tramite l'azione GitHub
 
@@ -24,14 +24,14 @@ Per un flusso di lavoro di funzioni di Azure, il file è costituito da tre sezio
 
 | Sezione | Attività |
 | ------- | ----- |
-| **Autenticazione** | <ol><li>Definire un'entità servizio.</li><li>Scaricare il profilo di pubblicazione.</li><li>Creare un segreto GitHub.</li></ol>|
+| **autenticazione** | <ol><li>Definire un'entità servizio.</li><li>Scaricare il profilo di pubblicazione.</li><li>Creare un segreto GitHub.</li></ol>|
 | **Build** | <ol><li>Configurare l'ambiente.</li><li>Compilare l'app per le funzioni.</li></ol> |
-| **Distribuzione** | <ol><li>Distribuire l'app per le funzioni.</li></ol>|
+| **Distribuire** | <ol><li>Distribuire l'app per le funzioni.</li></ol>|
 
 > [!NOTE]
 > Non è necessario creare un'entità servizio se si decide di usare il profilo di pubblicazione per l'autenticazione.
 
-## <a name="create-a-service-principal"></a>Creare un’entità servizio
+## <a name="create-a-service-principal"></a>Creare un'entità servizio
 
 È possibile creare un' [entità servizio](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) usando il comando [AZ ad SP create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) nell'interfaccia della riga di comando di [Azure](/cli/azure/). È possibile eseguire questo comando usando [Azure cloud Shell](https://shell.azure.com) nel portale di Azure o selezionando il pulsante **prova** .
 
@@ -64,18 +64,11 @@ GitHub è ora in grado di eseguire l'autenticazione all'app per le funzioni in A
 
 ## <a name="set-up-the-environment"></a>Configurare l'ambiente 
 
-La configurazione dell'ambiente può essere eseguita tramite una delle azioni di pubblicazione di installazione.
+La configurazione dell'ambiente viene eseguita utilizzando un'azione di configurazione di pubblicazione specifica del linguaggio.
 
-|Lingua | Azione di installazione |
-|---------|---------|
-|**.NET**     | `actions/setup-dotnet` |
-|**Java**    | `actions/setup-java` |
-|**JavaScript**     | `actions/setup-node` |
-|**Python**   | `actions/setup-python` |
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-Negli esempi seguenti viene illustrata la parte del flusso di lavoro che configura l'ambiente per le varie lingue supportate:
-
-**JavaScript**
+Nell'esempio seguente viene illustrata la parte del flusso di lavoro che utilizza l'azione `actions/setup-node` per configurare l'ambiente:
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -88,7 +81,9 @@ Negli esempi seguenti viene illustrata la parte del flusso di lavoro che configu
         node-version: '10.x'
 ```
 
-**Python**
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Nell'esempio seguente viene illustrata la parte del flusso di lavoro che utilizza l'azione `actions/setup-python` per configurare l'ambiente:
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -101,7 +96,9 @@ Negli esempi seguenti viene illustrata la parte del flusso di lavoro che configu
         python-version: 3.6
 ```
 
-**.NET**
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+Nell'esempio seguente viene illustrata la parte del flusso di lavoro che utilizza l'azione `actions/setup-dotnet` per configurare l'ambiente:
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -114,7 +111,9 @@ Negli esempi seguenti viene illustrata la parte del flusso di lavoro che configu
         dotnet-version: '2.2.300'
 ```
 
-**Java**
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Nell'esempio seguente viene illustrata la parte del flusso di lavoro che utilizza l'azione `actions/setup-java` per configurare l'ambiente:
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -128,14 +127,15 @@ Negli esempi seguenti viene illustrata la parte del flusso di lavoro che configu
         # Please change the Java version to match the version in pom.xml <maven.compiler.source>
         java-version: '1.8.x'
 ```
+---
 
 ## <a name="build-the-function-app"></a>Compilare l'app per le funzioni
 
 Questo dipende dalla lingua e dalle lingue supportate da funzioni di Azure. questa sezione deve essere la procedura standard di compilazione di ogni linguaggio.
 
-Gli esempi seguenti illustrano la parte del flusso di lavoro che compila l'app per le funzioni, nei vari linguaggi supportati:
+Nell'esempio seguente viene illustrata la parte del flusso di lavoro che compila l'app per le funzioni, che è specifica del linguaggio:
 
-**JavaScript**
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```yaml
     - name: 'Run npm'
@@ -150,7 +150,7 @@ Gli esempi seguenti illustrano la parte del flusso di lavoro che compila l'app p
         popd
 ```
 
-**Python**
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 ```yaml
     - name: 'Run pip'
@@ -164,7 +164,7 @@ Gli esempi seguenti illustrano la parte del flusso di lavoro che compila l'app p
         popd
 ```
 
-**.NET**
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```yaml
     - name: 'Run dotnet build'
@@ -177,7 +177,7 @@ Gli esempi seguenti illustrano la parte del flusso di lavoro che compila l'app p
         popd
 ```
 
-**Java**
+# <a name="javatabjava"></a>[Java](#tab/java)
 
 ```yaml
     - name: 'Run mvn'
@@ -190,12 +190,13 @@ Gli esempi seguenti illustrano la parte del flusso di lavoro che compila l'app p
         mvn azure-functions:package
         popd
 ```
+---
 
 ## <a name="deploy-the-function-app"></a>Distribuire il codice della funzione
 
 Per distribuire il codice in un'app per le funzioni, è necessario usare l'azione `Azure/functions-action`. Questa azione è costituita da due parametri:
 
-|. |Spiegazione  |
+|Parametro |Spiegazione  |
 |---------|---------|
 |**_Nome app_** | Obbligatorio Nome dell'app per le funzioni. |
 |_**nome slot**_ | Opzionale Nome dello slot di [distribuzione](functions-deployment-slots.md) in cui si desidera eseguire la distribuzione. Lo slot deve essere già definito nell'app per le funzioni. |

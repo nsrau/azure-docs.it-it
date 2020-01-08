@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 56607de57939be769b1951f0eee9078c46d610c0
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 615d9a3c5c359174ef15028e82044a85da0dd733
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035455"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561287"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Distribuire OpenShift container Platform 3,11 in Azure
 
@@ -27,7 +27,7 @@ ms.locfileid: "74035455"
 
 - È possibile distribuire manualmente i componenti necessari dell'infrastruttura di Azure e quindi seguire la [documentazione di OpenShift Container Platform](https://docs.openshift.com/container-platform).
 - È anche possibile usare un [modello di Resource Manager](https://github.com/Microsoft/openshift-container-platform/) esistente che semplifica la distribuzione del cluster OpenShift Container Platform.
-- Un'altra opzione consiste nell'usare l'[offerta di Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
+- Un'altra opzione consiste nell'usare l'[offerta di Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/osatesting.open-shift-azure-proxy).
 
 Per tutte le opzioni è necessaria una sottoscrizione di Red Hat. Durante la distribuzione, l'istanza Red Hat Enterprise Linux viene registrata nella sottoscrizione di Red Hat e allegata all'ID del pool che contiene i diritti per OpenShift Container Platform.
 Verificare di avere un nome utente, una password e un ID pool validi per Red Hat Subscription Manager (RHSM). È possibile usare una chiave di attivazione, l'ID organizzazione e l'ID pool. Per verificare le informazioni, eseguire l'accesso a https://access.redhat.com.
@@ -248,7 +248,7 @@ Versioni diverse possono avere parametri diversi, pertanto occorre verificare i 
 
 ### <a name="azuredeployparametersjson-file-explained"></a>file azuredeploy. Descrizione del file Parameters. JSON
 
-| Proprietà | DESCRIZIONE | Opzioni valide | Valore predefinito |
+| Proprietà | Description | Opzioni valide | Default Value |
 |----------|-------------|---------------|---------------|
 | `_artifactsLocation`  | URL per gli artefatti (JSON, script e così via) |  |  https:\//raw.githubusercontent.com/Microsoft/openshift-container-platform/master  |
 | `location` | Area di Azure in cui distribuire le risorse |  |  |
@@ -258,7 +258,7 @@ Versioni diverse possono avere parametri diversi, pertanto occorre verificare i 
 | `cnsVmSize` | Dimensioni della VM del nodo dello spazio di archiviazione nativo (CNS) del contenitore. Selezionare una delle dimensioni di macchina virtuale consentite elencate nel file file azuredeploy. JSON |  | Standard_E4s_v3 |
 | `osImageType` | Immagine RHEL da usare. defaultgallery: su richiesta; Marketplace: immagine di terze parti | defaultgallery <br> marketplace | defaultgallery |
 | `marketplaceOsImage` | Se `osImageType` è Marketplace, immettere i valori appropriati per ' Publisher ',' offer ',' SKU ',' version ' dell'offerta Marketplace. Questo parametro è un tipo di oggetto |  |  |
-| `storageKind` | Tipo di archiviazione da usare  | gestito<br> gestito | gestito |
+| `storageKind` | Tipo di archiviazione da usare  | gestito<br> unmanaged | gestito |
 | `openshiftClusterPrefix` | Prefisso del cluster usato per configurare i nomi host per tutti i nodi.  Da 1 a 20 caratteri |  | miocluster |
 | `minoVersion` | Versione secondaria di OpenShift container Platform 3,11 da distribuire |  | 69 |
 | `masterInstanceCount` | Numero di nodi master da distribuire | 1, 3, 5 | 3 |
@@ -281,12 +281,12 @@ Versioni diverse possono avere parametri diversi, pertanto occorre verificare i 
 | `keyVaultName` | Nome del Key Vault creato |  |  |
 | `enableAzure` | Abilita provider di servizi cloud di Azure | true <br> false | true |
 | `aadClientId` | ID client di Azure Active Directory noto anche come ID applicazione per l'entità servizio |  |  |
-| `domainName` | Nome del nome di dominio personalizzato da usare, se applicabile. Impostato su "None" se non si distribuisce un cluster completamente privato |  | nessuno |
-| `masterClusterDnsType` | Tipo di dominio per la console Web OpenShift. con ' default ' viene utilizzata l'etichetta DNS dell'indirizzo IP pubblico del Master infra. ' Custom ' consente di definire un nome personalizzato | default <br> personalizzato | default |
+| `domainName` | Nome del nome di dominio personalizzato da usare, se applicabile. Impostato su "None" se non si distribuisce un cluster completamente privato |  | none |
+| `masterClusterDnsType` | Tipo di dominio per la console Web OpenShift. con ' default ' viene utilizzata l'etichetta DNS dell'indirizzo IP pubblico del Master infra. ' Custom ' consente di definire un nome personalizzato | default <br> personalizzati | default |
 | `masterClusterDns` | Nome DNS personalizzato da usare per accedere alla console Web di OpenShift se è stata selezionata l'opzione ' Custom ' per `masterClusterDnsType` |  | console.contoso.com |
-| `routingSubDomainType` | Se impostato su' nipio ', `routingSubDomain` utilizzerà nip.io.  Usare "Custom" Se si dispone di un dominio personalizzato che si vuole usare per il routing | nipio <br> personalizzato | nipio |
+| `routingSubDomainType` | Se impostato su' nipio ', `routingSubDomain` utilizzerà nip.io.  Usare "Custom" Se si dispone di un dominio personalizzato che si vuole usare per il routing | nipio <br> personalizzati | nipio |
 | `routingSubDomain` | Nome DNS con caratteri jolly che si vuole usare per il routing se è stato selezionato "Custom" per `routingSubDomainType` |  | apps.contoso.com |
-| `virtualNetworkNewOrExisting` | Scegliere se usare una rete virtuale esistente o creare una nuova rete virtuale | esistente <br> nuovo | nuovo |
+| `virtualNetworkNewOrExisting` | Scegliere se usare una rete virtuale esistente o creare una nuova rete virtuale | esistenti <br> novità | novità |
 | `virtualNetworkResourceGroupName` | Nome del gruppo di risorse per la nuova rete virtuale se è stata selezionata l'opzione ' nuovo ' per `virtualNetworkNewOrExisting` |  | resourceGroup (). nome |
 | `virtualNetworkName` | Nome della nuova rete virtuale da creare se è stato selezionato "nuovo" per `virtualNetworkNewOrExisting` |  | openshiftvnet |
 | `addressPrefixes` | Prefisso dell'indirizzo della nuova rete virtuale |  | 10.0.0.0/14 |
@@ -304,8 +304,8 @@ Versioni diverse possono avere parametri diversi, pertanto occorre verificare i 
 | `masterPrivateClusterIp` | Se si selezionano i nodi master privati, è necessario specificare un indirizzo IP privato per l'uso da parte del servizio di bilanciamento del carico interno per i nodi master. Questo indirizzo IP statico deve trovarsi all'interno del blocco CIDR per la subnet master e non è già in uso. Se si selezionano i nodi Master pubblici, questo valore non verrà utilizzato, ma sarà comunque necessario specificarlo |  | 10.1.0.200 |
 | `routerClusterType` | Specificare se il cluster usa i nodi infra privati o pubblici. Se si sceglie private, i nodi infra non verranno esposti a Internet tramite un indirizzo IP pubblico. Utilizzerà invece l'indirizzo IP privato specificato nella `routerPrivateClusterIp` | public <br> Privato | public |
 | `routerPrivateClusterIp` | Se si selezionano i nodi infra privati, è necessario specificare un indirizzo IP privato per l'uso da parte del servizio di bilanciamento del carico interno per i nodi infra. Questo indirizzo IP statico deve trovarsi all'interno del blocco CIDR per la subnet master e non è già in uso. Se si selezionano i nodi infra pubblici, questo valore non verrà utilizzato, ma sarà comunque necessario specificarlo |  | 10.2.0.200 |
-| `routingCertType` | Usa certificato personalizzato per il dominio di routing o il certificato autofirmato predefinito-seguire le istruzioni nella sezione **certificati personalizzati** | selfsigned <br> personalizzato | selfsigned |
-| `masterCertType` | Usare un certificato personalizzato per il dominio master o il certificato autofirmato predefinito-seguire le istruzioni nella sezione **certificati personalizzati** | selfsigned <br> personalizzato | selfsigned |
+| `routingCertType` | Usa certificato personalizzato per il dominio di routing o il certificato autofirmato predefinito-seguire le istruzioni nella sezione **certificati personalizzati** | selfsigned <br> personalizzati | selfsigned |
+| `masterCertType` | Usare un certificato personalizzato per il dominio master o il certificato autofirmato predefinito-seguire le istruzioni nella sezione **certificati personalizzati** | selfsigned <br> personalizzati | selfsigned |
 
 <br>
 
@@ -335,7 +335,7 @@ Se non si vuole bloccare la riga di comando in attesa del completamento della di
 
 ## <a name="connect-to-the-openshift-cluster"></a>Eseguire la connessione al cluster OpenShift
 
-Al termine della distribuzione, recuperare la connessione dalla sezione di output della distribuzione. Connettersi alla console di OpenShift con il browser usando l' **URL della console di OpenShift**. è anche possibile usare SSH per l'host Bastion. Di seguito è riportato un esempio in cui il nome utente amministratore è clusteradmin e il nome di dominio completo DNS dell'indirizzo IP pubblico bastion è bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com:
+Al termine della distribuzione, recuperare la connessione dalla sezione di output della distribuzione. Connettersi alla console di OpenShift con il browser usando l' **URL della console di OpenShift**. È anche possibile usare SSH per l'host Bastion. Di seguito è riportato un esempio in cui il nome utente amministratore è clusteradmin e il nome di dominio completo DNS dell'indirizzo IP pubblico bastion è bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com:
 
 ```bash
 $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com

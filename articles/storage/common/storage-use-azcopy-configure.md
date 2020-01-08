@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: c16fea8f710751a051995ecece8a3d0ce8f933c7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6a1dcd2d8734d7701dab6d913beb8af0ad4e35ab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926462"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371395"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurare, ottimizzare e risolvere i problemi relativi a AzCopy
 
@@ -56,16 +56,21 @@ Usare il comando seguente per eseguire un test di benchmark delle prestazioni.
 | **Sintassi** | `azcopy bench 'https://<storage-account-name>.blob.core.windows.net/<container-name>'` |
 | **Esempio** | `azcopy bench 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
 
+> [!TIP]
+> In questo esempio vengono racchiusi gli argomenti del percorso con virgolette singole (''). Usare le virgolette singole in tutte le shell dei comandi eccetto la shell dei comandi di Windows (cmd. exe). Se si usa una shell dei comandi di Windows (cmd. exe), racchiudere gli argomenti del percorso con virgolette doppie ("") anziché virgolette singole ('').
+
 Questo comando esegue un benchmark delle prestazioni caricando i dati di test in una destinazione specificata. I dati di test vengono generati in memoria, caricati nella destinazione, quindi eliminati dalla destinazione dopo il completamento del test. È possibile specificare il numero di file da generare e le dimensioni che si desidera utilizzare con i parametri facoltativi del comando.
+
+Per documenti di riferimento dettagliati, vedere [azcopy BENCH](storage-ref-azcopy-bench.md).
 
 Per visualizzare informazioni dettagliate della Guida per questo comando, digitare `azcopy bench -h` e premere INVIO.
 
 ### <a name="optimize-throughput"></a>Ottimizzare la velocità effettiva
 
-È possibile usare il flag di `cap-mbps` per posizionare un limite massimo sulla velocità di elaborazione dei dati. Ad esempio, il comando seguente consente di riportare la velocità effettiva a `10` megabit (MB) al secondo.
+È possibile usare il flag di `cap-mbps` nei comandi per posizionare un limite massimo sulla velocità di dati della velocità effettiva. Il comando seguente, ad esempio, riprende un processo e la velocità effettiva delle maiuscole per `10` megabit (MB) al secondo. 
 
 ```azcopy
-azcopy --cap-mbps 10
+azcopy jobs resume <job-id> --cap-mbps 10
 ```
 
 La velocità effettiva può ridursi durante il trasferimento di file di piccole dimensioni. È possibile aumentare la velocità effettiva impostando la variabile di ambiente `AZCOPY_CONCURRENCY_VALUE`. Questa variabile specifica il numero di richieste simultanee che possono verificarsi.  
@@ -146,6 +151,9 @@ Usare il comando seguente per riprendere un processo non riuscito/annullato. Que
 azcopy jobs resume <job-id> --source-sas="<sas-token>"
 azcopy jobs resume <job-id> --destination-sas="<sas-token>"
 ```
+
+> [!TIP]
+> Racchiudere gli argomenti del percorso, ad esempio il token di firma di accesso condiviso con virgolette singole (''). Usare le virgolette singole in tutte le shell dei comandi eccetto la shell dei comandi di Windows (cmd. exe). Se si usa una shell dei comandi di Windows (cmd. exe), racchiudere gli argomenti del percorso con virgolette doppie ("") anziché virgolette singole ('').
 
 Quando si riprende un processo, AzCopy esamina il file del piano di processo. Il file del piano elenca tutti i file identificati per l'elaborazione quando il processo è stato creato per la prima volta. Quando si riprende un processo, AzCopy tenterà di trasferire tutti i file elencati nel file di piano che non sono stati ancora trasferiti.
 

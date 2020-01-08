@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 7ea7b48e1fc36399a0ca173f9068faf8b88849d5
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 2fa90a8099778bf37ce8534e968a2b1b4345c2d8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73836585"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446772"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Eseguire la migrazione dell'area di lavoro e dei progetti di Hub in Custom Translator
 
@@ -27,7 +27,7 @@ Durante la migrazione vengono eseguite queste operazioni:
 * In qualsiasi momento, il punteggio BLEU migrato dal training dell'hub è disponibile nella pagina TrainingDetails del modello sotto l'intestazione "Bleu score in MT Hub".
 
 > [!Note] 
-> Per la riuscita della formazione, il traduttore personalizzato richiede almeno 10.000 frasi estratte univoche. Il convertitore personalizzato non può condurre un training con meno del [minimo suggerito](sentence-alignment.md#suggested-minimum-number-of-sentences).
+> Per la riuscita della formazione, il traduttore personalizzato richiede almeno 10.000 frasi estratte univoche. Il convertitore personalizzato non può condurre un training con meno del [minimo suggerito](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment#suggested-minimum-number-of-sentences).
 
 ## <a name="find-custom-translator-workspace-id"></a>Trovare l'ID dell'area di lavoro del traduttore personalizzato
 

@@ -4,16 +4,16 @@ description: Creare processi Edge in Analisi di flusso di Azure e distribuirli i
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 07fa43563ca9b6c9ae247df6eb28894331b004c1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ff2a7e571c771a73c46959f35e341d861533bb55
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976435"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426327"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Analisi di flusso di Azure in dispositivi perimetrali IoT
  

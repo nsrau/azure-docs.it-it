@@ -6,12 +6,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: allensu
-ms.openlocfilehash: 1be4882af781f884313fbc7b8e2f04f843b60068
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 0cbd8f61cb1b4cb8eae6b30625fb3039ff75adde
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71038953"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75641469"
 ---
 # <a name="move-azure-network-security-group-nsg-to-another-region-using-azure-powershell"></a>Spostare il gruppo di sicurezza di rete di Azure (NSG) in un'altra area usando Azure PowerShell
 
@@ -32,7 +32,7 @@ I gruppi di sicurezza di Azure non possono essere spostati da un'area all'altra.
 
 - Verificare che la sottoscrizione di Azure consenta di creare gruppi nell'area di destinazione usata. Contattare il supporto tecnico per abilitare la quota necessaria.
 
-- Assicurarsi che la sottoscrizione disponga di risorse sufficienti per supportare l'aggiunta di gruppi per questo processo.  Vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
+- Assicurarsi che la sottoscrizione disponga di risorse sufficienti per supportare l'aggiunta di gruppi per questo processo.  Vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
 
 ## <a name="prepare-and-move"></a>Preparare e spostare
@@ -61,7 +61,7 @@ I passaggi seguenti illustrano come preparare il gruppo di sicurezza di rete per
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceNSGID -IncludeParameterDefaultValue
    ```
 
-4. Il file scaricato verrà denominato dopo il gruppo di risorse da cui è stata esportata la risorsa.  Individuare il file che è stato esportato dal comando denominato  **\<Resource-Group-Name >. JSON** e aprirlo in un editor di propria scelta:
+4. Il file scaricato verrà denominato dopo il gruppo di risorse da cui è stata esportata la risorsa.  Individuare il file che è stato esportato dal comando denominato **\<Resource-Group-name >. JSON** e aprirlo in un editor di propria scelta:
    
    ```azurepowershell
    notepad <source-resource-group-name>.json
@@ -106,9 +106,9 @@ I passaggi seguenti illustrano come preparare il gruppo di sicurezza di rete per
     Get-AzLocation | format-table
     
     ```
-8. È anche possibile modificare altri parametri in  **\<Resource-Group-Name >. JSON** se si sceglie e sono facoltativi in base ai requisiti:
+8. È anche possibile modificare altri parametri nel **\<Resource-Group-name >. JSON** se si sceglie e sono facoltativi a seconda dei requisiti:
 
-    * **Regole di sicurezza** : è possibile modificare le regole distribuite nel NSG di destinazione aggiungendo o rimuovendo regole nella  **\<sezione SecurityRules del file Resource-Group-Name >. JSON** :
+    * **Regole di sicurezza** : è possibile modificare le regole distribuite nel NSG di destinazione aggiungendo o rimuovendo regole nella sezione **securityRules** del file **\<resource-Group-Name >. JSON** :
 
         ```json
            "resources": [
@@ -144,7 +144,7 @@ I passaggi seguenti illustrano come preparare il gruppo di sicurezza di rete per
             
         ```
 
-        Per completare l'aggiunta o la rimozione delle regole nel NSG di destinazione, è necessario modificare anche i tipi di regole personalizzati alla fine del nome del  **\<gruppo di risorse > file con estensione JSON** nel formato dell'esempio seguente:
+        Per completare l'aggiunta o la rimozione delle regole nel NSG di destinazione, è necessario modificare anche i tipi di regole personalizzati alla fine del\<file **Resource-Group-name >. JSON** nel formato dell'esempio seguente:
 
         ```json
            {
@@ -171,7 +171,7 @@ I passaggi seguenti illustrano come preparare il gruppo di sicurezza di rete per
             }
         ```
 
-9. Salvare il  **\<file Resource-Group-Name >. JSON** .
+9. Salvare il file **\<Resource-Group-name >. JSON** .
 
 10. Creare un gruppo di risorse nell'area di destinazione per la distribuzione di NSG di destinazione usando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0):
     
@@ -179,7 +179,7 @@ I passaggi seguenti illustrano come preparare il gruppo di sicurezza di rete per
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
-11. Distribuire il  **\<nome del gruppo di risorse modificato >** file con estensione JSON al gruppo di risorse creato nel passaggio precedente usando [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+11. Distribuire il file modificato **\<Resource-Group-name >. JSON** al gruppo di risorse creato nel passaggio precedente usando [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 
@@ -201,7 +201,7 @@ I passaggi seguenti illustrano come preparare il gruppo di sicurezza di rete per
 
     ```
 
-## <a name="discard"></a>Annulla 
+## <a name="discard"></a>Discard 
 
 Dopo la distribuzione, se si vuole ricominciare o rimuovere il NSG nella destinazione, eliminare il gruppo di risorse creato nella destinazione e il NSG spostato verrà eliminato.  Per rimuovere il gruppo di risorse, usare [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
 

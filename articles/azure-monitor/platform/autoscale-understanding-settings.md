@@ -1,19 +1,15 @@
 ---
 title: Informazioni sulle impostazioni di scalabilità automatica in Monitoraggio di Azure
 description: Analisi dettagliata delle impostazioni di scalabilità automatica e del relativo funzionamento. Si applica a Macchine virtuali, Servizi cloud e App Web
-author: anirudhcavale
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/18/2017
-ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 02840b8a909f46c37130bdb7162674c694a0ff96
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9a2b94208de7ce490a0e7acfbb71175b4a7c846e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60787496"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364306"
 ---
 # <a name="understand-autoscale-settings"></a>Informazioni sulle impostazioni di scalabilità automatica
 Le impostazioni di scalabilità automatica permettono di eseguire la giusta quantità di risorse per gestire il carico variabile dell'applicazione. È possibile configurare le impostazioni di scalabilità automatica in modo che vengano attivate in base alle metriche che indicano le prestazioni o il carico oppure in base a una data e un'ora pianificate. Questo articolo analizza in dettaglio l'anatomia di un'impostazione di scalabilità automatica. L'articolo inizia dallo schema e dalle proprietà di un'impostazione e quindi descrive i diversi tipi di profilo che è possibile configurare. L'articolo descrive infine in che modo la funzionalità di scalabilità automatica determina quale profilo eseguire in ogni momento specifico.
@@ -89,39 +85,39 @@ Per illustrare lo schema delle impostazioni di scalabilità automatica, viene us
 }
 ```
 
-| `Section` | Nome dell'elemento | Descrizione |
+| Sezione | Nome dell'elemento | Description |
 | --- | --- | --- |
-| Impostazione | id | ID risorsa dell'impostazione di scalabilità automatica. Le impostazioni di scalabilità automatica sono una risorsa di Azure Resource Manager. |
+| Impostazione | ID | ID risorsa dell'impostazione di scalabilità automatica. Le impostazioni di scalabilità automatica sono una risorsa di Azure Resource Manager. |
 | Impostazione | name | Nome dell'impostazione di scalabilità automatica. |
-| Impostazione | location | Posizione dell'impostazione di scalabilità automatica. Questa posizione può essere diversa dalla posizione della risorsa da ridimensionare. |
+| Impostazione | posizione | Posizione dell'impostazione di scalabilità automatica. Questa posizione può essere diversa dalla posizione della risorsa da ridimensionare. |
 | properties | targetResourceUri | ID della risorsa da ridimensionare. È consentita una sola impostazione di scalabilità automatica per risorsa. |
-| properties | profiles | Un'impostazione di scalabilità automatica è costituita da uno o più profili. Ogni volta che viene eseguito, il motore di scalabilità automatica esegue un profilo. |
-| profile | name | Nome del profilo. È possibile scegliere qualsiasi nome che semplifichi l'identificazione del profilo. |
-| profile | Capacity.maximum | Capacità massima consentita. Assicura che la scalabilità automatica, quando si esegue questo profilo, non ridimensioni la risorsa al di sopra di questo numero. |
-| profile | Capacity.minimum | Capacità minima consentita. Assicura che la scalabilità automatica, quando si esegue questo profilo, non ridimensioni la risorsa al di sotto di questo numero. |
-| profile | Capacity.default | Se si verifica un problema relativo alla metrica delle risorse (in questo caso, la CPU di "vmss1") e la capacità corrente è inferiore a quella predefinita, la funzionalità di scalabilità automatica aumenta la capacità fino all'impostazione predefinita. Questo avviene per garantire la disponibilità della risorsa. Se la capacità corrente è già superiore alla capacità predefinita, la funzionalità di scalabilità automatica non riduce la capacità. |
-| profile | rules | La funzionalità di scalabilità automatica esegue automaticamente il ridimensionamento tra le capacità massima e minima usando le regole del profilo. È possibile avere più regole in un profilo. In genere esistono due regole, una per determinare quando aumentare la capacità e l'altra per determinare quando ridurla. |
-| rules | metricTrigger | Definisce la condizione metrica della regola. |
+| properties | Profili | Un'impostazione di scalabilità automatica è costituita da uno o più profili. Ogni volta che viene eseguito, il motore di scalabilità automatica esegue un profilo. |
+| Profilo | name | Nome del profilo. È possibile scegliere qualsiasi nome che semplifichi l'identificazione del profilo. |
+| Profilo | Capacity.maximum | Capacità massima consentita. Assicura che la scalabilità automatica, quando si esegue questo profilo, non ridimensioni la risorsa al di sopra di questo numero. |
+| Profilo | Capacity.minimum | Capacità minima consentita. Assicura che la scalabilità automatica, quando si esegue questo profilo, non ridimensioni la risorsa al di sotto di questo numero. |
+| Profilo | Capacity.default | Se si verifica un problema relativo alla metrica delle risorse (in questo caso, la CPU di "vmss1") e la capacità corrente è inferiore a quella predefinita, la funzionalità di scalabilità automatica aumenta la capacità fino all'impostazione predefinita. Questo avviene per garantire la disponibilità della risorsa. Se la capacità corrente è già superiore alla capacità predefinita, la funzionalità di scalabilità automatica non riduce la capacità. |
+| Profilo | regole | La funzionalità di scalabilità automatica esegue automaticamente il ridimensionamento tra le capacità massima e minima usando le regole del profilo. È possibile avere più regole in un profilo. In genere esistono due regole, una per determinare quando aumentare la capacità e l'altra per determinare quando ridurla. |
+| regola | metricTrigger | Definisce la condizione metrica della regola. |
 | metricTrigger | metricName | Nome della metrica. |
 | metricTrigger |  metricResourceUri | ID della risorsa che emette la metrica. Nella maggior parte dei casi, è lo stesso della risorsa da ridimensionare. In alcuni casi, può essere diversa. Ad esempio, è possibile ridimensionare un set di scalabilità di macchine virtuali in base al numero di messaggi in una coda di archiviazione. |
 | metricTrigger | timeGrain | La durata del campionamento delle metriche. Ad esempio, **TimeGrain = "PT1M"** indica che le metriche devono essere aggregate ogni minuto usando il metodo di aggregazione specificato nell'elemento statistic. |
 | metricTrigger | statistic | Metodo di aggregazione nel periodo specificato per timeGrain. Ad esempio, **statistic = "Average"** e **timeGrain = "PT1M"** significano che le metriche devono essere aggregate ogni minuto, in base alla media. Questa proprietà determina come viene campionata la metrica. |
 | metricTrigger | timeWindow | Quantità di tempo da considerare per le metriche. Ad esempio, **timeWindow = "PT10M"** significa che ogni volta che viene eseguita la funzionalità di scalabilità automatica, viene eseguita una query sulle metriche per i 10 minuti precedenti. L'intervallo di tempo permette la normalizzazione delle metriche per evitare di reagire a picchi temporanei. |
 | metricTrigger | timeAggregation | Metodo di aggregazione usato per aggregare le metriche campionate. Ad esempio, **TimeAggregation = "Average"** deve aggregare le metriche campionate in base alla media. Nel caso precedente considerare i dieci esempi da 1 minuto e calcolarne la media. |
-| rules | scaleAction | Azione da intraprendere quando viene attivato l'elemento metricTrigger della regola. |
+| regola | scaleAction | Azione da intraprendere quando viene attivato l'elemento metricTrigger della regola. |
 | scaleAction | direction | "Increase" per aumentare, "Decrease" per ridurre.|
-| scaleAction | value | Indica di quanto aumentare o ridurre la capacità della risorsa. |
+| scaleAction | Valore | Indica di quanto aumentare o ridurre la capacità della risorsa. |
 | scaleAction | cooldown | Tempo di attesa necessario dopo un'operazione di ridimensionamento prima di avviarne un'altra. Se, ad esempio, **cooldown = "PT10M"** , la funzionalità di ridimensionamento automatico non tenta un nuovo ridimensionamento per altri dieci minuti. Il raffreddamento consente alle metriche di stabilizzarsi dopo l'aggiunta o la rimozione di istanze. |
 
 ## <a name="autoscale-profiles"></a>Profili di scalabilità automatica
 
 Esistono tre tipi di profili di scalabilità automatica:
 
-- **Profilo normale:** profilo più comune. Se non è necessario ridimensionare la risorsa in modo diverso in base al giorno della settimana oppure in un determinato giorno, è possibile usare un profilo normale. Questo profilo può quindi essere configurato con le regole metriche che determinano quando aumentare la capacità e quando ridurla. È consigliabile avere un solo profilo normale definito.
+- **Profilo normale**: è il profilo più comune. Se non è necessario ridimensionare la risorsa in modo diverso in base al giorno della settimana oppure in un determinato giorno, è possibile usare un profilo normale. Questo profilo può quindi essere configurato con le regole metriche che determinano quando aumentare la capacità e quando ridurla. È consigliabile avere un solo profilo normale definito.
 
     Il profilo di esempio usato in precedenza in questo articolo è un esempio di profilo normale. Si noti che è anche possibile impostare un profilo per eseguire il ridimensionamento in base a un numero di istanze statico per la risorsa.
 
-- **Profilo con data fissa:** profilo per casi speciali. Si supponga, ad esempio, un evento importante previsto per il 26 dicembre 2017 (PST). Le capacità minima e massima della risorse dovranno essere diverse in questo giorno, ma la scalabilità dovrà essere basata sulle stesse metriche. In questo caso, è consigliabile aggiungere un profilo Data fissa all'elenco di profili dell'impostazione. Il profilo è configurato per essere eseguito solo il giorno dell'evento. In qualsiasi altro giorno la scalabilità automatica userà il profilo normale.
+- **Profilo Data fissa**: profilo per casi speciali. Si supponga, ad esempio, un evento importante previsto per il 26 dicembre 2017 (PST). Le capacità minima e massima della risorse dovranno essere diverse in questo giorno, ma la scalabilità dovrà essere basata sulle stesse metriche. In questo caso, è consigliabile aggiungere un profilo Data fissa all'elenco di profili dell'impostazione. Il profilo è configurato per essere eseguito solo il giorno dell'evento. In qualsiasi altro giorno la scalabilità automatica userà il profilo normale.
 
     ``` JSON
     "profiles": [{

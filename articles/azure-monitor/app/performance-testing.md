@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 9c86b69239bed1a15c754ce28232b97e8439942b
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: db23fae6bb15e851d22e54b323428c061f55b34f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819098"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406561"
 ---
 # <a name="performance-testing"></a>Test delle prestazioni
 
@@ -40,14 +40,14 @@ Per creare un test delle prestazioni di base, selezionare un tipo di test **manu
 
 |Impostazione| Valore massimo
 |----------|------------|
-| Carico utente | 20.000 |
+| User Load | 20.000 |
 | Durata (minuti)  | 60 |  
 
 Dopo aver creato il test, fare clic su **Esegui test**.
 
 Al termine del test, vengono visualizzati risultati simili ai risultati seguenti:
 
-![Risultati test](./media/performance-testing/test-results.png)
+![Test Results (Risultati test)](./media/performance-testing/test-results.png)
 
 ## <a name="configure-visual-studio-web-test"></a>Configurare il test Web di Visual Studio
 

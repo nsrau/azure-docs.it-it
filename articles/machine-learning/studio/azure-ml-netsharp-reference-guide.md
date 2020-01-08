@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: 7cef92964a4b62c9ed15ddd19778494d6c3be98a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 295cac883e7c84158fd9d2a2b7e9780dfe6c64d6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839751"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427678"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Guida al linguaggio di specifica NET # per la rete neurale per Azure Machine Learning Studio (versione classica)
 
@@ -56,7 +56,7 @@ Net# supporta anche i quattro tipi seguenti di aggregazioni di connessioni avanz
 
 ## <a name="supported-customizations"></a>Personalizzazioni supportate
 
-L'architettura dei modelli di rete neurale creati nella versione classica di Azure Machine Learning Studio può essere ampiamente personalizzata usando NET #. È possibile:
+L'architettura dei modelli di rete neurale creati in Azure Machine Learning Studio (classico) può essere ampiamente personalizzata usando NET #. Puoi:
 
 + Creare livelli nascosti e controllare il numero di nodi in ogni livello.
 + Specificare la modalità di connessione reciproca dei livelli.
@@ -454,7 +454,7 @@ output Digit [10] from Hid3 all;
 + Il numero di pesi per kernel è `1 + KernelShape\[0] * KernelShape\[1] * KernelShape\[2] = 1 + 1 * 5 * 5 = 26`. Oppure `26 * 50 = 1300`.
 + È possibile calcolare i nodi in ogni livello nascosto come indicato di seguito:
 
-    `NodeCount\[0] = (5 - 1) / 1 + 1 = 5``NodeCount\[1] = (13 - 5) / 2 + 1 = 5`
+    `NodeCount\[0] = (5 - 1) / 1 + 1 = 5` `NodeCount\[1] = (13 - 5) / 2 + 1 = 5`
     `NodeCount\[2] = (13 - 5) / 2 + 1 = 5`
 
 + Il numero totale di nodi può essere calcolato usando la dimensionalità dichiarata del livello, [50, 5, 5], come indicato di seguito: `MapCount * NodeCount\[0] * NodeCount\[1] * NodeCount\[2] = 10 * 5 * 5 * 5`

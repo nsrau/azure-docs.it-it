@@ -1,18 +1,18 @@
 ---
 title: Informazioni sul funzionamento dello strumento di migrazione volontaria per gli avvisi di monitoraggio di Azure
 description: Informazioni sul funzionamento dello strumento di migrazione degli avvisi e sulla risoluzione dei problemi.
-author: snehithm
+author: yalavi
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: snmuvva
+ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: c3d5bb58989fe87ddf9a185dbae926a71edf1590
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 493fa4ac51bf593b7856b236c5d861ec029769d3
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061566"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680682"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Informazioni sul funzionamento dello strumento di migrazione
 
@@ -39,7 +39,7 @@ Sebbene lo strumento possa eseguire la migrazione di quasi tutte le [regole di a
 Se la sottoscrizione include regole classiche di questo tipo, è necessario eseguirne la migrazione manualmente. Dal momento che non è possibile fornire una migrazione automatica, eventuali avvisi di metrica esistenti e classici di questi tipi continueranno a funzionare fino al 2020 giugno. Questa estensione consente di passare ai nuovi avvisi. È anche possibile continuare a creare nuovi avvisi classici sulle eccezioni elencate sopra fino al 2020 giugno. Tuttavia, per tutti gli altri, non è possibile creare nuovi avvisi classici dopo il 2019 agosto.
 
 > [!NOTE]
-> Oltre alle eccezioni elencate in precedenza, se le regole di avviso classiche non sono valide, ad esempio se si tratta di [metriche deprecate](#classic-alert-rules-on-deprecated-metrics) o di risorse eliminate, non verranno migrate durante la migrazione volontaria. Eventuali regole di avviso classiche non valide verranno eliminate al momento della migrazione automatica.
+> Oltre alle eccezioni elencate in precedenza, se le regole di avviso classiche non sono valide, ad esempio se si tratta di [metriche deprecate](#classic-alert-rules-on-deprecated-metrics) o di risorse eliminate, non verranno migrate e non saranno disponibili dopo il ritiro del servizio.
 
 ### <a name="guest-metrics-on-virtual-machines"></a>Metriche Guest nelle macchine virtuali
 
@@ -73,11 +73,11 @@ Le regole di avviso classiche in AnonymousThrottlingError, SASThrottlingError e 
 
 È possibile eseguire la migrazione di tutti gli avvisi classici sulle metriche di Cosmos DB, eccetto gli avvisi relativi a queste metriche:
 
-- Media richieste al secondo
+- Media di richieste al secondo
 - Livello di coerenza
 - Http 2xx
 - Http 3xx
-- HTTP 400
+- Http 400
 - Http 401
 - Internal Server Error
 - Numero massimo di RUPM utilizzati al minuto
@@ -95,7 +95,7 @@ Le regole di avviso classiche in AnonymousThrottlingError, SASThrottlingError e 
 - Disponibilità del servizio
 - Capacità di archiviazione
 - Richieste limitate
-- Richieste totali
+- Totale richieste
 
 Media di richieste al secondo, livello di coerenza, numero massimo di RUPM consumate al minuto, numero massimo di ur al secondo, latenza di lettura osservata, latenza di scrittura osservata, capacità di archiviazione attualmente non disponibile nel [nuovo sistema](metrics-supported.md#microsoftdocumentdbdatabaseaccounts).
 
@@ -122,12 +122,12 @@ Si tratta di regole di avviso classiche sulle metriche che in precedenza erano s
 
 ## <a name="how-equivalent-new-alert-rules-and-action-groups-are-created"></a>Modalità di creazione di nuovi gruppi di azione e regole di avviso equivalenti
 
-Lo strumento di migrazione converte le regole di avviso classiche in nuovi gruppi di azione e regole di avviso equivalenti. Per la maggior parte delle regole di avviso classiche, le nuove regole di avviso equivalenti sono sulla stessa `windowSize` metrica `aggregationType`con le stesse proprietà, ad esempio e. Tuttavia, alcune regole di avviso classiche sono relative alle metriche con una metrica equivalente diversa nel nuovo sistema. I principi seguenti si applicano alla migrazione di avvisi classici, a meno che non sia specificato nella sezione seguente:
+Lo strumento di migrazione converte le regole di avviso classiche in nuovi gruppi di azione e regole di avviso equivalenti. Per la maggior parte delle regole di avviso classiche, le nuove regole di avviso equivalenti sono sulla stessa metrica con le stesse proprietà, ad esempio `windowSize` e `aggregationType`. Tuttavia, alcune regole di avviso classiche sono relative alle metriche con una metrica equivalente diversa nel nuovo sistema. I principi seguenti si applicano alla migrazione di avvisi classici, a meno che non sia specificato nella sezione seguente:
 
-- **Frequenza**: Definisce la frequenza con cui una regola di avviso classica o nuova controlla la condizione. Le `frequency` regole di avviso classiche non possono essere configurate dall'utente ed è sempre 5 minuti per tutti i tipi di risorse tranne Application Insights componenti per i quali è stato di 1 min. La frequenza delle regole equivalenti viene anche impostata rispettivamente su 5 min e 1 min.
-- **Tipo**di aggregazione: Definisce la modalità di aggregazione della metrica sulla finestra di interesse. `aggregationType` È anche lo stesso tra gli avvisi classici e i nuovi avvisi per la maggior parte delle metriche. In alcuni casi, poiché la metrica è diversa tra gli avvisi classici e i nuovi avvisi `aggregationType` , viene `primary Aggregation Type` usato il valore equivalente o quello definito per la metrica.
-- **Unità**: Proprietà della metrica in cui viene creato l'avviso. Alcune metriche equivalenti hanno unità diverse. La soglia viene modificata in modo appropriato in base alle esigenze. Se, ad esempio, la metrica originale presenta secondi come unità, ma la nuova metrica equivalente ha milliSecondi come unità, la soglia originale viene moltiplicata per 1000 per garantire lo stesso comportamento.
-- **Dimensioni finestra**: Definisce la finestra su cui vengono aggregati i dati delle metriche per il confronto con la soglia. Per i `windowSize` valori standard come 5 minuti, 15mins, 30mins, 1 ora, 3 ore, 6 ore, 12 ore, 1 giorno, non sono state apportate modifiche per la nuova regola di avviso equivalente. Per gli altri valori, `windowSize` viene scelto il più vicino da usare. Per la maggior parte dei clienti, questa modifica non ha alcun effetto. Per una piccola percentuale di clienti, potrebbe essere necessario modificare la soglia per ottenere lo stesso comportamento.
+- **Frequency**: definisce la frequenza con cui una regola di avviso classica o nuova controlla la condizione. Il `frequency` nelle regole di avviso classiche non è stato configurabile dall'utente ed è sempre di 5 minuti per tutti i tipi di risorse tranne Application Insights componenti per i quali il valore era 1 min. La frequenza delle regole equivalenti viene anche impostata rispettivamente su 5 min e 1 min.
+- **Tipo di aggregazione**: definisce la modalità di aggregazione della metrica sulla finestra di interesse. Il `aggregationType` è anche lo stesso tra gli avvisi classici e i nuovi avvisi per la maggior parte delle metriche. In alcuni casi, poiché la metrica è diversa tra gli avvisi classici e i nuovi avvisi, vengono usati `aggregationType` equivalenti o la `primary Aggregation Type` definita per la metrica.
+- **Unità**: proprietà della metrica in cui viene creato l'avviso. Alcune metriche equivalenti hanno unità diverse. La soglia viene modificata in modo appropriato in base alle esigenze. Se, ad esempio, la metrica originale presenta secondi come unità, ma la nuova metrica equivalente ha milliSecondi come unità, la soglia originale viene moltiplicata per 1000 per garantire lo stesso comportamento.
+- **Dimensioni finestra**: definisce la finestra su cui vengono aggregati i dati delle metriche per il confronto con la soglia. Per i valori `windowSize` standard come 5 minuti, 15mins, 30mins, 1 ora, 3 ore, 6 ore, 12 ore, 1 giorno, non sono state apportate modifiche per la nuova regola di avviso equivalente. Per gli altri valori, viene scelto il `windowSize` più vicino da usare. Per la maggior parte dei clienti, questa modifica non ha alcun effetto. Per una piccola percentuale di clienti, potrebbe essere necessario modificare la soglia per ottenere lo stesso comportamento.
 
 Nelle sezioni seguenti vengono illustrate in dettaglio le metriche con una metrica equivalente diversa nel nuovo sistema. Tutte le metriche rimanenti per le regole di avviso classiche e nuove non sono elencate. È possibile trovare un elenco delle metriche supportate nel nuovo sistema [qui](metrics-supported.md).
 
@@ -147,12 +147,12 @@ Per i servizi dell'account di archiviazione come BLOB, tabelle, file e code, le 
 | AuthorizationError | Metrica transazioni con dimensioni "ResponseType" = "AuthorizationError" | |
 | AverageE2ELatency | SuccessE2ELatency | |
 | AverageServerLatency | SuccessServerLatency | |
-| Capacity | BlobCapacity | Usare `aggregationType` ' Average ' invece di ' Last '. La metrica si applica solo ai servizi BLOB |
+| Capacità | BlobCapacity | Usare `aggregationType`' Average ' invece di ' Last '. La metrica si applica solo ai servizi BLOB |
 | ClientOtherError | Metrica transazioni con dimensioni "ResponseType" = "ClientOtherError"  | |
 | ClientTimeoutError | Metrica transazioni con dimensioni "ResponseType" = "ClientTimeOutError" | |
-| ContainerCount | ContainerCount | Usare `aggregationType` ' Average ' invece di ' Last '. La metrica si applica solo ai servizi BLOB |
+| ContainerCount | ContainerCount | Usare `aggregationType`' Average ' invece di ' Last '. La metrica si applica solo ai servizi BLOB |
 | NetworkError | Metrica transazioni con dimensioni "ResponseType" = "NetworkError" | |
-| ObjectCount | BlobCount| Usare `aggregationType` ' Average ' invece di ' Last '. La metrica si applica solo ai servizi BLOB |
+| ObjectCount | BlobCount| Usare `aggregationType`' Average ' invece di ' Last '. La metrica si applica solo ai servizi BLOB |
 | SASAuthorizationError | Metrica delle transazioni con dimensioni "ResponseType" = "AuthorizationError" e "Authentication" = "SAS" | |
 | SASClientOtherError | Metrica delle transazioni con dimensioni "ResponseType" = "ClientOtherError" e "Authentication" = "SAS" | |
 | SASClientTimeOutError | Metrica delle transazioni con dimensioni "ResponseType" = "ClientTimeOutError" e "Authentication" = "SAS" | |
@@ -162,10 +162,10 @@ Per i servizi dell'account di archiviazione come BLOB, tabelle, file e code, le 
 | SASSuccess | Metrica Transactions con Dimensions "ResponseType" = "success" e "Authentication" = "SAS" | |
 | ServerOtherError | Metrica transazioni con dimensioni "ResponseType" = "ServerOtherError" | |
 | ServerTimeOutError | Metrica transazioni con dimensioni "ResponseType" = "ServerTimeOutError"  | |
-| Riuscito | Metrica transazioni con dimensioni "ResponseType" = "operazione riuscita" | |
+| Operazione completata | Metrica transazioni con dimensioni "ResponseType" = "operazione riuscita" | |
 | TotalBillableRequests| Transazioni | |
 | TotalEgress | Egress | |
-| TotalIngress | Ingress | |
+| TotalIngress | Ingresso | |
 | TotalRequests | Transazioni | |
 
 ### <a name="microsoftinsightscomponents"></a>Microsoft. Insights/Components
@@ -222,7 +222,7 @@ Per Cosmos DB, le metriche equivalenti sono illustrate di seguito:
 
 ### <a name="how-equivalent-action-groups-are-created"></a>Modalità di creazione di gruppi di azioni equivalenti
 
-Le regole di avviso classiche contengono posta elettronica, webhook, app per la logica e azioni Runbook associate alla regola di avviso. Le nuove regole di avviso usano i gruppi di azioni che possono essere riutilizzati in più regole di avviso. Lo strumento di migrazione crea il gruppo di azioni singolo per le stesse azioni indipendentemente dal numero di regole di avviso che usano l'azione. I gruppi di azioni creati dallo strumento di migrazione usano il formato di denominazione "Migrated_AG *".
+Le regole di avviso classiche contengono posta elettronica, webhook, app per la logica e azioni Runbook associate alla regola di avviso. Le nuove regole di avviso usano i gruppi di azioni che possono essere riutilizzati in più regole di avviso. Lo strumento di migrazione crea il gruppo di azioni singolo per le stesse azioni indipendentemente dal numero di regole di avviso che usano l'azione. I gruppi di azioni creati dallo strumento di migrazione usano il formato di denominazione ' Migrated_AG *'.
 
 > [!NOTE]
 > Gli avvisi classici hanno inviato messaggi di posta elettronica localizzati in base alle impostazioni locali dell'amministratore classico quando vengono usati per notificare i ruoli di amministratore classico. I nuovi messaggi di avviso vengono inviati tramite gruppi di azioni e sono solo in lingua inglese.
@@ -262,7 +262,7 @@ A causa di alcune recenti modifiche apportate alle regole di avviso classiche ne
 
 ### <a name="scope-lock-preventing-us-from-migrating-your-rules"></a>Blocco dell'ambito che impedisce la migrazione delle regole
 
-Come parte della migrazione, verranno creati nuovi avvisi per le metriche e nuovi gruppi di azioni, quindi verranno eliminate le regole di avviso classiche. Tuttavia, un blocco di ambito può impedire la creazione o l'eliminazione di risorse. A seconda del blocco dell'ambito, non è stato possibile eseguire la migrazione di alcune o di tutte le regole. È possibile risolvere il problema rimuovendo il blocco dell'ambito per la sottoscrizione, il gruppo di risorse o la risorsa, elencato nello [strumento di migrazione](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel)e riattivando la migrazione. Il blocco dell'ambito non può essere disabilitato e deve essere rimosso per la durata del processo di migrazione. [Altre informazioni sulla gestione dei blocchi di ambito](../../azure-resource-manager/resource-group-lock-resources.md#portal).
+Come parte della migrazione, verranno creati nuovi avvisi per le metriche e nuovi gruppi di azioni, quindi verranno eliminate le regole di avviso classiche. Tuttavia, un blocco di ambito può impedire la creazione o l'eliminazione di risorse. A seconda del blocco dell'ambito, non è stato possibile eseguire la migrazione di alcune o di tutte le regole. È possibile risolvere il problema rimuovendo il blocco dell'ambito per la sottoscrizione, il gruppo di risorse o la risorsa, elencato nello [strumento di migrazione](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel)e riattivando la migrazione. Il blocco dell'ambito non può essere disabilitato e deve essere rimosso per la durata del processo di migrazione. [Altre informazioni sulla gestione dei blocchi di ambito](../../azure-resource-manager/management/lock-resources.md#portal).
 
 ### <a name="policy-with-deny-effect-preventing-us-from-migrating-your-rules"></a>I criteri con effetto ' nega ' impediscono la migrazione delle regole
 

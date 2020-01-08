@@ -1,5 +1,5 @@
 ---
-title: Soluzione di monitoraggio delle prestazioni di rete in Azure Log Analytics | Microsoft Docs
+title: Connettività del servizio della soluzione Monitoraggio prestazioni rete-Azure Log Analytics
 description: Usare la funzionalità Monitoraggio connettività servizio in Monitoraggio prestazioni rete per monitorare la connettività di rete a qualsiasi endpoint con una porta TCP aperta.
 ms.service: azure-monitor
 ms.subservice: logs
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: dd02dad6d0f5b42181ad0bb27201384a6336ed6e
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 11975a86b5d9135b42dd51bdd787c2f76cabe259
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72898829"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551506"
 ---
 # <a name="service-connectivity-monitor"></a>Monitoraggio connettività servizio
 

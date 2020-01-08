@@ -1,18 +1,17 @@
 ---
 title: Georecinzione e aggregazione geospaziale con analisi di flusso di Azure
 description: Questo articolo descrive come usare analisi di flusso di Azure per la geoschermatura e l'aggregazione geospaziale.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: d44b2fae677554594f0cc280c1129bbd6effddf2
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 5a3aa3786469c3df37b53cb82bdd396871689297
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935080"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443648"
 ---
 # <a name="geofencing-and-geospatial-aggregation-scenarios-with-azure-stream-analytics"></a>Scenari di geoschermatura e aggregazione geospaziale con analisi di flusso di Azure
 
@@ -46,7 +45,7 @@ La tabella seguente è un esempio di dati di riferimento Geofence che possono es
 
 I dispositivi possono emettere l'ID e la posizione ogni minuto tramite un flusso denominato `DeviceStreamInput`. La tabella seguente è un flusso di input.
 
-|DeviceID|GeoPosition|
+|ID dispositivo|GeoPosition|
 |--------|-----------|
 |Un|"POINT (-122.13292341559497 47.636318374032726)"|
 |B|"POINT (-122.13338475554553 47.63743531308874)"|
@@ -91,7 +90,7 @@ Questi poligoni sono solo a scopo di riferimento e non rappresentano le separazi
 
 |RegionID|RegionName|Recinto virtuale|
 |--------|----------|--------|
-|1|Soho|"POLYGON ((-74.00279525078275 40.72833625216264,-74.00547745979765 40.721929158663244,-74.00125029839018 40.71893680218994,-73.9957785919998 40.72521409075776,-73.9972377137039 40.72557184584898,-74.00279525078275 40.72833625216264) )"|
+|1|"SoHo"|"POLYGON ((-74.00279525078275 40.72833625216264,-74.00547745979765 40.721929158663244,-74.00125029839018 40.71893680218994,-73.9957785919998 40.72521409075776,-73.9972377137039 40.72557184584898,-74.00279525078275 40.72833625216264) )"|
 |2|Chinatown|"POLYGON ((-73.99712367114876 40.71281582267133,-73.9901070123658 40.71336881907936,-73.99023575839851 40.71452359088633,-73.98976368961189 40.71554823078944,-73.99551434573982 40.717337246783735,-73.99480624255989 40.718491949759304,-73.99652285632942 40.719109951574,-73.99776740131233 40.7168005470334,-73.99903340396736 40.71727219249899,-74.00193018970344 40.71938642421256,-74.00409741458748 40.71688186545551,-74.00051398334358 40.71517415773184,-74.0004281526551 40.714377212470005,-73.99849696216438 40.713450141693166,-73.99748845157478 40.71405192594819,-73.99712367114876 40.71281582267133))"|
 |3|Tribeca|"POLYGON ((-74.01091641815208 40.72583120006787,-74.01338405044578 40.71436586362705,-74.01370591552757 40.713617702123415,-74.00862044723533 40.711308107057235,-74.00194711120628 40.7194238654018,-74.01091641815208 40.72583120006787))"|
 
@@ -104,7 +103,7 @@ La tabella seguente contiene i dati di streaming delle "corse".
 |Un|"POINT (-74.00726861389182 40.71610611981975)"|"POINT (-73.98615095917779 40.703107386025835)"|"2019-03-12T07:00:00Z"|
 |B|"POINT (-74.00249841021645 40.723827238895666)"|"POINT (-74.01160699942085 40.71378884930115)"|"2019-03-12T07:01:00Z"|
 |C|"POINT (-73.99680120565864 40.716439898624024)"|"POINT (-73.98289663412544 40.72582343969828)"|"2019-03-12T07:02:00Z"|
-|D|"POINT (-74.00741090068288 40.71615626755086)"|"POINT (-73.97999843120539 40.73477895807408)"|"2019-03-12T07:03:00Z"|
+|"D"|"POINT (-74.00741090068288 40.71615626755086)"|"POINT (-73.97999843120539 40.73477895807408)"|"2019-03-12T07:03:00Z"|
 
 La query seguente unisce il flusso del dispositivo con i dati di riferimento del geofence e calcola il numero di richieste per area in un intervallo di tempo di 15 minuti ogni minuto.
 

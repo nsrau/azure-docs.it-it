@@ -4,15 +4,15 @@ description: Questo articolo descrive problemi noti relativi a Monitoraggio di A
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 04/02/2019
-ms.openlocfilehash: f6719a8c28571faceb6ebad0567d13a4edc60fe6
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: b59e2d1897557b47bcfeafbc17141f869e2f192e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553767"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450686"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms-preview"></a>Problemi noti relativi a Monitoraggio di Azure per le macchine virtuali (anteprima)
 

@@ -2,27 +2,27 @@
 title: Che cos'è un endpoint privato di Azure?
 description: Informazioni sull'endpoint privato di Azure
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: ccae73b58b7da8e631c081871e17cec221918a76
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 673b74515ba03bc71e60a68b21b9330f9e62d424
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228126"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647391"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Che cos'è l'endpoint privato di Azure?
 
-Endpoint privato di Azure è un'interfaccia di rete che si connette privatamente e in modo sicuro a un servizio basato sul collegamento privato di Azure. L'endpoint privato usa un indirizzo IP privato della VNet, in modo da portare il servizio in VNet. Il servizio potrebbe essere un servizio di Azure, ad esempio archiviazione di Azure, Azure Cosmos DB, SQL e così via, oppure il [servizio di collegamento privato](private-link-service-overview.md).
+L'endpoint privato di Azure è un'interfaccia di rete che connette privatamente e in modo sicuro a un servizio basato su collegamento privato di Azure. L'endpoint privato usa un indirizzo IP privato della VNet, in modo da portare il servizio in VNet. Il servizio potrebbe essere un servizio di Azure, ad esempio archiviazione di Azure, Azure Cosmos DB, SQL e così via, oppure il [servizio di collegamento privato](private-link-service-overview.md).
   
 ## <a name="private-endpoint-properties"></a>Proprietà endpoint privato 
  Un endpoint privato specifica le proprietà seguenti: 
 
 
-|Proprietà  |DESCRIZIONE |
+|Proprietà  |Description |
 |---------|---------|
 |Nome    |    Nome univoco all'interno del gruppo di risorse.      |
 |Subnet    |  Subnet per la distribuzione e l'allocazione di indirizzi IP privati da una rete virtuale. Per i requisiti della subnet, vedere la sezione limitazioni di questo articolo.         |
@@ -43,14 +43,14 @@ Ecco alcuni dettagli chiave sugli endpoint privati:
  
 - È possibile creare più endpoint privati usando la stessa risorsa di collegamento privato. Per una singola rete che usa una configurazione del server DNS comune, la procedura consigliata consiste nell'usare un singolo endpoint privato per una determinata risorsa di collegamento privato per evitare voci duplicate o conflitti nella risoluzione DNS. 
  
-- È possibile creare più endpoint privati nella stessa subnet o in subnet diverse all'interno della stessa rete virtuale. Sono previsti limiti per il numero di endpoint privati che è possibile creare in una sottoscrizione. Per informazioni dettagliate, vedere [limiti di Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
+- È possibile creare più endpoint privati nella stessa subnet o in subnet diverse all'interno della stessa rete virtuale. Sono previsti limiti per il numero di endpoint privati che è possibile creare in una sottoscrizione. Per informazioni dettagliate, vedere [limiti di Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
 
  
 ## <a name="private-link-resource"></a>Risorsa collegamento privato 
 Una risorsa di collegamento privato è la destinazione di un endpoint privato specificato. Di seguito è riportato un elenco dei tipi di risorse di collegamento privato disponibili: 
  
-|Nome della risorsa di collegamento privato  |Tipo di risorsa   |Le sottorisorse  |
+|Nome della risorsa di collegamento privato  |Tipo di risorsa   |Sottorisorse  |
 |---------|---------|---------|
 |**Servizio di collegamento privato** (servizio personalizzato)   |  Microsoft. Network/privateLinkServices       | empty |
 |**Database SQL di Azure** | Microsoft.Sql/servers    |  SQL Server (sqlServer)        |
@@ -67,7 +67,7 @@ Quando si usano endpoint privati per i servizi di Azure, il traffico viene prote
 ## <a name="access-to-a-private-link-resource-using-approval-workflow"></a>Accesso a una risorsa di collegamento privato mediante il flusso di lavoro di approvazione 
 È possibile connettersi a una risorsa di collegamento privato usando i seguenti metodi di approvazione della connessione:
 - Approvato **automaticamente** quando si è proprietari o si dispone dell'autorizzazione per la risorsa di collegamento privato specifica. L'autorizzazione richiesta è basata sul tipo di risorsa collegamento privato nel formato seguente: Microsoft.\<provider >/< resource_type >/privateEndpointConnectionApproval/action
-- Richiesta **manuale** quando non si dispone dell'autorizzazione necessaria e si desidera richiedere l'accesso. Verrà avviato un flusso di lavoro di approvazione. L'endpoint privato e la connessione dell'endpoint privato successiva verranno creati in uno stato "in sospeso". Il proprietario della risorsa di collegamento privato è responsabile dell'approvazione della connessione. Una volta approvata, l'endpoint privato è abilitato per l'invio del traffico normalmente, come illustrato nel seguente diagramma del flusso di lavoro di approvazione.  
+- Richiesta **manuale** quando non si dispone dell'autorizzazione necessaria e si desidera richiedere l'accesso. Verrà avviato un flusso di lavoro di approvazione. L'endpoint privato e la successiva connessione verranno creati con lo stato "In sospeso". Il proprietario della risorsa di collegamento privato ha la responsabilità di approvare la connessione. Una volta approvata, l'endpoint privato è abilitato per l'invio del traffico normalmente, come illustrato nel seguente diagramma del flusso di lavoro di approvazione.  
 
 ![approvazione del flusso di lavoro](media/private-endpoint-overview/private-link-paas-workflow.png)
  
@@ -111,7 +111,7 @@ Per i servizi di Azure, usare i nomi di zona consigliati come descritto nella ta
 |Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|MongoDB |privatelink.mongo.cosmos.azure.com|
 |Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|Cassandra|privatelink.cassandra.cosmos.azure.com|
 |Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|Gremlin |privatelink.gremlin.cosmos.azure.com|
-|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|tabella|privatelink.table.cosmos.azure.com|
+|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|Tabella|privatelink.table.cosmos.azure.com|
  
 Azure creerà un record DNS di nome canonico (CNAME) nel DNS pubblico per reindirizzare la risoluzione ai nomi di dominio suggeriti. Sarà possibile sostituire la risoluzione con l'indirizzo IP privato degli endpoint privati. 
  
@@ -122,11 +122,11 @@ Le applicazioni non devono modificare l'URL di connessione. Quando si tenta di r
 La tabella seguente include un elenco di limitazioni note quando si usano gli endpoint privati: 
 
 
-|Limitazione |DESCRIZIONE |Mitigazione  |
+|Limitazione |Description |Strategia di riduzione del rischio  |
 |---------|---------|---------|
 |Le regole del gruppo di sicurezza di rete (NSG) e le route definite dall'utente non si applicano all'endpoint privato    |NSG non è supportato in endpoint privati. Mentre le subnet contenenti l'endpoint privato possono avere NSG associate, le regole non saranno valide per il traffico elaborato dall'endpoint privato. Per distribuire endpoint privati in una subnet, è necessario che l' [applicazione di criteri di rete sia disabilitata](disable-private-endpoint-network-policy.md) . NSG viene ancora applicato ad altri carichi di lavoro ospitati nella stessa subnet. Le route in qualsiasi subnet client utilizzeranno un prefisso/32. la modifica del comportamento di routing predefinito richiede un UDR simile  | Controllare il traffico usando le regole NSG per il traffico in uscita nei client di origine. Distribuire le singole route con prefisso/32 per eseguire l'override delle route di endpoint privato        |
 |  La rete virtuale con peering con endpoint privati non è supportata   |   Quando ci si connette a endpoint privati in una rete virtuale con peering senza altri carichi di lavoro non è supportato       | Distribuire una singola VM nella rete virtuale con peering per abilitare la connettività |
-|Carichi di lavoro specializzati non possono accedere agli endpoint privati    |   I servizi seguenti distribuiti nella rete virtuale non possono accedere a una risorsa di collegamento privato tramite endpoint privati:<br>Piano di servizio app</br>Istanza di contenitore di Azure</br>Azure NetApp Files</br>Modulo di protezione hardware dedicato di Azure<br>       |   Nessuna attenuazione durante l'anteprima.       |
+|Carichi di lavoro specializzati non possono accedere agli endpoint privati    |   I servizi seguenti distribuiti nella rete virtuale non possono accedere a una risorsa di collegamento privato tramite endpoint privati:<br>Piano di servizio app</br>Istanza di contenitore di Azure</br>Azure NetApp Files</br>HSM dedicato di Azure<br>       |   Nessuna attenuazione durante l'anteprima.       |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,5 +1,6 @@
 ---
-title: Panoramica del portale per sviluppatori di gestione API di Azure-gestione API di Azure | Microsoft Docs
+title: Panoramica del portale per sviluppatori di gestione API di Azure
+titleSuffix: Azure API Management
 description: Informazioni sul portale per sviluppatori in gestione API.
 services: api-management
 documentationcenter: API Management
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 2b69fdd7abefca360433fc9fb090569cba23febe
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: a06184cb45280d323a050085e94945a730d6c72c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454398"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442600"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Panoramica del portale per sviluppatori di gestione API di Azure
 
@@ -67,7 +68,7 @@ Il *contenuto di gestione API* include entità quali API, operazioni, prodotti e
 
 Il portale è basato su un fork adattato del [Framework Paperbits](https://paperbits.io/). La funzionalità Paperbits originale è stata estesa per fornire widget specifici di gestione API (ad esempio, un elenco di API, un elenco di prodotti) e un connettore al servizio gestione API per il salvataggio e il recupero del contenuto.
 
-## <a name="faq"></a>Domande frequenti
+## <a name="faq"></a> Domande frequenti
 
 In questa sezione vengono riportate le risposte alle domande comuni sul nuovo portale per sviluppatori, che sono di natura generale. Per domande specifiche per la versione self-hosted, vedere [la sezione wiki del repository GitHub](https://github.com/Azure/api-management-developer-portal/wiki).
 

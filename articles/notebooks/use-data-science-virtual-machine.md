@@ -1,17 +1,17 @@
 ---
 title: Usare macchine virtuali di Data Science di Azure
-description: Connettersi a un Data Science Virtual Machine di Azure (DSVM) per estendere la potenza di calcolo disponibile per l'Azure Notebooks.
+description: Informazioni su come connettersi a un Data Science Virtual Machine di Azure (DSVM) per estendere la potenza di calcolo disponibile per Azure Notebooks anteprima.
 author: getroyer
 manager: andneil
 ms.author: getroyer
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/13/2019
-ms.openlocfilehash: 0559442cb3f6c3937e6930082940e9354c43bc30
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 7a47be46818c633c016c791d0c52eb9393029973
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277411"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646995"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Usare macchine virtuali di Data Science di Azure
 
@@ -19,6 +19,8 @@ Per impostazione predefinita, i progetti vengono eseguiti nel livello di **calco
 
 > [!Note]
 > Azure Notebooks è supportato solo in Dsvm creato con l'immagine Ubuntu in Linux. I notebook non sono supportati nelle immagini CentOS di Windows 2012, Windows 2016 o Linux.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="create-a-dsvm-instance"></a>Creare un'istanza di DSVM
 
@@ -56,7 +58,7 @@ Quando un progetto viene eseguito in una macchina virtuale, i file vengono monta
 
 Se più utenti condividono un DSVM, è possibile evitare di bloccarsi reciprocamente creando e usando un utente DSVM per ogni utente del notebook:
 
-1. Nel [portale di Azure](https://portal.azure.com)passare alla macchina virtuale.
+1. Nella [portale di Azure](https://portal.azure.com)passare alla macchina virtuale.
 1. In **supporto e risoluzione dei problemi** nel margine sinistro selezionare **Reimposta password**.
 1. Immettere un nuovo nome utente e una nuova password e selezionare **Aggiorna**. (I nomi utente esistenti non sono interessati).
 1. Ripetere il passaggio precedente per tutti gli altri utenti.

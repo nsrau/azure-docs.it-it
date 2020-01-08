@@ -10,23 +10,23 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: acac881a790644532121697e6b79e57a98b168fe
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 3fc369c59626faae4c97f896650269820626b1ae
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839841"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454708"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Interpretare i risultati del modello in Azure Machine Learning Studio (classico)
 In questo argomento viene illustrato come visualizzare e interpretare i risultati della stima in Azure Machine Learning Studio (classico). Dopo aver eseguito il training di un modello e averlo sottoposto a una stima, ossia dopo aver assegnato un punteggio a un modello, è necessario comprendere e interpretare il risultato di stima.
 
 
 
-Sono disponibili quattro tipi principali di modelli di apprendimento automatico nella versione classica di Azure Machine Learning Studio:
+Sono disponibili quattro tipi principali di modelli di Machine Learning in Azure Machine Learning Studio (classico):
 
 * Classificazione
-* clustering
-* regressione
+* Clustering
+* Regressione
 * sistemi di raccomandazione
 
 I moduli usati per eseguire stime sulla base di questi modelli sono:
@@ -39,7 +39,7 @@ Questo documento illustra come interpretare i risultati di stima per ognuno di q
 
 Questo argomento illustra l'interpretazione delle stime, non la valutazione dei modelli. Per ulteriori informazioni su come valutare il modello, vedere [come valutare le prestazioni del modello in Azure Machine Learning Studio (classico)](evaluate-model-performance.md).
 
-Se non si ha familiarità con la versione classica di Azure Machine Learning Studio e si ha bisogno di assistenza per la creazione di un esperimento semplice, vedere [creare un esperimento semplice in Azure Machine Learning Studio (classico)](create-experiment.md).
+Se non si ha familiarità con Azure Machine Learning Studio (classico) ed è necessario contribuire alla creazione di un esperimento semplice per iniziare, vedere [creare un esperimento semplice in Azure Machine Learning Studio (classico)](create-experiment.md).
 
 ## <a name="classification"></a>Classificazione
 I problemi di classificazione possono essere suddivisi in:
@@ -52,7 +52,7 @@ Azure Machine Learning Studio (classico) presenta moduli diversi per gestire ogn
 ### <a name="two-class-classification"></a>Classificazione a due classi
 **Esperimento di esempio**
 
-Un esempio di un problema di classificazione a due classi è costituito dalla classificazione dei fiori Iris, ovvero dalla necessità di classificare i fiori Iris in base alle loro caratteristiche. Il set di dati Iris fornito nella versione classica di Azure Machine Learning Studio è un subset del set di [dati Iris](https://en.wikipedia.org/wiki/Iris_flower_data_set) più diffusi che contiene istanze di due sole specie di fiori (classi 0 e 1). Ciascun fiore presenta quattro caratteristiche: lunghezza del sepalo, larghezza del sepalo, lunghezza del petalo e larghezza del petalo.
+Un esempio di un problema di classificazione a due classi è costituito dalla classificazione dei fiori Iris, ovvero dalla necessità di classificare i fiori Iris in base alle loro caratteristiche. Il set di dati Iris fornito in Azure Machine Learning Studio (classico) è un subset del [set di dati Iris](https://en.wikipedia.org/wiki/Iris_flower_data_set) più diffusi che contiene le istanze di due sole specie di fiori (classi 0 e 1). Ciascun fiore presenta quattro caratteristiche: lunghezza del sepalo, larghezza del sepalo, lunghezza del petalo e larghezza del petalo.
 
 ![Schermata dell'esperimento relativo ai fiori Iris](./media/interpret-model-results/1.png)
 
@@ -137,7 +137,7 @@ Dopo aver pubblicato ed eseguito il servizio Web, nonché aver immesso alcuni va
 
 Figura 10. Risultato del servizio Web relativo alla classificazione multiclasse
 
-## <a name="regression"></a>regressione
+## <a name="regression"></a>Regressione
 I problemi di regressione differiscono dai problemi di classificazione per alcuni aspetti. Nei problemi di classificazione, infatti, si tenta di stimare classi discrete, ovvero di capire a quale classe appartenga un fiore Iris, mentre, come illustrato nell'esempio seguente, in un problema di regressione si tenta di stimare una variabile continua, ad esempio il prezzo di un'automobile.
 
 **Esperimento di esempio**
@@ -174,7 +174,7 @@ Eseguendo il servizio Web si otterrà un risultato simile a quello della figura 
 
 Figura 14. Risultato del servizio Web del problema di regressione relativo al prezzo di un'automobile
 
-## <a name="clustering"></a>clustering
+## <a name="clustering"></a>Clustering
 **Esperimento di esempio**
 
 Per creare un esperimento di clustering verrà usato di nuovo il set di dati Iris. In questo caso è possibile escludere dal set di dati le etichette di classe, in modo che sia composto solo dalle caratteristiche e possa essere usato per il clustering. Verrà inoltre specificato che dovranno essere due i cluster da usare nel processo di training, ovvero i fiori verranno raggruppati in due classi. L'esperimento è illustrato nella figura 15.
@@ -226,7 +226,7 @@ Per illustrare i sistemi di raccomandazione viene usato come esempio un problema
 * Dati sulle caratteristiche dei clienti
 * Restaurant feature data
 
-Esistono diverse operazioni che è possibile eseguire con il modulo Train componition [Recommender][train-matchbox-recommender] nella versione classica di Azure Machine Learning Studio:
+È possibile eseguire diverse operazioni con il modulo Train componition [Recommender][train-matchbox-recommender] in Azure Machine Learning Studio (versione classica):
 
 * Stimare le valutazioni per un determinato utente ed elemento
 * Raccomandare elementi a un determinato utente

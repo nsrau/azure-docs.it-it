@@ -1,31 +1,20 @@
 ---
-title: Partizionamento dei servizi di Service Fabric | Microsoft Docs
+title: Partizionamento dei servizi Service Fabric
 description: Illustra come partizionare i servizi con stato di Service Fabric. Le partizioni consentono di archiviare i dati nei computer locali, in modo da poter ridimensionare dati e calcolo allo stesso tempo.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 3b7248c8-ea92-4964-85e7-6f1291b5cc7b
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/30/2017
-ms.author: atsenthi
-ms.openlocfilehash: 833d87dab59890b9903ea8eecf2334d7dd1c7436
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1f3ee2196bad8b8a0c992ed498d40b4cf5820f2c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711891"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434071"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partizionare Reliable Services di Service Fabric
 Questo articolo offre un'introduzione ai concetti di base del partizionamento di Reliable Services di Azure Service Fabric. Il codice sorgente usato nell'articolo è disponibile anche in [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
 
 ## <a name="partitioning"></a>Partizionamento
-Il partizionamento non è una procedura specifica di Service Fabric, bensì si tratta di un modello di base per la creazione di servizi scalabili. Più in generale, si può pensare al partizionamento come alla divisione dello stato (dati) e del calcolo in unità accessibili più piccole per migliorare la scalabilità e le prestazioni. Una forma molto conosciuta di partizionamento è il [partizionamento dei dati][wikipartition], noto anche come partizionamento orizzontale.
+Il partizionamento non è una procedura specifica di Service Fabric, bensì si tratta di un modello di base per la creazione di servizi scalabili. Più in generale, si può pensare al partizionamento come alla divisione dello stato (dati) e del calcolo in unità accessibili più piccole per migliorare la scalabilità e le prestazioni. Una forma di partizionamento ben nota è il [partizionamento dei dati][wikipartition], noto anche come partizionamento orizzontale.
 
 ### <a name="partition-service-fabric-stateless-services"></a>Partizionamento dei servizi senza stato di Service Fabric
 Per i servizi senza stato un partizionamento può essere considerato un'unità logica contenente una o più istanze di un servizio. La figura 1 illustra un servizio senza stato con cinque istanze distribuite in un cluster usando una partizione.
@@ -55,11 +44,11 @@ La figura 2 illustra la distribuzione di 10 partizioni prima e dopo il ridimensi
 La scalabilità orizzontale è quindi garantita perché le richieste dei client vengono distribuite tra i computer, le prestazioni generali dell'applicazione vengono migliorate e la contesa in caso di accesso a blocchi di dati viene ridotta.
 
 ## <a name="plan-for-partitioning"></a>Pianificazione del partizionamento
-Prima di implementare un servizio, è sempre consigliabile considerare la strategia di partizionamento richiesta dalla scalabilità orizzontale. Esistono diversi modi, ma tutti si concentrano sugli scopi dell'applicazione. Nell'ambito di questo articolo verranno illustrati alcuni degli aspetti più importanti.
+Prima di implementare un servizio, è necessario considerare sempre la strategia di partizionamento necessaria per la scalabilità orizzontale. Esistono diversi modi, ma tutti si concentrano su ciò che l'applicazione deve realizzare. Nell'ambito di questo articolo verranno illustrati alcuni degli aspetti più importanti.
 
 Un valido approccio consiste nel considerare la struttura dello stato che deve essere partizionato come primo passaggio.
 
-Un semplice esempio viene riportato di seguito. Se si intende creare un servizio per un sondaggio a livello di regione, è possibile creare una partizione per ogni città della regione. e quindi archiviare i voti per ogni persona della città nella partizione corrispondente a tale città. La figura 3 illustra un gruppo di persone e la città in cui risiedono.
+Un semplice esempio viene riportato di seguito. Se si compila un servizio per un polling a livello di contea, è possibile creare una partizione per ogni città della regione. e quindi archiviare i voti per ogni persona della città nella partizione corrispondente a tale città. La figura 3 illustra un gruppo di persone e la città in cui risiedono.
 
 ![Partizione semplice](./media/service-fabric-concepts-partitioning/cities.png)
 
@@ -163,9 +152,9 @@ Poiché è necessaria esattamente una partizione per ogni lettera, è possibile 
    
     Poiché è possibile che più repliche di questo servizio siano ospitate sullo stesso computer, questo indirizzo deve essere univoco per la replica ed è per questo motivo che nell'URL sono presenti un ID partizione e un ID replica. HttpListener può essere in ascolto di più indirizzi sulla stessa porta, purché il prefisso dell'URL sia univoco.
    
-    Il GUID aggiuntivo è presente per un caso avanzato in cui anche le repliche secondarie sono in ascolto delle richieste di sola lettura. In questo caso, è opportuno assicurarsi che venga usato un nuovo indirizzo univoco quando si passa dalla replica primaria a quelle secondarie per obbligare i client a risolvere nuovamente l'indirizzo. In questo caso viene usato il segno più (+) come indirizzo per fare in modo che la replica rimanga in ascolto in tutti gli host disponibili (IP, FQDN, localhost e così via) Il codice seguente mostra un esempio.
+    Il GUID aggiuntivo è presente per un caso avanzato in cui anche le repliche secondarie sono in ascolto delle richieste di sola lettura. In questo caso, è opportuno assicurarsi che venga usato un nuovo indirizzo univoco quando si passa dalla replica primaria a quelle secondarie per obbligare i client a risolvere nuovamente l'indirizzo. ' +' viene usato come indirizzo qui in modo che la replica sia in ascolto su tutti gli host disponibili (IP, FQDN, localhost e così via) Il codice seguente illustra un esempio.
    
-    ```CSharp
+    ```csharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
     {
          return new[] { new ServiceReplicaListener(context => this.CreateInternalListener(context))};
@@ -193,7 +182,7 @@ Poiché è necessaria esattamente una partizione per ogni lettera, è possibile 
     L'URL in ascolto viene assegnato a HttpListener. L'URL pubblicato è l'URL che viene pubblicato nel servizio Naming dell'infrastruttura di servizi, usato per l'individuazione dei servizi. I client richiederanno questo indirizzo con questo servizio di individuazione. Poiché l'indirizzo ottenuto dai client deve avere l'IP o il nome FQDN effettivo del nodo per connettersi, è necessario sostituire "+" con l'IP o il nome FQDN del nodo, come mostrato sotto.
 9. L'ultimo passaggio consiste nell'aggiungere la logica di elaborazione al servizio, come mostrato sotto.
    
-    ```CSharp
+    ```csharp
     private async Task ProcessInternalRequest(HttpListenerContext context, CancellationToken cancelRequest)
     {
         string output = null;
@@ -249,7 +238,7 @@ Poiché è necessaria esattamente una partizione per ogni lettera, è possibile 
     ```
 13. È necessario restituire una raccolta di ServiceInstanceListener nella classe Web. Anche in questo caso è possibile scegliere di implementare un semplice HttpCommunicationListener.
     
-    ```CSharp
+    ```csharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
         return new[] {new ServiceInstanceListener(context => this.CreateInputListener(context))};
@@ -265,7 +254,7 @@ Poiché è necessaria esattamente una partizione per ogni lettera, è possibile 
     ```
 14. Ora è necessario implementare la logica di elaborazione. HttpCommunicationListener chiama `ProcessInputRequest` quando arriva una richiesta. Ora aggiungere il codice seguente.
     
-    ```CSharp
+    ```csharp
     private async Task ProcessInputRequest(HttpListenerContext context, CancellationToken cancelRequest)
     {
         String output = null;
@@ -311,7 +300,7 @@ Poiché è necessaria esattamente una partizione per ogni lettera, è possibile 
     
     Analisi dettagliata: il codice legge la prima lettera del parametro della stringa di query `lastname` in un char. Quindi determina la chiave di partizione di questa lettera sottraendo il valore esadecimale di `A` dal valore esadecimale della prima lettera dei cognomi.
     
-    ```CSharp
+    ```csharp
     string lastname = context.Request.QueryString["lastname"];
     char firstLetterOfLastName = lastname.First();
     ServicePartitionKey partitionKey = new ServicePartitionKey(Char.ToUpper(firstLetterOfLastName) - 'A');
@@ -320,19 +309,19 @@ Poiché è necessaria esattamente una partizione per ogni lettera, è possibile 
     Si ricordi che in questo esempio si usano 26 partizioni con una chiave per ogni partizione.
     A questo punto è necessario ottenere la partizione del servizio `partition` per la chiave usando il metodo `ResolveAsync` nell'oggetto `servicePartitionResolver`. `servicePartitionResolver` viene definito come mostrato di seguito.
     
-    ```CSharp
+    ```csharp
     private readonly ServicePartitionResolver servicePartitionResolver = ServicePartitionResolver.GetDefault();
     ```
     
     Il metodo `ResolveAsync` accetta l'URI del servizio, la chiave di partizione e un token di annullamento come parametri. L'URI del servizio di elaborazione è `fabric:/AlphabetPartitions/Processing`. A questo punto è necessario ottenere l'endpoint della partizione.
     
-    ```CSharp
+    ```csharp
     ResolvedServiceEndpoint ep = partition.GetEndpoint()
     ```
     
     Infine si compilano l'URL dell'endpoint e la stringa di query e si chiama il servizio di elaborazione.
     
-    ```CSharp
+    ```csharp
     JObject addresses = JObject.Parse(ep.Address);
     string primaryReplicaAddress = (string)addresses["Endpoints"].First();
     

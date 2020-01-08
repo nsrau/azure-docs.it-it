@@ -1,25 +1,14 @@
 ---
-title: Linee guida e consigli per Reliable Collections in Azure Service Fabric | Microsoft Docs
-description: Linee guida e consigli per l'uso di Reliable Collections in Service Fabric
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: masnider,rajak,zhol
-ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Linee guida per Reliable Collections
+description: Linee guida e consigli per l'uso di Service Fabric Reliable Collections in un'applicazione Service Fabric di Azure.
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 12/10/2017
-ms.author: atsenthi
-ms.openlocfilehash: dc7d60cb846aa16f2facd41f5b6b7ce52bcc8f41
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 37c734205877f9e0cb98ef2834462691e8e483d9
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599346"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645481"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Linee guida e consigli per Reliable Collections in Azure Service Fabric
 Questa sezione fornisce le linee guida per l'uso di Reliable State Manager e Reliable Collections. L'obiettivo è quello di aiutare gli utenti a evitare errori comuni.
@@ -32,7 +21,7 @@ Le linee guida sono organizzate come semplici consigli*su cosa fare* , *prendere
 * Non usare una transazione dopo che ne è stato eseguito il commit, è stata interrotta o eliminata.
 * Non usare un'enumerazione all'esterno dell'ambito di transazione nella quale è stata creata.
 * Non creare una transazione all'interno dell'istruzione `using` di un'altra transazione. Questa operazione può causare deadlock.
-* Non creare lo stato affidabile con `IReliableStateManager.GetOrAddAsync` e utilizzare lo stato affidabile nella stessa transazione. Viene restituito un valore InvalidOperationException.
+* Non creare uno stato affidabile con `IReliableStateManager.GetOrAddAsync` e utilizzare lo stato affidabile nella stessa transazione. Viene restituito un valore InvalidOperationException.
 * Verificare che l'implementazione di `IComparable<TKey>` sia corretta. Il sistema presenta dipendenze su `IComparable<TKey>` per l'unione di checkpoint e righe.
 * Usare il blocco di aggiornamento durante la lettura di un elemento con l'intenzione di aggiornarlo in modo da evitare una determinata classe di deadlock.
 * Si consiglia di mantenere un numero di raccolte Reliable Collections per partizione inferiore a 1000. Preferire le raccolte Reliable Collections con più elementi.

@@ -2,17 +2,17 @@
 title: Creazione di un servizio di collegamento privato di Azure tramite l'interfaccia della riga di comando
 description: Informazioni su come creare un servizio di collegamento privato Azure con l'interfaccia della riga di comando di Azure
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 3cc171ddabbe8241622d4e599b4b3cd281558976
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6e6148d305af26f7933567ae58023d2ba73263eb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229369"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350247"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>Creare un servizio di collegamento privato usando l'interfaccia della riga di comando
 Questo articolo illustra come creare un servizio di collegamento privato in Azure usando l'interfaccia della riga di comando di Azure.
@@ -23,12 +23,12 @@ Se invece si decide di installare e usare l'interfaccia della riga di comando di
 ## <a name="create-a-private-link-service"></a>Creare un servizio Collegamento privato
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Per poter creare una rete virtuale, è prima necessario creare un gruppo di risorse per l'hosting della rete virtuale. Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group). Questo esempio crea un gruppo di risorse denominato *myResourceGroup* nella località *westcentralus* :
+Per poter creare una rete virtuale, è prima necessario creare un gruppo di risorse per l'hosting della rete virtuale. Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group). Questo esempio crea un gruppo di risorse denominato *myResourceGroup* nella località *westcentralus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westcentralus
 ```
-### <a name="create-a-virtual-network"></a>Crea rete virtuale
+### <a name="create-a-virtual-network"></a>Crea una rete virtuale
 Creare una rete virtuale con [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Questo esempio crea una rete virtuale predefinita denominata *myVirtualNetwork* con una subnet denominata *Subnet*:
 
 ```azurecli-interactive

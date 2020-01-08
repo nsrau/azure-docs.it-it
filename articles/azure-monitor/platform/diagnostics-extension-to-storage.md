@@ -1,19 +1,19 @@
 ---
-title: Archiviare e visualizzare i dati di diagnostica in Archiviazione di Azure
+title: Archiviare e visualizzare dati di diagnostica in Archiviazione di Azure
 description: Informazioni su come raccogliere i dati di diagnostica di Azure in un account di archiviazione di Azure in modo che sia possibile visualizzarli con uno dei diversi strumenti disponibili.
 services: azure-monitor
-author: jpconnock
+author: bwren
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 08/01/2016
-ms.author: jeconnoc
+ms.author: bwren
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 35e852a36ebc52edff338ed640419afe32297b81
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: c9d751a7e3d01860b3b5860f1e75fa3767cd4f3c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304967"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395003"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Archiviare e visualizzare i dati di diagnostica nell'account di archiviazione Azure
 I dati di diagnostica non vengono archiviati definitivamente a meno che non vengano trasferiti nell'Emulatore di archiviazione di Microsoft Azure o nell'account di archiviazione di Azure. Una volta trasferiti nella risorsa di archiviazione, sono disponibili diversi strumenti per visualizzarli.
@@ -33,13 +33,13 @@ A seconda del tipo di dati di diagnostica da raccogliere, Diagnostica di Azure u
 
 | Origine dati | Formato di archiviazione |
 | --- | --- |
-| Log di Azure |tabella |
+| Log di Azure |Tabella |
 | Log di IIS 7.0 |BLOB |
-| Log dell'infrastruttura Diagnostica di Azure |tabella |
+| Log dell'infrastruttura Diagnostica di Azure |Tabella |
 | Log di analisi delle richieste non riuscite |BLOB |
-| Log eventi di Windows |tabella |
-| Contatori delle prestazioni |tabella |
-| Dump di arresto anomalo del sistema |BLOB |
+| Log eventi di Windows |Tabella |
+| Contatori delle prestazioni |Tabella |
+| Dump di arresto anomalo |BLOB |
 | Log degli errori personalizzati |BLOB |
 
 ## <a name="transfer-diagnostic-data"></a>Trasferire i dati di diagnostica
@@ -77,7 +77,7 @@ Sono disponibili diversi strumenti per visualizzare i dati una volta trasferiti 
 * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) è un'app autonoma che consente di usare facilmente dati di Archiviazione di Azure in Windows, OSX e Linux.
 * [Azure Management Studio](https://www.cerebrata.com/products/azure-management-studio/introduction) include Azure Diagnostics Manager che consente di visualizzare, scaricare e gestire i dati di diagnostica raccolti dalle applicazioni in esecuzione in Azure.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 [Tracciare il flusso in un'applicazione di Servizi cloud con Diagnostica di Azure](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
 
 

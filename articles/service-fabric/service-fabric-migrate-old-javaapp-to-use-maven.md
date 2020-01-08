@@ -1,25 +1,16 @@
 ---
-title: 'Eseguire la migrazione da Java SDK a Maven: aggiornare applicazioni Java di Azure Service Fabric precedenti per usare Maven | Microsoft Docs'
+title: Eseguire la migrazione da Java SDK a Maven
 description: Aggiornare le applicazioni Java meno recenti che usano Service Fabric Java SDK per recuperare le dipendenze Java di Service Fabric da Maven. Al termine di questa configurazione, sarà possibile eseguire la compilazione delle applicazioni Java meno recenti.
-services: service-fabric
-documentationcenter: java
 author: rapatchi
-manager: chackdan
-editor: ''
-ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/23/2017
 ms.author: rapatchi
-ms.openlocfilehash: dbd85b3647a60ce873c1a55b851bd47ece103282
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b5e126ebdf3b89470472391c59d378c7a6d39b86
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60718395"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609809"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Aggiornare un'applicazione Java di Service Fabric precedente per recuperare le librerie Java da Maven
 I file binari Java di Service Fabric sono stati recentemente spostati da Service Fabric Java SDK all'hosting in Maven. È ora possibile usare **mavenCentral** per recuperare le dipendenze Java di Service Fabric più recenti. Questa guida introduttiva consente di aggiornare le applicazioni Java esistenti precedentemente create per l'uso con Service Fabric Java SDK, con un modello Yeoman o Eclipse, per garantirne la compatibilità con la compilazione basata su Maven.
@@ -89,7 +80,7 @@ Supporto di servizi senza stato di Service Fabric per l'applicazione.
   ```
 
 ### <a name="others"></a>Altro
-#### <a name="transport"></a>Trasporto
+#### <a name="transport"></a>Trasporti
 
 Supporto del livello trasporto per l'applicazione Java di Service Fabric. Non è necessario aggiungere esplicitamente questa dipendenza alle applicazioni Reliable Actors o Services, a meno che non si esegua la programmazione al livello trasporto.
 
@@ -167,7 +158,7 @@ task copyDeps <<{
     }
 }
 ```
-Per recuperare le dipendenze da Maven, il file ``build.gradle`` **aggiornato** includerà le parti corrispondenti come segue:
+A questo punto, per recuperare le dipendenze da Maven, il ``build.gradle`` **aggiornato** avrebbe le parti corrispondenti come segue:
 ```
 repositories {
         mavenCentral()
@@ -241,7 +232,7 @@ dependencies {
 .
 .
 ```
-Per recuperare le dipendenze da Maven, il file ``build.gradle`` **aggiornato** includerà le parti corrispondenti come segue:
+A questo punto, per recuperare le dipendenze da Maven, il ``build.gradle`` **aggiornato** avrebbe le parti corrispondenti come segue:
 ```
 repositories {
     mavenCentral()
@@ -313,7 +304,7 @@ task copyDeps<< {
     }
 }
 ```
-Per recuperare le dipendenze da Maven, il file ``build.gradle`` **aggiornato** includerà le parti corrispondenti come segue:
+A questo punto, per recuperare le dipendenze da Maven, il ``build.gradle`` **aggiornato** avrebbe le parti corrispondenti come segue:
 ```
 repositories {
     mavenCentral()
@@ -413,7 +404,7 @@ task copyDeps<< {
         }
 }
 ```
-Per recuperare le dipendenze da Maven, il file ``build.gradle`` **aggiornato** includerà le parti corrispondenti come segue:
+A questo punto, per recuperare le dipendenze da Maven, il ``build.gradle`` **aggiornato** avrebbe le parti corrispondenti come segue:
 ```
 repositories {
     mavenCentral()

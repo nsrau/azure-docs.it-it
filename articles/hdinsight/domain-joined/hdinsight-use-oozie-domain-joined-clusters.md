@@ -1,23 +1,24 @@
 ---
 title: Flussi di lavoro Apache oozie & sicurezza aziendale-Azure HDInsight
 description: Proteggere i flussi di lavoro di Apache Oozie con Enterprise Security Package di Azure HDInsight. Informazioni su come definire un flusso di lavoro Oozie e inviare un processo Oozie.
-ms.service: hdinsight
 author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
-ms.custom: hdinsightactive,seodec18
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/15/2019
-ms.openlocfilehash: 03826d1005253c408374ea4c78266eef97aab2aa
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.custom: hdinsightactive,seodec18
+ms.date: 12/09/2019
+ms.openlocfilehash: ce51923dbc6f909adad1df5a8c0bcd0723371970
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044842"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435838"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Eseguire Apache Oozie nei cluster HDInsight Hadoop con Enterprise Security Package
 
 Apache Oozie è un sistema di coordinamento dei flussi di lavoro che consente di gestire i processi Apache Hadoop. Oozie è integrato con lo stack Hadoop e supporta i processi seguenti:
+
 - Apache MapReduce
 - Apache Pig
 - Apache Hive
@@ -27,33 +28,37 @@ Oozie può anche essere usato per pianificare processi specifici di un sistema, 
 
 ## <a name="prerequisite"></a>Prerequisito
 
-- Un cluster Azure HDInsight Hadoop con Enterprise Security Package (ESP). Vedere [Configurare i cluster HDInsight con ESP](./apache-domain-joined-configure-using-azure-adds.md).
+Un cluster Azure HDInsight Hadoop con Enterprise Security Package (ESP). Vedere [Configurare i cluster HDInsight con ESP](./apache-domain-joined-configure-using-azure-adds.md).
 
-    > [!NOTE]  
-    > Per istruzioni dettagliate sull'uso di Oozie in cluster non ESP, vedere [Usare Oozie con Hadoop per definire ed eseguire un flusso di lavoro in Azure HDInsight basato su Linux](../hdinsight-use-oozie-linux-mac.md).
+> [!NOTE]  
+> Per istruzioni dettagliate su come usare oozie in cluster non ESP, vedere [usare i flussi di lavoro Apache oozie in Azure HDInsight basato su Linux](../hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="connect-to-an-esp-cluster"></a>Connettersi a un cluster ESP
 
 Per altre informazioni su SSH (Secure Shell), vedere [Connettersi a HDInsight (Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-1. Connettersi al cluster HDInsight usando SSH:  
-   ```bash
-   ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
-   ```
+1. Connettersi al cluster HDInsight usando SSH:
 
-2. Per verificare se l'autenticazione Kerberos ha avuto esito positivo, usare il comando `klist`. In caso contrario, usare `kinit` per avviare l'autenticazione Kerberos.
+    ```bash
+    ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
+    ```
 
-3. Accedere al gateway di HDInsight per registrare il token OAuth necessario per accedere ad Azure Data Lake Storage:   
-     ```bash
-     curl -I -u [DomainUserName@Domain.com]:[DomainUserPassword] https://<clustername>.azurehdinsight.net
-     ```
+1. Per verificare se l'autenticazione Kerberos ha avuto esito positivo, usare il comando `klist`. In caso contrario, usare `kinit` per avviare l'autenticazione Kerberos.
+
+1. Accedere al gateway di HDInsight per registrare il token OAuth necessario per accedere ad Azure Data Lake Storage:
+
+    ```bash
+    curl -I -u [DomainUserName@Domain.com]:[DomainUserPassword] https://<clustername>.azurehdinsight.net
+    ```
 
     Un codice di risposta con stato **200 OK** indica la registrazione. Se si riceve una risposta di accesso non autorizzato, ad esempio 401, controllare il nome utente e la password.
 
 ## <a name="define-the-workflow"></a>Definire il flusso di lavoro
+
 Le definizioni dei flussi di lavoro di Oozie sono scritte nel linguaggio Apache hPDL (Hadoop Process Definition Language). hPDL è un linguaggio di definizione di processi XML. Seguire questa procedura per definire il flusso di lavoro:
 
 1. Configurare l'area di lavoro dell'utente del dominio:
+
    ```bash
    hdfs dfs -mkdir /user/<DomainUser>
    cd /home/<DomainUserPath>
@@ -61,17 +66,20 @@ Le definizioni dei flussi di lavoro di Oozie sono scritte nel linguaggio Apache 
    tar -xvf oozie-examples.tar.gz
    hdfs dfs -put examples /user/<DomainUser>/
    ```
+
    Sostituire `DomainUser` con il nome utente di dominio.
    Sostituire `DomainUserPath` con il percorso della directory principale per l'utente di dominio.
    Sostituire `ClusterVersion` con la versione della piattaforma dati del cluster.
 
 2. Usare l'istruzione seguente per creare e modificare un nuovo file:
+
    ```bash
    nano workflow.xml
    ```
 
 3. All'apertura dell'editor nano, immettere il codice XML seguente come contenuto del file:
-   ```xml
+
+    ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <workflow-app xmlns="uri:oozie:workflow:0.4" name="map-reduce-wf">
        <credentials>
@@ -166,19 +174,21 @@ Le definizioni dei flussi di lavoro di Oozie sono scritte nel linguaggio Apache 
        </kill>
        <end name="end" />
     </workflow-app>
-   ```
-4. Sostituire `clustername` con il nome del cluster. 
+    ```
 
-5. Per salvare il file, selezionare CTRL+X. Immettere `Y`. Selezionare quindi **INVIO**.
+4. Sostituire `clustername` con il nome del cluster.
+
+5. Per salvare il file, selezionare **CTRL + X**. Immettere **Y**. Quindi premere **invio**.
 
     Il flusso di lavoro è suddiviso in due parti.
-   * **Sezione relativa alle credenziali.** Questa sezione include le credenziali usate per l'autenticazione delle azioni di Oozie:
+
+   - **Credenziali.** Questa sezione include le credenziali usate per l'autenticazione delle azioni di Oozie:
 
      Questo esempio usa l'autenticazione per le azioni di Hive. Per altre informazioni, vedere [Action Authentication](https://oozie.apache.org/docs/4.2.0/DG_ActionAuthentication.html) (Autenticazione delle azioni).
 
      Il servizio credenziali consente alle azioni di Oozie di rappresentare l'utente per l'accesso ai servizi Hadoop.
 
-   * **Sezione relativa alle azioni.** Questa sezione include tre azioni, ovvero map-reduce, Hive server 2 e Hive server 1:
+   - **Azione.** Questa sezione include tre azioni, ovvero map-reduce, Hive server 2 e Hive server 1:
 
      - L'azione map-reduce esegue un esempio da un pacchetto Oozie per map-reduce che restituisce il numero di parole aggregate.
 
@@ -187,9 +197,10 @@ Le definizioni dei flussi di lavoro di Oozie sono scritte nel linguaggio Apache 
      Le azioni Hive usano le credenziali definite nella sezione relativa alle credenziali per l'autenticazione usando la parola chiave `cred` nell'elemento action.
 
 6. Usare il comando seguente per copiare il file `workflow.xml` in `/user/<domainuser>/examples/apps/map-reduce/workflow.xml`:
-     ```bash
+
+    ```bash
     hdfs dfs -put workflow.xml /user/<domainuser>/examples/apps/map-reduce/workflow.xml
-     ```
+    ```
 
 7. Sostituire `domainuser` con il nome utente per il dominio.
 
@@ -197,33 +208,33 @@ Le definizioni dei flussi di lavoro di Oozie sono scritte nel linguaggio Apache 
 
 1. Usare l'istruzione seguente per creare e modificare un nuovo file per le proprietà dei processi:
 
-   ```bash
-   nano job.properties
-   ```
+    ```bash
+    nano job.properties
+    ```
 
 2. All'apertura dell'editor nano, usare il codice XML seguente come contenuto del file:
 
-   ```bash
-       nameNode=adl://home
-       jobTracker=headnodehost:8050
-       queueName=default
-       examplesRoot=examples
-       oozie.wf.application.path=${nameNode}/user/[domainuser]/examples/apps/map-reduce/workflow.xml
-       hiveScript1=${nameNode}/user/${user.name}/countrowshive1.hql
-       hiveScript2=${nameNode}/user/${user.name}/countrowshive2.hql
-       oozie.use.system.libpath=true
-       user.name=[domainuser]
-       jdbcPrincipal=hive/hn0-<ClusterShortName>.<Domain>.com@<Domain>.COM
-       jdbcURL=[jdbcurlvalue]
-       hiveOutputDirectory1=${nameNode}/user/${user.name}/hiveresult1
-       hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
-   ```
+    ```bash
+    nameNode=adl://home
+    jobTracker=headnodehost:8050
+    queueName=default
+    examplesRoot=examples
+    oozie.wf.application.path=${nameNode}/user/[domainuser]/examples/apps/map-reduce/workflow.xml
+    hiveScript1=${nameNode}/user/${user.name}/countrowshive1.hql
+    hiveScript2=${nameNode}/user/${user.name}/countrowshive2.hql
+    oozie.use.system.libpath=true
+    user.name=[domainuser]
+    jdbcPrincipal=hive/hn0-<ClusterShortName>.<Domain>.com@<Domain>.COM
+    jdbcURL=[jdbcurlvalue]
+    hiveOutputDirectory1=${nameNode}/user/${user.name}/hiveresult1
+    hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
+    ```
 
-   * Usare l'URI `adl://home` per la proprietà `nameNode` se Azure Data Lake Storage Gen1 è la risorsa di archiviazione del cluster principale. Se si usa Archiviazione BLOB di Azure, cambiare l'URI in `wasb://home`. Se si usa Azure Data Lake Storage Gen2, cambiare l'URI in `abfs://home`.
-   * Sostituire `domainuser` con il nome utente per il dominio.  
-   * Sostituire `ClusterShortName` con il nome breve del cluster. Se ad esempio il nome del cluster è https:// *[collegamento di esempio]* sechadoopcontoso.azurehdisnight.net, il valore `clustershortname` corrisponde ai primi sei caratteri del cluster: **sechad**.  
-   * Sostituire `jdbcurlvalue` con l'URL JDBC dalla configurazione di Hive. Ad esempio: jdbc:hive2://headnodehost:10001/;transportMode=http.      
-   * Per salvare il file, selezionare CTRL+X, immettere `Y` e quindi selezionare **INVIO**.
+   - Usare l'URI `adl://home` per la proprietà `nameNode` se Azure Data Lake Storage Gen1 è la risorsa di archiviazione del cluster principale. Se si usa l'archiviazione BLOB di Azure, modificarla in `wasb://home`. Se si usa Azure Data Lake Storage Gen2, modificare questo `abfs://home`.
+   - Sostituire `domainuser` con il nome utente per il dominio.  
+   - Sostituire `ClusterShortName` con il nome breve del cluster. Se ad esempio il nome del cluster è https:// *[collegamento di esempio]* sechadoopcontoso.azurehdisnight.net, il valore `clustershortname` corrisponde ai primi sei caratteri del cluster: **sechad**.  
+   - Sostituire `jdbcurlvalue` con l'URL JDBC dalla configurazione di Hive. Ad esempio: jdbc:hive2://headnodehost:10001/;transportMode=http.
+   - Per salvare il file, selezionare CTRL+X, immettere `Y` e quindi selezionare **INVIO**.
 
    Questo file di proprietà deve essere presente in locale durante l'esecuzione di processi Oozie.
 
@@ -233,38 +244,44 @@ Le definizioni dei flussi di lavoro di Oozie sono scritte nel linguaggio Apache 
 
 ### <a name="hive-server-1-file"></a>File Hive server 1
 
-1.  Creare e modificare un file per le azioni Hive server 1:
+1. Creare e modificare un file per le azioni Hive server 1:
+
     ```bash
     nano countrowshive1.hql
     ```
 
-2.  Creare lo script:
+2. Creare lo script:
+
     ```sql
-    INSERT OVERWRITE DIRECTORY '${hiveOutputDirectory1}' 
-    ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
+    INSERT OVERWRITE DIRECTORY '${hiveOutputDirectory1}'
+    ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
     select devicemake from hivesampletable limit 2;
     ```
 
-3.  Salvare il file in Apache Hadoop Distributed File System (HDFS):
+3. Salvare il file in Apache Hadoop Distributed File System (HDFS):
+
     ```bash
     hdfs dfs -put countrowshive1.hql countrowshive1.hql
     ```
 
 ### <a name="hive-server-2-file"></a>File Hive server 2
 
-1.  Creare e modificare un file per le azioni Hive server 2:
+1. Creare e modificare un file per le azioni Hive server 2:
+
     ```bash
     nano countrowshive2.hql
     ```
 
-2.  Creare lo script:
+2. Creare lo script:
+
     ```sql
     INSERT OVERWRITE DIRECTORY '${hiveOutputDirectory1}' 
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
     select devicemodel from hivesampletable limit 2;
     ```
 
-3.  Salvare il file in HDFS:
+3. Salvare il file in HDFS:
+
     ```bash
     hdfs dfs -put countrowshive2.hql countrowshive2.hql
     ```
@@ -276,39 +293,38 @@ L'invio di processi Oozie per cluster ESP è analogo all'invio di processi Oozie
 Per altre informazioni, vedere [Usare Oozie con Hadoop per definire ed eseguire un flusso di lavoro in Azure HDInsight basato su Linux](../hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="results-from-an-oozie-job-submission"></a>Risultati dell'invio di un processo Oozie
+
 I processi Oozie vengono eseguiti per l'utente. I log di controllo di Apache Hadoop YARN e Apache Ranger mostrano quindi che i processi vengono eseguiti come utente rappresentato. L'output dell'interfaccia della riga di comando di un processo Oozie è analogo al codice seguente:
 
+```output
+Job ID : 0000015-180626011240801-oozie-oozi-W
+------------------------------------------------------------------------------------------------
+Workflow Name : map-reduce-wf
+App Path      : adl://home/user/alicetest/examples/apps/map-reduce/wf.xml
+Status        : SUCCEEDED
+Run           : 0
+User          : alicetest
+Group         : -
+Created       : 2018-06-26 19:25 GMT
+Started       : 2018-06-26 19:25 GMT
+Last Modified : 2018-06-26 19:30 GMT
+Ended         : 2018-06-26 19:30 GMT
+CoordAction ID: -
 
-
-```bash
-    Job ID : 0000015-180626011240801-oozie-oozi-W
-    ------------------------------------------------------------------------------------------------
-    Workflow Name : map-reduce-wf
-    App Path      : adl://home/user/alicetest/examples/apps/map-reduce/wf.xml
-    Status        : SUCCEEDED
-    Run           : 0
-    User          : alicetest
-    Group         : -
-    Created       : 2018-06-26 19:25 GMT
-    Started       : 2018-06-26 19:25 GMT
-    Last Modified : 2018-06-26 19:30 GMT
-    Ended         : 2018-06-26 19:30 GMT
-    CoordAction ID: -
-    
-    Actions
-    ------------------------------------------------------------------------------------------------
-    ID                      Status  Ext ID          ExtStatus   ErrCode
-    ------------------------------------------------------------------------------------------------
-    0000015-180626011240801-oozie-oozi-W@:start:    OK  -           OK      -
-    ------------------------------------------------------------------------------------------------
-    0000015-180626011240801-oozie-oozi-W@mr-test    OK  job_1529975666160_0051  SUCCEEDED   -
-    ------------------------------------------------------------------------------------------------
-    0000015-180626011240801-oozie-oozi-W@myHive2    OK  job_1529975666160_0053  SUCCEEDED   -
-    ------------------------------------------------------------------------------------------------
-    0000015-180626011240801-oozie-oozi-W@myHive OK  job_1529975666160_0055  SUCCEEDED   -
-    ------------------------------------------------------------------------------------------------
-    0000015-180626011240801-oozie-oozi-W@end    OK  -           OK      -
-    -----------------------------------------------------------------------------------------------
+Actions
+------------------------------------------------------------------------------------------------
+ID                      Status  Ext ID          ExtStatus   ErrCode
+------------------------------------------------------------------------------------------------
+0000015-180626011240801-oozie-oozi-W@:start:    OK  -           OK      -
+------------------------------------------------------------------------------------------------
+0000015-180626011240801-oozie-oozi-W@mr-test    OK  job_1529975666160_0051  SUCCEEDED   -
+------------------------------------------------------------------------------------------------
+0000015-180626011240801-oozie-oozi-W@myHive2    OK  job_1529975666160_0053  SUCCEEDED   -
+------------------------------------------------------------------------------------------------
+0000015-180626011240801-oozie-oozi-W@myHive OK  job_1529975666160_0055  SUCCEEDED   -
+------------------------------------------------------------------------------------------------
+0000015-180626011240801-oozie-oozi-W@end    OK  -           OK      -
+-----------------------------------------------------------------------------------------------
 ```
 
 I log di controllo di Ranger per le azioni Hive server 2 mostrano Oozie che esegue l'azione per l'utente. Le visualizzazioni Ranger e YARN risultano visibili solo all'amministratore del cluster.
@@ -330,5 +346,6 @@ L'interfaccia utente Web di Oozie fornisce una visualizzazione basata sul Web de
 2. Seguire i passaggi indicati nell'[interfaccia utente Web di Oozie](../hdinsight-use-oozie-linux-mac.md) per abilitare il tunneling SSH nel nodo perimetrale e accedere all'interfaccia utente Web.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Usare Apache Oozie con Apache Hadoop per definire ed eseguire un flusso di lavoro in Azure HDInsight basato su Linux](../hdinsight-use-oozie-linux-mac.md).
-* [Connettersi a HDInsight (Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+
+- [Usare Apache Oozie con Apache Hadoop per definire ed eseguire un flusso di lavoro in Azure HDInsight basato su Linux](../hdinsight-use-oozie-linux-mac.md).
+- [Connettersi a HDInsight (Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

@@ -1,25 +1,16 @@
 ---
-title: Interfaccia della riga di comando Azure Service Fabric - telemetria delle impostazioni sfctl | Microsoft Docs
-description: Descrive i comandi della telemetria delle impostazioni sfctl dell'interfaccia della riga di comando Service Fabric.
-services: service-fabric
-documentationcenter: na
+title: Azure Service Fabric CLI-telemetria delle impostazioni sfctl
+description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric. Include un elenco di comandi per la configurazione della telemetria di sfctl.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: d926c71ae8fd9e196b86c14c7fb96cc65b587b65
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: cdb4a44c8f19b31c164e2ba3ea5e16b7a09e743e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900988"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645277"
 ---
 # <a name="sfctl-settings-telemetry"></a>sfctl settings telemetry
 Configura le impostazioni di telemetria locali per questa istanza di sfctl.
@@ -46,13 +37,13 @@ Attiva o disattiva la telemetria.
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
-### <a name="examples"></a>esempi
+### <a name="examples"></a>Esempi
 
 Disattiva la telemetria.
 

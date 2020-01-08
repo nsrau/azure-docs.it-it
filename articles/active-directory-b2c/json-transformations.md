@@ -8,21 +8,87 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0ff6f24e30febd57a3a9740ec72a927225b37933
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 56c46b8f2804e37544c94ec2d6ced7e8879b1ffa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74948889"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367128"
 ---
 # <a name="json-claims-transformations"></a>Trasformazioni delle attestazioni JSON
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 Questo articolo fornisce esempi per l'uso delle trasformazioni delle attestazioni JSON dello schema del Framework dell'esperienza di identità in Azure Active Directory B2C (Azure AD B2C). Per altre informazioni, vedere [ClaimsTransformations](claimstransformations.md).
+
+## <a name="generatejson"></a>GenerateJson
+
+Usare valori di attestazione o costanti per generare una stringa JSON. La stringa di percorso che segue la notazione del punto viene usata per indicare dove inserire i dati in una stringa JSON. Dopo la suddivisione in base ai punti, tutti i numeri interi vengono interpretati come l'indice di una matrice JSON e i valori non integer vengono interpretati come indice di un oggetto JSON.
+
+| Elemento | TransformationClaimType | Tipo di dati | Note |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | Qualsiasi stringa che segue la notazione del punto | string | JsonPath del file JSON in cui verrà inserito il valore dell'attestazione. |
+| InputParameter | Qualsiasi stringa che segue la notazione del punto | string | JsonPath del codice JSON in cui verrà inserito il valore stringa costante. |
+| OutputClaim | outputClaim | string | Stringa JSON generata. |
+
+Nell'esempio seguente viene generata una stringa JSON basata sul valore dell'attestazione "email" e "OTP", nonché sulle stringhe costanti.
+
+```XML
+<ClaimsTransformation Id="GenerateRequestBody" TransformationMethod="GenerateJson">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.to.0.email" />
+    <InputClaim ClaimTypeReferenceId="otp" TransformationClaimType="personalizations.0.dynamic_template_data.otp" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="template_id" DataType="string" Value="d-4c56ffb40fa648b1aa6822283df94f60"/>
+    <InputParameter Id="from.email" DataType="string" Value="service@contoso.com"/>
+    <InputParameter Id="personalizations.0.subject" DataType="string" Value="Contoso account email verification code"/>
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="requestBody" TransformationClaimType="outputClaim"/>
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Esempio
+
+La trasformazione delle attestazioni seguente restituisce un'attestazione di stringa JSON che sarà il corpo della richiesta inviata a SendGrid (un provider di posta elettronica di terze parti). La struttura dell'oggetto JSON è definita dagli ID nella notazione del punto di InputParameters e TransformationClaimTypes di InputClaims. I numeri nella notazione del punto implicano matrici. I valori provengono dalle proprietà InputClaims ' Values e InputParameters ' "value".
+
+- Attestazioni di input:
+  - **indirizzo di posta elettronica**, trasformazione tipo di attestazione **personalizzazione. 0. a. 0. posta elettronica**: "someone@example.com"
+  - **OTP**, tipo di attestazione di trasformazione **personalizzazioni. 0. dynamic_template_data. OTP** "346349"
+- Parametro di input:
+  - **template_id**: "d-4c56ffb40fa648b1aa6822283df94f60"
+  - **da. email**: "service@contoso.com"
+  - **personalizzazioni. 0. oggetto** "contoso account email verifica codice"
+- Attestazione di output:
+  - **requestBody**: valore JSON
+
+```JSON
+{
+  "personalizations": [
+    {
+      "to": [
+        {
+          "email": "someone@example.com"
+        }
+      ],
+      "dynamic_template_data": {
+        "otp": "346349",
+        "verify-email" : "someone@example.com"
+      },
+      "subject": "Contoso account email verification code"
+    }
+  ],
+  "template_id": "d-989077fbba9746e89f3f6411f596fb96",
+  "from": {
+    "email": "service@contoso.com"
+  }
+}
+```
 
 ## <a name="getclaimfromjson"></a>GetClaimFromJson
 
@@ -228,4 +294,3 @@ Attestazione di output:
   }
 }
 ```
-

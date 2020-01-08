@@ -1,31 +1,20 @@
 ---
-title: Passaggi successivi per la creazione del progetto di Service Fabric | Microsoft Docs
+title: Passaggi successivi per la creazione di progetti di Service Fabric
 description: Informazioni sul progetto di applicazione appena creato in Visual Studio.  Informazioni su come compilare servizi con le esercitazioni e altre informazioni sullo sviluppo di servizi per Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 299d1f97-1ca9-440d-9f81-d1d0dd2bf4df
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/07/2017
-ms.author: atsenthi
-ms.openlocfilehash: e5371cd3ea9de1993f0f824325f6cbf1e25343d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8fc105657bda6114851f4819be4658926ad621c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60773044"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75349405"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>Applicazione dell'infrastruttura di servizi e fasi successive
 L'applicazione Service Fabric di Azure è stata creata. In questo articolo vengono descritte alcune esercitazioni per provare la struttura del progetto, altre informazioni utili e possibili passaggi successivi.
 
 ## <a name="get-started-with-tutorials-walk-throughs-and-samples"></a>Introduzione a esercitazioni, procedure ed esempi
-Informazioni introduttive  
+Pronti per iniziare?  
 
 Usare l'esercitazione per l'applicazione .NET. Informazioni su come [compilare un'app](service-fabric-tutorial-create-dotnet-app.md) con un front-end ASP.NET Core e un back-end con stato, [distribuire l'applicazione](service-fabric-tutorial-deploy-app-to-party-cluster.md) in un cluster, [configurare CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md), e [impostare monitoraggio e diagnostica](service-fabric-tutorial-monitoring-aspnet.md).
 

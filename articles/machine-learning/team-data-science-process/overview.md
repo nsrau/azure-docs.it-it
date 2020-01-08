@@ -1,28 +1,28 @@
 ---
-title: Introduzione a Team Data Science Process
+title: Che cos'è il processo di data science per i team?
 description: Fornisce una metodologia di data science per offrire soluzioni di analisi predittiva e applicazioni intelligenti.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 1/04/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3b4e8c78d7402c254c91c3e100814e1f3eafc41b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 124fe4f69396286dbe383f8823a36b4ba52d346c
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61429417"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665077"
 ---
-# <a name="what-is-the-team-data-science-process"></a>Introduzione a Team Data Science Process
+# <a name="what-is-the-team-data-science-process"></a>Che cos'è il processo di data science per i team?
 
-Il processo di data science per i team (TDSP) è una metodologia di data science agile e iterativa mirata a offrire soluzioni di analisi predittiva e applicazioni intelligenti in modo efficiente. Il TDSP consente di migliorare la collaborazione tra team e l'apprendimento. Contiene procedure consigliate e strutture messe a punto da Microsoft e altre aziende del settore che facilitano la corretta implementazione delle iniziative di data science. L'obiettivo è aiutare le aziende a realizzare completamente i vantaggi del proprio programma di analisi.
+Il processo di data science per i team (TDSP) è una metodologia di data science agile e iterativa mirata a offrire soluzioni di analisi predittiva e applicazioni intelligenti in modo efficiente. TDSP consente di migliorare la collaborazione e l'apprendimento del team suggerendo il modo migliore per collaborare con i ruoli del team. TDSP include procedure consigliate e strutture di Microsoft e di altri leader del settore per consentire una corretta implementazione delle iniziative data science. L'obiettivo è aiutare le aziende a realizzare completamente i vantaggi del proprio programma di analisi.
 
-Questo articolo riporta una panoramica del TDSP e dei suoi componenti principali. Viene fornita una descrizione generica del processo che può essere implementata con un'ampia gamma di strumenti. Altri argomenti collegati riportano descrizioni più dettagliate delle attività di progetto e dei ruoli coinvolti nel ciclo di vita del processo. Inoltre vengono fornite istruzioni su come implementare il TDSP mediante uno specifico set di strumenti e infrastruttura di Microsoft utilizzato per implementare il TDSP nei nostri team.
+Questo articolo riporta una panoramica del TDSP e dei suoi componenti principali. Viene fornita una descrizione generica del processo che può essere implementato con diversi tipi di strumenti. Altri argomenti collegati riportano descrizioni più dettagliate delle attività di progetto e dei ruoli coinvolti nel ciclo di vita del processo. Inoltre vengono fornite istruzioni su come implementare il TDSP mediante uno specifico set di strumenti e infrastruttura di Microsoft utilizzato per implementare il TDSP nei nostri team.
 
 ## <a name="key-components-of-the-tdsp"></a>Componenti principali del TDSP
 
@@ -63,13 +63,13 @@ Gli obiettivi, le attività e gli elementi di documentazione per ogni fase del c
 
 Il diagramma seguente offre una visualizzazione a griglia delle attività (in blu) e degli elementi (in verde) associati a ogni fase del ciclo di vita (sull'asse orizzontale) per questi ruoli (sull'asse verticale). 
 
-[![TDSP-roles-and-tasks](./media/overview/tdsp-tasks-by-roles.png)](./media/overview/tdsp-tasks-by-roles.png#lightbox)
+[![TDSP-Roles-and-Tasks](./media/overview/tdsp-tasks-by-roles.png)](./media/overview/tdsp-tasks-by-roles.png#lightbox)
 
 ## <a name="standardized-project-structure"></a>Struttura di progetto standardizzata
 
 Poiché tutti i progetti condividono la stessa struttura di directory e usano modelli per i documenti di progetto è più facile per i membri del team trovare informazioni relative ai propri progetti. Tutto il codice e i documenti vengono archiviati in un sistema di controllo di versione (VCS) come Git, TFS o Subversion per consentire la collaborazione tra team. Monitorare le attività e le funzionalità in un sistema di monitoraggio di progetto agile come Jira, Rally o Azure DevOps consente un monitoraggio più stretto delle singole funzionalità. Tale monitoraggio permette inoltre ai team di ottenere stime dei costi migliori. Il TDSP consiglia di creare un repository separato per ogni progetto del VCS per il controllo delle versioni, la protezione delle informazioni e la collaborazione. La struttura standard per tutti i progetti consente di creare conoscenze istituzionali nell'intera organizzazione.
 
-Sono forniti modelli per la struttura di cartelle e i documenti richiesti in posizioni standard. Questa struttura di cartelle consente di organizzare i file che contengono codice per l'esplorazione dei dati e l'estrazione delle funzioni e che registrano le iterazioni del modello. Questi modelli semplificano ai membri del team la comprensione delle attività completate da altri utenti e l'aggiunta di nuovi membri ai team. È facile visualizzare e aggiornare i modelli di documento in formato markdown. Utilizzare modelli per fornire elenchi di controllo con domande chiave per ogni progetto per assicurarsi che il problema sia ben definito e che i risultati finali soddisfino la qualità prevista. Tra gli esempi sono inclusi:
+Sono forniti modelli per la struttura di cartelle e i documenti richiesti in posizioni standard. Questa struttura di cartelle consente di organizzare i file che contengono codice per l'esplorazione dei dati e l'estrazione delle funzioni e che registrano le iterazioni del modello. Questi modelli semplificano ai membri del team la comprensione delle attività completate da altri utenti e l'aggiunta di nuovi membri ai team. È facile visualizzare e aggiornare i modelli di documento in formato markdown. Utilizzare modelli per fornire elenchi di controllo con domande chiave per ogni progetto per assicurarsi che il problema sia ben definito e che i risultati finali soddisfino la qualità prevista. Ad esempio:
 
 - un atto costitutivo di progetto per documentare il problema aziendale e l'ambito del progetto stesso
 - report di dati per documentare la struttura e le statistiche dei dati non elaborati
@@ -77,7 +77,7 @@ Sono forniti modelli per la struttura di cartelle e i documenti richiesti in pos
 - metriche di prestazioni del modello come curve ROC o MSE
 
 
-[![TDSP-directories](./media/overview/tdsp-dir-structure.png)](./media/overview/tdsp-dir-structure.png#lightbox)
+[![TDSP-directory](./media/overview/tdsp-dir-structure.png)](./media/overview/tdsp-dir-structure.png#lightbox)
 
 La struttura di directory può essere clonata da [GitHub](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
 
@@ -86,7 +86,7 @@ La struttura di directory può essere clonata da [GitHub](https://github.com/Azu
 Il TDSP fornisce suggerimenti per la gestione dell'infrastruttura di analisi e archiviazione, ad esempio:
 
 - file system su cloud per l'archiviazione dei set di dati 
-- database
+- databases
 - cluster Big Data (Hadoop o Spark) 
 - servizio Machine Learning 
 
@@ -94,7 +94,7 @@ L'infrastruttura di analisi e archiviazione può essere su cloud o in locale. Si
 
 Di seguito è riportato un esempio di un team che lavora su più progetti e condivide diversi componenti dell'infrastruttura di analisi su cloud.
 
-[![TDSP-infrastructure](./media/overview/tdsp-analytics-infra.png)](./media/overview/tdsp-analytics-infra.png#lightbox) 
+[![TDSP-infrastruttura](./media/overview/tdsp-analytics-infra.png)](./media/overview/tdsp-analytics-infra.png#lightbox) 
 
 
 ## <a name="tools-and-utilities-for-project-execution"></a>Strumenti e utilità per l'esecuzione dei progetti
@@ -104,4 +104,4 @@ Introdurre processi nella maggior parte delle organizzazioni è complesso. Gli s
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Processo di data science per i team: ruoli e attività](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md) descrive i ruoli del personale chiave e le relative attività associate per un team di data science che definisce i propri standard in base a questo processo. 
+[Processo di data science per i team: ruoli e attività](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md) descrive i ruoli del personale chiave e le relative attività associate per un team di data science che standardizza il processo. 

@@ -4,12 +4,12 @@ description: Funzionalità Ripristino istantaneo di Azure e domande frequenti pe
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 7a962ff42125b262f6ec6673f75b0afd2954de24
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 19ecd6843422f1843631278626ef8971b0791b1f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806372"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75391297"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Ottenere prestazioni migliori per backup e ripristino con la funzionalità Ripristino istantaneo di Backup di Azure
 
@@ -52,7 +52,7 @@ Per impostazione predefinita, gli snapshot vengono conservati per due giorni. Qu
 
 ## <a name="cost-impact"></a>Impatto sui costi
 
-Gli snapshot incrementali vengono archiviati nell'account di archiviazione della macchina virtuale, usato per il ripristino istantaneo. Snapshot incrementale significa che lo spazio occupato da uno snapshot è uguale allo spazio occupato dalle pagine scritte dopo la creazione dello snapshot. La fatturazione è ancora basata sullo spazio usato in GB occupato dallo snapshot e il prezzo per GB è quello indicato nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/managed-disks/).
+Gli snapshot incrementali vengono archiviati nell'account di archiviazione della macchina virtuale, usato per il ripristino istantaneo. Snapshot incrementale significa che lo spazio occupato da uno snapshot è uguale allo spazio occupato dalle pagine scritte dopo la creazione dello snapshot. La fatturazione è ancora per lo spazio usato per GB occupato dallo snapshot e il prezzo per GB è uguale a quello indicato nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/managed-disks/). Per le macchine virtuali che usano dischi non gestiti, gli snapshot possono essere visualizzati nel menu per il file VHD di ogni disco. Per i dischi gestiti, gli snapshot vengono archiviati in una risorsa di raccolta di punti di ripristino in un gruppo di risorse designato e gli snapshot non sono direttamente visibili.
 
 >[!NOTE]
 > La conservazione degli snapshot è fissata a 5 giorni per i criteri settimanali.

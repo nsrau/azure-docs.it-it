@@ -1,5 +1,5 @@
 ---
-title: Creare ruoli personalizzati o di aggiornamento per le risorse di Azure usando l'API REST-Azure | Microsoft Docs
+title: Creare o aggiornare i ruoli personalizzati per le risorse di Azure usando l'API REST-Azure | Microsoft Docs
 description: Informazioni su come elencare, creare, aggiornare o eliminare ruoli personalizzati con il controllo degli accessi in base al ruolo (RBAC) per le risorse di Azure usando l'API REST.
 services: active-directory
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2e5dcd7593ba0992337396bc7c05cc30351644dc
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 474de8934ec7e27df601fe80809566a801e6af61
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702972"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452929"
 ---
 # <a name="create-or-update-custom-roles-for-azure-resources-using-the-rest-api"></a>Creare o aggiornare i ruoli personalizzati per le risorse di Azure usando l'API REST
 
@@ -54,7 +54,7 @@ Per elencare i ruoli personalizzati in un ambito, usare l'API REST per l' [elenc
 
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per il quale elencare i ruoli.
 
-    | Scope | Type |
+    | Ambito | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Sottoscrizione |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
@@ -78,7 +78,7 @@ Per ottenere informazioni su un ruolo personalizzato in base al nome visualizzat
 
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per il quale elencare i ruoli.
 
-    | Scope | Type |
+    | Ambito | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Sottoscrizione |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
@@ -104,7 +104,7 @@ Per ottenere informazioni su un ruolo personalizzato in base al relativo identif
 
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per il quale elencare i ruoli.
 
-    | Scope | Type |
+    | Ambito | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Sottoscrizione |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
@@ -152,7 +152,7 @@ Per creare un ruolo personalizzato, usare l'API REST [Role Definitions - Create 
 
 1. All'interno dell'URI sostituire *{scope}* con il primo `assignableScopes` del ruolo personalizzato.
 
-    | Scope | Type |
+    | Ambito | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Sottoscrizione |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
@@ -217,7 +217,7 @@ Per aggiornare un ruolo personalizzato, usare l'API REST [Role Definitions - Cre
 
 1. All'interno dell'URI sostituire *{scope}* con il primo `assignableScopes` del ruolo personalizzato.
 
-    | Scope | Type |
+    | Ambito | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Sottoscrizione |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
@@ -301,7 +301,7 @@ Per eliminare un ruolo personalizzato, usare l'API REST [Role Definitions - Dele
 
 1. All'interno dell'URI sostituire *{scope}* con l'ambito in cui si vuole eliminare il ruolo personalizzato.
 
-    | Scope | Type |
+    | Ambito | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Sottoscrizione |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Gruppo di risorse |

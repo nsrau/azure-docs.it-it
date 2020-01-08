@@ -1,25 +1,15 @@
 ---
-title: Domande frequenti su Microsoft Azure Service Fabric | Microsoft Docs
-description: Domande frequenti su Service Fabric e relative risposte
-services: service-fabric
-documentationcenter: .net
-author: chackdan
-manager: chackdan
-editor: ''
-ms.assetid: 5a179703-ff0c-4b8e-98cd-377253295d12
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Domande frequenti su Microsoft Azure Service Fabric
+description: Domande frequenti su Service Fabric, incluse funzionalità, casi d'uso e scenari comuni.
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: dd514bb7c600c99518983855dae1d3b7fb8a1efb
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 7638a360821e73b7485014c8e6f006e91bbea551
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481654"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614639"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Domande frequenti su Service Fabric
 
@@ -44,7 +34,7 @@ La tecnologia di clustering principale di Service Fabric può essere usata per u
 
 Se si è interessati a questo scenario, è consigliabile contattare Microsoft tramite la pagina di [elenco di problemi di Service Fabric su GitHub](https://github.com/azure/service-fabric-issues) oppure tramite il rappresentante del supporto tecnico per ottenere informazioni aggiuntive. Il team di Service Fabric sta lavorando per fornire ulteriori informazioni, materiale sussidiario e consigli per questo scenario. 
 
-Alcuni aspetti da considerare: 
+Ecco alcuni aspetti da considerare: 
 
 1. La risorsa cluster di Service Fabric in Azure è ora divisa in aree, così come i set di scalabilità di macchine virtuali su cui viene creato il cluster. Ciò significa che in caso di malfunzionamento di un'area si potrebbe perdere la possibilità di gestire il cluster tramite Azure Resource Manager o il portale di Azure. Questa situazione può verificarsi anche se il cluster resta in esecuzione ed è possibile interagire direttamente con esso. Azure inoltre attualmente non offre la possibilità di disporre di una singola rete virtuale che può essere usata tra le aree. Ciò significa che un cluster con più aree in Azure richiede [indirizzi IP pubblici per ogni macchina virtuale nei set di scalabilità di macchine virtuali di Microsoft Azure](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) o [gateway VPN di Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md). Queste opzioni di rete hanno effetti diversi sui costi, sulle prestazioni e su alcuni livelli di progettazione di applicazioni. È richiesta un'attenta analisi e una pianificazione prima di affrontare un ambiente di questo tipo.
 2. La manutenzione, gestione e monitoraggio di tali computer possono diventare complicati, soprattutto quando estesi su _tipi_ di ambienti, ad esempio tra provider di cloud diversi o tra risorse locali e Azure. È necessario determinare accuratamente gli aggiornamenti, il monitoraggio, la gestione e la diagnostica per il cluster e le applicazioni prima di eseguire i carichi di lavoro di produzione in tale ambiente. Se si ha già esperienza di risoluzione di questi problemi in Azure o nei propri data center, è possibile che si possano applicare queste stesse soluzioni durante la compilazione o l'esecuzione del cluster di Service Fabric. 
@@ -135,7 +125,7 @@ No. Le macchine virtuali con priorità bassa non sono supportate.
 ### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>In che modo è possibile autenticare l'applicazione con Key Vault per ottenere i segreti?
 Di seguito sono riportati i mezzi che permettono all'applicazione di ottenere le credenziali per l'autenticazione a Key Vault:
 
-a. Durante il processo di compilazione/compressione delle applicazioni, è possibile estrarre un certificato nel pacchetto di dati della tua app di Service Fabric e utilizzare questa opzione per l'autenticazione in Key Vault.
+R. Durante il processo di compilazione/compressione delle applicazioni, è possibile estrarre un certificato nel pacchetto di dati della tua app di Service Fabric e utilizzare questa opzione per l'autenticazione in Key Vault.
 B. Per gli host abilitati per il set di scalabilità di macchine virtuali, è possibile sviluppare un SetupEntryPoint di PowerShell semplice per l'app SF per ottenere [un token di accesso dall'endpoint MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)e quindi [recuperare i segreti dall'](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret)insieme di credenziali delle chiavi.
 
 ## <a name="application-design"></a>Progettazione di applicazioni

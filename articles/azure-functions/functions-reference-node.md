@@ -3,13 +3,13 @@ title: Informazioni di riferimento per sviluppatori JavaScript per funzioni di A
 description: Informazioni su come sviluppare funzioni con JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: reference
-ms.date: 02/24/2019
-ms.openlocfilehash: b6b7db4c5f13a264b76dcab02dba51c464297307
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 12/17/2019
+ms.openlocfilehash: 506f71664616686a66227af7e55fe3f4046376f2
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226712"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561916"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guida per gli sviluppatori JavaScript di Funzioni di Azure
 
@@ -44,7 +44,7 @@ FunctionsProject
 
 Nella radice del progetto è presente un file [host.json](functions-host-json.md) condiviso che può essere usato per configurare l'app per le funzioni. Per ogni funzione è presente una cartella con il file di codice (JS) e il file di configurazione delle associazioni (function.json) correlati. Il nome della directory padre di `function.json` è sempre il nome della funzione.
 
-Le estensioni di associazione richieste nella [versione 2.x](functions-versions.md) del runtime di Funzioni di Azure sono definite nel file `extensions.csproj`, con gli effettivi file di libreria inclusi nella cartella `bin`. Quando si sviluppa una funzione in locale, è necessario [registrare le estensioni di associazione](./functions-bindings-register.md#extension-bundles). Quando si sviluppano funzioni nel portale di Azure, la registrazione viene eseguita automaticamente.
+Le estensioni di associazione richieste nella [versione 2.x](functions-versions.md) del runtime di Funzioni sono definite nel file `extensions.csproj`, con gli effettivi file di libreria inclusi nella cartella `bin`. Quando si sviluppa una funzione in locale, è necessario [registrare le estensioni di associazione](./functions-bindings-register.md#extension-bundles). Quando si sviluppano funzioni nel portale di Azure, la registrazione viene eseguita automaticamente.
 
 ## <a name="exporting-a-function"></a>Esportazione di una funzione
 
@@ -242,7 +242,7 @@ context.done([err],[propertyBag])
 
 Segnala al runtime che il codice è stato completato. Quando la funzione usa la dichiarazione [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function), non è necessario usare `context.done()`. Il callback `context.done` viene chiamato in modo implicito. Le funzioni asincrone sono disponibili in Node 8 o versione successiva, che richiede la versione 2.x del runtime di Funzioni.
 
-Se la funzione non è asincrona, **è necessario chiamare** `context.done` per informare il runtime che la funzione è completa. Si verifica il timeout dell'esecuzione se manca.
+Se la funzione non è una funzione asincrona, **è necessario chiamare** `context.done` per informare il runtime che la funzione è stata completata. Si verifica il timeout dell'esecuzione se manca.
 
 Il metodo `context.done` permette di restituire un errore definito dall'utente al runtime e un oggetto JSON contenente i dati di associazione di output. Le proprietà passate a `context.done` sovrascrivono qualsiasi impostazione nell'oggetto `context.bindings`.
 
@@ -265,7 +265,7 @@ context.log(message)
 Permette di scrivere nei log della console di streaming nel livello di traccia predefinito. In `context.log` sono disponibili altri metodi di registrazione che permettono di scrivere log di funzioni in altri livelli di traccia:
 
 
-| Metodo                 | DESCRIZIONE                                |
+| Metodo                 | Description                                |
 | ---------------------- | ------------------------------------------ |
 | **error(_messaggio_)**   | Scrive nella registrazione a livello di errore o inferiore.   |
 | **warn(_messaggio_)**    | Scrive nella registrazione a livello di avviso o inferiore. |
@@ -342,7 +342,7 @@ I trigger e i webhook HTTP e le associazioni di output HTTP usano oggetti di ric
 
 L'oggetto (richiesta) `context.req` ha le proprietà seguenti:
 
-| Proprietà      | DESCRIZIONE                                                    |
+| Proprietà      | Description                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _body_        | Oggetto che contiene il corpo della richiesta.               |
 | _headers_     | Oggetto che contiene le intestazioni della richiesta.                   |
@@ -357,7 +357,7 @@ L'oggetto (richiesta) `context.req` ha le proprietà seguenti:
 
 L'oggetto (risposta) `context.res` ha le proprietà seguenti:
 
-| Proprietà  | DESCRIZIONE                                               |
+| Proprietà  | Description                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | Oggetto che contiene il corpo della risposta.         |
 | _headers_ | Oggetto che contiene le intestazioni della risposta.             |
@@ -405,6 +405,16 @@ Quando si usano trigger HTTP, è possibile accedere agli oggetti richiesta e ris
     res = { status: 201, body: "Insert succeeded." };
     context.done(null, res);   
     ```  
+
+## <a name="scaling-and-concurrency"></a>Ridimensionamento e concorrenza
+
+Per impostazione predefinita, funzioni di Azure monitora automaticamente il carico sull'applicazione e crea istanze host aggiuntive per node. js in base alle esigenze. Funzioni utilizza soglie predefinite (non configurabili dall'utente) per diversi tipi di trigger per decidere quando aggiungere istanze, ad esempio l'età dei messaggi e le dimensioni della coda per QueueTrigger. Per altre informazioni, vedere [come funzionano i piani di consumo e Premium](functions-scale.md#how-the-consumption-and-premium-plans-work).
+
+Questo comportamento di ridimensionamento è sufficiente per molte applicazioni node. js. Per le applicazioni con associazione alla CPU, è possibile migliorare ulteriormente le prestazioni usando più processi di lavoro in lingua.
+
+Per impostazione predefinita, ogni istanza host di funzioni ha un singolo processo di lavoro in linguaggio. È possibile aumentare il numero di processi di lavoro per host (fino a 10) usando l'impostazione dell'applicazione [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) . Funzioni di Azure tenta quindi di distribuire uniformemente le chiamate di funzioni simultanee tra questi thread di lavoro. 
+
+Il FUNCTIONS_WORKER_PROCESS_COUNT si applica a ogni host creato dalle funzioni durante la scalabilità orizzontale dell'applicazione per soddisfare la domanda. 
 
 ## <a name="node-version"></a>Versione del nodo
 
@@ -475,9 +485,9 @@ Per l'esecuzione in locale, le impostazioni dell'app vengono lette dal file di p
 
 ## <a name="configure-function-entry-point"></a>Configurare il punto di ingresso della funzione
 
-È possibile usare le proprietà `function.json` e `scriptFile` di `entryPoint` per configurare il percorso e il nome della funzione esportata. Queste proprietà possono essere importanti quando JavaScript viene sottoposto a transpile.
+È possibile usare le proprietà `scriptFile` e `entryPoint` di `function.json` per configurare il percorso e il nome della funzione esportata. Queste proprietà possono essere importanti quando JavaScript viene sottoposto a transpile.
 
-### <a name="using-scriptfile"></a>Usando `scriptFile`
+### <a name="using-scriptfile"></a>Utilizzo di `scriptFile`
 
 Per impostazione predefinita, viene eseguita una funzione JavaScript da `index.js`, un file che condivide la stessa directory padre del file `function.json` corrispondente.
 
@@ -506,7 +516,7 @@ Il file `function.json` per `myNodeFunction` deve includere una proprietà `scri
 }
 ```
 
-### <a name="using-entrypoint"></a>Usando `entryPoint`
+### <a name="using-entrypoint"></a>Utilizzo di `entryPoint`
 
 In `scriptFile` (o `index.js`) una funzione deve essere esportata tramite `module.exports` per poter essere trovata ed eseguita. Per impostazione predefinita, la funzione eseguita quando viene attivata è l'unica esportazione dal file, ovvero l'esportazione denominata `run` o quella denominata `index`.
 
@@ -627,7 +637,7 @@ Quando si crea un'app per le funzioni che usa il piano di servizio app, è consi
 
 Quando si sviluppano funzioni di Azure in un modello di hosting serverless, gli avvii a freddo sono una realtà. Il termine *avvio a freddo* si riferisce al fatto che quando viene avviata per la prima volta dopo un periodo di inattività, l'app per le funzioni richiede più tempo per l'avvio. Per le funzioni di JavaScript con alberi delle dipendenze estesi, in particolare, l'avvio a freddo può essere significativo. Per velocizzare il processo di avvio a freddo [eseguire le funzioni come un file di pacchetto](run-functions-from-deployment-package.md) quando possibile. Molti metodi di distribuzione usano il modello di esecuzione dal pacchetto per impostazione predefinita, ma in presenza di numerosi avvii a freddo e se questo non è il modello di esecuzione in uso, questa modifica può offrire miglioramenti significativi.
 
-### <a name="connection-limits"></a>Limiti di connessione
+### <a name="connection-limits"></a>Limiti connessione
 
 Quando si usa un client specifico del servizio in un'applicazione di funzioni di Azure, non creare un nuovo client con ogni chiamata di funzione. In alternativa, creare un singolo client statico nell'ambito globale. Per altre informazioni, vedere [gestione delle connessioni in funzioni di Azure](manage-connections.md).
 
@@ -686,7 +696,7 @@ module.exports = async function (context) {
 Per altre informazioni, vedere le seguenti risorse:
 
 + [Procedure consigliate per Funzioni di Azure](functions-best-practices.md)
-+ [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md)
++ [Guida di riferimento per gli sviluppatori a Funzioni di Azure](functions-reference.md)
 + [Trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
 
-[' Func Azure functionapp publish ']: functions-run-local.md#project-file-deployment
+[`func azure functionapp publish`]: functions-run-local.md#project-file-deployment

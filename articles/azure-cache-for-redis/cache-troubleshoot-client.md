@@ -1,17 +1,17 @@
 ---
 title: Risolvere i problemi relativi al lato client di cache di Azure per Redis
-description: Informazioni su come risolvere i problemi comuni lato client con cache di Azure per Redis
+description: Informazioni su come risolvere i problemi comuni sul lato client con cache di Azure per Redis, ad esempio l'utilizzo elevato di memoria del client Redis, il traffico in sequenza, la CPU elevata, la larghezza di banda limitata, le richieste di grandi dimensioni o le dimensioni
 author: yegu-ms
-ms.service: cache
-ms.topic: conceptual
-ms.date: 10/18/2019
 ms.author: yegu
-ms.openlocfilehash: a4fdbe9c0943e77719a9ee9da7dc358696284d99
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.service: cache
+ms.topic: troubleshooting
+ms.date: 10/18/2019
+ms.openlocfilehash: abb73f93116fae217f527e0a9faaf61e2b42ba6c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122624"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433366"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Risolvere i problemi relativi al lato client di cache di Azure per Redis
 
@@ -104,5 +104,5 @@ Le risoluzioni per le dimensioni di risposta di grandi dimensioni sono diverse m
 
 ## <a name="additional-information"></a>Informazioni aggiuntive
 
-- [Risolvere i problemi del lato server di cache di Azure per il server Redis](cache-troubleshoot-server.md)
+- [Risolvere i problemi del lato server di cache di Azure per Redis](cache-troubleshoot-server.md)
 - [In che modo è possibile valutare e testare le prestazioni della cache?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)

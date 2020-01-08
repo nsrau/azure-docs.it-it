@@ -1,6 +1,6 @@
 ---
 title: Azure AD Connect la configurazione del nuovo agente per il provisioning cloud
-description: Questo argomento descrive come installare il provisioning cloud.
+description: Questo articolo descrive come installare il provisioning cloud.
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,74 +11,83 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f08a1359cfd8a2793d92315a6b03567b0b3f847d
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 853950cf441007eac0170f32f28f2d9c16a71292
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997123"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75549432"
 ---
-# <a name="azure-ad-connect-cloud-provisioning-new-configuration"></a>Azure AD Connect nuova configurazione del provisioning cloud
+# <a name="azure-ad-connect-cloud-provisioning-new-agent-configuration"></a>Azure AD Connect la configurazione del nuovo agente per il provisioning cloud
 
-Dopo aver installato l'agente, è necessario accedere al portale di Azure e configurare il provisioning.  Utilizzare la procedura seguente per abilitare l'agente.
+Dopo aver installato l'agente, è necessario accedere al portale di Azure e configurare Azure Active Directory (Azure AD) connettere il provisioning cloud. Per abilitare l'agente, attenersi alla seguente procedura.
 
 ## <a name="configure-provisioning"></a>Configurare il provisioning
-Per configurare il provisioning, attenersi alla procedura seguente:
+Per configurare il provisioning, attenersi alla seguente procedura.
 
-1.  Nel portale di Azure AD fare clic su **Azure Active Directory**
-2.  Fare clic su **Azure AD Connect**
-3.  Selezionare **Gestione del provisioning (anteprima)** 
-![](media/how-to-configure/manage1.png)
+1.  Nel portale di Azure selezionare **Azure Active Directory**.
+1.  Selezionare **Azure AD Connect**.
+1.  Selezionare **Gestisci provisioning (anteprima)** .
 
-4.  Fare clic su **nuova configurazione**.
-5.  Nella schermata di configurazione il dominio locale è già popolato
-6. Immettere un **messaggio di posta elettronica di notifica**. Questo messaggio di posta elettronica riceverà una notifica quando il provisioning non è integro.  
-8. Spostare il selettore in **Abilita** e fare clic su **Salva**.
-![](media/tutorial-single-forest/configure2.png)
+    ![Gestire il provisioning (anteprima)](media/how-to-configure/manage1.png)
 
-## <a name="scoping-provisioning-to-specific-users-and-groups"></a>Provisioning dell'ambito per utenti e gruppi specifici
-Se si desidera definire l'ambito dell'agente per sincronizzare solo utenti e gruppi specifici, è possibile eseguire questa operazione. È possibile definire l'ambito usando gruppi AD locali o unità organizzative. Non è possibile configurare gruppi e unità organizzative all'interno di una configurazione. 
+1.  Selezionare **nuova configurazione**.
+1.  Nella schermata di configurazione, il dominio locale viene prepopolato.
+1.  Immettere un **messaggio di posta elettronica di notifica**. Questo messaggio di posta elettronica riceverà una notifica quando il provisioning non è integro.
+1.  Spostare il selettore per **abilitare**e selezionare **Salva**.
 
-1.  Nel portale di Azure AD fare clic su **Azure Active Directory**
-2.  Fare clic su **Azure AD Connect**
-3.  Selezionare **Gestisci provisioning (anteprima)**
-4.  In **configurazione** fare clic sulla configurazione.  
-![](media/how-to-configure/scope1.png)
+    ![Provisioning di Azure AD (anteprima)](media/tutorial-single-forest/configure2.png)
 
-5.  In **Configura** selezionare **Tutti gli utenti** per cambiare l'ambito della regola di configurazione.
-![](media/how-to-configure/scope2.png)
+## <a name="scope-provisioning-to-specific-users-and-groups"></a>Provisioning dell'ambito per utenti e gruppi specifici
+È possibile definire l'ambito dell'agente per sincronizzare utenti e gruppi specifici usando gruppi di Active Directory locali o unità organizzative. Non è possibile configurare gruppi e unità organizzative all'interno di una configurazione. 
 
-6. A destra, è possibile modificare l'ambito in modo da includere solo i gruppi di sicurezza immettendo il nome distinto del gruppo e facendo clic su **Aggiungi**.
-![](media/how-to-configure/scope3.png)
+1.  Nel portale di Azure selezionare **Azure Active Directory**.
+1.  Selezionare **Azure AD Connect**.
+1.  Selezionare **Gestisci provisioning (anteprima)** .
+1.  In **configurazione**selezionare la configurazione.
 
-7. In alternativa, modificarlo in modo da includere solo unità organizzative specifiche. Fare clic su **Fine** e su **Salva**.
-![](media/how-to-configure/scope4.png)
+    ![Sezione Configurazione](media/how-to-configure/scope1.png)
+
+1.  In **Configura** selezionare **Tutti gli utenti** per cambiare l'ambito della regola di configurazione.
+
+    ![Opzione tutti gli utenti](media/how-to-configure/scope2.png)
+
+1. A destra, è possibile modificare l'ambito in modo da includere solo i gruppi di sicurezza. Immettere il nome distinto del gruppo e selezionare **Aggiungi**.
+
+    ![Opzione gruppi di sicurezza selezionati](media/how-to-configure/scope3.png)
+
+1.  In alternativa, è possibile modificare l'ambito in modo da includere solo unità organizzative specifiche. Selezionare **fatto** e **Salva**.
+
+    ![Opzione unità organizzative selezionate](media/how-to-configure/scope4.png)
 
 
 ## <a name="restart-provisioning"></a>Riavviare il provisioning 
-Se non si vuole attendere la successiva esecuzione pianificata, è possibile attivare l'esecuzione del provisioning usando il pulsante Riavvia provisioning. 
-1.  Nel portale di Azure AD fare clic su **Azure Active Directory**
-2.  Fare clic su **Azure AD Connect**
-3.  Selezionare **Gestisci provisioning (anteprima)**
-4.  In **configurazione** fare clic sulla configurazione.  
-![](media/how-to-configure/scope1.png)
+Se non si vuole attendere la successiva esecuzione pianificata, attivare l'esecuzione del provisioning usando il pulsante **Riavvia provisioning** . 
+1.  Nel portale di Azure selezionare **Azure Active Directory**.
+1.  Selezionare **Azure AD Connect**.
+1.  Selezionare **Gestisci provisioning (anteprima)** .
+1.  In **configurazione**selezionare la configurazione.
 
-5.  Nella parte superiore fare clic su **Riavvia provisioning**.
+    ![Selezione della configurazione per riavviare il provisioning](media/how-to-configure/scope1.png)
 
-## <a name="removing-a-configuration"></a>Rimozione di una configurazione
-Se si desidera eliminare una configurazione, è possibile eseguire questa operazione attenendosi alla procedura riportata di seguito.
+1.  Nella parte superiore selezionare **Riavvia provisioning**.
 
-1.  Nel portale di Azure AD fare clic su **Azure Active Directory**
-2.  Fare clic su **Azure AD Connect**
-3.  Selezionare **Gestisci provisioning (anteprima)**
-4.  In **configurazione** fare clic sulla configurazione.  
-![](media/how-to-configure/scope1.png)
+## <a name="remove-a-configuration"></a>Rimuovere una configurazione
+Per eliminare una configurazione, attenersi alla seguente procedura.
 
-5.  Nella parte superiore fare clic su **Elimina**.
-![](media/how-to-configure/remove1.png)
+1.  Nel portale di Azure selezionare **Azure Active Directory**.
+1.  Selezionare **Azure AD Connect**.
+1.  Selezionare **Gestisci provisioning (anteprima)** .
+1.  In **configurazione**selezionare la configurazione.
+
+    ![Selezione della configurazione per rimuovere la configurazione](media/how-to-configure/scope1.png)
+
+1.  Nella parte superiore della schermata di configurazione selezionare **Elimina**.
+
+    ![Pulsante Elimina](media/how-to-configure/remove1.png)
 
 >[!IMPORTANT]
->Non vi è alcuna conferma prima di eliminare una configurazione, quindi assicurarsi che questa sia l'azione che si vuole eseguire prima di fare clic su **Elimina**.
+>Non vi è alcuna conferma prima di eliminare una configurazione. Assicurarsi che si tratta dell'azione che si desidera eseguire prima di selezionare **Elimina**.
 
 
 ## <a name="next-steps"></a>Passaggi successivi 

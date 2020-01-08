@@ -3,12 +3,12 @@ title: Ripristinare i database di SQL Server in una macchina virtuale di Azure
 description: Questo articolo descrive come ripristinare SQL Server database in esecuzione in una macchina virtuale di Azure e di cui viene eseguito il backup con backup di Azure.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 0dbf5c48884dc665355d2806ff343facfbeffc29
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 58525069af28be250c3536db076a38fb350bc1da
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171894"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390753"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Ripristinare il backup di database SQL Server in macchine virtuali di Azure
 
@@ -23,7 +23,7 @@ Backup di Azure è in grado di ripristinare SQL Server database in esecuzione in
 - Ripristinare una data o un'ora specifica (al secondo) utilizzando i backup del log delle transazioni. Backup di Azure determina automaticamente il backup completo differenziale appropriato e la catena di backup del log necessari per il ripristino in base all'ora selezionata.
 - Ripristinare un backup completo o differenziale specifico per eseguire il ripristino in un punto di ripristino specifico.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di ripristinare un database, tenere presente quanto segue:
 
@@ -37,7 +37,7 @@ Prima di ripristinare un database, tenere presente quanto segue:
 - Chiudere tutte le applicazioni che potrebbero tentare di eseguire una connessione a uno di questi database.
 - Se si dispone di più istanze in esecuzione in un server, tutte le istanze devono essere in esecuzione, in caso contrario il server non verrà visualizzato nell'elenco dei server di destinazione in cui ripristinare il database.
 
-## <a name="restore-a-database"></a>Per ripristinare un database
+## <a name="restore-a-database"></a>Ripristinare un database
 
 Per eseguire il ripristino, sono necessarie le autorizzazioni seguenti:
 
@@ -110,7 +110,15 @@ Per ripristinare i dati di backup come file con estensione bak anziché come dat
 
 1. Nel menu **configurazione ripristino** , in percorso **da ripristinare**Selezionare **Ripristina come file**.
 2. Selezionare il nome del SQL Server in cui si desidera ripristinare i file di backup.
-3. Nel **percorso di destinazione nel server** immettere il percorso della cartella nel server selezionato nel passaggio 2. Si tratta del percorso in cui il servizio eseguirà il dump di tutti i file di backup necessari. In genere, un percorso di condivisione di rete o un percorso di una condivisione file di Azure montata quando viene specificato come percorso di destinazione consente di accedere più facilmente a questi file da altri computer nella stessa rete o con la stessa condivisione file di Azure montata su di essi.
+3. Nel **percorso di destinazione nel server** immettere il percorso della cartella nel server selezionato nel passaggio 2. Si tratta del percorso in cui il servizio eseguirà il dump di tutti i file di backup necessari. In genere, un percorso di condivisione di rete o un percorso di una condivisione file di Azure montata quando viene specificato come percorso di destinazione consente di accedere più facilmente a questi file da altri computer nella stessa rete o con la stessa condivisione file di Azure montata su di essi.<BR>
+
+>Per ripristinare i file di backup del database in una condivisione file di Azure montata nella macchina virtuale di destinazione registrata, verificare che NT AUTHORITY\SYSTEM abbia accesso alla condivisione file. È possibile eseguire i passaggi indicati di seguito per concedere le autorizzazioni di lettura/scrittura per l'AFS montato sulla macchina virtuale:
+>- Eseguire `PsExec -s cmd` per accedere a NT AUTHORITY\SYSTEM Shell
+>   - Eseguire `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>`
+>   - Verificare l'accesso con `dir \\<storageacct>.file.core.windows.net\<filesharename>`
+>- Avviare un ripristino come file dall'insieme di credenziali per il backup per `\\<storageacct>.file.core.windows.net\<filesharename>` come percorso<BR>
+È possibile scaricare PsExec tramite <https://docs.microsoft.com/sysinternals/downloads/psexec>
+
 4. Selezionare **OK**.
 
 ![Selezionare Ripristina come file](./media/backup-azure-sql-database/restore-as-files.png)

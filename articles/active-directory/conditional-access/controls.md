@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 12/20/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cac92da744b3d5b7aeaa325c7cc564a3d7e2abdd
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 342ec46aabafec975d780aa03fe75d7e3cf50497
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74380800"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424978"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Che cosa sono i controlli di accesso nell'accesso condizionale Azure Active Directory?
 
@@ -51,7 +51,7 @@ Con i controlli di concessione è possibile bloccare completamente l'accesso o c
 
 ![Controllo](./media/controls/18.png)
 
-### <a name="multi-factor-authentication"></a>Autenticazione a più fattori
+### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
 È possibile usare questo controllo per richiedere l'autenticazione a più fattori per l'accesso all'app cloud specificata. Questo controllo supporta i provider di autenticazione a più fattori seguenti:
 
@@ -76,7 +76,7 @@ Per altre informazioni, vedere [come richiedere i dispositivi gestiti per l'acce
 
 ### <a name="hybrid-azure-ad-joined-device"></a>Dispositivo aggiunto all'identità ibrida di Azure AD
 
-La richiesta di un dispositivo Azure AD ibrido aggiunto è un'altra opzione per configurare i criteri di accesso condizionale basati su dispositivo. Questo requisito si riferisce a tablet aziendali, laptop e desktop di Windows aggiunti ad Active Directory locale. Se questa opzione è selezionata, i criteri di accesso condizionale concedono l'accesso ai tentativi di accesso effettuati con i dispositivi aggiunti all'Active Directory locale e al Azure Active Directory.  
+La richiesta di un dispositivo ibrido Azure AD aggiunto è un'altra opzione per configurare i criteri di accesso condizionale basati su dispositivo. Questo requisito si riferisce a tablet aziendali, laptop e desktop di Windows aggiunti ad Active Directory locale. Se questa opzione è selezionata, i criteri di accesso condizionale concedono l'accesso ai tentativi di accesso effettuati con i dispositivi aggiunti all'Active Directory locale e al Azure Active Directory. I dispositivi Mac non supportano il join ibrido Azure AD.
 
 Per altre informazioni, vedere [configurare Azure Active Directory Criteri di accesso condizionale basato su dispositivo](require-managed-devices.md).
 
@@ -114,7 +114,7 @@ Di seguito sono elencati i provider che attualmente offrono un servizio compatib
 - [Entrust Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
 - [GSMA](https://mobileconnect.io/azure/)
 - [Ping Identity](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
-- RSA
+- [RSA](https://community.rsa.com/docs/DOC-81278)
 - [SecureAuth](https://docs.secureauth.com/pages/viewpage.action?pageId=47238992#)
 - [Silverfort](https://www.silverfort.io/company/using-silverfort-mfa-with-azure-active-directory/)
 - [Symantec VIP](https://help.symantec.com/home/VIP_Integrate_with_Azure_AD)

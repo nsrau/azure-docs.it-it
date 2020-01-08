@@ -3,18 +3,18 @@ title: Glossario dei termini Plug and Play anteprima | Microsoft Docs
 description: 'Concetti: un glossario dei termini comuni relativi a Internet delle cose Plug and Play anteprima.'
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 10/10/2019
+ms.date: 12/23/2019
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 22b2cb8caa815b2ce8343a060a5f12133b763b83
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: b6516b07f24c40fcb95d47e05b22dd7672c10f2a
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890347"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531202"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Glossario dei termini per la Plug and Play di anteprima
 
@@ -64,7 +64,7 @@ Azure Internet Explorer è uno strumento grafico che è possibile usare per inte
 - Usare le [Proprietà](#properties)del dispositivo.
 - Chiamare i [comandi](#commands)del dispositivo.
 
-## <a name="azure-iot-hub"></a>Hub IoT Azure
+## <a name="azure-iot-hub"></a>Azure IoT Hub
 
 IoT Hub è un servizio gestito, ospitato nel cloud, che funge da hub del messaggio centrale per la comunicazione bidirezionale tra l'applicazione di IoT e i dispositivi gestiti. I [dispositivi Plug and Play](#iot-plug-and-play-device) possono connettersi a un hub Internet. Una soluzione Internet delle cose usa un hub Internet delle cose per abilitare:
 
@@ -105,7 +105,7 @@ Un modello di funzionalità del dispositivo descrive un [dispositivo Plug and Pl
 
 ## <a name="device-certification"></a>Certificazione del dispositivo
 
-La certificazione dei dispositivi è il processo di certificazione di un [dispositivo Plug and Play](#iot-plug-and-play-device) in modo che possa essere aggiunto al [Catalogo dei dispositivi Certified for](#certified-for-iot-device-catalog) Internet e al modello di [capacità del dispositivo](#device-capability-model) e alle [interfacce](#interface) aggiunte al [modello pubblico repository](#public-model-repository).
+La certificazione del dispositivo è il processo di certificazione di un [dispositivo Plug and Play](#iot-plug-and-play-device) in modo che sia possibile aggiungerlo [al catalogo dei dispositivi Certified for](#certified-for-iot-device-catalog) Internet e alle relative [interfacce](#interface) e al [modello di capacità dei dispositivi](#device-capability-model) aggiunto al repository del [modello pubblico](#public-model-repository).
 
 ## <a name="device-developer"></a>Sviluppatore di dispositivi
 
@@ -155,7 +155,7 @@ Il linguaggio di query dell'hub Internet viene usato per diversi scopi. Ad esemp
 
 Un dispositivo Plug and Play è in genere un dispositivo di elaborazione autonomo di piccole dimensioni che raccoglie dati o controlla altri dispositivi e che esegue software o firmware che implementa un [modello di funzionalità del dispositivo](#device-capability-model).  Ad esempio, un dispositivo Plug and Play potrebbe essere un dispositivo di monitoraggio ambientale o un controller per un sistema di irrigazione con Smart Agriculture. È possibile scrivere una soluzione Internet delle cose ospitata nel cloud per i comandi, il controllo e la ricezione di dati da dispositivi Plug and Play. Il [Catalogo dei dispositivi Azure Certified per](#certified-for-iot-device-catalog) Internet è elencato plug and Play dispositivi. Ogni sacco Plug and Play dispositivo nel catalogo è stato convalidato e ha un [modello di capacità del dispositivo](#device-capability-model).
 
-## <a name="microsoft-partner-center"></a>Centro per i partner Microsoft
+## <a name="microsoft-partner-center"></a>Microsoft Partner Center
 
 Il centro per i [partner Microsoft](https://docs.microsoft.com/partner-center/) è il punto in cui l'organizzazione gestisce la relazione end-to-end con Microsoft. È necessario un account del centro per i partner Microsoft prima di poter certificare le cose [plug and Play dispositivo](#iot-plug-and-play-device) nel [portale di Azure Certified per](#azure-certified-for-iot-portal)Internet.
 

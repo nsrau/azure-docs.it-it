@@ -3,22 +3,22 @@ title: Come usare la diagnostica di Azure (.NET) con i servizi cloud | Documenta
 description: Uso della diagnostica di Azure per raccogliere dati dai servizi cloud di Azure per debug, valutazione delle prestazioni, monitoraggio, analisi del traffico e altro ancora.
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 manager: carmonm
 ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/22/2017
-ms.author: gwallace
-ms.openlocfilehash: 5f2ec77452b90d4270de043955fc0b443f045d5b
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.author: tagore
+ms.openlocfilehash: d5a4e5ce40726ea36734a0dcf751b79225d5e153
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68359695"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75361114"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Abilitazione di Diagnostica di Azure in servizi cloud di Azure
-Vedere [Cenni preliminari sulla diagnostica di Azure](../azure-diagnostics.md) per un background sulla diagnostica di Azure.
+Vedere [Panoramica di Diagnostica di Azure](../azure-diagnostics.md) per un'introduzione a Diagnostica di Azure.
 
 ## <a name="how-to-enable-diagnostics-in-a-worker-role"></a>Come abilitare la diagnostica in un ruolo di lavoro
 Questa procedura dettagliata descrive come implementare un ruolo di lavoro di Azure che emette i dati di telemetria con la classe EventSource .NET. Il modulo Diagnostica Azure viene usato per raccogliere i dati di telemetria e memorizzarli in un account di archiviazione di Azure. Quando si crea un ruolo di lavoro, Visual Studio abilita automaticamente Diagnostica 1.0 come parte della soluzione in Azure SDK per .NET 2.4 e versioni precedenti. Le seguenti istruzioni descrivono il processo per creare il ruolo di lavoro, disabilitare Diagnostica 1.0 dalla soluzione e implementare Diagnostica 1.2 o 1.3 nel ruolo di lavoro.
@@ -35,7 +35,7 @@ In questo articolo si presuppone che l'utente disponga di una sottoscrizione di 
 6. Compilare la soluzione per verificare che non ci siano errori.
 
 ### <a name="step-2-instrument-your-code"></a>Passaggio 2: Instrumentare il codice
-Sostituire il contenuto del file WorkerRole.cs con il codice seguente. La classe SampleEventSourceWriter, ereditata dalla [classe EventSource][EventSource Class], implementa quattro metodi di registrazione: **SendEnums**, **MessageMethod**, **SetOther** e HighFreq. Il primo parametro per il metodo **WriteEvent** definisce l'ID per il rispettivo evento. Il metodo Run implementa un ciclo infinito che chiama ognuno dei metodi di registrazione implementati nella classe **SampleEventSourceWriter** ogni 10 secondi.
+Sostituire il contenuto del file WorkerRole.cs con il codice seguente. La classe SampleEventSourceWriter, ereditata dalla [classe EventSource][EventSource Class], implementa quattro metodi di registrazione: **SendEnums**, **MessageMethod**, **seother** e **HighFreq**. Il primo parametro per il metodo **WriteEvent** definisce l'ID per il rispettivo evento. Il metodo Run implementa un ciclo infinito che chiama ognuno dei metodi di registrazione implementati nella classe **SampleEventSourceWriter** ogni 10 secondi.
 
 ```csharp
 using Microsoft.WindowsAzure.ServiceRuntime;
@@ -167,7 +167,7 @@ namespace WorkerRole1
 ```
 
 ### <a name="step-5-install-diagnostics-on-your-worker-role"></a>Passaggio 5: Installare la diagnostica nel ruolo di lavoro
-I cmdlet di PowerShell per la gestione di diagnostica in un ruolo Web o di lavoro sono: Set-AzureServiceDiagnosticsExtension, Get-AzureServiceDiagnosticsExtension e Remove-AzureServiceDiagnosticsExtension.
+I cmdlet di PowerShell per la gestione della diagnostica in un ruolo Web o di lavoro sono: : Set-AzureServiceDiagnosticsExtension, Get-AzureServiceDiagnosticsExtension e Remove-AzureServiceDiagnosticsExtension.
 
 1. Aprire Azure PowerShell.
 2. Eseguire lo script per installare la diagnostica nel ruolo di lavoro (sostituire *StorageAccountKey* con la chiave dell'account di archiviazione di wadexample e *config_path* con il percorso del file *WadExample.xml*):
@@ -189,7 +189,7 @@ In **Esplora server** di Visual Studio passare all'account di archiviazione di w
 ## <a name="configuration-file-schema"></a>Schema del file di configurazione
 Il file di configurazione della diagnostica definisce i valori usati per inizializzare le impostazioni di diagnostica quando viene avviato il monitor di diagnostica. Vedere il [riferimento allo schema più recente](/azure/azure-monitor/platform/diagnostics-extension-schema) per i valori validi ed alcuni esempi.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 Se si verificano problemi, vedere l'argomento relativo alla [risoluzione dei problemi di Diagnostica di Azure](../azure-diagnostics-troubleshooting.md) per informazioni sui problemi comuni.
 
 ## <a name="next-steps"></a>Fasi successive
@@ -201,3 +201,6 @@ Se si verificano problemi, vedere l'argomento relativo alla [risoluzione dei pro
 [Collect Logging Data by Using Azure Diagnostics]: https://msdn.microsoft.com/library/windowsazure/gg433048.aspx
 [Free Trial]: https://azure.microsoft.com/pricing/free-trial/
 [Install and configure Azure PowerShell version 0.8.7 or later]: https://azure.microsoft.com/documentation/articles/install-configure-powershell/
+
+
+

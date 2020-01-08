@@ -6,14 +6,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 11/09/2019
+ms.date: 12/28/2019
 ms.author: v-qiwe
-ms.openlocfilehash: 79891f6a4036a21be8edc70044a29cfb9cca4755
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 4ff398c6e4208b7e55affe3fe8d6dd5efdce7bf7
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891063"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75528233"
 ---
 # <a name="commercial-marketplace-policies-and-terms"></a>Condizioni e criteri del Marketplace commerciale
 
@@ -26,7 +26,7 @@ Le offerte sul Marketplace devono essere conformi ai criteri e alle condizioni. 
 
 ## <a name="policies-and-terms"></a>Criteri e termini
 
-* [Criteri di certificazione del Marketplace commerciale](https://docs.microsoft.com/legal/marketplace/certification-policies)
+* [Criteri di certificazione del marketplace commerciale](https://docs.microsoft.com/legal/marketplace/certification-policies)
 
 * [Criteri di partecipazione](https://docs.microsoft.com/legal/marketplace/participation-policy)
 

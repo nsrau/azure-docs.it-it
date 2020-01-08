@@ -1,18 +1,20 @@
 ---
-title: Importare ed esportare dati in progetti di Azure Notebooks
-description: Informazioni su come importare dati di origini esterne in un progetto di Azure Notebooks e su come esportare dati da un progetto.
-ms.topic: article
+title: Importare ed esportare dati con progetti con Azure Notebooks anteprima
+description: Informazioni su come importare dati in un progetto di Azure Notebooks Preview da origini esterne e su come esportare i dati da un progetto.
+ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: bd7ba27859e9d05c0d57c2f78b6449c2bc48ca33
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: e1d4a52ab7f4ad2ca3438af4bc87bec0b79f34d1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277391"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646977"
 ---
-# <a name="work-with-data-files-in-azure-notebook-projects"></a>Usare file di dati in progetti di Azure Notebooks
+# <a name="work-with-data-files-in-azure-notebooks-preview-projects"></a>Usare i file di dati nei progetti di Azure Notebooks anteprima
 
 I dati sono la linfa vitale di molti notebook di Jupyter, specialmente dei notebook usati per il data science. Con Azure Notebooks è possibile importare facilmente i dati di varie origini in un progetto e quindi usarli dai notebook. È anche possibile impostare i notebook in modo che generino dati che vengono archiviati nel progetto e che successivamente possono essere scaricati per essere usati altrove.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Il menu **Data** (Dati) di un notebook in esecuzione include i comandi **Upload** (Carica) e **Download** (Scarica), che sono applicabili ai file nel progetto nonché ai file temporanei della sessione corrente del notebook.
 

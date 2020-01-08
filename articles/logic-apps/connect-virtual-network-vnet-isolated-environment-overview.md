@@ -5,19 +5,19 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 11/08/2019
-ms.openlocfilehash: 9c4dca6dc5def1b1c458f28aa2d3ab992bd705d2
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 12/16/2019
+ms.openlocfilehash: d6bb57c8163f7653f4b10142d7ec2b34f50456f1
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792724"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75527859"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Accedere alle risorse di Rete virtuale di Azure da App per la logica di Azure usando ambienti del servizio di integrazione (ISE)
 
 A volte, le app per la logica e gli account di integrazione devono accedere alle risorse protette, ad esempio macchine virtuali (VM) e altri sistemi o servizi, all'interno di una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md). Per configurare questo accesso, è possibile [creare un *ambiente del servizio di integrazione* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) in cui è possibile eseguire le app per la logica e creare gli account di integrazione.
 
-Quando si crea un ISE, Azure *inserisce* tale ISE nella rete virtuale di Azure, che quindi distribuisce un'istanza privata e isolata del servizio app per la logica nella rete virtuale di Azure. L'istanza privata usa risorse dedicate, ad esempio lo spazio di archiviazione, e viene eseguita separatamente dal servizio App per la logica pubblico "globale". La separazione dell'istanza privata isolata e dell'istanza globale pubblica consente anche di ridurre l'impatto che altri tenant di Azure potrebbero avere sulle prestazioni delle app, nota anche come [effetto "vicini rumorosi"](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors).
+Quando si crea un ISE, Azure *inserisce* tale ISE nella rete virtuale di Azure, che quindi distribuisce un'istanza privata e isolata del servizio app per la logica nella rete virtuale di Azure. Questa istanza privata usa risorse dedicate, ad esempio l'archiviazione, e viene eseguita separatamente dal servizio pubblico di app per la logica multi-tenant "globale". La separazione dell'istanza privata isolata e dell'istanza globale pubblica consente anche di ridurre l'impatto che altri tenant di Azure potrebbero avere sulle prestazioni delle app, nota anche come [effetto "vicini rumorosi"](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). Un ISE fornisce anche indirizzi IP statici. Questi indirizzi IP sono distinti dagli indirizzi IP statici condivisi dalle app per la logica nel servizio pubblico multi-tenant.
 
 Dopo aver creato l'ISE, quando si crea l'app per la logica o l'account di integrazione, è possibile selezionare il percorso di ISE come app per la logica o l'account di integrazione:
 
@@ -47,7 +47,7 @@ Le app per la logica in un ambiente del servizio di integrazione offrono le stes
 
 * Archiviazione BLOB, Archiviazione file e Archiviazione tabelle di Azure
 * Code di Azure, bus di servizio di Azure, hub eventi di Azure e IBM MQ
-* File System, FTP e SFTP-SSH
+* FTP e SFTP-SSH
 * SQL Server, Azure SQL Data Warehouse, Azure Cosmos DB
 * AS2, X12 ed EDIFACT
 
@@ -86,11 +86,13 @@ Per informazioni sui prezzi, vedere [prezzi di app](https://azure.microsoft.com/
 
 ## <a name="ise-endpoint-access"></a>Accesso endpoint ISE
 
-Quando si crea ISE, è possibile scegliere di usare endpoint di accesso interni o esterni. Questi endpoint determinano se i trigger di richiesta o webhook nelle app per la logica in ISE possono ricevere chiamate dall'esterno della rete virtuale. Questi endpoint influiscono anche sull'accesso a input e output nella cronologia di esecuzione dell'app per la logica.
+Quando si crea ISE, è possibile scegliere di usare endpoint di accesso interni o esterni. La selezione determina se i trigger di richiesta o webhook nelle app per la logica in ISE possono ricevere chiamate dall'esterno della rete virtuale.
 
-* **Interno**: endpoint privati che consentono chiamate alle app per la logica in ISE e l'accesso agli input e agli output nella cronologia di esecuzione solo *dall'interno della rete virtuale*
+Questi endpoint influiscono anche sul modo in cui è possibile accedere agli input e agli output nella cronologia di esecuzione delle app per la logica.
 
-* **Esterno**: endpoint pubblici che consentono chiamate alle app per la logica in ISE e l'accesso a input e output nella cronologia di esecuzione *dall'esterno della rete virtuale*
+* **Interno**: endpoint privati che consentono chiamate a app per la logica in ISE, in cui è possibile visualizzare e accedere agli input e agli output delle app per la logica nella cronologia di esecuzione *solo dall'interno della rete virtuale*
+
+* **External**: endpoint pubblici che consentono chiamate a app per la logica in ISE, in cui è possibile visualizzare e accedere agli input e agli output delle app per la logica nella cronologia di esecuzione *dall'esterno della rete virtuale*. Se si usano i gruppi di sicurezza di rete (gruppi), assicurarsi che siano configurati con regole in ingresso per consentire l'accesso agli input e agli output della cronologia di esecuzione. Per altre informazioni, vedere [abilitare l'accesso per ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
 
 > [!IMPORTANT]
 > L'opzione endpoint di accesso è disponibile solo alla creazione di ISE e non può essere modificata in un secondo momento.

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/12/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4130b05be1a4abb2166514b730c3d21bd5ece97
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: dcdd89ba7741257443cf5e7567c59a6986e43c20
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803581"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424836"
 ---
 # <a name="conditional-access-risk-based-conditional-access"></a>Accesso condizionale: accesso condizionale basato sul rischio
 
@@ -38,7 +38,7 @@ L'abilitazione di questo criterio richiede che tutti gli utenti si registrino pe
    1. In **Escludi**selezionare **Seleziona utenti esclusi**, scegliere l'accesso di emergenza dell'organizzazione o gli account break-Glass e selezionare **Seleziona**. 
    1. Selezionare **Operazione completata**.
 1. Impostare **Applica criterio** **su on**.
-1. Fare clic su **Salva**
+1. Fare clic su **Salva**.
 
 ## <a name="require-a-password-change-high-risk-users"></a>Richiedere una modifica della password per gli utenti ad alto rischio
 
@@ -56,7 +56,7 @@ Microsoft collabora con ricercatori, forze dell'ordine, diversi team di sicurezz
 1. In **controls** > **Access**scegliere **Allow Access**e quindi selezionare **Richiedi modifica della password**.
    1. Fare clic su **Seleziona**.
 1. Impostare **Applica criterio** **su on**.
-1. Fare clic su **Salva**
+1. Fare clic su **Salva**.
 
 ## <a name="require-mfa-medium-or-high-sign-in-risk-users"></a>Richiedi utenti di rischio di accesso medio o alto per l'autenticazione a più fattori
 
@@ -74,11 +74,13 @@ La maggior parte degli utenti ha un comportamento normale monitorabile. In condi
 1. In **controlli** > **accesso**scegliere **Consenti accesso**, quindi selezionare **Richiedi autenticazione**a più fattori.
    1. Fare clic su **Seleziona**.
 1. Impostare **Applica criterio** **su on**.
-1. Fare clic su **Salva**
+1. Fare clic su **Salva**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Criteri comuni di accesso condizionale](concept-conditional-access-policy-common.md)
+
+[Determinare l'effetto usando la modalità solo report di accesso condizionale](howto-conditional-access-report-only.md)
 
 [Simulare il comportamento di accesso usando lo strumento di What If dell'accesso condizionale](troubleshoot-conditional-access-what-if.md)
 

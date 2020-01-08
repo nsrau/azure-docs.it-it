@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: martinco
 ms.reviewer: arvindha
-ms.openlocfilehash: 5d55aafc29b3b022d1023077d2d8f459b0608ae7
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 6f72371077aab813cc22c9bbbe755fdfaa9ac00a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555652"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433829"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Pianificare l'applicazione cloud HR per Azure Active Directory il provisioning degli utenti
 
@@ -96,7 +96,7 @@ Per configurare l'app Cloud HR per Azure AD l'integrazione del provisioning degl
 | | [Come distribuire il provisioning utenti in Active Directory di Azure?](https://youtu.be/pKzyts6kfrw) |
 | Esercitazioni | Vedere l' [elenco delle esercitazioni sull'integrazione di app Saas con Azure ad](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) |
 | | [Esercitazione: configurare la giornata lavorativa per il provisioning utenti automatico](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#frequently-asked-questions-faq) |
-| FAQ | [Provisioning utenti automatizzato](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#frequently-asked-questions) |
+| FAQ | [Provisioning utenti automatizzato](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
 | | [Provisioning da giorni lavorativi a Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#frequently-asked-questions-faq) |
 
 ### <a name="solution-architecture"></a>Architettura della soluzione
@@ -165,7 +165,7 @@ L'integrazione del provisioning tra l'app HR cloud e AD richiede questi quattro 
 - Tenant app Cloud HR
 - App del connettore di provisioning
 - Agente di provisioning di Azure AD Connect
-- Dominio AD
+- AD domain
 
 La topologia di distribuzione dell'agente di provisioning di Azure AD Connect dipende dal numero di tenant di app HR cloud e di domini figlio di Active Directory che si intende integrare. Se si dispone di più domini di Active Directory, dipende dalla presenza o meno di domini AD contigui o [non contigui](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/disjoint-namespace).
 
@@ -319,14 +319,14 @@ SSPR è un modo semplice per gli amministratori IT di consentire agli utenti di 
 
 ## <a name="plan-for-initial-cycle"></a>Pianificare il ciclo iniziale
 
-Quando il servizio di provisioning Azure AD viene eseguito per la prima volta, viene eseguito un [ciclo iniziale](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#what-happens-during-provisioning) sull'app HR cloud per creare uno snapshot di tutti gli oggetti utente nell'app Cloud HR. Il tempo impiegato per i cicli iniziali dipende direttamente dal numero di utenti presenti nel sistema di origine. Il ciclo iniziale per alcuni tenant app Cloud HR con oltre 100.000 utenti può richiedere molto tempo.
+Quando il servizio di provisioning Azure AD viene eseguito per la prima volta, viene eseguito un [ciclo iniziale](https://docs.microsoft.com/azure/active-directory/manage-apps/how-provisioning-works#initial-cycle) sull'app HR cloud per creare uno snapshot di tutti gli oggetti utente nell'app Cloud HR. Il tempo impiegato per i cicli iniziali dipende direttamente dal numero di utenti presenti nel sistema di origine. Il ciclo iniziale per alcuni tenant app Cloud HR con oltre 100.000 utenti può richiedere molto tempo.
 
 **Per i tenant cloud HR app di grandi dimensioni (> 30.000 utenti), è consigliabile** eseguire il ciclo iniziale in fasi progressive e avviare gli aggiornamenti incrementali solo dopo aver verificato che gli attributi corretti siano impostati in Active Directory per diversi scenari di provisioning degli utenti. Seguire l'ordine seguente:
 
 1. Eseguire il ciclo iniziale solo per un set limitato di utenti impostando il [filtro di ambito](#plan-scoping-filters-and-attribute-mapping).
 2. Verificare i valori degli attributi e del provisioning dell'account Active Directory impostati per gli utenti selezionati per la prima esecuzione. Se il risultato soddisfa le aspettative, espandere il filtro di ambito per includere progressivamente più utenti e verificare i risultati per la seconda esecuzione.
 
-Quando si è soddisfatti dei risultati del ciclo iniziale per gli utenti di test, è possibile avviare gli [aggiornamenti incrementali](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#incremental-cycles).
+Quando si è soddisfatti dei risultati del ciclo iniziale per gli utenti di test, è possibile avviare gli [aggiornamenti incrementali](https://docs.microsoft.com/azure/active-directory/manage-apps/how-provisioning-works#incremental-cycles).
 
 ## <a name="plan-testing-and-security"></a>Pianificare test e sicurezza
 
@@ -358,7 +358,7 @@ Per la distribuzione di un nuovo servizio è normale che sia necessaria una revi
 
 Se l'implementazione del provisioning utenti cloud HR non funziona nel modo desiderato nell'ambiente di produzione, i passaggi di rollback seguenti possono risultare utili per ripristinare uno stato valido noto precedente:
 
-1. Esaminare il [report di riepilogo del provisioning](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting#getting-provisioning-reports-from-the-azure-management-portal) e i [log di provisioning](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting#provisioning-audit-logs) (vedere gestire il provisioning utenti [dell'app HR cloud](#manage-your-configuration)) per determinare le operazioni non corrette eseguite sugli utenti e/o sui gruppi interessati.
+1. Esaminare il [report di riepilogo del provisioning](check-status-user-account-provisioning.md#getting-provisioning-reports-from-the-azure-portal) e i [log di provisioning](check-status-user-account-provisioning.md#provisioning-logs-preview) (vedere gestire il provisioning utenti [dell'app HR cloud](#manage-your-configuration)) per determinare le operazioni non corrette eseguite sugli utenti e/o sui gruppi interessati.
 2. L'ultimo stato valido noto degli utenti e/o dei gruppi interessati può essere determinato tramite i log di controllo del provisioning o rivedendo i sistemi di destinazione (Azure AD o AD).
 3. Collaborare con il proprietario dell'app per aggiornare gli utenti e/o i gruppi interessati direttamente nell'app usando gli ultimi valori di stato validi noti.
 
@@ -374,7 +374,7 @@ Azure AD possibile fornire informazioni aggiuntive sull'utilizzo del provisionin
 
 ### <a name="gain-insights-from-reports-and-logs"></a>Ottenere informazioni dettagliate da report e log
 
-Dopo un [ciclo iniziale](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#what-happens-during-provisioning)riuscito, il servizio di provisioning di Azure ad continuerà a eseguire aggiornamenti incrementali back-to-back a tempo indeterminato, a intervalli definiti nelle esercitazioni specifiche per ogni app, fino a quando non si verifica uno degli eventi seguenti:
+Dopo un [ciclo iniziale](https://docs.microsoft.com/azure/active-directory/manage-apps/how-provisioning-works#initial-cycle)riuscito, il servizio di provisioning di Azure ad continuerà a eseguire aggiornamenti incrementali back-to-back a tempo indeterminato, a intervalli definiti nelle esercitazioni specifiche per ogni app, fino a quando non si verifica uno degli eventi seguenti:
 
 - Il servizio viene arrestato manualmente e viene attivato un nuovo ciclo iniziale usando il [portale di Azure](https://portal.azure.com/) o usando il comando [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) appropriato.
 - Viene attivato un nuovo ciclo iniziale a causa di una modifica nei mapping degli attributi o nei filtri di ambito.
@@ -396,7 +396,7 @@ L'agente di provisioning di Azure AD Connect installato in Windows Server crea l
 
 Azure AD servizio di provisioning non genera report, esegue analisi o fornisce informazioni dettagliate oltre 30 giorni. Di conseguenza, il servizio di provisioning di Azure AD non archivia, elabora o conserva i dati oltre i 30 giorni. 
 
-### <a name="troubleshoot"></a>Risolvere problemi
+### <a name="troubleshoot"></a>Risolvere i problemi
 
 Per risolvere eventuali problemi che possono verificarsi durante il provisioning, vedere i collegamenti seguenti:
 

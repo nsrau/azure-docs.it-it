@@ -1,24 +1,25 @@
 ---
-title: Uso di PowerShell, abilitare Desktop remoto per un ruolo (servizi cloud di Azure)
+title: Usare PowerShell per abilitare Desktop remoto per un ruolo
+titleSuffix: Azure Cloud Services
 description: Come configurare l'applicazione del servizio cloud di Azure utilizzando PowerShell per consentire le connessioni Desktop remoto
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: gwallace
-ms.openlocfilehash: cd36188cba91ad8a97e3f97896cf215a5f0220c2
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.author: tagore
+ms.openlocfilehash: e4e8dca6c5359e865e6a17fc47fe47802b0ee9e6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298417"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386120"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>Abilitare una connessione Desktop remoto per un ruolo in Servizi cloud di Azure con PowerShell
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
+> * [Azure portal](cloud-services-role-enable-remote-desktop-new-portal.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
@@ -100,3 +101,5 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 [Come configurare i servizi cloud](cloud-services-how-to-configure-portal.md)
+
+

@@ -1,6 +1,6 @@
 ---
-title: Installazione di Azure AD Connect agente di provisioning cloud
-description: Questo argomento descrive in modo dettagliato come installare l'agente di provisioning.
+title: Installare l'agente di provisioning cloud di Azure AD Connect
+description: Questo articolo descrive come installare l'agente di provisioning di Azure AD Connect Cloud.
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,15 +11,15 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11e3b2a113d46ff3d8799927f56fa66601c94ed5
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 7f4e8450593b8ff0f73c09f236f17eb4ef09334c
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74846233"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75549503"
 ---
-# <a name="install-azure-ad-connect-cloud-provisioning-agent"></a>Installare Azure AD Connect agente di provisioning cloud
-In questo documento viene illustrato il processo di installazione per l'agente di provisioning di Azure AD Connect e come configurarlo inizialmente nel portale di Azure.
+# <a name="install-the-azure-ad-connect-cloud-provisioning-agent"></a>Installare l'agente di provisioning cloud di Azure AD Connect
+Questo documento illustra il processo di installazione per l'agente di provisioning di Azure Active Directory (Azure AD) e come configurarlo inizialmente nella portale di Azure.
 
 >[!IMPORTANT]
 >Nelle istruzioni di installazione seguenti si presuppone che siano stati soddisfatti tutti i [prerequisiti](how-to-prerequisites.md) .
@@ -31,67 +31,77 @@ L'installazione e la configurazione di Azure AD Connect provisioning vengono ese
 
 
 ## <a name="install-the-agent"></a>Installare l'agente
+Per installare l'agente, attenersi alla seguente procedura.
 
-1. Accedere al server che si userà con le autorizzazioni di amministratore dell'organizzazione.
-2. Passare alla portale di Azure, selezionare Azure Active Directory a sinistra.
-3. Fare clic su **Gestisci provisioning (anteprima)** e selezionare **Controlla tutti gli agenti**.
-3. Scaricare l'agente di provisioning Azure AD Connect dalla portale di Azure.
-![Schermata iniziale](media/how-to-install/install9.png)</br>
-3. Eseguire il provisioning Azure AD Connect (AADConnectProvisioningAgent. Installer)
-3. Nella schermata iniziale **accettare** le condizioni di licenza e fare clic su **Installa**.</br>
-![Schermata iniziale](media/how-to-install/install1.png)</br>
+1. Accedere al server che verrà usato con le autorizzazioni di amministratore dell'organizzazione.
+1. Accedere al portale di Azure. A sinistra selezionare **Azure Active Directory**.
+1. Selezionare **Gestisci provisioning (anteprima)**  > **esaminare tutti gli agenti**.
+1. Scaricare l'agente di provisioning Azure AD Connect dalla portale di Azure.
 
-4. Al termine dell'operazione verrà avviata la configurazione guidata.  Accedere con l'account amministratore globale Azure AD.
-5. Nella schermata **connetti Active Directory** fare clic su **Aggiungi directory** , quindi accedere con l'account amministratore Active Directory.  Questa operazione aggiungerà la directory locale.  Fare clic su **Next** (Avanti).</br>
-![Schermata iniziale](media/how-to-install/install3.png)</br>
+   ![Scarica agente locale](media/how-to-install/install9.png)</br>
+1. Eseguire il programma di installazione del provisioning Azure AD Connect (AADConnectProvisioningAgent. Installer).
+1. Nella schermata **Microsoft Azure ad connettere il pacchetto agente di provisioning** , accettare le condizioni di licenza e selezionare **Installa**.
 
-6. Nella schermata **Configurazione completata** fare clic su **conferma**.  Questa operazione registrerà e riavvierà l'agente.</br>
-![Schermata iniziale](media/how-to-install/install4.png)</br>
+   ![Schermata del pacchetto dell'agente di provisioning di Microsoft Azure AD Connect](media/how-to-install/install1.png)</br>
 
-7. Al termine dell'operazione, si noterà che **la verifica è stata completata.**  È possibile fare clic su **Esci**.</br>
-![Schermata iniziale](media/how-to-install/install5.png)</br>
-8. Se viene ancora visualizzata la schermata iniziale iniziale, fare clic su **Chiudi**.
+1. Al termine di questa operazione, viene avviata la configurazione guidata. Accedere con l'account amministratore globale di Azure AD.
+1. Nella schermata **connetti Active Directory** selezionare **Aggiungi directory**. Accedere quindi con l'account amministratore Active Directory. Questa operazione aggiunge la directory locale. Selezionare **Avanti**.
 
+   ![Schermata Connetti Active Directory](media/how-to-install/install3.png)</br>
+
+1. Nella schermata **Configurazione completata** selezionare **conferma**. Questa operazione registra e riavvia l'agente.
+
+   ![Schermata Configurazione completata](media/how-to-install/install4.png)</br>
+
+1. Al termine di questa operazione, verrà visualizzato il avviso che la **configurazione dell'agente è stata verificata correttamente.** Selezionare **Esci**.
+
+   ![Pulsante Esci](media/how-to-install/install5.png)</br>
+1. Se viene ancora visualizzata la schermata iniziale **Microsoft Azure ad Connetti il pacchetto dell'agente di provisioning** , selezionare **Chiudi**.
 
 ## <a name="verify-agent-installation"></a>Verificare l'installazione dell'agente
 La verifica dell'agente viene eseguita nel portale di Azure e nel server locale in cui è in esecuzione l'agente.
 
-### <a name="azure-portal-agent-verification"></a>Verifica dell'agente portale di Azure
-Per verificare che l'agente sia visualizzato da Azure, attenersi alla procedura seguente:
+### <a name="azure-portal-agent-verification"></a>Verifica dell'agente nel portale di Azure
+Per verificare che l'agente sia visualizzato da Azure, seguire questa procedura.
 
 1. Accedere al portale di Azure.
-2. A sinistra selezionare **Azure Active Directory**, fare clic su **Azure ad Connect** e al centro selezionare **Gestisci provisioning (anteprima)** .</br>
-![Azure portal](media/how-to-install/install6.png)</br>
+1. A sinistra selezionare **Azure Active Directory** > **Azure ad Connect**. In centro selezionare **Manage provisioning (anteprima)** .
 
-3.  Nella schermata **Azure ad provisioning (anteprima)** fare clic su **Controlla tutti gli agenti**.
-provisioning di ![Azure AD](media/how-to-install/install7.png)</br>
+   ![Portale di Azure](media/how-to-install/install6.png)</br>
+
+1.  Nella schermata **Azure ad provisioning (anteprima)** selezionare **verifica tutti gli agenti**.
+
+    ![Opzione controlla tutti gli agenti](media/how-to-install/install7.png)</br>
  
-4. Nella **schermata agenti di provisioning locali** vengono visualizzati gli agenti installati.  Verificare che l'agente in questione sia presente ed è contrassegnato come **attivo**.
-![agenti di provisioning](media/how-to-install/verify1.png)</br>
+1. Nella schermata **agenti di provisioning locali** vengono visualizzati gli agenti installati. Verificare che l'agente in questione sia presente e contrassegnato come *attivo*.
+
+   ![Schermata agenti di provisioning locale](media/how-to-install/verify1.png)</br>
 
 ### <a name="verify-the-port"></a>Verificare la porta
-Per verificare che Azure sia in ascolto sulla porta 443 e che l'agente sia in grado di comunicare con esso, è possibile usare quanto segue:
+Per verificare che Azure sia in ascolto sulla porta 443 e che l'agente possa comunicare con esso, seguire questa procedura.
 
 https://aadap-portcheck.connectorporttest.msappproxy.net/ 
 
-Questo test verificherà che gli agenti siano in grado di comunicare con Azure tramite la porta 443.  Aprire un browser e passare all'URL precedente dal server in cui è installato l'agente.
-![Servizi](media/how-to-install/verify2.png)
+Questo test verifica che gli agenti possano comunicare con Azure tramite la porta 443. Aprire un browser e passare all'URL precedente dal server in cui è installato l'agente.
 
-### <a name="on-the-local-server"></a>Sul server locale
-Per verificare che l'agente sia in esecuzione, attenersi alla seguente procedura:
+![Verifica della raggiungibilità della porta](media/how-to-install/verify2.png)
 
-1.  Accedere al server con un account amministratore
-2.  Aprire i **Servizi** passando a Start/Run/Services. msc.
-3.  In **Servizi** assicurarsi che **Microsoft Azure ad Connect agent Updater** e **Microsoft Azure ad Connect provisioning Agent** siano presenti e che lo stato sia **in esecuzione**.
-![Servizi](media/how-to-troubleshoot/troubleshoot1.png)
+### <a name="on-the-local-server"></a>Nel server locale
+Per verificare che l'agente sia in esecuzione, attenersi alla seguente procedura.
+
+1.  Accedere al server con un account di amministratore.
+1.  Per aprire i **Servizi** , passare a esso o **avviare** > **eseguire** > **Services. msc**.
+1.  In **Servizi**verificare che **Microsoft Azure ad Connect agent Updater** e **Microsoft Azure ad Connect provisioning Agent** siano presenti e che il relativo stato sia *in esecuzione*.
+
+    ![Schermata dei servizi](media/how-to-troubleshoot/troubleshoot1.png)
 
 >[!IMPORTANT]
->L'agente è stato installato, ma deve essere configurato e abilitato prima di avviare la sincronizzazione degli utenti.  Per configurare un nuovo agente, vedere [Azure ad Connect la configurazione del nuovo agente di provisioning](how-to-configure.md).
+>L'agente è stato installato, ma è necessario configurarlo e abilitarlo prima di avviare la sincronizzazione degli utenti. Per configurare un nuovo agente, vedere [Azure ad Connect Configurazione del nuovo agente per il provisioning cloud](how-to-configure.md).
 
 
 
 ## <a name="next-steps"></a>Passaggi successivi 
 
-- [Che cos'è il provisioning?](what-is-provisioning.md)
-- [Che cos'è Azure AD Connect provisioning cloud?](what-is-cloud-provisioning.md)
+- [Cos'è il provisioning?](what-is-provisioning.md)
+- [Che cos'è il provisioning cloud di Azure AD Connect?](what-is-cloud-provisioning.md)
  

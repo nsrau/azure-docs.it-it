@@ -4,21 +4,21 @@ description: È possibile usare i modelli di Azure Resource Manager per creare e
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/22/2019
-ms.openlocfilehash: 5410d6ef11c3f95bb4f02dbd914a1aacbd068a1b
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 4ec542609d8984d1d03c326854590c834840b33f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176388"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363371"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gestire Log Analytics area di lavoro con modelli di Azure Resource Manager
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-È possibile usare i [modelli di Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) per creare e configurare aree di lavoro log Analytics in monitoraggio di Azure. Ecco alcuni esempi di attività eseguibili con i modelli:
+È possibile usare i [modelli di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) per creare e configurare aree di lavoro log Analytics in monitoraggio di Azure. Ecco alcuni esempi di attività eseguibili con i modelli:
 
 * Creare un'area di lavoro inclusa l'impostazione del piano tariffario 
 * Aggiungere una soluzione
@@ -41,7 +41,7 @@ La tabella seguente elenca la versione dell'API per le risorse usate in questo e
 | Gruppi | Tipo di risorsa | Versione dell'API |
 |:---|:---|:---|
 | Area di lavoro   | aree di lavoro    | 2017-03-15-preview |
-| Ricerca      | savedSearches | 2015-03-20 |
+| Cerca      | savedSearches | 2015-03-20 |
 | Origine dati | datasources   | 2015-11-01-preview |
 | Soluzione    | solutions     | 2015-11-01-preview |
 

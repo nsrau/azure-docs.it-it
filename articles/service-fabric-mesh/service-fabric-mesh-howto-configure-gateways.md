@@ -1,25 +1,17 @@
 ---
-title: Configurare un Gateway per indirizzare le richieste | Microsoft Docs
+title: Configurare un gateway per instradare le richieste
 description: Informazioni su come configurare il gateway che gestisce il traffico in ingresso per le applicazioni in esecuzione in Service Fabric Mesh.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: chakdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/28/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b4fc6f91ee2429205974b9cb7ceb05b7cff53f15
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: ec408403d4baa0f211c6bfe867a15c96513693cb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034216"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461962"
 ---
 # <a name="configure-a-gateway-resource-to-route-requests"></a>Configurare una risorsa del Gateway per indirizzare le richieste
 
@@ -227,8 +219,8 @@ Ecco come appare una configurazione completa della risorsa Gateway (adattato dal
 ```
 
 Questo gateway è configurato per un'applicazione Linux "meshAppLinux", costituita da almeno due servizi: "helloWorldService" e "counterService", in ascolto sulla porta 80. A seconda della struttura dell'URL della richiesta in ingresso, la richiesta verrà indirizzata a uno di questi servizi. 
-* "\<IPAddress >: 80/HelloWorld/\<Request\>" comporterebbe la Reindirizzamento di una richiesta a "helloWorldListener" in helloWorldService. 
-* "\<IPAddress >: 80/Counter/\<Request\>" comporterebbe la Reindirizzamento di una richiesta a "counterListener" in counterService. 
+* "\<IPAddress >: 80/helloWorld/\<request\>" comporterebbe la Reindirizzamento di una richiesta a "helloWorldListener" in helloWorldService. 
+* "\<IPAddress >: 80/Counter/\<request\>" comporterebbe la Reindirizzamento di una richiesta a "counterListener" in counterService. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per visualizzare i gateway in azione, distribuire l'[esempio in ingresso](https://github.com/Azure-Samples/service-fabric-mesh/tree/2018-09-01-preview/templates/ingress)

@@ -2,20 +2,16 @@
 title: Rilevare le modifiche con Automazione di Azure
 description: La soluzione Rilevamento modifiche consente di identificare le modifiche al software e al servizio Windows che si verificano nell'ambiente in uso.
 services: automation
-ms.service: automation
 ms.subservice: change-inventory-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/29/2019
 ms.topic: conceptual
-manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1fd800062c4a8362919b1818550b2fca9fa3eb88
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 7dce249a3e1e13fc9d7d2a962e7f056c803eb23e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850551"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75418743"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Rilevare le modifiche nell'ambiente in uso con la soluzione di rilevamento modifiche
 
@@ -99,7 +95,7 @@ Seguire questa procedura per configurare il rilevamento dei file in computer Lin
 |---------|---------|
 |Attivato     | Determina se l'impostazione viene applicata.        |
 |Nome elemento     | Nome descrittivo del file da rilevare.        |
-|Group     | Nome del gruppo per il raggruppamento logico dei file.        |
+|Gruppo     | Nome del gruppo per il raggruppamento logico dei file.        |
 |Immettere il percorso     | Percorso in cui cercare il file. Ad esempio: "/etc/*.conf"       |
 |Tipo di percorso     | Tipo di elemento da rilevare, i valori possibili sono File e Directory.        |
 |Ricorsione     | Determina se viene usata la ricorsione per la ricerca dell'elemento da rilevare.        |
@@ -122,7 +118,7 @@ Seguire questa procedura per configurare il rilevamento dei file in computer Win
 |---------|---------|
 |Attivato     | Determina se l'impostazione viene applicata.        |
 |Nome elemento     | Nome descrittivo del file da rilevare.        |
-|Group     | Nome del gruppo per il raggruppamento logico dei file.        |
+|Gruppo     | Nome del gruppo per il raggruppamento logico dei file.        |
 |Immettere il percorso     | Percorso in cui cercare il file, ad esempio "c:\temp\\\*.txt"<br>È anche possibile usare le variabili di ambiente, ad esempio "%winDir%\System32\\\*.*"       |
 |Ricorsione     | Determina se viene usata la ricorsione per la ricerca dell'elemento da rilevare.        |
 |Caricare il contenuto del file per tutte le impostazioni| Attivare o disattivare il caricamento del contenuto del file per le modifiche rilevate. Opzioni disponibili: **True** o **False**.|
@@ -154,7 +150,7 @@ Seguire questa procedura per configurare il rilevamento delle chiavi del Registr
 |---------|---------|
 |Attivato     | Determina se l'impostazione viene applicata.        |
 |Nome elemento     | Nome descrittivo della chiave del Registro di sistema da rilevare.        |
-|Group     | Nome del gruppo per il raggruppamento logico delle chiavi del Registro di sistema.        |
+|Gruppo     | Nome del gruppo per il raggruppamento logico delle chiavi del Registro di sistema.        |
 |Chiave del Registro di sistema di Windows   | Percorso in cui cercare la chiave del Registro di sistema. Ad esempio: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ## <a name="limitations"></a>Limitazioni
@@ -200,7 +196,7 @@ La tabella seguente illustra i limiti dell'elemento di rilevamento per ogni macc
 |Registro|250||
 |Software Windows|250|Non include hotfix software|
 |Pacchetti Linux|1250||
-|Services|250||
+|Servizi|250||
 |Daemon|250||
 
 L'utilizzo medio dei dati di Log Analytics per un computer con Rilevamento modifiche e Inventario è di circa 40 MB al mese. Questo valore è solo un'approssimazione ed è soggetto a modifiche, in base all'ambiente in uso. È consigliabile monitorare l'ambiente per visualizzare l'esatta quantità di dati usati.

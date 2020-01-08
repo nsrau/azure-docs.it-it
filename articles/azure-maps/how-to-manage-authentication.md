@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 057bd18c50d7074e8a88b8273bec766a306a3776
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: b44b48b504fc080971a2797b89026e14be5cdd17
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484355"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432999"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gestire l'autenticazione in Mappe di Azure
 
@@ -21,11 +21,11 @@ Dopo aver creato un account Azure Maps, vengono creati un ID client e le chiavi 
 
 ## <a name="view-authentication-details"></a>Visualizzare i dettagli di autenticazione
 
+Dopo la creazione dell'account Azure Maps, vengono generate le chiavi primarie e secondarie. Si consiglia di usare la chiave primaria come chiave di sottoscrizione quando si chiama Azure Maps usando [l'autenticazione con chiave condivisa](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication#shared-key-authentication). La chiave secondaria può essere usata in scenari come le modifiche delle chiavi in sequenza. Per altre informazioni, vedere [autenticazione con mappe di Azure](https://aka.ms/amauth).
+
 È possibile visualizzare i dettagli di autenticazione nel portale di Azure. Passare all'account e selezionare **autenticazione** dal menu **Impostazioni** .
 
 ![Dettagli di autenticazione](./media/how-to-manage-authentication/how-to-view-auth.png)
-
- Per altre informazioni, vedere [autenticazione con mappe di Azure](https://aka.ms/amauth).
 
 
 ## <a name="set-up-azure-ad-app-registration"></a>Configurare la registrazione dell'app Azure AD
@@ -91,12 +91,12 @@ Dopo aver registrato l'app e averla associata a Maps di Azure, è possibile rich
 
 * Se l'applicazione usa l'autenticazione basata su token utente con Azure Maps Web SDK, è necessario configurare la pagina HTML con l'ID client Azure Maps e l'ID app Azure AD.
 
-* Se l'applicazione usa l'autenticazione server/applicazione, è necessario richiedere un token da Azure AD endpoint token `https://login.microsoftonline.com` con l'ID di risorsa Azure AD `https://atlas.microsoft.com/`, l'ID client di Azure Maps, l'ID app Azure AD e la password di registrazione dell'app Azure AD o certificato.
+* Se l'applicazione usa l'autenticazione del server o dell'applicazione, è necessario richiedere un token da Azure AD endpoint token `https://login.microsoftonline.com` con l'ID di risorsa Azure AD `https://atlas.microsoft.com/`, l'ID client di Azure Maps, l'ID app Azure AD e la password o il certificato di registrazione dell'app Azure AD.
 
 | Ambiente Azure   | Endpoint token Azure AD | ID risorsa di Azure |
 | --------------------|-------------------------|-------------------|
 | Azure Public        | https://login.microsoftonline.com | https://atlas.microsoft.com/ |
-| Azure Government    | https://login.microsoftonline.us  | https://atlas.microsoft.com/ | 
+| Azure per enti pubblici    | https://login.microsoftonline.us  | https://atlas.microsoft.com/ | 
 
 Per ulteriori informazioni sulla richiesta di token di accesso da Azure AD per gli utenti e le entità servizio, vedere [scenari di autenticazione per Azure ad](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 

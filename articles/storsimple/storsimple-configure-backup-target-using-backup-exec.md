@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: matd
-ms.openlocfilehash: 85c04b6ea3e40f1f1dcd12eb5d6f4a8f53836867
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 4dcda65384190050e11f1bf9b15c706b0e38c6b3
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "67876794"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561644"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple come destinazione di backup con Backup Exec
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Azure StorSimple è una soluzione di archiviazione cloud ibrida di Microsoft. StorSimple consente di risolvere le complessità della crescita esponenziale dei dati usando un account di archiviazione di Azure come estensione della soluzione locale e suddividendo automaticamente i dati in livelli tra l'archiviazione locale e l'archiviazione cloud.
 
@@ -37,7 +37,7 @@ Le informazioni di questo articolo sono particolarmente utili per gli amministra
 
 ## <a name="supported-versions"></a>Versioni supportate
 
--   [Backup Exec 16 e versioni successive](http://backupexec.com/compatibility)
+-   [Backup Exec 16 e versioni successive](https://www.veritas.com/content/support/en_US/article.100040087)
 -   [StorSimple Update 3 e versioni successive](storsimple-overview.md#storsimple-workload-summary)
 
 
@@ -73,13 +73,13 @@ StorSimple offre i vantaggi seguenti:
 -   Algoritmi di deduplicazione e compressione univoci che usano il cloud per ottenere livelli avanzati di deduplicazione
 -   Disponibilità elevata
 -   Replica geografica usando la replica geografica di Azure
--   Integrazione di Azure
+-   Integrazione con Azure
 -   Crittografia dei dati nel cloud
 -   Miglioramento del ripristino di emergenza e della conformità
 
 Sebbene StorSimple presenti due scenari di distribuzione principali (destinazione di backup primaria e secondaria), fondamentalmente si tratta di un normale dispositivo di archiviazione a blocchi. StorSimple esegue tutta la compressione e la deduplicazione necessarie. Invia e recupera senza problemi i dati tra il cloud e l'applicazione e il file system.
 
-Per altre informazioni su StorSimple, consultare [StorSimple 8000 series: Hybrid cloud storage solution](storsimple-overview.md) (Serie StorSimple 8000: una soluzione di archiviazione cloud ibrida). È possibile vedere anche le [specifiche tecniche di StorSimple serie 8000](storsimple-technical-specifications-and-compliance.md).
+Per altre informazioni su StorSimple, vedere [Serie 8000 StorSimple: una soluzione di archiviazione cloud ibrida](storsimple-overview.md). È possibile vedere anche le [specifiche tecniche di StorSimple serie 8000](storsimple-technical-specifications-and-compliance.md).
 
 > [!IMPORTANT]
 > L'uso di un dispositivo StorSimple come destinazione di backup è supportato solo per StorSimple 8000 Update 3 e versioni successive.
@@ -310,10 +310,10 @@ La figura seguente illustra il mapping di un volume tipico a un processo di back
 
 Di seguito è riportato un esempio di una pianificazione a rotazione GFS per quattro settimane, mensile e annuale:
 
-| Frequenza/Tipo di backup | Completa | Incrementale (giorni 1-5)  |   
+| Frequenza/Tipo di backup | Completo | Incrementale (giorni 1-5)  |   
 |---|---|---|
 | Settimanale (settimane 1-4) | Sabato | Lunedì-venerdì |
-| Mensile  | Sabato  |   |
+| Impegno di spesa  | Sabato  |   |
 | Annuale | Sabato  |   |
 
 
@@ -379,15 +379,15 @@ La tabella seguente indica come configurare il backup per l'esecuzione su dischi
 \* La capacità totale include 17 TiB dei dischi StorSimple e 1 TiB del volume RAID locale.
 
 
-### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Pianificazione di esempio GFS: Pianificazione della rotazione GFS settimanale, mensile e annuale
+### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Pianificazione di esempio GFS: rotazione GFS settimanale, mensile e annuale
 
-| Settimana | Completa | Incrementale Giorno 1 | Incrementale Giorno 2 | Incrementale Giorno 3 | Incrementale Giorno 4 | Incrementale Giorno 5 |
+| Settimana | Completo | Incrementale Giorno 1 | Incrementale Giorno 2 | Incrementale Giorno 3 | Incrementale Giorno 4 | Incrementale Giorno 5 |
 |---|---|---|---|---|---|---|
 | Settimana 1 | Volume RAID locale  | Volume RAID locale | Volume RAID locale | Volume RAID locale | Volume RAID locale | Volume RAID locale |
 | Settimana 2 | StorSimple settimane 2-4 |   |   |   |   |   |
 | Settimana 3 | StorSimple settimane 2-4 |   |   |   |   |   |
 | Settimana 4 | StorSimple settimane 2-4 |   |   |   |   |   |
-| Mensile | StorSimple Mensile |   |   |   |   |   |
+| Impegno di spesa | StorSimple Mensile |   |   |   |   |   |
 | Annuale | StorSimple Annuale  |   |   |   |   |   |
 
 
@@ -483,7 +483,7 @@ Una situazione di emergenza può essere causata da numerosi fattori. La tabella 
 Questo articolo fa riferimento ai documenti seguenti:
 
 - [Configurazione di Multipath I/O per StorSimple](storsimple-configure-mpio-windows-server.md)
-- [Storage scenarios: Thin provisioning](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx) (Scenari di archiviazione: Thin provisioning)
+- [Scenari di archiviazione: thin provisioning](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
 - [Uso di unità GPT](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
 - [Configurare le copie shadow di cartelle condivise](https://technet.microsoft.com/library/cc771893.aspx)
 

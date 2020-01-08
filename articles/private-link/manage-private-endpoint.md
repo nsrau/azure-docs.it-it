@@ -2,17 +2,17 @@
 title: Gestire una connessione all'endpoint privato in Azure
 description: Informazioni su come gestire le connessioni agli endpoint privati in Azure
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 929dfedbbbbe58a30eaa186398c595eaaabeb0a9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 62b24b3e2f5c1b89fa7db581ac34cf58381db2a0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232542"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452973"
 ---
 # <a name="manage-a-private-endpoint-connection"></a>Gestire una connessione all'endpoint privato
 Il collegamento privato di Azure funziona in un modello di flusso di chiamate di approvazione, in cui il consumer del servizio di collegamento privato può richiedere una connessione al provider di servizi per l'utilizzo del servizio. Il provider di servizi può quindi decidere se consentire al consumer di connettersi o meno. Il collegamento privato di Azure consente ai provider di servizi di gestire la connessione all'endpoint privato sulle risorse. Questo articolo fornisce istruzioni su come gestire le connessioni agli endpoint privati.
@@ -26,12 +26,12 @@ Esistono due metodi di approvazione della connessione da cui un consumer del ser
 La tabella seguente illustra le varie azioni del provider di servizi e gli Stati di connessione risultanti per gli endpoint privati.  Il provider di servizi può anche modificare lo stato di connessione della connessione all'endpoint privato in un secondo momento senza l'intervento dell'utente. L'azione aggiornerà lo stato dell'endpoint sul lato consumer. 
 
 
-|Azione del provider di servizi   |Stato dell'endpoint privato del consumer del servizio   |DESCRIZIONE   |
+|Azione del provider di servizi   |Stato dell'endpoint privato del consumer del servizio   |Description   |
 |---------|---------|---------|
-|nessuno    |    In sospeso     |    La connessione viene creata manualmente ed è in attesa di approvazione da parte del proprietario della risorsa di collegamento privato.       |
+|Nessuno    |    In sospeso     |    La connessione viene creata manualmente ed è in attesa di approvazione da parte del proprietario della risorsa di collegamento privato.       |
 |Approvazione    |  Approved       |  La connessione è stata approvata automaticamente o manualmente ed è pronta per essere usata.     |
 |Rifiuto     | Rifiutato        | La connessione è stata rifiutata dal proprietario della risorsa di collegamento privato.        |
-|Rimuovere    |  Disconnesso       | La connessione è stata rimossa dal proprietario della risorsa di collegamento privato, l'endpoint privato diventa informativo e deve essere eliminato per la pulizia.        |
+|Rimuovi    |  Disconnesso       | La connessione è stata rimossa dal proprietario della risorsa di collegamento privato, l'endpoint privato diventa informativo e deve essere eliminato per la pulizia.        |
 |   |         |         |
    
 ## <a name="manage-private-endpoint-connections-on-azure-paas-resources"></a>Gestire le connessioni a endpoint privati nelle risorse di Azure PaaS

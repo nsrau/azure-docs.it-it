@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fb8aec10d58ed4f2eca462774aeaf61f2ea21dd0
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 1e11c5a570f899a5ac18673a71fe79db95de0f80
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973969"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461067"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Risoluzione di errori e avvisi comuni dell'indicizzatore in Azure ricerca cognitiva
 
@@ -34,10 +34,10 @@ A partire dalla versione dell'API `2019-05-06`, gli errori e gli avvisi dell'ind
 
 | Proprietà | Description | Esempio |
 | --- | --- | --- |
-| key | ID del documento interessato dall'errore o dall'avviso. | https:\//coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
+| Key | ID del documento interessato dall'errore o dall'avviso. | https:\//coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
 | name | Nome dell'operazione che descrive la posizione in cui si è verificato l'errore o l'avviso. Questa operazione viene generata dalla struttura seguente: [Category]. [Subcategory]. [resourceType]. resourceName | DocumentExtraction. azureblob. myBlobContainerName arricchimento. WebApiSkill. My SkillName Projection. SearchIndex. OutputFieldMapping. myOutputFieldName Projection. SearchIndex. MergeOrUpload. Setindexname Projection. KnowledgeStore. Table. MyTableName |
-| Message | Descrizione di alto livello dell'errore o dell'avviso. | Non è stato possibile eseguire l'abilità perché la richiesta dell'API Web non è riuscita. |
-| informazioni dettagliate | Eventuali dettagli aggiuntivi che possono essere utili per diagnosticare il problema, ad esempio la risposta WebApi se l'esecuzione di un'abilità personalizzata non è riuscita. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 origine, Func`2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.`... Rest della traccia dello stack... |
+| message | Descrizione di alto livello dell'errore o dell'avviso. | Non è stato possibile eseguire l'abilità perché la richiesta dell'API Web non è riuscita. |
+| dettagli | Eventuali dettagli aggiuntivi che possono essere utili per diagnosticare il problema, ad esempio la risposta WebApi se l'esecuzione di un'abilità personalizzata non è riuscita. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 origine, Func`2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.`... Rest della traccia dello stack... |
 | documentationLink | Un collegamento alla documentazione pertinente con informazioni dettagliate per il debug e la risoluzione del problema. Questo collegamento spesso punterà a una delle sezioni seguenti in questa pagina. | https://go.microsoft.com/fwlink/?linkid=2106475 |
 
 <a name="could-not-read-document"/>
@@ -54,15 +54,15 @@ L'indicizzatore non è stato in grado di leggere il documento dall'origine dati.
 
 <a name="could-not-extract-document-content"/>
 
-## <a name="error-could-not-extract-document-content"></a>Errore: non è stato possibile estrarre il contenuto del documento
-L'indicizzatore con un'origine dati BLOB non è stato in grado di estrarre il contenuto dal documento, ad esempio un file PDF. Questo problema può verificarsi a causa di:
+## <a name="error-could-not-extract-content-or-metadata-from-your-document"></a>Errore: non è stato possibile estrarre il contenuto o i metadati dal documento
+L'indicizzatore con un'origine dati BLOB non è riuscito a estrarre il contenuto o i metadati dal documento, ad esempio un file PDF. Questo problema può verificarsi a causa di:
 
 | Motivo | Dettagli/esempio | Risoluzione |
 | --- | --- | --- |
 | il BLOB supera il limite di dimensioni | Il documento è `'150441598'` byte, che supera la dimensione massima `'134217728'` byte per l'estrazione del documento per il livello di servizio corrente. | [errori di indicizzazione BLOB](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | il tipo di contenuto del BLOB non è supportato | Il tipo di contenuto del documento non è supportato `'image/png'` | [errori di indicizzazione BLOB](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | il BLOB è crittografato | Non è stato possibile elaborare il documento perché potrebbe essere crittografato o protetto da password. | È possibile ignorare il BLOB con [le impostazioni BLOB](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed). |
-| problemi temporanei | Errore durante l'elaborazione del BLOB: la richiesta è stata interrotta: la richiesta è stata annullata. | Occasionalmente si verificano problemi di connettività imprevisti. Provare a eseguire di nuovo il documento tramite l'indicizzatore in un secondo momento. |
+| problemi temporanei | "Errore durante l'elaborazione del BLOB: la richiesta è stata interrotta: la richiesta è stata annullata". "Timeout del documento durante l'elaborazione". | Occasionalmente si verificano problemi di connettività imprevisti. Provare a eseguire di nuovo il documento tramite l'indicizzatore in un secondo momento. |
 
 <a name="could-not-parse-document"/>
 
@@ -158,7 +158,7 @@ Il documento è stato letto ed elaborato, ma a causa di una mancata corrisponden
 
 | Motivo | Dettagli/esempio
 | --- | ---
-| Il tipo di dati dei campi estratti dall'indicizzatore non è compatibile con il modello di dati del campo indice di destinazione corrispondente. | Il campo dati '_Data_' nel documento con chiave '_Data_' contiene un valore non valido ' di tipo ' EDM. String ''. Il tipo previsto è' Collection (EDM. String)'. |
+| Il tipo di dati dei campi estratti dall'indicizzatore non è compatibile con il modello di dati del campo indice di destinazione corrispondente. | Il campo dati '_Data_' nel documento con chiave ' 888' contiene un valore non valido ' di tipo ' EDM. String ''. Il tipo previsto è' Collection (EDM. String)'. |
 | Non è stato possibile estrarre alcuna entità JSON da un valore stringa. | Non è stato possibile analizzare il valore ' di tipo ' EDM. String '' del campo '_Data_' come oggetto JSON. Errore:' dopo l'analisi di un valore è stato rilevato un carattere imprevisto:''. Percorso '_path_', riga 1, posizione 3162 .' |
 | Non è stato possibile estrarre una raccolta di entità JSON da un valore stringa.  | Non è stato possibile analizzare il valore ' di tipo ' EDM. String '' del campo '_Data_' come matrice JSON. Errore:' dopo l'analisi di un valore è stato rilevato un carattere imprevisto:''. Percorso ' [0]', riga 1, posizione 27 .' |
 | Un tipo sconosciuto è stato individuato nel documento di origine. | Impossibile indicizzare il tipo sconosciuto '_Unknown_' |
@@ -174,10 +174,18 @@ Questo errore si verifica quando l'indicizzatore non è in grado di completare l
 
 <a name="could-not-execute-skill-because-a-skill-input-was-invalid"/>
 
-## <a name="warning-could-not-execute-skill-because-a-skill-input-was-invalid"></a>Avviso: non è stato possibile eseguire l'abilità perché un input di competenze non è valido
-L'indicizzatore non è stato in grado di eseguire una competenza nel livello di competenze perché manca un input per la skill, il tipo errato o altrimenti non è valido.
+## <a name="warning-skill-input-was-invalid"></a>Avviso: l'input di competenze non è valido
+Input per l'abilità mancante, tipo errato o altrimenti non valido. Il messaggio di avviso indicherà l'effetto:
+1) Non è stato possibile eseguire skill
+2) Abilità eseguita ma potrebbe avere risultati imprevisti
 
-Le competenze cognitive hanno input obbligatori e input facoltativi. Ad esempio, l' [abilità di estrazione della frase chiave](cognitive-search-skill-keyphrases.md) ha due input obbligatori `text`, `languageCode`e nessun input facoltativo. Se gli input obbligatori non sono validi, l'abilità viene ignorata e viene generato un avviso. Le competenze ignorate non generano output, pertanto se altre competenze usano output della competenza ignorata, possono generare avvisi aggiuntivi.
+Le competenze cognitive hanno input obbligatori e input facoltativi. Ad esempio, l' [abilità di estrazione della frase chiave](cognitive-search-skill-keyphrases.md) ha due input obbligatori `text`, `languageCode`e nessun input facoltativo. Gli input skill personalizzati sono tutti considerati input facoltativi.
+
+Se sono presenti input obbligatori mancanti o se un input non è il tipo corretto, l'abilità viene ignorata e viene generato un avviso. Le competenze ignorate non generano output, pertanto se altre competenze usano output della competenza ignorata, possono generare avvisi aggiuntivi.
+
+Se manca un input facoltativo, l'abilità verrà comunque eseguita, ma potrebbe produrre un output imprevisto a causa dell'input mancante.
+
+In entrambi i casi, questo avviso può essere previsto a causa della forma dei dati. Se, ad esempio, si dispone di un documento contenente informazioni sulle persone con i campi `firstName`, `middleName`e `lastName`, è possibile che siano presenti documenti che non dispongono di una voce per `middleName`. Se si passa `middleName` come input a una competenza nella pipeline, si prevede che questo input di competenze potrebbe mancare parte del tempo. È necessario valutare i dati e lo scenario per determinare se è necessaria o meno un'azione a seguito di questo avviso.
 
 Se si vuole fornire un valore predefinito in caso di input mancante, è possibile usare l' [abilità condizionale](cognitive-search-skill-conditional.md) per generare un valore predefinito e quindi usare l'output della [competenza condizionale](cognitive-search-skill-conditional.md) come input di competenze.
 
@@ -197,8 +205,8 @@ Se si vuole fornire un valore predefinito in caso di input mancante, è possibil
 
 | Motivo | Dettagli/esempio | Risoluzione |
 | --- | --- | --- |
-| Il tipo di input Skill è errato | Il tipo di input di competenze richiesto `X` non era del tipo previsto `String`. L'input di competenze richiesto `X` non è nel formato previsto. | Alcune competenze prevedono input di determinati tipi, ad esempio la [competenza](cognitive-search-skill-sentiment.md) di valutazione prevede che `text` sia una stringa. Se l'input specifica un valore non stringa, l'abilità non viene eseguita e non genera alcun output. Verificare che il set di dati includa valori di input uniformi nel tipo o usare una [competenza personalizzata per l'API Web](cognitive-search-custom-skill-web-api.md) per la pre-elaborazione dell'input. Se si sta scorrendo la competenza su una matrice, verificare che il contesto di competenza e l'input abbiano `*` nelle posizioni corrette. Il contesto e l'origine di input devono essere in genere terminati con `*` per le matrici. |
-| Input skill mancante | Manca l'input di competenze richiesto `X`. | Se tutti i documenti ricevono questo avviso, è probabile che si verifichi un errore di digitazione nei percorsi di input ed è necessario controllare la combinazione di maiuscole e minuscole con il nome della proprietà, il `*` supplementare o mancante nel percorso e i documenti dell'origine dati definiscono gli input necessari. |
+| Il tipo di input Skill è errato | "L'input di competenze obbligatorio non era del tipo previsto `String`. Nome: `text`, origine: `/document/merged_content`. "  "L'input di competenze obbligatorio non è del formato previsto. Nome: `text`, origine: `/document/merged_content`. "  "Impossibile eseguire l'iterazione su `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`non di matrice".  "Impossibile selezionare `0` in `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`non di matrice" | Alcune competenze prevedono input di determinati tipi, ad esempio la [competenza](cognitive-search-skill-sentiment.md) di valutazione prevede che `text` sia una stringa. Se l'input specifica un valore non stringa, l'abilità non viene eseguita e non genera alcun output. Verificare che il set di dati includa valori di input uniformi nel tipo o usare una [competenza personalizzata per l'API Web](cognitive-search-custom-skill-web-api.md) per la pre-elaborazione dell'input. Se si sta scorrendo la competenza su una matrice, verificare che il contesto di competenza e l'input abbiano `*` nelle posizioni corrette. Il contesto e l'origine di input devono essere in genere terminati con `*` per le matrici. |
+| Input skill mancante | "Manca l'input di competenze necessario. Nome: `text`, origine: `/document/merged_content`"" valore mancante `/document/normalized_images/0/imageTags`".  "Impossibile selezionare `0` nella matrice `/document/pages` di lunghezza `0`". | Se tutti i documenti ricevono questo avviso, è probabile che si verifichi un errore di digitazione nei percorsi di input ed è necessario controllare la combinazione di maiuscole e minuscole per il nome della proprietà, il `*` supplementare o mancante nel percorso e assicurarsi che i documenti dall'origine dati forniscano gli input necessari. |
 | Input codice lingua competenze non valido | L'input di competenze `languageCode` dispone dei seguenti codici di lingua `X,Y,Z`, almeno uno dei quali non è valido. | Vedere altri dettagli di [seguito](cognitive-search-common-errors-warnings.md#skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid) |
 
 <a name="skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"/>

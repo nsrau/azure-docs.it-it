@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 01/28/2018
-ms.openlocfilehash: b655181f41aeda71364edd061b7c81db23e59990
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 26516b99f3ffd9a16a24a4d5d1906ed781a8034a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951140"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75396513"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Panoramica degli avvisi in Microsoft Azure 
 
@@ -26,7 +26,7 @@ Gli avvisi notificano in modo proattivo quando vengono riscontrate importanti co
 
 Questo articolo illustra l'esperienza di avviso unificata in monitoraggio di Azure, che include gli avvisi gestiti in precedenza da Log Analytics e Application Insights. L'[esperienza degli avvisi precedente](alerts-classic.overview.md) e i tipi di avviso sono definiti *avvisi classici*. È possibile visualizzare questa esperienza precedente e il tipo di avviso precedente selezionando **Visualizza avvisi classici** nella parte superiore della pagina di avviso. 
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 La figura seguente rappresenta il flusso di avvisi. 
 
@@ -71,8 +71,8 @@ Nelle versioni precedenti, per le metriche di Monitoraggio di Azure, Application
 
 | **Origine di monitoraggio** | **Tipo di segnale**  | **Descrizione** | 
 |-------------|----------------|-------------|
-| Integrità dei servizi | Log attività  | Non supportati. Vedere [Creare gli avvisi del log attività per le notifiche del servizio](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
-| Application Insights | Test di disponibilità Web | Non supportati. Vedere [Avvisi di test Web](../../azure-monitor/app/monitor-web-app-availability.md). Disponibili in qualsiasi sito Web dotato delle funzionalità per l'invio di dati ad Application Insights. Ricevere una notifica quando la disponibilità o la velocità di risposta di un sito Web è inferiore alle aspettative. |
+| Integrità dei servizi | Log attività  | Non supportato. Vedere [Creare gli avvisi del log attività per le notifiche del servizio](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
+| Application Insights | Test di disponibilità Web | Non supportato. Vedere [Avvisi di test Web](../../azure-monitor/app/monitor-web-app-availability.md). Disponibili in qualsiasi sito Web dotato delle funzionalità per l'invio di dati ad Application Insights. Ricevere una notifica quando la disponibilità o la velocità di risposta di un sito Web è inferiore alle aspettative. |
 
 ## <a name="manage-alerts"></a>Gestisci avvisi
 È possibile impostare lo stato di un avviso per specificare dove i trova nel processo di risoluzione. Quando vengono soddisfatti i criteri specificati nella regola di avviso, viene creato o generato un avviso e il relativo stato è *nuovo*. È possibile modificare lo stato dell'avviso dopo averlo confermato e chiuso. Tutte le modifiche apportate allo stato vengono archiviate nella cronologia dell'avviso.
@@ -110,11 +110,11 @@ Non Mostra o tiene traccia degli avvisi classici. È possibile modificare le sot
 |:---|:---|
 | Sottoscrizione | Selezionare le sottoscrizioni di Azure per cui si desidera visualizzare gli avvisi. Facoltativamente, è possibile scegliere di selezionare tutte le sottoscrizioni. Nella vista sono inclusi solo gli avvisi a cui si ha accesso nelle sottoscrizioni selezionate. |
 | Gruppo di risorse | Selezionare un singolo gruppo di risorse. Sono inclusi nella visualizzazione solo gli avvisi con destinazioni nel gruppo di risorse selezionato. |
-| Intervallo di tempo | Nella vista sono inclusi solo gli avvisi generati nell'intervallo di tempo selezionato. I valori supportati sono l'ultima ora, le ultime 24 ore, gli ultimi 7 giorni e gli ultimi 30 giorni. |
+| Intervallo di ore | Nella vista sono inclusi solo gli avvisi generati nell'intervallo di tempo selezionato. I valori supportati sono l'ultima ora, le ultime 24 ore, gli ultimi 7 giorni e gli ultimi 30 giorni. |
 
 Selezionare i valori seguenti nella parte superiore della pagina degli avvisi per aprire un'altra pagina:
 
-| Value | Description |
+| Valore | Description |
 |:---|:---|
 | Totale avvisi | Numero totale di avvisi che corrispondono ai criteri selezionati. Selezionare questo valore per aprire la visualizzazione Tutti gli avvisi senza filtri. |
 | Gruppi intelligenti | Numero totale di gruppi intelligenti creati dagli avvisi che corrispondono ai criteri selezionati. Selezionare questo valore per aprire l'elenco dei gruppi intelligenti nella visualizzazione Tutti gli avvisi.
@@ -155,11 +155,11 @@ Per visualizzare la pagina **tutti gli avvisi** , selezionare **Total Alerts**. 
 | Gruppo di risorse | Selezionare un singolo gruppo di risorse. Sono inclusi nella visualizzazione solo gli avvisi con destinazioni nel gruppo di risorse selezionato. |
 | Tipo di risorsa | Selezionare uno o più tipi di risorsa. Sono inclusi nella visualizzazione solo gli avvisi con destinazioni del tipo selezionato. Questa colonna risulta disponibile solo dopo che è stato specificato un gruppo di risorse. |
 | Gruppi | Selezionare una risorsa. Nella visualizzazione vengono inclusi solo gli avvisi con tale risorsa definita come destinazione. Questa colonna risulta disponibile solo dopo che è stato specificato un tipo di risorsa. |
-| Severity | Selezionare un livello di gravità degli avvisi oppure **Tutti** per includere gli avvisi di tutti i livelli di gravità. |
-| Condizione del monitoraggio | Selezionare una condizione di monitoraggio oppure selezionare **tutto** per includere gli avvisi di tutte le condizioni. |
+| Gravità | Selezionare un livello di gravità degli avvisi oppure **Tutti** per includere gli avvisi di tutti i livelli di gravità. |
+| Condizione di monitoraggio | Selezionare una condizione di monitoraggio oppure selezionare **tutto** per includere gli avvisi di tutte le condizioni. |
 | Stato dell'avviso | Selezionare uno stato di avviso o selezionare **tutti** per includere gli avvisi di tutti gli Stati. |
 | Servizio di monitoraggio | Selezionare un servizio oppure **Tutti** per includere tutti i servizi. Sono inclusi solo gli avvisi creati da regole che usano tale servizio come destinazione. |
-| Intervallo di tempo | Nella vista sono inclusi solo gli avvisi generati nell'intervallo di tempo selezionato. I valori supportati sono l'ultima ora, le ultime 24 ore, gli ultimi 7 giorni e gli ultimi 30 giorni. |
+| Intervallo di ore | Nella vista sono inclusi solo gli avvisi generati nell'intervallo di tempo selezionato. I valori supportati sono l'ultima ora, le ultime 24 ore, gli ultimi 7 giorni e gli ultimi 30 giorni. |
 
 Selezionare le **colonne** nella parte superiore della pagina per selezionare le colonne da visualizzare. 
 
@@ -172,7 +172,7 @@ Nella pagina Dettagli avviso sono incluse le seguenti sezioni:
 
 | Sezione | Description |
 |:---|:---|
-| Summary | Mostra le proprietà e altre informazioni significative sull'avviso. |
+| Riepilogo | Mostra le proprietà e altre informazioni significative sull'avviso. |
 | Cronologia | Elenca tutte le azioni eseguite dall'avviso e tutte le modifiche apportate all'avviso. Questa opzione è attualmente limitata alle modifiche di stato. |
 | Diagnostica | Informazioni sul gruppo intelligente in cui è incluso l'avviso. *Conteggio avvisi* si riferisce al numero di avvisi inclusi nel gruppo intelligente. Include altri avvisi nello stesso gruppo intelligente creati negli ultimi 30 giorni, indipendentemente dal filtro temporale nella pagina dell'elenco degli avvisi. Selezionare un avviso per visualizzarne i dettagli. |
 
@@ -184,23 +184,23 @@ Il consumo e la gestione delle istanze di avviso richiedono che l'utente dispong
 
 Potrebbe essere necessario eseguire una query a livello di codice per gli avvisi generati per la sottoscrizione. Potrebbe trattarsi di creare visualizzazioni personalizzate al di fuori della portale di Azure o di analizzare gli avvisi per identificare modelli e tendenze.
 
-È possibile eseguire una query per gli avvisi generati per le sottoscrizioni usando l' [API REST di gestione avvisi](https://aka.ms/alert-management-api) o l' [API REST di Azure Resource Graph per gli avvisi](https://docs.microsoft.com/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)).
+È possibile eseguire una query per gli avvisi generati per le sottoscrizioni usando l' [API REST di gestione avvisi](https://aka.ms/alert-management-api) o il [grafico delle risorse di Azure](../../governance/resource-graph/overview.md) e l' [API REST per le risorse](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources).
 
-L' [API REST di Azure Resource Graph per gli avvisi](https://docs.microsoft.com/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)consente di eseguire una query per le istanze di avviso su larga scala. Questa operazione è consigliata quando è necessario gestire gli avvisi generati in molte sottoscrizioni. 
+L'API REST del grafico risorse per le risorse consente di eseguire una query per le istanze di avviso su larga scala. Questa operazione è consigliata quando è necessario gestire gli avvisi generati in molte sottoscrizioni. 
 
-La richiesta di esempio seguente all'API restituisce il numero di avvisi all'interno di una sottoscrizione:
+La richiesta di esempio seguente all'API REST del grafico risorse restituisce il numero di avvisi all'interno di una sottoscrizione:
 
 ```json
 {
   "subscriptions": [
     <subscriptionId>
   ],
-  "query": "where type =~ 'Microsoft.AlertsManagement/alerts' | summarize count()",
-  "options": {
-            "dataset":"alerts"
-  }
+  "query": "AlertsManagementResources | where type =~ 'Microsoft.AlertsManagement/alerts' | summarize count()"
 }
 ```
+
+È anche possibile visualizzare il risultato di questa query sul grafico delle risorse nel portale con Azure Resource Graph Explorer: [Portal.Azure.com](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/AlertsManagementResources%20%7C%20where%20type%20%3D~%20%27Microsoft.AlertsManagement%2Falerts%27%20%7C%20summarize%20count())
+
 È possibile eseguire una query sugli avvisi per i campi [essenziali](alerts-common-schema-definitions.md#essentials) .
 
 Usare l' [API REST di gestione avvisi](https://aka.ms/alert-management-api) per ottenere altre informazioni su avvisi specifici, inclusi i relativi campi di [contesto degli avvisi](alerts-common-schema-definitions.md#alert-context) .

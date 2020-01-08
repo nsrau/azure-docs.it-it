@@ -1,20 +1,14 @@
 ---
-title: Creare avvisi Azure Advisor per le nuove raccomandazioni | Microsoft Docs
+title: Crea avvisi Azure Advisor per nuove raccomandazioni
 description: Crea avvisi Azure Advisor per la nuova raccomandazione
-services: advisor
-author: sagupt
-ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/09/2019
-ms.author: sagupt
-ms.openlocfilehash: d641008a7caf4a006344d886aec945a6e8da2568
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 07cbc57ef718b6cac104d2b5238ff4e3196f197a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326624"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443163"
 ---
 # <a name="create-azure-advisor-alerts-on-new-recommendations"></a>Crea avvisi Azure Advisor per le nuove raccomandazioni 
 
@@ -24,8 +18,8 @@ Ogni volta che Azure Advisor rileva una nuova raccomandazione per una delle riso
 
 È anche possibile determinare i tipi di raccomandazioni usando queste proprietà:
 
-* Category
-* Livello di impatto
+* Categoria
+* Livello di effetto
 * Tipo di raccomandazione
 
 È anche possibile configurare l'azione che verrà eseguita quando un avviso viene attivato da:  
@@ -274,7 +268,7 @@ Se non si usa lo schema comune, il payload ha un aspetto simile al seguente:
 }
 ```
 
-In entrambi gli schemi è possibile identificare gli eventi di raccomandazione di Advisor cercando EventSource `Recommendation` è e **OperationName** è `Microsoft.Advisor/recommendations/available/action`.
+In entrambi gli schemi è possibile identificare gli eventi di raccomandazione di Advisor cercando **EventSource** è `Recommendation` e **operationname** è `Microsoft.Advisor/recommendations/available/action`.
 
 Di seguito sono riportate alcune delle altre importanti campi che è possibile usare: 
 

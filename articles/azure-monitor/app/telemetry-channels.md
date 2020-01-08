@@ -4,16 +4,16 @@ description: Come personalizzare i canali di telemetria in applicazione Azure In
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: cijothomas
-ms.author: cithomas
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 05/14/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: cef8a06fb7e4cfb713d6531f23df9ae9c5836b68
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: cef35ae5cb2b66385332a3b1f9ebe177ea26a3e4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173616"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406371"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Canali di telemetria in Application Insights
 
@@ -146,7 +146,7 @@ La risposta breve è che nessuno dei canali predefiniti offre una garanzia del t
 
 1. Gli elementi in memoria vengono persi quando si verifica un arresto anomalo dell'applicazione.
 
-1. I dati di telemetria vengono persi durante periodi prolungati di problemi di rete. I dati di telemetria vengono archiviati nel disco locale durante le interruzioni della rete o quando si verificano problemi con il Application Insights back-end. Tuttavia, gli elementi più vecchi di 24 ore vengono eliminati.
+1. I dati di telemetria vengono persi durante periodi prolungati di problemi di rete. I dati di telemetria vengono archiviati nel disco locale durante le interruzioni della rete o quando si verificano problemi con il Application Insights back-end. Tuttavia, gli elementi più vecchi di 48 ore vengono eliminati.
 
 1. I percorsi dei dischi predefiniti per l'archiviazione dei dati di telemetria in Windows sono% LOCALAPPDATA% o% TEMP%. Questi percorsi sono in genere locali per il computer. Se l'applicazione esegue la migrazione fisicamente da una posizione a un'altra, tutti i dati di telemetria archiviati nel percorso originale andranno persi.
 

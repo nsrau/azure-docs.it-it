@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d071ff071c13637b15479d86a699d0b368119196
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 2df52969ea79e5d1af132aa82c2ec1ceedb92b82
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73742562"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422926"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Assegnazione di ruoli di amministratore e senza privilegi di amministratore agli utenti con Azure Active Directory
 Se un utente nell'organizzazione richiede l'autorizzazione per gestire le risorse di Azure Active Directory (Azure AD), è necessario assegnare all'utente un ruolo appropriato in Azure AD, in base alle azioni per cui richiede l'autorizzazione.
@@ -31,17 +31,24 @@ Un modo comune per assegnare ruoli di Azure AD a un utente è usare la pagina **
 È anche possibile assegnare ruoli con Azure AD Privileged Identity Management (PIM). Per altre informazioni su come usare PIM, vedere [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management).
 
 ### <a name="to-assign-a-role-to-a-user"></a>Per assegnare un ruolo a un utente
-1. Accedere al [portale di Azure](https://portal.azure.com/) con un account amministratore globale per la directory.
+1. Passare alla [portale di Azure](https://portal.azure.com/) e accedere con un account di amministratore globale per la directory. 
 
-2. Selezionare **Azure Active Directory**, **Utenti** e quindi cercare e selezionare l'utente a cui assegnare il ruolo. Ad esempio, _Alain Charon_.
+2. Cercare e selezionare **Azure Active Directory**.
+
+      ![portale di Azure cercare Azure Active Directory](media/active-directory-users-assign-role-azure-portal/search-azure-active-directory.png)
+
+
+3. Selezionare **Utenti**.
+
+4. Cercare e selezionare l'utente che sta ottenendo l'assegnazione di ruolo. Ad esempio, _Alain Charon_.
 
       ![Pagina tutti gli utenti: selezionare l'utente](media/active-directory-users-assign-role-azure-portal/directory-role-select-user.png)
 
-3. Nella pagina **Alain Charn-profile** selezionare **ruoli assegnati**.
+5. Nella pagina **Alain Charn-profile** selezionare **ruoli assegnati**.
 
     Viene visualizzata la pagina **Alain Charon - Ruolo directory**.
 
-4. Selezionare **Aggiungi assegnazione**, selezionare il ruolo da assegnare a Alain, ad esempio _amministratore applicazione_, quindi scegliere **Seleziona**.
+6. Selezionare **Aggiungi assegnazione**, selezionare il ruolo da assegnare a Alain, ad esempio _amministratore applicazione_, quindi scegliere **Seleziona**.
 
     ![Pagina ruoli assegnati-visualizzazione del ruolo selezionato](media/active-directory-users-assign-role-azure-portal/directory-role-select-role.png)
 

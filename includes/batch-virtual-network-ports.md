@@ -15,12 +15,12 @@ ms.workload: ''
 ms.date: 07/16/2019
 ms.author: lahugh
 ms.custom: include file
-ms.openlocfilehash: c8b25858556538835d6a84bf0d6699f9906f1438
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 98f5269c27643e7ce6c0aaf9b359503a124d9232
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68322641"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75663144"
 ---
 ### <a name="general-requirements"></a>Requisiti generali
 
@@ -46,7 +46,7 @@ Altri requisiti della rete virtuale possono essere diversi a seconda che il pool
 
 **Autorizzazioni** - Controllare se i criteri di sicurezza o i blocchi nel gruppo di risorse o nella sottoscrizione della rete virtuale limitano le autorizzazioni dell'utente per gestire la rete virtuale.
 
-**Ulteriori risorse di rete** - Batch alloca automaticamente le risorse di rete aggiuntive nel gruppo di risorse contenente la rete virtuale. Per ogni nodo dedicato 50 (o ogni 20 nodi con priorità bassa), batch alloca: 1 gruppo di sicurezza di rete (NSG), 1 indirizzo IP pubblico e 1 servizio di bilanciamento del carico. Queste risorse sono limitate in base alle [quote delle risorse](../articles/azure-subscription-service-limits.md) della sottoscrizione. Per pool di grandi dimensioni potrebbe essere necessario richiedere un aumento della quota per una o più di queste risorse.
+**Ulteriori risorse di rete** - Batch alloca automaticamente le risorse di rete aggiuntive nel gruppo di risorse contenente la rete virtuale. Ogni 50 nodi dedicati (o ogni 20 nodi con priorità bassa), Batch alloca 1 gruppo di sicurezza di rete (NSG), 1 indirizzo IP pubblico e 1 bilanciamento del carico. Queste risorse sono limitate in base alle [quote delle risorse](../articles/azure-resource-manager/management/azure-subscription-service-limits.md) della sottoscrizione. Per pool di grandi dimensioni potrebbe essere necessario richiedere un aumento della quota per una o più di queste risorse.
 
 #### <a name="network-security-groups"></a>Gruppi di sicurezza di rete
 
@@ -64,16 +64,16 @@ Non occorre specificare i gruppi di sicurezza di rete a livello di subnet perch�
 
 **Regole di sicurezza in ingresso**
 
-| Indirizzi IP di origine | Tag del servizio di origine | Porte di origine | Destination | Porte di destinazione | Protocol | Azione |
+| Indirizzi IP di origine | Tag del servizio di origine | Porte di origine | Destinazione | Porte di destinazione | Protocollo | Azione |
 | --- | --- | --- | --- | --- | --- | --- |
-| N/D | `BatchNodeManagement`[Tag servizio](../articles/virtual-network/security-overview.md#service-tags) | * | Any | 29876-29877 | TCP | Allow |
-| Indirizzi IP di origine utente per accedere in remoto ai nodi di calcolo e/o alla subnet del nodo di calcolo per le attività a istanze diverse di Linux, se necessario. | N/D | * | Any | 3389 (Windows), 22 (Linux) | TCP | Allow |
+| N/D | [tag del servizio](../articles/virtual-network/security-overview.md#service-tags) `BatchNodeManagement` | * | Qualsiasi | 29876-29877 | TCP | Allow |
+| Indirizzi IP di origine utente per accedere in remoto ai nodi di calcolo e/o alla subnet del nodo di calcolo per le attività a istanze diverse di Linux, se necessario. | N/D | * | Qualsiasi | 3389 (Windows), 22 (Linux) | TCP | Allow |
 
 **Regole di sicurezza in uscita**
 
-| Source | Porte di origine | Destination | Tag del servizio di destinazione | Porte di destinazione | Protocol | Azione |
+| Origine | Porte di origine | Destinazione | Tag del servizio di destinazione | Porte di destinazione | Protocollo | Azione |
 | --- | --- | --- | --- | --- | --- | --- |
-| Any | * | [Tag di servizio](../articles/virtual-network/security-overview.md#service-tags) | `Storage`(nella stessa area dell'account batch e VNet) | 443 | TCP | Allow |
+| Qualsiasi | * | [Tag di servizio](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (nella stessa area dell'account batch e VNet) | 443 | TCP | Allow |
 
 ### <a name="pools-in-the-cloud-services-configuration"></a>Pool nella configurazione di Servizi cloud
 
@@ -97,13 +97,13 @@ Configurare il traffico in ingresso sulla porta 3389 per Windows se è necessari
 
 **Regole di sicurezza in ingresso**
 
-| Indirizzi IP di origine | Porte di origine | Destination | Porte di destinazione | Protocol | Azione |
+| Indirizzi IP di origine | Porte di origine | Destinazione | Porte di destinazione | Protocollo | Azione |
 | --- | --- | --- | --- | --- | --- |
-Any <br /><br />Anche se per questa operazione sono richieste in effetti autorizzazioni di tipo "Consenti tutto", il servizio Batch applica una regola ACL a livello di ogni nodo per escludere tutti gli indirizzi IP di servizio non Batch. | * | Any | 10100, 20100, 30100 | TCP | Allow |
-| Facoltativo, per consentire l'accesso RDP ai nodi di calcolo. | * | Any | 3389 | TCP | Allow |
+Qualsiasi <br /><br />Anche se per questa operazione sono richieste in effetti autorizzazioni di tipo "Consenti tutto", il servizio Batch applica una regola ACL a livello di ogni nodo per escludere tutti gli indirizzi IP di servizio non Batch. | * | Qualsiasi | 10100, 20100, 30100 | TCP | Allow |
+| Facoltativo, per consentire l'accesso RDP ai nodi di calcolo. | * | Qualsiasi | 3389 | TCP | Allow |
 
 **Regole di sicurezza in uscita**
 
-| Source | Porte di origine | Destination | Porte di destinazione | Protocol | Azione |
+| Origine | Porte di origine | Destinazione | Porte di destinazione | Protocollo | Azione |
 | --- | --- | --- | --- | --- | --- |
-| Any | * | Any | 443  | Any | Allow |
+| Qualsiasi | * | Qualsiasi | 443  | Qualsiasi | Allow |

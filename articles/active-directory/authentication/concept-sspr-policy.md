@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b95ea51db4f0c6bcdbfa905ff8b57a5a330411e6
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1e9a22e6ff76c0d26a346192c69bc067e7d42ccf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848545"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425332"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Restrizioni e criteri password in Azure Active Directory
 
@@ -54,7 +54,7 @@ Il criterio a due gate richiede tre tipi di dati di autenticazione, ad esempio u
   * Amministratore di autenticazione con privilegi
 
 * Se sono trascorsi 30 giorni per una sottoscrizione di valutazione o
-* È presente un dominio personale, ad esempio contoso.com, o
+* Un dominio personalizzato è stato configurato per il tenant di Azure AD, ad esempio *contoso.com*; o
 * Identità sincronizzate da Azure AD Connect nella directory locale
 
 ### <a name="exceptions"></a>Eccezioni
@@ -62,7 +62,7 @@ Il criterio a due gate richiede tre tipi di dati di autenticazione, ad esempio u
 Un criterio a un gate richiede un tipo di dati di autenticazione, ad esempio un indirizzo di posta elettronica *o* un numero di telefono. Un criterio a un gate si applica nelle circostanze seguenti:
 
 * Non sono ancora trascorsi i primi 30 giorni per una sottoscrizione di valutazione o
-* Non è presente un dominio personale (*.onmicrosoft.com) e
+* Un dominio personalizzato non è stato configurato per il tenant di Azure AD, quindi usa il valore predefinito * *. onmicrosoft.com*. Si noti che il dominio predefinito * *. onmicrosoft.com* non è consigliato per l'uso in ambiente di produzione; e
 * Azure AD Connect non sincronizza le identità
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>Criteri UserPrincipalName che si applicano a tutti gli account utente

@@ -1,5 +1,5 @@
 ---
-title: Microsoft Identity Platform & protocollo OpenID Connect | Azure
+title: Protocollo OpenID Connect-piattaforma di identità Microsoft | Azure
 description: Consente di creare applicazioni Web usando l'implementazione della piattaforma di identità Microsoft del protocollo di autenticazione OpenID Connect.
 services: active-directory
 documentationcenter: ''
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc3778f31cb5dd68d3f3f49ed3cddf574b1cc3bd
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 270fda72378b61e6011d5bbf4ce43496df045c25
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74966742"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423215"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Piattaforma di identità Microsoft e protocollo OpenID Connect
 
@@ -48,16 +48,16 @@ OpenID Connect descrive un documento di metadati che contiene la maggior parte d
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 ```
 > [!TIP]
-> Prova Fare clic su [ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) per visualizzare la configurazione dei tenant `common`.
+> Prova Fare clic su [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) per visualizzare la configurazione dei tenant `common`.
 
 `{tenant}` può assumere uno dei quattro valori seguenti:
 
-| Value | Description |
+| Valore | Description |
 | --- | --- |
 | `common` |Gli utenti con un account account Microsoft personale e un account aziendale o dell'Istituto di istruzione da Azure AD possono accedere all'applicazione. |
 | `organizations` |Possono accedere all'applicazione solo gli utenti con account aziendali o dell'istituto d'istruzione di Azure AD. |
 | `consumers` |Possono accedere all'applicazione solo gli utenti con account Microsoft personali. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` oppure `contoso.onmicrosoft.com` | Solo gli utenti di un tenant di Azure AD specifico, che siano membri della directory con un account aziendale o dell'Istituto di istruzione o che sono Guest nella directory con un account Microsoft personale, possono accedere all'applicazione. È possibile usare il nome di dominio descrittivo del tenant di Azure AD o l'identificatore GUID. È anche possibile usare il tenant del consumer, `9188040d-6c67-4c5b-b112-36a304b66dad`al posto del tenant di `consumers`.  |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` o `contoso.onmicrosoft.com` | Solo gli utenti di un tenant di Azure AD specifico, che siano membri della directory con un account aziendale o dell'Istituto di istruzione o che sono Guest nella directory con un account Microsoft personale, possono accedere all'applicazione. È possibile usare il nome di dominio descrittivo del tenant di Azure AD o l'identificatore GUID. È anche possibile usare il tenant del consumer, `9188040d-6c67-4c5b-b112-36a304b66dad`al posto del tenant di `consumers`.  |
 
 I metadati sono un semplice documento JavaScript Object Notation (JSON). Per un esempio, vedere il frammento di codice seguente. Il contenuto del frammento di codice è descritto dettagliatamente nelle [specifiche di OpenID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html#rfc.section.4.2).
 
@@ -91,7 +91,7 @@ Quando l'app Web deve autenticare l'utente, può indirizzarlo all'endpoint `/aut
 > [!IMPORTANT]
 > Per richiedere correttamente un token ID dall'endpoint combinazione/Gestione autorizzazioni, è necessario che la registrazione dell'app nel [portale di registrazione](https://portal.azure.com) includa la concessione implicita di id_tokens abilitata nella scheda autenticazione, che imposta il flag di `oauth2AllowIdTokenImplicitFlow` nel [manifesto dell'applicazione](reference-app-manifest.md) per `true`. Se non è abilitato, verrà restituito un errore di `unsupported_response`: "il valore specificato per il parametro di input ' response_type ' non è consentito per questo client. Expected value is 'code'" (Il valore fornito per il parametro di input 'response_type' non è consentito per questo client. Il valore previsto è 'code')
 
-ad esempio:
+Ad esempio:
 
 ```
 // Line breaks are for legibility only.
@@ -112,12 +112,12 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parametro | Condizione | Description |
 | --- | --- | --- |
-| `tenant` | Obbligatoria | È possibile usare il valore `{tenant}` nel percorso della richiesta per controllare chi può accedere all'applicazione. I valori consentiti sono `common`, `organizations`, `consumers` e gli identificatori del tenant. Per altre informazioni, vedere le [nozioni di base sui protocolli](active-directory-v2-protocols.md#endpoints). |
-| `client_id` | Obbligatoria | **ID dell'applicazione (client)** che la [portale di Azure registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) l'esperienza assegnata all'app. |
-| `response_type` | Obbligatoria | Deve includere `id_token` per l'accesso a OpenID Connect. Può anche includere altri valori `response_type`, ad esempio `code`. |
+| `tenant` | Obbligatorio | È possibile usare il valore `{tenant}` nel percorso della richiesta per controllare chi può accedere all'applicazione. I valori consentiti sono `common`, `organizations`, `consumers` e gli identificatori del tenant. Per altre informazioni, vedere le [nozioni di base sui protocolli](active-directory-v2-protocols.md#endpoints). |
+| `client_id` | Obbligatorio | **ID dell'applicazione (client)** che la [portale di Azure registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) l'esperienza assegnata all'app. |
+| `response_type` | Obbligatorio | Deve includere `id_token` per l'accesso a OpenID Connect. Può anche includere altri valori `response_type`, ad esempio `code`. |
 | `redirect_uri` | Consigliato | URI di reindirizzamento dell'app dove le risposte di autenticazione possono essere inviate e ricevute dall'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL. Se non è presente, l'endpoint selezionerà un redirect_uri registrato in modo casuale per restituire l'utente a. |
-| `scope` | Obbligatoria | Elenco di ambiti separati da spazi. Per OpenID Connect, deve includere l'ambito `openid`che esegue la conversione all'autorizzazione per l'accesso nell'interfaccia utente di consenso. È anche possibile includere in questa richiesta altri ambiti per richiedere il consenso. |
-| `nonce` | Obbligatoria | Valore incluso nella richiesta, generato dall'app, che verrà incluso nel token ID risultante come attestazione. L'app può verificare questo valore per ridurre gli attacchi di riproduzione del token. Il valore è in genere una stringa casuale univoca che può essere usata per identificare l'origine della richiesta. |
+| `scope` | Obbligatorio | Elenco di ambiti separati da spazi. Per OpenID Connect, deve includere l'ambito `openid`che esegue la conversione all'autorizzazione per l'accesso nell'interfaccia utente di consenso. È anche possibile includere in questa richiesta altri ambiti per richiedere il consenso. |
+| `nonce` | Obbligatorio | Valore incluso nella richiesta, generato dall'app, che verrà incluso nel token ID risultante come attestazione. L'app può verificare questo valore per ridurre gli attacchi di riproduzione del token. Il valore è in genere una stringa casuale univoca che può essere usata per identificare l'origine della richiesta. |
 | `response_mode` | Consigliato | Specifica il metodo che deve essere usato per inviare il codice di autorizzazione risultante all'app. Può essere `form_post` o `fragment`. Per le applicazioni Web è consigliabile usare `response_mode=form_post` per assicurare il trasferimento più sicuro dei token nell'applicazione. |
 | `state` | Consigliato | Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Per [evitare gli attacchi di richiesta intersito falsa](https://tools.ietf.org/html/rfc6749#section-10.12), viene in genere usato un valore univoco generato casualmente. Anche lo stato viene usato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la visualizzazione corrente dell'utente. |
 | `prompt` | Facoltativo | Indica il tipo di interazione obbligatoria dell'utente. Gli unici valori validi al momento sono `login`, `none` e `consent`. L'attestazione `prompt=login` forza l'utente a immettere le sue credenziali alla richiesta, negando l'accesso Single Sign-On. L'attestazione `prompt=none` è l'opposto, Questa attestazione garantisce che all'utente non venga visualizzato alcun prompt interattivo all'indirizzo. Se la richiesta non può essere completata in modo invisibile all'utente tramite Single Sign-On, l'endpoint della piattaforma Microsoft Identity restituisce un errore. L'attestazione `prompt=consent` attiva la finestra di dialogo di consenso di OAuth dopo l'accesso dell'utente. La finestra di dialogo chiede all'utente di concedere le autorizzazioni per l'app. |

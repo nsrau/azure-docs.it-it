@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione di app a MSAL (iOS/macOS) | Azure
+title: Guida alla migrazione da ADAL a MSAL (MSAL iOS/macOS) | Azure
 titleSuffix: Microsoft identity platform
 description: Informazioni sulle differenze tra MSAL per iOS/macOS e la libreria Autenticazione di Azure AD per ObjectiveC (ADAL. ObjC) e come eseguire la migrazione a MSAL per iOS/macOS.
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: twhitney
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88fcb3422c900419abf68173ff5026a7dd0b87ea
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f35243e29755c42dbe8e3a696f2718ee3d10178c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963597"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424423"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>Eseguire la migrazione di applicazioni a MSAL per iOS e macOS
 
@@ -62,11 +62,11 @@ In MSAL, l'interazione principale avviene tramite un oggetto `MSALPublicClientAp
 
 In ADAL un'app doveva fornire un identificatore di *risorsa* come `https://graph.microsoft.com` per acquisire i token dall'endpoint Azure Active Directory v 1.0. Una risorsa può definire un certo numero di ambiti, o oAuth2Permissions nel manifesto dell'applicazione, che riconosce. In questo modo le app client possono richiedere token da tale risorsa per un determinato set di ambiti predefiniti durante la registrazione dell'app.
 
-In MSAL, invece di un singolo identificatore di risorsa, le app forniscono un set di ambiti per ogni richiesta. Un ambito è un identificatore di risorsa seguito da un nome di autorizzazione nel formato risorsa/autorizzazione. Ad esempio: `https://graph.microsoft.com/user.read`
+In MSAL, invece di un singolo identificatore di risorsa, le app forniscono un set di ambiti per ogni richiesta. Un ambito è un identificatore di risorsa seguito da un nome di autorizzazione nel formato risorsa/autorizzazione. Ad esempio, usare `https://graph.microsoft.com/user.read`
 
 Esistono due modi per specificare gli ambiti in MSAL:
 
-* Fornire un elenco di tutte le autorizzazioni necessarie per le app. ad esempio: 
+* Fornire un elenco di tutte le autorizzazioni necessarie per le app. Ad esempio: 
 
     `@[@"https://graph.microsoft.com/directory.read", @"https://graph.microsoft.com/directory.write"]`
 
@@ -147,7 +147,7 @@ Per abilitare Service Broker per l'applicazione:
 
 1. Registrare un formato URI di reindirizzamento compatibile con Service Broker per l'applicazione. Il formato dell'URI di reindirizzamento compatibile con Service Broker è `msauth.<app.bundle.id>://auth`. Sostituire `<app.bundle.id>` con l'ID bundle dell'applicazione. Se si esegue la migrazione da ADAL e l'applicazione è già in grado di supportare il broker, non è necessario eseguire alcuna operazione aggiuntiva. L'URI di reindirizzamento precedente è completamente compatibile con MSAL, pertanto è possibile procedere al passaggio 3.
 
-2. Aggiungere lo schema URI di reindirizzamento dell'applicazione al file INFO. plist. Per l'URI di reindirizzamento MSAL predefinito, il formato è `msauth.<app.bundle.id>`. ad esempio:
+2. Aggiungere lo schema URI di reindirizzamento dell'applicazione al file INFO. plist. Per l'URI di reindirizzamento MSAL predefinito, il formato è `msauth.<app.bundle.id>`. Ad esempio:
 
     ```xml
     <key>CFBundleURLSchemes</key>
@@ -227,7 +227,7 @@ Non è necessario modificare l'applicazione AAD esistente per passare a MSAL e a
 
 Il formato dell'URI di reindirizzamento deve essere il seguente: `msauth.<app.bundle.id>://auth`. Sostituire `<app.bundle.id>` con l'ID bundle dell'applicazione. Specificare l'URI di reindirizzamento nel [portale di Azure](https://aka.ms/MobileAppReg).
 
-Solo per iOS, per supportare l'autenticazione basata su certificati, è necessario registrare un URI di reindirizzamento aggiuntivo nell'applicazione e il portale di Azure nel formato seguente: `msauth://code/<broker-redirect-uri-in-url-encoded-form>`. Ad esempio: `msauth://code/msauth.com.microsoft.mybundleId%3A%2F%2Fauth`
+Solo per iOS, per supportare l'autenticazione basata su certificati, è necessario registrare un URI di reindirizzamento aggiuntivo nell'applicazione e il portale di Azure nel formato seguente: `msauth://code/<broker-redirect-uri-in-url-encoded-form>`. Ad esempio, usare `msauth://code/msauth.com.microsoft.mybundleId%3A%2F%2Fauth`
 
 È consigliabile che tutte le app registrino entrambi gli URI di reindirizzamento.
 

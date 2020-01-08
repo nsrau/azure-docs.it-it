@@ -1,14 +1,14 @@
 ---
 title: Come creare i criteri di configurazione Guest
 description: Informazioni su come creare criteri di configurazione Guest di criteri di Azure per macchine virtuali Windows o Linux con Azure PowerShell.
-ms.date: 11/21/2019
+ms.date: 12/16/2019
 ms.topic: how-to
-ms.openlocfilehash: d31c03f05f3a27207eb4c184b78cb531f8bb43d6
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: f2e611998e42510eccde64ff6f945f58133fc4e9
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873081"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608525"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Come creare i criteri di configurazione Guest
 
@@ -24,6 +24,9 @@ Usare le azioni seguenti per creare una configurazione personalizzata per la con
 ## <a name="add-the-guestconfiguration-resource-module"></a>Aggiungere il modulo della risorsa GuestConfiguration
 
 Per creare un criterio di configurazione Guest, è necessario aggiungere il modulo della risorsa. Questo modulo di risorse può essere usato con PowerShell installato localmente, con [Azure cloud Shell](https://shell.azure.com)o con l' [immagine Docker Azure PowerShell Core](https://hub.docker.com/r/azuresdk/azure-powershell-core).
+
+> [!NOTE]
+> Mentre il modulo **GuestConfiguration** funziona negli ambienti precedenti, i passaggi per compilare una configurazione DSC devono essere completati in Windows PowerShell 5,1.
 
 ### <a name="base-requirements"></a>Requisiti di base
 
@@ -59,6 +62,12 @@ Se la configurazione richiede solo risorse compilate con l'installazione dell'ag
 ### <a name="requirements-for-guest-configuration-custom-resources"></a>Requisiti per le risorse personalizzate di configurazione Guest
 
 Quando la configurazione Guest controlla una macchina, viene eseguita prima di tutto `Test-TargetResource` per determinare se si trova nello stato corretto. Il valore booleano restituito dalla funzione determina se lo stato del Azure Resource Manager per l'assegnazione Guest deve essere conforme/non conforme. Se il valore booleano è `$false` per qualsiasi risorsa nella configurazione, il provider verrà eseguito `Get-TargetResource`. Se il valore booleano è `$true`, `Get-TargetResource` non viene chiamato.
+
+#### <a name="configuration-requirements"></a>Requisiti di configurazione
+
+L'unico requisito per la configurazione Guest per usare una configurazione personalizzata consiste nel fare in modo che il nome della configurazione sia coerente ovunque venga usato.  Sono inclusi il nome del file con estensione zip per il pacchetto di contenuto, il nome della configurazione nel file MOF archiviato nel pacchetto di contenuto e il nome della configurazione usato in ARM come nome di assegnazione Guest.
+
+#### <a name="get-targetresource-requirements"></a>Requisiti di Get-TargetResource
 
 La funzione `Get-TargetResource` presenta requisiti speciali per la configurazione Guest che non sono stati necessari per la configurazione dello stato desiderato di Windows.
 
@@ -96,7 +105,7 @@ La configurazione DSC per la configurazione Guest in Linux usa la risorsa `ChefI
 
 L'esempio seguente crea una configurazione denominata **baseline**, importa il modulo della risorsa **GuestConfiguration** e usa la risorsa `ChefInSpecResource` impostare il nome della definizione di INSPEC su **linux-patch-Baseline**:
 
-```azurepowershell-interactive
+```powershell
 # Define the DSC configuration and import GuestConfiguration
 Configuration baseline
 {
@@ -120,7 +129,7 @@ La configurazione DSC per la configurazione Guest di criteri di Azure viene usat
 
 Nell'esempio seguente viene creata una configurazione denominata **AuditBitLocker**, viene importato il modulo della risorsa **GuestConfiguration** e viene utilizzata la risorsa `Service` per controllare per un servizio in esecuzione:
 
-```azurepowershell-interactive
+```powershell
 # Define the DSC configuration and import GuestConfiguration
 Configuration AuditBitLocker
 {
@@ -298,7 +307,7 @@ New-GuestConfigurationPolicy
 
 Per i criteri di Linux, includere la proprietà **AttributesYmlContent** nella configurazione e sovrascrivere i valori di conseguenza. L'agente di configurazione Guest crea automaticamente il file YaML usato da INSPEC per archiviare gli attributi. Vedi l'esempio seguente.
 
-```azurepowershell-interactive
+```powershell
 Configuration FirewalldEnabled {
 
     Import-DscResource -ModuleName 'GuestConfiguration'
@@ -403,7 +412,7 @@ Un utile riferimento per la creazione di chiavi GPG da usare con i computer Linu
 
 Una volta pubblicato il contenuto, aggiungere un tag con il nome `GuestConfigPolicyCertificateValidation` e il valore `enabled` a tutte le macchine virtuali in cui deve essere richiesta la firma del codice. Questo tag può essere distribuito su vasta scala usando criteri di Azure. Vedere l'esempio [Applica tag e il relativo valore predefinito](../samples/apply-tag-default-value.md) . Una volta che questo tag è stato inserito, la definizione dei criteri generata usando il cmdlet `New-GuestConfigurationPolicy` Abilita il requisito tramite l'estensione di configurazione Guest.
 
-## <a name="preview-troubleshooting-guest-configuration-policy-assignments"></a>ANTEPRIMA Risoluzione dei problemi relativi alle assegnazioni dei criteri di configurazione Guest
+## <a name="troubleshooting-guest-configuration-policy-assignments-preview"></a>Risoluzione dei problemi relativi alle assegnazioni dei criteri di configurazione Guest (anteprima)
 
 Uno strumento è disponibile in anteprima per facilitare la risoluzione dei problemi relativi alle assegnazioni di configurazione Guest di criteri di Azure. Lo strumento è in anteprima ed è stato pubblicato nel PowerShell Gallery come nome modulo [risoluzione dei problemi di configurazione Guest](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/).
 

@@ -1,5 +1,6 @@
 ---
-title: Autorizzare gli account per sviluppatori utilizzando OAuth 2.0 in Gestione API di Azure | Documentazione Microsoft
+title: Autorizzare gli account per sviluppatori usando OAuth 2,0 in gestione API
+titleSuffix: Azure API Management
 description: Informazioni su come autorizzare gli utenti tramite OAuth 2.0 in Gestione API.
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 99a49aa4627dc23d5f7531ac961d63e3e75ccff9
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 90c890925378c30ce5688d2713990b4b2cdd20c5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176625"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430684"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Come autorizzare gli account per sviluppatori utilizzando OAuth 2.0 in Gestione API di Azure
 
@@ -35,7 +36,7 @@ Questa guida illustra come configurare un'istanza del servizio Gestione API per 
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="step1"> </a>Configurare un server autorizzazione OAuth 2.0 in Gestione API
+## <a name="step1"> </a>Configurare un server di autorizzazione OAuth 2,0 in gestione API
 
 > [!NOTE]
 > Se non è stata ancora creata un'istanza del servizio gestione API, vedere [creare un'istanza del servizio gestione API][Create an API Management service instance].
@@ -81,7 +82,7 @@ Questa guida illustra come configurare un'istanza del servizio Gestione API per 
 
     Dopo aver completato il modulo, fare clic su **Crea** per salvare la configurazione del server di autorizzazione OAuth 2.0 di Gestione API. Dopo aver salvato la configurazione del server, è possibile configurare le API in modo che usino questa configurazione, come illustrato nella sezione successiva.
 
-## <a name="step2"></a>Configurare un'API per l'uso di un'autorizzazione utente OAuth 2.0
+## <a name="step2"> </a>Configurare un'API per l'uso dell'autorizzazione utente OAuth 2,0
 
 1. Fare clic su **API** nel menu **Gestione API** a sinistra.
 
@@ -117,7 +118,7 @@ Quando **Authorization code** è selezionato, viene visualizzata una finestra po
 > [!NOTE]
 > Se i popup sono stati disattivati, verrà richiesto di attivarli tramite il browser. Dopo averli attivati, selezionare di nuovo **Authorization code** per visualizzare il modulo di accesso.
 
-![Accesso][api-management-oauth2-signin]
+![Accedi][api-management-oauth2-signin]
 
 Dopo aver effettuato l'accesso, le **intestazioni della richiesta** vengono compilate con un'intestazione `Authorization : Bearer` che autorizza la richiesta.
 

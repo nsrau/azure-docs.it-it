@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
-ms.openlocfilehash: 5d13e944cbc083b314c71936d181101ec13037b4
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 98001ba01c5dd29375a9af3af43a06f760e4f55f
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997140"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552917"
 ---
 # <a name="protect-your-network-resources"></a>Proteggere le risorse di rete
 Il Centro sicurezza di Azure analizza continuamente lo stato di sicurezza delle risorse di Azure per consigliare le procedure ottimali di protezione della rete. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli necessari per rafforzare e tutelare le risorse.
 
-Questo articolo illustra la pagina **rete** della sezione relativa alla sicurezza delle risorse del Centro sicurezza di Azure e alcune delle raccomandazioni che verranno visualizzate.
+Questo articolo illustra la pagina **rete** della sezione relativa alla sicurezza delle risorse del Centro sicurezza.
 
-Per un elenco completo dei consigli per la rete, vedere [raccomandazioni](recommendations-network.md)per la rete.
+Per un elenco completo dei consigli per la rete, vedere [raccomandazioni](recommendations-reference.md#recs-network)per la rete.
 
 Questo articolo illustra le raccomandazioni applicabili alle risorse di Azure da un punto di vista della sicurezza di rete. Raccomandazioni per la rete per i firewall di nuova generazione, i gruppi di sicurezza di rete, l'accesso JIT alle VM, le regole del traffico in ingresso eccessivamente permissive e altro ancora. Per visualizzare un elenco delle raccomandazioni per le risorse di rete e le azioni di correzione, vedere [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md).
 
@@ -40,7 +40,7 @@ La pagina **Rete** offre una panoramica delle sezioni da studiare per ottenere a
 - Raccomandazioni per la sicurezza della rete.
 - Pannello **Rete** legacy (il precedente pannello Rete) 
  
-![Pannello Rete](./media/security-center-network-recommendations/networking-pane.png)
+[riquadro rete ![](./media/security-center-network-recommendations/networking-pane.png)](./media/security-center-network-recommendations/networking-pane.png#lightbox)
 
 ## <a name="network-map"></a>Mappa di rete
 La mappa di rete interattiva è una rappresentazione visiva con sovrimpressioni sulla sicurezza che offre raccomandazioni e informazioni dettagliate per la protezione avanzata delle risorse di rete. Nella mappa è possibile vedere la topologia di rete dei carichi di lavoro di Azure, le connessioni tra le macchine virtuali e le subnet e il dettaglio di risorse specifiche per cui vengono offerte raccomandazioni.
@@ -59,11 +59,11 @@ La vista predefinita della mappa topologica contiene:
 - Risorse con connessione Internet
 - La mappa è ottimizzata per le sottoscrizioni selezionate in Azure. Se si modifica la selezione, la mappa viene ricalcolata e ottimizzata nuovamente in base alle nuove impostazioni.  
 
-![Mappa della topologia di rete](./media/security-center-network-recommendations/network-map-info.png)
+[Mappa della topologia di rete ![](./media/security-center-network-recommendations/network-map-info.png)](./media/security-center-network-recommendations/network-map-info.png#lightbox)
 
 ## <a name="understanding-the-network-map"></a>Informazioni sulla mappa di rete
 
-La mappa di rete consente di visualizzare le risorse di Azure in una visualizzazione **Topologia** o una visualizzazione **Traffico**.
+La mappa di rete consente di visualizzare le risorse di Azure in una visualizzazione **Topologia** o una visualizzazione **Traffico**. 
 
 ### <a name="the-topology-view"></a>La visualizzazione Topologia
 
@@ -111,7 +111,8 @@ Per eseguire il drill-down in una risorsa:
 
 **Questi dati si basano sull'analisi dei gruppi di sicurezza di rete nonché sugli algoritmi di machine learning avanzati che analizzano più regole per comprendere incroci e interazioni.** 
 
-![Mappa del traffico di rete](./media/security-center-network-recommendations/network-map-traffic.png)
+[Mappa del traffico di rete ![](./media/security-center-network-recommendations/network-map-traffic.png)](./media/security-center-network-recommendations/network-map-traffic.png#lightbox)
+
 
 ## Risorse di rete legacy <a name ="legacy-networking"></a>
 
@@ -119,7 +120,7 @@ Se non si dispone del livello standard del Centro sicurezza, in questa sezione v
 
 Per accedere a queste informazioni, fare clic su **Visualizza le risorse di rete legacy** nel pannello Rete. 
 
-![Risorse di rete legacy](./media/security-center-network-recommendations/legacy-networking.png)
+[![rete legacy](./media/security-center-network-recommendations/legacy-networking.png)](./media/security-center-network-recommendations/legacy-networking.png#lightbox)
 
 ### <a name="internet-facing-endpoints-section"></a>Sezione Endpoint con connessione Internet
 Nella sezione **Endpoint con connessione Internet** è possibile visualizzare le macchine virtuali attualmente configurate con un endpoint con connessione Internet e il relativo stato.
@@ -135,7 +136,8 @@ Nella visualizzazione Topologia il primo livello contiene le reti virtuali. Il s
 
 Il terzo livello contiene le macchine virtuali, che è simile a quello descritta in precedenza. È possibile fare clic su qualsiasi risorsa per saperne di più o applicare la configurazione o il controllo di sicurezza necessario.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="next-steps"></a>Passaggi successivi
+
 Per altre informazioni sulle raccomandazioni applicabili ad altri tipi di risorse di Azure, vedere gli argomenti seguenti:
 
 * [Protezione delle macchine virtuali nel Centro sicurezza di Azure](security-center-virtual-machine-protection.md)

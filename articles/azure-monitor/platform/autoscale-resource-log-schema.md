@@ -1,19 +1,15 @@
 ---
 title: Schema degli eventi del log di scalabilità automatica di Azure
 description: Formato dei log per il monitoraggio e la risoluzione dei problemi delle azioni di scalabilità automatica
-author: rboucher
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.author: robb
 ms.subservice: autoscale
-ms.openlocfilehash: 8b99cec69b05fc0f78dcf813e67e6b65ba50d819
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 3c32f15208a8e692054ee6c1f7effc6b7c89de3d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74152931"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395939"
 ---
 # <a name="azure-monitor-autoscale-actions-resource-log-schema"></a>Schema del log delle risorse azioni di scalabilità automatica di monitoraggio di Azure
 

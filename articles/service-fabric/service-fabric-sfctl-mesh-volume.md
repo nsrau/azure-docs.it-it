@@ -1,25 +1,16 @@
 ---
-title: Interfaccia della riga di comando di Azure Service Fabric - volume mesh sfctl | Microsoft Docs
-description: Descrive i comandi sfctl mesh volume dell'interfaccia della riga di comando di Service Fabric.
-services: service-fabric
-documentationcenter: na
+title: INTERFACCIA della riga di comando di Azure Service Fabric-volume mesh sfctl
+description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric. Include un elenco di comandi per ottenere ed eliminare le risorse del volume.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: cc26a0a3170f6cd75f5a1cbb3981044d28d9aba3
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: e77c98bf384278b0bf27bb0f30f425375093ffab
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901139"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645311"
 ---
 # <a name="sfctl-mesh-volume"></a>sfctl mesh volume
 Consente di ottenere ed eliminare le risorse di volume.
@@ -47,11 +38,11 @@ Elimina la risorsa di volume identificata dal nome.
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 ## <a name="sfctl-mesh-volume-list"></a>sfctl mesh volume list
 Elenca tutte le risorse di volume.
@@ -62,11 +53,11 @@ Ottiene le informazioni su tutte le risorse di volume in un determinato gruppo d
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 ## <a name="sfctl-mesh-volume-show"></a>sfctl mesh volume show
 Ottiene la risorsa di volume con il nome specificato.
@@ -83,11 +74,11 @@ Ottiene le informazioni sulla risorsa di volume con il nome specificato. Le info
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

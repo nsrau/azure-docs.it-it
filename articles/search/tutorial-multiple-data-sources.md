@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: fbe3b9ada556f26bd559f040bf2ba5b22367abd0
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 12/23/2019
+ms.openlocfilehash: aac5dc300009ec682ef1599ad654415f5c4ad190
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112216"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495096"
 ---
 # <a name="c-tutorial-combine-data-from-multiple-data-sources-in-one-azure-cognitive-search-index"></a>C#Esercitazione: combinare i dati di più origini dati in un indice ricerca cognitiva di Azure
 
@@ -30,7 +30,7 @@ In questa esercitazione si usano C#, .NET SDK per Ricerca cognitiva di Azure e i
 > * Indicizzare i dati dell'hotel da Azure Cosmos DB
 > * Unire i dati delle camere provenienti da Archiviazione BLOB
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 In questa guida di avvio rapido vengono usati i servizi, gli strumenti e i dati seguenti. 
 
@@ -38,15 +38,15 @@ In questa guida di avvio rapido vengono usati i servizi, gli strumenti e i dati 
 
 - [Creare un account di Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal) per l'archiviazione dei dati di esempio dell'hotel.
 
-- [Creare un account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) per l'archiviazione dei dati BLOB JSON di esempio.
+- [Creare un account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) per archiviare i dati della stanza di esempio.
 
-- [Installare Visual Studio](https://visualstudio.microsoft.com/) da usare come IDE.
+- [Installare Visual Studio 2019](https://visualstudio.microsoft.com/) per usarlo come IDE.
 
 ### <a name="install-the-project-from-github"></a>Installare il progetto da GitHub
 
 1. Individuare il repository di esempi in GitHub: [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 1. Selezionare **Clone or download** (Clona o scarica) e creare una copia privata locale del repository.
-1. Aprire Visual Studio e installare il pacchetto NuGet Ricerca cognitiva di Microsoft Azure, se non è già installato. Nel menu **strumenti** selezionare **Gestione pacchetti NuGet** e quindi **Gestisci pacchetti NuGet per la soluzione...** . Nella scheda **Sfoglia** trovare e quindi installare **Microsoft. Azure. search** (versione 9.0.1 o successiva). Sarà necessario completare altre finestra di dialogo per terminare l'installazione.
+1. Aprire Visual Studio 2019 e installare il pacchetto NuGet Microsoft Azure ricerca cognitiva, se non è già installato. Nel menu **strumenti** selezionare **Gestione pacchetti NuGet** e quindi **Gestisci pacchetti NuGet per la soluzione...** . Nella scheda **Sfoglia** trovare e quindi installare **Microsoft. Azure. search** (versione 9.0.1 o successiva). Sarà necessario completare altre finestra di dialogo per terminare l'installazione.
 
     ![Uso di NuGet per aggiungere librerie di Azure](./media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png)
 
@@ -56,7 +56,7 @@ In questa guida di avvio rapido vengono usati i servizi, gli strumenti e i dati 
 
 Per interagire con il servizio Ricerca cognitiva di Azure, sono necessari l'URL del servizio e una chiave di accesso. Con entrambi gli elementi viene creato un servizio di ricerca, quindi se il servizio Ricerca cognitiva di Azure è stato aggiunto alla sottoscrizione, seguire questi passaggi per ottenere le informazioni necessarie:
 
-1. [Accedere al portale di Azure](https://portal.azure.com/) e ottenere l'URL nella pagina **Panoramica** del servizio di ricerca. Un endpoint di esempio potrebbe essere simile a `https://mydemo.search.windows.net`.
+1. Accedere al [portale di Azure](https://portal.azure.com/)e nella pagina di **Panoramica** del servizio di ricerca ottenere l'URL. Un endpoint di esempio potrebbe essere simile a `https://mydemo.search.windows.net`.
 
 1. In **Impostazioni** > **Chiavi** ottenere una chiave amministratore per diritti completi sul servizio. Sono disponibili due chiavi amministratore interscambiabili, fornite per continuità aziendale nel caso in cui sia necessario eseguire il rollover di una di esse. È possibile usare la chiave primaria o secondaria nelle richieste per l'aggiunta, la modifica e l'eliminazione di oggetti.
 
@@ -68,35 +68,35 @@ Per ogni richiesta inviata al servizio è necessario specificare una chiave API.
 
 Questo esempio usa due piccoli set di dati che descrivono sette hotel fittizi. Un set descrive gli hotel stessi e verrà caricato in un database Azure Cosmos DB. L'altro set contiene i dettagli delle camere di hotel ed è suddiviso in sette file JSON separati da caricare in Archiviazione BLOB di Azure.
 
-1. [Accedere al portale di Azure](https://portal.azure.com) e passare alla pagina Panoramica dell'account Azure Cosmos DB.
+1. Accedere alla [portale di Azure](https://portal.azure.com), quindi passare alla pagina di panoramica dell'account Azure Cosmos DB.
 
-1. Fare clic su Aggiungi contenitore sulla barra dei menu. Specificare "Crea nuovo database" e assegnare il nome **hotel-rooms-db**. Immettere **hotels** come nome della raccolta e **/HotelId** come chiave della partizione. Fare clic su **OK** per creare il database e il contenitore.
+1. Selezionare **Esplora dati** , quindi selezionare **nuovo database**.
 
-   ![Aggiungere un contenitore di Azure Cosmos DB](media/tutorial-multiple-data-sources/cosmos-add-container.png "Aggiungere un contenitore di Azure Cosmos DB")
+   ![Creazione di un nuovo database](media/tutorial-multiple-data-sources/cosmos-newdb.png "Creare un nuovo database")
 
-1. Passare a Esplora dati di Cosmos DB e selezionare l'elemento **items** nel contenitore **hotels** all'interno del database **hotel-rooms-db**. Quindi fare clic su **Upload Item** (Carica elemento).
+1. Immettere il nome **Hotel-Rooms-DB**. Accettare i valori predefiniti per le impostazioni rimanenti.
+
+   ![Configura database](media/tutorial-multiple-data-sources/cosmos-dbname.png "Configura database")
+
+1. Creare un nuovo contenitore. Usare il database esistente appena creato. Immettere **Hotels** per il nome del contenitore e usare **/HotelId** per la chiave di partizione.
+
+   ![Aggiungi contenitore](media/tutorial-multiple-data-sources/cosmos-add-container.png "Aggiungere il contenitore")
+
+1. Selezionare **gli elementi** in **Hotels**, quindi fare clic su **carica elemento** sulla barra dei comandi. Passare a e quindi selezionare il file **cosmosdb/HotelsDataSubset_CosmosDb. JSON** nella cartella del progetto.
 
    ![Caricare nella raccolta di Azure Cosmos DB](media/tutorial-multiple-data-sources/cosmos-upload.png "Caricare nella raccolta di Azure Cosmos DB")
-
-1. Nel riquadro di caricamento fare clic sul pulsante della cartella e passare al file **cosmosdb/HotelsDataSubset_CosmosDb.json** nella cartella del progetto. Fare clic su **OK** per avviare il caricamento.
-
-   ![Selezionare il file da caricare](media/tutorial-multiple-data-sources/cosmos-upload2.png "Selezionare un file da caricare")
 
 1. Premere Aggiorna per aggiornare la visualizzazione degli elementi nella raccolta di hotel. Dovrebbero essere visualizzati sette nuovi documenti di database.
 
 ## <a name="prepare-sample-blob-data"></a>Preparare i dati BLOB di esempio
 
-1. [Accedere al portale di Azure](https://portal.azure.com), passare all'account di archiviazione di Azure, fare clic su **BLOB** e quindi su **+ Contenitore**.
+1. Accedere al [portale di Azure](https://portal.azure.com), passare all'account di archiviazione di Azure, fare clic su **BLOB**e quindi fare clic su **+ contenitore**.
 
 1. [Creare un contenitore BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) denominato **hotel-rooms** in cui archiviare i file JSON delle camere di hotel di esempio. È possibile impostare il livello di accesso pubblico su uno qualsiasi dei relativi valori validi.
 
    ![Creare un contenitore BLOB](media/tutorial-multiple-data-sources/blob-add-container.png "Creare un contenitore BLOB")
 
-1. Dopo aver creato il contenitore, aprirlo e selezionare **Carica** nella barra dei comandi.
-
-   ![Opzione Carica nella barra dei comandi](media/search-semi-structured-data/upload-command-bar.png "Opzione Carica nella barra dei comandi")
-
-1. Passare alla cartella contenente i file di esempio. Selezionare tutti i file e quindi fare clic su **Carica**.
+1. Dopo aver creato il contenitore, aprirlo e selezionare **Carica** nella barra dei comandi. Passare alla cartella contenente i file di esempio. Selezionare tutti i file e quindi fare clic su **Carica**.
 
    ![Caricare file](media/tutorial-multiple-data-sources/blob-upload.png "Caricare file")
 
@@ -129,11 +129,11 @@ Per le voci successive specificare i nomi di account e le informazioni sulla str
 
 In Ricerca cognitiva di Azure il campo della chiave identifica in modo univoco ogni documento nell'indice. Ogni indice di ricerca deve avere esclusivamente un campo chiave di tipo `Edm.String`. Questo campo deve essere presente per ogni documento di un'origine dati aggiunto all'indice. È l'unico campo obbligatorio.
 
-Quando vengono indicizzati i dati di più origini dati, il valore della chiave di ogni origine dati deve corrispondere allo stesso campo della chiave nell'indice combinato. È spesso necessaria una pianificazione anticipata per identificare una chiave di documento significativa per l'indice e assicurarsi che esista in ogni origine dati.
+Quando si indicizzazione di dati da più origini dati, usare una chiave di documento comune per unire i dati di due documenti di origine fisicamente distinti in un nuovo documento di ricerca nell'indice combinato. Spesso richiede una pianificazione iniziale per identificare una chiave di documento significativa per l'indice e verificare che sia presente in entrambe le origini dati. In questa demo, la chiave degli hotel in Cosmos DB è presente anche nei BLOB JSON delle chat room nell'archivio BLOB.
 
 Gli indicizzatori di Ricerca cognitiva di Azure possono usare i mapping dei campi per rinominare e anche riformattare i campi dati durante il processo di indicizzazione, affinché l'origine dati venga indirizzata al campo di indice corretto.
 
-Ad esempio, nei dati di Azure Cosmos DB di esempio, l'identificatore di hotel è denominato **HotelId**. Tuttavia, nei file BLOB JSON per le chat Hotel l'identificatore dell'hotel è denominato **ID**. Il programma gestisce questa operazione eseguendo il mapping del campo **ID** dai BLOB al **campo chiave con** i puntini di indicizzazione nell'indice.
+Ad esempio, nell'esempio Azure Cosmos DB dati, l'identificatore dell'hotel viene chiamato **`HotelId`** . Tuttavia, nei file BLOB JSON per le chat Hotel l'identificatore dell'hotel è denominato **`Id`** . Il programma gestisce questa operazione eseguendo il mapping del campo **`Id`** dai BLOB al campo chiave **`HotelId`** nell'indice.
 
 > [!NOTE]
 > Nella maggior parte dei casi, le chiavi di documenti generate automaticamente, come quelle create per impostazione predefinita da alcuni indicizzatori, non sono valide per gli indici combinati. In generale, è consigliabile usare un valore di chiave univoco e significativo che esiste già nelle origini dati o può essere aggiunto facilmente.
@@ -143,11 +143,11 @@ Ad esempio, nei dati di Azure Cosmos DB di esempio, l'identificatore di hotel è
 Dopo aver definito dati e impostazioni di configurazione, dovrebbe essere possibile compilare ed eseguire il programma di esempio in **AzureSearchMultipleDataSources.sln**.
 
 Questa semplice app console in C#/.NET esegue le attività seguenti:
-* Crea un nuovo indice di Ricerca cognitiva di Azure basato sulla struttura dei dati della classe Hotel in C# (che fa anche riferimento alle classi Address e Room).
-* Crea un'origine dati di Azure Cosmos DB e un indicizzatore che esegue il mapping dei dati di Azure Cosmos DB con i campi dell'indice.
-* Esegue l'indicizzatore di Azure Cosmos DB per caricare i dati degli hotel.
-* Crea un'origine dati di Archiviazione BLOB di Azure e un indicizzatore che esegue il mapping dei dati BLOB JSON con i campi dell'indice.
-* Esegue l'indicizzatore di Archiviazione BLOB di Azure per caricare i dati delle camere.
+* Crea un nuovo indice basato sulla struttura dei dati della classe C# dell'oggetto, che fa riferimento anche alle classi Address e room.
+* Crea una nuova origine dati e un indicizzatore che esegue il mapping di Azure Cosmos DB dati ai campi dell'indice. Entrambi gli oggetti sono in ricerca cognitiva di Azure.
+* Esegue l'indicizzatore per caricare i dati dell'hotel da Cosmos DB.
+* Crea una seconda origine dati e un indicizzatore che esegue il mapping dei dati BLOB JSON ai campi dell'indice.
+* Esegue il secondo indicizzatore per caricare i dati delle sale dall'archiviazione BLOB.
 
  Prima di eseguire il programma, esaminare il codice e le definizioni di indice e indicizzatore per questo esempio. Il codice rilevante è disponibile in due file:
 
@@ -300,7 +300,7 @@ Dopo aver creato l'origine dati, il programma configura un indicizzatore BLOB de
     await searchService.Indexers.CreateOrUpdateAsync(blobIndexer);
 ```
 
-I BLOB JSON contengono un campo di chiave denominato **Id** invece di **HotelId**. Il codice usa la classe `FieldMapping` per indicare all'indicizzatore di indirizzare il valore del campo **Id** alla chiave di documento **HotelId** nell'indice.
+I BLOB JSON contengono un campo chiave denominato **`Id`** anziché **`HotelId`** . Il codice usa la classe `FieldMapping` per indicare all'indicizzatore di indirizzare il valore del campo **`Id`** alla chiave del documento **`HotelId`** nell'indice.
 
 Gli indicizzatori di Archiviazione BLOB possono usare parametri che identificano la modalità di analisi da usare. La modalità di analisi per i BLOB che rappresentano un singolo documento è diversa da quella per più documenti all'interno dello stesso BLOB. In questo esempio ogni BLOB rappresenta un singolo documento di indice, quindi il codice usa il parametro `IndexingParameters.ParseJson()`.
 
@@ -350,8 +350,3 @@ Esistono diversi approcci e più opzioni all'indicizzazione dei BLOB JSON. Se l'
 
 > [!div class="nextstepaction"]
 > [Come indicizzare i BLOB JSON con l'indicizzatore BLOB di Ricerca cognitiva di Azure](search-howto-index-json-blobs.md)
-
-È possibile scegliere di aumentare i dati dell'indice strutturato di un'origine dati con dati che presentano arricchimenti cognitivi provenienti da BLOB non strutturati o contenuto full-text. L'esercitazione seguente illustra come usare Servizi cognitivi insieme a Ricerca cognitiva di Azure tramite .NET SDK.
-
-> [!div class="nextstepaction"]
-> [Chiamare le API Servizi cognitivi in una pipeline di indicizzazione di Ricerca cognitiva di Azure](cognitive-search-tutorial-blob-dotnet.md)

@@ -1,18 +1,14 @@
 ---
 title: Configurare i cluster OpenShift di Azure Red Hat con monitoraggio di Azure per i contenitori | Microsoft Docs
 description: Questo articolo descrive come configurare monitoraggio di Azure per i contenitori per monitorare i cluster Kubernetes ospitati in Azure Red Hat OpenShift.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/21/2019
-ms.openlocfilehash: 07d84175325226af755712ec38ab93b901bbd361
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 6922cb7b143989ba329df972a06825629c4c5020
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707517"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75405581"
 ---
 # <a name="configure-azure-red-hat-openshift-clusters-with-azure-monitor-for-containers"></a>Configurare i cluster OpenShift di Azure Red Hat con monitoraggio di Azure per i contenitori
 
@@ -31,7 +27,7 @@ Monitoraggio di Azure per i contenitori offre un'esperienza di monitoraggio avan
 
 Monitoraggio di Azure per contenitori supporta il monitoraggio di Azure Red Hat OpenShift, come descritto nell'articolo [introduttivo](container-insights-overview.md) , ad eccezione delle funzionalità seguenti:
 
-- Dati dinamici
+- Dati attivati
 - Frammentazione metrica Prometeo
 - [Raccogliere le metriche](container-insights-update-metrics.md) dai nodi e dai pod del cluster e archiviarle nel database di metriche di monitoraggio di Azure
 - Funzionalità integrità

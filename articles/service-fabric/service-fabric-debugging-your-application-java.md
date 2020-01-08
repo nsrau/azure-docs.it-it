@@ -1,25 +1,16 @@
 ---
-title: Eseguire il debug dell'applicazione Azure Service Fabric in Eclipse | Microsoft Docs
+title: Eseguire il debug dell'applicazione in Eclipse
 description: Migliorare l'affidabilità e le prestazioni dei servizi sviluppandoli ed eseguendone il debug in Eclipse in un cluster di sviluppo locale.
-services: service-fabric
-documentationcenter: .net
 author: suhuruli
-manager: chackdan
-editor: ''
-ms.assetid: cb888532-bcdb-4e47-95e4-bfbb1f644da4
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 2f00636da2b29e7815569a683fdf51c6a4e3b0e0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 15448a9bd8998a99e8fce578b05130694ecd5fd0
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393589"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614486"
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Eseguire il debug dell'applicazione Service Fabric di Java con Eclipse
 > [!div class="op_single_selector"]

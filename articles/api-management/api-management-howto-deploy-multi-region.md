@@ -1,5 +1,6 @@
 ---
-title: Distribuire servizi di Gestione API di Azure in più aree di Azure | Documentazione Microsoft
+title: Distribuire i servizi di gestione API di Azure in più aree di Azure
+titleSuffix: Azure API Management
 description: Informazioni su come distribuire un'istanza del servizio Gestione API di Azure in più aree di Azure.
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 7cd0533dcbc9b367fa9a1e138b1aa1257989a3d7
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 5c71f37741de06b8633e7eafaae2f29823214f74
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072436"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442658"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Come distribuire un'istanza del servizio Gestione API di Azure in più aree di Azure
 
@@ -30,7 +31,7 @@ Un nuovo servizio gestione API di Azure contiene inizialmente una sola [unità][
 
 [!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
-## <a name="add-region"></a>Distribuire un'istanza del servizio Gestione API in una nuova area
+## <a name="add-region"> </a>Distribuire un'istanza del servizio gestione API in una nuova area
 
 > [!NOTE]
 > Se non è stata ancora creata un'istanza del servizio gestione API, vedere [creare un'istanza del servizio gestione API][create an api management service instance].
@@ -41,7 +42,7 @@ Passare alla pagina **Scalabilità** nel portale di Azure per l'istanza del serv
 
 Per distribuire una nuova area, fare clic su **+ Aggiungi area** dalla barra degli strumenti.
 
-![Aggiungi area][api-management-add-region]
+![Aggiungere un'area][api-management-add-region]
 
 Selezionare la posizione dall'elenco a discesa e impostare il numero di unità con il dispositivo di scorrimento.
 
@@ -51,7 +52,7 @@ Fare clic su **Aggiungi** per inserire la selezione nella tabella Posizioni.
 
 Ripetere l'operazione per configurare tutte le posizioni e fare clic su **Salva** dalla barra degli strumenti per avviare il processo di distribuzione.
 
-## <a name="remove-region"> </a>Eliminare un'istanza del servizio di Gestione API da una posizione
+## <a name="remove-region"> </a>Eliminare un'istanza del servizio gestione API da un percorso
 
 Passare alla pagina **Scalabilità** nel portale di Azure per l'istanza del servizio di Gestione API.
 
@@ -61,7 +62,7 @@ Per la località che si vuole rimuovere aprire il menu di scelta rapida usando i
 
 Confermare l'eliminazione e fare clic su **Salva** per applicare le modifiche.
 
-## <a name="route-backend"> </a>Chiamate di route API per servizi back-end a livello di area
+## <a name="route-backend"> </a>Inviare chiamate API a servizi back-end a livello di area
 
 Gestione API di Azure include un solo URL del servizio back-end. Anche se sono presenti istanze di gestione API di Azure in diverse aree, il gateway API inoltrerà comunque le richieste al servizio back-end stesso, che viene distribuito in una sola area. In questo caso, il miglioramento delle prestazioni proverrà solo dalle risposte memorizzate nella cache in Gestione API di Azure in un'area specifica per la richiesta, ma il tentativo di contattare il back-end in tutto il mondo potrebbe comunque causare una latenza elevata.
 
@@ -114,8 +115,8 @@ Gestione API instrada le richieste a un _gateway_ a livello di area in base [all
 
 1. Creare [Gestione traffico di Azure](https://azure.microsoft.com/services/traffic-manager/).
 1. Se si usa un dominio personalizzato, [usarlo con gestione traffico invece che con](../traffic-manager/traffic-manager-point-internet-domain.md) il servizio gestione API.
-1. [Configurare gli endpoint regionali di gestione API in gestione traffico](../traffic-manager/traffic-manager-manage-endpoints.md). Gli endpoint internazionali seguono il modello di `https://<service-name>-<region>-01.regional.azure-api.net`URL, ad esempio. `https://contoso-westus2-01.regional.azure-api.net`
-1. [Configurare gli endpoint di stato locale di gestione API in gestione traffico](../traffic-manager/traffic-manager-monitoring.md). Gli endpoint di stato regionali seguono il modello di `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef`URL, ad esempio. `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef`
+1. [Configurare gli endpoint regionali di gestione API in gestione traffico](../traffic-manager/traffic-manager-manage-endpoints.md). Gli endpoint internazionali seguono il modello di URL di `https://<service-name>-<region>-01.regional.azure-api.net`, ad esempio `https://contoso-westus2-01.regional.azure-api.net`.
+1. [Configurare gli endpoint di stato locale di gestione API in gestione traffico](../traffic-manager/traffic-manager-monitoring.md). Gli endpoint di stato regionali seguono il modello di URL di `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef`, ad esempio `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef`.
 1. Specificare [il metodo di routing](../traffic-manager/traffic-manager-routing-methods.md) di gestione traffico.
 
 [api-management-management-console]: ./media/api-management-howto-deploy-multi-region/api-management-management-console.png

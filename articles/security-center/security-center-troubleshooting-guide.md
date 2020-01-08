@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: b9650c3c30d95c85f505b640564ff416931676ea
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: c72357b0e60f36082a468063ecf2bca329cd70be
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559217"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355292"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guida alla risoluzione dei problemi del Centro sicurezza di Azure
 
@@ -40,7 +40,7 @@ A seconda dei tipi di avvisi, i clienti possono raccogliere le informazioni nece
 
 Per alcuni avvisi è presente anche un punteggio di confidenza. Il punteggio di attendibilità nel **Centro sicurezza** consente la valutazione dei team e l'assegnazione di priorità degli avvisi. Il **Centro sicurezza** applica automaticamente le procedure consigliate del settore, gli algoritmi intelligenti e i processi usati dagli analisti per determinare se una minaccia è legittima e fornisce informazioni significative sotto forma di un punteggio di confidenza.
 
-I clienti possono condividere commenti e suggerimenti per la descrizione e la pertinenza dell'avviso. Passare all'avviso, selezionare il pulsante **Le informazioni sono state utili?** , selezionare il motivo e quindi immettere un commento per spiegare i commenti e i suggerimenti. Questo canale di feedback viene monitorato costantemente allo scopo di migliorare gli avvisi forniti.
+I clienti possono condividere feedback per la descrizione e la pertinenza dell'avviso. Passare all'avviso, selezionare il pulsante **Le informazioni sono state utili?** , selezionare il motivo e quindi immettere un commento per spiegare i commenti e i suggerimenti. Questo canale di feedback viene monitorato costantemente allo scopo di migliorare gli avvisi forniti.
 
 ## <a name="audit-log"></a>Log di controllo
 
@@ -62,7 +62,7 @@ Il Centro sicurezza usa il Microsoft Monitoring Agent, ovvero lo stesso agente u
 
 Se si apre la console di gestione dei servizi (services.msc), verrà visualizzato anche il servizio Microsoft Monitoring Agent in esecuzione come illustrato di seguito:
 
-![Services](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig5.png)
+![Servizi](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig5.png)
 
 Per visualizzare la versione dell'agente di cui si dispone, aprire **Gestione attività**, nella scheda **Processi** individuare il **Servizio Microsoft Monitoring Agent**, fare doppio clic su di esso e fare clic su **Proprietà**. Nella scheda **Dettagli** cercare la versione del file, come illustrato di seguito:
 
@@ -92,7 +92,7 @@ Esistono due scenari di installazione che possono produrre risultati diversi qua
 |L'installazione non è riuscita - Errore generale | Microsoft Monitoring Agent è stato installato ma l'operazione non è riuscita a causa di un errore. | [Installare manualmente l'estensione](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) o disinstallare l'estensione in modo che il Centro sicurezza possa provare a reinstallarla. |
 | L'installazione non è riuscita - L'agente locale è già installato | Non è stato possibile installare Microsoft Monitoring Agent. Il Centro sicurezza ha identificato un agente locale (Log Analytics o System Center Operations Manager) già installato nella macchina virtuale. Per evitare una configurazione multihosting, in cui la VM invia report a due aree di lavoro separate, l'installazione di Microsoft Monitoring Agent è stata arrestata. | È possibile risolvere il problema in due modi: [installare manualmente l'estensione](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) e connetterla all'area di lavoro specifica. In alternativa, configurare l'area di lavoro da usare come area di lavoro predefinita e abilitare il provisioning automatico dell'agente.  Vedere [Abilitare il provisioning automatico](security-center-enable-data-collection.md). |
 | L'agente non riesce a connettersi all'area di lavoro | Microsoft Monitoring Agent è stato installato ma l'operazione non è riuscita a causa di un errore di connettività di rete.  Verificare che sia disponibile l'accesso a Internet o che un proxy HTTP corretto sia stato configurato per l'agente. | Vedere Requisiti di rete di Monitoring Agent. |
-| L'agente è connesso a un'area di lavoro mancante o sconosciuta | Il Centro sicurezza ha rilevato che l'istanza di Microsoft Monitoring Agent installata nella macchina virtuale è connessa a un'area di lavoro a cui non riesce ad accedere. | Questo problema può dipendere da due cause. L'area di lavoro è stata eliminata e non esiste più. Reinstallare l'agente con l'area di lavoro corretta o disinstallare l'agente e consentire al Centro sicurezza di completare l'installazione del provisioning automatico. In alternativa è possibile che l'area di lavoro sia parte di una sottoscrizione a cui il Centro sicurezza non è autorizzato ad accedere. Il Centro sicurezza necessita che le sottoscrizioni consentano l'accesso al provider di risorse per la sicurezza Microsoft. Per abilitare l'accesso, registrare la sottoscrizione nel provider di risorse per la sicurezza Microsoft. È possibile eseguire questa operazione tramite API, PowerShell, portale o semplicemente filtrando la sottoscrizione nel dashboard **Panoramica** del Centro sicurezza. Per altre informazioni, vedere [Provider e tipi di risorse](../azure-resource-manager/resource-manager-supported-services.md#azure-portal). |
+| L'agente è connesso a un'area di lavoro mancante o sconosciuta | Il Centro sicurezza ha rilevato che l'istanza di Microsoft Monitoring Agent installata nella macchina virtuale è connessa a un'area di lavoro a cui non riesce ad accedere. | Questo problema può dipendere da due cause. L'area di lavoro è stata eliminata e non esiste più. Reinstallare l'agente con l'area di lavoro corretta o disinstallare l'agente e consentire al Centro sicurezza di completare l'installazione del provisioning automatico. In alternativa è possibile che l'area di lavoro sia parte di una sottoscrizione a cui il Centro sicurezza non è autorizzato ad accedere. Il Centro sicurezza necessita che le sottoscrizioni consentano l'accesso al provider di risorse per la sicurezza Microsoft. Per abilitare l'accesso, registrare la sottoscrizione nel provider di risorse per la sicurezza Microsoft. È possibile eseguire questa operazione tramite API, PowerShell, portale o semplicemente filtrando la sottoscrizione nel dashboard **Panoramica** del Centro sicurezza. Per altre informazioni, vedere [Provider e tipi di risorse](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal). |
 | L'agente non risponde o l'ID è mancante | Il Centro sicurezza non riesce a recuperare i dati di sicurezza analizzati dalla macchina virtuale, anche se l'agente è installato. | L'agente non segnala alcun dato, incluso l'heartbeat. È possibile che l'agente sia danneggiato o che il traffico sia bloccato. È anche possibile che l'agente segnali i dati ma sia privo di un ID risorsa di Azure, quindi non è possibile associare i dati alla macchina virtuale di Azure. Per risolvere i problemi relativi a Linux, vedere [Troubleshooting Guide for Log Analytics Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal) (Guida alla risoluzione dei problemi per l'agente di Log Analytics per Linux). Per risolvere i problemi relativi a Windows, vedere[Troubleshooting Windows Virtual Machines](https://github.com/MicrosoftDocs/azure-docs/blob/8c53ac4371d482eda3d85819a4fb8dac09996a89/articles/log-analytics/log-analytics-azure-vm-extension.md#troubleshooting-windows-virtual-machines) (Risoluzione dei problemi delle macchine virtuali Windows). |
 | Agente non installato | La raccolta di dati è disabilitata. | Attivare la raccolta di dati nel criterio di sicurezza o installare manualmente Microsoft Monitoring Agent. |
 
@@ -107,10 +107,10 @@ Nella tabella seguente vengono visualizzate le risorse necessarie per la comunic
 
 | Risorsa agente | Porte | Ignorare l'analisi HTTPS |
 |---|---|---|
-| *.ods.opinsights.azure.com | 443 | SÌ |
-| *.oms.opinsights.azure.com | 443 | SÌ |
-| *.blob.core.windows.net | 443 | SÌ |
-| *.azure-automation.net | 443 | SÌ |
+| *.ods.opinsights.azure.com | 443 | Sì |
+| *.oms.opinsights.azure.com | 443 | Sì |
+| *.blob.core.windows.net | 443 | Sì |
+| *.azure-automation.net | 443 | Sì |
 
 Se si verificano problemi di caricamento con l'agente, assicurarsi di leggere l'articolo [Risoluzione dei problemi di integrazione di Operations Management Suite](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 
@@ -144,7 +144,7 @@ In questo documento è stato descritto come configurare i criteri di sicurezza n
 
 * [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md) : informazioni sulla pianificazione e considerazioni di progettazione per l'adozione del Centro sicurezza di Azure.
 * [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md) : informazioni su come monitorare l'integrità delle risorse di Azure
-* [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza
+* [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza.
 * [Informazioni sugli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-alerts-type.md)
 * [Tutorial: Respond to security incidents](tutorial-security-incident.md) (Esercitazione: Rispondere agli eventi imprevisti della sicurezza)
 * [Convalida degli avvisi nel Centro sicurezza di Azure](security-center-alert-validation.md)

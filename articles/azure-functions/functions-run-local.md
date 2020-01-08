@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 5f260ab1df5341a981a388533b06cbcda400e4da
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.openlocfilehash: 65fa8502be43076e06cea18b2499ceed9d7d770e
+ms.sourcegitcommit: 541e6139c535d38b9b4d4c5e3bfa7eef02446fdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74941832"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75667523"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Usare Strumenti di base di Funzioni di Azure
 
@@ -127,9 +127,8 @@ La procedura seguente usa [APT](https://wiki.debian.org/Apt) per installare gli 
 
 1. Controllare il file di `/etc/apt/sources.list.d/dotnetdev.list` per una delle stringhe di versione di Linux appropriate elencate di seguito:
 
-    | Distribuzione Linux | Versione |
+    | Distribuzione di Linux | Versione |
     | --------------- | ----------- |
-    | Debian 10 | `buster` |
     | Debian 9 | `stretch` |
     | Debian 8 | `jessie` |
     | Ubuntu 18.10    | `cosmic`    |
@@ -155,7 +154,7 @@ La procedura seguente usa [APT](https://wiki.debian.org/Apt) per installare gli 
 
 Una directory del progetto Funzioni contiene i file [host.json](functions-host-json.md) e [local.settings.json](#local-settings-file) nonché le sottocartelle che includono il codice per le singole funzioni. Questa directory è l'equivalente di un'app per le funzioni in Azure. Per altre informazioni sulla struttura delle cartelle di Funzioni, vedere la [Guida per sviluppatori di Funzioni di Azure](functions-reference.md#folder-structure).
 
-La versione 2.x richiede la selezione di una lingua predefinita per il progetto quando esso viene inizializzato e tutte le funzioni aggiunte usano modelli di lingua predefiniti. Nella versione 1.x, specificare la lingua ogni volta che si crea una funzione.
+Per la versione 2. x è necessario selezionare una lingua predefinita per il progetto quando viene inizializzata. Nella versione 2. x tutte le funzioni aggiunte usano i modelli di lingua predefiniti. Nella versione 1.x, specificare la lingua ogni volta che si crea una funzione.
 
 Nella finestra del terminale o da un prompt dei comandi, eseguire il comando seguente per creare il progetto e l’archivio Git locale:
 
@@ -203,7 +202,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 | **`--python`**  | Inizializza un [progetto Python](functions-reference-python.md). |
 | **`--source-control`** | Controlla se viene creato un repository GIT. Per impostazione predefinita, non viene creato un repository. Quando è `true` viene creato un repository. |
 | **`--typescript`**  | Inizializza un [progetto typescript](functions-reference-node.md#typescript). |
-| **`--worker-runtime`** | Imposta il runtime del linguaggio per il progetto. I valori supportati sono: `csharp`, `dotnet`, `java`, `javascript`,`node` (JavaScript), `powershell`, `python`e `typescript`. Quando non è impostato, durante l'inizializzazione viene richiesto di scegliere il runtime. |
+| **`--worker-runtime`** | Imposta il runtime del linguaggio per il progetto. I valori supportati sono: `csharp`, `dotnet`, `java`, `javascript`,`node` (JavaScript), `powershell`, `python`e `typescript`. Quando non è impostato, viene richiesto di scegliere il runtime durante l'inizializzazione. |
 
 > [!IMPORTANT]
 > Per impostazione predefinita, la versione 2.x degli strumenti di base crea progetti di app per le funzioni per il runtime .NET come [progetti di classe C#](functions-dotnet-class-library.md) (file con estensione csproj). Tali progetti C#, che possono essere usati con Visual Studio o Visual Studio Code, vengono compilati durante la fase di test e alla pubblicazione in Azure. Se invece si prevede di creare e usare gli stessi file di script C# (con estensione csx) creati nella versione 1.x e nel portale, è necessario includere il parametro `--csx` quando si creano e si distribuiscono funzioni.
@@ -212,7 +211,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
-Per impostazione predefinita, queste impostazioni non vengono migrate automaticamente quando il progetto viene pubblicato in Azure. Utilizzare lo switch `--publish-local-settings` [durante la pubblicazione](#publish) per assicurarsi che queste impostazioni vengano aggiunte all'app della funzione in Azure. Si noti che i valori in **ConnectionStrings** non vengono mai pubblicati.
+Per impostazione predefinita, queste impostazioni non vengono migrate automaticamente quando il progetto viene pubblicato in Azure. Utilizzare lo switch `--publish-local-settings`[durante la pubblicazione](#publish) per assicurarsi che queste impostazioni vengano aggiunte all'app della funzione in Azure. Si noti che i valori in **ConnectionStrings** non vengono mai pubblicati.
 
 I valori delle impostazioni dell'app di funzione possono anche essere letti nel codice come variabili di ambiente. Per altre informazioni, vedere la sezione Variabili di ambiente negli argomenti di riferimento specifici del linguaggio seguenti:
 
@@ -227,7 +226,7 @@ Quando non è impostata alcuna stringa di connessione di archiviazione valida pe
 
 ### <a name="get-your-storage-connection-strings"></a>Ottenere le stringhe di connessione di archiviazione
 
-Anche quando si usa l'emulatore di archiviazione per lo sviluppo, si può desiderare di eseguire il test con una connessione di archiviazione effettiva. Se si dispone che si è già [creato un account di archiviazione](../storage/common/storage-create-storage-account.md), è possibile ottenere una stringa di connessione di archiviazione valida in uno dei modi seguenti:
+Anche quando si usa la Emulatore di archiviazione di Microsoft Azure per lo sviluppo, è consigliabile eseguire il test con una connessione di archiviazione effettiva. Se si dispone che si è già [creato un account di archiviazione](../storage/common/storage-create-storage-account.md), è possibile ottenere una stringa di connessione di archiviazione valida in uno dei modi seguenti:
 
 - Dalla [Azure portal]cercare e selezionare **account di archiviazione**. 
   ![selezionare gli account di archiviazione da portale di Azure](./media/functions-run-local/select-storage-accounts.png)
@@ -252,7 +251,7 @@ Anche quando si usa l'emulatore di archiviazione per lo sviluppo, si può deside
     func azure storage fetch-connection-string <StorageAccountName>
     ```
 
-    Quando l'accesso ad Azure non è ancora stato eseguito, viene richiesto di farlo.
+    Quando non è già stato effettuato l'accesso ad Azure, viene richiesto di eseguire questa operazione.
 
 ## <a name="create-func"></a>Creare una funzione
 
@@ -294,7 +293,7 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (Versione 2.x) Genera gli stessi modelli script C# (con estensione csx) usati nella versione 1.x e nel portale. |
 | **`--language -l`**| Il linguaggio di programmazione del modello, come C#, F# o JavaScript. Questa opzione è necessaria nella versione 1.x. Nella versione 2.x non usare questa opzione o scegliere una lingua che corrisponda al runtime del ruolo di lavoro. |
-| **`--name -n`** | Il nome della funzione. |
+| **`--name -n`** | Nome della funzione. |
 | **`--template -t`** | Usare il comando `func templates list` per visualizzare l'elenco completo dei modelli disponibili per ogni linguaggio supportato.   |
 
 Ad esempio, per creare un trigger HTTP JavaScript in un singolo comando, eseguire:
@@ -352,7 +351,7 @@ func host start
 | **`--cert`** | Il percorso in un file con estensione pfx che contiene una chiave privata. Usati solo con `--useHttps`. Solo versione 2.x. |
 | **`--cors-credentials`** | Consente richieste autenticate da più origini, ad esempio cookie e l'intestazione di autenticazione. Solo versione 2.x. |
 | **`--cors`** | Un elenco delimitato dalla virgola di origini CORS, senza spazi. |
-| **`--language-worker`** | Argomenti per configurare il ruolo di lavoro del linguaggio. Solo versione 2.x. |
+| **`--language-worker`** | Argomenti per configurare il ruolo di lavoro del linguaggio. Ad esempio, è possibile abilitare il debug per Language Worker fornendo la [porta di debug e altri argomenti obbligatori](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). Solo versione 2.x. |
 | **`--nodeDebugPort -n`** | La porta per il debugger di nodo da usare. Predefinito: un valore di launch.json o 5858. Solo versione 1.x. |
 | **`--password`** | La password o un file che contiene la password per un file con estensione pfx. Usati solo con `--cert`. Solo versione 2.x. |
 | **`--port -p`** | La porta locale su cui ascoltare. Valore predefinito: 7071. |
@@ -474,7 +473,7 @@ Le seguenti opzioni di pubblicazione si applicano a entrambe le versioni, 1. x e
 
 | Opzione     | Description                            |
 | ------------ | -------------------------------------- |
-| **`--publish-local-settings -i`** |  Pubblicare le impostazioni di local.settings.json in Azure, suggerendo di sovrascrivere eventuali impostazioni esistenti. Se si usa l'emulatore di archiviazione, modificare prima l'impostazione dell'app in una [connessione di archiviazione effettiva](#get-your-storage-connection-strings). |
+| **`--publish-local-settings -i`** |  Pubblicare le impostazioni di local.settings.json in Azure, suggerendo di sovrascrivere eventuali impostazioni esistenti. Se si usa il Emulatore di archiviazione di Microsoft Azure, modificare prima l'impostazione dell'app in una [connessione di archiviazione effettiva](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Eliminare il prompt per sovrascrivere le impostazioni dell'app quando si usa `--publish-local-settings -i`.|
 
 Le opzioni di pubblicazione seguenti sono supportate solo nella versione 2.x:
@@ -516,9 +515,9 @@ Sono disponibili le opzioni di distribuzione del contenitore personalizzato segu
 
 Il modo consigliato per monitorare l'esecuzione delle funzioni è l'integrazione con applicazione Azure Insights. È anche possibile eseguire lo streaming dei log di esecuzione nel computer locale. Per altre informazioni, vedere [Monitorare Funzioni di Azure](functions-monitoring.md).
 
-### <a name="enable-application-insights-integration"></a>Abilitare l'integrazione di Application Insights
+### <a name="application-insights-integration"></a>Integrazione con Application Insights
 
-Quando si crea un'app per le funzioni nella portale di Azure, l'integrazione Application Insights viene eseguita automaticamente per impostazione predefinita. Quando tuttavia si crea l'app per le funzioni usando l'interfaccia della riga di comando di Azure, l'integrazione nell'app per le funzioni in Azure non viene eseguita.
+L'integrazione di Application Insights deve essere abilitata quando si crea l'app per le funzioni in Azure. Se per qualche motivo l'app per le funzioni non è connessa a un'istanza di Application Insights, è facile eseguire questa integrazione nel portale di Azure. 
 
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
@@ -530,7 +529,7 @@ Quando si crea un'app per le funzioni nella portale di Azure, l'integrazione App
 
 [!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
 
-Per questo tipo di log di streaming è necessario [abilitare l'integrazione di Application Insights](#enable-application-insights-integration) per l'app per le funzioni.   
+Questo tipo di log di streaming richiede l'abilitazione dell'integrazione di Application Insights per l'app per le funzioni.   
 
 
 ## <a name="next-steps"></a>Passaggi successivi

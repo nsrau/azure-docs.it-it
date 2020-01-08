@@ -2,19 +2,15 @@
 title: Runbook figlio in Automazione di Azure
 description: Descrive i diversi metodi per avviare un runbook in automazione di Azure da un altro runbook e condividere informazioni tra di essi.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 01/17/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: e7341a8c270d16497430a70c2a1b21354a775787
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a35ee69e6a167f4907294c88710d0484353d4cb2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850449"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367010"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbook figlio in Automazione di Azure
 
@@ -117,12 +113,12 @@ Nella tabella seguente vengono riepilogate le differenze tra i due metodi per ch
 | Processo |I runbook figlio vengono eseguiti nello stesso processo dell’elemento padre. |Viene creato un processo separato per il runbook figlio. |
 | Esecuzione |Il runbook padre attende il completamento del runbook figlio prima di continuare. |Il runbook padre continua subito dopo l'avvio del runbook figlio *o* attende il completamento del processo figlio. |
 | Output |Il runbook padre può ottenere output direttamente dal runbook figlio. |Il runbook padre deve recuperare l'output dal processo del runbook figlio *o* può ottenere direttamente l'output dal runbook figlio. |
-| parameters |I valori per i parametri di runbook figlio vengono specificati separatamente e possono utilizzare qualsiasi tipo di dati. |I valori dei parametri dei runbook figlio devono essere raggruppati in un'unica tabella hash. Questa tabella hash può contenere solo tipi di dati semplici, matrice e oggetto che usano la serializzazione JSON. |
+| Parametri |I valori per i parametri di runbook figlio vengono specificati separatamente e possono utilizzare qualsiasi tipo di dati. |I valori dei parametri dei runbook figlio devono essere raggruppati in un'unica tabella hash. Questa tabella hash può contenere solo tipi di dati semplici, matrice e oggetto che usano la serializzazione JSON. |
 | Account di automazione |Il runbook padre può utilizzare solo runbook figlio nello stesso account di automazione. |I runbook padre possono usare un runbook figlio di qualsiasi account di automazione della stessa sottoscrizione di Azure e anche di una sottoscrizione diversa a cui si ha una connessione. |
 | Pubblicazione |Il runbook figlio deve essere pubblicato prima della pubblicazione del runbook padre. |Il runbook figlio deve essere pubblicato prima che il runbook padre venga avviato. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Avvio di un runbook in Automazione di Azure](start-runbooks.md)
+* [Avvio di un Runbook in Automazione di Azure](start-runbooks.md)
 * [Output di runbook e messaggi in automazione di Azure](automation-runbook-output-and-messages.md)
 

@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.openlocfilehash: b073c4244d2a7abc7c2c066c3fad036f0caa5faa
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 529e188d1a4ee00cee7f3d023ab45a48dd0d3c5f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929536"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428381"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Data Science con Linux Data Science Virtual Machine in Azure
 
@@ -24,14 +24,14 @@ Le attività data science illustrate in questa procedura dettagliata seguono i p
 
 In questa procedura dettagliata viene analizzato il set di dati [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) . Spambase è un set di messaggi di posta elettronica contrassegnati come posta indesiderata o prosciutto (non posta indesiderata). Spambase contiene anche alcune statistiche sul contenuto dei messaggi di posta elettronica. Le statistiche vengono illustrate più avanti nella procedura dettagliata.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di poter usare un DSVM Linux, è necessario che siano soddisfatti i prerequisiti seguenti:
 
 * **Sottoscrizione di Azure**. Per ottenere una sottoscrizione di Azure, vedere [creare subito il tuo account Azure gratuito](https://azure.microsoft.com/free/).
 * [**Data Science Virtual Machine Linux**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Per informazioni sul provisioning della macchina virtuale, vedere effettuare il provisioning [del Data Science Virtual Machine Linux](linux-dsvm-intro.md).
 * [**X2go**](https://wiki.x2go.org/doku.php) installato nel computer con una sessione di Xfce aperta. Per ulteriori informazioni, vedere [Install and configure the X2Go Client](linux-dsvm-intro.md#x2go).
-* Per un'esperienza di scorrimento più uniforme, nel Web browser Firefox di DSVM, impostare il flag `gfx.xrender.enabled` in `about:config`. [Altre informazioni](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Si consiglia inoltre di impostare `mousewheel.enable_pixel_scrolling` su `False`. [Altre informazioni](https://support.mozilla.org/questions/981140).
+* Per un'esperienza di scorrimento più uniforme, nel Web browser Firefox di DSVM, impostare il flag `gfx.xrender.enabled` in `about:config`. [Altre informazioni](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/) Si consiglia inoltre di impostare `mousewheel.enable_pixel_scrolling` su `False`. [Altre informazioni](https://support.mozilla.org/questions/981140)
 * **Azure Machine Learning account**. Se non si dispone già di un account, iscriversi per ottenere un nuovo account nel [home page Azure Machine Learning](https://azure.microsoft.com/free/services/machine-learning//).
 
 ## <a name="download-the-spambase-dataset"></a>Scaricare il set di dati spambase
@@ -174,17 +174,17 @@ Viene ora esaminato un modello di foresta casuale. Le foreste casuali trainano u
 
 ## <a name="deploy-a-model-to-azure-machine-learning-studio-classic"></a>Distribuire un modello in Azure Machine Learning Studio (classico)
 
-[Azure Machine Learning Studio (classico)](https://studio.azureml.net/) è un servizio cloud che semplifica la creazione e la distribuzione di modelli di analisi predittiva. Una funzionalità interessante della versione classica di Azure Machine Learning Studio è la possibilità di pubblicare qualsiasi funzione R come servizio Web. Il pacchetto R Azure Machine Learning Studio semplifica la distribuzione, direttamente dalla sessione di R nella DSVM.
+[Azure Machine Learning Studio (classico)](https://studio.azureml.net/) è un servizio cloud che semplifica la creazione e la distribuzione di modelli di analisi predittiva. Una funzionalità interessante di Azure Machine Learning Studio (classico) è la possibilità di pubblicare qualsiasi funzione R come servizio Web. Il pacchetto R Azure Machine Learning Studio (classico) semplifica la distribuzione, direttamente dalla sessione di R nella DSVM.
 
 Per distribuire il codice dell'albero delle decisioni dalla sezione precedente, accedere a Azure Machine Learning Studio (classico). A tale scopo sono necessari l'ID dell'area di lavoro e un token di autorizzazione. Per trovare questi valori e inizializzare le variabili di Azure Machine Learning con loro, completare i passaggi seguenti:
 
 1. Nel menu a sinistra selezionare **Impostazioni**. Prendere nota del valore per **ID area di lavoro**.
 
-   ![ID dell'area di lavoro Azure Machine Learning Studio](./media/linux-dsvm-walkthrough/workspace-id.png)
+   ![ID dell'area di lavoro Azure Machine Learning Studio (classico)](./media/linux-dsvm-walkthrough/workspace-id.png)
 
 1. Selezionare la scheda **token di autorizzazione** . prendere nota del valore per token di **autorizzazione primario**.
 
-   ![Il Azure Machine Learning Studio token di autorizzazione primario](./media/linux-dsvm-walkthrough/workspace-token.png)
+   ![Il token di autorizzazione primaria Azure Machine Learning Studio (classico)](./media/linux-dsvm-walkthrough/workspace-token.png)
 1. Caricare il pacchetto **AzureML** e quindi impostare i valori delle variabili con il token e l'ID dell'area di lavoro nella sessione di R in DSVM:
 
         if(!require("AzureML")) install.packages("AzureML")
@@ -487,7 +487,7 @@ Per iniziare, aprire SQuirreL SQL dal menu **applicazioni** . Per configurare il
 1. Fare clic con il pulsante destro del mouse su **PostgreSQL** e scegliere **modifica driver**.
 1. Selezionare il **percorso della classe aggiuntivo** > **Aggiungi**.
 1. Per **nome file**immettere **/usr/share/java/jdbcdrivers/PostgreSQL-9.4.1208.jre6.jar**.
-1. Selezionare **Apri**.
+1. Scegliere **Open**(Apri).
 1. Selezionare **Elenca driver**. Per **nome classe**selezionare **org. PostgreSQL. driver**e quindi fare clic su **OK**.
 
 Per configurare la connessione al server locale:
@@ -499,7 +499,7 @@ Per configurare la connessione al server locale:
 1. Immettere nome utente e password.
 1. Selezionare **OK**.
 1. Per aprire la finestra **Connection** (Connessione), fare doppio clic sull'alias **Spam database** (Database di posta indesiderata).
-1. Selezionare **Connessione**.
+1. Selezionare **Connetti**.
 
 Per eseguire alcune query:
 

@@ -1,6 +1,6 @@
 ---
 title: 'Agente di provisioning di Azure AD Connect Cloud: aggiornamento automatico | Microsoft Docs'
-description: Questo argomento descrive la funzionalità di aggiornamento automatico integrato nell'agente di provisioning di Azure AD Connect Cloud.
+description: Questo articolo descrive la funzionalità di aggiornamento automatico integrato nell'agente di provisioning di Azure AD Connect Cloud.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -15,40 +15,40 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 193804064fbf6d1abb2ce06df1e923ec709ef6de
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: d3786386f75f4b85fe89562254eab63471de6cb2
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74794458"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75549398"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-agent-automatic-upgrade"></a>Agente di provisioning di Azure AD Connect Cloud: aggiornamento automatico
 
-Verificare che l'installazione dell'agente di provisioning di Azure AD Connect Cloud sia sempre aggiornata non è mai stata così semplice con la funzionalità di **aggiornamento automatico** . Questa funzionalità è abilitata per impostazione predefinita e non può essere disabilitata.
+Assicurarsi che l'installazione dell'agente di provisioning in Azure Active Directory (Azure AD) sia sempre aggiornata è facile con la funzionalità di aggiornamento automatico. Questa funzionalità è abilitata per impostazione predefinita e non può essere disabilitata.
 
-L'agente è installato qui: **"programma FILES\AZURE ad Connect provisioning Agent\AADConnectProvisioningAgent.exe"**
+L'agente è installato qui: "programma files\Azure AD Connect provisioning Agent\AADConnectProvisioningAgent.exe"
 
 Per verificare la versione, fare clic con il pulsante destro del mouse sul file eseguibile e scegliere Proprietà e quindi Dettagli.
 
 ![Versione del file dell'agente](media/how-to-automatic-upgrade/agent1.png)
 
-Agent Updater viene installato qui: **"Program FILES\AZURE ad Connect provisioning Agent Updater\AzureADConnectAgentUpdater.exe"**
+Agent Updater viene installato qui: "Program files\Azure AD Connect provisioning Agent Updater\AzureADConnectAgentUpdater.exe"
 
 Per verificare la versione, fare clic con il pulsante destro del mouse sul file eseguibile e scegliere Proprietà e quindi Dettagli.
 
 ![Versione di aggiornamento agente](media/how-to-automatic-upgrade/agent2.png)
 
-## <a name="uninstalling-the-agent"></a>Disinstallazione dell'agente
+## <a name="uninstall-the-agent"></a>Disinstallare l'agente
 Per rimuovere l'agente, passare a **Disinstalla o modificare un programma** e disinstallare quanto segue:
 
-- Microsoft Azure AD Connect Agent Updater
-- Microsoft Azure AD Connect Provisioning Agent
-- Microsoft Azure AD Connect Provisioning Agent Package
+- **Aggiornamento dell'agente di Microsoft Azure AD Connect**
+- **Microsoft Azure AD connettere l'agente di provisioning**
+- **Microsoft Azure AD connettere il pacchetto dell'agente di provisioning**
 
 ![Rimozione agente](media/how-to-automatic-upgrade/agent3.png)
 
 ## <a name="next-steps"></a>Passaggi successivi 
 
-- [Che cos'è il provisioning?](what-is-provisioning.md)
-- [Che cos'è Azure AD Connect provisioning cloud?](what-is-cloud-provisioning.md)
+- [Cos'è il provisioning?](what-is-provisioning.md)
+- [Che cos'è il provisioning cloud di Azure AD Connect?](what-is-cloud-provisioning.md)
 

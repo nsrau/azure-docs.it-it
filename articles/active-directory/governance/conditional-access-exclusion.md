@@ -1,5 +1,5 @@
 ---
-title: Usare le verifiche di accesso per gestire utenti esclusi dai criteri di accesso condizionale-Azure Active Directory | Microsoft Docs
+title: Gestire gli utenti esclusi dai criteri di accesso condizionale-Azure AD
 description: Informazioni su come usare le verifiche di accesso di Azure Active Directory (Azure AD) per gestire gli utenti che sono stati esclusi dai criteri di accesso condizionale
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 246503fec6436bf49dcd5fb89c2dc0ed345a43ca
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: d1d7bce940f2b614c239e8b5e5719d96da10a6c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499923"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422702"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Usare le verifiche di accesso Azure AD per gestire gli utenti esclusi dai criteri di accesso condizionale
 
@@ -34,7 +34,7 @@ In una situazione ideale, tutti gli utenti seguono gli stessi criteri di accesso
 
 In qualità di amministratore IT, è possibile usare [Azure ad l'accesso condizionale](../conditional-access/overview.md) per richiedere agli utenti di eseguire l'autenticazione con multi-factor authentication o di accedere da una rete o un dispositivo attendibile. Durante la pianificazione della distribuzione, è possibile scoprire che alcuni di questi requisiti non possono essere soddisfatti da tutti gli utenti. Ad esempio, esistono utenti che lavorano da un ufficio remoto che non fa parte della rete interna o un dirigente che usa un telefono meno recente non supportato. Per l'azienda è necessario che questi utenti siano autorizzati ad accedere ed eseguire il proprio lavoro, quindi sono esclusi dai criteri di accesso condizionale.
 
-Come altro esempio, è possibile usare le [località](../conditional-access/location-condition.md) denominate in accesso condizionale per configurare un set di contee e aree da cui non si vuole consentire agli utenti di accedere al tenant.
+Come altro esempio, è possibile usare le [località denominate](../conditional-access/location-condition.md) in accesso condizionale per configurare un set di contee e aree da cui non si vuole consentire agli utenti di accedere al tenant.
 
 ![Località denominate nell'accesso condizionale](./media/conditional-access-exclusion/named-locations.png)
 
@@ -97,7 +97,7 @@ A questo punto è possibile creare criteri di accesso condizionale che usano que
 
 Ecco due esempi in cui è possibile usare le verifiche di accesso per gestire le esclusioni nei criteri di accesso condizionale.
 
-## <a name="example-1-access-review-for-users-accessing-from-blocked-countriesregions"></a>Esempio 1: Verifica di accesso per gli utenti che accedono da paesi o aree bloccati
+## <a name="example-1-access-review-for-users-accessing-from-blocked-countriesregions"></a>Esempio 1: verifica di accesso per gli utenti che accedono da paesi o aree bloccati
 
 Supponiamo di disporre di un criterio di accesso condizionale che blocca l'accesso da determinati paesi/aree. I criteri includono un gruppo escluso dai criteri. Ecco una verifica di accesso consigliata per controllare i membri del gruppo.
 
@@ -118,7 +118,7 @@ Supponiamo di disporre di un criterio di accesso condizionale che blocca l'acces
 
     ![Creare un riquadro di verifica di accesso, ad esempio 1](./media/conditional-access-exclusion/create-access-review-1.png)
 
-## <a name="example-2-access-review-for-users-accessing-with-legacy-authentication"></a>Esempio 2 Verifica di accesso per gli utenti che accedono con l'autenticazione legacy
+## <a name="example-2-access-review-for-users-accessing-with-legacy-authentication"></a>Esempio 2: Verifica di accesso per gli utenti che accedono con l'autenticazione legacy
 
 Si immagini di disporre di un criterio di accesso condizionale che blocca l'accesso per gli utenti che usano l'autenticazione legacy e versioni client precedenti. I criteri includono un gruppo escluso dai criteri. Ecco una verifica di accesso consigliata per controllare i membri del gruppo.
 

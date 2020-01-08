@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/30/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 6fa8e560dc50859fc0501dde8109ddc7cbd596b8
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: f341f5bbf7221664301ca53eea1edd6af7544950
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688626"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422042"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Come usare le identità gestite nel servizio app e in Funzioni di Azure
 
@@ -38,9 +38,9 @@ Per configurare un'identità gestita nel portale, è prima necessario creare un'
 
 3. Selezionare **Identity (identità**).
 
-4. All'interno della scheda **Assegnata dal sistema** impostare **Stato** su **Attivato**. Fare clic su **Salva**
+4. All'interno della scheda **Assegnata dal sistema** impostare **Stato** su **Attivato**. Fare clic su **Salva**.
 
-    ![Identità gestita nel servizio app](media/app-service-managed-service-identity/msi-blade-system.png)
+    ![Identità gestita nel servizio app](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
 ### <a name="using-the-azure-cli"></a>Uso dell'interfaccia della riga di comando di Azure
 
@@ -167,9 +167,9 @@ Sarà prima di tutto necessario creare una risorsa identità assegnata dall'uten
 
 5. Nella scheda **assegnato dall'utente** fare clic su **Aggiungi**.
 
-6. Cercare l'identità creata in precedenza e selezionarla. Fare clic su **Aggiungi**.
+6. Cercare l'identità creata in precedenza e selezionarla. Scegliere **Aggiungi**.
 
-    ![Identità gestita nel servizio app](media/app-service-managed-service-identity/msi-blade-user.png)
+    ![Identità gestita nel servizio app](media/app-service-managed-service-identity/user-assigned-managed-identity-in-azure-portal.png)
 
 ### <a name="using-an-azure-resource-manager-template"></a>Uso di un modello di Azure Resource Manager
 

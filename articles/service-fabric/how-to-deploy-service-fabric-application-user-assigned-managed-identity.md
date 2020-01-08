@@ -1,18 +1,14 @@
 ---
-title: Azure Service Fabric-distribuire un'applicazione con un'identità gestita assegnata dall'utente | Microsoft Docs
+title: Distribuire un'app con un'identità gestita assegnata dall'utente
 description: Questo articolo illustra come distribuire Service Fabric applicazione con un'identità gestita assegnata dall'utente
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
 ms.topic: article
-ms.date: 08/09/2019
-ms.author: atsenthi
-ms.openlocfilehash: 0cc1e51a4d5f9ad54866066a4247e1588da381a6
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.date: 12/09/2019
+ms.openlocfilehash: a5eeaf0d6420fa36c0a78f7553ddfd82197d8ec4
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71037494"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610336"
 ---
 # <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity-preview"></a>Distribuire Service Fabric applicazione con un'identità gestita assegnata dall'utente (anteprima)
 
@@ -22,7 +18,7 @@ Per distribuire un'applicazione Service Fabric con identità gestita, l'applicaz
 > 
 > Le applicazioni non distribuite come una risorsa di Azure **non possono** avere identità gestite. 
 >
-> Service Fabric distribuzione di applicazioni con identità gestita è supportata con la `"2019-06-01-preview"`versione dell'API. È anche possibile usare la stessa versione API per il tipo di applicazione, la versione del tipo di applicazione e le risorse del servizio.
+> Service Fabric distribuzione di applicazioni con identità gestita è supportata con la versione API `"2019-06-01-preview"`. È anche possibile usare la stessa versione API per il tipo di applicazione, la versione del tipo di applicazione e le risorse del servizio.
 >
 
 ## <a name="user-assigned-identity"></a>Identità assegnata dall'utente
@@ -31,7 +27,7 @@ Per abilitare l'applicazione con l'identità assegnata dall'utente, aggiungere p
 
 ### <a name="application-template"></a>Modello di applicazione
 
-Per abilitare l'applicazione con l'identità assegnata dall'utente, aggiungere prima la proprietà **Identity** alla risorsa dell'applicazione con il tipo **userAssigned** e le identità assegnate all'utente a cui si fa riferimento, quindi aggiungere un oggetto **managedIdentities** all'interno del  **sezione properties** che contiene un elenco di nomi descrittivi per il mapping di PrincipalId per ogni identità assegnata dall'utente.
+Per abilitare l'applicazione con l'identità assegnata dall'utente, aggiungere prima di tutto la proprietà **Identity** alla risorsa dell'applicazione con il tipo **userAssigned** e le identità assegnate all'utente a cui si fa riferimento, quindi aggiungere un oggetto **managedIdentities** all'interno della sezione **Properties** che contiene un elenco di nomi descrittivi al mapping PrincipalId per ciascuna identità assegnata dall'utente.
 
     {
       "apiVersion": "2019-06-01-preview",
@@ -66,7 +62,7 @@ Nell'esempio precedente il nome della risorsa dell'identità assegnata dall'uten
 
 ### <a name="application-package"></a>Pacchetto dell'applicazione
 
-1. Per ogni identità definita nella `managedIdentities` sezione del modello di Azure Resource Manager, aggiungere un `<ManagedIdentity>` tag nel manifesto dell'applicazione nella sezione **entità** . L' `Name` attributo deve corrispondere alla `name` proprietà definita nella `managedIdentities` sezione.
+1. Per ogni identità definita nella sezione `managedIdentities` del modello di Azure Resource Manager, aggiungere un tag di `<ManagedIdentity>` nel manifesto dell'applicazione nella sezione **entità** . L'attributo `Name` deve corrispondere alla proprietà `name` definita nella sezione `managedIdentities`.
 
     **ApplicationManifest. XML**
 
@@ -78,7 +74,7 @@ Nell'esempio precedente il nome della risorsa dell'identità assegnata dall'uten
       </Principals>
     ```
 
-2. Nella sezione **ServiceManifestImport** aggiungere un **IdentityBindingPolicy** per il servizio che usa l'identità gestita. Questo criterio esegue il `AdminUser` mapping dell'identità a un nome di identità specifico del servizio che deve essere aggiunto nel manifesto del servizio in un secondo momento.
+2. Nella sezione **ServiceManifestImport** aggiungere un **IdentityBindingPolicy** per il servizio che usa l'identità gestita. Questo criterio esegue il mapping dell'identità del `AdminUser` a un nome di identità specifico del servizio che deve essere aggiunto nel manifesto del servizio in un secondo momento.
 
     **ApplicationManifest. XML**
 
@@ -90,7 +86,7 @@ Nell'esempio precedente il nome della risorsa dell'identità assegnata dall'uten
       </ServiceManifestImport>
     ```
 
-3. Aggiornare il manifesto del servizio per aggiungere un **ManagedIdentity** all'interno della sezione **Resources** con `ServiceIdentityRef` il nome `IdentityBindingPolicy` corrispondente a in del manifesto dell'applicazione:
+3. Aggiornare il manifesto del servizio per aggiungere un **ManagedIdentity** all'interno della sezione **Resources** con il nome corrispondente al `ServiceIdentityRef` nella `IdentityBindingPolicy` del manifesto dell'applicazione:
 
     **ServiceManifest. XML**
 

@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: 6079f904002f00a39d3ee9d70dedd9d261e2825f
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c43f3021009c0c8a5a414b18bb9f0ff7d7a4a4bd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837632"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427661"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Eseguire script di Python Machine Learning in Azure Machine Learning Studio (versione classica)
 
@@ -53,7 +53,7 @@ La funzione `azureml_main` deve restituire un singolo dataframe Pandas incluso i
 
 ## <a name="translation-of-input-and-output-data-types"></a>Conversione dei tipi di dati di input e di output
 
-I set di impostazioni di studio non corrispondono a quelli di Panda dataframes. Di conseguenza, i set di dati di input nella versione classica di studio vengono convertiti in dataframe Pandas e i frame di dati di output vengono riconvertiti in set di dati di studio (classiche). Durante questo processo di conversione vengono eseguite anche le seguenti traduzioni:
+I set di impostazioni di studio non corrispondono a quelli di Panda dataframes. Di conseguenza, i set di dati di input in studio (classico) vengono convertiti in dataframe Pandas e i frame di dati di output vengono riconvertiti in set di dati di studio (classiche). Durante questo processo di conversione vengono eseguite anche le seguenti traduzioni:
 
  **Tipo di dati Python** | **Procedura di traduzione in studio** |
 | --- | --- |
@@ -67,9 +67,9 @@ I set di impostazioni di studio non corrispondono a quelli di Panda dataframes. 
 
 ## <a id="import-modules"></a>Importazione di moduli di script Python esistenti
 
-Il back-end usato per eseguire Python si basa su [Anaconda](https://www.anaconda.com/distribution/), una distribuzione di Python scientifica ampiamente usata. Include quasi 200 dei pacchetti Python più comuni usati nei carichi di lavoro incentrati sui dati. La versione classica di studio attualmente non supporta l'uso di sistemi di gestione dei pacchetti come PIP o conda per l'installazione e la gestione di librerie esterne.  Se si ritiene che sia necessario incorporare librerie aggiuntive, utilizzare lo scenario seguente come guida.
+Il back-end usato per eseguire Python si basa su [Anaconda](https://www.anaconda.com/distribution/), una distribuzione di Python scientifica ampiamente usata. Include quasi 200 dei pacchetti Python più comuni usati nei carichi di lavoro incentrati sui dati. Studio (classico) attualmente non supporta l'utilizzo di sistemi di gestione dei pacchetti come PIP o conda per l'installazione e la gestione di librerie esterne.  Se si ritiene che sia necessario incorporare librerie aggiuntive, utilizzare lo scenario seguente come guida.
 
-Un caso d'uso comune consiste nell'incorporare gli script Python esistenti nella versione classica degli esperimenti in studio. Il modulo [Execute Python script (Esegui script Python][execute-python-script] ) accetta un file zip contenente i moduli Python alla terza porta di input. Il file viene decompresso in fase di esecuzione dal framework di esecuzione e il contenuto viene aggiunto al percorso della libreria dell'interprete Python. La funzione del punto di ingresso `azureml_main` può quindi importare questi moduli direttamente. 
+Un caso d'uso comune consiste nell'incorporare gli script Python esistenti negli esperimenti Studio (classico). Il modulo [Execute Python script (Esegui script Python][execute-python-script] ) accetta un file zip contenente i moduli Python alla terza porta di input. Il file viene decompresso in fase di esecuzione dal framework di esecuzione e il contenuto viene aggiunto al percorso della libreria dell'interprete Python. La funzione del punto di ingresso `azureml_main` può quindi importare questi moduli direttamente. 
 
 Considerare, ad esempio, il file Hello.py che contiene una semplice funzione "Hello, World".
 
@@ -79,7 +79,7 @@ Viene quindi creato un file Hello.zip contenente Hello.py:
 
 ![File zip contenente il codice Python definito dall'utente](./media/execute-python-scripts/figure5.png)
 
-Caricare il file zip come set di dati nella versione classica di studio. Quindi creare ed eseguire un esperimento che usa il codice Python nel file Hello. zip collegando il codice alla terza porta di input del modulo **Execute Python script (Esegui script Python** ), come illustrato nella figura seguente.
+Caricare il file zip come set di dati in studio (classico). Quindi creare ed eseguire un esperimento che usa il codice Python nel file Hello. zip collegando il codice alla terza porta di input del modulo **Execute Python script (Esegui script Python** ), come illustrato nella figura seguente.
 
 ![Esperimento di esempio con Hello. zip come input per un modulo Execute Python script](./media/execute-python-scripts/figure6a.png)
 
@@ -141,11 +141,11 @@ Questo processo è illustrato nelle immagini seguenti che creano una matrice di 
 
 ![Visualizzazione dei tracciati per un esperimento di esempio con il codice Python](./media/execute-python-scripts/figure-v2-9b.png)
 
-È possibile restituire più cifre salvando le figure in immagini diverse. La versione classica di runtime di studio preleva tutte le immagini e le concatena per la visualizzazione.
+È possibile restituire più cifre salvando le figure in immagini diverse. Il runtime di studio (classico) preleva tutte le immagini e le concatena per la visualizzazione.
 
 ## <a name="advanced-examples"></a>Esempi avanzati
 
-L'ambiente Anaconda installato nella versione classica di studio contiene pacchetti comuni, ad esempio NumPy, SciPy e scikits-Learn. Questi pacchetti possono essere usati in modo efficace per l'elaborazione dei dati in una pipeline di machine learning.
+L'ambiente Anaconda installato in studio (classico) contiene pacchetti comuni, ad esempio NumPy, SciPy e scikits-Learn. Questi pacchetti possono essere usati in modo efficace per l'elaborazione dei dati in una pipeline di machine learning.
 
 Ad esempio, l'esperimento e lo script seguenti illustrano l'uso di ensemble Learning in scikits-Learn per calcolare i punteggi di importanza della funzionalità per un set di dati. I punteggi possono essere utilizzati per eseguire la selezione delle caratteristiche supervisionata prima di essere inseriti in un altro modello.
 
@@ -153,7 +153,7 @@ Di seguito è illustrata la funzione Python usata per calcolare i punteggi di ri
 
 ![Funzione per classificare le funzionalità in base ai punteggi](./media/execute-python-scripts/figure8.png)
 
-L'esperimento seguente calcola quindi e restituisce i punteggi di importanza delle funzionalità nel set di dati "Pima Indian Diabetes" nella versione classica di Azure Machine Learning Studio:
+L'esperimento seguente calcola quindi e restituisce i punteggi di importanza delle funzionalità nel set di dati "Pima Indian Diabetes" in Azure Machine Learning Studio (classico):
 
 ![Provare a classificare le funzionalità nel set di dati del diabete Pima Indian con Python](./media/execute-python-scripts/figure9a.png)
 

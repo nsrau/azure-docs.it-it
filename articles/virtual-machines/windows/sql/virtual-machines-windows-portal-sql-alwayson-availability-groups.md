@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: a06ea59af0776fe3decb0b56a3ef886f08b2dfda
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d7c88e500886453fbfb53655748ccf7025ab7d3d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100720"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374257"
 ---
-# <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Configurare automaticamente Gruppi di disponibilità Always On in macchine virtuali di Azure: Gestione risorse
+# <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Configurare manualmente un gruppo di disponibilità Always On nelle macchine virtuali di Azure tramite Resource Manager
 
 Questa esercitazione illustra come creare un gruppo di disponibilità di SQL Server che usa macchine virtuali di Azure Resource Manager. L'esercitazione usa pannelli di Azure per configurare un modello. Nel corso dell'esercitazione l'utente rivedrà le impostazioni predefinite, digiterà i valori necessari e aggiornerà i pannelli nel portale.
 
@@ -70,18 +70,18 @@ Azure offre un'immagine della raccolta per l'intera soluzione. Per individuare i
    ![Modello AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
 5. In **Selezionare un modello di distribuzione** scegliere **Resource Manager**.
 
-### <a name="basics"></a>Generale
+### <a name="basics"></a>Nozioni di base
 Fare clic su **Nozioni di base** e configurare le impostazioni seguenti:
 
 * **Nome utente amministratore**: è un account utente con autorizzazioni di amministratore di dominio ed è anche membro del ruolo del server predefinito come amministratore di sistema di SQL Server in entrambe le istanze di SQL Server. Per questa esercitazione, usare **DomainAdmin**.
 * **Password** : la password dell'account di amministratore di dominio. Usare una password complessa. Confermare la password.
 * **Sottoscrizione**: è la sottoscrizione alla quale verrà emessa la fattura da Azure per l'esecuzione di tutte le risorse distribuite per il gruppo di disponibilità. Se l'account ha più sottoscrizioni, è possibile specificare una sottoscrizione diversa.
-* **Gruppo di risorse**: è il nome del gruppo a cui appartengono tutte le risorse di Azure create con questo modello. Per questa esercitazione usare **SQL-HA-RG**. Per altre informazioni, vedere [Panoramica di Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md#resource-groups).
+* **Gruppo di risorse**: è il nome del gruppo a cui appartengono tutte le risorse di Azure create con questo modello. Per questa esercitazione usare **SQL-HA-RG**. Per altre informazioni, vedere [Panoramica di Azure Resource Manager](../../../azure-resource-manager/management/overview.md#resource-groups).
 * **Posizione**: l'area di Azure in cui verranno create le risorse per questa esercitazione. Scegliere un'area di Azure.
 
 L'immagine è una schermata del pannello **Nozioni di base** completato:
 
-![Generale](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/1-basics.png)
+![Nozioni di base](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/1-basics.png)
 
 Fare clic su **OK**.
 
@@ -187,7 +187,7 @@ Rivedere le impostazioni e fare clic su **OK**.
 ### <a name="summary"></a>Riepilogo
 Convalidare le impostazioni nella pagina di riepilogo di Azure. È anche possibile scaricare il modello. Esaminare il riepilogo. Fare clic su **OK**.
 
-### <a name="buy"></a>Acquistare
+### <a name="buy"></a>Acquista
 Questo pannello finale contiene le **condizioni d'uso** e l'**informativa sulla privacy**. Esaminare le informazioni. Per consentire ad Azure di avviare la creazione delle macchine virtuali e di tutte le altre risorse necessarie per il gruppo di disponibilità, fare clic su **Crea**.
 
 Il portale di Azure crea il gruppo di risorse e tutte le altre risorse.
@@ -197,7 +197,7 @@ Monitorare l'avanzamento della distribuzione dal portale di Azure. Un'icona che 
 
 ![Dashboard di Azure](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/11-deploydashboard.png)
 
-## <a name="connect-to-sql-server"></a>Connettersi a SQL Server
+## <a name="connect-to-sql-server"></a>Connessione a SQL Server
 Le nuove istanze di SQL Server sono in esecuzione su macchine virtuali che hanno indirizzi IP connessi a Internet. È possibile effettuare connessioni desktop remoto (RDP) direttamente a ogni macchina virtuale di SQL Server.
 
 Per connettersi mediante RDP al server SQL, seguire questa procedura:
@@ -208,6 +208,6 @@ Per connettersi mediante RDP al server SQL, seguire questa procedura:
 4. Nel pannello di **sqlserver-0** fare clic su **Connetti**. Il browser chiederà se si desidera aprire o salvare l'oggetto di connessione remota. Fare clic su **Apri**.
 5. La **connessione Desktop remoto** potrebbe visualizzare un avviso che l'entità di pubblicazione della connessione remota non può essere identificato. Fare clic su **Connetti**.
 6. Il sistema di sicurezza di Windows chiede all'utente di immettere le proprie credenziali per eseguire la connessione all'indirizzo IP del controller di dominio primario. Fare clic su **Usa un altro account**. In **Nome utente** digitare **contoso\DomainAdmin**. Questo account è stato configurato quando è stato impostato il nome utente dell'amministratore nel modello. Usare la password complessa scelta durante la configurazione del modello.
-7. **Desktop remoto** potrebbe segnalare che il computer remoto non può essere autenticato a causa di problemi relativi al certificato di sicurezza. Mostra il nome del certificato di sicurezza. Se sono stati eseguiti i passaggi dell'esercitazione, il nome è **sqlserver-0.contoso.com**. Scegliere **Sì**.
+7. **Desktop remoto** potrebbe segnalare che il computer remoto non può essere autenticato a causa di problemi relativi al certificato di sicurezza. Mostra il nome del certificato di sicurezza. Se sono stati eseguiti i passaggi dell'esercitazione, il nome è **sqlserver-0.contoso.com**. Fare clic su **Sì**.
 
 A questo punto si è connessi alla macchina virtuale di server SQL tramite Remote Desktop Protocol (RDP). È possibile aprire SQL Server Management Studio, connettersi all'istanza predefinita di SQL Server e verificare che il gruppo di disponibilità sia configurato.

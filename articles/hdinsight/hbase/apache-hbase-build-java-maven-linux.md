@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
-ms.date: 04/16/2019
-ms.openlocfilehash: c948d07bed99f1286e27d645fde7b96fdc699c02
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.custom: hdinsightactive,seodec18
+ms.date: 12/24/2019
+ms.openlocfilehash: 3e9b23ce450e45dfedcee8b20e09b1c2b52b6e68
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311699"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495790"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Compilare applicazioni Java per Apache HBase
 
@@ -31,11 +31,12 @@ La procedura descritta in questo documento usa [Apache Maven](https://maven.apac
 
 * Un client SSH. Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* Se si usa PowerShell, sarà necessario il [modulo AZ](https://docs.microsoft.com/powershell/azure/overview).
+* Se si usa PowerShell, è necessario il [modulo AZ](https://docs.microsoft.com/powershell/azure/overview).
 
 * Un editor di testo. Questo articolo usa il blocco note di Microsoft.
 
 ## <a name="test-environment"></a>Ambiente di test
+
 L'ambiente usato per questo articolo è un computer che esegue Windows 10.  I comandi sono stati eseguiti in un prompt dei comandi e i vari file sono stati modificati con blocco note. Modificare di conseguenza per l'ambiente in uso.
 
 Da un prompt dei comandi, immettere i comandi seguenti per creare un ambiente di lavoro:
@@ -58,11 +59,11 @@ cd C:\HDI
 
     Questo comando crea una nuova directory denominata `hbaseapp` nella posizione corrente, contenente un progetto Maven di base. Il secondo comando modifica la directory di lavoro in `hbaseapp`. Il terzo comando crea una nuova directory, `conf`, che verrà usata in un secondo momento. La directory `hbaseapp` contiene gli elementi seguenti:
 
-    * `pom.xml`:  Il modello a oggetti dei progetti (](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)POM, Project Object Model) contiene le informazioni e i dettagli di configurazione usati per compilare il progetto.
+    * `pom.xml`: il modello a oggetti di Project ([POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contiene informazioni e dettagli di configurazione usati per compilare il progetto.
     * `src\main\java\com\microsoft\examples`: contiene il codice dell'applicazione.
     * `src\test\java\com\microsoft\examples`: contiene i test per l'applicazione.
 
-2. Rimuovere il codice di esempio generato. Eliminare i file di test e dell'applicazione generati `AppTest.java` e `App.java` immettendo i comandi seguenti:
+2. Rimuovere il codice di esempio generato. Eliminare i file di test e dell'applicazione generati `AppTest.java`e `App.java` immettendo i comandi seguenti:
 
     ```cmd
     DEL src\main\java\com\microsoft\examples\App.java
@@ -79,12 +80,12 @@ notepad pom.xml
 
 ### <a name="add-dependencies"></a>Aggiungere le dipendenze
 
-In `pom.xml` aggiungere il testo seguente nella sezione `<dependencies>`:
+In `pom.xml`aggiungere il testo seguente nella sezione `<dependencies>`:
 
 ```xml
 <dependency>
     <groupId>org.apache.hbase</groupId>
-    <artifactId>hbase-client</artifactId>
+    <artifactId>hbase-shaded-client</artifactId>
     <version>1.1.2</version>
 </dependency>
 <dependency>
@@ -110,7 +111,7 @@ Per altre informazioni sulle versioni e sui componenti di HDInsight, vedere [Qua
 
 I plug-in di Maven consentono di personalizzare le fasi di compilazione del progetto. Questa sezione viene usata per aggiungere plug-in, risorse e altre opzioni di configurazione della compilazione.
 
-Aggiungere il codice seguente al file `pom.xml`, quindi salvare e chiudere il file. Nel file, il testo deve essere incluso tra i tag `<project>...</project>`, ad esempio tra `</dependencies>` e `</project>`.
+Aggiungere il codice seguente al file di `pom.xml`, quindi salvare e chiudere il file. Nel file, il testo deve essere incluso tra i tag `<project>...</project>`, ad esempio tra `</dependencies>` e `</project>`.
 
 ```xml
 <build>
@@ -128,7 +129,7 @@ Aggiungere il codice seguente al file `pom.xml`, quindi salvare e chiudere il fi
     <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>3.8.1</version>
         <configuration>
             <source>1.8</source>
             <target>1.8</target>
@@ -341,7 +342,7 @@ public class SearchByEmail {
 }
 ```
 
-La classe `SearchByEmail` può essere usata per eseguire query per le righe in base all'indirizzo di posta elettronica. Poiché usa un filtro di espressione regolare, è possibile fornire una stringa o un'espressione regolare quando si usa la classe.
+È possibile usare la classe `SearchByEmail` per eseguire una query per le righe in base all'indirizzo di posta elettronica. Poiché usa un filtro di espressione regolare, è possibile fornire una stringa o un'espressione regolare quando si usa la classe.
 
 ### <a name="implement-a-deletetable-class"></a>Implementare una classe DeleteTable
 
@@ -408,7 +409,7 @@ La procedura seguente usa `scp` per copiare il file JAR nel nodo head primario d
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
- 3. Per creare una tabella HBase usando l'applicazione Java, usare il comando seguente nella connessione ssh aperta:
+3. Per creare una tabella HBase usando l'applicazione Java, usare il comando seguente nella connessione ssh aperta:
 
     ```bash
     yarn jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.CreateTable
@@ -645,7 +646,7 @@ I passaggi seguenti usano il [modulo Azure PowerShell AZ](https://docs.microsoft
    * **Add-HDInsightFile**: viene usato per caricare file nel cluster
    * **Start-HBaseExample**: usato per eseguire le classi create prima
 
-2. Salvare il file `hbase-runner.psm1` nella directory `hbaseapp`.
+2. Salvare il file di `hbase-runner.psm1` nella directory `hbaseapp`.
 
 3. Registrare i moduli con Azure PowerShell. Aprire una nuova finestra di Azure PowerShell e modificare il comando seguente sostituendo `CLUSTERNAME` con il nome del cluster. Immettere quindi i comandi seguenti:
 

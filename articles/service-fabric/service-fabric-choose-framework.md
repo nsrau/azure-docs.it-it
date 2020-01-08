@@ -1,25 +1,16 @@
 ---
-title: Panoramica dei modelli di programmazione di Service Fabric | Microsoft Docs
+title: Panoramica dei modelli di programmazione di Service Fabric
 description: 'Infrastruttura dei servizi offre due framework per la creazione di servizi: il framework per gli attori e quello per i servizi. Offrono compromessi diversi nel controllo nella semplicità e nel controllo.'
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: vturecek
-ms.assetid: 974b2614-014e-4587-a947-28fcef28b382
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: d764cbe2df78cb9029a4109caa2998ddded5d6ff
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8359a8f7e3652965fffd2d9be1d5c032e9f88387
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60341965"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75377022"
 ---
 # <a name="service-fabric-programming-model-overview"></a>Panoramica dei modelli di programmazione di Service Fabric
 Service Fabric offre diversi modi per scrivere e gestire i servizi. I servizi possono scegliere di usare le API di Service Fabric per sfruttare appieno le funzionalità della piattaforma e i framework applicazione. I servizi possono essere anche qualsiasi programma eseguibile compilato scritto in qualsiasi linguaggio o qualsiasi codice eseguito in un contenitore e ospitato in un cluster di Service Fabric.

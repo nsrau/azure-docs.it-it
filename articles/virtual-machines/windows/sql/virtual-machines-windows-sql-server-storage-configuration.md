@@ -11,14 +11,14 @@ ms.service: virtual-machines-sql
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/05/2017
+ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: a91098d06f481afaae75eb497d5a076c3eb42c07
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 231c8cb8e66d658ad49e02fd585f6c8a1593cb2d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72896945"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75373997"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configurazione dell'archiviazione per le VM di SQL Server
 
@@ -96,7 +96,7 @@ Se si usano i modelli di Resource Manager seguenti, vengono collegati per impost
 
 Per le VM di SQL Server esistenti, è possibile modificare alcune impostazioni di archiviazione nel portale di Azure. Aprire la [risorsa macchine virtuali SQL](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource)e scegliere **Panoramica**. La pagina di panoramica SQL Server Mostra l'utilizzo di archiviazione corrente della VM. In questo grafico vengono visualizzate tutte le unità esistenti nella VM. Per ogni unità, lo spazio di archiviazione viene visualizzato in quattro sezioni:
 
-* Dati SQL
+* SQL data
 * Log SQL
 * Altro (archiviazione non SQL)
 * Disponibile
@@ -108,7 +108,6 @@ Per modificare le impostazioni di archiviazione, selezionare **Configura** in **
 È possibile modificare le impostazioni del disco per le unità che sono state configurate durante il processo di creazione della macchina virtuale SQL Server. Selezionando **Estendi unità** viene visualizzata la pagina modifica unità, che consente di modificare il tipo di disco, nonché aggiungere altri dischi. 
 
 ![Configurare l'archiviazione per le VM di SQL Server esistenti](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-drive.png)
-
 
 
 ## <a name="storage-configuration"></a>Configurazione dell'archiviazione
@@ -124,7 +123,7 @@ Per informazioni sui prezzi, vedere la pagina [Prezzi di archiviazione](https://
 
 Azure usa le impostazioni seguenti per creare il pool di archiviazione nelle VM di SQL.
 
-| Impostazione | Value |
+| Impostazione | Valore |
 | --- | --- |
 | Dimensioni di striping |256 KB (data warehousing); 64 KB (transazionale) |
 | Dimensioni dei dischi |1 TB ciascuno |

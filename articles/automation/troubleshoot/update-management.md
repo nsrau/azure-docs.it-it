@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: a42b05239ae1ddf8909e288486694bf57595b195
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f5346f2f11df2282a1cd2592db930f7ff829a2d2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849242"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75416769"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Risoluzione dei problemi con Gestione aggiornamenti
 
@@ -253,9 +253,13 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 The certificate presented by the service <wsid>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.
 ```
 
+```error
+Access is denied. (Exception form HRESULT: 0x80070005(E_ACCESSDENIED))
+```
+
 ### <a name="cause"></a>Causa
 
-Un proxy, un gateway o un firewall potrebbe bloccare la comunicazione di rete.
+Un proxy, un gateway o un firewall potrebbe bloccare la comunicazione di rete. 
 
 ### <a name="resolution"></a>Risoluzione
 
@@ -325,9 +329,10 @@ Se viene visualizzato un HRESULT, fare doppio clic sull'eccezione visualizzata i
 |`0x8024402C`     | Se si usa un server WSUS, assicurarsi che i valori del registro di sistema per `WUServer` e `WUStatusServer` sotto la chiave del registro di sistema `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` specifichino il server WSUS corretto.        |
 |`0x80072EE2`|Si è verificato un problema di connettività di rete o si è verificato un problema durante la comunicazione con un server WSUS configurato. Controllare le impostazioni di WSUS e verificare che il servizio sia accessibile dal client.|
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Verificare che il servizio Windows Update (wuauserv) sia in esecuzione e non sia disabilitato.        |
+|`0x80070005`| Un errore di accesso negato può essere causato da uno dei seguenti elementi:<br> Computer infetto<br> Impostazioni di Windows Update non configurate correttamente<br> Errore di autorizzazione file con la cartella%WinDir%\SoftwareDistribution<br> Spazio su disco insufficiente nell'unità di sistema (C:).
 |Qualsiasi altra eccezione generica     | Eseguire una ricerca su Internet per individuare le possibili soluzioni e collaborare con il supporto IT locale.         |
 
-La revisione del file windowsupdate. log consente inoltre di determinare le possibili cause. Per ulteriori informazioni sulla lettura del log, vedere [come leggere il file windowsupdate. log](https://support.microsoft.com/en-ca/help/902093/how-to-read-the-windowsupdate-log-file).
+La revisione del file file%windir%\WindowsUpdate.log consente inoltre di determinare le possibili cause. Per ulteriori informazioni sulla lettura del log, vedere [come leggere il file windowsupdate. log](https://support.microsoft.com/en-ca/help/902093/how-to-read-the-windowsupdate-log-file).
 
 È anche possibile scaricare ed eseguire lo strumento di [risoluzione dei problemi Windows Update](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) per verificare la presenza di eventuali problemi con Windows Update nel computer.
 
@@ -397,4 +402,4 @@ Se il problema non è stato riscontrato o non è possibile risolvere il problema
 
 * Ottieni risposte dagli esperti di Azure tramite i [Forum di Azure](https://azure.microsoft.com/support/forums/).
 * È possibile connettersi con [@AzureSupport](https://twitter.com/azuresupport), l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente connettendo la community di Azure alle risorse appropriate: risposte, supporto ed esperti.
-* Archiviare un incidente del supporto tecnico di Azure. Accedere al sito del [supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Richiedi supporto**.
+* Archiviare un incidente del supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**.

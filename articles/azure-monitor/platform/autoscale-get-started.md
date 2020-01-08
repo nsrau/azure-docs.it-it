@@ -1,19 +1,15 @@
 ---
 title: Introduzione alla scalabilità automatica in Azure
 description: Informazioni su come applicare la scalabilità della risorsa app Web, servizio cloud, macchina virtuale o set di scalabilità di macchine virtuali in Azure.
-author: rajram
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/07/2017
-ms.author: rajram
 ms.subservice: autoscale
-ms.openlocfilehash: 0535c84a8ee0776c2c35a46d3c7510a2cd615cf6
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 0a40496e4d496d0062c6ee7a6ab935c1ad9b35a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "60788597"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75396357"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introduzione alla scalabilità automatica in Azure
 Questo articolo descrive come configurare l'impostazione di scalabilità automatica per la risorsa nel portale di Microsoft Azure.
@@ -34,8 +30,8 @@ La scalabilità automatica di Monitoraggio di Azure si applica solo a [set di sc
 Per ogni risorsa verranno indicati il numero di istanze corrente e lo stato di scalabilità automatica. Lo stato di scalabilità automatica può essere:
 
 - **Non configurato**: non è stata ancora abilitata la scalabilità automatica per questa risorsa.
-- **Abilitato**: è stata abilitata la scalabilità automatica per questa risorsa.
-- **Disabilitato**: è stata disattivata la scalabilità automatica per questa risorsa.
+- **Configurato**: è stata abilitata la scalabilità automatica per questa risorsa.
+- **Disattivato**: è stata disattivata la scalabilità automatica per questa risorsa.
 
 ## <a name="create-your-first-autoscale-setting"></a>Creare la prima impostazione di scalabilità automatica
 
@@ -46,7 +42,7 @@ Verrà ora illustrata una semplice procedura dettagliata per creare la prima imp
   ![Impostazione di scalabilità per la nuova app Web][5]
 1. Specificare un nome per il set di scalabilità, quindi scegliere **Aggiungi una regola**. Si notino le opzioni per le regole di scalabilità visualizzate come riquadro contesto sul lato destro. Per impostazione predefinita viene applicata l'opzione per aumentare il numero di istanze di 1 se la percentuale CPU della risorsa supera il 70 per cento. Lasciare i valori predefiniti e fare clic su **Aggiungi**.
   ![Creare l'impostazione di scalabilità per un'app Web][6]
-1. È stata così creata la prima regola di scalabilità. Si noti che l'esperienza utente indica le procedure consigliate e che "È consigliabile includere almeno una regola di riduzione del numero di istanze". A tale scopo:
+1. È stata così creata la prima regola di scalabilità. Si noti che l'esperienza utente indica le procedure consigliate e che "È consigliabile includere almeno una regola di riduzione del numero di istanze". A tale scopo, procedere come indicato di seguito:
 
     a. Fare clic su **Aggiungi regola**.
 
@@ -58,7 +54,7 @@ Verrà ora illustrata una semplice procedura dettagliata per creare la prima imp
 
    A questo punto si avrà un'impostazione di scalabilità che aumenta/riduce il numero di istanze in base all'utilizzo della CPU.
    ![Scalabilità in base alla CPU][8]
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
 
 Congratulazioni! A questo punto è stata creata la prima impostazione di scalabilità automatica per l'app Web in base all'utilizzo della CPU.
 
@@ -88,7 +84,7 @@ Oltre alla scalabilità basata sempre sulla CPU, è possibile impostare la scala
 ### <a name="view-the-scale-history-of-your-resource"></a>Visualizzare la cronologia di scalabilità della risorsa
 Ogni volta che vengono aumentate o ridotte le prestazioni della risorsa, viene registrato un evento nel log attività. È possibile visualizzare la cronologia della scalabilità della risorsa per le ultime 24 ore passando alla scheda **Cronologia di esecuzione**.
 
-![Cronologia][11]
+![Cronologia di esecuzione][11]
 
 Per visualizzare la cronologia della scalabilità completa (fino a 90 giorni), selezionare **Fare clic qui per visualizzare altri dettagli**. Si aprirà il log attività con Scalabilità automatica preselezionata per la risorsa e la categoria.
 

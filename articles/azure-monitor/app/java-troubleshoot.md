@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/14/2019
-ms.openlocfilehash: 941dcc268c2af9e011af01d3da224b90e9ee5018
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: aea0adc9217a7729c9bf14211cf5da422ac9e198
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820813"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432531"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Risoluzione dei problemi e domande e risposte relative ad Application Insights per Java
 Domande o problemi con [applicazione Azure Insights in Java][java]? Ecco alcuni suggerimenti.
@@ -22,7 +22,7 @@ Domande o problemi con [applicazione Azure Insights in Java][java]? Ecco alcuni 
 
 * Se l'elemento di dipendenza `<version>` usa un criterio di ricerca con caratteri jolly, ad esempio (Maven) `<version>[2.0,)</version>` o (Gradle) `version:'2.0.+'`, provare a indicare una versione specifica, come `2.0.1`. Vedere le [note sulla versione](https://github.com/Microsoft/ApplicationInsights-Java/releases) per la versione più recente.
 
-## <a name="no-data"></a>Dati non presenti
+## <a name="no-data"></a>Nessun dato
 **Dopo avere aggiunto Application Insights correttamente ed avere eseguito l'app, nel portale non vengono visualizzati dati.**
 
 * Attendere un minuto, quindi fare clic su Aggiorna. I grafici si aggiornano autonomamente periodicamente, ma è anche possibile aggiornare manualmente. L'intervallo di aggiornamento dipende dall'intervallo di tempo del grafico.
@@ -52,7 +52,6 @@ Domande o problemi con [applicazione Azure Insights in Java][java]? Ecco alcuni 
 * L'agente Java è stato configurato seguendo l'articolo sulla [configurazione dell'agente Java](java-agent.md)?
 * Verificare che sia il file con estensione JAR dell'agente Java che il file AI-Agent.xml si trovino nella stessa cartella.
 * Assicurarsi che la dipendenza che si sta tentando di raccogliere automaticamente sia supportata per la raccolta automatica. Attualmente sono supportate solo le raccolte delle dipendenze di MySQL, MsSQL, Oracle DB e Cache Redis di Azure.
-* Si sta usando JDK 1.7 o 1.8? Attualmente la raccolta di dipendenze in JDK 9 non è supportata.
 
 ## <a name="no-usage-data"></a>Dati di utilizzo non presenti
 **I dati relativi a richieste e tempi di risposta vengono visualizzati, ma non sono presenti dati relativi alla visualizzazione di pagine, ai browser o dati relativi agli utenti.**
@@ -75,7 +74,7 @@ Nel codice:
     config.setTrackingIsDisabled(true);
 ```
 
-**Oppure**
+**Or**
 
 Aggiornare ApplicationInsights.xml (nella cartella resources del progetto). Aggiungere la riga seguente sotto il nodo radice:
 

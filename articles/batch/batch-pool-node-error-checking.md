@@ -1,18 +1,18 @@
 ---
 title: Verificare la presenza di errori in pool e nodi - Azure Batch
-description: Informazioni sugli errori da controllare e su come evitarli durante la creazione di pool e nodi
+description: Questo articolo illustra le operazioni in background che possono verificarsi, insieme agli errori da verificare e come evitarli durante la creazione di pool e nodi.
 services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3c8e189e84e0a467125995b3e2d633c285eb7367
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: dea45cec29101c3b085ab8098c3b05906e1049cd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350057"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449793"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Verificare la presenza di errori in pool e nodi
 
@@ -56,7 +56,7 @@ Si può anche impostare Azure Batch in modo da ridimensionare automaticamente il
 
 L'[evento di completamento del ridimensionamento del pool](https://docs.microsoft.com/azure/batch/batch-pool-resize-complete-event) acquisisce le informazioni su tutte le valutazioni.
 
-### <a name="delete"></a>Eliminazione
+### <a name="delete"></a>Elimina
 
 Quando si elimina un pool che contiene nodi, Batch elimina prima di tutto i nodi, quindi l'oggetto pool stesso. L'eliminazione dei nodi del pool può richiedere alcuni minuti.
 
@@ -104,7 +104,7 @@ Altri esempi di cause di nodi inutilizzabili, con stato **unusable**, includono:
 
 - Una macchina virtuale viene spostata a causa di un errore di infrastruttura o un aggiornamento di basso livello. Batch recupera il nodo.
 
-- Un'immagine di macchina virtuale è stata distribuita nell'hardware che non lo supporta. Ad esempio, il tentativo di eseguire un'immagine di CentOS HPC in una macchina virtuale [Standard_D1_v2](../virtual-machines/linux/sizes-general.md#dv2-series) .
+- Un'immagine di macchina virtuale è stata distribuita nell'hardware che non lo supporta. Ad esempio, il tentativo di eseguire un'immagine HPC CentOS in una macchina virtuale [Standard_D1_v2](../virtual-machines/linux/sizes-general.md#dv2-series) .
 
 - Le macchine virtuali si trovano in una [rete virtuale di Azure](batch-virtual-network.md)e il traffico è stato bloccato sulle porte chiave.
 

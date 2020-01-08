@@ -5,21 +5,21 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 12/27/2019
 ms.author: alzam
-ms.openlocfilehash: 6df8a9448873b418dc312ba572ba15d2da69bf32
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 56226bf0310e51e62fa814b838f157a4e16a9d10
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74822721"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530715"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Creare un tenant di Azure Active Directory per le connessioni del protocollo OpenVPN P2S
 
 Quando ci si connette alla VNet, è possibile usare l'autenticazione basata su certificati o l'autenticazione RADIUS. Tuttavia, quando si usa il protocollo VPN aperto, è anche possibile usare l'autenticazione Azure Active Directory. Questo articolo consente di configurare un tenant di Azure AD per l'autenticazione VPN aperta P2S.
 
 > [!NOTE]
-> Azure AD autenticazione è supportata solo per le connessioni di protocollo OpenVPN®.
+> L'autenticazione di Azure AD è supportata solo per le connessioni tramite il protocollo OpenVPN®.
 >
 
 ## <a name="tenant"></a>1. creare il tenant di Azure AD
@@ -90,31 +90,8 @@ Usare la procedura descritta in [questo articolo](../active-directory/fundamenta
 
     ![VPN di Azure](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
 
-8. Abilitare l'autenticazione Azure AD nel gateway VPN eseguendo i comandi seguenti, assicurandosi di modificare il comando in modo da riflettere il proprio ambiente:
-
-    ```azurepowershell-interactive
-    $gw = Get-AzVirtualNetworkGateway -Name <name of VPN gateway> -ResourceGroupName <Resource group>
-    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -VpnClientRootCertificates @()
-    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -AadTenantUri "https://login.microsoftonline.com/<your Directory ID>" -AadAudienceId "41b23e61-6c1e-4545-b367-cd054e0ed4b4" -AadIssuerUri "https://sts.windows.net/<your Directory ID>/"
-    ```
-
-9. Creare e scaricare il profilo eseguendo i comandi seguenti. Modificare i valori-ResourcGroupName e-Name in modo che corrispondano a quelli personalizzati.
-
-    ```azurepowershell-interactive
-    $profile = New-AzVpnClientConfiguration -Name <name of VPN gateway> -ResourceGroupName <Resource group> -AuthenticationMethod "EapTls"
-    $PROFILE.VpnProfileSASUrl
-    ```
-
-10. Dopo aver eseguito i comandi, viene visualizzato un risultato simile a quello riportato di seguito. Copiare l'URL dei risultati nel browser per scaricare il file zip del profilo.
-
-    ![VPN di Azure](./media/openvpn-create-azure-ad-tenant/profile.png)
-
-11. Estrarre il file zip scaricato.
-
-12. Passare alla cartella "AzureVPN" decompressa.
-
-13. Prendere nota della posizione del file "azurevpnconfig. xml". Azurevpnconfig. XML contiene l'impostazione per la connessione VPN e può essere importato direttamente nell'applicazione client VPN di Azure. È anche possibile distribuire questo file a tutti gli utenti che devono connettersi tramite posta elettronica o altri mezzi. Per la corretta connessione, l'utente dovrà disporre di credenziali Azure AD valide.
+8. Configurare Azure AD autenticazione per la VPN utente e assegnarla a un hub virtuale attenendosi alla procedura descritta in [configurare l'autenticazione Azure ad per la connessione da punto a sito ad Azure](virtual-wan-point-to-site-azure-ad.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per connettersi alla rete virtuale, è necessario creare e configurare un profilo client VPN. Vedere [configurare l'autenticazione Azure ad per la connessione da punto a sito ad Azure](virtual-wan-point-to-site-azure-ad.md).
+Per connettersi alla rete virtuale, è necessario creare e configurare un profilo client VPN e associarlo a un hub virtuale. Vedere [configurare l'autenticazione Azure ad per la connessione da punto a sito ad Azure](virtual-wan-point-to-site-azure-ad.md).

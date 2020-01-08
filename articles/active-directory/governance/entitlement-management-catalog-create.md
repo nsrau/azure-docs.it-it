@@ -1,5 +1,5 @@
 ---
-title: Creare e gestire un catalogo di risorse in Azure AD gestione dei diritti-Azure Active Directory
+title: Creare & gestire le risorse nella gestione dei diritti-Azure AD
 description: Informazioni su come creare un nuovo contenitore di risorse e accedere ai pacchetti in Azure Active Directory gestione dei diritti.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b66e3dee83ccf4a857fda9d5804848108c0cc251
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 24e82abd2c95bcbfdde843a6636a809bb3aeb70c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174433"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422634"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Creare e gestire un catalogo di risorse in Azure AD gestione dei diritti
 
@@ -129,7 +129,7 @@ Per assegnare un utente al ruolo di proprietario del catalogo, attenersi alla pr
 
     ![Modificare le impostazioni del catalogo](./media/entitlement-management-shared/catalog-edit.png)
 
-1. Fare clic su **Salva**
+1. Fare clic su **Salva**.
 
 ## <a name="delete-a-catalog"></a>Eliminare un catalogo
 

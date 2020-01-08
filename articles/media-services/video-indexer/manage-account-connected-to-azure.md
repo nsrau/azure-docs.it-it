@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 12/16/2019
 ms.author: juliako
-ms.openlocfilehash: 4f8491e31747eda9cbe8689ba7db3026df0ff3ad
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f3825f6c9186c5e04807dd3890a14fcc6d370989
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892771"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454669"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Gestire un account di Video Indexer connesso ad Azure
 
@@ -49,6 +49,17 @@ Se l'account di Video Indexer è connesso ad Azure, viene visualizzato quanto se
 * Il numero e il tipo di unità riservare allocate.
 
 Se l'account richiede delle rettifiche, verranno visualizzati gli errori e gli avvisi relativi alla configurazione dell'account nella pagina **Impostazioni**. I messaggi contengono collegamenti a posizioni esatte nel portale di Azure in cui è necessario apportare modifiche. Per altre informazioni, vedere la sezione relativa agli [errori e avvisi](#errors-and-warnings) qui di seguito.
+
+## <a name="repair-the-connection-to-azure"></a>Ripristinare la connessione ad Azure
+
+Nella finestra di dialogo **Aggiorna connessione a servizi multimediali di Azure** della pagina [video Indexer](https://www.videoindexer.ai/) , viene richiesto di specificare i valori per le impostazioni seguenti: 
+
+|Impostazione|Description|
+|---|---|
+|ID sottoscrizione di Azure|L'ID sottoscrizione può essere recuperato dal portale di Azure. Fare clic su **All services** (Tutti i servizi) nel pannello a sinistra e cercare "sottoscrizioni". Selezionare **Sottoscrizioni** e scegliere l'ID desiderato dall'elenco delle sottoscrizioni.|
+|Nome del gruppo di risorse di Servizi multimediali di Azure|Nome del gruppo di risorse in cui è stato creato l'account di Servizi multimediali.|
+|ID applicazione|L'ID dell'applicazione Azure AD (con le autorizzazioni per l'account di servizi multimediali specificato) creato per questo account di Video Indexer. <br/><br/>Per ottenere l'ID app, passare a portale di Azure. Nell'account di servizi multimediali scegliere l'account e passare ad **accesso all'API**. Fare clic su **Connetti all'API servizi multimediali con l'entità servizio** -> **app Azure ad**. Copiare i parametri pertinenti.|
+|Chiave applicazione|Chiave dell'applicazione Azure AD associata all'account di servizi multimediali specificato in precedenza. <br/><br/>Per ottenere la chiave dell'app, passare a portale di Azure. Nell'account di servizi multimediali scegliere l'account e passare ad **accesso all'API**. Fare clic su **Connetti all'API servizi multimediali con l'entità servizio** -> **gestisci** certificati -> applicazione **& segreti**. Copiare i parametri pertinenti.|
 
 ## <a name="auto-scale-reserved-units"></a>Scalabilità automatica delle unità riservate
 

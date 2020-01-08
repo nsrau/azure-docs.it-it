@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: f5578d00d633b4b1ccce41236526e1696744f59f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 012ff33bb31c78b26791e6337ae434acfe4bc865
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851775"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351368"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gestire il ciclo di vita di Archiviazione BLOB di Azure
 
@@ -48,7 +48,7 @@ La funzionalità di gestione del ciclo di vita è disponibile in tutte le aree d
 
 * [Azure portal](https://portal.azure.com)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
-* [interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
+* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [API REST](https://docs.microsoft.com/rest/api/storagerp/managementpolicies)
 
 Un criterio può essere letto o scritto completamente. Gli aggiornamenti parziali non sono supportati. 
@@ -58,7 +58,7 @@ Un criterio può essere letto o scritto completamente. Gli aggiornamenti parzial
 
 Questo articolo illustra come gestire i criteri usando il portale e i metodi di PowerShell.  
 
-# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 
 Esistono due modi per aggiungere un criterio tramite il portale di Azure. 
 
@@ -69,7 +69,7 @@ Esistono due modi per aggiungere un criterio tramite il portale di Azure.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Selezionare **tutte le risorse** e quindi selezionare l'account di archiviazione.
+2. Nella portale di Azure cercare e selezionare l'account di archiviazione. 
 
 3. In **servizio BLOB**selezionare **gestione del ciclo** di vita per visualizzare o modificare le regole.
 
@@ -90,7 +90,7 @@ Esistono due modi per aggiungere un criterio tramite il portale di Azure.
 #### <a name="azure-portal-code-view"></a>Visualizzazione codice portale di Azure
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Selezionare **tutte le risorse** e quindi selezionare l'account di archiviazione.
+2. Nella portale di Azure cercare e selezionare l'account di archiviazione.
 
 3. In **servizio BLOB**selezionare **gestione del ciclo** di vita per visualizzare o modificare i criteri.
 
@@ -202,7 +202,7 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 
 ---
 
-## <a name="policy"></a>Policy
+## <a name="policy"></a>Criterio
 
 I criteri di gestione del ciclo di vita sono una raccolta di regole in un documento JSON:
 
@@ -232,10 +232,10 @@ Un criterio è una raccolta di regole:
 
 Ogni regola all'interno del criterio presenta diversi parametri:
 
-| Nome parametro | Tipo di parametro | Note | Obbligatoria |
+| Nome parametro | Tipo di parametro | Note | Obbligatorio |
 |----------------|----------------|-------|----------|
-| `name`         | Stringa |Il nome di una regola può includere fino a 256 caratteri alfanumerici. Nel nome della regola viene applicata la distinzione tra maiuscole e minuscole.  Il nome deve essere univoco nel criterio. | Vero |
-| `enabled`      | boolean | Valore booleano facoltativo per consentire la disabilitazione temporanea di una regola. Il valore predefinito è true se non è impostato. | Falso | 
+| `name`         | string |Il nome di una regola può includere fino a 256 caratteri alfanumerici. Nel nome della regola viene applicata la distinzione tra maiuscole e minuscole.  Il nome deve essere univoco nel criterio. | Vero |
+| `enabled`      | Boolean | Valore booleano facoltativo per consentire la disabilitazione temporanea di una regola. Il valore predefinito è true se non è impostato. | Falso | 
 | `type`         | Un valore di enumerazione | Il tipo valido corrente è `Lifecycle`. | Vero |
 | `definition`   | Un oggetto che definisce la regola del ciclo di vita | Ogni definizione è composta da un set di filtri e un set di azioni. | Vero |
 
@@ -288,7 +288,7 @@ I filtri includono:
 
 | Nome filtro | Tipo di filtro | Note | Obbligatorio |
 |-------------|-------------|-------|-------------|
-| blobTypes   | Una matrice di valori di enumerazione predefiniti. | La versione corrente supporta `blockBlob`. | SÌ |
+| blobTypes   | Una matrice di valori di enumerazione predefiniti. | La versione corrente supporta `blockBlob`. | Sì |
 | prefixMatch | Una matrice di stringhe per i prefissi corrispondenti. Ogni regola può definire un massimo di 10 prefissi. Una stringa di prefisso deve iniziare con un nome di contenitore. Se, ad esempio, si desidera trovare la corrispondenza di tutti i BLOB in `https://myaccount.blob.core.windows.net/container1/foo/...` per una regola, prefixMatch è `container1/foo`. | Se non si definisce prefixMatch, la regola si applica a tutti i BLOB all'interno dell'account di archiviazione.  | No |
 
 ### <a name="rule-actions"></a>Azioni della regola
@@ -313,7 +313,7 @@ Le condizioni di esecuzione sono basate sull'età. Per tenere traccia del tempo 
 | daysAfterModificationGreaterThan | Valore intero che indica il tempo trascorso in giorni | Condizione per le azioni BLOB di base     |
 | daysAfterCreationGreaterThan     | Valore intero che indica il tempo trascorso in giorni | Condizione per le azioni snapshot BLOB |
 
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 
 Gli esempi seguenti illustrano come affrontare scenari comuni relativi alle regole dei criteri del ciclo di vita.
 

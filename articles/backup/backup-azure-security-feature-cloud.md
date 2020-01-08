@@ -3,16 +3,16 @@ title: Funzionalità di sicurezza per proteggere i carichi di lavoro cloud
 description: Informazioni su come usare le funzionalità di sicurezza in backup di Azure per rendere più sicuri i backup.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 0be85bf57510f575f238012b9bd1ef21e44e3cf1
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 9a3c13856d3c130f2396488fed09313578dda79c
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894029"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75496933"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Funzionalità di sicurezza che consentono di proteggere i carichi di lavoro cloud che usano backup di Azure
 
-Le preoccupazioni riguardo ai problemi di sicurezza, come malware, ransomware e intrusioni, aumentano continuamente. Questi problemi di sicurezza possono essere costosi in termini di denaro e di dati. Per evitare tali attacchi, backup di Azure offre ora funzionalità di sicurezza che consentono di proteggere i dati di backup anche dopo l'eliminazione. Una di queste funzionalità è l'eliminazione temporanea. Con l'eliminazione temporanea, anche se un attore malintenzionato Elimina il backup di una macchina virtuale (o i dati di backup vengono accidentalmente eliminati), i dati di backup vengono conservati per 14 giorni aggiuntivi, consentendo il recupero dell'elemento di backup senza perdita di dati. Questi ulteriori 14 giorni di conservazione dei dati di backup nello stato "eliminazione temporanea" non comportano alcun costo per il cliente.
+Le preoccupazioni riguardo ai problemi di sicurezza, come malware, ransomware e intrusioni, aumentano continuamente. Questi problemi di sicurezza possono essere costosi in termini di denaro e di dati. Per evitare tali attacchi, backup di Azure offre ora funzionalità di sicurezza che consentono di proteggere i dati di backup anche dopo l'eliminazione. Una di queste funzionalità è l'eliminazione temporanea. Con l'eliminazione temporanea, anche se un attore malintenzionato Elimina il backup di una macchina virtuale (o i dati di backup vengono accidentalmente eliminati), i dati di backup vengono conservati per 14 giorni aggiuntivi, consentendo il recupero dell'elemento di backup senza perdita di dati. Questi ulteriori 14 giorni di conservazione dei dati di backup nello stato "eliminazione temporanea" non comportano alcun costo per il cliente. Azure crittografa inoltre tutti i dati di backup inattivi usando [crittografia del servizio di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) per proteggere ulteriormente i dati.
 
 > [!NOTE]
 > L'eliminazione temporanea protegge solo i dati di backup eliminati. Se una macchina virtuale viene eliminata senza un backup, la funzionalità di eliminazione temporanea non manterrà i dati. Tutte le risorse devono essere protette con backup di Azure per garantire la resilienza completa.
@@ -114,6 +114,11 @@ AppVM1           Undelete             Completed            12/5/2019 12:47:28 PM
 
 Il ' DeleteState ' dell'elemento di backup verrà ripristinato in ' NotDeleted '. Ma la protezione è ancora stata arrestata. È necessario [riprendere il backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#change-policy-for-backup-items) per abilitare nuovamente la protezione.
 
+### <a name="soft-delete-for-vms-using-rest-api"></a>Eliminazione temporanea per le macchine virtuali con l'API REST
+
+- Eliminare i backup usando l'API REST come indicato [qui](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
+- Se l'utente desidera annullare queste operazioni di eliminazione, fare riferimento ai passaggi indicati [qui](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data).
+
 ## <a name="disabling-soft-delete"></a>Disabilitazione dell'eliminazione temporanea
 
 L'eliminazione temporanea è abilitata per impostazione predefinita negli insiemi di credenziali appena creati per proteggere i dati di backup da eliminazioni accidentali o dannose.  La disabilitazione di questa funzionalità non è consigliata. L'unica circostanza in cui è consigliabile disabilitare l'eliminazione temporanea è se si prevede di trasferire gli elementi protetti in un nuovo insieme di credenziali e non è possibile attendere i 14 giorni necessari prima dell'eliminazione e della riprotezione (ad esempio in un ambiente di test). Questa funzionalità può essere disabilitata solo da un amministratore di backup. Se questa funzionalità viene disabilitata, tutte le eliminazioni di elementi protetti comporteranno la rimozione immediata, senza la possibilità di eseguire il ripristino. I dati di backup in stato di eliminazione temporanea prima della disabilitazione di questa funzionalità rimarranno in stato di eliminazione temporanea. Per eliminare definitivamente questi elementi immediatamente, è necessario annullarne l'eliminazione ed eliminarli di nuovo per eliminarli definitivamente.
@@ -146,15 +151,19 @@ EnhancedSecurityState  : Enabled
 SoftDeleteFeatureState : Disabled
 ```
 
+### <a name="disabling-soft-delete-using-rest-api"></a>Disabilitazione dell'eliminazione temporanea con l'API REST
+
+Per disabilitare la funzionalità di eliminazione temporanea usando l'API REST, vedere i passaggi indicati [qui](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
+
 ## <a name="permanently-deleting-soft-deleted-backup-items"></a>Eliminazione definitiva degli elementi di backup eliminati temporaneamente
 
 I dati di backup in stato di eliminazione temporanea prima della disabilitazione di questa funzionalità rimarranno in stato di eliminazione temporanea. Per eliminare definitivamente questi elementi immediatamente, annullarne l'eliminazione ed eliminarli di nuovo per eliminarli definitivamente.
 
 ### <a name="using-azure-portal"></a>Uso del portale di Azure
 
-Seguire questa procedura:
+A tale scopo, seguire questa procedura:
 
-1. Seguire i passaggi per [disabilitare l'eliminazione](#disabling-soft-delete)temporanea. 
+1. Seguire i passaggi per [disabilitare l'eliminazione](#disabling-soft-delete)temporanea.
 2. Nel portale di Azure passare all'insieme di credenziali, passare a **elementi di backup** e scegliere la macchina virtuale eliminata temporaneamente
 
 ![Scegliere una macchina virtuale temporaneamente eliminata](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
@@ -215,6 +224,14 @@ WorkloadName     Operation            Status               StartTime            
 AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM     12/5/2019 12:44:50 PM     0488c3c2-accc-4a91-a1e0-fba09a67d2fb
 ```
 
+### <a name="using-rest-api"></a>Uso dell'API REST
+
+Se gli elementi sono stati eliminati prima della disabilitazione dell'eliminazione temporanea, saranno in uno stato di eliminazione temporanea. Per eliminare immediatamente tali elementi, è necessario invertire l'operazione di eliminazione e quindi eseguire di nuovo l'operazione.
+
+1. Per prima cosa, annullare le operazioni di eliminazione con i passaggi indicati di [seguito](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data).
+2. Disabilitare quindi la funzionalità di eliminazione temporanea usando l'API REST usando la procedura descritta [qui](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
+3. Eliminare quindi i backup usando l'API REST come indicato [qui](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
+
 ## <a name="other-security-features"></a>Altre funzionalità di sicurezza
 
 ### <a name="storage-side-encryption"></a>Crittografia lato archiviazione
@@ -223,7 +240,7 @@ Archiviazione di Azure crittografa automaticamente i dati in modo permanente nel
 
 In Azure, i dati in transito tra archiviazione di Azure e l'insieme di credenziali sono protetti da HTTPS. Questi dati rimangono all'interno della rete backbone di Azure.
 
-Per altre informazioni, vedere [crittografia di archiviazione di Azure per dati](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)inattivi.
+Per altre informazioni, vedere [crittografia di archiviazione di Azure per dati](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)inattivi.  Consultare le [domande frequenti su backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#encryption) per rispondere a eventuali domande sulla crittografia.
 
 ### <a name="vm-encryption"></a>Crittografia VM
 
@@ -237,7 +254,7 @@ Per altre informazioni, vedere [usare il controllo degli accessi in base al ruol
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
-### <a name="soft-delete"></a>Eliminazione temporanea
+### <a name="for-soft-delete"></a>Per l'eliminazione temporanea
 
 #### <a name="do-i-need-to-enable-the-soft-delete-feature-on-every-vault"></a>È necessario abilitare la funzionalità di eliminazione temporanea in ogni insieme di credenziali?
 

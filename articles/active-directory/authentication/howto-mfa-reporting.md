@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed35abd5b9bfb8b9a74d598f1fa93d8f1a985bfb
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 52d9f7a0b2a7cebefdb5ade8e16417043c5c83d3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848273"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425288"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Report in Azure Multi-Factor Authentication
 
 Azure Multi-Factor Authentication offre diversi report che possono essere usati dall'utente e dall'organizzazione e ai quali è possibile accedere tramite il portale di Azure. La tabella seguente elenca i report disponibili:
 
-| Documentazione | Località | Description |
+| Documentazione | Percorso | Description |
 |:--- |:--- |:--- |
 | Cronologia utenti bloccati | Azure AD > sicurezza > autenticazione a più fattori > Blocca/Sblocca utenti | Consente di visualizzare la cronologia delle richieste di blocco o sblocco degli utenti. |
 | Avvisi di illecito e utilizzo | Azure AD > Accessi | Fornisce informazioni su utilizzo complessivo, riepilogo utenti e dettagli utente; nonché una cronologia degli avvisi di illecito inviati durante l'intervallo di date specificato. |
@@ -117,7 +117,7 @@ I report delle attività di accesso per l'autenticazione a più fattori permetto
 
 **Accesso condizionale** Trovare informazioni sui criteri di accesso condizionale che hanno interessato il tentativo di accesso, tra cui:
 
-- Nome criterio
+- Nome criteri
 - Controlli di concessione
 - Controlli di sessione
 - Risultato
@@ -133,6 +133,16 @@ Identificare gli utenti che hanno eseguito la registrazione per MFA usando il co
 Identificare gli utenti che non hanno eseguito la registrazione per MFA usando il codice di PowerShell seguente.
 
 ```Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
+
+Identificare gli utenti e i metodi di output registrati. 
+
+```PowerShell
+Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalName}},
+
+@{N='MFA Status';E={if ($_.StrongAuthenticationRequirements.State){$_.StrongAuthenticationRequirements.State} else {"Disabled"}}},
+
+@{N='MFA Methods';E={$_.StrongAuthenticationMethods.methodtype}} | Export-Csv -Path c:\MFA_Report.csv -NoTypeInformation
+```
 
 ## <a name="possible-results-in-activity-reports"></a>Possibili risultati nei report attività
 

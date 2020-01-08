@@ -1,18 +1,14 @@
 ---
 title: Monitoraggio di Azure per i mapping delle aree dei contenitori
 description: Questo articolo descrive i mapping dell'area supportati tra monitoraggio di Azure per contenitori, Log Analytics area di lavoro e metriche personalizzate.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 06/26/2019
-ms.openlocfilehash: f22c62dddf2e38fa2c9471ce98b49a8aa32390b3
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: a058f9cac987bb5c7130019f50370c6a176b09ac
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554014"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75403414"
 ---
 # <a name="region-mappings-supported-by-azure-monitor-for-containers"></a>Mapping dell'area supportati da monitoraggio di Azure per i contenitori
 
@@ -63,8 +59,8 @@ Le risorse del cluster AKS o Log Analytics area di lavoro possono risiedere in a
 |EastUS2 |EastUS2 |
 |WestUS |WestUS |
 |WestUS2 |WestUS2 |
-|WestCentralUS<sup>1</sup>|Eastus<sup>1</sup>|
-|US Gov Virginia |US Gov Virginia |
+|WestCentralUS<sup>1</sup>|EastUS<sup>1</sup>|
+|Governo degli Stati Uniti - Virginia |Governo degli Stati Uniti - Virginia |
 
 <sup>1</sup> a causa dei vincoli di capacità, l'area non è disponibile quando si creano nuove risorse. Sono incluse un'area di lavoro Log Analytics. Tuttavia, le risorse collegate preesistenti nell'area dovrebbero continuare a funzionare.
 

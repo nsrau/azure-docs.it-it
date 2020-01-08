@@ -6,12 +6,12 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: bce0620ed6be4937c95a2ce01f3d4c175c8bc18d
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 87c95d8bbf199f232eca5475f4d8f0c64427a198
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687085"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680886"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Panoramica della cache locale del servizio app di Azure
 
@@ -36,7 +36,7 @@ La funzionalità cache locale del servizio app di Azure offre una visualizzazion
 
 ## <a name="how-the-local-cache-changes-the-behavior-of-app-service"></a>Modalità di modifica del comportamento del servizio app da parte della cache locale
 * _D:\home_ punta alla cache locale, creata nell'istanza della macchina virtuale all'avvio dell'app. _D:\local_ continua a puntare all'archivio temporaneo specifico della macchina virtuale.
-* La cache locale contiene una copia eseguita una sola volta delle cartelle _/site_ e _/siteextensions_ dell'archivio del contenuto condiviso rispettivamente in _D:\home\site_ e _D:\home\ siteextensions_. I file vengono copiati nella cache locale all'avvio dell'app. La dimensione delle due cartelle per ogni app è limitata a 300 MB per impostazione predefinita, ma può essere aumentata fino a 2 GB.
+* La cache locale contiene una copia eseguita una sola volta delle cartelle _/site_ e _/siteextensions_ dell'archivio del contenuto condiviso rispettivamente in _D:\home\site_ e _D:\home\ siteextensions_. I file vengono copiati nella cache locale all'avvio dell'app. La dimensione delle due cartelle per ogni app è limitata a 300 MB per impostazione predefinita, ma può essere aumentata fino a 2 GB. Se i file copiati superano le dimensioni della cache locale, il servizio app ignora automaticamente la cache locale e la legge dalla condivisione file remota.
 * La cache locale è di lettura/scrittura. Le eventuali modifiche vengono tuttavia rimosse quando l'app sposta le macchine virtuali o viene riavviata. Non usare la cache locale per le app che archiviano dati mission-critical nell'archivio del contenuto.
 * _D:\home\LogFiles_ e _D:\home\Data_ contengono i file di log e i dati delle app. Le due sottocartelle vengono archiviate in locale nell'istanza della macchina virtuale e vengono copiate periodicamente nell'archivio del contenuto condiviso. Le app possono salvare in modo permanente i dati e i file di log, scrivendoli in queste cartelle. Tuttavia, la copia nell'archivio del contenuto condiviso è di tipo massimo sforzo e quindi i dati e i file di log potrebbero andare persi a seguito di un arresto anomalo improvviso del sistema dell'istanza di una macchina virtuale.
 * La copia di tipo massimo sforzo influisce sul [flusso di registrazione](troubleshoot-diagnostic-logs.md#stream-logs). Si può verificare un ritardo massimo di un minuto per i log inviati nel flusso.
@@ -83,12 +83,12 @@ La cache locale viene abilitata per ogni app Web con questa impostazione dell'ap
 ```
 
 ## <a name="change-the-size-setting-in-local-cache"></a>Modificare l'impostazione delle dimensioni nella cache locale
-Per impostazione predefinita, le dimensioni della cache locale sono pari a **1 GB**. Sono incluse le cartelle /site e /siteextensions copiate dall'archivio del contenuto, nonché eventuali log e cartelle di dati creati in locale. Per aumentare questo limite, usare l'impostazione dell'app `WEBSITE_LOCAL_CACHE_SIZEINMB`. È possibile aumentare le dimensioni fino a **2 GB** (2000 MB) per ogni app.
+Per impostazione predefinita le dimensioni della cache locale corrispondono a **300 MB**. Sono incluse le cartelle /site e /siteextensions copiate dall'archivio del contenuto, nonché eventuali log e cartelle di dati creati in locale. Per aumentare questo limite, usare l'impostazione dell'app `WEBSITE_LOCAL_CACHE_SIZEINMB`. È possibile aumentare le dimensioni fino a **2 GB** (2000 MB) per ogni app.
 
 ## <a name="best-practices-for-using-app-service-local-cache"></a>Procedure consigliate per l'uso della cache locale del servizio app
 È consigliabile usare la cache locale insieme alla funzionalità degli [ambienti di gestione temporanea](../app-service/deploy-staging-slots.md) .
 
-* Aggiungere l'impostazione dell'app *permanente* `WEBSITE_LOCAL_CACHE_OPTION` con il valore `Always` nello slot di **produzione**. Se si usa `WEBSITE_LOCAL_CACHE_SIZEINMB`, aggiungerla anch'essa come impostazione permanente nello slot di produzione.
+* Aggiungere l'impostazione dell'app *permanente*`WEBSITE_LOCAL_CACHE_OPTION` con il valore `Always` nello slot di **produzione**. Se si usa `WEBSITE_LOCAL_CACHE_SIZEINMB`, aggiungerla anch'essa come impostazione permanente nello slot di produzione.
 * Creare uno slot di **gestione temporanea** e pubblicare in questo slot. Se si sfruttano i vantaggi della cache locale per lo slot di produzione, in genere non si imposta l'uso della cache locale nello slot di gestione temporanea per abilitare un ciclo di vita di compilazione-distribuzione-test lineare per la gestione temporanea.
 * Testare il sito nello slot di gestione temporanea.  
 * Al termine, eseguire un' [operazione di scambio](../app-service/deploy-staging-slots.md#Swap) tra lo slot di gestione temporanea e lo slot di produzione.  

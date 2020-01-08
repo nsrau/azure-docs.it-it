@@ -1,25 +1,16 @@
 ---
-title: Ripristino del backup in Azure Service Fabric | Microsoft Docs
+title: Ripristino del backup in Azure Service Fabric
 description: Usare la funzionalità di backup e ripristino periodici di Service Fabric per ripristinare i dati dal backup dei dati delle applicazioni.
-services: service-fabric
-documentationcenter: .net
 author: aagup
-manager: chackdan
-editor: aagup
-ms.assetid: 802F55B6-6575-4AE1-8A8E-C9B03512FF88
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: ff705eabde111b5ebac1e2d714e3ece221c36e90
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1737102ee652cc2263bd0a908c1336bc93a6757b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819296"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75377906"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Ripristino del backup in Azure Service Fabric
 
@@ -326,7 +317,7 @@ La richiesta di ripristino procede nell'ordine seguente:
 
 ## <a name="automatic-restore"></a>Ripristino automatico
 
-È possibile configurare le partizioni del servizio Reliable con stato e Reliable Actors nel cluster di Service Fabric per il _ripristino automatico_. Nei criteri di backup impostare `AutoRestore` su _true_. L'abilitazione del _ripristino automatico_ ripristina automaticamente i dati dal backup più recente della partizione quando viene segnalata una perdita di dati. Per altre informazioni, vedere:
+È possibile configurare le partizioni del servizio Reliable con stato e Reliable Actors nel cluster di Service Fabric per il _ripristino automatico_. Nei criteri di backup impostare `AutoRestore` su _true_. L'abilitazione del _ripristino automatico_ ripristina automaticamente i dati dal backup più recente della partizione quando viene segnalata una perdita di dati. Per scoprire di più, vedi:
 
 - [Abilitazione del ripristino automatico nei criteri di backup](service-fabric-backuprestoreservice-configure-periodic-backup.md#auto-restore-on-data-loss)
 - [Informazioni di riferimento sull'API RestorePartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition)

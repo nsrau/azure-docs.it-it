@@ -1,20 +1,14 @@
 ---
-title: Driver Volume File di Azure Service Fabric (GA) | Microsoft Docs
+title: Driver Volume File di Azure Service Fabric (GA)
 description: Service Fabric supporta l'uso di File di Azure per eseguire il backup di volumi dal contenitore.
-services: service-fabric
-author: athinanthny
-manager: chackdan
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 6/10/2018
-ms.author: atsenthi
-ms.openlocfilehash: 1287df567c60b7ad851c94a8ba787270255d0f35
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 0bd84c8367f722c013abff5c2a6caaa991fa841f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422777"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464796"
 ---
 # <a name="service-fabric-azure-files-volume-driver"></a>Driver del volume File di Azure Service Fabric
 Il plug-in del volume File di Azure, un plug-in del [volume Docker](https://docs.docker.com/engine/extend/plugins_volume/) che fornisce volumi basati su [file di Azure](/azure/storage/files/storage-files-introduction) per i contenitori Docker è ora disponibile a livello **generale**.
@@ -25,7 +19,7 @@ Questo plug-in di volume Docker viene offerto come pacchetto di applicazione di 
 > La versione 6.5.661.9590 del plug-in del volume File di Azure è una versione GA (disponibile a livello generale). 
 >
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * La versione Windows del plug-in di volume di File di Azure può essere usata solo in [Windows Server versione 1709](/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 versione 1709](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709) o sistemi operativi successivi.
 
 * La versione Linux del plug-in di volume di File di Azure può essere usata in tutte le versioni del sistema operativo supportate da Service Fabric.

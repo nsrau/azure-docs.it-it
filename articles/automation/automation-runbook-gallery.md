@@ -2,19 +2,15 @@
 title: Raccolte di runbook e moduli per l'automazione di Azure
 description: I runbook e i moduli di Microsoft e della community sono disponibili per l'installazione e l'uso nell'ambiente di Automazione di Azure.  In questo articolo viene descritto come accedere a queste risorse e come contribuire alla raccolta di runbook.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/20/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 94910d0f42ad6b208cac54dd2826cbd2d917504b
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 52a0ab0a31600c1548283c7d899b17e497811b5a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850721"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421491"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Raccolte di runbook e moduli per l'automazione di Azure
 
@@ -69,7 +65,7 @@ I moduli di PowerShell contengono cmdlet che è possibile usare all'interno dei 
 
 4. Nella pagina **Esplora raccolta** è possibile eseguire la ricerca in base ai campi seguenti:
 
-   * Nome modulo
+   * Nome del modulo
    * Tag
    * Creare
    * Nome della risorsa cmdlet/DSC

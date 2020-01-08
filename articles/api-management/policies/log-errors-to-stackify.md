@@ -1,5 +1,6 @@
 ---
-title: 'Esempio di criteri di Gestione API di Azure: inviare errori a Stackify per la registrazione | Microsoft Docs'
+title: Criteri di gestione API di esempio-inviare errori a Stackify per la registrazione
+titleSuffix: Azure API Management
 description: Esempio di criteri di Gestione API di Azure che illustra come aggiungere criteri di registrazione degli errori per inviare gli errori a Stackify per la registrazione.
 services: api-management
 documentationcenter: ''
@@ -12,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 82aab34a9815f080fe8abb8c1d8b6de66866806e
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 6662761df005211729dffb16282b8e0a8e2a8444
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067587"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442452"
 ---
 # <a name="send-errors-to-stackify-for-logging"></a>Inviare errori a Stackify per la registrazione
 
-Questo articolo offre un esempio di criteri di Gestione API di Azure che illustra come aggiungere criteri di registrazione degli errori per inviare gli errori a Stackify per la registrazione. Per impostare o modificare il codice dei criteri, seguire la procedura descritta in [Impostare o modificare un criterio](../set-edit-policies.md). Per altri esempi, vedere l'articolo relativo agli [esempi di criteri](../policy-samples.md).
+Questo articolo offre un esempio di criteri di Gestione API di Azure che illustra come aggiungere criteri di registrazione degli errori per inviare gli errori a Stackify per la registrazione. Per impostare o modificare il codice dei criteri, seguire la procedura descritta nell'articolo su come [impostare o modificare criteri](../set-edit-policies.md). Per altri esempi, vedere l'articolo relativo agli [esempi di criteri](../policy-samples.md).
 
-## <a name="policy"></a>Criteri
+## <a name="policy"></a>Criterio
 
 Incollare il codice nel blocco **on-error**.
 

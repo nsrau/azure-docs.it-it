@@ -3,12 +3,12 @@ title: Ripristinare file e cartelle dal backup delle macchine virtuali di Azure
 description: Questo articolo illustra come ripristinare file e cartelle da un punto di ripristino della macchina virtuale di Azure.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 3fff957e542a039fcc5121f13c062f710f9292c9
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 4fd5de0c199bfe104b8bb4f5b33b9ed8a86924f6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172853"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392552"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -176,8 +176,8 @@ La tabella seguente illustra la compatibilità tra i sistemi operativi del serve
 
 |Sistema operativo del server | Sistema operativo compatibile del client  |
 | --------------- | ---- |
-| Windows Server 2019    | Windows 10 |
-| Windows Server 2016    | Windows 10 |
+| Windows Server 2019    | Windows 10 |
+| Windows Server 2016    | Windows 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |
 | Windows Server 2008 R2 | Windows 7   |
@@ -203,7 +203,7 @@ In Linux, il sistema operativo del computer usato per ripristinare i file deve s
 
 Per l'esecuzione e la connessione sicura al punto di ripristino, lo script richiede anche componenti bash e Python.
 
-|Componente | Version  |
+|Componente | Versione  |
 | --------------- | ---- |
 | bash | 4 e versioni successive |
 | python | 2.6.6 e versioni successive  |
@@ -211,9 +211,9 @@ Per l'esecuzione e la connessione sicura al punto di ripristino, lo script richi
 
 ## <a name="file-recovery-from-virtual-machine-backups-having-large-disks"></a>Ripristino di file dai backup di macchine virtuali con dischi di grandi dimensioni
 
-Questa sezione illustra come eseguire il ripristino di file da backup di macchine virtuali di Azure il cui numero di dischi è > 16 e ogni dimensione del disco è > 4 TB.
+Questa sezione illustra come eseguire il ripristino di file da backup di macchine virtuali di Azure il cui numero di dischi è > 16 e ogni dimensione del disco è > 32 TB.
 
-Poiché il processo di recupero file connette tutti i dischi dal backup, quando vengono usati un numero elevato di dischi (> 16) o dischi di grandi dimensioni (> 4 TB ciascuno), sono consigliati i punti di azione seguenti:
+Poiché il processo di recupero file connette tutti i dischi dal backup, quando vengono usati un numero elevato di dischi (> 16) o dischi di grandi dimensioni (> 32 TB ciascuno), sono consigliati i punti di azione seguenti:
 
 - Per il ripristino dei file, è necessario usare un server di ripristino separato (VM D2v3 VM di Azure). È possibile utilizzare questo solo ripristino di file e quindi arrestarlo quando non è necessario. Il ripristino nel computer originale non è consigliato perché avrà un impatto significativo sulla macchina virtuale stessa.
 - Eseguire quindi lo script una volta per verificare se l'operazione di ripristino del file riesce.
@@ -252,7 +252,7 @@ Se si verificano problemi durante il ripristino di file dalle macchine virtuali,
 | Specifico per Linux: non è possibile visualizzare i volumi desiderati | Il sistema operativo del computer in cui viene eseguito lo script potrebbe non riconoscere il file system sottostante della VM protetta | Controllare se il punto di ripristino è coerente con l'arresto anomalo del sistema o è coerente a livello di file. Se è coerente a livello di file, eseguire lo script in un altro computer il cui sistema operativo riconosce il file system della VM protetta |
 | Specifico per Windows: non è possibile visualizzare i volumi desiderati | I dischi possono essere stati collegati, ma i volumi non sono stati configurati | Dalla schermata Gestione disco, identificare i dischi aggiuntivi correlati al punto di recupero. Se uno di questi dischi è in stato offline, provare a renderli online facendo clic con il pulsante destro del mouse sul disco e scegliendo ' online '|
 
-## <a name="security"></a>Security
+## <a name="security"></a>Sicurezza
 
 Questa sezione illustra le varie misure di sicurezza adottate per l'implementazione del ripristino di file dai backup di macchine virtuali di Azure, in modo che gli utenti siano a conoscenza degli aspetti di sicurezza della funzionalità.
 

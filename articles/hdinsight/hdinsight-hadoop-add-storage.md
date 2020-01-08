@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: e29041942157e720cce3414f7b6e6904667c1894
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 86b9230dbdca82c5599c1839fd64bd3df4725051
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73665484"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435582"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Aggiungere altri account di archiviazione a HDInsight
 
@@ -24,13 +24,13 @@ Informazioni su come usare le azioni script per aggiungere altri *account* di ar
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Un cluster Hadoop in HDInsight. Vedere [Guida introduttiva: Introduzione ad Apache Hadoop e Apache Hive in Azure HDInsight usando il modello di Resource Manager](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
-* Nome e chiave dell'account di archiviazione. Vedere [gestire le impostazioni dell'account di archiviazione nel portale di Azure](../storage/common/storage-account-manage.md).
+* Nome e chiave dell'account di archiviazione. Vedere [gestire le chiavi di accesso dell'account di archiviazione](../storage/common/storage-account-keys-manage.md).
 * [Nome del cluster con case corretta](hdinsight-hadoop-manage-ambari-rest-api.md#identify-correctly-cased-cluster-name).
 * Se si usa PowerShell, è necessario il modulo AZ.  Vedere [Panoramica di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 * Se l'interfaccia della riga di comando di Azure non è stata installata, vedere [interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 * Se si usa bash o un prompt dei comandi di Windows, è necessario anche **JQ**, un processore JSON da riga di comando.  Vedere [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/). Per bash in Ubuntu in Windows 10, vedere la [Guida all'installazione del sottosistema Windows per Linux per Windows 10](https://docs.microsoft.com/windows/wsl/install-win10).
 
-## <a name="how-it-works"></a>Funzionamento
+## <a name="how-it-works"></a>Come funziona
 
 Lo script accetta i parametri seguenti:
 
@@ -108,7 +108,7 @@ Vedere [applicare un'azione script a un cluster in esecuzione](hdinsight-hadoop-
 
 ### <a name="storage-firewall"></a>Firewall di archiviazione
 
-Se si sceglie di proteggere l'account di archiviazione con le restrizioni relative a **firewall e reti virtuali** nelle **reti selezionate**, assicurarsi di abilitare l'eccezione **Consenti servizi Microsoft attendibili...** in modo che HDInsight possa accedere alla risorsa di archiviazione account.
+Se si sceglie di proteggere l'account di archiviazione con le restrizioni relative a **firewall e reti virtuali** nelle **reti selezionate**, assicurarsi di abilitare l'eccezione **Consenti servizi Microsoft attendibili...** in modo che HDInsight possa accedere all'account di archiviazione.
 
 ### <a name="storage-accounts-not-displayed-in-azure-portal-or-tools"></a>Account di archiviazione non visualizzati nel portale di Azure o negli strumenti
 

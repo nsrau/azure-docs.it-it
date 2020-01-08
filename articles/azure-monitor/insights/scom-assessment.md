@@ -4,15 +4,15 @@ description: È possibile usare la soluzione Controllo integrità System Center 
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 06/25/2018
-ms.openlocfilehash: 33aa246e21b54aebaa902304ff92d4b74bfaac4b
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 5ec0f181d9d22e9e1183a59a4fbd7d77e658862e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72898775"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75402858"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Ottimizzare l'ambiente con la soluzione Controllo integrità System Center Operations Manager (Anteprima)
 
@@ -34,7 +34,7 @@ Dopo aver aggiunto la soluzione e aver eseguito una valutazione, nel dashboard d
 
 ## <a name="installing-and-configuring-the-solution"></a>Installazione e configurazione della soluzione
 
-La soluzione funziona con Microsoft System Center 2012 Operations Manager Service Pack 1, Microsoft System Center 2012 R2 Operations Manager, Microsoft System Center 2016 Operations Manager, Microsoft System Center 2016 Operations Manager e Microsoft System Center Operations Manager 1807
+La soluzione funziona con Microsoft System Center 2012 Operations Manager Service Pack 1, Microsoft System Center 2012 R2 Operations Manager, Microsoft System Center 2016 Operations Manager, Microsoft System Center 2016 Operations Manager e Microsoft System Center Operations Manager 1807. In ogni server di gestione deve essere installata una versione supportata di .NET Framework 4.6.2.
 
 Usare le informazioni seguenti per installare e configurare la soluzione.
 
@@ -56,7 +56,7 @@ Usare le informazioni seguenti per installare e configurare la soluzione.
 La soluzione Controllo integrità di System Center Operations Manager raccoglie i dati dalle origini seguenti:
 
 * Registro
-* Strumentazione gestione Windows (WMI)
+* Strumentazione gestione Windows (WMI, Windows Management Instrumentation)
 * Registro eventi
 * Dati dei file
 * Direttamente da Operations Manager usando PowerShell e le query SQL, da un server di gestione specificato.  
@@ -83,7 +83,7 @@ Prima di procedere l'account RunAs deve soddisfare i requisiti seguenti:
 4. Nella pagina **Proprietà generali** selezionare **Windows** nell'elenco **Tipo di account RunAs**.
 5. Digitare un nome visualizzato nella casella di testo **Nome visualizzato** e facoltativamente una descrizione nella casella **Descrizione** e quindi fare clic su **Avanti**.
 6. Nella pagina **Sicurezza della distribuzione** selezionare **Più protetto**.
-7. Fare clic su **Create**(Crea).  
+7. Fare clic su **Crea**.  
 
 Dopo aver creato l'account RunAs, è necessario indicare i server di gestione di destinazione nel gruppo di gestione e associare l'account a un profilo RunAs predefinito in modo che i flussi di lavoro vengano eseguiti usando le credenziali.  
 
@@ -259,7 +259,7 @@ Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Lo
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
-3. Se in seguito si decide che si vogliono vedere le raccomandazioni ignorate, rimuovere eventuali file IgnoreRecommendations.txt oppure è possibile rimuovere gli ID raccomandazione dagli stessi.
+3. Se in seguito si decide che si vogliono vedere le raccomandazioni ignorate, rimuovere eventuali file IgnoreRecommendations.txt oppure rimuovere gli ID raccomandazione dagli stessi.
 
 ## <a name="system-center-operations-manager-health-check-solution-faq"></a>Domande frequenti sulla soluzione Controllo integrità System Center Operations Manager
 

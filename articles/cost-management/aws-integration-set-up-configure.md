@@ -1,21 +1,21 @@
 ---
-title: Configurare e configurare l'integrazione dei report relativi a costi e utilizzo di AWS con gestione costi di Azure
+title: Configurare l'integrazione di AWS con gestione costi di Azure
 description: Questo articolo illustra come configurare e configurare l'integrazione dei report di utilizzo e costi di AWS con gestione costi di Azure.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 08/15/2019
+ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 66dbe45ff1a8ee773fdf7fcb0aa7cfe8e6ad6437
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 77bc7772e1d9b8144199c865a8d82f818d5e1963
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74219685"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444600"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Configurare e configurare l'integrazione dei report di utilizzo e costi di AWS
 
@@ -68,7 +68,7 @@ Utilizzare la procedura guidata Crea nuovo ruolo:
 4. Nella pagina successiva selezionare **un altro account AWS**.
 5. In **ID account**immettere **432263259397**.
 6. In **Opzioni**selezionare **Richiedi ID esterno (procedura consigliata quando il ruolo verrà assunto da terze parti)** .
-7. In **External ID (ID esterno**) immettere l'ID esterno. L'ID esterno è un codice condiviso tra il ruolo AWS e gestione costi di Azure. Lo stesso ID esterno viene usato anche nella pagina **nuovo connettore** in gestione costi. Ad esempio, un ID esterno è simile a _Companyname1234567890123_.
+7. In **External ID (ID esterno**) immettere l'ID esterno che è un codice condiviso tra il ruolo AWS e gestione costi di Azure. Lo stesso ID esterno viene usato anche nella pagina **nuovo connettore** in gestione costi. Microsoft consiglia di utilizzare un criterio di accesso sicuro quando si immette l'ID esterno.
 
     > [!NOTE]
     > Non modificare la selezione per **Richiedi**autenticazione a più fattori. Deve rimanere cancellata.
@@ -214,7 +214,7 @@ Per gestire il livello di accesso, usare la pagina **livello di accesso** dell'a
 
 L'account collegato di AWS è il punto in cui vengono create e gestite le risorse di AWS. Un account collegato funge anche da limite di sicurezza.
 
-Da questa pagina è possibile:
+In questa pagina è possibile effettuare le seguenti operazioni:
 
 - Selezionare **Aggiorna** per aggiornare l'associazione di un account collegato di AWS a un gruppo di gestione.
 - Selezionare **controllo di accesso** per impostare un'assegnazione di ruolo per l'ambito.

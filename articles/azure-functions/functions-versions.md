@@ -3,12 +3,12 @@ title: Panoramica delle versioni del runtime per Funzioni di Azure
 description: La soluzione Funzioni di Azure supporta più versioni del runtime. Informazioni sulle differenze tra le versioni e su come scegliere quella più adatta alle proprie esigenze.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 874d2e657c2c9d7cba7874ff9815c61f9bbe8ef7
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.openlocfilehash: 977d0cb445369cbc51ce3b90712d58ce8b6ebdc3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74941715"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433088"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Panoramica delle versioni del runtime per Funzioni di Azure
 
@@ -64,7 +64,7 @@ Nella versione 2.x sono state apportate le modifiche seguenti:
 
 * Il file di configurazione host (host.json) deve essere vuoto o avere la stringa `"version": "2.0"`.
 
-* Per migliorare il monitoraggio, il dashboard di Processi Web nel portale, che usa l'impostazione [`AzureWebJobsDashboard`](functions-app-settings.md#azurewebjobsdashboard), è stato sostituito con Azure Application Insights, che usa l'impostazione [ `APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsights_instrumentationkey). Per altre informazioni, vedere [Monitorare Funzioni di Azure](functions-monitoring.md).
+* Per migliorare il monitoraggio, il dashboard di Processi Web nel portale, che usa l'impostazione [`AzureWebJobsDashboard`](functions-app-settings.md#azurewebjobsdashboard), è stato sostituito con Azure Application Insights, che usa l'impostazione [`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsights_instrumentationkey). Per altre informazioni, vedere [Monitorare Funzioni di Azure](functions-monitoring.md).
 
 * Tutte le funzioni in un'app per le funzioni devono condividere lo stesso linguaggio. Quando si crea un'app per le funzioni, è necessario scegliere uno stack di runtime per l'app. Lo stack di runtime viene specificato dal valore [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime) nelle impostazioni dell'applicazione. Questo requisito è stato aggiunto per migliorare tempi di avvio e footprint. In caso di sviluppo in locale, è necessario includere anche questa impostazione nel [file local.settings.json](functions-run-local.md#local-settings-file).
 
@@ -104,7 +104,7 @@ Di seguito sono riportate le modifiche da tenere presenti prima di aggiornare un
 
 La versione del runtime di Funzioni usata dalle app pubblicate in Azure è determinata dall'impostazione dell'applicazione [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version). Sono supportati i valori di versione di runtime principali seguenti:
 
-| Value | Destinazione Runtime |
+| Valore | Destinazione Runtime |
 | ------ | -------- |
 | `~3` | 3.x |
 | `~2` | 2.x |
@@ -115,7 +115,7 @@ La versione del runtime di Funzioni usata dalle app pubblicate in Azure è deter
 
 ### <a name="locally-developed-application-versions"></a>Versioni dell'applicazione sviluppate localmente
 
-È possibile apportare le seguenti app per le funzioni di aggiornamento localmente modificare le versioni di destinazione.
+È possibile effettuare gli aggiornamenti seguenti alle app per le funzioni per modificare localmente le versioni di destinazione.
 
 #### <a name="visual-studio-runtime-versions"></a>Versioni del runtime di Visual Studio
 

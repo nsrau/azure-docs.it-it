@@ -3,14 +3,14 @@ title: Come condividere Azure Dev Spaces
 services: azure-dev-spaces
 ms.date: 05/11/2018
 ms.topic: conceptual
-description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
+description: Informazioni su come usare Azure Dev Spaces per condividere uno spazio di sviluppo nel servizio Azure Kubernetes con altri utenti del team
 keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
-ms.openlocfilehash: 2c85625a4f61b701bc1e8b0a4a06f71dc0989ce0
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5e3a18ea205eda5617eab094046ec6536e82d113
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279984"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438425"
 ---
 # <a name="share-azure-dev-spaces"></a>Condividere Azure Dev Spaces
 

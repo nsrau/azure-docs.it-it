@@ -3,17 +3,17 @@ title: Servizi cloud e certificati di gestione | Documentazione Microsoft
 description: Informazioni su come creare e usare i certificati con Microsoft Azure
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: gwallace
-ms.openlocfilehash: 3c84c6832856986a45be7d275fb94a6c5fc066f0
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 783343dd8877bdf18e783494960c3052c293cc7c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359202"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75361348"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Panoramica sui certificati per i servizi cloud di Azure
 I [certificati di servizio](#what-are-service-certificates) vengono usati in Azure per i servizi cloud, mentre i [certificati di gestione](#what-are-management-certificates) vengono usati per l'autenticazione con l'API di gestione. Questo argomento offre informazioni generali su entrambi i tipi di certificati, su come [crearli](#create) e come distribuirli in Azure.
@@ -58,7 +58,7 @@ I certificati di gestione consentono di eseguire l'autenticazione con il modello
     > Non è possibile ottenere un certificato SSL per il dominio cloudapp.net o per domini di Azure. Il nome del soggetto del certificato deve pertanto corrispondere al nome di dominio personalizzato usato per accedere all'applicazione. Ad esempio **contoso.net**, non **contoso.cloudapp.net**.
 
 * Crittografia minima a 2048 bit.
-* **Solo certificato di servizio**: il certificato lato client deve trovarsi nell'archivio certificati *personale*.
+* **Solo certificato di servizio**: il certificato lato client deve trovarsi nell'archivio certificati *Personale* .
 
 Sono disponibili due semplici modi per creare un certificato in Windows: con l'utilità `makecert.exe` o con IIS.
 
@@ -92,4 +92,7 @@ Su Internet sono disponibili molte pagine che spiegano come eseguire questa oper
 [Caricare il certificato di servizio nel portale di Azure](cloud-services-configure-ssl-certificate-portal.md).
 
 Caricare il [certificato dell'API di gestione](../azure-api-management-certs.md) nel portale di Azure.
+
+
+
 

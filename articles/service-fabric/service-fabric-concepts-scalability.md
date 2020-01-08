@@ -1,25 +1,16 @@
 ---
-title: Scalabilità dei servizi di Service Fabric | Documentazione Microsoft
-description: Illustra come scalare i servizi di Service Fabric
-services: service-fabric
-documentationcenter: .net
+title: Scalabilità dei servizi Service Fabric
+description: Informazioni sul ridimensionamento in Azure Service Fabric e sulle varie tecniche usate per ridimensionare le applicazioni.
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: ed324f23-242f-47b7-af1a-e55c839e7d5d
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/26/2019
 ms.author: masnider
-ms.openlocfilehash: f44a44c0923374b2f6024903213305f1defb3b94
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 17827342b67d37d9fbeb56654824e004367823ef
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035929"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610013"
 ---
 # <a name="scaling-in-service-fabric"></a>Scalabilità in Service Fabric
 Azure Service Fabric semplifica la creazione di applicazioni scalabili gestendo i servizi, le partizioni e le repliche nei nodi di un cluster. L'esecuzione di molti carichi di lavoro sullo stesso hardware determina il massimo utilizzo delle risorse, ma offre anche la flessibilità in termini di scelta di come scalare i carichi di lavoro. Questo video di Channel 9 descrive come compilare applicazioni di microservizi scalabili:
@@ -78,7 +69,7 @@ La creazione dinamica dei servizi può essere usata in tutti i tipi di scenari e
 
 In che modo si potrebbe scalare questo servizio specifico? Il servizio potrebbe essere multi-tenant in qualche forma e accettare le chiamate nonché avviare i passaggi per varie istanze dello stesso flusso di lavoro in una sola volta. Con questa soluzione, tuttavia, il codice diventa più complesso, poiché ora deve occuparsi di molte istanze diverse dello stesso flusso di lavoro, tutte in fasi diverse e derivanti da clienti diversi. La gestione di più flussi di lavoro alla volta, inoltre, non risolve il problema della scalabilità. Il servizio arriverà infatti ad un certo punto in cui consumerà troppe risorse per un computer specifico. Molti servizi che non sono creati fin dall'inizio con questo criterio sono inoltre soggetti a problemi legati ad alcuni colli di bottiglia intrinseci o a rallentamento del codice. Questi tipi di problemi impediscono anche la corretta esecuzione del servizio quando il numero dei flussi di lavoro simultanei controllati dal servizio aumenta.  
 
-Una soluzione consiste nel creare un'istanza di questo servizio per ogni istanza diversa del flusso di lavoro che si desidera controllare. Questo criterio è un'ottima soluzione e funziona sia con i servizi con stato che con quelli senza stato. Perché questo criterio funzioni, di solito è presente un altro servizio che agisce da "servizio gestione dei carichi di lavoro". Il compito di questo servizio è ricevere le richieste e indirizzarle ad altri servizi. Il servizio gestione può creare dinamicamente un'istanza del servizio del carico di lavoro quando riceve il messaggio e successivamente passare le richieste al servizio. Il servizio gestione può anche ricevere i callback quando un determinato servizio del flusso di lavoro completa il processo. Quando il servizio gestione riceve questi callback, può eliminare l'istanza del servizio del flusso di lavoro o conservarla se prevede altre chiamate. 
+Una soluzione consiste nel creare un'istanza di questo servizio per ogni istanza diversa del flusso di lavoro di cui si vuole tenere traccia. Si tratta di un modello straordinario che funziona indipendentemente dal fatto che il servizio sia con o senza stato. Perché questo criterio funzioni, di solito è presente un altro servizio che agisce da "servizio gestione dei carichi di lavoro". Il compito di questo servizio è ricevere le richieste e indirizzarle ad altri servizi. Il servizio gestione può creare dinamicamente un'istanza del servizio del carico di lavoro quando riceve il messaggio e successivamente passare le richieste al servizio. Il servizio gestione può anche ricevere i callback quando un determinato servizio del flusso di lavoro completa il processo. Quando il servizio gestione riceve questi callback, può eliminare l'istanza del servizio del flusso di lavoro o conservarla se prevede altre chiamate. 
 
 Nelle sue versioni avanzate, questo tipo di servizio gestione può addirittura creare pool dei servizi che gestisce. Il pool aiuta ad assicurare che una nuova richiesta in arrivo non debba attendere l'avvio da parte del servizio. Il servizio gestione, invece, può semplicemente selezionare un servizio del flusso di lavoro che non è attualmente occupato dal pool o instradare in modo casuale. La disponibilità continua di un pool di servizi velocizza la gestione di nuove richieste, in quanto si riducono le probabilità che la richiesta debba attendere l'avvio di un nuovo servizio. La creazione di nuovi servizi è rapida, ma non è libera o immediata. Il pool aiuta a ridurre al minimo la quantità di tempo che la richiesta deve attendere prima di essere elaborata dal servizio. Questo modello basato sul servizio gestione e sul pool viene usato spesso quando i tempi di risposta sono un aspetto molto importante. L'accodamento della richiesta e la creazione del servizio in background e _quindi_ il relativo passaggio rappresentano un altro criterio di gestione di uso comune, come pure la creazione e l'eliminazione di servizi basati su alcune verifiche della quantità di lavoro che il servizio ha attualmente in sospeso. 
 
@@ -103,14 +94,14 @@ Si consideri un servizio che usa lo schema di partizionamento con intervallo con
 
 <center>
 
-![Layout di partizione con tre nodi](./media/service-fabric-concepts-scalability/layout-three-nodes.png)
+![layout di partizione con tre nodi](./media/service-fabric-concepts-scalability/layout-three-nodes.png)
 </center>
 
 Se si aumenta il numero dei nodi, Service Fabric sposta nei nuovi nodi alcune delle repliche esistenti. Si supponga, ad esempio, che il numero di nodi aumenti a quattro e che le repliche vengano ridistribuite. Il servizio dispone a questo punto di tre repliche in esecuzione in ogni nodo, ognuna appartenente a partizioni diverse. Si ottiene così un utilizzo ottimale delle risorse in quanto il nuovo nodo non è ad accesso sporadico. Si ottiene di solito anche un miglioramento delle prestazioni poiché ogni servizio dispone di più risorse.
 
 <center>
 
-![Layout delle partizioni con quattro nodi](./media/service-fabric-concepts-scalability/layout-four-nodes.png)
+![layout delle partizioni con quattro nodi](./media/service-fabric-concepts-scalability/layout-four-nodes.png)
 </center>
 
 ## <a name="scaling-by-using-the-service-fabric-cluster-resource-manager-and-metrics"></a>Implementazione della scalabilità tramite l'utilizzo di Gestione risorse cluster di Service Fabric e di metriche
@@ -129,7 +120,7 @@ A causa delle differenze di implementazione tra i sistemi operativi, la scelta d
 ## <a name="putting-it-all-together"></a>Riassumendo
 Si prendano ora tutti i concetti discussi qui e li si applichi a un esempio. Si consideri l'esempio seguente: si intende creare un servizio di rubrica, contenente nomi e informazioni sui contatti. 
 
-Ecco una serie di domande correlate alla scalabilità: Da quanti utenti sarà idealmente composta? Quanti contatti archivierà ogni singolo utente? È difficile stabilire subito questi aspetti durante la creazione del servizio. Si supponga di voler iniziare con un unico servizio statico con un numero di partizioni specifico. Scegliere la partizione sbagliata potrebbe portare a problemi di scalabilità futuri. Allo stesso modo, anche se si seleziona il numero corretto, si potrebbe non disporre di tutte le informazioni necessarie. È, ad esempio, necessario decidere in anticipo anche le dimensioni del cluster, sia in termini di numero di nodi che di dimensioni. È in genere difficile prevedere il numero di risorse che un servizio userà nell'arco della sua esistenza. Può inoltre essere difficile sapere a priori il modello di traffico che il servizio vedrà effettivamente. Gli utenti potrebbero, ad esempio, aggiungere e rimuovere i propri contatti come prima cosa al mattino oppure il traffico potrebbe essere distribuito uniformemente nell'arco della giornata. In base al tipo di traffico potrebbe essere necessario aumentare e ridurre le risorse in modo dinamico. Si può forse imparare a prevedere quando sarà necessario aumentare o ridurre, ma in ogni caso sarà probabilmente necessario adottare una soluzione a seconda dei cambiamenti nel consumo di risorse da parte del servizio. Ciò può richiedere la modifica delle dimensioni del cluster per offrire ulteriori risorse quando la riorganizzazione dell'utilizzo delle risorse esistenti non è sufficiente. 
+Emergono subito alcune domande in merito alla scalabilità: quanti utenti useranno il servizio? Quanti contatti archivierà ogni singolo utente? È difficile stabilire subito questi aspetti durante la creazione del servizio. Si supponga di voler iniziare con un unico servizio statico con un numero di partizioni specifico. Scegliere la partizione sbagliata potrebbe portare a problemi di scalabilità futuri. Allo stesso modo, anche se si seleziona il numero corretto, si potrebbe non disporre di tutte le informazioni necessarie. È, ad esempio, necessario decidere in anticipo anche le dimensioni del cluster, sia in termini di numero di nodi che di dimensioni. È in genere difficile prevedere il numero di risorse che un servizio userà nell'arco della sua esistenza. Può inoltre essere difficile sapere a priori il modello di traffico che il servizio vedrà effettivamente. Gli utenti potrebbero, ad esempio, aggiungere e rimuovere i propri contatti come prima cosa al mattino oppure il traffico potrebbe essere distribuito uniformemente nell'arco della giornata. In base al tipo di traffico potrebbe essere necessario aumentare e ridurre le risorse in modo dinamico. Si può forse imparare a prevedere quando sarà necessario aumentare o ridurre, ma in ogni caso sarà probabilmente necessario adottare una soluzione a seconda dei cambiamenti nel consumo di risorse da parte del servizio. Ciò può richiedere la modifica delle dimensioni del cluster per offrire ulteriori risorse quando la riorganizzazione dell'utilizzo delle risorse esistenti non è sufficiente. 
 
 Perché mai scegliere uno schema a partizione singola per tutti gli utenti? Perché limitarsi a un servizio e a un cluster statico? La situazione reale è di solito più dinamica. 
 

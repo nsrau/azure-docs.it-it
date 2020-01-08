@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2019
-ms.openlocfilehash: 03e5e1bc79702a979be352095bb4833a7f5fe1c6
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: dec81bfde160cd9913db07bb99629b8fbcc37364
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900227"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365207"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Ambito della query di log e intervallo di tempo in monitoraggio di Azure Log Analytics
 Quando si esegue una [query di log](log-query-overview.md) in [log Analytics nel portale di Azure](get-started-portal.md), il set di dati valutato dalla query dipende dall'ambito e dall'intervallo di tempo selezionato. Questo articolo descrive l'ambito e l'intervallo di tempo e il modo in cui è possibile impostarli in base alle esigenze. Viene inoltre descritto il comportamento di diversi tipi di ambiti.
@@ -23,7 +23,7 @@ L'ambito della query definisce i record valutati dalla query. In genere, tutti i
 
 L'ambito viene sempre visualizzato in alto a sinistra della finestra di Log Analytics. Un'icona indica se l'ambito è un'area di lavoro Log Analytics o un'applicazione Application Insights. Nessuna icona indica un'altra risorsa di Azure.
 
-![Scope](media/scope/scope.png)
+![Ambito](media/scope/scope.png)
 
 L'ambito è determinato dal metodo usato per avviare Log Analytics e in alcuni casi è possibile modificare l'ambito facendo clic su di esso. Nella tabella seguente sono elencati i diversi tipi di ambito usati e i diversi dettagli per ognuno di essi.
 
@@ -33,7 +33,7 @@ L'ambito è determinato dal metodo usato per avviare Log Analytics e in alcuni c
 | Applicazione Application Insights | Tutti i record nell'applicazione Application Insights. | Selezionare **Analytics** dalla pagina **Panoramica** di Application Insights. | È possibile modificare l'ambito solo in un'altra applicazione Application Insights. |
 | Gruppo di risorse | Record creati da tutte le risorse nel gruppo di risorse. Può includere dati da più aree di lavoro Log Analytics. | Selezionare **registri** dal menu gruppo di risorse. | Impossibile modificare l'ambito.|
 | Sottoscrizione | Record creati da tutte le risorse nella sottoscrizione. Può includere dati da più aree di lavoro Log Analytics. | Selezionare **registri** dal menu sottoscrizione.   | Impossibile modificare l'ambito. |
-| Altre risorse di Azure | Record creati dalla risorsa. Può includere dati da più aree di lavoro Log Analytics.  | Selezionare **registri** dal menu risorsa.<br>Oppure<br>Selezionare **registri** dal menu **monitoraggio di Azure** e quindi selezionare un nuovo ambito. | Può solo modificare l'ambito con lo stesso tipo di risorsa. |
+| Altre risorse di Azure | Record creati dalla risorsa. Può includere dati da più aree di lavoro Log Analytics.  | Selezionare **registri** dal menu risorsa.<br>OPPURE<br>Selezionare **registri** dal menu **monitoraggio di Azure** e quindi selezionare un nuovo ambito. | Può solo modificare l'ambito con lo stesso tipo di risorsa. |
 
 ### <a name="limitations-when-scoped-to-a-resource"></a>Limitazioni per l'ambito di una risorsa
 
@@ -63,10 +63,10 @@ L'esecuzione della query verrà bloccata se l'ambito include aree di lavoro in 2
 ![Query non riuscita](media/scope/query-failed.png)
 
 
-## <a name="time-range"></a>Intervallo di tempo
+## <a name="time-range"></a>Intervallo di ore
 L'intervallo di tempo specifica il set di record che vengono valutati per la query in base al momento in cui è stato creato il record. Questa operazione viene definita da una proprietà standard per ogni record nell'area di lavoro o nell'applicazione come specificato nella tabella seguente.
 
-| Località | Proprietà |
+| Percorso | Proprietà |
 |:---|:---|
 | Area di lavoro Log Analytics          | TimeGenerated |
 | Applicazione Application Insights | timestamp     |

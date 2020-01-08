@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: a992851deda0659509c0ee4ea5de76b19734f017
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ac539b44f09663e6eac5651646d3c9cd02e45b3c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128839"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360005"
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Usare Gestione dispositivi StorSimple per gestire le credenziali dell'account di archiviazione per l'array virtuale StorSimple
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 La sezione **Configurazione** del pannello del servizio Gestione dispositivi StorSimple dell'array virtuale StorSimple illustra i parametri globali del servizio che possono essere creati nel servizio StorSimple Manager. Questi parametri possono essere applicati a tutti i dispositivi connessi al servizio e includono:
 
 * Credenziali dell'account di archiviazione
@@ -69,13 +69,13 @@ Usare le procedure seguenti per aggiungere le credenziali dell'account di archiv
 
 1. Passare al servizio Gestione dispositivi, selezionare e fare doppio clic. Si apre il pannello **Panoramica**.
 2. Selezionare **Credenziali dell'account di archiviazione** nella sezione **Configurazione**.
-3. Fare clic su **Aggiungi**.
+3. Scegliere **Aggiungi**.
 4. Nel pannello **Aggiungi un account di archiviazione** eseguire le operazioni seguenti:
    
     1. Per **Sottoscrizione** selezionare **Corrente**.
     2. Specificare il nome dell'account di archiviazione di Azure.
     3. Selezionare**Abilita** per creare un canale sicuro per la comunicazione di rete tra il dispositivo StorSimple e il cloud. Selezionare **Disabilita** solo se si opera all'interno di un cloud privato.
-    4. Fare clic su **Aggiungi**. Quando la creazione dell'account di archiviazione viene completata, si riceve una notifica.<br></br>
+    4. Scegliere **Aggiungi**. Quando la creazione dell'account di archiviazione viene completata, si riceve una notifica.<br></br>
    
         ![Aggiungere le credenziali di un account di archiviazione esistente](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
 
@@ -83,7 +83,7 @@ Usare le procedure seguenti per aggiungere le credenziali dell'account di archiv
 
 1. Passare al servizio Gestione dispositivi, selezionare e fare doppio clic. Si apre il pannello **Panoramica**.
 2. Selezionare **Credenziali dell'account di archiviazione** nella sezione **Configurazione**. Elenca le credenziali di un qualsiasi account di archiviazione esistente associate al servizio Gestione dispositivi StorSimple.
-3. Fare clic su **Aggiungi**.
+3. Scegliere **Aggiungi**.
 4. Nel pannello **Aggiungi un account di archiviazione** eseguire le operazioni seguenti:
    
     1. Per **Sottoscrizione** selezionare **Altro**.
@@ -94,7 +94,7 @@ Usare le procedure seguenti per aggiungere le credenziali dell'account di archiv
    
     4. Per abilitare SSL, fare clic sul pulsante **Abilita** per creare un canale sicuro per la comunicazione di rete tra il servizio Gestione dispositivi StorSimple e il cloud. Fare clic sul pulsante **Disabilita** solo se si opera all'interno di un cloud privato.
    
-    5. Fare clic su **Aggiungi**. Quando la creazione della credenziale dell'account di archiviazione viene completata, si riceve una notifica.
+    5. Scegliere **Aggiungi**. Quando la creazione della credenziale dell'account di archiviazione viene completata, si riceve una notifica.
 
 5. La credenziale dell'account di archiviazione appena creata viene visualizzata nel pannello del servizio Gestione dispositivi StorSimple in **Credenziali dell'account di archiviazione**.
    
@@ -110,7 +110,7 @@ Usare le procedure seguenti per aggiungere le credenziali dell'account di archiv
 4. Nel pannello **Proprietà** delle credenziali dell'account di archiviazione eseguire le operazioni seguenti:
    
    1. Se necessario, è possibile modificare la selezione **Abilita SSL**.
-   2. È possibile rigenerare le chiavi di accesso delle credenziali dell'account di archiviazione. Per altre informazioni, vedere l'articolo [Rigenerazione delle chiavi di accesso alle risorse di archiviazione](../storage/common/storage-account-manage.md#access-keys). Indicare la nuova chiave della credenziale dell'account di archiviazione. Per un account di archiviazione di Azure si tratta della chiave di accesso primaria.
+   2. È possibile rigenerare le chiavi di accesso delle credenziali dell'account di archiviazione. Per altre informazioni, vedere [gestire le chiavi di accesso all'account di archiviazione](../storage/common/storage-account-keys-manage.md). Indicare la nuova chiave della credenziale dell'account di archiviazione. Per un account di archiviazione di Azure si tratta della chiave di accesso primaria.
    3. Fare clic su **Salva** nella parte superiore del pannello **Proprietà** per salvare le impostazioni. Le impostazioni vengono aggiornate nel pannello **Credenziali dell'account di archiviazione**.
       
       ![Modificare una credenziale dell'account di archiviazione](./media/storsimple-virtual-array-manage-storage-accounts/ova-edit-storageacct.png)

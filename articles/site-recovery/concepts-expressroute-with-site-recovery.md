@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: dcc5105fcf2ad7b6a9f0695b3086dc2956a76a50
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: e4525bdc6165e8e736db5f539c764d25250cb248
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954062"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465210"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Microsoft Azure ExpressRoute con Azure Site Recovery
 
@@ -31,11 +31,11 @@ A un circuito ExpressRoute sono associati più domini di routing. Per altre info
 
 Azure Site Recovery consente il ripristino di emergenza e la migrazione in Azure per [macchine virtuali Hyper-V](hyper-v-azure-architecture.md) locali, [macchine virtuali VMware](vmware-azure-architecture.md) e [server fisici](physical-azure-architecture.md). Per tutti gli scenari da ambiente locale ad Azure, i dati di replica vengono inviati e archiviati in un account di archiviazione di Azure. Durante la replica, non vengono addebitati i costi di macchine virtuali. Quando si esegue un failover in Azure, Site Recovery crea automaticamente le macchine virtuali IaaS di Azure.
 
-Site Recovery replica i dati in un account di archiviazione di Azure o in un disco gestito di replica nell'area di Azure di destinazione tramite un endpoint pubblico. Per usare ExpressRoute per il traffico di replica Site Recovery, è possibile usare il [peering Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) o un [peering pubblico](../expressroute/expressroute-circuit-peerings.md#publicpeering) esistente (deprecato per le nuove creazioni). Il peering Microsoft è il dominio di routing consigliato per la replica. Si noti che la replica non è supportata sul peering privato.
+Site Recovery replica i dati in un account di archiviazione di Azure o in un disco gestito di replica nell'area di Azure di destinazione tramite un endpoint pubblico. Per usare ExpressRoute per il traffico di replica Site Recovery, è possibile usare il [peering Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) o un [peering pubblico](../expressroute/about-public-peering.md) esistente (deprecato per le nuove creazioni). Il peering Microsoft è il dominio di routing consigliato per la replica. Si noti che la replica non è supportata sul peering privato.
 
 Verificare che siano soddisfatti anche i [requisiti di rete](vmware-azure-configuration-server-requirements.md#network-requirements) per il server di configurazione. La connettività a URL specifici è richiesta dal server di configurazione per l'orchestrazione della replica Site Recovery. Non è possibile usare ExpressRoute per questa connettività. 
 
-Se si usa il proxy in locale e si vuole usare ExpressRoute per il traffico di replica, è necessario configurare l'elenco proxy bypass nel server di configurazione e nei server di elaborazione. Attenersi ai passaggi indicati di seguito:
+Se si usa il proxy in locale e si vuole usare ExpressRoute per il traffico di replica, è necessario configurare l'elenco proxy bypass nel server di configurazione e nei server di elaborazione. Attenersi alla procedura seguente:
 
 - Scaricare lo strumento PsExec da [qui](https://aka.ms/PsExec) per accedere al contesto utente del sistema.
 - Aprire Internet Explorer nel contesto utente del sistema eseguendo la seguente riga di comando psexec-s-i "%programfiles%\Internet Explorer\iexplore.exe"

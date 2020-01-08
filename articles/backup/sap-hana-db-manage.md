@@ -3,14 +3,14 @@ title: Gestire i database SAP HANA sottoposti a backup in macchine virtuali di A
 description: In questo articolo vengono illustrate le attività comuni per la gestione e il monitoraggio di database SAP HANA in esecuzione in macchine virtuali di Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: f76054c7c78c55a9754975267ee4fa3caab968a3
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: a9462f8608fc5ae35255ac321a0742b3f1834fde
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74288347"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390578"
 ---
-# <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Gestire e monitorare i database SAP HANA sottoposti a backup
+# <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Gestire e monitorare i database SAP HANA di cui è stato eseguito il backup
 
 Questo articolo descrive le attività comuni per la gestione e il monitoraggio di database SAP HANA in esecuzione in una macchina virtuale (VM) di Azure e di cui viene eseguito il backup in un insieme di credenziali di servizi di ripristino di backup di Azure da parte del servizio [backup di Azure](https://docs.microsoft.com/azure/backup/backup-overview) . Si apprenderà come monitorare i processi e gli avvisi, attivare un backup su richiesta, modificare i criteri, arrestare e riprendere la protezione del database e annullare la registrazione di una macchina virtuale dai backup.
 
@@ -22,7 +22,7 @@ Backup di Azure Mostra tutti i processi attivati manualmente nella sezione **pro
 
 ![Sezione processi di backup](./media/sap-hana-db-manage/backup-jobs.png)
 
-I processi visualizzati in questo portale includono l'individuazione e la registrazione del database, nonché le operazioni di backup e ripristino. I processi pianificati, inclusi i backup del log, non sono riportati in questa sezione. Anche i backup attivati manualmente dal SAP HANA native clients, ovvero studio/Cockpit/DBA Cockpit, non vengono visualizzati qui.
+I processi visualizzati in questo portale includono l'individuazione e la registrazione del database, nonché le operazioni di backup e ripristino. I processi pianificati, inclusi i backup del log, non sono illustrati in questa sezione. Anche i backup attivati manualmente dal SAP HANA native clients, ovvero studio/Cockpit/DBA Cockpit, non vengono visualizzati qui.
 
 ![Elenco processi di backup](./media/sap-hana-db-manage/backup-jobs-list.png)
 
@@ -75,25 +75,38 @@ Se si vuole eseguire un backup locale (usando HANA Studio/pozzetto) di un databa
 3. A tale scopo, fare doppio clic su **systemdb** > **Configuration** > **selezionare database** > **Filter (log)** .
 4. Impostare **enable_auto_log_backup** su **No**.
 5. Impostare **log_backup_using_backint** su **false**.
-6. Eseguire un backup completo ad hoc del database.
+6. Eseguire un backup completo su richiesta del database.
 7. Attendere il completamento del backup completo e del catalogo.
 8. Ripristinare le impostazioni precedenti a quelle per Azure:
    * Impostare **enable_auto_log_backup** su **Sì**.
    * Impostare **log_backup_using_backint** su **true**.
 
-### <a name="edit-underlying-policy"></a>Modificare i criteri sottostanti
+### <a name="change-policy"></a>Modifica di un criterio
 
-Modificare i criteri per modificare la frequenza di backup o il periodo di mantenimento dati:
+È possibile modificare i criteri sottostanti per un elemento di backup SAP HANA.
 
-* Nel dashboard dell'insieme di credenziali passare a **gestisci** > **criteri di backup**
+* Nel dashboard dell'insieme di credenziali passare a **elementi di backup**:
 
-  ![Criteri di backup nel dashboard dell'insieme di credenziali](./media/sap-hana-db-manage/backup-policies-dashboard.png)
+  ![Seleziona elementi di backup](./media/sap-hana-db-manage/backup-items.png)
 
-* Scegliere il criterio che si desidera modificare:
+* Scegliere **SAP Hana nella macchina virtuale di Azure**
 
-  ![Elenco di criteri di backup](./media/sap-hana-db-manage/backup-policies-list.png)
+  ![Scegliere SAP HANA nella macchina virtuale di Azure](./media/sap-hana-db-manage/sap-hana-in-azure-vm.png)
 
-  ![Dettagli dei criteri di backup](./media/sap-hana-db-manage/backup-policy-details.png)
+* Scegliere l'elemento di backup di cui si desidera modificare i criteri sottostanti
+* Fare clic sui criteri di backup esistenti
+
+  ![Selezionare i criteri di backup esistenti](./media/sap-hana-db-manage/existing-backup-policy.png)
+
+* Modificare i criteri scegliendo dall'elenco. Se necessario, [creare un nuovo criterio di backup](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database#create-a-backup-policy) .
+
+  ![Scegliere un criterio dall'elenco a discesa](./media/sap-hana-db-manage/choose-backup-policy.png)
+
+* Salva le modifiche
+
+  ![Salva le modifiche](./media/sap-hana-db-manage/save-changes.png)
+
+* La modifica dei criteri avrà un effetto su tutti gli elementi di backup associati e sul trigger corrispondenti processi di **configurazione della protezione** .
 
 >[!NOTE]
 > Eventuali modifiche apportate al periodo di conservazione verranno applicate in modo retrospettivo a tutti i punti di ripristino meno recenti oltre a quelli nuovi.
@@ -175,4 +188,3 @@ Annullare la registrazione di un'istanza di SAP HANA dopo aver disabilitato la p
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni su come [risolvere i problemi comuni durante il backup SAP Hana database.](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot)
-

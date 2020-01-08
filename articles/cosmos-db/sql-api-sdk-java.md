@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: 42dcc0e9bd07f357c17f28dd754e4ae3404e01ff
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 3e36aa268286b9127f36859a1fa4402644994a32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561881"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444836"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Java SDK di Azure Cosmos DB per API SQL: risorse e note sulla versione
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ SQL API Java SDK supporta operazioni sincrone. Per il supporto di operazioni asi
 |**Download dell'SDK**|[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
 |**Documentazione sull'API**|[Documentazione di riferimento API Java](/java/api/com.microsoft.azure.documentdb)|
 |**Contribuire all'SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
-|**Attività iniziali**|[Introduzione a SDK Java](sql-api-java-get-started.md)|
+|**Operazioni preliminari**|[Introduzione a SDK Java](sql-api-java-get-started.md)|
 |**Esercitazione sull'app Web**|[Sviluppo di applicazioni Web con Azure Cosmos DB](sql-api-java-application.md)|
 |**Runtime minimo supportato**|[Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks)|
 
@@ -48,6 +48,7 @@ SQL API Java SDK supporta operazioni sincrone. Per il supporto di operazioni asi
 
 ### <a name="a-name244244"></a><a name="2.4.4"/>2.4.4
 * Aggiornamenti della cache degli intervalli di chiavi di partizione ottimizzati.
+* Corregge lo scenario in cui l'SDK non intrattiene l'hint di suddivisione della partizione dal server e comporta l'aggiornamento delle cache di routing lato client non corrette.
 
 ### <a name="a-name242242"></a><a name="2.4.2"/>2.4.2
 * Aggiornamenti della cache della raccolta ottimizzata.

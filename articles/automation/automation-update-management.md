@@ -2,19 +2,15 @@
 title: Soluzione Gestione aggiornamenti in Azure
 description: Questo articolo descrive come usare la soluzione Gestione aggiornamenti di Azure per gestire gli aggiornamenti per i computer Windows e Linux.
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 12/03/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 06d7ede1e9b91832f908c87a22cca37ec2866365
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 924f5bee94544c533f3a2548d931fce292469567
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806542"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420347"
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
@@ -92,8 +88,8 @@ Nella tabella seguente sono elencati i sistemi operativi non supportati:
 |Sistema operativo  |Note  |
 |---------|---------|
 |Client Windows     | I sistemi operativi client, ad esempio Windows 7 e Windows 10, non sono supportati.        |
-|Windows Server 2016 Nano Server     | Non supportati.       |
-|Nodi del servizio Azure Kubernetes | Non supportati. Usare il processo di applicazione di patch descritto in [applicare aggiornamenti di sicurezza e kernel ai nodi Linux in Azure Kubernetes Service (AKS)](../aks/node-updates-kured.md)|
+|Windows Server 2016 Nano Server     | Non supportato.       |
+|Nodi del servizio Azure Kubernetes | Non supportato. Usare il processo di applicazione di patch descritto in [applicare aggiornamenti di sicurezza e kernel ai nodi Linux in Azure Kubernetes Service (AKS)](../aks/node-updates-kured.md)|
 
 ### <a name="client-requirements"></a>Requisiti per i client
 
@@ -120,7 +116,7 @@ Per informazioni su come installare l'agente di Log Analytics per Linux e scaric
 
 Le macchine virtuali create dalle immagini di Red Hat Enterprise Linux su richiesta (RHEL) disponibili in Azure Marketplace vengono registrate per accedere a [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) distribuito in Azure. Tutte le altre distribuzioni di Linux devono essere aggiornate dal repository di file online della distribuzione usando i metodi supportati della distribuzione.
 
-## <a name="permissions"></a>autorizzazioni
+## <a name="permissions"></a>Autorizzazioni
 
 Per creare e gestire le distribuzioni degli aggiornamenti, sono necessarie autorizzazioni specifiche. Per informazioni su queste autorizzazioni, vedere [accesso basato sui ruoli-Gestione aggiornamenti](automation-role-based-access-control.md#update-management).
 
@@ -152,7 +148,7 @@ Per altre informazioni sulla modalità di aggiornamento dei Management Pack per 
 > [!NOTE]
 > Per i sistemi con l'agente Operations Manager: affinché un agente sia completamente gestito da Gestione aggiornamenti, l'agente deve essere aggiornato a MMA. Per informazioni su come aggiornare l'agente, vedere [How to upgrade an Operations Manager agent](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents) (Come aggiornare un agente di Operations Manager). Negli ambienti che usano Operations Manager è necessario eseguire System Center Operations Manager 2012 R2 UR 14 o versione successiva.
 
-## <a name="data-collection"></a>Raccolta dei dati
+## <a name="data-collection"></a>Raccolta dati
 
 ### <a name="supported-agents"></a>Agenti supportati
 
@@ -160,9 +156,9 @@ La tabella seguente descrive le origini connesse supportate da questa soluzione:
 
 | Origine connessa | Supportato | Description |
 | --- | --- | --- |
-| Agenti Windows |SÌ |La soluzione raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Windows e quindi avvia l'installazione degli aggiornamenti necessari. |
-| Agenti Linux |SÌ |La soluzione raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Linux e quindi avvia l'installazione degli aggiornamenti necessari nelle distribuzioni supportate. |
-| Gruppo di gestione di Operations Manager |SÌ |La soluzione raccoglie informazioni sugli aggiornamenti del sistema dagli agenti in un gruppo di gestione connesso.<br/><br/>Non è necessaria una connessione diretta dall'agente Operations Manager ai log di monitoraggio di Azure. I dati vengono inoltrati dal gruppo di gestione all'area di lavoro Log Analytics. |
+| Agenti Windows |Sì |La soluzione raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Windows e quindi avvia l'installazione degli aggiornamenti necessari. |
+| Agenti Linux |Sì |La soluzione raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Linux e quindi avvia l'installazione degli aggiornamenti necessari nelle distribuzioni supportate. |
+| Gruppo di gestione di Operations Manager |Sì |La soluzione raccoglie informazioni sugli aggiornamenti del sistema dagli agenti in un gruppo di gestione connesso.<br/><br/>Non è necessaria una connessione diretta dall'agente Operations Manager ai log di monitoraggio di Azure. I dati vengono inoltrati dal gruppo di gestione all'area di lavoro Log Analytics. |
 
 ### <a name="collection-frequency"></a>Frequenza della raccolta
 
@@ -220,7 +216,7 @@ Nelle tabelle che seguono sono riportate le classificazioni degli aggiornamenti 
 |Classificazione  |Description  |
 |---------|---------|
 |Aggiornamenti critici     | Un aggiornamento per un problema specifico che risolve un bug critico non correlato alla sicurezza.        |
-|Aggiornamenti della sicurezza     | Un aggiornamento per un problema specifico del prodotto correlato alla sicurezza.        |
+|Aggiornamenti per la sicurezza     | Un aggiornamento per un problema specifico del prodotto correlato alla sicurezza.        |
 |Aggiornamenti cumulativi     | Un set cumulativo di aggiornamenti rapidi, contenuti nello stesso pacchetto per facilitarne la distribuzione.        |
 |Feature Pack     | Nuove funzionalità del prodotto distribuite di fuori di una versione del prodotto.        |
 |Service Pack     | Un set cumulativo di aggiornamenti rapidi applicati a un'applicazione.        |

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 840e8b3bc86281a8c42689b1cb68917741ef2bd9
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: feb7fa0b3f820c3f918fc8a5c817e7fe5fb15fc9
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240636"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610404"
 ---
 # <a name="connect-windows-firewall"></a>Connettere Windows Firewall
 
@@ -30,7 +30,8 @@ Il connettore Windows Firewall consente di connettere facilmente i log di Window
 
 
 > [!NOTE]
-> I dati verranno archiviati nella posizione geografica dell'area di lavoro in cui viene eseguito Azure Sentinel.
+> - I dati verranno archiviati nella posizione geografica dell'area di lavoro in cui viene eseguito Azure Sentinel.
+> - Se Sentinel di Azure e il Centro sicurezza di Azure vengono raccolti nella stessa area di lavoro, non è necessario abilitare la soluzione Windows Firewall tramite questo connettore. Se è stato abilitato comunque, non verrà generato alcun dato duplicato. 
 
 ## <a name="enable-the-connector"></a>Abilitare il connettore 
 
@@ -58,6 +59,6 @@ Potrebbero essere necessari fino a 20 minuti prima che i log si avviino in Log A
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento si è appreso come connettere Windows Firewall ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
-- Scopri come [ottenere visibilità sui dati e potenziali minacce](quickstart-get-visibility.md).
-- Iniziare a [rilevare le minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Informazioni su come [ottenere visibilità sui dati e sulle potenziali minacce](quickstart-get-visibility.md).
+- Iniziare a [rilevare minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: ba903d75707be91bb8af1271b52eb260ffcde306
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d27f792b39a1809cde0f27186f343af7d7aef60a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951237"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454178"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Connettere un dispositivo Raspberry Pi all'applicazione Azure IoT Central (C#)
 
@@ -27,28 +27,33 @@ Questo articolo descrive come connettere un dispositivo Raspberry Pi all'applica
 
 Per seguire la procedura descritta in questo articolo sono necessari i componenti seguenti:
 
-* Un'applicazione Azure IoT Central creata dal modello di applicazione **Sample Devkits**. Per altre informazioni, vedere la [guida introduttiva per la creazione di un'applicazione](quick-deploy-iot-central.md).
+* Un'applicazione IoT Central di Azure creata dal modello di applicazione dell' **applicazione legacy** . Per altre informazioni, vedere la [guida introduttiva per la creazione di un'applicazione](quick-deploy-iot-central.md).
 * Un dispositivo Raspberry Pi che esegue il sistema operativo Raspbian. Raspberry PI deve essere in grado di connettersi a Internet. Per ulteriori informazioni, vedere [la pagina relativa alla configurazione di Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3).
 
-## <a name="sample-devkits-application"></a>Applicazione **Sample Devkits**
+## <a name="add-a-device-template"></a>Aggiungere un modello di dispositivo
 
-Un'applicazione creata dal modello di applicazione **Sample Devkits** include un modello di dispositivo **Raspberry Pi** con le caratteristiche seguenti:
+Nell'applicazione IoT Central di Azure aggiungere un nuovo modello di dispositivo **Raspberry Pi** con le caratteristiche seguenti:
 
 * I dati di telemetria includono le misure seguenti, che verranno raccolte dal dispositivo:
   * Umidità
   * Temperatura
-  * Pressure (Pressione)
+  * Pressione
   * Magnetometro (X, Y, Z)
   * Accelerometro (X, Y, Z)
   * Giroscopio (X, Y, Z)
 * Impostazioni
   * Tensione
-  * Current
+  * Corrente
   * Velocità della ventola
   * Attiva/Disattiva runtime di integrazione.
-* properties
+* Proprietà
   * Proprietà Numero stampo del dispositivo
   * Proprietà cloud della posizione
+
+1. Selezionare **+ nuovo** da modelli di dispositivo ![modello di dispositivo](media/howto-connect-raspberry-pi-csharp/adddevicetemplate.png)
+   
+
+2. Selezionare **Raspberry Pi** e creare il modello di dispositivo raspberry pi ![Aggiungi modello di dispositivo](media/howto-connect-raspberry-pi-csharp/newdevicetemplate.png)
 
 Per i dettagli completi della configurazione del modello di dispositivo, vedere i [Dettagli del modello di dispositivo Raspberry Pi](#raspberry-pi-device-template-details).
 
@@ -330,7 +335,7 @@ Un'applicazione creata dal modello di applicazione **Sample Devkits** include un
 
 ### <a name="telemetry-measurements"></a>Misure di telemetria
 
-| Nome campo     | Unità  | Minima | Massima | Cifre decimali |
+| Nome campo     | Unità  | Minima | Massimo | Cifre decimali |
 | -------------- | ------ | ------- | ------- | -------------- |
 | umidità       | %      | 0       | 100     | 0              |
 | temp           | °C     | -40     | 120     | 0              |
@@ -349,24 +354,24 @@ Un'applicazione creata dal modello di applicazione **Sample Devkits** include un
 
 Impostazioni numeriche
 
-| Nome visualizzato | Nome campo | Unità | Cifre decimali | Minima | Massima | Initial |
+| Nome visualizzato | Nome campo | Unità | Cifre decimali | Minima | Massimo | Initial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Tensione      | setVoltage | Volt | 0              | 0       | 240     | 0       |
-| Current      | setCurrent | Amp  | 0              | 0       | 100     | 0       |
+| Corrente      | setCurrent | Amp  | 0              | 0       | 100     | 0       |
 | Velocità della ventola    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
 Impostazioni attivazione/disattivazione
 
 | Nome visualizzato | Nome campo | Testo attivato | Testo disattivato | Initial |
 | ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | ATTIVA      | DISATTIVA      | Off     |
+| IR           | activateIR | ATTIVA      | OFF      | Off     |
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>Proprietà
 
-| Type            | Nome visualizzato | Nome campo | Tipo di dati                              |
+| Tipo            | Nome visualizzato | Nome campo | Tipo di dati                              |
 | --------------- | ------------ | ---------- | -------------------------------------- |
 | Proprietà dispositivo | Numero stampo   | dieNumber  | d'acquisto                                 |
-| Località        | Località     | location   | {Lat: float, Long: float, Alt?: float} |
+| Percorso        | Percorso     | posizione   | {Lat: float, Long: float, Alt?: float} |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

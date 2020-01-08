@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: f89218b066b0a22559c00c4a53316f0df9c0bb8f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 12fb7e03062600745cd8511d37b439ce44f2ef78
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488452"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640721"
 ---
 # <a name="public-ip-address-prefix"></a>Prefisso dell'indirizzo IP pubblico
 
@@ -39,14 +39,14 @@ Quando si creano risorse indirizzo IP pubblico, Azure assegna un indirizzo IP pu
 - È possibile creare risorse di indirizzi IP pubblici da un intervallo noto.
 - L'utente o i partner commerciali possono creare regole firewall con intervalli che includono gli indirizzi IP pubblici attualmente assegnati, nonché indirizzi che non sono stati ancora assegnati. Ciò elimina la necessità di modificare le regole del firewall quando si assegnano gli indirizzi IP alle nuove risorse.
 - La dimensione predefinita di un intervallo che è possibile creare riguarda indirizzi IP /28 o 16.
-- Non sono previsti limiti per quanto riguarda il numero di intervalli che è possibile creare, tuttavia, sono previsti limiti al numero massimo di indirizzi IP pubblici statici che è possibile avere in una sottoscrizione di Azure. Di conseguenza, il numero di intervalli creati non può includere più indirizzi IP pubblici statici di quanti sono disponibili nella sottoscrizione. Per altre informazioni, consultare [limiti di Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+- Non sono previsti limiti per quanto riguarda il numero di intervalli che è possibile creare, tuttavia, sono previsti limiti al numero massimo di indirizzi IP pubblici statici che è possibile avere in una sottoscrizione di Azure. Di conseguenza, il numero di intervalli creati non può includere più indirizzi IP pubblici statici di quanti sono disponibili nella sottoscrizione. Per altre informazioni, consultare [limiti di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Gli indirizzi che si creano usando quelli del prefisso possono essere assegnati a qualsiasi risorsa di Azure alla quale è possibile assegnare un indirizzo IP pubblico.
 - È possibile visualizzare facilmente quali indirizzi IP sono allocati e quali non all'interno dell'intervallo.
 
 ## <a name="scenarios"></a>Scenari
 È possibile associare le risorse seguenti a un indirizzo IP pubblico statico da un prefisso:
 
-|Risorsa|Scenario|Passi|
+|Gruppi|Scenario|Procedure|
 |---|---|---|
 |Macchine virtuali| L'associazione di IP pubblici da un prefisso alle macchine virtuali in Azure riduce il sovraccarico di gestione quando si tratta di inserire nell'elenco elementi consentiti gli indirizzi IP di un firewall. È possibile consentire un intero prefisso con una singola regola del firewall. Quando si scala con macchine virtuali in Azure, è possibile associare gli indirizzi IP dallo stesso prefisso risparmiando costi, tempi e spese generali di gestione.| Per associare gli IP da un prefisso alla macchina virtuale: 1. [Creare un prefisso.](manage-public-ip-address-prefix.md) 2. [Creare un indirizzo IP dal prefisso.](manage-public-ip-address-prefix.md) 3. [Associare l'indirizzo IP all'interfaccia di rete della macchina virtuale.](virtual-network-network-interface-addresses.md#add-ip-addresses) È anche possibile [associare gli indirizzi IP a un set di scalabilità di macchine virtuali](https://azure.microsoft.com/resources/templates/101-vmms-with-public-ip-prefix/).
 | Bilanciamento del carico standard | L'associazione di indirizzi IP pubblici da un prefisso alla configurazione IP del front-end o la regola in uscita di un Load Balancer garantisce la semplificazione dello spazio di indirizzi IP pubblici di Azure. È possibile semplificare lo scenario preparando le connessioni in uscita in modo che siano originate da un intervallo di indirizzi IP contigui definito dal prefisso IP pubblico. | Per associare gli indirizzi IP da un prefisso a un Load Balancer: 1. [Creare un prefisso.](manage-public-ip-address-prefix.md) 2. [Creare un indirizzo IP dal prefisso.](manage-public-ip-address-prefix.md) 3. Quando si crea il Load Balancer, selezionare o aggiornare l'indirizzo IP creato nel passaggio 2 precedente come indirizzo IP front-end del Load Balancer. |
@@ -56,7 +56,7 @@ Quando si creano risorse indirizzo IP pubblico, Azure assegna un indirizzo IP pu
 ## <a name="constraints"></a>Vincoli
 
 - Non è possibile specificare gli indirizzi IP per il prefisso. Azure alloca gli indirizzi IP per il prefisso, in base alla dimensione specificata.
-- È possibile creare un prefisso di fino a 16 indirizzi IP o a/28. Per altre informazioni, consultare [limiti di Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+- È possibile creare un prefisso di un massimo di 16 indirizzi IP o un/28. Per altre informazioni, consultare [limiti di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Una volta creato il prefisso,non è possibile modificare l'intervallo.
 - Solo gli indirizzi IP pubblici statici creati con lo SKU Standard possono essere assegnati dall'intervallo del prefisso. Per altre informazioni sugli indirizzi IP pubblici di SKU, consultare [Indirizzi IP pubblici](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
 - Gli indirizzi dell'intervallo possono essere assegnati solo alle risorse di Azure Resource Manager. Gli indirizzi non possono essere assegnati alle risorse nel modello di distribuzione classica.

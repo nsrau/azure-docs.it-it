@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: raynew
-ms.openlocfilehash: 1489d29f854b02cf493493fe022c73dc050e2615
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: adb78682e80d78aa4fa6b48507f1fcce789a3fe1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185864"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360175"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurare un'appliance per le macchine virtuali VMware
 
@@ -48,7 +48,7 @@ Prima di distribuire il file OVA, verificarne la sicurezza.
 2. Eseguire il comando seguente per generare l'hash per OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Esempio di utilizzo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. Per la versione più recente del dispositivo, l'hash generato deve corrispondere a queste impostazioni.
+3. Per la versione dell'appliance più recente, l'hash generato deve corrispondere a queste impostazioni.
 
   **Algoritmo** | **Valore hash**
   --- | ---
@@ -114,7 +114,7 @@ L'appliance deve connettersi al server vCenter per individuare la configurazione
 
 ### <a name="specify-vcenter-server-details"></a>Specificare i dettagli del server vCenter
 1. In **Specificare i dettagli del server vCenter** specificare il nome di dominio completo o l'indirizzo IP del server vCenter. È possibile lasciare la porta predefinita o specificare una porta personalizzata su cui il server vCenter rimane in ascolto.
-2. In **Nome utente** e **Password** specificare le credenziali dell'account di sola lettura che verranno usate dall'appliance per individuare le macchine virtuali nel server vCenter. Verificare che l'account disponga delle [autorizzazioni necessarie per l'individuazione](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). È possibile definire l'ambito dell'individuazione limitando l'accesso all'account vCenter di conseguenza; Altre informazioni sull'individuazione dell'ambito sono disponibili [qui](tutorial-assess-vmware.md#scoping-discovery).
+2. In **Nome utente** e **Password** specificare le credenziali dell'account di sola lettura che verranno usate dall'appliance per individuare le macchine virtuali nel server vCenter. Verificare che l'account abbia le [autorizzazioni necessarie per l'individuazione](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). È possibile definire l'ambito dell'individuazione limitando l'accesso all'account vCenter di conseguenza. Altre informazioni su come definire l'ambito dell'individuazione sono disponibili [qui](tutorial-assess-vmware.md#set-the-scope-of-discovery).
 3. Fare clic su **Convalida connessione** per verificare che l'appliance sia in grado di connettersi al server vCenter.
 
 ### <a name="specify-vm-credentials"></a>Specificare le credenziali della VM
@@ -127,7 +127,7 @@ Per individuare le applicazioni, i ruoli, le funzionalità e visualizzare le dip
 2. Selezionare il **sistema operativo**.
 3. Specificare un nome descrittivo per le credenziali.
 4. In **nome utente** e **password**specificare un account che disponga almeno dell'accesso guest nelle macchine virtuali.
-5. Fare clic su **Add**.
+5. Scegliere **Aggiungi**.
 
 Dopo aver specificato le credenziali server vCenter e VM (facoltativo), fare clic su **Salva e avvia individuazione** per avviare l'individuazione dell'ambiente locale.
 

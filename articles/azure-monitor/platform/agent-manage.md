@@ -4,15 +4,15 @@ description: Questo articolo descrive le diverse attività di gestione che in ge
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 06/14/2019
-ms.openlocfilehash: 8dec91a3987aed978bb088d1aeab48a6fd0f9fb4
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 7e9725c2a33bd63b7ce6751f346da17eb68fe6f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932798"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364782"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Gestione e manutenzione dell'agente di Log Analytics per Windows e Linux
 
@@ -58,7 +58,7 @@ Per aggiornare l'agente in una macchina virtuale Windows alla versione più rece
 
 4. Nella finestra di dialogo **Microsoft Monitoring Agent installazione** **fare clic su Accetto il** contratto di licenza.
 
-5. Nella finestra di dialogo **Microsoft Monitoring Agent installazione** fare clic su **Aggiorna**. Nella pagina stato viene visualizzato lo stato di avanzamento dell'aggiornamento.
+5. Nella finestra di dialogo **Installazione di Microsoft Monitoring Agent** , scegliere **Aggiorna**. Nella pagina di stato viene visualizzato l'avanzamento dell'aggiornamento.
 
 6. Quando la **configurazione del Microsoft Monitoring Agent è stata completata correttamente.** viene visualizzata la pagina, fare clic su **fine**.
 
@@ -68,7 +68,7 @@ Per aggiornare l'agente in una macchina virtuale Windows alla versione più rece
 
 2. Per estrarre i file di installazione dell'agente, da un prompt dei comandi con privilegi elevati eseguire `MMASetup-<platform>.exe /c` e verrà chiesto il percorso in cui estrarre i file. In alternativa, è possibile specificare il percorso passando gli argomenti `MMASetup-<platform>.exe /c /t:<Full Path>`.
 
-3. Eseguire il comando seguente, dove D:\ percorso del file di log dell'aggiornamento.
+3. Eseguire il seguente comando, dove D:\ è il percorso del file di registro di aggiornamento.
 
     ```dos
     setup.exe /qn /l*v D:\logs\AgentUpgrade.log AcceptEndUserLicenseAgreement=1
@@ -99,7 +99,7 @@ I passaggi descritti in questa sezione sono necessari quando si desidera non sol
 
 5. Per aggiungere un'area di lavoro, fare clic su **Aggiungi** e, nella finestra di dialogo **Add a Log Analytics Workspace** (Aggiungere un'area di lavoro Log Analytics), incollare l'ID dell'area di lavoro e la chiave dell'area di lavoro (chiave primaria). Se il computer deve inviare report a un'area di lavoro Log Analytics nel cloud Azure per enti pubblici, selezionare Azure per enti pubblici degli Stati Uniti nell'elenco a discesa Cloud di Azure.
 
-6. Fare clic su **OK** per salvare le modifiche.
+6. Scegliere **OK** per salvare le modifiche.
 
 #### <a name="remove-a-workspace-using-powershell"></a>Rimuovere un'area di lavoro usando PowerShell
 

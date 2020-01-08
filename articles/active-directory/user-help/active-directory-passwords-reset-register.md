@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9748c0d04f958648f7919b7ac29dc58d5a137ac
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: a6dddd13f31366e5a99d6c68ab82b048de4064b2
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279061"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75681362"
 ---
 # <a name="register-your-verification-method-info-to-reset-your-own-password"></a>Registrare le informazioni sul metodo di verifica per reimpostare la password
 
@@ -29,7 +29,7 @@ Gli utenti finali possono reimpostare la password o sbloccare l'account autonoma
 
 ## <a name="register-or-confirm-authentication-data-with-sspr"></a>Registrare o confermare i dati di autenticazione con la reimpostazione password self-service
 
-1. Aprire il Web browser nel dispositivo e andare alla [pagina di registrazione per la reimpostazione della password](https://aka.ms/ssprsetup).
+1. Aprire il Web browser nel dispositivo e andare alla [pagina di registrazione per la reimpostazione della password](https://account.activedirectory.windowsazure.com/PasswordReset/Register.aspx?regref=ssprsetup).
 2. Immettere il nome utente e la password forniti dall'amministratore.
 3. A seconda della configurazione definita dal personale IT, una o più delle opzioni seguenti sono disponibili per la configurazione e la verifica da parte dell'utente. Se l'utente ha autorizzato l'amministratore a usare le proprie informazioni personali, può compilare alcune opzioni per conto dell'utente stesso.
     * **Telefono ufficio**: solo l'amministratore può impostare questa opzione.

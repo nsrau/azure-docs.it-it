@@ -1,18 +1,14 @@
 ---
 title: Come aggiornare monitoraggio di Azure per i contenitori per le metriche | Microsoft Docs
 description: Questo articolo descrive come aggiornare monitoraggio di Azure per i contenitori per abilitare la funzionalità metrica personalizzata che supporta l'esplorazione e l'invio di avvisi sulle metriche aggregate.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/11/2019
-ms.openlocfilehash: 5a43d7e23c9d6550e8985599786ff968050f19c1
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 0a2674df4a05d856b35dd51dbb33af0f407db29f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707496"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75403231"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Come aggiornare monitoraggio di Azure per i contenitori per abilitare le metriche
 
@@ -26,7 +22,7 @@ Come parte di questa funzionalità sono abilitate le metriche seguenti:
 
 | Spazio dei nomi delle metriche | Metrica | Description |
 |------------------|--------|-------------|
-| Insights. contenitore/nodi | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | Si tratta di metriche del *nodo* che includono *host* come dimensione e includono anche<br> nome del nodo come valore per la dimensione *host* . |
+| insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | Si tratta di metriche del *nodo* che includono *host* come dimensione e includono anche<br> nome del nodo come valore per la dimensione *host* . |
 | Insights. container/Pod | podCount | Si tratta di metriche *Pod* e includono le seguenti dimensioni: controllerName, spazio dei nomi Kubernetes, nome, fase. |
 
 L'aggiornamento del cluster per supportare queste nuove funzionalità può essere eseguito dalla portale di Azure, Azure PowerShell o con l'interfaccia della riga di comando di Azure. Con Azure PowerShell e l'interfaccia della riga di comando, è possibile abilitare questo per cluster o per tutti i cluster nella sottoscrizione. Nuove distribuzioni di AKS includeranno automaticamente questa modifica e funzionalità di configurazione.

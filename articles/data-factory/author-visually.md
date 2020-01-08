@@ -9,17 +9,19 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: anandsub
-ms.date: 01/09/2019
-ms.openlocfilehash: 734a9de3eaa44a149c10d1a268d09024f3ef279d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.date: 12/19/2019
+ms.openlocfilehash: 09d4055ba98da2dd87efc9421402f2827a87ba16
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74891627"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440929"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Creazione di oggetti visivi in Azure Data Factory
 
 L'interfaccia utente di Azure Data Factory consente di creare e distribuire con strumenti visivi le risorse della data factory senza dover scrivere il codice. È possibile trascinare le attività in un'area di disegno della pipeline, eseguire test, eseguire il debug in modo iterativo, nonché distribuire e monitorare le esecuzioni della pipeline.
+
+Attualmente, il Azure Data Factory UX è supportato solo in Microsoft Edge e Google Chrome.
 
 ## <a name="authoring-canvas"></a>Area di disegno di creazione
 

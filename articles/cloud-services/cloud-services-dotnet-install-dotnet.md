@@ -3,24 +3,24 @@ title: Installare .NET nei ruoli di Servizi cloud di Azure | Microsoft Docs
 description: Questo articolo illustra come installare manualmente .NET Framework nei ruoli Web e di lavoro del servizio cloud
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 manager: carmonm
 ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/22/2018
-ms.author: gwallace
-ms.openlocfilehash: 25151f154b9806646406639df3efd7616e53f6bf
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: c950fbedde19e3b7708d3640487d413fcac7787f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359640"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360991"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Installare .NET nei ruoli di Servizi cloud di Azure
 Questo articolo illustra come installare versioni di .NET Framework non incluse nel sistema operativo guest di Azure. È possibile usare .NET nel sistema operativo guest per configurare i ruoli Web e di lavoro del servizio cloud.
 
-Ad esempio, è possibile installare .NET 4.6.2 nella famiglia di sistemi operativi guest 4, non disponibile in nessuna versione di .NET 4.6. La famiglia di sistemi operativi guest 5 è inclusa in .NET 4.6. Per le informazioni più recenti sulle versioni del sistema operativo guest di Azure, vedere [Novità sulle versioni del sistema operativo guest di Azure](cloud-services-guestos-update-matrix.md). 
+Ad esempio, è possibile installare .NET 4.6.2 nella famiglia di sistemi operativi guest 4, non disponibile in nessuna versione di .NET 4.6. (La famiglia di sistemi operativi guest 5 viene eseguita con .NET 4,6). Per informazioni aggiornate sulle versioni del sistema operativo guest di Azure, vedere le [notizie sulla versione del sistema operativo guest Azure](cloud-services-guestos-update-matrix.md). 
 
 >[!IMPORTANT]
 >Azure SDK 2.9 contiene una restrizione relativa alla distribuzione di .NET 4.6 nella famiglia di sistemi operativi guest 4 o versioni precedenti. Nel sito di [Microsoft Docs](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9) è disponibile una correzione alla restrizione.
@@ -234,3 +234,6 @@ Quando si distribuisce il servizio cloud, le attività di avvio installano .NET 
 <!--Image references-->
 [1]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithinstallerfiles.png
 [2]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithallfiles.png
+
+
+

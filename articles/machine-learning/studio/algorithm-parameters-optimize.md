@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 4d44598bd1352ac6d4d98ae73838fbfc9e2485e7
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: ac3aa0dc619ec05dcd79a4f8740026b1eabc19aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838429"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427708"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio-classic"></a>Scegliere i parametri per ottimizzare gli algoritmi in Azure Machine Learning Studio (versione classica)
 
@@ -23,7 +23,7 @@ In questo argomento viene descritto come scegliere il set di iperparametri corre
 
 
 
-Ci sono vari modi per selezionare un modello. In Machine Learning la convalida incrociata è uno dei metodi più diffusi per la selezione del modello ed è il meccanismo di selezione del modello predefinito nella versione classica di Azure Machine Learning Studio. Poiché la versione classica di Azure Machine Learning Studio supporta sia R che Python, è sempre possibile implementare i propri meccanismi di selezione del modello usando R o Python.
+Ci sono vari modi per selezionare un modello. In Machine Learning la convalida incrociata è uno dei metodi più diffusi per la selezione del modello ed è il meccanismo di selezione del modello predefinito in Azure Machine Learning Studio (classico). Poiché Azure Machine Learning Studio (classico) supporta sia R che Python, è sempre possibile implementare i propri meccanismi di selezione del modello tramite R o Python.
 
 Il processo per trovare il migliore set di parametri è costituito da quattro passaggi:
 
@@ -32,7 +32,7 @@ Il processo per trovare il migliore set di parametri è costituito da quattro pa
 3. **Definire la metrica**: decidere quale metrica usare per determinare il migliore set di parametri, ad esempio, l'accuratezza, l'errore quadratico medio, la precisione, il richiamo, o il punteggio f.
 4. **Eseguire il training, valutare e confrontare**: per ogni combinazione univoca dei valori dei parametri, la convalida incrociata viene eseguita e basata sulla metrica di errore definita dall'utente. Dopo valutazione e confronto, è possibile scegliere il modello con le prestazioni migliori.
 
-Nell'immagine seguente viene illustrato il modo in cui questa operazione può essere eseguita nella versione classica di Azure Machine Learning Studio.
+Nell'immagine seguente viene illustrato come è possibile ottenere questo risultato in Azure Machine Learning Studio (classico).
 
 ![Trovare il miglior set di parametri](./media/algorithm-parameters-optimize/fig1.png)
 

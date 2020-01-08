@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e7706fba1efad1bd0ce7110e129dcf113689af9a
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: bc8efe46453f76d353842b32bd52b41838979b49
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309772"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432820"
 ---
-# <a name="get-shape-data"></a>Ottenere i dati di forma
+# <a name="get-shape-data"></a>Ottenere i dati della forma
 
 Questo articolo illustra come ottenere i dati di forme disegnati sulla mappa usando la funzione [Drawing Manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#getsource--) **DrawingManager. GetSource ()** . Possono essere presenti diversi scenari in cui è possibile estrarre i dati GeoJSON di una forma disegnata e utilizzarli altrove.  
 
@@ -36,11 +36,19 @@ Di seguito è riportato l'esempio di codice completo in esecuzione, in cui è po
 
 <br/>
 
-<iframe height="686" title="Ottenere i dati di forma" src="//codepen.io/azuremaps/embed/xxKgBVz/?height=265&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true" style='width: 100%;'>Vedere la pagina relativa ai <a href='https://codepen.io/azuremaps/pen/xxKgBVz/'>dati di forma</a> di penna<a href='https://codepen.io/azuremaps'>@azuremaps</a>Get di Azure Maps () in <a href='https://codepen.io'>CodePen</a>.
+<iframe height="686" title="Ottenere i dati della forma" src="//codepen.io/azuremaps/embed/xxKgBVz/?height=265&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true" style='width: 100%;'>Vedere la pagina relativa ai <a href='https://codepen.io/azuremaps/pen/xxKgBVz/'>dati delle forme</a> per la penna Get di Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+Informazioni su come usare le funzionalità aggiuntive del modulo strumenti di disegno:
+
+> [!div class="nextstepaction"]
+> [Reagire agli eventi di disegno](drawing-tools-events.md)
+
+> [!div class="nextstepaction"]
+> [Tipi di interazione e tasti di scelta rapida](drawing-tools-interactions-keyboard-shortcuts.md)
 
 Per altre informazioni sulle classi e sui metodi usati in questo articolo, vedere:
 

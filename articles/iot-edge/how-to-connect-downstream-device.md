@@ -4,16 +4,16 @@ description: Come configurare i dispositivi downstream o foglia per connettersi 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/08/2019
+ms.date: 12/08/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 719ec736fd2f28f8d8b3b226109bc988c872d10f
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 20de7bc55a62a44d1fa852d86705e7596e1776d6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457132"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434448"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Connettere un dispositivo downstream a un gateway Azure IoT Edge
 
@@ -23,7 +23,7 @@ Sono disponibili tre passaggi generali per configurare una connessione del gatew
 
 1. Il dispositivo gateway deve connettersi in modo sicuro ai dispositivi downstream, ricevere le comunicazioni dai dispositivi downstream e indirizzare i messaggi alla destinazione appropriata. Per altre informazioni, vedere [configurare un dispositivo IOT Edge per agire come gateway trasparente](how-to-create-transparent-gateway.md).
 2. Il dispositivo downstream deve avere un'identità del dispositivo per poter eseguire l'autenticazione con l'hub Internet e conoscere la comunicazione tramite il dispositivo gateway. Per altre informazioni, vedere [autenticare un dispositivo downstream nell'hub Azure](how-to-authenticate-downstream-device.md).
-3. **Il dispositivo downstream deve essere in grado di connettersi in modo sicuro al dispositivo gateway.**
+3. **Il dispositivo downstream deve connettersi al dispositivo gateway in modo sicuro.**
 
 Questo articolo presenta i problemi comuni relativi alle connessioni ai dispositivi downstream e contiene le istruzioni per configurare i dispositivi downstream attraverso le informazioni seguenti: 
 
@@ -33,9 +33,10 @@ Questo articolo presenta i problemi comuni relativi alle connessioni ai disposit
 
 In questo articolo i termini *gateway* e *gateway IoT Edge* si riferiscono a un dispositivo IoT Edge configurato come gateway trasparente. 
 
-## <a name="prerequisites"></a>prerequisiti 
+## <a name="prerequisites"></a>Prerequisiti 
 
-Disporre del file di certificato **Azure-IOT-Test-only. root. ca. cert. pem** generato in [configurare un dispositivo IOT Edge come gateway trasparente](how-to-create-transparent-gateway.md) disponibile sul dispositivo downstream. Il dispositivo downstream usa questo certificato per convalidare l'identità del dispositivo gateway. 
+* Disporre del file di certificato **Azure-IOT-Test-only. root. ca. cert. pem** generato in [configurare un dispositivo IOT Edge come gateway trasparente](how-to-create-transparent-gateway.md) disponibile sul dispositivo downstream. Il dispositivo downstream usa questo certificato per convalidare l'identità del dispositivo gateway. 
+* Avere la stringa di connessione modificata che punta al dispositivo gateway, come illustrato in [autenticare un dispositivo downstream nell'hub Azure](how-to-authenticate-downstream-device.md).
 
 ## <a name="prepare-a-downstream-device"></a>Preparare un dispositivo downstream
 
@@ -194,7 +195,7 @@ Usare questo comando di esempio per verificare che il dispositivo downstream pos
 openssl s_client -connect mygateway.contoso.com:8883 -CAfile <CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem -showcerts
 ```
 
-Questo comando verifica le connessioni tramite MQTTS (porta 8883). Se si usa un protocollo diverso, modificare il comando in base alle esigenze per AMQPS (5671) o HTTPS (433).
+Questo comando verifica le connessioni tramite MQTTS (porta 8883). Se si usa un protocollo diverso, modificare il comando in base alle esigenze per AMQPS (5671) o HTTPS (433)
 
 L'output di questo comando potrebbe essere lungo, incluse le informazioni su tutti i certificati nella catena. Se la connessione ha esito positivo, verrà visualizzata una riga come `Verification: OK` o `Verify return code: 0 (ok)`.
 

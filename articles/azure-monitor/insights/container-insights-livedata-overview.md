@@ -1,24 +1,14 @@
 ---
 title: Visualizzare i dati in tempo reale (anteprima) con monitoraggio di Azure per i contenitori | Microsoft Docs
 description: Questo articolo descrive la visualizzazione in tempo reale di log di Kubernetes, eventi e metriche Pod senza usare kubectl in monitoraggio di Azure per i contenitori.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 10/15/2019
-ms.author: magoedte
-ms.openlocfilehash: 9c497c73d42e1fb8851c5293010098d843297250
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 18ae091a32d0256288d27ad1439ffc7be26db5f1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514420"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75404747"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Come visualizzare i log Kubernetes, gli eventi e le metriche pod in tempo reale
 
@@ -36,7 +26,7 @@ Per informazioni sulla configurazione o la risoluzione dei problemi relativi all
 
 ## <a name="live-data-preview-functionality-overview"></a>Panoramica della funzionalità dati in tempo reale (anteprima)
 
-### <a name="search"></a>Search
+### <a name="search"></a>Cerca
 
 ![Esempio di filtro del riquadro della console dati in tempo reale](./media/container-insights-livedata-overview/livedata-pane-filter-example.png)
 
@@ -67,7 +57,7 @@ Per sospendere lo scorrimento automatico e controllare il comportamento del riqu
 4. Selezionare un oggetto dalla griglia prestazioni, quindi nel riquadro proprietà disponibile sul lato destro selezionare **Visualizza dati in tempo reale (anteprima)** . Se il cluster AKS è configurato con Single Sign-On tramite Azure AD, verrà richiesto di eseguire l'autenticazione al primo utilizzo durante la sessione del browser. Selezionare l'account e completare l'autenticazione con Azure.  
 
     >[!NOTE]
-    >Quando si visualizzano i dati dall'area di lavoro Log Analytics selezionando l'opzione **Visualizza in Analytics** dal riquadro proprietà, i risultati della ricerca nei log visualizzeranno potenzialmente **nodi**, **set di daemon**, **set di repliche**, **processi**,  **Processi cron**, **Pod**e **contenitori** che potrebbero non esistere più. Il tentativo di eseguire ricerche nei log per un contenitore che non è disponibile in `kubectl` avrà esito negativo anche qui. Esaminare la funzionalità [Visualizza in Analytics](container-insights-log-search.md#search-logs-to-analyze-data) per altre informazioni sulla visualizzazione di log cronologici, eventi e metriche.  
+    >Quando si visualizzano i dati dall'area di lavoro Log Analytics selezionando l'opzione **Visualizza in Analytics** dal riquadro proprietà, i risultati della ricerca nei log visualizzeranno potenzialmente i **nodi**, i **set di daemon**, i **set di repliche**, i **processi**, i **processi cron**, i **Pod**e i **contenitori** che potrebbero non esistere più. Il tentativo di eseguire ricerche nei log per un contenitore che non è disponibile in `kubectl` avrà esito negativo anche qui. Esaminare la funzionalità [Visualizza in Analytics](container-insights-log-search.md#search-logs-to-analyze-data) per altre informazioni sulla visualizzazione di log cronologici, eventi e metriche.  
 
 Dopo l'autenticazione, il riquadro della console dati attivi (anteprima) verrà visualizzato sotto la griglia dei dati sulle prestazioni in cui è possibile visualizzare i dati di log in un flusso continuo. Se l'indicatore di stato di recupero Mostra un segno di spunta verde, che si trova all'estrema destra del riquadro, significa che i dati possono essere recuperati e inizia lo streaming alla console.  
 
@@ -75,9 +65,9 @@ Dopo l'autenticazione, il riquadro della console dati attivi (anteprima) verrà 
 
 Il titolo del riquadro Mostra il nome del Pod con il quale viene raggruppato il contenitore.
 
-## <a name="view-events"></a>Visualizzare eventi
+## <a name="view-events"></a>Visualizza eventi
 
-È possibile visualizzare i dati degli eventi in tempo reale generati dal motore di contenitori dalla visualizzazione **nodi**, **controller**, **contenitori**e **distribuzioni (anteprima)** quando un contenitore, un pod, un nodo, REPLICASET, DaemonSet, un processo, un cronjob o La distribuzione è selezionata. Per visualizzare gli eventi, seguire questa procedura.
+È possibile visualizzare i dati degli eventi in tempo reale generati dal motore di contenitori dalla visualizzazione **nodi**, **controller**, **contenitori**e **distribuzioni (anteprima)** quando si seleziona un contenitore, un pod, un nodo, un REPLICASET, un DaemonSet, un processo, un cronjob o una distribuzione. Per visualizzare gli eventi, seguire questa procedura.
 
 1. Nella portale di Azure passare al gruppo di risorse del cluster AKS e selezionare la risorsa AKS.
 
@@ -88,7 +78,7 @@ Il titolo del riquadro Mostra il nome del Pod con il quale viene raggruppato il 
 4. Selezionare un oggetto dalla griglia prestazioni, quindi nel riquadro proprietà disponibile sul lato destro selezionare **Visualizza dati in tempo reale (anteprima)** . Se il cluster AKS è configurato con Single Sign-On tramite Azure AD, verrà richiesto di eseguire l'autenticazione al primo utilizzo durante la sessione del browser. Selezionare l'account e completare l'autenticazione con Azure.  
 
     >[!NOTE]
-    >Quando si visualizzano i dati dall'area di lavoro Log Analytics selezionando l'opzione **Visualizza in Analytics** dal riquadro proprietà, i risultati della ricerca nei log visualizzeranno potenzialmente **nodi**, **set di daemon**, **set di repliche**, **processi**,  **Processi cron**, **Pod**e **contenitori** che potrebbero non esistere più. Il tentativo di eseguire ricerche nei log per un contenitore che non è disponibile in `kubectl` avrà esito negativo anche qui. Esaminare la funzionalità [Visualizza in Analytics](container-insights-log-search.md#search-logs-to-analyze-data) per altre informazioni sulla visualizzazione di log cronologici, eventi e metriche.  
+    >Quando si visualizzano i dati dall'area di lavoro Log Analytics selezionando l'opzione **Visualizza in Analytics** dal riquadro proprietà, i risultati della ricerca nei log visualizzeranno potenzialmente i **nodi**, i **set di daemon**, i **set di repliche**, i **processi**, i **processi cron**, i **Pod**e i **contenitori** che potrebbero non esistere più. Il tentativo di eseguire ricerche nei log per un contenitore che non è disponibile in `kubectl` avrà esito negativo anche qui. Esaminare la funzionalità [Visualizza in Analytics](container-insights-log-search.md#search-logs-to-analyze-data) per altre informazioni sulla visualizzazione di log cronologici, eventi e metriche.  
 
 Dopo l'autenticazione, il riquadro della console dati attivi (anteprima) verrà visualizzato sotto la griglia dei dati sulle prestazioni. Se l'indicatore di stato di recupero Mostra un segno di spunta verde, che si trova all'estrema destra del riquadro, significa che i dati possono essere recuperati e inizia lo streaming alla console. 
     
@@ -115,7 +105,7 @@ Quando si visualizzano gli eventi, è anche possibile limitare i risultati usand
 4. Selezionare un oggetto **Pod** dalla griglia prestazioni, quindi nel riquadro proprietà disponibile sul lato destro selezionare **Visualizza dati in tempo reale (anteprima)** . Se il cluster AKS è configurato con Single Sign-On tramite Azure AD, verrà richiesto di eseguire l'autenticazione al primo utilizzo durante la sessione del browser. Selezionare l'account e completare l'autenticazione con Azure.  
 
     >[!NOTE]
-    >Quando si visualizzano i dati dall'area di lavoro Log Analytics selezionando l'opzione **Visualizza in Analytics** dal riquadro proprietà, i risultati della ricerca nei log visualizzeranno potenzialmente **nodi**, **set di daemon**, **set di repliche**, **processi**,  **Processi cron**, **Pod**e **contenitori** che potrebbero non esistere più. Il tentativo di eseguire ricerche nei log per un contenitore che non è disponibile in `kubectl` avrà esito negativo anche qui. Esaminare la funzionalità [Visualizza in Analytics](container-insights-log-search.md#search-logs-to-analyze-data) per altre informazioni sulla visualizzazione di log cronologici, eventi e metriche.  
+    >Quando si visualizzano i dati dall'area di lavoro Log Analytics selezionando l'opzione **Visualizza in Analytics** dal riquadro proprietà, i risultati della ricerca nei log visualizzeranno potenzialmente i **nodi**, i **set di daemon**, i **set di repliche**, i **processi**, i **processi cron**, i **Pod**e i **contenitori** che potrebbero non esistere più. Il tentativo di eseguire ricerche nei log per un contenitore che non è disponibile in `kubectl` avrà esito negativo anche qui. Esaminare la funzionalità [Visualizza in Analytics](container-insights-log-search.md#search-logs-to-analyze-data) per altre informazioni sulla visualizzazione di log cronologici, eventi e metriche.  
 
 Dopo l'autenticazione, il riquadro della console dati attivi (anteprima) verrà visualizzato sotto la griglia dei dati sulle prestazioni. I dati delle metriche vengono recuperati e avviano la trasmissione alla console per la presentazione nei due grafici. Il titolo del riquadro Mostra il nome del Pod con il quale viene raggruppato il contenitore.
 

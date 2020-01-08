@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 571d4cd395cd0cec0982fedf267a88143fd73872
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 5ee07e5b0ac9c73a686a0f8c7d489ecc7ee96425
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805740"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422206"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurare un'app Java Linux per il servizio app Azure
 
@@ -248,8 +248,7 @@ Potrebbe essere necessaria una configurazione aggiuntiva per la crittografia del
 - [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
 - [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
 - [MongoDB](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
-- [Cassandra](https://docs.datastax.com/developer/java-driver/4.3/)
-
+- [Cassandra](https://docs.datastax.com/en/developer/java-driver/4.3/)
 
 #### <a name="manually-initialize-and-load-the-key-store"></a>Inizializzare e caricare manualmente l'archivio chiavi
 
@@ -294,7 +293,7 @@ Questa sezione illustra come connettere le applicazioni Java distribuite nel ser
 
 Per impostazione predefinita, il servizio app prevede che l'applicazione JAR sia denominata *app. jar*. Se il nome è presente, verrà eseguito automaticamente. Per gli utenti di Maven è possibile impostare il nome del file JAR includendo `<finalName>app</finalName>` nella sezione `<build>` del file *POM. XML*. [È possibile eseguire la stessa operazione in Gradle](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html#org.gradle.api.tasks.bundling.Jar:archiveFileName) impostando la proprietà `archiveFileName`.
 
-Se si vuole usare un nome diverso per il file JAR, è necessario specificare anche il [comando di avvio](app-service-linux-faq.md#built-in-images) che esegue il file jar. Ad esempio `java -jar my-jar-app.jar`. È possibile impostare il valore per il comando di avvio nel portale, in configurazione > Impostazioni generali o con un'impostazione dell'applicazione denominata `STARTUP_COMMAND`.
+Se si vuole usare un nome diverso per il file JAR, è necessario specificare anche il [comando di avvio](app-service-linux-faq.md#built-in-images) che esegue il file jar. Ad esempio: `java -jar my-jar-app.jar`. È possibile impostare il valore per il comando di avvio nel portale, in configurazione > Impostazioni generali o con un'impostazione dell'applicazione denominata `STARTUP_COMMAND`.
 
 ### <a name="server-port"></a>Porta server
 
@@ -663,7 +662,7 @@ I passaggi seguenti illustrano i requisiti per la connessione del servizio app e
 
 Alla successiva riavvio del servizio app, verrà eseguito lo script di avvio ed eseguire i passaggi di configurazione necessari. Per verificare che la configurazione venga eseguita correttamente, è possibile accedere al servizio app usando SSH e quindi eseguire lo script di avvio dal prompt di bash. È anche possibile esaminare i log del servizio app. Per altre informazioni su queste opzioni, vedere [registrazione e debug di app](#logging-and-debugging-apps).
 
-Successivamente, sarà necessario aggiornare la configurazione di WildFly per l'app e ridistribuirla. Seguire questa procedura:
+Successivamente, sarà necessario aggiornare la configurazione di WildFly per l'app e ridistribuirla. Eseguire la procedura descritta di seguito:
 
 1. Aprire il file *src/main/resources/META-INF/persistence. XML* per l'app e trovare l'elemento `<jta-data-source>`. Sostituire il relativo contenuto come illustrato di seguito:
 
@@ -709,7 +708,7 @@ I passaggi seguenti descrivono la configurazione e il codice necessari. Questi p
 
 1. Aprire un terminale bash e usare i comandi seguenti per salvare le informazioni sulle risorse di Azure in variabili di ambiente. Sostituire i segnaposto (incluse le parentesi angolari) con i valori indicati.
 
-    | Variabile            | Value                                                                      |
+    | Variabile            | Valore                                                                      |
     |---------------------|----------------------------------------------------------------------------|
     | RESOURCEGROUP_NAME  | Nome del gruppo di risorse contenente l'istanza del servizio app.       |
     | WEBAPP_NAME         | Nome dell'istanza del servizio app.                                     |
@@ -993,7 +992,7 @@ Per usare Tomcat con Redis, è necessario configurare l'app per l'uso di un'impl
 
 1. Aprire un terminale bash e usare `<variable>=<value>` per impostare ognuna delle variabili di ambiente seguenti.
 
-    | Variabile                 | Value                                                                      |
+    | Variabile                 | Valore                                                                      |
     |--------------------------|----------------------------------------------------------------------------|
     | RESOURCEGROUP_NAME       | Nome del gruppo di risorse contenente l'istanza del servizio app.       |
     | WEBAPP_NAME              | Nome dell'istanza del servizio app.                                     |
@@ -1130,7 +1129,7 @@ Le build Azul Zulu Enterprise di OpenJDK sono distribuzioni di OpenJDK gratuite,
 
 Ai pacchetti JDK supportati vengono automaticamente applicate patch con cadenza trimestrale, a gennaio, aprile, luglio e ottobre di ogni anno.
 
-### <a name="security-updates"></a>Aggiornamenti della sicurezza
+### <a name="security-updates"></a>Aggiornamenti per la sicurezza
 
 Le patch e le correzioni per le principali vulnerabilità della sicurezza verranno rilasciate da Azul Systems non appena disponibili. Una vulnerabilità "principale" viene definita da un punteggio di base pari o superiore a 9,0 in [NIST Common Vulnerability Scoring System, versione 2](https://nvd.nist.gov/cvss.cfm).
 

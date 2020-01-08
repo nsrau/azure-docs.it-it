@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 12/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: cf826c47c61e3714a05dd81fe3eea4e6ee0b03f4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 6fd8d6187c86306840c33b3aaf334e71086b20a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012503"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452754"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Procedure consigliate per la scelta di un ID serie temporale
 
@@ -23,23 +23,28 @@ Questo articolo riepiloga l'importanza dell'ID della serie temporale per l'ambie
 
 ## <a name="choose-a-time-series-id"></a>Scegliere un ID serie temporale
 
-Scegliere un ID serie temporale è come scegliere una chiave di partizione per un database. Deve essere selezionata durante la creazione di un ambiente di anteprima Time Series Insights. Si tratta di una proprietà non *modificabile* . Ovvero, dopo avere creato un ambiente di anteprima Time Series Insights con un ID di serie temporale, non è possibile modificarlo per tale ambiente. 
+La selezione di un ID Time Series appropriato è fondamentale. Scegliere un ID serie temporale è come scegliere una chiave di partizione per un database. È obbligatorio quando si crea un ambiente di anteprima Time Series Insights. 
 
 > [!IMPORTANT]
-> L'ID della serie temporale fa distinzione tra maiuscole e minuscole.
+> Gli ID delle serie temporali sono:
+> * Una proprietà con *distinzione tra maiuscole* e minuscole: le lettere e i caratteri vengono usati in ricerche, confronti, aggiornamenti e durante il partizionamento.
+> * Una proprietà non *modificabile* : una volta creata, non può essere modificata.
 
-La selezione di un ID Time Series appropriato è fondamentale. Ecco alcune delle procedure consigliate che è possibile seguire:
+> [!TIP]
+> Se l'origine evento è un hub Internet delle cose, l'ID della serie temporale sarà probabilmente ***iothub-Connection-Device-ID***.
+
+Di seguito sono riportate le principali procedure consigliate:
 
 * Selezionare una chiave di partizione con molti valori distinti (ad esempio, centinaia o migliaia). In molti casi, potrebbe trattarsi dell'ID del dispositivo, dell'ID del sensore o dell'ID tag in JSON.
 * L'ID serie temporale deve essere univoco a livello di nodo foglia del [modello serie temporale](./time-series-insights-update-tsm.md).
-* Se l'origine evento è un hub Internet delle cose, l'ID della serie temporale sarà probabilmente *iothub-Connection-Device-ID*.
 * Il limite di caratteri per la stringa del nome di proprietà dell'ID della serie temporale è 128. Per il valore della proprietà dell'ID della serie temporale, il limite di caratteri è 1.024.
 * Se manca un valore di proprietà univoco per l'ID della serie temporale, questo viene considerato come un valore null e segue la stessa regola del vincolo di univocità.
 * È anche possibile selezionare fino a *tre* proprietà chiave come ID della serie temporale. La combinazione sarà una chiave composta che rappresenta l'ID della serie temporale.  
-
   > [!NOTE]
   > Le tre proprietà chiave devono essere stringhe.
   > È necessario eseguire una query su questa chiave composta anziché su una proprietà alla volta.
+
+## <a name="select-more-than-one-key-property"></a>Selezionare più di una proprietà chiave
 
 Negli scenari seguenti viene descritto come selezionare più di una proprietà chiave come ID della serie temporale.  
 
@@ -67,9 +72,11 @@ Evento RAW di esempio:
 }
 ```
 
-Nella portale di Azure è possibile immettere questa chiave composta come: 
+Nella portale di Azure è quindi possibile immettere la chiave composta come indicato di seguito: 
 
-`[{"name":"sensorId","type":"String"},{"name":"flrRm","type":"String"},{"name":"location","type":"string"}]`
+```JSON
+[{"name":"sensorId","type":"String"},{"name":"flrRm","type":"String"},{"name":"location","type":"string"}]
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

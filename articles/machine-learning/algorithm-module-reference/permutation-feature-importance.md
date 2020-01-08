@@ -1,7 +1,7 @@
 ---
 title: 'Importanza della funzionalità di permutazione: riferimento al modulo'
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo Permutation feature Importance nel servizio Azure Machine Learning per calcolare i punteggi di importanza delle funzionalità di permutazione delle variabili di funzionalità, dati un modello sottoposto a training e un set di dati di test.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo Permutation feature importance in Azure Machine Learning per calcolare i punteggi di importanza delle funzionalità di permutazione delle variabili di funzionalità, dati un modello sottoposto a training e un set di dati di
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: ddd631b809d4a0635107069f48281db4c0a2e7e0
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: b939e88606fba5d7759e55239838d5308bf0563c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837545"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428482"
 ---
-# <a name="permutation-feature-importance"></a>Importanza della funzionalità di permutazione
+# <a name="permutation-feature-importance"></a>Permutation Feature Importance
 
 Questo articolo descrive come usare il modulo Permutation feature importance in Azure Machine Learning Designer (Preview) per calcolare un set di punteggi di importanza della funzionalità per il set di dati. Questi punteggi vengono utilizzati per determinare le funzionalità migliori da utilizzare in un modello.
 
@@ -69,4 +69,4 @@ Il motivo della differenza è che l'importanza della funzionalità di permutazio
   
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per il servizio Azure Machine Learning. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 

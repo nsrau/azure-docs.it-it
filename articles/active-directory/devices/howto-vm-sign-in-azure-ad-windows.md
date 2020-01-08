@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba8f4f715856538b9555b1bcb8c8a812503fabd2
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 77e24fa41c5f716460d82e1079659e6aee5e9a9b
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74842408"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561151"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Accedere a una macchina virtuale Windows in Azure usando l'autenticazione Azure Active Directory (anteprima)
 
@@ -24,7 +24,7 @@ Le organizzazioni possono ora usare l'autenticazione Azure Active Directory (AD)
 
 |     |
 | --- |
-| Azure AD l'accesso per le macchine virtuali Windows di Azure è una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzionalità in anteprima, vedere [Condizioni Supplementari per l'Utilizzo delle Anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Azure AD l'accesso per le macchine virtuali Windows di Azure è una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzioni in anteprima, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
 L'uso dell'autenticazione Azure AD per accedere alle macchine virtuali Windows in Azure offre molti vantaggi, tra cui:
@@ -36,6 +36,9 @@ L'uso dell'autenticazione Azure AD per accedere alle macchine virtuali Windows i
    - Multi-Factor Authentication
    - Controllo del rischio di accesso
 - Automatizzare e ridimensionare Azure AD join di macchine virtuali Windows di Azure che fanno parte delle distribuzioni VDI.
+
+> [!NOTE]
+> Una volta abilitata questa funzionalità, le macchine virtuali Windows in Azure verranno Azure AD Unite. Non è possibile aggiungerlo ad altro dominio, AD esempio in locale o Azure AD DS. Se necessario, è necessario disconnettere la macchina virtuale dal tenant di Azure AD disinstallando l'estensione.
 
 ## <a name="requirements"></a>Requisiti
 
@@ -200,7 +203,7 @@ Per altre informazioni su come usare il controllo degli accessi in base al ruolo
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Accedere con le credenziali Azure AD a una macchina virtuale Windows
 
 > [!IMPORTANT]
-> La connessione remota alle macchine virtuali Unite a Azure AD è consentita solo da PC Windows 10 Azure AD Uniti o ibridi Azure AD aggiunti alla **stessa** directory della macchina virtuale. Inoltre, per RDP con Azure AD credenziali, l'utente deve appartenere a uno dei due ruoli RBAC, account di accesso dell'amministratore della macchina virtuale o accesso utente della macchina virtuale.
+> La connessione remota alle macchine virtuali Unite a Azure AD è consentita solo da PC Windows 10 Azure AD Uniti o ibridi Azure AD aggiunti alla **stessa** directory della macchina virtuale. Inoltre, per RDP con Azure AD credenziali, l'utente deve appartenere a uno dei due ruoli RBAC, account di accesso dell'amministratore della macchina virtuale o accesso utente della macchina virtuale. Attualmente, Azure Bastion non può essere usato per eseguire l'accesso con l'autenticazione di Azure Active Directory con l'estensione AADLoginForWindows. È supportato solo il protocollo RDP diretto.
 
 Per accedere alla macchina virtuale Windows Server 2019 usando Azure AD: 
 
@@ -216,7 +219,7 @@ A questo punto è stato effettuato l'accesso alla macchina virtuale di Azure di 
 > [!NOTE]
 > È possibile salvare il. File RDP in locale nel computer per avviare connessioni Desktop remoto future alla macchina virtuale anziché dover passare alla pagina Panoramica macchina virtuale nella portale di Azure e usare l'opzione Connetti.
 
-## <a name="troubleshoot"></a>Risolvere problemi
+## <a name="troubleshoot"></a>Risolvere i problemi
 
 ### <a name="troubleshoot-deployment-issues"></a>Risolvere i problemi relativi alla distribuzione
 

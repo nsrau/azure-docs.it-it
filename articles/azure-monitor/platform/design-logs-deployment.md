@@ -4,15 +4,15 @@ description: Questo articolo descrive le considerazioni e le raccomandazioni per
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 373c498b9ce58062e42f4318c9fa94688556d8c5
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3d4fe7319e0af9c463bd64483f43a4e73ef8871d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894216"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395748"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Progettazione della distribuzione dei log di monitoraggio di Azure
 
@@ -67,7 +67,7 @@ I dati a cui un utente può accedere sono determinati da una combinazione di fat
 |:---|:---|
 | [Modalità di accesso](#access-mode) | Metodo utilizzato dall'utente per accedere all'area di lavoro.  Definisce l'ambito dei dati disponibili e la modalità di controllo di accesso applicata. |
 | [Modalità di controllo di accesso](#access-control-mode) | Impostazione nell'area di lavoro che definisce se le autorizzazioni vengono applicate a livello di area di lavoro o di risorsa. |
-| [autorizzazioni](manage-access.md) | Autorizzazioni applicate a singoli utenti o gruppi di utenti per l'area di lavoro o la risorsa. Definisce i dati a cui l'utente avrà accesso. |
+| [Autorizzazioni](manage-access.md) | Autorizzazioni applicate a singoli utenti o gruppi di utenti per l'area di lavoro o la risorsa. Definisce i dati a cui l'utente avrà accesso. |
 | [RBAC a livello di tabella](manage-access.md#table-level-rbac) | Autorizzazioni granulari facoltative che si applicano a tutti gli utenti indipendentemente dalla modalità di accesso o dal controllo di accesso. Definisce i tipi di dati a cui un utente può accedere. |
 
 ## <a name="access-mode"></a>Modalità di accesso
@@ -102,7 +102,7 @@ Nella tabella seguente sono riepilogate le modalità di accesso:
 |:---|:---|:---|
 | Per chi è destinato ogni modello? | Amministrazione centrale. Amministratori che devono configurare la raccolta di dati e gli utenti che devono accedere a una vasta gamma di risorse. Attualmente necessaria anche per gli utenti che devono accedere ai log per le risorse esterne ad Azure. | Team di applicazioni. Amministratori delle risorse di Azure da monitorare. |
 | Cosa richiede un utente per visualizzare i log? | Autorizzazioni per l'area di lavoro. Vedere **autorizzazioni dell'area di lavoro** in [gestire l'accesso tramite le autorizzazioni dell'area di lavoro](manage-access.md#manage-access-using-workspace-permissions) | Accesso in lettura alla risorsa. Vedere **autorizzazioni** per le risorse in [gestire l'accesso tramite le autorizzazioni di Azure](manage-access.md#manage-access-using-azure-permissions). Le autorizzazioni possono essere ereditate, ad esempio dal gruppo di risorse contenitore, o assegnate direttamente alla risorsa. L'autorizzazione ai log per la risorsa verrà assegnata automaticamente. |
-| Qual è l'ambito delle autorizzazioni? | area. Gli utenti che dispongono dell'accesso all'area di lavoro possono eseguire una query su tutti i log dell'area di lavoro dalle tabelle per cui dispongono delle autorizzazioni. Vedere [controllo di accesso alle tabelle](manage-access.md#table-level-rbac) | Risorsa di Azure. L'utente può eseguire query sui log per risorse, gruppi di risorse o sottoscrizioni specifici a cui ha accesso da qualsiasi area di lavoro, ma non può eseguire query nei log per altre risorse. |
+| Qual è l'ambito delle autorizzazioni? | Area. Gli utenti che dispongono dell'accesso all'area di lavoro possono eseguire una query su tutti i log dell'area di lavoro dalle tabelle per cui dispongono delle autorizzazioni. Vedere [controllo di accesso alle tabelle](manage-access.md#table-level-rbac) | Risorsa di Azure. L'utente può eseguire query sui log per risorse, gruppi di risorse o sottoscrizioni specifici a cui ha accesso da qualsiasi area di lavoro, ma non può eseguire query nei log per altre risorse. |
 | Come è possibile accedere ai log utente? | <ul><li>Avviare i **log** dal menu di **monitoraggio di Azure** .</li></ul> <ul><li>Avviare i **log** dalle **aree di lavoro log Analytics**.</li></ul> <ul><li>Da cartelle di [lavoro](../visualizations.md#workbooks)di monitoraggio di Azure.</li></ul> | <ul><li>Avviare i **log** dal menu per la risorsa di Azure</li></ul> <ul><li>Avviare i **log** dal menu di **monitoraggio di Azure** .</li></ul> <ul><li>Avviare i **log** dalle **aree di lavoro log Analytics**.</li></ul> <ul><li>Da cartelle di [lavoro](../visualizations.md#workbooks)di monitoraggio di Azure.</li></ul> |
 
 ## <a name="access-control-mode"></a>Modalità di controllo di accesso
@@ -128,7 +128,9 @@ Per informazioni su come modificare la modalità di controllo di accesso nel por
 
 ## <a name="ingestion-volume-rate-limit"></a>Limite di velocità del volume di inserimento
 
-Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di clienti che inviano terabyte di dati ogni mese a un ritmo crescente. La soglia della frequenza di inserimento predefinita è impostata su **500 MB/min** per area di lavoro. Se si inviano dati a una velocità superiore a una singola area di lavoro, alcuni dati vengono eliminati e un evento viene inviato alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore mentre la soglia continua a essere superata. Se il volume di inserimento continua a superare il limite di velocità o se si prevede di raggiungerlo presto, è possibile richiedere un aumento dell'area di lavoro aprendo una richiesta di supporto.
+Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di clienti che inviano terabyte di dati ogni mese a un ritmo crescente. La soglia della frequenza di inserimento predefinita è impostata su **6 GB/min** per area di lavoro. Si tratta di un valore approssimativo, poiché la dimensione effettiva può variare tra i tipi di dati a seconda della lunghezza del log e del relativo rapporto di compressione. Questo limite non si applica ai dati inviati dagli agenti o dall' [API dell'agente di raccolta dati](data-collector-api.md).
+
+Se si inviano dati a una velocità superiore a una singola area di lavoro, alcuni dati vengono eliminati e un evento viene inviato alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore mentre la soglia continua a essere superata. Se il volume di inserimento continua a superare il limite di velocità o se si prevede di raggiungerlo presto, è possibile richiedere un aumento dell'area di lavoro aprendo una richiesta di supporto.
  
 Per ricevere una notifica su tale evento nell'area di lavoro, creare una [regola di avviso di log](alerts-log.md) usando la query seguente con la logica di avviso base su numero di risultati maggiore di zero.
 
@@ -139,7 +141,7 @@ Operation
 ``` 
 
 
-## <a name="recommendations"></a>Raccomandazioni
+## <a name="recommendations"></a>Consigli
 
 ![Esempio di progettazione del contesto di risorsa](./media/design-logs-deployment/workspace-design-resource-context-01.png)
 

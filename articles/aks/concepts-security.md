@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: mlearned
-ms.openlocfilehash: 1d100f17130594ace6169f5840915c88435cb9a8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3ba4ac665df45ab6d53d2195ab59ec577f8bab05
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67615782"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422277"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Concetti relativi alla sicurezza per le applicazioni e i cluster nel servizio Azure Kubernetes
 
@@ -28,7 +28,7 @@ Questo articolo introduce i principali concetti per proteggere le applicazioni n
 
 ## <a name="master-security"></a>Sicurezza master
 
-Nel servizio Azure Kubernetes i componenti master di Kubernetes fanno parte del servizio gestito fornito da Microsoft. Ogni cluster del servizio Azure Kubernetes ha un proprio master di Kubernetes dedicato con tenant singolo per fornire il server dell'API, l'utilità di pianificazione e così via. Questo Master è gestito e gestito da Microsoft.
+Nel servizio Azure Kubernetes i componenti master di Kubernetes fanno parte del servizio gestito fornito da Microsoft. Ogni cluster AKS ha il proprio Master Kubernetes dedicato a tenant singolo per fornire il server API, l'utilità di pianificazione e così via. Questo Master è gestito e gestito da Microsoft.
 
 Per impostazione predefinita, il server dell'API Kubernetes usa un indirizzo IP pubblico con nome di dominio completo (FQDN). È possibile controllare l'accesso al server dell'API usando i controlli degli accessi in base al ruolo di Kubernetes e Azure Active Directory. Per ulteriori informazioni, vedere [Azure ad integrazione con AKS][aks-aad].
 
@@ -79,7 +79,7 @@ L'uso dei segreti riduce le informazioni riservate definite nel pod o nel manife
 
 Per iniziare a proteggere i cluster AKS, vedere [aggiornare un cluster AKS][aks-upgrade-cluster].
 
-Per le procedure consigliate associate, vedere procedure consigliate [per la sicurezza e gli aggiornamenti del cluster in AKS][operator-best-practices-cluster-security].
+Per le procedure consigliate associate, vedere procedure consigliate [per la sicurezza e gli aggiornamenti del cluster in AKS][operator-best-practices-cluster-security] e [procedure consigliate per la sicurezza di pod in AKS][developer-best-practices-pod-security].
 
 Per altre informazioni sui concetti fondamentali relativi a Kubernetes e al servizio Azure Kubernetes, vedere gli articoli seguenti:
 
@@ -105,4 +105,5 @@ Per altre informazioni sui concetti fondamentali relativi a Kubernetes e al serv
 [aks-concepts-network]: concepts-network.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
+[developer-best-practices-pod-security]:developer-best-practices-pod-security.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

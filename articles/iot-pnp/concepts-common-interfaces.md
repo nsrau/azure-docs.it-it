@@ -3,16 +3,16 @@ title: Interfacce comuni-Plug and Play anteprima | Microsoft Docs
 description: Descrizione delle interfacce comuni per gli sviluppatori Plug and Play
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 09/08/2019
+ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 2eae778230fa5fce1be095106a02b2b643ff436e
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: f697a0d6aba4f137b75faa2a200424c72aa78c3b
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935333"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531412"
 ---
 # <a name="iot-plug-and-play-preview-common-interfaces"></a>Interfacce comuni Plug and Play anteprima
 
@@ -20,16 +20,16 @@ Per tutti i dispositivi Plug and Play si prevede di implementare alcune interfac
 
 ## <a name="summary-of-common-interfaces"></a>Riepilogo delle interfacce comuni
 
-| Name | id | Descrizione | Implementato da Azure Internets SDK | Deve essere dichiarata nel modello di funzionalità |
+| Nome | ID | Description | Implementato da Azure Internets SDK | Deve essere dichiarata nel modello di funzionalità |
 | -------- | -------- | -------- | -------- | -------- | -------- |
 | Informazioni sul modello | urn: azureiot: ModelDiscovery: ModelInformation: 1 | Per i dispositivi per dichiarare l'ID del modello di funzionalità e le interfacce. Obbligatorio per tutti i dispositivi Plug and Play. | Sì | No |
-| Informazioni su Digital Twin client SDK | urn: azureiot: client: SDKInformation: 1 | SDK client per la connessione del dispositivo ad Azure. Obbligatorio per la [certificazione](tutorial-build-device-certification.md) | Yes | No |
+| Informazioni su Digital Twin client SDK | urn: azureiot: client: SDKInformation: 1 | SDK client per la connessione del dispositivo ad Azure. Obbligatorio per la [certificazione](tutorial-build-device-certification.md) | Sì | No |
 | Informazioni sul dispositivo | urn: azureiot: DeviceManagement: DeviceInformation: 1 | Informazioni sull'hardware e sul sistema operativo del dispositivo. Obbligatorio per la [certificazione](tutorial-build-device-certification.md) | No | Sì |
-| Definizione del modello | urn: azureiot: ModelDiscovery: ModelDefinition: 1 | Per i dispositivi dichiarare la definizione completa per il modello di funzionalità e le interfacce. Deve essere implementato quando le definizioni di modello non sono ospitate in un repository di modelli. | No | Yes |
+| Definizione del modello | urn: azureiot: ModelDiscovery: ModelDefinition: 1 | Per i dispositivi dichiarare la definizione completa per il modello di funzionalità e le interfacce. Deve essere implementato quando le definizioni di modello non sono ospitate in un repository di modelli. | No | Sì |
 | Gemello digitale | urn: azureiot: ModelDiscovery: DigitalTwin: 1 | Per gli sviluppatori di soluzioni recuperare l'ID del modello di funzionalità e gli ID interfaccia per un dispositivo gemello digitale. Questa interfaccia non è dichiarata o implementata da un dispositivo Plug and Play. | No | No |
 
 - Implementata da Azure Internets SDK, che l'SDK di Azure è in cui vengono implementate le funzionalità dichiarate nelle interfacce. I dispositivi Plug and Play che usano l'SDK di Azure Internet non devono implementare questa interfaccia.
-- Deve essere dichiarata nel modello di funzionalità: se è' Sì', questa interfaccia deve `"implements":` essere dichiarata all'interno della sezione del modello di funzionalità del dispositivo per questo plug and Play dispositivo.
+- Deve essere dichiarata nel modello di funzionalità: se è' Sì', questa interfaccia deve essere dichiarata all'interno della sezione `"implements":` del modello di funzionalità del dispositivo per questo dispositivo Plug and Play.
 
 ## <a name="retrieve-interface-definitions-from-the-public-repository"></a>Recuperare le definizioni di interfaccia dal repository pubblico
 
@@ -49,7 +49,7 @@ az iot pnp capability-model show --model {ModelID}
 
 1. Usare **CTRL+MAIUSC+P** per aprire il riquadro comandi.
 
-1. Immettere **plug and Play** e quindi selezionare le **plug and Play Internet: Open Model Repository** (Apri repository modello). Scegliere **repository pubblico**. Il repository del modello pubblico viene aperto in VS Code.
+1. Immettere **plug and Play** e quindi selezionare il comando **plug and Play Internet: aprire il repository del modello** . Scegliere **repository pubblico**. Il repository del modello pubblico viene aperto in VS Code.
 
 1. Nel repository del modello pubblico immettere il nome dell'interfaccia nel campo di ricerca.
 

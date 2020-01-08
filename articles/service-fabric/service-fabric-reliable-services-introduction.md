@@ -1,25 +1,16 @@
 ---
-title: Panoramica del modello di programmazione Reliable Service di Service Fabric | Microsoft Docs
+title: Panoramica del modello di programmazione Reliable Services
 description: Informazioni sul modello di programmazione Reliable Services di Service Fabric e su come sviluppare servizi personalizzati.
-services: Service-Fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: vturecek; mani-ramaswamy
-ms.assetid: 0c88a533-73f8-4ae1-a939-67d17456ac06
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 3/9/2018
 ms.author: masnider
-ms.openlocfilehash: 1789c7489e58df09dccfde3e7ab106ef54b5c1ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88c8e4411c0bec23790b4f4c52fc4a3d1570edc6
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60727013"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614248"
 ---
 # <a name="reliable-services-overview"></a>Panoramica di Reliable Services
 Azure Service Fabric semplifica la scrittura e la gestione di Reliable Services con e senza stato. In questo argomento viene trattato quanto segue:
@@ -70,7 +61,7 @@ Un servizio senza stato non dispone di uno stato mantenuto tra le varie chiamate
 
 Si consideri ad esempio un servizio Calculator privo di memoria che riceve contemporaneamente tutti i termini e le operazioni da eseguire.
 
-In questo caso il metodo `RunAsync()` (C#) o `runAsync()` (Java) del servizio può essere vuoto, dal momento che il servizio non deve eseguire alcuna elaborazione di attività in background. Quando viene creato, il servizio Calculator restituisce un `ICommunicationListener` (C#) o un `CommunicationListener` (Java), ad esempio [API Web](service-fabric-reliable-services-communication-webapi.md), che apre un endpoint di ascolto su una porta. L'endpoint di ascolto si collegherà ai diversi metodi di calcolo, ad esempio "Add(n1, n2)", che definiscono l'API pubblica del servizio Calculator.
+In questo caso il metodo `RunAsync()` (C#) o `runAsync()` (Java) del servizio può essere vuoto, dal momento che il servizio non deve eseguire alcuna elaborazione di attività in background. Quando viene creato, il servizio Calculator restituisce un `ICommunicationListener` (C#) o un `CommunicationListener` (Java), ad esempio [API Web](service-fabric-reliable-services-communication-webapi.md), che apre un endpoint di ascolto su una porta. L'endpoint di ascolto si collegherà ai diversi metodi, ad esempio di calcolo, ad esempio "Add(n1, n2)", che definiscono l'API pubblica del servizio Calculator.
 
 Quando viene effettuata una chiamata da un client, viene richiamato il metodo appropriato. Il servizio Calculator esegue le operazioni sui dati forniti e restituisce il risultato, senza archiviare alcuno stato.
 

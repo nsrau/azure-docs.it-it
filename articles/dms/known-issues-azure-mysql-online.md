@@ -1,6 +1,7 @@
 ---
-title: Problemi noti e limitazioni per le migrazioni online a Database di Azure per MySQL | Microsoft Docs
-description: Informazioni su problemi noti e limitazioni per le migrazioni online a Database di Azure per MySQL.
+title: 'Problemi noti: migrazioni online al database di Azure per MySQL'
+titleSuffix: Azure Database Migration Service
+description: Informazioni sui problemi noti e sulle limitazioni della migrazione con migrazioni online in database di Azure per MySQL quando si usa il servizio migrazione del database di Azure.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,21 +9,24 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom:
+- seo-lt-2019
+- seo-dt-2019
 ms.topic: article
 ms.date: 11/08/2019
-ms.openlocfilehash: 39c1928f1d38276418b2e1a3e766c4b9d8a0d8d2
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 905a14bd78d120e27ebc4d44ede86e9f0e3783cf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73902789"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437850"
 ---
-# <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>Problemi noti e limitazioni per le migrazioni online a Database di Azure per MySQL
+# <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Problemi di migrazione online & limitazioni di Azure DB per MySQL con il servizio migrazione del database di Azure
 
 Le sezioni seguenti illustrano i problemi noti e le limitazioni associati alle migrazioni online da MySQL a Database di Azure per MySQL.
 
 ## <a name="online-migration-configuration"></a>Configurazione della migrazione online
+
 
 - La versione del server MySQL di origine deve essere 5.6.35, 5.7.18 o successive
 - Database di Azure per MySQL supporta:
@@ -121,7 +125,7 @@ Quando si tenta di eseguire una migrazione in linea da AWS RDS MySQL a database 
 - Le stringhe di password con parentesi graffe di apertura e chiusura {} all'inizio e alla fine non sono supportate. Questa limitazione si applica a entrambe le connessioni, sia al server MySQL di origine sia all'istanza di Database di Azure per MySQL.
 - Le DDL seguenti non sono supportate:
   - Tutte le DDL di partizione
-  - Drop table
+  - Eliminare una tabella
   - Rinominare tabella
 - L'uso dell'istruzione *alter table <nome_tabella> add column <nome_colonna>* per aggiungere colonne all'inizio o al centro di una tabella non è supportato. L'istruzione *alter table <nome_tabella> add column <nome_colonna>* aggiunge la colonna alla fine della tabella.
 - Gli indici creati solo su una parte dei dati della colonna non sono supportati. L'istruzione seguente è un esempio che crea un indice usando solo una parte dei dati della colonna:

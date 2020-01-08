@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: cbdf4a4c9e7f3816a0a5b280c81bfa60b65d9769
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 3bb58334e96bf5378fb78b70125f9c7994a7c2fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687950"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435652"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>Autorizzare gli utenti per le visualizzazioni di Apache Ambari
 
@@ -179,9 +179,9 @@ Ambari è disponibile con le istanze di viste per [Apache Hive](https://hive.apa
 
 3. Scorrere verso il basso nella pagina View (Vista). Nella sezione *Permissions* (Autorizzazioni) sono presenti due opzioni per concedere agli utenti del dominio le autorizzazioni sulla vista:
 
-**Grant permission to these users** ![Grant permission to these users](./media/hdinsight-authorize-users-to-ambari/hdi-add-user-to-view.png) (Concedi autorizzazione a questi utenti)
+**Concedere l'autorizzazione a questi utenti** ![concedere l'autorizzazione a tali utenti](./media/hdinsight-authorize-users-to-ambari/hdi-add-user-to-view.png)
 
-**Grant permission to these groups** ![Grant permission to these groups](./media/hdinsight-authorize-users-to-ambari/add-group-to-view-permission.png) (Concedi autorizzazione a questi gruppi)
+**Concedere l'autorizzazione a questi gruppi** ![concedere l'autorizzazione a questi gruppi](./media/hdinsight-authorize-users-to-ambari/add-group-to-view-permission.png)
 
 1. Per aggiungere un utente, selezionare il pulsante **Add User** (Aggiungi utente).
 
@@ -248,7 +248,7 @@ Nella vista List (Elenco) sono disponibili funzionalità di modifica rapida in d
 
     ![Visualizzazione elenco ruoli di Apache Ambari-utenti](./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png)
 
-* La categoria Groups (Gruppi) visualizza tutti i gruppi e il ruolo e il ruolo assegnato a ogni gruppo. In questo esempio l'elenco di gruppi è sincronizzato da gruppi di Azure AD specificati nella proprietà **Access user group** (Gruppo utenti di accessi) delle impostazioni di dominio del cluster. Vedere [Creazione di un cluster HDInsight con ESP abilitato](./domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp).
+* La categoria Groups (Gruppi) visualizza tutti i gruppi e il ruolo e il ruolo assegnato a ogni gruppo. In questo esempio l'elenco di gruppi è sincronizzato da gruppi di Azure AD specificati nella proprietà **Access user group** (Gruppo utenti di accessi) delle impostazioni di dominio del cluster. Vedere [Creazione di un cluster HDInsight con ESP abilitato](./domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp).
 
     ![Visualizzazione elenco ruoli di Apache Ambari-gruppi](./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png)
 

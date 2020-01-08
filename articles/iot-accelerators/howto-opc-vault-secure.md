@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: b5c886625c944e2f5501859e78506ca89ec3d765
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: af5e511cbf273bc4e4fa0a08d089a955426fe75c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71203684"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454201"
 ---
 # <a name="use-the-opc-vault-certificate-management-service"></a>Usare il servizio di gestione certificati dell'insieme di credenziali OPC
 
@@ -36,7 +36,7 @@ Se non è ancora stato fatto, creare il certificato CA dell'autorità emittente.
 > [!IMPORTANT]
 > Il ruolo writer è necessario per registrare un'applicazione.
 
-1. Aprire il servizio certificati all'`https://myResourceGroup-app.azurewebsites.net` ed accedere.
+1. Aprire il servizio certificati all'`https://myResourceGroup-app.azurewebsites.net`ed accedere.
 2. Passare a **Registra nuovo**. Per la registrazione di un'applicazione, un utente deve avere almeno il ruolo di writer assegnato.
 2. Il modulo di immissione segue le convenzioni di denominazione in OPC UA. Nello screenshot seguente, ad esempio, vengono visualizzate le impostazioni per l'esempio [OPC UA Reference Server](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/SampleApplications/Workshop/Reference) nello stack opc UA .NET standard:
 
@@ -98,7 +98,7 @@ A questo punto, dipende dal dispositivo OPC UA come applicare la nuova coppia di
 
 A questo punto, dipende dal dispositivo OPC UA come applicare il nuovo certificato. In genere, il certificato CA e il CRL vengono copiati in una cartella `trusted`, mentre il certificato dell'applicazione viene applicato a una cartella di `own` nell'archivio certificati. Alcuni dispositivi potrebbero già supportare il push del server per gli aggiornamenti del certificato. Vedere la documentazione del dispositivo OPC UA.
 
-### <a name="step-4-device-secured"></a>Passaggio 4: dispositivo protetto
+### <a name="step-3-device-secured"></a>Passaggio 3: dispositivo protetto
 
 Il dispositivo OPC UA è ora pronto per comunicare con altri dispositivi OPC UA protetti da certificati della CA firmati, senza ulteriori configurazioni.
 

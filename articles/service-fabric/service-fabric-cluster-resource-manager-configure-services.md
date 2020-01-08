@@ -1,25 +1,16 @@
 ---
-title: Specificare metriche e impostazioni in Azure Service Fabric | Microsoft Docs
+title: Specificare le metriche e le impostazioni di selezione host
 description: Informazioni sul servizio di Service Fabric, specificando metriche, vincoli di posizionamento e altri criteri di posizionamento.
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 16e135c1-a00a-4c6f-9302-6651a090571a
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 21fcac62c9335652d0c682a6ac889be82e649464
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4dcd319000edb204ba188ed14b4c797dba5cd38
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60844143"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610098"
 ---
 # <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Configurazione delle impostazioni di Cluster Resource Manager per i servizi Service Fabric
 Cluster Resource Manager di Service Fabric consente un controllo con granularità fine sulle regole che disciplinano ogni singolo servizio denominato. Ogni servizio denominato può specificare regole per l'allocazione nel cluster. Ogni servizio denominato può anche definire il set di metriche di cui generare un report, incluso il relativo livello di importanza per tale servizio. La configurazione dei servizi prevede tre diverse attività:
@@ -31,11 +22,11 @@ Cluster Resource Manager di Service Fabric consente un controllo con granularit�
 ## <a name="placement-constraints"></a>Vincoli di posizionamento
 I vincoli di posizionamento vengono usati per controllare su quali nodi del cluster un servizio può effettivamente essere eseguito. Un'istanza del servizio denominato o tutti i servizi di un determinato tipo sono in genere vincolati all'esecuzione in un tipo di nodo specifico. I vincoli di posizionamento sono estendibili. È possibile definire qualsiasi set di proprietà per ogni tipo di nodo e quindi selezionarle con i vincoli durante la creazione di servizi. È inoltre possibile modificare i vincoli di posizionamento di un servizio mentre è in esecuzione. Ciò consente di rispondere alle modifiche del cluster o ai requisiti del servizio. Le proprietà di un determinato nodo possono essere aggiornate anche in modo dinamico nel cluster. Altre informazioni sui vincoli di posizionamento e sulla loro configurazione sono disponibili in [questo articolo](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)
 
-## <a name="metrics"></a>metrics
+## <a name="metrics"></a>Metriche
 Le metriche sono il set di risorse necessarie per uno specifico servizio denominato. La configurazione delle metriche di un servizio include informazioni relative alla quantità della risorsa che ogni replica con stato o istanza senza stato usa per impostazione predefinita. Le metriche includono anche un peso che ne indica l'importanza del bilanciamento per il servizio, nel caso di compromessi necessari.
 
 ## <a name="advanced-placement-rules"></a>Regole di posizionamento avanzate
-Sono disponibili altri tipi di regole di posizionamento che sono utili negli scenari meno comuni. Di seguito sono riportati alcuni esempi:
+Sono disponibili altri tipi di regole di posizionamento che sono utili negli scenari meno comuni. Ad esempio:
 - Vincoli che sono di ausilio con i cluster geograficamente distribuiti
 - Determinate architetture di applicazioni
 

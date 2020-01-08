@@ -4,19 +4,19 @@ description: Informazioni sulle funzionalità di richiesta dei dati dei clienti 
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.date: 08/09/2019
+ms.date: 12/23/2019
 ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
-ms.openlocfilehash: d134c7cbe220e6aa6b1471b50aa23e17d09734d5
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 5f0f1cf4202eebd3639d3946cd4c800bc5c216a0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007017"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460332"
 ---
-# <a name="summary-of-customer-data-request-features"></a>Riepilogo delle funzionalità di richiesta dati dei clienti
+# <a name="summary-of-customer-data-request-features"></a>Riepilogo delle funzionalità di richiesta dei dati dei clienti
 
 Azure Time Series Insights è un servizio cloud gestito con componenti di archiviazione, analisi e visualizzazione che rendono facile inserire, archiviare, esplorare e analizzare miliardi di eventi simultaneamente.
 
@@ -28,7 +28,7 @@ Per visualizzare, esportare ed eliminare i dati personali che possono essere ogg
 
 Azure Time Series Insights considera i dati personali come dati associati agli amministratori e agli utenti di Time Series Insights. Time Series Insights archivia l'ID oggetto di Azure Active Directory degli utenti con accesso all'ambiente. Nel portale di Azure vengono visualizzati gli indirizzi di posta elettronica degli utenti, ma tali indirizzi di posta elettronica non vengono archiviati in Time Series Insights, vengono cercati in modo dinamico mediante l'ID oggetto di Azure Active Directory in Azure Active Directory.
 
-## <a name="deleting-customer-data"></a>Eliminazione dei dati del cliente
+## <a name="deleting-customer-data"></a>Eliminazione dei dati dei clienti
 
 L'amministratore del tenant può eliminare i dati dei clienti tramite il portale di Azure.
 
@@ -40,7 +40,7 @@ Tuttavia, prima di eliminare i dati dei clienti tramite il portale, è necessari
 
 Time Series Insights si integra con il pannello Criteri nel portale di Azure. Sia Time Series Insights che il pannello Criteri consentono di visualizzare, esportare ed eliminare i dati utente archiviati all'interno del servizio. Le azioni di eliminazione eseguite nel pannello Criteri del portale di Azure fanno sì che i dati utente vengano eliminati anche in Time Series Insights. Ad esempio, se un utente ha una query personale salvata, tale query viene eliminata definitivamente dallo strumento di esplorazione di Time Series Insights. Se l'utente ha una query condivisa salvata, la query persiste, ma le informazioni sull'utente vengono eliminate definitivamente. La nota seguente contiene le istruzioni su come eseguire queste attività.
 
-## <a name="exporting-customer-data"></a>Esportazione di dati dei clienti
+## <a name="exporting-customer-data"></a>Esportazione dei dati dei clienti
 
 Analogamente all'eliminazione dei dati, l'amministratore del tenant può visualizzare ed esportare i dati archiviati in Time Series Insights dal pannello Criteri nel portale di Azure.
 

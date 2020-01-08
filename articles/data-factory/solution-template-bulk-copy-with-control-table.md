@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/14/2018
-ms.openlocfilehash: 3063767c73f4639e667d5f64b0563f1da396cfbf
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3a42d7da21cfb2e3066fbdd81b27c82155d8456f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927311"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439970"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>Eseguire una copia bulk da un database con una tabella di controllo
 
@@ -33,12 +33,16 @@ Il modello contiene tre attività:
 - **Foreach** Ottiene l'elenco di partizioni dall'attività Lookup e scorre ogni partizione nell'attività di copia.
 - **Copy copia** ogni partizione dall'archivio del database di origine all'archivio di destinazione.
 
-Il modello definisce cinque parametri:
+Il modello definisce i parametri seguenti:
 - *Control_Table_Name* è la tabella di controllo esterna, in cui è archiviato l'elenco delle partizioni per il database di origine.
 - *Control_Table_Schema_PartitionID* è il nome del nome della colonna nella tabella del controllo esterno che archivia ogni ID di partizione. Verificare che l'ID partizione sia univoco per ogni partizione nel database di origine.
 - *Control_Table_Schema_SourceTableName* è la tabella di controllo esterna che archivia ogni nome di tabella dal database di origine.
 - *Control_Table_Schema_FilterQuery* è il nome della colonna nella tabella di controllo esterno in cui è archiviata la query di filtro per ottenere i dati da ogni partizione nel database di origine. Se, ad esempio, i dati sono stati partizionati in base all'anno, la query archiviata in ogni riga potrebbe essere simile a' Select * from DataSource where LastModifytime > ='' 2015-01-01 00:00:00'' and LastModifytime < ='' 2015-12-31 23:59:59.999'''.
-- *Data_Destination_Folder_Path* è il percorso in cui i dati vengono copiati nell'archivio di destinazione. Questo parametro è visibile solo se la destinazione scelta è archiviazione basata su file. Se si sceglie SQL Data Warehouse come archivio di destinazione, questo parametro non è obbligatorio. I nomi delle tabelle e dello schema in SQL Data Warehouse, tuttavia, devono essere uguali a quelli del database di origine.
+- *Data_Destination_Folder_Path* è il percorso in cui i dati vengono copiati nell'archivio di destinazione (applicabile quando la destinazione scelta è "file System" o "Azure Data Lake storage Gen1"). 
+- *Data_Destination_Container* è il percorso della cartella radice in cui vengono copiati i dati nell'archivio di destinazione. 
+- *Data_Destination_Directory* è il percorso della directory sotto la radice in cui i dati vengono copiati nell'archivio di destinazione. 
+
+Gli ultimi tre parametri, che definiscono il percorso nell'archivio di destinazione, sono visibili solo se la destinazione scelta è archiviazione su file. Se si sceglie "Azure sinapsi Analytics (noto in precedenza come SQL DW)" come archivio di destinazione, questi parametri non sono necessari. I nomi delle tabelle e dello schema in SQL Data Warehouse, tuttavia, devono essere uguali a quelli del database di origine.
 
 ## <a name="how-to-use-this-solution-template"></a>Come usare questo modello di soluzione
 
@@ -68,7 +72,7 @@ Il modello definisce cinque parametri:
 
 3. Consente di creare una **nuova** connessione al database di origine da cui vengono copiati i dati.
 
-     ![Creare una nuova connessione al database di origine](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable3.png)
+    ![Creare una nuova connessione al database di origine](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable3.png)
     
 4. Creare una **nuova** connessione all'archivio dati di destinazione in cui vengono copiati i dati.
 
@@ -76,8 +80,6 @@ Il modello definisce cinque parametri:
 
 5. Selezionare **Usa questo modello**.
 
-    ![Usa questo modello](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable5.png)
-    
 6. Viene visualizzata la pipeline, come illustrato nell'esempio seguente:
 
     ![Esaminare la pipeline](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable6.png)
@@ -90,7 +92,7 @@ Il modello definisce cinque parametri:
 
     ![Esaminare il risultato](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png)
 
-9. Opzionale Se si sceglie SQL Data Warehouse come destinazione dei dati, è necessario immettere una connessione all'archivio BLOB di Azure per la gestione temporanea, come richiesto da SQL Data Warehouse polibase. Verificare che il contenitore nell'archivio BLOB sia già stato creato.
+9. Opzionale Se si sceglie "Azure sinapsi Analytics (noto in precedenza come SQL DW)" come destinazione dei dati, è necessario immettere una connessione all'archivio BLOB di Azure per la gestione temporanea, come richiesto da SQL Data Warehouse polibase. Il modello genererà automaticamente un percorso del contenitore per l'archivio BLOB. Controllare se il contenitore è stato creato dopo l'esecuzione della pipeline.
     
     ![Impostazione di PolyBase](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png)
        

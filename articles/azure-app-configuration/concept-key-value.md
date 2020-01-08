@@ -1,23 +1,17 @@
 ---
-title: Archivio di coppie chiave-valore di Configurazione app di Azure | Microsoft Docs
-description: Panoramica sulla modalità di archiviazione dei dati di configurazione in Configurazione app di Azure
-services: azure-app-configuration
-documentationcenter: ''
+title: Archivio chiave-valore di configurazione app Azure
+description: Panoramica della modalità di archiviazione dei dati di configurazione nella configurazione app Azure.
 author: yegu-ms
-manager: maiye
-editor: ''
-ms.service: azure-app-configuration
-ms.devlang: na
-ms.topic: overview
-ms.workload: tbd
-ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 054de294c9edb0fe5b75da4ac7fd54ce987123de
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
-ms.translationtype: HT
+ms.service: azure-app-configuration
+ms.topic: conceptual
+ms.date: 04/19/2019
+ms.openlocfilehash: 11e019e276944e0c3f50d604420046979b5f3fbb
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185228"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495279"
 ---
 # <a name="keys-and-values"></a>Chiavi e valori
 
@@ -86,7 +80,7 @@ Ogni coppia chiave-valore viene identificata in modo univoco dalla chiave e da u
 
 È anche possibile includere i criteri delle etichette seguenti:
 
-| Etichetta | |
+| Etichette | |
 |---|---|
 | `label` è omesso oppure `label=*` | Corrisponde a qualsiasi etichetta, incluso `null` |
 | `label=%00` | Corrisponde all'etichetta `null` |

@@ -8,18 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 12/10/2019
 ms.author: wolfma
-ms.openlocfilehash: 58738c9180fcc45a6958ea61b26d898caf4f3061
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 7bd4541d135020e297bef26f234ae35d953abfce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819113"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446811"
 ---
 # <a name="about-the-speech-sdk"></a>Informazioni su Speech SDK
 
-Speech Software Development Kit (SDK) fornisce alle applicazioni l'accesso alle funzioni del servizio Voce, rendendo più semplice lo sviluppo di software con funzionalità vocali. Attualmente, gli SDK forniscono l'accesso a riconoscimento **vocale** **, sintesi vocale,** **traduzione vocale**, **riconoscimento preventivo**e **canale vocale diretto di bot Framework**. Una panoramica generale sulle funzionalità e sulle piattaforme supportate è disponibile nella [pagina voce](https://aka.ms/csspeech)della documentazione.
+Speech Software Development Kit (SDK) fornisce alle applicazioni l'accesso alle funzioni del servizio Voce, rendendo più semplice lo sviluppo di software con funzionalità vocali. Attualmente, gli SDK forniscono l'accesso a riconoscimento **vocale** **, sintesi vocale,** **traduzione vocale**, **riconoscimento preventivo**e **canale vocale diretto di bot Framework**.
+
+È possibile acquisire facilmente audio da un microfono, leggere da un flusso o accedere a file audio dalla risorsa di archiviazione con l'SDK di riconoscimento vocale. Speech SDK supporta audio WAV/PCM a 16 bit, 16 kHz/8 kHz, a singolo canale per il riconoscimento vocale. Sono supportati formati audio aggiuntivi usando l' [endpoint REST di riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) o il servizio di [trascrizione batch](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
+
+Una panoramica generale sulle funzionalità e sulle piattaforme supportate è disponibile nella [pagina voce](https://aka.ms/csspeech)della documentazione.
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
@@ -31,14 +35,14 @@ Speech Software Development Kit (SDK) fornisce alle applicazioni l'accesso alle 
 
 Per Windows sono supportati le lingue seguenti:
 
-* C#, (piattaforma UWP e .NET), C++: è possibile fare riferimento e usare la versione più recente del pacchetto riconoscimento vocale SDK NuGet. Il pacchetto include librerie client a 32 e 64 bit e librerie gestite (.NET). Per installare l'SDK in Visual Studio, è possibile usare NuGet. Cercare **Microsoft.CognitiveServices.Speech**.
+* C#, (piattaforma UWP e .NET), C++: è possibile fare riferimento e usare la versione più recente del pacchetto riconoscimento vocale SDK NuGet. Il pacchetto include librerie client a 32 e 64 bit e librerie gestite (.NET). L'SDK può essere installato in Visual Studio tramite NuGet, [Microsoft. CognitiveServices. Speech](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech).
 
-* Java: è possibile fare riferimento e usare la versione più recente del pacchetto Maven di Speech SDK, che supporta solo Windows x64. Nel progetto Maven aggiungere `https://csspeechstorage.blob.core.windows.net/maven/` come repository aggiuntivo e fare riferimento a `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0` come dipendenza.
+* Java: è possibile fare riferimento e usare la versione più recente del pacchetto Maven di Speech SDK, che supporta solo Windows x64. Nel progetto Maven aggiungere `https://csspeechstorage.blob.core.windows.net/maven/` come repository aggiuntivo e fare riferimento a `com.microsoft.cognitiveservices.speech:client-sdk:1.8.0` come dipendenza.
 
 ### <a name="linux"></a>Linux
 
 > [!NOTE]
-> Attualmente sono supportati solo Ubuntu 16,04, Ubuntu 18,04 e Debian 9 nelle architetture di destinazione seguenti:
+> Attualmente, sono supportati solo Ubuntu 16,04, Ubuntu 18,04 e Debian 9 nelle architetture di destinazione seguenti:
 > - x86, x64 e ARM64 per C++ lo sviluppo
 > - x64 e ARM64 per Java
 > - x64 per .NET Core e Python
@@ -62,16 +66,16 @@ sudo apt-get install libssl1.0.2 libasound2
 * C#: è possibile fare riferimento e usare la versione più recente del pacchetto riconoscimento vocale SDK NuGet. Per fare riferimento all'SDK, aggiungere al progetto il riferimento al pacchetto seguente:
 
   ```xml
-  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.7.0" />
+  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.8.0" />
   ```
 
 * Java: è possibile fare riferimento e usare la versione più recente del pacchetto riconoscimento vocale SDK Maven. Nel progetto Maven aggiungere `https://csspeechstorage.blob.core.windows.net/maven/` come repository aggiuntivo e fare riferimento a `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0` come dipendenza.
 
 * C++: scaricare l'SDK come [pacchetto con estensione tar](https://aka.ms/csspeech/linuxbinary) e decomprimere i file nella directory desiderata. La tabella seguente illustra la struttura di cartelle dell'SDK:
 
-  |path|Description|
+  |Path|Description|
   |-|-|
-  |`license.md`|License|
+  |`license.md`|Licenza|
   |`ThirdPartyNotices.md`|Comunicazioni di terze parti|
   |`include`|File di intestazione per C e C++|
   |`lib/x64`|Libreria x64 nativa per il collegamento all'applicazione|
@@ -103,5 +107,5 @@ Java SDK fa inoltre parte di [Speech Devices SDK](speech-devices-sdk.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Accedere alla versione di prova del servizio Voce](https://azure.microsoft.com/try/cognitive-services/)
+* [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
 * [Informazioni sul riconoscimento vocale in C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)

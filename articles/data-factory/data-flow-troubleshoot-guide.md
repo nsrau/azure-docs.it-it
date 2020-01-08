@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.custom: seo-lt-2019
-ms.date: 12/06/2019
-ms.openlocfilehash: b972bbeac419d88afdd257a7fd19587dbaedf0d9
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 12/19/2019
+ms.openlocfilehash: 06746cfc3b39a242c16a6b4f4c95b3c212a9abd5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930164"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443938"
 ---
 # <a name="troubleshoot-azure-data-factory-data-flows"></a>Risolvere i problemi di Azure Data Factory flussi di dati
 
@@ -92,8 +92,18 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi per i f
 
 - **Motivo**: i flussi da unire in join hanno nomi di colonna comuni
 
-- **Soluzione**: aggiungere un transforamtion SELECT dopo il join e selezionare "Rimuovi colonne duplicate" per l'input e l'output.
+- **Soluzione**: aggiungere una trasformazione seleziona dopo il join e selezionare "Rimuovi colonne duplicate" per l'input e l'output.
 
+### <a name="error-message-possible-cartesian-product"></a>Messaggio di errore: possibile prodotto cartesiano
+
+- **Sintomi**: la trasformazione join o Lookup ha rilevato il prodotto cartesiano possibile al momento dell'esecuzione del flusso di dati
+
+- **Motivo**: se ADF non è stato indirizzato in modo esplicito all'utilizzo di un cross join, il flusso di dati potrebbe non riuscire
+
+- **Soluzione**: modificare la trasformazione ricerca o join in un join usando il cross join personalizzato e immettere la condizione di ricerca o di join nell'editor espressioni. Se si desidera produrre in modo esplicito un prodotto cartesiano completo, utilizzare la trasformazione colonna derivata in ognuno dei due flussi indipendenti prima del join per creare una chiave sintetica per la corrispondenza. Ad esempio, creare una nuova colonna nella colonna derivata in ogni flusso denominato ```SyntheticKey``` e impostarla su ```1```. Usare quindi ```a.SyntheticKey == b.SyntheticKey``` come espressione di join personalizzata.
+
+> [!NOTE]
+> Assicurarsi di includere almeno una colonna da ogni lato della relazione sinistra e destra in un cross join personalizzato. L'esecuzione di cross join con valori statici anziché colonne da ogni lato genera analisi complete dell'intero set di dati, causando scarse prestazioni del flusso di dati.
 
 ## <a name="general-troubleshooting-guidance"></a>Indicazioni generali per la risoluzione dei problemi
 

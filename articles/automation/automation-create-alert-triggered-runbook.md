@@ -2,19 +2,15 @@
 title: Usare un avviso per attivare un runbook di Automazione di Azure
 description: Informazioni su come attivare un runbook da eseguire quando viene generato un avviso di Azure.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/29/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: c4afcbced2879a2a6d50112b6388cdf5c8098b1d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: df28116c588ed77f02c78a42a85feb91ca339e7b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850381"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75366701"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Usare un avviso per attivare un runbook di Automazione di Azure
 
@@ -33,7 +29,7 @@ ms.locfileid: "74850381"
 
 Quando un avviso chiama un runbook, la chiamata effettiva è una richiesta HTTP POST al webhook. Il corpo della richiesta POST contiene un oggetto in formato JSON con proprietà utili relative all'avviso. La tabella seguente elenca i collegamenti allo schema del payload per ogni tipo di avviso:
 
-|Alert  |Description|Schema del payload  |
+|Avviso  |Description|Schema del payload  |
 |---------|---------|---------|
 |[Avviso comune](../azure-monitor/platform/alerts-common-schema.md?toc=%2fazure%2fautomation%2ftoc.json)|Lo schema di avviso comune che standardizza l'esperienza di utilizzo per le notifiche di avviso in Azure oggi stesso.|Schema del payload di avviso comune|
 |[Avviso del log attività](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Invia una notifica quando qualsiasi nuovo evento nel log attività di Azure soddisfa condizioni specifiche. Ad esempio, quando si verifica un'operazione `Delete VM` in **myProductionResourceGroup** o quando viene visualizzato un nuovo evento di integrità dei servizi di Azure con uno stato **Attivo**.| [Schema payload avviso log attività](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
@@ -49,7 +45,7 @@ Come descritto nella sezione precedente, ogni tipo di avviso ha uno schema diver
 
 Questo esempio usa un avviso generato da una macchina virtuale. Recupera i dati della macchina virtuale dal payload e usa le informazioni per arrestare la macchina virtuale. La connessione deve essere configurata nell'account di Automazione in cui è eseguito il runbook. Quando si usano gli avvisi per attivare i runbook, è importante controllare lo stato dell'avviso nel runbook che viene attivato. Il runbook viene attivato ogni volta che lo stato dell'avviso cambia. Gli avvisi hanno più stati e i due più comuni sono `Activated` e `Resolved`. Cercare questo stato nella logica del runbook per assicurarsi che il runbook non venga eseguito più volte. L'esempio in questo articolo illustra come cercare solo gli avvisi con stato `Activated`.
 
-Il runbook usa l'[account RunAs](automation-create-runas-account.md) **AzureRunAsConnection** per l'autenticazione in Azure per eseguire l'azione di gestione sulla macchina virtuale.
+Runbook usa l' [account RunAs](automation-create-runas-account.md) **AzureRunAsConnection** per eseguire l'autenticazione con Azure per eseguire l'azione di gestione sulla macchina virtuale.
 
 Usare questo esempio per creare un runbook denominato **Stop AzureVmInResponsetoVMAlert**. È possibile modificare lo script di PowerShell e usarlo con molte risorse diverse.
 

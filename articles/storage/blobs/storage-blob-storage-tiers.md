@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 4593ee875f98e2c9f2f9406f8b9d4146e06a573d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: a7f9969c7c9a341b48581536dd856b25b50bf96f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825439"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371956"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, ad accesso sporadico e archivio
 
@@ -140,9 +140,11 @@ Questa sezione presenta gli scenari seguenti usando il portale di Azure:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-1. Per passare all'account di archiviazione, selezionare Tutte le risorse, quindi selezionare l'account di archiviazione.
+1. Nella portale di Azure cercare e selezionare **tutte le risorse**.
 
-1. In impostazioni fare clic su **configurazione** per visualizzare e modificare la configurazione dell'account.
+1. Selezionare l'account di archiviazione.
+
+1. In **Impostazioni**selezionare **configurazione** per visualizzare e modificare la configurazione dell'account.
 
 1. Selezionare il livello di accesso appropriato per le proprie esigenze: impostare il **livello di accesso** susporadico **o frequente** .
 
@@ -152,7 +154,9 @@ Questa sezione presenta gli scenari seguenti usando il portale di Azure:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-1. Per passare al BLOB nell'account di archiviazione, selezionare Tutte le risorse, selezionare l'account di archiviazione, selezionare il contenitore e quindi selezionare il BLOB.
+1. Nella portale di Azure cercare e selezionare **tutte le risorse**.
+
+1. Selezionare il contenitore e quindi selezionare il BLOB.
 
 1. In **proprietà BLOB**selezionare **modifica livello**.
 
@@ -174,7 +178,7 @@ Tutti gli account di archiviazione usano un modello di determinazione dei prezzi
 > [!NOTE]
 > Per altre informazioni sui prezzi per i BLOB in blocchi, vedere la pagina [prezzi di archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/blobs/) . Per altre informazioni sugli addebiti per i trasferimenti dati in uscita, vedere la pagina [Dettagli prezzi dei trasferimenti di dati](https://azure.microsoft.com/pricing/details/data-transfers/).
 
-## <a name="faq"></a>domande frequenti
+## <a name="faq"></a>FAQ
 
 **È consigliabile usare account di archiviazione BLOB o per utilizzo generico v2 se si vogliono suddividere in livelli i dati?**
 

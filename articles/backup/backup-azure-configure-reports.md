@@ -3,12 +3,12 @@ title: Configurare i report di Power BI
 description: Configurare report di Power BI per Backup di Azure usando un insieme di credenziali di Servizi di ripristino.
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: 6e8482aea4f1d757550d4490e3a9972f664729c9
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 9b6ef62a924761642ef3217ff8af64ac6847c766
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173197"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450118"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurare report di Backup di Azure
 
@@ -28,7 +28,7 @@ Scaricare l'app più recente (versione 1.8) per evitare questo problema.
 - È possibile visualizzare i report negli insiemi di credenziali e nelle sottoscrizioni, se per ogni insieme è configurato lo stesso account di archiviazione. L'account di archiviazione selezionato deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino.
 - La frequenza di aggiornamento pianificato per il report è 24 ore in Power BI. È anche possibile eseguire un aggiornamento su richiesta dei report in Power BI. In questo caso, vengono usati i dati più recenti nell'account di archiviazione del cliente per il rendering dei report.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Creare un [account di archiviazione di Azure](../storage/common/storage-quickstart-create-account.md) per configurarlo per i report. Questo account di archiviazione viene usato per archiviare i dati correlati ai report.
 - [Creare un account di Power BI](https://powerbi.microsoft.com/landing/signin/) per visualizzare, personalizzare e creare report personalizzati usando il portale di Power BI.
@@ -88,7 +88,7 @@ Per personalizzare e condividere il report, creare un'area di lavoro e seguire q
 4. Immettere il nome dell'account di archiviazione configurato nel passaggio 5 precedente e selezionare **Avanti**.
 
     ![Immettere il nome dell'account di archiviazione](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)
-5. Usando il metodo di autenticazione "Chiave", immettere la chiave per l'account di archiviazione. Per [visualizzare e copiare le chiavi di accesso alle risorse di archiviazione](../storage/common/storage-account-manage.md#access-keys), passare al proprio account di archiviazione nel portale di Azure.
+5. Usando il metodo di autenticazione "Chiave", immettere la chiave per l'account di archiviazione. È possibile trovare le chiavi di accesso dell'account di archiviazione nell'portale di Azure. Per altre informazioni, vedere [gestire le chiavi di accesso all'account di archiviazione](../storage/common/storage-account-keys-manage.md).
 
      ![Immettere l'account di archiviazione](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
 

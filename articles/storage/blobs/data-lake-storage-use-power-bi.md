@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: normesta
 ms.reviewer: bensack
-ms.openlocfilehash: d76ea317271ae0e8eb0d54fcfee5dc005d836fc1
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 156999c6b6d8451516ac1c0f095e1a864420d0b2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984951"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354823"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen2-by-using-power-bi"></a>Analizzare i dati in Azure Data Lake Storage Gen2 tramite Power BI
 
@@ -27,7 +27,8 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 > * Una sottoscrizione di Azure. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 > * Un account di archiviazione con uno spazio dei nomi gerarchico. Seguire [queste](data-lake-storage-quickstart-create-account.md) istruzioni per crearne uno.
 > Questo articolo presuppone che sia stato creato un account denominato `myadlsg2`.
-> * Un file di dati di `Drivers.txt` esempio denominato che si trova nell'account di archiviazione.
+> * Viene concesso uno dei seguenti ruoli per l'account di archiviazione: **lettore dati BLOB**, **collaboratore dati BLOB**o **proprietario di dati BLOB**.
+> * Un file di dati di esempio denominato `Drivers.txt` trova nell'account di archiviazione.
 > È possibile scaricare questo esempio dal [Repository Azure Data Lake git](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt)e quindi caricare il file nell'account di archiviazione.
 > * **Power BI Desktop**. Può essere scaricato dall'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=45331). 
 
@@ -39,7 +40,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
     ![Pagina di recuperare i dati](media/data-lake-storage-use-power-bi/get-data-page.png)
 
-4. Nella finestra di dialogo **Azure Data Lake storage Gen2** è possibile specificare l'URL per l'account Azure Data Lake storage Gen2, il file System o la sottocartella usando il formato dell'endpoint del contenitore. Gli URL per data Lake storage Gen2 hanno il modello `https://<accountname>.dfs.core.windows.net/<filesystemname>/<subfolder>` seguente e quindi fare clic su **OK**.
+4. Nella finestra di dialogo **Azure Data Lake storage Gen2** è possibile specificare l'URL per l'account Azure Data Lake storage Gen2, il file System o la sottocartella usando il formato dell'endpoint del contenitore. Gli URL per Data Lake Storage Gen2 hanno il modello seguente `https://<accountname>.dfs.core.windows.net/<filesystemname>/<subfolder>` e quindi fare clic su **OK**.
 
     ![URL](media/data-lake-storage-use-power-bi/adls-url.png)
 

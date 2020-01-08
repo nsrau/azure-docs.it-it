@@ -1,25 +1,16 @@
 ---
-title: Partner di monitoraggio di Azure Service Fabric | Microsoft Docs
-description: Informazioni su come eseguire il monitoraggio di Azure Service Fabric con le soluzioni di monitoraggio dei partner
-services: service-fabric
-documentationcenter: .net
+title: Partner di monitoraggio di Azure Service Fabric
+description: Informazioni su come monitorare le applicazioni, i cluster e l'infrastruttura di Azure Service Fabric con soluzioni di monitoraggio dei partner.
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 8353c8846820aa996214e6b119a2f9027b8b6fe6
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: fd24d65ebdf4e458870819286024d1ea2e13d83e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232444"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645719"
 ---
 # <a name="azure-service-fabric-monitoring-partners"></a>Partner di monitoraggio di Azure Service Fabric
 
@@ -43,11 +34,11 @@ New Relic è un altro strumento di gestione delle prestazioni delle applicazioni
 
 ## <a name="elk"></a>ELK 
 
-Lo stack ELK è una raccolta di tecnologie open source: Elasticsearch, Logstash e Kibana. Usandole in combinazione, è possibile raccogliere, archiviare e analizzare i dati di monitoraggio e diagnostica di Service Fabric. L'esercitazione su come eseguire questa operazione con applicazioni Java di Service Fabric native è disponibile [qui](service-fabric-tutorial-java-elk.md). 
+Lo stack ELK è una raccolta di tecnologie open source: elasticsearch, logstash e Kibana. Utilizzando queste tecnologie in combinazione, è possibile raccogliere, archiviare e analizzare Service Fabric dati di monitoraggio e diagnostica. L'esercitazione su come eseguire questa operazione con applicazioni Java di Service Fabric native è disponibile [qui](service-fabric-tutorial-java-elk.md). 
 
 ## <a name="humio"></a>Humio
 
-Humio è un servizio di raccolta log in grado di raccogliere log dalle applicazioni e dagli eventi da Service Fabric nel cloud o in locale in tempo reale. Oltre all'osservabilità in tempo reale, Humio offre lo stato delle funzionalità di visualizzazione e analisi dell'arte per la visualizzazione e la raccolta di informazioni dettagliate dalla diagnostica. Humio offre piani tariffari convenienti ed è progettato per la scalabilità, mantenendo al tempo stesso una rapida velocità. Si integra direttamente con gli eventi della piattaforma Service Fabric e i dati di telemetria dell'applicazione. Per altre informazioni sull'integrazione di Humio e Service Fabric, vedere [qui](https://github.com/humio/service-fabric-humio).
+Humio è un servizio di raccolta log in grado di raccogliere log dalle applicazioni e dagli eventi da Service Fabric nel cloud o in locale in tempo reale. Oltre all'osservabilità in tempo reale, Humio offre funzionalità di visualizzazione e analisi all'avanguardia per la visualizzazione e la raccolta di informazioni dalla diagnostica. Humio offre piani tariffari convenienti ed è progettato per la scalabilità, mantenendo al tempo stesso una rapida velocità. Si integra direttamente con gli eventi della piattaforma Service Fabric e i dati di telemetria dell'applicazione. Per altre informazioni sull'integrazione di Humio e Service Fabric, vedere [qui](https://github.com/humio/service-fabric-humio).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

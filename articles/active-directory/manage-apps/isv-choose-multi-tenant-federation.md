@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c05ad3eace1219e19e0bfb117d3ec8de68a756f9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3b3edbbe037c3874d639476e516b3732b7573d9b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232304"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443383"
 ---
 # <a name="choose-the-right-federation-protocol-for-your-multi-tenant-application"></a>Scegliere il protocollo federativo appropriato per l'applicazione multi-tenant
 
@@ -44,7 +44,7 @@ La tabella seguente confronta
 
 ## <a name="oauth-20-and-open-id-connect"></a>OAuth 2,0 e Open ID Connect
 
-OAuth 2,0 è un protocollo [standard del settore](https://oauth.net/2/) per l'autorizzazione. OIDC (OpenID Connect) è un livello di autenticazione delle identità [standard del settore](https://openid.net/connect/) basato sul protocollo del giuramento 2,0.
+OAuth 2,0 è un protocollo [standard del settore](https://oauth.net/2/) per l'autorizzazione. OIDC (OpenID Connect) è un livello di autenticazione [standard di settore](https://openid.net/connect/) basato sul protocollo OAuth 2,0.
 
 ### <a name="benefits"></a>Vantaggi
 
@@ -94,7 +94,7 @@ L'uso di uno dei protocolli precedenti per SSO consente all'applicazione di acce
 
 Se si usa Open ID Connect per l'autenticazione, l'esperienza di sviluppo è semplice perché si userà OAuth2, la base di Open ID Connect, per acquisire i token per richiamare le API Microsoft Graph. Se l'applicazione usa SAML o WSFed, è necessario aggiungere altro codice all'interno dell'applicazione per ottenere questi OAuth2 per acquisire i token necessari per richiamare le API Microsoft Graph. 
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 [Abilitare l'accesso SSO per l'applicazione multi-tenant](isv-sso-content.md)
 

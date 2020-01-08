@@ -2,19 +2,15 @@
 title: Compilazione di configurazioni in Configurazione stato di Automazione di Azure
 description: Questo articolo descrive come compilare configurazioni Desired State Configuration (DSC) per l'automazione di Azure.
 services: automation
-ms.service: automation
 ms.subservice: dsc
-author: mgoedtel
-ms.author: magoedte
 ms.date: 09/10/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: fdea8ed9a9e59a169a6ffb525ed286eb7d1ada53
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 9d8efce09c2981e4ee256228d4792bcf97172e6c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850908"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75366414"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilazione di configurazioni DSC in Configurazione stato di Automazione di Azure
 
@@ -33,7 +29,7 @@ ms.locfileid: "74850908"
 
 ## <a name="compiling-a-dsc-configuration-in-azure-state-configuration"></a>Compilazione di una configurazione DSC in Azure state Configuration
 
-### <a name="portal"></a>di Microsoft Azure
+### <a name="portal"></a>Portale
 
 1. Nell'account di Automazione fare clic su **Configurazione stato (DSC)** .
 1. Fare clic sulla scheda **Configurazioni** e quindi selezionare il nome della configurazione da compilare.
@@ -101,7 +97,7 @@ Configuration ParametersExample
 
 È possibile compilare configurazioni DSC che usano parametri di base nel portale di Configurazione stato di Automazione di Azure o con Azure PowerShell:
 
-#### <a name="portal"></a>di Microsoft Azure
+#### <a name="portal"></a>Portale
 
 Nel portale è possibile immettere i valori dei parametri dopo avere fatto clic su **Compila**.
 
@@ -191,7 +187,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 I riferimenti agli asset sono gli stessi in Configurazione stato di Automazione di Azure e nei runbook. Per altre informazioni, vedere gli argomenti seguenti:
 
-- [Certificates](automation-certificates.md)
+- [Certificati](automation-certificates.md)
 - [Connessioni](automation-connections.md)
 - [Credenziali](automation-credentials.md)
 - [Variabili](automation-variables.md)
@@ -289,7 +285,7 @@ Import-AzureRmAutomationDscNodeConfiguration -AutomationAccountName 'MyAutomatio
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per iniziare, vedere [Introduzione alla configurazione dello stato di Automazione di Azure](automation-dsc-getting-started.md)
+- Per iniziare, vedere [Introduzione a Configurazione stato di Automazione di Azure](automation-dsc-getting-started.md)
 - Per informazioni sulla compilazione di configurazioni DSC da assegnare ai nodi di destinazione, vedere [Compilazione di configurazioni in Configurazione stato di Automazione di Azure](automation-dsc-compile.md)
 - Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Azure Automation State Configuration cmdlets](/powershell/module/azurerm.automation/#automation) (Cmdlet per Configurazione stato di Automazione di Azure)
 - Per informazioni sui prezzi, vedere [Prezzi di Configurazione stato di Automazione di Azure](https://azure.microsoft.com/pricing/details/automation/)

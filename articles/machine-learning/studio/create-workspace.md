@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: 1652febf6c3eb906990b2405590274911a45348e
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 91ba4d1f7d32071cce0de1de528abf02982ce7be
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839907"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427624"
 ---
 # <a name="create-and-share-an-azure-machine-learning-studio-classic-workspace"></a>Creare e condividere un'area di lavoro di Azure Machine Learning Studio (classica)
 
@@ -41,13 +41,13 @@ Per usare Azure Machine Learning Studio (versione classica), è necessario dispo
 
      ![Creare una nuova area di lavoro di studio (classica)](./media/create-workspace/create-new-workspace.png)
 
-5. Fai clic su **Crea**.
+5. Fare clic su **Crea**.
 
 > [!NOTE]
 > Machine Learning Studio (classico) si basa su un account di archiviazione di Azure fornito per salvare i dati intermedi quando esegue il flusso di lavoro. Dopo la creazione dell'area di lavoro, se l'account di archiviazione viene eliminato o se le chiavi di accesso vengono cambiate, l'area di lavoro non funzionerà più e tutti gli esperimenti al suo interno avranno esito negativo.
 Se si elimina accidentalmente l'account di archiviazione, ricrearlo con lo stesso nome e nella stessa area dell'account di archiviazione eliminato e risincronizzare la chiave di accesso. Se sono state modificate le chiavi di accesso dell'account di archiviazione, sincronizzarle di nuovo nell'area di lavoro usando il portale di Azure.
 
-Una volta distribuita l'area di lavoro, è possibile aprirla nella versione classica di Machine Learning Studio.
+Una volta distribuita l'area di lavoro, è possibile aprirla in Machine Learning Studio (classica).
 
 1. Passare a Machine Learning Studio (versione classica) [https://studio.azureml.net/](https://studio.azureml.net/).
 
@@ -76,7 +76,7 @@ Una volta creata un'area di lavoro di Machine Learning Studio (classica), è pos
 
 ### <a name="to-share-a-studio-classic-workspace"></a>Per condividere un'area di lavoro di studio (classica)
 
-1. Accedere alla versione classica di Machine Learning Studio in [https://studio.azureml.net/Home](https://studio.azureml.net/Home)
+1. Accedi a Machine Learning Studio (versione classica) all' [https://studio.azureml.net/Home](https://studio.azureml.net/Home)
 
 2. Nel pannello sinistro fare clic su **IMPOSTAZIONI**
 

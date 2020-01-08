@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 7af191893d6b3cf1c38e5ff44a7a8a04509347a8
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 2451fbb69636624db354006df2a7925ef9e75459
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543790"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372738"
 ---
 # <a name="vlans-and-subnets-overview"></a>Panoramica di VLAN e subnet
 
@@ -38,7 +38,7 @@ Un cloud privato viene creato come ambiente VMware stack isolato (host ESXi, vCe
 * Prefisso intervallo CIDR per le subnet vSphere/rete VSAN minimo: **/24**
 * Prefisso intervallo CIDR per le subnet vSphere/rete VSAN massimo: **/21**
 
-> [!IMPORTANT]
+> [!CAUTION]
 > Gli indirizzi IP nell'intervallo CIDR vSphere/rete VSAN sono riservati per l'uso da parte dell'infrastruttura di cloud privato.  Non usare l'indirizzo IP in questo intervallo in una macchina virtuale.
 
 ### <a name="vspherevsan-subnets-cidr-range-limits"></a>limiti di intervallo CIDR per le subnet vSphere/rete VSAN
@@ -58,7 +58,7 @@ Quando si crea un cloud privato, vengono create le subnet di gestione seguenti.
 
 * **Gestione del sistema**. VLAN e subnet per la rete di gestione, il server DNS e il server vCenter degli host ESXi.
 * **VMotion**. VLAN e subnet per host ESXi rete.
-* **RETE VSAN**. VLAN e subnet per la rete rete VSAN degli host ESXi.
+* **Rete VSAN**. VLAN e subnet per la rete rete VSAN degli host ESXi.
 * **NsxtEdgeUplink1**. VLAN e subnet per il collegamento VLAN a una rete esterna.
 * **NsxtEdgeUplink2**. VLAN e subnet per il collegamento VLAN a una rete esterna.
 * **NsxtEdgeTransport**. VLAN e subnet per le zone di trasporto controllano la portata delle reti di livello 2 in NSX-T.

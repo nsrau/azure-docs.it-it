@@ -11,18 +11,18 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 678096037da69bbddf95933e3fdf988f540ca4a6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: d367d9eedc06dbfe0e5096372a4f09c66ea35013
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819828"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462606"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Ridimensionare in modo dinamico le risorse di database con tempo di inattività minimo
 
 Il database SQL di Azure consente di aggiungere in modo dinamico altre risorse al database con [tempi di inattività](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/)minimi. Tuttavia, esiste un passaggio rispetto al periodo in cui la connettività viene persa nel database per un breve intervallo di tempo, che può essere mitigato usando la logica di ripetizione dei tentativi.
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Quando la domanda per la tua app cresce da qualche dispositivo e qualche cliente al milione di richieste, il database SQL di Azure viene ridimensionato immediatamente, con tempi di inattività minimi. La scalabilità è una delle caratteristiche più importanti del modello PaaS che consente di aggiungere in modo dinamico altre risorse al servizio quando necessario. Database SQL di Azure consente di modificare facilmente le risorse allocate per i database (potenza della CPU, memoria, velocità effettiva IO e storage).
 
@@ -62,9 +62,9 @@ Quando si avvia l'azione di aumento o riduzione delle prestazioni in una qualsia
 
 ## <a name="alternative-scale-methods"></a>Metodi alternativi di scalabilità
 
-Le risorse di ridimensionamento sono il modo più semplice ed efficace per migliorare le prestazioni del database senza modificare il codice del database o dell'applicazione. In alcuni casi, anche i livelli di servizio, le dimensioni di calcolo e le ottimizzazioni delle prestazioni più elevati potrebbero non riuscire a gestire il carico di lavoro in modo corretto e conveniente. In questi casi si dispone delle seguenti opzioni aggiuntive per ridimensionare il database:
+Il ridimensionamento delle risorse è il modo più semplice ed efficace per migliorare le prestazioni del database senza modificare il codice del database o dell'applicazione. In alcuni casi, anche i livelli di servizio più elevati, le dimensioni di calcolo e le ottimizzazioni delle prestazioni potrebbero non gestire il carico di lavoro in modo efficace ed economicamente conveniente. In tal caso sono disponibili opzioni aggiuntive per la scalabilità del database:
 
-- La [Scalabilità in lettura](sql-database-read-scale-out.md) è una funzionalità che consente di ottenere una replica di sola lettura dei dati e per la quale è possibile eseguire query di sola lettura, come ad esempio report complessi. Replica di sola lettura gestirà il carico di lavoro di sola lettura senza influire sull'utilizzo delle risorse nel database primario.
+- La [scalabilità in lettura](sql-database-read-scale-out.md) è una funzionalità disponibile che consente di ottenere una replica di sola lettura dei dati in cui è possibile eseguire query di sola lettura complesse, ad esempio i report. Replica di sola lettura gestirà il carico di lavoro di sola lettura senza influire sull'utilizzo delle risorse nel database primario.
 - Il [Partizionamento di database](sql-database-elastic-scale-introduction.md) è un set di tecniche che consente di dividere i dati in diversi database e di ridimensionarli in modo indipendente.
 
 ## <a name="next-steps"></a>Passaggi successivi

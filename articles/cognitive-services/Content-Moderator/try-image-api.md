@@ -10,19 +10,19 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: ce8ea76cfc1f3f30418b66cd21de43d244da6764
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 714621fdcc307ee8b29567fc0d95ca41d31aa9e5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043970"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448254"
 ---
 # <a name="moderate-images-from-the-api-console"></a>Moderare le immagini dalla console dell'API
 
-Usare l'[API di moderazione di immagini](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) in Azure Content Moderator per avviare flussi di lavoro di moderazione di analisi e revisione per il contenuto delle immagini. Il processo di moderazione analizza il contenuto per rilevare eventuali elementi volgari e lo confronta con blacklist personalizzate e condivise.
+Usare l'[API di moderazione di immagini](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) in Azure Content Moderator per avviare flussi di lavoro di moderazione di analisi e revisione per il contenuto delle immagini. Il processo di moderazione analizza il contenuto per la volgarità e lo confronta con elenchi dei blocchi personalizzati e condivisi.
 
 ## <a name="use-the-api-console"></a>Usare la console dell'API
-Prima di poter eseguire il test drive dell'API nella console online, è necessario avere la chiave di sottoscrizione. Questa si trova nella casella **Ocp-Apim-Subscription-Key** della scheda **Settings** (Impostazioni). Per altre informazioni, vedere la [panoramica](overview.md).
+Prima di poter eseguire il test drive dell'API nella console online è necessario disporre della chiave di sottoscrizione. Questa si trova nella casella **Ocp-Apim-Subscription-Key** della scheda **Settings** (Impostazioni). Per altre informazioni, vedere la [panoramica](overview.md).
 
 1. Passare alle [informazioni di riferimento sull'API di moderazione immagine](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c).
 

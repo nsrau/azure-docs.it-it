@@ -1,20 +1,20 @@
 ---
 title: Introduzione a Python e Servizi cloud di Azure | Documentazione Microsoft
-description: Panoramica dell'uso di Python Tools per Visual Studio per creare servizi cloud di Azure, inclusi ruoli Web e ruoli di lavoro.
+description: Panoramica dell'uso degli strumenti Python per Visual Studio per creare servizi cloud di Azure, tra cui ruoli Web e ruoli di lavoro.
 services: cloud-services
 documentationcenter: python
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.devlang: python
 ms.topic: conceptual
 ms.date: 07/18/2017
-ms.author: gwallace
-ms.openlocfilehash: 981b1cc4a7adb98ba68ebf3a7673b7116479e704
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.author: tagore
+ms.openlocfilehash: b832831a2483b11a7a3c1942dd79065e8be65bf9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68359567"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360719"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Ruoli Web e ruoli di lavoro Python con Python Tools for Visual Studio
 
@@ -31,7 +31,7 @@ Questo articolo offre una panoramica dell'uso dei ruoli Web e di lavoro con [Pyt
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## <a name="what-are-python-web-and-worker-roles"></a>Cosa sono i ruoli Web e di lavoro Python?
-Azure offre tre modelli di calcolo per l'esecuzione di applicazioni: [Funzionalità app Web nel servizio app Azure, nelle][execution model-web sites] [macchine virtuali di Azure][execution model-vms]e nei [servizi cloud di Azure][execution model-cloud services]. Tutti e tre i modelli supportano Python. Servizi cloud, che include ruoli Web e di lavoro, fornisce la tecnologia di *piattaforma distribuita come servizio (PaaS)* . Nell'ambito di un servizio cloud, un ruolo Web fornisce un server Web IIS (Internet Information Services) dedicato su cui ospitare applicazioni Web front-end, mentre un ruolo di lavoro consente di eseguire attività asincrone, a esecuzione prolungata o perpetue, indipendenti dall'interazione o dall'input degli utenti.
+Azure offre tre modelli di calcolo per l'esecuzione di applicazioni: [funzionalità app Web in app Azure servizio][execution model-web sites], [macchine virtuali di Azure][execution model-vms]e [servizi cloud di Azure][execution model-cloud services]. Tutti e tre i modelli supportano Python. Servizi cloud, che include ruoli Web e di lavoro, fornisce la tecnologia di *piattaforma distribuita come servizio (PaaS)* . Nell'ambito di un servizio cloud, un ruolo Web fornisce un server Web IIS (Internet Information Services) dedicato su cui ospitare applicazioni Web front-end, mentre un ruolo di lavoro consente di eseguire attività asincrone, a esecuzione prolungata o perpetue, indipendenti dall'interazione o dall'input degli utenti.
 
 Per altre informazioni, vedere [Informazioni sul servizio cloud].
 
@@ -307,7 +307,7 @@ Per eseguire il debug dei ruoli di lavoro e Web, è possibile impostare il proge
 
 ![Proprietà del progetto di avvio della soluzione](./media/cloud-services-python-ptvs/startup.png)
 
-## <a name="publish-to-azure"></a>Pubblica in Azure
+## <a name="publish-to-azure"></a>Pubblicazione in Azure
 Per pubblicare, fare clic con il pulsante destro del mouse sul progetto servizio cloud nella soluzione e quindi scegliere **Pubblica**.
 
 ![Accesso per la pubblicazione di Microsoft Azure](./media/cloud-services-python-ptvs/publish-sign-in.png)
@@ -363,3 +363,6 @@ Per altre informazioni dettagliate sull'uso di servizi di Azure dai ruoli di lav
 [Azure SDK Tools for VS 2017]: https://go.microsoft.com/fwlink/?LinkId=746483
 [Python 2.7 32-bit]: https://www.python.org/downloads/
 [Python 3.5 32-bit]: https://www.python.org/downloads/
+
+
+

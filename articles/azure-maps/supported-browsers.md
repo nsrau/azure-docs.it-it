@@ -7,13 +7,13 @@ ms.date: 03/25/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendleton
-ms.openlocfilehash: d867e9a1afcb495aee7e8b0e0b3b001104f48a4c
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+manager: cpendle
+ms.openlocfilehash: 6aa256f026033a8b204b3c2ab1080f9f63ef63d7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844815"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432799"
 ---
 # <a name="web-sdk-supported-browsers"></a>Browser supportati dall'SDK Web
 
@@ -40,7 +40,7 @@ Azure Maps Web SDK supporta i seguenti browser desktop:
 
 Vedere anche [browser legacy di destinazione](#Target-Legacy-Browsers) più avanti in questo articolo.
 
-## <a name="mobile"></a>Cellulare
+## <a name="mobile"></a>Dispositivi mobili
 
 Azure Maps Web SDK supporta i seguenti browser per dispositivi mobili:
 
@@ -59,16 +59,16 @@ Azure Maps Web SDK supporta i seguenti browser per dispositivi mobili:
 
 In node. js sono supportati anche i moduli Web SDK seguenti:
 
-- Modulo dei servizi ([modulo NPM](https://www.npmjs.com/package/azure-maps-rest)della[documentazione](how-to-use-services-module.md) | )
+- Modulo dei servizi ([documentazione](how-to-use-services-module.md) | [modulo NPM](https://www.npmjs.com/package/azure-maps-rest))
 
 ## <a name="Target-Legacy-Browsers"></a>Browser legacy di destinazione
 
-È possibile scegliere come destinazione browser meno recenti che non supportano WebGL o con supporto limitato. In questi casi, è consigliabile usare i servizi di Azure Maps insieme a un controllo mappa open source, ad esempio un [opuscolo](https://leafletjs.com/). Di seguito è riportato un esempio:
+È possibile scegliere come destinazione browser meno recenti che non supportano WebGL o con supporto limitato. In questi casi, è consigliabile usare i servizi di Azure Maps insieme a un controllo mappa open source, ad esempio un [opuscolo](https://leafletjs.com/). Ad esempio:
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Mappe di Azure + volantino" src="//codepen.io/azuremaps/embed/GeLgyx/?height=500&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Vedere il <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>volantino sulle mappe di Azure e il volantino</a> di Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
+Vedere il <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>volantino sulle mappe</a> di Azure e il volantino di Azure maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 

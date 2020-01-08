@@ -1,25 +1,16 @@
 ---
-title: Interfaccia della riga di comando Azure Service Fabric - sfctl container | Microsoft Docs
-description: Descrive i comandi dell'interfaccia della riga di comando Service Fabric sfctl container.
-services: service-fabric
-documentationcenter: na
+title: INTERFACCIA della riga di comando di Azure Service Fabric-contenitore sfctl
+description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric. Include un elenco di comandi per i contenitori.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: 13de6ff7b3e5a41eced5ca49a3af38fab60ba0a0
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 316715e65af07176b3dc276d47979a5fa3dc1d6f
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901302"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639140"
 ---
 # <a name="sfctl-container"></a>sfctl container
 Esegue i comandi relativi al contenitore in un nodo del cluster.
@@ -47,17 +38,17 @@ Richiama l'API del contenitore in un contenitore distribuito in un nodo di Servi
 | --container-api-body | Corpo della richiesta HTTP per l'API REST del contenitore. |
 | --container-api-content-type | Tipo di contenuto per l'API REST del contenitore. L'impostazione predefinita è "application/json". |
 | --container-api-http-verb | Verbo HTTP per l'API REST del contenitore. L'impostazione predefinita è GET. |
-| --timeout -t | Valore predefinito\: 60. |
+| --timeout -t | Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 ## <a name="sfctl-container-logs"></a>sfctl container logs
 Ottiene i log dei contenitori per il contenitore distribuito in un nodo di Service Fabric.
@@ -72,17 +63,17 @@ Ottiene i log dei contenitori per il contenitore distribuito in un nodo di Servi
 | --node-name                [Obbligatorio] | Il nome del nodo. |
 | --service-manifest-name    [obbligatorio] | Nome di un manifesto del servizio registrato come parte di un tipo di applicazione in un cluster di Service Fabric. |
 | --tail | Numero di righe da visualizzare alla fine dei log. Il valore predefinito è 100. "all" per visualizzare i log completi. |
-| --timeout -t | Valore predefinito\: 60. |
+| --timeout -t | Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
 |Argomento|Description|
 | --- | --- |
-| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug. |
-| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
-| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

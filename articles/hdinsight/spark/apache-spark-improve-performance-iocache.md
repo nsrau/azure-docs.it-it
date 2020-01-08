@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/29/2019
-ms.openlocfilehash: 3ef2def6329dc31eb1b175133b4525f87de9181c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/23/2019
+ms.openlocfilehash: 43875b87d26f144b85454077fd3c044c820132bf
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494646"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75494979"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Migliorare le prestazioni dei carichi di lavoro Apache Spark usando la cache IO di Azure HDInsight
 
@@ -22,7 +22,7 @@ Quasi tutte le unità SSD offrono più di 1 GB al secondo di larghezza di banda.
 
 > [!Note]  
 > IO Cache usa attualmente RubiX come componente per la memorizzazione nella cache, ma potrebbero verificarsi delle variazioni nelle future versioni del servizio. Usare le interfacce di IO Cache e non accettare dipendenze direttamente nell'implementazione RubiX.
->La cache di i/o è supportata solo con archiviazione BLOB di Azure al momento. 
+>La cache di i/o è supportata solo con archiviazione BLOB di Azure al momento.
 
 ## <a name="benefits-of-azure-hdinsight-io-cache"></a>Vantaggi di Azure HDInsight IO Cache
 
@@ -30,23 +30,21 @@ L'uso di IO Cache assicura un aumento delle prestazioni dei processi che leggono
 
 Per assistere ad aumenti delle prestazioni con l'uso di IO Cache, non occorre apportare modifiche ai processi Spark. Quando IO Cache è disabilitato, il codice Spark seguente leggerà i dati in remoto da Archiviazione BLOB di Azure: `spark.read.load('wasbs:///myfolder/data.parquet').count()`. Quando IO Cache è attivato, la stessa riga di codice determina l'esecuzione di un'operazione di lettura memorizzata nella cache tramite IO Cache. Alle letture successive, i dati vengono letti in locale dall'unità SSD. I nodi del ruolo di lavoro nel cluster HDInsight sono dotati di unità SSD dedicate e collegate in locale. HDInsight IO Cache usa queste unità SSD locali per la memorizzazione nella cache, in modo da offrire un livello di latenza minimo e larghezza di banda massima.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 
-Nell'anteprima Azure HDInsight IO Cache è disattivato per impostazione predefinita. IO Cache è disponibile nei cluster Spark di Azure HDInsight 3.6 e versioni successive che eseguono Apache Spark 2.3.  Per attivare IO Cache, seguire questa procedura:
+Nell'anteprima Azure HDInsight IO Cache è disattivato per impostazione predefinita. IO Cache è disponibile nei cluster Spark di Azure HDInsight 3.6 e versioni successive che eseguono Apache Spark 2.3.  Per attivare la cache di IO in HDInsight 4,0, seguire questa procedura:
 
-1. Selezionare il cluster HDInsight nel [portale di Azure](https://portal.azure.com).
-
-1. Nella pagina **Panoramica**, aperta per impostazione predefinita quando si seleziona il cluster, selezionare **Home Ambari** in **Dashboard cluster**.
+1. Da un Web browser passare a `https://CLUSTERNAME.azurehdinsight.net`, dove `CLUSTERNAME` è il nome del cluster.
 
 1. Selezionare il servizio **IO Cache** a sinistra.
 
-1. Selezionare **Azioni** e **Attiva**.
+1. Selezionare **Actions** (**azioni del servizio** in HDI 3,6) e **Activate (attiva**).
 
     ![Abilitazione del servizio cache IO in Ambari](./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png "Abilitazione del servizio cache IO in Ambari")
 
 1. Confermare il riavvio di tutti i servizi interessati nel cluster.
 
->[!NOTE]  
+> [!NOTE]  
 > Anche se dall'indicatore di stato risulta attivato, IO Cache non è effettivamente abilitato fino a quando non vengono riavviati gli altri servizi interessati.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
@@ -71,12 +69,12 @@ Nell'anteprima Azure HDInsight IO Cache è disattivato per impostazione predefin
 
 1. Selezionare **Restart** (Riavvia) > **Restart All Affected** (Riavvia tutti gli elementi interessati).
 
-    ![Riavvio di Apache Ambari tutti interessati](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Riavvia tutti gli interessati")
+    ![Apache Ambari riavvia tutti gli effettivi](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Riavvia tutti gli interessati")
 
 1. Selezionare **Confirm Restart All** (Conferma riavvio di tutti gli elementi).
 
-In caso di problemi, disabilitare IO Cache.
+Se il funzionamento non funziona, disabilitare la cache IO.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
-- Altre informazioni su IO Cache, inclusi i benchmark delle prestazioni illustrati in questo post di blog: [Apache Spark jobs gain up to 9x speed up with HDInsight IO Cache](https://azure.microsoft.com/blog/apache-spark-speedup-with-hdinsight-io-cache/) (Processi di Apache Spark fino a 9 volte più veloci con HDInsight IO Cache)
+Altre informazioni su IO Cache, inclusi i benchmark delle prestazioni illustrati in questo post di blog: [Apache Spark jobs gain up to 9x speed up with HDInsight IO Cache](https://azure.microsoft.com/blog/apache-spark-speedup-with-hdinsight-io-cache/) (Processi di Apache Spark fino a 9 volte più veloci con HDInsight IO Cache)

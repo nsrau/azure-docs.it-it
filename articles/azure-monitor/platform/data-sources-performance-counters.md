@@ -4,15 +4,15 @@ description: I contatori delle prestazioni vengono raccolti da Monitoraggio di A
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: d007d3dab1625d58a561d35bb111923fbdeb3482
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 624996c86423bf486111fde8743117ea888862e7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932430"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363830"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Origini dati delle prestazioni di Windows e Linux in Monitoraggio di Azure
 I contatori delle prestazioni in Windows e Linux forniscono informazioni dettagliate sulle prestazioni di componenti hardware, sistemi operativi e applicazioni.  Monitoraggio di Azure può raccogliere i contatori delle prestazioni a intervalli frequenti per l'analisi NRT (Near Real Time) e l'aggregazione di dati sulle prestazioni per l'analisi e la creazione di report a più lungo termine.
@@ -74,7 +74,7 @@ Ogni oggetto o categoria delle metriche delle prestazioni da raccogliere deve es
 
 I parametri di questo elemento sono descritti nella tabella seguente.
 
-| parameters | Description |
+| Parametri | Description |
 |:--|:--|
 | object\_name | Nome dell'oggetto per la raccolta. |
 | instance\_regex |  *Espressione regolare* che definisce le istanze da raccogliere. Il valore `.*` specifica tutte le istanze. Per raccogliere le metriche del processore solo per l'istanza \_Total, è possibile specificare `_Total`. Per raccogliere le metriche del processore solo per le istanze crond o sshd, è possibile specificare `(crond\|sshd)`. |
@@ -175,7 +175,7 @@ Di seguito è illustrata la configurazione predefinita per le metriche delle pre
       interval 30s
     </source>
 
-## <a name="data-collection"></a>Raccolta dei dati
+## <a name="data-collection"></a>Raccolta dati
 Monitoraggio di Azure raccoglierà tutti i contatori delle prestazioni specificati in base all'intervallo di campionamento definito per tutti gli agenti in cui è installato il contatore.  I dati non vengono aggregati e i dati non elaborati sono disponibili in tutte le visualizzazioni di query di log per la durata specificata dalla sottoscrizione.
 
 ## <a name="performance-record-properties"></a>Proprietà dei record delle prestazioni
@@ -205,7 +205,7 @@ La tabella seguente mostra alcuni esempi di query di log che recuperano i record
 | Perf |Tutti i dati sulle prestazioni |
 | Perf &#124; where Computer == "MyComputer" |Tutti i dati sulle prestazioni da un computer specifico |
 | Perf &#124; where CounterName == "Current Disk Queue Length" |Tutti i dati sulle prestazioni da un contatore specifico |
-| Perf &#124; where ObjectName = = "Processor" e CounterName = = "% Processor Time" e NomeIstanza = = "_ &#124; Total" riepilogano AVGCPU = AVG (CounterValue) per computer |Utilizzo medio della CPU per tutti i computer |
+| Perf &#124; where nomeoggetto = = "Processor" e CounterName = = "% Processor Time" e NomeIstanza = = "_Total" &#124; riepilogano AVGCPU = AVG (CounterValue) per computer |Utilizzo medio della CPU per tutti i computer |
 | Prestazioni &#124; in cui CounterName = = "% tempo processore &#124; " riepiloga AggregatedValue = Max (CounterValue) per computer |Utilizzo massimo della CPU per tutti i computer |
 | Perf &#124; where ObjectName = = "disco logico" e CounterName = = "lunghezza corrente coda del disco" e computer = = "nomecomputer" &#124; riepiloga AggregatedValue = AVG (CounterValue) da NomeIstanza |Lunghezza media della coda del disco corrente per tutte le istanze di un computer specifico |
 | Perf &#124; where CounterName = = "trasferimenti disco/sec" &#124; riepiloga AggregatedValue = percentile (CounterValue, 95) per computer |95° percentile di trasferimenti disco al secondo per tutti i computer |

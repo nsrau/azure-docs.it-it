@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 98d3fa50f405658b33f879ed8e7b95667cddcedf
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: e0fc09ca77e4fb0c3666478873d5d09a13d23ec8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064137"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367111"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gestire l'accesso utente in Azure Active Directory B2C
 
@@ -34,11 +34,11 @@ Le applicazioni e le organizzazioni possono decidere di impedire ai minorenni l'
 
 Se un utente viene identificato come minore, il flusso utente in Azure AD B2C può essere impostato su una di queste tre opzioni:
 
-- **Inviare un id_token JWT firmato all'applicazione**: L'utente è registrato nella directory e viene restituito un token all'applicazione. L'applicazione quindi procede applicando le regole business. Ad esempio, l'applicazione può continuare con un processo di consenso dei genitori. Per usare questo metodo, scegliere di ricevere le attestazioni **ageGroup** e **consentProvidedForMinor** dall'applicazione.
+- **Invio di un token JWT id_token firmato all'applicazione**: l'utente viene registrato nella directory e viene restituito un token all'applicazione. L'applicazione quindi procede applicando le regole business. Ad esempio, l'applicazione può continuare con un processo di consenso dei genitori. Per usare questo metodo, scegliere di ricevere le attestazioni **ageGroup** e **consentProvidedForMinor** dall'applicazione.
 
-- **Inviare un token JSON non firmato all'applicazione**: Azure AD B2C comunica all'applicazione che l'utente è minorenne e invia lo stato del consenso dei genitori dell'utente. L'applicazione quindi procede applicando le regole business. Se un token JSON non completa l'autenticazione in modo corretto, l'applicazione deve elaborare l'utente non autenticato in base alle attestazioni incluse nel token JSON, che possono includere **name**, **email**, **ageGroup**, and **consentProvidedForMinor**.
+- **Invio di un token JSON non firmato all'applicazione**: Azure AD B2C comunica all'applicazione che l'utente è minorenne e invia lo stato del consenso dei genitori dell'utente. L'applicazione quindi procede applicando le regole business. Se un token JSON non completa l'autenticazione in modo corretto, l'applicazione deve elaborare l'utente non autenticato in base alle attestazioni incluse nel token JSON, che possono includere **name**, **email**, **ageGroup**, and **consentProvidedForMinor**.
 
-- **Bloccare l'utente**: Se un utente è minorenne e non è stato fornito il consenso parentale, Azure AD B2C possibile notificare all'utente che sono bloccati. Non verrà emesso alcun token, l'accesso è bloccato e durante un processo di registrazione non verrà creato alcun account utente. Per implementare la notifica, presentare una pagina di contenuto HTML/CSS adatta per informare l'utente e visualizzare le opzioni appropriate. Per le nuove registrazioni non sono necessarie altre azioni da parte dell'applicazione.
+- **Blocca l'utente**: se un utente è minorenne e non è stato fornito il consenso del genitore, Azure ad B2C possibile notificare all'utente che è bloccato. Non verrà emesso alcun token, l'accesso è bloccato e durante un processo di registrazione non verrà creato alcun account utente. Per implementare la notifica, presentare una pagina di contenuto HTML/CSS adatta per informare l'utente e visualizzare le opzioni appropriate. Per le nuove registrazioni non sono necessarie altre azioni da parte dell'applicazione.
 
 ## <a name="get-parental-consent"></a>Ottenere il consenso dei genitori
 
@@ -176,3 +176,4 @@ Di seguito viene riportato un esempio di consenso a condizioni per l'utilizzo in
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per informazioni su come eliminare ed esportare i dati utente, vedere [Gestire i dati utente](manage-user-data.md).
+- Per un esempio di criterio personalizzato che implementa una richiesta di condizioni per l'utilizzo, vedere [un criterio personalizzato Framework dell'esperienza B2C: iscrizione e accesso con la richiesta "condizioni per l'utilizzo"](https://github.com/azure-ad-b2c/samples/tree/master/policies/sign-in-sign-up-versioned-tou).

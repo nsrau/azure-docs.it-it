@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 5/03/2019
 ms.author: alkarche
 ms.reviewer: glenga
-ms.openlocfilehash: 12815d3ca0136cec8af294118ff192a4f31df6a0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0c70c69f547405eb8ebdcf6dcc6ae597db151e53
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227090"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433220"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Esercitazione: integrare funzioni con una rete virtuale di Azure
 
@@ -32,7 +32,7 @@ Il diagramma seguente illustra l'architettura della soluzione creata:
 
 Le funzioni in esecuzione nel piano Premium hanno le stesse funzionalità di hosting di app Web nel servizio app Azure, che include la funzionalità di integrazione VNet. Per altre informazioni sull'integrazione di VNet, incluse la risoluzione dei problemi e la configurazione avanzata, vedere [integrare l'app con una rete virtuale di Azure](../app-service/web-sites-integrate-with-vnet.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per questa esercitazione, è importante comprendere gli indirizzi IP e la suddivisione in subnet. È possibile iniziare con [questo articolo che illustra le nozioni di base sull'indirizzamento e la suddivisione in subnet](https://support.microsoft.com/help/164015/understanding-tcp-ip-addressing-and-subnetting-basics). Molti altri articoli e video sono disponibili online.
 
@@ -58,10 +58,10 @@ Successivamente, creare una macchina virtuale preconfigurata che esegue WordPres
 
     ![Scheda nozioni di base per la creazione di una macchina virtuale](./media/functions-create-vnet/create-vm-1.png)
 
-    | Impostazione      | Valore consigliato  | DESCRIZIONE      |
+    | Impostazione      | Valore consigliato  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **Sottoscrizione** | Sottoscrizione in uso | Sottoscrizione in cui vengono create le risorse. | 
-    | **[Gruppo di risorse](../azure-resource-manager/resource-group-overview.md)**  | myResourceGroup | Scegliere `myResourceGroup`o il gruppo di risorse creato con l'app per le funzioni. L'uso dello stesso gruppo di risorse per l'app per le funzioni, la macchina virtuale WordPress e il piano di hosting rende più semplice la pulizia delle risorse al termine dell'esercitazione. |
+    | **[Gruppo di risorse](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Scegliere `myResourceGroup`o il gruppo di risorse creato con l'app per le funzioni. L'uso dello stesso gruppo di risorse per l'app per le funzioni, la macchina virtuale WordPress e il piano di hosting rende più semplice la pulizia delle risorse al termine dell'esercitazione. |
     | **Nome macchina virtuale** | VNET-Wordpress | Il nome della macchina virtuale deve essere univoco nel gruppo di risorse |
     | **[Area](https://azure.microsoft.com/regions/)** | (Europa) Europa occidentale | Scegliere un'area vicina o vicina alle funzioni che accedono alla macchina virtuale. |
     | **Dimensione** | B1S | Scegliere **modifica dimensioni** , quindi selezionare l'immagine standard B1S, che include 1 vCPU e 1 GB di memoria. |
@@ -73,7 +73,7 @@ Successivamente, creare una macchina virtuale preconfigurata che esegue WordPres
 
     ![Scheda rete di Crea macchina virtuale](./media/functions-create-vnet/create-vm-2.png)
 
-    | Impostazione      | Valore consigliato  | DESCRIZIONE      |
+    | Impostazione      | Valore consigliato  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **Nome** | myResourceGroup-vnet | È possibile usare il nome predefinito generato per la rete virtuale. |
     | **Intervallo di indirizzi** | 10.10.0.0/16 | Usare un singolo intervallo di indirizzi per la rete virtuale. |
@@ -116,7 +116,7 @@ Con un sito WordPress in esecuzione in una macchina virtuale in una rete virtual
 
     ![Definire la rete virtuale dell'app per le funzioni](./media/functions-create-vnet/networking-3.png)
 
-    | Impostazione      | Valore consigliato  | DESCRIZIONE      |
+    | Impostazione      | Valore consigliato  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **Rete virtuale** | MyResourceGroup-vnet | Questa rete virtuale è quella creata in precedenza. |
     | **Subnet** | Crea nuova subnet | Creare una subnet nella rete virtuale da usare per l'app per le funzioni. L'integrazione di VNet deve essere configurata per l'uso di una subnet vuota. Non è importante che le funzioni usino una subnet diversa da quella della macchina virtuale. La rete virtuale instrada automaticamente il traffico tra le due subnet. |
@@ -136,9 +136,9 @@ Con l'integrazione di VNet abilitata, è possibile creare un proxy nell'app per 
 
     ![Definire le impostazioni del proxy](./media/functions-create-vnet/create-proxy.png)
 
-    | Impostazione  | Valore consigliato  | DESCRIZIONE      |
+    | Impostazione  | Valore consigliato  | Description      |
     | -------- | ---------------- | ---------------- |
-    | **Nome** | Impianto | Il nome può essere qualsiasi valore. Viene usato per identificare il proxy. |
+    | **Nome** | PlAnT | Il nome può essere qualsiasi valore. Viene usato per identificare il proxy. |
     | **Modello di route** | /plant | Route mappata a una risorsa VM. |
     | **URL back-end** | http://< YOUR_VM_IP >/wp-content/themes/twentyseventeen/assets/images/header.jpg | Sostituire `<YOUR_VM_IP>` con l'indirizzo IP della macchina virtuale WordPress creata in precedenza. Questo mapping restituisce un singolo file dal sito. |
 

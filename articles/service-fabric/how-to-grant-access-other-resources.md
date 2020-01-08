@@ -1,19 +1,14 @@
 ---
-title: Azure Service Fabric-concedere a un'applicazione Service Fabric l'accesso ad altre risorse di Azure | Microsoft Docs
+title: Concedere a un'applicazione l'accesso ad altre risorse di Azure
 description: Questo articolo illustra come concedere l'accesso alle applicazioni Service Fabric abilitato per l'identità gestita ad altre risorse di Azure che supportano l'autenticazione basata su Azure Active Directory.
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/08/2019
-ms.author: atsenthi
-ms.openlocfilehash: 467b202cf6b981969316a2646aac99f788f7a2f4
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.date: 12/09/2019
+ms.openlocfilehash: 3b1feab1e67e993df771564a1a7c1aba4236b2c0
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091189"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614794"
 ---
 # <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources-preview"></a>Concessione dell'accesso alle identità gestite di un'applicazione Service Fabric alle risorse di Azure (anteprima)
 
@@ -29,18 +24,18 @@ La sequenza esatta di passaggi dipenderà quindi dal tipo di risorsa di Azure a 
 3. opzionale Verifica accesso esistente: selezionare identità gestita di sistema o assegnata dall'utente nel controllo ' trova '; Selezionare l'identità appropriata dall'elenco dei risultati risultante
 4. Fare clic su + Aggiungi assegnazione ruolo nella parte superiore della pagina per aggiungere una nuova assegnazione di ruolo per l'identità dell'applicazione.
 Nell'elenco a discesa ruolo selezionare lettore dati BLOB di archiviazione.
-5. Nell'elenco a discesa successivo, in assegna accesso a, `User assigned managed identity`scegliere.
+5. Nell'elenco a discesa successivo, in assegna accesso a, scegliere `User assigned managed identity`.
 6. Assicurarsi quindi che la sottoscrizione appropriata sia elencata nell'elenco a discesa sottoscrizione e quindi impostare gruppo di risorse su tutti i gruppi di risorse.
 7. In Seleziona scegliere il UAI corrispondente all'applicazione Service Fabric e quindi fare clic su Salva.
 
-Il supporto per le identità gestite Service Fabric assegnate dal sistema non include l'integrazione nel portale di Azure; Se l'applicazione usa un'identità assegnata dal sistema, sarà necessario trovare prima l'ID client dell'identità dell'applicazione, quindi ripetere i passaggi precedenti, ma selezionando l' `Azure AD user, group, or service principal` opzione nel controllo trova.
+Il supporto per le identità gestite Service Fabric assegnate dal sistema non include l'integrazione nel portale di Azure; Se l'applicazione usa un'identità assegnata dal sistema, sarà necessario trovare prima l'ID client dell'identità dell'applicazione, quindi ripetere i passaggi precedenti, ma selezionando l'opzione `Azure AD user, group, or service principal` nel controllo trova.
 
 ## <a name="granting-access-to-azure-key-vault"></a>Concessione dell'accesso a Azure Key Vault
 Analogamente all'accesso allo spazio di archiviazione, è possibile sfruttare l'identità gestita di un'applicazione Service Fabric per accedere a un insieme di credenziali delle chiavi di Azure. I passaggi per concedere l'accesso all'portale di Azure sono simili a quelli elencati in precedenza e non verranno ripetuti qui. Per le differenze, vedere l'immagine seguente.
 
 ![Criteri di accesso dell'insieme di credenziali delle chiavi](../key-vault/media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
-Nell'esempio seguente viene illustrato come concedere l'accesso a un insieme di credenziali tramite una distribuzione modello. aggiungere i frammenti di codice riportati di seguito come un'altra voce `resources` sotto l'elemento del modello. Nell'esempio viene illustrata la concessione dell'accesso per i tipi di identità assegnati dall'utente e di sistema, rispettivamente, scegliere quella appropriata.
+Nell'esempio seguente viene illustrato come concedere l'accesso a un insieme di credenziali tramite una distribuzione modello. aggiungere i frammenti di codice riportati di seguito come un'altra voce sotto l'elemento `resources` del modello. Nell'esempio viene illustrata la concessione dell'accesso per i tipi di identità assegnati dall'utente e di sistema, rispettivamente, scegliere quella appropriata.
 
 ```json
     # under 'variables':

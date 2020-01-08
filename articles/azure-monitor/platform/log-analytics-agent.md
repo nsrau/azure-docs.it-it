@@ -4,19 +4,19 @@ description: Questo argomento contiene informazioni su come raccogliere i dati e
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
-ms.date: 11/21/2019
-ms.openlocfilehash: 33ba07ac8d89546856666cc7ab94fae650020001
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+author: bwren
+ms.author: bwren
+ms.date: 12/24/2019
+ms.openlocfilehash: 58d6c8d18e03ab248cfbebcf910ae13c5fee439e
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74306530"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530970"
 ---
 # <a name="collect-log-data-with-the-log-analytics-agent"></a>Raccogliere i dati di log con l'agente di Log Analytics
 
-L'agente di Azure Log Analytics, precedentemente noto come agente MMA (Microsoft Monitoring Agent) o Linux OMS, è stato sviluppato per la gestione completa di computer locali, computer monitorati da [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/) e macchine virtuali in qualsiasi cloud. Gli agenti Windows e Linux si collegano a un monitoraggio di Azure e archiviano i dati di log raccolti da origini diverse nell'area di lavoro Log Analytics, nonché qualsiasi metrica o log univoco definito in una soluzione di monitoraggio. 
+L'agente di Azure Log Analytics, precedentemente noto come agente MMA (Microsoft Monitoring Agent) o Linux OMS, è stato sviluppato per la gestione completa di computer locali, computer monitorati da [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/) e macchine virtuali in qualsiasi cloud. Gli agenti Windows e Linux si collegano a monitoraggio di Azure e archiviano i dati di log raccolti da origini diverse nell'area di lavoro Log Analytics, nonché qualsiasi metrica o log univoco definito in una soluzione di monitoraggio. 
 
 Questo articolo offre una panoramica dettagliata dell'agente, dei requisiti di sistema e di rete, nonché dei diversi metodi di distribuzione.
 
@@ -81,11 +81,11 @@ A partire dalle versioni rilasciate dopo il mese di agosto 2018, al modello di s
 >OpenSSL 1.1.0 è supportato solo su piattaforme x86_x64 (64 bit), mentre le versioni di OpenSSL precedenti a 1.x non sono supportate su alcuna piattaforma.
 >
 
-### <a name="agent-prerequisites"></a>Prerequisiti degli agenti
+### <a name="agent-prerequisites"></a>Prerequisiti agente
 
 La tabella seguente evidenzia i pacchetti necessari per le distribuzioni Linux supportate in cui verrà installato l'agente.
 
-|Pacchetto necessario |DESCRIZIONE |Versione minima |
+|Pacchetto necessario |Description |Versione minima |
 |-----------------|------------|----------------|
 |Glibc |    Libreria GNU C | 2.5-12 
 |Openssl    | Librerie OpenSSL | 1.0. x o 1.1. x |
@@ -98,13 +98,13 @@ La tabella seguente evidenzia i pacchetti necessari per le distribuzioni Linux s
 
 ## <a name="tls-12-protocol"></a>Protocollo TLS 1.2
 
-Per garantire la sicurezza dei dati in transito nei log di monitoraggio di Azure, si consiglia di configurare l'agente per l'uso di almeno Transport Layer Security (TLS) 1,2. Le versioni precedenti di TLS/Secure Sockets Layer (SSL) sono state considerate vulnerabili. Nonostante siano ancora attualmente in uso per questioni di compatibilità con le versioni precedenti, **non sono consigliate**.  Per altre informazioni, vedere [Invio dei dati in modo sicuro tramite TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
+Per garantire la sicurezza dei dati in transito nei log di monitoraggio di Azure, si consiglia di configurare l'agente per l'uso di almeno Transport Layer Security (TLS) 1,2. Le versioni precedenti di TLS/Secure Sockets Layer (SSL) sono state considerate vulnerabili. Nonostante siano ancora attualmente in uso per questioni di compatibilità con le versioni precedenti, **non sono consigliate**.  Per altre informazioni, vedere [Invio dei dati in modo sicuro tramite TLS 1.2](data-security.md#sending-data-securely-using-tls-12). 
 
 ## <a name="network-firewall-requirements"></a>Requisiti del firewall di rete
 
 Le informazioni seguenti elencano le informazioni di configurazione del proxy e del firewall necessarie per la comunicazione tra l'agente Linux e Windows e i log di monitoraggio di Azure.  
 
-|Risorsa agente|Porte |Direzione |Ignorare l'analisi HTTPS|
+|Risorsa agente|Porte |Direction |Ignorare l'analisi HTTPS|
 |------|---------|--------|--------|   
 |*.ods.opinsights.azure.com |Porta 443 |In uscita|Sì |  
 |*.oms.opinsights.azure.com |Porta 443 |In uscita|Sì |  
@@ -123,11 +123,11 @@ Per l'agente di Linux, è possibile specificare il server proxy durante l'instal
 > [!NOTE]
 > Se il server proxy non richiede l'autenticazione, l'agente Linux richiede tuttavia di immettere uno pseudoutente o una pseudopassword. Può trattarsi di qualsiasi nome utente o password.
 
-|Proprietà| DESCRIZIONE |
+|Proprietà| Description |
 |--------|-------------|
-|Protocol | https |
-|user | Nome utente facoltativo per l'autenticazione proxy |
-|Password | Password facoltativa per l'autenticazione proxy |
+|Protocollo | https |
+|utente | Nome utente facoltativo per l'autenticazione proxy |
+|password | Password facoltativa per l'autenticazione proxy |
 |proxyhost | Indirizzo o FQDN del server proxy/gateway Log Analytics |
 |port | Numero di porta facoltativo del server proxy/gateway Log Analytics |
 
@@ -140,17 +140,17 @@ Ad esempio: `https://user01:password@proxy01.contoso.com:30443`
 
 La connessione dei computer nella sottoscrizione di Azure o in un ambiente ibrido direttamente con i log di monitoraggio di Azure può essere eseguita usando metodi diversi a seconda delle esigenze. Nella tabella seguente illustra ogni metodo per determinare quello più adatto alla propria organizzazione.
 
-|Source | Metodo | DESCRIZIONE|
+|Origine | Metodo | Description|
 |-------|-------------|-------------|
-|Macchina virtuale di Azure| - Estensione della macchina virtuale di Log Analytics per [Windows](../../virtual-machines/extensions/oms-windows.md) o [Linux](../../virtual-machines/extensions/oms-linux.md) tramite l'interfaccia della riga di comando di Azure oppure con un modello di Azure Resource Manager<br>- [manualmente dalla portale di Azure](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json)<br>- il [provisioning automatico del Centro sicurezza di Azure](../../security-center/security-center-enable-data-collection.md)| -L'estensione installa l'agente di Log Analytics in macchine virtuali di Azure e le registra in un'area di lavoro di monitoraggio di Azure esistente.<br>-Il Centro sicurezza di Azure può effettuare il provisioning dell'agente di Log Analytics in tutte le VM di Azure supportate e in quelle nuove che vengono create se si Abilita il monitoraggio di vulnerabilità e minacce per la sicurezza. Se abilitata, verrà eseguito il provisioning di qualsiasi macchina virtuale nuova o esistente senza un agente installato.|
+|Macchina virtuale di Azure| - Estensione della macchina virtuale di Log Analytics per [Windows](../../virtual-machines/extensions/oms-windows.md) o [Linux](../../virtual-machines/extensions/oms-linux.md) tramite l'interfaccia della riga di comando di Azure oppure con un modello di Azure Resource Manager<br>- [manualmente dalla portale di Azure](../../azure-monitor/learn/quick-collect-azurevm.md)<br>- il [provisioning automatico del Centro sicurezza di Azure](../../security-center/security-center-enable-data-collection.md)| -L'estensione installa l'agente di Log Analytics in macchine virtuali di Azure e le registra in un'area di lavoro di monitoraggio di Azure esistente.<br>-Il Centro sicurezza di Azure può effettuare il provisioning dell'agente di Log Analytics in tutte le VM di Azure supportate e in quelle nuove che vengono create se si Abilita il monitoraggio di vulnerabilità e minacce per la sicurezza. Se abilitata, verrà eseguito il provisioning di qualsiasi macchina virtuale nuova o esistente senza un agente installato.|
 | Computer Windows ibrido|- [Installazione manuale](agent-windows.md)<br>- [Automation DSC per Azure](agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Modello di Resource Manager con Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |Installare Microsoft Monitoring Agent dalla riga di comando o usando un metodo automatizzato, ad esempio Automation DSC per Azure, [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications) oppure con un modello di Azure Resource Manager se nel data center è stato distribuito Microsoft Azure Stack.| 
-| Computer Linux ibrido| [Installazione manuale](../../azure-monitor/learn/quick-collect-linux-computer.md)|Installare l'agente per Linux chiamando uno script wrapper ospitato in GitHub. | 
-| System Center Operations Manager|[Integrare Operations Manager con Log Analytics](../../azure-monitor/platform/om-agents.md) | Configurare l'integrazione tra Operations Manager e i log di monitoraggio di Azure per l'invio dei dati raccolti dai computer Windows che inviano report a un gruppo di gestione.|  
+| Computer Linux ibrido| [Installazione manuale](agent-linux.md)|Installare l'agente per Linux chiamando uno script wrapper ospitato in GitHub oppure scaricare e installare manualmente l'agente. | 
+| System Center Operations Manager|[Integrare Operations Manager con Log Analytics](om-agents.md) | Configurare l'integrazione tra Operations Manager e i log di monitoraggio di Azure per l'invio dei dati raccolti dai computer Windows che inviano report a un gruppo di gestione.|  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Esaminare le [origini dati](../../azure-monitor/platform/agent-data-sources.md) per informazioni sulle origini dati disponibili per raccogliere i dati dal sistema Windows o Linux. 
+* Esaminare le [origini dati](agent-data-sources.md) per informazioni sulle origini dati disponibili per raccogliere i dati dal sistema Windows o Linux. 
 
-* Altre informazioni sulle [query di log](../../azure-monitor/log-query/log-query-overview.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni. 
+* Altre informazioni sulle [query di log](../log-query/log-query-overview.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni. 
 
-* Altre informazioni sulle [soluzioni di monitoraggio](../../azure-monitor/insights/solutions.md) che aggiungono funzionalità a Monitoraggio di Azure e raccolgono anche dati nell'area di lavoro Log Analytics.
+* Altre informazioni sulle [soluzioni di monitoraggio](../insights/solutions.md) che aggiungono funzionalità a Monitoraggio di Azure e raccolgono anche dati nell'area di lavoro Log Analytics.

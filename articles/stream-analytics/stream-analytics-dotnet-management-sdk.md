@@ -1,22 +1,21 @@
 ---
 title: Management .NET SDK per Analisi di flusso di Azure
 description: Introduzione a .NET SDK per la gestione di Analisi di flusso. Informazioni su come configurare ed eseguire i processi di analisi. Creare un progetto, input, output e trasformazioni.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 73b1392adb2beee9e60d078d865257889b3205f8
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 20be2c56635faa4f77ae8e8e6afc3c1ece6d4942
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612718"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426267"
 ---
-# <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>.NET SDK per la gestione: impostare ed eseguire processi di analisi tramite l'API di Analisi di flusso di Azure per .NET
+# <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Management .NET SDK: impostare ed eseguire processi di analisi tramite l'API di Analisi di flusso di Azure per .NET
 Informazioni su come impostare ed eseguire processi di analisi tramite l'API di Analisi di flusso per .NET usando Management .NET SDK. Impostare un progetto, creare origini di input e output, trasformazioni e avviare e arrestare i processi. Per i processi di analisi, è possibile trasmettere i dati di flusso dall'archiviazione BLOB o da un hub eventi.
 
 Vedere la [documentazione di riferimento sulla gestione per l'API di Analisi di flusso per .NET](https://msdn.microsoft.com/library/azure/dn889315.aspx).
@@ -27,11 +26,11 @@ Analisi dei flussi di Azure è un servizio completamente gestito che consente l'
 > Il codice di esempio in questo articolo è stato aggiornato con la versione v2.x .NET SDK per la gestione di Analisi di flusso di Azure. Per il codice di esempio che usa la versione legacy (1.x) SDK, vedere [Usare Management .NET SDK v1.x per Analisi di flusso](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-dotnet-management-sdk-v1).
 
 ## <a name="prerequisites"></a>Prerequisiti
-Prima di iniziare questo articolo, sono necessari i requisiti seguenti:
+Prima di iniziare questo articolo, è necessario soddisfare i requisiti seguenti:
 
 * Installare Visual Studio 2019 o 2015.
 * Scaricare e installare [Azure .NET SDK](https://azure.microsoft.com/downloads/).
-* Creare un gruppo di risorse di Azure nella sottoscrizione. L'esempio seguente è uno script di Azure PowerShell di esempio. Per informazioni su Azure PowerShell , vedere [Installare e configurare Azure PowerShell](/powershell/azure/overview);  
+* Creare un gruppo di risorse di Azure nella sottoscrizione. Nell'esempio seguente viene riportato uno script di esempio Azure PowerShell. Per informazioni su Azure PowerShell , vedere [Installare e configurare Azure PowerShell](/powershell/azure/overview);  
 
    ```powershell
    # Log in to your Azure account
@@ -50,7 +49,7 @@ Prima di iniziare questo articolo, sono necessari i requisiti seguenti:
 * Configurare un'origine di input e una destinazione di output a cui il processo deve connettersi.
 
 ## <a name="set-up-a-project"></a>Configurare un progetto
-Per creare un processo di analitica, usare l'API di Analitica Stream per .NET, configurare innanzitutto il progetto.
+Per creare un processo di analisi, usare l'API di analisi di flusso per .NET, per prima cosa configurare il progetto.
 
 1. Creare un'applicazione console .NET di Visual Studio C#.
 2. Nella Console di Gestione pacchetti, eseguire i comandi seguenti per installare i pacchetti NuGet. Il primo è .NET SDK di gestione di Analisi di flusso di Azure. Il secondo è per l'autenticazione del client di Azure.
@@ -211,7 +210,7 @@ Il metodo **TestConnection** verifica se il processo di Analisi di flusso è in 
    ```
 
 ## <a name="create-a-stream-analytics-output-target"></a>Creare una destinazione di output di Analisi di flusso
-Creazione di una destinazione di output è simile alla creazione di un'origine di input Stream Analitica. Analogamente alle origini di input, le destinazioni di output sono legate a un processo specifico. Per usare la stessa destinazione di output per processi diversi, è necessario chiamare nuovamente il metodo e specificare un nome diverso.
+La creazione di una destinazione di output è simile alla creazione di un'origine di input di analisi di flusso. Analogamente alle origini di input, le destinazioni di output sono legate a un processo specifico. Per usare la stessa destinazione di output per processi diversi, è necessario chiamare nuovamente il metodo e specificare un nome diverso.
 
 Il codice seguente crea una destinazione di output (database SQL di Azure). È possibile personalizzare il tipo di dati della destinazione di output e/o il tipo di serializzazione.
 
@@ -285,7 +284,7 @@ Il metodo **Delete** consente di eliminare il processo, nonché le risorse secon
    streamAnalyticsManagementClient.StreamingJobs.Delete(resourceGroupName, streamingJobName);
    ```
 
-## <a name="get-support"></a>Supporto
+## <a name="get-support"></a>Ottenere supporto
 Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -293,7 +292,7 @@ Sono state fornite le nozioni di base dell'utilizzo di .NET SDK per creare ed es
 
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
-* [Ridimensionare i processi di Analisi di flusso di Azure](stream-analytics-scale-jobs.md)
+* [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
 * [.NET SDK per la gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn889315.aspx).
 * [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

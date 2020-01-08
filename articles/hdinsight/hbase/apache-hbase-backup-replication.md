@@ -2,18 +2,18 @@
 title: Backup & replica per Apache HBase, Phoenix-Azure HDInsight
 description: Configurare il backup e la replica per Apache HBase e Apache Phoenix in Azure HDInsight
 author: ashishthaps
+ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/22/2018
-ms.author: ashishth
-ms.openlocfilehash: 9611199cf08084505381223ef485ae2b6f00cb21
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.custom: hdinsightactive
+ms.date: 12/19/2019
+ms.openlocfilehash: c6d33158b581bf4394a0d1bac2b277830328e110
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044703"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495943"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Configurare il backup e la replica per Apache HBase e Apache Phoenix in HDInsight
 
@@ -60,15 +60,19 @@ Dopo avere eliminato il cluster, è possibile lasciare i dati dove si trovano op
 
 ## <a name="export-then-import"></a>Esportare e quindi importare
 
-Nel cluster HDInsight di origine usare l'utilità di esportazione (inclusa in HBase) per esportare i dati da una tabella di origine nell'archivio collegato predefinito. È quindi possibile copiare la cartella esportata nella posizione di archiviazione di destinazione ed eseguire l'utilità di importazione nel cluster HDInsight di destinazione.
+Nel cluster HDInsight di origine usare l' [utilità di esportazione](https://hbase.apache.org/book.html#export) (inclusa in HBase) per esportare i dati da una tabella di origine nell'archivio collegato predefinito. È quindi possibile copiare la cartella esportata nel percorso di archiviazione di destinazione ed eseguire l' [utilità di importazione](https://hbase.apache.org/book.html#import) nel cluster HDInsight di destinazione.
 
-Per esportare una tabella, connettersi tramite SSH al nodo head del cluster HDInsight di origine e quindi eseguire il comando `hbase` seguente:
+Per esportare i dati della tabella, prima SSH nel nodo head del cluster HDInsight di origine, quindi eseguire il comando `hbase` seguente:
 
     hbase org.apache.hadoop.hbase.mapreduce.Export "<tableName>" "/<path>/<to>/<export>"
 
-Per importare una tabella, connettersi tramite SSH al nodo head del cluster HDInsight di destinazione e quindi eseguire il comando `hbase` seguente:
+La directory di esportazione non deve essere già esistente. Il nome della tabella fa distinzione tra maiuscole e minuscole.
+
+Per importare i dati della tabella, connettersi tramite SSH al nodo head del cluster HDInsight di destinazione e quindi eseguire il comando `hbase` seguente:
 
     hbase org.apache.hadoop.hbase.mapreduce.Import "<tableName>" "/<path>/<to>/<export>"
+
+La tabella deve essere già esistente.
 
 Specificare il percorso di esportazione completo per l'archivio predefinito o per uno degli archivi collegati. Ad esempio, in Archiviazione di Azure:
 
@@ -90,11 +94,12 @@ Si noti che è necessario specificare il numero di versioni di ogni riga da espo
 
 ## <a name="copy-tables"></a>Copiare le tabelle
 
-L'utilità CopyTable copia dati da una tabella di origine, riga per riga, a una tabella di destinazione esistente con lo stesso schema dell'origine. La tabella di destinazione può trovarsi nello stesso cluster o in un cluster HBase diverso.
+L' [utilità CopyTable](https://hbase.apache.org/book.html#copy.table) copia i dati da una tabella di origine, riga per riga, a una tabella di destinazione esistente con lo stesso schema dell'origine. La tabella di destinazione può trovarsi nello stesso cluster o in un cluster HBase diverso. I nomi di tabella fanno distinzione tra maiuscole e minuscole.
 
 Per usare CopyTable in un cluster, connettersi tramite SSH al nodo head del cluster HDInsight di origine e quindi eseguire questo comando `hbase`:
 
     hbase org.apache.hadoop.hbase.mapreduce.CopyTable --new.name=<destTableName> <srcTableName>
+
 
 Per usare CopyTable per copiare una tabella in un cluster diverso, aggiungere l'opzione `peer` con l'indirizzo del cluster di destinazione:
 
@@ -125,7 +130,7 @@ CopyTable analizza il contenuto dell'intera tabella di origine che verrà copiat
 
 ### <a name="manually-collect-the-apache-zookeeper-quorum-list"></a>Raccogliere manualmente l'elenco di quorum di Apache ZooKeeper
 
-Quando entrambi i cluster HDInsight sono nella stessa rete virtuale, come descritto in precedenza, la risoluzione dei nomi host interni è automatica. Per usare CopyTable per i cluster HDInsight in due reti virtuali separate connesse tramite un gateway VPN, è necessario fornire gli indirizzi IP host dei nodi Zookeeper nel quorum.
+Quando entrambi i cluster HDInsight sono nella stessa rete virtuale, come descritto in precedenza, la risoluzione dei nomi host interni è automatica. Per usare CopyTable per i cluster HDInsight in due reti virtuali separate connesse da un gateway VPN, è necessario fornire gli indirizzi IP host dei nodi Zookeeper nel quorum.
 
 Per acquisire i nomi host del quorum, eseguire il comando curl seguente:
 
@@ -155,7 +160,7 @@ Nell'esempio:
 
 ## <a name="snapshots"></a>Snapshot
 
-Gli snapshot consentono di eseguire un backup temporizzato dei dati nell'archivio dati HBase. Gli snapshot comportano un overhead minimo e vengono completati in pochi secondi, perché un'operazione di creazione di snapshot è un'efficace operazione sui metadati che acquisisce i nomi di tutti i file in archivio in un preciso momento. Al momento della creazione di uno snapshot, non vengono copiati dati effettivi. Gli snapshot si basano sulla natura non modificabile dei dati archiviati in HDFS, dove le operazioni di aggiornamento, eliminazione e inserimento sono tutte rappresentate come nuovi dati. È possibile ripristinare (*clonare*) uno snapshot nello stesso cluster oppure esportare uno snapshot in un altro cluster.
+Gli [snapshot](https://hbase.apache.org/book.html#ops.snapshots) consentono di eseguire un backup temporizzato dei dati nell'archivio dati HBase. Gli snapshot comportano un overhead minimo e vengono completati in pochi secondi, perché un'operazione di creazione di snapshot è un'efficace operazione sui metadati che acquisisce i nomi di tutti i file in archivio in un preciso momento. Al momento della creazione di uno snapshot, non vengono copiati dati effettivi. Gli snapshot si basano sulla natura non modificabile dei dati archiviati in HDFS, dove le operazioni di aggiornamento, eliminazione e inserimento sono tutte rappresentate come nuovi dati. È possibile ripristinare (*clonare*) uno snapshot nello stesso cluster oppure esportare uno snapshot in un altro cluster.
 
 Per creare uno snapshot, connettersi tramite SSH al nodo head del cluster HBase in HDInsight e avviare la shell `hbase`:
 
@@ -185,11 +190,11 @@ Per esportare uno snapshot in HDFS per consentirne l'uso da parte di un altro cl
 
 Dopo l'esportazione dello snapshot, connettersi tramite SSH al nodo head del cluster di destinazione e ripristinare lo snapshot usando il comando restore_snapshot come descritto in precedenza.
 
-Gli snapshot forniscono un backup completo di una tabella al momento dell'esecuzione del comando `snapshot`. Gli snapshot non offrono la possibilità di eseguire snapshot incrementali in base a intervalli di tempo, né di specificare subset di famiglie di colonne da includere nello snapshot.
+Gli snapshot forniscono un backup completo di una tabella al momento dell'esecuzione del comando `snapshot`. Gli snapshot non offrono la possibilità di eseguire snapshot incrementali in base all'intervallo di tempo, né di specificare subset di colonne da includere nello snapshot.
 
 ## <a name="replication"></a>Replica
 
-La replica HBase esegue automaticamente il push delle transazioni da un cluster di origine a un cluster di destinazione, usando un meccanismo asincrono con un overhead minimo nel cluster di origine. In HDInsight è possibile configurare la replica tra cluster dove:
+La [replica di HBase](https://hbase.apache.org/book.html#_cluster_replication) esegue automaticamente il push delle transazioni da un cluster di origine a un cluster di destinazione, usando un meccanismo asincrono con un overhead minimo nel cluster di origine. In HDInsight è possibile configurare la replica tra cluster dove:
 
 * I cluster di origine e di destinazione si trovano nella stessa rete virtuale.
 * I cluster di origine e di destinazione si trovano in reti virtuali diverse connesse tramite un gateway VPN, ma entrambi i cluster sono nella stessa posizione geografica.
@@ -209,3 +214,4 @@ Per abilitare la replica in HDInsight, applicare un'azione script al cluster HDI
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Configurare la replica di Apache HBase](apache-hbase-replication.md)
+* [Utilizzo dell'utilità di importazione ed esportazione di HBase](https://blogs.msdn.microsoft.com/data_otaku/2016/12/21/working-with-the-hbase-import-and-export-utility/)

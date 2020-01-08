@@ -3,17 +3,17 @@ title: Attività di avvio comuni per Servizi cloud | Documentazione Microsoft
 description: Questo articolo fornisce alcuni esempi delle attività di avvio comuni che è possibile eseguire nel ruolo Web o di lavoro dei servizi cloud.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: gwallace
-ms.openlocfilehash: 2eb299ad841444a3100eac207b225d5377959f85
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 5c6173971ac5272c2c2d769551fc9caf3dfa2573
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358964"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385797"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Attività di avvio comuni del servizio cloud
 Questo articolo fornisce alcuni esempi relativi alle attività di avvio comuni che è possibile eseguire nel servizio cloud. È possibile usare le attività di avvio per eseguire operazioni prima dell'avvio di un ruolo. Le operazioni che si possono eseguire sono l'installazione di un componente, la registrazione dei componenti COM, l'impostazione delle chiavi del Registro di sistema o l'avvio di un processo a esecuzione prolungata. 
@@ -300,7 +300,7 @@ string fileContent = System.IO.File.ReadAllText(System.IO.Path.Combine(localStor
 
 Per eseguire nell'emulatore di calcolo azioni diverse da quelle eseguite nel cloud, è necessario creare una variabile di ambiente nel file [ServiceDefinition.csdef] e testare la variabile di ambiente su un valore durante l'attività di avvio.
 
-Per creare la variabile di ambiente, aggiungere l'elemento [Variable]/[RoleInstanceValue] e creare un valore XPath di `/RoleEnvironment/Deployment/@emulated`. Il valore della variabile di ambiente **%ComputeEmulatorRunning%** è `true` durante l'esecuzione nell'emulatore di calcolo e `false` durante l'esecuzione nel cloud.
+Per creare la variabile di ambiente, aggiungere l'elemento [Variabile]/[RoleInstanceValue] e creare un valore XPath di `/RoleEnvironment/Deployment/@emulated`. Il valore della variabile di ambiente **%ComputeEmulatorRunning%** è `true` durante l'esecuzione nell'emulatore di calcolo e `false` durante l'esecuzione nel cloud.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -505,10 +505,13 @@ Altre informazioni sul funzionamento delle [attività](cloud-services-startup-ta
 [Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Environment]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
-[Variable]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
+[Variabile]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
 [Endpoints]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
 [LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
+
+
+

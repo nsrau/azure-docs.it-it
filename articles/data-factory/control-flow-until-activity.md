@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: ab24b4f3a819e2b44c68d052c355f10219eb1dc4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b4786b612dedb065239f57e0286bafb688180dff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679350"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440362"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Attività Until in Azure Data Factory
 L'attività Until svolge la stessa funzione della struttura di ciclo do-until nei linguaggi di programmazione. Esegue infatti un set di attività in un ciclo finché la condizione associata con l'attività restituisce true. È possibile specificare un valore di timeout per l'attività Until in Data Factory. 
@@ -51,13 +51,13 @@ L'attività Until svolge la stessa funzione della struttura di ciclo do-until ne
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-Proprietà | Descrizione | Valori consentiti | Obbligatorio
+Proprietà | Description | Valori consentiti | Obbligatorio
 -------- | ----------- | -------------- | --------
-name | Nome dell'attività `Until`. | String | Sì
-type | Deve essere impostata su **Until**. | String | Sì
+name | Nome dell'attività `Until`. | string | Sì
+type | Deve essere impostata su **Until**. | string | Sì
 expression | Espressione che deve restituire true o false | Espressione.  | Sì
 timeout | Il ciclo do-until raggiunge il timeout allo scadere del tempo specificato qui. | Stringa. `d.hh:mm:ss`(o) `hh:mm:ss`. Il valore predefinito è 7 giorni. Il valore massimo è 90 giorni. | No
-attività | Set di attività che vengono eseguite fino a quando l'espressione restituisce `true`. | Matrice di attività. |  Sì
+Attività | Set di attività che vengono eseguite fino a quando l'espressione restituisce `true`. | Matrice di attività. |  Sì
 
 ## <a name="example-1"></a>Esempio 1
 
@@ -199,10 +199,7 @@ La pipeline in questo esempio copia i dati da una cartella di input a una cartel
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "value": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>",
-                "type": "SecureString"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>"
         }
     }
 }

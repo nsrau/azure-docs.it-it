@@ -1,17 +1,14 @@
 ---
-title: Panoramica di Integrità risorse di Azure | Microsoft Docs
+title: Panoramica di Integrità risorse di Azure
 description: Panoramica su Integrità risorse di Azure
-author: stephbaron
-ms.author: stbaron
 ms.topic: conceptual
-ms.service: service-health
 ms.date: 05/10/2019
-ms.openlocfilehash: 9c2096f94f38d13288c6ce3742252bc6d576835a
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 5609c7f09dc81a54a941dea391c0d717ad4bb06a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854220"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356787"
 ---
 # <a name="resource-health-overview"></a>Panoramica di Integrità risorse
  
@@ -53,7 +50,7 @@ Gli eventi non di piattaforma vengono attivati dalle azioni dell'utente. Gli ese
 
 ![Stato "non disponibile" per una macchina virtuale a causa di un evento non piattaforma](./media/resource-health-overview/Unavailable_NonPlatform.png)
 
-### <a name="unknown"></a>Sconosciuto
+### <a name="unknown"></a>Unknown
 
 *Unknown* significa che integrità risorse non ha ricevuto informazioni sulla risorsa per più di 10 minuti. Sebbene questo stato non sia un'indicazione definitiva dello stato della risorsa, è un punto dati importante per la risoluzione dei problemi.
 
@@ -83,7 +80,7 @@ Se si ritiene che lo stato di integrità corrente non sia corretto, è possibile
 
 ![Elenco di eventi di Integrità risorse nelle ultime due settimane](./media/resource-health-overview/history-blade.png)
 
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Inizia oggi stesso
 
 Per aprire Integrità risorse per una risorsa:
 

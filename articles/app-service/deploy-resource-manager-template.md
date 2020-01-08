@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 082ef9753f84aef3f867a9dee4b4e9fbf73dd379
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: e9647c1833416b9b225be988acaffb4022f655c1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670105"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422101"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Linee guida per la distribuzione di app Web tramite i modelli di Azure Resource Manager
 
@@ -94,7 +94,7 @@ Se il modello di Resource Manager usa MSDeploy, i messaggi di errore relativi al
 
 ## <a name="choose-a-unique-web-app-name"></a>Immettere un nome univoco per l'app Web
 
-Il nome dell'app Web deve essere univoco a livello globale. È possibile usare una convenzione di denominazione che con ogni probabilità è univoca oppure usare la [funzione uniqueString](../azure-resource-manager/resource-group-template-functions-string.md#uniquestring) per assistenza nella generazione di un nome univoco.
+Il nome dell'app Web deve essere univoco a livello globale. È possibile usare una convenzione di denominazione che con ogni probabilità è univoca oppure usare la [funzione uniqueString](../azure-resource-manager/templates/template-functions-string.md#uniquestring) per assistenza nella generazione di un nome univoco.
 
 ```json
 {

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 7c0b5cbfe77a39cbc8ac660178a1c573d1fe8f7d
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 1b042c0279e458cf83bd5c81147f4b1f25d7687d
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139826"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645141"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - Domande frequenti
 > [!NOTE]
@@ -44,7 +44,7 @@ Per informazioni sui prezzi per il Azure Data Factory, vedere la [pagina dei det
 Data Factory è disponibile negli **Stati Uniti occidentali** e in **Europa settentrionale**. I servizi di calcolo e di archiviazione usati dalle istanze di Data Factory possono essere disponibili in altri paesi. Vedere [Aree supportate](data-factory-introduction.md#supported-regions).
 
 ### <a name="what-are-the-limits-on-number-of-data-factoriespipelinesactivitiesdatasets"></a>Quali sono i limiti sul numero di Data Factory/pipeline/attività/set di dati?
-Vedere la sezione **Limiti di Azure Data Factory** dell'articolo [Sottoscrizione di Azure e limiti dei servizi, quote e vincoli](../../azure-subscription-service-limits.md#data-factory-limits) .
+Vedere la sezione **Limiti di Azure Data Factory** dell'articolo [Sottoscrizione di Azure e limiti dei servizi, quote e vincoli](../../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) .
 
 ### <a name="what-is-the-authoringdeveloper-experience-with-azure-data-factory-service"></a>Quale esperienza di creazione/sviluppo offre il servizio Azure Data Factory?
 È possibile creare data factory con uno degli strumenti/SDK seguenti:
@@ -66,7 +66,7 @@ Sì. Usare il pulsante **Sposta** nel pannello della data factory come mostrato 
 ### <a name="what-are-the-compute-environments-supported-by-data-factory"></a>Quali sono gli ambienti di calcolo supportati da Data Factory?
 La seguente tabella presenta un elenco degli ambienti di calcolo supportati da Data Factory e le attività eseguibili in tali ambienti.
 
-| Ambiente di calcolo | activities |
+| Ambiente di calcolo | attività |
 | --- | --- |
 | [Cluster HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) o [il proprio cluster HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
@@ -143,7 +143,7 @@ Un errore frequente è la mancata impostazione della proprietà **external** su 
 
 Nell'esempio seguente è necessario soltanto impostare **external** su true in **dataset1**.  
 
-**DataFactory1** Pipeline 1: dataset1 -> activity1 -> dataset2 -> activity2 -> dataset3 Pipeline 2: dataset3-> activity3 -> dataset4
+**DataFactory1** Pipeline 1: dataset1 -&gt; activity1 -&gt; dataset2 -&gt; activity2 -&gt; dataset3 Pipeline 2: dataset3-&gt; activity3 -&gt; dataset4
 
 Se si dispone di un'altra data factory con una pipeline che accetta dataset4 (prodotto dalla pipeline 2 nella data factory 1), contrassegnare dataset4 come set di dati esterno perché tale set di dati è prodotto da una data factory differente (DataFactory1, non DataFactory2).  
 

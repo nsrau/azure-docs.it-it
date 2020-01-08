@@ -10,14 +10,14 @@ ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 07/15/2019
+ms.date: 12/19/2019
 ms.author: kumud
-ms.openlocfilehash: 001a6d5ef742874698cd7a67014179a2f8528fc6
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: a44f99b5a7f25a7350e6a63cf85c6b2287647162
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053471"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75373248"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network-preview"></a>Che cos'è IPv6 per la rete virtuale di Azure? (Anteprima)
 
@@ -42,7 +42,7 @@ Vantaggi di IPv6 per Azure VNET:
 - Si basa su connettività IPv6 da macchina virtuale a Internet di Azure stabile e di lunga durata.
 - Sicurezza per impostazione predefinita, poiché la connettività IPv6 a Internet viene stabilita solo quando viene richiesta in modo esplicito nella distribuzione.
 
-## <a name="capabilities"></a>Capabilities
+## <a name="capabilities"></a>Funzionalità
 
 IPv6 per Azure VNet include le funzionalità seguenti:
 
@@ -69,7 +69,7 @@ IPv6 per Azure VNet include le funzionalità seguenti:
 - [Peering di rete virtuale (VNET)](virtual-network-peering-overview.md) , sia all'interno che al peering globale, che consente di connettere facilmente dual stack reti virtuali. gli endpoint IPv4 e IPv6 nelle macchine virtuali nelle reti con peering saranno in grado di comunicare tra loro. È anche possibile eseguire il peering dual stack con reti virtuali solo IPv4 mentre si esegue la transizione delle distribuzioni a dual stack. 
 - La diagnostica e la risoluzione dei problemi IPv6 sono disponibili con le metriche del servizio di bilanciamento del carico/avvisi e le funzionalità Network Watcher come l'acquisizione di pacchetti, i log di flusso NSG, la risoluzione dei problemi di connessione e il monitoraggio della connessione   
 
-## <a name="scope"></a>Scope
+## <a name="scope"></a>Ambito
 IPv6 per Azure VNET è un set di funzionalità di base che consente ai clienti di ospitare applicazioni dual stack (IPv4 + IPv6) in Azure.  Si prevede di aggiungere il supporto IPv6 a più funzionalità di rete di Azure nel tempo e infine di offrire versioni dual stack dei servizi PaaS di Azure, ma nel frattempo è possibile accedere a tutti i servizi PaaS di Azure tramite gli endpoint IPv4 in macchine virtuali a doppio stack.   
 
 ## <a name="limitations"></a>Limitazioni

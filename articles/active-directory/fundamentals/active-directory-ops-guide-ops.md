@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 46e5af9d54cf818366bd2730de0da85dcbe6cade
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: d039373d3e70076149da2b970a234b59d7aa661a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535301"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422955"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Informazioni di riferimento sulla Guida operativa di Azure Active Directory
 
@@ -58,7 +58,7 @@ Quando si esamina l'elenco, è possibile che sia necessario assegnare un proprie
 
 La disponibilità delle versioni più aggiornate dei componenti locali fornisce al cliente tutti gli aggiornamenti della sicurezza più recenti, i miglioramenti delle prestazioni e le funzionalità che consentono di semplificare ulteriormente l'ambiente. Per la maggior parte dei componenti è disponibile un'impostazione di aggiornamento automatico, che consente di automatizzare il processo di aggiornamento.
 
-Questi componenti includono:
+Questi componenti prevedono:
 
 - Azure AD Connect
 - Connettori di Azure AD Application Proxy
@@ -92,7 +92,7 @@ Alcuni servizi di gestione delle identità e degli accessi richiedono agenti loc
 
 - [Risolvere i problemi del Proxy applicazione](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot)
 - [Risoluzione dei problemi di reimpostazione della password self-service-Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#password-writeback-event-log-error-codes)
-- [Comprendere i connettori del proxy applicazione Azure AD](https://docs.microsoft.com/azure/active-directory/application-proxy-understand-connectors)
+- [Comprendere i connettori del proxy applicazione di Azure AD](https://docs.microsoft.com/azure/active-directory/application-proxy-understand-connectors)
 - [Azure AD Connect: risolvere i problemi di autenticazione pass-through](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-pass-through-authentication#collecting-pass-through-authentication-agent-logs)
 - [Risolvere i problemi relativi ai codici di errore per l'estensione NPS di Azure](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-nps-errors)
 
@@ -106,8 +106,8 @@ L'adozione di procedure consigliate può consentire il funzionamento ottimale de
 
 #### <a name="on-premises-agents-management-recommended-reading"></a>Lettura consigliata per la gestione degli agenti locali
 
-- [Comprendere i connettori del proxy applicazione Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors)
-- [Azure AD dell'autenticazione pass-through-Guida introduttiva](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start#step-5-ensure-high-availability)
+- [Comprendere i connettori del proxy applicazione di Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors)
+- [Azure AD dell'autenticazione pass-through-Guida introduttiva](../hybrid/how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)
 
 ## <a name="management-at-scale"></a>Gestione su larga scala
 
@@ -131,7 +131,7 @@ Esistono due indirizzi "da" usati da Azure AD: <o365mc@email2.microsoft.com>, ch
 
 - [Verifiche di accesso Azure AD](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
 - [Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations#enable-email-notifications)
-- [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/notifications)
+- [Azure AD Identity Protection](/azure/active-directory/identity-protection/howto-identity-protection-configure-notifications)
 - [Gestione identità con privilegi di Azure AD](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-email-notifications)
 - [Notifiche di scadenza del certificato per le app aziendali](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-certificates-for-federated-single-sign-on#add-email-notification-addresses-for-certificate-expiration)
 - Notifiche del servizio di provisioning di app aziendali
@@ -162,17 +162,17 @@ Se AD FS viene usato solo per Azure AD Federazione, sono disponibili alcuni endp
 
 Le organizzazioni devono bloccare l'accesso ai computer con componenti ibridi locali nello stesso modo del dominio locale. Un operatore di backup o un amministratore di Hyper-V, ad esempio, non deve essere in grado di accedere al server Azure AD Connect per modificare le regole.
 
-Il Active Directory modello di livello amministrativo è stato progettato per proteggere i sistemi di identità usando un set di zone di buffer tra il controllo completo dell'ambiente (livello 0) e le risorse della workstation ad alto rischio che gli utenti malintenzionati compromettono spesso. ![Diagramma che mostra i tre livelli del modello di livello](./media/active-directory-ops-guide/active-directory-ops-img18.png)
+Il Active Directory modello di livello amministrativo è stato progettato per proteggere i sistemi di identità usando un set di zone di buffer tra il controllo completo dell'ambiente (livello 0) e le risorse della workstation ad alto rischio che gli utenti malintenzionati compromettono spesso. ![Diagramma che illustra i tre livelli del modello a livelli](./media/active-directory-ops-guide/active-directory-ops-img18.png)
 
 Il [modello a livelli](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) è costituito da tre livelli e include solo account amministrativi, non account utente standard.
 
-- **Livello 0** il controllo diretto delle identità aziendali nell'ambiente. Il livello 0 include gli account, i gruppi e altre risorse che hanno il controllo amministrativo diretto o indiretto della foresta Active Directory, dei domini o dei controller di dominio e di tutti gli asset al suo interno. La sensibilità di sicurezza di tutte le risorse di livello 0 è equivalente, in quanto sono tutte in modo efficace per il controllo.
-- **Livello 1** il controllo dei server e delle applicazioni aziendali. Le risorse di livello 1 includono i sistemi operativi server, i servizi cloud e le applicazioni aziendali. Gli account amministratore di livello 1 hanno il controllo amministrativo di una quantità significativa di valore aziendale ospitata in questi asset. Un ruolo di esempio comune sono gli amministratori del server che gestiscono questi sistemi operativi con la possibilità di influito su tutti i servizi aziendali.
-- **Livello 2** il controllo delle workstation e dei dispositivi degli utenti. Gli account amministratore di livello 2 hanno il controllo amministrativo di una quantità significativa di valore aziendale ospitata nelle workstation e nei dispositivi degli utenti. Ad esempio gli amministratori del supporto tecnico e del computer che possono influisca sull'integrità di quasi tutti i dati utente.
+- **Livello 0** il controllo diretto delle identità aziendali nell'ambiente. Il livello 0 include account, gruppi e altre risorse che detengono il controllo amministrativo diretto o indiretto della foresta, dei domini o dei controller di dominio di Active Directory e tutte le risorse in esso contenuti. Il livello di riservatezza di tutte le risorse di livello 0 è equivalente in quanto tutte controllano le altre in modo efficace.
+- **Livello 1** il controllo dei server e delle applicazioni aziendali. Le risorse di livello 1 includono i sistemi operativi del server, i servizi cloud e le applicazioni aziendali. Gli account amministratore di livello 1 hanno il controllo amministrativo di una percentuale significativa del valore aziendale ospitato su queste risorse. Un ruolo di esempio comune sono gli amministratori del server che gestiscono questi sistemi operativi con la possibilità di influenzare tutti i servizi aziendali.
+- **Livello 2** il controllo delle workstation e dei dispositivi degli utenti. Gli account amministratore di livello 2 hanno il controllo amministrativo di una percentuale significativa del valore aziendale ospitato sulle workstation e sui dispositivi degli utenti. Gli esempi includono l'Help Desk e gli amministratori di supporto del computer, in quanto possono avere un impatto sull'integrità della maggior parte dei dati utente.
 
 Bloccare l'accesso ai componenti di identità locali, ad esempio Azure AD Connect, AD FS e i servizi SQL allo stesso modo di quanto avviene per i controller di dominio.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Esistono sette aspetti di un'infrastruttura di identità sicura. Questo elenco consente di trovare le azioni da intraprendere per ottimizzare le operazioni per Azure Active Directory (Azure AD).
 

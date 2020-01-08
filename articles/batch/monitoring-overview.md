@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: lahugh
-ms.openlocfilehash: 3ac852b1d69c0e9fa224b449d6261eba6abaff32
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: ef57e0f63f8cfad5bc5fa5710661657176171194
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260961"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530800"
 ---
 # <a name="monitor-batch-solutions"></a>Monitorare le soluzioni Batch
 
@@ -25,7 +25,7 @@ Per una panoramica dei componenti e dei servizi di Azure disponibili per il moni
 
 ## <a name="subscription-level-monitoring"></a>Monitoraggio a livello di sottoscrizione
 
-Al livello della sottoscrizione, che include gli account Batch, il [log attività di Azure](../azure-monitor/platform/activity-logs-overview.md) raccoglie i dati di eventi operativi in [diverse categorie](../azure-monitor/platform/activity-logs-overview.md#categories-in-the-activity-log).
+Al livello della sottoscrizione, che include gli account Batch, il [log attività di Azure](../azure-monitor/platform/platform-logs-overview.md) raccoglie i dati di eventi operativi in [diverse categorie](../azure-monitor/platform/activity-log-view.md#categories-in-the-activity-log).
 
 Per gli account Batch in particolare, il log attività raccoglie gli eventi correlati alla creazione ed eliminazione degli account e alla gestione delle chiavi.
 
@@ -40,7 +40,7 @@ Monitorare ogni account Batch usando le funzionalità di [Monitoraggio di Azure]
 
 ## <a name="batch-resource-monitoring"></a>Monitoraggio delle risorse Batch
 
-Nelle applicazioni Batch usare le API di Batch per monitorare o recuperare lo stato delle risorse, inclusi processi, attività, nodi e pool. Esempio:
+Nelle applicazioni Batch usare le API di Batch per monitorare o recuperare lo stato delle risorse, inclusi processi, attività, nodi e pool. Ad esempio:
 
 * [Conteggiare le attività e i nodi di calcolo in base allo stato](batch-get-resource-counts.md)
 * [Creare query per elencare le risorse di Batch in modo efficiente](batch-efficient-list-queries.md)

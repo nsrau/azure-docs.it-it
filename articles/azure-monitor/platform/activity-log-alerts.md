@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/17/2018
-ms.openlocfilehash: d3cb075d5ec0607453ca21f2574df7def02a4453
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 42a8b53f8d1fee2d657ccaa2d57e72b3edfdd4f3
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553718"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531055"
 ---
 # <a name="alerts-on-activity-log"></a>Avvisi sul log attività 
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 Gli avvisi del log attività sono avvisi che vengono attivati quando si verifica un nuovo [evento del log attività](activity-log-schema.md) che corrisponde alle condizioni specificate nell'avviso. In base all'ordine e al volume degli eventi registrati nel [log attività di Azure](activity-logs-overview.md), viene attivata la regola di avviso. Le regole di avviso del log attività sono risorse di Azure, pertanto è possibile crearle usando un modello di Azure Resource Manager. Possono essere create, aggiornate o eliminate anche nel portale di Azure. In questo articolo vengono presentati i concetti alla base degli avvisi del log attività. Per altre informazioni sulla creazione o l'uso di regole di avviso del log attività, vedere [creare e gestire gli avvisi del log attività](alerts-activity-log.md).
 
 > [!NOTE]
@@ -31,7 +31,7 @@ Una semplice analogia per comprendere le condizioni in cui è possibile creare r
 
 In ogni caso, un avviso del log attività monitora solo degli eventi nella sottoscrizione in cui è stato creato l'evento.
 
-È possibile configurare un avviso del log attività in base a qualsiasi proprietà di primo livello nell'oggetto JSON per un evento del log attività. Per altre informazioni, vedere [Panoramica del log attività di Azure](./activity-logs-overview.md#categories-in-the-activity-log). Per altre informazioni sugli eventi di integrità del servizio, vedere [Ricevere gli avvisi del log attività sulle notifiche del servizio](./alerts-activity-log-service-notifications.md). 
+È possibile configurare un avviso del log attività in base a qualsiasi proprietà di primo livello nell'oggetto JSON per un evento del log attività. Per altre informazioni, vedere [categorie nel log attività](activity-log-view.md#categories-in-the-activity-log). Per altre informazioni sugli eventi di integrità del servizio, vedere [Ricevere gli avvisi del log attività sulle notifiche del servizio](alerts-activity-log-service-notifications.md). 
 
 Gli avvisi del log attività hanno alcune opzioni comuni:
 

@@ -12,18 +12,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: dac941b621c8df6b5c242bb5d0e0d5cdd1f864a9
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 9eb7a80599966345d90cc4a079b586e743ca37d4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057957"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451214"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Si verifica un errore interno quando si prova a connettersi a una macchina virtuale di Azure tramite Desktop remoto
 
 Questo articolo descrive un errore che può verificarsi quando si tenta di connettersi a una macchina virtuale Windows in Microsoft Azure.
 > [!NOTE]
-> Azure offre due modelli di distribuzione diversi per creare e usare le risorse: [Resource Manager e distribuzione classica](../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'utilizzo del modello di distribuzione Resource Manager, che Microsoft consiglia di usare per le nuove distribuzioni in sostituzione del modello di distribuzione classica.
+> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'utilizzo del modello di distribuzione Resource Manager, che Microsoft consiglia di usare per le nuove distribuzioni in sostituzione del modello di distribuzione classica.
 
 ## <a name="symptoms"></a>Sintomi
 
@@ -54,7 +54,7 @@ Per risolvere questo problema, usare la console seriale o [riparare la macchina 
 Connettersi alla [console seriale e aprire un'istanza di PowerShell](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 ). Se la console seriale non è abilitata nella macchina virtuale, andare alla sezione [Riparare la macchina virtuale in modalità offline](#repair-the-vm-offline).
 
-#### <a name="step-1-check-the-rdp-port"></a>Passaggio 1: Verificare la porta RDP
+#### <a name="step-1-check-the-rdp-port"></a>Passaggio: 1 Verificare la porta RDP
 
 1. In un'istanza di PowerShell, usare il [NETSTAT](https://docs.microsoft.com/windows-server/administration/windows-commands/netstat
 ) per verificare se la porta 8080 è usata da altre applicazioni:
@@ -135,7 +135,7 @@ Connettersi alla [console seriale e aprire un'istanza di PowerShell](./serial-co
 
 4. Riavviare la macchina virtuale e quindi tentare di avviare una connessione Desktop remoto alla macchina virtuale. Se l'errore persiste ancora, passare al passaggio successivo.
 
-Passaggio 3: Abilitare tutte le versioni TLS supportate
+#### <a name="step-3-enable-all-supported-tls-versions"></a>Passaggio 3: Abilitare tutte le versioni TLS supportate
 
 Il client RDP usa TLS 1.0 come protocollo predefinito. Tuttavia, ciò può essere modificato in TLS 1.1, che è diventato il nuovo standard. Se TLS 1.1 è disabilitato nella macchina virtuale, la connessione avrà esito negativo.
 1.  In un'istanza CMD, abilitare il protocollo TLS:
@@ -168,7 +168,7 @@ Il client RDP usa TLS 1.0 come protocollo predefinito. Tuttavia, ciò può esser
 Per abilitare il log Dump e la console seriale, eseguire lo script seguente.
 
 1. Aprire una sessione del prompt dei comandi con privilegi elevati (**Esegui come amministratore**).
-2. Eseguire lo script seguente:
+2. Eseguire lo script riportato di seguito:
 
     In questo script si presuppone che la lettera di unità assegnata al disco del sistema operativo collegato sia F. Sostituirla con il valore appropriato per la specifica macchina virtuale.
 

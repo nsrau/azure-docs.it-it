@@ -1,26 +1,15 @@
 ---
-title: Integrare Gestione API con Service Fabric in Azure | Microsoft Docs
+title: Integrare Gestione API con Service Fabric in Azure
 description: Informazioni su come iniziare a usare rapidamente Gestione API di Azure e instradare il traffico a un servizio back-end in Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/10/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 470eacee5c71742678497edf48169e14a4073829
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 201d617ce15216ba168bc484f644e165d5ae0e71
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598836"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465346"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrare Gestione API con Service Fabric in Azure
 
@@ -145,7 +134,7 @@ Immettere un valore descrittivo per **displayName** e **description** per il pro
 
 * **displayName** può essere un nome qualsiasi per l'API. Per questo articolo usare "Service Fabric App".
 * **name** consente di specificare un nome univoco e descrittivo per l'API, come "service-fabric-app", che viene visualizzato nel portale di pubblicazione e in quello per sviluppatori.
-* **serviceUrl** fa riferimento al servizio HTTP che implementa l'API e corrisponde all'indirizzo a cui Gestione API inoltra le richieste. Per i back-end di Service Fabric, questo valore URL non viene usato. È possibile inserire un valore qualsiasi nel campo. Per questo articolo, ad esempio, "http\/:/servicefabric".
+* **serviceUrl** fa riferimento al servizio HTTP che implementa l'API e corrisponde all'indirizzo a cui Gestione API inoltra le richieste. Per i back-end di Service Fabric, questo valore URL non viene usato. È possibile inserire un valore qualsiasi nel campo. Per questo articolo, ad esempio "http:\//servicefabric".
 * **path** viene aggiunto all'URL di base del servizio Gestione API. L'URL di base è comune a tutte le API ospitate da un'istanza del servizio Gestione API. Gestione API distingue le API in base al suffisso, quindi è necessario che questo sia univoco per ciascuna API di un editore specifico.
 * **protocols** determina i protocolli da usare per l'accesso all'API, per questo articolo **http** e **https**.
 * **path** è un suffisso per l'API. Per questo articolo usare "myapp".

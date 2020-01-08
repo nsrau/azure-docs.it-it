@@ -1,23 +1,15 @@
 ---
-title: Compilazione e integrazione continue per applicazioni Linux di Azure Service Fabric tramite Jenkins | Microsoft Docs
+title: Compilazione continua per applicazioni Linux con Jenkins
 description: Compilazione e integrazione continue per l'applicazione Linux di Azure Service Fabric tramite Jenkins
-services: service-fabric
-documentationcenter: java
 author: sayantancs
-manager: jpconnock
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/31/2018
-ms.author: jeconnoc
-ms.openlocfilehash: b757a0a5f3ce968b396fa89d5b32c18257d620c3
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 175338fef600f6e726fd02eee6b0f416181bd9dd
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875092"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610217"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Usare Jenkins per compilare e distribuire le applicazioni Linux
 Jenkins è uno strumento diffuso per l'integrazione e la distribuzione continue delle app. Ecco come compilare e distribuire l'applicazione di Azure Service Fabric usando Jenkins.
@@ -74,7 +66,7 @@ Dopo avere installato il plug-in, passare direttamente a [Creare e configurare u
    > Verificare che la porta 8081 sia specificata come endpoint personalizzato nel cluster. Se si usa un cluster locale, assicurarsi che la porta 8081 sia aperta nel computer host e che disponga di un indirizzo IP pubblico.
    >
 
-### <a name="steps"></a>Passaggi
+### <a name="steps"></a>Procedure
 1. Clonare l'applicazione usando i comandi seguenti:
    ```sh
    git clone https://github.com/suhuruli/jenkins-container-application.git
@@ -174,7 +166,7 @@ Dopo avere configurato Jenkins, passare direttamente a [Creare e configurare un 
 
   Quando si esegue `docker info` nel terminale, l'output dovrebbe indicare che il servizio Docker è in esecuzione.
 
-### <a name="steps"></a>Passaggi
+### <a name="steps"></a>Procedure
 1. Eseguire il pull dell'immagine del contenitore di Jenkins per Service Fabric: `docker pull rapatchi/jenkins:latest`. Questa immagine viene fornita con il plug-in di Jenkins per Service Fabric preinstallato.
 1. Eseguire l'immagine del contenitore: `docker run -itd -p 8080:8080 rapatchi/jenkins:latest`
 1. Ottenere l'ID istanza dell'immagine del contenitore. È possibile elencare tutti i contenitori Docker con il comando `docker ps –a`
@@ -191,7 +183,7 @@ Dopo avere configurato Jenkins, passare direttamente a [Creare e configurare un 
       cat /var/jenkins_home/secrets/initialAdminPassword
       ```      
    1. Per accedere al dashboard di Jenkins, aprire l'URL seguente in un Web browser: `http://<HOST-IP>:8080`. Usare la password indicata nel passaggio precedente per sbloccare Jenkins.
-   1. Facoltativo. Dopo il primo accesso, è possibile creare il proprio account utente e usarlo per i passaggi seguenti oppure è possibile continuare a usare l'account amministratore. Se si crea un utente, è necessario continuare con tale utente.
+   1. (Facoltativo). Dopo aver eseguito l'accesso per la prima volta, è possibile creare il proprio account utente e usarlo per i passaggi seguenti oppure è possibile continuare a usare l'account amministratore. Se si crea un utente, è necessario continuare con tale utente.
 1. Configurare GitHub per l'interazione con Jenkins seguendo la procedura illustrata in [Generating a new SSH key and adding it to the SSH agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) (Generazione di una nuova chiave SSH e aggiunta della chiave all'agente SSH).
    * Usare le istruzioni fornite da GitHub per generare la chiave SSH e aggiungerla all'account GitHub che ospita il repository.
    * Eseguire i comandi specificati nell'articolo indicato in precedenza nella shell Docker di Jenkins, non nell'host.
@@ -229,11 +221,11 @@ I passaggi descritti in questa sezione mostrano come configurare un processo Jen
 1. Nella scheda **Build Triggers** (Trigger compilazione) in Jenkins selezionare l'opzione di compilazione da usare. Per questo esempio si vuole attivare una compilazione ogni volta che si verifica un push nel repository, pertanto selezionare **GitHub hook trigger for GITScm polling** (Trigger di hook GitHub per polling GITScm). Questa opzione era definita in precedenza **Build when a change is pushed to GitHub** (Compila in caso di push di modifiche in GitHub).
 1. Nella scheda **Build** (Compilazione) eseguire una di queste operazioni a seconda che si compili un'applicazione Java o un'applicazione .NET Core:
 
-   * **Per le applicazioni Java:** dall'elenco a discesa **Add build step** (Aggiungi passaggio di compilazione) selezionare **Invoke Gradle Script** (Richiama script Gradle). Fare clic su **Advanced**. Nel menu Advanced (Avanzato) specificare il percorso per **Root build script** (Script di compilazione radice) per l'applicazione. Viene estratto il file build.gradle dal percorso specificato che opera in modo corrispondente. Per l'[applicazione ActorCounter](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/reliable-services-actor-sample/Actors/ActorCounter) è: `${WORKSPACE}/reliable-services-actor-sample/Actors/ActorCounter`.
+   * **Per applicazioni Java:** nell'elenco a discesa **Add build step** (Aggiungi passaggio di compilazione) selezionare **Invoke Gradle Script** (Richiama script Gradle). Fare clic su **Avanzate**. Nel menu Advanced (Avanzato) specificare il percorso per **Root build script** (Script di compilazione radice) per l'applicazione. Viene estratto il file build.gradle dal percorso specificato che opera in modo corrispondente. Per l'[applicazione ActorCounter](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/reliable-services-actor-sample/Actors/ActorCounter) è: `${WORKSPACE}/reliable-services-actor-sample/Actors/ActorCounter`.
 
      ![Azione di compilazione di Jenkins per Service Fabric][build-step]
 
-   * **Per le applicazioni .NET Core:** dall'elenco a discesa **Add build step** (Aggiungi passaggio di compilazione) selezionare **Execute Shell** (Esegui shell). Nella casella di comando visualizzata è necessario prima modificare la directory per il percorso in cui si trova il file build.sh. Dopo avere modificato la directory, è possibile eseguire lo script build.sh e verrà compilata l'applicazione.
+   * **Per applicazioni .NET Core:** nell'elenco a discesa **Add build step** (Aggiungi passaggio di compilazione) selezionare **Execute Shell** (Esegui shell). Nella casella di comando visualizzata è necessario prima modificare la directory per il percorso in cui si trova il file build.sh. Dopo avere modificato la directory, è possibile eseguire lo script build.sh e verrà compilata l'applicazione.
 
       ```sh
       cd /var/jenkins_home/workspace/[Job Name]/[Path to build.sh]  # change directory to location of build.sh file
@@ -298,7 +290,7 @@ Per gli ambienti di sviluppo e test, è possibile configurare le credenziali di 
 
 1. Per creare un'entità servizio di Azure Active Directory e assegnarvi le autorizzazioni nella sottoscrizione di Azure, seguire i passaggi descritti in [Usare il portale per creare un'applicazione Azure Active Directory e un'entità servizio](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Prestare attenzione a quanto descritto di seguito:
 
-   * Quando si seguono i passaggi descritti nell'argomento, assicurarsi di copiare e salvare i valori seguenti: *ID applicazione*, *Chiave applicazione*, *ID directory (ID Tenant)* e *ID sottoscrizione*, necessari per configurare le credenziali di Azure in Jenkins.
+   * Durante l'esecuzione della procedura descritta nell'argomento, assicurarsi di copiare e salvare i valori seguenti: *ID applicazione*, *chiave applicazione*, *ID directory (ID tenant)* e *ID sottoscrizione*, necessari per configurare le credenziali di Azure in Jenkins.
    * Se non si dispone delle [autorizzazioni richieste](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) per la directory, sarà necessario chiedere a un amministratore di concedere tali autorizzazioni o di creare l'entità servizio per l'utente oppure sarà necessario configurare l'endpoint di gestione per il cluster nelle **azioni di post-compilazione** per il processo in Jenkins.
    * Nella sezione [Creare un'applicazione Azure Active Directory](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#create-an-azure-active-directory-application) è possibile immettere qualsiasi URL ben formato nella casella **URL di accesso**.
    * Nella sezione [Assegnare l'applicazione al ruolo](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) è possibile assegnare all'applicazione il ruolo *Lettore* per il gruppo di risorse per il cluster.
@@ -309,17 +301,17 @@ Per gli ambienti di sviluppo e test, è possibile configurare le credenziali di 
 1. Nella finestra del provider di credenziali di Jenkins selezionare **Microsoft Azure Service Principal** (Entità servizio di Microsoft Azure) dall'elenco a discesa **Kind** (Tipologia).
 1. Usare i valori salvati durante la configurazione dell'entità servizio nel passaggio 1 per configurare i campi seguenti:
 
-   * **ID client**: *ID applicazione*
-   * **Segreto client**: *Chiave applicazione*
-   * **ID tenant**: *ID directory*
-   * **ID sottoscrizione**: *ID sottoscrizione*
+   * **Client ID** (ID client): *ID applicazione*
+   * **Client Secret** (Segreto client): *chiave applicazione*
+   * **Tenant ID** (ID tenant): *ID directory*
+   * **Subscription ID** (ID sottoscrizione): *ID sottoscrizione*
 1. Immettere un **ID** descrittivo da usare per selezionare le credenziali in Jenkins e una breve **Descrizione**. Quindi fare clic su **Verify Service Principal** (Verifica entità servizio). Se la verifica ha esito positivo, fare clic su **Add** (Aggiungi).
 
    ![Immissione delle credenziali di Azure di Jenkins per Service Fabric](./media/service-fabric-cicd-your-linux-application-with-jenkins/enter-azure-credentials.png)
 1. Tornando in **Service Fabric Cluster Configuration** (Configurazione cluster di Service Fabric), assicurarsi che le nuove credenziali siano selezionate per **Azure Credentials** (Credenziali di Azure). 
 1. Nell'elenco a discesa **Resource Group** (Gruppo di risorse) selezionare il gruppo di risorse del cluster in cui si vuole distribuire l'applicazione.
 1. Nell'elenco a discesa **Service Fabric** selezionare il cluster in cui si vuole distribuire l'applicazione.
-1. Per **Client Key** (Chiave client) e **Client Cert** (Certificato client), immettere il percorso del file PEM nel contenitore di Jenkins. Ad esempio, `/var/jenkins_home/clustercert.pem`. 
+1. Per **Client Key** (Chiave client) e **Client Cert** (Certificato client), immettere il percorso del file PEM nel contenitore di Jenkins. Ad esempio `/var/jenkins_home/clustercert.pem`. 
 1. In **Application Configuration** (Configurazione applicazione) configurare i campi **Application Name** (Nome applicazione), **Application Type** (Tipo applicazione) e **Path to Application Manifest** (Percorso manifesto dell'applicazione) (relativo).
     ![Azione di post-compilazione di Jenkins per Service Fabric di configurazione delle credenziali di Azure](./media/service-fabric-cicd-your-linux-application-with-jenkins/post-build-credentials.png)
 1. Fare clic su **Verify configuration**. Se la verifica ha esito positivo, fare clic su **Save** (Salva). La pipeline di processo Jenkins è ora completamente configurata. Continuare con [Passaggi successivi](#next-steps) per testare la distribuzione.

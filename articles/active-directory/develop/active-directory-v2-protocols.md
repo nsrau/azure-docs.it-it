@@ -1,5 +1,5 @@
 ---
-title: Protocolli di autorizzazione supportati dalla piattaforma di identità Microsoft | Azure
+title: Protocolli OAuth 2,0 e OpenID Connect-piattaforma di identità Microsoft | Azure
 description: Guida ai protocolli OAuth 2,0 e OpenID Connect supportati dall'endpoint della piattaforma di identità Microsoft.
 services: active-directory
 author: rwike77
@@ -14,14 +14,14 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f04ba26f592c02814412493cf4811e30aefa6ee3
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7b25f1753e6dcb415927ee6278c36b3b179dd353
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918289"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424740"
 ---
-# <a name="microsoft-identity-platform-protocols"></a>Protocolli della piattaforma di identità Microsoft
+# <a name="oauth-20-and-openid-connect-protocols-on-the-microsoft-identity-platform"></a>Protocolli OAuth 2,0 e OpenID Connect nella piattaforma di identità Microsoft
 
 Endpoint della piattaforma di identità Microsoft per l'identità come servizio con protocolli standard del settore, OpenID Connect e OAuth 2,0. Anche se il servizio è conforme agli standard, possono esistere sottili differenze tra le implementazioni di questi protocolli. Le informazioni in questo argomento sono utili se si sceglie di scrivere il codice inviando e gestendo direttamente le richieste HTTP o di usare una libreria open source di terze parti anziché usare una [libreria open source](reference-v2-libraries.md) di Microsoft.
 
@@ -60,12 +60,12 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 
 Dove `{tenant}` può assumere uno dei quattro diversi valori:
 
-| Value | Description |
+| Valore | Description |
 | --- | --- |
 | `common` | Consente agli utenti con account Microsoft e account aziendali o dell'istituto d'istruzione di Azure AD di accedere all'applicazione. |
 | `organizations` | Consente solo agli utenti con account aziendali o dell'istituto d'istruzione di Azure AD di accedere all'applicazione. |
 | `consumers` | Consente solo agli utenti con account Microsoft personali (MSA) di accedere all'applicazione. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` oppure `contoso.onmicrosoft.com` | Consente solo agli utenti con account aziendali o dell'istituto d'istruzione di un determinato tenant di Azure AD di accedere all'applicazione. È possibile usare il nome di dominio descrittivo del tenant di Azure AD o l'identificatore GUID. |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` o `contoso.onmicrosoft.com` | Consente solo agli utenti con account aziendali o dell'istituto d'istruzione di un determinato tenant di Azure AD di accedere all'applicazione. È possibile usare il nome di dominio descrittivo del tenant di Azure AD o l'identificatore GUID. |
 
 Per informazioni su come interagire con questi endpoint, scegliere un tipo di app specifico nella sezione [Protocolli](#protocols) e seguire i collegamenti per altre informazioni.
 

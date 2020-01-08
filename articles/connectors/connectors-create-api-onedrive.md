@@ -1,22 +1,22 @@
 ---
-title: Connettersi a OneDrive
-description: Caricare e gestire i file con le API REST di OneDrive e App per la logica di Azure
+title: Accedere e gestire i file in Microsoft OneDrive
+description: Caricare e gestire i file in OneDrive creando flussi di lavoro automatizzati in app per la logica di Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/18/2016
 tags: connectors
-ms.openlocfilehash: 93528e257ab45644a79c58fbf600dca10317eb0b
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: edfbf090c3409d583cda6fd2c9957c37be5dfb7a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789670"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378433"
 ---
-# <a name="get-started-with-the-onedrive-connector"></a>Introduzione al connettore OneDrive
+# <a name="access-and-manage-files-in-onedrive-connector-by-using-azure-logic-apps"></a>Accedere e gestire i file in OneDrive Connector usando app per la logica di Azure
 
-Connettersi a OneDrive per gestire i file, ad esempio, caricare, recuperare ed eliminare i file e altro ancora. Con OneDrive è possibile eseguire queste attività:
+Usando app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e il [connettore OneDrive](/connectors/onedriveconnector/), è possibile creare attività e flussi di lavoro automatizzati per gestire i file, ad esempio caricare, ottenere, eliminare file e altro ancora. Con OneDrive è possibile eseguire queste attività:
 
 * Creare un flusso di lavoro mediante l'archiviazione di file in OneDrive o aggiornare i file esistenti in OneDrive. 
 * Usare trigger per avviare il flusso di lavoro quando un file viene creato o aggiornato in OneDrive.
@@ -38,7 +38,7 @@ Prima che l'app per la logica possa accedere a qualsiasi servizio, è necessario
 
 Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. I trigger eseguono il "polling" del servizio agli intervalli e con la frequenza desiderati. [Altre informazioni sui trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-1. Nell'app per la logica digitare "onedrive" per ottenere l'elenco dei trigger:  
+1. Nella finestra di progettazione dell'app per la logica digitare `onedrive` per ottenere un elenco dei trigger:  
 
    ![](./media/connectors-create-api-onedrive/onedrive-1.png)
 
@@ -66,7 +66,7 @@ Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app pe
 
 2. Selezionare **Aggiungi un'azione**.
 
-3. Nella casella di testo digitare "onedrive" per ottenere l'elenco di tutte le azioni disponibili.
+3. Nella casella di ricerca digitare `onedrive` per ottenere un elenco di tutte le azioni disponibili.
 
    ![](./media/connectors-create-api-onedrive/onedrive-actions.png) 
 

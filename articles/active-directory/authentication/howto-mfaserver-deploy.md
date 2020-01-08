@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11a0dbd28dc798342a24180af430187ac69f61b8
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: d6001dc47d19665184bf44114ab36744f0287264
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848137"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608755"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Introduzione al server Azure Multi-Factor Authentication
 
@@ -30,9 +30,6 @@ Questa pagina include una nuova installazione del server che include l'impostazi
 > A partire dal 1 ° luglio 2019, Microsoft non offrirà più il server multi-factor authentication per le nuove distribuzioni. I nuovi clienti che desiderano richiedere l'autenticazione a più fattori dagli utenti devono usare Azure Multi-Factor Authentication basato sul cloud. I clienti esistenti che hanno attivato il server di autenticazione a più fattori prima del 1 ° luglio potranno scaricare la versione più recente, gli aggiornamenti futuri e generare le credenziali di attivazione come di consueto.
 
 ## <a name="plan-your-deployment"></a>Pianificare la distribuzione
-
-> [!WARNING]
-> A partire da marzo 2019, i download dei server a più fattori saranno disponibili solo per i tenant a pagamento. I tenant gratuiti/di valutazione non saranno più in grado di scaricare o generare e utilizzare le credenziali di attivazione.
 
 Prima di scaricare il server Azure Multi-Factor Authentication, valutare i propri requisiti in termini di carico e disponibilità elevata. Usare queste informazioni per decidere come e dove eseguire la distribuzione.
 
@@ -58,7 +55,7 @@ Verificare che il server usato per Azure Multi-Factor Authentication soddisfi i 
 |:--- |:--- |
 | Hardware |<li>200 MB di spazio su disco rigido</li><li>processore idoneo per x32 o x64</li><li>1 GB o più di RAM</li> |
 | Software |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008, SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003, SP1, SP2</li><li>Windows 10</li><li>Windows 8.1, tutte le edizioni</li><li>Windows 8, tutte le edizioni</li><li>Windows 7, tutte le edizioni</li><li>Windows Vista, tutte le edizioni, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 o versione successiva se si installa il portale utenti o l'SDK servizi Web</li> |
-| autorizzazioni | Account di amministratore del dominio o dell'organizzazione per la registrazione con Active Directory |
+| Autorizzazioni | Account di amministratore del dominio o dell'organizzazione per la registrazione con Active Directory |
 
 ### <a name="azure-mfa-server-components"></a>Componenti del server Azure MFA
 
@@ -96,9 +93,6 @@ Se non si usa la funzionalità di conferma dell'evento e gli utenti non usano ap
 
 ## <a name="download-the-mfa-server"></a>Scaricare il server MFA
 
-> [!WARNING]
-> A partire da marzo 2019, i download dei server a più fattori saranno disponibili solo per i tenant a pagamento. I tenant gratuiti/di valutazione non saranno più in grado di scaricare o generare e utilizzare le credenziali di attivazione.
-
 Seguire questi passaggi per scaricare il server Azure Multi-Factor Authentication dal portale di Azure:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
@@ -122,6 +116,9 @@ Dopo averlo scaricato, è possibile installare e configurare il server. Assicura
    ![Ignora utilizzo della configurazione guidata autenticazione](./media/howto-mfaserver-deploy/skip2.png)
 
 5. Tornare alla pagina da cui è stato scaricato il server e fare clic sul pulsante **Genera credenziali di attivazione**. Copiare queste informazioni nel server Azure MFA nelle apposite caselle e fare clic su **Attiva**.
+
+> [!NOTE]
+> Solo gli amministratori globali sono in grado di generare le credenziali di attivazione nella portale di Azure.
 
 ## <a name="send-users-an-email"></a>Inviare agli utenti un messaggio di posta elettronica
 

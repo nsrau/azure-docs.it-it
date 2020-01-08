@@ -1,27 +1,22 @@
 ---
 title: Visualizzare le notifiche sull'integrità del servizio tramite il portale di Azure
 description: Le notifiche sull'integrità del servizio consentono di visualizzare i messaggi sull'integrità del servizio pubblicati da Microsoft Azure.
-author: stephbaron
-ms.author: stbaron
-services: monitoring
-ms.service: service-health
 ms.topic: conceptual
 ms.date: 6/27/2019
-ms.subservice: ''
-ms.openlocfilehash: d2e18ae28e79590cb04ee0045341ea817be4a3bc
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: c8017d23e0f7e3ab7bf48c9d7ba6b930fa80d0da
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538354"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451428"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Visualizzare le notifiche sull'integrità del servizio tramite il portale di Azure
 
-Notifiche sull'integrità del servizio sono pubblicate dall'infrastruttura di Azure nel [log attività Azure](../azure-monitor/platform/activity-logs-overview.md).  Le notifiche contengono informazioni sulle risorse nella sottoscrizione. Dato il volume di informazioni archiviate nel log attività, anche grande, è disponibile un'interfaccia utente separato per renderne più semplice visualizzare e impostare avvisi sulle notifiche sull'integrità del servizio. 
+Le notifiche sull'integrità del servizio vengono pubblicate dall'infrastruttura di Azure nel [log attività di Azure](../azure-monitor/platform/activity-logs-overview.md).  Le notifiche contengono informazioni sulle risorse nella sottoscrizione. Dato il notevole volume di informazioni archiviate nel log attività, è disponibile un'interfaccia utente separata che semplifica la visualizzazione e la configurazione degli avvisi per le notifiche sull'integrità del servizio. 
 
 Le notifiche sull'integrità del servizio possono essere informative o operative a seconda della classe.
 
-Per altre informazioni su varie classi di notifiche sull'integrità del servizio, vedere [le proprietà delle notifiche di integrità del servizio](service-health-notifications-properties.md).
+Per ulteriori informazioni sulle varie classi di notifiche sull'integrità del servizio, vedere [proprietà delle notifiche sull'integrità del servizio](service-health-notifications-properties.md).
 
 ## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>Visualizzare le notifiche sull'integrità del servizio nel portale di Azure
 

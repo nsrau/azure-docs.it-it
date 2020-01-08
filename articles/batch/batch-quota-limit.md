@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 8b089a1b32ee70479072522372c060713108957c
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: b63032baa60d18f3d9d98fc403bdc1087c6c9b6b
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350104"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660682"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quote e limiti del servizio Batch
 
@@ -41,7 +41,7 @@ Si noti inoltre che le quote non sono valori garantiti. Le quote possono variare
 
 ### <a name="cores-quotas-in-user-subscription-mode"></a>Quote di core in modalità di sottoscrizione utente
 
-Se è stato creato un account Batch con modalità di allocazione pool impostata su **Sottoscrizione utente**, le quote vengono applicate in modo diverso. In questa modalità, le macchine virtuali e le altre risorse di Batch vengono create direttamente nella sottoscrizione al momento della creazione di un pool. Le quote di core di Azure Batch non sono applicabili a un account creato in questa modalità. Vengono applicati invece le quote della sottoscrizione per i core di calcolo regionali e altre risorse. Per altre informazioni su tali quote, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
+Se è stato creato un account Batch con modalità di allocazione pool impostata su **Sottoscrizione utente**, le quote vengono applicate in modo diverso. In questa modalità, le macchine virtuali e le altre risorse di Batch vengono create direttamente nella sottoscrizione al momento della creazione di un pool. Le quote di core di Azure Batch non sono applicabili a un account creato in questa modalità. Vengono applicati invece le quote della sottoscrizione per i core di calcolo regionali e altre risorse. Per altre informazioni su tali quote, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ## <a name="pool-size-limits"></a>Limiti delle dimensioni del pool
 
@@ -62,7 +62,7 @@ I limiti delle dimensioni del pool vengono impostati dal servizio batch. A diffe
 
 Limiti aggiuntivi impostati dal servizio batch. A differenza [delle quote di risorse](#resource-quotas), questi valori non possono essere modificati.
 
-| **Risorsa** | **Limite massimo** |
+| **Risorsa** | **Limite Massimo** |
 | --- | --- |
 | [Attività simultanee](batch-parallel-node-tasks.md) per nodo di calcolo | 4 x numero di core del nodo |
 | [Applicazioni](batch-application-packages.md) per account Batch | 20 |
@@ -93,7 +93,7 @@ Seguire questa procedura per richiedere un aumento della quota per l'account bat
 1. Selezionare **Nuova richiesta di supporto** > **Informazioni di base**.
 1. In **Nozioni di base**:
    
-    a.  > **Limiti di servizio e sottoscrizione del tipo di problema (quote)**
+    a. **Tipo di problema** > **limiti di servizio e sottoscrizione (quote)**
    
     b. Selezionare la propria sottoscrizione.
    
@@ -139,13 +139,13 @@ I pool di Batch nella configurazione di macchine virtuali distribuita in una ret
 * Un [indirizzo IP pubblico](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 * Un servizio di [bilanciamento del carico](../load-balancer/load-balancer-overview.md)
 
-Queste risorse vengono allocate nella sottoscrizione che contiene la rete virtuale fornita durante la creazione del pool di Batch. Queste risorse sono limitate in base alle [quote delle risorse](../azure-subscription-service-limits.md) della sottoscrizione. Se sono previste distribuzioni di pool di grandi dimensioni in una rete virtuale, controllare le quote della sottoscrizione per queste risorse. Se necessario, richiedere un aumento selezionando **Guida e supporto** nel portale di Azure.
+Queste risorse vengono allocate nella sottoscrizione che contiene la rete virtuale fornita durante la creazione del pool di Batch. Queste risorse sono limitate in base alle [quote delle risorse](../azure-resource-manager/management/azure-subscription-service-limits.md) della sottoscrizione. Se sono previste distribuzioni di pool di grandi dimensioni in una rete virtuale, controllare le quote della sottoscrizione per queste risorse. Se necessario, richiedere un aumento selezionando **Guida e supporto** nel portale di Azure.
 
 
 ## <a name="related-topics"></a>Argomenti correlati
 * [Creare un account Azure Batch usando il portale di Azure](batch-account-create-portal.md)
 * [Cenni preliminari sulla funzionalità Azure Batch](batch-api-basics.md)
-* [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md)
+* [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 [portal]: https://portal.azure.com
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/

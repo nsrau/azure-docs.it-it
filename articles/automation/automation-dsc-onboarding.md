@@ -1,26 +1,26 @@
 ---
 title: Onboarding di computer per la gestione tramite Configurazione stato di Automazione di Azure
-description: Come impostare computer per la gestione con Configurazione stato di Automazione di Azure
+description: Come configurare i computer per la gestione con la configurazione dello stato di automazione di Azure
 services: automation
 ms.service: automation
 ms.subservice: dsc
 author: mgoedtel
 ms.author: magoedte
 ms.topic: conceptual
-ms.date: 08/08/2018
+ms.date: 12/10/2019
 manager: carmonm
-ms.openlocfilehash: 89b51af3beaad645dc27b599c2493be4d4bdf30f
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 9ebe38b54c042a0c945200bc3d88076b16c2e6f9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951412"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75366380"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Onboarding di computer per la gestione tramite Configurazione stato di Automazione di Azure
 
 ## <a name="why-manage-machines-with-azure-automation-state-configuration"></a>Perché gestire computer tramite Configurazione stato di Automazione di Azure?
 
-La configurazione dello stato di automazione di Azure è un servizio di gestione della configurazione per i nodi DSC in qualsiasi Data Center nel cloud o in locale.
+La configurazione dello stato di automazione di Azure è un servizio di gestione della configurazione per i nodi DSC (Desired state Configuration) in qualsiasi Data Center nel cloud o in locale.
 Consente la scalabilità tra migliaia di computer in modo rapido e facile da una posizione centrale e sicura.
 È possibile caricare facilmente i computer, assegnare agli stessi configurazioni dichiarative e visualizzare report che mostrano la conformità di ogni computer con lo stato desiderato specificato.
 Il servizio di configurazione dello stato di automazione di Azure è DSC quali sono i manuali operativi di automazione di Azure per gli script di PowerShell.
@@ -39,9 +39,15 @@ Inoltre, se non si è pronti per gestire la configurazione dei computer dal clou
 In questo modo è possibile impostare le configurazioni (push) tramite DSC e visualizzare i dettagli dei report in automazione di Azure.
 
 > [!NOTE]
-> La gestione di macchine virtuali di Azure con Configurazione stato è inclusa senza costi aggiuntivi se l'estensione DSC per le macchine virtuali installata è successiva alla versione 2.70. Per altri dettagli, vedere la pagina [**Prezzi di Automazione**](https://azure.microsoft.com/pricing/details/automation/).
+> La gestione di macchine virtuali di Azure con Configurazione stato è inclusa senza costi aggiuntivi se l'estensione DSC per le macchine virtuali installata è successiva alla versione 2.70. Per ulteriori informazioni, vedere la [**pagina dei prezzi di automazione**](https://azure.microsoft.com/pricing/details/automation/).
 
 Le sezioni seguenti descrivono come caricare ogni tipo di computer in Configurazione stato di Automazione di Azure.
+
+> [!NOTE]
+>La distribuzione di DSC in un nodo Linux usa la cartella `/tmp` e i moduli come **nxAutomation** vengono temporaneamente scaricati per la verifica prima di installarli nel percorso appropriato. Per assicurarsi che i moduli vengano installati correttamente, l'agente di Log Analytics per Linux necessita dell'autorizzazione di lettura/scrittura per `/tmp` cartella. L'agente di Log Analytics per Linux viene eseguito come utente `omsagent`. 
+>
+>Per concedere l'autorizzazione di scrittura a `omsagent` utente, eseguire i comandi seguenti: `setfacl -m u:omsagent:rwx /tmp`
+>
 
 ## <a name="azure-virtual-machines"></a>Macchine virtuali di Azure
 
@@ -63,7 +69,7 @@ In **Registrazione** immettere i [valori di Gestione configurazione locale per P
 ### <a name="azure-resource-manager-templates"></a>Modelli di Azure Resource Manager
 
 Le macchine virtuali di Azure possono essere distribuite e caricate in Configurazione stato di Automazione di Azure tramite modelli di Azure Resource Manager. Per un modello di esempio che carica una macchina virtuale esistente nella configurazione dello stato di automazione di Azure, vedere [server gestito dal servizio di configurazione dello stato desiderato](https://azure.microsoft.com/resources/templates/101-automation-configuration/) .
-Se si gestisce un set di scalabilità di macchine virtuali, vedere il modello di esempio [configurazione del set di scalabilità di VM gestito da automazione di Azure](https://azure.microsoft.com/resources/templates/201-vmss-automation-dsc/).
+Se si gestisce un set di scalabilità di macchine virtuali, vedere il modello di esempio [configurazione del set di scalabilità di macchine virtuali gestito da automazione di Azure](https://azure.microsoft.com/resources/templates/201-vmss-automation-dsc/).
 
 ### <a name="powershell"></a>PowerShell
 
@@ -93,14 +99,14 @@ I server Windows in esecuzione in locale o in altri ambienti cloud possono anche
    ```
 
 1. Se non è possibile applicare le metaconfigurazioni di PowerShell DSC in remoto, copiare la cartella delle metaconfigurazioni dal passaggio 2 in ogni computer da caricare. Chiamare quindi **Set-DscLocalConfigurationManager** localmente in ogni computer da caricare.
-1. Tramite il portale di Azure o i cmdlet verificare che i computer da caricare vengano visualizzati come nodi di Configurazione stato nell'account di Automazione di Azure.
+1. Usando il portale di Azure o i cmdlet, verificare che i computer da caricare vengano visualizzati come nodi di configurazione dello stato registrati nell'account di automazione di Azure.
 
 ## <a name="physicalvirtual-linux-machines-on-premises-or-in-a-cloud-other-than-azure"></a>Computer fisici/virtuali Linux in locale o in un cloud diverso da Azure
 
 I server Linux in esecuzione in locale o in altri ambienti cloud possono anche essere caricati nella configurazione dello stato di automazione di Azure, purché dispongano dell' [accesso in uscita ad Azure](automation-dsc-overview.md#network-planning):
 
 1. Assicurarsi che nei computer da caricare in Configurazione stato di Automazione di Azure sia installata la versione più recente di [PowerShell DSC (Desired State Configuration) per Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux).
-1. Se i [valori predefiniti di Gestione configurazione locale per PowerShell DSC](/powershell/scripting/dsc/managing-nodes/metaConfig4) corrispondono al caso d'uso corrente e si vuole caricare computer in modo che **entrambi** eseguano il pull e inviino informazioni a Configurazione stato di Automazione di Azure:
+2. Se i [valori predefiniti di Gestione configurazione locale per PowerShell DSC](/powershell/scripting/dsc/managing-nodes/metaConfig4) corrispondono al caso d'uso corrente e si vuole caricare computer in modo che **entrambi** eseguano il pull e inviino informazioni a Configurazione stato di Automazione di Azure:
 
    - In ogni computer Linux da caricare in Configurazione stato di Automazione di Azure usare `Register.py` per l'onboarding tramite i valori predefiniti di Gestione configurazione locale per PowerShell DSC:
 
@@ -110,8 +116,8 @@ I server Linux in esecuzione in locale o in altri ambienti cloud possono anche e
 
      Se i valori predefiniti Configuration Manager locali di PowerShell DSC **non** corrispondono al caso d'uso o si vuole caricare i computer in modo che riportino solo la configurazione dello stato di automazione di Azure, seguire i passaggi 3-6. In caso contrario, andare direttamente al passaggio 6.
 
-1. Seguire le istruzioni riportate di seguito nella sezione [**Generazione di metaconfigurazioni DSC**](#generating-dsc-metaconfigurations) per generare una cartella contenente le metaconfigurazioni DSC necessarie.
-1. Applicare in remoto la metaconfigurazione di PowerShell DSC ai computer da caricare:
+3. Seguire le istruzioni riportate di seguito nella sezione [**Generazione di metaconfigurazioni DSC**](#generating-dsc-metaconfigurations) per generare una cartella contenente le metaconfigurazioni DSC necessarie.
+4. Applicare in remoto la metaconfigurazione di PowerShell DSC ai computer da caricare:
 
     ```powershell
     $SecurePass = ConvertTo-SecureString -String '<root password>' -AsPlainText -Force
@@ -130,7 +136,7 @@ Nel computer dal quale viene eseguito questo comando deve essere installata la v
 
    `/opt/microsoft/dsc/Scripts/SetDscLocalConfigurationManager.py -configurationmof <path to metaconfiguration file>`
 
-1. Tramite il portale di Azure o i cmdlet verificare che ora i computer da caricare siano visualizzati come nodi DSC registrati nell'account di Automazione di Azure.
+2. Tramite il portale di Azure o i cmdlet verificare che ora i computer da caricare siano visualizzati come nodi DSC registrati nell'account di Automazione di Azure.
 
 ## <a name="generating-dsc-metaconfigurations"></a>Generazione di metaconfigurazioni DSC
 
@@ -327,7 +333,7 @@ Per altre informazioni sulla risoluzione dei problemi, vedere [risoluzione dei p
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per iniziare, vedere [Introduzione alla configurazione dello stato di Automazione di Azure](automation-dsc-getting-started.md)
+- Per iniziare, vedere [Introduzione a Configurazione stato di Automazione di Azure](automation-dsc-getting-started.md)
 - Per informazioni sulla compilazione di configurazioni DSC da assegnare ai nodi di destinazione, vedere [Compilazione di configurazioni in Configurazione stato di Automazione di Azure](automation-dsc-compile.md)
 - Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Azure Automation State Configuration cmdlets](/powershell/module/az.automation#automation) (Cmdlet per Configurazione stato di Automazione di Azure)
 - Per informazioni sui prezzi, vedere [Prezzi di Configurazione stato di Automazione di Azure](https://azure.microsoft.com/pricing/details/automation/)

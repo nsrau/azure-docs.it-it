@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/22/2018
-ms.openlocfilehash: a1a4dbffed37480178d1b94a77587ca251396db6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 05d849aa0edf5892e568c4078ca619490cfcd98e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931943"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363201"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Creare visualizzazioni personalizzate usando Progettazione viste in monitoraggio di Azure
 Utilizzando Progettazione viste in monitoraggio di Azure, è possibile creare un'ampia gamma di visualizzazioni personalizzate nell'portale di Azure che consentono di visualizzare i dati nell'area di lavoro di Log Analytics. Questo articolo presenta una panoramica su Progettazione visualizzazioni e sulle procedure per la creazione e la modifica delle visualizzazioni personalizzate.
@@ -32,7 +32,7 @@ Le visualizzazioni vengono visualizzate nella pagina **Panoramica** di monitorag
 
 Le visualizzazioni create con Progettazione visualizzazioni contengono gli elementi descritti nella tabella seguente:
 
-| Parte: | Description |
+| Parte | Description |
 |:--- |:--- |
 | Riquadri | Vengono visualizzati nella pagina **Panoramica** di monitoraggio di Azure. Ogni riquadro mostra un riepilogo visivo della visualizzazione personalizzata che rappresenta. Ciascun tipo di riquadro offre una visualizzazione diversa dei record. Selezionare un riquadro per mostrare una visualizzazione personalizzata. |
 | Visualizzazione personalizzata | Viene mostrata quando si seleziona un riquadro. Ciascuna visualizzazione contiene una o più parti della visualizzazione. |
@@ -100,7 +100,7 @@ Le opzioni per l'uso delle visualizzazioni in modalità di modifica sono descrit
 | Salva        | Salva le modifiche e chiude la visualizzazione. |
 | Annulla      | Annulla le modifiche e chiude la visualizzazione. |
 | Eliminare la visualizzazione | Elimina la visualizzazione. |
-| Esportazione      | Esporta la visualizzazione in un [modello di Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) da importare in un'altra area di lavoro. Il nome del file corrisponde al nome della visualizzazione e ha estensione *omsview*. |
+| Esporta      | Esporta la visualizzazione in un [modello di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) da importare in un'altra area di lavoro. Il nome del file corrisponde al nome della visualizzazione e ha estensione *omsview*. |
 | Importa      | Importa il file *omsview* esportato da un'altra area di lavoro. Questa azione sovrascrive la configurazione della visualizzazione esistente. |
 | Clona       | Crea una nuova visualizzazione e la apre in Progettazione visualizzazioni. La nuova visualizzazione ha lo stesso nome dell'originale, con l'aggiunta di *Copia*. |
 

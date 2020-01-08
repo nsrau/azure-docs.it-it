@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f9b7ac97cb190073966f9be450e9f9e04014fbd7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: cc2295f6151b3cde81c27c8ed1116013e1a3f9a9
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078045"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647544"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Preparare l'infrastruttura di Azure per la disponibilità elevata di SAP con un cluster di failover Windows e la condivisione di file per le istanze di SAP ASCS/SCS
 
@@ -39,8 +39,8 @@ ms.locfileid: "70078045"
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -203,7 +203,7 @@ ms.locfileid: "70078045"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
@@ -213,7 +213,7 @@ Questo articolo descrive la procedura di preparazione dell'infrastruttura di Azu
 
 Prima di iniziare l'installazione, esaminare l'articolo seguente:
 
-* [Guida all'architettura: Clustering di istanze SAP ASC/SCS in un cluster di failover Windows tramite condivisione file][sap-high-availability-guide-wsfc-file-share]
+* [Guida all'architettura: cluster di istanze di SAP ASC/SCS in un cluster di failover Windows tramite condivisione file][sap-high-availability-guide-wsfc-file-share]
 
 
 ## <a name="host-names-and-ip-addresses"></a>Nomi host e indirizzi IP
@@ -222,17 +222,17 @@ Prima di iniziare l'installazione, esaminare l'articolo seguente:
 | --- | --- | --- | --- |
 | Cluster ASCS/SCS del primo nodo del cluster | ascs-1 | 10.0.6.4 | ascs-as |
 | Cluster ASCS/SCS del secondo nodo del cluster | ascs-2 | 10.0.6.5 | ascs-as |
-| Nome rete di cluster |ascs-cl | 10.0.6.6 | n/d |
-| Nome di rete del cluster SAP PR1 ASCS |pr1-ascs | 10.0.6.7 | n/d |
+| Nome rete di cluster |ascs-cl | 10.0.6.6 | N/D |
+| Nome di rete del cluster SAP PR1 ASCS |pr1-ascs | 10.0.6.7 | N/D |
 
 
-**Tabella 1**: Cluster ASC/SCS
+**Tabella 1**: cluster ASCS/SCS
 
 | SAP \<SID> | Numero di istanza di SAP ASCS/SCS |
 | --- | --- |
 | PR1 | 00 |
 
-**Tabella 2**: Dettagli dell'istanza di SAP ASC/SCS
+**Tabella 2**: dettagli dell'istanza SAP ASCS/SCS
 
 
 | Ruolo nome host virtuale | Nome host virtuale | Indirizzo IP statico | Set di disponibilità |
@@ -240,10 +240,10 @@ Prima di iniziare l'installazione, esaminare l'articolo seguente:
 | Primo nodo del cluster | sofs-1 | 10.0.6.10 | sofs-as |
 | Secondo nodo del cluster | sofs-2 | 10.0.6.11 | sofs-as |
 | Terzo nodo del cluster | sofs-3 | 10.0.6.12 | sofs-as |
-| Nome rete di cluster | sofs-cl | 10.0.6.13 | n/d |
-| Nome host di SAP GLOBAL | sapglobal | Usare gli indirizzi IP di tutti i nodi del cluster | n/d |
+| Nome rete di cluster | sofs-cl | 10.0.6.13 | N/D |
+| Nome host di SAP GLOBAL | sapglobal | Usare gli indirizzi IP di tutti i nodi del cluster | N/D |
 
-**Tabella 3**: Cluster File server di scalabilità orizzontale
+**Tabella 3**: cluster di file server di scalabilità orizzontale
 
 
 ## <a name="deploy-vms-for-an-sap-ascsscs-cluster-a-database-management-system-dbms-cluster-and-sap-application-server-instances"></a>Distribuire le macchine virtuali per un cluster SAP ASCS/SCS, un cluster di sistema di gestione orizzontale (DBMS, Database Management System) e le istanze dei server di applicazioni SAP
@@ -316,15 +316,15 @@ Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
 > È necessario specificare il numero di macchine virtuali nell'interfaccia utente del modello di Resource Manager del file server di scalabilità orizzontale.
 >
 
-### <a name="use-managed-disks"></a>Usa dischi gestiti
+### <a name="use-managed-disks"></a>Usare i dischi gestiti
 
 Il modello di Azure Resource Manager per la distribuzione di File server di scalabilità orizzontale con Spazi di archiviazione diretta e Managed Disks di Azure è disponibile in [GitHub][arm-sofs-s2d-managed-disks].
 
 È consigliabile usare Managed Disks.
 
-![Figura 1: Schermata dell'interfaccia utente per File server di scalabilità orizzontale modello di Gestione risorse con Managed Disks][sap-ha-guide-figure-8010]
+![Figura 1: Schermata dell'interfaccia utente per il modello di Resource Manager del file server di scalabilità orizzontale con dischi gestiti][sap-ha-guide-figure-8010]
 
-_**Figura 1**: Schermata dell'interfaccia utente per File server di scalabilità orizzontale modello di Gestione risorse con Managed Disks_
+_**Figura 1**: Schermata dell'interfaccia utente per il modello di Resource Manager del file server di scalabilità orizzontale con dischi gestiti_
 
 Nel modello eseguire le operazioni seguenti:
 1. Nella casella **Conteggio macchine virtuali** inserire un numero minimo di **2**.
@@ -336,15 +336,15 @@ Nel modello eseguire le operazioni seguenti:
 
 Il modello di Azure Resource Manager per la distribuzione di File server di scalabilità orizzontale con Spazi di archiviazione diretta e dischi non gestiti di Azure è disponibile in [GitHub][arm-sofs-s2d-non-managed-disks].
 
-![Figura 2: Schermata dell'interfaccia utente per il modello di Azure Resource Manager File server di scalabilità orizzontale senza dischi gestiti][sap-ha-guide-figure-8011]
+![Figura 2: Schermata dell'interfaccia utente per il modello di Azure Resource Manager del file server di scalabilità orizzontale con dischi gestiti][sap-ha-guide-figure-8011]
 
-_**Figura 2**: Schermata dell'interfaccia utente per il modello di Azure Resource Manager File server di scalabilità orizzontale senza dischi gestiti_
+_**Figura 2**: Schermata dell'interfaccia utente per il modello di Azure Resource Manager del file server di scalabilità orizzontale con dischi gestiti_
 
 Nella casella **Tipo di account di archiviazione** selezionare **Archiviazione Premium**. Le altre impostazioni sono le stesse usate con i dischi gestiti.
 
 ## <a name="adjust-cluster-timeout-settings"></a>Modificare le impostazioni di timeout del cluster
 
-Dopo aver installato correttamente il cluster di Windows File server di scalabilità orizzontale, adattare le soglie di timeout per il rilevamento del failover alle condizioni in Azure. I parametri da modificare sono documentati in [impostazione][tuning-failover-cluster-network-thresholds]delle soglie di rete del cluster di failover. Supponendo che le macchine virtuali in cluster si trovino nella stessa subnet, modificare i parametri seguenti in questi valori:
+Dopo aver installato correttamente il cluster di Windows File server di scalabilità orizzontale, adattare le soglie di timeout per il rilevamento del failover alle condizioni in Azure. I parametri da modificare sono documentati in [impostazione delle soglie di rete del cluster di failover][tuning-failover-cluster-network-thresholds]. Supponendo che le macchine virtuali in cluster si trovino nella stessa subnet, modificare i parametri seguenti in questi valori:
 
 - SameSubNetDelay = 2000
 - SameSubNetThreshold = 15

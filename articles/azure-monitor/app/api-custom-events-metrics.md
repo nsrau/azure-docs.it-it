@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/27/2019
-ms.openlocfilehash: afe2ac60d7b945dd1bb3b8841ae0a7605865f29f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 2136ab9a6d0cef7ad5650c8414f9a17b78498abc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893383"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432678"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API di Application Insights per metriche ed eventi personalizzati
 
@@ -22,7 +22,7 @@ Inserire alcune righe di codice nell'applicazione per scoprire come viene usato 
 
 L'API principale è uniforme in tutte le piattaforme, a parte alcune variazioni, ad esempio `GetMetric` (solo .NET).
 
-| Metodo | Usato per |
+| Metodo | Utilizzo |
 | --- | --- |
 | [`TrackPageView`](#page-views) |Pagine, schermate, pannelli o form. |
 | [`TrackEvent`](#trackevent) |Azioni dell'utente e altri eventi. Usato per tenere traccia del comportamento dell'utente o per monitorare le prestazioni. |
@@ -54,7 +54,7 @@ Se non si ha ancora un riferimento in Application Insights SDK:
 
     *Java:* `import com.microsoft.applicationinsights.TelemetryClient;`
 
-    *Node.js:* `var applicationInsights = require("applicationinsights");`
+    *Node. js:* `var applicationInsights = require("applicationinsights");`
 
 ## <a name="get-a-telemetryclient-instance"></a>Ottenere un'istanza di TelemetryClient
 
@@ -152,7 +152,7 @@ Se il [campionamento](../../azure-monitor/app/sampling.md) è attivo, la proprie
 
 ## <a name="getmetric"></a>GetMetric
 
-### <a name="examples"></a>esempi
+### <a name="examples"></a>Esempi
 
 *C#*
 
@@ -252,7 +252,7 @@ Per inviare le metriche ad Application Insights, è possibile usare l'API `Track
 
 * Aggregazione. Quando si usano le metriche non si considera mai una sola misura. È importante invece il riepilogo delle operazioni eseguite in un periodo di tempo specifico. Tale riepilogo viene chiamato _aggregazione_. Nell'esempio precedente la somma della metrica di aggregazione per quel periodo di tempo è `1` e il conteggio dei valori della metrica è `2`. Quando si usa l'approccio di aggregazione, si chiama `TrackMetric` solo una volta per periodo di tempo e si inviano i valori di aggregazione. Questo è l'approccio consigliato in quanto può ridurre notevolmente i costi e le prestazioni generali inviando meno punti dati ad Application Insights, durante la raccolta di tutte le informazioni pertinenti.
 
-### <a name="examples"></a>esempi
+### <a name="examples"></a>Esempi
 
 #### <a name="single-values"></a>Valori singoli
 
@@ -522,7 +522,7 @@ exceptions
 | summarize sum(itemCount) by type
 ```
 
-La maggior parte delle informazioni importanti dello stack è già stata estratta in variabili distinte, ma è possibile separare la struttura `details` per ottenerne altre. Poiché si tratta di una struttura dinamica, è necessario eseguire il cast del risultato per il tipo previsto. ad esempio:
+La maggior parte delle informazioni importanti dello stack è già stata estratta in variabili distinte, ma è possibile separare la struttura `details` per ottenerne altre. Poiché si tratta di una struttura dinamica, è necessario eseguire il cast del risultato per il tipo previsto. Ad esempio:
 
 ```kusto
 exceptions
@@ -585,7 +585,7 @@ Registrare un evento di diagnostica, ad esempio inserire o rimuovere un metodo.
 Il limite delle dimensioni per `message` è molto superiore al limite per le proprietà.
 Un vantaggio di TrackTrace è che è possibile inserire dati relativamente lunghi nel messaggio. Ad esempio è possibile codificare dati POST.  
 
-È anche possibile aggiungere al messaggio un livello di gravità. E come per altri tipi di dati di telemetria è possibile aggiungere valori di proprietà utili per filtrare o cercare set di tracce diversi. ad esempio:
+È anche possibile aggiungere al messaggio un livello di gravità. E come per altri tipi di dati di telemetria è possibile aggiungere valori di proprietà utili per filtrare o cercare set di tracce diversi. Ad esempio:
 
 *C#*
 
@@ -656,7 +656,7 @@ finally {
 }
 ```
 
-*JavaScript*
+*Node.js*
 
 ```javascript
 var success = false;
@@ -1017,7 +1017,7 @@ L'[applicazione di filtri](../../azure-monitor/app/api-filtering-sampling.md#fil
 
 Il [campionamento](../../azure-monitor/app/api-filtering-sampling.md) è una soluzione in pacchetto che consente di ridurre il volume dei dati inviati dall'app al portale. Lo fa senza influenzare le metriche visualizzate e senza influire sulla possibilità di diagnosticare i problemi navigando tra elementi correlati, come eccezioni, richieste e visualizzazioni di pagina.
 
-[Altre informazioni](../../azure-monitor/app/api-filtering-sampling.md).
+[Altre informazioni](../../azure-monitor/app/api-filtering-sampling.md)
 
 ## <a name="disabling-telemetry"></a>Disabilitazione della telemetria
 
@@ -1148,7 +1148,7 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## <a name="telemetrycontext"></a>TelemetryContext
 
-TelemetryClient dispone di una proprietà Context contenente valori che vengono inviati insieme a tutti i dati di telemetria. Sono in genere impostati dai moduli di telemetria standard, ma è possibile anche impostarli manualmente. ad esempio:
+TelemetryClient dispone di una proprietà Context contenente valori che vengono inviati insieme a tutti i dati di telemetria. Sono in genere impostati dai moduli di telemetria standard, ma è possibile anche impostarli manualmente. Ad esempio:
 
 ```csharp
 telemetry.Context.Operation.Name = "MyOperationName";
@@ -1168,7 +1168,7 @@ Se si imposta uno di questi valori manualmente, provare a rimuovere la riga pert
 * **Sessione**: la sessione dell'utente. L'ID viene impostato su un valore generato, che viene modificato quando l'utente non è stato attivo per un periodo di tempo specifico.
 * **Utente**: le informazioni dell'utente.
 
-## <a name="limits"></a>limiti
+## <a name="limits"></a>Limiti
 
 [!INCLUDE [application-insights-limits](../../../includes/application-insights-limits.md)]
 
@@ -1188,7 +1188,7 @@ Per determinare quanto tempo vengono conservati i dati, vedere [Raccolta, conser
 * [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
 * [ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [Pacchetti per Windows Server](https://github.com/Microsoft/applicationInsights-dotnet-server)
-* [Java SDK](https://github.com/Microsoft/ApplicationInsights-Java)
+* [SDK per Java](https://github.com/Microsoft/ApplicationInsights-Java)
 * [Node.js SDK](https://github.com/Microsoft/ApplicationInsights-Node.js)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 
@@ -1197,7 +1197,7 @@ Per determinare quanto tempo vengono conservati i dati, vedere [Raccolta, conser
 
 * *Quali eccezioni potrebbero essere generate dalle chiamate Track_()?*
 
-    None. Non è necessario eseguirne il wrapping in clausole try-catch. Se l'SDK rileva un problema, registrerà messaggi nell'output della console di debug e quindi in Ricerca diagnostica per approfondirne i dettagli.
+    Nessuno. Non è necessario eseguirne il wrapping in clausole try-catch. Se l'SDK rileva un problema, registrerà messaggi nell'output della console di debug e quindi in Ricerca diagnostica per approfondirne i dettagli.
 * *Esiste un'API REST per ottenere dati dal portale?*
 
     Sì, l'[API di accesso ai dati](https://dev.applicationinsights.io/). Altri modi per estrarre i dati sono l'[esportazione da Analytics a Power BI](../../azure-monitor/app/export-power-bi.md ) e l'[esportazione continua](../../azure-monitor/app/export-telemetry.md).
@@ -1205,4 +1205,4 @@ Per determinare quanto tempo vengono conservati i dati, vedere [Raccolta, conser
 ## <a name="next"></a>Passaggi successivi
 
 * [Ricerca di eventi e log](../../azure-monitor/app/diagnostic-search.md)
-* [risoluzione dei problemi](../../azure-monitor/app/troubleshoot-faq.md)
+* [Risoluzione dei problemi](../../azure-monitor/app/troubleshoot-faq.md)

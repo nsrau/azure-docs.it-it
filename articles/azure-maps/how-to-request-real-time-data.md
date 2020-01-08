@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 4c53d1c1ffbc80e694a9a7b423b2aaf9c6d38b48
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 5f69bcafbc3abb39b4185e0144ff6029808c0704
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914389"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432984"
 ---
 # <a name="request-real-time-data-using-the-azure-maps-mobility-service"></a>Richiedi dati in tempo reale usando il servizio Mobility di Azure Maps
 
 Questo articolo illustra come usare il [servizio Mobility](https://aka.ms/AzureMapsMobilityService) di Azure Maps per richiedere dati di transito in tempo reale.
 
-In questo articolo si apprenderà come:
+In questo articolo verrà spiegato come:
 
 
  * Richiedi arrivi successivi in tempo reale per tutte le righe in arrivo all'arresto specificato
@@ -29,7 +29,8 @@ In questo articolo si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per eseguire chiamate alle API di transito pubblico di Azure Maps, sono necessari un account e una chiave di Maps. Per informazioni sulla creazione di un account, seguire le istruzioni in [gestire l'account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) e seguire i passaggi in [ottenere la chiave primaria](./tutorial-search-location.md#getkey) per recuperare una chiave di sottoscrizione primaria per l'account.
+Per eseguire chiamate alle API di transito pubblico di Azure Maps, sono necessari un account e una chiave di Maps. Per informazioni sulla creazione di un account e sul recupero di una chiave, seguire le istruzioni in [creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps) per creare una sottoscrizione di account Azure Maps e seguire i passaggi in [ottenere](quick-demo-map-app.md#get-the-primary-key-for-your-account) la chiave primaria per ottenere la chiave primaria per l'account. Per altri dettagli sull'autenticazione in mappe di Azure, vedere [gestire l'autenticazione in mappe di Azure](./how-to-manage-authentication.md).
+
 
 Questo articolo usa l'[app Postman](https://www.getpostman.com/apps) per compilare le chiamate REST. È possibile usare qualsiasi ambiente di sviluppo API preferito.
 
@@ -129,7 +130,7 @@ Per effettuare una richiesta all'API Get Transit Dock info, è necessario **dock
 
 Per ottenere **dockID**, seguire questa procedura per effettuare una richiesta all'API di transito vicina:
 
-1. In post, fare clic su **nuova richiesta** | **Get request** e denominarla **Get Dock ID**.
+1. In postazione fare clic su **nuova richiesta** | **Get request** e denominarla **Get Dock ID**.
 
 2.  Nella scheda generatore selezionare il metodo **Get** http, immettere l'URL della richiesta seguente e fare clic su **Send**.
  
@@ -178,7 +179,7 @@ Per ottenere **dockID**, seguire questa procedura per effettuare una richiesta a
 
 Attenersi alla procedura seguente per effettuare una richiesta all'API Get Transit Dock info per ottenere i dati in tempo reale per il Dock selezionato.
 
-1. In postazione fare clic su **nuova richiesta** | Richiedi**richiesta** e assegnare un nome per **ottenere i dati di ancoraggio in tempo reale**.
+1. In post, fare clic su **nuova richiesta** | **Get request** e denominarla **Get Real-Time Dock data**.
 
 2.  Nella scheda generatore selezionare il metodo **Get** http, immettere l'URL della richiesta seguente e fare clic su **Send**.
  

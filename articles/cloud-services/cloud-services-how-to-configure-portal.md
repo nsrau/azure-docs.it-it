@@ -3,21 +3,21 @@ title: Come configurare un servizio cloud (portale) | Documentazione Microsoft
 description: Informazioni su come configurare un servizio cloud in Azure. Informazioni su come aggiornare la configurazione del servizio cloud e configurare l'accesso remoto per le istanze del ruolo. Questi esempi utilizzano il portale di Azure.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 12/07/2016
-ms.author: gwallace
-ms.openlocfilehash: 8b60a81e06b95c69a02f88ff3275743b056c191d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 554d3e465b42ca889ba03565e87193f80e89ed1d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359646"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75361008"
 ---
 # <a name="how-to-configure-cloud-services"></a>Come configurare i servizi cloud
 
-È possibile configurare le impostazioni più comuni di un servizio cloud nel portale di Azure. In alternativa, se si preferisce aggiornare direttamente i file di configurazione, scaricare un file di configurazione del servizio da aggiornare, quindi caricare il file aggiornato e aggiornare il servizio cloud con le modifiche apportate alla configurazione. In ogni caso, per gli aggiornamenti della configurazione viene effettuato il push in tutte le istanze del ruolo.
+È possibile configurare le impostazioni più comuni di un servizio cloud nel portale di Azure. In alternativa, se si desidera aggiornare i file di configurazione direttamente, è possibile scaricare un file di configurazione da aggiornare del servizio, quindi caricare il file aggiornato e aggiornare il servizio cloud con le modifiche apportate alla configurazione. In entrambi i casi, gli aggiornamenti alla configurazione vengono applicati a tutte le istanze del ruolo.
 
 È anche possibile gestire le istanze dei ruoli del servizio cloud o creare una connessione Desktop remoto per tali servizi.
 
@@ -44,7 +44,7 @@ Se è necessario fare riferimento a una versione specifica del sistema operativo
 >[!IMPORTANT]
 > La scelta di una versione specifica del sistema operativo comporta la disabilitazione degli aggiornamenti automatici del sistema operativo e rende l'applicazione di patch a carico dell'utente. È necessario assicurarsi che le istanze del ruolo ricevano gli aggiornamenti. In caso contrario, si rischia l'esposizione dell'applicazione a vulnerabilità della sicurezza.
 
-## <a name="monitoring"></a>Monitoraggio
+## <a name="monitoring"></a>Monitorare
 
 È possibile aggiungere avvisi al servizio cloud. Fare clic su **Impostazioni** > **Regole di avviso** > **Aggiungi avviso**.
 
@@ -104,3 +104,6 @@ Potrebbe essere necessario riconfigurare il servizio cloud con il file di [confi
 * Configurare un [nome di dominio personalizzato](cloud-services-custom-domain-name-portal.md).
 * [Gestire il servizio cloud](cloud-services-how-to-manage-portal.md).
 * Configurare i [certificati ssl](cloud-services-configure-ssl-certificate-portal.md).
+
+
+

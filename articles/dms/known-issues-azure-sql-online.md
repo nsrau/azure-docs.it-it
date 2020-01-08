@@ -1,6 +1,7 @@
 ---
-title: Problemi noti e limitazioni per le migrazioni online al database SQL di Azure | Microsoft Docs
-description: Informazioni su problemi noti e limitazioni per le migrazioni online al database SQL di Azure.
+title: 'Problemi noti: migrazioni online al database SQL'
+titleSuffix: Azure Database Migration Service
+description: Informazioni sui problemi noti/limitazioni della migrazione con le migrazioni online al database SQL di Azure tramite il servizio migrazione del database di Azure.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,15 +9,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 07/27/2019
-ms.openlocfilehash: 7cd8b7c2accae097c971aec4b92cf38ed5d3af08
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bf747b6deb4b3c25df74364143ac48c59eb48ae1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561499"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437836"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-database"></a>Problemi noti/limitazioni della migrazione con migrazioni online al database SQL di Azure
 

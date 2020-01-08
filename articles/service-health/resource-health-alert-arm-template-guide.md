@@ -1,17 +1,14 @@
 ---
-title: Configurare avvisi di integrità risorse di Azure tramite i modelli di Gestione risorse | Microsoft Docs
+title: Creare avvisi di integrità risorse di Azure-modelli di Gestione risorse
 description: Creare avvisi a livello di codice che inviano una notifica quando le risorse di Azure non sono disponibili.
-author: stephbaron
-ms.author: stbaron
 ms.topic: conceptual
-ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: 10a940e43b2ab4dff1b7c90aa7d6d274ddef82d9
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 34367c89666fd486f233136ce7968c7f3bf61912
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73023906"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551717"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configurare avvisi di integrità risorse di Azure tramite modelli di Gestione risorse
 

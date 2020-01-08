@@ -3,12 +3,12 @@ title: Eseguire il backup di un database di SAP HANA in Azure con backup di Azur
 description: Questo articolo illustra come eseguire il backup di un database di SAP HANA in macchine virtuali di Azure con il servizio backup di Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: ed47f18c9dabc685d6fbe02804562ef86a93190a
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 3246f6cf8046e0a0c5795059ad3448b70130e7e1
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74285883"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75496967"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Eseguire il backup di database SAP HANA nelle VM di Azure
 
@@ -24,44 +24,50 @@ In questo articolo verrà spiegato come:
 > * Configurare i backup
 > * Eseguire un processo di backup su richiesta
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare il database per il backup, vedere le sezioni [prerequisiti](tutorial-backup-sap-hana-db.md#prerequisites) e [impostazione delle autorizzazioni](tutorial-backup-sap-hana-db.md#setting-up-permissions) .
 
 ### <a name="set-up-network-connectivity"></a>Configurare la connettività di rete
 
-Per tutte le operazioni, la macchina virtuale SAP HANA richiede la connettività agli indirizzi IP pubblici di Azure. Le operazioni della macchina virtuale (individuazione del database, configurazione dei backup, pianificazione dei backup, ripristino dei punti di ripristino e così via) non possono funzionare senza connettività. Stabilire la connettività consentendo l'accesso agli intervalli IP del Data Center di Azure:
+Per tutte le operazioni, la macchina virtuale SAP HANA richiede la connettività agli indirizzi IP pubblici di Azure. Le operazioni della macchina virtuale, ad esempio individuazione dei database, configurazione e pianificazione dei backup, ripristino dei punti di ripristino e così via, non funzionano in assenza di connettività. Stabilire la connettività consentendo l'accesso agli intervalli IP dei data center Azure:
 
-* È possibile scaricare gli [intervalli di indirizzi IP](https://www.microsoft.com/download/details.aspx?id=41653) per i Data Center di Azure e consentire l'accesso a questi indirizzi IP.
-* Se si usano i gruppi di sicurezza di rete (gruppi), è possibile usare il [tag del servizio](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) AzureCloud per consentire tutti gli indirizzi IP pubblici di Azure. È possibile usare il [cmdlet Set-AzureNetworkSecurityRule](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurenetworksecurityrule?view=azuresmps-4.0.0) per modificare le regole di NSG.
-* La porta 443 deve essere aggiunta all'elenco di consentiti poiché il trasporto è tramite HTTPS.
+* È possibile scaricare gli [intervalli di indirizzi IP](https://www.microsoft.com/download/details.aspx?id=41653) dei data center Azure e quindi consentirvi l'accesso.
+* Se si usano i gruppi di sicurezza di rete, è possibile usare il [tag del servizio](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) AzureCloud per consentire tutti gli indirizzi IP pubblici di Azure. Per modificare le regole dei gruppi di sicurezza di rete, è possibile usare il cmdlet [Set-AzureNetworkSecurityRule](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurenetworksecurityrule?view=azuresmps-4.0.0).
+* La porta 443 deve essere aggiunta all'elenco di elementi consentiti, perché il trasporto avviene tramite HTTPS.
 
 ## <a name="onboard-to-the-public-preview"></a>Eseguire l'onboarding nell'anteprima pubblica
 
-Eseguire l'onboarding nell'anteprima pubblica come indicato di seguito:
+Eseguire l'onboarding nell'anteprima pubblica come segue:
 
-* Nel portale, registrare l'ID sottoscrizione al provider di servizi di servizi di ripristino [seguendo questo articolo](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal).
-* Per PowerShell, eseguire questo cmdlet. Deve essere completato come "registrato".
+* Nel portale registrare l'ID sottoscrizione nel provider di Servizi di ripristino seguendo le istruzioni di [questo articolo](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal).
+* Per il modulo ' AZ ' in PowerShell, eseguire questo cmdlet. Dovrebbe essere completato come "Registrato".
 
     ```powershell
     Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
     ```
+* Se si usa il modulo ' AzureRM ' in PowerShell, eseguire questo cmdlet. Dovrebbe essere completato come "Registrato".
+
+    ```powershell
+    Register-AzureRmProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
+    ```
+    
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## <a name="discover-the-databases"></a>Individuare i database
 
-1. Nell'insieme di credenziali, in **Introduzione**, fare clic su **backup**. In **dove è in esecuzione il carico di lavoro?** selezionare **SAP Hana nella macchina virtuale di Azure**.
+1. Nell'insieme di credenziali, in **Attività iniziali**, fare clic su **Backup**. In **Posizione di esecuzione del carico di lavoro** selezionare **SAP HANA in una macchina virtuale di Azure**.
 2. Fare clic su **Avvia individuazione**. Viene avviata l'individuazione delle macchine virtuali Linux non protette nell'area dell'insieme di credenziali.
 
    * Al termine dell'individuazione, le macchine virtuali non protette vengono visualizzate nel portale, elencate in base al nome e al gruppo di risorse.
    * Se una macchina virtuale non è elencata come previsto, controllare se è già stato eseguito il backup in un insieme di credenziali.
    * Più macchine virtuali possono avere lo stesso nome ma appartengono a gruppi di risorse diversi.
 
-3. In **Seleziona macchine virtuali**fare clic sul collegamento per scaricare lo script che fornisce le autorizzazioni per il servizio backup di Azure per accedere alle macchine virtuali SAP HANA per l'individuazione del database.
+3. In **Seleziona macchine virtuali** fare clic sul collegamento per scaricare lo script che fornisce le autorizzazioni per il servizio Backup di Azure per accedere alle macchine virtuali SAP HANA per l'individuazione del database.
 4. Eseguire lo script in ogni macchina virtuale che ospita SAP HANA database di cui si vuole eseguire il backup.
-5. Dopo aver eseguito lo script nelle VM, selezionare le VM in **Seleziona macchine virtuali**. Quindi fare clic su **individua**database.
-6. Backup di Azure individua tutti i database di SAP HANA nella macchina virtuale. Durante l'individuazione, backup di Azure registra la macchina virtuale con l'insieme di credenziali e installa un'estensione nella macchina virtuale. Nessun agente installato nel database.
+5. Dopo aver eseguito lo script nelle VM, selezionare le VM in **Seleziona macchine virtuali**. Quindi fare clic su **Individua database**.
+6. Backup di Azure individua tutti i database SAP HANA presenti nella macchina virtuale. Durante l'individuazione, Backup di Azure registra la VM con l'insieme di credenziali e installa l'estensione. Nel database non vengono installati agenti.
 
     ![Individuazione di database SAP HANA](./media/backup-azure-sap-hana-database/hana-discover.png)
 
@@ -71,26 +77,26 @@ A questo punto, abilitare il backup.
 
 1. Nel passaggio 2 fare clic su **Configura backup**.
 
-    ![Configurazione di backup](./media/backup-azure-sap-hana-database/configure-backup.png)
+    ![Configurare il servizio Backup](./media/backup-azure-sap-hana-database/configure-backup.png)
 2. In **Seleziona elementi di cui eseguire il backup**selezionare tutti i database che si desidera proteggere > **OK**.
 
-    ![Selezionare gli elementi di cui eseguire il backup](./media/backup-azure-sap-hana-database/select-items.png)
+    ![Seleziona elementi per backup](./media/backup-azure-sap-hana-database/select-items.png)
 3. In **criteri di backup** > **scegliere criteri**di backup, creare un nuovo criterio di backup per i database, in base alle istruzioni riportate di seguito.
 
     ![Scegliere i criteri di backup](./media/backup-azure-sap-hana-database/backup-policy.png)
 4. Dopo aver creato il criterio, scegliere **Abilita backup**dal menu **backup** .
 
     ![Abilita backup](./media/backup-azure-sap-hana-database/enable-backup.png)
-5. Tenere traccia dello stato di avanzamento della configurazione del backup nell'area **notifiche** del portale.
+5. Per tenere traccia dello stato di avanzamento della configurazione di backup, vedere l'area **Notifiche** del portale.
 
 ### <a name="create-a-backup-policy"></a>Creare un criterio di backup
 
-Un criterio di backup definisce quando vengono eseguiti i backup e per quanto tempo vengono conservati.
+Un criterio di backup definisce quando vengono acquisiti i backup e per quanto tempo vengono conservati.
 
 * Un criterio viene creato a livello di insieme di credenziali.
 * Più insiemi di credenziali possono usare gli stessi criteri di backup, ma è necessario applicare i criteri di backup a ogni insieme di credenziali.
 
-Specificare le impostazioni dei criteri come indicato di seguito:
+Specificare le impostazioni del criterio come segue:
 
 1. In **Nome criterio** immettere un nome per il nuovo criterio.
 
@@ -104,14 +110,14 @@ Specificare le impostazioni dei criteri come indicato di seguito:
 
    ![Selezionare la frequenza di backup](./media/backup-azure-sap-hana-database/backup-frequency.png)
 
-3. In periodo di **mantenimento**dati configurare le impostazioni di conservazione per il backup completo.
+3. In **Intervallo conservazione** configurare le impostazioni di conservazione per il backup completo.
     * Per impostazione predefinita, tutte le opzioni sono selezionate. Cancellare i limiti del periodo di mantenimento dati che non si vuole usare e impostarli.
-    * Il periodo di memorizzazione minimo per qualsiasi tipo di backup (completo/differenziale/log) è di sette giorni.
+    * Il periodo di conservazione minimo di qualsiasi tipo di backup (completo/differenziale/del log) è di sette giorni.
     * I punti di recupero vengono contrassegnati per la conservazione, in base al relativo intervallo. Ad esempio, se si seleziona un backup completo giornaliero, viene attivato solo un backup completo ogni giorno.
-    * Il backup di un giorno specifico viene contrassegnato e mantenuto in base al periodo di mantenimento settimanale e all'impostazione.
+    * Il backup di un giorno specifico viene contrassegnato e conservato in base all'intervallo e all'impostazione di conservazione settimanale.
     * L'intervallo di conservazione mensile e annuale si comporta allo stesso modo.
 
-4. Nel menu **criteri di backup completo** fare clic su **OK** per accettare le impostazioni.
+4. Nel menu **Criteri di backup completo** fare clic su **OK** per accettare le impostazioni.
 5. Selezionare **backup differenziale** per aggiungere un criterio differenziale.
 6. Nel **criterio Backup differenziale** selezionare **Abilita** per accedere alle opzioni di frequenza e conservazione.
     * Al massimo, è possibile attivare un backup differenziale al giorno.
@@ -122,16 +128,19 @@ Specificare le impostazioni dei criteri come indicato di seguito:
     > [!NOTE]
     > I backup incrementali non sono attualmente supportati.
 
-7. Fare clic su **OK** per salvare il criterio e tornare al menu principale del **criterio di backup** .
-8. Selezionare **backup del log** per aggiungere un criterio di backup del log transazionale,
-    * In **backup del log**selezionare **Abilita**.  Questa operazione non può essere disabilitata perché SAP HANA gestisce tutti i backup del log.
+7. Fare clic su **OK** per salvare il criterio e tornare nel menu principale **Criteri di backup**.
+8. Selezionare **Backup del log** per aggiungere un criterio per i backup del log delle transazioni.
+    * In **backup del log**selezionare **Abilita**.  Questa opzione non può essere disabilitata perché SAP HANA gestisce tutti i backup del log.
     * Impostare la frequenza e i controlli di conservazione.
 
     > [!NOTE]
     > Il flusso dei backup del log inizia solo dopo il completamento di un backup completo.
 
-9. Fare clic su **OK** per salvare il criterio e tornare al menu principale del **criterio di backup** .
-10. Al termine della definizione dei criteri di backup, fare clic su **OK**.
+9. Fare clic su **OK** per salvare il criterio e tornare nel menu principale **Criteri di backup**.
+10. Dopo aver completato la definizione dei criteri di backup, fare clic su **OK**.
+
+> [!NOTE]
+> Ogni backup del log viene concatenato al backup completo precedente per formare una catena di recupero. Questo backup completo verrà mantenuto fino alla scadenza della conservazione dell'ultimo backup del log. Questo potrebbe significare che il backup completo viene mantenuto per un periodo aggiuntivo per assicurarsi che tutti i log possano essere ripristinati. Si supponga che l'utente disponga di un backup completo settimanale, dei registri differenziali giornalieri e di 2 ore. Tutti vengono conservati per 30 giorni. Tuttavia, l'intero settimanale può essere effettivamente pulito/eliminato solo dopo che è disponibile il backup completo successivo, ad esempio dopo 30 + 7 giorni. Supponiamo che un backup completo settimanale avvenga il 16 novembre. In base ai criteri di conservazione, deve essere mantenuto fino al 16 dicembre. L'ultimo backup del log per questa versione completa si verifica prima del successivo programma completo, il 22 novembre. Fino a quando questo log non sarà disponibile fino al 22 dicembre, non sarà possibile eliminare il 16 novembre completo. Il 16 novembre, quindi, viene mantenuto fino al 22 dicembre.
 
 ## <a name="run-an-on-demand-backup"></a>Eseguire un backup su richiesta
 
@@ -159,5 +168,5 @@ Se si vuole eseguire un backup locale (usando HANA Studio) di un database di cui
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni su come [ripristinare SAP Hana database in esecuzione in macchine virtuali di Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-restore)
+* Informazioni su come [ripristinare i database SAP HANA in esecuzione nelle VM di Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-restore)
 * Informazioni su come [gestire SAP Hana database di cui viene eseguito il backup con backup di Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-manage)

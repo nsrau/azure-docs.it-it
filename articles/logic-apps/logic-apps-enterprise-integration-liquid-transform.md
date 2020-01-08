@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: 962a3cf214d202fa9f7640d74036c6700196a5ee
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: fb9f9cfdba07ebe0bc5800def6d93950869e9727
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792503"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456638"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Eseguire trasformazioni JSON avanzate con i modelli Liquid in App per la logica di Azure
 
@@ -29,14 +29,14 @@ Prima di poter eseguire una trasformazione Liquid nell'app per la logica, è nec
 
 * Un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) di base
 
-* Conoscenza di base sul [linguaggio del modello Liquid.](https://shopify.github.io/liquid/)
+* Informazioni di base sul [linguaggio del modello Liquid](https://shopify.github.io/liquid/)
 
 ## <a name="create-liquid-template-or-map-for-your-integration-account"></a>Creare un modello o una mappa Liquid per l'account di integrazione
 
 1. Per questo esempio, creare il modello Liquid di esempio descritto in questo passaggio. Nel modello Liquid è possibile usare [filtri Liquid](https://shopify.github.io/liquid/basics/introduction/#filters), che usano [DotLiquid](https://dotliquidmarkup.org/) e convenzioni C# di denominazione. 
 
    > [!NOTE]
-   > Assicurarsi che i nomi di filtro usino la *maiuscola e minuscola* nel modello. In caso contrario, i filtri non funzioneranno.
+   > Assicurarsi che i nomi di filtro usino la *maiuscola e minuscola* nel modello. In caso contrario, i filtri non funzioneranno. Inoltre, le mappe hanno [limiti di dimensioni dei file](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits).
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
@@ -67,11 +67,11 @@ Prima di poter eseguire una trasformazione Liquid nell'app per la logica, è nec
 
 4. Scegliere **Aggiungi** e specificare questi dettagli per la mappa:
 
-   | Proprietà | Value | Description | 
+   | Proprietà | Valore | Description | 
    |----------|-------|-------------|
    | **Nome** | JsonToJsonTemplate | Nome per la mappa, ovvero "JsonToJsonTemplate" in questo esempio | 
    | **Tipo di mapping** | **liquid** | Tipo di mappa. Per la trasformazione da JSON a JSON, è necessario selezionare **Liquid**. | 
-   | **Map** | "SimpleJsonToJsonTemplate.liquid" | File di mappa o di modello Liquid esistente da usare per la trasformazione, ovvero "SimpleJsonToJsonTemplate.liquid" in questo esempio. Per trovare questo file, è possibile usare la selezione file. |
+   | **Mappa** | "SimpleJsonToJsonTemplate.liquid" | File di mappa o di modello Liquid esistente da usare per la trasformazione, ovvero "SimpleJsonToJsonTemplate.liquid" in questo esempio. Per trovare questo file, è possibile usare la selezione file. Per i limiti delle dimensioni della mappa, vedere [limiti e configurazione](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits). |
    ||| 
 
    ![Aggiungere un modello Liquid](./media/logic-apps-enterprise-integration-liquid-transform/add-liquid-template.png)

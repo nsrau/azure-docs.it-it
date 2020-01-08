@@ -1,23 +1,17 @@
 ---
-title: Gestione di funzionalità di Configurazione app di Azure | Microsoft Docs
+title: Gestione delle funzionalità di configurazione app Azure
 description: Panoramica dell'uso di Configurazione app di Azure per attivare e disattivare le funzionalità dell'applicazione on demand.
-services: azure-app-configuration
-documentationcenter: ''
 author: yegu-ms
-manager: maiye
-editor: ''
-ms.service: azure-app-configuration
-ms.devlang: na
-ms.topic: overview
-ms.workload: tbd
-ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 46f39e87e4e4cf115cbc1fceeabf0dab38fade28
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: HT
+ms.service: azure-app-configuration
+ms.topic: conceptual
+ms.date: 04/19/2019
+ms.openlocfilehash: 48aebfe1ba6af348e98e5600075f3a9e9dce1a8e
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393369"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495767"
 ---
 # <a name="feature-management-overview"></a>Panoramica della gestione delle funzionalità
 
@@ -27,19 +21,19 @@ La gestione delle funzionalità è una moderna procedura di sviluppo di software
 
 La gestione delle funzionalità consente agli sviluppatori di risolvere i problemi seguenti:
 
-* **Gestione dei rami del codice**: i flag di funzionalità vengono spesso usati per eseguire il wrapping di nuove funzionalità dell'applicazione, che sono ancora in fase di sviluppo. Tali funzionalità sono "nascoste" per impostazione predefinita. È possibile distribuirle senza problemi, anche se non completate, perché rimarranno inattive nell'ambiente di produzione. Con questo approccio, chiamato *dark deployment*, è possibile rilasciare tutto il codice alla fine di ogni ciclo di sviluppo. Non è più necessario mantenere alcun ramo di codice in più cicli a causa di una funzionalità che richiede più di un ciclo per il completamento.
-* **Test in produzione**: è possibile usare i flag di funzionalità per concedere l'accesso in anteprima alle nuove funzionalità in fase di produzione. È ad esempio possibile limitare l'accesso ai soli membri del team o ai beta tester interni. Questi utenti vivranno un'esperienza ad altissima fedeltà nell'ambiente di produzione, invece di un'esperienza simulata o parziale in un ambiente di test.
-* **Distribuzione in anteprima**: è anche possibile usare i flag di funzionalità per implementare nuove funzionalità per gli utenti finali in modo incrementale. All'inizio è possibile rivolgersi a una piccola percentuale della popolazione di utenti e aumentare tale percentuale gradualmente nel corso del tempo, dopo aver acquisito maggiore fiducia nell'implementazione.
-* **Opzione di interruzione immediata**: i flag funzionalità offrono una rete di sicurezza intrinseca per il rilascio delle nuove funzionalità. Usandoli, è possibile attivare e disattivare facilmente le funzionalità dell'applicazione. Se necessario, è possibile disabilitare rapidamente una funzionalità senza ricompilare e ridistribuire l'applicazione.
-* **Attivazione selettiva**: anche se la maggior parte dei flag è disponibile solo fino a quando le funzionalità associate vengono rilasciate correttamente, alcuni possono rimanere in uso a lungo. È possibile servirsi dei flag di funzionalità per segmentare gli utenti e rendere disponibile un set specifico di funzionalità per ogni gruppo. Una funzionalità, ad esempio, potrebbe funzionare solo in un determinato Web browser. È possibile definire un flag in modo che solo gli utenti di tale browser possano visualizzare e usare la funzionalità. Questo approccio consente di espandere facilmente l'elenco di browser supportati in un secondo momento senza dover modificare il codice.
+* **Gestione dei rami del codice**: i flag delle funzionalità vengono spesso usati per eseguire il wrapping delle nuove funzionalità dell'applicazione in fase di sviluppo. Tali funzionalità sono "nascoste" per impostazione predefinita. È possibile distribuirle senza problemi, anche se non completate, perché rimarranno inattive nell'ambiente di produzione. Con questo approccio, chiamato *dark deployment*, è possibile rilasciare tutto il codice alla fine di ogni ciclo di sviluppo. Non è più necessario mantenere alcun ramo di codice in più cicli a causa di una funzionalità che richiede più di un ciclo per il completamento.
+* **Test in produzione**: è possibile usare i flag funzionalità per concedere l'accesso in anticipo alle nuove funzionalità nell'ambiente di produzione. È ad esempio possibile limitare l'accesso ai soli membri del team o ai beta tester interni. Questi utenti vivranno un'esperienza ad altissima fedeltà nell'ambiente di produzione, invece di un'esperienza simulata o parziale in un ambiente di test.
+* **Volo**: è anche possibile usare flag funzionalità per implementare in modo incrementale nuove funzionalità per gli utenti finali. All'inizio è possibile rivolgersi a una piccola percentuale della popolazione di utenti e aumentare tale percentuale gradualmente nel corso del tempo, dopo aver acquisito maggiore fiducia nell'implementazione.
+* **Switch Kill immediato**: i flag delle funzionalità forniscono una rete di sicurezza intrinseca per il rilascio di nuove funzionalità. Usandoli, è possibile attivare e disattivare facilmente le funzionalità dell'applicazione. Se necessario, è possibile disabilitare rapidamente una funzionalità senza ricompilare e ridistribuire l'applicazione.
+* **Attivazione selettiva**: mentre la maggior parte dei flag di funzionalità esiste solo finché le funzionalità associate non vengono rilasciate correttamente, alcune possono durare molto tempo. È possibile servirsi dei flag di funzionalità per segmentare gli utenti e rendere disponibile un set specifico di funzionalità per ogni gruppo. Una funzionalità, ad esempio, potrebbe funzionare solo in un determinato Web browser. È possibile definire un flag in modo che solo gli utenti di tale browser possano visualizzare e usare la funzionalità. Questo approccio consente di espandere facilmente l'elenco di browser supportati in un secondo momento senza dover modificare il codice.
 
-## <a name="basic-concepts"></a>Concetti di base
+## <a name="basic-concepts"></a>Concetti fondamentali
 
 Ecco alcuni nuovi termini relativi alla gestione delle funzionalità:
 
-* **Flag di funzionalità**: un flag di funzionalità è una variabile con uno stato binario, *attivo* o *inattivo*. Ha anche un blocco di codice associato. Lo stato del flag di funzionalità determina se il blocco di codice viene eseguito o meno.
-* **Gestione funzionalità**: la gestione funzionalità è un pacchetto dell'applicazione che gestisce il ciclo di vita di tutti i flag di funzionalità di un'applicazione. In genere fornisce funzioni aggiuntive, ad esempio la memorizzazione nella cache dei flag di funzionalità e l'aggiornamento dei relativi stati.
-* **Filtro**: un filtro è una regola per valutare lo stato di un flag di funzionalità. Un filtro può rappresentare, ad esempio, un gruppo utenti, un tipo di dispositivo o di browser, una posizione geografica o un intervallo di tempo.
+* **Flag funzionalità**: un flag di funzionalità è una variabile con lo stato binario *on* o *off*. Ha anche un blocco di codice associato. Lo stato del flag di funzionalità determina se il blocco di codice viene eseguito o meno.
+* **Gestione funzionalità**: un gestore di funzionalità è un pacchetto dell'applicazione che gestisce il ciclo di vita di tutti i flag di funzionalità in un'applicazione. In genere fornisce funzioni aggiuntive, ad esempio la memorizzazione nella cache dei flag di funzionalità e l'aggiornamento dei relativi stati.
+* **Filter**: un filtro è una regola per la valutazione dello stato di un flag di funzionalità. Un filtro può rappresentare, ad esempio, un gruppo utenti, un tipo di dispositivo o di browser, una posizione geografica o un intervallo di tempo.
 
 Un'implementazione efficace della gestione funzionalità prevede almeno due componenti che operano congiuntamente:
 

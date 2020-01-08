@@ -5,22 +5,22 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 83b91be52694076373d950e0ad785ef22671ef4f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 82738627b84713669cb6ddfc94c22b6f24b49e3a
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894523"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530851"
 ---
-# <a name="collect-azure-resource-logs-in-log-analytics-workspace-in-azure-monitor"></a>Raccogliere i log delle risorse di Azure nell'area di lavoro Log Analytics in monitoraggio di Azure
-I [log delle risorse](resource-logs-overview.md) in Azure forniscono dati avanzati e frequenti sul funzionamento interno di una risorsa di Azure. Questo articolo descrive come raccogliere i log delle risorse in un'area di lavoro Log Analytics che consente di analizzarli con altri dati di monitoraggio raccolti nei log di monitoraggio di Azure con potenti query di log e anche per sfruttare altre funzionalità di monitoraggio di Azure, ad esempio gli avvisi e Visualizzazioni. 
+# <a name="collect-azure-platform-logs-in-log-analytics-workspace-in-azure-monitor"></a>Raccolta dei log della piattaforma Azure nell'area di lavoro Log Analytics in monitoraggio di Azure
+I [log della piattaforma](resource-logs-overview.md) in Azure, inclusi i log attività e i log delle risorse di Azure, forniscono informazioni dettagliate di diagnostica e controllo per le risorse di Azure e la piattaforma Azure da cui dipendono. Questo articolo descrive come raccogliere i log delle risorse in un'area di lavoro Log Analytics che consente di analizzarli con altri dati di monitoraggio raccolti nei log di monitoraggio di Azure con potenti query di log e anche per sfruttare altre funzionalità di monitoraggio di Azure, ad esempio gli avvisi e Visualizzazioni. 
 
 
-## <a name="what-you-can-do-with-resource-logs-in-a-workspace"></a>Operazioni possibili con i log delle risorse in un'area di lavoro
-Raccogliendo i log delle risorse in un'area di lavoro Log Analytics è possibile analizzare i log di tutte le risorse di Azure insieme e sfruttare tutte le funzionalità disponibili per i [log di monitoraggio di Azure](data-platform-logs.md) , inclusi i seguenti:
+## <a name="what-you-can-do-with-platform-logs-in-a-workspace"></a>Operazioni possibili con i log della piattaforma in un'area di lavoro
+Raccogliendo i log della piattaforma in un'area di lavoro Log Analytics è possibile analizzare i log di tutte le risorse di Azure insieme e sfruttare tutte le funzionalità disponibili per i [log di monitoraggio di Azure](data-platform-logs.md) , inclusi i seguenti:
 
 * **Query di log** : è possibile creare [query di log](../log-query/log-query-overview.md) usando un linguaggio di query avanzato per analizzare rapidamente e ottenere informazioni dettagliate sui dati di diagnostica e per analizzarli con i dati raccolti da altre origini in monitoraggio di Azure.
 * **Avvisi: ottenere** una notifica proattiva delle condizioni critiche e dei modelli identificati nei log delle risorse usando gli [avvisi del log in monitoraggio di Azure](alerts-log.md).
@@ -30,10 +30,14 @@ Raccogliendo i log delle risorse in un'area di lavoro Log Analytics è possibile
 Se non si dispone già di una nuova area di lavoro, è necessario [crearne una nuova](../learn/quick-create-workspace.md) . Non è necessario che l'area di lavoro si trovi nella stessa sottoscrizione della risorsa che invia log, purché l'utente che configura l'impostazione disponga dell'accesso RBAC appropriato a entrambe le sottoscrizioni.
 
 ## <a name="create-a-diagnostic-setting"></a>Creare un'impostazione di diagnostica
-I log delle risorse non vengono raccolti per impostazione predefinita. Raccoglierli in un'area di lavoro Log Analytics e altre destinazioni creando un'impostazione di diagnostica per una risorsa di Azure. Per informazioni dettagliate, vedere [creare un'impostazione di diagnostica per raccogliere log e metriche in Azure](diagnostic-settings.md) .
+Inviare i log della piattaforma a un'area di lavoro Log Analytics e ad altre destinazioni creando un'impostazione di diagnostica per una risorsa di Azure. Per informazioni dettagliate, vedere [creare un'impostazione di diagnostica per raccogliere log e metriche in Azure](diagnostic-settings.md) .
 
-## <a name="collection-mode"></a>Modalità di raccolta
-I dati raccolti in un'area di lavoro Log Analytics vengono archiviati in tabelle come descritto in [struttura dei log di monitoraggio di Azure](../log-query/logs-structure.md). Le tabelle utilizzate dai log delle risorse dipendono dal tipo di raccolta utilizzata dalla risorsa:
+
+## <a name="activity-log-collection"></a>Raccolta di log attività
+È possibile inviare il log attività da una singola sottoscrizione a un massimo di cinque aree di lavoro Log Analytics. I dati del log delle risorse raccolti in un'area di lavoro Log Analytics vengono archiviati nella tabella **AzureActivity** . 
+
+## <a name="resource-log-collection-mode"></a>Modalità di raccolta del log delle risorse
+I dati del log delle risorse raccolti in un'area di lavoro Log Analytics vengono archiviati nelle tabelle come descritto in [struttura dei log di monitoraggio di Azure](../log-query/logs-structure.md). Le tabelle utilizzate dai log delle risorse dipendono dal tipo di raccolta utilizzata dalla risorsa:
 
 - Diagnostica di Azure: tutti i dati scritti sono nella tabella _AzureDiagnostics_ .
 - Specifica della risorsa: i dati vengono scritti in una singola tabella per ogni categoria della risorsa.
@@ -51,7 +55,7 @@ Si consideri l'esempio seguente in cui le impostazioni di diagnostica vengono ra
 
 La tabella AzureDiagnostics sarà simile alla seguente:  
 
-| ResourceProvider    | Categoria     | A  | b  | C  | D  | E  | F  | G  | H  | I  |
+| ResourceProvider    | Categoria     | A  | B  | C  | D  | E  | F  | G  | H  | I  |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Microsoft. Service1 | AuditLogs    | X1 | Y1 | z1 |    |    |    |    |    |    |
 | Microsoft. Service1 | ErrorLogs    |    |    |    | q1 | W1 | E1 |    |    |    |
@@ -68,7 +72,7 @@ L'esempio precedente comporterebbe la creazione di tre tabelle:
  
 - Tabella *Service1AuditLogs* come segue:
 
-    | Provider di risorse | Categoria | A | b | C |
+    | Provider di risorse | Categoria | A | B | C |
     | -- | -- | -- | -- | -- |
     | Service1 | AuditLogs | X1 | Y1 | z1 |
     | Service1 | AuditLogs | X5 | Y5 | z5 |
@@ -120,5 +124,5 @@ Azure Data Factory, a causa di un set di log molto dettagliato, è un servizio n
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni sui log delle risorse di Azure, vedere [Panoramica dei log delle risorse di Azure](resource-logs-overview.md).
-* Per creare un'impostazione di diagnostica per raccogliere i log delle risorse in un'area di lavoro Log Analytics, vedere [creare un'impostazione di diagnostica per raccogliere log e metriche in Azure](diagnostic-settings.md).
+* [Altre informazioni sui log delle risorse](resource-logs-overview.md).
+* [Creare un'impostazione di diagnostica per raccogliere log e metriche in Azure](diagnostic-settings.md).

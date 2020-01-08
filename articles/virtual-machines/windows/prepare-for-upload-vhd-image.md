@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 6db0f6c5f65967dd42d6ed9a8a1e50364ced094d
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 6a9385a49e85806464e8f9ccf11d9232fae42435
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672463"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461122"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure
 
@@ -78,6 +78,10 @@ In questo comando sostituire il valore di `-Path` con il percorso del disco rigi
 Se si dispone di un'immagine di macchina virtuale Windows nel [formato file VMDK](https://en.wikipedia.org/wiki/VMDK), utilizzare [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497) per convertirla in formato VHD. Per ulteriori informazioni, vedere [come convertire un file VMDK VMware in un disco rigido virtuale Hyper-V](https://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx).
 
 ## <a name="set-windows-configurations-for-azure"></a>Impostare le configurazioni di Windows per Azure
+
+> [!NOTE]
+> La piattaforma Azure monta un file ISO nel DVD-ROM quando viene creata una macchina virtuale Windows da un'immagine generalizzata.
+> Per questo motivo, è necessario abilitare il DVD-ROM nel sistema operativo nell'immagine generalizzata. Se è disabilitata, la macchina virtuale Windows verrà bloccata in OOBE.
 
 Nella macchina virtuale che si prevede di caricare in Azure, eseguire i comandi seguenti da una [finestra del prompt dei comandi con privilegi elevati](https://technet.microsoft.com/library/cc947813.aspx):
 
@@ -148,12 +152,11 @@ Get-Service -Name TermService | Where-Object { $_.StartType -ne 'Manual' } | Set
 Get-Service -Name MpsSvc | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
 Get-Service -Name RemoteRegistry | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
 ```
-
 ## <a name="update-remote-desktop-registry-settings"></a>Aggiornare le impostazioni del registro di sistema desktop remoto
 Verificare che le impostazioni seguenti siano configurate correttamente per l'accesso remoto:
 
 >[!NOTE] 
->È possibile che venga visualizzato un messaggio di errore quando si esegue `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -Name <object name> -Value <value>`. Questo messaggio può essere ignorato in modo sicuro. Significa solo che il dominio non esegue il push della configurazione tramite un oggetto Criteri di gruppo.
+>È possibile che venga visualizzato un messaggio di errore quando si esegue `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -Name <object name> -Value <value>`. È possibile ignorare questo messaggio. Significa solo che il dominio non esegue il push della configurazione tramite un oggetto Criteri di gruppo.
 
 1. Remote Desktop Protocol (RDP) è abilitato:
    
@@ -216,7 +219,7 @@ Verificare che le impostazioni seguenti siano configurate correttamente per l'ac
 
 9. Se la VM farà parte di un dominio, verificare i criteri seguenti per assicurarsi che le impostazioni precedenti non vengano ripristinate. 
     
-    | Obiettivo                                     | Policy                                                                                                                                                       | Value                                                                                    |
+    | Obiettivo                                     | Criterio                                                                                                                                                       | Valore                                                                                    |
     |------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
     | RDP è abilitato                           | Configurazione computer\Criteri\Impostazioni di Windows \Modelli amministrativi\Componenti\Servizi Desktop remoto\Host sessione Desktop remoto\Connessioni         | Consenti la connessione remota tramite Servizi Desktop remoto                                  |
     | Criteri di gruppo NLA                         | Impostazioni\Modelli amministrativi\Componenti\Servizi Desktop remoto\Host sessione Desktop remoto\Sicurezza                                                    | Richiedere l'autenticazione utente per l'accesso remoto usando NLA |
@@ -250,7 +253,7 @@ Verificare che le impostazioni seguenti siano configurate correttamente per l'ac
    ``` 
 5. Se la VM farà parte di un dominio, controllare i criteri di Azure AD seguenti per assicurarsi che le impostazioni precedenti non vengano ripristinate. 
 
-    | Obiettivo                                 | Policy                                                                                                                                                  | Value                                   |
+    | Obiettivo                                 | Criterio                                                                                                                                                  | Valore                                   |
     |--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
     | Abilitare i profili di Windows Firewall | Configurazione computer\Criteri\Impostazioni di Windows\Modelli amministrativi\Rete\Connessione di rete\Windows Firewall\Profilo di dominio\Windows Firewall   | Proteggi tutte le connessioni di rete         |
     | Abilitare RDP                           | Configurazione computer\Criteri\Impostazioni di Windows\Modelli amministrativi\Rete\Connessione di rete\Windows Firewall\Profilo di dominio\Windows Firewall   | Consenti eccezioni per Desktop remoto in ingresso |
@@ -355,7 +358,7 @@ Assicurarsi che la macchina virtuale sia integra, sicura e accessibile tramite R
 
 12. Disinstallare qualsiasi altro software o driver di terze parti correlato a componenti fisici o qualsiasi altra tecnologia di virtualizzazione.
 
-### <a name="install-windows-updates"></a>Installare gli aggiornamenti di Windows
+### <a name="install-windows-updates"></a>Installare aggiornamenti di Windows
 Idealmente, è consigliabile lasciare il computer aggiornato a *livello di patch*. Se ciò non è possibile, verificare che siano installati i seguenti aggiornamenti. Per ottenere gli aggiornamenti più recenti, vedere le pagine relative alla cronologia di Windows Update: [Windows 10 e Windows server 2019](https://support.microsoft.com/help/4000825), [Windows 8.1 e Windows Server 2012 R2](https://support.microsoft.com/help/4009470) e [Windows 7 SP1 e Windows Server 2008 R2 SP1](https://support.microsoft.com/help/4009469).
 
 | Componente               | Binary         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 v1607, Windows Server 2016 v1607 | Windows 10 v1703    | Windows 10 v1709, Windows Server 2016 v1709 | Windows 10 v1803, Windows Server 2016 v1803 |

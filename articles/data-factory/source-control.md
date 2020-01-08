@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/09/2019
-ms.openlocfilehash: 1f31bb78fced6db2a26559cbd098407823161dfc
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: fc38dce3deaa601c9ed36f60439a08bb89cc7630
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928775"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646898"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controllo del codice sorgente in Azure Data Factory
 
@@ -70,7 +70,7 @@ Entrambi i metodi aprono il riquadro di configurazione delle impostazioni del re
 
 Il riquadro Configurazione Mostra le seguenti impostazioni del repository di codice Azure Repos:
 
-| Impostazione | Description | Value |
+| Impostazione | Description | Valore |
 |:--- |:--- |:--- |
 | **Tipo di repository** | Tipo del repository di codice Azure Repos.<br/> | Azure DevOps git o GitHub |
 | **Azure Active Directory** | Nome del tenant di Azure AD. | `<your tenant name>` |
@@ -157,6 +157,8 @@ Il riquadro Configurazione Mostra le impostazioni del repository GitHub seguenti
 
 - L'integrazione di GitHub con gli strumenti di creazione visiva Data Factory funziona solo nella versione disponibile a livello generale di Data Factory.
 
+- È possibile recuperare un massimo di 1.000 entità per tipo di risorsa, ad esempio pipeline e set di impostazioni, da un singolo ramo GitHub. Se viene raggiunto questo limite, è consigliabile suddividere le risorse in stabilimenti distinti.
+
 ## <a name="switch-to-a-different-git-repo"></a>Cambiare repository Git
 
 Per passare a un repository git diverso, fare clic sull'icona **delle impostazioni del repository git** nell'angolo superiore destro della pagina Panoramica data factory. Se l'icona non è visibile, cancellare la cache del browser locale. Selezionare l'icona per rimuovere l'associazione al repository corrente.
@@ -185,7 +187,7 @@ Quando si è pronti per eseguire il merge delle modifiche dal ramo funzionalità
 
 ### <a name="configure-publishing-settings"></a>Configurare le impostazioni di pubblicazione
 
-Per configurare il ramo di pubblicazione, vale a dire, il ramo in cui vengono salvati i modelli di Resource Manager, aggiungere un file `publish_config.json` nella cartella radice nel ramo di collaborazione. Data Factory legge questo file, cerca il campo `publishBranch` e crea un nuovo ramo (se non esiste già) con il valore specificato. Quindi salva tutti i modelli di Resource Manager nel percorso specificato. ad esempio:
+Per configurare il ramo di pubblicazione, vale a dire, il ramo in cui vengono salvati i modelli di Resource Manager, aggiungere un file `publish_config.json` nella cartella radice nel ramo di collaborazione. Data Factory legge questo file, cerca il campo `publishBranch` e crea un nuovo ramo (se non esiste già) con il valore specificato. Quindi salva tutti i modelli di Resource Manager nel percorso specificato. Ad esempio:
 
 ```json
 {
@@ -224,7 +226,7 @@ Verrà aperto un riquadro laterale in cui si conferma che il ramo di pubblicazio
 
 ## <a name="best-practices-for-git-integration"></a>Procedure consigliate per l'integrazione con GIT
 
-### <a name="permissions"></a>autorizzazioni
+### <a name="permissions"></a>Autorizzazioni
 
 In genere, non è necessario che ogni membro del team disponga delle autorizzazioni per aggiornare la factory. Sono consigliate le seguenti impostazioni di autorizzazione:
 

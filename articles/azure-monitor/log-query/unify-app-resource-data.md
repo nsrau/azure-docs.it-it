@@ -1,23 +1,18 @@
 ---
 title: Unificare più risorse di Application Insights in Monitoraggio di Azure | Microsoft Docs
 description: Questo articolo include informazioni dettagliate su come usare una funzione disponibile in Log di Monitoraggio di Azure per eseguire query su più risorse di Application Insights e visualizzare i dati.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.service: azure-monitor
+author: bwren
+ms.author: bwren
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.author: magoedte
-ms.openlocfilehash: d441b72b34da6146eba523563a09c2908cdcbbf4
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 07dd4c96ba51b1ac1e0cb2807c9e26df87a6daa7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650143"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364969"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Unificare più risorse di Application Insights in Monitoraggio di Azure 
 Questo articolo descrive come eseguire una query e visualizzare tutti i dati di log Application Insights in un'unica posizione, anche quando si trovano in sottoscrizioni di Azure diverse, sostituendo la deprecazione del Connettore di Application Insights. Il numero di risorse di Application Insights che è possibile includere in una singola query è limitato a 100.
@@ -105,15 +100,15 @@ La tabella seguente illustra le differenze tra gli schemi di Log Analytics e App
 | AvailabilityCount | itemCount |
 | AvailabilityDuration | duration |
 | AvailabilityMessage | message |
-| AvailabilityRunLocation | location |
+| AvailabilityRunLocation | posizione |
 | AvailabilityTestId | id |
 | AvailabilityTestName | name |
 | AvailabilityTimestamp | timestamp |
 | Browser | client_browser |
-| City | client_city |
+| Città | client_city |
 | ClientIP | client_IP |
 | Computer | cloud_RoleInstance | 
-| Country | client_CountryOrRegion | 
+| Paese | client_CountryOrRegion | 
 | CustomEventCount | itemCount | 
 | CustomEventDimensions | customDimensions |
 | CustomEventName | name | 
@@ -125,7 +120,7 @@ La tabella seguente illustra le differenze tra gli schemi di Log Analytics e App
 | ExceptionType | type |
 | OperationID | operation_id |
 | OperationName | operation_Name | 
-| OS | client_OS | 
+| Sistema operativo | client_OS | 
 | PageViewCount | itemCount |
 | PageViewDuration | duration | 
 | PageViewName | name | 
@@ -134,9 +129,9 @@ La tabella seguente illustra le differenze tra gli schemi di Log Analytics e App
 | RequestDuration | duration | 
 | RequestID | id | 
 | RequestName | name | 
-| RequestSuccess | success | 
+| RequestSuccess | esito positivo | 
 | ResponseCode | resultCode | 
-| Role | cloud_RoleName |
+| Ruolo | cloud_RoleName |
 | RoleInstance | cloud_RoleInstance |
 | SessionId | session_Id | 
 | SourceSystem | operation_SyntheticSource |

@@ -6,14 +6,14 @@ ms.author: stevenry
 ms.date: 12/17/2018
 ms.topic: conceptual
 manager: gwallace
-description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
+description: Informazioni su come configurare l'integrazione continua/distribuzione continua con Azure DevOps con Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, servizio Azure Container, contenitori
-ms.openlocfilehash: 525e18cba48756e725cbc7d837c2352b0fec74fe
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 66ff2080ad44098757a5d9360fd3307e65f7431a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280030"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438455"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Usare CI/CD con Azure Dev Spaces
 
@@ -23,7 +23,7 @@ Questo articolo illustra la configurazione di integrazione continua/distribuzion
 
 Anche se questo articolo usa Azure DevOps, gli stessi concetti si applicano a sistemi CI/CD come Jenkins, TeamCity e così via.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * [Cluster del servizio Azure Kubernetes con Azure Dev Spaces abilitato](../get-started-netcore.md)
 * [Interfaccia della riga di comando di Azure Dev Spaces installata](upgrade-tools.md)
 * [Organizzazione di Azure DevOps con un progetto](https://docs.microsoft.com/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
@@ -99,7 +99,7 @@ A questo punto, è stata creata una soluzione CI che compilerà automaticamente 
 1. Per la **versione predefinita**, scegliere **più recente dal ramo predefinito della pipeline di compilazione con i tag**.
 1. Lasciare i **tag** vuoti.
 1. Impostare **Alias di origine** su `drop`. Il valore dell' **alias di origine** viene usato dalle attività di rilascio predefinite, quindi deve essere impostato.
-1. Fare clic su **Add**.
+1. Scegliere **Aggiungi**.
 1. Fare ora clic sull'icona del fulmine sull'origine dell'elemento `drop` appena creato, come illustrato sotto:
 
     ![Configurazione della distribuzione continua dell'elemento della versione](../media/common/release-artifact-cd-setup.png)
@@ -119,7 +119,7 @@ A questo punto, è stata creata una soluzione CI che compilerà automaticamente 
 1. Fare clic su **Salva** nell'angolo in alto a destra e quindi su **OK**.
 1. Fare clic su **+ Versione** (accanto al pulsante Salva) e quindi su **Crea una versione**.
 1. In **artefatti**verificare che sia selezionata l'ultima compilazione dalla pipeline di compilazione.
-1. Fare clic su **Create**(Crea).
+1. Fare clic su **Crea**.
 
 Inizierà ora un processo di rilascio automatizzato, che distribuirà i grafici *mywebapi* e *webfrontend* nel cluster di Kubernetes nello spazio principale _dev_. È possibile monitorare lo stato di avanzamento della versione sul portale Web di Azure DevOps:
 

@@ -1,31 +1,22 @@
 ---
-title: Configurare un certificato di crittografia e crittografare segreti in cluster Linux di Azure Service Fabric | Microsoft Docs
+title: Configurare un certificato di crittografia nei cluster Linux
 description: Informazioni su come configurare un certificato di crittografia e crittografare segreti in cluster Linux.
-services: service-fabric
-documentationcenter: .net
 author: shsha
-manager: ''
-editor: ''
-ms.assetid: 94a67e45-7094-4fbd-9c88-51f4fc3c523a
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/04/2019
 ms.author: shsha
-ms.openlocfilehash: 9589d6ea69a2293d592a9e63f2b726f1a620bb9e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 350718e4ce890fcbfaa7f2b10cc4c47dfac4da90
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62126988"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614707"
 ---
 # <a name="set-up-an-encryption-certificate-and-encrypt-secrets-on-linux-clusters"></a>Configurare un certificato di crittografia e crittografare segreti in cluster Linux
-Questo articolo illustra come configurare un certificato di crittografia e usarlo per crittografare segreti in cluster Linux. Per i cluster Windows, vedere [Configurare un certificato di crittografia e crittografare segreti in cluster Windows][secret-management-windows-specific-link].
+Questo articolo illustra come configurare un certificato di crittografia e usarlo per crittografare segreti in cluster Linux. Per i cluster Windows, vedere [configurare un certificato di crittografia e crittografare i segreti nei cluster di Windows][secret-management-windows-specific-link].
 
 ## <a name="obtain-a-data-encipherment-certificate"></a>Ottenere un certificato di crittografia dei dati
-Il certificato di crittografia dei dati viene usato esclusivamente per la crittografia e decrittografia dei [parametri][parameters-link] del file Settings.xml di un servizio e delle [variabili di ambiente][environment-variables-link] del file ServiceManifest.xml di un servizio. Non viene usato per l'autenticazione o per la firma di testo crittografato. Il certificato deve soddisfare i requisiti seguenti:
+Un certificato di crittografia dei dati viene usato esclusivamente per la crittografia e la decrittografia dei [parametri][parameters-link] nelle variabili Settings. XML e di [ambiente][environment-variables-link] di un servizio in ServiceManifest. XML di un servizio. Non viene usato per l'autenticazione o per la firma di testo crittografato. Il certificato deve soddisfare i requisiti seguenti:
 
 * Il certificato deve includere una chiave privata.
 * L'uso delle chiavi del certificato deve includere la crittografia dei dati (10) e non deve includere l'autenticazione del server o del client.
@@ -54,7 +45,7 @@ user@linux:$ cat encrypted.txt | base64 -d | openssl smime -decrypt -inform der 
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere le informazioni su come [specificare i segreti crittografati in un'applicazione][secret-management-specify-encrypted-secrets-link]
+Informazioni su come [specificare i segreti crittografati in un'applicazione.][secret-management-specify-encrypted-secrets-link]
 
 <!-- Links -->
 [parameters-link]:service-fabric-how-to-parameterize-configuration-files.md

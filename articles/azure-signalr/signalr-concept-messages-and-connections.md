@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 2785d85db47ed3b214044e673566a2837b83e984
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 5f6428231a3639738e8fb52e7dc3f2f2a3d2a26e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285498"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392820"
 ---
 # <a name="messages-and-connections-in-azure-signalr-service"></a>Messaggi e connessioni in Servizio Azure SignalR
 
@@ -20,9 +20,9 @@ Il modello di fatturazione per Servizio Azure SignalR è basato sul numero di co
 
 ## <a name="message-formats"></a>Formati di messaggi 
 
-Servizio Azure SignalR supporta gli stessi formati di ASP.NET Core SignalR: [JSON](https://www.json.org/) e [MessagePack](/aspnet/core/signalr/messagepackhubprotocol).
+Il servizio Azure SignalR supporta gli stessi formati di ASP.NET Core SignalR: [JSON](https://www.json.org/) e [MessagePack](/aspnet/core/signalr/messagepackhubprotocol).
 
-## <a name="message-size"></a>Dimensioni dei messaggi
+## <a name="message-size"></a>Dimensione dei messaggi
 
 Servizio Azure SignalR non prevede limiti di dimensioni per i messaggi.
 
@@ -38,15 +38,13 @@ I messaggi di dimensioni maggiori di 2 KB vengono conteggiati come più messaggi
 
 Si supponga, ad esempio, di avere tre client e un server applicazioni. Un client invia un messaggio di 4 KB che il server dovrà trasmettere a tutti i client. I messaggi in questo caso sono otto: uno inviato dal servizio al server applicazioni e tre dal servizio ai client. Ogni messaggio viene conteggiato come due messaggi di 2 KB.
 
-Il conteggio dei messaggi visualizzato nel portale di Azure rimane 0 finché non ne vengono accumulati più di 100.
-
 ## <a name="how-connections-are-counted"></a>Come vengono conteggiate le connessioni
 
 Sono disponibili connessioni al server e client con il servizio Azure SignalR. Per impostazione predefinita, ogni server applicazioni inizia con cinque connessioni iniziali per hub e ogni client dispone di una connessione client.
 
 Il conteggio delle connessioni visualizzato nel portale di Azure include sia le connessioni server che quelle client.
 
-Si supponga, ad esempio, di avere due server applicazioni e di definire cinque hub nel codice. Le connessioni server sono 50: 2 server applicazioni * 5 hub * 5 connessioni per hub.
+Si supponga, ad esempio, di avere due server applicazioni e di definire cinque hub nel codice. Il numero di connessioni server sarà 50:2 server applicazioni * 5 Hub * 5 connessioni per hub.
 
 ASP.NET SignalR il calcola le connessioni server in modo diverso. Include un hub predefinito in aggiunta agli hub definiti dall'utente. Per impostazione predefinita, ogni server applicazioni necessita di altre cinque connessioni server iniziali. Il numero di connessioni iniziale per l'Hub predefinito rimane coerente con quello degli altri hub.
 
@@ -54,7 +52,7 @@ Durante il ciclo di vita del server applicazioni, il servizio e il server applic
 
 ## <a name="how-inboundoutbound-traffic-is-counted"></a>Come viene conteggiato il traffico in ingresso/in uscita
 
-La distinzione tra traffico in ingresso e traffico in uscita si basa sulla prospettiva di Servizio Azure SignalR. Il traffico viene calcolato in byte. Analogamente al conteggio dei messaggi, anche per il traffico è prevista una frequenza di campionamento. Il grafico del traffico in ingresso/in uscita nel portale di Azure viene aggiornato ogni 100 KB per hub.
+La distinzione tra traffico in ingresso e traffico in uscita si basa sulla prospettiva di Servizio Azure SignalR. Il traffico viene calcolato in byte.
 
 ## <a name="related-resources"></a>Risorse correlate
 

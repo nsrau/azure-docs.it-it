@@ -4,15 +4,15 @@ description: Questo articolo descrive come gestire i dati personali archiviati i
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: 7733b27bb5af01e55cd732c16f6c9cb1e9301819
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 7f8b40094b30a01e4189bcf04d4c194e5b0b4285
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932134"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75394760"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Materiale sussidiario per i dati personali archiviati in Log Analytics e Application Insights
 
@@ -25,7 +25,7 @@ Log Analytics è un archivio dati in cui sono disponibili i dati personali. Appl
 
 ## <a name="strategy-for-personal-data-handling"></a>Strategia per la gestione dei dati personali
 
-Anche se la definizione della strategia per la gestione degli eventuali dati personali spetta all'utente e all'azienda, di seguito sono riepilogati alcuni approcci possibili, elencati in ordine di preferenza da un punto di vista tecnico dal più al meno indicato:
+Anche se la definizione della strategia per la gestione degli eventuali dati personali spetta all'utente e all'azienda, di seguito sono riepilogati alcuni approcci possibili, elencati in ordine di preferenza da un punto di vista tecnico, dal più al meno indicato:
 
 * Dove possibile, interrompere la raccolta, offuscare, anonimizzare o modificare in altro modo i dati raccolti così da non considerarli "privati". Si tratta dell'approccio _di gran lunga_ preferibile, dal momento che evita la necessità di creare una strategia di gestione dei dati molto costosa e a forte impatto.
 * Se non è possibile, tentare di normalizzare i dati per ridurre l'impatto sulle prestazioni e la piattaforma dei dati. Ad esempio, anziché registrare un ID utente esplicito, creare dati di ricerca che mettano in correlazione il nome utente e i relativi dettagli con un ID interno registrabile in un'altra posizione. In questo modo, se uno degli utenti aziendali chiede di eliminare le proprie informazioni personali, potrebbe essere sufficiente eliminare solo la riga nella tabella di ricerca corrispondente all'utente. 
@@ -84,7 +84,7 @@ Per entrambe le richieste di visualizzazione ed esportazione dei dati, utilizzar
 > [!IMPORTANT]
 >  Anche se la maggior parte delle operazioni di ripulitura può essere completata molto più rapidamente rispetto al contratto di manutenzione, **il contratto di lavoro formale per il completamento delle operazioni di ripulitura viene impostato su 30 giorni** , a causa del forte effetto sulla piattaforma dati utilizzata. Si tratta di un processo automatizzato; non è possibile richiedere che un'operazione venga gestita più velocemente.
 
-### <a name="delete"></a>Eliminazione
+### <a name="delete"></a>Elimina
 
 > [!WARNING]
 > Le operazioni di eliminazione in Log Analytics sono distruttive e non reversibili. Prestare la massima attenzione durante l'esecuzione.
@@ -103,7 +103,7 @@ Dopo che è stato assegnato il ruolo di Azure Resource Manager, sono disponibili
 #### <a name="log-data"></a>Dati di log
 
 * [POST purge](https://docs.microsoft.com/rest/api/loganalytics/workspaces%202015-03-20/purge) - accetta un oggetto che specifica i parametri dei dati da eliminare e restituisce un GUID di riferimento 
-* GET purge status - la chiamata a POST purge restituirà un'intestazione 'x-ms-status-location' che includerà un URL che è possibile chiamare per determinare lo stato dell'API di ripulitura. ad esempio:
+* GET purge status - la chiamata a POST purge restituirà un'intestazione 'x-ms-status-location' che includerà un URL che è possibile chiamare per determinare lo stato dell'API di ripulitura. Ad esempio:
 
     ```
     x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperationalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20
@@ -115,7 +115,7 @@ Dopo che è stato assegnato il ruolo di Azure Resource Manager, sono disponibili
 #### <a name="application-data"></a>Dati dell'applicazione
 
 * [POST purge](https://docs.microsoft.com/rest/api/application-insights/components/purge) - accetta un oggetto che specifica i parametri dei dati da eliminare e restituisce un GUID di riferimento
-* GET purge status - la chiamata a POST purge restituirà un'intestazione 'x-ms-status-location' che includerà un URL che è possibile chiamare per determinare lo stato dell'API di ripulitura. ad esempio:
+* GET purge status - la chiamata a POST purge restituirà un'intestazione 'x-ms-status-location' che includerà un URL che è possibile chiamare per determinare lo stato dell'API di ripulitura. Ad esempio:
 
    ```
    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/microsoft.insights/components/[ComponentName]/operations/purge-[PurgeOperationId]?api-version=2015-05-01

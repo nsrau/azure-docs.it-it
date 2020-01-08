@@ -3,12 +3,12 @@ title: Panoramica dell'architettura
 description: Panoramica dell'architettura, dei componenti e dei processi usati dal servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: ae7b0c2b81bd3d393b7e749e077a6f5fa0379562
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: de532bb02b4ecf5e912a71df404418338325d582
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173511"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450188"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Architettura e componenti di backup di Azure
 
@@ -44,8 +44,8 @@ Gli insiemi di credenziali dei servizi di ripristino includono le funzionalità 
 - È possibile monitorare gli elementi di cui è stato eseguito il backup in un insieme di credenziali, incluse le macchine virtuali di Azure e i computer locali.
 - È possibile gestire l'accesso dell'insieme di credenziali tramite il [controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) di Azure.
 - È necessario specificare come vengono replicati i dati nell'insieme di credenziali per la ridondanza:
-  - **Archiviazione con ridondanza locale (con ridondanza locale)** : per evitare errori in un Data Center, è possibile usare con ridondanza locale. L'archiviazione con ridondanza locale replica i dati in un'unità di scala di archiviazione. [Altre informazioni](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
-  - **Archiviazione con ridondanza geografica**: per proteggersi da interruzioni a livello di area, è possibile usare GRS. Il GRS replica i dati in un'area secondaria. [Altre informazioni](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+  - **Archiviazione con ridondanza locale (con ridondanza locale)** : per evitare errori in un Data Center, è possibile usare con ridondanza locale. L'archiviazione con ridondanza locale replica i dati in un'unità di scala di archiviazione. [Altre informazioni](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)
+  - **Archiviazione con ridondanza geografica**: per proteggersi da interruzioni a livello di area, è possibile usare GRS. Il GRS replica i dati in un'area secondaria. [Altre informazioni](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs)
   - Per impostazione predefinita, gli insiemi di credenziali dei servizi di ripristino usano GRS.
 
 ## <a name="backup-agents"></a>Agenti di backup
@@ -174,7 +174,7 @@ Per altre informazioni sull'archiviazione su disco e sui tipi di dischi disponib
 È possibile eseguire il backup di macchine virtuali di Azure usando archiviazione Premium con backup di Azure:
 
 - Durante il processo di backup di macchine virtuali con archiviazione Premium, il servizio di backup crea un percorso di gestione temporanea, denominato *AzureBackup*, nell'account di archiviazione. Le dimensioni del percorso di gestione temporanea equivalgono alla dimensione dello snapshot del punto di ripristino.
-- Assicurarsi che sia presente spazio libero sufficiente nell'account di archiviazione Premium per il percorso di gestione temporanea. [Altre informazioni](../storage/common/storage-scalability-targets.md#premium-performance-storage-account-scale-limits). Non modificare il percorso di gestione temporanea.
+- Assicurarsi che sia presente spazio libero sufficiente nell'account di archiviazione Premium per il percorso di gestione temporanea. Per altre informazioni, vedere [obiettivi di scalabilità per gli account di archiviazione BLOB di pagine Premium](../storage/blobs/scalability-targets-premium-page-blobs.md). Non modificare il percorso di gestione temporanea.
 - Al termine del processo di backup, il percorso di gestione temporanea viene eliminato.
 - Il prezzo della risorsa di archiviazione usata per il percorso di gestione temporanea è in linea con i [prezzi dell'archiviazione Premium](../virtual-machines/windows/disks-types.md#billing).
 

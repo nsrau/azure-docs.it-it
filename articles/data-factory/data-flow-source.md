@@ -7,15 +7,15 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/06/2019
-ms.openlocfilehash: 27d9b3061794e5673d5ab24fe30d44f46e217c64
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.date: 12/12/2019
+ms.openlocfilehash: 7a438a52ab69810ecf49319c148f817da974ea61
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702046"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440210"
 ---
-# <a name="source-transformation-for-mapping-data-flow"></a>Trasformazione origine per il mapping del flusso di dati 
+# <a name="source-transformation-in-mapping-data-flow"></a>Trasformazione origine nel flusso di dati di mapping 
 
 Una trasformazione origine configura l'origine dati per il flusso di dati. Quando si progettano i flussi di dati, il primo passaggio consiste sempre nella configurazione di una trasformazione di origine. Per aggiungere un'origine, fare clic sulla casella **Aggiungi origine** nell'area di disegno del flusso di dati.
 
@@ -23,18 +23,20 @@ Ogni flusso di dati richiede almeno una trasformazione di origine, ma è possibi
 
 Ogni trasformazione di origine è associata a un solo set di dati Data Factory. Il set di dati definisce la forma e il percorso dei dati da cui si desidera eseguire la scrittura o la lettura. Se si usa un set di dati basato su file, è possibile usare i caratteri jolly e gli elenchi di file nell'origine per lavorare con più di un file alla volta.
 
-## <a name="supported-connectors-in-mapping-data-flow"></a>Connettori supportati nel flusso di dati di mapping
+## <a name="supported-source-connectors-in-mapping-data-flow"></a>Connettori di origine supportati nel flusso di dati di mapping
 
 Il flusso di dati di mapping segue un approccio di estrazione, caricamento e trasformazione (ELT) e funziona con i set di dati di *staging* che sono tutti in Azure. Attualmente i set di dati seguenti possono essere utilizzati in una trasformazione di origine:
     
-* Archiviazione BLOB di Azure (JSON, avro, testo, parquet)
-* Azure Data Lake Storage Gen1 (JSON, avro, testo, parquet)
-* Azure Data Lake Storage Gen2 (JSON, avro, testo, parquet)
-* SQL Data Warehouse di Azure
-* database SQL di Azure
-* Azure CosmosDB
+* [Archiviazione BLOB di Azure](connector-azure-blob-storage.md#mapping-data-flow-properties) (JSON, avro, testo, parquet)
+* [Azure Data Lake storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) (JSON, avro, testo, parquet)
+* [Azure Data Lake storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) (JSON, avro, testo, parquet)
+* [Analisi delle sinapsi di Azure](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties)
+* [Database SQL di Azure](connector-azure-sql-database.md#mapping-data-flow-properties)
+* [Azure CosmosDB](connector-azure-cosmos-db.md#mapping-data-flow-properties)
 
-Azure Data Factory ha accesso a oltre 80 connettori nativi. Per includere dati da tali origini nel flusso di dati, usare l'attività di copia per caricare i dati in una delle aree di gestione temporanea supportate.
+Le impostazioni specifiche di questi connettori si trovano nella scheda **Opzioni di origine** . le informazioni su queste impostazioni sono disponibili nella documentazione del connettore. 
+
+Azure Data Factory ha accesso a oltre [90 connettori nativi](connector-overview.md). Per includere dati da tali origini nel flusso di dati, usare l'attività di copia per caricare i dati in una delle aree di gestione temporanea supportate.
 
 ## <a name="source-settings"></a>Impostazioni origine
 
@@ -54,95 +56,12 @@ Dopo aver aggiunto un'origine, configurare tramite la scheda **impostazioni di o
 
 **Campionamento:** Abilitare il campionamento per limitare il numero di righe dall'origine. Usare questa impostazione quando si testano o si campionano i dati dall'origine a scopo di debug.
 
-**Righe su più righe:** Selezionare righe su più righe se il file di testo di origine contiene valori stringa che si estendono su più righe, ad esempio le nuove righe all'interno di un valore.
+**Righe su più righe:** Selezionare righe su più righe se il file di testo di origine contiene valori stringa che si estendono su più righe, ad esempio le nuove righe all'interno di un valore. Questa impostazione è disponibile solo nei set di impostazioni DelimitedText.
 
 Per convalidare che l'origine sia configurata correttamente, attivare la modalità di debug e recuperare un'anteprima dei dati. Per altre informazioni, vedere [modalità di debug](concepts-data-flow-debug-mode.md).
 
 > [!NOTE]
 > Quando la modalità di debug è attivata, la configurazione del limite di righe nelle impostazioni di debug sovrascriverà l'impostazione di campionamento nell'origine durante l'anteprima dei dati.
-
-## <a name="file-based-source-options"></a>Opzioni dell'origine basata su file
-
-Se si usa un set di dati basato su file, ad esempio archiviazione BLOB di Azure o Azure Data Lake Storage, la scheda **Opzioni di origine** consente di gestire il modo in cui l'origine legge i file.
-
-![Opzioni di origine](media/data-flow/sourceOPtions1.png "Opzioni di origine")
-
-**Percorso con caratteri jolly:** L'utilizzo di un modello con caratteri jolly indicherà ad ADF di scorrere ogni cartella e file corrispondente in un'unica trasformazione origine. Si tratta di un modo efficace per elaborare più file all'interno di un singolo flusso. Aggiungere più modelli di corrispondenza con caratteri jolly con il segno + visualizzato quando si passa il mouse sul modello con caratteri jolly esistente.
-
-Dal contenitore di origine, scegliere una serie di file che corrispondono a un modello. Nel set di dati è possibile specificare solo il contenitore. Il percorso del carattere jolly deve quindi includere anche il percorso della cartella nella cartella radice.
-
-Esempi di caratteri jolly:
-
-* ```*``` rappresenta un set di caratteri
-* ```**``` rappresenta l'annidamento delle directory ricorsive
-* ```?``` sostituisce un carattere
-* ```[]``` corrisponde a uno o più caratteri tra parentesi quadre
-
-* ```/data/sales/**/*.csv``` ottiene tutti i file CSV in/data/Sales
-* ```/data/sales/20??/**``` ottiene tutti i file nel ventesimo secolo
-* ```/data/sales/2004/*/12/[XY]1?.csv``` ottiene tutti i file CSV 2004 nel dicembre a partire da X o Y preceduto da un numero a due cifre
-
-**Percorso radice partizione:** Se nell'origine file sono presenti cartelle partizionate con un formato ```key=value``` (ad esempio, Year = 2019), è possibile assegnare il livello principale dell'albero delle cartelle della partizione a un nome di colonna nel flusso di dati del flusso di dati.
-
-Per prima cosa, impostare un carattere jolly per includere tutti i percorsi che rappresentano le cartelle partizionate e i file foglia che si desidera leggere.
-
-![Impostazioni del file di origine della partizione](media/data-flow/partfile2.png "Impostazione del file di partizione")
-
-Utilizzare l'impostazione percorso radice partizione per definire il livello superiore della struttura di cartelle. Quando si Visualizza il contenuto dei dati tramite un'anteprima dei dati, si noterà che ADF aggiungerà le partizioni risolte presenti in ogni livello di cartella.
-
-![Percorso radice partizione](media/data-flow/partfile1.png "Anteprima percorso radice partizione")
-
-**Elenco di file:** Si tratta di un set di file. Creare un file di testo che includa un elenco di file di percorso relativi da elaborare. Puntare a questo file di testo.
-
-**Colonna in cui archiviare il nome del file:** Archiviare il nome del file di origine in una colonna nei dati. Immettere qui il nome di una nuova colonna per archiviare la stringa del nome file.
-
-**Dopo il completamento:** Scegliere di non eseguire alcuna operazione con il file di origine dopo l'esecuzione del flusso di dati, eliminare il file di origine oppure spostare il file di origine. I percorsi per lo spostamento sono relativi.
-
-Per spostare i file di origine in un altro percorso dopo l'elaborazione, selezionare prima di tutto "Sposta" per operazione su file. Quindi, impostare la directory "from". Se non si usano caratteri jolly per il percorso, l'impostazione "da" sarà la stessa cartella della cartella di origine.
-
-Se si dispone di un percorso di origine con carattere jolly, la sintassi avrà un aspetto simile al seguente:
-
-```/data/sales/20??/**/*.csv```
-
-È possibile specificare "from" come
-
-```/data/sales```
-
-E "a" come
-
-```/backup/priorSales```
-
-In questo caso, tutti i file originati in/data/Sales vengono spostati in/backup/priorSales.
-
-> [!NOTE]
-> Le operazioni sui file vengono eseguite solo quando si avvia il flusso di dati da un'esecuzione di pipeline (esecuzione del debug o esecuzione di una pipeline) che utilizza l'attività Esegui flusso di dati in una pipeline. Le operazioni sui file *non* vengono eseguite nella modalità di debug del flusso di dati.
-
-**Filtra per Ultima modifica:** È possibile filtrare i file elaborati specificando un intervallo di date di data e ora dell'Ultima modifica. Tutte le ore di data sono in formato UTC. 
-
-### <a name="add-dynamic-content"></a>Aggiungere contenuto dinamico
-
-È possibile specificare tutte le impostazioni di origine come espressioni utilizzando il [linguaggio delle espressioni di trasformazione del flusso di dati di mapping](data-flow-expression-functions.md). Per aggiungere contenuto dinamico, fare clic o passare il puntatore del mouse all'interno dei campi nel pannello impostazioni. Fare clic sul collegamento ipertestuale per **Aggiungi contenuto dinamico**. Verrà avviato il generatore di espressioni in cui è possibile impostare i valori in modo dinamico tramite espressioni, valori letterali statici o parametri.
-
-![Parameters](media/data-flow/params6.png "parameters")
-
-## <a name="sql-source-options"></a>Opzioni origine SQL
-
-Se l'origine si trova nel database SQL o in SQL Data Warehouse, nella scheda **Opzioni di origine** sono disponibili altre impostazioni specifiche di SQL. 
-
-**Input:** Consente di specificare se puntare l'origine a una tabella (equivalente a ```Select * from <table-name>```) oppure immettere una query SQL personalizzata.
-
-**Query**: se si seleziona query nel campo di input, immettere una query SQL per l'origine. Questa impostazione esegue l'override di qualsiasi tabella scelta nel set di dati. Le clausole **Order by** non sono supportate in questo punto, ma è possibile impostare un'istruzione SELECT from completa. È anche possibile usare funzioni di tabella definite dall'utente. **Select * from udfGetData ()** è una funzione definita dall'utente in SQL che restituisce una tabella. Questa query produrrà una tabella di origine che è possibile utilizzare nel flusso di dati. L'utilizzo di query è anche un ottimo modo per ridurre le righe per il test o per le ricerche. Esempio: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
-
-**Dimensioni batch**: immettere le dimensioni del batch per suddividere i dati di grandi dimensioni in letture.
-
-**Livello di isolamento**: il valore predefinito per le origini SQL nel flusso di dati di mapping è READ UNCOMMITTED. È possibile modificare il livello di isolamento in uno dei seguenti valori:
-* Read Committed
-* Read uncommitted
-* Repeatable Read
-* Serializzabile
-* Nessuno (ignora il livello di isolamento)
-
-![Livello di isolamento](media/data-flow/isolationlevel.png "Livello di isolamento")
 
 ## <a name="projection"></a>Proiezione
 
@@ -157,15 +76,6 @@ Se nel file di testo non è definito alcuno schema, selezionare **rileva tipo di
 ### <a name="import-schema"></a>Importa schema
 
 I set di dati come Avro e CosmosDB che supportano strutture di dati complesse non richiedono la presenza di definizioni dello schema nel DataSet. Sarà quindi possibile fare clic sul pulsante **Importa schema** nella scheda **proiezione** per questi tipi di origini.
-
-## <a name="cosmosdb-specific-settings"></a>Impostazioni specifiche di CosmosDB
-
-Quando si usa CosmosDB come tipo di origine, è possibile prendere in considerazione alcune opzioni:
-
-* Includi colonne di sistema: se si seleziona questa opzione, ```id```, ```_ts```e altre colonne di sistema verranno incluse nei metadati del flusso di dati da CosmosDB. Quando si aggiornano le raccolte, è importante includerlo in modo che sia possibile acquisire l'ID di riga esistente.
-* Dimensioni pagina: numero di documenti per pagina del risultato della query. Il valore predefinito è "-1" che usa la pagina dinamica del servizio fino a 1000.
-* Velocità effettiva: impostare un valore facoltativo per il numero di ur da applicare alla raccolta CosmosDB per ogni esecuzione di questo flusso di dati durante l'operazione di lettura. Il valore minimo è 400.
-* Aree preferite: è possibile scegliere le aree di lettura preferite per questo processo.
 
 ## <a name="optimize-the-source-transformation"></a>Ottimizzare la trasformazione di origine
 

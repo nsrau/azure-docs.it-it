@@ -2,18 +2,18 @@
 title: Creare cluster di Apache Hadoop usando l'interfaccia della riga di comando di Azure-Azure HDInsight
 description: Informazioni su come creare cluster Azure HDInsight usando l'interfaccia della riga di comando di Azure multipiattaforma.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/10/2019
-ms.author: hrasheed
-ms.openlocfilehash: 09696f5a3df7cc4170c57b862a11bbd5a82e2bc9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 12/24/2019
+ms.openlocfilehash: 80a13e504b7cb075692256d5c813a95c51002ab6
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494804"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495129"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Creare cluster HDInsight tramite l'interfaccia della riga di comando di Azure
 
@@ -33,7 +33,7 @@ Interfaccia della riga di comando di Azure. Se l'interfaccia della riga di coman
 
 ## <a name="create-a-cluster"></a>Creare un cluster
 
-1. Accedere alla sottoscrizione di Azure. Se si prevede di usare Azure Cloud Shell, è sufficiente fare clic su **Prova** nell'angolo superiore destro del blocco di codice. In caso contrario, immettere il comando seguente:
+1. Accedere alla sottoscrizione di Azure. Se si prevede di usare Azure Cloud Shell, selezionare **prova** nell'angolo superiore destro del blocco di codice. In caso contrario, immettere il comando seguente:
 
     ```azurecli-interactive
     az login
@@ -44,7 +44,7 @@ Interfaccia della riga di comando di Azure. Se l'interfaccia della riga di coman
 
 2. Impostare le variabili di ambiente. L'uso delle variabili in questo articolo si basa su bash. Per altri ambienti saranno necessarie piccole modifiche. Vedere [AZ-HDInsight-create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) per un elenco completo dei parametri possibili per la creazione del cluster.
 
-    |Parametro | Descrizione |
+    |Parametro | Description |
     |---|---|
     |`--size`| Numero di nodi del ruolo di lavoro nel cluster. Questo articolo usa la variabile `clusterSizeInNodes` come valore passato a `--size`. |
     |`--version`| versione del cluster HDInsight. Questo articolo usa la variabile `clusterVersion` come valore passato a `--version`. Vedere anche: [versioni supportate di HDInsight](./hdinsight-component-versioning.md#supported-hdinsight-versions).|
@@ -60,7 +60,7 @@ Interfaccia della riga di comando di Azure. Se l'interfaccia della riga di coman
     export AZURE_STORAGE_ACCOUNT=STORAGEACCOUNTNAME
     export httpCredential='PASSWORD'
     export sshCredentials='PASSWORD'
-    
+
     export AZURE_STORAGE_CONTAINER=$clusterName
     export clusterSizeInNodes=1
     export clusterVersion=3.6
@@ -132,11 +132,11 @@ Interfaccia della riga di comando di Azure. Se l'interfaccia della riga di coman
     > [!IMPORTANT]  
     > Sono disponibili molti tipi di cluster HDInsight, che corrispondono al carico di lavoro o alla tecnologia per cui è ottimizzato il cluster. Non è disponibile alcun metodo supportato per creare un cluster che combini più tipi, ad esempio Storm e HBase in un cluster.
 
-    Il processo di creazione del cluster può richiedere alcuni minuti, in genere circa 15.
+    Potrebbero essere necessari alcuni minuti per il completamento del processo di creazione del cluster. in genere circa 15.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Al termine dell'articolo, è consigliabile eliminare il cluster. Con HDInsight, i dati vengono archiviati in Archiviazione di Azure ed è possibile eliminare tranquillamente un cluster quando non viene usato. Vengono addebitati i costi anche per i cluster HDInsight che non sono in uso. Poiché i costi per il cluster sono decisamente superiori a quelli per l'archiviazione, economicamente ha senso eliminare i cluster quando non vengono usati.
+Al termine dell'articolo, è consigliabile eliminare il cluster. Con HDInsight, i dati vengono archiviati in Archiviazione di Azure ed è possibile eliminare tranquillamente un cluster quando non è in uso. Vengono addebitati i costi anche per i cluster HDInsight che non sono in uso. Poiché i costi per il cluster sono decisamente superiori a quelli per l'archiviazione, eliminare i cluster quando non vengono usati è una scelta economicamente conveniente.
 
 Immettere tutti o alcuni dei comandi seguenti per rimuovere le risorse:
 
@@ -167,7 +167,7 @@ Se si verificano problemi di creazione dei cluster HDInsight, vedere i [requisit
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver creato un cluster HDInsight tramite l'interfaccia della riga di comando di Azure, usare le informazioni seguenti per acquisire familiarità con il cluster:
+Ora che è stato creato un cluster HDInsight con l'interfaccia della riga di comando di Azure, usare il comando seguente per informazioni su come usare il cluster:
 
 ### <a name="apache-hadoop-clusters"></a>Cluster Apache Hadoop
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: 40797c1b46bc88ecdaab6e28ef64f05a73e3ba8d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c522e88b5c7a759f72704e44e041c01d8541cc7c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495914"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646813"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipi di indirizzi IP e metodi di allocazione in Azure
 
@@ -105,7 +105,7 @@ Gli indirizzi IP pubblici statici sono comunemente usati negli scenari seguenti:
 >
 
 ### <a name="dns-hostname-resolution"></a>Risoluzione del nome host DNS
-È possibile specificare un'etichetta del nome di dominio DNS per una risorsa IP pubblica, che crea un mapping per *etichettanomedominio*.*località*.cloudapp.azure.com per l'indirizzo IP pubblico nei server DNS gestiti di Azure. Se si crea una risorsa IP pubblica con **contoso** come *etichettanomedominio* nella **località** di Azure *Stati Uniti occidentali*, ad esempio, il nome di dominio completo (FQDN) **contoso.westus.cloudapp.azure.com** viene risolto nell'indirizzo IP pubblico della risorsa.
+È possibile specificare un'etichetta del nome di dominio DNS per una risorsa IP pubblica, che crea un mapping per *etichettanomedominio*.*località*.cloudapp.azure.com per l'indirizzo IP pubblico nei server DNS gestiti di Azure. Se si crea una risorsa IP pubblica con **contoso** come *etichettanomedominio* nella *località* di Azure **Stati Uniti occidentali**, ad esempio, il nome di dominio completo (FQDN) **contoso.westus.cloudapp.azure.com** viene risolto nell'indirizzo IP pubblico della risorsa.
 
 > [!IMPORTANT]
 > Ogni etichetta di nome di dominio creata deve essere univoca nella relativa posizione di Azure.  
@@ -120,7 +120,7 @@ Se è necessario eseguire la migrazione a un'area diversa, non è possibile eseg
 
 ### <a name="internet-facing-load-balancers"></a>Servizi di bilanciamento del carico con connessione Internet
 
-È possibile associare un indirizzo IP pubblico creato con uno dei due [SKU](#sku) a un'istanza di [Azure Load Balancer](../load-balancer/load-balancer-overview.md) assegnandolo alla configurazione **front-end** del servizio di bilanciamento del carico. L'indirizzo IP pubblico viene usato come indirizzo IP virtuale (indirizzo VIP) di bilanciamento del carico. A un servizio di bilanciamento del carico front-end è possibile assegnare un indirizzo IP pubblico statico o dinamico. È anche possibile assegnare più indirizzi IP pubblici a un front-end del servizio di bilanciamento del carico, consentendo così scenari con [più indirizzi VIP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) , ad esempio un ambiente multi-tenant con siti Web basati su SSL. Per altre informazioni sugli SKU dei servizi di bilanciamento del carico di Azure, vedere [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (SKU Standard dei servizi di bilanciamento del carico di Azure).
+È possibile associare un indirizzo IP pubblico creato con uno dei due [SKU](#sku) a un'istanza di [Azure Load Balancer](../load-balancer/load-balancer-overview.md) assegnandolo alla configurazione **front-end** del servizio di bilanciamento del carico. L'indirizzo IP pubblico viene usato come indirizzo IP virtuale (indirizzo VIP) di bilanciamento del carico. A un servizio di bilanciamento del carico front-end è possibile assegnare un indirizzo IP pubblico statico o dinamico. È anche possibile assegnare più indirizzi IP pubblici a un front-end del servizio di bilanciamento del carico, consentendo così scenari con [più indirizzi VIP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) , ad esempio un ambiente multi-tenant con siti Web basati su SSL. Per altre informazioni sugli SKU di Azure Load Balancer, vedere [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (SKU Standard di Azure Load Balancer).
 
 ### <a name="vpn-gateways"></a>Gateway VPN
 
@@ -133,9 +133,9 @@ Un [gateway VPN di Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2
 ### <a name="at-a-glance"></a>Riepilogo
 La tabella seguente illustra la proprietà specifica tramite la quale un indirizzo IP pubblico può essere associato a una risorsa di livello superiore e i metodi di allocazione possibili (dinamici o statici) utilizzabili.
 
-| Risorse di livello superiore | Associazione di indirizzi IP | Dinamico | Static |
+| Risorse di livello superiore | Associazione di indirizzi IP | Dinamica | Statica |
 | --- | --- | --- | --- |
-| Macchina virtuale |Interfaccia di rete |Sì |Sì |
+| Macchina virtuale |interfaccia di rete |Sì |Sì |
 | Servizio di bilanciamento del carico con connessione Internet |Configurazione front-end |Sì |Sì |
 | gateway VPN |Configurazione IP del gateway |Sì |No |
 | gateway applicazione |Configurazione front-end |Sì (solo V1) |Sì (solo V2) |
@@ -177,14 +177,14 @@ Le macchine virtuali configurate con server DNS gestiti di Azure possono risolve
 ### <a name="at-a-glance"></a>Riepilogo
 La tabella seguente illustra la proprietà specifica tramite la quale un indirizzo IP privato può essere associato a una risorsa di livello superiore e i metodi di allocazione possibili (dinamici o statici) utilizzabili.
 
-| Risorse di livello superiore | Associazione di indirizzi IP | Dinamico | Static |
+| Risorse di livello superiore | Associazione di indirizzi IP | Dinamica | Statica |
 | --- | --- | --- | --- |
-| Macchina virtuale |Interfaccia di rete |Sì |Sì |
-| Bilanciamento del carico |Configurazione front-end |Sì |Sì |
+| Macchina virtuale |interfaccia di rete |Sì |Sì |
+| Load Balancer |Configurazione front-end |Sì |Sì |
 | gateway applicazione |Configurazione front-end |Sì |Sì |
 
 ## <a name="limits"></a>Limiti
-I limiti imposti agli indirizzi IP sono indicati nel set completo di [limiti della rete](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) in Azure. I limiti sono classificati per area e per sottoscrizione. È possibile [contattare il supporto tecnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per aumentare i limiti predefiniti fino ai massimi consentiti in base alle esigenze aziendali.
+I limiti imposti agli indirizzi IP sono indicati nel set completo di [limiti della rete](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) in Azure. I limiti sono classificati per area e per sottoscrizione. È possibile [contattare il supporto tecnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per aumentare i limiti predefiniti fino ai massimi consentiti in base alle esigenze aziendali.
 
 ## <a name="pricing"></a>Prezzi
 Per gli indirizzi IP pubblici può essere previsto un addebito nominale. Per altre informazioni sui prezzi degli indirizzi IP in Azure, vedere la pagina [Prezzi per gli indirizzi IP](https://azure.microsoft.com/pricing/details/ip-addresses).

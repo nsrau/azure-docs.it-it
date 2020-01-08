@@ -17,12 +17,12 @@ ms.date: 04/19/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fbd658d610fba27bdaed2af4bc27ed40a138fac
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 05002c1b11ef31b61fb4036f09dc8edcdafca767
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74008022"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608381"
 ---
 # <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Integrare i log di Azure Active Directory con ArcSight usando monitoraggio di Azure
 
@@ -30,13 +30,13 @@ ms.locfileid: "74008022"
 
 In questo articolo viene descritto come indirizzare i log di Azure AD ad ArcSight tramite Monitoraggio di Azure. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per usare questa funzionalità, sono necessari:
 * Un hub eventi di Azure contenente i log attività di Azure AD. Informazioni su come [trasmettere i log attività a un hub eventi](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
 * Un'istanza configurata di ArcSight Syslog NG Daemon SmartConnector (SmartConnector) o ArcSight Load Balancer. Se gli eventi vengono inviati ad ArcSight Load Balancer, questi vengono inviati di conseguenza allo SmartConnector da parte del Load Balancer.
 
-Scaricare e aprire la [Guida alla configurazione di ArcSight SmartConnector per Hub eventi di Monitoraggio di Azure](https://community.microfocus.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/8/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf). Questa guida contiene i passaggi necessari per installare e configurare ArcSight SmartConnector per Monitoraggio di Azure. 
+Scaricare e aprire la [Guida alla configurazione di ArcSight SmartConnector per Hub eventi di Monitoraggio di Azure](https://community.microfocus.com/t5/ArcSight-Connectors/SmartConnector-for-Microsoft-Azure-Monitor-Event-Hub/ta-p/1671292). Questa guida contiene i passaggi necessari per installare e configurare ArcSight SmartConnector per Monitoraggio di Azure. 
 
 ## <a name="integrate-azure-ad-logs-with-arcsight"></a>Integrare i log Azure AD con ArcSight
 
@@ -47,7 +47,7 @@ Scaricare e aprire la [Guida alla configurazione di ArcSight SmartConnector per 
 
 2. Seguire i passaggi nella sezione **Distribuzione del connettore** della Guida di configurazione per distribuire il connettore. Questa sezione illustra come scaricare ed estrarre il connettore, configurare le proprietà dell'applicazione ed eseguire lo script di distribuzione dalla cartella estratta. 
 
-3. Usare la procedura descritta in **Verifica della distribuzione in Azure** per assicurarsi che il connettore venga configurato e funzioni correttamente. Verificare quanto segue:
+3. Usare la procedura descritta in **Verifica della distribuzione in Azure** per assicurarsi che il connettore venga configurato e funzioni correttamente. Verificare gli elementi seguenti:
     * Le funzioni di Azure necessarie vengono create nella sottoscrizione di Azure.
     * I log di Azure AD vengono trasmessi alla destinazione corretta. 
     * Le impostazioni dell'applicazione nella distribuzione di vengono rese persistenti nelle impostazioni dell'applicazione nelle app per le funzioni di Azure. 
@@ -59,4 +59,4 @@ Scaricare e aprire la [Guida alla configurazione di ArcSight SmartConnector per 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Guida alla configurazione di ArcSight SmartConnector per Hub eventi di Monitoraggio di Azure](https://community.microfocus.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/8/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf)
+[Guida alla configurazione di ArcSight SmartConnector per Hub eventi di Monitoraggio di Azure](https://community.microfocus.com/t5/ArcSight-Connectors/SmartConnector-for-Microsoft-Azure-Monitor-Event-Hub/ta-p/1671292)

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 46d0e8aa1fa934f778e950f0187a853ba46772d1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ba87461c6c195a6b483538fd94d8be76239b8dc5
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495031"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647306"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Come identificare scenari e pianificare l'elaborazione dei dati di analisi avanzata
 
@@ -56,7 +56,7 @@ Dove devono trovarsi i dati per l'elaborazione o la modellazione?
 
 * Archiviazione BLOB di Azure
 * Database SQL Azure
-* Macchine virtuali SQL Server in Azure
+* SQL Server in una macchina virtuale Azure
 * Tabelle Hive o HDInsight (Hadoop in Azure)
 * Azure Machine Learning
 * Dischi rigidi virtuali di Azure montabili
@@ -109,7 +109,7 @@ Queste domande sono fondamentali per la pianificazione degli ambienti di archivi
 Prendere l'ambiente Azure Machine Learning Studio (classico), ad esempio:
 
 * Per un elenco dei formati e dei tipi di dati supportati da Azure Machine Learning Studio, vedere la sezione [Tipi di dati e formati di dati supportati](../studio/import-data.md#supported-data-formats-and-data-types) .
-* Per informazioni sulle limitazioni di altri servizi Azure usati nel processo di analisi, vedere [Sottoscrizione ad Azure e limiti, quote e vincoli del servizio](../../azure-subscription-service-limits.md).
+* Per informazioni sulle limitazioni di altri servizi Azure usati nel processo di analisi, vedere [Sottoscrizione ad Azure e limiti, quote e vincoli del servizio](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ## <a name="data-quality-questions-exploration-and-pre-processing"></a>Domande sulla qualità dei dati: esplorazione e pre-elaborazione
 

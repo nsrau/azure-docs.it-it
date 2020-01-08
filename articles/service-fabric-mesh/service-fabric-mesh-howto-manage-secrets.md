@@ -1,20 +1,14 @@
 ---
-title: Gestire i segreti delle applicazioni Azure Service Fabric Mesh | Microsoft Docs
+title: Gestire i segreti dell'applicazione Azure Service Fabric mesh
 description: Come gestire i segreti dell'applicazione per poter creare e distribuire in modo sicuro un'applicazione Service Fabric Mesh.
-services: service-fabric-mesh
-keywords: segreti
-author: athinanthny
-ms.author: atsenthi
 ms.date: 4/2/2019
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: chackdan
-ms.openlocfilehash: ef3f04437aca7b6ad9aab8806d54e65d00159d87
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: d7946092a0bebe374404870fcd711ad33cc98b11
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036176"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461925"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Gestire i segreti delle applicazioni Azure Service Fabric Mesh
 Service Fabric Mesh supporta i segreti come risorse di Azure. Un segreto di Service Fabric Mesh può essere costituito da informazioni di testo riservate, come stringhe di connessione per l'archiviazione, password o altri valori che devono essere archiviati e trasmessi in modo sicuro. Questo articolo illustra come usare il servizio di archiviazione sicura di Service Fabric per distribuire e gestire i segreti.
@@ -25,7 +19,7 @@ Un segreto dell'applicazione Mesh è costituto da:
 
 Il processo di gestione dei segreti è costituito dai passaggi seguenti:
 1. Dichiarare una risorsa dei **segreti** di rete in un file YAML o JSON del modello di risorsa di Azure usando le definizioni di inlinedValue Kind e SecretsStoreRef ContentType.
-2. Dichiarare le risorse di **segreti/valori** mesh in un file YAML o JSON del modello di risorsa di Azure che verrà archiviato nella risorsa Secrets (dal passaggio 1).
+2. Dichiarare le risorse di **segreti/valori** mesh in un file YAML o JSON del modello di risorsa di Azure che verrà archiviato nella risorsa **Secrets** (dal passaggio 1).
 3. Modificare l'applicazione Mesh in modo che faccia riferimento ai valori dei segreti Mesh.
 4. Distribuire o eseguire l'aggiornamento in sequenza dell'applicazione Mesh per utilizzare i valori dei segreti.
 5. Usare i comandi dell'interfaccia della riga di comando di Azure "az" per la gestione del ciclo di vita del servizio di archiviazione sicura.

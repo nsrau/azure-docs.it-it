@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: f2e9387af3c5922ec5eb0dded3d0d1d4bcee6a01
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 5209dab5e0934cc98bb1334a1565cc13998a7d2e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084149"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376291"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuire un server di configurazione
 
@@ -26,7 +26,7 @@ Si distribuisce un server di configurazione locale quando si usa [Azure Site Rec
 
 Il server di configurazione deve essere configurato come macchina virtuale VMware a disponibilità elevata con determinati requisiti hardware e di dimensionamento minimi. Per una distribuzione semplice e facile, Site Recovery fornisce un modello OVA (Open Virtualization Application) scaricabile per configurare il server di configurazione che è conforme a tutti i requisiti richiesti elencati qui.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Nelle sezioni seguenti sono riepilogati i requisiti hardware minimi per un server di configurazione.
 
@@ -92,7 +92,7 @@ Nelle sezioni seguenti sono riepilogati i requisiti hardware minimi per un serve
 Se si vuole aggiungere un'altra scheda di interfaccia di rete al server di configurazione, eseguire questa operazione prima di registrare il server nell'insieme di credenziali. L'aggiunta di altre schede non è supportata dopo la registrazione.
 
 1. Nell'inventario del client vSphere fare clic con il pulsante destro del mouse sulla macchina virtuale e scegliere **Edit Settings** (Modifica impostazioni).
-2. In **Hardware** selezionare **Add** (Aggiungi) > **Ethernet Adapter** (Scheda Ethernet). Quindi selezionare **Avanti**.
+2. In **Hardware** selezionare **Add** (Aggiungi) > **Ethernet Adapter** (Scheda Ethernet). Fare quindi clic su **Avanti**.
 3. Selezionare un tipo di scheda e una rete.
 4. Per connettere la scheda di interfaccia di rete virtuale all'accensione della macchina virtuale, selezionare **Connect at power on** (Connetti all'accensione). Quindi selezionare **Next** (Avanti) > **Finish** (Fine)  > **OK**.
 
@@ -102,7 +102,7 @@ Se si vuole aggiungere un'altra scheda di interfaccia di rete al server di confi
 2. La macchina virtuale si avvia con la procedura di installazione di Windows Server 2016. Accettare il contratto di licenza e immettere una password amministratore.
 3. Al termine dell'installazione, accedere alla macchina virtuale come amministratore.
 4. La prima volta che si accede, entro pochi secondi viene avviato lo strumento di configurazione Azure Site Recovery.
-5. Immettere un nome che verrà usato per registrare il server di configurazione in Site Recovery. Quindi selezionare **Avanti**.
+5. Immettere un nome che verrà usato per registrare il server di configurazione in Site Recovery. Fare quindi clic su **Avanti**.
 6. Lo strumento verifica che la macchina virtuale possa connettersi ad Azure. Dopo aver stabilito la connessione, selezionare **Accedi** per accedere alla sottoscrizione di Azure.</br>
     a. Le credenziali devono avere accesso all'insieme di credenziali in cui si vuole registrare il server di configurazione.</br>
     b. Assicurarsi che l'account utente scelto disponga dell'autorizzazione per la creazione di un'applicazione in Azure. Per abilitare le autorizzazioni necessarie, attenersi alle linee guida riportate nella sezione [Azure Active Directory requisiti di autorizzazione](#azure-active-directory-permission-requirements).
@@ -132,7 +132,7 @@ Se si vuole aggiungere un'altra scheda di interfaccia di rete al server di confi
 7. Immettere le credenziali che verranno usate dal server di configurazione per connettersi al server VMware. Site Recovery usa queste credenziali per individuare automaticamente le macchine virtuali VMware disponibili per la replica. Selezionare **Aggiungi** > **Continua**. Le credenziali immesse qui vengono salvate in locale.
 8. In **Configura credenziali macchina virtuale**immettere il nome utente e la password delle macchine virtuali per installare automaticamente il servizio Mobility durante la replica. Per le macchine virtuali **Windows**, l'account deve avere privilegi di amministratore locale nelle macchine virtuali da replicare. Per **Linux**, specificare i dettagli dell'account radice.
 9. Selezionare **Finalizza configurazione** per completare la registrazione.
-10. Al termine della registrazione, aprire il portale di Azure e verificare che il server di configurazione e il server VMware siano elencati nell'insieme di credenziali di **servizi di ripristino** > **gestire** > **infrastruttura Site Recovery** >  **Server di configurazione**.
+10. Al termine della registrazione, aprire il portale di Azure e verificare che il server di configurazione e il server VMware siano elencati nell'insieme di credenziali di **servizi di ripristino** > **gestire** > **Site Recovery infrastruttura** > **server di configurazione**.
 
 ## <a name="upgrade-the-configuration-server"></a>Aggiornare il server di configurazione
 
@@ -141,6 +141,10 @@ Per aggiornare il server di configurazione alla versione più recente, vedere [g
 ## <a name="manage-the-configuration-server"></a>Gestire il server di configurazione
 
 Per evitare interruzioni nella replica in corso, assicurarsi che l'indirizzo IP del server di configurazione non cambi dopo la registrazione del server di configurazione in un insieme di credenziali. Per altre informazioni sulle attività comuni di gestione del server di configurazione, vedere [gestire il server di configurazione per il ripristino di emergenza delle macchine virtuali VMware](vmware-azure-manage-configuration-server.md).
+
+## <a name="troubleshoot-deployment-issues"></a>Risolvere i problemi relativi alla distribuzione
+
+Per risolvere i problemi di connettività &, vedere l' [articolo sulla risoluzione dei](vmware-azure-troubleshoot-configuration-server.md) problemi.
 
 ## <a name="faqs"></a>Domande frequenti
 
@@ -183,13 +187,11 @@ Per evitare interruzioni nella replica in corso, assicurarsi che l'indirizzo IP 
 
     Configurare un server di configurazione in un ambiente locale con una riga di controllo diretta con v-Center e per ridurre al minimo le latenze di trasferimento dei dati. È possibile eseguire backup pianificati del server di configurazione [a scopo di failback](vmware-azure-manage-configuration-server.md#failback-requirements).
 
+* È possibile modificare il driver della cache in un server di configurazione o in un server di elaborazione con scalabilità orizzontale?
+
+    No, non è possibile modificare il driver della cache al termine della configurazione.
+
 Per altre domande frequenti sui server di configurazione, vedere [domande comuni sul server di configurazione](vmware-azure-common-questions.md#configuration-server).
-
-## <a name="troubleshoot-deployment-issues"></a>Risolvere i problemi relativi alla distribuzione
-
-[!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
-
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

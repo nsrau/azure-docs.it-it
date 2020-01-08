@@ -5,22 +5,21 @@ author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/05/2019
-ms.openlocfilehash: 23c2a4e8c576f3f2355db0d903c43c9c5b24cc18
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.custom: hdinsightactive
+ms.date: 12/17/2019
+ms.openlocfilehash: b1d81296c996ab09cb6482cb970496779ccf8bd6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311652"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435486"
 ---
 # <a name="apache-phoenix-in-azure-hdinsight"></a>Apache Phoenix in Azure HDInsight
 
 [Apache Phoenix](https://phoenix.apache.org/) è un livello di database relazionale open source altamente parallelo basato su [Apache HBase](hbase/apache-hbase-overview.md). Phoenix consente di usare query in stile SQL su HBase. Phoenix usa i driver JDBC sottostanti per consentire agli utenti di creare, eliminare e modificare tabelle, indici, viste e sequenze, nonché righe upsert SQL singolarmente e in blocco. Phoenix usa la compilazione nativa NoSQL anziché MapReduce per compilare query, consentendo la creazione di applicazioni a bassa latenza basate su HBase. Phoenix aggiunge coprocessori per supportare l'esecuzione del codice fornito dal client nello spazio degli indirizzi del server, eseguendo il codice che si trova nello stesso percorso dei dati. Questo approccio consente di ridurre al minimo il trasferimento di dati client/server.
 
 Apache Phoenix consente agli utenti non sviluppatori di gestire query per Big Data usando una sintassi simile a SQL invece della programmazione. A differenza di altri strumenti, ad esempio [Apache Hive](hadoop/hdinsight-use-hive.md) e Apache Spark SQL, Phoenix è altamente ottimizzato per HBase. Il vantaggio per gli sviluppatori è la possibilità di scrivere query ad alte prestazioni con una quantità di codice molto minore.
-<!-- [Spark SQL](spark/apache-spark-sql-with-hdinsight.md)  -->
 
 Quando si invia una query SQL, Phoenix compila la query in chiamate native di HBase ed esegue l'analisi (o il piano) in parallelo per l'ottimizzazione. Questo livello di astrazione consente allo sviluppatore di evitare la scrittura di processi MapReduce e di concentrarsi invece sulla logica di business e sul flusso di lavoro dell'applicazione correlati all'archiviazione di Big Data con Phoenix.
 
@@ -38,7 +37,7 @@ Creare un indice secondario con il comando `CREATE INDEX`:
 CREATE INDEX ix_purchasetype on SALTEDWEBLOGS (purchasetype, transactiondate) INCLUDE (bookname, quantity);
 ```
 
-Questo approccio può produrre un aumento significativo delle prestazioni rispetto all'esecuzione di query con singola indicizzazione. Questo tipo di indice secondario è un **indice di copertura**, contenente tutte le colonne incluse nella query. Pertanto, la tabella di ricerca non è necessaria e l'indice soddisfa l'intera query.
+Questo approccio può produrre un aumento significativo delle prestazioni rispetto all'esecuzione di query con singola indicizzazione. Questo tipo di indice secondario è un **indice di copertura**, contenente tutte le colonne incluse nella query. Pertanto, la ricerca della tabella non è obbligatoria e l'indice soddisfa l'intera query.
 
 ### <a name="views"></a>Visualizzazioni
 
@@ -51,8 +50,8 @@ Ad esempio, ecco una tabella fisica denominata `product_metrics` con la definizi
 ```sql
 CREATE  TABLE product_metrics (
     metric_type CHAR(1),
-    created_by VARCHAR, 
-    created_date DATE, 
+    created_by VARCHAR,
+    created_date DATE,
     metric_id INTEGER
     CONSTRAINT pk PRIMARY KEY (metric_type, created_by, created_date, metric_id));
 ```
@@ -71,7 +70,7 @@ Per aggiungere più colonne in un secondo momento, usare l'istruzione `ALTER VIE
 
 L'analisi con salto usa una o più colonne di un indice composto per trovare valori distinti. Diversamente da un'analisi di intervalli, l'analisi con salto viene implementata tra le righe offrendo [prestazioni migliori](https://phoenix.apache.org/performance.html#Skip-Scan). Durante l'analisi, il primo valore corrispondente viene ignorato insieme all'indice fino a quando non viene trovato il valore successivo.
 
-Un'analisi con salto usa l'enumerazione `SEEK_NEXT_USING_HINT` del filtro HBase. Tramite `SEEK_NEXT_USING_HINT`, l'analisi con salto tiene traccia del set di chiavi o degli intervalli di chiavi di cui viene eseguita la ricerca in ogni colonna. L'analisi con salto usa quindi una chiave passata durante la valutazione del filtro e determina se è una delle combinazioni. In caso contrario, l'analisi con salto procede con la chiave più alta successiva a cui passare.
+Un'analisi con salto usa l'enumerazione `SEEK_NEXT_USING_HINT` del filtro HBase. Tramite `SEEK_NEXT_USING_HINT`, l'analisi con salto tiene traccia del set di chiavi o degli intervalli di chiavi di cui viene eseguita la ricerca in ogni colonna. L'analisi Skip accetta quindi una chiave passata durante la valutazione del filtro e determina se è una delle combinazioni. In caso contrario, l'analisi con salto procede con la chiave più alta successiva a cui passare.
 
 ### <a name="transactions"></a>Transazioni
 
@@ -98,7 +97,7 @@ ALTER TABLE my_other_table SET TRANSACTIONAL=true;
 
 ### <a name="salted-tables"></a>Tabelle con salting
 
-L'*hotspot dei server di area* può verificarsi durante la scrittura di record con chiavi sequenziali in HBase. Anche se il cluster include più server di area, tutte le scritture vengono eseguite in uno solo. Questa concentrazione crea il problema di hotspot, ovvero la condizione nella quale il carico di lavoro di scrittura viene gestito da un solo server di area invece di essere distribuito su tutti i server di area disponibili. Dato che ogni area ha dimensioni massime predefinite, quando un'area raggiunge tale limite viene suddivisa in due aree di più piccole dimensioni. In questo caso, una di queste nuove aree accetta tutti i nuovi record, diventando il nuovo hotspot.
+L'*hotspot dei server di area* può verificarsi durante la scrittura di record con chiavi sequenziali in HBase. Anche se il cluster include più server di area, tutte le scritture vengono eseguite in uno solo. Questa concentrazione crea il problema di hotspot, ovvero la condizione nella quale il carico di lavoro di scrittura viene gestito da un solo server di area invece di essere distribuito su tutti i server di area disponibili. Poiché ogni area ha una dimensione massima predefinita, quando un'area raggiunge tale limite, viene suddivisa in due aree di piccole dimensioni. In questo caso, una di queste nuove aree accetta tutti i nuovi record, diventando il nuovo hotspot.
 
 Per attenuare questo problema e ottenere prestazioni migliori, usare tabelle pre-suddivise in modo che tutti i server di area vengano usati uniformemente. Phoenix supporta *tabelle con salting*, aggiungendo in modo trasparente il byte di salt alla chiave di riga per una determinata tabella. La tabella viene pre-suddivisa in base ai limiti del byte di salt per garantire una distribuzione del carico uniforme tra i server di area durante la fase iniziale della tabella. Questo approccio consente di distribuire il carico di lavoro di scrittura su tutti i server di area disponibili, con conseguente miglioramento delle prestazioni di scrittura e di lettura. Per applicare il salting a una tabella, specificare la proprietà di tabella `SALT_BUCKETS` al momento della creazione della tabella:
 
@@ -135,6 +134,8 @@ Un cluster HBase di HDInsight include l'[interfaccia utente di Ambari](hdinsight
 
     ![Sezione di configurazione Phoenix SQL in Ambari](./media/hdinsight-phoenix-in-hdinsight/apache-ambari-phoenix.png)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Usare Apache Phoenix con cluster HBase basati su Linux in HDInsight](hbase/apache-hbase-query-with-phoenix.md)
+
+* [Usare Apache Zeppelin per eseguire query Apache Phoenix su Apache HBase in Azure HDInsight](./hbase/apache-hbase-phoenix-zeppelin.md)

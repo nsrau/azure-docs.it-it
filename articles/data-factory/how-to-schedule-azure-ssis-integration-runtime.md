@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: 8d7d4c8d7e01c6a4bfa644b84f03f8a2ea5bfd06
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 5263af2708ee30566e90cdf59ef69f52f76a9d32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928862"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440312"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Come avviare e arrestare Azure-SSIS Integration Runtime in base a una pianificazione
 Questo articolo descrive come pianificare l'avvio e l'arresto di Azure-SSIS Integration Runtime (IR) con Azure Data Factory (ADF). Azure-SSIS IR è una risorsa dell'ambiente di calcolo di ADF dedicata all'esecuzione di pacchetti di SQL Server Integration Services (SSIS). All'esecuzione di Azure-SSIS IR è associato un costo. Di conseguenza, è in genere opportuno eseguire il runtime di integrazione solo se si devono eseguire pacchetti SSIS in Azure e arrestarlo quando non è più necessario. Per [avviare o arrestare manualmente il runtime di integrazione](manage-azure-ssis-integration-runtime.md), è possibile usare l'interfaccia utente o l'app di ADF oppure Azure PowerShell.
@@ -64,12 +64,12 @@ Se si crea un terzo trigger programmato per essere eseguito ogni giorno a mezzan
    - Selezionare **Usa esistente**e scegliere un gruppo di risorse esistente dall'elenco a discesa. 
    - Selezionare **Crea nuovo**e immettere il nome del nuovo gruppo di risorse.   
          
-   Per informazioni sui gruppi di risorse, vedere l'articolo [Uso di gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/resource-group-overview.md).
+   Per informazioni sui gruppi di risorse, vedere l'articolo [Uso di gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/management/overview.md).
    
 6. Per **Versione** selezionare **V2**.
 7. Per **Località** selezionare una delle località supportate per la creazione di ADF dall'elenco a discesa.
 8. Selezionare **Aggiungi al dashboard**.     
-9. Fare clic su **Create**(Crea).
+9. Fare clic su **Crea**.
 10. Nel dashboard di Azure viene visualizzato il riquadro seguente con lo stato: **deploying Data Factory**. 
 
     ![Riquadro Deploying data factory (Distribuzione della data factory)](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
@@ -114,7 +114,7 @@ Se si crea un terzo trigger programmato per essere eseguito ogni giorno a mezzan
     1. Per **Ruolo**, selezionare **Collaboratore**. 
     2. In **Assegna accesso a** selezionare **Utente, gruppo o entità servizio di Azure AD**. 
     3. In **Seleziona** cercare il nome di ADF e selezionarlo. 
-    4. Fare clic su **Salva**
+    4. Fare clic su **Salva**.
     
    ![Assegnazione del ruolo all'identità gestita di ADF](./media/how-to-schedule-azure-ssis-integration-runtime/adf-managed-identity-role-assignment.png)
 
@@ -133,7 +133,7 @@ Se si crea un terzo trigger programmato per essere eseguito ogni giorno a mezzan
     1. In **Nome server** immettere **&lt;nome server di database SQL di Azure&gt;.database.windows.net**.
     2. Selezionare **Opzioni >>** .
     3. In **Connetti al database** selezionare **SSISDB**.
-    4. Selezionare **Connessione**. 
+    4. Selezionare **Connetti**. 
     5. Espandere **Cataloghi di Integration Services** -> **SSISDB** -> Cartella -> **Progetti** -> Progetto SSIS -> **Pacchetti**. 
     6. Fare clic con il pulsante destro del mouse sul pacchetto SSIS specifico da eseguire e selezionare **Report** -> **Report standard** -> **Tutte le esecuzioni**. 
     7. Verificare che il pacchetto sia stato eseguito. 

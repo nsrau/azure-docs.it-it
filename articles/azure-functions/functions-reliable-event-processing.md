@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: cshoe
-ms.openlocfilehash: 019c44cedba166dc1ac06a0244fa2b2e7930e673
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: e4f35495d8a01146068cffb9159c29c46c3c0d29
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230362"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561868"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Elaborazione di eventi affidabili di funzioni di Azure
 
@@ -59,7 +59,7 @@ Come regola generale, ogni funzione deve includere un [blocco try/catch](./funct
 
 ### <a name="retry-mechanisms-and-policies"></a>Meccanismi di ripetizione dei tentativi e criteri
 
-Alcune eccezioni sono di natura temporanea e non vengono visualizzate nuovamente quando un'operazione viene ritentata in un secondo momento. Questo è il motivo per cui il primo passaggio consiste sempre nell'eseguire di nuovo l'operazione. È possibile scrivere le regole di elaborazione dei tentativi manualmente, ma sono così comuni che sono disponibili diversi strumenti. L'uso di queste librerie consente di definire criteri affidabili per i tentativi che consentono di mantenere l'ordine di elaborazione.
+Alcune eccezioni sono di natura temporanea e non vengono visualizzate nuovamente quando un'operazione viene ritentata in un secondo momento. Questo è il motivo per cui il primo passaggio consiste sempre nell'eseguire di nuovo l'operazione. È possibile scrivere le regole di elaborazione dei tentativi manualmente, ma sono così comuni che sono disponibili diversi strumenti. L'uso di queste librerie consente di definire criteri affidabili per i tentativi, che consentono anche di mantenere l'ordine di elaborazione.
 
 L'introduzione delle librerie di gestione degli errori alle funzioni consente di definire criteri di ripetizione dei tentativi di base e avanzati. Ad esempio, è possibile implementare un criterio che segue un flusso di lavoro illustrato dalle regole seguenti:
 
@@ -82,7 +82,7 @@ La garanzia che ogni messaggio venga elaborato almeno una volta implica che alcu
 
 ## <a name="stop-and-restart-execution"></a>Arrestare e riavviare l'esecuzione
 
-Sebbene alcuni errori possano essere accettabili, cosa accade se l'app riscontra errori significativi? Potrebbe essere necessario arrestare l'attivazione di eventi fino a quando il sistema non raggiunge uno stato integro. La possibilità di sospendere l'elaborazione viene spesso eseguita con un modello di interruttore. Il modello di interruttore consente all'app di "interrompere il circuito" del processo dell'evento e riprenderla in un secondo momento.
+Sebbene alcuni errori possano essere accettabili, cosa accade se l'app riscontra errori significativi? Potrebbe essere necessario arrestare l'attivazione di eventi fino a quando il sistema non raggiunge uno stato integro. La possibilità di sospendere l'elaborazione viene spesso realizzata con un modello di interruttore. Il modello di interruttore consente all'app di "interrompere il circuito" del processo dell'evento e riprenderla in un secondo momento.
 
 Per implementare un interruttore in un processo di evento sono necessari due elementi:
 

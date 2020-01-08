@@ -1,25 +1,14 @@
 ---
-title: Creare un cluster di Service Fabric nel portale di Azure | Microsoft Docs
+title: Creare un cluster Service Fabric nel portale di Azure
 description: Informazioni su come configurare un cluster di Service Fabric protetto in Azure tramite il portale di Azure e Azure Key Vault.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: vturecek
-ms.assetid: 426c3d13-127a-49eb-a54c-6bde7c87a83b
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/06/2018
-ms.author: atsenthi
-ms.openlocfilehash: ca050e19ed37e2895507507338ebf4b4217851b6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0f384da75f09390e9b0988722b974e7e16d13e63
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934049"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452310"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Creare un cluster di Service Fabric in Azure tramite il portale di Azure
 > [!div class="op_single_selector"]
@@ -184,7 +173,7 @@ Selezionare la casella **Configura impostazioni avanzate** per l'immissione dei 
 
 Per completare la creazione del cluster fare clic su **Crea**. È possibile, facoltativamente, scaricare il modello.
 
-![Summary]
+![Riepilogo]
 
 È possibile visualizzare lo stato di avanzamento del processo di creazione nell'area delle notifiche: Fare clic sull'icona "campanello" accanto alla barra di stato nella parte superiore destra della schermata. Se è stato fatto clic su **Aggiungi a schermata iniziale** durante la creazione del cluster, viene visualizzata la **distribuzione di Service Fabric cluster** aggiunto alla lavagna **iniziale** . Questo processo richiede tempo. 
 

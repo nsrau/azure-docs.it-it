@@ -1,5 +1,5 @@
 ---
-title: File di configurazione della libreria di autenticazione Microsoft Android | Azure
+title: File di configurazione di Android MSAL | Azure
 titleSuffix: Microsoft identity platform
 description: Panoramica del file di configurazione di Android Microsoft Authentication Library (MSAL), che rappresenta la configurazione di un'applicazione in Azure Active Directory.
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f643022c85a44b2202fcbd91be50664882c8ba7b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e2d366a48adf536276697959be3418f36e10d8ae
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916827"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424398"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>File di configurazione della libreria di autenticazione Microsoft Android
 
@@ -31,10 +31,10 @@ Questo articolo consente di comprendere le diverse impostazioni nel file di conf
 
 ### <a name="general-settings"></a>Impostazioni generali
 
-| Proprietà | Tipo di dati | Obbligatoria | Note |
+| Proprietà | Tipo di dati | Obbligatorio | Note |
 |-----------|------------|-------------|-------|
-| `client_id` | Stringa | SÌ | ID client dell'app dalla pagina di [registrazione dell'applicazione](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
-| `redirect_uri`   | Stringa | SÌ | URI di reindirizzamento dell'app dalla [pagina di registrazione dell'applicazione](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `client_id` | string | Sì | ID client dell'app dalla pagina di [registrazione dell'applicazione](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `redirect_uri`   | string | Sì | URI di reindirizzamento dell'app dalla [pagina di registrazione dell'applicazione](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
 | `authorities` | Elenca\<autorità > | No | Elenco delle autorità necessarie per l'app |
 | `authorization_user_agent` | AuthorizationAgent (enumerazione) | No | Valori possibili: `DEFAULT`, `BROWSER`, `WEBVIEW` |
 | `http` | HttpConfiguration | No | Configurare `HttpUrlConnection` `connect_timeout` e `read_timeout` |
@@ -87,7 +87,7 @@ Elenco di autorità note e considerate attendibili dall'utente. Oltre alle autor
 
 #### <a name="map-aad-authority--audience-to-microsoft-identity-platform-endpoints"></a>Eseguire il mapping dell'autorità AAD & destinatari agli endpoint della piattaforma Microsoft Identity
 
-| Type | Destinatari | ID tenant | Authority_Url | Endpoint risultante | Note |
+| Tipo | Destinatari | ID tenant | Authority_Url | Endpoint risultante | Note |
 |------|------------|------------|----------------|----------------------|---------|
 | AAD | AzureADandPersonalMicrosoftAccount | | | https://login.microsoftonline.com/common | `common` è un alias tenant per l'account. Come un tenant di Azure Active Directory specifico o il sistema di account Microsoft. |
 | AAD | AzureADMyOrg | contoso.com | | https://login.microsoftonline.com/contoso.com | Solo gli account presenti in contoso.com possono acquisire un token. Qualsiasi dominio verificato o GUID del tenant può essere usato come ID tenant. |
@@ -102,19 +102,19 @@ Elenco di autorità note e considerate attendibili dall'utente. Oltre alle autor
 
 #### <a name="authority-properties"></a>Proprietà dell'autorità
 
-| Proprietà | Tipo di dati  | Obbligatoria | Note |
+| Proprietà | Tipo di dati  | Obbligatorio | Note |
 |-----------|-------------|-----------|--------|
-| `type` | Stringa | SÌ | Rispecchia il tipo di destinatari o di account a cui è destinata l'app. Valori possibili: `AAD`, `B2C` |
+| `type` | string | Sì | Rispecchia il tipo di destinatari o di account a cui è destinata l'app. Valori possibili: `AAD`, `B2C` |
 | `audience` | Oggetto | No | Si applica solo quando Type =`AAD`. Specifica l'identità a cui è destinata l'app. Usare il valore della registrazione dell'app |
-| `authority_url` | Stringa | SÌ | Obbligatorio solo quando Type =`B2C`. Specifica l'URL dell'autorità o i criteri che devono essere usati dall'app  |
-| `default` | boolean | SÌ | Quando si specifica una o più autorità, è necessario un singolo `"default":true`. |
+| `authority_url` | string | Sì | Obbligatorio solo quando Type =`B2C`. Specifica l'URL dell'autorità o i criteri che devono essere usati dall'app  |
+| `default` | boolean | Sì | Quando si specifica una o più autorità, è necessario un singolo `"default":true`. |
 
 #### <a name="audience-properties"></a>Proprietà del gruppo di destinatari
 
-| Proprietà | Tipo di dati  | Obbligatoria | Note |
+| Proprietà | Tipo di dati  | Obbligatorio | Note |
 |-----------|-------------|------------|-------|
-| `type` | Stringa | SÌ | Specifica i destinatari a cui si vuole assegnare l'app. Valori possibili: `AzureADandPersonalMicrosoftAccount`, `PersonalMicrosoftAccount`, `AzureADMultipleOrgs`, `AzureADMyOrg` |
-| `tenant_id` | Stringa | SÌ | Obbligatorio solo quando `"type":"AzureADMyOrg"`. Facoltativo per altri valori `type`. Può trattarsi di un dominio tenant, ad esempio `contoso.com`, o un ID tenant, ad esempio `72f988bf-86f1-41af-91ab-2d7cd011db46`) |
+| `type` | string | Sì | Specifica i destinatari a cui si vuole assegnare l'app. Valori possibili: `AzureADandPersonalMicrosoftAccount`, `PersonalMicrosoftAccount`, `AzureADMultipleOrgs`, `AzureADMyOrg` |
+| `tenant_id` | string | Sì | Obbligatorio solo quando `"type":"AzureADMyOrg"`. Facoltativo per altri valori `type`. Può trattarsi di un dominio tenant, ad esempio `contoso.com`, o un ID tenant, ad esempio `72f988bf-86f1-41af-91ab-2d7cd011db46`) |
 
 ### <a name="authorization_user_agent"></a>authorization_user_agent
 
@@ -139,7 +139,7 @@ Se si usa l'autorità AAD con audience impostata su `"MicrosoftPersonalAccount"`
 
 Configurare le impostazioni globali per i timeout HTTP, ad esempio:
 
-| Proprietà | Tipo di dati | Obbligatoria | Note |
+| Proprietà | Tipo di dati | Obbligatorio | Note |
 | ---------|-----------|------------|--------|
 | `connect_timeout` | int | No | Tempo in millisecondi |
 | `read_timeout` | int | No | Tempo in millisecondi |
@@ -148,7 +148,7 @@ Configurare le impostazioni globali per i timeout HTTP, ad esempio:
 
 Per la registrazione sono disponibili le impostazioni globali seguenti:
 
-| Proprietà | Tipo di dati  | Obbligatoria | Note |
+| Proprietà | Tipo di dati  | Obbligatorio | Note |
 | ----------|-------------|-----------|---------|
 | `pii_enabled`  | boolean | No | Indica se creare dati personali |
 | `log_level`   | boolean | No | Messaggi di log da restituire |
@@ -342,7 +342,7 @@ Nell'esempio seguente viene illustrata una configurazione di base che specifica 
 ## <a name="how-to-use-a-configuration-file"></a>Come usare un file di configurazione
 
 1. Creare un file di configurazione. Si consiglia di creare il file di configurazione personalizzato in `res/raw/auth_config.json`. Ma è possibile inserirlo ovunque si desideri.
-2. Indicare a MSAL dove cercare la configurazione quando si costruisce la `PublicClientApplication`. ad esempio:
+2. Indicare a MSAL dove cercare la configurazione quando si costruisce la `PublicClientApplication`. Ad esempio:
 
    ```java
    //On Worker Thread

@@ -1,5 +1,6 @@
 ---
-title: Escalation dei privilegi del cloud privato-soluzione VMware di Azure di CloudSimple
+title: Escalation dei privilegi del cloud privato
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Viene descritto come eseguire l'escalation dei privilegi sul cloud privato per le funzioni amministrative in vCenter
 author: sharaths-cs
 ms.author: b-shsury
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b54f1d8c0705488c53925d097433e77aed3eac72
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 3ee722f88f766178dd658600893b4497bf611be9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617604"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372772"
 ---
 # <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>Escalation dei privilegi di cloud privato nel portale di CloudSimple
 
@@ -24,7 +25,7 @@ Per l'accesso amministrativo al cloud privato, è possibile inoltrare temporanea
 > [!CAUTION]
 > Non apportare modifiche alla configurazione per i componenti di gestione. Le azioni eseguite durante lo stato con privilegi escalated possono avere un impatto negativo sul sistema o causare un sistema non disponibile.
 
-## <a name="sign-in-to-azure"></a>Accedi ad Azure
+## <a name="sign-in-to-azure"></a>Accedere a Azure
 
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 
@@ -34,11 +35,11 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 2. Aprire la pagina **risorse** e selezionare il cloud privato per il quale si desidera eseguire l'escalation dei privilegi.
 
-3. Nella parte inferiore della pagina Riepilogo in **Modifica privilegi vSphere**fare clic suescalation.
+3. Nella parte inferiore della pagina Riepilogo in **Modifica privilegi vSphere**fare clic su **escalation**.
 
     ![Modificare il privilegio vSphere](media/escalate-private-cloud-privilege.png)
 
-4. Selezionare il tipo di utente vSphere.  È `CloudOwner@cloudsimple.local` possibile inoltrare solo l'utente locale.
+4. Selezionare il tipo di utente vSphere.  È possibile inoltrare solo `CloudOwner@cloudsimple.local` utente locale.
 
 5. Selezionare l'intervallo di tempo di escalation dall'elenco a discesa. Scegliere il periodo più breve che consentirà di completare l'attività.
 
@@ -59,9 +60,9 @@ L'escalation dei privilegi inizia e dura fino alla fine dell'intervallo selezion
 
 Se è necessario ulteriore tempo per completare le attività, è possibile estendere il periodo di escalation dei privilegi.  Scegliere l'intervallo di tempo di escalation aggiuntivo che consente di completare le attività amministrative.
 
-1. Nei**cloud privati** **delle risorse** > nel portale di CloudSimple selezionare il cloud privato per il quale si vuole estendere l'escalation dei privilegi.
+1. Nelle **risorse** > Cloud **privati** nel portale di CloudSimple selezionare il cloud privato per il quale si vuole estendere l'escalation dei privilegi.
 
-2. Nella parte inferiore della scheda Riepilogo fare clic su **Estendi**escalation dei privilegi.
+2. Nella parte inferiore della scheda Riepilogo fare clic su **Estendi escalation dei privilegi**.
 
     ![Estendi escalation dei privilegi](media/de-escalate-private-cloud-privilege.png)
 
@@ -73,9 +74,9 @@ Se è necessario ulteriore tempo per completare le attività, è possibile esten
 
 Una volta completate le attività amministrative, è necessario annullare l'escalation dei privilegi.  
 
-1. Nei**cloud privati** **delle risorse** > nel portale di CloudSimple selezionare il cloud privato per il quale si desidera degenerare i privilegi.
+1. Nelle **risorse** > Cloud **privati** nel portale di CloudSimple selezionare il cloud privato per il quale si desidera annullare l'escalation dei privilegi.
 
-2. Fare clic su **de-** escalation.
+2. Fare clic su **de-escalation**.
 
 3. Fare clic su **OK**.
 

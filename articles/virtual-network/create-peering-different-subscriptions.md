@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: anavin
-ms.openlocfilehash: 11144b1595370f9eb17afce71e0302a63468a089
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: dd1d930fa09e3e53a4ac67e513ba1bff77ee1376
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305694"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75373358"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Creare un peering di rete virtuale - Resource Manager, sottoscrizioni diverse
 
@@ -49,12 +49,12 @@ La procedura seguente usa account diversi per ogni sottoscrizione. Se si usa un 
 2. Selezionare **+ Crea una risorsa**, quindi **Rete** e infine **Rete virtuale**.
 3. Selezionare o immettere i valori di esempio seguenti per le impostazioni elencate di seguito e quindi selezionare **Crea**:
     - **Nome**: *myVnetA*
-    - **Spazio degli indirizzi**: *10.0.0.0/16*
+    - **Spazio indirizzi**: *10.0.0.0/16*
     - **Nome subnet**: *predefinito*
     - **Intervallo di indirizzi subnet**: *10.0.0.0/24*
-    - **Sottoscrizione** Selezionare la sottoscrizione A.
-    - **Gruppo di risorse**: Selezionare **Crea nuovo** e immettere *myResourceGroupA*
-    - **Posizione**: *Stati Uniti orientali*
+    - **Sottoscrizione**: selezionare la sottoscrizione A.
+    - **Gruppo di risorse**: selezionare **Crea nuovo** e immettere *myResourceGroupA*
+    - **Località**: *Stati Uniti orientali*
 4. Nella casella **Cerca risorse** nella parte superiore del portale digitare *myVnetA*. Selezionare la voce **myVnetA** quando viene visualizzata nei risultati della ricerca. 
 5. Selezionare **Controllo di accesso (IAM)** nell'elenco di opzioni a sinistra.
 6. In **myVnetA - Controllo di accesso (IAM)** selezionare **+ Aggiungi assegnazione di ruolo**.
@@ -66,12 +66,12 @@ La procedura seguente usa account diversi per ogni sottoscrizione. Se si usa un 
 12. Completare i passaggi 2 e 3, immettendo o selezionando i valori seguenti nel passaggio 3:
 
     - **Nome**: *myVnetB*
-    - **Spazio degli indirizzi**: *10.1.0.0/16*
+    - **Spazio indirizzi**: *10.1.0.0/16*
     - **Nome subnet**: *predefinito*
     - **Intervallo di indirizzi subnet**: *10.1.0.0/24*
-    - **Sottoscrizione** Selezionare la sottoscrizione B.
-    - **Gruppo di risorse**: Selezionare **Crea nuovo** e immettere *myResourceGroupB*
-    - **Posizione**: *Stati Uniti orientali*
+    - **Sottoscrizione**: selezionare la sottoscrizione B.
+    - **Gruppo di risorse**: selezionare **Crea nuovo** e immettere *myResourceGroupB*
+    - **Località**: *Stati Uniti orientali*
 
 13. Nella casella **Cerca risorse** nella parte superiore del portale digitare *myVnetB*. Selezionare la voce **myVnetB** quando viene visualizzata nei risultati della ricerca.
 14. In **myVnetB** selezionare **Proprietà** nell'elenco di opzioni a sinistra. Copiare il valore di **ID RISORSA**, che verrà usato in un passaggio successivo. L'ID risorsa è simile all'esempio seguente: `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`.
@@ -83,10 +83,10 @@ La procedura seguente usa account diversi per ogni sottoscrizione. Se si usa un 
 20. In **myVnetA - Peer** selezionare **+ Aggiungi**
 21. In **Aggiungi peering** immettere o selezionare le opzioni seguenti e quindi fare clic su **OK**:
      - **Nome**: *myVnetAToMyVnetB*
-     - **Modello di distribuzione della rete virtuale**:  Selezionare **Gestione risorse**.
-     - **Conosco l'ID della risorsa**: selezionare questa casella.
+     - **Modello di distribuzione della rete virtuale**: selezionare **Resource Manager**.
+     - **Conosco l'ID della risorsa**: selezionare questa casella di controllo.
      - **ID risorsa**: immettere l'ID risorsa indicato nel passaggio 14.
-     - **Consenti accesso alla rete virtuale**: assicurarsi che sia selezionato **Abilitato**.
+     - **Consenti accesso alla rete virtuale:** assicurarsi che sia selezionato **Abilitato**.
     Questa esercitazione non prevede l'uso di altre impostazioni. Per informazioni su tutte le impostazioni per il peering, vedere [Gestire i peering di rete virtuale](virtual-network-manage-peering.md#create-a-peering).
 22. Il peering creato viene visualizzato poco dopo aver selezionato **OK** nel passaggio precedente. Nella colonna **STATO PEERING** relativa al peering **myVnetAToMyVnetB** creato è specificato lo stato **Avviato**. È stato effettuato il peering da myVnetA a myVnetB, ma ora è necessario eseguire il peering da myVnetB a myVnetA. Affinché le risorse delle reti virtuali possano comunicare tra loro, il peering deve essere creato in entrambe le direzioni.
 23. Disconnettersi dal portale come UserA e accedere come UserB.
@@ -171,7 +171,7 @@ Invece di installare l'interfaccia della riga di comando e le sue dipendenze, è
     > Il peering viene stabilito correttamente solo dopo che lo stato di peering per entrambe le reti virtuali è **Connesso**.
 
 11. **Facoltativo**: anche se la creazione delle macchine virtuali non è illustrata in questa esercitazione, è possibile creare una macchina virtuale in ogni rete virtuale ed eseguire la connessione da una macchina virtuale all'altra per convalidare la connettività.
-12. **Facoltativo**: per eliminare le risorse create in questa esercitazione, completare la procedura descritta in [Eliminare risorse](#delete-cli) in questo articolo.
+12. **Facoltativo:** per eliminare le risorse create in questa esercitazione, completare la procedura descritta in [Eliminare risorse](#delete-cli) in questo articolo.
 
 Tutte le risorse di Azure create in una delle reti virtuali possono ora comunicare tra loro tramite i relativi indirizzi IP. Se si usa la risoluzione dei nomi di Azure predefinita per le reti virtuali, le risorse contenute nelle reti virtuali non sono in grado di risolvere i nomi tra le reti virtuali. Se si intende risolvere i nomi tra le reti virtuali in peering, è necessario creare un proprio server DNS. Per informazioni sulla configurazione, vedere [Risoluzione dei nomi usando il server DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
@@ -181,10 +181,10 @@ Tutte le risorse di Azure create in una delle reti virtuali possono ora comunica
 
 Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un account dotato di autorizzazioni per entrambe le sottoscrizioni, è possibile usare lo stesso account per tutti i passaggi, ignorando i passaggi per la disconnessione da Azure e rimuovendo le righe dello script per la creazione delle assegnazioni dei ruoli utente. Sostituire UserA@azure.com e UserB@azure.com in tutti gli script seguenti con i nomi utente usati per UserA e UserB.
 
-1. Confermare di avere Azure PowerShell versione 1.0.0 o successiva. Per eseguire questa operazione, `Get-Module -Name Az` è consigliabile installare la versione più recente di PowerShell [AZ Module](/powershell/azure/install-az-ps). Se non si ha familiarità con Azure PowerShell, vedere [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) (Panoramica di Azure PowerShell). 
+1. Confermare di avere Azure PowerShell versione 1.0.0 o successiva. È possibile eseguire questa operazione eseguendo il `Get-Module -Name Az` si consiglia di installare la versione più recente di PowerShell [AZ Module](/powershell/azure/install-az-ps). Se non si ha familiarità con Azure PowerShell, vedere [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) (Panoramica di Azure PowerShell). 
 2. Avviare una sessione di PowerShell.
 3. In PowerShell accedere ad Azure come UserA immettendo il comando `Connect-AzAccount`. L'account con cui si esegue l'accesso deve avere le autorizzazioni necessarie per la creazione di un peering di rete virtuale. Per un elenco di autorizzazioni, vedere [Autorizzazioni di peering di reti virtuali](virtual-network-manage-peering.md#permissions).
-4. Creare un gruppo di risorse e una rete virtuale A. Copiare lo script seguente in un editor di testo nel PC. Sostituire `<SubscriptionA-Id>` con l'ID di SubscriptionA. Se l'ID sottoscrizione non è noto, immettere il comando `Get-AzSubscription` per visualizzarlo. Il valore di **Id** nell'output restituito è l'ID sottoscrizione. Per eseguire lo script, copiare lo script modificato, incollarlo in PowerShell e quindi premere `Enter`.
+4. Creare un gruppo di risorse e una rete virtuale A. Copiare lo script seguente in un editor di testo nel PC. Sostituire `<SubscriptionA-Id>` con l'ID di SubscriptionA. Se l'ID della sottoscrizione non è noto, immettere il comando `Get-AzSubscription` per visualizzarlo. Il valore di **Id** nell'output restituito è l'ID della sottoscrizione. Per eseguire lo script, copiare lo script modificato, incollarlo in PowerShell e quindi premere `Enter`.
 
     ```powershell
     # Create a resource group.
@@ -241,7 +241,7 @@ Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un a
     Tutte le risorse di Azure create in una delle reti virtuali possono ora comunicare tra loro tramite i relativi indirizzi IP. Se si usa la risoluzione dei nomi di Azure predefinita per le reti virtuali, le risorse contenute nelle reti virtuali non sono in grado di risolvere i nomi tra le reti virtuali. Se si intende risolvere i nomi tra le reti virtuali in peering, è necessario creare un proprio server DNS. Per informazioni sulla configurazione, vedere [Risoluzione dei nomi usando il server DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
 13. **Facoltativo**: anche se la creazione delle macchine virtuali non è illustrata in questa esercitazione, è possibile creare una macchina virtuale in ogni rete virtuale ed eseguire la connessione da una macchina virtuale all'altra per convalidare la connettività.
-14. **Facoltativo**: per eliminare le risorse create in questa esercitazione, completare la procedura descritta in [Eliminare risorse](#delete-powershell) in questo articolo.
+14. **Facoltativo:** per eliminare le risorse create in questa esercitazione, completare la procedura descritta in [Eliminare risorse](#delete-powershell) in questo articolo.
 
 ## <a name="template"></a>Creare un peering - Modello di Resource Manager
 
@@ -276,7 +276,7 @@ Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un a
    }
    ```
 
-3. Accedere ad Azure come UserA e distribuire il modello usando il [portale](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template) o l'[interfaccia della riga di comando di Azure](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template). Specificare il nome file in cui si è salvato il testo JSON di esempio nel passaggio 2.
+3. Accedere ad Azure come UserA e distribuire il modello usando il [portale](../azure-resource-manager/templates/deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/templates/deploy-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template) o l'[interfaccia della riga di comando di Azure](../azure-resource-manager/templates/deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template). Specificare il nome file in cui si è salvato il testo JSON di esempio nel passaggio 2.
 4. Copiare il codice JSON di esempio dal passaggio 2 a un file nel computer e apportare modifiche alle righe che iniziano con:
    - **name**: sostituire *myVnetA/myVnetAToMyVnetB* con *myVnetB/myVnetBToMyVnetA*.
    - **id**: sostituire `<subscription ID>` con l'ID della sottoscrizione di UserB e sostituire *myVnetB* con *myVnetA*.
@@ -305,7 +305,7 @@ Al termine di questa esercitazione, è necessario eliminare le risorse create, p
    ```
 
 2. Disconnettersi da Azure come UserA e accedere come UserB.
-3. Eseguire il seguente comando:
+3. Eseguire il comando seguente:
 
    ```azurecli-interactive
    az group delete --name myResourceGroupB --yes
@@ -320,7 +320,7 @@ Al termine di questa esercitazione, è necessario eliminare le risorse create, p
    ```
 
 2. Disconnettersi da Azure come UserA e accedere come UserB.
-3. Eseguire il seguente comando:
+3. Eseguire il comando seguente:
 
    ```powershell
    Remove-AzResourceGroup -Name myResourceGroupB -force

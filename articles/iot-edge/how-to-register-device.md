@@ -4,17 +4,17 @@ description: Usare l'estensione IoT per l'interfaccia della riga di comando di A
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/21/2019
+ms.date: 11/12/2019
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 793ddcb9f218248c396e10f23201dfe905545ceb
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 5ab9c778adef29a8e531158e062e9d35d4e80ae4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456844"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434110"
 ---
 # <a name="register-an-azure-iot-edge-device"></a>Registrare un dispositivo Azure IoT Edge
 
@@ -55,7 +55,7 @@ Tutti i dispositivi abilitati per Edge che si connettono all'hub IoT sono elenca
 Quando si è pronti per configurare il dispositivo, è necessaria la stringa di connessione che collega il dispositivo fisico alla relativa identità nell'hub IoT.
 
 1. Dalla pagina **IOT Edge** nel portale, fare clic sull'ID del dispositivo nell'elenco dei dispositivi IOT Edge.
-2. Copiare il valore di **Stringa di connessione (chiave primaria)** o **Stringa di connessione (chiave secondaria)** .
+2. Copiare il valore di stringa di connessione **primaria** o di una **stringa di connessione secondaria**.
 
 ## <a name="register-with-visual-studio-code"></a>Registra con Visual Studio Code
 

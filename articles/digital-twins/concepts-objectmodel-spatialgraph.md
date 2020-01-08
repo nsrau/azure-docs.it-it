@@ -1,19 +1,19 @@
 ---
 title: Informazioni sui modelli a oggetti e sul grafico di intelligence spaziale-dispositivi gemelli digitali di Azure | Microsoft Docs
-description: Gemelli digitali di Azure consente di modellare le relazioni tra persone, luoghi e dispositivi
+description: Usa Gemelli digitali di Azure per modellare le relazioni tra persone, luoghi e dispositivi
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/05/2019
-ms.openlocfilehash: 85fb67248a69a2726fef99ebe4749d61807631e4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 12/30/2019
+ms.openlocfilehash: cafec321e7c40e27d8de731feda1103451271507
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74010098"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562596"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Informazioni sui modelli a oggetti di Gemelli digitali e sul grafico di intelligenza spaziale
 
@@ -58,7 +58,7 @@ Altre categorie di oggetti:
 
 Il grafico spaziale è il grafico gerarchico di spazi, dispositivi e utenti definiti nel modello a oggetti di Gemelli digitali. Il grafico spaziale supporta ereditarietà, filtri, attraversamento, scalabilità ed estendibilità. È possibile interagire con il grafico spaziale e gestirlo con una raccolta di API REST.
 
-L’utente che distribuisce un servizio di Gemelli digitali nella sottoscrizione diventa amministratore globale del nodo radice. Dispone pertanto dell’accesso completo all’intera struttura. Può effettuare il provisioning di spazi nel grafico tramite l'API Space. Può effettuare il provisioning dei servizi tramite l'API del dispositivo e dei sensori tramite l'API Sensor. Sono disponibili anche [strumenti open source](https://github.com/Azure-Samples/digital-twins-samples-csharp) per effettuare il provisioning in blocco del grafico.
+L’utente che distribuisce un servizio di Gemelli digitali nella sottoscrizione diventa amministratore globale del nodo radice. Dispone pertanto dell’accesso completo all’intera struttura. Può effettuare il provisioning di spazi nel grafico tramite l'API Space. Può effettuare il provisioning dei servizi tramite l'API del dispositivo e dei sensori tramite l'API Sensor. Sono disponibili anche [strumenti open source](https://github.com/Azure-Samples/digital-twins-samples-csharp) per eseguire il provisioning del grafo in blocco.
 
 **Ereditarietà del grafico**. L'ereditarietà si applica alle autorizzazioni e alle proprietà che derivano da un nodo padre a tutti i nodi al suo interno. Ad esempio, quando un ruolo viene assegnato a un utente in un determinato nodo, l'utente ha le autorizzazioni del ruolo per il nodo specificato e tutti i nodi al suo interno. Ogni chiave di proprietà e tipo esteso definiti per un determinato nodo vengono ereditati da tutti i nodi all'interno di tale nodo.
 

@@ -1,22 +1,21 @@
 ---
 title: Rilevamento di illeciti in tempo reale con Analisi di flusso di Azure
 description: Informazioni su come creare una soluzione per il rilevamento di illeciti in tempo reale con Analisi di flusso. Utilizzare un hub eventi per l'elaborazione di eventi in tempo reale.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 19c9448b6a743302eb81bb208444336d6435f114
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 168f11e82305a0e08923289e71ae6ea0d36c1734
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947050"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458802"
 ---
-# <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introduzione all'uso di Analisi di flusso di Azure: Rilevamento delle frodi in tempo reale
+# <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introduzione all’uso di Analisi di flusso di Azure: rilevamento di illeciti in tempo reale
 
 Questa esercitazione offre una spiegazione completa sull'uso di Analisi di flusso di Azure. Si apprenderà come: 
 
@@ -75,7 +74,7 @@ In questa procedura si creerà uno spazio dei nomi dell'hub eventi e quindi si a
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png" alt="Name event hub in Azure portal" width="400px"/>
     
  
-7. Fare clic su **Create**(Crea).
+7. Fare clic su **Crea**.
 
 ### <a name="grant-access-to-the-event-hub-and-get-a-connection-string"></a>Concedere l'accesso all'hub eventi e ottenere una stringa di connessione
 
@@ -92,7 +91,7 @@ Prima che un processo possa inviare dati a un hub eventi, è necessario che per 
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="Create shared access policy for Stream Analytics" width="300px"/>
  
-4.  Fare clic su **Create**(Crea).
+4.  Fare clic su **Crea**.
 
 5.  Dopo aver distribuito i criteri, fare clic nell'elenco dei criteri di accesso condiviso.
 
@@ -172,7 +171,7 @@ Dopo aver creato un flusso di eventi di chiamata, sarà possibile configurare un
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png" alt="Create Stream Analytics job in portal" width="300px"/>
 
-3. Fare clic su **Create**(Crea).
+3. Fare clic su **Crea**.
 
     Verrà creato il processo e il portale visualizzerà i relativi dettagli. Il processo non è ancora in esecuzione: è necessario configurarlo prima di poterlo avviare.
 
@@ -197,7 +196,7 @@ Dopo aver creato un flusso di eventi di chiamata, sarà possibile configurare un
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png" alt="Create Stream Analytics input in portal" width="300px"/>
 
 
-4. Fare clic su **Create**(Crea).
+4. Fare clic su **Crea**.
 
 ## <a name="create-queries-to-transform-real-time-data"></a>Creare query per trasformare i dati in tempo reale
 
@@ -293,7 +292,7 @@ Per questa trasformazione si intende creare una sequenza di finestre temporali c
 
     La proiezione include `System.Timestamp`, che restituisce un timestamp per la fine di ogni finestra. 
 
-    Per specificare che si desidera utilizzare una finestra a cascata, utilizzare la funzione [TUMBLINGWINDOW](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) nella `GROUP BY` clausola. Specificare nella funzione un'unità di tempo (da un microsecondo a un giorno) e una dimensione della finestra (numero di unità). In questo esempio, la finestra a cascata è costituita da intervalli di 5 secondi, quindi si otterrà un conteggio per paese/area geografica ogni 5 secondi per le chiamate.
+    Per specificare che si desidera utilizzare una finestra a cascata, utilizzare la funzione [TUMBLINGWINDOW](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) nella clausola `GROUP BY`. Specificare nella funzione un'unità di tempo (da un microsecondo a un giorno) e una dimensione della finestra (numero di unità). In questo esempio, la finestra a cascata è costituita da intervalli di 5 secondi, quindi si otterrà un conteggio per paese/area geografica ogni 5 secondi per le chiamate.
 
 2. Fare di nuovo clic su **Test**. Si noti nei risultati che i timestamp in **WindowEnd** sono in incrementi di 5 secondi.
 
@@ -305,7 +304,7 @@ Per questo esempio, considerare come uso fraudolento le chiamate che provengono 
 
 Per verificare questi casi, è possibile usare un self-join dei dati di streaming per creare un join del flusso a se stesso in base al valore `CallRecTime`. È quindi possibile cercare i record delle chiamate in `CallingIMSI` cui il valore (numero di origine) è lo stesso, ma `SwitchNum` il valore (paese/area di origine) non è lo stesso.
 
-Quando si usa un join con i dati di streaming, il join deve garantire alcuni limiti per la distanza di separazione delle righe corrispondenti nel tempo. Come indicato in precedenza, i dati di streaming sono effettivamente infiniti. I limiti di tempo per la relazione sono specificati all'interno della clausola `ON` del join usando la funzione `DATEDIFF`. In questo caso il join è basato su un intervallo di 5 secondi di dati di chiamata.
+Quando si usa un join con i dati di streaming, il join deve garantire alcuni limiti per la distanza di separazione delle righe corrispondenti nel tempo. Come indicato in precedenza, i dati di streaming sono effettivamente infiniti. I limiti di tempo per la relazione sono specificati all'interno della clausola `ON` del join, usando la funzione `DATEDIFF`. In questo caso il join è basato su un intervallo di 5 secondi di dati di chiamata.
 
 1. Modificare la query nell'editor di codice nel modo seguente: 
 
@@ -365,7 +364,7 @@ Se esiste già un account di archiviazione BLOB, è possibile usarlo. In questa 
     <br/>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png" alt="Create blob output for Stream Analytics job" width="300px"/>
     
-5. Fare clic su **Save**. 
+5. Fare clic su **Salva**. 
 
 
 ## <a name="start-the-streaming-analytics-job"></a>Avviare il processo di Analisi di flusso
@@ -404,7 +403,7 @@ Se tuttavia non si desidera proseguire e le risorse create non sono necessarie, 
 5. Eliminare l'hub eventi.
 6. Eliminare lo spazio dei nomi dell'hub eventi.
 
-## <a name="get-support"></a>Supporto
+## <a name="get-support"></a>Ottenere supporto
 
 Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
@@ -412,7 +411,7 @@ Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.
 
 È possibile continuare questa esercitazione con l'articolo seguente:
 
-* [Analisi di flusso e Power BI: un dashboard di analisi in tempo reale per il flusso di dati](stream-analytics-power-bi-dashboard.md). Questo articolo illustra come inviare l'output di telecomunicazioni del processo di Analisi di flusso a Power BI per l'analisi e la visualizzazione in tempo reale.
+* [Analisi di flusso e Power BI: dashboard di analisi in tempo reale per lo streaming dei dati](stream-analytics-power-bi-dashboard.md). Questo articolo illustra come inviare l'output di telecomunicazioni del processo di Analisi di flusso a Power BI per l'analisi e la visualizzazione in tempo reale.
 
 Per altre informazioni generiche su Analisi di flusso, vedere questi articoli:
 

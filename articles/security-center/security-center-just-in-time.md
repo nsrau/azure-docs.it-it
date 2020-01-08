@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 3e344afc29ae398394a1aa2aa527f2f32e24eef7
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 51b4ef06806e2a6647975a373f1bc4bd58740b7f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997191"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355573"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gestire l'accesso alle macchine virtuali con la funzionalità JIT (Just-in-Time)
 
@@ -99,7 +99,7 @@ Dal centro sicurezza è possibile configurare un criterio JIT e richiedere l'acc
       - 5986 - WinRM
 6. È anche possibile configurare porte personalizzate:
 
-      1. Fare clic su **Aggiungi**. Verrà visualizzata la finestra **Aggiungi configurazione porta** .
+      1. Scegliere **Aggiungi**. Verrà visualizzata la finestra **Aggiungi configurazione porta** .
       2. Per ogni porta che si sceglie di configurare, sia predefinita che personalizzata, è possibile personalizzare le impostazioni seguenti:
 
     - **Tipo di protocollo** - Il protocollo consentito su questa porta quando una richiesta viene approvata.
@@ -108,7 +108,7 @@ Dal centro sicurezza è possibile configurare un criterio JIT e richiedere l'acc
 
      3. Fare clic su **OK**.
 
-1. Fare clic su **Salva**
+1. Fare clic su **Salva**.
 
 > [!NOTE]
 >Quando è abilitata l'accesso JIT alla macchina virtuale per una macchina virtuale, il Centro sicurezza di Azure crea le regole di "nega tutto il traffico in ingresso" per le porte selezionate nei gruppi di sicurezza di rete associati e nel firewall di Azure. Se sono state create altre regole per le porte selezionate, le regole esistenti hanno la priorità sulla nuova regola "nega tutto il traffico in ingresso". Se non sono presenti regole esistenti sulle porte selezionate, la nuova regola "nega tutto il traffico in ingresso" ha la priorità nei gruppi di sicurezza di rete e nel firewall di Azure.

@@ -1,25 +1,14 @@
 ---
-title: Panoramica di Service Fabric e contenitori | Documentazione Microsoft
+title: Panoramica di Service Fabric e contenitori
 description: Panoramica di Service Fabric e dell'uso dei contenitori per la distribuzione di applicazioni di microservizi. Questo articolo offre una panoramica di come possono essere usati i contenitori e delle funzionalità disponibili in Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: c98b3fcb-c992-4dd9-b67d-2598a9bf8aab
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/8/2018
-ms.author: atsenthi
-ms.openlocfilehash: 2ed3a9d4b1ec219d22a9e01e7acec5d7e950289b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 884cefa3d6a60f55269afac73c40b9f6b21518f6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68599771"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458216"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric e contenitori
 
@@ -35,8 +24,8 @@ Per impostazione predefinita, Service Fabric distribuisce e attiva i servizi com
 
 Per iniziare subito a usare i contenitori in Service Fabric, provare una guida introduttiva, un'esercitazione o un esempio:  
 
-[Avvio rapido: Distribuire un'applicazione contenitore Linux in Service Fabric](service-fabric-quickstart-containers-linux.md)  
-[Avvio rapido: Distribuire un'applicazione contenitore Windows in Service Fabric](service-fabric-quickstart-containers.md)  
+[Guida introduttiva: Distribuire un'applicazione contenitore Linux in Service Fabric](service-fabric-quickstart-containers-linux.md)  
+[Guida introduttiva: Distribuire un'applicazione contenitore Windows in Service Fabric](service-fabric-quickstart-containers.md)  
 [Distribuire un'app .NET esistente in un contenitore](service-fabric-host-app-in-a-container.md)  
 [Esempi di contenitori di Service Fabric](https://azure.microsoft.com/resources/samples/service-fabric-containers/)  
 
@@ -48,10 +37,10 @@ Vengono eseguiti direttamente sul kernel e hanno una vista isolata del file syst
 
 Rispetto alle macchine virtuali, i contenitori offrono i vantaggi seguenti:
 
-* **Small**: I contenitori usano un unico spazio di archiviazione e versioni di livello e aggiornamenti per aumentare l'efficienza.
-* **Veloce**: I contenitori non devono avviare un intero sistema operativo, quindi possono iniziare molto più velocemente, in genere in pochi secondi.
-* **Portabilità**: Un'immagine dell'applicazione in contenitori può essere trasferita per essere eseguita nel cloud, in locale, all'interno di macchine virtuali o direttamente in computer fisici.
-* **Governance delle risorse**: Un contenitore può limitare le risorse fisiche che può utilizzare nell'host.
+* **Dimensioni ridotte**: i contenitori usano uno spazio di archiviazione singolo e sovrappongono i diversi livelli di versioni e aggiornamenti per aumentare l'efficienza.
+* **Velocità**: i contenitori non devono avviare un intero sistema operativo, pertanto possono essere avviati in modo molto più rapido, normalmente in pochi secondi.
+* **Portabilità**: l'immagine di un'applicazione in contenitore può essere trasferita per essere eseguita nel cloud, in locale, all'interno di macchine virtuali o direttamente in computer fisici.
+* **Governance delle risorse**: è possibile limitare le risorse fisiche utilizzabili da un contenitore nell'host.
 
 ### <a name="container-types-and-supported-environments"></a>Tipi di contenitori e ambienti supportati
 
@@ -62,7 +51,7 @@ Service Fabric supporta i contenitori sia in Linux che in Windows e in Windows s
 Docker fornisce le API per creare e gestire contenitori su contenitori del kernel Linux. Docker Hub è un repository centrale per archiviare e recuperare immagini contenitore.
 Per un'esercitazione basata su Linux, vedere [Creare la prima applicazione contenitore di Service Fabric in Linux](service-fabric-get-started-containers-linux.md).
 
-#### <a name="windows-server-containers"></a>Contenitori Windows Server
+#### <a name="windows-server-containers"></a>Container di Windows Server
 
 Windows Server 2016 offre due diversi tipi di contenitori che si differenziano per livello di isolamento. I contenitori Windows Server e i contenitori Docker sono simili perché usufruiscono entrambi dell'isolamento dello spazio dei nomi e del file system, ma condividono il kernel con l'host in cui vengono eseguiti. In Linux, questo isolamento viene tradizionalmente fornito con cgroup e spazi dei nomi e i contenitori Windows Server presentano un comportamento simile.
 
@@ -76,11 +65,11 @@ La figura seguente illustra i diversi tipi di livelli di virtualizzazione e isol
 
 Ecco alcuni esempi tipici dei casi in cui un contenitore rappresenta una buona scelta:
 
-* **Lift-and-Shift IIS**: È possibile inserire un'app [MVC ASP.NET](https://www.asp.net/mvc) esistente in un contenitore anziché eseguirne la migrazione a ASP.NET Core. Queste app ASP.NET MVC dipendono da IIS (Internet Information Services). È possibile creare pacchetti delle applicazioni in immagini contenitore dall'immagine IIS creata in precedenza e distribuirle con Service Fabric. Per informazioni sulla creazione di contenitori Windows, vedere [Immagini contenitore in Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server).
+* **Modalità lift-and-shift IIS**: è possibile includere un'app [ASP.NET MVC](https://www.asp.net/mvc) esistente in un contenitore anziché eseguirne la migrazione ad ASP.NET Core. Queste app ASP.NET MVC dipendono da IIS (Internet Information Services). È possibile creare pacchetti delle applicazioni in immagini contenitore dall'immagine IIS creata in precedenza e distribuirle con Service Fabric. Per informazioni sulla creazione di contenitori Windows, vedere [Immagini contenitore in Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server).
 
-* **Combinare contenitori e Service Fabric microservizi**: Usare un'immagine contenitore esistente per parte dell'applicazione. È ad esempio possibile usare il [contenitore NGINX](https://hub.docker.com/_/nginx/) per il front-end Web dell'applicazione e i servizi con stato per le operazioni di calcolo back-end più intensive.
+* **Combinazione di contenitori e microservizi di Service Fabric**: usare un'immagine contenitore esistente per parte dell'applicazione. È ad esempio possibile usare il [contenitore NGINX](https://hub.docker.com/_/nginx/) per il front-end Web dell'applicazione e i servizi con stato per le operazioni di calcolo back-end più intensive.
 
-* **Ridurre l'effetto dei servizi "vicini rumorosi"** : È possibile utilizzare la funzionalità di governance delle risorse dei contenitori per limitare le risorse utilizzate da un servizio in un host. Se sono presenti servizi che potrebbero usare un elevato numero di risorse e quindi influire sulle prestazioni degli altri (ad esempio, un'operazione come una query a esecuzione prolungata), può essere opportuno inserire tali servizi in contenitori con governance delle risorse.
+* **Riduzione dell'impatto dei servizi che influiscono negativamente**: è possibile usare la funzionalità di governance delle risorse dei contenitori per limitare le risorse usate da un servizio in un host. Se sono presenti servizi che potrebbero usare un elevato numero di risorse e quindi influire sulle prestazioni degli altri (ad esempio, un'operazione come una query a esecuzione prolungata), può essere opportuno inserire tali servizi in contenitori con governance delle risorse.
 
 ## <a name="service-fabric-support-for-containers"></a>Supporto di Service Fabric per i contenitori
 

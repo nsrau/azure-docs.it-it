@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: JYOTHIRMAISURI
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: d800f20826723d3a626d9a0f5f83664927c1185c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4dbc830ea106dee7ef21a28eb3aee63c94680be2
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927588"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75664847"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Connettere prodotti e servizi di Gestione dei servizi IT con Connettore di Gestione dei servizi IT
 Questo articolo fornisce informazioni su come configurare la connessione tra un prodotto o servizio di Gestione dei servizi IT e Connettore di Gestione dei servizi IT in Log Analytics per gestire da una posizione centrale gli elementi di lavoro. Per altre informazioni su Connettore di Gestione dei servizi IT, vedere [Panoramica](../../azure-monitor/platform/itsmc-overview.md).
@@ -94,16 +94,16 @@ Per configurare l'app Web ITSM per l'istanza di Service Manager, seguire questa 
 #### <a name="deploy-the-web-app"></a>Distribuire l'app Web
 Usare lo [script](../../azure-monitor/platform/itsmc-service-manager-script.md) automatico per distribuire l'app Web, configurare le proprietà ed eseguire l'autenticazione con Azure AD.
 
-Eseguire lo script, fornendo i seguenti dettagli richiesti:
+Eseguire lo script, fornendo i dettagli richiesti seguenti:
 
 - Dettagli della sottoscrizione di Azure
 - Nome del gruppo di risorse
-- Località
+- Percorso
 - Dettagli del server di Service Manager (nome del server, dominio, nome utente e password)
 - Prefisso del nome del sito per l'app Web
 - Spazio dei nomi ServiceBus.
 
-Lo script crea l'app Web usando il nome specificato insieme ad alcune stringhe aggiuntive per renderlo univoco. Genera l'**URL dell'app Web**, l'**ID del client** e il **segreto client**.
+Lo script crea l'app Web usando il nome specificato insieme ad alcune stringhe aggiuntive per renderlo univoco. Genera **URL dell'app Web**, **ID del client** e **segreto client**.
 
 Salvare questi valori perché serviranno al momento della creazione di una connessione a Connettore di Gestione dei servizi IT.
 
@@ -160,7 +160,7 @@ Seguire questa procedura per configurare le impostazioni del listener per la con
 
 3. Accedere con le credenziali di Azure e selezionare la sottoscrizione in cui è stata creata la connessione ibrida.
 
-4. Fare clic su **Salva**
+4. Fare clic su **Salva**.
 
 La connessione ibrida è stata completata.
 
@@ -180,7 +180,7 @@ Le sezioni seguenti forniscono informazioni dettagliate su come connettere il pr
 ### <a name="prerequisites"></a>Prerequisiti
 Accertarsi di aver soddisfatto i prerequisiti seguenti:
 - Connettore di Gestione dei servizi IT installato. Altre informazioni: [Aggiunta della soluzione IT Service Management Connector](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Versioni supportate di ServiceNow: Madrid, Londra, Kingston, Jakarta, Istanbul, Helsinki, Ginevra.
+- Versioni supportate di ServiceNow: New York, Madrid, Londra, Kingston, Jakarta, Istanbul, Helsinki, Ginevra.
 
 **ServiceNow Admins deve eseguire le operazioni seguenti nell'istanza di ServiceNow**:
 - Generare l'ID client e il segreto client per il prodotto ServiceNow. Per informazioni su come generare un ID client e un segreto client, vedere gli articoli seguenti:
@@ -195,7 +195,7 @@ Accertarsi di aver soddisfatto i prerequisiti seguenti:
     - [Set up OAuth for Geneva](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html) (Configurare OAuth per Ginevra)
 
 
-- Installare l'app utente per l'integrazione di Microsoft Log Analytics (app ServiceNow). [Altre informazioni](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
+- Installare l'app utente per l'integrazione di Microsoft Log Analytics (app ServiceNow). [Altre informazioni](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 )
 - Creare un ruolo utente integrazione per l'app utente installata. Per informazioni su come creare il ruolo utente di integrazione, vedere [qui](#create-integration-user-role-in-servicenow-app).
 
 ### <a name="connection-procedure"></a>**Procedura di connessione**

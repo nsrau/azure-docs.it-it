@@ -12,12 +12,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3414bc21afb88d2683261ea1ce1398a0b1bfeece
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3b03833a3e1dd5ee9a3268e19166891243df1b98
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74922284"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422349"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Cronologia delle versioni
 Il team di Azure Active Directory (Azure AD) aggiorna regolarmente Azure AD Connect con nuove funzionalità. Le nuove funzionalità potrebbero non essere disponibili in tutti i paesi.
@@ -38,9 +38,20 @@ Download| [Scaricare Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=6
 Durante questo processo, il numero di versione della versione verrà visualizzato con una "X" nella posizione del numero di versione secondario, come in "1.3. X. 0", che indica che le note sulla versione di questo documento sono valide per tutte le versioni che iniziano con "1,3". Non appena è stato completato il processo di rilascio, il numero di versione di rilascio verrà aggiornato alla versione rilasciata più di recente e lo stato della versione verrà aggiornato a "rilasciato per il download e l'aggiornamento automatico".
 Non tutte le versioni di Azure AD Connect saranno disponibili per l'aggiornamento automatico. Lo stato della versione indicherà se una versione sarà disponibile per l'aggiornamento automatico o solo per il download. Se l'aggiornamento automatico è stato abilitato nel server di Azure AD Connect, tale server eseguirà automaticamente l'aggiornamento per la versione più recente di Azure AD Connect, rilasciata per l'aggiornamento automatico. Si noti che non tutte le configurazioni di Azure AD Connect sono idonee per l'aggiornamento automatico. Seguire questo collegamento per altre informazioni sull'[aggiornamento automatico](how-to-connect-install-automatic-upgrade.md)
 
+>[!IMPORTANT]
+> A partire dal 1 ° novembre 2020, verrà avviata l'implementazione di un processo di deprecazione, in base al quale le versioni di Azure AD Connect rilasciate più di 18 mesi prima saranno deprecate. In quel momento si inizierà questo processo deprecando tutte le versioni di Azure AD Connect con la versione 1.1.751.0 (rilasciata il 4/12/2018) e versioni precedenti e si procederà alla valutazione della deprecazione di versioni precedenti di Azure AD Connect ogni volta che viene rilasciata una nuova versione.
+>
+> È necessario assicurarsi di eseguire una versione recente di Azure AD Connect per ricevere un'esperienza di supporto ottimale. 
+>
+>Se si esegue una versione deprecata di Azure AD Connect è possibile che non siano disponibili le correzioni di sicurezza più recenti, i miglioramenti delle prestazioni, la risoluzione dei problemi e gli strumenti di diagnostica e i miglioramenti del servizio e, se è necessario il supporto tecnico, potrebbe non essere in grado di fornire il livello di soddisfare le esigenze dell'organizzazione.
+>
+>Se è stata abilitata Azure AD Connect per la sincronizzazione, si inizierà automaticamente a ricevere notifiche di integrità che segnalano eventuali deprecazioni imminenti quando si esegue una delle versioni precedenti.
+>
+>Per ulteriori informazioni su come aggiornare Azure AD Connect alla versione più recente, fare riferimento a [questo articolo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) .
+
 ## <a name="14380"></a>1.4.38.0
 ### <a name="release-status"></a>Stato della versione
-12/6/2019: versione per il download. Non disponibile tramite l'aggiornamento automatico.
+12/9/2019: versione per il download. Non disponibile tramite l'aggiornamento automatico.
 ### <a name="new-features-and-improvements"></a>Miglioramenti e nuove funzionalità
 - La sincronizzazione dell'hash delle password è stata aggiornata per Azure AD Domain Services per tenere in considerazione correttamente la spaziatura negli hash Kerberos.  In questo modo si otterrà un miglioramento delle prestazioni durante la sincronizzazione delle password da AAD a Azure AD Domain Services.
 - È stato aggiunto il supporto per le sessioni affidabili tra l'agente di autenticazione e il bus di servizio.
@@ -483,7 +494,7 @@ Bloccare l'accesso all'account di Active Directory Domain Services implementando
 *   Rimuovere tutte le voci ACE nell'oggetto specifico, ad eccezione delle voci ACE specifiche di SELF. Le autorizzazioni predefinite devono rimanere inalterate per SELF.
 *   Assegnare le autorizzazioni specifiche seguenti:
 
-Type     | name                          | Accesso               | Si applica a
+Tipo     | Nome                          | Accesso               | Si applica a
 ---------|-------------------------------|----------------------|--------------|
 Allow    | SYSTEM                        | Controllo completo         | Questo oggetto  |
 Allow    | Enterprise Admins             | Controllo completo         | Questo oggetto  |
@@ -1346,4 +1357,4 @@ Data di rilascio: settembre 2014
 **Rilascio iniziale di Azure AD Sync.**
 
 ## <a name="next-steps"></a>Passaggi successivi
-Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).
+Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).

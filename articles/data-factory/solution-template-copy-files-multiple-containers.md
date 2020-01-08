@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/1/2018
-ms.openlocfilehash: 35eff70c12e6f98fa74a4180bf82a369c1ecfaa4
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 0c4c26ba163f83483b3eb48e51d91f9a919a887c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927696"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439800"
 ---
 # <a name="copy-files-from-multiple-containers-with-azure-data-factory"></a>Copiare file da più contenitori con Azure Data Factory
 
@@ -34,9 +34,11 @@ Il modello contiene tre attività:
 - **Foreach** Ottiene l'elenco di contenitori dall'attività **GetMetadata** , quindi scorre l'elenco e passa ogni contenitore all'attività di copia.
 - **Copy copia** ogni contenitore dall'archivio di archiviazione di origine nell'archivio di destinazione.
 
-Il modello definisce due parametri:
-- *Percorsofileorigine* è il percorso dell'archivio dell'origine dati, in cui è possibile ottenere un elenco dei contenitori. Nella maggior parte dei casi, il percorso è la cartella radice, che contiene più cartelle dei contenitori. Il valore predefinito per questo parametro è `/`.
-- *Percorsofiledestinazione* è il percorso in cui verranno copiati i file nell'archivio di destinazione. Il valore predefinito per questo parametro è `/`.
+Il modello definisce i parametri seguenti:
+- *SourceFileFolder* è il percorso della cartella dell'archivio dell'origine dati, in cui è possibile ottenere un elenco dei contenitori. Il percorso è la directory radice, che contiene più cartelle del contenitore. Il valore predefinito di questo parametro è `sourcefolder`.
+- *SourceFileDirectory* è il percorso della sottocartella nella directory radice dell'archivio dell'origine dati. Il valore predefinito di questo parametro è `subfolder`.
+- *DestinationFileFolder* è il percorso della cartella in cui verranno copiati i file nell'archivio di destinazione. Il valore predefinito di questo parametro è `destinationfolder`.
+- *DestinationFileDirectory* è il percorso della sottocartella in cui verranno copiati i file nell'archivio di destinazione. Il valore predefinito di questo parametro è `subfolder`.
 
 ## <a name="how-to-use-this-solution-template"></a>Come usare questo modello di soluzione
 

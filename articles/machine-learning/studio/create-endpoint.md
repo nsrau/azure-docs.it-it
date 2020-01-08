@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/15/2019
-ms.openlocfilehash: 891f680485ec3ee65c0bef102eb7f52cea0611c6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 57bc5739d8e6b1fa30482de69285c8895294cfa8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839638"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454750"
 ---
 # <a name="create-endpoints-for-deployed-azure-machine-learning-studio-classic-web-services"></a>Creare endpoint per i servizi Web di Azure Machine Learning Studio distribuiti (classico)
 
@@ -39,7 +39,7 @@ Ogni endpoint nel servizio Web viene indirizzato, limitato e gestito in modo ind
 
 ## <a id="scaling"></a> Ridimensionare un servizio Web tramite l'aggiunta di altri endpoint
 
-Per impostazione predefinita, ogni servizio Web pubblicato è configurato per supportare 20 richieste simultanee fino a 200 richieste simultanee. La versione classica di Azure Machine Learning Studio ottimizza automaticamente l'impostazione per fornire le prestazioni migliori per il servizio Web e il valore del portale viene ignorato.
+Per impostazione predefinita, ogni servizio Web pubblicato è configurato per supportare 20 richieste simultanee fino a 200 richieste simultanee. Azure Machine Learning Studio (versione classica) ottimizza automaticamente l'impostazione per fornire le prestazioni migliori per il servizio Web e il valore del portale viene ignorato.
 
 Se si prevede di chiamare l'API con un carico superiore a 200 chiamate simultanee, il numero massimo supportato, è consigliabile creare più endpoint nello stesso servizio Web. È quindi possibile distribuire casualmente il carico tra tutti gli endpoint.
 

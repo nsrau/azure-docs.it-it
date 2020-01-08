@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/14/2019
-ms.openlocfilehash: fb9ee2378679c420a7675856ec95e60f6ae1d14f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 05b099eebcbb7b8f77357c9dcf3a4d567d3886d6
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827143"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75553070"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Configurare un gruppo di failover per il database SQL di Azure
 
@@ -35,6 +35,7 @@ Considerare i prerequisiti seguenti:
 
 # <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 Creare il gruppo di failover e aggiungervi il database singolo usando il portale di Azure.
+
 
 1. Selezionare **Azure SQL** nel menu a sinistra nel [portale di Azure](https://portal.azure.com). Se **SQL di Azure** non è presente nell'elenco, selezionare **tutti i servizi**, quindi digitare Azure SQL nella casella di ricerca. (Facoltativo) Selezionare la stella accanto ad **Azure SQL** per aggiungerlo ai Preferiti e come elemento del riquadro di spostamento sinistro. 
 1. Selezionare il database singolo che si desidera aggiungere al gruppo di failover. 
@@ -183,6 +184,9 @@ Ripristinare il gruppo di failover nel server primario:
 
 ---
 
+> [!IMPORTANT]
+> Se è necessario eliminare il database secondario, rimuoverlo dal gruppo di failover prima di eliminarlo. L'eliminazione di un database secondario prima che venga rimossa dal gruppo di failover può causare un comportamento imprevedibile. 
+
 ## <a name="elastic-pool"></a>Pool elastico
 Creare il gruppo di failover e aggiungervi un pool elastico usando il portale di Azure o PowerShell.  
 
@@ -328,11 +332,14 @@ Eseguire il failover sul server secondario:
 
 ---
 
+> [!IMPORTANT]
+> Se è necessario eliminare il database secondario, rimuoverlo dal gruppo di failover prima di eliminarlo. L'eliminazione di un database secondario prima che venga rimossa dal gruppo di failover può causare un comportamento imprevedibile. 
+
 ## <a name="managed-instance"></a>Istanza gestita
 
 Creare un gruppo di failover tra due istanze gestite usando il portale di Azure o PowerShell. 
 
-Sarà necessario creare un gateway per la rete virtuale di ogni istanza gestita, connettere i due gateway e quindi creare il gruppo di failover.
+Sarà necessario configurare [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) o creare un gateway per la rete virtuale di ogni istanza gestita, connettere i due gateway e quindi creare il gruppo di failover. 
 
 ### <a name="prerequisites"></a>Prerequisiti
 Considerare i prerequisiti seguenti:
@@ -344,7 +351,7 @@ Considerare i prerequisiti seguenti:
 
 ### <a name="create-primary-virtual-network-gateway"></a>Creare un gateway di rete virtuale primario 
 
-Creare il gateway di rete virtuale primario con il portale di Azure o PowerShell. 
+Se [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md)non è stato configurato, è possibile creare il gateway di rete virtuale primario con il portale di Azure o PowerShell. 
 
 # <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 
@@ -374,7 +381,7 @@ Creare il gateway di rete virtuale primario usando il portale di Azure.
     | **Posizione**| Il percorso in cui si trova l'istanza gestita secondaria e la rete virtuale secondaria.   |
     | **Rete virtuale**| Selezionare la rete virtuale per l'istanza gestita secondaria. |
     | **Indirizzo IP pubblico**| Selezionare **Crea nuovo**. |
-    | **Nome dell'indirizzo IP pubblico**| Immettere un nome per l'indirizzo IP. |
+    | **Nome indirizzo IP pubblico**| Immettere un nome per l'indirizzo IP. |
     | &nbsp; | &nbsp; |
 
 1. Lasciare gli altri valori predefiniti e quindi selezionare **Verifica + crea** per esaminare le impostazioni per il gateway di rete virtuale.
@@ -435,7 +442,7 @@ Ripetere i passaggi nella sezione precedente per creare la subnet della rete vir
    | **Posizione**| Il percorso in cui si trova l'istanza gestita secondaria e la rete virtuale secondaria.   |
    | **Rete virtuale**| Selezionare la rete virtuale creata nella sezione 2, ad esempio `vnet-sql-mi-secondary`. |
    | **Indirizzo IP pubblico**| Selezionare **Crea nuovo**. |
-   | **Nome dell'indirizzo IP pubblico**| Immettere un nome per l'indirizzo IP, ad esempio `secondary-gateway-IP`. |
+   | **Nome indirizzo IP pubblico**| Immettere un nome per l'indirizzo IP, ad esempio `secondary-gateway-IP`. |
    | &nbsp; | &nbsp; |
 
    ![Impostazioni del gateway secondario](media/sql-database-managed-instance-failover-group-tutorial/settings-for-secondary-gateway.png)

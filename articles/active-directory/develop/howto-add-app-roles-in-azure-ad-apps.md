@@ -15,12 +15,12 @@ ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fe116b5ae26522c9bce0322123836a6e08d3cfd
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 805f984ebdb5e95a9f3a46fab010cecf5c811547
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917915"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424487"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Procedura: Aggiungere ruoli dell'app in un'applicazione e riceverli nel token
 
@@ -51,7 +51,7 @@ Questi ruoli applicazione sono definiti nel [portale di Azure](https://portal.az
      
 1. Salvare il manifesto.
 
-### <a name="examples"></a>esempi
+### <a name="examples"></a>Esempi
 
 L'esempio seguente mostra gli `appRoles` che è possibile assegnare agli `users`.
 
@@ -125,7 +125,7 @@ Dopo aver aggiunto i ruoli dell'app nell'applicazione, è possibile assegnarli a
 
 - [Authorization in a web app using Azure AD application roles &amp; role claims (Sample)](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) (Autorizzazione in un'app Web tramite le attestazioni di ruolo e i ruoli applicazione di Azure AD - Esempio)
 - [Using Security Groups and Application Roles in your apps (Video)](https://www.youtube.com/watch?v=V8VUPixLSiM) (Utilizzo dei gruppi di sicurezza e dei ruoli applicazione nelle app - Video)
-- [Azure Active Directory, now with Group Claims and Application Roles](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles) (Azure Active Directory, ora con attestazioni di gruppo e ruoli applicazione)
+- [Azure Active Directory, now with Group Claims and Application Roles](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862) (Azure Active Directory, ora con attestazioni di gruppo e ruoli applicazione)
 - [Manifesto dell'app Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
 - [Token di accesso di AAD](access-tokens.md)
 - [`id_tokens` di AAD](id-tokens.md)

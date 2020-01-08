@@ -1,20 +1,14 @@
 ---
-title: Introduzione ad Azure Advisor | Microsoft Docs
+title: Introduzione ad Azure Advisor
 description: Introduzione ad Azure Advisor.
-services: advisor
-author: kasparks
-ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/01/2019
-ms.author: kasparks
-ms.openlocfilehash: f91e48a532a278c95d50775e135ac6379e8d8070
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 8c2699030b1a6d428ddc2a4db40a66003824cf10
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332063"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443145"
 ---
 # <a name="get-started-with-azure-advisor"></a>Introduzione ad Azure Advisor
 
@@ -33,7 +27,7 @@ Informazioni su come accedere ad Advisor tramite il portale di Azure, ricevere e
 
 1. Nel dashboard di Advisor viene visualizzato un riepilogo dei consigli per tutte le sottoscrizioni selezionate.  È possibile scegliere le sottoscrizioni per le quali si vuole ottenere i consigli usando come filtro il menu a discesa delle sottoscrizioni.
 
-1. Per ottenere consigli relativi a una categoria specifica, fare clic su una delle schede: **Disponibilità elevata**, **Sicurezza**, **Prestazioni**, oppure **Costo**. 
+1. Per ricevere consigli per una categoria specifica, fare clic su una delle schede seguenti: **Disponibilità elevata**, **Sicurezza**, **Prestazioni** o **Costo**. 
 
    ![Dashboard di Azure Advisor](./media/advisor-overview/advisor-dashboard.png)
 
@@ -88,15 +82,15 @@ Informazioni su come accedere ad Advisor tramite il portale di Azure, ricevere e
 
     ![Esempio di configurazione di risorse in Advisor](./media/advisor-get-started/advisor-configure-resources.png)
 
-1. Fare clic sul pulsante **Apply** (Applica).
+1. Fare clic sul pulsante **Applica**.
 
 ## <a name="configure-low-usage-vm-recommendation"></a>Configurare un consiglio sulle macchine virtuali a utilizzo ridotto
 
 Questa procedura configura la regola di utilizzo medio della CPU per il consiglio sulle macchine virtuali a utilizzo ridotto.
 
-Advisor monitora l'utilizzo della macchina virtuale per 7 giorni e quindi identifica le macchine virtuali di utilizzo ridotto. Virtuale macchine sono considerate utilizzo ridotto se l'uso della CPU è 5% o meno e relativo utilizzo di rete è inferiore al 2% o se il carico di lavoro corrente può essere soddisfatto dalle dimensioni della macchina virtuale inferiori.
+Advisor monitora l'utilizzo della macchina virtuale per 7 giorni e quindi identifica le macchine virtuali con utilizzo ridotto. Le macchine virtuali sono considerate con scarso utilizzo se l'utilizzo della CPU è pari al 5% o inferiore e l'utilizzo della rete è inferiore al 2% o se il carico di lavoro corrente può essere adattato da una dimensione di macchina virtuale inferiore.
 
-Per un'individuazione più mirata delle macchine virtuali a utilizzo ridotto, è possibile perfezionare la regola di utilizzo medio della CPU in base alla sottoscrizione.  A % 5, 10%, 15% o 20%, è possibile impostare la regola di utilizzo della CPU.
+Per un'individuazione più mirata delle macchine virtuali a utilizzo ridotto, è possibile perfezionare la regola di utilizzo medio della CPU in base alla sottoscrizione.  La regola di utilizzo della CPU può essere impostata su 5%, 10%, 15% o 20%.
 
 > [!NOTE]
 > Per modificare questa regola per identificare le macchine virtuali a utilizzo ridotto, è necessario essere un *proprietario* della sottoscrizione.  Se non si dispone delle autorizzazioni necessarie per una sottoscrizione o un gruppo di risorse, l'opzione per includere o escludere la sottoscrizione o il gruppo di risorse è disabilitata nell'interfaccia utente. 

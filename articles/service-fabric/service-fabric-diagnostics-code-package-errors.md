@@ -1,25 +1,16 @@
 ---
-title: Diagnosticare gli errori comuni dei pacchetti di codice tramite Service Fabric | Microsoft Docs
+title: Diagnosticare gli errori comuni dei pacchetti di codice tramite Service Fabric
 description: Informazioni su come risolvere gli errori comuni dei pacchetti di codice con Azure Service Fabric
-services: service-fabric
-documentationcenter: .net
 author: grzuber
-manager: gkhanna
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 05/09/2019
 ms.author: grzuber
-ms.openlocfilehash: 320a55e8b14648b1d7e256855582ab31846a63cf
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 344fef70522240da2236a020c96308c472c9c545
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249213"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463107"
 ---
 # <a name="diagnose-common-code-package-errors-by-using-service-fabric"></a>Diagnosticare gli errori comuni dei pacchetti di codice tramite Service Fabric
 
@@ -50,7 +41,7 @@ Service Fabric potrebbe essere responsabile della terminazione del pacchetto di 
 >[!NOTE]
 > Se il processo o il contenitore termina con un codice di uscita diverso dai codici della tabella seguente, Service Fabric non è responsabile della terminazione.
 
-Codice di uscita | DESCRIZIONE
+Codice di uscita | Description
 --------- | -----------
 7147 | Indica che Service Fabric arrestare correttamente il processo o il contenitore inviando un segnale CTRL + C.
 7148 | Indica che Service Fabric ha terminato il processo o il contenitore. In alcuni casi, questo codice di errore indica che il processo o il contenitore non ha risposto in modo tempestivo dopo l'invio di un segnale CTRL + C ed era necessario terminarlo.

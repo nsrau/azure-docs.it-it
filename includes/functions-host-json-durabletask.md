@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 614d93a16b9149a217b5ff1004031e0a2d7337ca
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: d430d7d94f8eed76bb78042a174aeddf2e6ccaa3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615037"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75410235"
 ---
 Impostazioni di configurazione per [Funzioni permanenti](../articles/azure-functions/durable-functions-overview.md).
 
@@ -52,14 +52,15 @@ Impostazioni di configurazione per [Funzioni permanenti](../articles/azure-funct
   "durableTask": {
     "hubName": "MyTaskHub",
     "storageProvider": {
-      "controlQueueBatchSize": 32,
-      "partitionCount": 4,
-      "controlQueueVisibilityTimeout": "00:05:00",
-      "workItemQueueVisibilityTimeout": "00:05:00",
-      "maxQueuePollingInterval": "00:00:30",
       "connectionStringName": "AzureWebJobsStorage",
+      "controlQueueBatchSize": 32,
+      "controlQueueBufferThreshold": 256,
+      "controlQueueVisibilityTimeout": "00:05:00",
+      "maxQueuePollingInterval": "00:00:30",
+      "partitionCount": 4,
       "trackingStoreConnectionStringName": "TrackingStorage",
-      "trackingStoreNamePrefix": "DurableTask"
+      "trackingStoreNamePrefix": "DurableTask",
+      "workItemQueueVisibilityTimeout": "00:05:00",
     },
     "tracing": {
       "traceInputsAndOutputs": false,
@@ -82,17 +83,19 @@ Impostazioni di configurazione per [Funzioni permanenti](../articles/azure-funct
     "maxConcurrentActivityFunctions": 10,
     "maxConcurrentOrchestratorFunctions": 10,
     "extendedSessionsEnabled": false,
-    "extendedSessionIdleTimeoutInSeconds": 30
+    "extendedSessionIdleTimeoutInSeconds": 30,
+    "useGracefulShutdown": false
   }
 }
 ```
 
 I nomi degli hub attività devono iniziare con una lettera e contenere solo lettere e numeri. Se non specificato, il nome dell'hub attività predefinito per un'app per le funzioni è **DurableFunctionsHub**. Per altre informazioni, vedere [Hub attività](../articles/azure-functions/durable-functions-task-hubs.md).
 
-|Proprietà  |Default | Descrizione |
+|Proprietà  |Predefinito | Description |
 |---------|---------|---------|
 |hubName|DurableFunctionsHub|I nomi alternativi dell'[hub attività](../articles/azure-functions/durable-functions-task-hubs.md) possono essere usati per separare le applicazioni di Durable Functions, anche se usano lo stesso back-end di archiviazione.|
 |controlQueueBatchSize|32|Numero di messaggi di cui eseguire il pull dalla coda di controllo contemporaneamente.|
+|controlQueueBufferThreshold|256|Il numero di messaggi della coda di controllo che possono essere memorizzati nel buffer in memoria alla volta, a quel punto il dispatcher resterà in attesa prima di rimuovere eventuali altri messaggi.|
 |partitionCount |4|Numero di partizioni per la coda di controllo. Può essere un numero intero positivo compreso tra 1 e 16.|
 |controlQueueVisibilityTimeout |5 minuti|Timeout di visibilità dei messaggi rimossi dalla coda di controllo.|
 |workItemQueueVisibilityTimeout |5 minuti|Timeout di visibilità dei messaggi rimossi dalla coda degli elementi di lavoro.|
@@ -109,5 +112,6 @@ I nomi degli hub attività devono iniziare con una lettera e contenere solo lett
 |eventGridPublishRetryCount|0|Il numero di tentativi se la pubblicazione nell'argomento di Griglia di eventi ha esito negativo.|
 |eventGridPublishRetryInterval|5 minuti|Intervallo fra i tentativi di pubblicazione in Griglia di eventi nel formato *hh:mm:ss*.|
 |eventGridPublishEventTypes||Elenco di tipi di evento da pubblicare in griglia di eventi. Se non specificato, verranno pubblicati tutti i tipi di evento. I valori consentiti sono `Started`, `Completed`, `Failed``Terminated`.|
+|useGracefulShutdown|false|Anteprima Abilitare la chiusura normale per ridurre la possibilità di arresti dell'host che non riescono a eseguire le esecuzioni di funzioni in-process.|
 
 Molte di queste impostazioni sono per l'ottimizzazione delle prestazioni. Per altre informazioni, vedere [Prestazioni e scalabilità](../articles/azure-functions/durable-functions-perf-and-scale.md).

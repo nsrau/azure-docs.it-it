@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd66df381e11582b30ded5e3b529070357f35ad2
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: abd6b13dc56f8f948d50e2b3564712ed8f5b1476
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720279"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443341"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Assegnare utenti e gruppi a un'applicazione in Azure Active Directory
 Questo articolo illustra come assegnare utenti e gruppi a un'applicazione in Azure Active Directory (Azure AD). Gli utenti devono essere assegnati a un'applicazione prima che un amministratore possa concedere loro l'accesso per eseguire le operazioni seguenti:
@@ -34,10 +34,11 @@ Questo articolo illustra come assegnare utenti e gruppi a un'applicazione in Azu
 
 La disponibilità dell'assegnazione basata sul gruppo è determinata dal contratto di licenza. L'assegnazione basata su gruppi è supportata solo per i gruppi di sicurezza. Le appartenenze ai gruppi annidati e i gruppi di O365 non sono attualmente supportati.
 
-## <a name="prerequisites"></a>Prerequisiti
-Prima di assegnare utenti e gruppi a un'applicazione, è necessario richiedere l'assegnazione dell’utente. Per richiedere l'assegnazione degli utenti:
+## <a name="configure-the-application-to-require-assignment"></a>Configurare l'applicazione per richiedere l'assegnazione
 
-1. Accedere al portale di Azure con un account amministratore.
+Un'applicazione può essere configurata in modo da richiedere l'assegnazione prima che sia possibile accedervi. Per richiedere l'assegnazione:
+
+1. Accedere al portale di Azure con un account amministratore o come proprietario dell'app in **app aziendali**.
 2. Fare clic sulla voce **Tutti i servizi** del menu principale.
 3. Scegliere la directory utilizzata per l'applicazione.
 4. Fare clic sulla scheda **Applicazioni aziendali**.
@@ -74,7 +75,7 @@ Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa p
 
 11. Passare il puntatore sull'**utente** nell'elenco per visualizzare una **casella di controllo**. Fare clic sulla casella di controllo accanto alla foto o al logo del profilo dell'utente per aggiungere l'utente all'elenco **Selezionato**.
 
-12. **Facoltativo:** se si vuole **aggiungere più di un utente**, digitare un altro **nome completo** o **indirizzo di posta elettronica** nella casella di ricerca **Cerca per nome o indirizzo di posta** e fare clic sulla casella di controllo per aggiungere l'utente all'elenco **Selezionati**.
+12. **Facoltativo:** se si vuole **aggiungere più di un utente**, digitare un altro **nome completo** o **indirizzo di posta elettronica** nella casella di ricerca **Cerca per nome o indirizzo di posta** e fare clic sulla casella di controllo per aggiungere l'utente all'elenco **selezionato**.
 
 13. Dopo avere selezionato gli utenti, fare clic sul pulsante **Seleziona** per aggiungerli all'elenco di utenti e gruppi da assegnare all'applicazione.
 
@@ -112,7 +113,7 @@ Per assegnare uno o più gruppi direttamente a un'applicazione, seguire questa p
 
 11. Posizionare il puntatore sul **gruppo** nell'elenco per visualizzare una **casella di controllo**. Fare clic sulla casella di controllo accanto alla foto o al logo del profilo del gruppo per aggiungere il gruppo all'elenco **selezionato**.
 
-12. **Facoltativo:** se si vuole **aggiungere più di un gruppo**, digitare un altro **nome di gruppo completo** nella casella di ricerca **Cerca per nome o indirizzo di posta** e fare clic sulla casella di controllo per aggiungere il gruppo all'elenco **Selezionati**.
+12. **Facoltativo:** se si vuole **aggiungere più di un gruppo**, digitare un altro **nome completo di gruppo** nella casella di ricerca **Cerca per nome o indirizzo di posta** e fare clic sulla casella di controllo per aggiungere il gruppo all'elenco **selezionato**.
 
 13. Dopo avere selezionato i gruppi, fare clic sul pulsante **Seleziona** per aggiungerli all'elenco di utenti e gruppi da assegnare all'applicazione.
 
@@ -148,18 +149,18 @@ Per abilitare l'accesso self-service per un'applicazione, seguire questa procedu
 
 9. Successivamente, per selezionare il gruppo al quale devono essere aggiunti gli utenti che richiedono l'accesso a questa applicazione, fare clic sul selettore accanto all'etichetta **Gruppo a cui devono essere aggiunti gli utenti assegnati** e selezionare un gruppo.
 
-10. **Facoltativo:** se si vuole richiedere un'approvazione aziendale prima che venga consentito l'accesso agli utenti, impostare l'opzione **Richiedere l'approvazione prima di concedere l'accesso a questa applicazione?** su **Sì**.
+10. **Facoltativo:** se si desidera richiedere un'approvazione aziendale prima che venga consentito l'accesso agli utenti, impostare l'opzione **Richiedere l'approvazione prima di concedere l'accesso a questa applicazione?** su **Sì**.
 
-11. **Facoltativo: per le applicazioni che usano solo l'accesso Single Sign-On tramite password,** se si vuole consentire ai responsabili approvazione aziendali di specificare le password inviate a questa applicazione per gli utenti approvati, impostare l'opzione **Consentire ai responsabili approvazione di impostare le password utente per questa applicazione?** su **Sì**.
+11. **Facoltativo: per applicazioni che usano solo l'accesso Single Sign-On tramite password,** se si desidera consentire ai responsabili approvazione aziendali di specificare le password inviate a questa applicazione per gli utenti approvati, impostare l'opzione **Consentire ai responsabili approvazione di impostare le password utente per questa applicazione?** su **Sì**.
 
-12. **Facoltativo:** per specificare i responsabili approvazione aziendali che possono approvare l'accesso a questa applicazione, fare clic sul selettore accanto all'etichetta **Utenti autorizzati ad approvare l'accesso a questa applicazione** per selezionare fino a 10 singoli responsabili approvazione aziendali.
+12. **Facoltativo:** per specificare i responsabili approvazione aziendali che possono approvare l'accesso a questa applicazione, fare clic sul selettore accanto all'etichetta **Utenti autorizzati ad approvare l'accesso a questa applicazione** per selezionare un massimo di 10 singoli responsabili approvazione aziendali.
 
     >[!NOTE]
     >I gruppi non sono supportati.
     >
     >
 
-13. **Facoltativo:** **per le applicazioni che espongono ruoli**, se si vuole assegnare un ruolo agli utenti approvati self-service, fare clic sul selettore accanto all'opzione **A quale ruolo è necessario assegnare gli utenti in questa applicazione?** per selezionare il ruolo cui devono essere assegnati questi utenti.
+13. **Facoltativo:** **per le applicazioni che espongono i ruoli**, se si desidera assegnare utenti approvati in modo self-service a un ruolo, fare clic sul selettore accanto al **a quale ruolo devono essere assegnati gli utenti in questa applicazione?** per selezionare il ruolo a cui questi utenti devono essere assegnati.
 
 14. Per terminare, fare clic sul pulsante **Salva** nella parte superiore del riquadro.
 

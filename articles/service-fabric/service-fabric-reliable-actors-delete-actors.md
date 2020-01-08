@@ -1,25 +1,16 @@
 ---
-title: Eliminare gli attori di Azure Service Fabric | Microsoft Docs
-description: Informazioni su come eliminare manualmente Service Fabric Reliable Actors e il relativo stato.
-services: service-fabric
-documentationcenter: .net
+title: Elimina Azure Service Fabric Actors
+description: Informazioni su come eliminare manualmente e completamente Reliable Actors e il relativo stato in un'applicazione Service Fabric di Azure.
 author: amanbha
-manager: chackdan
-editor: vturecek
-ms.assetid: b91384cc-804c-49d6-a6cb-f3f3d7d65a8e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/19/2018
 ms.author: amanbha
-ms.openlocfilehash: e297a6f42774f29e2eca4a410b695d5bbb636300
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b90c5a10c64e273f1c8f48c7bf5713859796db65
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60726605"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645617"
 ---
 # <a name="delete-reliable-actors-and-their-state"></a>Eliminare Reliable Actors e il relativo stato
 L'operazione di Garbage Collection degli attori disattivati pulisce solo l'oggetto attore, ma non rimuove i dati archiviati in State Manager dell'attore. Quando un attore viene riattivato, i suoi dati vengono nuovamente resi disponibili tramite il gestore di stato. Nei casi in cui gli attori archiviano dati nel gestore di stato e vengono disattivati ma mai riattivati, può essere necessario pulire i relativi dati.

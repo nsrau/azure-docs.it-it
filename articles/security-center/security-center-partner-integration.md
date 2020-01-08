@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: 0479918ad2afa99dcd9f18d3ba81f94a3e262e9e
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 7174003485d51cf582c798c4b18404b1b72de0fb
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74479372"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530953"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrare soluzioni di sicurezza nel Centro sicurezza di Azure
 Questo documento aiuta a gestire le soluzioni di sicurezza già connesse al Centro sicurezza di Azure e ad aggiungerne di nuove.
@@ -113,7 +113,7 @@ Tutti gli eventi del Centro sicurezza di Azure vengono pubblicati nel [log attiv
 
 Le sezioni seguenti spiegano come configurare i dati per poterli trasmettere a un hub eventi. In questi passaggi si presuppone che l'utente abbia già configurato Centro sicurezza di Azure nella sottoscrizione Azure.
 
-### <a name="high-level-overview"></a>Panoramica generale
+### <a name="high-level-overview"></a>Panoramica di alto livello
 
 ![Panoramica generale](media/security-center-export-data-to-siem/overview.png)
 
@@ -135,7 +135,7 @@ Vedere l'articolo seguente [trasmettere il log attività a hub eventi](../azure-
 
 Il routing dei dati di monitoraggio a un hub eventi con Monitoraggio di Azure consente di integrare facilmente gli strumenti di monitoraggio e le informazioni di sicurezza e gestione degli eventi di partner.
 
-Per l'elenco dei [Siem supportati](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-resource-logs-sent-to-an-event-hub) , vedere l'articolo seguente.
+Per l'elenco dei [Siem supportati](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-platform-logs-sent-to-an-event-hub) , vedere l'articolo seguente.
 
 ### <a name="example-for-querying-data"></a>Esempio di query sui dati 
 

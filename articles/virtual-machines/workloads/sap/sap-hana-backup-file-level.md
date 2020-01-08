@@ -12,12 +12,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: 8860c943dafdb9d166510519d0fb058f523537b3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e8ad1a9468c52fd120360827ed3a08f8f53ec3d1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078906"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426011"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>Backup di SAP HANA di Azure a livello di file
 
@@ -35,7 +35,7 @@ Nella figura viene mostrata la finestra di dialogo della voce di menu del backup
 
 Sebbene questa scelta sia semplice e diretta, è opportuno presentare alcune considerazioni. Come accennato in precedenza, una macchina virtuale di Azure presenta una limitazione nel numero di dischi di dati che è possibile collegare. Potrebbe non essere disponibile spazio per archiviare i file di backup di SAP HANA nei file system della macchina virtuale, a seconda delle dimensioni del database e dei requisiti di velocità effettiva del disco, che potrebbe comportare lo striping di software su più dischi di dati. Più avanti in questo articolo vengono fornite varie opzioni per lo spostamento di questi file di backup e per la gestione delle limitazioni relative alle dimensioni dei file e delle prestazioni durante la gestione di terabyte di dati.
 
-Un'altra opzione, che offre più libertà in relazione alla capacità totale, è l'Archiviazione BLOB di Azure. Mentre un singolo BLOB è limitato a 1 TB, la capacità totale di un singolo contenitore di BLOB è attualmente pari a 500 TB. In aggiunta, questa opzione offre ai clienti la possibilità di selezionare la cosiddetta archiviazione BLOB ad &quot;accesso sporadico&quot;, che presenta vantaggi sui costi. Vedere [archiviazione BLOB di Azure: Livelli](../../../storage/blobs/storage-blob-storage-tiers.md) di archiviazione ad accesso frequente e sporadico per informazioni dettagliate sull'archiviazione BLOB ad accesso sporadico.
+Un'altra opzione, che offre più libertà in relazione alla capacità totale, è l'Archiviazione BLOB di Azure. Mentre un singolo BLOB è limitato a 1 TB, la capacità totale di un singolo contenitore di BLOB è attualmente pari a 500 TB. In aggiunta, questa opzione offre ai clienti la possibilità di selezionare la cosiddetta archiviazione BLOB ad &quot;accesso sporadico&quot;, che presenta vantaggi sui costi. Vedere [Archivio BLOB di Azure: livelli di archiviazione ad accesso frequente e sporadico](../../../storage/blobs/storage-blob-storage-tiers.md) per altre informazioni sull'archiviazione BLOB ad accesso sporadico.
 
 Per una maggiore sicurezza, usare un account di archiviazione con replica geografica per archiviare i backup di SAP HANA. Per dettagli sulla replica dell'account di archiviazione, vedere [Replica di Archiviazione di Azure](../../../storage/common/storage-redundancy.md).
 
@@ -69,7 +69,7 @@ Ripetere lo stesso RAID software di backup con striping in cinque dischi di dati
 
 ## <a name="copy-sap-hana-backup-files-to-azure-blob-storage"></a>Copiare i file di backup di SAP HANA in Archiviazione BLOB di Azure
 
-Un'altra opzione per archiviare rapidamente i file di backup di SAP HANA è Archiviazione BLOB di Azure. Un contenitore di BLOB singolo ha un limite di 500 TB, sufficiente per i sistemi SAP HANA più piccoli, usando una macchina virtuale di tipo M32ts, M32ls, M64ls e GS5 in Azure, per mantenere un numero di backup di SAP HANA sufficiente. I clienti hanno la possibilità &quot;di&quot; scegliere tra&quot; archiviazione BLOB ad accesso [frequente e a freddo (vedere Archiviazione BLOB di &quot;Azure: Livelli di archiviazione ad accesso frequente](../../../storage/blobs/storage-blob-storage-tiers.md)e sporadico).
+Un'altra opzione per archiviare rapidamente i file di backup di SAP HANA è Archiviazione BLOB di Azure. Un contenitore di BLOB singolo ha un limite di 500 TB, sufficiente per i sistemi SAP HANA più piccoli, usando una macchina virtuale di tipo M32ts, M32ls, M64ls e GS5 in Azure, per mantenere un numero di backup di SAP HANA sufficiente. I clienti possono scegliere tra Archiviazione BLOB &quot;ad accesso frequente&quot; e &quot;ad accesso sporadico&quot; (vedere [Archivio BLOB di Azure: livelli di archiviazione ad accesso frequente e sporadico](../../../storage/blobs/storage-blob-storage-tiers.md)).
 
 Con lo strumento blobxfer, è semplice copiare i file di backup di SAP HANA direttamente nell'Archiviazione BLOB di Azure.
 
@@ -137,7 +137,7 @@ Funziona, ma le prestazioni non sono state buone per il test di backup di 230 GB
 
 ## <a name="copy-sap-hana-backup-files-to-azure-files"></a>Copiare i file di backup di SAP HANA nei File di Azure
 
-È possibile montare una condivisione di File di Azure all'interno di una macchina virtuale Linux di Azure. L'articolo [Come usare l'archiviazione file di Azure con Linux](../../../storage/files/storage-how-to-use-files-linux.md) descrive l'uso in dettaglio. Tenere presente che esiste attualmente un limite di quota di 5 TB di una condivisione di file di Azure e un limite di dimensione del file di 1 TB per ogni file. Per altre informazioni sui limiti di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../../../storage/common/storage-scalability-targets.md).
+È possibile montare una condivisione di File di Azure all'interno di una macchina virtuale Linux di Azure. L'articolo [Come usare l'archiviazione file di Azure con Linux](../../../storage/files/storage-how-to-use-files-linux.md) descrive l'uso in dettaglio. Tenere presente che esiste attualmente un limite di quota di 5 TB di una condivisione di file di Azure e un limite di dimensione del file di 1 TB per ogni file. Per ulteriori informazioni, vedere [obiettivi di scalabilità e prestazioni file di Azure](../../../storage/files/storage-files-scale-targets.md).
 
 I test hanno dimostrato, tuttavia, che il backup di SAP HANA non funziona direttamente con questo tipo di montaggio CIFS. Nella [Nota SAP 1820529](https://launchpad.support.sap.com/#/notes/1820529) si dichiara anche che il CIFS non è consigliato.
 

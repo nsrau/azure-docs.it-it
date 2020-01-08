@@ -16,12 +16,12 @@ ms.date: 04/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/04/2019
-ms.openlocfilehash: 3aaa99caca461d4b8e339cf4c1f7847adef4027a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3c84277603420567485b5199cdd2fa63ee3a2654
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076854"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378382"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Diagnosticare le notifiche eliminate in hub di notifica di Azure
 
@@ -103,7 +103,7 @@ Ogni batch viene inviato al servizio di notifica push, che a sua volta accetta e
 
 In questo caso, la registrazione con errori viene rimossa dal database. Viene quindi eseguito un ulteriore tentativo di recapito per il resto dei dispositivi nel batch.
 
-Per ottenere altre informazioni sull'errore sul tentativo di recapito non riuscito per una registrazione, è possibile usare le API REST di hub di notifica [per telemetria dei messaggi: ottenere i dati di telemetria del messaggio di notifica](https://msdn.microsoft.com/library/azure/mt608135.aspx) e il [feedback PNS](https://msdn.microsoft.com/library/azure/mt705560.aspx) Per un esempio di codice, vedere l'[esempio REST per l'invio](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/SendRestExample/).
+Per ottenere altre informazioni sull'errore sul tentativo di recapito non riuscito per una registrazione, è possibile usare le API REST di hub di notifica [per telemetria dei messaggi: ottenere i dati di telemetria del messaggio di notifica](https://docs.microsoft.com/rest/api/notificationhubs/get-notification-message-telemetry) e il [feedback PNS](https://msdn.microsoft.com/library/azure/mt705560.aspx) Per un esempio di codice, vedere l'[esempio REST per l'invio](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/SendRestExample/).
 
 ## <a name="push-notification-service-issues"></a>Problemi del servizio di notifica push
 
@@ -127,7 +127,7 @@ Ecco i percorsi per diagnosticare la causa radice delle notifiche eliminate in h
 
 Verificare le credenziali nel rispettivo portale per sviluppatori del servizio di notifica push corrispondente (APN, FCM, il servizio di notifica di Windows e così via). Per altre informazioni, vedere [esercitazione: inviare notifiche a piattaforma UWP (Universal Windows Platform) app usando hub di notifica di Azure](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification).
 
-#### <a name="azure-portal"></a>portale di Azure ####
+#### <a name="azure-portal"></a>Portale di Azure ####
 
 Per esaminare e confrontare le credenziali con quelle ottenute dal portale per sviluppatori del servizio di notifica push, passare alla scheda **criteri di accesso** nella portale di Azure.
 
@@ -168,7 +168,7 @@ Molti clienti usano [Service Bus Explorer](https://github.com/paolosalvatori/Ser
 
 ### <a name="verify-message-notifications"></a>Verificare le notifiche di messaggi
 
-#### <a name="azure-portal"></a>portale di Azure ####
+#### <a name="azure-portal"></a>Portale di Azure ####
 
 Per inviare una notifica di prova ai client senza un back-end di servizio attivo e in esecuzione, in **Supporto e risoluzione dei problemi** selezionare **Invio di prova**.
 
@@ -245,7 +245,7 @@ Questo messaggio indica che le credenziali configurate in hub di notifica non so
 
 ### <a name="review-telemetry"></a>Esaminare i dati di telemetria ###
 
-#### <a name="azure-portal"></a>portale di Azure ####
+#### <a name="azure-portal"></a>Portale di Azure ####
 
 Nel portale è possibile ottenere una rapida panoramica di tutte le attività nell'hub di notifica.
 
@@ -261,7 +261,7 @@ Nel portale è possibile ottenere una rapida panoramica di tutte le attività ne
 
 4. Se le impostazioni di autenticazione per l'hub di notifica non sono corrette, viene visualizzato il messaggio **Errore di autenticazione PNS**. È opportuno controllare le credenziali del servizio di notifica push.
 
-#### <a name="programmatic-access"></a>Accesso a livello di codice ####
+#### <a name="programmatic-access"></a>Accesso programmatico ####
 
 Per ulteriori informazioni sull'accesso a livello di codice, vedere [accesso a livello di codice](https://docs.microsoft.com/previous-versions/azure/azure-services/dn458823(v=azure.100)).
 

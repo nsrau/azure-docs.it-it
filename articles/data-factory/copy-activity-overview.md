@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 40bddaab6db5e7ed777ec55ca469a9e2d1c35c98
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 893ef88647824398ec106a964cbacf118bb14308
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927540"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440352"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Attività di copia in Azure Data Factory
 
@@ -49,15 +49,13 @@ Per copiare dati da un'origine a un sink, il servizio che esegue l'attività di 
 
 ### <a name="supported-file-formats"></a>Formati di file supportati
 
-È possibile usare l'attività di copia per copiare i file così come sono tra due archivi dati basati su file. In questo caso, i dati vengono copiati in modo efficiente senza serializzazione o deserializzazione.
-
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-È ad esempio possibile eseguire le attività di copia seguenti:
+È possibile usare l'attività di copia per copiare i file così come sono tra due archivi dati basati su file, nel qual caso i dati vengono copiati in modo efficiente senza serializzazione o deserializzazione. Inoltre, è possibile analizzare o generare file con un formato specifico, ad esempio, è possibile eseguire le operazioni seguenti:
 
-* Copiare i dati da un database di SQL Server locale e scrivere i dati in Azure Data Lake Storage Gen2 in formato parquet.
+* Copiare i dati da un database di SQL Server locale e scrivere in Azure Data Lake Storage Gen2 in formato parquet.
 * Copiare i file in formato testo (CSV) da un file system locale e scrivere nell'archiviazione BLOB di Azure nel formato avro.
-* Copiare i file compressi da un file system locale, decomprimerli e scriverli nel Azure Data Lake Storage Gen2.
+* Copiare i file compressi da un file system locale, decomprimerli in tempo reale e scrivere i file estratti in Azure Data Lake Storage Gen2.
 * Copiare i dati nel formato di testo compresso gzip dall'archiviazione BLOB di Azure e scriverli nel database SQL di Azure.
 * Molte altre attività che richiedono la serializzazione/deserializzazione o la compressione/decompressione.
 
@@ -127,17 +125,18 @@ Il modello seguente di un'attività di copia contiene un elenco completo delle p
 
 | Proprietà | Description | Obbligatorio? |
 |:--- |:--- |:--- |
-| type | Per un'attività di copia, impostare su `Copy` | SÌ |
-| inputs | Specificare il set di dati creato che fa riferimento ai dati di origine. L'attività di copia supporta solo un singolo input. | SÌ |
-| outputs | Specificare il set di dati creato che punta ai dati del sink. L'attività di copia supporta solo un singolo output. | SÌ |
-| typeProperties | Specificare le proprietà per configurare l'attività di copia. | SÌ |
-| una sezione source | Specificare il tipo di origine della copia e le proprietà corrispondenti per il recupero dei dati.<br/><br/>Per ulteriori informazioni, vedere la sezione "proprietà dell'attività di copia" nell'articolo del connettore elencato in [archivi dati e formati supportati](#supported-data-stores-and-formats). | SÌ |
-| sink | Specificare il tipo di sink di copia e le proprietà corrispondenti per la scrittura dei dati.<br/><br/>Per ulteriori informazioni, vedere la sezione "proprietà dell'attività di copia" nell'articolo del connettore elencato in [archivi dati e formati supportati](#supported-data-stores-and-formats). | SÌ |
-| translator | Specificare il mapping esplicito di colonne da origine a sink. Questa proprietà si applica quando il comportamento di copia predefinito non soddisfa le proprie esigenze.<br/><br/>Per ulteriori informazioni, vedere [mapping dello schema nell'attività di copia](copy-activity-schema-and-type-mapping.md). | No |
-| dataIntegrationUnits | Specificare una misura che rappresenta la quantità di energia utilizzata dal [runtime di integrazione di Azure](concepts-integration-runtime.md) per la copia dei dati. Queste unità erano precedentemente note come unità di spostamento dati cloud (spostamento dati). <br/><br/>Per ulteriori informazioni, vedere [Data Integration Unit](copy-activity-performance.md#data-integration-units). | No |
-| parallelCopies | Specificare il parallelismo che si desidera venga utilizzato dall'attività di copia durante la lettura dei dati dall'origine e la scrittura dei dati nel sink.<br/><br/>Per ulteriori informazioni, vedere [copia parallela](copy-activity-performance.md#parallel-copy). | No |
-| enableStaging<br/>stagingSettings | Consente di specificare se organizzare temporaneamente i dati provvisori nell'archivio BLOB anziché copiare direttamente i dati dall'origine al sink.<br/><br/>Per informazioni sugli scenari e i dettagli di configurazione utili, vedere la pagina relativa alla [copia temporanea](copy-activity-performance.md#staged-copy). | No |
-| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Scegliere come gestire le righe incompatibili durante la copia dei dati dall'origine al sink.<br/><br/>Per altre informazioni, vedere [tolleranza di errore](copy-activity-fault-tolerance.md). | No |
+| type | Per un'attività di copia, impostare su `Copy` | Sì |
+| inputs | Specificare il set di dati creato che fa riferimento ai dati di origine. L'attività di copia supporta solo un singolo input. | Sì |
+| outputs | Specificare il set di dati creato che punta ai dati del sink. L'attività di copia supporta solo un singolo output. | Sì |
+| typeProperties | Specificare le proprietà per configurare l'attività di copia. | Sì |
+| source | Specificare il tipo di origine della copia e le proprietà corrispondenti per il recupero dei dati.<br/>Per ulteriori informazioni, vedere la sezione "proprietà dell'attività di copia" nell'articolo del connettore elencato in [archivi dati e formati supportati](#supported-data-stores-and-formats). | Sì |
+| sink | Specificare il tipo di sink di copia e le proprietà corrispondenti per la scrittura dei dati.<br/>Per ulteriori informazioni, vedere la sezione "proprietà dell'attività di copia" nell'articolo del connettore elencato in [archivi dati e formati supportati](#supported-data-stores-and-formats). | Sì |
+| translator | Specificare il mapping esplicito di colonne da origine a sink. Questa proprietà si applica quando il comportamento di copia predefinito non soddisfa le proprie esigenze.<br/>Per ulteriori informazioni, vedere [mapping dello schema nell'attività di copia](copy-activity-schema-and-type-mapping.md). | No |
+| dataIntegrationUnits | Specificare una misura che rappresenta la quantità di energia utilizzata dal [runtime di integrazione di Azure](concepts-integration-runtime.md) per la copia dei dati. Queste unità erano precedentemente note come unità di spostamento dati cloud (spostamento dati). <br/>Per ulteriori informazioni, vedere [Data Integration Unit](copy-activity-performance.md#data-integration-units). | No |
+| parallelCopies | Specificare il parallelismo che si desidera venga utilizzato dall'attività di copia durante la lettura dei dati dall'origine e la scrittura dei dati nel sink.<br/>Per ulteriori informazioni, vedere [copia parallela](copy-activity-performance.md#parallel-copy). | No |
+| preserve | Consente di specificare se mantenere i metadati/ACL durante la copia dei dati. <br/>Per altre informazioni, vedere [preservare i metadati](copy-activity-preserve-metadata.md). |No |
+| enableStaging<br/>stagingSettings | Consente di specificare se organizzare temporaneamente i dati provvisori nell'archivio BLOB anziché copiare direttamente i dati dall'origine al sink.<br/>Per informazioni sugli scenari e i dettagli di configurazione utili, vedere la pagina relativa alla [copia temporanea](copy-activity-performance.md#staged-copy). | No |
+| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Scegliere come gestire le righe incompatibili durante la copia dei dati dall'origine al sink.<br/>Per altre informazioni, vedere [tolleranza di errore](copy-activity-fault-tolerance.md). | No |
 
 ## <a name="monitoring"></a>Monitorare
 
@@ -183,9 +182,9 @@ I dettagli dell'esecuzione dell'attività di copia e le caratteristiche delle pr
 | throughput | Frequenza di trasferimento dei dati. | Numero a virgola mobile, in KBps |
 | sourcePeakConnections | Numero massimo di connessioni simultanee stabilite nell'archivio dati di origine durante l'esecuzione dell'attività di copia. | Valore Int32 (nessuna unità) |
 | sinkPeakConnections| Numero massimo di connessioni simultanee stabilite nell'archivio dati sink durante l'esecuzione dell'attività di copia.| Valore Int32 (nessuna unità) |
-| sqlDwPolyBase | Indica se la polibase viene utilizzata quando i dati vengono copiati in SQL Data Warehouse. | boolean |
-| redshiftUnload | Indica se lo SCARICAmento viene utilizzato quando i dati vengono copiati da spostamento verso il suo | boolean |
-| hdfsDistcp | Indica se DistCp viene usato quando i dati vengono copiati da HDFS. | boolean |
+| sqlDwPolyBase | Indica se la polibase viene utilizzata quando i dati vengono copiati in SQL Data Warehouse. | Boolean |
+| redshiftUnload | Indica se lo SCARICAmento viene utilizzato quando i dati vengono copiati da spostamento verso il suo | Boolean |
+| hdfsDistcp | Indica se DistCp viene usato quando i dati vengono copiati da HDFS. | Boolean |
 | effectiveIntegrationRuntime | Runtime di integrazione (IR) o Runtime usati per l'esecuzione dell'attività, nel formato `<IR name> (<region if it's Azure IR>)`. | Testo (stringa) |
 | usedDataIntegrationUnits | Le unità di integrazione dati effettive durante la copia. | Valore Int32 |
 | usedParallelCopies | Proprietà parallelCopies effettiva durante la copia. | Valore Int32 |
@@ -238,13 +237,9 @@ I dettagli dell'esecuzione dell'attività di copia e le caratteristiche delle pr
 }
 ```
 
-## <a name="schema-and-data-type-mapping"></a>Mapping dello schema e dei tipi di dati
+## <a name="incremental-copy"></a>Copia incrementale
 
-Per informazioni sul modo in cui l'attività di copia esegue il mapping dei dati di origine al sink, vedere [mapping tra schemi e tipi di dati](copy-activity-schema-and-type-mapping.md) .
-
-## <a name="fault-tolerance"></a>Tolleranza di errore
-
-Per impostazione predefinita, l'attività di copia interrompe la copia dei dati e restituisce un errore quando le righe di dati di origine non sono compatibili con le righe di dati del sink. Per fare in modo che la copia abbia esito positivo, è possibile configurare l'attività di copia in modo da ignorare e registrare le righe incompatibili e copiare solo i dati compatibili. Per informazioni dettagliate, vedere [tolleranza di errore dell'attività di copia](copy-activity-fault-tolerance.md) .
+Data Factory consente di copiare in modo incrementale i dati differenziali da un archivio dati di origine a un archivio dati sink. Per informazioni dettagliate, vedere [esercitazione: copiare i dati in modo incrementale](tutorial-incremental-copy-overview.md).
 
 ## <a name="performance-and-tuning"></a>Prestazioni e ottimizzazione
 
@@ -258,8 +253,17 @@ In questo esempio, durante l'esecuzione di una copia, Data Factory tiene traccia
 
 ![Monitoraggio della copia con suggerimenti per l'ottimizzazione delle prestazioni](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
-## <a name="incremental-copy"></a>Copia incrementale
-Data Factory consente di copiare in modo incrementale i dati differenziali da un archivio dati di origine a un archivio dati sink. Per informazioni dettagliate, vedere [esercitazione: copiare i dati in modo incrementale](tutorial-incremental-copy-overview.md).
+## <a name="preserve-metadata-along-with-data"></a>Mantieni metadati insieme ai dati
+
+Durante la copia dei dati dall'origine al sink, in scenari come data Lake Migration, è anche possibile scegliere di mantenere i metadati e gli ACL insieme ai dati usando l'attività di copia. Per informazioni dettagliate, vedere [mantenere i metadati](copy-activity-preserve-metadata.md) .
+
+## <a name="schema-and-data-type-mapping"></a>Mapping dello schema e dei tipi di dati
+
+Per informazioni sul modo in cui l'attività di copia esegue il mapping dei dati di origine al sink, vedere [mapping tra schemi e tipi di dati](copy-activity-schema-and-type-mapping.md) .
+
+## <a name="fault-tolerance"></a>Tolleranza di errore
+
+Per impostazione predefinita, l'attività di copia interrompe la copia dei dati e restituisce un errore quando le righe di dati di origine non sono compatibili con le righe di dati del sink. Per fare in modo che la copia abbia esito positivo, è possibile configurare l'attività di copia in modo da ignorare e registrare le righe incompatibili e copiare solo i dati compatibili. Per informazioni dettagliate, vedere [tolleranza di errore dell'attività di copia](copy-activity-fault-tolerance.md) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere le guide rapide, le esercitazioni e gli esempi seguenti:

@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2019
+ms.date: 12/29/2019
 ms.author: memildin
-ms.openlocfilehash: 140361b7ba3a6a618d4c416447525f8a73690b81
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 899f4cba31afed812fa1643b925a38812308042e
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748421"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552934"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Valutazione e raccomandazioni di Endpoint Protection nel centro sicurezza di Azure
 
-Il Centro sicurezza di Azure fornisce valutazioni dell'integrità delle versioni [supportate](https://docs.microsoft.com/azure/security-center/security-center-os-coverage) delle soluzioni di Endpoint Protection. Questo articolo illustra gli scenari in cui il Centro sicurezza genera le due raccomandazioni seguenti:
+Il Centro sicurezza di Azure fornisce valutazioni dell'integrità delle versioni [supportate](security-center-services.md#supported-endpoint-protection-solutions-) delle soluzioni di Endpoint Protection. Questo articolo illustra gli scenari in cui il Centro sicurezza genera le due raccomandazioni seguenti:
 
 * **Installare soluzioni Endpoint Protection nella macchina virtuale**
 * **Risolvere i problemi di integrità di Endpoint Protection nei computer**
@@ -55,7 +55,7 @@ Il Centro sicurezza di Azure fornisce valutazioni dell'integrità delle versioni
 
 ## <a name="microsoft-system-center-endpoint-protection"></a>Microsoft System Center Endpoint Protection
 
-* Il Centro sicurezza consiglia **di "installare soluzioni Endpoint Protection nella macchina virtuale"** durante l'importazione di **SCEPMpModule ("$env:P rogramfiles\microsoft Security Client\MpProvider\MpProvider.psd1")** e di eseguire  **Risultati di Get-MProtComputerStatus** con **AMServiceEnabled = false**
+* Il Centro sicurezza consiglia di **"installare soluzioni Endpoint Protection nella macchina virtuale"** durante l'importazione di **SCEPMpModule ("$env:P rogramfiles\microsoft Security Client\MpProvider\MpProvider.psd1")** ed eseguendo **Get-MProtComputerStatus** risultati con **AMServiceEnabled = false**
 
 * Il Centro sicurezza consiglia **di "risolvere i problemi di integrità di Endpoint Protection nei computer"** quando **Get-MprotComputerStatus** viene eseguito e si verifica una delle condizioni seguenti:
 
@@ -92,13 +92,13 @@ Il Centro sicurezza consiglia **di "installare soluzioni Endpoint Protection nel
 
 * **HKLM: \ Software\Symantec\Symantec endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
-* **HKLM: \ Software\Symantec\Symantec endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
+* **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
-oppure
+Oppure
 
 * **HKLM: \ Software\Wow6432Node\Symantec\Symantec endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
-* **HKLM: \ Software\Wow6432Node\Symantec\Symantec endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
+* **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
 Il Centro sicurezza consiglia **di "risolvere i problemi di integrità di Endpoint Protection nei computer"** quando uno dei seguenti controlli non viene soddisfatto:
 
@@ -181,4 +181,4 @@ I log dell'estensione Microsoft antimalware sono disponibili all'indirizzo: **%S
 
 ### <a name="support"></a>Supporto
 
-Per ulteriori informazioni, contattare gli esperti di Azure nei [Forum MSDN Azure e stack overflow](https://azure.microsoft.com/support/forums/). In alternativa, archiviare una richiesta di supporto di Azure. Passare al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare Ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
+Per ulteriori informazioni, contattare gli esperti di Azure nei [Forum MSDN Azure e stack overflow](https://azure.microsoft.com/support/forums/). In alternativa, archiviare una richiesta di supporto di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).

@@ -1,5 +1,5 @@
 ---
-title: Campi personalizzati in monitoraggio di Azure | Microsoft Docs
+title: Campi personalizzati in monitoraggio di Azure (anteprima) | Microsoft Docs
 description: La funzionalità campi personalizzati di monitoraggio di Azure consente di creare campi ricercabili personalizzati dai record in un'area di lavoro Log Analytics che aggiungono le proprietà di un record raccolto.  Questo articolo descrive il processo di creazione di un campo personalizzato e illustra una procedura dettagliata con un evento di esempio.
 ms.service: azure-monitor
 ms.subservice: logs
@@ -7,21 +7,21 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: 1fa8fb8ee944103626966839def358e68a55d8ac
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 880d3ffa9914a8fc6f27edce06c5d353d7903db4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932601"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75396874"
 ---
-# <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>Creare campi personalizzati in un'area di lavoro Log Analytics in monitoraggio di Azure
+# <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Creare campi personalizzati in un'area di lavoro Log Analytics in monitoraggio di Azure (anteprima)
 
 > [!NOTE]
 > Questo articolo descrive come analizzare i dati di testo in un'area di lavoro di Log Analytics mentre vengono raccolti. Si consiglia di analizzare i dati di testo in un filtro di query dopo che sono stati raccolti seguendo le linee guida descritte in [analizzare i dati di testo in monitoraggio di Azure](../log-query/parse-text.md). Offre diversi vantaggi rispetto all'utilizzo di campi personalizzati.
 
 La funzionalità **campi personalizzati** di monitoraggio di Azure consente di estendere i record esistenti nell'area di lavoro log Analytics aggiungendo i propri campi ricercabili.  I campi personalizzati vengono popolati automaticamente con dati estratti da altre proprietà nello stesso record.
 
-![Panoramica](media/custom-fields/overview.png)
+![Overview](media/custom-fields/overview.png)
 
 Il record di esempio riportato di seguito contiene dati utili nascosti nella descrizione dell'evento. L'estrazione di questi dati in una proprietà distinta lo rende disponibile per azioni quali l'ordinamento e il filtro.
 
@@ -113,7 +113,7 @@ Ora le voci relative a **Scheda delle prestazioni WMI** risultano corrette e Log
 
 ![Risultati della ricerca](media/custom-fields/search-results-02.png)
 
-È ora possibile eseguire una query per verificare che **Service_CF** sia stato creato, ma non è ancora stato aggiunto a nessun record. Questo perché il campo personalizzato non funziona con i record esistenti, quindi è necessario attendere che vengano raccolti nuovi record.
+È ora possibile eseguire una query per verificare che **Service_CF** venga creato, ma non è ancora stato aggiunto ad alcun record. Questo perché il campo personalizzato non funziona con i record esistenti, quindi è necessario attendere che vengano raccolti nuovi record.
 
 ![Conteggio iniziale](media/custom-fields/initial-count.png)
 

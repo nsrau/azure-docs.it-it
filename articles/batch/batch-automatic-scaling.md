@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 10/24/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: ab16fc959a332076cac1d615b86d37e8c66e2f67
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: c3c94805c18b0a7a3052158871c5fafce2dd5a33
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933690"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660716"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Creare una formula automatica per la scalabilità dei nodi di calcolo in un pool di batch
 
@@ -34,7 +34,7 @@ Questo articolo illustra le diverse entità che costituiranno le formule di scal
 > [!IMPORTANT]
 > Quando si crea un account Batch, è possibile specificare la [configurazione dell'account](batch-api-basics.md#account) che determina se i pool devono essere allocati in una sottoscrizione del servizio Batch (impostazione predefinita) o nella sottoscrizione utente. Se l'account Batch è stato creato con la configurazione del servizio Batch predefinita, l'account è limitato a un numero massimo di core utilizzabili per l'elaborazione. Il servizio Batch gestisce la scalabilità dei nodi di calcolo solo fino al raggiungimento del limite di core. Per questo motivo, il servizio Batch può non raggiungere il numero di nodi di calcolo specificato da una formula di scalabilità automatica. Per informazioni su come visualizzare e aumentare le quote dell'account, vedere [Quote e limiti per il servizio Azure Batch](batch-quota-limit.md) .
 >
->Se l'account è stato creato con la configurazione di sottoscrizione utente, l'account condivide la quota di core per la sottoscrizione. Per altre informazioni, vedere [Limiti relativi a Macchine virtuali](../azure-subscription-service-limits.md#virtual-machines-limits) in [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
+>Se l'account è stato creato con la configurazione di sottoscrizione utente, l'account condivide la quota di core per la sottoscrizione. Per altre informazioni, vedere [Limiti relativi a Macchine virtuali](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits) in [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md).
 >
 >
 
@@ -146,7 +146,7 @@ Le tabelle seguenti includono sia le variabili di lettura/scrittura che di sola 
 
 Questi sono i tipi supportati in una formula:
 
-* Double
+* double
 * doubleVec
 * doubleVecList
 * string
@@ -178,7 +178,7 @@ Queste operazioni sono consentite sui tipi elencati nella sezione precedente.
 
 | Operazione | Operatori supportati | Tipo di risultato |
 | --- | --- | --- |
-| double *operatore* double |+, -, *, / |Double |
+| double *operatore* double |+, -, *, / |double |
 | double *operatore* timeinterval |* |timeInterval |
 | doubleVec *operatore* double |+, -, *, / |doubleVec |
 | doubleVec *operatore* doubleVec |+, -, *, / |doubleVec |
@@ -187,13 +187,13 @@ Queste operazioni sono consentite sui tipi elencati nella sezione precedente.
 | timeinterval *operatore* timestamp |+ |timestamp |
 | timestamp *operatore* timeinterval |+ |timestamp |
 | timestamp *operatore* timestamp |- |timeInterval |
-| *operatoree*double |-, ! |Double |
+| *operatoree*double |-, ! |double |
 | *operatoree*timeInterval |- |timeInterval |
-| double *operatore* double |<, <=, ==, >=, >, != |Double |
-| string *operatore* string |<, <=, ==, >=, >, != |Double |
-| timestamp *operatore* timestamp |<, <=, ==, >=, >, != |Double |
-| timeinterval *operatore* timeinterval |<, <=, ==, >=, >, != |Double |
-| double *operatore* double |&&, &#124;&#124; |Double |
+| double *operatore* double |<, <=, ==, >=, >, != |double |
+| string *operatore* string |<, <=, ==, >=, >, != |double |
+| timestamp *operatore* timestamp |<, <=, ==, >=, >, != |double |
+| timeinterval *operatore* timeinterval |<, <=, ==, >=, >, != |double |
+| double *operatore* double |&&, &#124;&#124; |double |
 
 Durante il test di un valore double con un operatore ternario (`double ? statement1 : statement2`), diverso da zero è **true** e zero è **false**.
 
@@ -202,27 +202,27 @@ Queste **funzioni** predefinite sono disponibili per consentire la definizione d
 
 | Funzione | Tipo restituito | Description |
 | --- | --- | --- |
-| avg(doubleVecList) |Double |Restituisce il valore medio per tutti i valori in doubleVecList. |
-| len(doubleVecList) |Double |Restituisce la lunghezza del vettore creato da doubleVecList. |
-| lg(double) |Double |Restituisce il logaritmo in base 2 di double. |
+| avg(doubleVecList) |double |Restituisce il valore medio per tutti i valori in doubleVecList. |
+| len(doubleVecList) |double |Restituisce la lunghezza del vettore creato da doubleVecList. |
+| lg(double) |double |Restituisce il logaritmo in base 2 di double. |
 | lg(doubleVecList) |doubleVec |Restituisce il logaritmo in base 2 a livello di componente di doubleVecList. vec(double) deve essere passato in modo esplicito per il parametro. In caso contrario viene usata la versione double lg(double). |
-| ln(double) |Double |Restituisce il logaritmo naturale di double. |
+| ln(double) |double |Restituisce il logaritmo naturale di double. |
 | ln(doubleVecList) |doubleVec |Restituisce il logaritmo naturale di double. |
-| log(double) |Double |Restituisce il logaritmo in base 10 di double. |
+| log(double) |double |Restituisce il logaritmo in base 10 di double. |
 | log(doubleVecList) |doubleVec |Restituisce il logaritmo in base 10 a livello di componente di doubleVecList. vec(double) deve essere passato in modo esplicito per il singolo parametro double. In caso contrario, viene usata la versione double log(double). |
-| max(doubleVecList) |Double |Restituisce il valore massimo in doubleVecList. |
-| min(doubleVecList) |Double |Restituisce il valore minimo in doubleVecList. |
-| norm(doubleVecList) |Double |Restituisce la norma 2 del vettore creato da doubleVecList. |
-| percentile(doubleVec v, double p) |Double |Restituisce l'elemento percentile del vettore v. |
-| rand() |Double |Restituisce un valore casuale compreso tra 0,0 e 1,0. |
-| range(doubleVecList) |Double |Restituisce la differenza tra i valori minimo e massimo in doubleVecList. |
-| std(doubleVecList) |Double |Restituisce la deviazione standard del campione dei valori in doubleVecList. |
+| max(doubleVecList) |double |Restituisce il valore massimo in doubleVecList. |
+| min(doubleVecList) |double |Restituisce il valore minimo in doubleVecList. |
+| norm(doubleVecList) |double |Restituisce la norma 2 del vettore creato da doubleVecList. |
+| percentile(doubleVec v, double p) |double |Restituisce l'elemento percentile del vettore v. |
+| rand() |double |Restituisce un valore casuale compreso tra 0,0 e 1,0. |
+| range(doubleVecList) |double |Restituisce la differenza tra i valori minimo e massimo in doubleVecList. |
+| std(doubleVecList) |double |Restituisce la deviazione standard del campione dei valori in doubleVecList. |
 | stop() | |Arresta la valutazione dell'espressione per il ridimensionamento automatico. |
-| sum(doubleVecList) |Double |Restituisce la somma di tutti i componenti di doubleVecList. |
+| sum(doubleVecList) |double |Restituisce la somma di tutti i componenti di doubleVecList. |
 | time(string dateTime="") |timestamp |Restituisce il timestamp dell'ora corrente se non vengono passati parametri oppure il timestamp della stringa dateTime, se è stata passata. I formati dateTime supportati sono W3C-DTF e RFC 1123. |
-| val(doubleVec v, double i) |Double |Restituisce il valore dell'elemento nella posizione i nel vettore v con un indice iniziale pari a zero. |
+| val(doubleVec v, double i) |double |Restituisce il valore dell'elemento nella posizione i nel vettore v con un indice iniziale pari a zero. |
 
-Alcune delle funzioni descritte nella tabella precedente possono accettare un elenco come argomento. L'elenco con valori delimitati da virgole è una combinazione qualsiasi di *double* e *doubleVec*. ad esempio:
+Alcune delle funzioni descritte nella tabella precedente possono accettare un elenco come argomento. L'elenco con valori delimitati da virgole è una combinazione qualsiasi di *double* e *doubleVec*. Ad esempio:
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
@@ -242,7 +242,7 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 | GetSamplePeriod() |Restituisce il periodo dei campioni raccolti in un set di dati campione cronologici. |
 | Count() |Restituisce il numero totale di campioni nella cronologia dei dati di metrica. |
 | HistoryBeginTime() |Restituisce il timestamp del campione di dati disponibile meno recente per la metrica. |
-| GetSamplePercent() |Restituisce la percentuale di campioni disponibili per un determinato intervallo di tempo. ad esempio:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Poiché il metodo `GetSample` non riesce se la percentuale di campioni restituiti è minore del valore `samplePercent` specificato, è possibile eseguire prima il controllo con il metodo `GetSamplePercent`. È quindi possibile eseguire un'azione alternativa se non sono presenti campioni sufficienti, senza interrompere la valutazione del ridimensionamento automatico. |
+| GetSamplePercent() |Restituisce la percentuale di campioni disponibili per un determinato intervallo di tempo. Ad esempio:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Poiché il metodo `GetSample` non riesce se la percentuale di campioni restituiti è minore del valore `samplePercent` specificato, è possibile eseguire prima il controllo con il metodo `GetSamplePercent`. È quindi possibile eseguire un'azione alternativa se non sono presenti campioni sufficienti, senza interrompere la valutazione del ridimensionamento automatico. |
 
 ### <a name="samples-sample-percentage-and-the-getsample-method"></a>Campioni, percentuale di campioni e metodo *GetSample()*
 L'operazione di base per il funzionamento di una formula di ridimensionamento automatico consiste nell'ottenere i dati di metrica relativi a risorse ed attività e quindi l'adeguamento delle dimensioni del pool in base a tali dati. Di conseguenza, è importante conoscere a fondo la modalità di interazione delle formule di scalabilità automatica con i dati di metrica (campioni).
@@ -267,7 +267,7 @@ A tale scopo, usare `GetSample(interval look-back start, interval look-back end)
 $runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 6 * TimeInterval_Minute);
 ```
 
-Quando la riga precedente viene valutata da Batch, restituisce un intervallo di campioni come vettore di valori. ad esempio:
+Quando la riga precedente viene valutata da Batch, restituisce un intervallo di campioni come vettore di valori. Ad esempio:
 
 ```
 $runningTasksSample=[1,1,1,1,1,1,1,1,1,1];
@@ -394,7 +394,7 @@ Per creare un pool con la scalabilità automatica abilitata in .NET, seguire que
 1. (Facoltativo) Impostare la proprietà [CloudPool.AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) (valore predefinito è 15 minuti).
 1. Eseguire il commit del pool con [CloudPool.Commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) o [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
 
-Il frammento di codice seguente crea un pool abilitato per la scalabilità automatica in .NET. La formula di scalabilità automatica del pool imposta il numero di destinazione dei nodi dedicati su 5 il lunedì e su 1 per tutti gli altri giorni della settimana. L'[intervallo di scalabilità automatica](#automatic-scaling-interval) è impostato su 30 minuti. In questo e negli altri C# frammenti di codice di questo articolo`myBatchClient`è un'istanza inizializzata correttamente della classe [BatchClient][net_batchclient] .
+Il frammento di codice seguente crea un pool abilitato per la scalabilità automatica in .NET. La formula di scalabilità automatica del pool imposta il numero di destinazione dei nodi dedicati su 5 il lunedì e su 1 per tutti gli altri giorni della settimana. L'[intervallo di scalabilità automatica](#automatic-scaling-interval) è impostato su 30 minuti. In questo e negli altri C# frammenti di codice di questo articolo `myBatchClient` è un'istanza inizializzata correttamente della classe [BatchClient][net_batchclient] .
 
 ```csharp
 CloudPool pool = myBatchClient.PoolOperations.CreatePool(
@@ -472,7 +472,7 @@ response = batch_service_client.pool.enable_auto_scale(pool_id, auto_scale_formu
 
 ## <a name="enable-autoscaling-on-an-existing-pool"></a>Abilitare la scalabilità automatica in un pool esistente
 
-Ogni SDK per Batch offre un modo per abilitare la scalabilità automatica, ad esempio:
+Ogni SDK per Batch offre un modo per abilitare la scalabilità automatica, Ad esempio:
 
 * [BatchClient. PoolOperations. EnableAutoScaleAsync][net_enableautoscaleasync] (batch .NET)
 * [Abilitare la scalabilità automatica in un pool][rest_enableautoscale] (API REST)

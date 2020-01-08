@@ -3,17 +3,17 @@ title: Installare e usare Esplora risorse di Azure | Microsoft Docs
 description: Installare lo strumento Azure Internet Explorer e usarlo per interagire con i dispositivi Plug and Play anteprima connessi all'hub Internet.
 author: miagdp
 ms.author: miag
-ms.date: 07/02/2019
+ms.date: 12/27/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 3b5e9a70f9eecbf187a6748073de009653061dc0
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: fd180404ca18b5ea84c745a543ae7e87bf16c27d
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679859"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529627"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Installare e usare Azure Internet Explorer
 
@@ -97,7 +97,7 @@ Questa sezione include le schede **identità dispositivo**, **dispositivo gemell
 
 Nella pagina **interfaccia** è possibile visualizzare la definizione JSON dell'interfaccia.
 
-#### <a name="properties"></a>properties
+#### <a name="properties"></a>Proprietà
 
 È possibile visualizzare le proprietà di sola lettura definite in un'interfaccia nella pagina **proprietà non scrivibile** . È possibile aggiornare le proprietà scrivibili definite in un'interfaccia nella pagina **proprietà scrivibile** :
 

@@ -1,7 +1,7 @@
 ---
 title: 'Valuta Raccomandazione: riferimento al modulo'
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo Evaluate Recommender nel servizio Azure Machine Learning per valutare l'accuratezza delle stime del modello di raccomandazione.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo Evaluate Recommender in Azure Machine Learning per valutare l'accuratezza delle stime del modello di raccomandazione.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 9a80fce04aa939895d1dc9572714046d9203bad7
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 38144d5df04427a82989b78843466ecd55386196
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717167"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428546"
 ---
-# <a name="evaluate-recommender"></a>Valuta la raccomandazione
+# <a name="evaluate-recommender"></a>Evaluate Recommender
 
 Questo articolo descrive come usare il modulo Evaluate Recommender in Azure Machine Learning Designer (anteprima). L'obiettivo consiste nel misurare l'accuratezza delle stime effettuate da un modello di raccomandazione. Con questo modulo è possibile valutare diversi tipi di consigli:  
   
@@ -26,7 +26,7 @@ Questo articolo descrive come usare il modulo Evaluate Recommender in Azure Mach
 Quando si creano stime utilizzando un modello di raccomandazione, vengono restituiti risultati leggermente diversi per ognuno di questi tipi di stima supportati. Il modulo Evaluate Recommender deduce il tipo di stima dal formato di colonna del set di dati con punteggio. Il set di dati con punteggio, ad esempio, può contenere:
 
 - Triple utente-elemento-classificazione
-- utenti e relativi elementi consigliati
+- Utenti e relativi elementi consigliati
 
 Il modulo applica anche le metriche delle prestazioni appropriate, in base al tipo di stima eseguita. 
 
@@ -43,7 +43,7 @@ Evaluate Recommender richiede i seguenti set di dati come input.
 
 Il set di dati di test contiene i dati "verità di base" sotto forma di triple utente-elemento-classificazione.  
 
-#### <a name="scored-dataset"></a>Set di dati con Punteggio
+#### <a name="scored-dataset"></a>Set di dati con punteggio
 
 Il set di dati con punteggio contiene le stime generate dal modello di raccomandazione.  
   
@@ -90,4 +90,4 @@ Poiché è impossibile conoscere l'effettiva "verità di base" per gli elementi 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per il servizio Azure Machine Learning. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 

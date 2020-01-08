@@ -1,19 +1,16 @@
 ---
-title: Gestire le applicazioni di Azure Service Fabric usando l'interfaccia della riga di comando di Azure Service Fabric (sfctl)
+title: Gestire le applicazioni Service Fabric di Azure con sfctl
 description: Informazioni su come distribuire e rimuovere le applicazioni da un cluster Azure Service Fabric usando l'interfaccia della riga di comando di Azure Service Fabric.
-services: service-fabric
 author: Christina-Kang
-manager: chackdan
-ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 9b0f785a6a43f984708645084a8a8036326d3d24
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: db271d479fd84e5338d53cc25ecc0122d856c442
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60621378"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610234"
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli-sfctl"></a>Gestire un'applicazione di Azure Service Fabric usando l'interfaccia della riga di comando di Azure Service Fabric (sfctl)
 
@@ -25,7 +22,7 @@ Informazioni su come creare ed eliminare applicazioni in esecuzione in un cluste
 
 * È necessario avere un pacchetto dell'applicazione di Service Fabric pronto per essere distribuito. Per altre informazioni su come creare un'applicazione e inserirla in un pacchetto, vedere l'articolo sul [modello di applicazione di Service Fabric](service-fabric-application-model.md).
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Per distribuire una nuova applicazione, completare questi passaggi:
 

@@ -9,10 +9,10 @@ ms.date: 12/12/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: dd5c0782e1132f8592d9c6381b541c6f1a7d84cd
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
+ms.lasthandoff: 12/25/2019
 ms.locfileid: "67180138"
 ---
 **HDD Standard
@@ -26,7 +26,7 @@ dischi gestiti** [!INCLUDE [disk-storage-standard-ssd-sizes](disk-storage-standa
 
 **SSD Premium Managed disks: limiti per macchina virtuale**
 
-| Risorsa | Limite predefinito |
+| Gruppi | Limite predefinito |
 | --- | --- |
 | Numero massimo di IOPS per macchina virtuale |80.000 IOPS con VM GS5 |
 | Velocità effettiva massima per macchina virtuale |2\.000 MB/s con VM GS5 |

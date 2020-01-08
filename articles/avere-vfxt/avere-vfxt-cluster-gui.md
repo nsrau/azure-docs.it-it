@@ -4,34 +4,36 @@ description: Come connettersi al cluster vFXT e al pannello di controllo basato 
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 06/24/2019
+ms.date: 12/14/2019
 ms.author: rohogue
-ms.openlocfilehash: 098ed98c1680fa2ea38c377e9e34719ba778b175
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: fe2fc062f690498f3d1f588887279aa33d2434b8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255025"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75416139"
 ---
 # <a name="access-the-vfxt-cluster"></a>Accedere al cluster vFXT
 
-Per modificare le impostazioni e monitorare il cluster Avere vFXT, usare il pannello di controllo di Avere. Il pannello di controllo di Avere è un'interfaccia grafica basata su browser per il cluster.
+Per modificare le impostazioni del cluster e monitorare il cluster, usare il pannello di controllo. Il pannello di controllo di Avere è un'interfaccia grafica basata su browser per il cluster.
 
-Poiché il cluster vFXT si trova all'interno di una rete virtuale privata, è necessario creare un tunnel SSH oppure usare un altro metodo per raggiungere l'indirizzo IP di gestione del cluster. I passaggi di base sono due: 
+Poiché il cluster vFXT si trova all'interno di una rete virtuale privata, è necessario creare un tunnel SSH o usare un altro metodo per raggiungere l'indirizzo IP di gestione del cluster.
 
-1. Creare una connessione tra la workstation e la rete virtuale privata 
-1. Caricare il pannello di controllo del cluster in un Web browser 
+I passaggi di base sono due:
 
-> [!NOTE] 
-> In questo articolo si presuppone di aver già impostato un indirizzo IP pubblico nel controller del cluster o in un'altra macchina virtuale all'interno della rete virtuale del cluster. Questo articolo descrive come usare tale macchina virtuale come host per accedere al cluster. Se per l'accesso alla rete virtuale si usa una VPN o ExpressRoute, passare a [Connettersi al pannello di controllo di Avere](#connect-to-the-avere-control-panel-in-a-browser).
+1. Creare una connessione tra la workstation e la rete virtuale privata
+1. Caricare il pannello di controllo del cluster in un Web browser
 
-Prima della connessione, assicurarsi che la coppia di chiavi pubblica/privata SSH usata durante la creazione del controller del cluster sia installata nel computer locale. Per istruzioni, vedere la documentazione sulle chiavi SSH per [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) o per [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys). Se si è usata una password anziché una chiave pubblica, verrà chiesto di immetterla al momento della connessione. 
+> [!NOTE]
+> In questo articolo si presuppone di aver già impostato un indirizzo IP pubblico nel controller del cluster o in un'altra macchina virtuale all'interno della rete virtuale del cluster. Questo articolo descrive come usare tale macchina virtuale come host per accedere al cluster. Se si usa una VPN o ExpressRoute per l'accesso alla rete virtuale, passare a [Connetti al pannello di controllo](#connect-to-the-avere-control-panel-in-a-browser).
 
-## <a name="create-an-ssh-tunnel"></a>Creazione di un tunnel SSH 
+Prima della connessione, assicurarsi che la coppia di chiavi pubblica/privata SSH usata durante la creazione del controller del cluster sia installata nel computer locale. Per istruzioni, vedere la documentazione sulle chiavi SSH per [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) o per [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys). Se è stata usata una password anziché una chiave pubblica, verrà richiesto di immetterla quando ci si connette.
 
-È possibile creare un tunnel SSH dalla riga di comando di un sistema client basato su Linux o Windows 10. 
+## <a name="create-an-ssh-tunnel"></a>Creazione di un tunnel SSH
 
-Usare un comando di tunneling SSH con il formato seguente: 
+È possibile creare un tunnel SSH dalla riga di comando di un sistema client basato su Linux o Windows 10.
+
+Usare un comando di tunneling SSH con il formato seguente:
 
 ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*\@*controller_public_IP*
 
@@ -47,9 +49,9 @@ L'autenticazione avviene automaticamente se si è usata la chiave SSH pubblica p
 
 ## <a name="connect-to-the-avere-control-panel-in-a-browser"></a>Connettersi al pannello di controllo di Avere in un browser
 
-Questo passaggio usa un Web browser per connettersi all'utilità di configurazione in esecuzione nel cluster vFXT.
+Questo passaggio usa un Web browser per connettersi all'utilità di configurazione nel cluster vFXT.
 
-* Per una connessione tunnel SSH, aprire il Web browser e passare a `https://127.0.0.1:8443`. 
+* Per una connessione tunnel SSH, aprire il Web browser e passare a `https://127.0.0.1:8443`.
 
   Ci si è connessi all'indirizzo IP del cluster al momento della creazione del tunnel, pertanto è sufficiente usare l'indirizzo IP localhost nel browser. Se è stata usata una porta locale diversa dalla 8443, usare invece il numero di porta.
 
@@ -65,4 +67,4 @@ Fare clic su **Login** (Accedi) o premere INVIO sulla tastiera.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che è possibile accedere al cluster, abilitare il [supporto](avere-vfxt-enable-support.md).
+Dopo aver effettuato l'accesso al pannello di controllo del cluster, abilitare il [supporto](avere-vfxt-enable-support.md).

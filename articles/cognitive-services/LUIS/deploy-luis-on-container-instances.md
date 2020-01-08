@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 01/06/2020
 ms.author: dapine
-ms.openlocfilehash: aecbb9bb94fc251ee0142b611c54d16304793e50
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 30fd19634f6054b8b636dabcb4ef83b118554468
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73901823"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689427"
 ---
 # <a name="deploy-the-language-understanding-luis-container-to-azure-container-instances"></a>Distribuire il contenitore Language Understanding (LUIS) in istanze di contenitore di Azure
 
@@ -25,7 +25,20 @@ Informazioni su come distribuire il contenitore [Luis](luis-container-howto.md) 
 
 [!INCLUDE [Create LUIS resource](includes/create-luis-resource.md)]
 
-[!INCLUDE [Create LUIS Container instance resource](../containers/includes/create-container-instances-resource.md)]
+## <a name="create-an-azure-file-share"></a>Creare una condivisione file di Azure
+
+Il contenitore LUIS richiede un file di modello di `.gz` di cui è stato eseguito il pull in fase di esecuzione. Il contenitore deve essere in grado di accedere al file del modello tramite un montaggio del volume dall'istanza del contenitore. Per informazioni sulla creazione di una condivisione file di Azure, vedere [creare una condivisione file](../../storage/files/storage-how-to-create-file-share.md). Prendere nota del nome dell'account di archiviazione di Azure, della chiave e del nome della condivisione file, perché saranno necessari in un secondo momento.
+
+### <a name="export-and-upload-packaged-luis-app"></a>Esportare e caricare l'app LUIS in pacchetto
+
+Per caricare il modello LUIS (app in pacchetto) nella condivisione file di Azure, è necessario <a href="luis-container-howto.md#export-packaged-app-from-luis" target="_blank" rel="noopener">prima <span class="docon docon-navigate-external x-hidden-focus"> </span>esportarlo dal portale Luis </a>. Dalla portale di Azure passare alla pagina **Panoramica** della risorsa account di archiviazione e selezionare **condivisioni file**. Selezionare il nome della condivisione file creata di recente, quindi selezionare il pulsante **carica** .
+
+> [!div class="mx-imgBorder"]
+> ![caricare nella condivisione file](media/luis-how-to-deploy-to-aci/upload-file-share.png)
+
+Caricare il file del modello LUIS.
+
+[!INCLUDE [Create LUIS Container instance resource](../containers/includes/create-container-instances-resource-from-azure-cli.md)]
 
 [!INCLUDE [API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 

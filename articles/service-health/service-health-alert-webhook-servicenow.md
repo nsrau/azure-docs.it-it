@@ -1,19 +1,16 @@
 ---
-title: Inviare gli avvisi di integrità servizio di Azure con ServiceNow usando i webhook
+title: Inviare avvisi di integrità dei servizi di Azure con ServiceNow
 description: Ricevere notifiche personalizzate sugli eventi di integrità dei servizi nell'istanza di ServiceNow.
-author: stephbaron
-ms.author: stbaron
 ms.topic: article
-ms.service: service-health
 ms.date: 06/10/2019
-ms.openlocfilehash: e32a32e4961043e0cd967247c8c13420ca8a1969
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f332b1e0e188797da172b4ae63f6e5ef1a97e59c
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067112"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551608"
 ---
-# <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Inviare gli avvisi di integrità servizio di Azure con ServiceNow usando i webhook
+# <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Inviare avvisi di integrità dei servizi di Azure con ServiceNow usando i webhook
 
 Questo articolo illustra come integrare gli avvisi di integrità dei servizi di Azure con ServiceNow usando un webhook. Dopo avere configurato l'integrazione webhook con l'istanza di ServiceNow, si ottengono avvisi tramite l'infrastruttura di notifica esistente in caso di problemi relativi al servizio Azure. Ogni volta che viene attivato un avviso di integrità dei servizi di Azure, viene chiamato un webhook tramite l'API REST con script di ServiceNow.
 
@@ -153,9 +150,9 @@ Questo articolo illustra come integrare gli avvisi di integrità dei servizi di 
 
 1. Definire l'elenco di **azioni**:
 
-    a. **Tipo di azione:** *Webhook*
+    a. **Tipo di azione:** *webhook*
 
-    b. **Dettagli:** **URL di integrazione** di ServiceNow salvato in precedenza.
+    b. **Dettagli: l'** **URL di integrazione** di ServiceNow salvato in precedenza.
 
     c. **Nome:** nome, alias o identificatore del webhook.
 
@@ -170,9 +167,9 @@ Questo articolo illustra come integrare gli avvisi di integrità dei servizi di 
 
 1. Aggiungere all'elenco di **azioni**:
 
-    a. **Tipo di azione:** *Webhook*
+    a. **Tipo di azione:** *webhook*
 
-    b. **Dettagli:** **URL di integrazione** di ServiceNow salvato in precedenza.
+    b. **Dettagli: l'** **URL di integrazione** di ServiceNow salvato in precedenza.
 
     c. **Nome:** nome, alias o identificatore del webhook.
 

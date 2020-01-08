@@ -1,6 +1,6 @@
 ---
-title: file di inclusione
-description: file di inclusione
+title: File di inclusione
+description: File di inclusione
 services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 067ac0f7f000f749f61d302db4c5c6b856e698a2
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 5618757f4bf5eaf1afc5ef0ce1735eb4ae94e1d2
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74875538"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75663039"
 ---
 Raccolta immagini condivise è un servizio che consente di creare struttura e organizzazione in base alle immagini gestite. Le raccolte di immagini condivise forniscono:
 
@@ -96,18 +96,18 @@ Le aree di origine sono elencate nella tabella seguente. Tutte le aree pubbliche
 | Australia centrale     | Cina orientale        | India meridionale        | Europa occidentale        |
 | Australia centrale 2   | Cina orientale 2      | Asia sud-orientale     | Regno Unito meridionale           |
 | Australia orientale        | Cina settentrionale       | Giappone orientale         | Regno Unito occidentale            |
-| Australia sud-orientale   | Cina settentrionale 2     | Giappone occidentale         | US DoD (area centrale)     |
+| Australia sudorientale   | Cina settentrionale 2     | Giappone occidentale         | US DoD (area centrale)     |
 | Brasile meridionale          | Asia orientale         | Corea centrale      | US DoD (area orientale)        |
-| Canada centrale        | Stati Uniti Orientali           | Corea meridionale        | US Gov Arizona     |
+| Canada centrale        | Stati Uniti orientali           | Corea meridionale        | US Gov Arizona     |
 | Canada orientale           | Stati Uniti orientali 2         | Stati Uniti centro-settentrionali   | US Gov Texas       |
-| India centrale         | Stati Uniti orientali 2 EUAP    | Europa settentrionale       | US Gov Virginia    |
+| India centrale         | Stati Uniti orientali 2 EUAP    | Europa settentrionale       | Governo degli Stati Uniti - Virginia    |
 | Stati Uniti centrali            | Francia centrale    | Stati Uniti centro-meridionali   | India occidentale         |
 | Stati Uniti centrali EUAP       | Francia meridionale      | Stati Uniti centro-occidentali    | Stati Uniti occidentali            |
 |                       |                   |                    | Stati Uniti occidentali 2          |
 
 
 
-## <a name="limits"></a>limiti 
+## <a name="limits"></a>Limiti 
 
 Per la distribuzione delle risorse tramite le raccolte di immagini condivise sono previsti limiti, per sottoscrizione:
 - 100 raccolte di immagini condivise, per sottoscrizione, per area
@@ -150,8 +150,8 @@ Poiché la raccolta di immagini condivise, la definizione di immagine e la versi
 
 | Condivisi con l'utente     | Raccolta immagini condivisa | Definizione delle immagini | Versione dell'immagine |
 |----------------------|----------------------|--------------|----------------------|
-| Raccolta immagini condivisa | SÌ                  | SÌ          | SÌ                  |
-| Definizione delle immagini     | No                   | SÌ          | SÌ                  |
+| Raccolta immagini condivisa | Sì                  | Sì          | Sì                  |
+| Definizione delle immagini     | No                   | Sì          | Sì                  |
 
 Per un'esperienza ottimale, è consigliabile condividere a livello di raccolta. Non è consigliabile condividere le singole versioni dell'immagine. Per altre informazioni su RBAC, vedere [gestire l'accesso alle risorse di Azure con RBAC](../articles/role-based-access-control/role-assignments-portal.md).
 
@@ -239,9 +239,9 @@ Per elencare tutte le risorse della raccolta immagini condivise tra le sottoscri
  
 Sì. Esistono tre scenari in base ai tipi di immagini che si possono avere.
 
- Scenario 1: se si dispone di un'immagine gestita, è possibile creare una definizione di immagine e una versione dell'immagine a partire da essa.
+ Scenario 1: se si dispone di un'immagine gestita nella stessa sottoscrizione del SIG, è possibile creare una definizione di immagine e una versione dell'immagine.
 
- Scenario 2: se si dispone di un'immagine non gestita, è possibile creare un'immagine gestita e quindi creare una definizione di immagine e una versione dell'immagine. 
+ Scenario 2: se si dispone di un'immagine non gestita nella stessa sottoscrizione del SIG, è possibile creare un'immagine gestita e quindi creare una definizione di immagine e una versione dell'immagine. 
 
  Scenario 3: se si dispone di un disco rigido virtuale nel file system locale, è necessario caricare il disco rigido virtuale in un'immagine gestita, quindi è possibile creare una definizione di immagine e una versione dell'immagine.
 

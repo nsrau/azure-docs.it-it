@@ -1,19 +1,16 @@
 ---
-title: Inviare gli avvisi di integrità servizio di Azure con PagerDuty usando i webhook
+title: Inviare avvisi di integrità dei servizi di Azure con PagerDuty
 description: Ricevere notifiche personalizzate sugli eventi di integrità del servizio nell'istanza di PagerDuty.
-author: stephbaron
-ms.author: stbaron
 ms.topic: article
-ms.service: service-health
 ms.date: 06/10/2019
-ms.openlocfilehash: ab3bcffb6453b284c3c8bb0d0373c7155fe8ef23
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 746113622b746949a0fae3fd0d7f1f9c7d170707
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067144"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551653"
 ---
-# <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>Inviare gli avvisi di integrità servizio di Azure con PagerDuty usando i webhook
+# <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>Inviare avvisi di integrità dei servizi di Azure con PagerDuty usando i webhook
 
 Questo articolo illustra come configurare le notifiche di integrità dei servizi di Azure tramite PagerDuty usando un webhook. Con il tipo di integrazione personalizzata Microsoft Azure di [PagerDuty](https://www.pagerduty.com/) è possibile aggiungere facilmente gli avvisi di integrità dei servizi ai servizi nuovi o esistenti di PagerDuty.
 
@@ -28,9 +25,9 @@ Questo articolo illustra come configurare le notifiche di integrità dei servizi
 
 1.  In **Integration Settings** (Impostazioni di integrazione) selezionare le opzioni seguenti:
 
-    a. **Tipo integrazione**: Microsoft Azure
+    a. **Integration Type** (Tipo di integrazione): Microsoft Azure
 
-    b. **Nome integrazione**: \<Nome\>
+    b. **Integration Name** (Nome integrazione): \<Nome\>
 
     ![Le impostazioni di integrazione in PagerDuty](./media/webhook-alerts/pagerduty-integration-settings.png)
 
@@ -46,9 +43,9 @@ Questo articolo illustra come configurare le notifiche di integrità dei servizi
 
 1. Definire l'elenco di **azioni**:
 
-    a. **Tipo di azione:** *Webhook*
+    a. **Tipo di azione:** *webhook*
 
-    b. **Dettagli:** l**URL di integrazione** di PagerDuty salvato in precedenza.
+    b. **Dettagli: l'** **URL di integrazione** di PagerDuty salvato in precedenza.
 
     c. **Nome:** nome, alias o identificatore del webhook.
 
@@ -63,9 +60,9 @@ Questo articolo illustra come configurare le notifiche di integrità dei servizi
 
 1. Aggiungere all'elenco di **azioni**:
 
-    a. **Tipo di azione:** *Webhook*
+    a. **Tipo di azione:** *webhook*
 
-    b. **Dettagli:** l**URL di integrazione** di PagerDuty salvato in precedenza.
+    b. **Dettagli: l'** **URL di integrazione** di PagerDuty salvato in precedenza.
 
     c. **Nome:** nome, alias o identificatore del webhook.
 

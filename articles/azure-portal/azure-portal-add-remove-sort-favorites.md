@@ -1,25 +1,25 @@
 ---
-title: Aggiungere, rimuovere e ordinare i preferiti in portale di Azure | Microsoft Docs
-description: Informazioni su come aggiungere o rimuovere elementi dall'elenco Preferiti e ordinare l'ordine degli elementi
+title: Aggiungere, rimuovere e disporre i preferiti nei portale di Azure | Microsoft Docs
+description: Informazioni su come aggiungere o rimuovere elementi dall'elenco Preferiti e ridisporre l'ordine degli elementi
 services: azure-portal
-keywords: Preferiti
-author: kfollis
-ms.author: kfollis
-ms.date: 11/01/2019
+keywords: Preferiti, portale
+author: mblythe
+ms.author: mblythe
+ms.date: 12/20/2019
 ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: ''
 manager: mtillman
-ms.openlocfilehash: 51228f4a28b5c6e19bf341b5576540d36bcaae64
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 57ce053f268558886dad33d450d48f9a0889a10a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579592"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640568"
 ---
-# <a name="add-remove-and-sort-favorites"></a>Aggiungere, rimuovere e ordinare i preferiti
+# <a name="add-remove-and-rearrange-favorites"></a>Aggiunta, rimozione e ridisposizione di Preferiti
 
-Aggiungere o rimuovere elementi dall'elenco **Preferiti** in modo che sia possibile passare rapidamente ai servizi usati più spesso. Sono già stati aggiunti alcuni servizi comuni all'elenco **Preferiti** , ma è probabile che si desideri personalizzarli. Si è l'unico utente che vede le modifiche apportate ai **Preferiti**.
+Aggiungere o rimuovere elementi dall'elenco **Preferiti** in modo da poter passare rapidamente ai servizi usati più spesso. Sono già stati aggiunti alcuni servizi comuni all'elenco **Preferiti** , ma è probabile che si desideri personalizzarli. Si è l'unico utente che vede le modifiche apportate ai **Preferiti**.
 
 ## <a name="add-a-favorite"></a>Aggiungi un preferito
 
@@ -51,7 +51,7 @@ Gli elementi elencati in **Preferiti** sono selezionati da **tutti i servizi**. 
 
 2. Nella scheda informazioni selezionare la stella in modo che cambi da riempito a non riempito. Il servizio viene rimosso dall'elenco **Preferiti** .
 
-## <a name="sort-favorites"></a>Ordina Preferiti
+## <a name="rearrange-favorites"></a>Ridisponi Preferiti
 
 È possibile modificare l'ordine in cui sono elencati i servizi preferiti. È sufficiente trascinare e rilasciare la voce di menu in un altro percorso in **Preferiti**.
 

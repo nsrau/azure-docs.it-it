@@ -1,24 +1,15 @@
 ---
-title: Configurare i certificati per le applicazioni Azure Service Fabric in Linux | Microsoft Docs
+title: Configurare i certificati per le applicazioni in Linux
 description: Configurare i certificati per l'app con il runtime di Service Fabric in un cluster Linux
-services: service-fabric
-documentationcenter: NA
-author: JimacoMS2
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/06/2019
 ms.author: pepogors
-ms.openlocfilehash: 8ae25a02e6170972972c5b2b7e159ef39d1a3673
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 802e76614f51e1f6479a311e61a49d83b8125546
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167344"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614588"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Certificati e sicurezza nei cluster Linux
 
@@ -26,7 +17,7 @@ Questo articolo fornisce informazioni sulla configurazione dei certificati X.509
 
 ## <a name="location-and-format-of-x509-certificates-on-linux-nodes"></a>Percorso e formato dei certificati X.509 nei nodi Linux
 
-Service Fabric prevede, in genere, che i certificati X.509 si trovino nella directory */var/lib/sfcerts* dei nodi del cluster Linux. Questa situazione si verifica per i certificati del cluster, i certificati client e così via. In alcuni casi, per i certificati è possibile specificare un percorso diverso dalla cartella *var/lib/sfcerts*. Con i servizi Reliable Services creati usando Service Fabric Java SDK, ad esempio, è possibile specificare un percorso diverso tramite il pacchetto di configurazione (Settings.xml) per alcuni certificati specifici dell'applicazione. Per altre informazioni, vedere [Certificati a cui fa riferimento il pacchetto di configurazione (Settings.xml)](#certificates-referenced-in-the-configuration-package-settingsxml).
+Service Fabric prevede, in genere, che i certificati X.509 si trovino nella directory */var/lib/sfcerts* dei nodi del cluster Linux. Questo vale per i certificati del cluster, i certificati client e così via. In alcuni casi, è possibile specificare un percorso diverso dalla cartella *var/lib/sfcerts* per i certificati. Con i servizi Reliable Services creati usando Service Fabric Java SDK, ad esempio, è possibile specificare un percorso diverso tramite il pacchetto di configurazione (Settings.xml) per alcuni certificati specifici dell'applicazione. Per altre informazioni, vedere [Certificati a cui fa riferimento il pacchetto di configurazione (Settings.xml)](#certificates-referenced-in-the-configuration-package-settingsxml).
 
 Per i cluster Linux, Service Fabric prevede che i certificati siano presenti come un file con estensione pem contenente il certificato e la chiave privata oppure come un file con estensione crt contenente il certificato e un file con estensione key contenente la chiave privata. Tutti i file devono essere in formato PEM. 
 

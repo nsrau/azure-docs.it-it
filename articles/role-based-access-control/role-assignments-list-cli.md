@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 12/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1a58d2170ec1107222f0e37e432063af23743e42
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 12ecca5873ac7c2c3bfa30d4c73c7d8e268aabfb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74710438"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355709"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-azure-cli"></a>Elencare le assegnazioni di ruolo usando l'interfaccia della riga di comando di Azure
 
@@ -37,7 +37,7 @@ Per elencare le assegnazioni di ruolo per un utente specifico, usare [az role as
 az role assignment list --assignee <assignee>
 ```
 
-Per impostazione predefinita, verranno visualizzate solo le assegnazioni dirette con ambito alla sottoscrizione. Per visualizzare le assegnazioni con ambito di risorsa o gruppo, utilizzare `--all` e per visualizzare le assegnazioni ereditate, utilizzare `--include-inherited`.
+Per impostazione predefinita, verranno visualizzate solo le assegnazioni di ruolo per la sottoscrizione corrente. Per visualizzare le assegnazioni di ruolo per la sottoscrizione corrente e di seguito, aggiungere il parametro `--all`. Per visualizzare le assegnazioni di ruolo ereditate, aggiungere il parametro `--include-inherited`.
 
 Nell'esempio seguente vengono elencate le assegnazioni di ruolo assegnate direttamente all'utente *patlong\@contoso.com* :
 
@@ -110,6 +110,30 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
 ```Example
 az role assignment list --scope /providers/Microsoft.Management/managementGroups/marketing-group --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
 ```
+
+## <a name="list-role-assignments-for-a-managed-identity"></a>Elencare le assegnazioni di ruolo per un'identità gestita
+
+1. Ottenere l'ID oggetto dell'identità gestita assegnata dal sistema o dall'utente. 
+
+    Per ottenere l'ID oggetto di un'identità gestita assegnata dall'utente, è possibile usare [AZ ad SP list](/cli/azure/ad/sp#az-ad-sp-list) o [AZ Identity list](/cli/azure/identity#az-identity-list).
+
+    ```azurecli
+    az ad sp list --display-name "<name>" --query [].objectId --output tsv
+    ```
+
+    Per ottenere l'ID oggetto di un'identità gestita assegnata dal sistema, è possibile usare [AZ ad SP list](/cli/azure/ad/sp#az-ad-sp-list).
+
+    ```azurecli
+    az ad sp list --display-name "<vmname>" --query [].objectId --output tsv
+    ```
+
+1. Per elencare le assegnazioni di ruolo, usare [AZ Role Assignment list](/cli/azure/role/assignment#az-role-assignment-list).
+
+    Per impostazione predefinita, verranno visualizzate solo le assegnazioni di ruolo per la sottoscrizione corrente. Per visualizzare le assegnazioni di ruolo per la sottoscrizione corrente e di seguito, aggiungere il parametro `--all`. Per visualizzare le assegnazioni di ruolo ereditate, aggiungere il parametro `--include-inherited`.
+
+    ```azurecli
+    az role assignment list --assignee <objectid>
+    ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

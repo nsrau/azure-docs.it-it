@@ -1,25 +1,14 @@
 ---
-title: Distribuire rapidamente un'app esistente in un cluster di Azure Service Fabric
+title: Distribuire rapidamente un'app esistente in un cluster
 description: Usare un cluster di Azure Service Fabric per ospitare un'applicazione Node.js esistente con Visual Studio.
-services: service-fabric
-documentationcenter: nodejs
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/06/2017
-ms.author: atsenthi
-ms.openlocfilehash: 6cf9594e6e1db3e163d25843b1fec0c0ff98c250
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 9153fc4cd60cb892532db49bf4339b517320b1a6
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68592460"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614843"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Ospitare un'applicazione Node.js in Azure Service Fabric
 
@@ -52,7 +41,7 @@ Nella finestra di dialogo successiva è possibile creare qualsiasi tipo di servi
 
 Assegnare al servizio il nome **MyGuestService** e impostare le opzioni a destra sui valori seguenti:
 
-| Impostazione                   | Value |
+| Impostazione                   | Valore |
 | ------------------------- | ------ |
 | Cartella del pacchetto di codice       | _&lt;cartella con l'app Node.js&gt;_ |
 | Comportamento del pacchetto di codice     | Copia il contenuto della cartella nel progetto |
@@ -106,9 +95,9 @@ Fare clic con il pulsante destro del mouse sul progetto e scegliere **Pubblica**
 
 Selezionare il profilo di destinazione **PublishProfiles\Cloud.xml**.
 
-Se questa operazione non è stata eseguita in precedenza, scegliere un account Azure in cui effettuare la distribuzione. Se non ne è ancora stato [creato][create-account]uno, iscriversi.
+Se questa operazione non è stata eseguita in precedenza, scegliere un account Azure in cui effettuare la distribuzione. Se non ne è ancora stato creato uno, [iscriversi][create-account].
 
-In **Endpoint connessione** selezionare il cluster di Service Fabric in cui eseguire la distribuzione. Se non si dispone di un, selezionare **&lt;Crea nuovo cluster... verrà&gt;** visualizzata la finestra del Web browser per la portale di Azure. Per altre informazioni, vedere [Creare un cluster nel portale](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
+In **Endpoint connessione** selezionare il cluster di Service Fabric in cui eseguire la distribuzione. Se non è disponibile, selezionare **&lt;Crea nuovo cluster...&gt;** che apre la finestra del Web browser al portale di Azure. Per altre informazioni, vedere [Creare un cluster nel portale](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
 
 Quando si crea il cluster di Service Fabric, assicurarsi di impostare **Endpoint personalizzati** su **80**.
 
@@ -126,11 +115,11 @@ Dopo che è stato pubblicato, testare il servizio in un Web browser.
 
 Prima di tutto, aprire il portale di Azure e trovare il servizio di Service Fabric.
 
-Controllare l'indirizzo del servizio nel pannello di panoramica. Usare il nome di dominio della proprietà _Endpoint di connessione client_. Ad esempio `http://mysvcfab1.westus2.cloudapp.azure.com`.
+Controllare l'indirizzo del servizio nel pannello di panoramica. Usare il nome di dominio della proprietà _Endpoint di connessione client_. Ad esempio: `http://mysvcfab1.westus2.cloudapp.azure.com`.
 
 ![Pannello di panoramica di Service Fabric nel portale di Azure][overview]
 
-Passare a questo indirizzo in cui verrà visualizzata la `HELLO WORLD` risposta.
+Passare a questo indirizzo per visualizzare la risposta `HELLO WORLD`.
 
 ## <a name="delete-the-cluster"></a>Eliminare il cluster
 

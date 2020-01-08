@@ -1,31 +1,24 @@
 ---
-title: Suggerimenti per i test di benchmark delle prestazioni per Azure NetApp Files | Microsoft Docs
-description: Fornisce consigli di test di benchmark per le metriche e le prestazioni del volume usando Azure NetApp Files.
-services: azure-netapp-files
-documentationcenter: ''
+title: Test di benchmark delle prestazioni consigliati-Azure NetApp Files
+description: Informazioni sulle raccomandazioni per i test di benchmark per le prestazioni e le metriche del volume usando Azure NetApp Files.
 author: b-juche
-manager: ''
-editor: ''
-ms.assetid: ''
+ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/07/2019
-ms.author: b-juche
-ms.openlocfilehash: 1969b3c237a4133df6f53bd6426ca4d50581cbcb
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 8f354152c23dd7ad0413f27585d724f8070ca003
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881727"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551523"
 ---
-# <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Suggerimenti per i test di benchmark delle prestazioni per Azure NetApp Files
+# <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Raccomandazioni sui test di benchmark delle prestazioni per Azure NetApp Files
 
 Questo articolo fornisce consigli per i test di benchmark per le prestazioni e le metriche del volume usando Azure NetApp Files.
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Per comprendere le caratteristiche di prestazioni di un volume di Azure NetApp Files, è possibile usare lo strumento [fio](https://github.com/axboe/fio) open source per eseguire una serie di benchmark per simulare un'ampia gamma di carichi di lavoro. FIO può essere installato sia nei sistemi operativi Linux che in quelli basati su Windows.  Si tratta di uno strumento eccellente per ottenere uno snapshot rapido di IOPS e velocità effettiva per un volume.
 
@@ -51,21 +44,21 @@ FIO è disponibile in formato binario per Linux e Windows. Seguire la sezione pa
 
 Gli esempi di FIO in questa sezione usano la configurazione seguente:
 * Dimensioni istanza macchina virtuale: D32s_v3
-* Dimensioni e livello di servizio del pool di capacità: Premium/50 TiB
+* Livello di servizio e dimensioni del pool di capacità: Premium/50 TiB
 * Dimensioni quota volume: 48 TiB
 
 Gli esempi seguenti illustrano le letture e le scritture casuali di FIO.
 
-### <a name="fio-8k-block-size-100-random-reads"></a>FIO: Dimensioni blocco 8K 100% letture casuali
+### <a name="fio-8k-block-size-100-random-reads"></a>FIO: dimensioni blocco da 8 KB 100% letture casuali
 
 `fio --name=8krandomreads --rw=randread --direct=1 --ioengine=libaio --bs=8k --numjobs=4 --iodepth=128 --size=4G --runtime=600 --group_reporting`
 
-### <a name="output-68k-read-iops-displayed"></a>Output: 68k di lettura IOPS visualizzati
+### <a name="output-68k-read-iops-displayed"></a>Output: 68K letture IOPS visualizzate
 
 `Starting 4 processes`  
 `Jobs: 4 (f=4): [r(4)][84.4%][r=537MiB/s,w=0KiB/s][r=68.8k,w=0 IOPS][eta 00m:05s]`
 
-### <a name="fio-8k-block-size-100-random-writes"></a>FIO: Dimensioni blocco 8K 100% scritture casuali
+### <a name="fio-8k-block-size-100-random-writes"></a>FIO: dimensioni blocco 8K 100% scritture casuali
 
 `fio --name=8krandomwrites --rw=randwrite --direct=1 --ioengine=libaio --bs=8k --numjobs=4 --iodepth=128  --size=4G --runtime=600 --group_reporting`
 
@@ -78,20 +71,20 @@ Gli esempi seguenti illustrano le letture e le scritture casuali di FIO.
 
 Negli esempi di questa sezione vengono illustrate le operazioni di lettura e scrittura sequenziali di FIO.
 
-### <a name="fio-64k-block-size-100-sequential-reads"></a>FIO: Dimensioni blocco 64K 100% letture sequenziali
+### <a name="fio-64k-block-size-100-sequential-reads"></a>FIO: dimensioni blocco 64K 100% letture sequenziali
 
 `fio --name=64kseqreads --rw=read --direct=1 --ioengine=libaio --bs=64k --numjobs=4 --iodepth=128  --size=4G --runtime=600 --group_reporting`
 
-### <a name="output-118-gbits-throughput-displayed"></a>Output: velocità effettiva 11,8 Gbit/s visualizzata
+### <a name="output-118-gbits-throughput-displayed"></a>Output: la velocità effettiva 11,8 Gbit/s è stata visualizzata
 
 `Starting 4 processes`  
 `Jobs: 4 (f=4): [R(4)][40.0%][r=1313MiB/s,w=0KiB/s][r=21.0k,w=0 IOPS][eta 00m:09s]`
 
-### <a name="fio-64k-block-size-100-sequential-writes"></a>FIO: Dimensioni blocco 64K 100% scritture sequenziali
+### <a name="fio-64k-block-size-100-sequential-writes"></a>FIO: dimensioni blocco 64K 100% scritture sequenziali
 
 `fio --name=64kseqwrites --rw=write --direct=1 --ioengine=libaio --bs=64k --numjobs=4 --iodepth=128  --size=4G --runtime=600 --group_reporting`
 
-### <a name="output-122-gbits-throughput-displayed"></a>Output: velocità effettiva 12,2 Gbit/s visualizzata
+### <a name="output-122-gbits-throughput-displayed"></a>Output: la velocità effettiva 12,2 Gbit/s è stata visualizzata
 
 `Starting 4 processes`  
 `Jobs: 4 (f=4): [W(4)][85.7%][r=0KiB/s,w=1356MiB/s][r=0,w=21.7k IOPS][eta 00m:02s]`

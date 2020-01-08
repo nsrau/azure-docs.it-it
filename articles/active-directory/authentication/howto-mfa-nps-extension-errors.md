@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e93666c9a6388fb008bbe85c836d732685ed63a
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a8d67d1d318bf823145a57d2e55774695d151996
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848324"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425308"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Risolvere i messaggi di errore dall'estensione NPS per Multi-Factor Authentication di Azure
 
@@ -95,6 +95,10 @@ Se si verifica uno di questi errori, è consigliabile [contattare il supporto te
 ### <a name="troubleshoot-user-accounts"></a>Risolvere i problemi relativi agli account utente
 
 Se gli utenti hanno [Problemi con la verifica in due passaggi](../user-help/multi-factor-authentication-end-user-troubleshoot.md) è necessario aiutarli a diagnosticare autonomamente i problemi.
+
+### <a name="health-check-script"></a>Script di controllo integrità
+
+Lo [script di controllo integrità dell'estensione NPS di Azure](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb) è disponibile nella raccolta TechNet per eseguire un controllo di integrità di base per la risoluzione dei problemi relativi all'estensione NPS. Eseguire lo script e scegliere l'opzione 3.
 
 ### <a name="contact-microsoft-support"></a>Contattare il supporto Microsoft
 

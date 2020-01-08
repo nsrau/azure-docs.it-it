@@ -2,20 +2,16 @@
 title: Distribuire un modello di Azure Resource Manager in un runbook di Automazione di Azure
 description: Come distribuire un modello di Azure Resource Manager archiviato in Archiviazione di Azure da un runbook
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/16/2018
 ms.topic: conceptual
-manager: carmonm
 keywords: powershell, runbook, json, automazione di azure
-ms.openlocfilehash: 922a4e8d98405de9e2b8420da4abf0e157011546
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: d4adbea42cda54380ad32dce40cfa0d8391ee490
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850925"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75366635"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Distribuire un modello di Azure Resource Manager in un runbook PowerShell di Automazione di Azure
 
@@ -238,13 +234,13 @@ Il runbook ottiene il modello di Resource Manager e lo usa per distribuire un nu
 Get-AzureRmStorageAccount
 ```
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 L'operazione è terminata. Sarà ora possibile usare Automazione di Azure, Archiviazione di Azure e modelli di Resource Manager per distribuire tutte le risorse di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni sui modelli di Resource Manager, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+* Per altre informazioni sui modelli di Resource Manager, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/management/overview.md).
 * Per informazioni introduttive su Archiviazione di Azure, vedere [Introduzione ad Archiviazione di Azure](../storage/common/storage-introduction.md).
 * Per trovare altri runbook utili di Automazione di Azure, vedere [Raccolte di runbook e moduli per l'automazione di Azure](automation-runbook-gallery.md).
 * Per trovare altri modelli utili di Resource Manager, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/)

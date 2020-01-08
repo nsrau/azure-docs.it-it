@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 5fa8d3984c758d0bf95372864f3bffeb6f302c83
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8d099d0b8f8e31bf77f5ddfad320ac792c5c01e5
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497816"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529610"
 ---
 # <a name="import-data-module"></a>Modulo Import Data
 
@@ -23,22 +23,22 @@ Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima
 Usare questo modulo per caricare i dati in una pipeline di machine learning da servizi dati cloud esistenti. 
 
 > [!Note]
-> Tutte le funzionalità fornite da questo modulo possono essere eseguite da **archivio dati** e **set** di dati nella pagina di destinazione Workspace. Si consiglia di usare **datastore** e **DataSet** che include funzionalità aggiuntive, ad esempio il monitoraggio dei dati. Per altre informazioni, vedere [How to Access Data](../service/how-to-access-data.md) e [How to register DataSets](../service/how-to-create-register-datasets.md) article.
+> Tutte le funzionalità fornite da questo modulo possono essere eseguite da **archivio dati** e **set** di dati nella pagina di destinazione Workspace. Si consiglia di usare **datastore** e **DataSet** che include funzionalità aggiuntive, ad esempio il monitoraggio dei dati. Per altre informazioni, vedere [How to Access Data](../how-to-access-data.md) e [How to register DataSets](../how-to-create-register-datasets.md) article.
 > Dopo aver registrato un set di dati, è possibile trovarlo nella categoria **datasets** -> **My Datasets** nell'interfaccia della finestra di progettazione. Questo modulo è riservato agli utenti di studio (classico) per un'esperienza familiare. 
 >
 
 Prima di tutto, scegliere l'origine da leggere e completare le impostazioni aggiuntive. Il modulo **Import Data** supporta la lettura dei dati dalle origini seguenti:
 
 - URL tramite HTTP
-- Archiviazione cloud di Azure tramite [**archivi dati**](../service/how-to-access-data.md)
+- Archiviazione cloud di Azure tramite [**archivi dati**](../how-to-access-data.md)
     - Contenitore BLOB di Azure
     - Condivisione file di Azure
     - Azure Data Lake
     - Azure Data Lake Gen2
-    - database SQL di Azure
+    - Database SQL di Azure
     - PostgreSQL di Azure    
 
-Prima di usare l'archiviazione cloud, prima di tutto è necessario registrare un archivio dati nell'area di lavoro Azure Machine Learning. Per ulteriori informazioni, vedere [la pagina relativa alla modalità di accesso ai dati](../service/how-to-access-data.md). 
+Prima di usare l'archiviazione cloud, prima di tutto è necessario registrare un archivio dati nell'area di lavoro Azure Machine Learning. Per ulteriori informazioni, vedere [la pagina relativa alla modalità di accesso ai dati](../how-to-access-data.md). 
 
 Dopo aver definito i dati desiderati e averli connessi all'origine, l' **[importazione dei dati](./import-data.md)** deduce il tipo di dati di ogni colonna in base ai valori che contiene e carica i dati nella pipeline di progettazione. L'output dei **dati di importazione** è un set di dati che può essere usato con qualsiasi pipeline della finestra di progettazione.
 
@@ -70,7 +70,7 @@ Se i dati di origine cambiano, è possibile aggiornare il set di dati e aggiunge
 
     Quando Import data carica i dati nella finestra di progettazione, deduce il tipo di dati di ogni colonna in base ai valori che contiene, numerici o categorici.
 
-    Se è presente un'intestazione, l'intestazione viene utilizzata per assegnare un nome alle colonne del set di dati di output.
+    Se è presente un'intestazione, questa viene usata per assegnare un nome alle colonne dal set di dati di output.
 
     Se nei dati non sono presenti intestazioni di colonna, i nuovi nomi di colonna vengono generati utilizzando il formato col1, Col2,... , Coln *.
 

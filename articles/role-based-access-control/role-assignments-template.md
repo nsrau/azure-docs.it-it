@@ -13,16 +13,16 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a183dc3b318cb9d740fe91bf553dc9f0c7ec99c4
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: ad6c63ee15bc97ddd0ca6432f0b0f7b25a859804
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707821"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462203"
 ---
 # <a name="add-role-assignments-using-azure-rbac-and-azure-resource-manager-templates"></a>Aggiungere assegnazioni di ruolo usando i modelli RBAC e Azure Resource Manager di Azure
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] oltre a usare Azure PowerShell o l'interfaccia della riga di comando di Azure, è possibile assegnare ruoli usando [modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). I modelli possono essere usati per distribuire le risorse in modo coerente e ripetuto. Questo articolo descrive come assegnare i ruoli usando i modelli.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] oltre a usare Azure PowerShell o l'interfaccia della riga di comando di Azure, è possibile assegnare ruoli usando [modelli di Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). I modelli possono essere usati per distribuire le risorse in modo coerente e ripetuto. Questo articolo descrive come assegnare i ruoli usando i modelli.
 
 ## <a name="get-object-ids"></a>Ottenere gli ID oggetto
 
@@ -40,7 +40,7 @@ $objectid = (Get-AzADUser -DisplayName "{name}").id
 objectid=$(az ad user show --id "{email}" --query objectId --output tsv)
 ```
 
-### <a name="group"></a>Group
+### <a name="group"></a>Gruppo
 
 Per ottenere l'ID di un gruppo, è possibile usare i comandi [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup) o [AZ ad Group Show](/cli/azure/ad/group#az-ad-group-show) .
 
@@ -362,6 +362,6 @@ Di seguito viene illustrato un esempio di assegnazione di ruolo Collaboratore a 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Guida introduttiva: Creare e distribuire modelli di Azure Resource Manager con il portale di Azure](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
-- [Comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
+- [Comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 - [Creare gruppi di risorse e risorse a livello di sottoscrizione](../azure-resource-manager/deploy-to-subscription.md)
-- [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?term=rbac)
+- [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?term=rbac)

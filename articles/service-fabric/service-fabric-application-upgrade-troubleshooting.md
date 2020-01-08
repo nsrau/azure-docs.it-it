@@ -1,25 +1,14 @@
 ---
-title: Risoluzione dei problemi di aggiornamento delle applicazioni | Documentazione Microsoft
+title: Risoluzione dei problemi di aggiornamento delle applicazioni
 description: Questo articolo descrive alcuni problemi comuni relativi all'aggiornamento di un'applicazione di Service Fabric e come risolverli.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: 19ad152e-ec50-4327-9f19-065c875c003c
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: f5df528c7e46a5cb2a5df98f0088a451eb08cd6a
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: d462f2c2482e0fbb4d252967754a9675ed362674
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167524"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75377923"
 ---
 # <a name="troubleshoot-application-upgrades"></a>Risolvere i problemi relativi agli aggiornamenti delle applicazioni
 
@@ -223,9 +212,9 @@ Il tempo per il completamento dell'aggiornamento dipende dai controlli di integr
 
 Segue un rapido ripasso sull'interazione dei timeout con i tempi di aggiornamento:
 
-Gli aggiornamenti di un dominio di aggiornamento non possono completarsi in tempi più rapidi della somma dei valori di *HealthCheckWaitDuration*  +  *HealthCheckStableDuration*.
+Gli aggiornamenti di un dominio di aggiornamento non possono completarsi in tempi più rapidi della somma dei valori di *HealthCheckWaitDuration* + *HealthCheckStableDuration*.
 
-Un errore di aggiornamento non può verificarsi in tempi più rapidi della somma dei valori di *HealthCheckWaitDuration*  +  *HealthCheckRetryTimeout*.
+Un errore di aggiornamento non può verificarsi in tempi più rapidi della somma dei valori di *HealthCheckWaitDuration* + *HealthCheckRetryTimeout*.
 
 Il tempo di aggiornamento di un dominio di aggiornamento è limitato da *UpgradeDomainTimeout*.  Se i valori di *HealthCheckRetryTimeout* e *HealthCheckStableDuration* sono entrambi diversi da zero e l'integrità dell'applicazione continua a oscillare, si verifica il timeout dell'aggiornamento in *UpgradeDomainTimeout*. *UpgradeDomainTimeout* inizia il conto alla rovescia dopo l'avvio dell'aggiornamento del dominio di aggiornamento corrente.
 

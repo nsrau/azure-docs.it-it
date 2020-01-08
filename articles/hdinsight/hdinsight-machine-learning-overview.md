@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: 4a1e621570f3bf5fdb78a2fd7b29ce0d1b51187f
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 679b59ac786f863c8a5f34aec71f51c5dc75a167
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951786"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608704"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Machine Learning in HDInsight
 
@@ -53,8 +53,8 @@ A sostegno del proprio impegno nel campo dell'apprendimento avanzato, Microsoft 
 
 ### <a name="scenarios"></a>Scenari
 
-* [Apache Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](spark/apache-spark-ipython-notebook-machine-learning.md) (Apache Spark con Machine Learning: usare Spark in HDInsight per analizzare la temperatura di un edificio usando dati HVAC)
-* [Apache Spark con Machine Learning: utilizzare Spark in HDInsight per stimare i risultati dell'ispezione cibo](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark con Machine Learning: utilizzare Spark in HDInsight per l'analisi della temperatura di compilazione utilizzando dati HVAC](spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark con Machine Learning: utilizzare Spark in HDInsight per prevedere i risultati di un controllo alimentare](spark/apache-spark-machine-learning-mllib-ipython.md)
 * [Generare raccomandazioni di film con Apache Mahout](hadoop/apache-hadoop-mahout-linux-mac.md)
 * [Apache Hive e Azure Machine Learning](../machine-learning/team-data-science-process/create-features-hive.md)
 * [Apache Hive e Azure Machine Learning end-to-end](../machine-learning/team-data-science-process/hive-walkthrough.md)
@@ -64,4 +64,4 @@ A sostegno del proprio impegno nel campo dell'apprendimento avanzato, Microsoft 
 
 * [Usare Microsoft Cognitive Toolkit modello di apprendimento avanzato con Azure HDInsight Spark cluster](spark/apache-spark-microsoft-cognitive-toolkit.md)
 * [Usare Caffe in Azure HDInsight Spark per l'apprendimento avanzato distribuito](spark/apache-spark-deep-learning-caffe.md)
-* [Apprendimento avanzato e Framework di intelligenza artificiale nella Data Science Virtual Machine (DSVM)](../machine-learning/data-science-virtual-machine/dsvm-deep-learning-ai-frameworks.md)
+* [Apprendimento avanzato e Framework di intelligenza artificiale nella Data Science Virtual Machine (DSVM)](../machine-learning/data-science-virtual-machine/dsvm-tools-deep-learning-frameworks.md)

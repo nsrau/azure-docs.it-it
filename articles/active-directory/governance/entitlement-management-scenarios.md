@@ -1,5 +1,5 @@
 ---
-title: Scenari comuni di gestione dei diritti Azure AD-Azure Active Directory
+title: Scenari comuni di gestione dei diritti-Azure AD
 description: Informazioni sulle procedure di alto livello da seguire per gli scenari comuni di gestione dei diritti Azure Active Directory.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/28/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24d2dc82d0e81c9ac374d96387677774dc916b8c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: d780e6e11d2c067261f6862e1678ef5de0aaa9bb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73173494"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422513"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management"></a>Scenari comuni di gestione dei diritti Azure AD
 

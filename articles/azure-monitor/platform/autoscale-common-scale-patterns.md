@@ -1,19 +1,15 @@
 ---
 title: Panoramica di modelli comuni di scalabilità automatica
 description: Informazioni su alcuni modelli comuni per la scalabilità automatica delle risorse in Azure.
-author: anirudhcavale
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/07/2017
-ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 8356a8c8c31a043197485b4913b4a67d7d719778
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a77cf1704c20abb77d432eab16569071208f6da8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60534223"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75396103"
 ---
 # <a name="overview-of-common-autoscale-patterns"></a>Panoramica di modelli comuni di scalabilità automatica
 Questo articolo descrive alcuni modelli comuni per la scalabilità delle risorse in Azure.
@@ -22,7 +18,7 @@ La scalabilità automatica di Monitoraggio di Azure si applica solo a [set di sc
 
 ## <a name="lets-get-started"></a>Introduzione
 
-Questo articolo presuppone che l'utente abbia familiarità con la scalabilità automatica. È disponibile un'[introduzione alla scalabilità della risorsa][1]. Di seguito sono indicati alcuni modelli comuni di scalabilità.
+Questo articolo presuppone che l'utente abbia familiarità con la scalabilità automatica. È possibile [iniziare da qui per ridimensionare la risorsa][1]. Di seguito sono indicati alcuni modelli comuni di scalabilità.
 
 ## <a name="scale-based-on-cpu"></a>Scalabilità in base alla CPU
 
@@ -54,9 +50,9 @@ Questo articolo presuppone che l'utente abbia familiarità con la scalabilità a
 
 ## <a name="scale-based-on-custom-metric"></a>Scalabilità in base a metriche personalizzate
 
-È necessario un front-end web e un livello di API che comunica con il back-end.
+Si dispone di un front-end Web e di un livello API che comunica con il back-end.
 
-- Si vuole ridimensionare il livello API in base agli eventi personalizzati nel front-end. Ad esempio, si intende ridimensionare il processo di completamento della transazione in base al numero di elementi nel carrello).
+- Si vuole ridimensionare il livello API in base a eventi personalizzati nel front-end, ad esempio si vuole ridimensionare il processo di completamento della transazione in base al numero di articoli contenuti nel carrello acquisti.
 
 ![Scalabilità in base a metriche personalizzate][5]
 

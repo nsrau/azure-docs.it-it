@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/12/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc0d22e2e6478c265ba9219ae4df5d5ddb34d481
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 52faa2b6167606a46bf189d514a1eb314b443783
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803887"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424929"
 ---
 # <a name="conditional-access-require-mfa-for-all-users"></a>Accesso condizionale: richiedere l'autenticazione a più fattori per tutti gli utenti
 
@@ -57,8 +57,24 @@ La procedura seguente consente di creare un criterio di accesso condizionale per
 1. Confermare le impostazioni e impostare **Abilita criterio** **su on**.
 1. Selezionare **Crea** per creare per abilitare i criteri.
 
+### <a name="named-locations"></a>Posizioni specifiche
+
+Le organizzazioni possono scegliere di incorporare i percorsi di rete noti, detti **località denominate** , ai criteri di accesso condizionale. Queste località denominate possono includere reti IPv4 attendibili come quelle per una sede centrale. Per ulteriori informazioni sulla configurazione delle località denominate, vedere l'articolo [Qual è la condizione di posizione in Azure Active Directory l'accesso condizionale?](location-condition.md)
+
+Nei criteri di esempio precedenti, un'organizzazione può scegliere di non richiedere l'autenticazione a più fattori per l'accesso a un'app Cloud dalla propria rete aziendale. In questo caso, è possibile aggiungere la configurazione seguente ai criteri:
+
+1. In **assegnazioni**selezionare **condizioni** > **percorsi**.
+   1. Configurare **Sì**.
+   1. Includere **qualsiasi percorso**.
+   1. Escludere **tutti i percorsi attendibili**.
+   1. Selezionare **Operazione completata**.
+1. Selezionare **Operazione completata**.
+1. **Salvare** le modifiche apportate ai criteri.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Criteri comuni di accesso condizionale](concept-conditional-access-policy-common.md)
+
+[Determinare l'effetto usando la modalità solo report di accesso condizionale](howto-conditional-access-report-only.md)
 
 [Simulare il comportamento di accesso usando lo strumento di What If dell'accesso condizionale](troubleshoot-conditional-access-what-if.md)

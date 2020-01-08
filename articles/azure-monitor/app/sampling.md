@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
-ms.openlocfilehash: 4b0dca1215cfecea5c9943bd27ee8a5c1de45311
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: d88df0c7e17d297162a1921021b89f02077c2ac7
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893366"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75560386"
 ---
 # <a name="sampling-in-application-insights"></a>Campionamento in Application Insights
 
@@ -361,7 +361,7 @@ Usare questo tipo di campionamento se l'app spesso supera la quota mensile e non
 
 Impostare la frequenza di campionamento nella pagina Utilizzo e costi stimati:
 
-![Nel pannello Panoramica sull'applicazione fare clic su Impostazioni, Quota, Esempi e quindi selezionare una frequenza di campionamento e fare clic su Aggiorna.](./media/sampling/04.png)
+![Nel pannello Panoramica sull'applicazione fare clic su Impostazioni, Quota, Esempi e quindi selezionare una frequenza di campionamento e fare clic su Aggiorna.](./media/sampling/data-sampling.png)
 
 Come in altri tipi di campionamento, l'algoritmo consente di mantenere gli elementi di telemetria correlati. Ad esempio, quando si controllano i dati di telemetria nella ricerca, sarà possibile trovare la richiesta correlata a una particolare eccezione. I conteggi di metrica, ad esempio la frequenza delle richieste e delle eccezioni, vengono mantenuti correttamente.
 
@@ -543,7 +543,7 @@ Seguire le istruzioni di questo per configurare [il](https://docs.microsoft.com/
         {
             if(somecondition)
             {
-                ((ISupportSampling)item).SamplingPercentage = 100;
+                ((ISupportSampling)telemetry).SamplingPercentage = 100;
             }
         }
       }

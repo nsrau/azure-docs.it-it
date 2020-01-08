@@ -1,17 +1,17 @@
 ---
-title: Elaborazione di database serverless - Funzioni di Azure e Azure Cosmos DB
+title: Elaborazione di database senza server con funzioni Azure Cosmos DB e di Azure
 description: Informazioni su come Funzioni di Azure e Azure Cosmos DB possono essere usati insieme per creare app di elaborazione senza server guidate dagli eventi.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: sngun
-ms.openlocfilehash: e1014c710d892e45f09999db22b1f59c0bb36300
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4ae2cc33275702a0d549f4e994a597614191b3e3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614591"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444868"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Elaborazione di database serverless con Azure Cosmos DB e Funzioni di Azure
 
@@ -19,7 +19,7 @@ L'elaborazione senza server consiste nella possibilità di concentrarsi sulle si
 
 Grazie all'integrazione nativa tra [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) e Funzioni di Azure, è possibile creare trigger database, associazioni di input e output direttamente dall'account di Azure Cosmos DB. Con Funzioni di Azure e Azure Cosmos DB, è possibile creare e distribuire app senza server guidate da eventi con accesso a bassa latenza a dati dettagliati per una base utenti globale.
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Funzioni di Azure e Azure Cosmos DB consentono di integrare i database e le app senza server nei modi seguenti:
 

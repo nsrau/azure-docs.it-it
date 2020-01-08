@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 08/29/2019
-ms.openlocfilehash: ff0896498c0270b8eb43b762228916985f924def
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 7d9c966051c2756d7936fa079a0aac68e694425d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678315"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407535"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatizzare i processi di Azure Application Insights con il connettore per Microsoft Flow
 
@@ -41,7 +41,7 @@ In questa esercitazione si apprenderà come creare un flusso che usa l'algoritmo
 
     ![Impostare la ricorrenza della pianificazione con l'immissione di frequenza e intervallo](./media/automate-with-flow/2-schedule.png)
 
-1. Fare clic su **Create**(Crea).
+1. Fare clic su **Crea**.
 
 ### <a name="step-3-add-an-application-insights-action"></a>Passaggio 3: Aggiungere un'azione di Application Insights
 
@@ -52,7 +52,7 @@ In questa esercitazione si apprenderà come creare un flusso che usa l'algoritmo
 
 3. Selezionare **Nuovo passaggio**.
 
-### <a name="step-4-connect-to-an-application-insights-resource"></a>Passaggio 4: Connettersi a una risorsa di Application Insights
+### <a name="step-4-connect-to-an-application-insights-resource"></a>Passaggio 4: Connettersi a una risorsa di Application Insightss
 
 Per completare questo passaggio, sono necessari un ID applicazione e una chiave API per la risorsa. È possibile recuperare queste informazioni dal portale di Azure, come illustrato nell'immagine seguente:
 
@@ -66,7 +66,7 @@ Specificare un nome per la connessione, con l'ID applicazione e la chiave API.
 
 Se la casella connessione non viene visualizzata immediatamente e passa direttamente all'immissione della query, fare clic sui puntini di sospensione nella parte superiore destra della casella. Selezionare quindi connessioni personali o utilizzarne una esistente.
 
-Fare clic su **Create**(Crea).
+Fare clic su **Crea**.
 
 ### <a name="step-5-specify-the-analytics-query-and-chart-type"></a>Passaggio 5: Specificare la query e il tipo di grafico di Analisi
 Questa query di esempio seleziona le richieste non riuscite entro l'ultimo giorno e le correla alle eccezioni che si sono verificate durante l'operazione. La correlazione eseguita da Analisi si basa sull'identificatore operation_Id. La query segmenta quindi i risultati usando l'algoritmo di cluster automatico.
@@ -91,7 +91,7 @@ Quando si creano query, verificare che funzionino correttamente in Analisi prima
 ### <a name="step-6-configure-the-flow-to-send-email"></a>Passaggio 6: Configurare il flusso per l'invio tramite posta elettronica
 
 1. Cercare **Office 365 Outlook**.
-2. Fare clic su **Office 365 Outlook - Send an email** (Office 365 Outlook: invia un messaggio di posta elettronica).
+2. Fare clic su **Office 365 Outlook - Send an email** (Office 365 Outlook - Invia un messaggio di posta elettronica).
 
     ![Finestra di selezione di Office 365 Outlook](./media/automate-with-flow/6-outlook.png)
 
@@ -117,9 +117,9 @@ Quando si creano query, verificare che funzionino correttamente in Analisi prima
 
 ### <a name="step-7-save-and-test-your-flow"></a>Passaggio 7: Salvare e testare il flusso
 
-Fare clic su **Salva**
+Fare clic su **Salva**.
 
-È possibile attendere che il trigger esegua l'azione oppure fare clic sull'icona ![beaker test ](./media/automate-with-flow/testicon.png) **test** nella parte superiore.
+È possibile attendere che il trigger esegua l'azione oppure fare clic sull'icona ![test del becher](./media/automate-with-flow/testicon.png) **test** nella parte superiore.
 
 Dopo aver selezionato il **test**:
 

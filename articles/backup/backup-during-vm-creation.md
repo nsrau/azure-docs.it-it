@@ -3,12 +3,12 @@ title: Abilitare il backup quando si crea una macchina virtuale di Azure
 description: Viene descritto come abilitare il backup quando si crea una macchina virtuale di Azure con backup di Azure.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: f34c5dd8cfdc94775b9bd9a896b4cfbe4154ecf8
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 0cfea6579791c4fd23c1b7acdfe722d57b5ec2fd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172364"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449944"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Abilitare il backup quando si crea una macchina virtuale di Azure
 
@@ -20,7 +20,7 @@ Questo articolo illustra come abilitare il backup quando si crea una macchina vi
 
 - [Controllare](backup-support-matrix-iaas.md#supported-backup-actions) quali sistemi operativi sono supportati se si Abilita il backup quando si crea una macchina virtuale.
 
-## <a name="sign-in-to-azure"></a>Accedere ad Azure
+## <a name="sign-in-to-azure"></a>Accedere a Azure
 
 Se non è già stato effettuato l'accesso al proprio account, accedere al [portale di Azure](https://portal.azure.com).
 
@@ -48,8 +48,22 @@ Se non è già stato effettuato l'accesso al proprio account, accedere al [porta
 
       ![Criteri di backup predefiniti](./media/backup-during-vm-creation/daily-policy.png)
 
-> [!NOTE]
-> Il servizio backup di Azure crea un gruppo di risorse distinto (diverso dal gruppo di risorse VM) per archiviare gli snapshot, con il formato di denominazione **AzureBackupRG_geography_number** (ad esempio: AzureBackupRG_northeurope_1). I dati in questo gruppo di risorse verranno conservati per la durata in giorni, come specificato nella sezione *Mantieni snapshot Instant Recovery* del criterio di backup della macchina virtuale di Azure.  L'applicazione di un blocco a questo gruppo di risorse può causare errori di backup. <br> Questo gruppo di risorse deve essere escluso da qualsiasi restrizione relativa a nome/tag poiché i criteri di restrizione bloccano la creazione di raccolte di punti risorse in un nuovo errore causando errori di backup.
+## <a name="azure-backup-resource-group-for-virtual-machines"></a>Gruppo di risorse di backup di Azure per le macchine virtuali
+
+Il servizio di backup crea un gruppo di risorse separato (RG), diverso dal gruppo di risorse della macchina virtuale in cui archiviare la raccolta di punti di ripristino (RPC). La RPC ospita i punti di ripristino istantaneo delle macchine virtuali gestite. Il formato di denominazione predefinito del gruppo di risorse creato dal servizio di backup è: `AzureBackupRG_<Geo>_<number>`. Ad esempio: *AzureBackupRG_northeurope_1*. È ora possibile personalizzare il nome del gruppo di risorse creato da backup di Azure.
+
+Punti da notare:
+
+1. È possibile usare il nome predefinito del RG oppure modificarlo in base ai requisiti aziendali.
+2. Il modello di nome RG viene fornito come input durante la creazione dei criteri di backup della macchina virtuale. Il nome RG deve avere il formato seguente: `<alpha-numeric string>* n <alpha-numeric string>`. ' n'viene sostituito con un numero intero (a partire da 1) e viene usato per la scalabilità orizzontale se il primo RG è pieno. Un RG può avere un massimo di 600 RPC oggi.
+              ![scegliere il nome durante la creazione dei criteri](./media/backup-during-vm-creation/create-policy.png)
+3. Il modello deve seguire le regole di denominazione RG riportate di seguito e la lunghezza totale non deve superare la lunghezza massima consentita per il nome RG.
+    1. I nomi dei gruppi di risorse consentono solo caratteri alfanumerici, punti, caratteri di sottolineatura, trattini e parentesi. Non possono terminare con un punto.
+    2. I nomi dei gruppi di risorse possono contenere fino a 74 caratteri, inclusi il nome del RG e il suffisso.
+4. La prima `<alpha-numeric-string>` è obbligatoria mentre la seconda dopo ' n'è facoltativa. Questo vale solo se si assegna un nome personalizzato. Se non si immette alcun elemento in nessuna delle caselle di testo, viene usato il nome predefinito.
+5. È possibile modificare il nome del RG modificando il criterio se e quando richiesto. Se viene modificato il modello di nome, il nuovo RPs verrà creato nel nuovo RG. Tuttavia, il precedente RPs si troverà ancora nel vecchio RG e non verrà spostato, perché la raccolta RP non supporta lo spostamento delle risorse. Infine, il RPs verrà sottoposta a Garbage Collection quando i punti scadono.
+![modificare il nome quando si modificano i criteri](./media/backup-during-vm-creation/modify-policy.png)
+6. Si consiglia di non bloccare il gruppo di risorse creato per l'uso da parte del servizio di backup.
 
 ## <a name="start-a-backup-after-creating-the-vm"></a>Avviare un backup dopo la creazione della macchina virtuale
 

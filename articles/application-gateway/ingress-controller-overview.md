@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 9635798720667e38a767f26fc2e5f5374e420059
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 838145f8573e11deff8566c932a9c73c6f59f03b
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795541"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561661"
 ---
 # <a name="what-is-application-gateway-ingress-controller"></a>Che cos'è il controller di ingresso del gateway applicazione?
 Il controller di ingresso del gateway applicazione (AGIC) è un'applicazione Kubernetes, che consente ai clienti di [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) di sfruttare il servizio di bilanciamento del carico L7 del [gateway applicazione](https://azure.microsoft.com/services/application-gateway/) nativo di Azure per esporre il software cloud a Internet. AGIC monitora il cluster Kubernetes in cui è ospitato e aggiorna continuamente un gateway applicazione, in modo che i servizi selezionati siano esposti a Internet.
@@ -28,7 +28,7 @@ L'uso del gateway applicazione oltre a AGIC consente anche di proteggere il clus
 
 ![Gateway applicazione Azure + AKS](./media/application-gateway-ingress-controller-overview/architecture.png)
 
-AGIC viene configurato tramite la [risorsa di ingresso](http://kubernetes.io/docs/user-guide/ingress/)Kubernetes, insieme al servizio e alle distribuzioni/pod. Offre una serie di funzionalità, sfruttando il servizio di bilanciamento del carico L7 del gateway applicazione nativo di Azure. Per citarne alcune:
+AGIC viene configurato tramite la [risorsa di ingresso](https://kubernetes.io/docs/user-guide/ingress/)Kubernetes, insieme al servizio e alle distribuzioni/pod. Offre una serie di funzionalità, sfruttando il servizio di bilanciamento del carico L7 del gateway applicazione nativo di Azure. Ecco alcuni esempi:
   - Routing basato su URL
   - Affinità basata sui cookie
   - Terminazione SSL
@@ -38,7 +38,7 @@ AGIC viene configurato tramite la [risorsa di ingresso](http://kubernetes.io/doc
 
 AGIC è in grado di gestire più spazi dei nomi e ha ProhibitedTargets, il che significa che AGIC può configurare il gateway applicazione in modo specifico per i cluster AKS senza influire su altri backend esistenti. 
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 - [**Distribuzione di Greenfield**](ingress-controller-install-new.md): istruzioni sull'installazione di AGIC, AKS e gateway applicazione in un'infrastruttura Slate vuota.
 - [**Distribuzione di Brownfield**](ingress-controller-install-existing.md): installare AGIC in un gateway applicazione e un servizio contenitore di app esistente.

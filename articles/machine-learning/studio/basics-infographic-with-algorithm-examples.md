@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodc18
 ms.date: 03/04/2019
-ms.openlocfilehash: 75f1424c68f3fe78f0dbf5e729943771ff25a09d
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: b57728b56efc84b903ed442c0dea7e70d4eb5bb2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839705"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454846"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infografica scaricabile: nozioni fondamentali di Machine Learning con esempi di algoritmi
 
@@ -34,8 +34,8 @@ Scaricare questa panoramica infografica di facile comprensione delle nozioni fon
 ## <a name="more-help-with-algorithms-for-beginners-and-advanced-users"></a>Altre informazioni sugli algoritmi per principianti e utenti esperti
 
 * Per una discussione più approfondita sui diversi tipi di algoritmi di Machine Learning, sul loro utilizzo e su come scegliere quello più adatto alla soluzione, vedere [come scegliere gli algoritmi per Microsoft Azure Machine Learning Studio (classico)](algorithm-choice.md).
-* Per un elenco per categoria di tutti gli algoritmi di machine learning disponibili nella versione classica di Machine Learning Studio, vedere [Initialize Model][initialize-model] nell'algoritmo Machine Learning Studio (classico) e nella guida del modulo.
-* Per un elenco alfabetico completo degli algoritmi e dei moduli nella versione classica di Machine Learning Studio, vedere [l'elenco a-Z dei moduli di Machine Learning Studio (classico)][a-z-list] in Machine Learning Studio (classico) e la guida del modulo.
+* Per un elenco per categoria di tutti gli algoritmi di machine learning disponibili in Machine Learning Studio (classico), vedere [Initialize Model][initialize-model] nell'algoritmo Machine Learning Studio (classico) e guida del modulo.
+* Per un elenco alfabetico completo degli algoritmi e dei moduli in Machine Learning Studio (classico), vedere [l'elenco a-Z dei moduli di Machine Learning Studio (classico][a-z-list] ) in Machine Learning Studio (classico) e la guida del modulo.
 * Per una panoramica della Raccolta di intelligenza artificiale per Azure e delle risorse create dalla community disponibili, vedere [Share and discover resources in the Azure AI Gallery](gallery-how-to-use-contribute-publish.md) (Condividere e trovare risorse nella Raccolta di intelligenza artificiale per Azure).
 
 

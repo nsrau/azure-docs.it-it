@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 7224c6a77df496624903830f0a2cbd8d193517cc
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: cab63a17ddfed49684cc37609d9f2ae5bde9bdd3
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178184"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689381"
 ---
 # <a name="ip-addresses-of-azure-api-management"></a>Indirizzi IP di gestione API di Azure
 
@@ -57,17 +57,17 @@ Gli indirizzi IP pubblici faranno parte della risposta:
 
 Nelle [distribuzioni](api-management-howto-deploy-multi-region.md)in più aree ogni distribuzione a livello di area ha un indirizzo IP pubblico.
 
-## <a name="ip-addresses-of-api-management-service-in-vnet"></a>Indirizzi IP del servizio gestione API in VNET
+## <a name="ip-addresses-of-api-management-service-in-vnet"></a>Indirizzi IP del servizio gestione API in VNet
 
 Se il servizio gestione API si trova all'interno di una rete virtuale, avrà due tipi di indirizzi IP: Public e private.
 
-Gli indirizzi IP pubblici vengono usati per la comunicazione interna `3443` sulla porta, per la gestione della configurazione (ad esempio, tramite Azure Resource Manager). Nella configurazione External VNET vengono usati anche per il traffico API di Runtime. Quando una richiesta viene inviata da gestione API a un back-end pubblico (con connessione Internet), un indirizzo IP pubblico sarà visibile come origine della richiesta.
+Gli indirizzi IP pubblici vengono usati per la comunicazione interna sulla porta `3443` per la gestione della configurazione (ad esempio, tramite Azure Resource Manager). Nella configurazione External VNet vengono usati anche per il traffico API di Runtime. Quando una richiesta viene inviata da gestione API a un back-end pubblico (con connessione Internet), un indirizzo IP pubblico sarà visibile come origine della richiesta.
 
 Gli indirizzi IP virtuali privati (VIP) vengono usati per connettersi dall'interno della rete agli endpoint di gestione API: Gateway, portale per sviluppatori e il piano di gestione per l'accesso diretto all'API. È possibile usarli per configurare i record DNS all'interno della rete.
 
 Gli indirizzi di entrambi i tipi vengono visualizzati nel portale di Azure e nella risposta della chiamata API:
 
-![Gestione API nell'indirizzo IP VNET](media/api-management-howto-ip-addresses/vnet-ip.png)
+![Gestione API nell'indirizzo IP VNet](media/api-management-howto-ip-addresses/vnet-ip.png)
 
 
 ```json
@@ -89,6 +89,8 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/
 }
 ```
 
+Gestione API usa un indirizzo IP pubblico per le connessioni all'esterno di VNet e un indirizzo IP privato per le connessioni all'interno di VNet.
+
 ## <a name="ip-addresses-of-consumption-tier-api-management-service"></a>Indirizzi IP del servizio gestione API del livello di consumo
 
 Se il servizio gestione API è un servizio a livello di consumo, non ha un indirizzo IP dedicato. Il servizio del livello a consumo viene eseguito in un'infrastruttura condivisa e senza un indirizzo IP deterministico. 
@@ -102,6 +104,6 @@ Nei livelli Developer, Basic, standard e Premium di gestione API, gli indirizzi 
 * Il servizio viene eliminato e quindi ricreato.
 * La sottoscrizione al servizio viene [sospesa](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) o [avvisata](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states), ad esempio per mancato pagamento, e quindi ripristinata.
 * La rete virtuale di Azure viene aggiunta o rimossa dal servizio.
-* Il servizio gestione API è stato spostato tra la modalità di distribuzione VNET esterna e interna.
+* Il servizio gestione API è stato spostato tra la modalità di distribuzione VNet esterna e interna.
 
 Nelle [distribuzioni](api-management-howto-deploy-multi-region.md)in più aree, l'indirizzo IP regionale viene modificato se un'area viene sgomberata e quindi ripristinata.

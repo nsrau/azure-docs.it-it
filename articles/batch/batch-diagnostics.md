@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: aa86d6cf22562fa1fac7d45de20b28aa0eec33aa
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 616c5df38131d1b28387bcdda02c08b3a6825fb4
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261666"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530817"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Metriche, avvisi e log di Batch per la valutazione diagnostica e il monitoraggio
 
@@ -28,7 +28,7 @@ Questo articolo descrive come monitorare un account Batch tramite le funzionalit
 
 ## <a name="batch-metrics"></a>Metriche di Batch
 
-Le metriche sono dati di telemetria di Azure (chiamati anche contatori delle prestazioni) generati dalle risorse di Azure che vengono usate dal servizio Monitoraggio di Azure. Metriche di esempio di un account Batch sono quelle relative a eventi di creazione di pool, numero di nodi con priorità bassa ed eventi di completamento di attività. 
+Le metriche sono dati di telemetria di Azure (chiamati anche contatori delle prestazioni) generati dalle risorse di Azure che vengono usate dal servizio Monitoraggio di Azure. Tra le metriche di esempio in un account Batch sono incluse quelle relative a eventi di creazione di pool, conteggio di nodi per priorità bassa ed eventi di completamento di attività. 
 
 Vedere l'[elenco delle metriche di Batch supportate](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts).
 
@@ -38,7 +38,7 @@ Le metriche:
 * Vengono generate ogni minuto
 * Non sono automaticamente persistenti, ma hanno una cronologia in sequenza di 30 giorni. È possibile mantenere persistenti le metriche di attività come parte della registrazione diagnostica.
 
-### <a name="view-metrics"></a>Visualizza metriche
+### <a name="view-metrics"></a>Visualizzare le metriche
 
 È possibile visualizzare le metriche per l'account Batch nel portale di Azure. La pagina **Panoramica** per l'account mostra per impostazione predefinita le metriche relative a nodi, core e attività principali. 
 
@@ -130,15 +130,15 @@ insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX
 RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/
 BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 ```
-Ogni `PT1H.json` file BLOB contiene eventi in formato JSON che si sono verificati nell'ora specificata nell'URL BLOB (ad esempio `h=12`,). Durante l'ora odierna, gli eventi vengono aggiunti al `PT1H.json` file non appena si verificano. Il valore dei minuti`m=00`() è `00`sempre, perché gli eventi del log di diagnostica sono suddivisi in singoli BLOB all'ora. Tutte le ore sono in formato UTC.
+Ogni file BLOB `PT1H.json` contiene eventi in formato JSON che si sono verificati nell'ora specificata nell'URL del BLOB, ad esempio `h=12`. Durante l'ora odierna, gli eventi vengono aggiunti al file di `PT1H.json` non appena si verificano. Il valore dei minuti (`m=00`) è sempre `00`, perché gli eventi del log di diagnostica sono suddivisi in singoli BLOB all'ora. Tutte le ore sono in formato UTC.
 
-Di seguito è riportato un esempio `PoolResizeCompleteEvent` di una voce `PT1H.json` in un file di log. Sono incluse informazioni sul numero corrente e di destinazione dei nodi dedicati e con priorità bassa, oltre all'ora di inizio e di fine dell'operazione:
+Di seguito è riportato un esempio di una voce di `PoolResizeCompleteEvent` in un file di log di `PT1H.json`. Sono incluse informazioni sul numero corrente e di destinazione dei nodi dedicati e con priorità bassa, oltre all'ora di inizio e di fine dell'operazione:
 
 ```
 { "Tenant": "65298bc2729a4c93b11c00ad7e660501", "time": "2019-08-22T20:59:13.5698778Z", "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/", "category": "ServiceLog", "operationName": "PoolResizeCompleteEvent", "operationVersion": "2017-06-01", "properties": {"id":"MYPOOLID","nodeDeallocationOption":"Requeue","currentDedicatedNodes":10,"targetDedicatedNodes":100,"currentLowPriorityNodes":0,"targetLowPriorityNodes":0,"enableAutoScale":false,"isAutoPool":false,"startTime":"2019-08-22 20:50:59.522","endTime":"2019-08-22 20:59:12.489","resultCode":"Success","resultMessage":"The operation succeeded"}}
 ```
 
-Per altre informazioni sullo schema dei log di diagnostica nell'account di archiviazione, vedere [Archiviare log di diagnostica di Azure](../azure-monitor/platform/resource-logs-collect-storage.md#schema-of-resource-logs-in-storage-account). Per accedere ai log nell'account di archiviazione a livello di codice, usare le API di Archiviazione. 
+Per altre informazioni sullo schema dei log di diagnostica nell'account di archiviazione, vedere [Archiviare log di diagnostica di Azure](../azure-monitor/platform/resource-logs-collect-storage.md#schema-of-platform-logs-in-storage-account). Per accedere ai log nell'account di archiviazione a livello di codice, usare le API di Archiviazione. 
 
 ### <a name="service-log-events"></a>Eventi del log del servizio
 I log del servizio Azure Batch, se raccolti, contengono gli eventi generati dal servizio Azure Batch durante il ciclo di vita di una singola risorsa di Batch, come un pool o un'attività. Ogni evento generato da Batch viene registrato in formato JSON. Ad esempio, questo è il corpo di un **evento di creazione pool** di esempio:

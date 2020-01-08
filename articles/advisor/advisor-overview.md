@@ -1,21 +1,14 @@
 ---
-title: Presentazione di Azure Advisor | Microsoft Docs
+title: Presentazione di Azure Advisor
 description: Usare Azure Advisor per ottimizzare le distribuzioni di Azure.
-services: advisor
-documentationcenter: NA
-author: sagupt
-ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/01/2019
-ms.author: sagupt
-ms.openlocfilehash: 1a1ed13697d838041d1ac98b966695e24c06edbe
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 600bda282d46f86979d0366719826c3a6c1323e0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74145353"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443086"
 ---
 # <a name="introduction-to-azure-advisor"></a>Presentazione di Azure Advisor
 
@@ -74,7 +67,7 @@ Per posporre o ignorare un consiglio, fare clic sul collegamento **Posponi**. Sp
 
 Per altre informazioni sui consigli di Advisor, vedere:
 
-* [Get started with Advisor](advisor-get-started.md) (Introduzione ad Advisor)
+* [Introduzione ad Advisor](advisor-get-started.md)
 * [Advisor High Availability recommendations](advisor-high-availability-recommendations.md) (Consigli di Advisor sulla disponibilità elevata)
 * [Advisor Security recommendations](advisor-security-recommendations.md) (Consigli di Advisor sulla sicurezza)
 * [Advisor Performance recommendations](advisor-performance-recommendations.md) (Consigli di Advisor sulle prestazioni)

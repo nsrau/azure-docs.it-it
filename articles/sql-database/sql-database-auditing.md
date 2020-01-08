@@ -9,12 +9,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: f36906bfa6bbef43c0e3133bfa1e8a163810086f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 450f40c8ba49028d99143d7cf2b2995eb354f8fd
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928706"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551625"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introduzione al controllo del database SQL
 
@@ -73,7 +73,7 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Passare a **Controllo** nell'intestazione Sicurezza nel riquadro del database SQL o del server.
 
-    <a id="auditing-screenshot"></a>![Riquadro di spostamento][1]
+    <a id="auditing-screenshot"></a>riquadro di spostamento ![][1]
 
 3. Se si preferisce configurare un criterio di controllo del server, è possibile selezionare il collegamento **Visualizza impostazioni del server** nella pagina relativa al controllo del database. Si possono quindi visualizzare o modificare le impostazioni di controllo del server. I criteri di controllo del server si applicano a tutti i database esistenti e ai nuovi database creati in questo server.
 
@@ -98,7 +98,7 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
    > - Il valore predefinito per il periodo di memorizzazione è 0 (conservazione illimitata). È possibile modificare questo valore spostando il dispositivo di scorrimento **conservazione (giorni)** nelle **impostazioni di archiviazione** quando si configura l'account di archiviazione per il controllo.
    > - Se si modifica il periodo di conservazione da 0 (conservazione illimitata) a qualsiasi altro valore, si noti che la conservazione verrà applicata solo ai log scritti dopo la modifica del valore di conservazione (i log scritti durante il periodo in cui la conservazione è stata impostata su illimitata vengono conservati, anche dopo conservazione abilitata)
 
-    ![account di archiviazione](./media/sql-database-auditing-get-started/auditing_select_storage.png)
+    ![archiviazione di Azure](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
 7. Per configurare la scrittura dei log di controllo in un'area di lavoro Log Analytics, selezionare **Log Analytics (anteprima)** e aprire **Dettagli di Log Analytics**. Selezionare o creare l'area di lavoro Log Analytics in cui verranno scritti i log e quindi scegliere **OK**.
 
@@ -108,7 +108,7 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
 
     ![Hub eventi](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
 
-9. Fare clic su **Salva**
+9. Fare clic su **Salva**.
 10. Per personalizzare gli eventi controllati, è possibile usare i [cmdlet PowerShell](#subheading-7) o l'[API REST](#subheading-9).
 11. Dopo aver configurato le impostazioni di controllo, è possibile attivare la nuova funzionalità di rilevamento delle minacce e configurare gli indirizzi di posta elettronica per ricevere gli avvisi di sicurezza. Quando si usa il rilevamento delle minacce, si ricevono avvisi proattivi sulle attività di database anomale che possono indicare potenziali minacce per la sicurezza. Per altre informazioni, vedere [Introduzione al rilevamento delle minacce](sql-database-threat-detection-get-started.md).
 
@@ -243,7 +243,7 @@ Durante la produzione è probabile che periodicamente vengano aggiornate le chia
 - Quando si usa l'autenticazione di AAD, i record degli accessi non riusciti *non* vengono visualizzati nel log di controllo di SQL. Per visualizzare i record di controllo degli accessi non riusciti, è necessario visitare il [portale di Azure Active Directory]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), che registra i dettagli di questi eventi.
 
 
-## <a id="subheading-7"></a>Gestire il controllo del database SQL usando Azure PowerShell
+## <a id="subheading-7"></a>Gestire SQL Server di Azure e il controllo del database usando Azure PowerShell
 
 **Cmdlet PowerShell (incluso il supporto della clausola WHERE per altri filtri)** :
 
@@ -256,7 +256,7 @@ Durante la produzione è probabile che periodicamente vengano aggiornate le chia
 
 Per un esempio di script, vedere [Configurare il controllo del database SQL e il rilevamento delle minacce usando PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
-## <a id="subheading-9"></a>Gestire il controllo del database SQL usando l'API REST
+## <a id="subheading-8"></a>Gestire SQL Server di Azure e il controllo del database tramite l'API REST
 
 **API REST**:
 
@@ -272,7 +272,7 @@ Criteri estesi con il supporto della clausola WHERE per altri filtri:
 - [Ottenere i criteri di controllo *esteso* del database](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [Ottenere i criteri di controllo *estesi* del server](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
-## <a id="subheading-10"></a>Gestire il controllo del database SQL tramite modelli di Azure Resource Manager
+## <a id="subheading-9"></a>Gestire SQL Server di Azure e il controllo del database usando modelli di Azure Resource Manager
 
 È possibile gestire il controllo del database SQL di Azure usando i modelli di [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), come illustrato negli esempi seguenti:
 
@@ -289,10 +289,9 @@ Criteri estesi con il supporto della clausola WHERE per altri filtri:
 [Analyze audit logs and reports]: #subheading-3
 [Practices for usage in production]: #subheading-5
 [Storage Key Regeneration]: #subheading-6
-[Manage SQL database auditing using Azure PowerShell]: #subheading-7
-[Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)
-[Manage SQL database auditing using REST API]: #subheading-9
-[Manage SQL database auditing using ARM templates]: #subheading-10
+[Manage Azure SQL Server and Database auditing using Azure PowerShell]: #subheading-7
+[Manage SQL database auditing using REST API]: #subheading-8
+[Manage Azure SQL Server and Database auditing using ARM templates]: #subheading-9
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png

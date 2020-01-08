@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a6b463c4a1d0e640cc6c2a380ee978fcafa2877e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0bb928fe23fcfc3580b0c3951c48f2636ab86c81
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73670346"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75526703"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Eseguire attività di data science: esplorazione, modellazione e distribuzione
 
@@ -70,7 +70,7 @@ Il numero di algoritmi, il numero di riduzioni per l'ottimizzazione, gli iperpar
 
 Per altre informazioni, vedere [Automated Modeling and Reporting Utility in TDSP Data Science Utilities](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/Modeling) (Modellazione automatizzata e utilità di creazione di report nelle utilità data science di analisi scientifica di TDSP).
 
-### <a name="model-management"></a>Gestione di modelli
+### <a name="model-management"></a>Gestione modelli
 Dopo aver creato più modelli, è in genere necessario usare un sistema per registrarli e gestirli. Solitamente, sono necessari una combinazione di script o API e un database back-end o un sistema di controllo delle versioni. Ecco alcune opzioni che è possibile prendere in considerazione per queste attività di gestione:
 
 1. [Azure Machine Learning - servizio Gestione modelli](../index.yml)
@@ -86,7 +86,7 @@ La distribuzione nell'ambiente di produzione consente di usare attivamente un mo
 Ci sono diversi approcci e piattaforme per usare un modello in ambiente di produzione. Ecco alcune opzioni:
 
 
-- [Distribuzione di modelli in Azure Machine Learning](../service/how-to-deploy-and-where.md)
+- [Distribuzione di modelli in Azure Machine Learning](../how-to-deploy-and-where.md)
 - [Distribuzione di un modello in SQL-server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 

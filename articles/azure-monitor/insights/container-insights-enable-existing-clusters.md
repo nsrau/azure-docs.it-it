@@ -1,18 +1,14 @@
 ---
 title: Monitorare un cluster Azure Kubernetes Service (AKS) distribuito | Microsoft Docs
 description: Informazioni su come abilitare il monitoraggio di un cluster Azure Kubernetes Service (AKS) con monitoraggio di Azure per i contenitori già distribuiti nella sottoscrizione.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 09/12/2019
-ms.openlocfilehash: 5d68c343fee5807c430ce42777b988a48b9227f8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: eced371f7d44b486d671c2c22ca9fbb4c0b65fbb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73478604"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75405484"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Abilitare il monitoraggio del cluster di Azure Kubernetes Service (AKS) già distribuito
 
@@ -45,7 +41,7 @@ provisioningState       : Succeeded
 
 ### <a name="integrate-with-an-existing-workspace"></a>Eseguire l'integrazione con un'area di lavoro esistente
 
-Se si preferisce eseguire l'integrazione con un'area di lavoro esistente, attenersi alla procedura seguente per identificare prima di tutto l'ID risorsa completo dell'area di lavoro Log Analytics necessaria per il parametro `--workspace-resource-id`, quindi eseguire il comando per abilitare il componente aggiuntivo di monitoraggio sul area di lavoro specificata.  
+Se si preferisce eseguire l'integrazione con un'area di lavoro esistente, attenersi alla procedura seguente per identificare prima di tutto l'ID risorsa completo dell'area di lavoro Log Analytics necessaria per il parametro `--workspace-resource-id`, quindi eseguire il comando per abilitare il componente aggiuntivo di monitoraggio per l'area di lavoro specificata.  
 
 1. Elencare tutte le sottoscrizioni a cui si ha accesso usando il comando seguente:
 

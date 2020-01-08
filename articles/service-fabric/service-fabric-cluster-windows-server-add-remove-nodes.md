@@ -1,25 +1,16 @@
 ---
-title: Aggiungere o rimuovere nodi in un cluster di Service Fabric autonomo | Documentazione Microsoft
+title: Aggiungere o rimuovere nodi in un cluster Service Fabric autonomo
 description: Informazioni su come aggiungere o rimuovere nodi in un cluster di Azure Service Fabric su una macchina fisica o virtuale che esegue Windows Server in locale o nel cloud.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: bc6b8fc0-d2af-42f8-a164-58538be38d02
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 585d918026ca40bc1a04c55e2bac454492c55936
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aa9550d1ec6201f7cbaf552fac5f71c875428e21
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711034"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458247"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Aggiungere o rimuovere nodi in un cluster di Service Fabric autonomo eseguito in Windows Server
 Dopo [avere creato il cluster autonomo di Service Fabric in computer Windows Server](service-fabric-cluster-creation-for-windows-server.md) le esigenze aziendali possono cambiare e richiedere l'aggiunta o la rimozione di più nodi nel cluster. Questo articolo riporta i passaggi dettagliati per ottenere questo risultato. Si noti che la funzionalità di aggiunta o rimozione di nodi non è supportata nei cluster di sviluppo locali.
@@ -38,7 +29,7 @@ Dopo [avere creato il cluster autonomo di Service Fabric in computer Windows Ser
     ```
     Al termine dell'esecuzione dello script è possibile eseguire il cmdlet [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) per verificare se il nuovo nodo è stato aggiunto.
 
-7. Per garantire la coerenza tra i diversi nodi del cluster è necessario avviare un aggiornamento della configurazione. Eseguire [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) per ottenere il file di configurazione più recente e includere il nodo appena aggiunto nella sezione "Nodes". È anche consigliabile avere sempre la configurazione di cluster più recente disponibile nel caso in cui si vuole ridistribuire un cluster con la stessa configurazione.
+7. Per garantire la coerenza tra i diversi nodi del cluster è necessario avviare un aggiornamento della configurazione. Eseguire [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) per ottenere il file di configurazione più recente e includere il nodo appena aggiunto nella sezione "Nodes". È inoltre consigliabile che sia sempre disponibile la configurazione del cluster più recente nel caso in cui sia necessario ridistribuire un cluster con la stessa configurazione.
 
     ```
         {

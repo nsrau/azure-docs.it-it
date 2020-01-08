@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e7d181416123c96e2462180a82c6d0b9670ef5fc
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 3b16d7cbba63be9f50b0d186b2162a5755b76802
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687135"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75375016"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerazioni sulla rete per un ambiente del servizio app #
 
-## <a name="overview"></a>Panoramica ##
+## <a name="overview"></a>Overview ##
 
  Azure [ambiente del servizio app][Intro] è una distribuzione di app Azure servizio in una subnet nella rete virtuale di Azure (VNet). È possibile distribuire un ambiente del servizio app in due modi:
 
@@ -122,7 +122,7 @@ Se l'ambiente del servizio app ILB è il nome di dominio *contoso.appserviceenvi
 
 ## <a name="ase-ip-addresses"></a>Indirizzi IP dell'ambiente del servizio app ##
 
-Un ambiente del servizio app ha alcuni indirizzi IP di cui tenere conto. Sono:
+Un ambiente del servizio app ha alcuni indirizzi IP di cui tenere conto. ovvero:
 
 - **Indirizzo IP in ingresso pubblico**: usato per il traffico di app in un ambiente del servizio app esterno e per il traffico di gestione sia per un ambiente del servizio app esterno che con bilanciamento del carico interno.
 - **IP pubblico in uscita**: usato come indirizzo IP di origine per le connessioni in uscita dall'ambiente del servizio app che lasciano la rete virtuale e non vengono indirizzate su una VPN.
@@ -244,7 +244,7 @@ Quando gli endpoint servizio sono abilitati in una subnet con un'istanza di SQL 
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
-[ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
+[ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ss-cert.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md

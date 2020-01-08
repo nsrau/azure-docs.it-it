@@ -10,18 +10,18 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3633ffb09d71bd166cb7366f860662d9b91c7f07
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: cc492b29fd6bc4a820543740e9d1962fc74f2cfc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063405"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425519"
 ---
-# <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Esercitazione: Creare flussi utente in Azure Active Directory B2C
+# <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Esercitazione: creare flussi utente in Azure Active Directory B2C
 
 Nelle applicazioni è possibile che siano presenti [flussi utente](active-directory-b2c-reference-policies.md) che consentono agli utenti di iscriversi, accedere o gestire il proprio profilo. È possibile creare più flussi utente di tipi diversi nel tenant di Azure Active Directory B2C (Azure AD B2C) e usarli nelle applicazioni in base alle esigenze. I flussi utente possono essere usati per più applicazioni.
 
-In questo articolo viene spiegato come:
+In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Creare un flusso utente di iscrizione e accesso
@@ -41,12 +41,12 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 Il flusso utente di iscrizione e accesso consente di gestire le esperienze di iscrizione e accesso tramite una singola configurazione. Gli utenti dell'applicazione vengono indirizzati sul percorso corretto a seconda del contesto.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C selezionando il filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene il tenant.
+1. Selezionare l'icona **directory + sottoscrizione** sulla barra degli strumenti del portale e quindi selezionare la directory che contiene il tenant Azure ad B2C.
 
-    ![Filtro di directory e sottoscrizione con tenant B2C selezionato](./media/tutorial-create-user-flows/switch-directories.PNG)
+    ![Riquadro tenant, directory e sottoscrizione B2C portale di Azure](./media/tutorial-create-user-flows/directory-subscription-pane.png)
 
-1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
-1. Nel menu a sinistra in **criteri**selezionare **flussi utente (criteri)** , quindi selezionare **nuovo flusso utente**.
+1. Nella portale di Azure cercare e selezionare **Azure ad B2C**.
+1. In **criteri**selezionare **flussi utente (criteri)** , quindi selezionare **nuovo flusso utente**.
 
     ![Pagina flussi utente nel portale con il pulsante nuovo flusso utente evidenziato](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
 
@@ -82,8 +82,8 @@ Il flusso utente di iscrizione e accesso consente di gestire le esperienze di is
 
 Se si vuole abilitare nell'applicazione la modifica del profilo da parte degli utenti, usare un flusso utente di modifica del profilo.
 
-1. Nel menu a sinistra della pagina Panoramica del tenant Azure AD B2C selezionare **flussi utente (criteri)** , quindi selezionare **nuovo flusso utente**.
-1. Selezionare il flusso utente di **modifica del profilo** nella scheda Consigliati.
+1. Nel menu della pagina Panoramica del tenant Azure AD B2C selezionare **flussi utente (criteri)** , quindi selezionare **nuovo flusso utente**.
+1. Selezionare il flusso utente per la **modifica del profilo** nella scheda **consigliata** .
 1. Immettere un **nome** per il flusso utente. Ad esempio, *profileediting1*.
 1. Per **Provider di identità** selezionare **Accesso all'account locale**.
 1. Per **Attributi utente** scegliere gli attributi che vuole che il cliente possa modificate nel proprio profilo. Ad esempio, selezionare **Mostra altro**, quindi scegliere sia attributi che attestazioni per **nome visualizzato** e **titolo processo**. Fare clic su **OK**.
@@ -94,14 +94,14 @@ Se si vuole abilitare nell'applicazione la modifica del profilo da parte degli u
 1. Selezionare il flusso utente creato per aprire la relativa pagina Panoramica, quindi selezionare **Esegui flusso utente**.
 1. Per **Applicazione** selezionare l'applicazione Web denominata *webapp1* che è stata registrata in precedenza. L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
 1. Fare clic su **Esegui il flusso utente**, quindi accedere con l'account creato in precedenza.
-1. A questo punto si ha la possibilità di modificare il nome visualizzato e la posizione dell'utente. Scegliere **Continua**. Il token viene restituito a `https://jwt.ms` e dovrebbe essere visualizzato.
+1. A questo punto si ha la possibilità di modificare il nome visualizzato e la posizione dell'utente. Fare clic su **Continua**. Il token viene restituito a `https://jwt.ms` e dovrebbe essere visualizzato.
 
 ## <a name="create-a-password-reset-user-flow"></a>Creare un flusso utente di reimpostazione delle password
 
 Per consentire agli utenti dell'applicazione di reimpostare la password, è possibile usare un flusso utente per la reimpostazione della password.
 
-1. Nel menu a sinistra selezionare **flussi utente (criteri)** , quindi selezionare **nuovo flusso utente**.
-1. Selezionare il flusso utente **Reimpostazione password** nella scheda Consigliati.
+1. Nel menu Panoramica del tenant Azure AD B2C selezionare **flussi utente (criteri)** , quindi selezionare **nuovo flusso utente**.
+1. Selezionare il flusso utente per la **reimpostazione della password** nella scheda **consigliata** .
 1. Immettere un **nome** per il flusso utente. Ad esempio, *passwordreset1*.
 1. Per **Provider di identità** abilitare **Ripristinare la password usando la verifica tramite posta elettronica**.
 1. In Attestazioni dell'applicazione fare clic su **Mostra altro** e scegliere le attestazioni che devono essere restituite nei token di autorizzazione inviati all'applicazione. Selezionare ad esempio **ID oggetto dell'utente**.

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 1e2c899e0ef98266b5afd2f1bf21443a2debd281
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 8b805f01722c58d60e994a3a6b2440bb115b1bfa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666427"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351269"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Domande frequenti sulla migrazione di Archiviazione di Azure
 
@@ -69,7 +69,7 @@ Dopo avere eseguito questo comando, i file contenitore vengono spostati nell'acc
 
 **Come si spostano i dati da un contenitore di archiviazione a un altro?**
 
-Seguire questa procedura:
+A tale scopo, seguire questa procedura:
 
 1.  Creare il contenitore (cartella) nel BLOB di destinazione.
 
@@ -121,7 +121,7 @@ Per altre informazioni, vedere [Trasferire dati con AzCopy in Windows](storage-u
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Seguire questa procedura:
+A tale scopo, seguire questa procedura:
 
 1.  Arrestare la macchina virtuale a cui è collegato il disco gestito.
 
@@ -202,7 +202,7 @@ Per accedere all'archiviazione ridondante, è necessaria l'archiviazione con rid
 
 **Come si effettua il downgrade da un account di archiviazione Premium a un account di archiviazione Standard?**
 
-Seguire questa procedura:
+A tale scopo, seguire questa procedura:
 
 1.  Creare un account di archiviazione standard. In alternativa, usare un account di archiviazione standard esistente nella sottoscrizione.
 
@@ -259,7 +259,7 @@ Per concedere ad altri utenti l'accesso alle risorse di archiviazione:
 
 -   Usare un token di firma di accesso condiviso (SAS) per consentire l'accesso a una risorsa. 
 
--   Fornire a un utente la chiave primaria o secondaria per l'account di archiviazione. Per altre informazioni, vedere [Gestire l'account di archiviazione](storage-account-manage.md#access-keys).
+-   Fornire a un utente la chiave primaria o secondaria per l'account di archiviazione. Per altre informazioni, vedere [gestire le chiavi di accesso all'account di archiviazione](storage-account-keys-manage.md).
 
 -   Modificare i criteri di accesso per consentire l'accesso anonimo. Per altre informazioni, vedere [Concedere le autorizzazioni agli utenti anonimi per contenitori e BLOB](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
 
@@ -275,9 +275,9 @@ Per concedere ad altri utenti l'accesso alle risorse di archiviazione:
 
 -   Se si usa l'archiviazione con ridondanza della zona o l'archiviazione con ridondanza geografica, non è possibile accedere ai dati nell'area secondaria a meno che non si avvii un failover in tale area. Per altre informazioni sul processo di failover, consultare [Disaster recovery and storage account failover (preview) in Azure Storage](storage-disaster-recovery-guidance.md) (Ripristino di emergenza e failover dell'account di archiviazione (anteprima) in Archiviazione di Azure).
 
--   Se si usa l'archiviazione con ridondanza geografica e accesso in lettura, è possibile accedere ai dati dell'area secondaria in qualsiasi momento. Usare uno dei metodi seguenti:  
+-   Se si usa l'archiviazione con ridondanza geografica e accesso in lettura, è possibile accedere ai dati dell'area secondaria in qualsiasi momento. Utilizzare una delle seguenti modalità:  
       
-    - **AzCopy**: aggiungere **-secondary** al nome dell'account di archiviazione nell'URL per accedere all'endpoint secondario. ad esempio:  
+    - **AzCopy**: aggiungere **-secondary** al nome dell'account di archiviazione nell'URL per accedere all'endpoint secondario. Ad esempio:  
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 

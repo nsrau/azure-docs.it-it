@@ -3,21 +3,21 @@ title: Monitorare un servizio cloud di Azure | Microsoft Docs
 description: Descrive cosa comporta monitorare un servizio cloud di Azure e alcune opzioni degli utenti.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: gwallace
-ms.openlocfilehash: ac0ea7557774f0e59cb6a6eca1fc739592ab971d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 096077550a426d7eb77ed0d71e720149dd103a55
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359106"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386069"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Presentazione del monitoraggio del servizio cloud
 
-È possibile monitorare le metriche di prestazioni chiave per qualsiasi servizio cloud. Ogni ruolo del servizio cloud raccoglie dati minimi: utilizzo della CPU, della rete e del disco. Se il servizio cloud ha l'estensione `Microsoft.Azure.Diagnostics` applicata a un ruolo, tale ruolo può raccogliere altri dati. Questo articolo fornisce un'introduzione a Diagnostica di Azure per Servizi cloud.
+È possibile monitorare le metriche di prestazioni chiave per qualsiasi servizio cloud. Ogni ruolo del servizio cloud raccoglie dati minimi: utilizzo della CPU, utilizzo della rete e utilizzo del disco. Se il servizio cloud ha l'estensione `Microsoft.Azure.Diagnostics` applicata a un ruolo, tale ruolo può raccogliere altri dati. Questo articolo fornisce un'introduzione a Diagnostica di Azure per Servizi cloud.
 
 Con il monitoraggio di base, i dati dei contatori delle prestazioni provenienti dalle istanze del ruolo sono campionati e raccolti a intervalli di 3 minuti. Questi dati di monitoraggio di base non vengono salvati nell'account di archiviazione e non hanno alcun costo aggiuntivo.
 
@@ -42,9 +42,9 @@ In fase di creazione, Visual Studio aggiunge a ogni ruolo l'estensione Diagnosti
 * Log applicazioni
 * Log eventi di Windows
 * Origine degli eventi .NET
-* Log di IIS
+* Log IIS
 * ETW basato su manifesto
-* Dump di arresto anomalo del sistema
+* Dump di arresto anomalo
 * Log degli errori dei clienti
 
 > [!IMPORTANT]
@@ -96,4 +96,7 @@ Sebbene sia possibile usare Application Insights per visualizzare i contatori de
 
 - [Informazioni su Application Insights con i Servizi cloud](../azure-monitor/app/cloudservices.md)
 - [Set up performance counters](diagnostics-performance-counters.md) (Impostare i contatori delle prestazioni)
+
+
+
 

@@ -1,7 +1,7 @@
 ---
-title: COLPÌ
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo PERCOSse nel servizio Azure Machine Learning per aumentare il numero di esempi a bassa incidenza in un set di dati usando il sovracampionamento.
+title: SMOTE
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo PERCOSse in Azure Machine Learning per aumentare il numero di esempi a bassa incidenza in un set di dati usando il sovracampionamento.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: d78e3d0d30cc44f2f30b1a856297f2c31d8f8469
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 16ae6775494f9076d442e181f70a2ecde5863dab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717024"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428445"
 ---
-# <a name="smote"></a>COLPÌ
+# <a name="smote"></a>SMOTE
 
 Questo articolo descrive come usare il modulo PERCOSse in Azure Machine Learning Designer (anteprima) per aumentare il numero di case sottorappresentati in un set di dati usato per Machine Learning. PERCOSse è un modo migliore per aumentare il numero di casi rari rispetto alla semplice duplicazione dei case esistenti.  
 
@@ -28,13 +28,13 @@ Il modulo restituisce un set di dati che contiene gli esempi originali. Restitui
 
 La tecnica di sovracampionamento della minoranza sintetica è una tecnica statistica per aumentare il numero di case nel set di dati in modo bilanciato. Il modulo funziona generando nuove istanze da casi di minoranza esistenti forniti come input. Questa implementazione di COLPÌ non *modifica il* numero di case di maggioranza.
 
-Le nuove istanze non sono solo copie di casi di minoranza esistenti. Al contrario, l'algoritmo accetta esempi dello *spazio delle funzionalità* per ogni classe di destinazione e i relativi adiacenti più vicini. L'algoritmo genera quindi nuovi esempi che combinano le funzionalità del case di destinazione con le funzionalità degli elementi adiacenti. Questo approccio aumenta le funzionalità disponibili per ogni classe e rende più generali gli esempi.
+Le nuove istanze non sono solo copie di casi di minoranza esistenti. Al contrario, l'algoritmo accetta esempi dello *spazio delle funzionalità* per ogni classe di destinazione e i relativi adiacenti più vicini. L'algoritmo genera quindi nuovi esempi che combinano le funzionalità del case di destinazione con le funzionalità degli elementi adiacenti. Questo approccio aumenta le caratteristiche disponibili per ciascuna classe e rende i campioni più generali.
   
 PERCOSsa accetta l'intero set di dati come input, ma aumenta la percentuale dei soli casi di minoranza. Si supponga, ad esempio, di disporre di un set di dati sbilanciato in cui solo l'1% dei case dispone del valore di destinazione A (classe di minoranza) e il valore B del 99% dei case. Per aumentare la percentuale di casi di minoranza al doppio della percentuale precedente, immettere **200** per la **percentuale di percosse** nelle proprietà del modulo.  
   
 ## <a name="examples"></a>Esempi  
 
-Si consiglia di provare a usare PERCOSse con un set di dati di piccole dimensioni per verificarne il funzionamento. Nell'esempio seguente viene usato il set di dati della donazione di sangue disponibile in Azure Machine Learning Designer.
+È consigliabile provare a usare SMOTE con un set di dati di dimensioni inferiori per verificarne il funzionamento. Nell'esempio seguente viene usato il set di dati della donazione di sangue disponibile in Azure Machine Learning Designer.
   
 Se si aggiunge il set di dati a una pipeline e si seleziona **Visualizza** nell'output del set di dati, è possibile osservare che le 748 righe o case del set di dati, 570 case (76%) sono della classe 0 e 178 case (24%) sono della classe 1. Sebbene questo risultato non sia terribilmente sbilanciato, la classe 1 rappresenta le persone che hanno donato sangue, quindi queste righe contengono lo *spazio di funzionalità* che si desidera modellare.
  
@@ -73,7 +73,7 @@ Per aumentare il numero di case, è possibile impostare il valore di **colpì la
     > [!NOTE]
     > Usare solo multipli di 100 per la percentuale di PERCOSse.
 
-6.  Usare l'opzione **numero di adiacenti più vicini** per determinare la dimensione dello spazio di funzionalità usato dall'algoritmo colpì per la creazione di nuovi case. Un router adiacente più vicino è una riga di dati (caso) simile a un case di destinazione. La distanza tra due casi viene misurata combinando i vettori ponderati di tutte le funzionalità.  
+6.  Usare l'opzione **numero di adiacenti più vicini** per determinare la dimensione dello spazio di funzionalità usato dall'algoritmo colpì per la creazione di nuovi case. Un router adiacente più vicino è una riga di dati (caso) simile a un case di destinazione. La distanza tra i due casi viene misurata combinando i vettori di peso di tutte le funzioni.  
   
     + Aumentando il numero di adiacenti più vicini, si ottengono funzionalità da più case.
     + Mantenendo il numero degli adiacenti più vicini, è possibile utilizzare le funzionalità più simili a quelle dell'esempio originale.  
@@ -99,5 +99,5 @@ Per aumentare il numero di case, è possibile impostare il valore di **colpì la
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per il servizio Azure Machine Learning. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 
 

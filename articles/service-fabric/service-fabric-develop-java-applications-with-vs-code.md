@@ -1,25 +1,16 @@
 ---
-title: Sviluppare applicazioni Java di Azure Service Fabric con Visual Studio Code | Microsoft Docs
+title: Sviluppare applicazioni Java con Visual Studio Code
 description: Questo articolo illustra come compilare e distribuire applicazioni Java di Service Fabric ed eseguirne il debug usando Visual Studio Code.
-services: service-fabric
-documentationcenter: .net
 author: peterpogorski
-manager: chackdan
-editor: ''
-ms.assetid: 96176149-69bb-4b06-a72e-ebbfea84454b
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: 7f60371fb533526ef5bdb154d0c08dface9c0d1f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 999dbb8c36c4e0413f287b2a73cf39ab4acd15f5
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393953"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610047"
 ---
 # <a name="develop-java-service-fabric-applications-with-visual-studio-code"></a>Sviluppare applicazioni Java di Service Fabric con Visual Studio Code
 
@@ -49,7 +40,7 @@ Aprire Visual Studio Code.  Fare clic sull'icona di esplorazione sulla **barra d
 
 ![Applicazione Java Voting nell'area di lavoro](./media/service-fabric-develop-java-applications-with-vs-code/java-voting-application.png)
 
-## <a name="build-the-application"></a>Compilare l'applicazione.
+## <a name="build-the-application"></a>Compilare l'applicazione
 
 1. In Visual Studio Code premere CTRL+MAIUSC+P per aprire il **riquadro comandi**.
 2. Cercare e selezionare il comando **Service Fabric: Build Application** (Service Fabric: Compila applicazione). L'output della compilazione viene inviato al terminale integrato.
@@ -62,7 +53,7 @@ Dopo aver compilato l'applicazione, è possibile distribuirla nel cluster locale
 > [!IMPORTANT]
 > La distribuzione di applicazioni Java nel cluster locale non è supportata nei computer Windows.
 
-1. Dal **Riquadro comandi** selezionare il comando **Service Fabric: Deploy Application (Localhost)** (Service Fabric: Distribuisci applicazione (localhost)). L'output del processo di installazione viene inviato al terminale integrato.
+1. Dal **riquadro comandi** selezionare il comando **Service Fabric: Deploy Application (Localhost)** (Service Fabric: Distribuisci applicazione - Localhost). L'output del processo di installazione viene inviato al terminale integrato.
 
    ![Comando per la distribuzione dell'applicazione in Visual Studio Code](./media/service-fabric-develop-java-applications-with-vs-code/sf-deploy-application.png)
 
@@ -74,7 +65,7 @@ Dopo aver compilato l'applicazione, è possibile distribuirla nel cluster locale
 
    ![Applicazione Voting nel browser](./media/service-fabric-develop-java-applications-with-vs-code/voting-sample-in-browser.png)
 
-5. Per rimuovere l'applicazione dal cluster, selezionare il **Service Fabric: Rimuovi applicazione** comando il **riquadro comandi**. L'output del processo di disinstallazione viene inviato al terminale integrato. È possibile usare Service Fabric Explorer per verificare che l'applicazione sia stata rimossa dal cluster locale.
+5. Per rimuovere l'applicazione dal cluster, selezionare il comando **Service Fabric: Remove Application** (Service Fabric: Rimuovi applicazione) dal **riquadro comandi**. L'output del processo di disinstallazione viene inviato al terminale integrato. È possibile usare Service Fabric Explorer per verificare che l'applicazione sia stata rimossa dal cluster locale.
 
 ## <a name="debug-the-application"></a>Eseguire il debug dell'applicazione
 Quando si esegue il debug in Visual Studio Code, l'applicazione deve essere in esecuzione su un cluster locale. È quindi possibile aggiungere punti di interruzione al codice.
@@ -105,7 +96,7 @@ Impostare come commento il comando sulla riga 6 usando il simbolo di cancelletto
 
    ![Configurazione di debug per launch.json](./media/service-fabric-develop-java-applications-with-vs-code/launch-json-java.png)
 
-4. Distribuire l'applicazione nel cluster locale tramite la **Service Fabric: Distribuire l'applicazione (Localhost)** comando. Verificare se l'applicazione è in esecuzione in Service Fabric Explorer. L'applicazione è ora pronta per il debug.
+4. Distribuire l'applicazione nel cluster locale tramite il comando **Service Fabric: Deploy Application (Localhost)** (Service Fabric: Distribuisci applicazione - Localhost). Verificare se l'applicazione è in esecuzione in Service Fabric Explorer. L'applicazione è ora pronta per il debug.
 
 Per impostare un punto di interruzione, seguire questa procedura:
 
@@ -127,7 +118,7 @@ Per impostare un punto di interruzione, seguire questa procedura:
    
    ![Disconnessione dal debugger](./media/service-fabric-develop-java-applications-with-vs-code/debug-bar-disconnect.png)
        
-5. Al termine del debug, è possibile usare il comando **Service Fabric: Rimuovi applicazione** comando per rimuovere l'applicazione di voto nel cluster locale. 
+5. Al termine del debug, è possibile usare il comando **Service Fabric: Remove Application** (Service Fabric: Rimuovi applicazione) per rimuovere l'applicazione Voting dal cluster locale. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -16,12 +16,12 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e76e5c5d2cfcfd983f2b5cdc279f0c13fa6706e4
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: bf8a2cf6c50e05a0fecff387f2e125c50931b95f
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832699"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608721"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Governare l'accesso per gli utenti esterni in Azure AD gestione dei diritti
 
@@ -105,7 +105,7 @@ Per assicurarsi che gli utenti esterni all'organizzazione possano richiedere pac
 
 ### <a name="review-your-office-365-group-sharing-settings"></a>Esaminare le impostazioni di condivisione del gruppo Office 365
 
-- Se si desidera includere i gruppi di Office 365 nei pacchetti di accesso per gli utenti esterni, assicurarsi che l'impostazione Consenti **agli utenti di aggiungere nuovi Guest all'organizzazione** sia impostata **su on** per consentire l'accesso guest. Per ulteriori informazioni, vedere [Manage Guest Access to Office 365 groups](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-guest-access-to-office-365-groups).
+- Se si desidera includere i gruppi di Office 365 nei pacchetti di accesso per gli utenti esterni, assicurarsi che l'impostazione Consenti **agli utenti di aggiungere nuovi Guest all'organizzazione** sia impostata **su on** per consentire l'accesso guest. Per ulteriori informazioni, vedere [Manage Guest Access to Office 365 groups](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access).
 
 - Se si vuole che gli utenti esterni siano in grado di accedere al sito di SharePoint Online e alle risorse associate a un gruppo di Office 365, assicurarsi di attivare la condivisione esterna di SharePoint Online. Per altre informazioni, vedere [attivare o disattivare la condivisione esterna](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
@@ -143,10 +143,10 @@ Per assicurarsi che gli utenti esterni all'organizzazione possano richiedere pac
 
 1. Se si desidera rimuovere l'account utente guest in questa directory, è possibile impostare il numero di giorni prima della rimozione. Se si desidera rimuovere l'account utente Guest non appena si perde l'ultima assegnazione a tutti i pacchetti di accesso, impostare il **numero di giorni prima di rimuovere l'utente esterno da questa directory** a **0**.
 
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Aggiungere un'organizzazione connessa](entitlement-management-organization.md)
 - [Per gli utenti che non si trovino nella directory](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)
-- [Risoluzione dei problemi](entitlement-management-troubleshoot.md)
+- [Risolvere i problemi](entitlement-management-troubleshoot.md)

@@ -1,25 +1,16 @@
 ---
-title: Convertire app di Servizi cloud di Azure in Service Fabric | Microsoft Docs
+title: Convertire le app di servizi cloud di Azure in Service Fabric
 description: Questa guida confronta i ruoli di lavoro e Web di Servizi Cloud con i servizi senza stato di Service Fabric per facilitare la migrazione da Servizi cloud a Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: 5880ebb3-8b54-4be8-af4b-95a1bc082603
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: e82abd6a7915123a94b4355e24cb94f13f9693c8
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: caf067f793ca2086bc068907e86a82266627d128
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67550380"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463331"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guida alla conversione di ruoli di lavoro e Web in servizi senza stato di Service Fabric
 Questo articolo descrive come eseguire la migrazione di ruoli di lavoro e Web di Servizi cloud a servizi senza stato di Service Fabric. Questo è il percorso di migrazione più semplice da Servizi cloud a Service Fabric per le applicazioni la cui architettura complessiva rimarrà approssimativamente la stessa.
@@ -32,7 +23,7 @@ La differenza è che il progetto di Servizi cloud abbina la distribuzione dell'a
 ![Confronto tra i progetti di Servizi cloud e Service Fabric][3]
 
 ## <a name="worker-role-to-stateless-service"></a>Da ruolo di lavoro a servizio senza stato
-Concettualmente un ruolo di lavoro rappresenta un carico di lavoro senza stato, ovvero ogni istanza del carico di lavoro è identica e le richieste possono essere indirizzate a qualsiasi istanza in qualsiasi momento. Non è previsto che ogni istanza ricordi la richiesta precedente. Stato il carico di lavoro su cui opera viene gestito da un archivio stati esterno, ad esempio archiviazione tabelle di Azure o Azure Cosmos DB. In Service Fabric questo tipo di carico di lavoro è rappresentato da un servizio senza stato. L'approccio più semplice per la migrazione di un ruolo di lavoro a Service Fabric può avvenire mediante la conversione di codice del ruolo di lavoro in un servizio senza stato.
+Concettualmente un ruolo di lavoro rappresenta un carico di lavoro senza stato, ovvero ogni istanza del carico di lavoro è identica e le richieste possono essere indirizzate a qualsiasi istanza in qualsiasi momento. Non è previsto che ogni istanza ricordi la richiesta precedente. Lo stato in cui viene eseguito il carico di lavoro è gestito da un archivio stati esterno, ad esempio archiviazione tabelle di Azure o Azure Cosmos DB. In Service Fabric questo tipo di carico di lavoro è rappresentato da un servizio senza stato. L'approccio più semplice per la migrazione di un ruolo di lavoro a Service Fabric può avvenire mediante la conversione di codice del ruolo di lavoro in un servizio senza stato.
 
 ![Da ruolo di lavoro a servizio senza stato][4]
 
@@ -44,14 +35,14 @@ Analogamente a un ruolo di lavoro, anche un ruolo Web rappresenta un carico di l
 | Web Form ASP.NET |No |Convertire in ASP.NET Core 1 MVC |
 | ASP.NET MVC |Con migrazione |Eseguire l'aggiornamento ad ASP.NET Core 1 MVC |
 | API Web ASP.NET |Con migrazione |Usare un server self-hosted o ASP.NET Core 1 |
-| ASP.NET Core 1 |Yes |N/D |
+| ASP.NET Core 1 |Sì |N/D |
 
 ## <a name="entry-point-api-and-lifecycle"></a>API del punto di ingresso e ciclo di vita
 Le API del servizio di Service Fabric e del ruolo di lavoro offrono punti di ingresso simili: 
 
 | **Punto di ingresso** | **Istanze del ruolo di lavoro** | **Servizio di Service Fabric** |
 | --- | --- | --- |
-| Elaborazione in corso |`Run()` |`RunAsync()` |
+| Elaborazione |`Run()` |`RunAsync()` |
 | Avvio della macchina virtuale |`OnStart()` |N/D |
 | Arresto della macchina virtuale |`OnStop()` |N/D |
 | Apertura del listener per le richieste client |N/D |<ul><li> `CreateServiceInstanceListener()` per servizi senza stato</li><li>`CreateServiceReplicaListener()` per servizi con stato</li></ul> |
@@ -110,8 +101,8 @@ Entrambi hanno un override "Run" primario in cui iniziare l'elaborazione. I serv
 
 Esistono alcune differenze principali tra il ciclo di vita e la durata dei servizi di Service Fabric e dei ruoli di lavoro:
 
-* **Ciclo di vita:** La differenza principale è che un ruolo di lavoro è una macchina virtuale e pertanto il ciclo di vita è associato alla macchina virtuale, che include gli eventi di inizio e la fine della macchina virtuale. Un servizio di Service Fabric ha un ciclo di vita separato dal ciclo di vita della macchina virtuale, quindi non include gli eventi relativi all'avvio e all'arresto della macchina virtuale host o del computer, perché non sono correlati.
-* **Durata:** Un'istanza del ruolo di lavoro verrà riciclata se il `Run` viene chiuso (metodo). Il metodo `RunAsync` in un servizio di Service Fabric può tuttavia essere eseguito fino al completamento e l'istanza del servizio rimarrà operativa. 
+* **Ciclo di vita:** la differenza principale è che un ruolo di lavoro è una VM e quindi il ciclo di vita è associato alla VM e include gli eventi relativi all'avvio e all'arresto della VM. Un servizio di Service Fabric ha un ciclo di vita separato dal ciclo di vita della macchina virtuale, quindi non include gli eventi relativi all'avvio e all'arresto della macchina virtuale host o del computer, perché non sono correlati.
+* **Durata:** un'istanza del ruolo di lavoro verrà riciclata se il metodo `Run` viene chiuso. Il metodo `RunAsync` in un servizio di Service Fabric può tuttavia essere eseguito fino al completamento e l'istanza del servizio rimarrà operativa. 
 
 Service Fabric fornisce un punto di ingresso facoltativo di configurazione della comunicazione per i servizi in ascolto delle richieste client. Sia il punto di ingresso di comunicazione che quello di RunAsync sono sostituzioni facoltative nei servizi di Service Fabric, ovvero il servizio può scegliere di restare in ascolto solo delle richieste client o eseguire solo un ciclo di elaborazione oppure entrambi, motivo per cui il metodo RunAsync può terminare senza riavviare l'istanza del servizio, perché può continuare a rimanere in ascolto delle richieste client.
 
@@ -121,7 +112,7 @@ L'API dell'ambiente di Servizi cloud fornisce informazioni e funzionalità per l
 | **Attività dell'ambiente** | **Servizi cloud** | **Service Fabric** |
 | --- | --- | --- |
 | Impostazioni di configurazione e notifica di modifiche |`RoleEnvironment` |`CodePackageActivationContext` |
-| Archiviazione locale |`RoleEnvironment` |`CodePackageActivationContext` |
+| Risorse di archiviazione locali |`RoleEnvironment` |`CodePackageActivationContext` |
 | Informazioni sull'endpoint |`RoleInstance` <ul><li>Istanza corrente: `RoleEnvironment.CurrentRoleInstance`</li><li>Altri ruoli e istanze: `RoleEnvironment.Roles`</li> |<ul><li>`NodeContext` per l'indirizzo del nodo corrente</li><li>`FabricClient` e `ServicePartitionResolver` per l'individuazione di endpoint di servizio</li> |
 | Emulazione dell'ambiente |`RoleEnvironment.IsEmulated` |N/D |
 | Evento di modifica simultanea |`RoleEnvironment` |N/D |

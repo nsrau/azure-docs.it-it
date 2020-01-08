@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 11/01/2019
-ms.openlocfilehash: 19414a6f09f4bc61cd9b1b09ae98ea070e577d7f
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 9eebb181ed7aa1ac5898646c29e308f85dbe0f8e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995882"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354907"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent Data Encryption per il database SQL e Data Warehouse
 
@@ -72,14 +72,14 @@ L'unica eccezione riguarda l'esportazione da e verso un database SQL. TDE è abi
 
 
 ## <a name="manage-transparent-data-encryption"></a>Gestire Transparent Data Encryption
-# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 Gestire Transparent Data Encryption nell'portale di Azure.
 
 Per configurare TDE usando il portale di Azure, è necessario essere connessi come il proprietario, collaboratore o gestore della sicurezza SQL di Azure.
 
 Attivare e disattivare TDE a livello di database. Per abilitare TDE in un database, andare al [portale di Azure](https://portal.azure.com) e accedere con l'account amministratore o di collaboratore di Azure. Trovare le impostazioni di TDE nel database utente. Per impostazione predefinita, viene usata TDE gestita dal servizio. Un certificato TDE viene generato automaticamente per il server che contiene il database. Per Istanza gestita di database SQL di Azure, usare T-SQL per attivare e disattivare TDE in un database.
 
-![Transparent Data Encryption gestita dal servizio](./media/transparent-data-encryption-azure-sql/service-managed-tde.png)  
+![Transparent Data Encryption gestita dal servizio](./media/transparent-data-encryption-azure-sql/service-managed-transparent-data-encryption.png)  
 
 Impostare la chiave master di TDE, nota anche come protezione TDE, a livello di server. Per usare TDE con supporto Bring Your Own Key e proteggere i database con una chiave dall’insieme di credenziali delle chiavi, aprire le impostazioni di TDE nel server.
 

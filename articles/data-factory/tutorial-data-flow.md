@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/07/2019
-ms.openlocfilehash: 1211a7f2aa82f7084dc87e2c9a8bdaab9997be45
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e686648680261e2d13707f1704c56f306c510397
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927198"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439477"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Trasformare i dati usando il mapping dei flussi di dati
 
@@ -31,7 +31,7 @@ In questa esercitazione vengono completati i passaggi seguenti:
 > * Monitorare un'attività flusso di dati
 
 ## <a name="prerequisites"></a>Prerequisiti
-* **Sottoscrizione di Azure**. Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account Azure gratuito](https://azure.microsoft.com/free/).
+* **Sottoscrizione di Azure**. Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * **Account di archiviazione di Azure**. Si usa l'archiviazione ADLS come archivi dati di *origine* e *sink* . Se non si ha un account di archiviazione, vedere [Creare un account di archiviazione di Azure](../storage/common/storage-quickstart-create-account.md) per informazioni su come crearne uno.
 
 Il file che si sta trasformando in questa esercitazione è MoviesDB. csv, disponibile [qui](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv). Per recuperare il file da GitHub, copiare il contenuto in un editor di testo di propria scelta per salvarlo localmente come file con estensione CSV. Per caricare il file nell'account di archiviazione, vedere [caricare BLOB con il portale di Azure](../storage/blobs/storage-quickstart-blobs-portal.md). Gli esempi faranno riferimento a un contenitore denominato "Sample-Data".
@@ -41,7 +41,7 @@ Il file che si sta trasformando in questa esercitazione è MoviesDB. csv, dispon
 In questo passaggio si crea una data factory e si apre l'Data Factory UX per creare una pipeline nell'data factory. 
 
 1. Aprire **Microsoft Edge** o **Google Chrome**. Attualmente, Data Factory interfaccia utente è supportata solo nei Web browser Microsoft Edge e Google Chrome.
-2. Nel menu a sinistra selezionare **Crea una risorsa** > **Analytics** > **Data Factory**: 
+2. Nel menu a sinistra selezionare **Crea una risorsa** > **Analisi** > **Data factory**: 
   
    ![Selezione di Data Factory nel riquadro "Nuovo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -57,7 +57,7 @@ In questo passaggio si crea una data factory e si apre l'Data Factory UX per cre
 
     b. Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse. 
          
-    Per informazioni sui gruppi di risorse, vedere l'articolo su come [usare gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/resource-group-overview.md). 
+    Per informazioni sui gruppi di risorse, vedere l'articolo su come [usare gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/management/overview.md). 
 6. In **Versione** selezionare **V2**.
 7. In **Località** selezionare una località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati (ad esempio, archiviazione di Azure e il database SQL) e le risorse di calcolo (ad esempio, Azure HDInsight) usati dal data factory possono trovarsi in altre aree.
 8. Selezionare **Create** (Crea). 
@@ -138,23 +138,23 @@ Dopo aver creato il flusso di dati, verrà inviato automaticamente all'area di d
     ![Filtra](media/tutorial-data-flow/filter3.png)
 1. La trasformazione successiva che verrà aggiunta è una trasformazione **aggregazione** nel **modificatore dello schema**.
     
-    ![Aggregazione](media/tutorial-data-flow/agg1.png)
+    ![Aggregate](media/tutorial-data-flow/agg1.png)
 1. Assegnare un nome alla trasformazione aggregazione **AggregateComedyRatings**. Nella scheda **raggruppa** per selezionare **anno** dall'elenco a discesa per raggruppare le aggregazioni in base all'anno in cui si è rivelato il film.
     
-    ![Aggregazione](media/tutorial-data-flow/agg2.png)
+    ![Aggregate](media/tutorial-data-flow/agg2.png)
 1. Passare alla scheda **aggregazioni** . Nella casella di testo a sinistra, denominare la colonna aggregata **AverageComedyRating**. Fare clic sulla casella espressione a destra per immettere l'espressione di aggregazione tramite Generatore di espressioni.
     
-    ![Aggregazione](media/tutorial-data-flow/agg3.png)
+    ![Aggregate](media/tutorial-data-flow/agg3.png)
 1. Per ottenere la media della **classificazione**di colonna, utilizzare la funzione di aggregazione ```avg()```. Poiché **rating** è una stringa e ```avg()``` accetta un input numerico, è necessario convertire il valore in un numero tramite la funzione ```toInteger()```. Questa espressione è simile a quanto segue:
 
     ```avg(toInteger(Rating))```
     
     Al termine, fare clic su **Salva e fine** . 
 
-    ![Aggregazione](media/tutorial-data-flow/agg4.png)
+    ![Aggregate](media/tutorial-data-flow/agg4.png)
 1. Passare alla scheda **Anteprima dati** per visualizzare l'output della trasformazione. Si noti che sono presenti solo due colonne, **year** e **AverageComedyRating**.
     
-    ![Aggregazione](media/tutorial-data-flow/agg3.png)
+    ![Aggregate](media/tutorial-data-flow/agg3.png)
 1. Successivamente, si desidera aggiungere una trasformazione **sink** in **destinazione**.
     
     ![Sink](media/tutorial-data-flow/sink1.png)
@@ -167,7 +167,7 @@ Dopo aver creato il flusso di dati, verrà inviato automaticamente all'area di d
 1. Scegliere **DelimitedText**. Fare clic su Continue.
 
     ![Set di dati](media/tutorial-data-flow/dataset2.png)
-1. Assegnare al set di dati del sink il nome **MoviesSink**. Per servizio collegato scegliere il servizio collegato ADLS Gen2 creato al passaggio 6. Immettere una cartella di output in cui scrivere i dati. In questa esercitazione si sta scrivendo nella cartella "output" nel contenitore "Sample-Data". La cartella non deve esistere in anticipo e può essere creata dinamicamente. Impostare la **prima riga come intestazione** su true e selezionare **None** per **Importa schema**. Fare clic su Finish.
+1. Assegnare al set di dati del sink il nome **MoviesSink**. Per servizio collegato scegliere il servizio collegato ADLS Gen2 creato al passaggio 6. Immettere una cartella di output in cui scrivere i dati. In questa esercitazione si sta scrivendo nella cartella "output" nel contenitore "Sample-Data". La cartella non deve esistere in anticipo e può essere creata dinamicamente. Impostare la **prima riga come intestazione** su true e selezionare **None** per **Importa schema**. Fare clic su Fine.
     
     ![Sink](media/tutorial-data-flow/sink3.png)
 

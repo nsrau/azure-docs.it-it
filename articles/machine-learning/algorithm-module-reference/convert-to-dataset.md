@@ -1,7 +1,7 @@
 ---
 title: 'Converti in DataSet: riferimento al modulo'
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo Convert to DataSet nel servizio Azure Machine Learning per convertire l'input di dati nel formato di set di dati interno usato da Microsoft Azure Machine Learning.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo Convert to DataSet in Azure Machine Learning per convertire l'input di dati nel formato del set di dati interno usato da Microsoft Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 81eb71da43623f6478e267f55d6576789d494f9b
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: a004fdf0ed01c97fe5c21cc9011c46f5e4c51648
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717264"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428582"
 ---
-# <a name="convert-to-dataset"></a>Converti in DataSet
+# <a name="convert-to-dataset"></a>Eseguire la conversione in set di dati
 
 Questo articolo descrive come usare il modulo Convert to DataSet in Azure Machine Learning Designer (Preview) per convertire i dati di una pipeline nel formato interno della finestra di progettazione.
   
@@ -65,9 +65,9 @@ Si consiglia di salvare i dati nel formato del set di dati se è stato eseguito 
   
 -   Quando si specifica un'operazione di sostituzione personalizzata, l'operazione di ricerca e sostituzione viene applicata ai valori completi. Non sono consentite corrispondenze parziali. Ad esempio, è possibile sostituire un 3 con un-1 o con 33, ma non è possibile sostituire un 3 in un numero a due cifre, ad esempio 35.  
   
--   Per le operazioni di sostituzione personalizzate, la sostituzione avrà esito negativo automaticamente se si utilizza come sostituzione qualsiasi carattere non conforme al tipo di dati corrente della colonna.  
+-   Per le operazioni di sostituzione personalizzata, la sostituzione ha esito negativo in modo invisibile all'utente se si usa un carattere sostitutivo non conforme al tipo di dati corrente della colonna.  
 
   
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per il servizio Azure Machine Learning. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 

@@ -2,13 +2,13 @@
 title: Guida di riferimento per gli sviluppatori Python per Funzioni di Azure
 description: Informazioni sullo sviluppo di funzioni con Python
 ms.topic: article
-ms.date: 04/16/2018
-ms.openlocfilehash: 7c8ce87fdf396bc488a7deaf576eea28f989e0e4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 12/13/2019
+ms.openlocfilehash: 55eb1fe53aa4256f1b7eee44547703328816cd32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226654"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75409098"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guida per sviluppatori Python per Funzioni di Azure
 
@@ -236,7 +236,7 @@ def main(req):
 
 Sono disponibili altri metodi di registrazione che consentono di scrivere nella console a livelli di traccia diversi:
 
-| Metodo                 | DESCRIZIONE                                |
+| Metodo                 | Description                                |
 | ---------------------- | ------------------------------------------ |
 | **`critical(_message_)`**   | Scrive un messaggio con livello critico nel logger radice.  |
 | **`error(_message_)`**   | Scrive un messaggio con livello errore nel logger radice.    |
@@ -280,28 +280,30 @@ In questa funzione, il valore del parametro di query `name` viene ottenuto dal p
 
 Analogamente, è possibile impostare il `status_code` e `headers` per il messaggio di risposta nell'oggetto [HttpResponse] restituito.
 
-## <a name="concurrency"></a>Concorrenza
+## <a name="scaling-and-concurrency"></a>Ridimensionamento e concorrenza
 
-Per impostazione predefinita, il runtime di Python di funzioni può elaborare solo una chiamata di una funzione alla volta. Questo livello di concorrenza potrebbe non essere sufficiente in una o più delle condizioni seguenti:
+Per impostazione predefinita, funzioni di Azure monitora automaticamente il carico sull'applicazione e crea istanze host aggiuntive per Python in base alle esigenze. Funzioni utilizza soglie predefinite (non configurabili dall'utente) per diversi tipi di trigger per decidere quando aggiungere istanze, ad esempio l'età dei messaggi e le dimensioni della coda per QueueTrigger. Per altre informazioni, vedere [come funzionano i piani di consumo e Premium](functions-scale.md#how-the-consumption-and-premium-plans-work).
 
-+ Si sta tentando di gestire una serie di chiamate eseguite contemporaneamente.
-+ Si sta elaborando un numero elevato di eventi di I/O.
-+ L'applicazione è associata a I/O.
+Questo comportamento di ridimensionamento è sufficiente per molte applicazioni. Le applicazioni con le caratteristiche seguenti, tuttavia, non possono essere ridimensionate in modo efficace:
 
-In queste situazioni, è possibile migliorare le prestazioni eseguendo in modo asincrono e utilizzando più processi di lavoro in linguaggio.  
+- L'applicazione deve gestire molte chiamate simultanee.
+- L'applicazione elabora un numero elevato di eventi di I/O.
+- L'applicazione è associata a I/O.
+
+In questi casi, è possibile migliorare ulteriormente le prestazioni utilizzando i modelli asincroni e utilizzando più processi di lavoro in linguaggio.
 
 ### <a name="async"></a>Async
 
-È consigliabile usare l'istruzione `async def` per eseguire la funzione come una coroutine asincrona.
+Poiché Python è un runtime a thread singolo, un'istanza host per Python può elaborare solo una chiamata di funzione alla volta. Per le applicazioni che elaborano un numero elevato di eventi di I/o e/o è associato a I/o, è possibile migliorare le prestazioni eseguendo funzioni in modo asincrono.
+
+Per eseguire una funzione in modo asincrono, usare l'istruzione `async def`, che esegue direttamente la funzione con [asyncio](https://docs.python.org/3/library/asyncio.html) :
 
 ```python
-# Runs with asyncio directly
-
 async def main():
     await some_nonblocking_socket_io_op()
 ```
 
-Quando la funzione `main()` è sincrona (senza il qualificatore `async`), la funzione viene eseguita automaticamente in un pool di thread di `asyncio`.
+Una funzione senza la parola chiave `async` viene eseguita automaticamente in un pool di thread asyncio:
 
 ```python
 # Runs in an asyncio thread-pool
@@ -312,7 +314,9 @@ def main():
 
 ### <a name="use-multiple-language-worker-processes"></a>Usare più processi di lavoro in linguaggio
 
-Per impostazione predefinita, ogni istanza host di funzioni ha un singolo processo di lavoro in linguaggio. Tuttavia, è supportato l'esistenza di più processi di lavoro in linguaggio per ogni istanza host. Le chiamate di funzione possono quindi essere distribuite in modo uniforme tra questi processi di lavoro del linguaggio. Per modificare questo valore, utilizzare l'impostazione dell'applicazione [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) . 
+Per impostazione predefinita, ogni istanza host di funzioni ha un singolo processo di lavoro in linguaggio. È possibile aumentare il numero di processi di lavoro per host (fino a 10) usando l'impostazione dell'applicazione [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) . Funzioni di Azure tenta quindi di distribuire uniformemente le chiamate di funzioni simultanee tra questi thread di lavoro. 
+
+Il FUNCTIONS_WORKER_PROCESS_COUNT si applica a ogni host creato dalle funzioni durante la scalabilità orizzontale dell'applicazione per soddisfare la domanda. 
 
 ## <a name="context"></a>Context
 
@@ -376,11 +380,11 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 Per lo sviluppo locale, le impostazioni dell'applicazione vengono [mantenute nel file local. Settings. JSON](functions-run-local.md#local-settings-file).  
 
-## <a name="python-version"></a>Versione di Python 
+## <a name="python-version"></a>Versione Python 
 
 Attualmente, funzioni di Azure supporta sia Python 3.6. x che 3.7. x (distribuzioni CPython ufficiali). Quando viene eseguito localmente, il runtime usa la versione di Python disponibile. Per richiedere una versione specifica di Python quando si crea l'app per le funzioni in Azure, usare l'opzione `--runtime-version` del comando [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) .  
 
-## <a name="package-management"></a>Gestione dei pacchetti
+## <a name="package-management"></a>Gestione pacchetti
 
 Quando si sviluppa in locale usando Azure Functions Core Tools oppure Visual Studio Code, aggiungere i nomi e le versioni dei pacchetti necessari al file `requirements.txt` e installarli con `pip`. 
 

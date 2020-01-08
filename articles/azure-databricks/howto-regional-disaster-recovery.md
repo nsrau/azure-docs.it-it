@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: b9a5dbd8e24659493bbbefd50c3e234dca3dbdd9
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 800b51c8f900d2ea99900ea147b33010452348f5
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129335"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639872"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Ripristino di emergenza a livello di area per cluster di Azure Databricks
 
@@ -21,7 +21,7 @@ Questo articolo descrive un'architettura di ripristino di emergenza per i cluste
 
 ## <a name="azure-databricks-architecture"></a>Architettura di Azure Databricks
 
-A livello generale, quando si crea un'area di lavoro di Azure Databricks dal portale di Azure, viene distribuita un'[appliance gestita](../managed-applications/overview.md) come risorsa di Azure nella sottoscrizione, nell'area di Azure selezionata (ad esempio, Stati Uniti occidentali). L'appliance viene distribuita in una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md) con un [gruppo di sicurezza di rete](../virtual-network/manage-network-security-group.md) e un account di archiviazione di Azure, disponibile nella sottoscrizione. La rete virtuale offre sicurezza a livello di perimetro all'area di lavoro di Databricks ed è protetta tramite il gruppo di sicurezza di rete. Nell'area di lavoro è possibile creare i cluster di Databricks specificando il tipo di macchina virtuale del ruolo di lavoro e del driver e la versione del runtime di Databricks. I dati salvati in modo permanente sono disponibili nell'account di archiviazione, che può essere un archivio BLOB di Azure o Azure Data Lake Storage. Dopo aver creato il cluster, è possibile eseguire i processi tramite notebook, API REST ed endpoint ODBC/JDBC associandoli a un cluster specifico.
+A livello generale, quando si crea un'area di lavoro di Azure Databricks dal portale di Azure, viene distribuita un'[appliance gestita](../azure-resource-manager/managed-applications/overview.md) come risorsa di Azure nella sottoscrizione, nell'area di Azure selezionata (ad esempio, Stati Uniti occidentali). L'appliance viene distribuita in una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md) con un [gruppo di sicurezza di rete](../virtual-network/manage-network-security-group.md) e un account di archiviazione di Azure, disponibile nella sottoscrizione. La rete virtuale offre sicurezza a livello di perimetro all'area di lavoro di Databricks ed è protetta tramite il gruppo di sicurezza di rete. Nell'area di lavoro è possibile creare i cluster di Databricks specificando il tipo di macchina virtuale del ruolo di lavoro e del driver e la versione del runtime di Databricks. I dati salvati in modo permanente sono disponibili nell'account di archiviazione, che può essere un archivio BLOB di Azure o Azure Data Lake Storage. Dopo aver creato il cluster, è possibile eseguire i processi tramite notebook, API REST ed endpoint ODBC/JDBC associandoli a un cluster specifico.
 
 Il piano di controllo di Databricks gestisce e monitora l'ambiente dell'area di lavoro di Databricks. Qualsiasi operazione di gestione, come la creazione di un cluster, verrà avviata dal piano di controllo. Tutti i metadati, ad esempio i processi pianificati, vengono archiviati in un database di Azure con replica geografica per la tolleranza di errore.
 

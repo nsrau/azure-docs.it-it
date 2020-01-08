@@ -4,15 +4,15 @@ description: È possibile usare la soluzione Controllo integrità Active Directo
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 09/10/2019
-ms.openlocfilehash: bdc84a9213bd98981040775d3fec90f45edac54f
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: f0de484d58085f598988589d18495c9a6fe1b374
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899194"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406143"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Ottimizzare l'ambiente Active Directory con la soluzione Controllo integrità Active Directory in Monitoraggio di Azure
 
@@ -36,7 +36,7 @@ Dopo aver aggiunto la soluzione e completato un controllo, nel dashboard di **Co
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Per la soluzione di controllo integrità Active Directory è necessaria una versione supportata di .NET Framework 4.5.2 o versione successiva installata in ogni computer in cui è installato l'agente Log Analytics per Windows (noto anche come Microsoft Monitoring Agent (MMA)).  L'agente viene usato da System Center 2016-Operations Manager, Operations Manager 2012 R2 e monitoraggio di Azure.
+* Per la soluzione di controllo integrità Active Directory è necessaria una versione supportata di .NET Framework 4.6.2 o versione successiva installata in ogni computer in cui è installato l'agente Log Analytics per Windows (noto anche come Microsoft Monitoring Agent (MMA)).  L'agente viene usato da System Center 2016-Operations Manager, Operations Manager 2012 R2 e monitoraggio di Azure.
 * La soluzione supporta controller di dominio che eseguono Windows Server 2008 e 2008 R2, Windows Server 2012 e 2012 R2 e Windows Server 2016.
 * area di lavoro Log Analytics per aggiungere la soluzione Controllo integrità Active Directory da Azure Marketplace al portale di Azure. Non è necessaria alcuna configurazione aggiuntiva.
 
@@ -64,7 +64,7 @@ Controllo integrità Active Directory raccoglie i dati dalle origini seguenti us
 - Active Directory Service Interfaces (ADSI)
 - Windows PowerShell
 - Dati dei file
-- Strumentazione gestione Windows (WMI)
+- Strumentazione gestione Windows (WMI, Windows Management Instrumentation)
 - API dello strumento DCDIAG
 - API di File Replication Service (NTFRS)
 - Codice personalizzato in C#
@@ -163,7 +163,7 @@ Dopo l'esecuzione del controllo integrità successivo pianificato, per impostazi
     ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
 
-2. Se in seguito si decide che si vogliono vedere le raccomandazioni ignorate, rimuovere eventuali file IgnoreRecommendations.txt oppure è possibile rimuovere gli ID raccomandazione dagli stessi.
+2. Se in seguito si decide che si vogliono vedere le raccomandazioni ignorate, rimuovere eventuali file IgnoreRecommendations.txt oppure rimuovere gli ID raccomandazione dagli stessi.
 
 ## <a name="ad-health-check-solutions-faq"></a>Domande frequenti sulla soluzione Controllo integrità AD
 

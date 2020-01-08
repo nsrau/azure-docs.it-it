@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric-monitoraggio delle prestazioni con i log di monitoraggio di Azure | Microsoft Docs
+title: Monitoraggio delle prestazioni con i log di monitoraggio di Azure
 description: Informazioni su come configurare l'agente di Log Analytics per il monitoraggio di contenitori e contatori delle prestazioni per i cluster di Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 9ec68712c898eefc37a8f7b2fe2dbfdb119592de
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 8c8978a0114caf57d01f7add0bd9357c5d0775dc
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933998"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609945"
 ---
 # <a name="performance-monitoring-with-azure-monitor-logs"></a>Monitoraggio delle prestazioni con i log di monitoraggio di Azure
 
