@@ -1,6 +1,6 @@
 ---
 title: Inviare e ricevere messaggi AS2 per B2B
-description: Scambiare messaggi AS2 per scenari di integrazione aziendale B2B usando app per la logica di Azure
+description: Scambiare messaggi AS2 per gli scenari di integrazione aziendale B2B usando app per la logica di Azure con Enterprise Integration Pack
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 08/22/2019
-ms.openlocfilehash: b2d7c8840da3bb44f9e220f2963dc4fee63176e2
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 9f72edecc07c34a0f176e52f6b70644f9ceb16e0
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790725"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666704"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Scambiare messaggi AS2 per l'integrazione aziendale B2B in App per la logica di Azure con Enterprise Integration Pack
 
@@ -39,7 +39,7 @@ Per lavorare con i messaggi AS2 in app per la logica di Azure, è possibile usar
 
   Questa azione esegue anche queste attività quando è configurata:
 
-  * Verifica la firma.
+  * Consente di verificare la firma.
   * Decrittografa i messaggi.
   * Decomprime il messaggio.
   * Verificare e impedire i duplicati degli ID messaggio.
@@ -88,7 +88,7 @@ Questo articolo illustra come aggiungere le azioni di codifica e decodifica AS2 
    | **Da AS2 a** | Identificatore del destinatario del messaggio come specificato dall'accordo AS2 |
    |||
 
-   ad esempio:
+   Ad esempio:
 
    ![Proprietà di codifica del messaggio](./media/logic-apps-enterprise-integration-as2/as2-message-encoding-details.png)
 

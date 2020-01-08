@@ -1,35 +1,38 @@
 ---
-title: Richiedere il trasferimento sicuro in Archiviazione di Azure | Microsoft Docs
-description: Informazioni sulla funzionalità "Trasferimento sicuro obbligatorio" per Archiviazione di Azure e su come abilitarla.
+title: Richiedi trasferimento sicuro per garantire connessioni sicure
+titleSuffix: Azure Storage
+description: Informazioni su come richiedere il trasferimento sicuro per le richieste ad archiviazione di Azure. Quando è necessario un trasferimento sicuro per un account di archiviazione, le richieste provenienti da una connessione non protetta vengono rifiutate.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
-ms.date: 06/20/2017
+ms.topic: how-to
+ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 7239e7fbe1221acc3c302260045d6fc510db2cbe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3b2d78bd929e23d49a57f337022f6678114bb5fe
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148564"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457439"
 ---
-# <a name="require-secure-transfer-in-azure-storage"></a>Richiedere il trasferimento sicuro in Archiviazione di Azure
+# <a name="require-secure-transfer-to-ensure-secure-connections"></a>Richiedi trasferimento sicuro per garantire connessioni sicure
 
-L'opzione "Trasferimento sicuro obbligatorio" aumenta la sicurezza dell'account di archiviazione perché consente le richieste all'account solo tramite connessioni sicure. Ad esempio, quando si chiamano le API REST per accedere all'account di archiviazione, è necessario connettersi usando HTTPS. "Trasferimento sicuro obbligatorio" rifiuta le richieste che usano HTTP.
+È possibile configurare l'account di archiviazione in modo da accettare le richieste dalle connessioni protette solo impostando la proprietà **trasferimento sicuro obbligatorio** per l'account di archiviazione. Quando è necessario il trasferimento sicuro, le richieste provenienti da una connessione non protetta vengono rifiutate. Microsoft consiglia di richiedere sempre il trasferimento sicuro per tutti gli account di archiviazione.
 
-Quando si usa il servizio File di Azure, se è abilitata l'opzione "Trasferimento sicuro obbligatorio" le connessioni senza crittografia hanno esito negativo. Questo include scenari in cui si usano SMB 2.1, SMB 3.0 senza crittografia e alcune versioni del client SMB Linux. 
+Quando è necessario il trasferimento sicuro, è necessario effettuare una chiamata a un'operazione dell'API REST di archiviazione di Azure tramite HTTPS. Qualsiasi richiesta effettuata su HTTP viene rifiutata.
 
-Per impostazione predefinita, l'opzione "Trasferimento sicuro obbligatorio" è disabilitata quando si crea un account di archiviazione con l'SDK ed è abilitata per impostazione predefinita quando si crea un account di archiviazione nel portale di Azure.
+La connessione a una condivisione file di Azure tramite SMB senza crittografia ha esito negativo quando è necessario un trasferimento sicuro per l'account di archiviazione. Esempi di connessioni non sicure includono quelle effettuate su SMB 2,1, SMB 3,0 senza crittografia o alcune versioni del client SMB Linux.
+
+Per impostazione predefinita, la proprietà **trasferimento sicuro obbligatorio** viene abilitata quando si crea un account di archiviazione in portale di Azure. Tuttavia, è disabilitato quando si crea un account di archiviazione con SDK.
 
 > [!NOTE]
 > Poiché Archiviazione di Azure non supporta HTTPS per i nomi di dominio personalizzati, l'opzione non è applicabile quando si usa un nome di dominio personalizzato. Gli account di archiviazione di tipo classico non sono supportati.
 
-## <a name="enable-secure-transfer-required-in-the-azure-portal"></a>Abilitare "Trasferimento sicuro obbligatorio" nel portale di Azure
+## <a name="require-secure-transfer-in-the-azure-portal"></a>Richiedi il trasferimento sicuro nella portale di Azure
 
-È possibile abilitare l'impostazione "Trasferimento sicuro obbligatorio" quando si crea un account di archiviazione nel [portale di Azure](https://portal.azure.com). È possibile anche abilitarla per un account di archiviazione esistente.
+È possibile attivare la proprietà **trasferimento sicuro obbligatorio** quando si crea un account di archiviazione nell' [portale di Azure](https://portal.azure.com). È possibile anche abilitarla per un account di archiviazione esistente.
 
 ### <a name="require-secure-transfer-for-a-new-storage-account"></a>Richiedere il trasferimento sicuro per un nuovo account di archiviazione
 
@@ -46,19 +49,19 @@ Per impostazione predefinita, l'opzione "Trasferimento sicuro obbligatorio" è d
 
    ![Riquadro del menu Account di archiviazione](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
 
-## <a name="enable-secure-transfer-required-programmatically"></a>Abilitare "Trasferimento sicuro obbligatorio" a livello di codice
+## <a name="require-secure-transfer-from-code"></a>Richiedi trasferimento sicuro dal codice
 
-Per richiedere il trasferimento sicuro a livello di codice, usare l'impostazione _supportsHttpsTrafficOnly_ nelle proprietà dell'account di archiviazione con l'API REST, gli strumenti o le raccolte:
+Per richiedere il trasferimento sicuro a livello di codice, impostare la proprietà _supportsHttpsTrafficOnly_ nell'account di archiviazione. È possibile impostare questa proprietà tramite l'API REST del provider di risorse di archiviazione, le librerie client o gli strumenti:
 
-* [API REST](https://docs.microsoft.com/rest/api/storagerp/storageaccounts) (versione: 2016-12-01)
-* [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount) (versione: 0.7)
-* [Interfaccia della riga di comando](https://pypi.python.org/pypi/azure-cli-storage/2.0.11) (versione: 2.0.11)
-* [NodeJS](https://www.npmjs.com/package/azure-arm-storage/) (versione: 1.1.0)
-* [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/6.3.0-preview) (versione: 6.3.0)
-* [Python SDK](https://pypi.python.org/pypi/azure-mgmt-storage/1.1.0) (versione: 1.1.0)
-* [Ruby SDK](https://rubygems.org/gems/azure_mgmt_storage) (versione: 0.11.0)
+* [REST API](/rest/api/storagerp/storageaccounts)
+* [PowerShell](/powershell/module/az.storage/set-azstorageaccount)
+* [CLI](/cli/azure/storage/account)
+* [NodeJS](https://www.npmjs.com/package/azure-arm-storage/)
+* [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage)
+* [Python SDK](https://pypi.org/project/azure-mgmt-storage)
+* [Ruby SDK](https://rubygems.org/gems/azure_mgmt_storage)
 
-### <a name="enable-secure-transfer-required-setting-with-powershell"></a>Abilitare l'impostazione "Trasferimento sicuro obbligatorio" con PowerShell
+## <a name="require-secure-transfer-with-powershell"></a>Richiedi il trasferimento sicuro con PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -69,7 +72,7 @@ Eseguire `Connect-AzAccount` per creare una connessione con Azure.
  Per verificare l'impostazione, usare la riga di comando seguente:
 
 ```powershell
-> Get-AzStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}"
+Get-AzStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}"
 StorageAccountName     : {StorageAccountName}
 Kind                   : Storage
 EnableHttpsTrafficOnly : False
@@ -80,7 +83,7 @@ EnableHttpsTrafficOnly : False
 Per abilitare l'impostazione, usare la riga di comando seguente:
 
 ```powershell
-> Set-AzStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}" -EnableHttpsTrafficOnly $True
+Set-AzStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}" -EnableHttpsTrafficOnly $True
 StorageAccountName     : {StorageAccountName}
 Kind                   : Storage
 EnableHttpsTrafficOnly : True
@@ -88,16 +91,16 @@ EnableHttpsTrafficOnly : True
 
 ```
 
-### <a name="enable-secure-transfer-required-setting-with-cli"></a>Abilitare l'impostazione "Trasferimento sicuro obbligatorio" con l'interfaccia della riga di comando
+## <a name="require-secure-transfer-with-azure-cli"></a>Richiedi trasferimento sicuro con l'interfaccia della riga di comando di Azure
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
- Per verificare l'impostazione, usare la riga di comando seguente:
+ Usare il comando seguente per controllare l'impostazione:
 
 ```azurecli-interactive
-> az storage account show -g {ResourceGroupName} -n {StorageAccountName}
+az storage account show -g {ResourceGroupName} -n {StorageAccountName}
 {
   "name": "{StorageAccountName}",
   "enableHttpsTrafficOnly": false,
@@ -107,10 +110,10 @@ EnableHttpsTrafficOnly : True
 
 ```
 
-Per abilitare l'impostazione, usare la riga di comando seguente:
+Usare il comando seguente per abilitare l'impostazione:
 
 ```azurecli-interactive
-> az storage account update -g {ResourceGroupName} -n {StorageAccountName} --https-only true
+az storage account update -g {ResourceGroupName} -n {StorageAccountName} --https-only true
 {
   "name": "{StorageAccountName}",
   "enableHttpsTrafficOnly": true,
@@ -121,4 +124,5 @@ Per abilitare l'impostazione, usare la riga di comando seguente:
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Archiviazione di Azure fornisce un set completo di funzionalità di sicurezza, che consentono agli sviluppatori di creare applicazioni sicure. Per altre informazioni, vedere la [Guida alla sicurezza delle risorse di archiviazione](storage-security-guide.md).
+
+[Raccomandazioni sulla sicurezza per l'archiviazione BLOB](../blobs/security-recommendations.md)

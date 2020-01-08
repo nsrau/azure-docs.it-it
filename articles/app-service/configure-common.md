@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: 45de3b79263fd43a93fcea73c271ede4bc5f96fe
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: e4ba7326d9c23bed2406e62fe1a206501d05a1b1
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671954"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666185"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurare un'app del servizio app nel portale di Azure
 
@@ -21,11 +21,15 @@ Questo argomento illustra come configurare le impostazioni comuni per le app Web
 
 Nel servizio app le impostazioni dell'app sono variabili passate come variabili di ambiente al codice dell'applicazione. Per le app Linux e i contenitori personalizzati, il servizio app passa le impostazioni dell'app al contenitore usando il flag di `--env` per impostare la variabile di ambiente nel contenitore.
 
-Nella [portale di Azure]passare alla pagina di gestione dell'app. Nel menu a sinistra dell'app fare clic su **configurazione** > **Impostazioni applicazione**.
+Nella [portale di Azure]cercare e selezionare **Servizi app**e quindi selezionare l'app. 
+
+![Cerca servizi app](./media/configure-common/search-for-app-services.png)
+
+Nel menu a sinistra dell'app selezionare **Configuration** > **Impostazioni applicazione**.
 
 ![Impostazioni dell'applicazione](./media/configure-common/open-ui.png)
 
-Per gli sviluppatori ASP.NET e ASP.NET Core, l'impostazione delle impostazioni dell'app nel servizio app è come impostarle in `<appSettings>` in *Web. config* o *appSettings. JSON*, ma i valori nel servizio app sostituiscono quelli in *Web. config* o *appSettings. JSON.* . È possibile usare le impostazioni di sviluppo (ad esempio, la password di MySQL locale) in *Web. config* o *appSettings. JSON*, ma i segreti di produzione, ad esempio la password del database MySQL di Azure, sono sicuri nel servizio app. Lo stesso codice usa le impostazioni di sviluppo quando si esegue il debug in locale e usa i segreti di produzione durante la distribuzione in Azure.
+Per gli sviluppatori ASP.NET e ASP.NET Core, l'impostazione delle impostazioni dell'app nel servizio app è come impostarle in `<appSettings>` in *Web. config* o *appSettings. JSON*, ma i valori nel servizio app sostituiscono quelli in *Web. config* o *appSettings. JSON*. È possibile usare le impostazioni di sviluppo (ad esempio, la password di MySQL locale) in *Web. config* o *appSettings. JSON*, ma i segreti di produzione, ad esempio la password del database MySQL di Azure, sono sicuri nel servizio app. Lo stesso codice usa le impostazioni di sviluppo quando si esegue il debug in locale e usa i segreti di produzione durante la distribuzione in Azure.
 
 Gli stack di altri linguaggi, in modo analogo, ottengono le impostazioni dell'app come variabili di ambiente in fase di esecuzione. Per i passaggi specifici dello stack di linguaggio, vedere:
 
@@ -82,7 +86,7 @@ Le impostazioni dell'app hanno la formattazione JSON seguente:
 
 ## <a name="configure-connection-strings"></a>Configurare stringhe di connessione
 
-Nella [portale di Azure]passare alla pagina di gestione dell'app. Nel menu a sinistra dell'app fare clic su **configurazione** > **Impostazioni applicazione**.
+Nella [portale di Azure]cercare e selezionare **Servizi app**e quindi selezionare l'app. Nel menu a sinistra dell'app selezionare **Configuration** > **Impostazioni applicazione**.
 
 ![Impostazioni dell'applicazione](./media/configure-common/open-ui.png)
 
@@ -153,7 +157,7 @@ La formattazione JSON delle stringhe di connessione è la seguente:
 
 ## <a name="configure-general-settings"></a>Configurare le impostazioni generali
 
-Nella [portale di Azure]passare alla pagina di gestione dell'app. Nel menu a sinistra dell'app fare clic su **configurazione** > **Impostazioni applicazione**.
+Nella [portale di Azure]cercare e selezionare **Servizi app**e quindi selezionare l'app. Nel menu a sinistra dell'app selezionare **Configuration** > **Impostazioni generali**.
 
 ![Impostazioni generali](./media/configure-common/open-general.png)
 
@@ -176,9 +180,9 @@ Qui è possibile configurare alcune impostazioni comuni per l'app. Per alcune im
 
 Questa impostazione è solo per le app di Windows.
 
-Nella [portale di Azure]passare alla pagina di gestione dell'app. Nel menu a sinistra dell'app fare clic su **Configuration** > **documenti predefiniti**.
+Nella [portale di Azure]cercare e selezionare **Servizi app**e quindi selezionare l'app. Nel menu a sinistra dell'app selezionare **Configuration** > **documenti predefiniti**.
 
-![Impostazioni generali](./media/configure-common/open-documents.png)
+![Documenti predefiniti](./media/configure-common/open-documents.png)
 
 Il documento predefinito è la pagina Web visualizzata nell'URL radice di un sito Web. Viene utilizzato il primo file corrispondente dell'elenco. Per aggiungere un nuovo documento predefinito, fare clic su **nuovo documento**. Non dimenticare di fare clic su **Salva**.
 
@@ -186,9 +190,9 @@ Se l'app usa moduli che vengono indirizzati in base all'URL anziché al contenut
 
 ## <a name="configure-path-mappings"></a>Configurare i mapping dei percorsi
 
-Nella [portale di Azure]passare alla pagina di gestione dell'app. Nel menu a sinistra dell'app fare clic su **Configuration** > **mapping dei percorsi**.
+Nella [portale di Azure]cercare e selezionare **Servizi app**e quindi selezionare l'app. Nel menu a sinistra dell'app selezionare **Configuration** > **mapping dei percorsi**.
 
-![Impostazioni generali](./media/configure-common/open-path.png)
+![Mapping dei percorsi](./media/configure-common/open-path.png)
 
 La pagina **mapping percorsi** Mostra diversi elementi basati sul tipo di sistema operativo.
 

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 30fffa6264411238c3ff0a5e829e1567c00f4f97
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 12/17/2019
+ms.openlocfilehash: d2b8b2fecbf85e6590294f1fbd7ff2a4453b9e87
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794203"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460753"
 ---
 # <a name="create-a-basic-index-in-azure-cognitive-search"></a>Creare un indice di base in Azure ricerca cognitiva
 
@@ -37,7 +37,7 @@ Il raggiungimento di una corretta progettazione degli indici si ottiene in gener
 
 3. Scaricare lo schema dell'indice mediante [Get Index REST API (Ottenere un indice API REST)](https://docs.microsoft.com/rest/api/searchservice/get-index) e uno strumento di test Web come [Postman](search-get-started-postman.md). Si ottiene così una rappresentazione JSON dell'indice creato nel portale. 
 
-   A questo punto si passa a un approccio basato sul codice. Poiché non è possibile modificare un indice creato in precedenza, il portale non è particolarmente adatto per l'iterazione. È tuttavia possibile usare Postman e REST per le attività rimanenti.
+   A questo punto si passa a un approccio basato sul codice. Il portale non è particolarmente adatto per l'iterazione perché non è possibile modificare un indice già creato. È tuttavia possibile usare Postman e REST per le attività rimanenti.
 
 4. [Caricare l'indice con i dati](search-what-is-data-import.md). Azure ricerca cognitiva accetta documenti JSON. Per caricare i dati a livello di codice, è possibile usare Postman con i documenti JSON nel payload della richiesta. Se i dati non possono essere facilmente espressi in JSON, questo passaggio sarà più laborioso.
 
@@ -145,7 +145,7 @@ La [*raccolta campi*](#fields-collection) in genere costituisce la maggior parte
 Quando si definisce lo schema, è necessario specificare il nome, tipo e gli attributi di ogni campo nell'indice. Il tipo di campo classifica i dati archiviati in quel campo. Gli attributi sono impostati nei singoli campi per specificare come viene usato il campo. La tabella seguente enumera gli attributi che è possibile specificare.
 
 ### <a name="data-types"></a>Tipi di dati
-| Type | Description |
+| Tipo | Description |
 | --- | --- |
 | *Edm.String* |Testo facoltativamente soggetto a tokenizzazione per la ricerca full-text (suddivisione delle parole, stemming e così via). |
 | *Collection(Edm.String)* |Elenco di stringhe facoltativamente soggette a tokenizzazione per la ricerca full-text. Non esiste alcun limite superiore teorico al numero di elementi in una raccolta, ma alle raccolte si applica il limite massimo di 16 MB di dimensioni del payload. |
@@ -175,10 +175,9 @@ Le API usate per compilare un indice hanno comportamenti predefiniti variabili. 
 | `facetable` |Consente di usare un campo in una struttura di [esplorazione in base a facet](search-faceted-navigation.md) per i filtri autoindirizzati. In genere, i campi che contengono valori ricorrenti che è possibile usare per raggruppare più documenti, ad esempio, più documenti che rientrano in una categoria di servizi o una singola marca, funzionano meglio come facet. |
 | `searchable` |Contrassegna il campo come disponibile per la ricerca full-text. |
 
+## <a name="index-size"></a>Dimensioni indice
 
-## <a name="storage-implications"></a>Implicazioni relative all'archiviazione
-
-Gli attributi selezionati hanno un impatto sull'archiviazione. Lo screenshot seguente illustra i modelli di archiviazione dell'indice derivanti da diverse combinazioni di attributi.
+Le dimensioni di un indice sono determinate dalla dimensione dei documenti caricati, oltre alla configurazione dell'indice, ad esempio se si includono i suggerimenti e come si impostano gli attributi nei singoli campi. Lo screenshot seguente illustra i modelli di archiviazione dell'indice derivanti da diverse combinazioni di attributi.
 
 L'indice è basato sull'origine dati [incorporata di esempio Real Immobiliare](search-get-started-portal.md) , che è possibile indicizzare ed eseguire query nel portale. Anche se non vengono visualizzati gli schemi dell'indice, è possibile dedurre gli attributi in base al nome dell'indice. Ad esempio, l'indice *realestate-searchable*ha soltanto l'attributo **ricercabile** selezionato, l'indice *realestate-retrievable*ha soltanto l'attributo **recuperabile** selezionato e così via.
 
@@ -186,13 +185,13 @@ L'indice è basato sull'origine dati [incorporata di esempio Real Immobiliare](s
 
 Sebbene queste varianti di indice siano artificiali, è possibile farvi riferimento per una considerazione generale sul modo in cui gli attributi influiscono sull'archiviazione. L'impostazione **recuperabile** aumenta le dimensioni dell'indice? No. L'aggiunta di campi a uno **Strumento suggerimenti** aumenta le dimensioni dell'indice? Sì.
 
-Gli indici che supportano filtro e ordinamento sono proporzionalmente più grandi rispetto agli indici che supportano soltanto la ricerca full-text. Questo avviene perché filtro e ordinamento eseguono query su corrispondenze esatte in modo che i documenti siano archiviati senza alterazioni. Al contrario, i campi ricercabili che supportano la ricerca full-text e fuzzy usano indici invertiti, popolati con termini in formato token che consumano meno spazio rispetto a documenti interi.
+Gli indici che supportano filtro e ordinamento sono proporzionalmente più grandi di quelli che supportano solo la ricerca full-text. Le operazioni di filtro e ordinamento analizzano le corrispondenze esatte, richiedendo la presenza di documenti intatti. Al contrario, i campi ricercabili che supportano la ricerca full-text e fuzzy usano indici invertiti, popolati con termini in formato token che consumano meno spazio rispetto a documenti interi. 
 
 > [!Note]
 > L'architettura di archiviazione è considerata un dettaglio di implementazione di Azure ricerca cognitiva e può cambiare senza preavviso. Non è garantito che il comportamento attuale verrà mantenuto in futuro.
 
 ## <a name="suggesters"></a>Suggerimenti
-Un componente di suggerimento è una sezione dello schema che definisce quali campi in un indice vengono utilizzati per supportare le query con completamento automatico nelle ricerche. In genere, le stringhe di ricerca parziale vengono inviate ai [Suggerimenti (API REST)](https://docs.microsoft.com/rest/api/searchservice/suggestions) mentre l'utente digita la query di ricerca e l'API restituisce un set di espressioni suggerite. 
+Un componente di suggerimento è una sezione dello schema che definisce quali campi in un indice vengono utilizzati per supportare le query con completamento automatico nelle ricerche. In genere, le stringhe di ricerca parziali vengono inviate ai [Suggerimenti (API REST)](https://docs.microsoft.com/rest/api/searchservice/suggestions) mentre l'utente digita una query di ricerca e l'API restituisce un set di documenti o frasi suggerite. 
 
 I campi aggiunti a uno strumento suggerimenti vengono usati per compilare i termini di ricerca con completamento automatico. Tutti i termini di ricerca vengono creati durante l'indicizzazione e archiviati separatamente. Per altre informazioni sulla creazione di una struttura per uno strumento suggerimenti, vedere [Aggiungere strumenti suggerimenti](index-add-suggesters.md).
 
@@ -220,7 +219,7 @@ Per CORS è possibile impostare le opzioni seguenti:
 
 ## <a name="encryption-key"></a>Chiave di crittografia
 
-Sebbene tutti gli indici di Azure ricerca cognitiva siano crittografati per impostazione predefinita tramite chiavi gestite da Microsoft, è possibile configurare gli indici per la crittografia con **chiavi gestite dal cliente** in Key Vault. Per altre informazioni, vedere [gestire le chiavi di crittografia in Azure ricerca cognitiva](search-security-manage-encryption-keys.md).
+Sebbene tutti gli indici di Azure ricerca cognitiva siano crittografati per impostazione predefinita usando chiavi gestite da Microsoft, è possibile configurare gli indici per la crittografia con **chiavi gestite dal cliente** in Key Vault. Per altre informazioni, vedere [gestire le chiavi di crittografia in Azure ricerca cognitiva](search-security-manage-encryption-keys.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

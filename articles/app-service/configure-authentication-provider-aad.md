@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 09/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b833604ce18873e22c22990a26dcbae1d9928628
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: b85c68b19a44021710dbc9143e255600b43b2cba
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670895"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666143"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-ad-login"></a>Configurare l'app del servizio app per usare Azure AD account di accesso
 
@@ -27,11 +27,11 @@ Seguire queste procedure consigliate durante la configurazione dell'app e dell'a
 - Configurare ogni app del servizio app con la propria registrazione.
 - Evitare la condivisione delle autorizzazioni tra ambienti usando registrazioni di app separate per slot di distribuzione distinti. Quando si esegue il test di un nuovo codice, questa procedura consente di evitare problemi che interessano l'app di produzione.
 
-## <a name="express"> </a>Configurazione con impostazioni rapide
+## <a name="express"> </a>Configurare con le impostazioni rapide
 
-1. Nel [Azure portal]passare all'app del servizio app.
-1. Selezionare **impostazioni** > **autenticazione/autorizzazione** nel riquadro a sinistra e assicurarsi che **l'autenticazione del servizio app** sia **attiva**.
-1. Selezionare **Azure Active Directory** e quindi **Rapida** in **Modalità di gestione**.
+1. Nella [Azure portal]cercare e selezionare **Servizi app**e quindi selezionare l'app.
+1. Nel riquadro sinistro, in **Impostazioni** selezionare **autenticazione/autorizzazione** e verificare che **l'autenticazione del servizio app** sia **attiva**.
+1. Selezionare **Azure Active Directory**, quindi in **modalità di gestione** Selezionare **rapida**.
 1. Selezionare **OK** per registrare l'applicazione dei servizi app in Azure Active Directory. Viene creata una nuova registrazione dell'app.
 
    Se invece si vuole scegliere una registrazione dell'app esistente:
@@ -47,7 +47,7 @@ Seguire queste procedure consigliate durante la configurazione dell'app e dell'a
     > La limitazione dell'accesso in questo modo si applica a tutte le chiamate all'app, che potrebbero non essere utili per le app con un home page disponibile pubblicamente, come in molte applicazioni a singola pagina. Per queste applicazioni, **consentire le richieste anonime (nessuna azione)** potrebbe essere preferibile, con l'app che avvia manualmente l'accesso. Per altre informazioni, vedere [flusso di autenticazione](overview-authentication-authorization.md#authentication-flow).
 1. Selezionare **Salva**.
 
-## <a name="advanced"> </a>Configurazione con impostazioni avanzate
+## <a name="advanced"> </a>Configurare con impostazioni avanzate
 
 È possibile configurare manualmente le impostazioni dell'app se si vuole usare un tenant di Azure AD diverso da quello usato per accedere ad Azure. Per completare questa configurazione personalizzata, è necessario:
 
@@ -65,13 +65,13 @@ Quando si configura l'app del servizio app, sono necessarie le informazioni segu
 
 Eseguire la procedura seguente:
 
-1. Accedere al [Azure portal] e passare all'app del servizio app. Prendere nota dell' **URL**dell'app. Verrà usato per configurare la registrazione dell'app Azure Active Directory.
+1. Accedere alla [Azure portal], cercare e selezionare **Servizi app**e quindi selezionare l'app. Prendere nota dell' **URL**dell'app. Verrà usato per configurare la registrazione dell'app Azure Active Directory.
 1. Selezionare **Azure Active Directory** > **registrazioni app** > **nuova registrazione**.
 1. Nella pagina **registra un'applicazione** immettere un **nome** per la registrazione dell'app.
-1. In **URI di reindirizzamento**selezionare **Web** e immettere l'URL dell'app del servizio app e aggiungere il percorso `/.auth/login/aad/callback`. Ad esempio `https://contoso.azurewebsites.net/.auth/login/aad/callback`. 
+1. In **URI di reindirizzamento**selezionare **Web** e immettere l'URL dell'app del servizio app e aggiungere il percorso `/.auth/login/aad/callback`. Ad esempio: `https://contoso.azurewebsites.net/.auth/login/aad/callback`. 
 1. Selezionare **Create** (Crea).
 1. Dopo la creazione della registrazione dell'app, copiare l'ID **applicazione (client)** e l' **ID directory (tenant)** per un momento successivo.
-1. Selezionare **personalizzazione**. In **URL della Home page**immettere l'URL dell'app del servizio app e selezionare **Salva**.
+1. Selezionare **Personalizzazione**. In **URL della Home page**immettere l'URL dell'app del servizio app e selezionare **Salva**.
 1. Selezionare **esporre un** **set**di > API. Incollare l'URL dell'app del servizio app e selezionare **Salva**.
 
    > [!NOTE]
@@ -84,10 +84,10 @@ Eseguire la procedura seguente:
 1. Opzionale Per creare un segreto client, selezionare **certificati & segreti** > **nuovo segreto client** > **Aggiungi**. Copiare il valore del segreto client visualizzato nella pagina. Non verrà più visualizzato.
 1. Opzionale Per aggiungere più **URL di risposta**, selezionare **Authentication (autenticazione**).
 
-### <a name="secrets"> </a>Aggiungere informazioni di Azure Active Directory all'applicazione dei servizi app
+### <a name="secrets"> </a>Aggiungere informazioni Azure Active Directory all'app del servizio app
 
-1. Nel [Azure portal]passare all'app del servizio app. 
-1. Selezionare **impostazioni > autenticazione/autorizzazione** nel riquadro a sinistra e assicurarsi che **l'autenticazione del servizio app** sia **attiva**.
+1. Nella [Azure portal]cercare e selezionare **Servizi app**e quindi selezionare l'app. 
+1. Nel riquadro sinistro, in **Impostazioni**, selezionare **autenticazione/autorizzazione** e verificare che **l'autenticazione del servizio app** sia **attiva**.
 1. Opzionale Per impostazione predefinita, l'autenticazione del servizio app consente l'accesso non autenticato all'app. Per applicare l'autenticazione utente, impostare l' **azione da eseguire quando la richiesta non viene autenticata** per l' **accesso con Azure Active Directory**.
 1. In provider di autenticazione selezionare **Azure Active Directory**.
 1. In **modalità di gestione**selezionare **Avanzate** e configurare l'autenticazione del servizio app in base alla tabella seguente:
@@ -111,7 +111,7 @@ A questo punto si è pronti per usare Azure Active Directory per l'autenticazion
 
 1. Nella [Azure portal]selezionare **Active Directory** > **registrazioni app** > **nuova registrazione**.
 1. Nella pagina **registra un'applicazione** immettere un **nome** per la registrazione dell'app.
-1. In **URI di reindirizzamento**selezionare **client pubblico (Mobile & desktop)** e immettere l'URL dell'app del servizio app e aggiungere il percorso `/.auth/login/aad/callback`. Ad esempio `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
+1. In **URI di reindirizzamento**selezionare **client pubblico (Mobile & desktop)** e immettere l'URL dell'app del servizio app e aggiungere il percorso `/.auth/login/aad/callback`. Ad esempio: `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
 1. Selezionare **Create** (Crea).
 
     > [!NOTE]

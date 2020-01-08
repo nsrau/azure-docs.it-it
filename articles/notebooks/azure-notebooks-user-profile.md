@@ -1,16 +1,16 @@
 ---
-title: Profilo utente e ID da usare con Azure Notebooks
+title: Profilo utente e ID da usare con Azure Notebooks Preview
 description: Come creare e gestire il profilo utente e l'ID utente con Azure Notebooks, che diventa parte dell'URL dei notebook condivisi.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/25/2019
-ms.openlocfilehash: 0874fe8223ae9c49ccfe4e8efedf2620117a0f8c
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: d90eebf1b7b463e038bc5e54f51df0eb6ca746c4
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277600"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646280"
 ---
-# <a name="your-profile-and-user-id-for-azure-notebooks"></a>Profilo e ID utente per i Azure Notebooks
+# <a name="your-profile-and-user-id-for-azure-notebooks-preview"></a>Profilo e ID utente per Azure Notebooks anteprima
 
 Nello spazio potente e collaborativo di Azure Notebooks, il profilo utente presenta l'immagine pubblica agli altri:
 
@@ -23,6 +23,8 @@ L'ID utente è parte della URL usata per condividere i progetti e i notebook. L'
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>`: file di progetto.
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones`: cloni di un progetto specifico.
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb`: anteprima HTML di un file o di un notebook specifico.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="your-user-id"></a>ID utente
 
@@ -47,7 +49,7 @@ Il profilo è composto da informazioni visualizzabili pubblicamente nella URL, `
 
 Per modificare il profilo, usare il comando **Modifica le informazioni del profilo** nella pagina del profilo. Le sezioni del profilo sono le seguenti:
 
-| Sezione | Sommario |
+| Sezione | Contenuti |
 | --- | --- |
 | Foto profilo | Un'immagine che viene visualizzata nella pagina del profilo. |
 | Informazioni account | Il nome visualizzato, l'ID utente e l'account di posta elettronica pubblico. In questo caso l'account di posta elettronica fornisce agli altri utenti un mezzo di contatto e può essere diverso dall'[account](azure-notebooks-user-account.md) usato per accedere ad Azure Notebooks stesso. |

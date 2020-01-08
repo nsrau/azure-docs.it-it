@@ -1,17 +1,17 @@
 ---
-title: Risolvere i problemi e diagnosticare gli errori
-description: Informazioni su come risolvere i problemi e diagnosticare gli errori del flusso di lavoro nelle App per la logica di Azure
+title: Risolvere i problemi e diagnosticare gli errori del flusso di lavoro
+description: Informazioni su come risolvere i problemi e diagnosticare problemi, errori ed errori nei flussi di lavoro in app per la logica di Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
-ms.openlocfilehash: 93b6d9d2975aa1758afffd19deb1d315b974cc47
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 79cc9d1bf7aa9e8848197525646b0a3646a558d2
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790774"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666806"
 ---
 # <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>Risolvere i problemi e diagnosticare gli errori del flusso di lavoro nelle App per la logica di Azure
 
@@ -34,7 +34,7 @@ Ogni app per la logica si avvia con un trigger. Se il trigger non viene attivato
 
    Di seguito sono riportati i possibili stati per un tentativo di trigger:
 
-   | Status | Description | 
+   | Stato | Description | 
    | ------ | ----------- | 
    | **Completato** | Il trigger ha controllato l'endpoint e ha trovato dati disponibili. In genere compare anche lo stato "Attivato" accanto a questo stato. In caso contrario, la definizione del trigger potrebbe essere una condizione o comando `SplitOn` che non è soddisfatto. <p>Questo stato può essere associato a un trigger manuale, un trigger di ricorrenza o un trigger di poll. Un trigger può essere eseguito correttamente, ma l'esecuzione stessa potrebbe comunque non riuscire quando le azioni generano errori non gestiti. | 
    | **Ignorato** | Il trigger ha controllato l'endpoint ma non ha trovato dati. | 
@@ -75,7 +75,7 @@ Ogni trigger attivato avvia un'esecuzione del flusso di lavoro. È possibile esa
 
    Di seguito sono riportati i possibili stati per un'esecuzione:
 
-   | Status | Description | 
+   | Stato | Description | 
    | ------ | ----------- | 
    | **Completato** | Tutte le azioni hanno avuto esito positivo. <p>Se si sono verificati errori in un'azione specifica, un'azione successiva nel flusso di lavoro ha gestito l'errore. | 
    | **Non riuscito** | Almeno un'azione non è riuscita e non è stata configurata alcuna azione successiva nel flusso di lavoro per la gestione dell'errore. | 
@@ -91,7 +91,7 @@ Ogni trigger attivato avvia un'esecuzione del flusso di lavoro. È possibile esa
 
    ![Visualizzare i dettagli per un'esecuzione dell'app per la logica](./media/logic-apps-diagnosing-failures/logic-app-run-details.png)
 
-3. Per esaminare gli input, gli output e gli eventuali messaggi di errore per un passaggio specifico, scegliere quel passaggio, in modo che la forma si espanda e vengano mostrati i dettagli. ad esempio:
+3. Per esaminare gli input, gli output e gli eventuali messaggi di errore per un passaggio specifico, scegliere quel passaggio, in modo che la forma si espanda e vengano mostrati i dettagli. Ad esempio:
 
    ![Visualizzare i dettagli del passaggio](./media/logic-apps-diagnosing-failures/logic-app-run-details-expanded.png)
 

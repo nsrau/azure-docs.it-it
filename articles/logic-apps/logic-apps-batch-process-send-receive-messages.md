@@ -1,6 +1,6 @@
 ---
 title: Elaborare i messaggi in batch come gruppo
-description: Inviare e ricevere messaggi in batch nelle App per la logica di Azure
+description: Inviare e ricevere messaggi in gruppi tra i flussi di lavoro usando l'elaborazione batch in app per la logica di Azure
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 813c625fc72fa7c1440b5d1b9147af9a44c2260f
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e48d2bb2ffce0dd4f9293417534165165d426784
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791566"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666755"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Inviare, ricevere ed elaborare in batch i messaggi nelle app per la logica di Azure
 
@@ -89,7 +89,7 @@ Prima di poter inviare messaggi a un batch, il batch deve esistere come destinaz
 
    3. Selezionare questa azione: **inviare un messaggio di posta elettronica - <*provider di posta elettronica*>**
 
-      ad esempio:
+      Ad esempio:
 
       ![Selezionare l'azione "Invia un messaggio di posta elettronica" per il provider di posta elettronica](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-send-email-action.png)
 

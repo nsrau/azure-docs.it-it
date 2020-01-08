@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 01/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c9acc1487fcbf8398b7a556c63f97963b264451
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 4db330a875b8241b642bcbc71fb0866c9833ee7e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74182730"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638681"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>Configurare le impostazioni del ruolo delle risorse di Azure in Privileged Identity Management
 
@@ -58,10 +58,17 @@ Per aprire le impostazioni per un ruolo delle risorse di Azure seguire questa pr
 
 1. Usare la scheda **notifica** o il pulsante **Avanti: attivazione** nella parte inferiore della pagina per ottenere la scheda delle impostazioni di notifica per questo ruolo. Queste impostazioni controllano tutte le notifiche di posta elettronica correlate a questo ruolo.
 
-    > [!NOTE]
-    > È in corso il rollback di questa interfaccia utente delle notifiche tra aree e sottoscrizioni di Azure. Se non è possibile configurare queste notifiche granulari, verificare di nuovo in un giorno o due.
-
     ![Scheda notifiche ruolo nella pagina impostazioni ruolo](./media/pim-resource-roles-configure-role-settings/role-settings-notification-tab.png)
+
+    Nella scheda **notifiche** della pagina impostazioni ruolo Privileged Identity Management consente un controllo granulare su chi riceve le notifiche e quali notifiche ricevono.
+
+    - **Spegnimento di un messaggio di posta elettronica**<br>È possibile disattivare i messaggi di posta elettronica specifici deselezionando la casella di controllo destinatario predefinito ed eliminando eventuali destinatari aggiuntivi.  
+
+    - **Limita i messaggi di posta elettronica agli indirizzi di posta elettronica specificati**<br>È possibile disattivare i messaggi di posta elettronica inviati ai destinatari predefiniti cancellando la casella di controllo destinatario predefinito. È quindi possibile aggiungere altri indirizzi di posta elettronica come destinatari aggiuntivi. Se si vuole aggiungere più di un indirizzo di posta elettronica, separarli con un punto e virgola (;).
+
+    - **Invia messaggi di posta elettronica sia ai destinatari predefiniti che ai destinatari aggiuntivi**<br>È possibile inviare messaggi di posta elettronica sia al destinatario predefinito che al destinatario aggiuntivo selezionando la casella di controllo destinatario predefinito e aggiungendo gli indirizzi di posta elettronica per altri destinatari.
+
+    - **Solo messaggi di posta elettronica critici**<br>Per ogni tipo di messaggio di posta elettronica, è possibile selezionare la casella di controllo per ricevere solo messaggi di posta elettronica critici. Ciò significa che Privileged Identity Management continuerà a inviare messaggi di posta elettronica ai destinatari configurati solo quando il messaggio di posta elettronica richiede un'azione immediata. Ad esempio, i messaggi di posta elettronica che chiedono agli utenti di estendere l'assegnazione di ruolo non verranno attivati, mentre i messaggi di posta elettronica che richiedono agli amministratori di approvare una richiesta di estensione verranno attivati.
 
 1. Selezionare il pulsante **Aggiorna** in qualsiasi momento per aggiornare le impostazioni del ruolo.
 

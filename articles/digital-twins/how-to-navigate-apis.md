@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/27/2019
-ms.openlocfilehash: 135c760919f094f7b2d242ad37cc1cadb614e36e
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 12/27/2019
+ms.openlocfilehash: 86ade45cd00e82e8787a117c23003d2a74750cf0
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74009996"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552169"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>Come usare le API di gestione di Gemelli digitali di Azure
 
@@ -72,7 +72,7 @@ Le API di Gemelli digitali supportano il filtro e lo spostamento in tutto il gra
    - **Span**: filtra una parte orizzontale del grafico spaziale, allo stesso livello dell'ID di spazio specificato. È necessario che **minRelative** o **maxRelative** sia impostato su true. 
 
 
-### <a name="examples"></a>esempi
+### <a name="examples"></a>Esempi
 
 L'elenco seguente illustra alcuni esempi di spostamento nelle API [/devices](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Devices). Si noti che il segnaposto `YOUR_MANAGEMENT_API_URL` si riferisce all'URI delle API di Gemelli digitali nel formato `https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/api/v1.0/`, dove `YOUR_INSTANCE_NAME` è il nome dell'istanza di Gemelli digitali di Azure e `YOUR_LOCATION` è l'area in cui è ospitata l'istanza.
 
@@ -99,7 +99,7 @@ La maggior parte delle API che restituiscono raccolte, ad esempio una chiamata G
 > [!NOTE]
 > Alcune opzioni OData, ad esempio le opzioni di query **$count**, **$expand**e **$Search**, non sono attualmente supportate.
 
-### <a name="examples"></a>esempi
+### <a name="examples"></a>Esempi
 
 Nell'elenco seguente vengono illustrate diverse query con sintassi OData valida:
 

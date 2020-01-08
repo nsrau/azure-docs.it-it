@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: xujing
-ms.openlocfilehash: ffe20ff80e26bc5564b9379ea21ca99e2890b519
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 3cbab09c6b50abb590cfe9f2720713a8fa547aa7
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974820"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646473"
 ---
 # <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>Risoluzione dei problemi con il servizio Device provisioning in hub Azure
 
@@ -32,7 +32,7 @@ La procedura seguente descrive come visualizzare e configurare l'avviso sulla me
 4. Selezionare la metrica desiderata. 
    <br />Attualmente sono disponibili tre metriche per DPS:
 
-    | Nome della metrica | Description |
+    | Nome misurazione | Description |
     |-------|------------|
     | Tentativi di attestazione | Numero di dispositivi che hanno tentato di eseguire l'autenticazione con il servizio Device provisioning|
     | Tentativi di registrazione | Numero di dispositivi che hanno tentato di eseguire la registrazione nell'hub Internet al termine dell'autenticazione|
@@ -81,5 +81,5 @@ Usare questa tabella per comprendere e risolvere gli errori comuni.
 | 401 | Il token di autorizzazione non può essere convalidato. ad esempio, è scaduta o non si applica all'URI della richiesta. Questo codice di errore viene anche restituito ai dispositivi come parte del flusso di attestazione TPM. | 401 - Non autorizzato|
 | 404 | L'istanza del servizio Device provisioning o una risorsa, ad esempio una registrazione, non esiste. |404 - Pagina non trovata |
 | 412 | Il valore ETag nella richiesta non corrisponde al valore ETag della risorsa esistente, in base al valore di RFC7232. | 412 Precondizione non riuscita |
-| 429 | Le operazioni sono limitate dal servizio. Per i limiti di servizio specifici, vedere [limiti del servizio Device provisioning in hub](https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits). | 429 numero eccessivo di richieste |
+| 429 | Le operazioni sono limitate dal servizio. Per i limiti di servizio specifici, vedere [limiti del servizio Device provisioning in hub](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits). | 429 numero eccessivo di richieste |
 | 500 | An internal error occurred. | 500 - Errore interno del server|

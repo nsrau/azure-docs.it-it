@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/31/2019
 ms.author: rambala
 ms.custom: seodec18
-ms.openlocfilehash: 833e7788a5b17b12ad883f705d56f660c2f1d832
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 69c32370b1f7f7cabb642ab140d69dcec57fb4aa
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033782"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551982"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verifica della connettività di ExpressRoute
 Questo articolo fornisce informazioni sulla verifica e la risoluzione dei problemi di connettività di ExpressRoute. ExpressRoute estende una rete locale nel cloud Microsoft tramite una connessione privata, comunemente facilitata da un provider di connettività. La connettività ExpressRoute prevede tradizionalmente tre aree di rete distinte, come indicato di seguito:
@@ -23,7 +23,7 @@ Questo articolo fornisce informazioni sulla verifica e la risoluzione dei proble
 -   Datacenter Microsoft
 
 > [!NOTE]
-> Nel modello di connettività diretta di ExpressRoute (offerta a 10/100 Gbps di larghezza di banda), cusomters è in grado di connettersi direttamente alla porta router Microsoft Enterprise Edge (MSEE). Nel modello di connettività diretta sono pertanto disponibili solo le aree di rete Customer e Microsoft.
+> Nel modello di connettività diretta di ExpressRoute (offerta a una larghezza di banda di 10/100 Gbps), i clienti possono connettersi direttamente alla porta dei router Microsoft Enterprise Edge (MSEE). Nel modello di connettività diretta sono pertanto disponibili solo le aree di rete Customer e Microsoft.
 >
 
 
@@ -288,7 +288,7 @@ Output di esempio del comando per un peering inesistente:
     Get-AzExpressRouteCircuitRouteTable : The BGP Peering AzurePublicPeering with Service Key ********************* is not found.
     StatusCode: 400
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 Per maggiori informazioni o assistenza, consultare i collegamenti seguenti:
 
 - [Supporto tecnico Microsoft][Support]

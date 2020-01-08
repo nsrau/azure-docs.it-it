@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: ganesr
-ms.openlocfilehash: f232e1e8a1f7121b047a846fc2c614b48e757f76
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c4fed30f7f4b723f04cd59b2a987b498e3d614a5
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076654"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645906"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Spostamento dei circuiti ExpressRoute dal modello di distribuzione classica al modello di distribuzione Resource Manager
 Questo articolo offre una panoramica di cosa si intende per spostamento di un circuito Azure ExpressRoute dal modello di distribuzione classica al modello di distribuzione Azure Resource Manager.
@@ -39,7 +39,7 @@ Per eseguire lo spostamento, non è necessario coinvolgere il provider di connet
 * L'accesso al modello di distribuzione classica è controllato dal parametro **allowClassicOperations** nel circuito ExpressRoute.
 
 > [!IMPORTANT]
-> Vengono applicate tutte le quote documentate nella pagina relativa ai [limiti dei servizi](../azure-subscription-service-limits.md) . Ad esempio, un circuito standard può avere al massimo 10 collegamenti/connessioni di rete virtuale sia nel modello di distribuzione classica che nel modello di distribuzione Resource Manager.
+> Vengono applicate tutte le quote documentate nella pagina relativa ai [limiti dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md) . Ad esempio, un circuito standard può avere al massimo 10 collegamenti/connessioni di rete virtuale sia nel modello di distribuzione classica che nel modello di distribuzione Resource Manager.
 > 
 > 
 

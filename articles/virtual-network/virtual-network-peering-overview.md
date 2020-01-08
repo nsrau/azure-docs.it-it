@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: anavin
-ms.openlocfilehash: 59854d7d46f533510bea97a6845554fc0ce83dbb
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 335b956701a87b6a0e5984ae50507a91d212ab67
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74328357"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646745"
 ---
 # <a name="virtual-network-peering"></a>Peering di rete virtuale
 
@@ -91,9 +91,9 @@ I vincoli seguenti si applicano solo quando il peering viene eseguito globalment
 * Le risorse in una rete virtuale non possono comunicare con l'indirizzo IP front-end di un Load Balancer interno di base (ILB) in una rete virtuale con peering globale.
 * Alcuni servizi che usano un servizio di bilanciamento del carico di base non funzionano sul peering di rete virtuale globale. Per altre informazioni, vedere [quali sono i vincoli correlati al peering VNet globale e ai bilanciamenti del carico?](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
 
-Per ulteriori informazioni, vedere [requisiti e vincoli](virtual-network-manage-peering.md#requirements-and-constraints). Per altre informazioni sul numero supportato di peering, vedere [limiti di rete](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Per ulteriori informazioni, vedere [requisiti e vincoli](virtual-network-manage-peering.md#requirements-and-constraints). Per altre informazioni sul numero supportato di peering, vedere [limiti di rete](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-## <a name="permissions"></a>autorizzazioni
+## <a name="permissions"></a>Autorizzazioni
 
 Per informazioni sulle autorizzazioni necessarie per creare un peering di rete virtuale, vedere [autorizzazioni](virtual-network-manage-peering.md#permissions).
 
@@ -110,7 +110,7 @@ Il transito del gateway è una proprietà di peering che consente a una rete vir
 
 * È possibile creare un peering tra due reti virtuali. Le reti possono appartenere alla stessa sottoscrizione, a modelli di distribuzione diversi nella stessa sottoscrizione o a sottoscrizioni diverse. Completare un'esercitazione per uno degli scenari seguenti:
 
-    |Modello di distribuzione di Azure             | sottoscrizione  |
+    |Modello di distribuzione di Azure             | Sottoscrizione  |
     |---------                          |---------|
     |Entrambi Resource Manager              |[Uguale](tutorial-connect-virtual-networks-portal.md)|
     |                                   |[Diversa](create-peering-different-subscriptions.md)|

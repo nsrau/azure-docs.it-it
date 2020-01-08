@@ -1,30 +1,21 @@
 ---
-title: Bilanciare il carico del cluster di Azure Service Fabric | Documentazione Microsoft
+title: Bilanciare il cluster di Azure Service Fabric
 description: Introduzione al bilanciamento del carico del cluster con Cluster Resource Manager di Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 030b1465-6616-4c0b-8bc7-24ed47d054c0
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 3ea95405f68938906ba010836753cd74ab0f775e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8e170c27923d2bb091c4121e350809b85e4c48a5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446743"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452095"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Bilanciamento del carico nel cluster di Service Fabric
 Cluster Resource Manager di Service Fabric supporta le modifiche al carico dinamico, reagisce all'aggiunta o alla rimozione di nodi o servizi. Corregge anche automaticamente le violazioni dei vincoli ed esegue in modo proattivo il ribilanciamento del cluster. Ma con quale frequenza vengono eseguite queste azioni, e che cosa le attiva?
 
-Sono disponibili tre diverse categorie di lavoro eseguite da Cluster. Resource Manager. Sono:
+Sono disponibili tre diverse categorie di lavoro eseguite da Cluster. Resource Manager. ovvero:
 
 1. Posizionamento: questa fase riguarda l'inserimento di repliche con stato o istanze senza stato mancanti. Il posizionamento include sia i nuovi servizi sia la gestione di repliche con stato o istanze senza stato non riuscite. In questa fase viene gestita l'eliminazione di istanze e repliche.
 2. Verifiche dei vincoli: in questa fase vengono controllate e corrette le violazioni dei vincoli (regole) di posizionamento all'interno del sistema. Le regole servono, ad esempio, per controllare che i nodi non superino la capacità o che i vincoli di posizionamento di un servizio vengano rispettati.
@@ -36,9 +27,9 @@ Il primo set di controlli sul bilanciamento del carico sono un set di timer. Que
 Ognuno dei tipi diversi di correzioni che Cluster Resource Manager può apportare è controllato da un timer diverso che ne determina la frequenza. Quando viene attivato ogni timer, l'attività viene pianificata. Per impostazione predefinita, Resource Manager:
 
 * Analizza lo stato e applica gli aggiornamenti, ad esempio la registrazione di un nodo inattivo, ogni decimo di secondo.
-* Imposta il flag di controllo di selezione host per ogni secondo
+* imposta il flag di controllo della selezione host ogni secondo
 * imposta il flag di controllo del vincolo ogni secondo
-* Imposta il flag di bilanciamento ogni cinque secondi
+* imposta il flag di bilanciamento ogni cinque secondi
 
 Di seguito sono riportati alcuni esempi di configurazione che controllano i timer:
 
@@ -85,7 +76,7 @@ Oggi Cluster Resource Manager esegue solo una di queste azioni alla volta, in se
 
 Ad esempio, quando i nodi presentano errori possono procedere con interi domini di errore alla volta. Tutti questi errori vengono acquisiti durante il successivo aggiornamento dopo il *PLBRefreshGap*. Le correzioni vengono determinate durante il posizionamento seguente del controllo del vincolo, e bilanciamento del carico viene eseguito. Per impostazione predefinita, Cluster Resource Manager non analizza ore di modifiche nel cluster e non tenta di risolvere tutte le modifiche in una sola volta. Questo potrebbe generare burst di varianza.
 
-Cluster Resource Manager necessita di informazioni aggiuntive per determinare se il cluster è sbilanciato. Per cui sono disponibili due altri tipi di configurazione: *Soglie di bilanciamento* e *soglie di attività*.
+Cluster Resource Manager necessita di informazioni aggiuntive per determinare se il cluster è sbilanciato. Per gestire questi aspetti sono disponibili due controlli di configurazione: le *soglie di bilanciamento* e le *soglie di attività*.
 
 ## <a name="balancing-thresholds"></a>Soglie di bilanciamento del carico
 Una soglia di bilanciamento del carico è il controllo principale per attivare il ribilanciamento. La soglia di bilanciamento del carico per una metrica è espressa con un _rapporto_. Se il volume di carico sul nodo più carico diviso per il volume di carico sul nodo meno carico supera il *BalancingThreshold*della metrica, il cluster viene considerato sbilanciato. In tal caso, al successivo controllo di Cluster Resource Manager viene attivato il bilanciamento del carico. Il timer *MinLoadBalancingInterval* definisce la frequenza dei controlli eseguiti da Cluster Resource Manager se è necessario il ribilanciamento. Controllare non comporta che venga eseguita un'operazione. 
@@ -123,7 +114,7 @@ mediante ClusterConfig.json per le distribuzioni autonome o Template.json per i 
 
 <center>
 
-![Esempio di soglia di bilanciamento del carico][Image1]
+Esempio di soglia di bilanciamento del ![][Image1]
 </center>
 
 In questo esempio ogni servizio usa una unità di una metrica. Nell'esempio in alto il carico massimo su un nodo è cinque e il carico minimo è due. Si supponga che la soglia di bilanciamento del carico per questa metrica sia tre. Dato che il rapporto nel cluster è 5/2 = 2,5 e che tale cifra è inferiore al valore tre della soglia di bilanciamento, il cluster è bilanciato. In tal caso, al successivo controllo di Cluster Resource Manager non viene attivato alcun bilanciamento del carico.
@@ -132,7 +123,7 @@ Nell'esempio in basso il carico massimo su un nodo è 10, mentre il carico minim
 
 <center>
 
-![Azioni sull'esempio di soglia di bilanciamento del carico][Image2]
+Azioni di esempio della soglia di bilanciamento del ![][Image2]
 </center>
 
 > [!NOTE]
@@ -148,7 +139,7 @@ Si supponga che abbiamo mantenuto la soglia di bilanciamento su tre per questa m
 
 <center>
 
-![Esempio di soglia di attività][Image3]
+Esempio di soglia attività ![][Image3]
 </center>
 
 Proprio come le soglie di bilanciamento del carico, le soglie di attività sono definite sulla base di singoli metriche tramite la definizione del cluster:
@@ -194,11 +185,11 @@ In alcuni casi però viene spostato un servizio che non era sbilanciato (ricorda
 - Service3 riporta le metriche Metric3 e Metric4.
 - Service4 riporta la metrica Metric99. 
 
-Sicuramente noterete qui che vedremo qui: È presente una catena. Non ci sono quattro servizi indipendenti, ma tre servizi correlati tra loro e uno autonomo.
+Sicuramente è già possibile intravedere una spiegazione: la catena. Non ci sono quattro servizi indipendenti, ma tre servizi correlati tra loro e uno autonomo.
 
 <center>
 
-![Bilanciamento composto dei servizi][Image4]
+![i servizi di bilanciamento del carico insieme][Image4]
 </center>
 
 A causa di questa catena, è possibile che uno squilibrio nelle metriche 1-4 provochi lo spostamento di repliche o istanze appartenenti ai servizi 1-3. Sappiamo anche che uno sbilanciamento delle metriche 1, 2 o 3 non può comportare movimenti in Service4. Non sarebbero di alcuna utilità, dato che lo spostamento di repliche o istanze appartenenti a Service4 non influirebbe in alcun modo sul bilanciamento delle metriche 1-3.
@@ -207,7 +198,7 @@ Cluster Resource Manager determina automaticamente i servizi correlati. Aggiunge
 
 <center>
 
-![Bilanciamento composto dei servizi][Image5]
+![i servizi di bilanciamento del carico insieme][Image5]
 </center>
 
 ## <a name="next-steps"></a>Passaggi successivi

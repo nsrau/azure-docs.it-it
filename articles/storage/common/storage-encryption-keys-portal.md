@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: b1006fead92763c5c2e670527b5e232618b633e5
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f592872e67ff8559060706ddb3b1e45839b6acaf
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895298"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665459"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-the-azure-portal"></a>Configurare chiavi gestite dal cliente con Azure Key Vault usando il portale di Azure
 
@@ -23,9 +23,16 @@ ms.locfileid: "74895298"
 
 Questo articolo illustra come configurare un Azure Key Vault con chiavi gestite dal cliente usando il [portale di Azure](https://portal.azure.com/). Per informazioni su come creare un insieme di credenziali delle chiavi usando il portale di Azure, vedere [Guida introduttiva: impostare e recuperare un segreto da Azure Key Vault tramite il portale di Azure](../../key-vault/quick-create-portal.md).
 
-> [!IMPORTANT]
-> L'uso delle chiavi gestite dal cliente con la crittografia di archiviazione di Azure richiede l'impostazione di due proprietà nell'insieme di credenziali delle chiavi, l' **eliminazione** **temporanea e l'eliminazione.** Queste proprietà non sono abilitate per impostazione predefinita. Per abilitare queste proprietà, usare PowerShell o l'interfaccia della riga di comando di Azure.
-> Sono supportate solo le chiavi RSA e le dimensioni della chiave 2048.
+## <a name="configure-azure-key-vault"></a>Configurare Azure Key Vault
+
+L'uso delle chiavi gestite dal cliente con la crittografia di archiviazione di Azure richiede l'impostazione di due proprietà nell'insieme di credenziali delle chiavi, l' **eliminazione** **temporanea e l'eliminazione.** Queste proprietà non sono abilitate per impostazione predefinita, ma possono essere abilitate tramite PowerShell o l'interfaccia della riga di comando di Azure in un insieme di credenziali delle chiavi nuovo o esistente.
+
+Per informazioni su come abilitare queste proprietà in un insieme di credenziali delle chiavi esistente, vedere le sezioni intitolate **Abilitazione dell'eliminazione** temporanea e **Abilitazione della protezione di ripulitura** in uno degli articoli seguenti:
+
+- [Come usare l'eliminazione temporanea con PowerShell](../../key-vault/key-vault-soft-delete-powershell.md).
+- [Come usare l'eliminazione temporanea con l'interfaccia](../../key-vault/key-vault-soft-delete-cli.md)della riga di comando.
+
+Con la crittografia di archiviazione di Azure sono supportate solo le chiavi RSA della dimensione 2048. Per ulteriori informazioni sulle chiavi, vedere **Key Vault chiavi** in [informazioni su Azure Key Vault chiavi, segreti e certificati](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
 ## <a name="enable-customer-managed-keys"></a>Abilita chiavi gestite dal cliente
 
@@ -44,31 +51,53 @@ Dopo aver abilitato le chiavi gestite dal cliente, si avrà la possibilità di s
 
 Per specificare una chiave come URI, attenersi alla procedura seguente:
 
-1. Per individuare l'URI della chiave nella portale di Azure, passare all'insieme di credenziali delle chiavi e selezionare l'impostazione **chiavi** . Selezionare la chiave desiderata, quindi fare clic sulla chiave per visualizzarne le impostazioni. Copiare il valore del campo **identificatore chiave** , che fornisce l'URI.
+1. Per individuare l'URI della chiave nella portale di Azure, passare all'insieme di credenziali delle chiavi e selezionare l'impostazione **chiavi** . Selezionare la chiave desiderata, quindi fare clic sulla chiave per visualizzarne le versioni. Selezionare una versione della chiave per visualizzare le impostazioni per tale versione.
+1. Copiare il valore del campo **identificatore chiave** , che fornisce l'URI.
 
     ![Screenshot che mostra l'URI della chiave di Key Vault](media/storage-encryption-keys-portal/key-uri-portal.png)
 
 1. Nelle impostazioni di **crittografia** per l'account di archiviazione scegliere l'opzione **immettere l'URI del tasto** .
-1. Nel campo **URI della chiave** specificare l'URI.
+1. Incollare l'URI copiato nel campo **URI chiave** .
 
    ![Screenshot che illustra come immettere l'URI della chiave](./media/storage-encryption-keys-portal/ssecmk2.png)
+
+1. Specificare la sottoscrizione che contiene l'insieme di credenziali delle chiavi.
+1. Salvare le modifiche.
 
 ### <a name="specify-a-key-from-a-key-vault"></a>Specificare una chiave da un insieme di credenziali delle chiavi
 
 Per specificare una chiave da un insieme di credenziali delle chiavi, assicurarsi innanzitutto di avere un insieme di credenziali delle chiavi contenente una chiave. Per specificare una chiave da un insieme di credenziali delle chiavi, seguire questa procedura:
 
 1. Scegliere l'opzione **Selezionare la chiave dall'insieme di credenziali delle chiavi**.
-2. Scegliere l'insieme di credenziali delle chiavi contenente la chiave da usare.
-3. Scegliere la chiave dall'insieme di credenziali delle chiavi.
+2. Selezionare l'insieme di credenziali delle chiavi contenente la chiave che si vuole usare.
+3. Selezionare la chiave dall'insieme di credenziali delle chiavi.
 
    ![Screenshot che mostra l'opzione della chiave gestita dal cliente](./media/storage-encryption-keys-portal/ssecmk3.png)
 
+1. Salvare le modifiche.
+
 ## <a name="update-the-key-version"></a>Aggiornare la versione della chiave
 
-Quando si crea una nuova versione di una chiave, è necessario aggiornare l'account di archiviazione per usare la nuova versione. Seguire questa procedura:
+Quando si crea una nuova versione di una chiave, aggiornare l'account di archiviazione per usare la nuova versione. A tale scopo, seguire questa procedura:
 
 1. Passare all'account di archiviazione e visualizzare le impostazioni di **crittografia** .
-1. Specificare l'URI per la nuova versione della chiave. In alternativa, è possibile selezionare di nuovo l'insieme di credenziali delle chiavi e la chiave per aggiornare la versione.
+1. Immettere l'URI per la nuova versione della chiave. In alternativa, è possibile selezionare di nuovo l'insieme di credenziali delle chiavi e la chiave per aggiornare la versione.
+1. Salvare le modifiche.
+
+## <a name="use-a-different-key"></a>Usare una chiave diversa
+
+Per modificare la chiave usata per la crittografia di archiviazione di Azure, seguire questa procedura:
+
+1. Passare all'account di archiviazione e visualizzare le impostazioni di **crittografia** .
+1. Immettere l'URI della nuova chiave. In alternativa, è possibile selezionare l'insieme di credenziali delle chiavi e scegliere una nuova chiave.
+1. Salvare le modifiche.
+
+## <a name="disable-customer-managed-keys"></a>Disabilitare le chiavi gestite dal cliente
+
+Quando si disabilitano le chiavi gestite dal cliente, l'account di archiviazione viene quindi crittografato con le chiavi gestite da Microsoft. Per disabilitare le chiavi gestite dal cliente, attenersi alla seguente procedura:
+
+1. Passare all'account di archiviazione e visualizzare le impostazioni di **crittografia** .
+1. Deselezionare la casella di controllo accanto all'impostazione **Usa una chiave personalizzata** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

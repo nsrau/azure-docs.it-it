@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 2da12bbc760ff06ad0737ed9d48e12ea81260655
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8238f2ea8395fc53044703db619d768918cb1834
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73674721"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644699"
 ---
 # <a name="azure-data-factory-faq"></a>Domande frequenti su Azure Data Factory
 Questo articolo risponde ad alcune domande frequenti su Azure Data Factory.  
@@ -72,7 +72,7 @@ Per spostare i carichi di lavoro SSIS, è possibile creare un'istanza di Data Fa
 ### <a name="sdks"></a>SDK
 Se si è un utente avanzato e si cerca un'interfaccia a livello di codice, Data Factory offre un set completo di SDK che è possibile usare per creare, gestire o monitorare le pipeline usando l'IDE preferito. Sono supportati, tra gli altri, i linguaggi .NET, PowerShell, Python e REST.
 
-### <a name="monitoring"></a>Monitoraggio
+### <a name="monitoring"></a>Monitorare
 È possibile monitorare le istanze di Data Factory tramite PowerShell, SDK o gli strumenti di monitoraggio visivi nell'interfaccia utente del browser. È possibile monitorare e gestire flussi personalizzati basati su richiesta, basati su trigger e basati su clock in modo efficiente ed efficace. Annulla le attività esistenti, Visualizza gli errori a colpo d'occhio, Esegui il drill-down per visualizzare i messaggi di errore dettagliati ed Esegui il debug dei problemi, tutto da un unico riquadro di vetro senza cambio di contesto o spostamento tra le schermate. 
 
 ### <a name="new-features-for-ssis-in-data-factory"></a>Nuove funzionalità per SSIS in Data Factory
@@ -82,7 +82,7 @@ Dalla versione di anteprima pubblica iniziale in 2017, Data Factory ha aggiunto 
 -   Database SQL con endpoint servizio rete virtuale
 -   Istanza gestita
 -   Pool elastico
--   Il supporto per un Azure Resource Manager rete virtuale in una rete virtuale classica verrà deprecato in futuro, che consente di inserire/aggiungere il runtime di integrazione Azure-SSIS a una rete virtuale configurata per il database SQL con il servizio di rete virtuale endpoint/MI/accesso ai dati locali. Per altre informazioni, vedere anche [aggiungere un runtime di integrazione SSIS di Azure a una rete virtuale](join-azure-ssis-integration-runtime-virtual-network.md).
+-   Il supporto per un Azure Resource Manager rete virtuale in una rete virtuale classica verrà deprecato in futuro, che consente di inserire/aggiungere il runtime di integrazione Azure-SSIS a una rete virtuale configurata per il database SQL con endpoint servizio rete virtuale/MI/i dati locali. Per altre informazioni, vedere anche [aggiungere un runtime di integrazione SSIS di Azure a una rete virtuale](join-azure-ssis-integration-runtime-virtual-network.md).
 -   Supporto per l'autenticazione Azure Active Directory (Azure AD) e l'autenticazione SQL per la connessione al database SSISDB, consentendo l'autenticazione Azure AD con l'identità gestita Data Factory per le risorse di Azure
 -   Supporto per l'uso della licenza SQL Server locale per ottenere risparmi sostanziali sui costi dall'opzione Vantaggio Azure Hybrid
 -   Supporto per Enterprise Edition del runtime di integrazione SSIS di Azure che consente di usare le funzionalità avanzate/Premium, un'interfaccia di installazione personalizzata per installare componenti/estensioni aggiuntivi e un ecosistema di partner. Per ulteriori informazioni, vedere anche [Enterprise Edition, installazione personalizzata e estendibilità di terze parti per SSIS in ADF](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/). 
@@ -101,7 +101,7 @@ Integration Runtime è l'infrastruttura di calcolo che Azure Data Factory USA pe
 Per altre informazioni, vedere il [Runtime di integrazione in Azure Data Factory](concepts-integration-runtime.md).
 
 ## <a name="what-is-the-limit-on-the-number-of-integration-runtimes"></a>Qual è il limite al numero di runtime di integrazione?
-Non sono previsti limiti rigidi per il numero di istanze di runtime di integrazione che è possibile avere in una data factory. È stato posto tuttavia un limite al numero di core di VM che il runtime di integrazione può usare per ogni sottoscrizione per l'esecuzione del pacchetto SSIS. Per altre informazioni, vedere [Limiti della data factory](../azure-subscription-service-limits.md#data-factory-limits).
+Non sono previsti limiti rigidi per il numero di istanze di runtime di integrazione che è possibile avere in una data factory. È stato posto tuttavia un limite al numero di core di VM che il runtime di integrazione può usare per ogni sottoscrizione per l'esecuzione del pacchetto SSIS. Per altre informazioni, vedere [Limiti della data factory](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits).
 
 ## <a name="what-are-the-top-level-concepts-of-azure-data-factory"></a>Quali sono i principali concetti su cui si basa Azure Data Factory?
 Una sottoscrizione di Azure può includere una o più istanze di Azure Data Factory (o data factory). Azure Data Factory contiene quattro componenti chiave che interagiscono come piattaforma nella quale è possibile comporre flussi di lavoro basati sui dati con passaggi per lo spostamento e la trasformazione dei dati stessi.
@@ -112,7 +112,7 @@ Una data factory può comprendere una o più pipeline. Una pipeline è un raggru
 ### <a name="data-flows"></a>Flussi di dati
 I flussi di dati sono oggetti compilati visivamente in Data Factory che trasformano i dati su larga scala nei servizi Spark back-end. Non è necessario comprendere gli elementi interni di programmazione o Spark. È sufficiente progettare l'intenzione di trasformazione dei dati usando grafici (mapping) o fogli di calcolo (litigi).
 
-### <a name="activities"></a>attività
+### <a name="activities"></a>Attività
 Le attività rappresentano un passaggio di elaborazione in una pipeline. Ad esempio, è possibile usare un'attività di copia per copiare dati da un archivio dati a un altro archivio dati. Allo stesso modo, è possibile usare un'attività Hive che esegue una query Hive su un cluster Azure HDInsight per trasformare o analizzare i dati. Data Factory supporta tre tipi di attività: attività di spostamento dei dati, attività di trasformazione dei dati e attività di controllo.
 
 ### <a name="datasets"></a>Set di dati
@@ -179,7 +179,7 @@ Sì. È possibile utilizzare un output di attività in un'attività successiva c
 ### <a name="how-do-i-gracefully-handle-null-values-in-an-activity-output"></a>Come gestire correttamente i valori null in un output di attività? 
 È possibile utilizzare il costrutto `@coalesce` nelle espressioni per gestire correttamente i valori null. 
 
-## <a name="mapping-data-flows"></a>Mapping di flussi di dati
+## <a name="mapping-data-flows"></a>Flussi di dati di mapping
 
 ### <a name="i-need-help-troubleshooting-my-data-flow-logic-what-info-do-i-need-to-provide-to-get-help"></a>Ho bisogno di aiuto per la risoluzione dei problemi della logica del flusso di dati. Quali informazioni è necessario fornire per ottenere assistenza?
 
@@ -209,7 +209,7 @@ La verifica del flusso di dati è attualmente supportata nelle data factory crea
 * Stati Uniti orientali 2
 * Giappone orientale
 * Europa settentrionale
-* Asia sudorientale
+* Asia sud-orientale
 * Stati Uniti centro-meridionali
 * Regno Unito meridionale
 * Stati Uniti centro-occidentali
@@ -249,25 +249,25 @@ Il flusso di dati in corso supporta i tipi di dati seguenti in SQL. Si otterrà 
 * real
 * float
 * char
-* nchar
+* NCHAR
 * varchar
-* nvarchar
-* numero intero
+* NVARCHAR
+* integer
 * int
 * bit
 * boolean
-* smallint
-* tinyint
+* SMALLINT
+* TINYINT
 * bigint
 * long
 * text
-* date
-* datetime
+* Data
+* Datetime
 * datetime2
 * smalldatetime
 * timestamp
-* uniqueidentifier
-* xml
+* UNIQUEIDENTIFIER
+* Xml
 
 Altri tipi di dati saranno supportati in futuro.
 

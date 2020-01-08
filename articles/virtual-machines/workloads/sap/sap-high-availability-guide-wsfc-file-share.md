@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/24/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8db3baf9fa4c0d054e743d0b52964847b37ec281
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f42713eb579da34ad4b150eec2c89b9645315d0b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078289"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638069"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -37,8 +37,8 @@ ms.locfileid: "70078289"
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -197,7 +197,7 @@ ms.locfileid: "70078289"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
@@ -234,9 +234,9 @@ Il servizio Azure Load Balancer include un servizio di *bilanciamento del carico
 
 È necessario distribuire il servizio di bilanciamento del carico interno nel gruppo di risorse che contiene i nodi del cluster. Configurare quindi tutte le necessarie regole di port forwarding usando le porte probe del servizio di bilanciamento del carico interno. I client possono connettersi tramite il nome host virtuale. Il server DNS risolve l'indirizzo IP del cluster. Il servizio di bilanciamento del carico interno gestisce il port forwarding al nodo attivo del cluster.
 
-![Figura 1: Configurazione del servizio cluster Windows Server Failover Clustering in Azure senza disco condiviso][sap-ha-guide-figure-1001]
+![Figura 1: Configurazione di Windows Server Failover Clustering in Azure senza disco condiviso][sap-ha-guide-figure-1001]
 
-_**Figura 1:** Configurazione del servizio cluster Windows Server Failover Clustering in Azure senza disco condiviso_
+_**Figura 1:** Configurazione di Windows Server Failover Clustering in Azure senza disco condiviso_
 
 ## <a name="sap-ascsscs-ha-with-file-share"></a>ASCS/SCS di SAP a disponibilità elevata con condivisione file
 
@@ -251,11 +251,11 @@ Questa architettura è specifica nei modi seguenti:
 * I servizi centrali SAP, con la propria struttura di file e i propri processi di messaggistica e accodamento, sono separati dai file dell'host globale SAP.
 * I servizi centrali SAP vengono eseguiti in un'istanza ASCS/SCS di SAP.
 * L'istanza ASCS/SCS di SAP è inclusa in un cluster ed è possibile accedervi usando il nome dell'host virtuale \<nome host virtuale ASCS/SCS\>.
-* I file globali SAP vengono memorizzati nella condivisione file SMB ed è possibile accedervi usando il nome dell'host \<host globale SAP\>: \\\\&lt;Host globale SAP&gt;\sapmnt\\&lt;SID&gt;\SYS\....
+* I file globali SAP vengono memorizzati nella condivisione file SMB ed è possibile accedervi usando il nome dell'host \<host globale SAP\>: \\\\&lt;host globale SAP&gt;\sapmnt\\&lt;SID&gt;\SYS\..
 * L'istanza ASCS/SCS di SAP viene installata in un disco locale in entrambi i nodi del cluster.
 * Il nome di rete \<nome host virtuale ASCS/SCS\> è diverso dall'&lt;host globale SAP&gt;.
 
-![Figura 2: Architettura a disponibilità elevata ASCS/SCS di SAP con condivisione file SMB][sap-ha-guide-figure-8004]
+![Figure 2: Architettura a disponibilità elevata ASCS/SCS di SAP con condivisione file SMB][sap-ha-guide-figure-8004]
 
 _**Figura 2:** Nuova architettura a disponibilità elevata ASCS/SCS di SAP con una condivisione file SMB_
 
@@ -270,9 +270,9 @@ Prerequisiti per una condivisione file SMB:
 Il ruolo cluster \<SID\> di SAP non contiene dischi condivisi nel cluster o una risorsa di cluster generica con condivisione file generica.
 
 
-![Figura 3: Risorse del ruolo cluster \<SID\> di SAP per l'uso di una condivisione file][sap-ha-guide-figure-8005]
+![Figura 3: Risorse ruolo cluster \<SID\> di SAP per l'uso di una condivisione file][sap-ha-guide-figure-8005]
 
-_**Figura 3:** Risorse del ruolo cluster &lt;SID&gt; di SAP per l'uso di una condivisione file_
+_**Figura 3:** Risorse ruolo cluster &lt;SID&gt; di SAP per l'uso di una condivisione file_
 
 
 ## <a name="scale-out-file-shares-with-storage-spaces-direct-in-azure-as-an-sapmnt-file-share"></a>Condivisioni file di tipo scale-out con Spazi di archiviazione diretta in Azure come condivisione file SAPMNT
@@ -333,9 +333,9 @@ Per usare una condivisione file di tipo scale-out, il sistema deve soddisfare i 
 >In questo scenario l'istanza ASCS/SCS di SAP è configurata per accedere all'host globale SAP usando il percorso UNC \\\\&lt;host globale SAP&gt;\sapmnt\\&lt;SID&gt;\SYS\..
 >
 
-![Figura 5: Istanza ASCS/SCS di SAP e condivisione file di tipo scale-out distribuite in due cluster][sap-ha-guide-figure-8007]
+![Figura 5: Istanza SAP ASCS/SCS e condivisione file di tipo scale-out distribuite in due cluster][sap-ha-guide-figure-8007]
 
-_**Figura 5:** Istanza ASCS/SCS di SAP e una condivisione file di tipo scale-out distribuite in due cluster_
+_**Figura 5:** Istanza ASCS/SCS di SAP e condivisione file di tipo scale-out distribuite in due cluster_
 
 > [!IMPORTANT]
 > Nel cloud di Azure ogni cluster usato per SAP e le condivisioni file di scalabilità orizzontale deve essere distribuito nel proprio set di disponibilità di Azure o tra zone di disponibilità di Azure. In questo modo viene garantita la distribuzione delle VM del cluster nell'infrastruttura di Azure sottostante. Le distribuzioni di zone di disponibilità sono supportate con questa tecnologia.
@@ -354,4 +354,4 @@ In questo caso è possibile usare una soluzione SIOS di terze parti come disco c
 * [Installare la disponibilità elevata di SAP NetWeaver in un cluster di failover Windows e in una condivisione file per un'istanza di SAP ASC/SCS][sap-high-availability-installation-wsfc-shared-disk]
 * [Distribuire una file server con scalabilità orizzontale Spazi di archiviazione diretta a due nodi per l'archiviazione UPD in Azure][deploy-sofs-s2d-in-azure]
 * [Spazi di archiviazione diretta in Windows Server 2016][s2d-in-win-2016]
-* [Approfondimento: Volumi in Spazi di archiviazione diretta][deep-dive-volumes-in-s2d]
+* [Approfondimento: volumi in Spazi di archiviazione diretta][deep-dive-volumes-in-s2d]

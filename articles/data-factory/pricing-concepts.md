@@ -9,13 +9,13 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/25/2018
-ms.openlocfilehash: c42946733ee49ed6acf2c8deadf850208e003339
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.date: 12/27/2019
+ms.openlocfilehash: 247e41faa39520089dc5c95a34b4fb4b6b618761
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684531"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552135"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Determinazione dei prezzi di Data Factory ed esempi
 
@@ -126,13 +126,13 @@ Per eseguire lo scenario è necessario creare una pipeline con gli elementi segu
   - Attività di pipeline = $ 0,00003 (in quote per 1 minuto di tempo di esecuzione; $ 0,002/ora in Azure Integration Runtime)
   - Attività di pipeline esterna = $ 0,000041 (in quote per 10 minuti di tempo di esecuzione; $ 0,00025/ora in Azure Integration Runtime)
 
-## <a name="using-mapping-data-flow-debug-for-a-normal-workday-preview-pricing"></a>Uso del debug del flusso di dati di mapping per una giornata lavorativa normale (prezzi anteprima)
+## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>Uso del debug del flusso di dati di mapping per una giornata lavorativa normale
 
-In qualità di ingegnere dei dati, l'utente è responsabile della progettazione, della compilazione e del testing di flussi di dati di mapping ogni giorno. Accedere all'interfaccia utente di ADF al mattino e abilitare la modalità di debug per i flussi di dati. Il valore TTL predefinito per le sessioni di debug è 60 minuti. Si lavora in tutto il giorno per 10 ore, quindi la sessione di debug non scade mai. L'addebito per la giornata sarà quindi:
+In qualità di ingegnere dei dati, l'utente è responsabile della progettazione, della compilazione e del testing di flussi di dati di mapping ogni giorno. Accedere all'interfaccia utente di ADF al mattino e abilitare la modalità di debug per i flussi di dati. Il valore TTL predefinito per le sessioni di debug è 60 minuti. Si lavora in tutto il giorno per 8 ore, quindi la sessione di debug non scade mai. L'addebito per la giornata sarà quindi:
 
-**10 (ore) x 8 (Core) x $0,112 = $8,96**
+**8 (ore) x 8 (Core ottimizzati per il calcolo) x $0,193 = $12,35**
 
-## <a name="transform-data-in-blob-store-with-mapping-data-flows-preview-pricing"></a>Trasformare i dati nell'archivio BLOB con i flussi di dati di mapping (prezzi anteprima)
+## <a name="transform-data-in-blob-store-with-mapping-data-flows"></a>Trasformare i dati nell'archivio BLOB con i flussi di dati di mapping
 
 In questo scenario si desidera trasformare i dati nell'archivio BLOB in modo visivo in ADF mapping dei flussi di dati in base a una pianificazione oraria.
 
@@ -153,7 +153,7 @@ Per eseguire lo scenario è necessario creare una pipeline con gli elementi segu
 | Creare una pipeline | 3 Entità di lettura/scrittura (1 per la creazione di pipeline, 2 per i riferimenti a set di dati) |
 | Ottenere la pipeline | 1 Entità di lettura/scrittura |
 | Eseguire la pipeline | 2 Esecuzioni di attività (1 per l'esecuzione di trigger, 1 per le esecuzioni di attività) |
-| Presupposti del flusso di dati: tempo di esecuzione = 10 min + 10 min TTL | 10 \* 8 core di calcolo generale con TTL di 10 |
+| Presupposti del flusso di dati: tempo di esecuzione = 10 min + 10 min TTL | 10 \* 16 core di calcolo generale con un valore TTL di 10 |
 | Presupposto di monitoraggio della pipeline: solo 1 esecuzione effettuata | 2 Record di esecuzione monitoraggio ritentata (1 per l'esecuzione di pipeline, 1 per l'esecuzione di attività) |
 
 **Prezzi dello scenario totale: $0,3011**
@@ -161,9 +161,9 @@ Per eseguire lo scenario è necessario creare una pipeline con gli elementi segu
 - Operazioni di Data Factory = **$ 0,0001**
   - Lettura/scrittura = 10\*00001 = $ 0,0001 [1 L/S = $ 0,50/50000 = 0,00001]
   - Monitoraggio = 2\*000005 = $ 0,00001 [1 monitoraggio = $ 0,25/50000 = 0,000005]
-- Esecuzione &amp; orchestrazione pipeline = **$0,301**
+- Esecuzione &amp; orchestrazione pipeline = **$1,463**
   - Esecuzioni di attività = 001\*2 = 0,002 [1 esecuzione = $ 1/1000 = 0,001]
-  - Attività flusso di dati = $0,299 propagate per 20 minuti (tempo di esecuzione di 10 minuti + TTL di 10 minuti). $0.112/hour in Azure Integration Runtime con 8 core calcolo generale
+  - Attività flusso di dati = $1,461 propagate per 20 minuti (tempo di esecuzione di 10 minuti + TTL di 10 minuti). $0.274/hour in Azure Integration Runtime con 16 core calcolo generale
 
 ## <a name="next-steps"></a>Passaggi successivi
 

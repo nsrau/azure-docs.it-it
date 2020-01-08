@@ -1,20 +1,21 @@
 ---
-title: Determinare quale modello di chiave di crittografia è in uso per l'account di archiviazione-archiviazione di Azure
+title: Determinare quale modello di chiave di crittografia è in uso per l'account di archiviazione
+titleSuffix: Azure Storage
 description: Usare portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure per verificare la modalità di gestione delle chiavi di crittografia per l'account di archiviazione. Le chiavi possono essere gestite da Microsoft (impostazione predefinita) o dal cliente. Le chiavi gestite dal cliente devono essere archiviate in Azure Key Vault.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/26/2019
+ms.date: 01/03/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 967e6f278008a59721d8d0c74e34c0252eeb1138
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 3806fead9226978c277e87f3d97b14ee38d9552d
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666598"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665417"
 ---
 # <a name="determine-which-azure-storage-encryption-key-model-is-in-use-for-the-storage-account"></a>Determinare quale modello della chiave di crittografia di archiviazione di Azure è in uso per l'account di archiviazione
 
@@ -54,7 +55,7 @@ $account.Encryption.KeySource
 
 Se il valore della proprietà della chiave di **origine** è `Microsoft.Storage`, l'account viene crittografato con le chiavi gestite da Microsoft. Se il valore della proprietà chiave **source** è `Microsoft.Keyvault`, l'account viene crittografato con le chiavi gestite dal cliente.
 
-# <a name="azure-clitabcli"></a>[interfaccia della riga di comando di Azure](#tab/cli)
+# <a name="azure-clitabcli"></a>[Interfaccia della riga di comando di Azure](#tab/cli)
 
 Per controllare il modello di crittografia per l'account di archiviazione usando l'interfaccia della riga di comando di Azure, chiamare il comando [AZ storage account Show](/cli/azure/storage/account#az-storage-account-show) , quindi controllare la proprietà di **origine della risorsa** per l'account.
 

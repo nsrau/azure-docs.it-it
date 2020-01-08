@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 86b4b19ca80b7dfb2bd9a1a56069fe3d347377ec
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4a5ab0b0ae76f3c646df42953c1602c63a274824
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927844"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457397"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Risolvere i problemi di File di Azure in Windows
 
@@ -151,7 +151,7 @@ L'utente non è autorizzato ad accedere
 
 ### <a name="solution-for-cause-1"></a>Soluzione per la causa 1
 
-Passare all'account di archiviazione in cui si trova la condivisione file di Azure, fare clic su **Controllo di accesso (IAM)** e verificare che l'account utente abbia accesso all'account di archiviazione. Per altre informazioni, vedere [Come proteggere l'account di archiviazione con il controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/storage/common/storage-security-guide#how-to-secure-your-storage-account-with-role-based-access-control-rbac).
+Passare all'account di archiviazione in cui si trova la condivisione file di Azure, fare clic su **Controllo di accesso (IAM)** e verificare che l'account utente abbia accesso all'account di archiviazione. Per altre informazioni, vedere [Come proteggere l'account di archiviazione con il controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
 
 ### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Causa 2: la rete virtuale o le regole del firewall sono abilitate nell'account di archiviazione
 
@@ -225,7 +225,7 @@ Il comando net use interpreta una barra (/) come un'opzione della riga di comand
 
 Per risolvere il problema, è possibile attenersi a una delle procedure seguenti:
 
-- Eseguire il seguente comando PowerShell:
+- Eseguire il comando PowerShell seguente:
 
   `New-SmbMapping -LocalPath y: -RemotePath \\server\share -UserName accountName -Password "password can contain / and \ etc"`
 
@@ -266,7 +266,7 @@ Quando un file viene copiato tramite la rete, viene decrittografato nel computer
 Questo problema può verificarsi se si usa EFS (Encrypting File System). I file crittografati con BitLocker possono essere copiati in File di Azure. Tuttavia, File di Azure non supporta NTFS EFS.
 
 ### <a name="workaround"></a>Soluzione alternativa
-Per copiare un file tramite rete, è necessario prima decrittografarlo. Usare uno dei metodi seguenti:
+Per copiare un file tramite rete, è necessario prima decrittografarlo. Utilizzare una delle seguenti modalità:
 
 - Usare il comando **copy /d**. Questo consente di salvare i file crittografati come file decrittografati nella destinazione.
 - Impostare la chiave del Registro di sistema seguente:

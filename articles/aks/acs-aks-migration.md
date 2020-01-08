@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/07/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 0c243d216e00adf49a6425e5b7be0d38caeef043
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 8070e209910425f9baa0ae81aca349a067c70f76
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929056"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658543"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Eseguire la migrazione ad Azure Kubernetes Service (AKS)
 
@@ -35,7 +35,7 @@ Diversi strumenti open source possono essere utili per la migrazione, a seconda 
 
 * [Velero](https://velero.io/) (richiede Kubernetes 1.7 +)
 * [Estensione CLI di Azure Kube](https://github.com/yaron2/azure-kube-cli)
-* [Rispostamento](https://github.com/mhausenblas/reshifter)
+* [ReShifter](https://github.com/mhausenblas/reshifter)
 
 In questo articolo vengono riepilogati i dettagli della migrazione per:
 
@@ -91,7 +91,7 @@ Poiché le macchine virtuali aggiuntive verranno distribuite nella sottoscrizion
 
 Potrebbe essere necessario richiedere un aumento delle [quote di rete](https://docs.microsoft.com/azure/azure-supportability/networking-quota-requests) per assicurarsi di non esaurire gli indirizzi IP. Per ulteriori informazioni, vedere la pagina relativa agli [intervalli IP e di rete per AKS](https://docs.microsoft.com/azure/aks/configure-kubenet) .
 
-Per altre informazioni, vedere [sottoscrizione di Azure e limiti dei servizi](https://docs.microsoft.com/azure/azure-subscription-service-limits). Per controllare le quote correnti, nella portale di Azure passare al pannello [sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), selezionare la sottoscrizione e quindi selezionare **utilizzo e quote**.
+Per altre informazioni, vedere [sottoscrizione di Azure e limiti dei servizi](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). Per controllare le quote correnti, nella portale di Azure passare al pannello [sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), selezionare la sottoscrizione e quindi selezionare **utilizzo e quote**.
 
 ## <a name="high-availability-and-business-continuity"></a>Disponibilità elevata e continuità aziendale
 

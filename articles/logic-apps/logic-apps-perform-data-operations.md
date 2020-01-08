@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: f98daf301e8e17ad3f0bfb850ded1a8ed8bce417
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: baa6e5732221d120ff71217a3a86a942794c53f4
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793110"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666738"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Eseguire operazioni sui dati in App per la logica di Azure
 
@@ -200,7 +200,7 @@ Nell'azione, lasciare vuota la colonna **intestazione** . In ogni riga della col
 
    `item()?['<array-property-name>']`
 
-   ad esempio:
+   Ad esempio:
 
    * `item()?['Description']`
    * `item()?['Product_ID']`
@@ -232,7 +232,7 @@ Nella definizione JSON dell'azione, all'interno della matrice di `columns`, impo
    }
    ```
 
-   ad esempio:
+   Ad esempio:
 
    ```json
    "Create_CSV_table": {
@@ -351,7 +351,7 @@ Nell'azione, lasciare vuota la colonna **intestazione** . In ogni riga della col
 
    `item()?['<array-property-name>']`
 
-   ad esempio:
+   Ad esempio:
 
    * `item()?['Description']`
    * `item()?['Product_ID']`
@@ -383,7 +383,7 @@ Nella definizione JSON dell'azione, all'interno della matrice di `columns`, impo
    }
    ```
 
-   ad esempio:
+   Ad esempio:
 
    ```json
    "Create_HTML_table": {
@@ -443,6 +443,9 @@ Per creare una matrice più piccola contenente elementi che soddisfano criteri s
 > Per qualsiasi testo di filtro usato nella condizione viene fatta distinzione tra maiuscole e minuscole. Inoltre, questa azione non può modificare il formato o i componenti degli elementi nella matrice. 
 > 
 > Affinché le azioni possano usare l'output della matrice dall'azione **Filtra matrice**, tali azioni devono accettare le matrici come input oppure potrebbe essere necessario trasformare la matrice di output in un altro formato compatibile.
+> 
+> Se si chiama un endpoint HTTP e si riceve una risposta JSON, usare l'azione **analizza JSON** per elaborare la risposta JSON. 
+> In caso contrario, l'azione **Filtra matrice** può leggere solo il corpo della risposta e non la struttura del payload JSON.
 
 Se si preferisce lavorare nell'editor della visualizzazione codice, è possibile copiare le definizioni di esempio delle azioni **Filtra matrice** e **Inizializza variabile** in questo articolo nella definizione del flusso di lavoro sottostante della propria app per la logica: [Esempi di codice di operazioni sui dati - Filtra matrice](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example)
 

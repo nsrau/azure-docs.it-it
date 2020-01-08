@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
-ms.openlocfilehash: d032bf1241f355af110ee8f4da38ff4685bd2e3f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2ae951896e9c97826264990dc33b9a1930b0eec2
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932294"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530052"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning-preview"></a>Esercitazione: configurare SAP SuccessFactors per il provisioning utenti di Azure AD (anteprima)
 Questa esercitazione descrive la procedura da eseguire per effettuare il provisioning dei dati di lavoro da SuccessFactors Employee Central a Azure Active Directory, con un write-back facoltativo dell'indirizzo di posta elettronica a SuccessFactors. Questa integrazione è in anteprima pubblica e supporta il recupero di più di [70 attributi utente](../manage-apps/sap-successfactors-attribute-reference.md) da SuccessFactors Employee Central. 
@@ -27,7 +27,7 @@ Questa esercitazione descrive la procedura da eseguire per effettuare il provisi
 >[!NOTE]
 >Usare questa esercitazione se gli utenti di cui si vuole eseguire il provisioning da SuccessFactors sono utenti solo cloud che non necessitano di un account AD locale. Se gli utenti richiedono solo un account AD locale o un account AD e Azure AD, fare riferimento all'esercitazione su [come configurare SAP SuccessFactors per Active Directory](sap-successfactors-inbound-provisioning-tutorial.md#overview) il provisioning degli utenti. 
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Il [servizio di provisioning utenti Azure Active Directory](../manage-apps/user-provisioning.md) si integra con il [SuccessFactors Employee Central](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html) per gestire il ciclo di vita dell'identità degli utenti. 
 
@@ -60,7 +60,7 @@ Questa sezione descrive l'architettura della soluzione di provisioning degli ute
 * **Flusso di dati HR autorevole-da SuccessFactors a Azure Active Directory:** In questo flusso, i flussi di lavoro, ad esempio i nuovi assunti, i trasferimenti, le terminazioni, si verificano prima nel cloud SuccessFactors Employee Central, quindi i dati degli eventi passano in Azure Active Directory. A seconda dell'evento, può causare operazioni di creazione, aggiornamento, abilitazione o disabilitazione in Azure AD.
 * **Flusso di writeback della posta elettronica: da Active Directory locali a SuccessFactors:** Una volta completata la creazione dell'account in Azure Active Directory, è possibile eseguire il writeback del valore dell'attributo email o dell'UPN generato in Azure AD in SuccessFactors.
 
-  ![Panoramica](./media/sap-successfactors-inbound-provisioning/sf2aad-overview.png)
+  ![Overview](./media/sap-successfactors-inbound-provisioning/sf2aad-overview.png)
 
 ### <a name="end-to-end-user-data-flow"></a>Flusso di dati end-to-end dell'utente
 
@@ -110,7 +110,7 @@ Collaborare con il team amministratore di SuccessFactors o con il partner di imp
 * Scorrere verso il basso nella stessa casella e selezionare **Employee Central API**. Aggiungere le autorizzazioni come illustrato di seguito per leggere usando l'API ODATA e modificare usando l'API ODATA. Selezionare l'opzione modifica se si prevede di usare lo stesso account per lo scenario writeback per SuccessFactors. 
   > [!div class="mx-imgBorder"]
   > ![le autorizzazioni di lettura scrittura](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
-* Fare clic su **Done** (Fine). Fare clic su **Save Changes**.
+* Fare clic su **Done** (Fine). Fare clic su **Salva modifiche**.
 
 ### <a name="create-a-permission-group-for-the-api-user"></a>Creare un gruppo di autorizzazioni per l'utente dell'API
 
@@ -139,7 +139,7 @@ Collaborare con il team amministratore di SuccessFactors o con il partner di imp
 * Esaminare la concessione del ruolo autorizzazione al gruppo di autorizzazioni. 
   > [!div class="mx-imgBorder"]
   > ![i dettagli del gruppo e del ruolo di autorizzazione](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
-* Fare clic su **Save Changes**.
+* Fare clic su **Salva modifiche**.
 
 ## <a name="configuring-user-provisioning-from-successfactors-to-azure-ad"></a>Configurazione del provisioning utenti da SuccessFactors a Azure AD
 
@@ -165,7 +165,7 @@ Questa sezione illustra la procedura per il provisioning degli account utente da
 
 6. Dopo avere aggiunto l'app e visualizzato la schermata dei dettagli dell'app, selezionare **Provisioning**
 
-7. Impostare **Modalità di** **provisioning** su **Automatico**
+7. Impostare la **modalità** di **provisioning** su **automatico**
 
 8. Completare la sezione **Credenziali amministratore** come segue:
 
@@ -176,8 +176,8 @@ Questa sezione illustra la procedura per il provisioning degli account utente da
    * **URL tenant:** Immettere il nome dell'endpoint di servizi API OData di SuccessFactors. Immettere solo il nome host del server senza http o HTTPS. Questo valore dovrebbe essere simile al seguente: **API-Server-Name.SuccessFactors.com**.
 
    * **Indirizzo di posta elettronica per le notifiche:** immettere l'indirizzo di posta elettronica e selezionare la casella di controllo per inviare una notifica di posta elettronica in caso di errore.
-         > [!NOTE]
-         > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#quarantine) state.
+    > [!NOTE]
+    > Il servizio di provisioning di Azure AD invia una notifica di posta elettronica se il processo di provisioning entra in uno stato di [quarantena](/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
    * Fare clic sul pulsante **Test connessione**. Se il test della connessione ha esito positivo, fare clic sul pulsante **Salva** nella parte superiore. In caso di errore, verificare che le credenziali e l'URL di SuccessFactors siano validi.
     >[!div class="mx-imgBorder"]
@@ -261,7 +261,7 @@ Una volta completate le configurazioni dell'app di provisioning di SuccessFactor
 
 1. Nella scheda **Provisioning** impostare **Stato provisioning** su **Attivato**.
 
-2. Fare clic su **Salva**
+2. Fare clic su **Salva**.
 
 3. Questa operazione avvierà la sincronizzazione iniziale, che può richiedere un numero variabile di ore a seconda del numero di utenti presenti nel tenant di SuccessFactors. È possibile controllare l'indicatore di stato per tenere traccia dello stato di avanzamento del ciclo di sincronizzazione. 
 

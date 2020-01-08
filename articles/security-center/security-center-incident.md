@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: memildin
-ms.openlocfilehash: 2a22039b3499f1ba0f2d7acb2e86a1991d35a380
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b2ab769fc2595af9fd1ea41f1ef492944cb5e7fa
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202126"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75665769"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Gestire gli eventi imprevisti della sicurezza nel centro sicurezza di Azure
 
@@ -40,7 +40,7 @@ Nel Centro sicurezza un evento imprevisto della sicurezza è un'aggregazione di 
    > [!NOTE]
    > Lo stesso avviso può esistere come parte di un evento imprevisto, nonché essere visibile come un avviso autonomo.
 
-    ![Dettagli avviso](./media/security-center-incident/security-center-incident-alert.png)
+    ![Dettagli dell'avviso](./media/security-center-incident/security-center-incident-alert.png)
 
 1. Attenersi alla procedura di correzione specificata per ogni avviso.
 
@@ -55,9 +55,9 @@ Gli argomenti seguenti illustrano i diversi avvisi in base ai tipi di risorse:
 Gli argomenti seguenti illustrano come il Centro sicurezza usa i diversi dati di telemetria raccolti dall'integrazione con l'infrastruttura di Azure, in modo da applicare livelli di protezione aggiuntivi per le risorse distribuite in Azure:
 
 * [Avvisi del livello di servizio](security-center-alerts-service-layer.md)
-* [Integrazione con i prodotti di sicurezza di Azure](security-center-alerts-integration.md)
+* [Rilevamento delle minacce per Azure WAF e protezione DDoS di Azure](security-center-alerts-integration.md)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 In questo documento è stato descritto come usare le funzionalità relative agli eventi imprevisti della sicurezza nel Centro sicurezza di Azure. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
 * [Avvisi di sicurezza nel centro sicurezza di Azure](security-center-alerts-overview.md).

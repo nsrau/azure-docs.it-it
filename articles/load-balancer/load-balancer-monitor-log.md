@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: allensu
-ms.openlocfilehash: 23a3a2629c6f2f89c4b8f6d5af57bcf3b6bb67dd
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 63f386212b0277c3b5ee383e707d4c32fa4e63fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74214921"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428841"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Log di monitoraggio di Azure per Load Balancer di base pubblici
 
@@ -58,7 +58,7 @@ Accedere al [portale di Azure](https://portal.azure.com). Prima di procedere, [c
     2. Selezionare **Configura** per aprire il riquadro **selezionare un account di archiviazione** .
     3. Selezionare la **sottoscrizione** in cui è stato creato l'account di archiviazione nella casella a discesa.
     4. Selezionare il nome dell'account di archiviazione in **account di archiviazione** nella casella di riepilogo a discesa. 
-    5. Fare clic su OK.
+    5. Selezionare OK.
 
     ### <a name="stream-to-an-event-hub"></a>Streaming in un hub eventi
     Per questo processo è necessario un hub eventi già creato.  Per creare un hub eventi, vedere [Guida introduttiva: creare un hub eventi usando portale di Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
@@ -68,7 +68,7 @@ Accedere al [portale di Azure](https://portal.azure.com). Prima di procedere, [c
     3. Selezionare la **sottoscrizione** in cui è stato creato l'hub eventi nella casella a discesa.
     4. Nella casella a discesa **selezionare spazio dei nomi dell'hub eventi** .
     5. Nella casella a discesa **selezionare Nome criterio Hub eventi** .
-    6. Fare clic su OK.
+    6. Selezionare OK.
 
     ### <a name="send-to-log-analytics"></a>Invia a Log Analytics
     È necessario che sia già stata creata e configurata un'area di lavoro di log Analytics per questo processo.  Per creare un'area di lavoro Log Analytics, vedere [creare un'area di lavoro log Analytics nel portale di Azure](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
@@ -171,7 +171,7 @@ Connettersi all'account di archiviazione e recuperare le voci di log JSON per i 
 > Se si ha familiarità con Visual Studio e i concetti di base della modifica dei valori di costanti e variabili in C#, è possibile usare i [convertitori di log](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponibili in GitHub.
 
 ## <a name="stream-to-an-event-hub"></a>Streaming in un hub eventi
-Quando le informazioni di diagnostica vengono trasmesse a un hub eventi, possono essere usate per l'analisi centralizzata dei log in uno strumento SIEM di terze parti con l'integrazione di monitoraggio di Azure. Per altre informazioni, vedere [trasmettere i dati di monitoraggio di Azure a un hub eventi](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#tools-with-azure-monitor-integration)
+Quando le informazioni di diagnostica vengono trasmesse a un hub eventi, possono essere usate per l'analisi centralizzata dei log in uno strumento SIEM di terze parti con l'integrazione di monitoraggio di Azure. Per altre informazioni, vedere [trasmettere i dati di monitoraggio di Azure a un hub eventi](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration)
 
 ## <a name="send-to-log-analytics"></a>Invia a Log Analytics
 Le risorse in Azure possono avere le informazioni di diagnostica inviate direttamente a un'area di lavoro Log Analytics in cui è possibile eseguire query complesse sulle informazioni per la risoluzione dei problemi e l'analisi.  Per altre informazioni, vedere [raccogliere i log delle risorse di Azure nell'area di lavoro log Analytics in monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace)

@@ -1,18 +1,18 @@
 ---
 title: Connettersi a Dropbox
-description: Caricare e gestire i file con le API REST di Dropbox e App per la logica di Azure
+description: Automatizzare le attività e i flussi di lavoro che caricano e gestiscono i file in Dropbox usando app per la logica di Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/01/2019
 tags: connectors
-ms.openlocfilehash: b38f9b9626e5eec0272256aacc71f7503a006dd6
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 8f54f832884b172761f62b16db29d2f0abd0dd46
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789826"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75665752"
 ---
 # <a name="upload-and-manage-files-in-dropbox-by-using-azure-logic-apps"></a>Caricare e gestire i file in Dropbox usando app per la logica di Azure
 
@@ -64,7 +64,7 @@ Dall'elenco delle azioni selezionare questa azione: **ottenere il contenuto del 
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per informazioni tecniche, ad esempio trigger, azioni e limiti, come descritto dal file OpenAPI (in precedenza spavalderia) del connettore, vedere la [pagina di riferimento del connettore](/connectors/dropbox/).
+Per informazioni tecniche, ad esempio su trigger, azioni e limiti indicati nel file Swagger del connettore, vedere la [pagina di riferimento del connettore](/connectors/dropbox/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

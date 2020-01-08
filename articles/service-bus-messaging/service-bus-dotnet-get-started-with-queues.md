@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/27/2019
 ms.author: aschhab
-ms.openlocfilehash: c1f9c8a03a503444c7c45d5374b67e5b453a8931
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 49abd1b0542b1a658517561cf1ffead402fa93a5
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561609"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563395"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introduzione alle code del bus di servizio
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -29,7 +29,7 @@ In questa esercitazione vengono create applicazioni console .NET Core per l'invi
 
 - [Visual Studio 2019](https://www.visualstudio.com/vs).
 - [NET Core SDK](https://www.microsoft.com/net/download/windows) versione 2.0 o successiva.
-- Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [vantaggi per i sottoscrittori di MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) oppure registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [vantaggi della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Se non si ha una coda da usare, seguire la procedura descritta nell'articolo [Usare il portale di Azure per creare una coda del bus di servizio](service-bus-quickstart-portal.md) per crearne una.
 
   - Leggere la breve panoramica delle code del bus di servizio.
@@ -48,7 +48,7 @@ Avviare Visual Studio e creare un nuovo progetto di **app console (.NET Core)** 
 ### <a name="add-the-service-bus-nuget-package"></a>Aggiungere il pacchetto NuGet del bus di servizio
 
 1. Fare clic con il pulsante destro del mouse sul progetto appena creato e scegliere **Gestisci pacchetti NuGet**.
-1. Selezionare **Esplora**. Cercare e selezionare **[Microsoft. Azure. ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/)** .
+1. Selezionare **Sfoglia**. Cercare e selezionare **[Microsoft. Azure. ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/)** .
 1. Selezionare **Installa** per completare l'installazione e quindi chiudere Gestione pacchetti NuGet.
 
     ![Selezionare un pacchetto NuGet][nuget-pkg]
@@ -74,7 +74,7 @@ Avviare Visual Studio e creare un nuovo progetto di **app console (.NET Core)** 
 
     Immettere la stringa di connessione per lo spazio dei nomi come variabile `ServiceBusConnectionString`. Immettere il nome della coda.
 
-1. Sostituire il metodo `Main()` con il seguente metodo **asincrono** `Main`. Viene chiamato il metodo SendMessagesAsync che verrà aggiunto nel passaggio successivo per inviare messaggi alla coda. 
+1. Sostituire il metodo `Main()` con il seguente metodo **asincrono** `Main`. Chiama il metodo `SendMessagesAsync()` che verrà aggiunto nel passaggio successivo per inviare messaggi alla coda. 
 
     ```csharp
     public static async Task Main(string[] args)
@@ -386,7 +386,7 @@ Eseguire il programma e verificare di nuovo il portale. Il **numero di messaggi 
 
 ![Coda dopo la ricezione dei messaggi][queue-message-receive]
 
-Congratulazioni. A questo punto è stata creata una coda, è stato inviato un set di messaggi alla coda e sono stati ricevuti i messaggi dalla stessa coda.
+Congratulazioni! A questo punto è stata creata una coda, è stato inviato un set di messaggi alla coda e sono stati ricevuti i messaggi dalla stessa coda.
 
 > [!NOTE]
 > È possibile gestire le risorse del bus di servizio con [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer consente agli utenti di connettersi facilmente a uno spazio dei nomi del bus di servizio e amministrare le entità di messaggistica. Lo strumento offre funzionalità avanzate come la funzionalità di importazione/esportazione o la possibilità di testare argomenti, code, sottoscrizioni, servizi di inoltro, hub di notifica e hub eventi.

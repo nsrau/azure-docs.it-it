@@ -1,6 +1,6 @@
 ---
-title: Errori e soluzioni per gli scenari B2B
-description: Individuare gli errori e le soluzioni per scenari B2B nelle App per la logica di Azure
+title: Soluzioni per errori e problemi comuni negli scenari B2B
+description: Trovare soluzioni per errori e problemi comuni durante la risoluzione dei problemi relativi agli scenari B2B in app per la logica di Azure
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/02/2017
-ms.openlocfilehash: 176bc3642f7c923b50cbf2f7a97096f88dc02817
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 38e281ce3d8117bff719b1bb572f09acbbb89669
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790706"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666687"
 ---
 # <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>Errori B2B e soluzioni per le App per la logica di Azure
 
@@ -63,7 +63,7 @@ Questo articolo consente di risolvere gli errori che si possono verificare negli
 | Azione utente | Aggiungere @base64ToBinary a AS2Message prima dell'invio al partner. |
 |||
 
-ad esempio:
+Ad esempio:
 
 ```json
 "HTTP": {
@@ -83,7 +83,7 @@ ad esempio:
 | Azione utente | Aggiungere @base64ToBinary alla notifica sulla ricezione del messaggio prima dell'invio al partner. | 
 |||
 
-ad esempio:
+Ad esempio:
 
 ```json
 "Response": {

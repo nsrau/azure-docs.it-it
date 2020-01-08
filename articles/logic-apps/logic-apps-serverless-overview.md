@@ -1,6 +1,6 @@
 ---
-title: Panoramica-senza server di Azure
-description: Crea soluzioni potenti nel cloud senza preoccuparti dell'infrastruttura
+title: 'Panoramica: Azure senza server per le app e le soluzioni basate sul cloud'
+description: Informazioni su come creare app e soluzioni basate sul cloud senza preoccuparsi dell'infrastruttura usando app per la logica di Azure e funzioni di Azure
 services: logic-apps
 ms.suite: integration
 author: jeffhollan
@@ -8,14 +8,14 @@ ms.author: jehollan
 ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 03/30/2017
-ms.openlocfilehash: d658efd278425358a2a931fe976827c3bae4247d
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 0f20bb5fb249ad6bac862afe2b0e8eee4b32e2a9
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792835"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666551"
 ---
-# <a name="overview-azure-serverless-with-azure-logic-apps-and-azure-functions"></a>Panoramica: Azure senza server con app per la logica di Azure e funzioni di Azure
+# <a name="azure-serverless-overview-for-building-cloud-based-apps-and-solutions-with-azure-logic-apps-and-azure-functions"></a>Azure senza server: Panoramica per la creazione di soluzioni e app basate su cloud con app per la logica di Azure e funzioni di Azure
 
 Le app senza [Server](https://azure.microsoft.com/solutions/serverless/) offrono vantaggi come una maggiore velocità di sviluppo, codice ridotto, semplicità e scalabilità. Questo articolo illustra i diversi attributi delle soluzioni senza server e delle offerte senza server di Azure.
 

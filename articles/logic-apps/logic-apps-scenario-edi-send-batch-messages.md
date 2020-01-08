@@ -1,20 +1,20 @@
 ---
 title: Elaborazione batch di messaggi EDI come gruppo
-description: Inviare e ricevere messaggi EDI come batch, gruppi o raccolte in app per la logica di Azure
+description: Inviare e ricevere messaggi EDI come batch, gruppi o raccolte usando l'elaborazione batch in app per la logica di Azure
 services: logic-apps
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/19/2018
-ms.openlocfilehash: 1c4b32bfec667620101d588974e0411a9c7438d2
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 6fc0833f70e3e9cd98100f193b52e5a1bfa4d651
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792994"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666670"
 ---
-# <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>Inviare i messaggi EDI in batch ai partner commerciali con le App per la logica di Azure
+# <a name="exchange-edi-messages-as-batches-or-groups-between-trading-partners-in-azure-logic-apps"></a>Scambiare messaggi EDI come batch o gruppi tra partner commerciali in app per la logica di Azure
 
 In scenari Business-to-Business (B2B) i partner spesso scambiano messaggi in gruppi o in *batch*. Quando si crea una soluzione di invio in batch con le App per la logica, è possibile inviare messaggi a partner commerciali ed elaborare tali messaggi in batch. Questo articolo illustra come è possibile creare batch di messaggi EDI di processo, usando X12 ad esempio, creando un'app per la logica "mittente del batch" e un'app per la logica “che riceve il batch". 
 
@@ -64,14 +64,14 @@ Per questo ricevitore di batch, è necessario specificare la modalità di batch,
 
 4. Impostare le proprietà del ricevitore di batch: 
 
-   | Proprietà | Value | Note | 
+   | Proprietà | Valore | Note | 
    |----------|-------|-------|
    | **Modalità batch** | Inline |  |  
    | **Nome batch** | TestBatch | Disponibile solo con modalità batch **Inline** | 
    | **Criteri di rilascio** | In base al numero di messaggi, In base alla pianificazione | Disponibile solo con modalità batch **Inline** | 
    | **Numero di messaggi** | 10 | Disponibile solo con i criteri di rilascio **In base al numero di messaggi** | 
    | **Interval** | 10 | Disponibile solo con i criteri di rilascio **In base alla pianificazione** | 
-   | **Frequenza** | minuto | Disponibile solo con i criteri di rilascio **In base alla pianificazione** | 
+   | **Frequenza** | minute | Disponibile solo con i criteri di rilascio **In base alla pianificazione** | 
    ||| 
 
    ![Specificare i dettagli del trigger di batch](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-release-criteria.png)

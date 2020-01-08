@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: affd5b58c312e07177fbfdaaf88f689b1a8caebd
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b13349ae4293f6377429e9dc72b6c2cb43f92348
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72954708"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435123"
 ---
 # <a name="configure-the-application-dashboard"></a>Configurare il dashboard dell'applicazione
 
-Il **Dashboard** è la pagina che viene caricata quando gli utenti che hanno accesso all'applicazione passano all'URL dell'applicazione. Se l'applicazione è stata creata da uno dei **modelli di applicazione**, l'applicazione avrà un dashboard predefinito per l'avvio. Se l'applicazione è stata creata dal modello applicazione **applicazione personalizzata** , il dashboard sarà vuoto per l'avvio.
+Il **Dashboard** è la pagina che viene caricata quando gli utenti che hanno accesso all'applicazione passano all'URL dell'applicazione. Se l'applicazione è stata creata da uno dei **modelli di applicazione**, l'applicazione avrà un dashboard predefinito per l'avvio. Se l'applicazione è stata creata dal modello di applicazione dell' **applicazione legacy** , il dashboard sarà vuoto per l'avvio.
 
 > [!NOTE]
 > Gli utenti possono [creare più dashboard](howto-create-personal-dashboards.md) oltre al dashboard dell'applicazione predefinito. Questi dashboard possono essere personali solo per l'utente o condivisi tra tutti gli utenti dell'applicazione. 
@@ -34,7 +34,7 @@ Selezionando **Edit (modifica** ) viene aperto il pannello libreria dashboard. L
 > [!div class="mx-imgBorder"]
 > ![libreria dashboard](media/howto-add-tiles-to-your-dashboard/dashboard-library.png)
 
-Ad esempio, è possibile aggiungere un riquadro di **telemetria** per la temperatura corrente del dispositivo. A tale scopo, procedere come segue:
+Ad esempio, è possibile aggiungere un riquadro di **telemetria** per la temperatura corrente del dispositivo. A tale scopo, procedere come indicato di seguito:
 1. Selezionare un **modello di dispositivo**
 1. Selezionare un' **istanza del dispositivo** per il dispositivo che si vuole visualizzare in un riquadro del dashboard. Verrà quindi visualizzato un elenco delle proprietà del dispositivo che è possibile usare nel riquadro.
 1. Per creare il riquadro nel dashboard, fare clic su **temperatura** e trascinarlo nell'area del dashboard. È anche possibile fare clic sulla casella di controllo accanto a **temperatura** e fare clic su **combina**. Lo screenshot seguente mostra la selezione di un modello di dispositivo e di un'istanza del dispositivo e la creazione di un riquadro di telemetria della temperatura nel dashboard.
@@ -70,10 +70,10 @@ Fare quindi clic sull'icona a forma di **ingranaggio** nell'angolo in alto a des
 
 La tabella seguente riepiloga l'uso dei riquadri in Azure IoT Central:
  
-| Riquadro | dashboard | Description
+| Riquadro | Dashboard | Description
 | ----------- | ------- | ------- |
 | Contenuto | Dashboard dell'applicazione e del set di dispositivi |I riquadri supportati da Markdown sono riquadri selezionabili che visualizzano l'intestazione e il testo della descrizione. È anche possibile usare questo riquadro come riquadro di collegamento per consentire a un utente di passare a un URL correlato all'applicazione.|
-| Image | Dashboard dell'applicazione e del set di dispositivi |I riquadri immagine visualizzano un'immagine personalizzata e possono essere selezionabili. Usare un riquadro immagine per aggiungere grafica a un dashboard e, facoltativamente, consentire a un utente di passare a un URL pertinente per l'applicazione.|
+| Immagine | Dashboard dell'applicazione e del set di dispositivi |I riquadri immagine visualizzano un'immagine personalizzata e possono essere selezionabili. Usare un riquadro immagine per aggiungere grafica a un dashboard e, facoltativamente, consentire a un utente di passare a un URL pertinente per l'applicazione.|
 | Etichette | Dashboard dell'applicazione |I riquadri delle etichette visualizzano testo personalizzato in un dashboard. È possibile scegliere la dimensione del testo. Usare un riquadro etichetta per aggiungere informazioni rilevanti al dashboard, quali descrizioni, dettagli del contatto o guida.|
 | Mappa | Dashboard dell'applicazione e del set di dispositivi |I riquadri mappa visualizzano la posizione e lo stato di un dispositivo su una mappa. Ad esempio, è possibile visualizzare la posizione in cui si trova un dispositivo e se la ventola è attivata.|
 | Grafico a linee | Dashboard dell'applicazione e del dispositivo |I riquadri del grafico a linee visualizzano un grafico di misura aggregata per un dispositivo per un periodo di tempo. Ad esempio, è possibile visualizzare un grafico a linee che mostra la temperatura e la pressione medie di un dispositivo nell'ultima ora.|

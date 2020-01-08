@@ -8,14 +8,14 @@ manager: rkarlin
 ms.assetid: da960861-0b6c-4d80-932d-898cdebb4f83
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: 8b99d89e8895cd1c8d8e9fe3961f0db9855fb7ee
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 6d6e48c84f558840b3266193c4cbb9c3576f1a58
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196115"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75665735"
 ---
 # <a name="threat-detection-for-data-services-in-azure-security-center"></a>Rilevamento delle minacce per i servizi dati nel centro sicurezza di Azure
 
@@ -27,56 +27,35 @@ ms.locfileid: "74196115"
 
 ## Database SQL e SQL Data Warehouse<a name="data-sql"></a>
 
-Rilevamento minacce SQL identifica le attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database. 
+Advanced Threat Protection per il database SQL di Azure rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database.
 
-|Avviso|DESCRIZIONE|
-|---|---|
-|**Una possibile vulnerabilità a SQL injection**|Un'applicazione ha generato un'istruzione SQL non corretta nel database. Questo può indicare una possibile vulnerabilità agli attacchi intrusivi nel codice SQL. Esistono due possibili motivi per un'istruzione difettosa. Un difetto nel codice dell'applicazione potrebbe avere creato l'istruzione SQL non funzionante. In alternativa, il codice dell'applicazione o le stored procedure non hanno purificato l'input dell'utente durante la creazione dell'istruzione SQL difettosa, che può essere sfruttata per SQL injection.|
-|**Potenziale attacco SQL injection**|Si è verificato un exploit attivo in un'applicazione identificata vulnerabile a SQL injection. Ciò significa che un utente malintenzionato sta provando a inserire istruzioni SQL dannose usando il codice dell'applicazione vulnerabile o le stored procedure.|
-|**Accesso da una posizione insolita**|È stata apportata una modifica al modello di accesso per SQL Server, in cui qualcuno ha eseguito l'accesso al server da una posizione geografica insolita. In alcuni casi, l'avviso rileva un'azione legittima (una nuova applicazione o la manutenzione da parte dello sviluppatore). In altri casi, l'avviso rileva un'azione dannosa (un dipendente precedente o un utente malintenzionato esterno).|
-|**Accesso da un'entità non nota**|È stata apportata una modifica al modello di accesso per SQL Server. Un utente ha eseguito l'accesso al server usando un principale insolito (utente). In alcuni casi, l'avviso rileva un'azione legittima (una nuova applicazione o la manutenzione da parte dello sviluppatore). In altri casi, l'avviso rileva un'azione dannosa (un dipendente precedente o un utente malintenzionato esterno).|
-|**Tentativo di accesso da un'applicazione potenzialmente dannosa**|Per accedere al database è stata usata un'applicazione potenzialmente dannosa. In alcuni casi, l'avviso rileva test di penetrazione in corso. In altri casi, l'avviso rileva un attacco che usa strumenti comuni.|
-|**Potenziale tentativo di forza bruta SQL**|Si è verificato un numero anomalo elevato di accessi non riusciti con credenziali diverse. In alcuni casi, l'avviso rileva test di penetrazione in corso. In altri casi, l'avviso rileva un attacco di forza bruta.|
+Verranno visualizzati gli avvisi in caso di attività di database sospette, vulnerabilità potenziali o attacchi SQL injection, nonché di modelli di query e di accesso al database anomali.
 
-Per altre informazioni sugli avvisi di rilevamento delle minacce di SQL, vedere [rilevamento delle minacce nel database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview). In particolare, esaminare la sezione avvisi di rilevamento minacce. Vedere anche [come il Centro sicurezza di Azure consente di rivelare un cyberattack](https://azure.microsoft.com/blog/how-azure-security-center-helps-reveal-a-cyberattack/) per visualizzare un esempio del modo in cui il Centro sicurezza ha usato il rilevamento di attività SQL dannose per individuare un attacco.
+Advanced Threat Protection per il database SQL di Azure e SQL fa parte del pacchetto unificato Advanced [Data Security (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) per le funzionalità avanzate di sicurezza di SQL, per i database SQL di Azure, le istanze gestite del database SQL di Azure, i database di Azure SQL data warehouse e i server SQL in macchine virtuali di Azure.
+
+Per scoprire di più, vedi:
+
+* [Come abilitare Advanced Threat Protection per il database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview)
+* [Come abilitare Advanced Threat Protection per SQL Server in macchine virtuali di Azure](security-center-iaas-advanced-data.md)
+* [Elenco di avvisi di protezione dalle minacce per il database SQL e SQL Data Warehouse](alerts-reference.md#alerts-sql-db-and-warehouse)
 
 ## Archiviazione di Azure<a name="azure-storage"></a>
 
->[!NOTE]
-> Advanced Threat Protection per l'archiviazione è attualmente disponibile solo per l'archiviazione BLOB.
-
-Advanced Threat Protection per l'archiviazione offre un ulteriore livello di intelligence per la sicurezza che rileva tentativi insoliti e potenzialmente dannosi di accedere o sfruttare gli account di archiviazione. Questo livello di protezione consente di risolvere le minacce senza richiedere l'intervento di un esperto di sicurezza e la gestione dei sistemi di monitoraggio della sicurezza.
-
-Il Centro sicurezza analizza i log di diagnostica delle richieste di lettura, scrittura ed eliminazione nell'archivio BLOB per rilevare le minacce e attiva gli avvisi quando si verificano anomalie nelle attività. Per altre informazioni, vedere [configurare la registrazione analisi archiviazione](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging).
-
-> [!div class="mx-tableFixed"]
-
-|Avviso|DESCRIZIONE|
-|---|---|
-|**Accesso da una posizione insolita a un account di archiviazione**|Indica che è stata apportata una modifica nel modello di accesso a un account di archiviazione di Azure. Un utente ha eseguito l'accesso a questo account da un indirizzo IP considerato non noto quando viene confrontato con l'attività recente. Un utente malintenzionato ha ottenuto l'accesso all'account oppure un utente legittimo si è connesso da una posizione geografica nuova o insolita. Un esempio di quest'ultimo è la manutenzione remota di una nuova applicazione o di uno sviluppatore.|
-|**Applicazione insolito a cui si accede a un account di archiviazione**|Indica che l'account di archiviazione ha eseguito l'accesso a un'applicazione insolita. Una causa potenziale è che un utente malintenzionato ha eseguito l'accesso all'account di archiviazione utilizzando una nuova applicazione.|
-|**Accesso anonimo a un account di archiviazione**|Indica che è stata apportata una modifica nel modello di accesso a un account di archiviazione. Ad esempio, è stato eseguito l'accesso anonimo all'account (senza autenticazione), che è imprevisto rispetto al modello di accesso recente su questo account. Una possibile provocazione è che un utente malintenzionato ha sfruttato l'accesso in lettura pubblico a un contenitore che contiene l'archiviazione BLOB.|
-|**Accesso da un nodo di uscita Tor a un account di archiviazione**|Indica che l'accesso a questo account è stato eseguito correttamente da un indirizzo IP noto come nodo di uscita attivo di Tor (un proxy anonime). La gravità di questo avviso considera il tipo di autenticazione usato, se presente, e se questo è il primo caso di tale accesso. Le possibili cause possono essere un utente malintenzionato che ha eseguito l'accesso all'account di archiviazione usando Tor o un utente legittimo che ha eseguito l'accesso all'account di archiviazione usando Tor.|
-|**Quantità insolita di dati estratti da un account di archiviazione**|Indica che è stata estratta una quantità insolitamente elevata di dati rispetto alle attività recenti sul contenitore di archiviazione. Una possibile provocazione è che un utente malintenzionato ha estratto una grande quantità di dati da un contenitore che contiene l'archiviazione BLOB.|
-|**Eliminazione insolita in un account di archiviazione**|Indica che una o più operazioni di eliminazione impreviste si sono verificate in un account di archiviazione, rispetto alle attività recenti di questo account. Una causa potenziale è che un utente malintenzionato ha eliminato i dati dall'account di archiviazione.|
-|**Caricamento insolito di. cspkg in un account di archiviazione**|Indica che un pacchetto di servizi cloud di Azure (file con estensione cspkg) è stato caricato in un account di archiviazione in modo insolito, rispetto alle attività recenti di questo account. Una possibile causa è che un utente malintenzionato sta preparando la distribuzione di codice dannoso dall'account di archiviazione a un servizio cloud di Azure.|
-|**Modifica insolita delle autorizzazioni di accesso in un account di archiviazione**|Indica che le autorizzazioni di accesso di questo contenitore di archiviazione sono state modificate in modo insolito. È possibile che un utente malintenzionato abbia modificato le autorizzazioni del contenitore per indebolirne il comportamento di sicurezza o per ottenere la persistenza.|
-|**Ispezione di accesso insolita in un account di archiviazione**|Indica che le autorizzazioni di accesso di un account di archiviazione sono state ispezionate in modo insolito, rispetto alle attività recenti di questo account. Una possibile provocazione è che un utente malintenzionato ha eseguito la ricognizione per un attacco futuro.|
-|**Esplorazione insolita dei dati in un account di archiviazione**|Indica che i BLOB o i contenitori in un account di archiviazione sono stati enumerati in modo anomalo, rispetto alle attività recenti di questo account. Una possibile provocazione è che un utente malintenzionato ha eseguito la ricognizione per un attacco futuro.|
-|**ANTEPRIMA: potenziale malware caricato in un account di archiviazione**|Indica che un BLOB contenente il potenziale malware è stato caricato in un account di archiviazione. Possibili cause possono includere un malware intenzionale caricato da un utente malintenzionato o un caricamento non intenzionale, di un BLOB potenzialmente dannoso, da un utente legittimo.|
+Advanced Threat Protection per l'archiviazione (attualmente disponibile solo per l'archiviazione BLOB) rileva tentativi insoliti e potenzialmente dannosi di accesso o exploit degli account di archiviazione. Questo livello di protezione consente di risolvere le minacce senza che sia necessario essere un esperto di sicurezza e consente di gestire i sistemi di monitoraggio della sicurezza.
 
 >[!NOTE]
 >Advanced Threat Protection per l'archiviazione non è attualmente disponibile in Azure per enti pubblici e aree cloud sovrane.
 
-Per altre informazioni sugli avvisi per l'archiviazione, vedere [Advanced Threat Protection per archiviazione di Azure](../storage/common/storage-advanced-threat-protection.md). In particolare, esaminare la sezione "avvisi di protezione".
+Per scoprire di più, vedi:
+
+* [Come abilitare Advanced Threat Protection per archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection)
+* [Elenco degli avvisi di protezione dalle minacce per archiviazione di Azure](alerts-reference.md#alerts-azurestorage)
 
 ## Azure Cosmos DB<a name="cosmos-db"></a>
 
-Gli avvisi seguenti vengono generati da tentativi insoliti e potenzialmente dannosi di accesso o exploit Azure Cosmos DB account:
+Gli avvisi Azure Cosmos DB vengono generati da tentativi insoliti e potenzialmente dannosi di accesso o di exploit Azure Cosmos DB account.
 
-|Avviso|DESCRIZIONE|
-|---|---|
-|**Accesso da una posizione insolita a un account Cosmos DB**|Indica che è stata apportata una modifica nel modello di accesso a un account Azure Cosmos DB. Un utente ha eseguito l'accesso a questo account da un indirizzo IP non noto, rispetto alle attività recenti. Un utente malintenzionato ha eseguito l'accesso all'account oppure un utente legittimo ha eseguito l'accesso a tale account da una posizione geografica nuova e insolita. Un esempio di quest'ultimo è la manutenzione remota di una nuova applicazione o di uno sviluppatore.|
-|**Quantità insolita di dati estratti da un account di Cosmos DB**|Indica che è stata apportata una modifica al modello di estrazione dei dati da un account Azure Cosmos DB. Un utente ha estratto una quantità di dati insolita rispetto alle attività recenti. Un utente malintenzionato potrebbe avere estratto una grande quantità di dati da un database di Azure Cosmos DB (ad esempio, exfiltration o perdita di dati o un trasferimento non autorizzato di dati). In alternativa, un utente o un'applicazione legittima potrebbe avere estratto una quantità di dati insolita da un contenitore, ad esempio per attività di backup di manutenzione.|
+Per scoprire di più, vedi:
 
-Per ulteriori informazioni, vedere [Advanced Threat Protection per Azure Cosmos DB](../cosmos-db/cosmos-db-advanced-threat-protection.md).
+* [Advanced Threat Protection per Azure Cosmos DB (anteprima)](../cosmos-db/cosmos-db-advanced-threat-protection.md)
+* [Elenco di avvisi di protezione dalle minacce per Azure Cosmos DB (anteprima)](alerts-reference.md#alerts-azurecosmos)

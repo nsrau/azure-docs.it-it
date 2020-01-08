@@ -1,24 +1,14 @@
 ---
-title: Abilitare la crittografia del disco per i cluster Azure Service Fabric Linux | Microsoft Docs
+title: Abilitare la crittografia del disco per i cluster Linux
 description: Questo articolo descrive come abilitare la crittografia del disco per i nodi del cluster Service Fabric di Azure in Linux usando Azure Resource Manager e Azure Key Vault.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: navya
-ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/22/2019
-ms.author: atsenthi
-ms.openlocfilehash: 5bcfad63df69010851dde66b0c8935e63a509455
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: d990cfdee9a497135c67d99431807a85f8105b3b
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599598"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609894"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-linux"></a>Abilitare la crittografia del disco per i nodi del cluster Service Fabric di Azure in Linux 
 > [!div class="op_single_selector"]
@@ -43,7 +33,7 @@ La guida descrive gli argomenti seguenti:
 
  **Registrazione automatica**
 
-L'anteprima della crittografia del disco per il set di scalabilità di macchine virtuali richiede la registrazione automatica. Seguire questa procedura:
+L'anteprima della crittografia del disco per il set di scalabilità di macchine virtuali richiede la registrazione automatica. Eseguire la procedura descritta di seguito:
 
 1. Eseguire il comando seguente: 
     ```powershell
@@ -65,7 +55,7 @@ L'anteprima della crittografia del disco per il set di scalabilità di macchine 
 3. Installare la versione più recente di [Azure SDK dalla versione Azure PowerShell](https://github.com/Azure/azure-powershell/releases) . Di seguito sono riportati i cmdlet di crittografia dischi di Azure per set di scalabilità di macchine virtuali per abilitare ([impostare](/powershell/module/az.compute/set-azvmssdiskencryptionextension)) la crittografia, recuperare ([ottenere](/powershell/module/az.compute/get-azvmssvmdiskencryption)) lo stato della crittografia e rimuovere ([disabilitare](/powershell/module/az.compute/disable-azvmssdiskencryption)) la crittografia nell'istanza del set di scalabilità.
 
 
-| Comando | Version |  Source  |
+| Comando | Versione |  Origine  |
 | ------------- |-------------| ------------|
 | Get-AzVmssDiskEncryptionStatus   | 1.0.0 o versione successiva | Az.Compute |
 | Get-AzVmssVMDiskEncryptionStatus   | 1.0.0 o versione successiva | Az.Compute |
@@ -85,7 +75,7 @@ L'anteprima della crittografia del disco per il set di scalabilità di macchine 
 
 Usare i comandi seguenti per creare un cluster e abilitare la crittografia del disco usando un modello di Azure Resource Manager e un certificato autofirmato.
 
-### <a name="sign-in-to-azure"></a>Accedi ad Azure  
+### <a name="sign-in-to-azure"></a>Accedere a Azure  
 
 Accedere con i comandi seguenti:
 
@@ -187,7 +177,7 @@ Prima di continuare con la crittografia in un set di scalabilità di macchine vi
 
 
 ### <a name="deploy-application-to-a-service-fabric-cluster-in-linux"></a>Distribuire un'applicazione in un cluster Service Fabric in Linux
-Per distribuire un'applicazione nel cluster, seguire i passaggi e le istruzioni disponibili [in Guida introduttiva: Distribuire contenitori Linux in Service Fabric](service-fabric-quickstart-containers-linux.md).
+Per distribuire un'applicazione nel cluster, seguire i passaggi e le istruzioni disponibili in [Guida introduttiva: distribuire contenitori Linux in Service Fabric](service-fabric-quickstart-containers-linux.md).
 
 
 ### <a name="enable-disk-encryption-for-the-virtual-machine-scale-sets-created-previously"></a>Abilitare la crittografia del disco per i set di scalabilità di macchine virtuali creati in precedenza

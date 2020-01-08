@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: cf1c18fc799014ad862c93076d695f2516c6363d
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 5c407edfedd6eb1156a0fec5719cc9435858bd4a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560161"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456936"
 ---
-# <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Creare una factory di immagini personalizzata in Azure DevTest Labs
+# <a name="set-up-retention-policy-in-azure-devtest-labs"></a>Configurare i criteri di conservazione in Azure DevTest Labs
 In questo articolo viene illustrata l'impostazione di un criterio di conservazione, la pulizia della Factory e il ritiro di immagini obsolete da tutti gli altri laboratori DevTest nell'organizzazione. 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -66,7 +66,7 @@ Ora che è stata completata la definizione di compilazione, accodare una nuova c
 
 
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 A questo punto è disponibile una factory di immagini in esecuzione che può generare e distribuire immagini personalizzate nei Lab su richiesta. A questo punto, è sufficiente configurare correttamente le immagini e identificare i Lab di destinazione. Come indicato nell'articolo precedente, il file **Labs. JSON** che si trova nella cartella di **configurazione** specifica le immagini che devono essere rese disponibili in ogni Lab di destinazione. Quando si aggiungono altri DevTest Labs alla propria organizzazione, è sufficiente aggiungere una voce nel file Labs. JSON per il nuovo Lab.
 
 Anche l'aggiunta di una nuova immagine alla Factory è semplice. Per includere una nuova immagine nella Factory, aprire il [portale di Azure](https://portal.azure.com), passare a Factory DevTest Labs, selezionare il pulsante per aggiungere una VM e scegliere l'immagine e gli artefatti del Marketplace desiderati. Anziché selezionare il pulsante **Crea per creare** la nuova macchina virtuale, selezionare **Visualizza Azure Resource Manager modello**"e salvare il modello come file con estensione JSON in un punto qualsiasi all'interno della cartella **GoldenImages** nel repository. Alla successiva esecuzione della factory di immagini verrà creata l'immagine personalizzata.

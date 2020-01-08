@@ -1,28 +1,19 @@
 ---
-title: Cluster Resource Manager di Service Fabric - Costo dello spostamento | Microsoft Docs
-description: Panoramica del costo di spostamento per i servizi di Service Fabric
-services: service-fabric
-documentationcenter: .net
+title: 'Gestione risorse Service Fabric cluster: costo dello spostamento'
+description: Informazioni sul costo di spostamento per i servizi Service Fabric e su come può essere specificato in base alle esigenze architettoniche, inclusa la configurazione dinamica.
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: f022f258-7bc0-4db4-aa85-8c6c8344da32
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 80845fca8d163a4ebe9257f19825624acef3a815
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: af3e01d0d5a605c052be24eed8e14ee3449e2c79
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73243005"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563344"
 ---
 # <a name="service-movement-cost"></a>Costo di spostamento dei servizi
-Un fattore preso in considerazione da Cluster Resource Manager di Service Fabric nel tentativo di determinare le modifiche da apportare a un cluster è il costo di tali modifiche. Il concetto di "costo" viene compensato sulla base di quanto il cluster può essere migliorato. Il factoring del costo avviene durante lo spostamento di servizi di bilanciamento del carico, la deframmentazione e altri requisiti. L'obiettivo è soddisfare i requisiti nel modo meno problematico o costoso. 
+Un fattore preso in considerazione da Cluster Resource Manager di Service Fabric nel tentativo di determinare le modifiche da apportare a un cluster è il costo di tali modifiche. Il concetto di "costo" viene compensato sulla base di quanto il cluster può essere migliorato. Il factoring del costo avviene durante lo spostamento di servizi di bilanciamento del carico, la deframmentazione e altri requisiti. L'obiettivo è soddisfare i requisiti nel modo meno problematico o costoso.
 
 Lo spostamento dei servizi comporta costi, come minimo in termini di tempo della CPU e ampiezza di banda della rete. Per i servizi con stato, è necessario copiare lo stato di tali servizi, consumando disco e memoria aggiuntivi. La riduzione del costo delle soluzioni offerta da Cluster Resource Manager di Azure Service Fabric contribuisce a garantire che le risorse del cluster non vengono usate inutilmente. Ma non bisogna neppure ignorare le soluzioni in grado di migliorare significativamente l'allocazione delle risorse del cluster.
 
@@ -76,7 +67,7 @@ this.Partition.ReportMoveCost(MoveCost.Medium);
 ```
 
 ## <a name="impact-of-move-cost"></a>Impatto del costo di spostamento
-MoveCost ha cinque livelli: zero, low, medium, High e VeryHigh. Si applicano le regole seguenti:
+MoveCost ha cinque livelli: zero, low, medium, High e VeryHigh. Sono applicabili le regole seguenti:
 
 * Correlati sono relativi tra loro, ad eccezione di zero e VeryHigh. 
 * Se un costo di spostamento è di livello Zero, significa che lo spostamento è gratuito e non deve influire sul punteggio della soluzione.
@@ -111,7 +102,7 @@ ClusterManifest.xml:
         </Section>
 ```
 
-Tramite ClusterConfig.json per le distribuzioni autonome o Template.json per cluster ospitati in Azure:
+mediante ClusterConfig.json per le distribuzioni autonome o Template.json per i cluster ospitati in Azure:
 
 ```json
 "fabricSettings": [

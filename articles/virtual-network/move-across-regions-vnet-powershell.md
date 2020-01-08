@@ -6,12 +6,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: allensu
-ms.openlocfilehash: 753c239f4bf4d6a8f31d4dc5ca771f312cd34578
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: dc316e5bbb88359ff8b1e8a4fc35a56541a577f6
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828989"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646711"
 ---
 # <a name="move-an-azure-virtual-network-to-another-region-by-using-azure-powershell"></a>Spostare una rete virtuale di Azure in un'altra area usando Azure PowerShell
 
@@ -32,7 +32,7 @@ Esistono diversi scenari per lo trasferimento di una rete virtuale di Azure esis
 
 - Verificare che la sottoscrizione di Azure consenta di creare reti virtuali nell'area di destinazione. Per abilitare la quota richiesta, contattare il supporto tecnico.
 
-- Assicurarsi che la sottoscrizione disponga di risorse sufficienti per supportare l'aggiunta di reti virtuali per questo processo. Per altre informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
+- Assicurarsi che la sottoscrizione disponga di risorse sufficienti per supportare l'aggiunta di reti virtuali per questo processo. Per altre informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
 
 ## <a name="prepare-for-the-move"></a>Preparare lo spostamento
@@ -60,7 +60,7 @@ Per esportare la rete virtuale e distribuire la rete virtuale di destinazione us
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
-1. Il file scaricato ha lo stesso nome del gruppo di risorse da cui è stata esportata la risorsa. Individuare il file *\<resource-Group-name >. JSON* , che è stato esportato con il comando e aprirlo nell'Editor:
+1. Il file scaricato ha lo stesso nome del gruppo di risorse da cui è stata esportata la risorsa. Individuare il file *\<Resource-Group-name >. JSON* , che è stato esportato con il comando e aprirlo nell'Editor:
    
    ```azurepowershell
    notepad <source-resource-group-name>.json
@@ -105,9 +105,9 @@ Per esportare la rete virtuale e distribuire la rete virtuale di destinazione us
     Get-AzLocation | format-table
     ```
 
-1. Opzionale È anche possibile modificare altri parametri nel file *\<resource-Group-name >. JSON* , a seconda dei requisiti:
+1. Opzionale È anche possibile modificare altri parametri nel file *\<Resource-Group-name >. JSON* , a seconda dei requisiti:
 
-    * **Spazio degli indirizzi**: Prima di salvare il file, è possibile modificare lo spazio degli indirizzi della rete virtuale modificando la sezione **resources** > **addressSpace** e modificando la proprietà **addressPrefixes** :
+    * **Spazio degli indirizzi**: prima di salvare il file, è possibile modificare lo spazio degli indirizzi della rete virtuale modificando **le risorse** > sezione **addressSpace** e modificando la proprietà **addressPrefixes** :
 
         ```json
                 "resources": [
@@ -126,7 +126,7 @@ Per esportare la rete virtuale e distribuire la rete virtuale di destinazione us
                     },
         ```
 
-    * **Subnet**: È possibile modificare o aggiungere al nome della subnet e allo spazio di indirizzi della subnet modificando la sezione **subnet** del file. È possibile modificare il nome della subnet modificando la proprietà **Name** . È possibile modificare lo spazio degli indirizzi della subnet modificando la proprietà **addressPrefix** :
+    * **Subnet**: è possibile modificare o aggiungere al nome della subnet e allo spazio degli indirizzi della subnet modificando la sezione **Subnet** del file. È possibile modificare il nome della subnet modificando la proprietà **Name** . È possibile modificare lo spazio degli indirizzi della subnet modificando la proprietà **addressPrefix** :
 
         ```json
                 "subnets": [
@@ -193,7 +193,7 @@ Per esportare la rete virtuale e distribuire la rete virtuale di destinazione us
          ]
         ```
 
-1. Salvare il  *\<file Resource-Group-Name >. JSON* .
+1. Salvare il file *\<Resource-Group-name >. JSON* .
 
 1. Creare un gruppo di risorse nell'area di destinazione per la distribuzione della rete virtuale di destinazione usando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0):
     
@@ -201,7 +201,7 @@ Per esportare la rete virtuale e distribuire la rete virtuale di destinazione us
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
-1. Distribuire il file modificato *\<resource-Group-name >. JSON* al gruppo di risorse creato nel passaggio precedente usando [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+1. Distribuire il file modificato *\<Resource-Group-name >. JSON* al gruppo di risorse creato nel passaggio precedente usando [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 

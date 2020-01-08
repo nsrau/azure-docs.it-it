@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 4e04ae7d9594ac064c9f3707c797fb2709a79cb6
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 270f92365823fb0f9378a9daae77dbbe08b53b14
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73583037"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435044"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central
 
@@ -25,12 +25,12 @@ Questo articolo descrive come connettere un dispositivo MXChip IoT DevKit (DevKi
 
 Per completare i passaggi descritti in questo articolo, sono necessarie le risorse seguenti:
 
-1. Un'applicazione Azure IoT Central creata dal modello di applicazione **Sample Devkits**. Per altre informazioni, vedere la [guida introduttiva per la creazione di un'applicazione](quick-deploy-iot-central.md).
+1. Un'applicazione IoT Central di Azure creata dal modello di applicazione dell' **applicazione legacy** . Per altre informazioni, vedere la [guida introduttiva per la creazione di un'applicazione](quick-deploy-iot-central.md).
 1. Un dispositivo DevKit. Per acquistare un dispositivo DevKit, vedere [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/).
 
-## <a name="sample-devkits-application"></a>Applicazione Sample Devkits
+## <a name="add-a-device-template"></a>Aggiungere un modello di dispositivo
 
-Un'applicazione creata dal modello di applicazione **devkits di esempio** include un modello di dispositivo **MXChip** che definisce le caratteristiche del dispositivo seguenti:
+Nell'applicazione IoT Central di Azure aggiungere un nuovo modello di dispositivo **MXChip** che definisce le caratteristiche del dispositivo seguenti:
 
 - Misurazioni di telemetria per **umidità**, **temperatura**, **pressione**, **magnetometro** (misurata lungo l'asse x, y, z), **accelerometro** (misurato lungo l'asse x, y, z) e **giroscopio** (misurato lungo l'asse x, y, z).
 - Misurazione dello stato per **lo stato del dispositivo**.
@@ -40,6 +40,11 @@ Un'applicazione creata dal modello di applicazione **devkits di esempio** includ
 - Proprietà Cloud **prodotta in**.
 - Comandi **echo** e **Countdown**. Quando un dispositivo reale riceve un comando **echo** , Visualizza il valore inviato sulla visualizzazione del dispositivo. Quando un dispositivo reale riceve un comando di **conto alla rovescia** , il LED scorre un modello e il dispositivo invia i valori del conto alla rovescia a IOT Central.
 
+1. Selezionare **+ nuovo** da modelli di dispositivo ![modello di dispositivo](media/howto-connect-devkit/adddevicetemplate.png)
+   
+
+2. Selezionare **MXChip** e creare il modello di dispositivo MXChip ![Aggiungi modello di dispositivo](media/howto-connect-devkit/newtemplate.png)
+
 Per informazioni dettagliate sulla configurazione, vedere [Dettagli del modello di dispositivo MXChip](#mxchip-device-template-details)
 
 ## <a name="add-a-real-device"></a>Aggiungere un dispositivo reale
@@ -48,7 +53,7 @@ Per informazioni dettagliate sulla configurazione, vedere [Dettagli del modello 
 
 Nell'applicazione IoT Central di Azure aggiungere un dispositivo reale dal modello di dispositivo **MXChip** e prendere nota dei dettagli della connessione del dispositivo: **ID ambito, ID dispositivo e chiave primaria**:
 
-1. Aggiungere un **dispositivo reale** da Device Explorer, selezionare **+ nuovo > reale** per aggiungere un dispositivo reale.
+1. Aggiungere un **dispositivo reale** dai dispositivi, selezionare **+ nuovo > reale** per aggiungere un dispositivo reale.
 
     * Immettere un **ID dispositivo**minuscolo o usare l' **ID dispositivo**suggerito.
     * Immettere un **nome di dispositivo**o usare il nome suggerito
@@ -57,7 +62,7 @@ Nell'applicazione IoT Central di Azure aggiungere un dispositivo reale dal model
 
 1. Per ottenere i dettagli di connessione del dispositivo, **ID ambito**, **ID dispositivo**e **chiave primaria**, selezionare **Connetti** nella pagina dispositivo.
 
-    ![Dettagli di connessione](media/howto-connect-devkit/device-connect.png)
+    ![Dettagli della connessione](media/howto-connect-devkit/device-connect.png)
 
 1. Prendere nota dei dettagli della connessione. Si è temporaneamente disconnessi da Internet quando si prepara il dispositivo DevKit nel passaggio successivo.
 
@@ -190,11 +195,11 @@ Per informazioni su come modificare, compilare e caricare il codice di esempio n
 
 Un'applicazione creata dal modello di applicazione Sample Devkits include un modello di dispositivo MXChip con le caratteristiche seguenti:
 
-### <a name="measurements"></a>Misure
+### <a name="measurements"></a>Misurazioni
 
 #### <a name="telemetry"></a>Telemetria
 
-| Nome campo     | Unità  | Minima | Massima | Cifre decimali |
+| Nome campo     | Unità  | Minima | Massimo | Cifre decimali |
 | -------------- | ------ | ------- | ------- | -------------- |
 | umidità       | %      | 0       | 100     | 0              |
 | temp           | °C     | -40     | 120     | 0              |
@@ -210,12 +215,12 @@ Un'applicazione creata dal modello di applicazione Sample Devkits include un mod
 | gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
 
 #### <a name="states"></a>Stati 
-| Name          | Nome visualizzato   | NORMALE | ATTENZIONE | PERICOLO | 
+| Nome          | Nome visualizzato   | NORMAL | ATTENZIONE | PERICOLO | 
 | ------------- | -------------- | ------ | ------- | ------ | 
-| DeviceState   | Stato del dispositivo   | Verde  | Arancione  | Rosso    | 
+| DeviceState   | Stato del dispositivo   | Verde  | Orange  | Rosso    | 
 
-#### <a name="events"></a>Events 
-| Name             | Nome visualizzato      | 
+#### <a name="events"></a>Eventi 
+| Nome             | Nome visualizzato      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | Pulsante B premuto  | 
 
@@ -223,32 +228,32 @@ Un'applicazione creata dal modello di applicazione Sample Devkits include un mod
 
 Impostazioni numeriche
 
-| Nome visualizzato | Nome campo | Unità | Cifre decimali | Minima | Massima | Initial |
+| Nome visualizzato | Nome campo | Unità | Cifre decimali | Minima | Massimo | Initial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Tensione      | setVoltage | Volt | 0              | 0       | 240     | 0       |
-| Current      | setCurrent | Amp  | 0              | 0       | 100     | 0       |
+| Corrente      | setCurrent | Amp  | 0              | 0       | 100     | 0       |
 | Velocità della ventola    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
 Impostazioni attivazione/disattivazione
 
 | Nome visualizzato | Nome campo | Testo attivato | Testo disattivato | Initial |
 | ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | ATTIVA      | DISATTIVA      | Off     |
+| IR           | activateIR | ATTIVA      | OFF      | Off     |
 
 ### <a name="properties"></a>Proprietà
 
 | Tipo            | Nome visualizzato | Nome campo | Tipo di dati |
 | --------------- | ------------ | ---------- | --------- |
-| Proprietà dispositivo | Numero stampo   | dieNumber  | number    |
-| Proprietà dispositivo | Percorso dispositivo   | location  | location    |
-| Text            | Prodotto in     | manufacturedIn   | N/D       |
+| Proprietà dispositivo | Numero stampo   | dieNumber  | d'acquisto    |
+| Proprietà dispositivo | Percorso dispositivo   | posizione  | posizione    |
+| Testo            | Prodotto in     | manufacturedIn   | N/D       |
 
 ### <a name="commands"></a>Comandi:
 
 | Nome visualizzato | Nome campo | Tipo restituito | Nome visualizzato del campo di input | Nome campo di input | Tipo di campo di input |
 | ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
 | Echo         | echo (eco)       | text        | valore da visualizzare         | displayedValue   | text             |
-| Conto alla rovescia    | Conto alla rovescia  | number      | Conteggio da               | countFrom        | number           |
+| Conto alla rovescia    | conto alla rovescia  | d'acquisto      | Conteggio da               | countFrom        | d'acquisto           |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

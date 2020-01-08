@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/29/2019
 ms.author: memildin
-ms.openlocfilehash: d37333c0ca3f8acab7a35c23bbab67beef056b72
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9c776a32b4a35c72fc40a16afb87db9896a763cf
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73664397"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611067"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personalizzare i criteri di protezione delle informazioni SQL in Centro sicurezza di Azure (Anteprima)
  
 È possibile definire e personalizzare i criteri di SQL Information Protection per l'intero tenant di Azure, nel centro sicurezza di Azure.
 
-Information Protection è una funzionalità di sicurezza avanzata per l'individuazione, la classificazione, l'assegnazione di etichette e la protezione dei dati sensibili nelle risorse dati di Azure. L'individuazione e la classificazione dei dati più sensibili (aziendale, finanziaria, sanitaria, dati personali e così via) possono svolgere un ruolo fondamentale nella protezione delle informazioni dell'organizzazione. Individuazione dati e classificazione può svolgere la funzione di infrastruttura per:
-- Contribuire a soddisfare gli standard e i requisiti di conformità alle normative sulla privacy dei dati
+Information Protection è una funzionalità di sicurezza avanzata per l'individuazione, la classificazione, l'assegnazione di etichette e la creazione di report sui dati sensibili nelle risorse dati di Azure. L'individuazione e la classificazione dei dati più sensibili (aziendale, finanziaria, sanitaria, dati personali e così via) possono svolgere un ruolo fondamentale nella protezione delle informazioni dell'organizzazione. Possono costituire l'infrastruttura per:
+- Contribuire a soddisfare i requisiti in materia di privacy e di conformità alle normative
 - Scenari di sicurezza, ad esempio monitoraggio (controllo) e avvisi sull'accesso anomalo ai dati sensibili
 - Controllare l'accesso ai database che contengono dati molto sensibili e rafforzarne la sicurezza
  

@@ -1,25 +1,16 @@
 ---
-title: Introduzione a Cluster Resource Manager di Service Fabric | Microsoft Docs
-description: Un'introduzione a Cluster Resource Manager di Service Fabric.
-services: service-fabric
-documentationcenter: .net
+title: Introduzione al cluster di Service Fabric Gestione risorse
+description: Informazioni sul Gestione risorse del cluster Service Fabric, un modo per gestire l'orchestrazione dei servizi dell'applicazione.
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: cfab735b-923d-4246-a2a8-220d4f4e0c64
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: e9b1cc8b66be36a0a77118f4de672c9411433ba5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da9205f5d95eaf1b4dc655ee727ab8a4fe90893d
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60743659"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563327"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Introduzione a Cluster Resource Manager di Service Fabric
 Tradizionalmente, la gestione dei sistemi IT o dei Servizi online comportava dedicare alcune macchine virtuali o fisiche a tali sistemi o servizi specifici. I servizi erano progettati come livelli. Era presente un livello "web" e un livello "dati" o "archiviazione". Le applicazioni avevano un livello di messaggistica con un flusso di richieste in entrata e in uscita, nonché un set di computer dedicati alla memorizzazione nella cache. A ogni livello o tipo di carico di lavoro veniva assegnato un computer dedicato. Al database venivano assegnati un paio di computer dedicati, ai server web qualcuno in più. Se un particolare tipo di carico di lavoro causava il surriscaldamento del computer su cui si trovava, si aggiungevano più computer con la medesima configurazione a quel livello. Non tutti i carichi di lavoro possono tuttavia essere scalati orizzontalmente facilmente, in particolare per il livello dati i computer vengono sostituiti con computer di dimensioni più grandi. Semplice. Se si verificava un problema su un computer, la parte dell'applicazione interessata veniva gestita con una capacità inferiore fino a quando il computer non veniva ripristinato. Ancora piuttosto semplice, anche se non necessariamente divertente.
@@ -54,7 +45,7 @@ Anche se alcune di queste strategie sono interessanti, Cluster Resource Manager 
 Poiché Cluster Resource Manager è responsabile dello spostamento dei servizi contiene un set di funzionalità diverso rispetto a quello di un servizio di bilanciamento del carico di rete. Questo avviene perché i bilanciamenti del carico di rete inviano il traffico di rete dove già si trovano i servizi, anche se tale posizione non è ideale per l'esecuzione del servizio stesso. Cluster Resource Manager di Service Fabric impiega strategie essenzialmente diverse per garantire che le risorse del cluster vengano ben usate.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Per informazioni sull'architettura e le informazioni sul flusso all'interno di Cluster Resource Manager, consultare [in questo articolo](service-fabric-cluster-resource-manager-architecture.md)
+- Per informazioni sull'architettura e sul flusso di informazioni all'interno del cluster Gestione risorse, vedere [questo articolo](service-fabric-cluster-resource-manager-architecture.md) .
 - Cluster Resource Manager dispone di varie opzioni per descrivere il cluster. Per altre informazioni sulle metriche vedere l'articolo [Descrizione di un cluster di Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
 - Per altre informazioni sulla configurazione dei servizi, [Informazioni sulla configurazione dei servizi](service-fabric-cluster-resource-manager-configure-services.md)
 - Le metriche determinano il modo in cui Cluster Resource Manger di Service Fabric gestisce il consumo e la capacità del cluster. Per altre informazioni sulle metriche e su come configurarle, vedere [questo articolo](service-fabric-cluster-resource-manager-metrics.md)

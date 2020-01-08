@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 10/02/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: c86df7c50e59309f921c60738870407e74a23219
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 60c1109d0f540c8301cc536c2079537dca5115f4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555210"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435017"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Gestire IoT Central dal portale di Azure
 
@@ -41,11 +41,11 @@ Selezionare quindi **Crea**.
 
 Compilare tutti i campi del modulo. Questo modulo è simile al modulo compilato per creare applicazioni nel sito Web di [Azure IOT Central Application Manager](https://aka.ms/iotcentral) . Per altre informazioni, consultare la guida introduttiva [Creare un'applicazione Azure IoT Central](quick-deploy-iot-central.md).
 
-È possibile creare IoT Central applicazione con le funzionalità disponibili a livello generale selezionando **esempio contoso**, **applicazione personalizzata** e **devkits di esempio** come modelli di applicazione, tutti gli altri modelli di applicazione usano le funzionalità di anteprima pubblica.
+È possibile creare IoT Central applicazione con le funzionalità disponibili a livello generale selezionando **applicazione legacy** come modello di applicazione, tutti gli altri modelli di applicazione usano le funzionalità di anteprima pubblica.
 
 ![Crea IoT Central form](media/howto-manage-iot-central-from-portal/image6a.png)
 
-**Location** è la posizione [geografica](https://azure.microsoft.com/global-infrastructure/geographies/) in cui si vuole creare l'applicazione. In genere, è consigliabile scegliere il percorso fisicamente più vicino ai dispositivi per ottenere prestazioni ottimali. Azure IoT Central è attualmente disponibile in **Stati Uniti**, **Australia**, **Asia Pacifico**o in **Europa**.  Una volta scelto un percorso, non è possibile spostare l'applicazione in un percorso diverso in un secondo momento.
+La **località** è l'[area geografica](https://azure.microsoft.com/global-infrastructure/geographies/) in cui si vuole creare l'applicazione. Per ottenere prestazioni ottimali, è in genere consigliabile scegliere la località fisicamente più vicina ai dispositivi. Azure IoT Central è attualmente disponibile in **Stati Uniti**, **Australia**, **Asia Pacifico** o **Europa**.  Dopo aver scelto una località, non è possibile spostare l'applicazione in un'altra località in un secondo momento.
 
 > [!NOTE]
 > I modelli di applicazione di anteprima sono attualmente disponibili solo nelle località **Europa** e **Stati Uniti** .

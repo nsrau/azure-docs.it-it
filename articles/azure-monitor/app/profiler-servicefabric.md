@@ -1,5 +1,5 @@
 ---
-title: Profilare le applicazioni di Azure Service Fabric attive con Application Insights | Microsoft Docs
+title: Profilare app Service Fabric di Azure in tempo reale con Application Insights
 description: Abilitare Profiler per un'applicazione di Service Fabric
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,17 +8,17 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: a7a64be3c73ea82c6bf3d905772f3278f9bda5df
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 162a8c3f90b7adab356ebb07c80b8de283fd818d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72818473"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432396"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>Profilare le applicazioni di Azure Service Fabric attive con Application Insights
 
 È anche possibile distribuire Application Insights Profiler in questi servizi:
-* [Informazioni sul servizio app di Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Servizio app di Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Servizi cloud di Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Macchine virtuali di Azure](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 

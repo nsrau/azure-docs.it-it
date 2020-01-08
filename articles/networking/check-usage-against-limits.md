@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: jeconnoc
-ms.openlocfilehash: b8bcbabe4b355e4e9cd617e9003902885b8edd88
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 5c807397af3ee06b490017b7e14f7b64123b5075
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67872443"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645226"
 ---
 # <a name="check-resource-usage-against-limits"></a>Controllare l'utilizzo delle risorse rispetto ai limiti
 
-In questo articolo si apprenderà come visualizzare il numero per ogni tipo di risorsa di rete distribuito nell'ambito della sottoscrizione e quali sono i [limiti della sottoscrizione](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits). La possibilità di visualizzare l'utilizzo di risorse rispetto ai limiti è utile per tenere traccia dell'utilizzo corrente e pianificare quello futuro. Per tenere traccia dell'utilizzo, è possibile usare il [portale di Azure](#azure-portal), [PowerShell](#powershell) o l'[interfaccia della riga di comando di Azure](#azure-cli).
+In questo articolo si apprenderà come visualizzare il numero per ogni tipo di risorsa di rete distribuito nell'ambito della sottoscrizione e quali sono i [limiti della sottoscrizione](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits). La possibilità di visualizzare l'utilizzo di risorse rispetto ai limiti è utile per tenere traccia dell'utilizzo corrente e pianificare quello futuro. Per tenere traccia dell'utilizzo, è possibile usare il [portale di Azure](#azure-portal), [PowerShell](#powershell) o l'[interfaccia della riga di comando di Azure](#azure-cli).
 
 ## <a name="azure-portal"></a>Portale di Azure
 
@@ -34,7 +34,7 @@ In questo articolo si apprenderà come visualizzare il numero per ogni tipo di r
 4. Selezionare il nome della sottoscrizione per cui visualizzare le informazioni sull'utilizzo.
 5. In **Impostazioni** selezionare **Utilizzo + quote**.
 6. È possibile selezionare le opzioni seguenti:
-   - **Tipi di risorsa**: è possibile selezionare tutti i tipi di risorse o tipi specifici di risorse da visualizzare.
+   - **Tipi di risorsa**: è possibile selezionare tutti i tipi di risorsa o tipi specifici di risorse da visualizzare.
    - **Provider**: è possibile selezionare tutti i provider di risorse oppure **Calcolo**, **Rete** o **Archiviazione**.
    - **Località**: è possibile selezionare tutte le località di Azure oppure località specifiche.
    - È possibile scegliere di visualizzare tutte le risorse o solo i tipi di cui è distribuita almeno una risorsa.
@@ -43,7 +43,7 @@ In questo articolo si apprenderà come visualizzare il numero per ogni tipo di r
 
        ![Visualizza dati di utilizzo](./media/check-usage-against-limits/view-usage.png)
 
-     È possibile ordinare le colonne selezionando le relative intestazioni. I limiti indicati sono quelli definiti per la sottoscrizione. Se è necessario aumentare un limite predefinito, selezionare **Richiedi aumento** e quindi completare e inviare la richiesta di supporto. Tutte le risorse hanno un limite massimo elencato nell'articolo relativo ai [limiti](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits) di Azure. Se il limite corrente è già quello massimo, non è possibile aumentarlo.
+     È possibile ordinare le colonne selezionando le relative intestazioni. I limiti indicati sono quelli definiti per la sottoscrizione. Se è necessario aumentare un limite predefinito, selezionare **Richiedi aumento** e quindi completare e inviare la richiesta di supporto. Tutte le risorse hanno un limite massimo elencato nell'articolo relativo ai [limiti](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits) di Azure. Se il limite corrente è già quello massimo, non è possibile aumentarlo.
 
 ## <a name="powershell"></a>PowerShell
 

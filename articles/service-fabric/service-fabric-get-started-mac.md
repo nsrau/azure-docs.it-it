@@ -1,24 +1,16 @@
 ---
-title: Configurare l'ambiente di sviluppo in Mac OS X per l'interazione con Azure Service Fabric| Microsoft Docs
-description: Installare il runtime, l'SDK e gli strumenti e creare un cluster di sviluppo locale. Al termine della configurazione, sarà possibile iniziare a creare applicazioni in Mac OS X.
-services: service-fabric
-documentationcenter: linux
+title: Configurare l'ambiente di sviluppo in macOS
+description: Installare il runtime, l'SDK e gli strumenti e creare un cluster di sviluppo locale. Al termine dell'installazione, sarà possibile creare applicazioni in macOS.
 author: suhuruli
-manager: chackdan
-editor: ''
-ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
-ms.service: service-fabric
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: 2ce8d944e7334b071a4a48f38f8c4fafaeff4c47
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 178b8c120bc7a886eaca94d1551e489f96ba22b2
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035282"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609877"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurare l'ambiente di sviluppo in Mac OS X
 > [!div class="op_single_selector"]
@@ -174,7 +166,7 @@ Service Fabric fornisce strumenti di scaffolding che consentono di creare un'app
     ```
 
     > [!IMPORTANT]
-    > Le versioni correnti `brew cask install java` di possono installare una versione più recente del JDK.
+    > Le versioni correnti di `brew cask install java` possono installare una versione più recente del JDK.
     > Assicurarsi di installare JDK 8.
 
 ## <a name="deploy-your-application-on-your-mac-from-the-terminal"></a>Distribuire l'applicazione nel computer Mac dal terminale

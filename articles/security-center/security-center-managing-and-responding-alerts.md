@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/27/2019
 ms.author: memildin
-ms.openlocfilehash: c3134988452efe16044ab7b7740cafd02e8cf27a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 46ed2af51f34a25c1cdc1abb6152169feedd989e
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201914"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666296"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Gestire e rispondere agli avvisi di sicurezza nel centro sicurezza di Azure
 
@@ -28,7 +28,7 @@ In questo argomento viene illustrato come visualizzare ed elaborare gli avvisi r
 * Per una panoramica del modo in cui il Centro sicurezza genera avvisi, vedere [come il Centro sicurezza di Azure rileva e risponde alle minacce](security-center-alerts-overview.md#detect-threats).
 
 > [!NOTE]
-> Per abilitare le funzionalità di rilevamento avanzato, eseguire l'aggiornamento al livello Standard del Centro sicurezza di Azure. È disponibile una prova gratuita. Per eseguire l'aggiornamento, selezionare il piano tariffario nei [criteri di sicurezza](tutorial-security-policy.md). Per altre informazioni, vedere [Prezzi del Centro sicurezza di Azure](security-center-pricing.md).
+> Per abilitare le funzionalità di rilevamento avanzato, eseguire l'aggiornamento al livello Standard del Centro sicurezza di Azure. È disponibile una versione di valutazione gratuita. Per eseguire l'aggiornamento, selezionare il piano tariffario nei [criteri di sicurezza](tutorial-security-policy.md). Per altre informazioni, vedere [Prezzi del Centro sicurezza di Azure](security-center-pricing.md).
 
 ## <a name="what-are-security-alerts"></a>Informazioni sugli avvisi di sicurezza
 Il Centro sicurezza raccoglie, analizza e integra automaticamente i dati di log delle risorse di Azure, della rete e delle soluzioni dei partner connesse, come soluzioni di protezione endpoint e firewall, per rilevare le minacce reali e ridurre i falsi positivi. Il Centro sicurezza visualizza un elenco degli avvisi di sicurezza in ordine di priorità, nonché le informazioni necessarie per analizzare rapidamente il problema e indicazioni per risolvere un attacco.
@@ -65,7 +65,7 @@ Il Centro sicurezza raccoglie, analizza e integra automaticamente i dati di log 
     > [!NOTE]
     >In alcuni casi, l'indirizzo IP di origine non è disponibile, alcuni log eventi di sicurezza di Windows non includono l'indirizzo IP.
 
-1. Le fasi di correzione suggerite dal centro sicurezza variano in base all'avviso di sicurezza. Seguirli per ogni avviso. In alcuni casi, per mitigare un avviso di rilevamento delle minacce, potrebbe essere necessario usare altri controlli o servizi di Azure per implementare la correzione consigliata. 
+1. La procedura di correzione consigliata dal Centro sicurezza varia in base all'avviso di sicurezza. Seguirli per ogni avviso. In alcuni casi, per mitigare un avviso di rilevamento delle minacce, potrebbe essere necessario usare altri controlli o servizi di Azure per implementare la correzione consigliata. 
 
     Gli argomenti seguenti illustrano i diversi avvisi in base ai tipi di risorse:
     
@@ -76,9 +76,9 @@ Il Centro sicurezza raccoglie, analizza e integra automaticamente i dati di log 
     Gli argomenti seguenti illustrano come il Centro sicurezza usa i diversi dati di telemetria raccolti dall'integrazione con l'infrastruttura di Azure, in modo da applicare livelli di protezione aggiuntivi per le risorse distribuite in Azure:
     
     * [Avvisi del livello di servizio](security-center-alerts-service-layer.md)
-    * [Integrazione con i prodotti di sicurezza di Azure](security-center-alerts-integration.md)
+    * [Rilevamento delle minacce per Azure WAF e protezione DDoS di Azure](security-center-alerts-integration.md)
     
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 In questo documento si è appreso come configurare i criteri di sicurezza nel Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 

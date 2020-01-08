@@ -1,26 +1,18 @@
 ---
-title: Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+title: Panoramica della funzionalità Microsoft Threat Modeling Tool-Azure
 description: Informazioni su tutte le funzionalità disponibili in Threat Modeling Tool
-services: security
-documentationcenter: na
 author: jegeib
-manager: jegeib
-editor: jegeib
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: e3c6769cc832a897cfbab5548de5328d743884b2
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 88eea0eb2bceb0f6322381a94d4339cbdfa662c0
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728632"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552118"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Panoramica della funzione Threat Modeling Tool
 
@@ -37,7 +29,7 @@ Per vedere tutte le funzionalità attualmente disponibili nello strumento, usare
 
 ![Modello di minaccia di base](./media/threat-modeling-tool-feature-overview/basictmt.png)
 
-## <a name="navigation"></a>Navigazione
+## <a name="navigation"></a>Spostamento
 
 Prima di illustrare le funzionalità integrate, è opportuno discutere dei componenti principali presenti nello strumento.
 
@@ -47,7 +39,7 @@ L'esperienza è simile ad altri prodotti Microsoft. Esaminare le voci di menu di
 
 ![Voci di menu](./media/threat-modeling-tool-feature-overview/menuitems.png)
 
-| Label                               | Dettagli      |
+| Etichette                               | Dettagli      |
 | --------------------------------------- | ------------ |
 | **File** | <ul><li>Aprire, salvare e chiudere i file</li><li>Accedere e disconnettersi dagli account di OneDrive.</li><li>Condividere collegamenti (visualizzazione e modifica).</li><li>Visualizzare le informazioni di file.</li><li>Applicare un nuovo modello a modelli esistenti.</li></ul> |
 | **Modifica** | Annullare e ripristinare azioni, copiare, incollare ed eliminare. |
@@ -130,7 +122,7 @@ Passare il mouse su **Apri un modello** per visualizzare due opzioni: **Apri da 
 
 Quando si seleziona **Commenti, suggerimenti e problemi**, visitare il forum di MSDN per gli strumenti di SDL. Consente di vedere opinioni di altri utenti sullo strumento nonché nuove idee e soluzioni alternative.
 
-![Commenti e suggerimenti](./media/threat-modeling-tool-feature-overview/feedback.png)
+![Commenti](./media/threat-modeling-tool-feature-overview/feedback.png)
 
 ## <a name="design-view"></a>Visualizzazione progettazione
 
@@ -140,33 +132,33 @@ Quando si apre o crea un nuovo modello, viene aperta la visualizzazione **Proget
 
 È possibile aggiungere elementi nella griglia in due modi:
 
-- **Trascinamento della selezione**: Trascinare l'elemento desiderato sulla griglia. Usare le proprietà dell'elemento per fornire informazioni aggiuntive.
-- **Fare clic con il pulsante destro del mouse**: Fare clic con il pulsante destro del mouse in un punto qualsiasi della griglia e scegliere voci dal menu a discesa. Verrà visualizzata una rappresentazione generica dell'elemento selezionato.
+- **Trascinamento**: trascinare l'elemento desiderato sulla griglia. Usare le proprietà dell'elemento per fornire informazioni aggiuntive.
+- **Clic con il pulsante destro del mouse**: fare clic con il pulsante destro del mouse in un punto qualsiasi della griglia e scegliere voci dal menu a discesa. Verrà visualizzata una rappresentazione generica dell'elemento selezionato.
 
 ### <a name="connect-elements"></a>Connettere elementi
 
 È possibile connettere gli elementi in due modi:
 
-- **Trascinamento della selezione**: Trascinare il flusso di dati desiderato sulla griglia e connettere entrambe le estremità agli elementi appropriati.
-- **Clic + MAIUSC**: Fare clic sul primo elemento (invio di dati), tenere premuto il tasto MAIUSC, quindi selezionare il secondo elemento (ricezione di dati). Fare clic con il pulsante destro del mouse e scegliere **Connetti**. Se si usa un flusso di dati bidirezionale, l'ordine non è importante.
+- **Trascinamento**: trascinare il flusso di dati desiderato sulla griglia e connettere entrambe le estremità agli elementi appropriati.
+- **Clic + MAIUSC**: fare clic sul primo elemento (invio di dati), tenere premuto il tasto MAIUSC e quindi selezionare il secondo elemento (ricezione di dati). Fare clic con il pulsante destro del mouse e scegliere **Connetti**. Se si usa un flusso di dati bidirezionale, l'ordine non è importante.
 
-### <a name="properties"></a>Properties
+### <a name="properties"></a>Proprietà
 
  Per visualizzare le proprietà che possono essere modificate negli stencil, selezionare lo stencil e le informazioni verranno popolate di conseguenza. L'esempio seguente mostra la situazione prima e dopo il trascinamento di uno stencil **Database** nel diagramma:
 
-#### <a name="before"></a>Prima del
+#### <a name="before"></a>Prima
 
-![Prima del](./media/threat-modeling-tool-feature-overview/properties1.png)
+![Prima](./media/threat-modeling-tool-feature-overview/properties1.png)
 
-#### <a name="after"></a>Dopo il
+#### <a name="after"></a>After
 
-![Dopo il](./media/threat-modeling-tool-feature-overview/properties2.png)
+![After](./media/threat-modeling-tool-feature-overview/properties2.png)
 
-### <a name="messages"></a>Messages
+### <a name="messages"></a>Messaggi
 
 Se si crea un modello di minaccia e si dimentica di connettere i flussi di dati agli elementi, viene visualizzata una notifica. È possibile ignorare il messaggio o seguire le istruzioni per risolvere il problema. 
 
-![Messages](./media/threat-modeling-tool-feature-overview/messages.png)
+![Messaggi](./media/threat-modeling-tool-feature-overview/messages.png)
 
 ### <a name="notes"></a>Note
 
@@ -204,7 +196,7 @@ Come illustrato nella figura precedente, è possibile modificare le informazioni
 
 Dopo aver completato la modifica delle priorità e aggiornato lo stato di ogni minaccia generata, sarà possibile salvare il file e/o stampare un report. Passare a **Report** > **Crea report completo**. Denominare il report. Verrà visualizzata una schermata simile all'immagine seguente:
 
-![Report](./media/threat-modeling-tool-feature-overview/report.png)
+![Documentazione](./media/threat-modeling-tool-feature-overview/report.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

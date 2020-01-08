@@ -4,15 +4,15 @@ description: Informazioni sugli aspetti da considerare quando si pianifica una d
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 12/18/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bb75fd8aafdc886a8753fa2e6be30d9d7f83bb6f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c81f06d924a0ba871115e0ae0164d61449855263
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927871"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665270"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -28,14 +28,14 @@ Prima di entrare nei dettagli della pianificazione di una distribuzione di Sincr
 Il servizio di sincronizzazione archiviazione è la risorsa di Azure di primo livello per Sincronizzazione file di Azure. La risorsa del servizio di sincronizzazione archiviazione è un peer della risorsa dell'account di archiviazione e può essere distribuita in modo analogo ai gruppi di risorse di Azure. Una risorsa di primo livello distinta dall'account di archiviazione è necessaria perché il servizio di sincronizzazione archiviazione può creare relazioni di sincronizzazione con più account di archiviazione tramite più gruppi di sincronizzazione. Per una sottoscrizione possono essere distribuiti più servizi di sincronizzazione archiviazione.
 
 ### <a name="sync-group"></a>Gruppo di sincronizzazione
-Un gruppo di sincronizzazione definisce la topologia di sincronizzazione per un set di file. Gli endpoint all'interno di un gruppo di sincronizzazione vengono mantenuti sincronizzati tra loro. Se si hanno due set distinti di file da gestire con Sincronizzazione file di Azure, ad esempio, si creeranno due gruppi di sincronizzazione e si aggiungeranno endpoint diversi a ognuno. Un servizio di sincronizzazione archiviazione può ospitare qualsiasi numero di gruppi di sincronizzazione.  
+Un gruppo di sincronizzazione definisce la topologia di sincronizzazione per un set di file. Gli endpoint all'interno di un gruppo di sincronizzazione vengono mantenuti sincronizzati tra loro. Se, ad esempio, si dispone di due set distinti di file che si desidera gestire con Sincronizzazione file di Azure, è necessario creare due gruppi di sincronizzazione e aggiungere endpoint diversi a ogni gruppo di sincronizzazione. Un servizio di sincronizzazione archiviazione può ospitare qualsiasi numero di gruppi di sincronizzazione.  
 
 ### <a name="registered-server"></a>Server registrato
 L'oggetto server registrato rappresenta una relazione di trust tra il server (o cluster) e il servizio di sincronizzazione archiviazione. Non esiste un limite per il numero di server che si possono registrare in un'istanza del servizio di sincronizzazione archiviazione. È tuttavia possibile registrare un server (o un cluster) solo con un servizio di sincronizzazione archiviazione alla volta.
 
 ### <a name="azure-file-sync-agent"></a>Agente Sincronizzazione file di Azure
 L'agente Sincronizzazione file di Azure è un pacchetto scaricabile che consente di sincronizzare Windows Server con una condivisione file di Azure. L'agente Sincronizzazione file di Azure ha tre componenti principali: 
-- **FileSyncSvc.exe**: servizio di Windows in background responsabile del monitoraggio delle modifiche negli endpoint server e dell'avvio delle sessioni di sincronizzazione in Azure.
+- **FileSyncSvc. exe**: servizio in background responsabile del monitoraggio delle modifiche negli endpoint server e dell'avvio delle sessioni di sincronizzazione in Azure.
 - **StorageSync.sys**: filtro del file system di Sincronizzazione file di Azure responsabile della suddivisione in livelli dei file in File di Azure, se è abilitata la suddivisione in livelli nel cloud.
 - **Cmdlet di gestione di PowerShell**: cmdlet di PowerShell per l'interazione con il provider di risorse di Azure Microsoft.StorageSync. Questi componenti sono disponibili nei percorsi predefiniti seguenti:
     - C:\Programmi\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll
@@ -63,17 +63,17 @@ Un endpoint cloud è una condivisione file di Azure che fa parte di un gruppo di
 > Sincronizzazione file di Azure supporta la modifica diretta della condivisione file di Azure. Qualsiasi modifica apportata alla condivisione file di Azure, tuttavia, deve prima essere individuata dal processo di rilevamento modifiche di Sincronizzazione file di Azure, che per un endpoint cloud viene avviato una sola volta ogni 24 ore. Inoltre, le modifiche apportate a una condivisione file di Azure tramite il protocollo REST non aggiorneranno l'ora dell'Ultima modifica SMB e non verranno visualizzate come modifiche sincronizzate. Per ulteriori informazioni, vedere [file di Azure Domande frequenti](storage-files-faq.md#afs-change-detection).
 
 ### <a name="cloud-tiering"></a>Suddivisione in livelli nel cloud 
-La suddivisione in livelli nel cloud è una funzionalità facoltativa di Sincronizzazione file di Azure in base alla quale i file a cui viene eseguito l'accesso di frequente vengono memorizzati nella cache locale del server, mentre tutti gli altri file vengono suddivisi in livelli in File di Azure a seconda delle impostazioni dei criteri. Per altre informazioni, vedere [Informazioni sulla suddivisione in livelli nel cloud](storage-sync-cloud-tiering.md).
+La suddivisione in livelli nel cloud è una funzionalità facoltativa di Sincronizzazione file di Azure in base alla quale i file a cui si accede di frequente vengono memorizzati nella cache locale del server, mentre tutti gli altri file vengono archiviati a livelli in File di Azure in base alle impostazioni dei criteri. Per altre informazioni, vedere [Informazioni sulla suddivisione in livelli nel cloud](storage-sync-cloud-tiering.md).
 
 ## <a name="azure-file-sync-system-requirements-and-interoperability"></a>Requisiti di sistema e interoperabilità di Sincronizzazione file di Azure 
 Questa sezione illustra l'interoperabilità e i requisiti di sistema dell'agente di Sincronizzazione file di Azure con funzionalità e ruoli di Windows Server e soluzioni di terze parti.
 
 ### <a name="evaluation-cmdlet"></a>Cmdlet Evaluation
-Prima di distribuire Sincronizzazione file di Azure, è necessario valutare se è compatibile con il sistema utilizzando il cmdlet Sincronizzazione file di Azure Evaluation. Questo cmdlet controlla la presenza di potenziali problemi con il file system e il set di dati, ad esempio caratteri non supportati o una versione non supportata del sistema operativo. Si noti che i controlli coprono la maggior parte delle funzionalità indicate di seguito, sebbene non tutte; è consigliabile leggere tutta la sezione con attenzione per assicurarsi che la distribuzione avvenga senza correttamente. 
+Prima di distribuire Sincronizzazione file di Azure, è necessario valutare se è compatibile con il sistema utilizzando il cmdlet Sincronizzazione file di Azure Evaluation. Questo cmdlet controlla la presenza di potenziali problemi con il file system e il set di dati, ad esempio caratteri non supportati o una versione non supportata del sistema operativo. I controlli coprono la maggior parte, ma non tutte le funzionalità indicate di seguito. è consigliabile leggere attentamente la parte restante di questa sezione per assicurarsi che la distribuzione venga applicata senza problemi. 
 
 Il cmdlet Evaluation può essere installato installando il modulo AZ PowerShell, che può essere installato seguendo le istruzioni riportate qui: [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
-#### <a name="usage"></a>Utilizzo  
+#### <a name="usage"></a>Uso  
 È possibile richiamare lo strumento di valutazione in modi diversi: è possibile eseguire i controlli di sistema, i controlli dei set di dati o entrambi. Per eseguire i controlli di sistema e del set di dati: 
 
 ```powershell
@@ -124,14 +124,14 @@ Per visualizzare i risultati in CSV:
 
 | Funzionalità | Stato del supporto | Note |
 |---------|----------------|-------|
-| Elenchi di controllo di accesso (ACL) | Supporto completo | Gli elenchi di controllo di accesso di Windows vengono mantenuti da Sincronizzazione file di Azure e vengono applicati da Windows Server negli endpoint server. Gli ACL di Windows non sono ancora supportati da File di Azure se si accede ai file direttamente nel cloud. |
-| Collegamenti reali | Skipped | |
-| Collegamenti simbolici | Skipped | |
-| Punti di montaggio | Supporto parziale | I punti di montaggio possono corrispondere alla radice di un endpoint server, ma vengono ignorati se sono contenuti nello spazio dei nomi di un endpoint server. |
-| Giunzioni | Skipped | Ad esempio, le cartelle DfrsrPrivate e DFSRoots del file system distribuito. |
-| Punti di analisi | Skipped | |
-| Compressione NTFS | Supporto completo | |
-| File sparse | Supporto completo | I file sparse vengono sincronizzati (non bloccati), ma vengono sincronizzati nel cloud come file completi. Se il contenuto del file viene modificato nel cloud (o in un altro server), il file non è più di tipo sparse quando viene scaricata la modifica. |
+| Elenchi di controllo di accesso (ACL) | supporto completo | Gli elenchi di controllo di accesso di Windows vengono mantenuti da Sincronizzazione file di Azure e vengono applicati da Windows Server negli endpoint server. Gli ACL di Windows non sono ancora supportati da File di Azure se si accede ai file direttamente nel cloud. |
+| Collegamenti reali | Operazione ignorata | |
+| Collegamenti simbolici | Operazione ignorata | |
+| Punti di montaggio | Parzialmente supportato | I punti di montaggio possono corrispondere alla radice di un endpoint server, ma vengono ignorati se sono contenuti nello spazio dei nomi di un endpoint server. |
+| Giunzioni | Operazione ignorata | Ad esempio, le cartelle DfrsrPrivate e DFSRoots del file system distribuito. |
+| Punti di analisi | Operazione ignorata | |
+| Compressione NTFS | supporto completo | |
+| File sparse | supporto completo | I file sparse vengono sincronizzati (non bloccati), ma vengono sincronizzati nel cloud come file completi. Se il contenuto del file viene modificato nel cloud (o in un altro server), il file non è più di tipo sparse quando viene scaricata la modifica. |
 | Flussi di dati alternativi (ADS) | Mantenuti, ma non sincronizzati | Ad esempio, i tag di classificazione creati tramite Infrastruttura di classificazione file non vengono sincronizzati. I tag di classificazione esistenti sui file in ognuno degli endpoint server non subiscono variazioni. |
 
 > [!Note]  
@@ -141,8 +141,10 @@ Per visualizzare i risultati in CSV:
 
 | File/cartella | Note |
 |-|-|
+| pagefile.sys | File specifico del sistema |
 | Desktop.ini | File specifico del sistema |
-| ethumbs.db$ | File temporaneo per anteprime |
+| thumbs.db | File temporaneo per anteprime |
+| ehthumbs.db | File temporaneo per le anteprime dei supporti |
 | ~$\*.\* | File temporaneo di Office |
 | \*.tmp | File temporaneo |
 | \*.laccdb | File di blocco dei database di Access|
@@ -177,7 +179,7 @@ Sincronizzazione file di Azure non supporta la deduplicazione dei dati e la sudd
     - I criteri di spazio libero continueranno a essere suddivisi in file di livello in base allo spazio disponibile nel volume usando mappa termica.
     - I criteri di data ignoreranno la suddivisione in livelli dei file che potrebbero essere stati altrimenti idonei per la suddivisione in livelli a causa del processo di ottimizzazione della deduplicazione per l'accesso ai file.
 - Per i processi di ottimizzazione della deduplicazione in corso, la suddivisione in livelli cloud con i criteri di data verrà posticipata dall'impostazione [MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps) Deduplicazione dati, se il file non è già a livelli. 
-    - Esempio: se l'impostazione MinimumFileAgeDays è di 7 giorni e i criteri di data di suddivisione in livelli cloud sono di 30 giorni, i criteri di data effettueranno il livello dei file dopo 37 giorni.
+    - Esempio: se l'impostazione MinimumFileAgeDays è sette giorni e i criteri di data di suddivisione in livelli nel cloud sono di 30 giorni, i criteri di data effettueranno il livello dei file dopo 37 giorni.
     - Nota: quando un file è suddiviso in livelli per Sincronizzazione file di Azure, il processo di ottimizzazione della deduplicazione ignorerà il file.
 - Se un server che esegue Windows Server 2012 R2 con l'agente di Sincronizzazione file di Azure installato viene aggiornato a Windows Server 2016 o Windows Server 2019, è necessario eseguire i passaggi seguenti per supportare la deduplicazione dei dati e la suddivisione in livelli nel cloud nello stesso volume:  
     - Disinstallare l'agente di Sincronizzazione file di Azure per Windows Server 2012 R2 e riavviare il server.
@@ -194,10 +196,10 @@ Sincronizzazione file di Azure supporta l'interoperabilità con Spazi dei nomi D
 **Replica DFS (DFS-r)** : poiché DFS-r e sincronizzazione file di Azure sono entrambe soluzioni di replica, nella maggior parte dei casi è consigliabile sostituire DFS-r con sincronizzazione file di Azure. Esistono tuttavia diversi scenari in cui si vuole usare DFS-R e Sincronizzazione file di Azure insieme:
 
 - Si esegue la migrazione da una distribuzione di DFS-R a una distribuzione di Sincronizzazione file di Azure. Per altre informazioni, vedere [Eseguire la migrazione di una distribuzione di Replica DFS (DFS-R) in Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync).
-- Non tutti i server locali in cui è necessaria una copia dei dati dei file possono essere connessi direttamente a Internet.
+- Non tutti i server locali che necessitano di una copia dei dati del file possono essere connessi direttamente a Internet.
 - I server di succursale consolidano i dati in un unico server di hub per cui si vorrebbe usare Sincronizzazione file di Azure.
 
-Per il funzionamento side-by-side di Sincronizzazione file di Azure e DFS-R:
+Per il funzionamento affiancato di Sincronizzazione file di Azure e DFS-R:
 
 1. Nei volumi con cartelle replicate con DFS-R deve essere disabilitata la suddivisione in livelli cloud di Sincronizzazione file di Azure.
 2. Non devono essere configurati endpoint server nelle cartelle di replica di sola lettura di DFS-R.
@@ -205,7 +207,7 @@ Per il funzionamento side-by-side di Sincronizzazione file di Azure e DFS-R:
 Per altre informazioni, vedere la [panoramica di Replica DFS](https://technet.microsoft.com/library/jj127250).
 
 ### <a name="sysprep"></a>Sysprep
-L'esecuzione di sysprep in un server in cui è installato l'agente di Sincronizzazione file di Azure non è supportata e può portare a risultati imprevisti. L'installazione dell'agente e la registrazione del server devono avvenire dopo la distribuzione dell'immagine del server e il completamento dell'installazione minima di sysprep.
+L'utilizzo di Sysprep in un server in cui è installato l'agente di Sincronizzazione file di Azure non è supportato e può causare risultati imprevisti. L'installazione dell'agente e la registrazione del server devono avvenire dopo la distribuzione dell'immagine del server e il completamento dell'installazione minima di sysprep.
 
 ### <a name="windows-search"></a>Ricerca di Windows
 Se in un endpoint server è abilitata la suddivisione in livelli nel cloud, i file suddivisi in livelli vengono ignorati e non vengono indicizzati dalla ricerca di Windows. I file non suddivisi in livelli vengono indicizzati correttamente.
@@ -221,13 +223,13 @@ Le soluzioni antivirus Microsoft, Windows Defender e System Center Endpoint Prot
 ### <a name="backup-solutions"></a>Soluzioni di backup
 Come le soluzioni antivirus, le soluzioni di backup possono causare il richiamo di file archiviati a livelli. È consigliabile usare una soluzione di backup nel cloud per eseguire il backup della condivisione file di Azure anziché usare un prodotto di backup locale.
 
-Se si usa una soluzione di backup locale, è necessario eseguire il backup in un server del gruppo di sincronizzazione con la suddivisione in livelli nel cloud disabilitata. Quando si esegue un ripristino, usare le opzioni di ripristino a livello di volume o a livello di file. I file ripristinati tramite l'opzione di ripristino a livello di file vengono sincronizzati con tutti gli endpoint del gruppo di sincronizzazione e i file esistenti vengono sostituiti dalla versione ripristinata dal backup.  Nel ripristino a livello di volume i file non vengono sostituiti dalla versione più recente nella condivisione file di Azure o in altri endpoint server.
+Se si usa una soluzione di backup locale, i backup devono essere eseguiti in un server nel gruppo di sincronizzazione con la suddivisione in livelli nel cloud disabilitata. Quando si esegue un ripristino, usare le opzioni di ripristino a livello di volume o a livello di file. I file ripristinati tramite l'opzione di ripristino a livello di file vengono sincronizzati con tutti gli endpoint del gruppo di sincronizzazione e i file esistenti vengono sostituiti dalla versione ripristinata dal backup.  Nel ripristino a livello di volume i file non vengono sostituiti dalla versione più recente nella condivisione file di Azure o in altri endpoint server.
 
 > [!Note]  
 > Il ripristino bare metal può avere risultati imprevisti e non è attualmente supportato.
 
 > [!Note]  
-> Con la versione 9 dell'agente sincronizzazione file di Azure, gli snapshot VSS (inclusa la scheda versioni precedenti) sono ora supportati nei volumi in cui è abilitata la suddivisione in livelli nel cloud. Tuttavia, è necessario abilitare la compatibilità delle versioni precedente tramite PowerShell. [Informazioni](storage-files-deployment-guide.md).
+> Con la versione 9 della Sincronizzazione file di Azure Agent, gli snapshot VSS (inclusa la scheda versioni precedenti) sono ora supportati nei volumi in cui è abilitata la suddivisione in livelli nel cloud. Tuttavia, è necessario abilitare la compatibilità delle versioni precedente tramite PowerShell. [Informazioni](storage-files-deployment-guide.md).
 
 ### <a name="encryption-solutions"></a>Soluzioni di crittografia
 Il supporto per le soluzioni di crittografia dipende dal modo in cui sono implementate. Sincronizzazione file di Azure funziona con:
@@ -247,17 +249,17 @@ Con Sincronizzazione file di Azure non devono essere usate altre soluzioni di ge
 ## <a name="region-availability"></a>Disponibilità in base all'area
 Sincronizzazione file di Azure è disponibile solo nelle aree seguenti:
 
-| Area geografica | Ubicazione del data center |
+| Area | Ubicazione del data center |
 |--------|---------------------|
 | Australia orientale | New South Wales |
-| Australia sud-orientale | Victoria |
+| Australia sudorientale | Victoria |
 | Brasile meridionale | Stato di San Paolo |
 | Canada centrale | Toronto |
 | Canada orientale | Québec |
 | India centrale | Pune |
 | Stati Uniti centrali | Iowa |
 | Asia orientale | RAS di Hong Kong |
-| Stati Uniti Orientali | Virginia |
+| Stati Uniti orientali | Virginia |
 | Stati Uniti Orientali 2 | Virginia |
 | Francia centrale | Parigi |
 | Francia meridionale * | Marsiglia |
@@ -276,7 +278,7 @@ Sincronizzazione file di Azure è disponibile solo nelle aree seguenti:
 | Regno Unito occidentale | Cardiff |
 | US Gov Arizona | Arizona |
 | US Gov Texas | Texas |
-| US Gov Virginia | Virginia |
+| Governo degli Stati Uniti - Virginia | Virginia |
 | Emirati Arabi Uniti settentrionali | Dubai |
 | Emirati Arabi Uniti centrali * | Abu Dhabi |
 | Europa occidentale | Paesi Bassi |
@@ -289,7 +291,7 @@ Sincronizzazione file di Azure supporta solo la sincronizzazione con una condivi
 Per le aree contrassegnate con asterischi, è necessario contattare il supporto di Azure per richiedere l'accesso ad archiviazione di Azure in tali aree. Il processo è illustrato in [questo documento](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 ### <a name="azure-disaster-recovery"></a>Ripristino di emergenza di Azure
-Per evitare la perdita di un'area di Azure, Sincronizzazione file di Azure si integra con l'opzione [ di ridondanza dell'archiviazione con ridondanza geografica](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS). L'archiviazione con ridondanza geografica funziona usando la replica a blocchi asincrona tra l'archiviazione nell'area primaria, con cui in genere interagisce l'utente, e l'archiviazione nell'area secondaria associata. In caso di un'emergenza che provoca la disconnessione temporanea o definitiva di un'area di Azure, Microsoft eseguirà il failover dell'archiviazione nell'area abbinata. 
+Per evitare la perdita di un'area di Azure, Sincronizzazione file di Azure si integra con l'opzione [ di ridondanza dell'archiviazione con ridondanza geografica](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS). L'archiviazione con ridondanza geografica funziona usando la replica a blocchi asincrona tra l'archiviazione nell'area primaria, con cui in genere interagisce l'utente, e l'archiviazione nell'area secondaria associata. In caso di emergenza che causa la disattivazione temporanea o permanente di un'area di Azure, Microsoft effettuerà il failover dell'archiviazione nell'area abbinata. 
 
 > [!Warning]  
 > Se si usa la condivisione file di Azure come endpoint cloud in un account di archiviazione con ridondanza geografica, è consigliabile non avviare il failover dell'account di archiviazione. Il failover causerebbe l'arresto della sincronizzazione e potrebbe causare inoltre una perdita di dati imprevista nel caso di file appena disposti su livelli. Nel caso di perdita di un'area di Azure, Microsoft attiverà il failover dell'account di archiviazione in modo compatibile con Sincronizzazione file di Azure.
@@ -298,15 +300,15 @@ Per supportare l'integrazione di failover tra l'archiviazione con ridondanza geo
 
 | Area primaria      | Area associata      |
 |---------------------|--------------------|
-| Australia orientale      | Australia sud-orientale|
-| Australia sud-orientale | Australia orientale     |
+| Australia orientale      | Australia sudorientale|
+| Australia sudorientale | Australia orientale     |
 | Brasile meridionale        | Stati Uniti centro-meridionali   |
 | Canada centrale      | Canada orientale        |
 | Canada orientale         | Canada centrale     |
 | India centrale       | India meridionale        |
 | Stati Uniti centrali          | Stati Uniti orientali 2          |
 | Asia orientale           | Asia sud-orientale     |
-| Stati Uniti Orientali             | Stati Uniti occidentali            |
+| Stati Uniti orientali             | Stati Uniti occidentali            |
 | Stati Uniti orientali 2           | Stati Uniti centrali         |
 | Francia centrale      | Francia meridionale       |
 | Francia meridionale        | Francia centrale     |
@@ -324,15 +326,39 @@ Per supportare l'integrazione di failover tra l'archiviazione con ridondanza geo
 | Regno Unito meridionale            | Regno Unito occidentale            |
 | Regno Unito occidentale             | Regno Unito meridionale           |
 | US Gov Arizona      | US Gov Texas       |
-| Governo degli Stati Uniti - Iowa         | US Gov Virginia    |
-| US Gov Virginia      | US Gov Texas       |
+| US Gov Iowa         | Governo degli Stati Uniti - Virginia    |
+| Governo degli Stati Uniti - Virginia      | US Gov Texas       |
 | Europa occidentale         | Europa settentrionale       |
 | Stati Uniti centro-occidentali     | Stati Uniti occidentali 2          |
-| Stati Uniti occidentali             | Stati Uniti Orientali            |
+| Stati Uniti occidentali             | Stati Uniti orientali            |
 | Stati Uniti occidentali 2           | Stati Uniti centro-occidentali    |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Criteri di aggiornamento dell'agente Sincronizzazione file di Azure
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="recommended-azure-file-sync-machine-configuration"></a>Configurazione del computer Sincronizzazione file di Azure consigliata
+
+I requisiti del computer Sincronizzazione file di Azure sono determinati dal numero di oggetti nello spazio dei nomi e dalla varianza del set di dati. Un singolo server può essere collegato a più gruppi di sincronizzazione e il numero di oggetti elencati nella tabella seguente rappresenta lo spazio dei nomi completo a cui è collegato un server. Ad esempio, endpoint server A con 10 milioni oggetti + endpoint server B con oggetti 10 milioni = 20 milioni oggetti. Per questo esempio di distribuzione, è consigliabile 8CPU, 16GiB di memoria per lo stato stazionario e, se possibile, 48GiB di memoria per la migrazione iniziale.
+ 
+I dati dello spazio dei nomi vengono archiviati in memoria per motivi di prestazioni. Per questo motivo, gli spazi dei nomi più grandi richiedono una maggiore quantità di memoria per garantire prestazioni ottimali e una maggiore varianza richiede più CPU per l'elaborazione. 
+ 
+Nella tabella seguente sono state fornite sia la dimensione dello spazio dei nomi sia una conversione alla capacità per le condivisioni file di uso generico tipiche, in cui la dimensione media del file è 512KiB. Se le dimensioni del file sono inferiori, è consigliabile aggiungere memoria aggiuntiva per la stessa quantità di capacità. Basare la configurazione della memoria sulle dimensioni dello spazio dei nomi.
+
+| Dimensioni spazio dei nomi-file & Directory (milioni)  | Capacità tipica (TiB)  | Core CPU  | Memoria consigliata (GiB) |
+|---------|---------|---------|---------|
+| 3        | 1.4     | 2        | 8 (sincronizzazione iniziale)/2 (varianza tipica)      |
+| 5        | 2.3     | 2        | 16 (sincronizzazione iniziale)/4 (varianza tipica)    |
+| 10       | 4.7     | 4        | 32 (sincronizzazione iniziale)/8 (varianza tipica)   |
+| 30       | 14,0    | 8        | 48 (sincronizzazione iniziale)/16 (varianza tipica)   |
+| 50       | 23,3    | 16       | 64 (sincronizzazione iniziale)/32 (varianza tipica)  |
+| 100*     | 46,6    | 32       | 128 (sincronizzazione iniziale)/32 (varianza tipica)  |
+
+al momento \*più di 100 milioni file & Directory non sono supportati. Si tratta di un limite flessibile.
+
+> [!TIP]
+> La sincronizzazione iniziale di uno spazio dei nomi è un'operazione complessa ed è consigliabile allocare ulteriore memoria fino al completamento della sincronizzazione iniziale. Questa operazione non è obbligatoria, ma può velocizzare la sincronizzazione iniziale. 
+> 
+> La varianza tipica è il 0,5% dello spazio dei nomi che cambia al giorno. Per livelli più elevati di varianza, provare ad aggiungere altro CPU. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Impostazioni di proxy e firewall di Sincronizzazione file di Azure](storage-sync-files-firewall-and-proxy.md)

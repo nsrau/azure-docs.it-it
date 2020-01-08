@@ -12,18 +12,18 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 7a8fe0f21ea8b31fb26727e2220f7395e2d71c2c
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: bb6961d87fd08af78db495b700acf34fbf4944a1
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555365"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552550"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Classificazione & individuazione dati del database SQL di Azure e SQL Data Warehouse
 
-Individuazione dati & classificazione offre funzionalità avanzate incorporate nel database SQL di **Azure per l'individuazione,** la **classificazione**, l' **assegnazione di etichette** & la **protezione** dei dati sensibili nei database.
+Individuazione dati & classificazione offre funzionalità avanzate incorporate nel database SQL di **Azure per l'individuazione,** la **classificazione**, l' **assegnazione di etichette** & la **creazione di report** sui dati sensibili nei database.
 
-L'individuazione e la classificazione dei dati più sensibili (dati commerciali, finanziari e relativi all'assistenza sanitaria, informazioni personali e così via) possono svolgere un ruolo fondamentale per il livello di protezione delle informazioni aziendali. Individuazione dati e classificazione può svolgere la funzione di infrastruttura per:
+L'individuazione e la classificazione dei dati più sensibili (dati commerciali, finanziari e relativi all'assistenza sanitaria, informazioni personali e così via) possono svolgere un ruolo fondamentale per il livello di protezione delle informazioni aziendali. Possono costituire l'infrastruttura per:
 
 - Contribuire a soddisfare gli standard e i requisiti di conformità alle normative sulla privacy dei dati.
 - Vari scenari di sicurezza, ad esempio monitoraggio (controllo) e invio di avvisi sulle anomalie di accesso a dati sensibili.
@@ -56,12 +56,12 @@ Individuazione dati e classificazione introduce un set di servizi avanzati e nuo
 
 ## <a id="subheading-2"></a>Individuare, classificare e assegnare un'etichetta alle colonne sensibili
 
-La sezione seguente descrive la procedura per individuare, classificare e assegnare etichette a colonne contenenti dati sensibili nel database, nonché per visualizzare lo stato di classificazione corrente del database e per esportare report.
+Nella sezione seguente vengono descritti i passaggi per l'individuazione, la classificazione e l'assegnazione di etichette a colonne del database contenenti dati sensibili, nonché per visualizzare lo stato di classificazione corrente del database e per esportare report.
 
 La classificazione include due attributi di metadati:
 
-- Etichette: i principali attributi di classificazione, usati per definire il livello di sensibilità dei dati archiviati nella colonna.  
-- Tipi di informazioni: forniscono granularità aggiuntiva al tipo di dati archiviati nella colonna.
+- Etichette: gli attributi di classificazione principali, usati per definire il livello di riservatezza dei dati archiviati nella colonna.  
+- Tipi di informazioni: offrono maggiore granularità del tipo di dati archiviati nella colonna.
 
 ## <a name="define-and-customize-your-classification-taxonomy"></a>Definire e personalizzare la tassonomia di classificazione
 
@@ -100,25 +100,25 @@ Una volta definiti i criteri a livello di tenant, è possibile continuare con la
 
       ![Classificare i dati](./media/sql-data-discovery-and-classification/5_data_classification_recommendations_panel.png)
 
-   - Esaminare l'elenco di suggerimenti: per accettare un suggerimento per una determinata colonna, selezionare la casella di controllo nella colonna sinistra della riga corrispondente. È possibile anche contrassegnare *tutti i suggerimenti* come accettati selezionando la casella di controllo nell'intestazione della tabella dei suggerimenti.
+   - Esaminare l'elenco di suggerimenti: per accettare un suggerimento per una determinata colonna, selezionare la casella di controllo nella colonna sinistra della riga corrispondente. È anche possibile contrassegnare *tutti i consigli* come accettati selezionando la casella di controllo nell'intestazione della tabella dei consigli.
 
        ![Esaminare l'elenco degli elementi consigliati](./media/sql-data-discovery-and-classification/6_data_classification_recommendations_list.png)
 
-   - Per applicare i suggerimenti selezionati, fare clic sul pulsante blu **Accept selected recommendations** (Accetta suggerimenti selezionati).
+   - Per applicare i consigli selezionati, fare clic sul pulsante blu **Accettare i consigli selezionati**.
 
       ![Applicare le raccomandazioni](./media/sql-data-discovery-and-classification/7_data_classification_accept_selected_recommendations.png)
 
-7. Come alternativa o in aggiunta alla classificazione basata sui suggerimenti, è possibile anche **classificare manualmente** le colonne:
+7. È anche possibile **classificare manualmente** le colonne in alternativa o in aggiunta alla classificazione basata sui consigli:
 
    - Fare clic su **Aggiungi classificazione** nel menu superiore della finestra.
 
       ![Aggiungere manualmente la classificazione](./media/sql-data-discovery-and-classification/8_data_classification_add_classification_button.png)
 
-   - Nella finestra di contesto visualizzata, selezionare lo schema, la tabella e la colonna che si vuole classificare, oltre al tipo di informazioni e all'etichetta di sensibilità. Fare clic sul pulsante blu **Aggiungi classificazione** nella parte inferiore della finestra di contesto.
+   - Nella finestra di contesto che si apre selezionare lo schema, la tabella e la colonna che si vuole classificare, nonché il tipo di informazioni e l'etichetta di riservatezza. In seguito fare clic sul pulsante blu **Aggiungi classificazione** nella parte inferiore della finestra di contesto.
 
       ![Selezionare una colonna da classificare](./media/sql-data-discovery-and-classification/9_data_classification_manual_classification.png)
 
-8. Per completare la classificazione ed etichettare in modo permanente le colonne del database con i nuovi metadati di classificazione, fare clic su **Salva** nel menu superiore della finestra.
+8. Per completare la classificazione e assegnare in modo permanente le etichette alle colonne del database con i nuovi metadati di classificazione, fare clic su **Salva** nel menu superiore della finestra.
 
    ![Salva](./media/sql-data-discovery-and-classification/10_data_classification_save.png)
 
@@ -149,7 +149,7 @@ Scopri di più su [RBAC per le risorse di Azure](https://docs.microsoft.com/azur
 - Visualizzare tutte le classificazioni sul database: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 # <a name="rest-apistabazure-rest-api"></a>[API REST](#tab/azure-rest-api)
-È anche possibile usare l'API REST per gestire le classificazioni a livello di codice. Le API REST pubblicate supportano le operazioni seguenti:
+È possibile usare le API REST per gestire le classificazioni e le raccomandazioni a livello di codice. Le API REST pubblicate supportano le operazioni seguenti:
 
 - [Crea o aggiorna](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) : crea o aggiorna l'etichetta di riservatezza di una determinata colonna
 - [Eliminazione](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete): elimina l'etichetta Riservatezza di una colonna specifica
@@ -157,11 +157,10 @@ Scopri di più su [RBAC per le risorse di Azure](https://docs.microsoft.com/azur
 - [Abilita raccomandazione](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/enablerecommendation) : Abilita le raccomandazioni di riservatezza in una determinata colonna (le indicazioni sono abilitate per impostazione predefinita in tutte le colonne)
 - [Recupero](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get): ottiene l'etichetta Riservatezza di una colonna specifica
 - [List Current By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) - (Elenca elementi correnti per database): consente di ottenere le etichette Riservatezza correnti di un database specifico
-
 - [Elenco consigliato per database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) : ottiene le etichette di riservatezza consigliate di un determinato database
 
 # <a name="powershell-cmdlettabazure-powelshell"></a>[Cmdlet di PowerShell](#tab/azure-powelshell)
-È possibile usare PowerShell per ottenere tutte le colonne consigliate in un database SQL di Azure e in un'istanza gestita.
+È possibile usare PowerShell per gestire le classificazioni e i consigli per il database SQL di Azure e Istanza gestita.
 
 ### <a name="powershell-cmdlet-for-azure-sql-database"></a>Cmdlet di PowerShell per il database SQL di Azure
 - [Get-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityclassification)

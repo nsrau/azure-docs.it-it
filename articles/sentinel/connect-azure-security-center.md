@@ -1,26 +1,20 @@
 ---
-title: Connessione dei dati del Centro sicurezza di Azure ad Azure Sentinel | Microsoft Docs
+title: Connettere i dati del Centro sicurezza di Azure ad Azure Sentinel
 description: Informazioni su come connettere i dati del Centro sicurezza di Azure a Sentinel di Azure.
-services: sentinel
-documentationcenter: na
 author: rkarlin
 manager: rkarlin
-editor: ''
 ms.assetid: d28c2264-2dce-42e1-b096-b5a234ff858a
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: a9c210531f2c4cab1c3c023eab795023c3ad9f0c
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 8d8f960d8cf1310ec0a380e75bdaa714408e2cac
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240228"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563667"
 ---
 # <a name="connect-data-from-azure-security-center"></a>Connetti i dati dal centro sicurezza di Azure
 
@@ -45,7 +39,7 @@ Sentinel di Azure consente di connettere gli avvisi dal [Centro sicurezza di Azu
 
 1. A destra fare clic su **Connetti** accanto a ogni sottoscrizione i cui avvisi si vuole trasmettere in Azure Sentinel. Assicurarsi di aggiornare ogni sottoscrizione al livello standard del Centro sicurezza di Azure per trasmettere avvisi ad Azure Sentinel.
 
-1. È possibile scegliere se si desidera che gli avvisi del Centro sicurezza di Azure generino automaticamente gli eventi imprevisti in Sentinel di Azure. In **crea eventi imprevisti** selezionare **Abilita** per abilitare la regola analitica predefinita che crea automaticamente gli eventi imprevisti dagli avvisi generati nel servizio di sicurezza connesso. È quindi possibile modificare questa regola in **Analytics** e quindi **le regole attive**.
+1. È possibile scegliere se si desidera che gli avvisi del Centro sicurezza di Azure generino automaticamente gli eventi imprevisti in Sentinel di Azure. In **Create incidents** (Crea eventi imprevisti) selezionare **Enable** (Abilita) per abilitare la regola di analisi predefinita che crea automaticamente gli eventi imprevisti dagli avvisi generati nel servizio di sicurezza connesso. È quindi possibile modificare questa regola in **Analisi** e quindi **Active rules** (Regole attive).
 
 3. Fare clic su **Connetti**.
 
@@ -53,5 +47,5 @@ Sentinel di Azure consente di connettere gli avvisi dal [Centro sicurezza di Azu
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento si è appreso come connettere il Centro sicurezza di Azure ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
-- Scopri come [ottenere visibilità sui dati e potenziali minacce](quickstart-get-visibility.md).
-- Iniziare a [rilevare le minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Informazioni su come [ottenere visibilità sui dati e sulle potenziali minacce](quickstart-get-visibility.md).
+- Iniziare a [rilevare minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).

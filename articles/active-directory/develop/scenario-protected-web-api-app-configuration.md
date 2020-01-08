@@ -17,12 +17,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f78fa35096b7e17d3736190bfa49619c2c81520
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 76d5aabc30d0375185130b9781caeaf4d5457455
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965399"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423730"
 ---
 # <a name="protected-web-api-code-configuration"></a>API Web protetta: configurazione del codice
 
@@ -43,7 +43,7 @@ Le informazioni sull'identità dell'app e sull'utente (a meno che l'app Web non 
 
 Di seguito è C# riportato un esempio di codice che mostra un client che chiama l'API dopo l'acquisizione di un token con Microsoft Authentication Library per .net (MSAL.NET):
 
-```CSharp
+```csharp
 var scopes = new[] {$"api://.../access_as_user}";
 var result = await app.AcquireToken(scopes)
                       .ExecuteAsync();
@@ -96,19 +96,19 @@ Quando un'app viene chiamata su un'azione del controller che include un attribut
 
 In ASP.NET Core, questo middleware viene inizializzato nel file Startup.cs:
 
-```CSharp
+```csharp
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 ```
 
 Il middleware viene aggiunto all'API Web da questa istruzione:
 
-```CSharp
+```csharp
  services.AddAzureAdBearer(options => Configuration.Bind("AzureAd", options));
 ```
 
  Attualmente, i modelli di ASP.NET Core creano API Web di Azure Active Directory (Azure AD) che confirmano gli utenti all'interno dell'organizzazione o di qualsiasi organizzazione, non con gli account personali. Tuttavia è possibile modificarli facilmente per usare l'endpoint della piattaforma di identità Microsoft aggiungendo questo codice al file Startup.cs:
 
-```CSharp
+```csharp
 services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationScheme, options =>
 {
     // This is a Microsoft identity platform web API.

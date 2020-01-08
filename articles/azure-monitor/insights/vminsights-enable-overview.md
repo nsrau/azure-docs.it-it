@@ -4,15 +4,15 @@ description: Informazioni su come distribuire e configurare Monitoraggio di Azur
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/14/2019
-ms.openlocfilehash: 40282fdb192037d63bff8b0037f09b8b27cf3b1e
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: ce95223e9501ad7bec2bd260a8fe6f1537db5593
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109190"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75400627"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Panoramica di Enable Monitoraggio di Azure per le macchine virtuali (Preview)
 
@@ -25,7 +25,7 @@ Per configurare Monitoraggio di Azure per le macchine virtuali:
 * Abilitare due o più macchine virtuali di Azure o set di scalabilità di macchine virtuali in una sottoscrizione o un gruppo di risorse specificato, usando PowerShell.
 * Abilitare Monitoraggio di Azure per le macchine virtuali per monitorare le macchine virtuali o i computer fisici ospitati nella rete aziendale o in un altro ambiente cloud.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, verificare di aver compreso quanto illustrato nelle sezioni seguenti. 
 
@@ -40,7 +40,7 @@ Monitoraggio di Azure per le macchine virtuali supporta un'area di lavoro Log An
 - Stati Uniti occidentali
 - Stati Uniti occidentali 2
 - Stati Uniti centro-meridionali
-- Stati Uniti Orientali
+- Stati Uniti orientali
 - Stati Uniti Orientali 2
 - Stati Uniti centrali
 - Stati Uniti centro-settentrionali
@@ -49,7 +49,7 @@ Monitoraggio di Azure per le macchine virtuali supporta un'area di lavoro Log An
 - Europa settentrionale
 - Europa occidentale
 - Asia orientale
-- Asia sudorientale
+- Asia sud-orientale
 - India centrale
 - Giappone orientale
 - Australia orientale
@@ -81,7 +81,7 @@ Per configurare l'area di lavoro per lo scenario in scala, usare uno dei metodi 
 
 Nella tabella seguente sono elencati i sistemi operativi Windows e Linux supportati da Monitoraggio di Azure per le macchine virtuali. Più avanti in questa sezione è presente un elenco completo che descrive in dettaglio la versione principale e secondaria del sistema operativo Linux e le versioni del kernel supportate.
 
-|Versione del sistema operativo |Prestazioni |Mappe |
+|Versione del sistema operativo |Performance |Mappe |
 |-----------|------------|-----|
 |Windows Server 2019 | X | X |
 |Windows Server 2016 1803 | X | X |
@@ -166,20 +166,20 @@ In un ambiente ibrido è possibile scaricare e installare l'agente di dipendenza
 
 La tabella seguente descrive le origini connesse supportate dalla funzionalità di mappa in un ambiente ibrido.
 
-| Origine connessa | Supportato | DESCRIZIONE |
+| Origine connessa | Supportato | Description |
 |:--|:--|:--|
-| Agenti di Windows | Sì | Insieme all' [agente log Analytics per Windows](../../azure-monitor/platform/log-analytics-agent.md), gli agenti Windows necessitano di Dependency Agent. Per ulteriori informazioni, vedere [sistemi operativi supportati](#supported-operating-systems). |
+| Agenti Windows | Sì | Insieme all' [agente log Analytics per Windows](../../azure-monitor/platform/log-analytics-agent.md), gli agenti Windows necessitano di Dependency Agent. Per ulteriori informazioni, vedere [sistemi operativi supportati](#supported-operating-systems). |
 | Agenti Linux | Sì | Insieme all' [agente log Analytics per Linux](../../azure-monitor/platform/log-analytics-agent.md), gli agenti Linux necessitano di Dependency Agent. Per ulteriori informazioni, vedere [sistemi operativi supportati](#supported-operating-systems). |
 | Gruppo di gestione di System Center Operations Manager | No | |
 
 È possibile scaricare Dependency Agent da questi percorsi:
 
-| File | SO | Version | SHA-256 |
+| File | Sistema operativo | Versione | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.9.2 | 6DFF19B9690E42CA190E3B69137C77904B657FA02895033EAA4C3A6A41DA5C6A |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.9.1 | 1CB447EF30FC042FE7499A686638F3F9B4F449692FB9D80096820F8024BE4D7C |
 
-## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
+## <a name="role-based-access-control"></a>Controllo degli accessi basato sul ruolo
 
 Per abilitare e accedere alle funzionalità di Monitoraggio di Azure per le macchine virtuali, è necessario avere il ruolo di *collaboratore log Analytics* . Per visualizzare le prestazioni, l'integrità e la mappa dei dati, è necessario avere il ruolo di *lettore di monitoraggio* per la macchina virtuale di Azure. L'area di lavoro Log Analytics deve essere configurata per Monitoraggio di Azure per le macchine virtuali.
 
@@ -189,7 +189,7 @@ Per altre informazioni su come controllare l'accesso a un'area di lavoro Log Ana
 
 Abilitare Monitoraggio di Azure per le macchine virtuali usando uno dei metodi descritti in questa tabella:
 
-| Stato della distribuzione | Metodo | DESCRIZIONE |
+| Stato distribuzione | Metodo | Description |
 |------------------|--------|-------------|
 | Singola VM di Azure o set di scalabilità di macchine virtuali | [Abilita dalla macchina virtuale](vminsights-enable-single-vm.md) | È possibile abilitare una singola macchina virtuale di Azure selezionando **Insights (anteprima)** direttamente dalla VM o dal set di scalabilità di macchine virtuali. |
 | Più macchine virtuali di Azure o set di scalabilità di macchine virtuali | [Abilita tramite criteri di Azure](vminsights-enable-at-scale-policy.md) | È possibile abilitare più macchine virtuali di Azure usando i criteri di Azure e le definizioni dei criteri disponibili. |
@@ -236,8 +236,8 @@ Monitoraggio di Azure per le macchine virtuali configura un'area di lavoro Log A
 |Logical Disk |Free Megabytes |
 |Logical Disk |Logical Disk Bytes/sec |
 |Memoria |Available MBytes Memory |
-|Network |Total Bytes Received |
-|Network |Total Bytes Transmitted |
+|Rete |Total Bytes Received |
+|Rete |Total Bytes Transmitted |
 |Processore |% di tempo processore |
 
 ## <a name="management-packs"></a>Management Pack
@@ -246,7 +246,7 @@ Quando Monitoraggio di Azure per le macchine virtuali è abilitata e configurata
 
 Il Management Pack è denominato *Microsoft. IntelligencePacks. ApplicationDependencyMonitor*. Il relativo oggetto scritto nella cartella `%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\`. L'origine dati utilizzata dall'Management Pack è `%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll`.
 
-## <a name="diagnostic-and-usage-data"></a>Dati di utilizzo e di diagnostica
+## <a name="diagnostic-and-usage-data"></a>Dati di diagnostica e di utilizzo
 
 Microsoft raccoglie automaticamente i dati relativi a utilizzo e prestazioni tramite l'uso del servizio Monitoraggio di Azure. Microsoft usa questi dati per migliorare la qualità, la sicurezza e l'integrità del servizio. 
 

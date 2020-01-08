@@ -1,6 +1,6 @@
 ---
-title: file di inclusione
-description: file di inclusione
+title: File di inclusione
+description: File di inclusione
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 5bf93980a8be86c77240ab981eb812a738a96204
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 02297a45c9560f867e97d7024862ea0de5d3f7b2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74829105"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75469620"
 ---
 Seguendo questa procedura è possibile creare una rete virtuale con il modello di distribuzione Resource Manager e il portale di Azure. Per altre informazioni sulle reti virtuali, vedere la [panoramica di Rete virtuale](../articles/virtual-network/virtual-networks-overview.md).
 
@@ -22,7 +22,7 @@ Seguendo questa procedura è possibile creare una rete virtuale con il modello d
 >
 >
 
-1. Accedere al [portale di Azure](https://portal.azure.com).  Dal menu portale di Azure o dalla **Home** page, quindi selezionare **Crea una risorsa**. Verrà visualizzata la pagina **Nuova**.
+1. Accedere al [portale di Azure](https://portal.azure.com).  Dal menu portale di Azure o dalla **Home** page, quindi selezionare **Crea una risorsa**. Verrà visualizzata la pagina **Nuovo**.
 
 2. In **Cerca nel Marketplace**immettere *rete virtuale* e selezionare **rete virtuale** dai risultati.
 
@@ -42,7 +42,7 @@ Seguendo questa procedura è possibile creare una rete virtuale con il modello d
 
    - **Sottoscrizione**: verificare che la sottoscrizione elencata sia corretta. È possibile cambiare sottoscrizione tramite l'elenco a discesa.
 
-   - **Gruppo di risorse**: selezionare un gruppo di risorse esistente o crearne uno nuovo immettendo un nome per il nuovo gruppo di risorse. Se si crea un nuovo gruppo, assegnare il nome al gruppo di risorse in base ai valori di configurazione pianificati. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
+   - **Gruppo di risorse**: selezionare un gruppo di risorse esistente o crearne uno nuovo immettendo un nome per il nuovo gruppo di risorse. Se si crea un nuovo gruppo, assegnare il nome al gruppo di risorse in base ai valori di configurazione pianificati. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../articles/azure-resource-manager/management/overview.md#resource-groups).
 
    - **Località**: selezionare la località della rete virtuale. La località determina la posizione in cui risiederanno le risorse distribuite nella rete virtuale.
 

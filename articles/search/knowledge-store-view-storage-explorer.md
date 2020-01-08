@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: ca2df05cf20ef51b2d5ca866f22bd9450dd6acaf
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.date: 12/30/2019
+ms.openlocfilehash: 176f0f197db3393c4ef8c37d05234fce41a494e1
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406560"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563208"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>Visualizzare un archivio conoscenze con Storage Explorer
 
@@ -22,9 +22,9 @@ ms.locfileid: "74406560"
 
 In questo articolo si apprenderà ad esempio come connettersi ed esplorare un archivio informazioni usando Storage Explorer nel portale di Azure.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-+ Per creare l'archivio informazioni di esempio usato in questa procedura dettagliata, seguire i passaggi descritti in [creare un archivio informazioni in portale di Azure](knowledge-store-create-portal.md) o [creare un archivio informazioni ricerca cognitiva Azure con REST](knowledge-store-create-rest.md) .
++ Per creare l'esempio di archivio conoscenze usato in questa procedura dettagliata, seguire le procedure descritte in [Creare un archivio conoscenze nel portale di Azure](knowledge-store-create-portal.md).
 
 + Servirà anche il nome dell'account di archiviazione di Azure usato per creare l'archivio conoscenze, insieme alla relativa chiave di accesso dal portale di Azure.
 
@@ -36,7 +36,7 @@ In questo articolo si apprenderà ad esempio come connettersi ed esplorare un ar
 
 1. Espandere l'elenco **TABELLE** per visualizzare un elenco delle proiezioni di tabelle di Azure create quando è stata eseguita la procedura guidata **Importa dati** sui dati di esempio delle recensioni di hotel.
 
-Selezionare una tabella qualsiasi per visualizzare i dati arricchiti, inclusi i punteggi del sentiment delle frasi chiave, i dati relativi alla posizione di latitudine e longitudine e altro ancora.
+Selezionare una tabella per visualizzare i dati arricchiti, incluse le frasi chiave e i punteggi dei sentimenti.
 
    ![Visualizzare le tabelle in Storage Explorer](media/knowledge-store-view-storage-explorer/storage-explorer-tables.png "Visualizzare le tabelle in Storage Explorer")
 

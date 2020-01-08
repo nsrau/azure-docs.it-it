@@ -1,5 +1,6 @@
 ---
-title: Funzionalità degli stili delle mappe supportati in Mappe di Azure | Microsoft Docs
+title: Scegliere uno stili delle mappe in Mappe di Azure
+titleSuffix: Azure Maps
 description: Informazioni sulle funzionalità relative agli stili delle Mappe di Azure.
 author: walsehgal
 ms.author: v-musehg
@@ -8,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: eb667c398be0bd51e05a6b65d416d5bce54e4386
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e1d3d1b5904eded9f35c5ba628bea6426e7afaf0
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881975"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531548"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>Scegliere uno stili delle mappe in Mappe di Azure
 
@@ -21,7 +22,7 @@ Molti degli [stili di mappa supportati in mappe di Azure](./supported-map-styles
 
 ## <a name="set-style-on-map-load"></a>Impostare lo stile al caricamento della mappa
 
-Nel codice seguente, l' `style` opzione della mappa è impostata su all' `grayscale_dark` inizializzazione.
+Nel codice seguente, l'opzione `style` della mappa è impostata su `grayscale_dark` all'inizializzazione.
 
 <br/>
 
@@ -47,7 +48,7 @@ Il codice seguente aggiunge un [StyleControl](/javascript/api/azure-maps-control
 </iframe>
 
 > [!TIP]
-> Per impostazione predefinita, il controllo selezione stile elenca tutti gli stili disponibili quando si usa il piano tariffario s0 di mappe di Azure per impostazione predefinita. Se si desidera ridurre il numero di stili in questo elenco, passare una matrice degli stili che si desidera visualizzare nell'elenco `mapStyle` nell'opzione della selezione dello stile. Se si utilizza S1 e si desidera visualizzare tutti gli stili disponibili, impostare l' `mapStyles` opzione dello stile selezione su. `"all"`
+> Per impostazione predefinita, il controllo selezione stile elenca tutti gli stili disponibili quando si usa il piano tariffario s0 di mappe di Azure per impostazione predefinita. Se si desidera ridurre il numero di stili in questo elenco, passare una matrice degli stili che si desidera visualizzare nell'elenco nell'opzione `mapStyle` della selezione dello stile. Se si utilizza S1 e si desidera visualizzare tutti gli stili disponibili, impostare l'opzione `mapStyles` della selezione stile su `"all"`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -7,12 +7,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: b598fafbbfce9a2c0a824dd6530d07a5933a2873
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 92e213a87796247128e7e3810db99fde8525e12a
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765207"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659220"
 ---
 # <a name="handle-transient-errors-and-connect-efficiently-to-azure-database-for-mysql"></a>Gestire gli errori temporanei e connettersi in modo efficiente al database di Azure per MySQL
 
@@ -52,7 +52,7 @@ Le connessioni di database sono una risorsa limitata, pertanto l'uso efficace de
 
 La gestione delle connessioni di database può avere un impatto significativo sulle prestazioni dell'applicazione nel suo insieme. Per ottimizzare le prestazioni dell'applicazione, l'obiettivo consiste nel ridurre il numero di volte in cui vengono stabilite le connessioni e il tempo per stabilire le connessioni nei percorsi di codice chiave. Per la connessione a database di Azure per MySQL è consigliabile usare il pool di connessioni di database o le connessioni permanenti. Il pool di connessioni di database gestisce la creazione, la gestione e l'allocazione delle connessioni al database. Quando un programma richiede una connessione al database, viene assegnata la priorità all'allocazione delle connessioni al database inattive esistenti anziché alla creazione di una nuova connessione. Al termine dell'utilizzo della connessione al database da parte del programma, la connessione viene ripristinata in preparazione per un ulteriore utilizzo, anziché semplicemente essere chiusa.
 
-Per una migliore illustrazione, questo articolo fornisce [un codice di esempio](./sample-scripts-java-connection-pooling.md) che usa Java come esempio. Per altre informazioni, vedere [Apache Common DBCP](http://commons.apache.org/proper/commons-dbcp/).
+Per una migliore illustrazione, questo articolo fornisce [un codice di esempio](./sample-scripts-java-connection-pooling.md) che usa Java come esempio. Per altre informazioni, vedere [Apache Common DBCP](https://commons.apache.org/proper/commons-dbcp/).
 
 > [!NOTE]
 > Il server configura un meccanismo di timeout per chiudere una connessione che si trova in uno stato di inattività per un certo periodo di tempo per liberare risorse. Assicurarsi di configurare il sistema di verifica per garantire l'efficacia delle connessioni permanenti quando vengono usate. Per altre informazioni, vedere [configurare i sistemi di verifica sul lato client per garantire l'efficacia delle connessioni permanenti](concepts-connectivity.md#configure-verification-mechanisms-in-clients-to-confirm-the-effectiveness-of-persistent-connections).

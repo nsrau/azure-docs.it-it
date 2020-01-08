@@ -3,12 +3,12 @@ title: Risolvere i problemi di SQL Server backup del database
 description: Informazioni sulla risoluzione dei problemi relativi al backup di database di SQL Server eseguiti su macchine virtuali di Azure con Backup di Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 95f7966fa59f0a1f6f6a3c9c6832cc573f89e05c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: d49843e8fd96df29a7359ec639e42d312ad584e2
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172118"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659254"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Risolvere i problemi di SQL Server backup del database con backup di Azure
 
@@ -20,11 +20,30 @@ Per altre informazioni sul processo di backup e sulle limitazioni, vedere [infor
 
 Per configurare la protezione per un database di SQL Server in una macchina virtuale, è necessario installare l'estensione **AzureBackupWindowsWorkload** in tale macchina virtuale. Se si riceve l'errore **UserErrorSQLNoSysadminMembership**, significa che l'istanza di SQL Server non dispone delle autorizzazioni necessarie per il backup. Per correggere l'errore, seguire la procedura descritta in [impostare le autorizzazioni della macchina virtuale](backup-azure-sql-database.md#set-vm-permissions).
 
+## <a name="troubleshoot-discover-and-configure-issues"></a>Risolvere i problemi di individuazione e configurazione
+Dopo aver creato e configurato un insieme di credenziali di servizi di ripristino, l'individuazione dei database e la configurazione del backup sono un processo in due passaggi.<br>
+
+![sql](./media/backup-azure-sql-database/sql.png)
+
+Durante la configurazione del backup, se la macchina virtuale SQL e le relative istanze non sono visibili nei database **di individuazione nelle VM** e **configurare il backup** (vedere l'immagine precedente), verificare che:
+
+### <a name="step-1-discovery-dbs-in-vms"></a>Passaggio 1: individuazione di database nelle macchine virtuali
+
+- Se la macchina virtuale non è elencata nell'elenco di VM individuate e non è registrata per il backup SQL in un altro insieme di credenziali, seguire i passaggi di [individuazione SQL Server Backup](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#discover-sql-server-databases) .
+
+### <a name="step-2-configure-backup"></a>Passaggio 2: configurare il backup
+
+- Se l'insieme di credenziali in cui è registrata la VM SQL nello stesso insieme di credenziali usato per proteggere i database, seguire le istruzioni per la [configurazione del backup](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#configure-backup) .
+
+Se la VM SQL deve essere registrata nel nuovo insieme di credenziali, è necessario annullarne la registrazione dall'insieme di credenziali precedente.  Per annullare la registrazione di una macchina virtuale SQL dall'insieme di credenziali, è necessario arrestare la protezione di tutte le origini dati protette e quindi eliminare i dati di cui è stato eseguito il backup. L'eliminazione dei dati di cui è stato eseguito il backup è un'operazione distruttiva.  Dopo aver esaminato ed eseguito tutte le precauzioni per annullare la registrazione della VM SQL, registrare la stessa VM con un nuovo insieme di credenziali e ripetere l'operazione di backup.
+
+
+
 ## <a name="error-messages"></a>messaggi di errore
 
 ### <a name="backup-type-unsupported"></a>Tipo di backup non supportato
 
-| Gravità | DESCRIZIONE | Possibili cause | Azione consigliata |
+| Gravità | Description | Possibili cause | Azione consigliata |
 |---|---|---|---|
 | Avviso | Le impostazioni correnti per questo database non supportano determinati tipi di backup presenti nei criteri associati. | <li>Sul database master è possibile eseguire solo un'operazione di backup completo del database. Non è possibile eseguire il backup differenziale o il backup del log delle transazioni. </li> <li>Qualsiasi database nel modello di recupero con registrazione minima non consente il backup dei log delle transazioni.</li> | Modificare le impostazioni del database in modo che tutti i tipi di backup nei criteri siano supportati. In alternativa, modificare i criteri correnti in modo da includere solo i tipi di backup supportati. In caso contrario, i tipi di backup non supportati verranno ignorati durante il backup pianificato oppure il processo di backup non riuscirà per il backup su richiesta.
 
@@ -87,7 +106,7 @@ Per configurare la protezione per un database di SQL Server in una macchina virt
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-| Il backup del log usato per il ripristino contiene modifiche con registrazione minima delle operazioni bulk. Non è utilizzabile per l'arresto in un punto arbitrario nel tempo in base alle linee guida di SQL. | Quando un database è in modalità di recupero con registrazione minima delle operazioni bulk, i dati tra una transazione con registrazione minima delle operazioni bulk e la transazione di log successiva non possono essere recuperati. | Scegliere un momento diverso per il ripristino. [Altre informazioni](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105)).
+| Il backup del log usato per il ripristino contiene modifiche con registrazione minima delle operazioni bulk. Non è utilizzabile per l'arresto in un punto arbitrario nel tempo in base alle linee guida di SQL. | Quando un database è in modalità di recupero con registrazione minima delle operazioni bulk, i dati tra una transazione con registrazione minima delle operazioni bulk e la transazione di log successiva non possono essere recuperati. | Scegliere un momento diverso per il ripristino. [Altre informazioni](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
 
 ### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
@@ -125,18 +144,27 @@ L'operazione è bloccata perché è stato raggiunto il limite per il numero di o
 |---|---|---|
 L'operazione è bloccata perché l'insieme di credenziali ha raggiunto il limite massimo per le operazioni consentite in un intervallo di 24 ore. | Quando è stato raggiunto il limite massimo consentito per un'operazione in un intervallo di 24 ore, viene visualizzato questo errore. Questo errore si verifica in genere quando sono presenti operazioni su larga scala, ad esempio la modifica dei criteri o la protezione automatica. A differenza di quanto accade per CloudDosAbsoluteLimitReached, non è possibile risolvere questo stato in realtà, il servizio backup di Azure tenterà di ritentare le operazioni internamente per tutti gli elementi in questione.<br> Ad esempio, se si dispone di un numero elevato di origini dati protette con un criterio e si tenta di modificare tale criterio, verrà attivata la configurazione dei processi di protezione per ciascuno degli elementi protetti e talvolta potrebbe verificarsi il limite massimo consentito per tali operazioni al giorno.| Il servizio backup di Azure tenterà automaticamente di ripetere l'operazione dopo 24 ore.
 
+### <a name="usererrorvminternetconnectivityissue"></a>UserErrorVMInternetConnectivityIssue
+
+| Messaggio di errore | Possibili cause | Azione consigliata |
+|---|---|---|
+La macchina virtuale non è in grado di contattare il servizio backup di Azure a causa di problemi di connettività Internet. | Per la macchina virtuale è necessaria la connettività in uscita al servizio backup di Azure, archiviazione di Azure o servizi Azure Active Directory.| -Se si usa NSG per limitare la connettività, è necessario usare il tag del servizio AzureBackup per consentire l'accesso in uscita a backup di Azure al servizio backup di Azure, archiviazione di Azure o servizi Azure Active Directory. Per concedere l'accesso, seguire questa [procedura](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#allow-access-using-nsg-tags) .<br>-Assicurarsi che DNS stia risolvendo gli endpoint di Azure.<br>-Verificare se la macchina virtuale si trova dietro un servizio di bilanciamento del carico che blocca l'accesso a Internet. Assegnando un indirizzo IP pubblico alle macchine virtuali, l'individuazione funzionerà.<br>-Verificare che non esistano firewall/antivirus/proxy che bloccano le chiamate ai tre servizi di destinazione precedenti.
+
+
 ## <a name="re-registration-failures"></a>Errori di ripetizione della registrazione
 
 Prima di attivare l'operazione di ripetizione della registrazione, verificare la presenza di uno o più dei seguenti sintomi:
 
-* Tutte le operazioni, ad esempio il backup, il ripristino e la configurazione del backup, hanno esito negativo nella macchina virtuale con uno dei codici di errore seguenti: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent** , **WorkloadExtensionDidntDequeueMsg**.
-* L'area **stato backup** per l'elemento di backup **non è raggiungibile**. Escludere tutte le altre cause che possono generare lo stesso stato:
+* Tutte le operazioni, ad esempio backup, ripristino e configurazione del backup, non riescono nella macchina virtuale con uno dei codici di errore seguenti: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
+* Se l'area **stato backup** per l'elemento di backup **non è raggiungibile**, escludere tutte le altre cause che possono generare lo stesso stato:
 
-  * Mancanza di autorizzazioni per eseguire operazioni relative al backup nella macchina virtuale  
-  * Arrestare la macchina virtuale, quindi non è possibile eseguire i backup
-  * Problemi di rete  
+  * Mancanza di autorizzazioni per eseguire operazioni relative al backup nella macchina virtuale.
+  * Arresto della macchina virtuale, pertanto non è possibile eseguire i backup.
+  * Problemi di rete.
 
-  ![Stato "non raggiungibile" nella ripetizione della registrazione di una macchina virtuale](./media/backup-azure-sql-database/re-register-vm.png)
+   ![ripetizione della registrazione della macchina virtuale](./media/backup-azure-sql-database/re-register-vm.png)
+
+
 
 * Nel caso di un gruppo di disponibilità di Always On, i backup hanno avuto esito negativo dopo aver modificato la preferenza di backup o dopo un failover.
 
@@ -167,7 +195,7 @@ Ora è possibile disporli nel formato seguente:
 [{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]}
 ```
 
-Ecco un esempio:
+Ad esempio:
 
 ```json
 [{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]}
@@ -196,7 +224,7 @@ Il contenuto del file deve essere nel formato seguente:
 ]
 ```
 
-Ecco un esempio:
+Ad esempio:
 
 ```json
 [

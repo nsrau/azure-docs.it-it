@@ -1,20 +1,20 @@
 ---
 title: Connetti a box
-description: Creare e gestire i file con le API REST di Box e App per la logica di Azure
+description: Automatizzare le attività e i flussi di lavoro che creano e gestiscono file in box usando app per la logica di Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/07/2016
 tags: connectors
-ms.openlocfilehash: 38e061e918d445de07961af1789891f44c59090a
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: c7f97ff33742eb545cbfbd7521ba135584851e5e
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789871"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666772"
 ---
-# <a name="create-and-manage-files-in-box-with-azure-logic-apps"></a>Creare e gestire file in Box con le App per la logica di Azure
+# <a name="create-and-manage-files-in-box-by-using-azure-logic-apps"></a>Creare e gestire i file in box usando app per la logica di Azure
 
 Questo articolo illustra come creare e gestire i file in Box all'interno di un'app per la logica con il connettore Box. In questo modo, è possibile creare app per la logica che automatizzano le attività e i flussi di lavoro per la gestione dei file e altre azioni, ad esempio:
 

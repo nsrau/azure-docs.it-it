@@ -1,20 +1,20 @@
 ---
 title: Connettersi a Ricerca Bing
-description: Trovare notizie con le API REST di Ricerca Bing e App per la logica di Azure
+description: Automatizzare le attività e i flussi di lavoro che individuano i risultati in Ricerca Bing usando app per la logica di Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
-ms.openlocfilehash: c3b6cb61e2f7b91b3b1e3595da2d105c5cdb01c8
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e547ae59f7b3260f46756825bca2bef1c10bcc97
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789959"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75665888"
 ---
-# <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Trovare notizie con Ricerca Bing e App per la logica di Azure
+# <a name="find-results-in-bing-search-by-using-azure-logic-apps"></a>Trovare i risultati in Ricerca Bing usando app per la logica di Azure
 
 Questo articolo illustra come trovare novità, video e altri elementi tramite Ricerca Bing all'interno di un'app per la logica con il connettore di Ricerca Bing. In questo modo è possibile creare app per la logica in grado di automatizzare attività e flussi di lavoro per elaborare i risultati della ricerca e rendere tali elementi disponibili per altre azioni. 
 
@@ -50,16 +50,16 @@ Se la connessione è già presente, fornire le informazioni necessarie per il tr
 
    Per questo esempio, fornire criteri per la restituzione di articoli corrispondenti da Ricerca Bing.
 
-   | Proprietà | Obbligatoria | Value | Description |
+   | Proprietà | Obbligatorio | Valore | Description |
    |----------|----------|-------|-------------|
-   | Query di ricerca | SÌ | <*termini di ricerca*> | Immettere le parole chiave di ricerca da usare. |
-   | Commercializzazione | SÌ | <*impostazioni locali*> | Impostazioni locali di ricerca. Il valore predefinito è "en-US", ma è possibile selezionare un altro valore. |
-   | Ricerca sicura | SÌ | <*livello di ricerca*> | Livello del filtro per escludere contenuti per adulti. Il valore predefinito è "Moderato", ma è possibile selezionare un altro livello. |
+   | Query di ricerca | Sì | <*termini di ricerca*> | Immettere le parole chiave di ricerca da usare. |
+   | Commercializzazione | Sì | <*impostazioni locali*> | Impostazioni locali di ricerca. Il valore predefinito è "en-US", ma è possibile selezionare un altro valore. |
+   | Ricerca sicura | Sì | <*livello di ricerca*> | Livello del filtro per escludere contenuti per adulti. Il valore predefinito è "Moderato", ma è possibile selezionare un altro livello. |
    | Conteggio | No | <*numero di risultati*> | Restituisce solo il numero di risultati specificato. Il valore predefinito è 20, ma è possibile specificare un altro valore. Il numero effettivo di risultati restituiti potrebbe essere inferiore al numero specificato. |
    | Offset | No | <*valore da ignorare*> | Numero di risultati da ignorare prima di restituire i risultati |
    |||||
 
-   ad esempio:
+   Ad esempio:
 
    ![Configurare trigger](./media/connectors-create-api-bing-search/bing-search-trigger.png)
 
@@ -89,7 +89,7 @@ In App per la logica di Azure, un'[azione](../logic-apps/logic-apps-overview.md#
    Selezionare il segno più ( **+** ) visualizzato, quindi selezionare **Aggiungi un'azione**.
 
 3. Nella casella di ricerca digitare "Ricerca Bing" come filtro.
-Nell'elenco delle azioni scegliere l'azione desiderata.
+Nell'elenco delle azioni, scegliere l'azione desiderata.
 
    Questo esempio usa questa azione:
 
@@ -101,11 +101,11 @@ Nell'elenco delle azioni scegliere l'azione desiderata.
 
    Per questo esempio, fornire i criteri per la restituzione di un subset dei risultati del trigger.
 
-   | Proprietà | Obbligatoria | Value | Description |
+   | Proprietà | Obbligatorio | Valore | Description |
    |----------|----------|-------|-------------|
-   | Query di ricerca | SÌ | <*espressione di ricerca*> | Immettere un'espressione per l'esecuzione di query tra i risultati del trigger. È possibile eseguire una selezione tra i campi dell'elenco di contenuti dinamici o creare un'espressione con il Generatore di espressioni. |
-   | Commercializzazione | SÌ | <*impostazioni locali*> | Impostazioni locali di ricerca. Il valore predefinito è "en-US", ma è possibile selezionare un altro valore. |
-   | Ricerca sicura | SÌ | <*livello di ricerca*> | Livello del filtro per escludere contenuti per adulti. Il valore predefinito è "Moderato", ma è possibile selezionare un altro livello. |
+   | Query di ricerca | Sì | <*espressione di ricerca*> | Immettere un'espressione per l'esecuzione di query tra i risultati del trigger. È possibile eseguire una selezione tra i campi dell'elenco di contenuti dinamici o creare un'espressione con il Generatore di espressioni. |
+   | Commercializzazione | Sì | <*impostazioni locali*> | Impostazioni locali di ricerca. Il valore predefinito è "en-US", ma è possibile selezionare un altro valore. |
+   | Ricerca sicura | Sì | <*livello di ricerca*> | Livello del filtro per escludere contenuti per adulti. Il valore predefinito è "Moderato", ma è possibile selezionare un altro livello. |
    | Conteggio | No | <*numero di risultati*> | Restituisce solo il numero di risultati specificato. Il valore predefinito è 20, ma è possibile specificare un altro valore. Il numero effettivo di risultati restituiti potrebbe essere inferiore al numero specificato. |
    | Offset | No | <*valore da ignorare*> | Numero di risultati da ignorare prima di restituire i risultati |
    |||||
@@ -148,14 +148,14 @@ Nell'elenco delle azioni scegliere l'azione desiderata.
 
 1. Quando viene chiesto di immettere le informazioni di connessione, specificare questi dettagli:
 
-   | Proprietà | Obbligatoria | Value | Description |
+   | Proprietà | Obbligatorio | Valore | Description |
    |----------|----------|-------|-------------|
-   | Connection Name (Nome connessione) | SÌ | <*nome connessione*> | Nome creato per la connessione |
-   | Versione dell'API | SÌ | <*versione API*> | Per impostazione predefinita, la versione dell'API di Ricerca Bing è impostata sulla versione corrente. È possibile selezionare una versione precedente in base alle esigenze. |
-   | API key | SÌ | <*chiave API*> | Chiave API di Ricerca Bing ottenuta in precedenza. Se non si dispone di una chiave, ottenere una [chiave API](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
+   | Connection Name (Nome connessione) | Sì | <*nome connessione*> | Nome creato per la connessione |
+   | Versione dell'API | Sì | <*versione API*> | Per impostazione predefinita, la versione dell'API di Ricerca Bing è impostata sulla versione corrente. È possibile selezionare una versione precedente in base alle esigenze. |
+   | API key | Sì | <*chiave API*> | Chiave API di Ricerca Bing ottenuta in precedenza. Se non si dispone di una chiave, ottenere una [chiave API](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
    |||||  
 
-   ad esempio:
+   Ad esempio:
 
    ![Creare la connessione](./media/connectors-create-api-bing-search/bing-search-create-connection.png)
 
@@ -163,7 +163,7 @@ Nell'elenco delle azioni scegliere l'azione desiderata.
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per informazioni tecniche, ad esempio trigger, azioni e limiti, come descritto dal file OpenAPI (in precedenza spavalderia) del connettore, vedere la [pagina di riferimento del connettore](/connectors/bingsearch/).
+Per informazioni tecniche, ad esempio su trigger, azioni e limiti indicati nel file Swagger del connettore, vedere la [pagina di riferimento del connettore](/connectors/bingsearch/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

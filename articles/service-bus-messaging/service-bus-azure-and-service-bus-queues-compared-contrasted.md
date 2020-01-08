@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 09/04/2019
 ms.author: aschhab
-ms.openlocfilehash: a1e75416db34514425436bc3ceae9f27b156b557
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 8379b7f48e7e494370f3fdba81676d34821d7b6f
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792697"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563378"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Analogie e differenze tra le code di archiviazione e le code del bus di servizio
 Questo articolo analizza le differenze e le analogie presenti tra i due tipi di code offerte attualmente da Microsoft Azure: code di archiviazione e code del bus di servizio. Grazie a queste informazioni sarà possibile mettere a confronto le rispettive tecnologie per prendere una decisione più consapevole in merito alla soluzione adatta alle proprie esigenze.
@@ -175,7 +175,7 @@ Questa sezione illustra le funzionalità di autenticazione e autorizzazione supp
 
 | Criteri di confronto | Code di archiviazione | Code del bus di servizio |
 | --- | --- | --- |
-| Authentication |**Chiave simmetrica** |**Chiave simmetrica** |
+| Autenticazione |**Chiave simmetrica** |**Chiave simmetrica** |
 | Modello di sicurezza |Accesso delegato tramite token di firma di accesso condiviso. |SAS |
 | Federazione del provider di identità |**No** |**Sì** |
 
@@ -183,7 +183,7 @@ Questa sezione illustra le funzionalità di autenticazione e autorizzazione supp
 * Ogni richiesta a entrambe le tecnologie di accodamento deve essere autenticata. Le code pubbliche con accesso anonimo non sono supportate. L'uso di [SAS](service-bus-sas.md) consente di ovviare a questo inconveniente tramite la pubblicazione di una firma SAS di sola scrittura, di sola lettura o anche di accesso completo.
 * Lo schema di autenticazione offerto dalle code di archiviazione prevede l'uso di una chiave simmetrica, ovvero un codice HMAC (Hash Message Authentication Code) basato su hash calcolato dall'algoritmo SHA-256 e codificato come stringa **Base64**. Per altre informazioni sul relativo protocollo, vedere [Authentication for the Azure Storage Services](/rest/api/storageservices/fileservices/Authentication-for-the-Azure-Storage-Services) (Autenticazione per i servizi di archiviazione di Azure). Le code del bus di servizio supportano un modello simile mediante l'uso di chiavi simmetriche. Per altre informazioni, vedere [Autenticazione della firma di accesso condiviso con il bus di servizio](service-bus-sas.md).
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 Acquisendo una comprensione più profonda delle due tecnologie, si sarà in grado di prendere una decisione più oculata circa la tecnologia di accodamento da usare e il momento in cui adottarla. La scelta di usare le code di archiviazione o le code del bus di servizio si basa chiaramente su diversi fattori, che possono dipendere soprattutto dalle singole esigenze dell'applicazione in uso e dalla relativa architettura. Se l'applicazione usa già le funzionalità principali di Microsoft Azure, sarà opportuno scegliere le code di Azure, specialmente se sono richieste funzionalità di comunicazione e messaggistica di base tra servizi o se sono necessarie code con dimensioni maggiori di 80 GB.
 
 Poiché offrono numerose funzionalità avanzate quali sessioni, transazioni rilevamento duplicati, mancato recapito automatico dei messaggi e funzionalità di pubblicazione e sottoscrizione permanente, le code del bus di servizio possono rappresentare la soluzione migliore quando si sviluppa un'applicazione ibrida o se l'applicazione in uso richiede comunque tali funzionalità.
@@ -194,7 +194,7 @@ Gli articoli seguenti offrono ulteriori indicazioni e informazioni sull'uso dell
 * [Introduzione alle code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
 * [Come usare il servizio di archiviazione code](../storage/queues/storage-dotnet-how-to-use-queues.md)
 * [Procedure consigliate per il miglioramento delle prestazioni tramite la messaggistica negoziata del bus di servizio](service-bus-performance-improvements.md)
-* [Introduzione alle code e agli argomenti del bus di servizio di Azure (post di blog)](https://www.code-magazine.com/article.aspx?quickid=1112041)
+* [Introduzione alle code e agli argomenti del bus di servizio di Azure (post di blog)](https://www.serverless360.com/blog/azure-service-bus-queues-vs-topics)
 * [Guida per gli sviluppatori del bus di servizio](http://www.cloudcasts.net/devguide/Default.aspx?id=11030)
 * [Uso del servizio di accodamento in Azure](https://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 

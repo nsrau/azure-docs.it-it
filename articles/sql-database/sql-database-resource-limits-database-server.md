@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 11/19/2019
-ms.openlocfilehash: 40b277f0b1bfb3501bb246e555d46db5e1ee9f95
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: da8c194b7911d2eeda8e0c903cb7412186aacfcb
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279313"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638256"
 ---
 # <a name="sql-database-resource-limits-and-resource-governance"></a>Limiti delle risorse del database SQL e governance delle risorse
 
@@ -27,7 +27,7 @@ Questo articolo offre una panoramica dei limiti delle risorse del database SQL p
 
 ## <a name="maximum-resource-limits"></a>Limiti massimi delle risorse
 
-| Risorsa | Limite |
+| Gruppi | Limite |
 | :--- | :--- |
 | Database per server | 5000 |
 | Numero predefinito di server per sottoscrizione in ogni area | 20 |
@@ -46,7 +46,7 @@ Questo articolo offre una panoramica dei limiti delle risorse del database SQL p
 > - Latenza in aumento nelle query in esecuzione nel database master.  Ciò include le visualizzazioni delle statistiche di utilizzo delle risorse, ad esempio sys.resource_stats.
 > - Latenza in aumento nelle operazioni di gestione e nel portale di esecuzione del rendering dei punti di visualizzazione che coinvolgono l'enumerazione dei database nel server.
 
-### <a name="storage-size"></a>Dimensioni della risorsa di archiviazione
+### <a name="storage-size"></a>Dimensioni dello spazio di archiviazione
 
 Per le dimensioni di archiviazione delle risorse dei singoli database, fare riferimento ai limiti [delle risorse basate su DTU](sql-database-dtu-resource-limits-single-databases.md) o ai [limiti delle risorse basate su vCore](sql-database-vcore-resource-limits-single-databases.md) per i limiti delle dimensioni di archiviazione per ogni piano tariffario.
 
@@ -99,7 +99,9 @@ I valori min/max di IOPS e velocità effettiva restituiti dalla vista [sys. dm_u
 
 Per i database Basic, standard e per utilizzo generico, che usano file di dati in archiviazione di Azure, il valore di `primary_group_max_io` potrebbe non essere raggiungibile se un database non dispone di un numero di file di dati sufficiente per fornire cumulativamente questo numero di IOPS o se i dati non vengono distribuiti in modo uniforme tra i file o se il livello di prestazioni dei BLOB sottostanti limita le operazioni di i/o al secondo Analogamente, con log IOs di piccole dimensioni generato da commit di transazione frequente, il valore `primary_max_log_rate` potrebbe non essere raggiungibile da un carico di lavoro a causa del limite di IOPS nel BLOB di archiviazione di Azure sottostante.
 
-I valori di utilizzo delle risorse, ad esempio `avg_data_io_percent` e `avg_log_write_percent`, riportati nelle viste [sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)e [sys. elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) , vengono calcolati come percentuali dei limiti di governance delle risorse massimi. Pertanto, quando i fattori diversi dalla governance delle risorse limitano le operazioni di i/o al secondo, è possibile vedere IOPS/velocità effettiva flat e latenze che aumentano con l'aumentare del carico di lavoro, anche se l'utilizzo delle risorse segnalato rimane inferiore al 100%. Per visualizzare IOPS, velocità effettiva e latenza di lettura e scrittura per ogni file di database, usare la funzione [sys. dm_io_virtual_file_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) . Questa funzione consente di ripartire tutti i/o sul database, inclusi i/o in background che non sono conteggiati per `avg_data_io_percent`, ma usa IOPS e la velocità effettiva dell'archiviazione sottostante e possono avere un effetto sulla latenza di archiviazione osservata.
+I valori di utilizzo delle risorse, ad esempio `avg_data_io_percent` e `avg_log_write_percent`, riportati nelle viste [sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)e [sys. elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) , vengono calcolati come percentuali dei limiti di governance delle risorse massimi. Pertanto, quando i fattori diversi dalla governance delle risorse limitano le operazioni di i/o al secondo, è possibile vedere IOPS/velocità effettiva flat e latenze che aumentano con l'aumentare del carico di lavoro, anche se l'utilizzo delle risorse segnalato rimane inferiore al 100%. 
+
+Per visualizzare IOPS, velocità effettiva e latenza di lettura e scrittura per ogni file di database, usare la funzione [sys. dm_io_virtual_file_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) . Questa funzione consente di ripartire tutti i/o sul database, inclusi i/o in background che non sono conteggiati per `avg_data_io_percent`, ma usa IOPS e la velocità effettiva dell'archiviazione sottostante e possono avere un effetto sulla latenza di archiviazione osservata. La funzione presenta anche una latenza aggiuntiva che può essere introdotta dalla governance delle risorse di i/o per le operazioni di lettura e scrittura, rispettivamente nelle colonne `io_stall_queued_read_ms` e `io_stall_queued_write_ms`.
 
 ### <a name="transaction-log-rate-governance"></a>Governance della frequenza del log delle transazioni
 
@@ -116,7 +118,7 @@ Le velocità effettive di generazione dei log imposte in fase di esecuzione poss
 
 Il data shaping di log rate Governor viene esposto tramite i tipi di attesa seguenti (esposti nella DMV [sys. dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) ):
 
-| Tipo di attesa | note |
+| Tipo di attesa | Note |
 | :--- | :--- |
 | LOG_RATE_GOVERNOR | Limitazione del database |
 | POOL_LOG_RATE_GOVERNOR | Limitazione del pool |
@@ -132,6 +134,6 @@ Quando si verifica un limite di velocità di log che ostacola la scalabilità de
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni sui limiti generici di Azure, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
+- Per informazioni sui limiti generici di Azure, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Per informazioni su DTU ed eDTU, vedere [DTU ed eDTU](sql-database-purchase-models.md#dtu-based-purchasing-model).
 - Per informazioni sui limiti di tempdb relativi alle dimensioni, vedere [TempDB nel database SQL di Azure](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
-ms.openlocfilehash: 207e728d25df9192f8a600b13d86330af8311700
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 7b197e1acf696c2ae6e919ee2eddacfb82ac3802
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058919"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646779"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Tipi di indirizzi IP e metodi di allocazione (modello di distribuzione classica) in Azure
 È possibile assegnare gli indirizzi IP alle risorse di Azure per comunicare con altre risorse di Azure, con la rete locale e con Internet. Sono disponibili due tipi di indirizzi IP che è possibile usare in Azure: pubblici e privati.
@@ -28,7 +28,7 @@ Gli indirizzi IP pubblici consentono di comunicare con Internet e con i servizi 
 Gli indirizzi IP privati vengono usati per la comunicazione all'interno di una rete virtuale Azure (VNet), di un servizio cloud e della rete locale quando si usa un gateway VPN o un circuito ExpressRoute per estendere la rete ad Azure.
 
 > [!IMPORTANT]
-> Azure offre due modelli di distribuzione diversi per creare e usare le risorse:  [Resource Manager e distribuzione classica](../resource-manager-deployment-model.md).  Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare Resource Manager per la maggior parte delle distribuzioni più recenti. Informazioni sugli indirizzi IP in Resource Manager sono disponibili nell'articolo sugli [indirizzi IP](virtual-network-ip-addresses-overview-arm.md).
+> Azure offre due modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../resource-manager-deployment-model.md).  Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare Resource Manager per la maggior parte delle distribuzioni più recenti. Informazioni sugli indirizzi IP in Resource Manager sono disponibili nell'articolo sugli [indirizzi IP](virtual-network-ip-addresses-overview-arm.md).
 
 ## <a name="public-ip-addresses"></a>Indirizzi IP pubblici
 Gli indirizzi IP pubblici consentono alle risorse di Azure di comunicare con Internet e i servizi pubblici di Azure, ad esempio [Cache di Azure per Redis](https://azure.microsoft.com/services/cache/), [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/), [database SQL](../sql-database/sql-database-technical-overview.md) e [Archiviazione di Azure](../storage/common/storage-introduction.md).
@@ -85,15 +85,15 @@ Gli indirizzi IP pubblici statici (riservati) sono comunemente usati negli scena
 ### <a name="application-gateways"></a>Gateway di applicazione
 È possibile usare un [gateway applicazione](../application-gateway/application-gateway-introduction.md) di Azure per il bilanciamento del carico Layer7 allo scopo di instradare il traffico di rete basato su HTTP. Al gateway applicazione viene assegnato *dinamicamente*un indirizzo IP pubblico, che agisce come l'indirizzo VIP con bilanciamento del carico.
 
-### <a name="at-a-glance"></a>Riepilogo
+### <a name="at-a-glance"></a>Panoramica
 Nella tabella seguente viene illustrato ogni tipo di risorsa con i metodi di allocazione possibili (dinamico o statico) e la possibilità di assegnare più indirizzi IP pubblici.
 
-| Risorsa | Dynamic | statico | Più indirizzi IP |
+| Gruppi | Dinamica | Statica | Più indirizzi IP |
 | --- | --- | --- | --- |
-| servizio cloud |Yes |Sì |Sì |
+| Servizio cloud |Sì |Sì |Sì |
 | Istanza del ruolo PaaS o della macchine virtuale IaaS |Sì |No |No |
-| gateway VPN |Yes |No |No |
-| gateway applicazione |Yes |No |No |
+| gateway VPN |Sì |No |No |
+| gateway applicazione |Sì |No |No |
 
 ## <a name="private-ip-addresses"></a>Indirizzi IP privati
 Gli indirizzi IP privati consentono alle risorse Azure di comunicare con altre risorse in un servizio cloud, in una [rete virtuale](virtual-networks-overview.md)(VNet) o nella rete locale (tramite un gateway VPN o il circuito ExpressRoute), senza usare un indirizzo IP raggiungibile tramite Internet.
@@ -135,13 +135,13 @@ Nel caso di un servizio cloud *autonomo* , sarà possibile risolvere i nomi host
 ### <a name="internal-load-balancers-ilb--application-gateways"></a>Servizi di bilanciamento del carico interno e gateway applicazione
 È possibile assegnare un indirizzo IP privato alla configurazione **front-end** di un [servizio di bilanciamento del carico interno di Azure](../load-balancer/load-balancer-internal-overview.md) o di un [gateway applicazione di Azure](../application-gateway/application-gateway-introduction.md). Questo indirizzo IP privato funge da endpoint interno, accessibile solo alle risorse all'interno della rete virtuale e alle reti remote connesse alla rete virtuale. È possibile assegnare un indirizzo IP privato dinamico o statico alla configurazione front-end. È inoltre possibile assegnare più indirizzi IP privati per consentire scenari con più indirizzi VIP.
 
-### <a name="at-a-glance"></a>Riepilogo
+### <a name="at-a-glance"></a>Panoramica
 Nella tabella seguente viene illustrato ogni tipo di risorsa con i metodi di allocazione possibili (dinamico o statico) e la possibilità di assegnare più indirizzi IP privati.
 
-| Risorsa | Dynamic | statico | Più indirizzi IP |
+| Gruppi | Dinamica | Statica | Più indirizzi IP |
 | --- | --- | --- | --- |
 | Macchina virtuale (in una rete virtuale o un servizio cloud *autonomo*) |Sì |Sì |Sì |
-| Istanza del ruolo PaaS (in una rete virtuale o un servizio cloud *autonomo*) |Yes |No |No |
+| Istanza del ruolo PaaS (in una rete virtuale o un servizio cloud *autonomo*) |Sì |No |No |
 | Front-end del servizio di bilanciamento del carico interno |Sì |Sì |Sì |
 | Front-end del gateway applicazione |Sì |Sì |Sì |
 
@@ -155,7 +155,7 @@ La tabella seguente illustra i limiti imposti sull'assegnazione degli indirizzi 
 | Indirizzo VIP pubblico per distribuzione (servizio cloud) |5 |contattare il supporto tecnico |
 | Indirizzo VIP privato (ILB) per distribuzione (servizio cloud) |1 |1 |
 
-Verificare di avere consultato l'elenco completo dei [limiti della rete](../azure-subscription-service-limits.md#networking-limits) in Azure.
+Verificare di avere consultato l'elenco completo dei [limiti della rete](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) in Azure.
 
 ## <a name="pricing"></a>Prezzi
 Nella maggior parte dei casi, gli indirizzi IP pubblici sono gratuiti. È prevista una tariffa nominale per l'uso di indirizzi IP pubblici statici e/o aggiuntivi. Verificare di avere compreso la [struttura dei prezzi per gli indirizzi IP pubblici](https://azure.microsoft.com/pricing/details/ip-addresses/).
@@ -163,7 +163,7 @@ Nella maggior parte dei casi, gli indirizzi IP pubblici sono gratuiti. È previs
 ## <a name="differences-between-resource-manager-and-classic-deployments"></a>Differenze tra le distribuzioni di Gestione risorse e le distribuzioni classiche
 Di seguito è riportato un confronto tra la funzione di assegnazione degli indirizzi IP in Gestione risorse e quella usata nel modello di distribuzione classico.
 
-|  | Risorsa | Classica | Gestione risorse |
+|  | Gruppi | Classico | Azure Resource Manager |
 | --- | --- | --- | --- |
 | **Indirizzo IP pubblico** |***VM*** |Indicato come un ILPIP (solo dinamico) |Indicato come un IP pubblico (dinamico o statico) |
 |  ||Assegnato a una VM IaaS o a un'istanza del ruolo PaaS |Associato alla scheda NIC della VM |

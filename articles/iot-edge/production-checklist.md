@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a19fdfaf70dffb7f0bcb8001475fee89b2d05086
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 1213ab4c623cb1d475dff1d71e65439b1d08f5c1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665815"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429442"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Preparare la distribuzione della soluzione IoT Edge alla produzione
 
@@ -39,7 +39,7 @@ Ogni dispositivo IoT Edge nell'ambiente di produzione richiede un certificato di
 
 Per comprendere il ruolo del certificato della CA del dispositivo, vedere [Come Azure IoT Edge usa i certificati](iot-edge-certs.md).
 
-Per altre informazioni su come installare i certificati su un dispositivo IoT Edge e farvi riferimento dal file config.yaml, vedere [Configurare un dispositivo IoT Edge come gateway trasparente](how-to-create-transparent-gateway.md). I passaggi per configurare i certificati sono gli stessi nel caso in cui il dispositivo verrà essere utilizzato come gateway o meno. In questo articolo vengono forniti gli script per generare i certificati di esempio solo per il test. Non usare i certificati di esempio nell'ambiente di produzione. 
+Per altre informazioni su come installare i certificati in un dispositivo IoT Edge e farvi riferimento dal file config. YAML, vedere [installare i certificati di produzione in un dispositivo IOT Edge](how-to-create-transparent-gateway.md). 
 
 ### <a name="have-a-device-management-plan"></a>Disporre di un piano di gestione dei dispositivi
 
@@ -126,7 +126,7 @@ Il valore predefinito del parametro timeToLiveSecs è 7200 secondi, che equivale
 
 ### <a name="do-not-use-debug-versions-of-module-images"></a>Non usare le versioni di debug delle immagini del modulo
 
-Quando si passa da scenari di test a scenari di produzione, ricordarsi di rimuovere le configurazioni di debug dai manifesti di distribuzione. Verificare che nessuna delle immagini dei moduli nei manifesti di distribuzione abbia il suffisso  **\.debug**. Se sono state aggiunte opzioni di creazione per esporre le porte nei moduli per il debug, rimuovere anche queste opzioni di creazione. 
+Quando si passa da scenari di test a scenari di produzione, ricordarsi di rimuovere le configurazioni di debug dai manifesti di distribuzione. Verificare che nessuna delle immagini dei moduli nei manifesti di distribuzione abbia il suffisso **\.debug**. Se sono state aggiunte opzioni di creazione per esporre le porte nei moduli per il debug, rimuovere anche queste opzioni di creazione. 
 
 ## <a name="container-management"></a>Gestione di contenitori
 
@@ -173,7 +173,7 @@ Inoltre, il **motore del contenitore** effettua chiamate ai registri contenitori
 
 Questo elenco di controllo è un punto di partenza per le regole del firewall:
 
-   | URL (\* = carattere jolly) | Porte TCP in uscita | Utilizzo |
+   | URL (\* = carattere jolly) | Porte TCP in uscita | Uso |
    | ----- | ----- | ----- |
    | mcr.microsoft.com  | 443 | Registro contenitori Microsoft |
    | global.azure-devices-provisioning.net  | 443 | Accesso DPS (facoltativo) |
@@ -224,7 +224,7 @@ Per impostazione predefinita, il motore di contenitori di Moby non imposta limit
 
 Aggiungere (o accodare) queste informazioni a un file denominato `daemon.json` e posizionarlo nella posizione corretta per la piattaforma del dispositivo.
 
-| Piattaforma | Località |
+| Piattaforma | Percorso |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
 | Windows | `C:\ProgramData\iotedge-moby\config\` |
@@ -233,7 +233,7 @@ Per rendere effettive le modifiche, è necessario riavviare il motore del conten
 
 **Opzione: regolare le impostazioni del log per ogni modulo contenitore**
 
-Questa operazione può essere eseguita nella **createOptions** di ogni modulo. ad esempio:
+Questa operazione può essere eseguita nella **createOptions** di ogni modulo. Ad esempio:
 
 ```yml
 "createOptions": {

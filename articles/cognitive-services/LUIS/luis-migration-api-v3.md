@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: bb2255a9a68a499ff3e77c1fbd35081a2474cf1d
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 8756d8e60e7612c1610e07b0567465e3a0ea8884
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961943"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531497"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Modifiche all'endpoint di stima per V3
 
@@ -63,7 +63,7 @@ Se si usa bot Framework, Controllo ortografico Bing V7 o si vuole eseguire la mi
 
 Se non si conosce alcuna applicazione client o integrazione (bot Framework e Controllo ortografico Bing V7), si è interessati alla migrazione della creazione di app LUIS e dell'endpoint di stima allo stesso tempo, iniziare a usare l'endpoint di stima V3. L'endpoint di stima v2 sarà ancora disponibile ed è una corretta strategia di fallback. 
 
-## <a name="not-supported"></a>Non supportato
+## <a name="not-supported"></a>Supporto non disponibile
 
 * L'API Controllo ortografico Bing non è supportata nell'endpoint di stima V3-continuare a usare l'endpoint di stima API v2 per le correzioni ortografiche
 
@@ -83,12 +83,12 @@ Il formato della chiamata HTTP dell'endpoint V3 è stato modificato.
 
 Per eseguire una query in base alla versione, è prima di tutto necessario [pubblicare tramite API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) con `"directVersionPublish":true`. Eseguire una query sull'endpoint che fa riferimento all'ID versione anziché al nome dello slot.
 
-|VERSIONE DELL'API DI STIMA|Metodo|URL|
+|VERSIONE DELL'API DI STIMA|METHOD|URL|
 |--|--|--|
 |V3|GET|https://<b>{Region}</b>. API.cognitive.Microsoft.com/Luis/<b>PREDICTION</b>/<b>v 3.0</b>/Apps/<b>{App-ID}</b>/Slots/<b>{nome-slot}</b>/Predict? query =<b>{query}</b>|
 |V3|POST|https://<b>{Region}</b>. API.cognitive.Microsoft.com/Luis/<b>PREDICTION</b>/<b>v 3.0</b>/Apps/<b>{App-ID}</b>/Slots/<b>{nome-slot}</b>/Predict|
 |V2|GET|https://<b>{Region}</b>. API.cognitive.Microsoft.com/Luis/<b>PREDICTION</b>/<b>v 3.0</b>/Apps/<b>{App-ID}</b>/Versions/<b>{Version-ID}</b>/Predict? query =<b>{query}</b>|
-|V2|POST|https://<b>{Region}</b>. API.cognitive.Microsoft.com/Luis/<b>PREDICTION</b><b>v 3.0</b>/Apps/<b>{App-ID}</b>/Versions/<b>{Version-ID}</b>/Predict|
+|V2|POST|https://<b>{Region}</b>. API.cognitive.Microsoft.com/Luis/<b>PREDICTION</b>/<b>v 3.0</b>/Apps/<b>{App-ID}</b>/Versions/<b>{Version-ID}</b>/Predict|
 
 |Valori validi per `SLOT-NAME`|
 |--|
@@ -101,14 +101,14 @@ Per eseguire una query in base alla versione, è prima di tutto necessario [pubb
 
 L'API V3 ha parametri di stringa di query diversi.
 
-|Nome param|digitare|Version|Default|Scopo|
+|Nome param|Tipo|Versione|Predefinito|Finalità|
 |--|--|--|--|--|
 |`log`|boolean|V2 & V3|false|Archivia query nel file di log. Il valore predefinito è False.| 
-|`query`|stringa|Solo V3|Nessun valore predefinito: è obbligatorio nella richiesta GET|**Nella versione V2**, l'espressione da stimare si trova nel parametro `q`. <br><br>**Nella V3**la funzionalità viene passata nel parametro `query`.|
+|`query`|string|Solo V3|Nessun valore predefinito: è obbligatorio nella richiesta GET|**Nella versione V2**, l'espressione da stimare si trova nel parametro `q`. <br><br>**Nella V3**la funzionalità viene passata nel parametro `query`.|
 |`show-all-intents`|boolean|Solo V3|false|Restituisce tutti gli Intent con il punteggio corrispondente nell'oggetto **PREDICTION. Intent** . Gli Intent vengono restituiti come oggetti in un oggetto `intents` padre. Questo consente l'accesso a livello di codice senza la necessità di trovare l'intento in una matrice: `prediction.intents.give`. Nella versione V2 questi sono stati restituiti in una matrice. |
 |`verbose`|boolean|V2 & V3|false|**Nella versione V2**, quando è impostato su true, vengono restituiti tutti gli Intent stimati. Se sono necessari tutti gli intenti previsti, usare il param V3 di `show-all-intents`.<br><br>**In V3**, questo parametro fornisce solo i dettagli relativi ai metadati dell'entità della stima delle entità.  |
-|`timezoneOffset`|stringa|V2|-|Fuso orario applicato alle entità datetimeV2.|
-|`datetimeReference`|stringa|V3|-|[Fuso orario](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) applicato alle entità datetimeV2. Sostituisce `timezoneOffset` dalla versione V2.|
+|`timezoneOffset`|string|V2|-|Fuso orario applicato alle entità datetimeV2.|
+|`datetimeReference`|string|V3|-|[Fuso orario](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) applicato alle entità datetimeV2. Sostituisce `timezoneOffset` dalla versione V2.|
 
 
 ### <a name="v3-post-body"></a>Corpo POST V3
@@ -125,13 +125,13 @@ L'API V3 ha parametri di stringa di query diversi.
 }
 ```
 
-|Proprietà|digitare|Version|Default|Scopo|
+|Proprietà|Tipo|Versione|Predefinito|Finalità|
 |--|--|--|--|--|
 |`dynamicLists`|array|Solo V3|Non obbligatorio.|Gli [elenchi dinamici](#dynamic-lists-passed-in-at-prediction-time) consentono di estendere un'entità di elenco con training e pubblicato esistente, già nell'app Luis.|
 |`externalEntities`|array|Solo V3|Non obbligatorio.|Le [entità esterne](#external-entities-passed-in-at-prediction-time) offrono all'app Luis la possibilità di identificare ed etichettare entità durante il runtime, che possono essere usate come funzionalità per le entità esistenti. |
-|`options.datetimeReference`|stringa|Solo V3|Nessun valore predefinito|Utilizzato per determinare l' [offset del datetimeV2](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). Il formato di datetimeReference è [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
+|`options.datetimeReference`|string|Solo V3|Nessun valore predefinito|Utilizzato per determinare l' [offset del datetimeV2](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). Il formato di datetimeReference è [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
 |`options.preferExternalEntities`|boolean|Solo V3|false|Specifica se l' [entità esterna dell'utente (con lo stesso nome dell'entità esistente)](#override-existing-model-predictions) viene utilizzata o se per la stima viene utilizzata l'entità esistente del modello. |
-|`query`|stringa|Solo V3|Obbligatorio.|**Nella versione V2**, l'espressione da stimare si trova nel parametro `q`. <br><br>**Nella V3**la funzionalità viene passata nel parametro `query`.|
+|`query`|string|Solo V3|Obbligatorio.|**Nella versione V2**, l'espressione da stimare si trova nel parametro `q`. <br><br>**Nella V3**la funzionalità viene passata nel parametro `query`.|
 
 
 

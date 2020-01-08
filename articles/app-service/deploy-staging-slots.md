@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 09/19/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1fec6de65fade0bbb35907f9c69334e16d9193bf
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 63070b2c1e6adbb0149446b218e6e58023b2d409
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671748"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666457"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurare gli ambienti di gestione temporanea nel Servizio app di Azure
 <a name="Overview"></a>
@@ -23,16 +23,20 @@ La distribuzione dell'applicazione in uno slot non di produzione presenta i segu
 * La distribuzione preliminare di un'app in uno slot e la successiva implementazione in un ambiente di produzione garantiscono che tutte le istanze dello slot vengano effettivamente eseguite prima di passare alla fase di produzione. Ciò consente di evitare i tempi di inattività al momento della distribuzione dell'app. Il reindirizzamento del traffico è lineare e nessuna richiesta viene eliminata in seguito alle operazioni di scambio. È possibile automatizzare l'intero flusso di lavoro configurando lo [scambio automatico](#Auto-Swap) quando non è necessaria la convalida pre-swap.
 * Dopo uno scambio, lo slot con l'app gestita temporaneamente include l'app di produzione precedente. Se le modifiche applicate nello slot di produzione non risultano corrette, è possibile ripetere immediatamente lo scambio dei due slot per recuperare l'ultimo sito con i dati corretti.
 
-Ogni piano del servizio app supporta un numero diverso di slot di distribuzione. Non sono previsti costi aggiuntivi per l'uso degli slot di distribuzione. Per conoscere il numero di slot supportati dal livello dell'app, vedere [limiti del servizio app](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits). 
+Ogni piano del servizio app supporta un numero diverso di slot di distribuzione. Non sono previsti costi aggiuntivi per l'uso degli slot di distribuzione. Per conoscere il numero di slot supportati dal livello dell'app, vedere [limiti del servizio app](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits). 
 
 Per ridimensionare l'app a un livello diverso, verificare che il livello di destinazione supporti il numero di slot già utilizzati dall'app. Ad esempio, se l'app ha più di cinque slot, non è possibile ridurla al livello **standard** , perché il livello **standard** supporta solo cinque slot di distribuzione. 
 
 <a name="Add"></a>
 
-## <a name="add-a-slot"></a>Aggiungere uno slot
+## <a name="add-a-slot"></a>Aggiungi uno slot
 Per poter abilitare più slot di distribuzione, l'app deve essere in esecuzione con il piano **Standard**, **Premium** o **Isolato**.
 
-1. Nel [portale di Azure](https://portal.azure.com/) aprire la [pagina delle risorse](../azure-resource-manager/manage-resources-portal.md#manage-resources) dell'app.
+
+1. nella [portale di Azure](https://portal.azure.com/)cercare e selezionare **Servizi app** e selezionare l'app. 
+   
+    ![Cerca servizi app](./media/web-sites-staged-publishing/search-for-app-services.png)
+   
 
 2. Nel riquadro sinistro selezionare slot di **distribuzione** > **Aggiungi slot**.
    
@@ -166,7 +170,7 @@ Se si verificano errori nello slot di destinazione (ad esempio, lo slot di produ
 
 <a name="Auto-Swap"></a>
 
-## <a name="configure-auto-swap"></a>Configura scambio automatico
+## <a name="configure-auto-swap"></a>Configurare lo scambio automatico
 
 > [!NOTE]
 > Lo scambio automatico non è supportato nelle app Web in Linux.
@@ -241,7 +245,7 @@ Dopo che l'impostazione è stata salvata, la percentuale di client specificata v
 Dopo che un client viene indirizzato automaticamente a uno slot specifico, viene aggiunto a tale slot per la durata della sessione client. Nel browser client è possibile visualizzare lo slot a cui è associata la sessione esaminando il cookie `x-ms-routing-name` nelle intestazioni HTTP. Per una richiesta indirizzata allo slot di "staging" il cookie è `x-ms-routing-name=staging`. Per una richiesta indirizzata allo slot di produzione il cookie è `x-ms-routing-name=self`.
 
    > [!NOTE]
-   > Accanto al portale di Azure è anche possibile usare il comando [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set) nell'interfaccia della riga di comando di Azure per impostare le percentuali di routing da strumenti ci/CD come le pipeline DevOps o altri sistemi di automazione.
+   > Accanto alla portale di Azure è anche possibile usare il comando [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set) nell'interfaccia della riga di comando di Azure per impostare le percentuali di routing da strumenti ci/CD come le pipeline DevOps o altri sistemi di automazione.
    > 
 
 ### <a name="route-production-traffic-manually"></a>Indirizzare manualmente il traffico di produzione
@@ -256,7 +260,7 @@ Per consentire agli utenti di rifiutare esplicitamente l'app beta, ad esempio, �
 
 La stringa `x-ms-routing-name=self` specifica lo slot di produzione. Quando il browser client accede al collegamento, viene reindirizzato allo slot di produzione. Ogni richiesta successiva ha il cookie `x-ms-routing-name=self` che blocca la sessione allo slot di produzione.
 
-Per consentire agli utenti di acconsentire esplicitamente all'app beta, impostare lo stesso parametro di query sul nome dello slot non di produzione. Ecco un esempio:
+Per consentire agli utenti di acconsentire esplicitamente all'app beta, impostare lo stesso parametro di query sul nome dello slot non di produzione. Ad esempio:
 
 ```
 <webappname>.azurewebsites.net/?x-ms-routing-name=staging
@@ -268,7 +272,7 @@ Per impostazione predefinita, ai nuovi slot viene assegnata una regola di routin
 
 ## <a name="delete-a-slot"></a>Eliminare uno slot
 
-Passare alla pagina delle risorse dell'app. Selezionare **slot di distribuzione** >  *\<slot per eliminare >* **Panoramica** > . Selezionare **Elimina** sulla barra dei comandi.  
+Cercare e selezionare l'app. Selezionare **slot di distribuzione** >  *\<slot per eliminare >* **Panoramica** > . Selezionare **Elimina** sulla barra dei comandi.  
 
 ![Eliminare uno slot di distribuzione](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 
@@ -327,16 +331,16 @@ Get-AzLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller Slo
 Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
 ```
 
-## <a name="automate-with-arm-templates"></a>Automatizzare i modelli ARM
+## <a name="automate-with-resource-manager-templates"></a>Automatizzare i modelli di Gestione risorse
 
-I [modelli ARM](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) sono file JSON dichiarativi usati per automatizzare la distribuzione e la configurazione delle risorse di Azure. Per scambiare gli slot con i modelli ARM, è necessario impostare due proprietà nelle risorse *Microsoft. Web/sites/Slots* e *Microsoft. Web/sites* :
+[Azure Resource Manager modelli](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) sono file JSON dichiarativi usati per automatizzare la distribuzione e la configurazione delle risorse di Azure. Per scambiare gli slot con i modelli di Gestione risorse, è necessario impostare due proprietà nelle risorse *Microsoft. Web/sites/Slots* e *Microsoft. Web/sites* :
 
 - `buildVersion`: proprietà di stringa che rappresenta la versione corrente dell'app distribuita nello slot. Ad esempio: "V1", "1.0.0.1" o "2019-09-20T11:53:25.2887393-07:00".
 - `targetBuildVersion`: proprietà stringa che specifica la `buildVersion` dello slot. Se targetBuildVersion non è uguale all'`buildVersion`corrente, verrà attivata l'operazione di scambio individuando lo slot con la `buildVersion`specificata.
 
-### <a name="example-arm-template"></a>Modello ARM di esempio
+### <a name="example-resource-manager-template"></a>Modello di Gestione risorse di esempio
 
-Il modello ARM seguente aggiornerà il `buildVersion` dello slot di staging e imposterà il `targetBuildVersion` nello slot di produzione. Questa operazione comporterà lo scambio dei due slot. Il modello presuppone che sia già stato creato un webapp con uno slot denominato "Staging".
+Il seguente modello di Gestione risorse aggiornerà la `buildVersion` dello slot di staging e imposterà il `targetBuildVersion` nello slot di produzione. Questa operazione comporterà lo scambio dei due slot. Il modello presuppone che sia già stato creato un webapp con uno slot denominato "Staging".
 
 ```json
 {
@@ -380,7 +384,7 @@ Il modello ARM seguente aggiornerà il `buildVersion` dello slot di staging e im
 }
 ```
 
-Questo modello ARM è idempotente, vale a dire che può essere eseguito ripetutamente e produrre lo stesso stato degli slot. Dopo la prima esecuzione, `targetBuildVersion` corrisponderà al `buildVersion`corrente, quindi non verrà attivato uno scambio.
+Questo modello di Gestione risorse è idempotente, vale a dire che può essere eseguito ripetutamente e produrre lo stesso stato degli slot. Dopo la prima esecuzione, `targetBuildVersion` corrisponderà al `buildVersion`corrente, quindi non verrà attivato uno scambio.
 
 <!-- ======== Azure CLI =========== -->
 

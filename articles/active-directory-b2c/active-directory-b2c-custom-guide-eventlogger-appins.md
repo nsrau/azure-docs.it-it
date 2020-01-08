@@ -1,7 +1,7 @@
 ---
 title: Tenere traccia del comportamento degli utenti con Application Insights
 titleSuffix: Azure AD B2C
-description: Informazioni su come abilitare i log eventi di Application Insights dai percorsi utente di Azure AD B2C usando criteri personalizzati (anteprima).
+description: Informazioni su come abilitare i registri eventi in Application Insights da Azure AD B2C percorsi utente usando criteri personalizzati.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -11,18 +11,18 @@ ms.workload: identity
 ms.date: 10/12/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6643759688817811890fd022c7aa061607270b9e
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 8376deecb5e184c01b41495b868b57bd8fd745d2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74948947"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367961"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Tenere traccia del comportamento degli utenti in Azure Active Directory B2C usando Application Insights
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Quando si usa Azure Active Directory B2C (Azure AD B2C) insieme a applicazione Azure Insights, è possibile ottenere registri eventi dettagliati e personalizzati per i percorsi utente. In questo articolo viene spiegato come:
+Quando si usa Azure Active Directory B2C (Azure AD B2C) insieme a applicazione Azure Insights, è possibile ottenere registri eventi dettagliati e personalizzati per i percorsi utente. In questo articolo vengono illustrate le operazioni seguenti:
 
 * Ottenere informazioni dettagliate sul comportamento degli utenti.
 * Risolvere i problemi relativi ai criteri in ambiente di sviluppo o di produzione.
@@ -33,7 +33,7 @@ Quando si usa Azure Active Directory B2C (Azure AD B2C) insieme a applicazione A
 
 Il framework dell'esperienza di gestione delle identità in Azure AD B2C include il provider `Handler="Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0`. Tale provider invia i dati degli eventi direttamente ad Application Insights usando la chiave di strumentazione fornita ad Azure AD B2C.
 
-Un profilo tecnico usa questo provider per definire un evento da Azure AD B2C. Il profilo specifica il nome dell'evento, le attestazioni che verranno registrate e la chiave di strumentazione. Per registrare un evento, il profilo tecnico viene quindi aggiunto come `orchestration step` o `validation technical profile` a un percorso utente personalizzato.
+Un profilo tecnico usa questo provider per definire un evento da Azure AD B2C. Il profilo specifica il nome dell'evento, le attestazioni che verranno registrate e la chiave di strumentazione. Per pubblicare un evento, il profilo tecnico viene quindi aggiunto come `orchestration step` in un percorso utente personalizzato.
 
 Application Insights può unificare gli eventi usando un ID di correlazione per registrare una sessione utente. Application Insights rende disponibili l'evento e la sessione entro pochi secondi e offre molti strumenti di visualizzazione, esportazione e analisi.
 
@@ -48,11 +48,11 @@ Quando si usa Application Insights con Azure AD B2C, è sufficiente creare una r
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Assicurarsi di usare la directory che contiene la sottoscrizione di Azure selezionando il filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene la sottoscrizione. Questo non è il tenant di Azure AD B2C.
 3. Scegliere **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure e quindi cercare e selezionare **Application Insights**.
-4. Fare clic su **Create**(Crea).
+4. Fare clic su **Crea**.
 5. Immettere un **nome** per la risorsa.
 6. In **Tipo di applicazione** selezionare **Applicazione Web ASP.NET**.
 7. In **Gruppo di risorse** selezionare un gruppo esistente o immettere un nome per un nuovo gruppo.
-8. Fare clic su **Create**(Crea).
+8. Fare clic su **Crea**.
 4. Dopo aver creato la risorsa di Application Insights, espandere **Informazioni di base** e prendere nota della chiave di strumentazione.
 
 ![Panoramica e chiave di strumentazione di Application Insights](./media/active-directory-b2c-custom-guide-eventlogger-appins/app-insights.png)

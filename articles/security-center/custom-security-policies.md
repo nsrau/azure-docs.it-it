@@ -8,18 +8,18 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 3e60c0e165b8f9ec79aac2048011d9e315b0ce18
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 34dbace304ccf70891ef53dd768de60d87e26967
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483956"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666636"
 ---
 # <a name="using-custom-security-policies-preview"></a>Uso di criteri di sicurezza personalizzati (anteprima)
 
 Per proteggere i sistemi e l'ambiente, il Centro sicurezza di Azure genera raccomandazioni sulla sicurezza. Questi consigli si basano sulle procedure consigliate del settore, che vengono incorporate nei criteri di sicurezza generici predefiniti forniti a tutti i clienti. Possono inoltre derivare dalla conoscenza di standard di settore e normativi del Centro sicurezza.
 
-Con questa funzionalità di anteprima, è possibile aggiungere iniziative *personalizzate* . Si riceveranno quindi raccomandazioni se l'ambiente non segue i criteri creati.
+Con questa funzionalità di anteprima, è possibile aggiungere iniziative *personalizzate* . Si riceveranno quindi raccomandazioni se l'ambiente non segue i criteri creati. Tutte le iniziative personalizzate create verranno visualizzate insieme alle iniziative predefinite nel dashboard conformità normativa descritto nell'esercitazione [migliorare la conformità alle normative](security-center-compliance-dashboard.md).
 
 Come illustrato nella documentazione di [criteri di Azure](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#definition-location) , quando si specifica un percorso per l'iniziativa personalizzata, deve trattarsi di un gruppo di gestione o di una sottoscrizione. 
 
@@ -52,12 +52,18 @@ Come illustrato nella documentazione di [criteri di Azure](https://docs.microsof
     1. Immettere il percorso e il nome della definizione.
     1. Selezionare i criteri da includere e fare clic su **Aggiungi**.
     1. Immettere i parametri desiderati.
-    1. Fare clic su **Save**.
+    1. Fare clic su **Salva**.
     1. Nella pagina Aggiungi iniziative personalizzate fare clic su Aggiorna e la nuova iniziativa verrà visualizzata come disponibile.
     1. Fare clic su **Aggiungi** e assegnarlo alla sottoscrizione.
 
     > [!NOTE]
     > La creazione di nuove iniziative richiede le credenziali del proprietario della sottoscrizione. Per altre informazioni sui ruoli di Azure, vedere [autorizzazioni nel centro sicurezza di Azure](security-center-permissions.md).
+
+    La nuova iniziativa ha effetto ed è possibile osservare l'impatto nei due modi seguenti:
+
+    * Nell'intestazione laterale del Centro sicurezza, in Policy & Compliance, selezionare **Compliance Regulatory**. Il dashboard di conformità si apre per mostrare la nuova iniziativa personalizzata insieme alle iniziative predefinite.
+    
+    * Si inizierà a ricevere consigli se l'ambiente non segue i criteri definiti.
 
 1. Per visualizzare le raccomandazioni risultanti per il criterio, fare clic su **raccomandazioni** nella barra laterale per aprire la pagina raccomandazioni. Le indicazioni verranno visualizzate con un'etichetta "personalizzata" e saranno disponibili entro circa un'ora.
 

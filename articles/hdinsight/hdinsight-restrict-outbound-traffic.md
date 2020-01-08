@@ -7,18 +7,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: 8f6959eb6f9d17a368e7df7b95ecc511d0396f87
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 6771cdb206920c8e3b746e28573de1742543b4c8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621447"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646694"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configurare il traffico di rete in uscita per i cluster HDInsight di Azure con il firewall
 
 Questo articolo illustra la procedura per proteggere il traffico in uscita dal cluster HDInsight usando il firewall di Azure. I passaggi seguenti presuppongono che si stia configurando un firewall di Azure per un cluster esistente. Se si distribuisce un nuovo cluster e si è protetti da un firewall, creare prima il cluster HDInsight e la subnet, quindi seguire i passaggi descritti in questa guida.
 
-## <a name="background"></a>Contesto
+## <a name="background"></a>Background
 
 I cluster HDInsight di Azure vengono in genere distribuiti nella propria rete virtuale. Il cluster ha dipendenze da servizi esterni alla rete virtuale che richiedono l'accesso alla rete per funzionare correttamente.
 
@@ -61,19 +61,19 @@ Creare una raccolta di regole dell'applicazione che consenta al cluster di invia
 
     | Proprietà|  Valore|
     |---|---|
-    |Name| FwAppRule|
+    |Nome| FwAppRule|
     |Priorità|200|
-    |Azione|Consenti|
+    |Azione|Allow|
 
     **Sezione Tag FQDN**
 
-    | Name | Indirizzo di origine | Tag FQDN | Note |
+    | Nome | Indirizzo di origine | Tag FQDN | Note |
     | --- | --- | --- | --- |
     | Rule_1 | * | WindowsUpdate e HDInsight | Obbligatorio per i servizi HDI |
 
     **Sezione FQDN di destinazione**
 
-    | Name | Indirizzi di origine | Protocollo: porta | FQDN di destinazione | Note |
+    | Nome | Indirizzi di origine | Protocollo: porta | FQDN di destinazione | Note |
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https: 443 | login.windows.net | Consente l'attività di accesso di Windows |
     | Rule_3 | * | https: 443 | login.microsoftonline.com | Consente l'attività di accesso di Windows |
@@ -95,22 +95,22 @@ Creare le regole di rete per configurare correttamente il cluster HDInsight.
 
     | Proprietà|  Valore|
     |---|---|
-    |Name| FwNetRule|
+    |Nome| FwNetRule|
     |Priorità|200|
-    |Azione|Consenti|
+    |Azione|Allow|
 
     **Sezione indirizzi IP**
 
-    | Name | Protocollo | Indirizzi di origine | Indirizzi di destinazione | Porte di destinazione | Note |
+    | Nome | Protocollo | Indirizzi di origine | Indirizzi di destinazione | Porte di destinazione | Note |
     | --- | --- | --- | --- | --- | --- |
-    | Rule_1 | UDP | * | * | 123 | Servizio ora |
+    | Rule_1 | UDP | * | * | 123 | Servizio Ora |
     | Rule_2 | Qualsiasi | * | DC_IP_Address_1, DC_IP_Address_2 | * | Se si usa Enterprise Security Package (ESP), aggiungere una regola di rete nella sezione indirizzi IP che consenta la comunicazione con AAD-DS per i cluster ESP. È possibile trovare gli indirizzi IP dei controller di dominio nella sezione AAD-DS nel portale |
     | Rule_3 | TCP | * | Indirizzo IP dell'account di Data Lake Storage | * | Se si usa Azure Data Lake Storage, è possibile aggiungere una regola di rete nella sezione indirizzi IP per risolvere un problema di SNI con ADLS Gen1 e Gen2. Questa opzione consente di instradare il traffico al firewall, il che potrebbe comportare costi più elevati per carichi di dati di grandi dimensioni, ma il traffico verrà registrato e controllabile nei log del firewall. Determinare l'indirizzo IP per l'account Data Lake Storage. È possibile usare un comando di PowerShell, ad esempio `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` per risolvere l'FQDN in un indirizzo IP.|
     | Rule_4 | TCP | * | * | 12000 | Opzionale Se si usa Log Analytics, creare una regola di rete nella sezione indirizzi IP per abilitare la comunicazione con l'area di lavoro di Log Analytics. |
 
     **Sezione Tag servizio**
 
-    | Name | Protocollo | Indirizzi di origine | Tag del servizio | Porte di destinazione | Note |
+    | Nome | Protocollo | Indirizzi di origine | Tag di servizio | Porte di destinazione | Note |
     | --- | --- | --- | --- | --- | --- |
     | Rule_7 | TCP | * | SQL | 1433 | Configurare una regola di rete nella sezione Tag del servizio per SQL che consentirà di registrare e controllare il traffico SQL, a meno che non siano stati configurati endpoint di servizio per SQL Server nella subnet HDInsight, che ignorerà il firewall. |
 
@@ -178,7 +178,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 
 L'integrazione del firewall di Azure con i log di monitoraggio di Azure è utile per la prima volta che un'applicazione funziona quando non si è a conoscenza di tutte le dipendenze dell'applicazione. Per altre informazioni sui log di Monitoraggio di Azure, vedere [Analizzare i dati di log in Monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md)
 
-Per informazioni sui limiti di scalabilità del firewall di Azure e sugli aumenti delle richieste, vedere [questo](../azure-subscription-service-limits.md#azure-firewall-limits) documento o consultare le [domande frequenti](../firewall/firewall-faq.md).
+Per informazioni sui limiti di scalabilità del firewall di Azure e sugli aumenti delle richieste, vedere [questo](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits) documento o consultare le [domande frequenti](../firewall/firewall-faq.md).
 
 ## <a name="access-to-the-cluster"></a>Accesso al cluster
 
@@ -203,7 +203,7 @@ Le istruzioni precedenti consentono di configurare il firewall di Azure per la l
 
 | **Endpoint** |
 |---|
-| SQL di Azure |
+| Azure SQL |
 | Archiviazione di Azure |
 | Azure Active Directory |
 

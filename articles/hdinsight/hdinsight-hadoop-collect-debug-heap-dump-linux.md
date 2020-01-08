@@ -2,26 +2,26 @@
 title: Abilitare i dump dell'heap per i servizi Apache Hadoop in HDInsight - Azure
 description: Abilitare i dump dell'heap per i servizi Apache Hadoop dai cluster HDInsight basati su Linux per il debug e l'analisi.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/27/2018
-ms.author: hrasheed
-ms.openlocfilehash: 90de0b4bfad4c5096ebc38eb3d31fc41bca6649b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 01/02/2020
+ms.openlocfilehash: 9134eb6922b0ed37bbe6051b138da2c7c082b175
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494852"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658798"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Abilitare i dump dell'heap per i servizi Apache Hadoop in HDInsight basato su Linux
 
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
-I dump dell'heap includono uno snapshot della memoria dell'applicazione, ad esempio i valori delle variabili al momento della creazione del dump. Si rivelano quindi utili per diagnosticare i problemi che si verificano in fase di esecuzione.
+I dump dell'heap includono uno snapshot della memoria dell'applicazione, ad esempio i valori delle variabili al momento della creazione del dump. Quindi sono utili per la diagnosi dei problemi che si verificano in fase di esecuzione.
 
-## <a name="whichServices"></a>Services
+## <a name="services"></a>Servizi
 
 È possibile abilitare dump dell'heap per i servizi seguenti:
 
@@ -33,11 +33,11 @@ I dump dell'heap includono uno snapshot della memoria dell'applicazione, ad esem
 
 È inoltre possibile abilitare dump dell'heap per la mappa e ridurre i processi eseguiti da HDInsight.
 
-## <a name="configuration"></a>Informazioni sulla configurazione dei dump dell'heap
+## <a name="understanding-heap-dump-configuration"></a>Informazioni sulla configurazione del dump dell'heap
 
 I dump dell'heap vengono abilitati mediante il passaggio di opzioni (talvolta noto come parametri) a JVM quando viene avviato un servizio. Per la maggior parte dei servizi [Apache Hadoop](https://hadoop.apache.org/) è possibile modificare lo script della shell usato per avviare il servizio per passare queste opzioni.
 
-In ogni script è presente un'esportazione per **\*\_OPTS**, che contiene le opzioni passate a JVM. Ad esempio, nello script **hadoop-env.sh**, la riga che inizia con `export HADOOP_NAMENODE_OPTS=` contiene le opzioni per il servizio NameNode.
+In ogni script è presente un'esportazione per **\*\_opz**, che contiene le opzioni passate a JVM. Ad esempio, nello script **hadoop-env.sh**, la riga che inizia con `export HADOOP_NAMENODE_OPTS=` contiene le opzioni per il servizio NameNode.
 
 I processi di mapping e riduzione sono leggermente diversi, in quanto queste operazioni sono processi figlio del servizio MapReduce. Ogni processo di mapping o riduzione viene eseguito in un contenitore figlio e ci sono due elementi che contengono le opzioni di JVM. Entrambi sono contenuti in **mapred-site.xml**:
 
@@ -81,12 +81,7 @@ Ad esempio, se si usa `-XX:HeapDumpPath=/tmp`, il dump viene archiviato nella di
 
 Per modificare la configurazione di un servizio, attenersi alla procedura seguente:
 
-1. Aprire l'interfaccia utente Web di Ambari per il cluster. L'URL è https://YOURCLUSTERNAME.azurehdinsight.net.
-
-    Quando richiesto, eseguire l'autenticazione al sito usando il nome dell'account HTTP (impostazione predefinita: admin) e la password per il cluster.
-
-   > [!NOTE]  
-   > È possibile che Ambari richieda il nome utente e la password una seconda volta. In questo caso, immettere lo stesso nome e la stessa password dell'account.
+1. Da un Web browser passare a `https://CLUSTERNAME.azurehdinsight.net`, dove `CLUSTERNAME` è il nome del cluster.
 
 2. Usando l'elenco a sinistra, selezionare l'area del servizio da modificare. Ad esempio, **HDFS**. Nell'area centrale selezionare la scheda **Configs** .
 
@@ -121,4 +116,3 @@ Per modificare la configurazione di un servizio, attenersi alla procedura seguen
    > Le voci per il pulsante **Restart** (Riavvia) possono essere diverse per altri servizi.
 
 8. Dopo il riavvio dei servizi, usare il pulsante **Service Actions** per **Disattivare la modalità di manutenzione**. Questa opzione indica ad Ambari di riprendere il monitoraggio per gli avvisi relativi al servizio.
-

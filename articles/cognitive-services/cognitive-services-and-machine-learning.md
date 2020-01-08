@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: diberry
-ms.openlocfilehash: 48bac68b518706cf3a23d2283da7cda49846e0a7
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: cde505e4c95de9b9693a0e9d260d7fa84f3e905b
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795837"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531480"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Servizi cognitivi e Machine Learning
 
@@ -22,7 +22,7 @@ Servizi cognitivi fornisce funzionalità di machine learning per risolvere i pro
 
 [Servizi cognitivi](welcome.md) è un gruppo di servizi, ognuno dei quali supporta funzionalità di stima generalizzate diverse. I servizi sono divisi in categorie diverse che consentono di trovare il servizio corretto. 
 
-|Categoria servizio|Scopo|
+|Categoria servizio|Finalità|
 |--|--|
 |[Decisione](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|Crea app che espongono raccomandazioni per un processo decisionale informato ed efficiente.|
 |[Lingua](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Permetti alle tue app di elaborare il linguaggio naturale con script predefiniti, valutare il sentiment e riconoscere i desideri degli utenti.|
@@ -40,7 +40,7 @@ Usare un'altra soluzione di apprendimento automatico quando si:
 
 * È necessario scegliere l'algoritmo ed è necessario eseguire il training su dati molto specifici.
 
-## <a name="what-is-machine-learning"></a>Che cos'è l'apprendimento automatico?
+## <a name="what-is-machine-learning"></a>Che cos'è Machine Learning?
 
 Machine Learning è un concetto in cui è possibile riunire i dati e un algoritmo per risolvere una necessità specifica. Una volta sottoposto a training i dati e l'algoritmo, l'output è un modello che è possibile utilizzare di nuovo con dati diversi. Il modello con training fornisce informazioni dettagliate in base ai nuovi dati. 
 
@@ -101,7 +101,7 @@ I dati seguenti categorizzano ogni servizio in base al tipo di dati che consente
 |[Lettore immersivo](./immersive-reader/overview.md)|x|||
 |[Riconoscimento input penna](./Ink-recognizer/overview.md)|x|x||
 |[Language Understanding (LUIS)](./LUIS/what-is-luis.md)||x||
-|[Personalizer](./personalizer/what-is-personalizer.md)|x*|x*|x|
+|[Personalizza esperienze](./personalizer/what-is-personalizer.md)|x*|x*|x|
 |[QnA Maker](./QnAMaker/Overview/overview.md)||x||
 |[Riconoscimento voce](./speaker-recognition/home.md)||x||
 |[Sintesi vocale (TTS)](speech-service/text-to-speech.md)|x|x||
@@ -131,10 +131,10 @@ Servizi cognitivi che forniscono modelli esportati per altri strumenti di Machin
 |--|--|
 |[Visione personalizzata](./custom-vision-service/home.md)|[Esportazione](./Custom-Vision-Service/export-model-python.md) per Tensorflow per Android, CoreML per IOS11, ONNX per Windows ml|
 
-## <a name="learn-more"></a>Altre informazioni
+## <a name="learn-more"></a>Altre informazioni.
 
 * [Guida all'architettura: quali sono i prodotti di Machine Learning in Microsoft?](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
-* [Machine Learning: Introduzione a Deep Learning e Machine Learning](../machine-learning/service/concept-deep-learning-vs-machine-learning.md)
+* [Machine Learning: Introduzione a Deep Learning e Machine Learning](../machine-learning/concept-deep-learning-vs-machine-learning.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

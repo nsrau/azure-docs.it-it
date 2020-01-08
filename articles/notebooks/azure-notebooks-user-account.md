@@ -1,22 +1,24 @@
 ---
-title: Accedere ad Azure Notebooks
+title: Accedi Azure Notebooks anteprima
 description: Configurare l'account utente per Azure Notebooks usando un account Microsoft o un account aziendale o dell'istituto di istruzione.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: a2d8c8180dfb5dc31e273c7953a57f40cf31238d
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 9401a9e483f3f8db5af827f53937cb0f01b27a28
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277632"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646297"
 ---
-# <a name="your-user-account-for-azure-notebooks"></a>L'account utente per Azure Notebooks
+# <a name="your-user-account-for-azure-notebooks-preview"></a>Account utente per Azure Notebooks anteprima
 
 È possibile usare Azure Notebooks anche senza aver eseguito l'accesso con un account utente:
 
 - Se non si esegue l'accesso, è possibile creare ed eseguire i notebook ma non è possibile conservare i notebook o i file di dati nell'ambito dei progetti. Gli utenti che ricevono un collegamento a un notebook di Azure, ad esempio, possono accedere al notebook senza dover eseguire l'accesso.
 - Se si esegue l'accesso, Azure Notebooks mantiene tutti i progetti associati al proprio account. Agli utenti viene inoltre assegnato un ID utente che consente di condividere i progetti e i notebook con altre persone.
-  - Se l'account usato per Azure Notebooks è associato anche a una sottoscrizione di Azure, è possibile ottenere vantaggi aggiuntivi, come la possibilità di eseguire i notebook in server più potenti, creare notebook privati e concedere autorizzazioni per i notebook a singoli utenti.
+- Se l'account usato per Azure Notebooks è associato anche a una sottoscrizione di Azure, è possibile ottenere vantaggi aggiuntivi, come la possibilità di eseguire i notebook in server più potenti, creare notebook privati e concedere autorizzazioni per i notebook a singoli utenti.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 L'accesso ad Azure Notebooks richiede un account Microsoft o un account aziendale o dell'istituto di istruzione. Viene richiesto di immettere le credenziali dell'account quando si seleziona il comando **Accedi** nell'angolo superiore destro della pagina di Notebooks:
 

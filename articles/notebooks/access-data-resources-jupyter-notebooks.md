@@ -1,14 +1,14 @@
 ---
-title: Accedere alle risorse dati dal notebook di Jupyter su Azure
-description: Come accedere a file, API REST, database e a varie risorse di archiviazione di Azure diverse da un notebook di Jupyter.
-ms.topic: article
+title: Accedere ai dati in Jupyter Notebooks-anteprima Azure Notebooks
+description: Informazioni su come accedere a file, API REST, database e diverse risorse di archiviazione di Azure da un notebook di Jupyter.
+ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: 23acdf99f6cb69f100e484e236580f3b2b43ba94
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 47d2f869021851c1451a66a84b1a70ec4ff4998f
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277690"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646348"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Accedere ai dati cloud in un notebook
 
@@ -17,6 +17,8 @@ Per svolgere lavori interessanti in un notebook di Jupyter sono necessari i dati
 È ovviamente possibile [importare i file di dati in un progetto](work-with-project-data-files.md), anche usando comandi `curl` da un notebook per scaricare direttamente un file. È probabile, tuttavia, che sia necessario lavorare con dati molto più estesi che sono disponibili da origini non file come API REST, database relazionali e risorse di archiviazione cloud come le tabelle di Azure.
 
 Questo articolo illustra brevemente le varie opzioni. Poiché l'accesso ai dati risulta ottimale in azione, è possibile trovare il codice eseguibile negli [Esempi di notebook di Azure: accesso ai dati](https://github.com/Microsoft/AzureNotebooks/blob/master/Samples/Access%20your%20data%20in%20Azure%20Notebooks.ipynb).
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="rest-apis"></a>API REST
 
@@ -73,7 +75,7 @@ Azure offre una serie di altri tipi di database che è possibile usare. Gli arti
 - [Database di Azure per PostgreSQL: usare Python per connettersi ai dati ed eseguire query](https://docs.microsoft.com/azure/postgresql/connect-python)
 - [Guida introduttiva: usare cache Redis di Azure con Python](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
 - [Database di Azure per MySQL: usare Python per connettersi ai dati ed eseguire query](https://docs.microsoft.com/azure/mysql/connect-python)
-- [Data Factory di Azure](https://azure.microsoft.com/services/data-factory/)
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
   - [Copiare la procedura guidata per Azure Data Factory](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
 
 ## <a name="next-steps"></a>Passaggi successivi

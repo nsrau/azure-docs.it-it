@@ -11,16 +11,16 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
-ms.openlocfilehash: 6e3b4be836699cc200d30168c14462f81136646b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8c4c346dd004e435846aff5592a20cd747c45df7
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821088"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552628"
 ---
 # <a name="tutorial-add-an-azure-sql-database-single-database-to-a-failover-group"></a>Esercitazione: aggiungere un database singolo di database SQL di Azure a un gruppo di failover
 
-Configurare un gruppo di failover per un database singolo di database SQL di Azure e un failover di test usando l'interfaccia della riga di comando di portale di Azure, PowerShell o Azure.  In questa esercitazione si apprenderà come:
+Configurare un gruppo di failover per un database singolo di database SQL di Azure e un failover di test usando l'interfaccia della riga di comando di portale di Azure, PowerShell o Azure.  In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > - Creare un database singolo del database SQL di Azure.
@@ -427,6 +427,10 @@ Questa parte dell'esercitazione usa i cmdlet AZ CLI seguenti:
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 ---
+
+
+> [!IMPORTANT]
+> Se si desidera lasciare il gruppo di risorse, ma eliminare il database secondario, rimuoverlo dal gruppo di failover prima di eliminarlo. L'eliminazione di un database secondario prima che venga rimossa dal gruppo di failover può causare un comportamento imprevedibile. 
 
 
 ## <a name="full-scripts"></a>Script completi

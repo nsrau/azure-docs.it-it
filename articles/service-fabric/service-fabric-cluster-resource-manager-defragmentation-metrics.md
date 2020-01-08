@@ -1,25 +1,16 @@
 ---
-title: Deframmentazione delle metriche in Azure Service Fabric | Documentazione Microsoft
-description: Informazioni generali sull'uso della deframmentazione o della compressione come strategia per le metriche in Service Fabric
-services: service-fabric
-documentationcenter: .net
+title: Deframmentazione delle metriche in Azure Service Fabric
+description: Informazioni su come usare la deframmentazione o la compressione come strategia per le metriche in Service Fabric. Questa tecnica è utile per i servizi di grandi dimensioni.
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: e5ebfae5-c8f7-4d6c-9173-3e22a9730552
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 6e041e41372c72c6792c1fb4a1fbdc3bbe475b21
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bba459be4408f4a4bc438bb33b0570a91e84f2cd
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60844399"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563361"
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Deframmentazione delle metriche e del carico in Service Fabric
 La strategia predefinita di Cluster Resource Manager di Service Fabric per la gestione delle metriche di carico del cluster è di distribuire il carico. Assicurare che i nodi vengano usati in modo uniforme evita aree sensibili e non sensibili che possono causare conflitti e spreco di risorse. La distribuzione dei carichi di lavoro nel cluster è il modo più sicuro per la sopravvivenza agli errori perché garantisce che qualsiasi anomalia non interessi gran parte di un carico di lavoro. 
@@ -42,7 +33,7 @@ Il diagramma di seguito offre una rappresentazione visiva di due cluster, uno de
 
 <center>
 
-![Confronto tra cluster bilanciati e deframmentati][Image1]
+![confronto tra cluster bilanciati e deframmentati][Image1]
 </center>
 
 Nel caso bilanciato, considerare il numero di spostamenti necessari per posizionare uno degli oggetti servizio di dimensioni più grandi. Nel cluster deframmentato il carico di lavoro di grandi dimensioni potrebbe trovarsi nel nodo quattro o cinque senza dover attendere lo spostamento di altri servizi.

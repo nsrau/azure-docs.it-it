@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: df7d0fde05c974ef4cec739236a3ac0aebd63ecc
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 0ed2bd7f1e03d8d5fa11f7e76010d087605f0fe1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534545"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460693"
 ---
 # <a name="import-data-wizard-for-azure-cognitive-search"></a>Importazione guidata dati per Azure ricerca cognitiva
 
@@ -68,7 +68,7 @@ La procedura guidata **Importa dati** si connette a un'origine dati esterna usan
 | [**Database SQL di Azure**](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) |Il nome del servizio, le credenziali per un utente di database con autorizzazione di lettura e un nome di database possono essere specificati nella pagina o tramite una stringa di connessione ADO.NET. Per visualizzare o personalizzare le proprietà, scegliere l'opzione relativa alla stringa di connessione. <br/><br/>È necessario specificare nella pagina la tabella o la vista che fornisce il set di righe. Questa opzione viene visualizzata quando la connessione ha esito positivo, con un elenco a discesa che permette di effettuare una selezione.|
 | **Macchine virtuali SQL Server in Azure** |Specificare un nome completo del servizio, un ID utente, una password e un database come stringa di connessione. Per usare questa origine dati, è necessario avere già installato un certificato nell'archivio locale che esegue la crittografia della connessione. Per istruzioni, vedere [connessione di una macchina virtuale SQL ad Azure ricerca cognitiva](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>È necessario specificare nella pagina la tabella o la vista che fornisce il set di righe. Questa opzione viene visualizzata quando la connessione ha esito positivo, con un elenco a discesa che permette di effettuare una selezione. |
 | [**Azure Cosmos DB**](search-howto-index-cosmosdb.md)|Tra i requisiti: l'account, il database e la raccolta. Tutti i documenti nella raccolta verranno inclusi nell'indice. È possibile definire una query per rendere flat o filtrare il set di righe oppure lasciare vuota la query. Una query non è obbligatoria in questa procedura guidata.|
-| [**Archiviazione BLOB di Azure**](search-howto-indexing-azure-blob-storage.md) |Tra i requisiti: l'account di archiviazione e un contenitore. Facoltativamente, se i nomi dei BLOB seguono una convenzione di denominazione virtuale a scopo di raggruppamento, è possibile specificare la porzione directory virtuale del nome come una cartella nel contenitore. Per altre informazioni, vedere [Indicizzazione di documenti nell'archivio BLOB di Azure con Ricerca di Azure](search-howto-indexing-azure-blob-storage.md). |
+| [**Archivio BLOB di Azure**](search-howto-indexing-azure-blob-storage.md) |Tra i requisiti: l'account di archiviazione e un contenitore. Facoltativamente, se i nomi dei BLOB seguono una convenzione di denominazione virtuale a scopo di raggruppamento, è possibile specificare la porzione directory virtuale del nome come una cartella nel contenitore. Per altre informazioni, vedere [Indicizzazione di documenti nell'archivio BLOB di Azure con Ricerca di Azure](search-howto-indexing-azure-blob-storage.md). |
 | [**Archiviazione tabelle di Azure**](search-howto-indexing-azure-tables.md) |Tra i requisiti: l'account di archiviazione e un nome di tabella. Facoltativamente, è possibile specificare una query per recuperare un subset delle tabelle. Per altre informazioni, vedere [Indicizzazione nell'archivio tabelle di Azure con Ricerca di Azure](search-howto-indexing-azure-tables.md). |
 
 ## <a name="wizard-output"></a>Output della procedura guidata
@@ -109,7 +109,7 @@ La procedura guidata genera un indice incompleto, che verrà popolato con i docu
 
 1. Impostare gli attributi per determinare il modo in cui tale campo viene utilizzato in un indice. 
 
-   Eseguire questo passaggio perché gli attributi determinano l'espressione fisica dei campi nell'indice. Se si desidera modificare gli attributi in un secondo momento, anche a livello di codice, è quasi sempre necessario eliminare e ricompilare l'indice. Gli attributi di base, ad esempio **ricercabili** e **recuperabili** , hanno un [effetto trascurabile sull'archiviazione](search-what-is-an-index.md#storage-implications). L'abilitazione dei filtri e l'uso dei suggerimenti per aumentare i requisiti di archiviazione. 
+   Eseguire questo passaggio perché gli attributi determinano l'espressione fisica dei campi nell'indice. Se si desidera modificare gli attributi in un secondo momento, anche a livello di codice, è quasi sempre necessario eliminare e ricompilare l'indice. Gli attributi di base, ad esempio **ricercabili** e **recuperabili** , hanno un [effetto trascurabile sull'archiviazione](search-what-is-an-index.md#index-size). L'abilitazione dei filtri e l'uso dei suggerimenti per aumentare i requisiti di archiviazione. 
    
    + **Ricercabile** abilita la ricerca full-text. Ogni campo usato nelle query in formato libero o nelle espressioni di query deve contenere questo attributo. Per ogni campo contrassegnato come **Ricercabile** vengono creati indici invertiti.
 

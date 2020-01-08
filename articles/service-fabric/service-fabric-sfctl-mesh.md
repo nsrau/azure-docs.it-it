@@ -1,25 +1,16 @@
 ---
-title: Interfaccia della riga di comando di Azure Service Fabric - sfctl mesh | Microsoft Docs
-description: Descrive i comandi sfctl mesh dell'interfaccia della riga di comando di Service Fabric.
-services: service-fabric
-documentationcenter: na
+title: INTERFACCIA della riga di comando di Azure Service Fabric-mesh sfctl
+description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric. Include un elenco di comandi per la gestione di applicazioni mesh Service Fabric.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: a97cf0a9dd9eccea2db60d73308338350102cb8c
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 608efba614f17932b3bfb7852c16ffbeaca02457
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901124"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646076"
 ---
 # <a name="sfctl-mesh"></a>sfctl mesh
 Consente di eliminare e gestire le applicazioni mesh Service Fabric.
