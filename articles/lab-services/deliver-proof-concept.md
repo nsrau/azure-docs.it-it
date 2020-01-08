@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: takamath
-ms.openlocfilehash: 13e3f6be851e81b1186d55bb313dd23f1920f007
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: ca843213760cee60799568a6f33059c2bd91c835
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616361"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75643288"
 ---
 # <a name="deliver-a-proof-of-concept"></a>Fornire un modello di prova 
 
-Uno degli scenari principali per Azure DevTest Labs è l'abilitazione di ambienti di sviluppo e test nel cloud. Ecco alcuni esempi:
+Uno degli scenari principali per Azure DevTest Labs è l'abilitazione di ambienti di sviluppo e test nel cloud. Ad esempio:
 
 * Creazione di desktop per sviluppatori nel cloud.
 * Configurazione degli ambienti per il test.
@@ -33,7 +33,7 @@ DevTest Labs fornisce inoltre i criteri di Guardrails e dei costi per consentire
 
 Ogni azienda ha requisiti diversi per il modo in cui Azure DevTest Labs possono essere incorporati correttamente nell'ambiente. Questo articolo descrive i passaggi più comuni che le aziende devono completare per garantire un modello di verifica efficace. Un modello di prova è il primo passo verso una distribuzione end-to-end corretta. 
 
-## <a name="getting-started"></a>Introduzione 
+## <a name="getting-started"></a>Inizia ora 
 
 Per iniziare a consegnare un modello di prova. È importante dedicare del tempo a conoscere Azure e DevTest Labs.  Di seguito sono riportate alcune risorse iniziali: 
 
@@ -47,8 +47,8 @@ Per iniziare a consegnare un modello di prova. È importante dedicare del tempo 
 
 Per completare correttamente un progetto pilota o un modello di prova con DevTest Labs, esistono alcuni prerequisiti: 
 
-* **Sottoscrizione di Azure**: Le aziende hanno spesso un [Enterprise Agreement](https://azure.microsoft.com/pricing/purchase-options/enterprise-agreement/) esistente che consente l'accesso ad Azure e possono usare una sottoscrizione esistente o nuova per DevTest Labs. In alternativa, le aziende possono usare una [sottoscrizione di Visual Studio](https://azure.microsoft.com/pricing/member-offers/visual-studio-subscriptions/) durante il progetto pilota, sfruttando i vantaggi offerti dai crediti Azure gratuiti. Se nessuna di queste opzioni è disponibile, un'azienda può creare e usare un [account Azure gratuito](https://azure.microsoft.com/free/search/?&OCID=AID719825_SEM_g4lyBqgB&lnkd=Bing_Azure_Brand&msclkid=ecc4275a31b61375749e7a5322c20de8&dclid=CMGW5-m78-ICFaLt4QodmUwGtQ). Se è presente una Enterprise Agreement, l'uso di una [sottoscrizione di sviluppo/test Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) è un'ottima opzione per ottenere l'accesso ai sistemi operativi client Windows 10/Windows 8.1 e a tariffe scontate per i carichi di lavoro di sviluppo e test. 
-* **Tenant Azure Active Directory**: Per consentire la gestione degli utenti (ad esempio, l'aggiunta di utenti o l'aggiunta di proprietari del Lab), tali utenti devono far parte del [tenant Azure Active Directory](https://azure.microsoft.com/services/active-directory/) usato nella sottoscrizione di Azure per il progetto pilota. Spesso le aziende impostano l' [identità ibrida](../active-directory/hybrid/whatis-hybrid-identity.md) per consentire agli utenti di usare l'identità locale nel cloud, ma questa operazione non è necessaria per il progetto pilota di DevTest Labs. 
+* **Sottoscrizione di Azure**: le aziende hanno spesso un [Enterprise Agreement](https://azure.microsoft.com/pricing/purchase-options/enterprise-agreement/) esistente che consente l'accesso ad Azure e possono usare una sottoscrizione esistente o nuova per DevTest Labs. In alternativa, le aziende possono usare una [sottoscrizione di Visual Studio](https://azure.microsoft.com/pricing/member-offers/visual-studio-subscriptions/) durante il progetto pilota, sfruttando i vantaggi offerti dai crediti Azure gratuiti. Se nessuna di queste opzioni è disponibile, un'azienda può creare e usare un [account Azure gratuito](https://azure.microsoft.com/free/search/?&OCID=AID719825_SEM_g4lyBqgB&lnkd=Bing_Azure_Brand&msclkid=ecc4275a31b61375749e7a5322c20de8&dclid=CMGW5-m78-ICFaLt4QodmUwGtQ). Se è disponibile un Enterprise Agreement, l'uso di una [sottoscrizione sviluppo/test Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) è un'ottima opzione per ottenere l'accesso ai sistemi operativi client Windows 10/Windows 8.1 e a tariffe scontate per i carichi di lavoro di sviluppo e test. 
+* **Tenant Azure Active Directory**: per consentire la gestione degli utenti (ad esempio, l'aggiunta di utenti o l'aggiunta di proprietari del Lab), tali utenti devono far parte del [tenant di Azure Active Directory](https://azure.microsoft.com/services/active-directory/) usato nella sottoscrizione di Azure per il progetto pilota. Spesso le aziende impostano l' [identità ibrida](../active-directory/hybrid/whatis-hybrid-identity.md) per consentire agli utenti di usare l'identità locale nel cloud, ma questa operazione non è necessaria per il progetto pilota di DevTest Labs. 
 
 ## <a name="scoping-of-the-pilot"></a>Ambito del progetto pilota 
 
@@ -81,7 +81,7 @@ Questa sezione illustra un esempio da usare per la definizione dell'ambito di un
 > [!TIP]
 > Per ridurre al minimo la possibilità di configurare il progetto in caso di errore, si consiglia vivamente di non ignorare l'esempio descritto in questa sezione. 
 
-### <a name="overview"></a>Panoramica 
+### <a name="overview"></a>Overview 
 
 Stiamo pianificando di sviluppare un nuovo ambiente in Azure basato su DevTest Labs per i fornitori da usare come ambiente isolato dalla rete aziendale. Per determinare se la soluzione soddisferà i requisiti, verrà sviluppato un modello di prova per convalidare la soluzione end-to-end. Sono stati inclusi diversi fornitori per provare a verificarne l'esperienza. 
 
@@ -124,10 +124,10 @@ Si prevede che la soluzione disponga dei componenti seguenti:
 
 Prima di rilasciare una soluzione DevTest Labs completa, è necessario prendere alcune importanti decisioni di pianificazione e progettazione. L'esperienza di utilizzo di un modello di prova può aiutarti a prendere queste decisioni. Ulteriori considerazioni includono: 
 
-* **Topologia di sottoscrizione**: I requisiti di livello aziendale per le risorse in Azure possono estendersi oltre le [quote disponibili all'interno di una singola sottoscrizione](https://docs.microsoft.com/azure/azure-subscription-service-limits). Questa operazione richiede più sottoscrizioni e/o richieste di servizio di Azure per aumentare i limiti di sottoscrizione iniziali. È importante decidere prima come distribuire le risorse tra le sottoscrizioni. Una risorsa preziosa è la [Guida alla decisione relativa alla sottoscrizione](https://docs.microsoft.com/azure/architecture/cloud-adoption/decision-guides/subscriptions/) perché è difficile spostare le risorse in un'altra sottoscrizione in un secondo momento. Un Lab, ad esempio, non può essere spostato in un'altra sottoscrizione dopo che è stato creato.  
-* **Topologia di rete**: L' [infrastruttura di rete predefinita](../app-service/networking-features.md) creata automaticamente da DevTest Labs potrebbe non essere sufficiente a soddisfare i requisiti e i vincoli per gli utenti aziendali. È comune vedere [reti virtuali connesse di Azure ExpressRoute](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/), [Hub e spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) per la connettività tra sottoscrizioni e anche il [routing forzato](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) per garantire solo la connettività locale. DevTest Labs consente di connettere le reti virtuali esistenti al Lab per abilitarne l'uso quando si creano nuove macchine virtuali nel Lab. 
-* **Accesso remoto delle macchine virtuali**: Sono disponibili molte opzioni per accedere in modalità remota alle macchine virtuali disponibili in DevTest Labs. Il modo più semplice consiste nell'usare indirizzi IP pubblici o indirizzi IP pubblici condivisi. Si tratta [di impostazioni disponibili nel Lab](devtest-lab-shared-ip.md). Se queste opzioni non sono sufficienti, è anche possibile usare un gateway di accesso remoto. Questa opzione è illustrata nell' [architettura di riferimento di DevTest Labs Enterprise](devtest-lab-reference-architecture.md) ed è descritta più avanti nella [documentazione di Gateway Desktop remoto di DevTest Labs](configure-lab-remote-desktop-gateway.md). Le aziende possono anche usare ExpressRoute o una VPN da sito a sito per connettere i propri Lab alla rete locale. Questa opzione Abilita le connessioni dirette desktop remoto o SSH alle macchine virtuali in base all'indirizzo IP privato senza esposizione a Internet. 
-* **Gestione delle autorizzazioni**: Le due autorizzazioni chiave comunemente usate in DevTest Labs sono [utente proprietario e Lab](devtest-lab-add-devtest-user.md). È importante decidere prima di implementare DevTest Labs su vasta scala, che verrà considerato attendibile per ogni livello di accesso nel Lab. Un modello comune è il proprietario del budget (ad esempio, il responsabile del team) come proprietario del Lab e i membri del team come utenti del Lab. Questo modello consente alla persona (responsabile del team) responsabile del budget di modificare le impostazioni dei criteri e di tenere il team entro il budget.  
+* **Topologia di sottoscrizione**: i requisiti a livello di organizzazione per le risorse in Azure possono estendersi oltre le [quote disponibili all'interno di una singola sottoscrizione](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). Questa operazione richiede più sottoscrizioni e/o richieste di servizio di Azure per aumentare i limiti di sottoscrizione iniziali. È importante decidere prima come distribuire le risorse tra le sottoscrizioni. Una risorsa preziosa è la [Guida alla decisione relativa alla sottoscrizione](https://docs.microsoft.com/azure/architecture/cloud-adoption/decision-guides/subscriptions/) perché è difficile spostare le risorse in un'altra sottoscrizione in un secondo momento. Un Lab, ad esempio, non può essere spostato in un'altra sottoscrizione dopo che è stato creato.  
+* **Topologia di rete**: l' [infrastruttura di rete predefinita](../app-service/networking-features.md) creata automaticamente da DevTest Labs potrebbe non essere sufficiente per soddisfare i requisiti e i vincoli per gli utenti aziendali. È comune vedere [reti virtuali connesse di Azure ExpressRoute](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/), [Hub e spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) per la connettività tra sottoscrizioni e anche il [routing forzato](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) per garantire solo la connettività locale. DevTest Labs consente di connettere le reti virtuali esistenti al Lab per abilitarne l'uso quando si creano nuove macchine virtuali nel Lab. 
+* **Accesso remoto delle macchine virtuali**: sono disponibili diverse opzioni per accedere in modalità remota alle macchine virtuali disponibili in DevTest Labs. Il modo più semplice consiste nell'usare indirizzi IP pubblici o indirizzi IP pubblici condivisi. Si tratta [di impostazioni disponibili nel Lab](devtest-lab-shared-ip.md). Se queste opzioni non sono sufficienti, è anche possibile usare un gateway di accesso remoto. Questa opzione è illustrata nell' [architettura di riferimento di DevTest Labs Enterprise](devtest-lab-reference-architecture.md) ed è descritta più avanti nella [documentazione di Gateway Desktop remoto di DevTest Labs](configure-lab-remote-desktop-gateway.md). Le aziende possono anche usare ExpressRoute o una VPN da sito a sito per connettere i propri Lab alla rete locale. Questa opzione Abilita le connessioni dirette desktop remoto o SSH alle macchine virtuali in base all'indirizzo IP privato senza esposizione a Internet. 
+* **Gestione delle autorizzazioni**: le due autorizzazioni chiave comunemente usate in DevTest Labs sono [utente proprietario e Lab](devtest-lab-add-devtest-user.md). È importante decidere prima di implementare DevTest Labs su vasta scala, che verrà considerato attendibile per ogni livello di accesso nel Lab. Un modello comune è il proprietario del budget (ad esempio, il responsabile del team) come proprietario del Lab e i membri del team come utenti del Lab. Questo modello consente alla persona (responsabile del team) responsabile del budget di modificare le impostazioni dei criteri e di tenere il team entro il budget.  
 
 ## <a name="completing-the-proof-of-concept"></a>Completamento del modello di verifica 
 

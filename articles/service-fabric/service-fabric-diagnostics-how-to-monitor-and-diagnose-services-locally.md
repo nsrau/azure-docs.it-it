@@ -1,25 +1,16 @@
 ---
-title: Eseguire il debug delle app Azure Service Fabric in Windows | Microsoft Docs
+title: Eseguire il debug di app Service Fabric di Azure in Windows
 description: Informazioni su come eseguire il monitoraggio e la diagnosi dei servizi scritti usando Microsoft Azure Service Fabric in un computer di sviluppo locale.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: edcc0631-ed2d-45a3-851d-2c4fa0f4a326
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 31c559c1ab314b7e1f29bd96f74d6d82cfcc0420
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8435bb82afddd0070679768bb8d22ad9290f2279
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60392833"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464616"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Monitorare e diagnosticare servizi in una configurazione di sviluppo con computer locale
 > [!div class="op_single_selector"]

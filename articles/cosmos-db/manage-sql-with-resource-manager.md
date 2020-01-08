@@ -1,17 +1,17 @@
 ---
-title: Creare e gestire Azure Cosmos DB con modelli di Azure Resource Manager
+title: Creare e gestire Azure Cosmos DB con modelli di Gestione risorse
 description: Usare modelli di Azure Resource Manager per creare e configurare Azure Cosmos DB per l'API SQL (Core)
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: thvankra
-ms.openlocfilehash: 62c04fed03ad2346d0f548a4a8028f2d7d6b3486
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 95301efce4b2abe143ec8c8ea5e5ccc445191d3e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850466"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75643798"
 ---
 # <a name="manage-azure-cosmos-db-sql-core-api-resources-with-azure-resource-manager-templates"></a>Gestire Azure Cosmos DB risorse API SQL (Core) con modelli di Azure Resource Manager
 
@@ -204,5 +204,5 @@ Altre risorse:
 
 * [Documentazione di Azure Resource Manager](/azure/azure-resource-manager/)
 * [Schema del provider di risorse Azure Cosmos DB](/azure/templates/microsoft.documentdb/allversions)
-* [Modelli di avvio rapido Azure Cosmos DB](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
+* [Modelli di avvio rapido Azure Cosmos DB](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Documentdb&pageNumber=1&sort=Popular)
 * [Risolvere gli errori comuni di distribuzione di Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md)

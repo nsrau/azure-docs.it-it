@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/15/2019
-ms.openlocfilehash: 883e1007b35991c1f5d8f0c6e949efcb48c27a1d
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 437a0c95ea4b48baa74bf6a577dc06429833bc31
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327213"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644580"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>Accedere ai log dell'applicazione YARN di Apache Hadoop in HDInsight basato su Linux
 
@@ -67,7 +67,7 @@ Quando si eseguono questi comandi, specificare le informazioni relative a &lt;ap
 
 L'interfaccia utente di YARN ResourceManager viene eseguita sul nodo head del cluster Si accede tramite l'interfaccia utente Web di Ambariri. Per visualizzare i log di YARN, procedere come segue:
 
-1. Nel Web browser passare a https://CLUSTERNAME.azurehdinsight.net. Sostituire CLUSTERNAME con il nome del cluster HDInsight.
+1. Nel Web browser passare a `https://CLUSTERNAME.azurehdinsight.net`. Sostituire CLUSTERNAME con il nome del cluster HDInsight.
 2. Nell'elenco dei servizi a sinistra, selezionare **YARN**.
 
     ![Servizio Yarn Apache Ambari selezionato](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarn-service-selected.png)

@@ -14,18 +14,26 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/20/2019
 ms.author: tarcher
-ms.openlocfilehash: efba440448ac912b7656eeab017eef947ab25e95
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 02b6ddf723e47e4608e631aef96f8a12d5f68698
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034692"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369017"
 ---
 # <a name="install-and-configure-terraform-to-provision-azure-resources"></a>Installare e configurare la bonifica per il provisioning delle risorse di Azure
  
 Terraform offre un modo semplice per definire, visualizzare in anteprima e distribuire l'infrastruttura cloud usando un [linguaggio di creazione modelli semplice](https://www.terraform.io/docs/configuration/syntax.html). Questo articolo descrive la procedura da seguire per usare Terraform per effettuare il provisioning di risorse in Azure.
 
 Per altre informazioni su come usare Terraform con Azure, visitare l'[hub di Terraform](/azure/terraform).
+> [!NOTE]
+> Per il supporto specifico, contattare direttamente il servizio di bonifica usando uno dei canali della community:
+>
+>   • La [sezione di bonifica](https://discuss.hashicorp.com/c/terraform-core) del portale della community contiene domande, casi d'uso e modelli utili.
+>
+>   • Per domande relative al provider, visitare la sezione relativa ai [provider di bonifica](https://discuss.hashicorp.com/c/terraform-providers) del portale della community.
+
+
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

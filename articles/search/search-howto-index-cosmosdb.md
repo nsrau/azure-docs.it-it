@@ -1,20 +1,20 @@
 ---
 title: Cerca nei dati Azure Cosmos DB
 titleSuffix: Azure Cognitive Search
-description: Eseguire la ricerca per indicizzazione di un'origine dati Azure Cosmos DB e inserire dati in un indice di ricerca full-text in Azure ricerca cognitiva. Gli indicizzatori automatizzano l'inserimento di dati per alcune origini dati come Azure Cosmos DB.
+description: Importa i dati da Azure Cosmos DB in un indice ricercabile in Azure ricerca cognitiva. Gli indicizzatori automatizzano l'inserimento di dati per alcune origini dati come Azure Cosmos DB.
 author: mgottein
 manager: nitinme
 ms.author: magottei
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 616e5dc5ac6416d2efe1d9338b99c2b400fe572a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 01/02/2020
+ms.openlocfilehash: ef136345c7c41c720efd3c79923b6ce646de41e2
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977115"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75642166"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Come indicizzare i dati Cosmos DB usando un indicizzatore in Azure ricerca cognitiva 
 
@@ -175,12 +175,12 @@ Il corpo della richiesta contiene la definizione dell'origine dati, che deve inc
 
 | Campo   | Description |
 |---------|-------------|
-| **nome** | Richiesto. Scegliere un nome qualsiasi per rappresentare l'oggetto origine dati. |
-|**type**| Richiesto. Deve essere `cosmosdb`. |
-|**credentials** | Richiesto. Deve essere una stringa di connessione Cosmos DB.<br/>Per le raccolte SQL, le stringhe di connessione sono in questo formato: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/><br/>Per le raccolte MongoDB, aggiungere **tipologia API = MongoDB** alla stringa di connessione:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/><br/>Per i grafici Gremlin e le tabelle Cassandra, iscriversi all' [anteprima dell'indicizzatore gestita](https://aka.ms/azure-cognitive-search/indexer-preview) per ottenere l'accesso all'anteprima e informazioni su come formattare le credenziali.<br/><br/>Evitare i numeri di porta nell'URL dell'endpoint. Se si include il numero di porta, Azure ricerca cognitiva non sarà in grado di indicizzare il database Azure Cosmos DB.|
+| **nome** | Obbligatorio. Scegliere un nome qualsiasi per rappresentare l'oggetto origine dati. |
+|**type**| Obbligatorio. Deve essere `cosmosdb`. |
+|**credentials** | Obbligatorio. Deve essere una stringa di connessione Cosmos DB.<br/>Per le raccolte SQL, le stringhe di connessione sono in questo formato: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/><br/>Per le raccolte MongoDB, aggiungere **tipologia API = MongoDB** alla stringa di connessione:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/><br/>Per i grafici Gremlin e le tabelle Cassandra, iscriversi all' [anteprima dell'indicizzatore gestita](https://aka.ms/azure-cognitive-search/indexer-preview) per ottenere l'accesso all'anteprima e informazioni su come formattare le credenziali.<br/><br/>Evitare i numeri di porta nell'URL dell'endpoint. Se si include il numero di porta, Azure ricerca cognitiva non sarà in grado di indicizzare il database Azure Cosmos DB.|
 | **container** | Contiene i seguenti elementi: <br/>**name**: obbligatorio. Consente di specificare l'ID della raccolta di database da indicizzare.<br/>**query**: facoltativa. È possibile specificare una query per rendere flat un documento JSON arbitrario in uno schema flat che può essere indicizzato da Azure ricerca cognitiva.<br/>Per l'API MongoDB, l'API Gremlin e API Cassandra, le query non sono supportate. |
 | **dataChangeDetectionPolicy** | Consigliato. Vedere la sezione [Indicizzazione di documenti modificati](#DataChangeDetectionPolicy).|
-|**dataDeletionDetectionPolicy** | facoltativo. Vedere la sezione [Indicizzazione di documenti eliminati](#DataDeletionDetectionPolicy).|
+|**dataDeletionDetectionPolicy** | Facoltativa. Vedere la sezione [Indicizzazione di documenti eliminati](#DataDeletionDetectionPolicy).|
 
 ### <a name="using-queries-to-shape-indexed-data"></a>Utilizzo di query per formare dati indicizzati
 È possibile specificare una query di SQL per appiattire le matrici o le proprietà annidate, progettare le proprietà JSON e filtrare i dati da indicizzare. 
@@ -254,10 +254,10 @@ Assicurarsi che lo schema dell'indice di destinazione sia compatibile con lo sch
 ### <a name="mapping-between-json-data-types-and-azure-cognitive-search-data-types"></a>Mapping tra tipi di dati JSON e tipi di dati ricerca cognitiva di Azure
 | Tipo di dati JSON | Tipi di campi dell'indice di destinazione compatibili |
 | --- | --- |
-| Booleano |Edm.Boolean, Edm.String |
+| Bool |Edm.Boolean, Edm.String |
 | Numeri che rappresentano numeri interi |Edm.Int32, Edm.Int64, Edm.String |
 | Numeri che rappresentano numeri a virgola mobile |Edm.Double, Edm.String |
-| Stringa |Edm.String |
+| string |Edm.String |
 | Matrici di tipi primitivi, ad esempio ["a", "b", "c"] |Collection(Edm.String) |
 | Stringhe che rappresentano date |Edm.DateTimeOffset, Edm.String |
 | Oggetti GeoJSON, ad esempio { "type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
@@ -364,7 +364,7 @@ L'esempio seguente crea un'origine dati con criteri di eliminazione temporanea:
 
 ## <a name="NextSteps"></a>Passaggi successivi
 
-Congratulazioni. Si è appreso come integrare Azure Cosmos DB con ricerca cognitiva di Azure usando un indicizzatore.
+Congratulazioni! Si è appreso come integrare Azure Cosmos DB con ricerca cognitiva di Azure usando un indicizzatore.
 
 * Per altre informazioni su Azure Cosmos DB, vedere la [pagina del servizio Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 * Per ulteriori informazioni su Azure ricerca cognitiva, vedere la [pagina del servizio di ricerca](https://azure.microsoft.com/services/search/).

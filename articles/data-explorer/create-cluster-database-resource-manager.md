@@ -7,18 +7,18 @@ ms.reviewer: oflipman
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: 4a95804bcff3653df42186907f03d0bc27a603ea
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 9a91f81c9d28f1b3c8d553a2a8a26d53ff1b2b3e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74869715"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444482"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>Creare un cluster e un database di Azure Esplora dati usando un modello di Azure Resource Manager
 
 > [!div class="op_single_selector"]
-> * [di Microsoft Azure](create-cluster-database-portal.md)
-> * [Interfaccia della riga di comando](create-cluster-database-cli.md)
+> * [Portale](create-cluster-database-portal.md)
+> * [CLI](create-cluster-database-cli.md)
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
@@ -26,7 +26,7 @@ ms.locfileid: "74869715"
 
 Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Per usare Esplora dati di Azure, è necessario prima creare un cluster e quindi uno o più database al suo interno. Quindi si inseriscono (caricano) i dati in un database per poter eseguire query. 
 
-In questo articolo viene creato un cluster e un database di Azure Esplora dati usando un [modello di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). L'articolo descrive come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze. Per informazioni sulla creazione di modelli, vedere Creazione di [modelli di Azure Resource Manager](/azure/azure-resource-manager/resource-group-authoring-templates). Per la sintassi e le proprietà JSON da usare in un modello, vedere [tipi di risorse Microsoft. kusto](/azure/templates/microsoft.kusto/allversions).
+In questo articolo viene creato un cluster e un database di Azure Esplora dati usando un [modello di Azure Resource Manager](../azure-resource-manager/management/overview.md). L'articolo descrive come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze. Per informazioni sulla creazione di modelli, vedere Creazione di [modelli di Azure Resource Manager](/azure/azure-resource-manager/resource-group-authoring-templates). Per la sintassi e le proprietà JSON da usare in un modello, vedere [tipi di risorse Microsoft. kusto](/azure/templates/microsoft.kusto/allversions).
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -104,7 +104,7 @@ Per altri esempi di modello, vedere [Modelli di avvio rapido di Azure](https://a
 
 1. Per creare un cluster e un database, usare il pulsante seguente per avviare la distribuzione. Fare clic con il pulsante destro del mouse e selezionare **Apri in una nuova finestra** per poter seguire il resto dei passaggi di questo articolo.
 
-    [![Distribuisci in Azure](media/create-cluster-database-resource-manager/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-kusto-cluster-database%2Fazuredeploy.json)
+    [![Distribuzione in Azure](media/create-cluster-database-resource-manager/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-kusto-cluster-database%2Fazuredeploy.json)
 
     Il pulsante **Distribuzione in Azure** consente di passare al portale di Azure per compilare un modulo di distribuzione.
 

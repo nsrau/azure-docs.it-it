@@ -1,20 +1,17 @@
 ---
 title: Regole configurabili basate su soglie in analisi di flusso di Azure
 description: Questo articolo descrive come usare i dati di riferimento per ottenere una soluzione per la creazione di avvisi che disponga di regole basate su soglie configurabili in Analisi di flusso di Azure.
-services: stream-analytics
-author: zhongc
-ms.author: zhongc
-manager: kfile
-ms.reviewer: jasonh
+author: mamccrea
+ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: f8fd21f411093e22b2b1dc5afd6da9cb26db6ff8
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 94fdddf11acb6763ed98a4b7e17304fbde0e25dd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934249"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369712"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Elaborare regole basate su soglie configurabili in Analisi di flusso di Azure
 Questo articolo descrive come usare i dati di riferimento per ottenere una soluzione per la creazione di avvisi che usi regole basate su soglie configurabili in Analisi di flusso di Azure.
@@ -138,7 +135,7 @@ HAVING
 Questi dati JSON di esempio rappresentano i dati di input **metrics** che vengono usati nella query di streaming precedente. 
 
 - Sono elencati tre eventi di esempio nell'intervallo di tempo di 1 minuto, con valore `T14:50`. 
-- Tutti e tre hanno lo stesso valore `deviceId` `978648`.
+- Tutti e tre hanno lo stesso valore `deviceId``978648`.
 - I valori delle metriche CPU variano in ciascun evento, rispettivamente `98`, `95` e `80`. Solo i primi due eventi di esempio superano la regola di avviso della CPU stabilita nella regola.
 - Il campo includeDim nella regola di avviso aveva il numero di chiave 2. Il campo della chiave 2 corrispondente negli eventi di esempio è denominato `NodeName`. I tre eventi di esempio hanno rispettivamente valori `N024`, `N024` e `N014`. Nell'output viene visualizzato solo il nodo `N024`, dal momento che sono gli unici dati corrispondenti ai criteri di avviso per uso elevato della CPU. `N014` non soddisfa la soglia di CPU elevata.
 - La regola di avviso è configurata con un valore `filter` solo sul numero di chiave 2, che corrisponde al campo `cluster` negli eventi di esempio. I tre eventi di esempio hanno tutti valore `C1` e soddisfano i criteri di filtro.

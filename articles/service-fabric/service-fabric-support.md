@@ -1,25 +1,16 @@
 ---
-title: Informazioni sulle opzioni di supporto di Azure Service Fabric | Documentazione Microsoft
+title: Informazioni sulle opzioni di supporto di Azure Service Fabric
 description: Versioni dei cluster di Azure Service Fabric supportate e link ai ticket di supporto
-services: service-fabric
-documentationcenter: .net
 author: pkcsf
-manager: jpconnock
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: troubleshooting
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/24/2018
 ms.author: pkc
-ms.openlocfilehash: ac36b1a538d5899613e19f157695d0bc333d9ece
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 7494f0072f27f2c9b00db7070f19dfc05627eacf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679052"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465626"
 ---
 # <a name="azure-service-fabric-support-options"></a>Opzioni di supporto di Azure Service Fabric
 
@@ -54,7 +45,7 @@ Altre informazioni su:
 
 È disponibile un archivio GitHub per la segnalazione dei problemi relativi a Service Fabric.  Vengono inoltre monitorati attivamente i seguenti forum.
 
-### <a name="github-repo"></a>Archivio GitHub 
+### <a name="github-repo"></a>Repository GitHub 
 
 Segnalare i problemi di Azure Service Fabric nell'[archivio Git dei problemi relativi a Service Fabric](https://github.com/Azure/service-fabric-issues). Questo archivio è destinato alla segnalazione e al rilevamento dei problemi di Azure Service Fabric e all'invio di richieste di funzionalità minori. **Non usarlo per segnalare problemi del sito live**.
 

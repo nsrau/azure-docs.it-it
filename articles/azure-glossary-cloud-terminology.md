@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 9a93786759941def4cf8677509b1b2565cac5090
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f5e0344cb1da86661ae87b5e45bd93dd181e7bb0
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60325426"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659560"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossario di Microsoft Azure: un dizionario di terminologia cloud sulla piattaforma Azure
 
 Il glossario di Microsoft Azure è un breve dizionario di terminologia cloud per la piattaforma Azure. Vedere anche la pagina relativa alla
 
-* [Microsoft Azure e Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) -definizioni di servizi di Azure e le relative controparti AWS.<!-- I propose to link to https://azure.microsoft.com/services/ instead of this -->
+* [Microsoft Azure e Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) -definizioni dei servizi di Azure e delle relative controparti AWS.<!-- I propose to link to https://azure.microsoft.com/services/ instead of this -->
 * [Terminologia del cloud computing](https://azure.microsoft.com/overview/cloud-computing-dictionary/) - Terminologia generale relativa al cloud.
 
 ## <a name="account"></a>account
@@ -75,7 +75,7 @@ Vedere [Esplorare e selezionare immagini di macchine virtuali Windows in Azure c
 
 ## <a name="limits"></a>limiti
 Numero di risorse che è possibile creare o benchmark delle prestazioni che può essere raggiunto. I limiti sono in genere associati a sottoscrizioni, servizi e offerte.  
-Vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](azure-subscription-service-limits.md)
+Vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](azure-resource-manager/management/azure-subscription-service-limits.md)
 
 ## <a name="load-balancer"></a>bilanciamento del carico
 Risorsa che distribuisce il traffico in ingresso nei computer di una rete. In Azure, il servizio di bilanciamento del carico distribuisce il traffico nelle macchine virtuali definite in un set di bilanciamento del carico . Il servizio di [bilanciamento del carico](load-balancer/load-balancer-overview.md) può essere connesso a Internet oppure interno.  
@@ -110,9 +110,9 @@ Vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring
 Servizio che fornisce le risorse da distribuire e gestire tramite Resource Manager. Ogni provider di risorse offre operazioni per l'uso delle risorse distribuite. È possibile accedere ai provider di risorse tramite il portale di Azure, Azure PowerShell e diversi SDK di programmazione.  
 Vedere [Panoramica di Azure Resource Manager](azure-resource-manager/resource-group-overview.md)
 
-## <a name="role"></a>role
+## <a name="role"></a>ruolo
 Mezzo per il controllo dell'accesso che può essere assegnato a utenti, gruppi e servizi. I ruoli sono in grado di eseguire azioni, ad esempio la creazione, la gestione e la lettura nelle risorse di Azure.  
-Vedere [RBAC: ruoli predefiniti](role-based-access-control/built-in-roles.md)
+Vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](role-based-access-control/built-in-roles.md)
 
 ## <a name="sla"></a>contratto di servizio
 Contratto di servizio che definisce gli impegni di Microsoft in merito a tempi di attività e connettività. Ogni servizio di Azure ha un contratto di servizio specifico.  
@@ -121,7 +121,7 @@ Vedere [Contratti di servizio](https://azure.microsoft.com/support/legal/sla/)
 ## <a name="sas"></a>firma di accesso condiviso
 Firma che consente di concedere accesso limitato a una risorsa, senza esporre la chiave dell'account. Ad esempio, [Archiviazione di Azure usa firme di accesso condiviso](storage/common/storage-dotnet-shared-access-signature-part-1.md) per concedere l'accesso client a oggetti come i BLOB. L'[hub IoT usa firme di accesso condiviso](iot-hub/iot-hub-devguide-security.md#security-tokens) per concedere ai dispositivi l'autorizzazione necessaria per inviare dati di telemetria.
 
-## <a name="storage-account"></a>account di archiviazione
+## <a name="storage-account"></a>archiviazione di Azure
 Account che consente di accedere a servizi BLOB, di accodamento, tabelle e file in Archiviazione di Azure. Il nome dell'account di archiviazione definisce uno spazio dei nomi univoco per gli oggetti dati di Archiviazione di Azure.  
 Vedere [Informazioni sugli account di archiviazione di Azure](storage/common/storage-create-storage-account.md)
 
@@ -147,13 +147,13 @@ Risorsa che implementa comportamenti o funzionalità utili per il funzionamento 
 Vedere [Informazioni sulle estensioni e sulle funzionalità delle macchine virtuali (Windows)](virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o [Informazioni sulle estensioni e sulle funzionalità delle macchine virtuali (Linux)](virtual-machines/linux/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="vnet"></a>rete virtuale
-Rete che offre la connettività tra le risorse di Azure e che è isolata da tutti gli altri tenant di Azure. Un' [Gateway VPN di Azure](vpn-gateway/vpn-gateway-about-vpngateways.md) ti permette di stabilire connessioni tra reti virtuali e tra una rete virtuale e una rete locale. È possibile controllare completamente i blocchi di indirizzi IP, le impostazioni DNS, i criteri di sicurezza e le tabelle di route all'interno di una rete virtuale.  
+Rete che offre la connettività tra le risorse di Azure e che è isolata da tutti gli altri tenant di Azure. Un [gateway VPN di Azure](vpn-gateway/vpn-gateway-about-vpngateways.md) consente di stabilire connessioni tra le reti virtuali e tra una rete virtuale e una rete locale. È possibile controllare completamente i blocchi di indirizzi IP, le impostazioni DNS, i criteri di sicurezza e le tabelle di route all'interno di una rete virtuale.  
 Vedere [Panoramica di Rete virtuale](virtual-network/virtual-networks-overview.md)  
 
 ## <a name="web-app"></a>app Web
 Nome alternativo per [app del servizio app](#app-service-app).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Inizia a usare Azure](https://azure.microsoft.com/get-started/)
 * [Centro risorse cloud](https://azure.microsoft.com/resources/)  

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fada16b3ca5307a28eebca4dfe97dc96ba389212
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1f7e9551e6a48350b8f23e9d6ce1d47a1a903c63
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098689"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75643254"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -34,9 +34,9 @@ ms.locfileid: "70098689"
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
-[networking-limits-azure-resource-manager]:../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[networking-limits-azure-resource-manager]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
 [load-balancer-multivip-overview]:../../../load-balancer/load-balancer-multivip-overview.md
 
 
@@ -199,7 +199,7 @@ ms.locfileid: "70098689"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
@@ -222,7 +222,7 @@ Questo articolo si concentra sul passaggio da un'installazione di ASCS/SCS singo
 >Il numero massimo di istanze di SAP ASCS/SCS in un cluster WSFC è uguale al numero massimo di indirizzi IP front-end privati per ogni servizio di bilanciamento del carico interno di Azure.
 >
 
-Per informazioni sui limiti del servizio di bilanciamento del carico, vedere la sezione relativa all'IP front-end privato per ogni servizio di bilanciamento del carico in [Limiti relativi alle reti - Azure Resource Manager][networking-limits-azure-resource-manager].
+Per altre informazioni sui limiti del servizio di bilanciamento del carico, vedere la sezione "IP front-end privato per ogni servizio di bilanciamento del carico" in [limiti di rete: Azure Resource Manager][networking-limits-azure-resource-manager].
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
@@ -244,7 +244,7 @@ L'obiettivo è l'installazione di più istanze cluster di SAP ABAP ASCS o SAP Ja
 
 ![Più istanze in cluster di SAP ASCS/SCS in Azure][sap-ha-guide-figure-6002]
 
-Per informazioni sui limiti del servizio di bilanciamento del carico, vedere la sezione relativa all'IP front-end privato per ogni servizio di bilanciamento del carico in [Limiti relativi alle reti - Azure Resource Manager][networking-limits-azure-resource-manager].
+Per altre informazioni sui limiti del servizio di bilanciamento del carico, vedere la sezione "IP front-end privato per ogni servizio di bilanciamento del carico" in [limiti di rete: Azure Resource Manager][networking-limits-azure-resource-manager].
 
 Il panorama generale con due sistemi SAP a disponibilità elevata si presenta come segue:
 
@@ -384,7 +384,7 @@ Dopo l'esecuzione dello script, i risultati vengono visualizzati nel portale di 
 
 È necessario aggiungere un nuovo disco con condivisione cluster per ogni istanza di SAP ASCS/SCS aggiuntiva. Attualmente, il disco cluster condiviso Windows Server 2012 R2 WSFC viene usato dalla soluzione software SIOS DataKeeper.
 
-Seguire questa procedura:
+Eseguire le operazioni seguenti:
 1. Aggiungere un altro disco o più dischi con la stessa dimensione (da sottoporre a striping) su ciascuno dei nodi del cluster e formattarli.
 2. Configurare la replica di archiviazione con SIOS DataKeeper.
 
@@ -436,5 +436,5 @@ La procedura di alto livello è la seguente:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Limiti relativi alla rete: Azure Resource Manager][networking-limits-azure-resource-manager]
+- [Limiti di rete: Azure Resource Manager][networking-limits-azure-resource-manager]
 - [Più indirizzi VIP per Azure Load Balancer][load-balancer-multivip-overview]

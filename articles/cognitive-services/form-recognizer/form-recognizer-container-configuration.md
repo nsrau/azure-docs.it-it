@@ -9,18 +9,21 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.author: dapine
-ms.openlocfilehash: a0b0d0d95e1ffd50faba19f1665ea5dae737b124
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 5439ec0c0aab5b8c127b651147e4b25d27c58390
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796141"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75379624"
 ---
 # <a name="configure-form-recognizer-containers"></a>Configurare i contenitori di Riconoscimento modulo
 
 I contenitori di Riconoscimento modulo di Azure consentono di creare un'architettura per le applicazioni ottimizzata per sfruttare i vantaggi delle funzionalità cloud avanzate e della posizione fisica dei dispositivi perimetrali.
 
 Per configurare l'ambiente di runtime dei contenitori di Riconoscimento modulo, si usano gli argomenti del comando `docker run`. Questo contenitore prevede diverse impostazioni obbligatorie e alcune facoltative. Per alcuni esempi, vedere la sezione ["Comandi docker run di esempio"](#example-docker-run-commands). Le impostazioni specifiche del contenitore sono le impostazioni di fatturazione.
+
+> [!IMPORTANT]
+> I contenitori di riconoscimento form utilizzano attualmente la versione 1,0 dell'API di riconoscimento form. È possibile accedere alla versione più recente dell'API usando invece il servizio gestito.
 
 ## <a name="configuration-settings"></a>Impostazioni di configurazione
 
@@ -45,9 +48,9 @@ L'impostazione `Billing` specifica l'URI dell'endpoint della risorsa di _Riconos
 
 Questa impostazione si trova nel portale di Azure, nella sezione **Endpoint** di **Form Recognizer Overview** (Panoramica di Riconoscimento modulo).
 
-|Obbligatorio| Name | Tipo di dati | Descrizione |
+|Obbligatorio| Nome | Tipo di dati | Description |
 |--|------|-----------|-------------|
-|Sì| `Billing` | String | URI dell'endpoint di fatturazione. Per ulteriori informazioni su come ottenere l'URI di fatturazione, vedere [raccolta dei parametri obbligatori](form-recognizer-container-howto.md#gathering-required-parameters). Per altre informazioni e per un elenco completo degli endpoint a livello di area, vedere [Nomi di sottodomini personalizzati per Servizi cognitivi](../cognitive-services-custom-subdomains.md). |
+|Sì| `Billing` | string | URI dell'endpoint di fatturazione. Per ulteriori informazioni su come ottenere l'URI di fatturazione, vedere [raccolta dei parametri obbligatori](form-recognizer-container-howto.md#gathering-required-parameters). Per altre informazioni e per un elenco completo degli endpoint a livello di area, vedere [Nomi di sottodomini personalizzati per Servizi cognitivi](../cognitive-services-custom-subdomains.md). |
 
 ## <a name="eula-setting"></a>Impostazione Eula
 
@@ -68,16 +71,16 @@ Questa impostazione si trova nel portale di Azure, nella sezione **Endpoint** di
 
 ## <a name="mount-settings"></a>Impostazioni di montaggio
 
-Usare montaggi di associazione per leggere e scrivere dati da e verso il contenitore. È possibile specificare un montaggio di input o di output specificando l'opzione `--mount` nel comando [`docker run` ](https://docs.docker.com/engine/reference/commandline/run/).
+Usare montaggi di associazione per leggere e scrivere dati da e verso il contenitore. È possibile specificare un montaggio di input o di output specificando l'opzione `--mount` nel comando [`docker run`](https://docs.docker.com/engine/reference/commandline/run/).
 
 Per il contenitore di Riconoscimento modulo è necessario un montaggio di input e un montaggio di output. Il montaggio di input può essere di sola lettura ed è necessario per accedere ai dati usati per il training e l'assegnazione del punteggio. Il montaggio di output deve essere accessibile in scrittura e viene usato per archiviare i modelli e i dati temporanei.
 
 La sintassi esatta della posizione di montaggio host varia a seconda del sistema operativo host. Inoltre, il percorso di montaggio del [computer host](form-recognizer-container-howto.md#the-host-computer) potrebbe non essere accessibile a causa di un conflitto tra le autorizzazioni dell'account del servizio Docker e le autorizzazioni del percorso di montaggio dell'host.
 
-|Facoltativo| Name | Tipo di dati | Descrizione |
+|Facoltativo| Nome | Tipo di dati | Description |
 |-------|------|-----------|-------------|
-|Obbligatorio| `Input` | String | Destinazione del montaggio di input. Il valore predefinito è `/input`.    <br><br>Esempio:<br>`--mount type=bind,src=c:\input,target=/input`|
-|Obbligatorio| `Output` | String | Destinazione del montaggio di output. Il valore predefinito è `/output`.  <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Obbligatorio| `Input` | string | Destinazione del montaggio di input. Il valore predefinito è `/input`.    <br><br>Esempio:<br>`--mount type=bind,src=c:\input,target=/input`|
+|Obbligatorio| `Output` | string | Destinazione del montaggio di output. Il valore predefinito è `/output`.  <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandi docker run di esempio
 
@@ -88,7 +91,7 @@ Gli esempi seguenti usano le impostazioni di configurazione per illustrare come 
 
 Sostituire {_argument_name_} nella tabella seguente con i propri valori:
 
-| Placeholder | Valore |
+| Segnaposto | Valore |
 |-------------|-------|
 | **{FORM_RECOGNIZER_API_KEY}** | La chiave usata per avviare il contenitore. È disponibile nella pagina Form Recognizer Keys (Chiavi di Riconoscimento modulo) del portale di Azure. |
 | **{FORM_RECOGNIZER_ENDPOINT_URI}** | Il valore dell'URI dell'endpoint di fatturazione è disponibile nella pagina Form Recognizer Overview (Panoramica di Riconoscimento modulo) del portale di Azure.|

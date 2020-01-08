@@ -7,25 +7,24 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: ab28203a240cf360fb990ac42fdbc2d83864f68b
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: c9c47506e61c665da459558735a3afc93e8b9806
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73604778"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659781"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurare funzionalità di rete di Azure CNI nel servizio Azure Kubernetes
 
 Per impostazione predefinita, i cluster AKS usano [kubenet][kubenet]e vengono create una rete virtuale e una subnet. Con *kubenet* i nodi ottengono un indirizzo IP da una subnet della rete virtuale. Il protocollo NAT (Network Address Translation) viene quindi configurato nei nodi e i pod ricevono un indirizzo IP "nascosto" dietro l'indirizzo IP del nodo. Questo approccio riduce il numero di indirizzi IP che è necessario riservare ai pod nello spazio degli indirizzi della rete.
 
-Con l' [interfaccia di rete del contenitore di Azure (CNI)][cni-networking], ogni pod ottiene un indirizzo IP dalla subnet ed è possibile accedervi direttamente. Questi indirizzi IP devono essere univoci nello spazio degli indirizzi della rete e devono essere pianificati in anticipo. Ogni nodo ha un parametro di configurazione per il numero massimo di pod che supporta. Il numero equivalente di indirizzi IP per nodo viene quindi riservato anticipatamente per tale nodo. Questo approccio richiede una maggiore pianificazione e spesso conduce all'esaurimento degli indirizzi IP o alla necessità di riconfigurare i cluster in una subnet di dimensioni maggiori man mano che aumentano le richieste dell'applicazione.
+Con l' [interfaccia di rete del contenitore di Azure (CNI)][cni-networking], ogni pod ottiene un indirizzo IP dalla subnet ed è possibile accedervi direttamente. Questi indirizzi IP devono essere univoci nello spazio di indirizzi della rete e devono essere pianificati in anticipo. Ogni nodo ha un parametro di configurazione per il numero massimo di pod che supporta. Il numero equivalente di indirizzi IP per nodo viene quindi riservato anticipatamente per tale nodo. Questo approccio richiede una maggiore pianificazione e spesso conduce all'esaurimento degli indirizzi IP o alla necessità di riconfigurare i cluster in una subnet di dimensioni maggiori man mano che aumentano le richieste dell'applicazione.
 
 Questo articolo illustra come usare le funzionalità di rete di *Azure CNI* per creare e usare una subnet di rete virtuale per un cluster del servizio Azure Kubernetes. Per altre informazioni sulle opzioni di rete e le considerazioni, vedere [concetti di rete per Kubernetes e AKS][aks-network-concepts].
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * La rete virtuale per il cluster servizio Azure Kubernetes deve consentire la connettività Internet in uscita.
-* Non creare più di un cluster servizio Azure Kubernetes nella stessa subnet.
 * I cluster AKS non possono usare `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`o `192.0.2.0/24` per l'intervallo di indirizzi del servizio Kubernetes.
 * L'entità servizio usata dal cluster servizio Azure Kubernetes deve avere almeno autorizzazioni di [Collaboratore di rete](../role-based-access-control/built-in-roles.md#network-contributor) per la subnet all'interno della rete virtuale. Se si vuole definire un [ruolo personalizzato](../role-based-access-control/custom-roles.md) invece di usare il ruolo predefinito Collaboratore di rete, sono necessarie le autorizzazioni seguenti:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
@@ -65,7 +64,7 @@ Il numero massimo di pod per nodo in un cluster AKS è 250. Il numero massimo *p
 | -- | :--: | :--: | -- |
 | Interfaccia della riga di comando di Azure | 110 | 30 | Sì (fino a 250) |
 | Modello di Resource Manager | 110 | 30 | Sì (fino a 250) |
-| di Microsoft Azure | 110 | 30 | No |
+| Portale | 110 | 30 | No |
 
 ### <a name="configure-maximum---new-clusters"></a>Configurare il valore massimo - nuovi cluster
 
@@ -73,7 +72,7 @@ Il numero massimo di pod per nodo in un cluster AKS è 250. Il numero massimo *p
 
 Un valore minimo per il numero massimo di pod per nodo viene applicato per garantire lo spazio per i pod di sistema critici per l'integrità del cluster. Il valore minimo che può essere impostato per il numero massimo di pod per nodo è 10 se e solo se la configurazione di ogni pool di nodi ha spazio per almeno 30 POD. Se ad esempio si imposta il numero massimo di pod per nodo su un minimo di 10, ogni singolo pool di nodi avrà un minimo di 3 nodi. Questo requisito si applica anche a ogni nuovo pool di nodi creato, pertanto se 10 è definito come numero massimo di pod per nodo, ogni pool di nodi successivi aggiunto deve contenere almeno 3 nodi.
 
-| Rete | Minima | Massima |
+| Rete | Minima | Massimo |
 | -- | :--: | :--: |
 | Azure CNI | 10 | 250 |
 | Kubenet | 10 | 110 |
@@ -93,7 +92,7 @@ Non è possibile modificare il numero massimo di pod per ogni nodo in un cluster
 
 Quando si crea un cluster servizio Azure Kubernetes, per la rete Azure CNI i parametri seguenti sono configurabili:
 
-**Rete virtuale**: rete virtuale in cui si vuole distribuire il cluster Kubernetes. Per creare una nuova rete virtuale per il cluster, selezionare *Crea nuova* e seguire i passaggi della sezione *Creare una rete virtuale*. Per altre informazioni su limiti e quote per una rete virtuale di Azure, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
+**Rete virtuale**: rete virtuale in cui si vuole distribuire il cluster Kubernetes. Per creare una nuova rete virtuale per il cluster, selezionare *Crea nuova* e seguire i passaggi della sezione *Creare una rete virtuale*. Per altre informazioni su limiti e quote per una rete virtuale di Azure, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 
 **Subnet**: subnet nella rete virtuale in cui si vuole distribuire il cluster. Per creare una nuova subnet nella rete virtuale per il cluster, selezionare *Crea nuova* e seguire i passaggi della sezione *Creare una subnet*. Per la connettività ibrida, l'intervallo di indirizzi non deve sovrapporsi ad altre reti virtuali dell'ambiente in uso.
 

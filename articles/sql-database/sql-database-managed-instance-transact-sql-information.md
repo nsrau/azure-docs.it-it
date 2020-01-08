@@ -8,15 +8,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlrab, bonova
-ms.date: 11/04/2019
+ms.reviewer: sstein, carlrab, bonova, danil
+ms.date: 12/30/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: e517b6030aa1c9549e33c00425851afae90aac42
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 7319bb680e449a27fbe6f48c831d87d9c7b5ba4f
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707636"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552747"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Differenze, limitazioni e problemi noti di istanza gestita di T-SQL
 
@@ -29,7 +29,7 @@ Esistono alcune limitazioni di PaaS introdotte in Istanza gestita e alcune modif
 - La [disponibilità](#availability) include le differenze nei [gruppi di disponibilità always on](#always-on-availability-groups) e nei [backup](#backup).
 - La [protezione](#security) include le differenze tra il [controllo](#auditing), i [certificati](#certificates), le [credenziali](#credential), i [provider di crittografia](#cryptographic-providers), [gli account di accesso e gli utenti](#logins-and-users)e la [chiave del servizio e la chiave master del servizio](#service-key-and-service-master-key).
 - La [configurazione](#configuration) include le differenze nell' [estensione del pool di buffer](#buffer-pool-extension), le regole di [confronto](#collation), i [livelli di compatibilità](#compatibility-levels), il [mirroring del database](#database-mirroring), le opzioni di [database](#database-options), [SQL Server Agent](#sql-server-agent)e le [Opzioni di tabella](#tables).
-- Le [funzionalità](#functionalities) includono [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [transazioni distribuite](#distributed-transactions), [eventi estesi](#extended-events), [librerie esterne](#external-libraries), [FileStream e FileTable](#filestream-and-filetable), [ricerca semantica full-text](#full-text-semantic-search), [server collegati](#linked-servers), [polibase](#polybase), [replica](#replication), [ripristino](#restore-statement), [Service Broker](#service-broker), [stored procedure, funzioni e trigger](#stored-procedures-functions-and-triggers).
+- [Funzionalità](#functionalities) tra cui [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [Transazioni distribuite](#distributed-transactions), [Eventi estesi](#extended-events), [Librerie esterne](#external-libraries), [FileStream e FileTable](#filestream-and-filetable), [ricerca semantica full-text](#full-text-semantic-search), [server collegati](#linked-servers), [PolyBase](#polybase), [Replica](#replication), [RIPRISTINO](#restore-statement), [Service Broker](#service-broker), [stored procedure, funzioni e trigger](#stored-procedures-functions-and-triggers).
 - [Impostazioni dell'ambiente](#Environment) , ad esempio le configurazioni di reti virtuali e subnet.
 
 La maggior parte di queste funzionalità sono vincoli di architettura e rappresentano le funzionalità del servizio.
@@ -65,7 +65,7 @@ Limitazioni:
 
 - Con un'istanza gestita, è possibile eseguire il backup di un database di istanza in un backup con un massimo di 32 striping, che è sufficiente per i database fino a 4 TB se viene utilizzata la compressione dei backup.
 - Non è possibile eseguire `BACKUP DATABASE ... WITH COPY_ONLY` in un database crittografato con Transparent Data Encryption gestite dal servizio (Transparent Service). La crittografia Transparent gestita dal servizio impone la crittografia dei backup con una chiave Transparent Data Encryption. La chiave non può essere esportata, quindi non è possibile ripristinare il backup. Utilizzare i backup automatici e il ripristino temporizzato oppure utilizzare la crittografia [BYOK (Customer-Managed)](transparent-data-encryption-azure-sql.md#customer-managed-transparent-data-encryption---bring-your-own-key) . È anche possibile disabilitare la crittografia nel database.
-- Le dimensioni massime dello striping del backup tramite il comando `BACKUP` in un'istanza gestita sono 195 GB, ovvero la dimensione massima del BLOB. Aumentare il numero di set di stripe nel comando backup per ridurre le dimensioni dei singoli set di stripe e restare nel limite consentito.
+- Le dimensioni massime dello striping del backup tramite il comando `BACKUP` in un'istanza gestita sono 195 GB, ovvero la dimensione massima del BLOB. Aumentare il numero di strisce nel comando di backup per ridurre la dimensione delle singole strisce e rimanere entro questo limite.
 
     > [!TIP]
     > Per ovviare a questa limitazione, quando si esegue il backup di un database da SQL Server in un ambiente locale o in una macchina virtuale, è possibile:
@@ -88,7 +88,7 @@ Le principali differenze tra il controllo nei database nel database SQL di Azure
 - Con le opzioni di distribuzione dei database singoli e dei pool elastici nel database SQL di Azure, il controllo viene eseguito a livello del database.
 - In SQL Server locali o macchine virtuali, il controllo funziona a livello di server. Gli eventi vengono archiviati nei registri eventi di file system o di Windows.
  
-Il controllo XEvent nell'istanza gestita supporta le destinazioni di Archiviazione BLOB di Azure. I log di file e di Windows non sono supportati.
+Il controllo XEvent nell'istanza gestita supporta le destinazioni di Archivio BLOB di Azure. I log di file e di Windows non sono supportati.
 
 Le principali differenze nella sintassi `CREATE AUDIT` per il controllo in Archivio BLOB di Azure sono le seguenti:
 
@@ -118,7 +118,7 @@ CREATE CERTIFICATE
 WITH PRIVATE KEY (<private_key_options>)
 ```
 
-### <a name="credential"></a>Credenziali
+### <a name="credential"></a>Credenziale
 
 Sono supportati solo l'insieme di credenziali delle chiavi di Azure e le identità `SHARED ACCESS SIGNATURE`. Gli utenti di Windows non sono supportati.
 
@@ -191,7 +191,7 @@ Un'istanza gestita non può accedere ai file, pertanto non è possibile creare i
 - L' [estensione del pool di buffer](/sql/database-engine/configure-windows/buffer-pool-extension) non è supportata.
 - `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION` non è supportata. Vedere [ALTER SERVER CONFIGURATION](/sql/t-sql/statements/alter-server-configuration-transact-sql).
 
-### <a name="collation"></a>Collation
+### <a name="collation"></a>Regole di confronto
 
 Le regole di confronto di istanza predefinita sono `SQL_Latin1_General_CP1_CI_AS` e possono essere specificate come un parametro di creazione. Vedere [Regole di confronto](/sql/t-sql/statements/collations).
 
@@ -235,7 +235,7 @@ Per `CREATE DATABASE`si applicano le limitazioni seguenti:
 
 Per altre informazioni, vedere [CREATE DATABASE](/sql/t-sql/statements/create-database-sql-server-transact-sql).
 
-#### <a name="alter-database-statement"></a>Istruzione ALTER DATABASE
+#### <a name="alter-database-statement"></a>ALTER DATABASE - istruzione
 
 Alcune proprietà di file non possono essere impostate o modificate:
 
@@ -272,7 +272,7 @@ Le opzioni seguenti non possono essere modificate:
 
 Per altre informazioni, vedere [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
-### <a name="sql-server-agent"></a>Agente SQL Server
+### <a name="sql-server-agent"></a>SQL Server Agent
 
 - L'abilitazione e la disabilitazione di SQL Server Agent non è attualmente supportata nell'istanza gestita. SQL Agent è sempre in esecuzione.
 - SQL Server Agent impostazioni sono di sola lettura. La procedura `sp_set_agent_properties` non è supportata nell'istanza gestita. 
@@ -406,41 +406,12 @@ Le tabelle esterne che fanno riferimento ai file in HDFS o nell'archiviazione BL
 - Sono supportati i tipi di replica snapshot e bidirezionali. La replica di tipo merge, la replica peer-to-peer e le sottoscrizioni aggiornabili non sono supportate.
 - La [replica transazionale](sql-database-managed-instance-transactional-replication.md) è disponibile per l'anteprima pubblica in istanza gestita con alcuni vincoli:
     - Tutti i tipi di partecipanti alla replica (server di pubblicazione, server di distribuzione, sottoscrittore pull e Sottoscrittore push) possono essere inseriti in istanze gestite, ma il server di pubblicazione e il server di distribuzione devono trovarsi sia nel cloud sia in locale.
-    - Le istanze gestite possono comunicare con le versioni recenti di SQL Server. Vedere le versioni supportate [qui](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
+    - Le istanze gestite possono comunicare con le versioni recenti di SQL Server. Per ulteriori informazioni, vedere la [matrice di versioni supportate](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems) .
     - La replica transazionale presenta [requisiti di rete aggiuntivi](sql-database-managed-instance-transactional-replication.md#requirements).
 
-Per informazioni sulla configurazione della replica, vedere l'esercitazione relativa alla [replica](replication-with-sql-database-managed-instance.md).
-
-
-Se la replica è abilitata in un database in un [gruppo di failover](sql-database-auto-failover-group.md), l'amministratore dell'istanza gestita deve eliminare tutte le pubblicazioni nel database primario precedente e riconfigurarle sul nuovo database primario dopo un failover. In questo scenario sono necessarie le attività seguenti:
-
-1. Arrestare tutti i processi di replica in esecuzione nel database, se presenti.
-2. Eliminare i metadati della sottoscrizione dal server di pubblicazione eseguendo lo script seguente nel database del server di pubblicazione:
-
-   ```sql
-   EXEC sp_dropsubscription @publication='<name of publication>', @article='all',@subscriber='<name of subscriber>'
-   ```             
- 
-1. Rilasciare i metadati della sottoscrizione dal Sottoscrittore. Eseguire lo script seguente nel database di sottoscrizione dell'istanza del Sottoscrittore:
-
-   ```sql
-   EXEC sp_subscription_cleanup
-      @publisher = N'<full DNS of publisher, e.g. example.ac2d23028af5.database.windows.net>', 
-      @publisher_db = N'<publisher database>', 
-      @publication = N'<name of publication>'; 
-   ```                
-
-1. Eliminare in modo forzato tutti gli oggetti di replica dal server di pubblicazione eseguendo lo script seguente nel database pubblicato:
-
-   ```sql
-   EXEC sp_removedbreplication
-   ```
-
-1. Eliminare in modo forzato il server di distribuzione precedente dall'istanza primaria originale (se si esegue il failover in un database primario precedente utilizzato per avere un server di distribuzione). Eseguire lo script seguente nel database master nell'istanza gestita del server di distribuzione precedente:
-
-   ```sql
-   EXEC sp_dropdistributor 1,1
-   ```
+Per ulteriori informazioni sulla configurazione della replica transazionale, vedere le esercitazioni seguenti:
+- [Replica tra un server di pubblicazione MI e un Sottoscrittore](replication-with-sql-database-managed-instance.md)
+- [Replica tra un server di pubblicazione MI, un server di distribuzione MI e un Sottoscrittore SQL Server](sql-database-managed-instance-configure-replication-tutorial.md)
 
 ### <a name="restore-statement"></a>Istruzione RESTORE 
 
@@ -483,7 +454,7 @@ Per informazioni sulle istruzioni RESTORE, vedere [istruzioni RESTORE](/sql/t-sq
  > [!IMPORTANT]
  > Le stesse limitazioni si applicano all'operazione di ripristino temporizzato incorporata. Ad esempio, non è possibile ripristinare per utilizzo generico database di dimensioni maggiori di 4 TB nell'istanza di business critical. Non è possibile ripristinare business critical database con file OLTP in memoria o più di 280 file nell'istanza di per utilizzo generico.
 
-### <a name="service-broker"></a>Broker di servizio
+### <a name="service-broker"></a>Service Broker
 
 Il broker di servizio tra istanze non è supportato:
 
@@ -535,11 +506,55 @@ Le variabili, funzioni e viste seguenti restituiscono risultati diversi:
 
 La dimensione massima del file di `tempdb` non può essere maggiore di 24 GB per core in un livello di per utilizzo generico. Le dimensioni massime `tempdb` a livello di business critical sono limitate dalle dimensioni di archiviazione dell'istanza. `Tempdb` dimensione del file di registro è limitata a 120 GB nel livello per utilizzo generico. Alcune query potrebbero restituire un errore se hanno bisogno di più di 24 GB per core in `tempdb` o se producono più di 120 GB di dati di log.
 
+### <a name="msdb"></a>MSDB
+
+Gli schemi MSDB seguenti nell'istanza gestita devono essere di proprietà dei rispettivi ruoli predefiniti:
+
+- Ruoli generali
+  - TargetServersRole
+- [Ruoli predefiniti del database](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
+  - SQLAgentUserRole
+  - SQLAgentReaderRole
+  - SQLAgentOperatorRole
+- [Ruoli DatabaseMail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
+  - DatabaseMailUserRole
+- [Ruoli di Integration Services](https://docs.microsoft.com/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15):
+  - db_ssisadmin
+  - db_ssisltduser
+  - db_ssisoperator
+  
+> [!IMPORTANT]
+> La modifica dei nomi di ruolo predefiniti, dei nomi degli schemi e dei proprietari dello schema da parte dei clienti influirà sul normale funzionamento del servizio. Tutte le modifiche apportate a questi verranno ripristinate ai valori predefiniti non appena rilevati o al successivo aggiornamento del servizio al più recente per garantire la normale operazione del servizio.
+
 ### <a name="error-logs"></a>Log degli errori
 
 Un'istanza gestita inserisce informazioni dettagliate nei log degli errori. Nel log degli errori di sono stati registrati molti eventi di sistema interni. Utilizzare una procedura personalizzata per leggere i log degli errori che filtrano alcune voci irrilevanti. Per ulteriori informazioni, vedere [istanza gestita-sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/) o [estensione istanza gestita (anteprima)](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) per Azure Data Studio.
 
-## <a name="Issues"></a>Problemi noti
+## <a name="Issues"></a> Problemi noti
+
+### <a name="sql-agent-roles-need-explicit-execute-permissions-for-non-sysadmin-logins"></a>Per i ruoli SQL Agent sono necessarie autorizzazioni EXECUTE esplicite per gli account di accesso non sysadmin
+
+**Data:** 2019 dicembre
+
+Se gli account di accesso non sysadmin vengono aggiunti a uno dei ruoli predefiniti del [database di SQL Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles), esiste un problema per cui le autorizzazioni Execute esplicite devono essere concesse alle stored procedure master per il funzionamento di tali account di accesso. Se si verifica questo problema, viene visualizzato il messaggio di errore "autorizzazione EXECUTE negata per l'oggetto < object_name > (Microsoft SQL Server, errore: 229)".
+
+**Soluzione alternativa**: dopo aver aggiunto gli account di accesso a uno dei ruoli predefiniti del database di SQL Agent: SQLAgentUserRole, SQLAgentReaderRole o SQLAgentOperatorRole, per ognuno degli account di accesso aggiunti a questi ruoli eseguire lo script T-SQL seguente per concedere esplicitamente le autorizzazioni Execute alle stored procedure elencate.
+
+```tsql
+USE [master]
+GO
+CREATE USER [login_name] FOR LOGIN [login_name]
+GO
+GRANT EXECUTE ON master.dbo.xp_sqlagent_enum_jobs TO [login_name]
+GRANT EXECUTE ON master.dbo.xp_sqlagent_is_starting TO [login_name]
+GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
+```
+
+### <a name="sql-agent-jobs-can-be-interrupted-by-agent-process-restart"></a>I processi di SQL Agent possono essere interrotti dal riavvio del processo di Agent
+
+**Data:** 2019 dicembre
+
+SQL Agent crea una nuova sessione ogni volta che viene avviato il processo, aumentando gradualmente il consumo di memoria. Per evitare di raggiungere il limite di memoria interna che blocca l'esecuzione dei processi pianificati, il processo dell'agente verrà riavviato quando il consumo di memoria raggiunge la soglia. Potrebbe causare l'interruzione dell'esecuzione dei processi in esecuzione al momento del riavvio.
 
 ### <a name="in-memory-oltp-memory-limits-are-not-applied"></a>I limiti di memoria di OLTP in memoria non vengono applicati
 
@@ -623,7 +638,7 @@ le istruzioni `CREATE DATABASE`, `ALTER DATABASE ADD FILE`e `RESTORE DATABASE` p
 
 Ogni istanza gestita di per utilizzo generico ha fino a 35 TB di spazio di archiviazione riservato per lo spazio su disco Premium di Azure. Ogni file di database si trova in un disco fisico separato. I dischi possono essere da 128 GB, 256 GB, 512 GB, 1 TB o 4 TB. Lo spazio inutilizzato sul disco non viene addebitato, ma la somma totale delle dimensioni del disco Premium di Azure non può superare 35 TB. In alcuni casi, un'istanza gestita che non necessita di 8 TB in totale può superare il limite di Azure di 35 TB per le dimensioni di archiviazione a causa della frammentazione interna.
 
-Ad esempio, un'istanza gestita di per utilizzo generico potrebbe avere un file di grandi dimensioni di 1,2 TB in un disco da 4 TB. Potrebbero inoltre essere presenti 248 file con dimensioni di 1 GB, ognuno dei quali si trova in dischi 128 GB distinti. In questo esempio:
+Ad esempio, un'istanza gestita di per utilizzo generico potrebbe avere un file di grandi dimensioni di 1,2 TB in un disco da 4 TB. Potrebbero inoltre essere presenti 248 file con dimensioni di 1 GB, ognuno dei quali si trova in dischi 128 GB distinti. Esempio:
 
 - la dimensione totale della risorsa di archiviazione sul disco allocato è 1 x 4 TB + 248 x 128 GB = 35 TB.
 - Lo spazio totale riservato per i database nell'istanza è 1 x 1,2 TB + 248 x 1 GB = 1,4 TB.

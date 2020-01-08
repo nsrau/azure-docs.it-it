@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 50d0ed644b5afa744e8bce478199079fd4fb7432
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8ca67d1ff3100aee02ed473c9cc2180de3973b8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60878963"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638936"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Procedure consigliate per l'uso di Azure Data Lake Storage Gen1
 
@@ -23,7 +23,7 @@ ms.locfileid: "60878963"
 
 Questo articolo illustra le procedure consigliate e alcune considerazioni sul funzionamento di Azure Data Lake Storage Gen1. L'articolo fornisce informazioni su sicurezza, prestazioni, resilienza e monitoraggio per Data Lake Storage Gen1. Prima di Data Lake Storage Gen1, il funzionamento di Big Data in servizi come Azure HDInsight era un'operazione complessa. Era necessario partizionare i dati tra più account di archiviazione BLOB, per ottenere spazio di archiviazione di petabyte e prestazioni ottimali su tale scala. Data Lake Storage Gen1 elimina la maggior parte dei limiti assoluti relativi a dimensioni e prestazioni. Tuttavia, in questo articolo sono ancora illustrate alcune considerazioni che aiutano a ottenere prestazioni ottimali con Data Lake Storage Gen1.
 
-## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
+## <a name="security-considerations"></a>Considerazioni sulla sicurezza
 
 Azure Data Lake Storage Gen1 offre controlli di accesso POSIX e controlli dettagliati per utenti, gruppi ed entità servizio di Azure Active Directory (Azure AD). Questi controlli di accesso possono essere impostati su file e cartelle esistenti. I controlli di accesso possono essere usati anche per creare valori predefiniti che possono essere applicati a nuovi file o cartelle. Quando vengono impostate le autorizzazioni sulle cartelle esistenti e sugli oggetti figlio, è necessario propagarle in modo ricorsivo a ogni oggetto. Se il numero di file è elevato, la propagazione delle autorizzazioni può richiedere molto tempo. Il tempo necessario può variare tra i 30 e i 50 oggetti elaborati al secondo. Pianificare quindi in modo appropriato la struttura di cartelle e i gruppi di utenti. In caso contrario, possono verificarsi problemi e ritardi imprevisti quando si lavora con i dati.
 
@@ -33,7 +33,7 @@ Si supponga di avere una cartella con 100.000 oggetti figlio. Presupponendo il l
 
 Quando si usano Big Data in Data Lake Storage Gen1, molto probabilmente si usa un'entità servizio per consentire ai servizi, come Azure HDInsight, di usare i dati. In alcuni casi, tuttavia, singoli utenti potrebbero dover accedere ai dati. In questi casi è necessario usare i [gruppi di sicurezza](data-lake-store-secure-data.md#create-security-groups-in-azure-active-directory) di Azure Active Directory invece di assegnare singoli utenti a file e cartelle.
 
-Una volta assegnate le autorizzazioni a un gruppo di sicurezza, per aggiungere o eliminare utenti dal gruppo non sono necessari aggiornamenti a Data Lake Storage Gen1. Questo garantisce inoltre di non superare il limite di [32 ACL di accesso e predefiniti](../azure-subscription-service-limits.md#data-lake-store-limits) (sono inclusi i 4 ACL di tipo POSIX che sono sempre associati con tutti i file e le cartelle: [utente proprietario](data-lake-store-access-control.md#the-owning-user), [gruppo proprietario](data-lake-store-access-control.md#the-owning-group), [maschera](data-lake-store-access-control.md#the-mask) e altro).
+Una volta assegnate le autorizzazioni a un gruppo di sicurezza, per aggiungere o eliminare utenti dal gruppo non sono necessari aggiornamenti a Data Lake Storage Gen1. Questo garantisce inoltre di non superare il limite di [32 ACL di accesso e predefiniti](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-store-limits) (sono inclusi i 4 ACL di tipo POSIX che sono sempre associati con tutti i file e le cartelle: [utente proprietario](data-lake-store-access-control.md#the-owning-user), [gruppo proprietario](data-lake-store-access-control.md#the-owning-group), [maschera](data-lake-store-access-control.md#the-mask) e altro).
 
 ### <a name="security-for-groups"></a>Sicurezza per i gruppi
 
@@ -47,7 +47,7 @@ Le entità servizio di Azure Active Directory vengono in genere usate dai serviz
 
 Data Lake Storage Gen1 consente di attivare un firewall e limitare l'accesso solo ai servizi di Azure. Questo scenario è consigliato per ridurre il vettore di attacco dalle intrusioni esterne. Il firewall può essere abilitato per l'account Data Lake Storage Gen1 nel portale di Azure tramite le opzioni **Firewall** > **Abilita firewall (ATTIVA)**  > **Consenti l'accesso ai servizi di Azure**.
 
-![Impostazioni del firewall in Data Lake Storage Gen1](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Impostazioni del firewall in Data Lake storage Gen1")
+![Impostazioni del firewall in Data Lake Storage Gen1](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Impostazioni del firewall in Data Lake Storage Gen1")
 
 Una volta abilitato il firewall, solo i servizi di Azure come HDInsight, Data Factory, SQL Data Warehouse e così via hanno accesso a Data Lake Storage Gen1. A causa del processo interno Network Address Translation usato da Azure, il firewall di Data Lake Storage Gen1 non supporta la limitazione di servizi specifici in base all'IP ed è pensato solo per limitare gli endpoint esterni ad Azure, ad esempio in locale.
 
@@ -88,7 +88,7 @@ Per ottimizzare le prestazioni e ridurre il numero di operazioni di input/output
 
 Quando si progetta un sistema con Data Lake Storage Gen1 o con qualsiasi servizio cloud, è necessario considerare i requisiti di disponibilità e come rispondere a potenziali interruzioni del servizio. Un problema può riguardare un'istanza specifica o anche un'intera area, quindi è importante essere preparati con un piano per entrambi i casi. A seconda dei contratti di servizio relativi all'**obiettivo del tempo di ripristino** e all'**obiettivo del punto di ripristino** per il carico di lavoro, è possibile scegliere una strategia più o meno aggressiva per la disponibilità elevata e il ripristino di emergenza.
 
-### <a name="high-availability-and-disaster-recovery"></a>Disponibilità elevata e ripristino di emergenza
+### <a name="high-availability-and-disaster-recovery"></a>Alta disponibilità e disaster recovery
 
 La disponibilità elevata e il ripristino di emergenza possono talvolta essere combinati, anche se ognuno prevede una strategia leggermente diversa, in particolare quando si tratta di dati. Data Lake Storage Gen1 esegue la replica 3 volte in background per garantire protezione in caso di errore hardware localizzati. Tuttavia, poiché la replica tra aree non viene eseguita per impostazione predefinita, è necessario gestirla manualmente. Quando si prepara un piano per la disponibilità elevata, in caso di interruzione del servizio il carico di lavoro deve poter accedere ai dati più recenti nel più breve tempo possibile, passando a un'istanza replicata separatamente in locale o in una nuova area.
 
@@ -101,10 +101,10 @@ Di seguito sono illustrate le tre principali opzioni consigliate per l'orchestra
 |  |Distcp  |Data factory di Azure  |AdlCopy  |
 |---------|---------|---------|---------|
 |**Limiti di scalabilità**     | Limiti definiti dai nodi di lavoro        | Limiti definiti dal numero massimo di unità di spostamento dei dati cloud        | Limiti definiti dalle unità di analisi        |
-|**Supporto per la copia delta**     |   Yes      | No         | No         |
-|**Orchestrazione predefinita**     |  No (usare i processi CRON o Oozie Airflow)       | Yes        | No (usare Automazione di Azure o Utilità di pianificazione di Windows)         |
+|**Supporto per la copia delta**     |   Sì      | No         | No         |
+|**Orchestrazione predefinita**     |  No (usare i processi CRON o Oozie Airflow)       | Sì        | No (usare Automazione di Azure o Utilità di pianificazione di Windows)         |
 |**File system supportati**     | ADL, HDFS, WASB, S3, GS, CFS        |Numerosi, vedere [Connettori](../data-factory/connector-azure-blob-storage.md).         | Da ADL ad ADL, da WASB ad ADL (solo nella stessa area)        |
-|**Supporto del sistema operativo**     |Qualsiasi sistema operativo che esegue Hadoop         | N/D          | Windows 10         |
+|**Supporto del sistema operativo**     |Qualsiasi sistema operativo che esegue Hadoop         | N/D          | Windows 10         |
 
 ### <a name="use-distcp-for-data-movement-between-two-locations"></a>Usare Distcp per lo spostamento dei dati tra due posizioni
 
@@ -140,7 +140,7 @@ Se il log shipping di Data Lake Storage Gen1 non è attivato, Azure HDInsight co
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG
 
-Dopo che la proprietà è stata impostata e i nodi sono stati riavviati, la diagnostica di Data Lake Storage Gen1 viene scritta nei log YARN nei nodi (/tmp/\<user\>/yarn.log) ed è possibile monitorare i dettagli importanti, come gli errori o i limiti (codice errore HTTP 429). Queste informazioni possono essere monitorate anche in log di monitoraggio di Azure o quando il log Shipping nel [diagnostica](data-lake-store-diagnostic-logs.md) pannello dell'account Data Lake archiviazione Gen1. È consigliabile attivare almeno la registrazione sul lato client oppure usare l'opzione di log shipping con Data Lake Storage Gen1 per ottenere visibilità operativa e semplificare il debug.
+Dopo che la proprietà è stata impostata e i nodi sono stati riavviati, la diagnostica di Data Lake Storage Gen1 viene scritta nei log YARN nei nodi (/tmp/\<user\>/yarn.log) ed è possibile monitorare i dettagli importanti, come gli errori o i limiti (codice errore HTTP 429). Queste stesse informazioni possono essere monitorate anche nei log di monitoraggio di Azure o quando i log vengono spediti nel pannello [diagnostica](data-lake-store-diagnostic-logs.md) dell'account data Lake storage Gen1. È consigliabile attivare almeno la registrazione sul lato client oppure usare l'opzione di log shipping con Data Lake Storage Gen1 per ottenere visibilità operativa e semplificare il debug.
 
 ### <a name="run-synthetic-transactions"></a>Eseguire transazioni sintetiche
 

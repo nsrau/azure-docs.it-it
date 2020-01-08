@@ -1,24 +1,23 @@
 ---
 title: Informazioni sul monitoraggio dei processi di Analisi di flusso di Azure
 description: Questo articolo descrive come monitorare i processi di Analisi di flusso di Azure nel portale di Azure.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9432b43498cd48352427bf1ec2709a2d0f13a797
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 4e9f90035816269d2d41781be34d0d8080628b12
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172769"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431660"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Informazioni sul monitoraggio dei processi di Analisi di flusso e su come monitorare le query
 
-## <a name="introduction-the-monitor-page"></a>Introduzione: Pagina Monitoraggio
+## <a name="introduction-the-monitor-page"></a>Introduzione: Pagina di monitoraggio
 Il portale di Azure presenta le metriche delle prestazioni chiave che possono essere usate per monitorare e risolvere i problemi relativi alle prestazioni delle query e dei processi. Per visualizzare queste metriche, esplorare il processo di analisi di flusso di cui si desidera vedere le metriche e visualizzare la sezione **Monitoraggio** nella pagina della panoramica.  
 
 ![Collegamento Monitoraggio dei processi di Analisi di flusso](./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png)
@@ -33,9 +32,9 @@ Verrà visualizzata la finestra mostrata di seguito:
 | Eventi di input con backlog       | Numero di eventi di input con backlog. Un valore diverso da zero per questa metrica implica che il processo non è in grado di rimanere aggiornato con il numero di eventi in arrivo. Se il valore aumenta lentamente o in modo coerente con un numero diverso da zero, è necessario ampliare il processo. Per altre informazioni, visitare [Informazioni sulle unità di flusso e su come modificarle](stream-analytics-streaming-unit-consumption.md). |
 | Errori di conversione dati | Numero di eventi di output che non è stato possibile convertire nello schema di output previsto. Criteri di errore possono essere modificati in "Drop" (rilascia) per rimuovere gli eventi che verificano questo scenario. |
 | Eventi di input anticipati       | Eventi il cui timestamp di applicazione è precedente all'ora di arrivo di più di 5 minuti. |
-| Richieste della funzione non riuscite | Numero di chiamate non riuscite alla funzione di Azure Machine Learning (se presente). |
-| Eventi della funzione        | Numero di chiamate inviate alla funzione di Azure Machine Learning (se presente). |
-| Richieste della funzione      | Numero di chiamate alla funzione di Azure Machine Learning (se presente). |
+| Richieste di funzioni non riuscite | Numero di chiamate non riuscite alla funzione di Azure Machine Learning (se presente). |
+| Eventi di funzioni        | Numero di chiamate inviate alla funzione di Azure Machine Learning (se presente). |
+| Richieste di funzioni      | Numero di chiamate alla funzione di Azure Machine Learning (se presente). |
 | Errori di deserializzazione dell'input       | Numero di eventi di input che non è stato possibile deserializzare.  |
 | Byte evento di input      | Quantità di dati ricevuta dal processo di Analisi di flusso, in termini di byte. Può essere usata per convalidare l'invio degli eventi all'origine di input. |
 | Eventi di input           | Numero di record deserializzati da eventi di input. Questo conteggio non include gli eventi in ingresso che generano errori di deserializzazione. |
@@ -59,7 +58,7 @@ Verrà visualizzata la finestra mostrata di seguito:
 Un altro interessante punto dati per monitorare il processo è l'ora dell'ultimo output, visualizzata nella pagina di panoramica.
 L'ora visualizzata corrisponde al tempo di applicazione (ovvero l'ora del timestamp relativo ai dati dell'evento) dell'output più recente del processo.
 
-## <a name="get-help"></a>Guida
+## <a name="get-help"></a>Ottenere supporto
 Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Passaggi successivi

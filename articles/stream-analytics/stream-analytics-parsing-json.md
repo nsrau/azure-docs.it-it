@@ -1,22 +1,21 @@
 ---
 title: Analisi di dati JSON e Avro in Analisi di flusso di Azure
 description: Questo articolo descrive come operare su tipi di dati complessi come matrici e dati in formato JSON e CSV.
-services: stream-analytics
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: daf5b97e4ac586f89e5964ee16ee73c86f59b01d
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 1741510c7398ce74da81f006cb4109d9a33f8f9f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329349"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431599"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Analizzare dati JSON e Avro in Analisi di flusso di Azure
 
-Azure Stream Analitica supportano l'elaborazione eventi nei formati di dati CSV, JSON e Avro. I dati JSON e Avro possono essere strutturati e contengono alcuni tipi complessi come matrici e oggetti annidati (record). 
+Analisi di flusso di Azure supporta l'elaborazione di eventi nei formati di dati CSV, JSON e avro. Sia i dati JSON che i dati avro possono essere strutturati e contenere alcuni tipi complessi, ad esempio gli oggetti annidati (record) e le matrici. 
 
 
 
@@ -48,8 +47,8 @@ I tipi di dati record vengono usati per rappresentare le matrici JSON e Avro qua
 ```
 
 
-### <a name="access-nested-fields-in-known-schema"></a>Campi di accesso annidato in uno schema noto
-Usare la notazione del punto (.) per accedere facilmente ai campi annidati direttamente dalla query. Ad esempio, questa query Seleziona le coordinate di latitudine e longitudine nella proprietà relativa alla posizione nei dati JSON precedenti. La notazione del punto può essere utilizzata per spostarsi più livelli come illustrato di seguito.
+### <a name="access-nested-fields-in-known-schema"></a>Accedere ai campi annidati nello schema noto
+Usare la notazione del punto (.) per accedere facilmente ai campi nidificati direttamente dalla query. Questa query, ad esempio, consente di selezionare le coordinate di latitudine e longitudine nella proprietà location nei dati JSON precedenti. La notazione del punto può essere usata per spostarsi a più livelli, come illustrato di seguito.
 
 ```SQL
 SELECT
@@ -61,7 +60,7 @@ FROM input
 ```
 
 ### <a name="select-all-properties"></a>Seleziona tutte le proprietà
-È possibile selezionare tutte le proprietà di un record annidato con il carattere jolly asterisco (*). Si consideri l'esempio seguente:
+È possibile selezionare tutte le proprietà di un record annidato con il carattere jolly asterisco (*). Prendere in considerazione gli esempi seguenti:
 
 ```SQL
 SELECT input.Location.*
@@ -78,10 +77,10 @@ Il risultato è:
 ```
 
 
-### <a name="access-nested-fields-when-property-name-is-a-variable"></a>Campi di accesso annidato quando il nome della proprietà è una variabile
-Usare la [GetRecordPropertyValue](https://docs.microsoft.com/stream-analytics-query/getmetadatapropertyvalue) funzionare se il nome della proprietà è una variabile. 
+### <a name="access-nested-fields-when-property-name-is-a-variable"></a>Accedere ai campi nidificati quando il nome della proprietà è una variabile
+Utilizzare la funzione [GetRecordPropertyValue](https://docs.microsoft.com/stream-analytics-query/getmetadatapropertyvalue) se il nome della proprietà è una variabile. 
 
-Si supponga, ad esempio, che un flusso di dati di esempio deve essere unito in join con soglie che lo contiene dei dati di riferimento per ogni sensore del dispositivo. Di seguito è riportato un frammento di questo tipo di dati di riferimento.
+Si supponga, ad esempio, che un flusso di dati di esempio debba essere unito con i dati di riferimento contenenti soglie per ogni sensore di dispositivo. Di seguito è riportato un frammento di tali dati di riferimento.
 
 ```json
 {
@@ -104,8 +103,8 @@ WHERE
     -- the where statement selects the property value coming from the reference data
 ```
 
-### <a name="convert-record-fields-into-separate-events"></a>Convertire i campi del record in due eventi distinti
-Per convertire i campi di record in eventi separati, usare l'operatore [APPLY](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) insieme alla funzione [GetRecordProperties](https://docs.microsoft.com/stream-analytics-query/getrecordproperties-azure-stream-analytics). Ad esempio, se l'esempio precedente ha diversi record per SensorReading, la query seguente è stato possibile utilizzabile per li estrae in diversi eventi:
+### <a name="convert-record-fields-into-separate-events"></a>Converti i campi dei record in eventi distinti
+Per convertire i campi di record in eventi separati, usare l'operatore [APPLY](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) insieme alla funzione [GetRecordProperties](https://docs.microsoft.com/stream-analytics-query/getrecordproperties-azure-stream-analytics). Se, ad esempio, nell'esempio precedente erano presenti più record per SensorReading, è possibile usare la query seguente per estrarli in eventi diversi:
 
 ```SQL
 SELECT
@@ -124,7 +123,7 @@ I tipi di dati matrice sono una raccolta ordinata di valori. Di seguito sono des
 
 Questi esempi usano le funzioni [GetArrayElement](https://docs.microsoft.com/stream-analytics-query/getarrayelement-azure-stream-analytics), [GetArrayElements](https://docs.microsoft.com/stream-analytics-query/getarrayelements-azure-stream-analytics), [GetArrayLength](https://docs.microsoft.com/stream-analytics-query/getarraylength-azure-stream-analytics) e l'operatore [APPLY](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics).
 
-### <a name="working-with-a-specific-array-element"></a>Utilizzo di un elemento specifico della matrice
+### <a name="working-with-a-specific-array-element"></a>Utilizzo di un elemento di matrice specifico
 Selezionare un elemento della matrice in corrispondenza dell'indice specificato (selezione del primo elemento della matrice):
 
 ```SQL
@@ -141,7 +140,7 @@ SELECT
 FROM input
 ```
 
-### <a name="convert-array-elements-into-separate-events"></a>Convertire gli elementi della matrice in eventi separati
+### <a name="convert-array-elements-into-separate-events"></a>Converte gli elementi di matrice in eventi distinti
 Selezionare tutti gli elementi della matrice come singoli eventi. L'operatore [APPLY](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics), usato insieme alla funzione integrata [GetArrayElements](https://docs.microsoft.com/stream-analytics-query/getarrayelements-azure-stream-analytics), estrae tutti gli elementi della matrice come singoli eventi:
 
 ```SQL

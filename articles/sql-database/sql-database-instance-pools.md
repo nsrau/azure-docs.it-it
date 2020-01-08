@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 8738d1ad54d3ab63d8d2efc939aa9daacbe91c13
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 98757677eae6d21b02d6b0b2a3abade453b5dfed
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810403"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552781"
 ---
 # <a name="what-are-sql-database-instance-pools-preview"></a>Che cosa sono i pool di istanze di database SQL (anteprima)?
 
@@ -61,7 +61,7 @@ Nell'elenco seguente sono riportati i principali casi d'uso in cui devono essere
 
 I pool di istanze hanno un'architettura simile alle istanze gestite regolari (*istanze singole*). Per supportare le [distribuzioni all'interno di reti virtuali di Azure (reti virtuali)](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) e per garantire l'isolamento e la sicurezza per i clienti, i pool di istanze si basano anche sui [cluster virtuali](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture). I cluster virtuali rappresentano un set dedicato di macchine virtuali isolate distribuite all'interno della subnet della rete virtuale del cliente.
 
-La differenza principale tra i due modelli di distribuzione è che i pool di istanze consentono più distribuzioni di processi di SQL Server nello stesso nodo della macchina virtuale, che sono regolate dalle risorse con [gli oggetti processo di Windows](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects), mentre le singole istanze sono sempre da sole un nodo della macchina virtuale.
+La differenza principale tra i due modelli di distribuzione consiste nel fatto che i pool di istanze consentono più distribuzioni di processi SQL Server nello stesso nodo della macchina virtuale, ovvero le risorse gestite tramite [gli oggetti processo di Windows](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects), mentre le singole istanze sono sempre da sole in un nodo della macchina virtuale.
 
 Il diagramma seguente mostra un pool di istanze e due istanze singole distribuite nella stessa subnet e illustra i principali dettagli dell'architettura per entrambi i modelli di distribuzione:
 
@@ -112,7 +112,7 @@ Funzionalità o funzionalità facoltative che richiedono la scelta di valori spe
 
 Sebbene le istanze gestite all'interno dei pool dispongano di vCore e RAM dedicate, condividono il disco locale (per l'utilizzo di tempdb) e le risorse di rete. Non è probabile, ma è possibile che si verifichi il fastidioso effetto *adiacente* se più istanze nel pool hanno un consumo di risorse elevato allo stesso tempo. Se si osserva questo comportamento, è consigliabile distribuire queste istanze in un pool più grande o come istanze singole.
 
-## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
+## <a name="security-considerations"></a>Considerazioni sulla sicurezza
 
 Poiché le istanze distribuite in un pool condividono la stessa macchina virtuale, è opportuno considerare la possibilità di disabilitare le funzionalità che introducono rischi di sicurezza più elevati o di controllare con sicurezza le autorizzazioni di accesso a queste funzionalità. Ad esempio, l'integrazione con CLR, il backup e il ripristino nativi, la posta elettronica del database e così via.
 
@@ -126,7 +126,7 @@ Se si verificano problemi relativi alla distribuzione del pool di istanze (creaz
 
 Se si verificano problemi relativi a istanze o database singoli all'interno di un pool, è necessario creare un ticket di supporto regolare per le istanze gestite del database SQL di Azure.
 
-Per creare distribuzioni di istanze gestite di dimensioni maggiori (con o senza pool di istanze), potrebbe essere necessario ottenere una quota regionale più ampia. Usare la [procedura standard di istanza gestita per richiedere una quota più grande](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance), ma si noti che se si usano pool di istanze, la logica di distribuzione confronta il consumo totale di vCore *a livello di pool* rispetto alla quota per determinare se si è consentito creare nuove risorse senza aumentare ulteriormente la quota.
+Per creare distribuzioni di istanze gestite di dimensioni maggiori (con o senza pool di istanze), potrebbe essere necessario ottenere una quota regionale più ampia. Usare la [procedura standard dell'istanza gestita per richiedere una quota maggiore](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance), ma si noti che se si usano pool di istanze, la logica di distribuzione confronta il consumo totale di vCore *a livello di pool* rispetto alla quota per determinare se è possibile creare nuove risorse senza aumentare ulteriormente la quota.
 
 ## <a name="instance-pool-billing"></a>Fatturazione pool di istanze
 
@@ -136,7 +136,7 @@ il prezzo vCore per un pool viene addebitato indipendentemente dal numero di ist
 
 Per il prezzo di calcolo (misurato in VCore), sono disponibili due opzioni di prezzo:
 
-  1. *Licenza inclusa*: applica le licenze SQL Server esistenti con Software Assurance.
+  1. *Licenza inclusa*: prezzo delle licenze SQL incluso. Questa operazione è destinata ai clienti che scelgono di non applicare licenze di SQL Server esistenti con Software Assurance.
   2. *Vantaggio Azure Hybrid*: prezzo ridotto che include Vantaggio Azure Hybrid per SQL Server. I clienti possono optare per questo prezzo usando le licenze di SQL Server esistenti con Software Assurance. Per informazioni sull'idoneità e altri dettagli, vedere [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 Non è possibile impostare opzioni di prezzo diverse per le singole istanze in un pool. Tutte le istanze nel pool padre devono essere al prezzo incluso per la licenza o Vantaggio Azure Hybrid prezzo. Il modello di licenza per il pool può essere modificato dopo la creazione del pool.

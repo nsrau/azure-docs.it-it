@@ -1,25 +1,16 @@
 ---
-title: Simulare errori nei microservizi di Azure | Documentazione Microsoft
+title: Simulare errori nei microservizi di Azure
 description: In questo articolo vengono illustrate le azioni di Testabilità trovate in Infrastruttura di servizi di Microsoft Azure.
-services: service-fabric
-documentationcenter: .net
 author: motanv
-manager: chackdan
-editor: heeldin
-ms.assetid: ed53ca5c-4d5e-4b48-93c9-e386f32d8b7a
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv
-ms.openlocfilehash: 37a794387f3a2f02124805705d380ad9f1fc1270
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4bdb00eec38addc0c9f88eba8b73185ec5721277
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60544798"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465597"
 ---
 # <a name="testability-actions"></a>Azioni di Testabilità
 Per simulare un'infrastruttura non affidabile, Azure Service Fabric offre agli sviluppatori la possibilità di simulare errori e transizioni di stato reali, esposti come azioni di testabilità. Le azioni sono le API di basso livello che causano una specifica fault injection, una transizione di stato o una convalida. La combinazione di queste azioni consente di scrivere scenari di test completi per i servizi.
@@ -37,7 +28,7 @@ Le azioni di Testabilità sono classificate in due bucket principali:
 Per una convalida migliore in termini di qualità, eseguire il carico di lavoro del servizio e del business, includendo diversi errori normali e anomali. Gli errori anomali danno luogo a scenari in cui il processo di servizio si chiude improvvisamente nel corso di un flusso di lavoro. Ciò consente di verificare il percorso di ripristino una volta che Service Fabric ripristina la replica del servizio. Ciò consentirà di verificare la coerenza dei dati e se lo stato del servizio viene conservato correttamente dopo gli errori. L'altro set di errori, ovvero gli errori normali, verifica che il servizio risponda correttamente alle repliche spostate da Service Fabric. Ciò consente di verificare la gestione dell'annullamento nel metodo RunAsync. Il servizio deve controllare che il token di annullamento sia impostato, salvarne correttamente lo stato e chiudere il metodo RunAsync.
 
 ## <a name="testability-actions-list"></a>Elenco delle azioni di Testabilità
-| Azione | Descrizione | API gestita | Cmdlet di PowerShell | Errori normali/anomali |
+| Azione | Description | API gestita | Cmdlet di PowerShell | Errori normali/anomali |
 | --- | --- | --- | --- | --- |
 | CleanTestState |Rimuove lo stato di tutti i test dal cluster in caso di arresto anomalo del driver di test. |CleanTestStateAsync |Remove-ServiceFabricTestState |Non applicabile |
 | InvokeDataLoss |Provoca la perdita di dati in una partizione del servizio. |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |Normale |
@@ -90,7 +81,7 @@ La schermata seguente mostra il comando di testabilità **Restart-ServiceFabricN
 
 ![](media/service-fabric-testability-actions/Restart-ServiceFabricNode.png)
 
-L'output del primo **Get ServiceFabricNode** (un cmdlet dal modulo PowerShell di Service Fabric) mostra che il cluster locale ha cinque nodi: da Node.1 a Node.5. Dopo l'esecuzione dell'azione di testabilità (cmdlet) **Restart-ServiceFabricNode** sul nodo, denominato Node.4, noteremo che il tempo di attività del nodo è stato reimpostato.
+L'output del primo **Get ServiceFabricNode** (un cmdlet dal modulo PowerShell di ServiceFabric) mostra che il cluster locale ha cinque nodi: da Node.1 a Node.5. Dopo l'esecuzione dell'azione di testabilità (cmdlet) **Restart-ServiceFabricNode** sul nodo, denominato Node.4, noteremo che il tempo di attività del nodo è stato reimpostato.
 
 ### <a name="run-an-action-against-an-azure-cluster"></a>Eseguire un'azione su un cluster di Azure
 L'esecuzione di un'azione di testabilità (con PowerShell) su un cluster di Azure è simile all'esecuzione della stessa azione su un cluster locale. L'unica differenza è che, prima di poter eseguire l'azione, invece di connettersi al cluster locale, è necessario connettersi al cluster di Azure.

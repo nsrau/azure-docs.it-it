@@ -1,25 +1,24 @@
 ---
 title: Modelli di query comuni in Analisi di flusso di Azure
 description: Questo articolo descrive alcuni modelli e diverse progettazioni comuni di query che possono rivelarsi utili nei processi di Analisi di flusso di Azure.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/16/2019
-ms.openlocfilehash: 729385a2ce9feb6e69f9be29c2175b403093be3f
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 61f9e128fa9299a743012e18882fe32591fdd3f0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68413374"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369950"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Esempi di query per modelli di uso comune di Analisi di flusso
 
 Le query in Analisi di flusso di Azure sono espresse in un linguaggio di query di tipo SQL. Questi costrutti di linguaggio sono documentati nella guida [Informazioni di riferimento sul linguaggio di query di Analisi di flusso](/stream-analytics-query/stream-analytics-query-language-reference). 
 
-La progettazione delle query può esprimere una semplice logica pass-through per spostare i dati degli eventi da un flusso di input in un archivio dati di output oppure può eseguire un'analisi temporale e una corrispondenza dei modelli avanzati per calcolare le aggregazioni in diverse finestre temporali come nella [soluzione di compilazione di un sacco uso](stream-analytics-build-an-iot-solution-using-stream-analytics.md) della Guida di analisi di flusso. È possibile unire i dati di più input per combinare gli eventi di flusso ed è possibile eseguire ricerche su dati di riferimento statici per arricchire i valori dell'evento. È anche possibile scrivere dati in più output.
+La progettazione della query può esprimere una semplice logica pass-through per spostare i dati degli eventi da un flusso di input in un archivio dati di output oppure può eseguire un'analisi temporale e una corrispondenza dei modelli avanzati per calcolare le aggregazioni in diverse finestre temporali come nella [soluzione di compilazione di una soluzione Internet tramite analisi di flusso](stream-analytics-build-an-iot-solution-using-stream-analytics.md) . È possibile unire i dati di più input per combinare gli eventi di flusso ed è possibile eseguire ricerche su dati di riferimento statici per arricchire i valori dell'evento. È anche possibile scrivere dati in più output.
 
 Questo articolo illustra le soluzioni per diversi modelli di query comuni basati su scenari reali.
 
@@ -29,20 +28,20 @@ Analisi di flusso di Azure supporta l'elaborazione di eventi nei formati di dati
 
 Entrambi i formati JSON e Avro possono contenere tipi complessi come le matrici o gli oggetti nidificati (record). Per altre informazioni sull'uso di questi tipi di dati complessi, vedere l'articolo [analisi dei dati JSON e avro](stream-analytics-parsing-json.md) .
 
-## <a name="query-example-convert-data-types"></a>Esempio di query: Convertire tipi di dati
+## <a name="query-example-convert-data-types"></a>Esempio di query: convertire tipi di dati
 
 **Descrizione**: definire i tipi di proprietà nel flusso di input. Ad esempio, il peso dell'auto è in arrivo nel flusso di input come stringhe e deve essere convertito in **int** per eseguire la **somma**.
 
 **Input**:
 
-| Assicurarsi | Time | Peso |
+| Realizza le tue idee | Durata | Peso |
 | --- | --- | --- |
-| Honda |2015-01-01T00:00:01.0000000Z |"1000" |
-| Honda |2015-01-01T00:00:02.0000000Z |"2000" |
+| Honda |2015-01-01T00:00:01.0000000 Z |"1000" |
+| Honda |2015-01-01T00:00:02.0000000 Z |"2000" |
 
 **Output**:
 
-| Assicurarsi | Peso |
+| Realizza le tue idee | Peso |
 | --- | --- |
 | Honda |3000 |
 
@@ -61,25 +60,25 @@ Entrambi i formati JSON e Avro possono contenere tipi complessi come le matrici 
 
 **Spiegazione**: usare un'istruzione **CAST** nel campo **Peso** per specificarne il tipo di dati. Visualizzare l'elenco dei tipi di dati supportati in [Tipi di dati (Analisi di flusso di Azure)](/stream-analytics-query/data-types-azure-stream-analytics).
 
-## <a name="query-example-use-likenot-like-to-do-pattern-matching"></a>Esempio di query: USA LIKE/NOT LIKE per i criteri di ricerca
+## <a name="query-example-use-likenot-like-to-do-pattern-matching"></a>Esempio di query: usare LIKE/NOT LIKE per eseguire la corrispondenza dei modelli
 
 **Descrizione**: verificare che un valore del campo dell'evento corrisponda a un determinato modello.
 Verificare, ad esempio, che il risultato restituisca le targhe che iniziano per A e terminano con 9.
 
 **Input**:
 
-| Assicurarsi | Targa | Time |
+| Realizza le tue idee | Targa | Durata |
 | --- | --- | --- |
-| Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
-| Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
-| Nissan |ABC-369 |2015-01-01T00:00:03.0000000Z |
+| Honda |ABC-123 |2015-01-01T00:00:01.0000000 Z |
+| Toyota |AAA-999 |2015-01-01T00:00:02.0000000 Z |
+| Nissan |ABC-369 |2015-01-01T00:00:03.0000000 Z |
 
 **Output**:
 
-| Assicurarsi | Targa | Time |
+| Realizza le tue idee | Targa | Durata |
 | --- | --- | --- |
-| Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
-| Nissan |ABC-369 |2015-01-01T00:00:03.0000000Z |
+| Toyota |AAA-999 |2015-01-01T00:00:02.0000000 Z |
+| Nissan |ABC-369 |2015-01-01T00:00:03.0000000 Z |
 
 **Soluzione**:
 
@@ -92,26 +91,26 @@ Verificare, ad esempio, che il risultato restituisca le targhe che iniziano per 
         LicensePlate LIKE 'A%9'
 ```
 
-**Spiegazione**: usare l'istruzione **LIKE** per verificare che il valore del campo **LicensePlate**. Deve iniziare con la lettera A, quindi contenere una stringa di zero o più caratteri e quindi terminare con il numero 9. 
+**Spiegazione**: usare l'istruzione **LIKE** per verificare che il valore del campo **LicensePlate** Deve iniziare con la lettera A, quindi contenere una stringa di zero o più caratteri e quindi terminare con il numero 9. 
 
-## <a name="query-example-specify-logic-for-different-casesvalues-case-statements"></a>Esempio di query: specificare la logica per i diversi casi/valori (istruzioni CASE)
+## <a name="query-example-specify-logic-for-different-casesvalues-case-statements"></a>Esempio di query: Specificare la logica per i diversi casi/valori (istruzioni CASE)
 
 **Descrizione**: fornire un calcolo diverso per un campo in base un determinato criterio. Fornire ad esempio una stringa descrittiva relativa al numero di automobili della stessa casa automobilistica che sono passate, con un caso speciale impostato su 1.
 
 **Input**:
 
-| Assicurarsi | Time |
+| Realizza le tue idee | Durata |
 | --- | --- |
-| Honda |2015-01-01T00:00:01.0000000Z |
-| Toyota |2015-01-01T00:00:02.0000000Z |
-| Toyota |2015-01-01T00:00:03.0000000Z |
+| Honda |2015-01-01T00:00:01.0000000 Z |
+| Toyota |2015-01-01T00:00:02.0000000 Z |
+| Toyota |2015-01-01T00:00:03.0000000 Z |
 
 **Output**:
 
-| Auto passate | Tempo |
+| Auto passate | Durata |
 | --- | --- |
-| 1 Honda |2015-01-01T00:00:10.0000000Z |
-| 2 Toyota |2015-01-01T00:00:10.0000000Z |
+| 1 Honda |2015-01-01T00:00:10.0000000 Z |
+| 2 Toyota |2015-01-01T00:00:10.0000000 Z |
 
 **Soluzione**:
 
@@ -131,35 +130,35 @@ Verificare, ad esempio, che il risultato restituisca le targhe che iniziano per 
 
 **Spiegazione**: l'espressione **CASE** confronta un'espressione con un set di espressioni semplici per determinare il risultato. In questo esempio, le marche di veicolo con un conteggio pari a 1 hanno restituito una stringa descrittiva diversa da quella delle marche di veicolo con un numero diverso da 1.
 
-## <a name="query-example-send-data-to-multiple-outputs"></a>Esempio di query: inviare dati a più output
+## <a name="query-example-send-data-to-multiple-outputs"></a>Esempio di query: Invio di dati a più output
 
 **Descrizione**: inviare dati a più destinazioni di output da un singolo processo. Analizzare, ad esempio, i dati per un avviso basato su soglie e archiviare tutti gli eventi nell'archiviazione BLOB.
 
 **Input**:
 
-| Assicurarsi | Time |
+| Realizza le tue idee | Durata |
 | --- | --- |
-| Honda |2015-01-01T00:00:01.0000000Z |
-| Honda |2015-01-01T00:00:02.0000000Z |
-| Toyota |2015-01-01T00:00:01.0000000Z |
-| Toyota |2015-01-01T00:00:02.0000000Z |
-| Toyota |2015-01-01T00:00:03.0000000Z |
+| Honda |2015-01-01T00:00:01.0000000 Z |
+| Honda |2015-01-01T00:00:02.0000000 Z |
+| Toyota |2015-01-01T00:00:01.0000000 Z |
+| Toyota |2015-01-01T00:00:02.0000000 Z |
+| Toyota |2015-01-01T00:00:03.0000000 Z |
 
 **Output1**:
 
-| Assicurarsi | Time |
+| Realizza le tue idee | Durata |
 | --- | --- |
-| Honda |2015-01-01T00:00:01.0000000Z |
-| Honda |2015-01-01T00:00:02.0000000Z |
-| Toyota |2015-01-01T00:00:01.0000000Z |
-| Toyota |2015-01-01T00:00:02.0000000Z |
-| Toyota |2015-01-01T00:00:03.0000000Z |
+| Honda |2015-01-01T00:00:01.0000000 Z |
+| Honda |2015-01-01T00:00:02.0000000 Z |
+| Toyota |2015-01-01T00:00:01.0000000 Z |
+| Toyota |2015-01-01T00:00:02.0000000 Z |
+| Toyota |2015-01-01T00:00:03.0000000 Z |
 
 **Output2**:
 
-| Assicurarsi | Time | Conteggio |
+| Realizza le tue idee | Durata | Conteggio |
 | --- | --- | --- |
-| Toyota |2015-01-01T00:00:10.0000000Z |3 |
+| Toyota |2015-01-01T00:00:10.0000000 Z |3 |
 
 **Soluzione**:
 
@@ -211,20 +210,20 @@ Ad esempio:
 
 **Input**:
 
-| Assicurarsi | Time |
+| Realizza le tue idee | Durata |
 | --- | --- |
-| Honda |2015-01-01T00:00:01.0000000Z |
-| Honda |2015-01-01T00:00:02.0000000Z |
-| Toyota |2015-01-01T00:00:01.0000000Z |
-| Toyota |2015-01-01T00:00:02.0000000Z |
-| Toyota |2015-01-01T00:00:03.0000000Z |
+| Honda |2015-01-01T00:00:01.0000000 Z |
+| Honda |2015-01-01T00:00:02.0000000 Z |
+| Toyota |2015-01-01T00:00:01.0000000 Z |
+| Toyota |2015-01-01T00:00:02.0000000 Z |
+| Toyota |2015-01-01T00:00:03.0000000 Z |
 
 **Output:**
 
-| CountMake | Time |
+| CountMake | Durata |
 | --- | --- |
-| 2 |2015-01-01T00:00:02.000Z |
-| 1 |2015-01-01T00:00:04.000Z |
+| 2 |2015-01-01T00:00:02.000 Z |
+| 1 |2015-01-01T00:00:04.000 Z |
 
 **Soluzione:**
 
@@ -241,22 +240,22 @@ GROUP BY
 **Spiegazione:** 
 **COUNT(DISTINCT Make)** restituisce il numero di valori distinct della colonna **Casa automobilistica** all'interno di una finestra temporale.
 
-## <a name="query-example-determine-if-a-value-has-changed"></a>Esempio di query: determinare la potenziale variazione di un valore
+## <a name="query-example-determine-if-a-value-has-changed"></a>Esempio di query: Determinare la potenziale variazione di un valore
 
 **Descrizione**: esaminare un valore precedente per determinare se è diverso rispetto al valore corrente. L'auto precedente passata dal casello autostradale, ad esempio, è della stessa casa automobilistica dell'auto corrente?
 
 **Input**:
 
-| Assicurarsi | Time |
+| Realizza le tue idee | Durata |
 | --- | --- |
-| Honda |2015-01-01T00:00:01.0000000Z |
-| Toyota |2015-01-01T00:00:02.0000000Z |
+| Honda |2015-01-01T00:00:01.0000000 Z |
+| Toyota |2015-01-01T00:00:02.0000000 Z |
 
 **Output**:
 
-| Assicurarsi | Time |
+| Realizza le tue idee | Durata |
 | --- | --- |
-| Toyota |2015-01-01T00:00:02.0000000Z |
+| Toyota |2015-01-01T00:00:02.0000000 Z |
 
 **Soluzione**:
 
@@ -278,22 +277,22 @@ GROUP BY
 
 **Input**:
 
-| Targa | Assicurarsi | Time |
+| Targa | Realizza le tue idee | Durata |
 | --- | --- | --- |
-| DXE 5291 |Honda |27-07-2015T00:00:05.0000000Z |
-| YZK 5704 |Ford |27-07-2015T00:02:17.0000000Z |
-| RMV 8282 |Honda |27-07-2015T00:05:01.0000000Z |
-| YHN 6970 |Toyota |27-07-2015T00:06:00.0000000Z |
-| VFE 1616 |Toyota |27-07-2015T00:09:31.0000000Z |
-| QYF 9358 |Honda |27-07-2015T00:12:02.0000000Z |
-| MDR 6128 |BMW |27-07-2015T00:13:45.0000000Z |
+| DXE 5291 |Honda |2015-07-27T00:00:05.0000000 Z |
+| YZK 5704 |Ford |2015-07-27T00:02:17.0000000 Z |
+| RMV 8282 |Honda |2015-07-27T00:05:01.0000000 Z |
+| YHN 6970 |Toyota |2015-07-27T00:06:00.0000000 Z |
+| VFE 1616 |Toyota |2015-07-27T00:09:31.0000000 Z |
+| QYF 9358 |Honda |2015-07-27T00:12:02.0000000 Z |
+| MDR 6128 |BMW |2015-07-27T00:13:45.0000000 Z |
 
 **Output**:
 
-| Targa | Assicurarsi | Time |
+| Targa | Realizza le tue idee | Durata |
 | --- | --- | --- |
-| DXE 5291 |Honda |27-07-2015T00:00:05.0000000Z |
-| QYF 9358 |Honda |27-07-2015T00:12:02.0000000Z |
+| DXE 5291 |Honda |2015-07-27T00:00:05.0000000 Z |
+| QYF 9358 |Honda |2015-07-27T00:12:02.0000000 Z |
 
 **Soluzione**:
 
@@ -310,13 +309,13 @@ GROUP BY
 
 A questo punto è possibile modificare il problema e trovare la prima auto di una particolare marca in ogni intervallo di 10 minuti.
 
-| Targa | Assicurarsi | Time |
+| Targa | Realizza le tue idee | Durata |
 | --- | --- | --- |
-| DXE 5291 |Honda |27-07-2015T00:00:05.0000000Z |
-| YZK 5704 |Ford |27-07-2015T00:02:17.0000000Z |
-| YHN 6970 |Toyota |27-07-2015T00:06:00.0000000Z |
-| QYF 9358 |Honda |27-07-2015T00:12:02.0000000Z |
-| MDR 6128 |BMW |27-07-2015T00:13:45.0000000Z |
+| DXE 5291 |Honda |2015-07-27T00:00:05.0000000 Z |
+| YZK 5704 |Ford |2015-07-27T00:02:17.0000000 Z |
+| YHN 6970 |Toyota |2015-07-27T00:06:00.0000000 Z |
+| QYF 9358 |Honda |2015-07-27T00:12:02.0000000 Z |
+| MDR 6128 |BMW |2015-07-27T00:13:45.0000000 Z |
 
 **Soluzione**:
 
@@ -337,22 +336,22 @@ A questo punto è possibile modificare il problema e trovare la prima auto di un
 
 **Input**:
 
-| Targa | Assicurarsi | Time |
+| Targa | Realizza le tue idee | Durata |
 | --- | --- | --- |
-| DXE 5291 |Honda |27-07-2015T00:00:05.0000000Z |
-| YZK 5704 |Ford |27-07-2015T00:02:17.0000000Z |
-| RMV 8282 |Honda |27-07-2015T00:05:01.0000000Z |
-| YHN 6970 |Toyota |27-07-2015T00:06:00.0000000Z |
-| VFE 1616 |Toyota |27-07-2015T00:09:31.0000000Z |
-| QYF 9358 |Honda |27-07-2015T00:12:02.0000000Z |
-| MDR 6128 |BMW |27-07-2015T00:13:45.0000000Z |
+| DXE 5291 |Honda |2015-07-27T00:00:05.0000000 Z |
+| YZK 5704 |Ford |2015-07-27T00:02:17.0000000 Z |
+| RMV 8282 |Honda |2015-07-27T00:05:01.0000000 Z |
+| YHN 6970 |Toyota |2015-07-27T00:06:00.0000000 Z |
+| VFE 1616 |Toyota |2015-07-27T00:09:31.0000000 Z |
+| QYF 9358 |Honda |2015-07-27T00:12:02.0000000 Z |
+| MDR 6128 |BMW |2015-07-27T00:13:45.0000000 Z |
 
 **Output**:
 
-| Targa | Assicurarsi | Time |
+| Targa | Realizza le tue idee | Durata |
 | --- | --- | --- |
-| VFE 1616 |Toyota |27-07-2015T00:09:31.0000000Z |
-| MDR 6128 |BMW |27-07-2015T00:13:45.0000000Z |
+| VFE 1616 |Toyota |2015-07-27T00:09:31.0000000 Z |
+| MDR 6128 |BMW |2015-07-27T00:13:45.0000000 Z |
 
 **Soluzione**:
 
@@ -379,24 +378,24 @@ A questo punto è possibile modificare il problema e trovare la prima auto di un
 
 **Spiegazione**: la query si articola in due passaggi. Il primo rileva il timestamp più recente in finestre di 10 minuti, il secondo unisce i risultati della prima query con il flusso originale per trovare gli eventi corrispondenti ai timestamp più recenti in ogni finestra. 
 
-## <a name="query-example-locate-correlated-events-in-a-stream"></a>Esempio di query: Individuare gli eventi correlati in un flusso
+## <a name="query-example-locate-correlated-events-in-a-stream"></a>Esempio di query: individuare gli eventi correlati in un flusso
 
-**Descrizione**: Trovare gli eventi correlati in un flusso. Ad esempio, 2 automobili consecutive della stessa casa automobilistica hanno attraversato il casello negli ultimi 90 secondi?
+**Descrizione**: trovare gli eventi correlati in un flusso. Ad esempio, 2 automobili consecutive della stessa casa automobilistica hanno attraversato il casello negli ultimi 90 secondi?
 
 **Input**:
 
-| Assicurarsi | Targa | Time |
+| Realizza le tue idee | Targa | Durata |
 | --- | --- | --- |
-| Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
-| Honda |AAA-999 |2015-01-01T00:00:02.0000000Z |
-| Toyota |DEF-987 |2015-01-01T00:00:03.0000000Z |
-| Honda |GHI-345 |2015-01-01T00:00:04.0000000Z |
+| Honda |ABC-123 |2015-01-01T00:00:01.0000000 Z |
+| Honda |AAA-999 |2015-01-01T00:00:02.0000000 Z |
+| Toyota |DEF-987 |2015-01-01T00:00:03.0000000 Z |
+| Honda |GHI-345 |2015-01-01T00:00:04.0000000 Z |
 
 **Output**:
 
-| Assicurarsi | Time | Targa auto corrente | Targa prima auto | Tempo prima auto |
+| Realizza le tue idee | Durata | Targa auto corrente | Targa prima auto | Tempo prima auto |
 | --- | --- | --- | --- | --- |
-| Honda |2015-01-01T00:00:02.0000000Z |AAA-999 |ABC-123 |2015-01-01T00:00:01.0000000Z |
+| Honda |2015-01-01T00:00:02.0000000 Z |AAA-999 |ABC-123 |2015-01-01T00:00:01.0000000 Z |
 
 **Soluzione**:
 
@@ -421,14 +420,14 @@ A questo punto è possibile modificare il problema e trovare la prima auto di un
 
 **Input**:  
 
-| Utente | Funzionalità | event | Time |
+| Utente | Funzionalità | Evento | Durata |
 | --- | --- | --- | --- |
-| user@location.com |RightMenu |Start |2015-01-01T00:00:01.0000000Z |
-| user@location.com |RightMenu |Fine |2015-01-01T00:00:08.0000000Z |
+| user@location.com |RightMenu |Inizio |2015-01-01T00:00:01.0000000 Z |
+| user@location.com |RightMenu |Fine |2015-01-01T00:00:08.0000000 Z |
 
 **Output**:  
 
-| Utente | Funzionalità | Duration |
+| Utente | Funzionalità | Durata |
 | --- | --- | --- |
 | user@location.com |RightMenu |7 |
 
@@ -455,22 +454,22 @@ Ad esempio, si supponga che un bug abbia generato un peso errato per tutte le au
 
 **Input**:
 
-| Assicurarsi | Time | Peso |
+| Realizza le tue idee | Durata | Peso |
 | --- | --- | --- |
-| Honda |2015-01-01T00:00:01.0000000Z |2000 |
-| Toyota |2015-01-01T00:00:02.0000000Z |25000 |
-| Honda |2015-01-01T00:00:03.0000000Z |26000 |
-| Toyota |2015-01-01T00:00:04.0000000Z |25000 |
-| Honda |2015-01-01T00:00:05.0000000Z |26000 |
-| Toyota |2015-01-01T00:00:06.0000000Z |25000 |
-| Honda |2015-01-01T00:00:07.0000000Z |26000 |
-| Toyota |2015-01-01T00:00:08.0000000Z |2000 |
+| Honda |2015-01-01T00:00:01.0000000 Z |2000 |
+| Toyota |2015-01-01T00:00:02.0000000 Z |25000 |
+| Honda |2015-01-01T00:00:03.0000000 Z |26000 |
+| Toyota |2015-01-01T00:00:04.0000000 Z |25000 |
+| Honda |2015-01-01T00:00:05.0000000 Z |26000 |
+| Toyota |2015-01-01T00:00:06.0000000 Z |25000 |
+| Honda |2015-01-01T00:00:07.0000000 Z |26000 |
+| Toyota |2015-01-01T00:00:08.0000000 Z |2000 |
 
 **Output**:
 
 | Inizio errore | Fine errore |
 | --- | --- |
-| 2015-01-01T00:00:02.000Z |2015-01-01T00:00:07.000Z |
+| 2015-01-01T00:00:02.000 Z |2015-01-01T00:00:07.000 Z |
 
 **Soluzione**:
 
@@ -493,7 +492,7 @@ Ad esempio, si supponga che un bug abbia generato un peso errato per tutte le au
         AND previousWeight > 20000
 ```
 
-**Spiegazione**: usare **LAG** per visualizzare il flusso di input per 24 ore e cercare le istanze in cui **StartFault** e **StopFault** vengono intervallati in base al peso (< 20000).
+**Spiegazione**: usare **LAG** per visualizzare il flusso di input per 24 ore e cercare le istanze in cui **StartFault** e **StopFault** vengono intervallati in base al peso (< 20.000).
 
 ## <a name="query-example-fill-missing-values"></a>Esempio di query: immettere i valori mancanti
 
@@ -501,7 +500,7 @@ Ad esempio, si supponga che un bug abbia generato un peso errato per tutte le au
 
 **Input**:
 
-| t | value |
+| t | Valore |
 | --- | --- |
 | "2014-01-01T06:01:00" |1 |
 | "2014-01-01T06:01:05" |2 |
@@ -514,16 +513,16 @@ Ad esempio, si supponga che un bug abbia generato un peso errato per tutte le au
 
 | windowend | lastevent.t | lastevent.value |
 | --- | --- | --- |
-| 2014-01-01T14:01:00.000Z |2014-01-01T14:01:00.000Z |1 |
-| 2014-01-01T14:01:05.000Z |2014-01-01T14:01:05.000Z |2 |
-| 2014-01-01T14:01:10.000Z |2014-01-01T14:01:10.000Z |3 |
-| 2014-01-01T14:01:15.000Z |2014-01-01T14:01:15.000Z |4 |
-| 2014-01-01T14:01:20.000Z |2014-01-01T14:01:15.000Z |4 |
-| 2014-01-01T14:01:25.000Z |2014-01-01T14:01:15.000Z |4 |
-| 2014-01-01T14:01:30.000Z |2014-01-01T14:01:30.000Z |5 |
-| 2014-01-01T14:01:35.000Z |2014-01-01T14:01:35.000Z |6 |
-| 2014-01-01T14:01:40.000Z |2014-01-01T14:01:35.000Z |6 |
-| 2014-01-01T14:01:45.000Z |2014-01-01T14:01:35.000Z |6 |
+| 2014-01-01T14:01:00.000 Z |2014-01-01T14:01:00.000 Z |1 |
+| 2014-01-01T14:01:05.000 Z |2014-01-01T14:01:05.000 Z |2 |
+| 2014-01-01T14:01:10.000 Z |2014-01-01T14:01:10.000 Z |3 |
+| 2014-01-01T14:01:15.000 Z |2014-01-01T14:01:15.000 Z |4 |
+| 2014-01-01T14:01:20.000 Z |2014-01-01T14:01:15.000 Z |4 |
+| 2014-01-01T14:01:25.000 Z |2014-01-01T14:01:15.000 Z |4 |
+| 2014-01-01T14:01:30.000 Z |2014-01-01T14:01:30.000 Z |5 |
+| 2014-01-01T14:01:35.000 Z |2014-01-01T14:01:35.000 Z |6 |
+| 2014-01-01T14:01:40.000 Z |2014-01-01T14:01:35.000 Z |6 |
+| 2014-01-01T14:01:45.000 Z |2014-01-01T14:01:35.000 Z |6 |
 
 **Soluzione**:
 
@@ -545,7 +544,7 @@ Ad esempio, si supponga che un bug abbia generato un peso errato per tutte le au
 
 **Input**:
 
-| time | deviceId | sensorName | value |
+| time | deviceId | sensorName | Valore |
 | --- | --- | --- | --- |
 | "2018-01-01T16:01:00" | "Oven1" | "temp" |120 |
 | "2018-01-01T16:01:00" | "Oven1" | "power" |15 |
@@ -610,7 +609,7 @@ WHERE
     AND t2.maxPower > 10
 ```
 
-**Spiegazione**: la prima query `max_power_during_last_3_mins` usa la [finestra scorrevole](/stream-analytics-query/sliding-window-azure-stream-analytics) per trovare il valore massimo del sensore di alimentazione per ogni dispositivo, durante gli ultimi 3 minuti. La seconda query viene unita alla prima query per trovare il valore di potenza nella finestra più recente rilevante per l'evento corrente. A condizione che le condizioni siano soddisfatte, viene quindi generato un avviso per il dispositivo.
+**Spiegazione**: la prima query `max_power_during_last_3_mins`, usa la [finestra scorrevole](/stream-analytics-query/sliding-window-azure-stream-analytics) per trovare il valore massimo del sensore di alimentazione per ogni dispositivo, durante gli ultimi 3 minuti. La seconda query viene unita alla prima query per trovare il valore di potenza nella finestra più recente rilevante per l'evento corrente. A condizione che le condizioni siano soddisfatte, viene quindi generato un avviso per il dispositivo.
 
 ## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>Esempio di query: elaborare eventi indipendenti dallo sfasamento di orario dei dispositivi (substream)
 
@@ -618,16 +617,16 @@ WHERE
 
 **Input**:
 
-| Targa | Assicurarsi | Time | ID casello |
+| Targa | Realizza le tue idee | Durata | ID casello |
 | --- | --- | --- | --- |
-| DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1 |
-| YHN 6970 |Toyota |27-07-2015T00:00:05.0000000Z | 1 |
-| QYF 9358 |Honda |2015-07-27T00:00:01.0000000Z | 2 |
-| GXF 9462 |BMW |2015-07-27T00:00:04.0000000Z | 2 |
-| VFE 1616 |Toyota |2015-07-27T00:00:10.0000000Z | 1 |
-| RMV 8282 |Honda |2015-07-27T00:00:03.0000000Z | 3 |
-| MDR 6128 |BMW |2015-07-27T00:00:11.0000000Z | 2 |
-| YZK 5704 |Ford |2015-07-27T00:00:07.0000000Z | 3 |
+| DXE 5291 |Honda |2015-07-27T00:00:01.0000000 Z | 1 |
+| YHN 6970 |Toyota |2015-07-27T00:00:05.0000000 Z | 1 |
+| QYF 9358 |Honda |2015-07-27T00:00:01.0000000 Z | 2 |
+| GXF 9462 |BMW |2015-07-27T00:00:04.0000000 Z | 2 |
+| VFE 1616 |Toyota |2015-07-27T00:00:10.0000000 Z | 1 |
+| RMV 8282 |Honda |2015-07-27T00:00:03.0000000 Z | 3 |
+| MDR 6128 |BMW |2015-07-27T00:00:11.0000000 Z | 2 |
+| YZK 5704 |Ford |2015-07-27T00:00:07.0000000 Z | 3 |
 
 **Output**:
 
@@ -655,22 +654,22 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 ## <a name="query-example-remove-duplicate-events-in-a-window"></a>Esempio di query: rimuovere gli eventi duplicati in una finestra
 
-**Descrizione**: quando si esegue un'operazione come il calcolo delle medie sugli eventi di un determinato intervallo di tempo, gli eventi duplicati devono essere filtrati. Nell'esempio seguente, il secondo evento è un duplicato del primo.
+**Descrizione**: quando si esegue un'operazione, ad esempio il calcolo delle medie sugli eventi in un determinato intervallo di tempo, è necessario filtrare gli eventi duplicati. Nell'esempio seguente, il secondo evento è un duplicato del primo.
 
 **Input**:  
 
-| DeviceId | Time | Attributo | Value |
+| deviceId | Durata | Attributo | Valore |
 | --- | --- | --- | --- |
-| 1 |2018-07-27T00:00:01.0000000Z |Temperatura |50 |
-| 1 |2018-07-27T00:00:01.0000000Z |Temperatura |50 |
-| 2 |2018-07-27T00:00:01.0000000Z |Temperatura |40 |
-| 1 |2018-07-27T00:00:05.0000000Z |Temperatura |60 |
-| 2 |2018-07-27T00:00:05.0000000Z |Temperatura |50 |
-| 1 |2018-07-27T00:00:10.0000000Z |Temperatura |100 |
+| 1 |2018-07-27T00:00:01.0000000 Z |Temperatura |50 |
+| 1 |2018-07-27T00:00:01.0000000 Z |Temperatura |50 |
+| 2 |2018-07-27T00:00:01.0000000 Z |Temperatura |40 |
+| 1 |2018-07-27T00:00:05.0000000 Z |Temperatura |60 |
+| 2 |2018-07-27T00:00:05.0000000 Z |Temperatura |50 |
+| 1 |2018-07-27T00:00:10.0000000 Z |Temperatura |100 |
 
 **Output**:  
 
-| AverageValue | DeviceId |
+| AverageValue | deviceId |
 | --- | --- |
 | 70 | 1 |
 |45 | 2 |
@@ -698,7 +697,7 @@ FROM Temp
 GROUP BY DeviceId,TumblingWindow(minute, 5)
 ```
 
-**Spiegazione**: [COUNT(DISTINCT Time)](/stream-analytics-query/count-azure-stream-analytics) restituisce il numero di valori distinct della colonna Tempo all'interno di una finestra temporale. È quindi possibile usare l'output di questo passaggio per calcolare la media di ogni dispositivo eliminando i duplicati.
+**Spiegazione**: [Count (DISTINCT Time)](/stream-analytics-query/count-azure-stream-analytics) restituisce il numero di valori distinct nella colonna Time all'interno di un intervallo di tempo. È quindi possibile usare l'output di questo passaggio per calcolare la media di ogni dispositivo eliminando i duplicati.
 
 ## <a name="geofencing-and-geospatial-queries"></a>Geoschermatura e query geospaziali
 Analisi di flusso di Azure offre funzioni geospaziali predefinite che possono essere usate per implementare scenari quali gestione della flotta, condivisione delle corse, automobili connesse e rilevamento di asset. I dati geospaziali possono essere inseriti in formati GeoJSON o WKT come parte del flusso di eventi o dei dati di riferimento. Per altre informazioni, vedere l'articolo [scenari di geoschermatura e aggregazione geospaziale con analisi di flusso di Azure](geospatial-scenarios.md) .
@@ -709,7 +708,7 @@ Langugae di Azure Stream Ananlytics query possono essere estese con funzioni per
 * [Funzioni di aggregazione JavaScript definite dall'utente in analisi di flusso di Azure](stream-analytics-javascript-user-defined-aggregates.md)
 * [Sviluppare .NET Standard funzioni definite dall'utente per i processi Edge di analisi di flusso di Azure](stream-analytics-edge-csharp-udf-methods.md)
 
-## <a name="get-help"></a>Guida
+## <a name="get-help"></a>Ottenere supporto
 
 Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 

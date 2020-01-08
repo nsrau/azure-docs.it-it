@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: d8d5ecd64ba689dc9cce342513702d8359038162
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9080a0f327aae50a87b5e69ec157a46181a38a65
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682264"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640942"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Pianificazione della capacità per cluster HDInsight
 
@@ -43,11 +43,11 @@ La risorsa di archiviazione predefinita, che può essere un account di Archiviaz
 
 Se si dispone già di un account di archiviazione o di Data Lake Storage contenente i dati personali e si vuole usare questa risorsa di archiviazione come predefinita del cluster, è necessario distribuire il cluster nella stessa posizione.
 
-### <a name="storage-size"></a>Dimensioni della risorsa di archiviazione
+### <a name="storage-size"></a>Dimensioni dello spazio di archiviazione
 
 Dopo aver distribuito un cluster HDInsight, è possibile associare altri account di Archiviazione di Azure o accedere ad altri archivi Data Lake Storage. Tutti gli account di archiviazione devono trovarsi nella stessa posizione del cluster, mentre un archivio Data Lake Storage può trovarsi anche in una posizione diversa, ma questo può comportare una certa latenza di lettura/scrittura dei dati.
 
-Archiviazione di Azure presenta inoltre alcuni [limiti di capacità](../azure-subscription-service-limits.md#storage-limits), mentre Data Lake Storage Gen1 è pressoché illimitato.
+Archiviazione di Azure presenta inoltre alcuni [limiti di capacità](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits), mentre Data Lake Storage Gen1 è pressoché illimitato.
 
 Un cluster può accedere a una combinazione di account di archiviazione diversi. Di seguito sono riportati alcuni esempi comuni:
 
@@ -92,7 +92,17 @@ L'esecuzione parallela di più componenti di mapping e la riduzione dei componen
 
 ## <a name="quotas"></a>Quote
 
-Dopo aver determinato il tipo, la dimensione e la scalabilità della macchina virtuale del cluster di destinazione, è necessario verificare i limiti di capacità di quota della sottoscrizione. Quando si raggiunge un limite di quota, è possibile che non sia più consentito distribuire nuovi cluster o aumentare le istanze dei cluster esistenti aggiungendo più nodi di lavoro. L'unico limite di quota è la quota di core di CPU esistente a livello di area per ogni sottoscrizione. Ad esempio, la sottoscrizione può avere il limite di 30 core nell'area Stati Uniti orientali. Se è necessario richiedere un aumento della quota, eseguire questa procedura:
+Dopo aver determinato il tipo, la dimensione e la scalabilità della macchina virtuale del cluster di destinazione, è necessario verificare i limiti di capacità di quota della sottoscrizione. Quando si raggiunge un limite di quota, è possibile che non sia più consentito distribuire nuovi cluster o aumentare le istanze dei cluster esistenti aggiungendo più nodi di lavoro. L'unico limite di quota è la quota di core di CPU esistente a livello di area per ogni sottoscrizione. Ad esempio, la sottoscrizione può avere il limite di 30 core nell'area Stati Uniti orientali. 
+
+Per controllare i core disponibili, seguire questa procedura:
+
+1. Accedere al [portale di Azure](https://portal.azure.com/).
+2. Passare alla pagina **Panoramica** per il cluster HDInsight. 
+3. Nel menu a sinistra fare clic su **Limiti quota**.
+
+   La pagina Visualizza il numero di core in uso, il numero di core disponibili e i core totali.
+
+Se è necessario richiedere un aumento della quota, eseguire questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 1. Selezionare **Guida e supporto** nel lato inferiore sinistro della pagina.
@@ -115,7 +125,7 @@ Dopo aver determinato il tipo, la dimensione e la scalabilità della macchina vi
 
 È possibile [contattare il supporto tecnico per richiedere un aumento dei limiti di quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
-Esistono tuttavia alcuni limiti di quota fissi: una singola sottoscrizione di Azure, ad esempio, non può avere più di 10.000 core. Per informazioni dettagliate sui limiti, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+Esistono tuttavia alcuni limiti di quota fissi: una singola sottoscrizione di Azure, ad esempio, non può avere più di 10.000 core. Per informazioni dettagliate sui limiti, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

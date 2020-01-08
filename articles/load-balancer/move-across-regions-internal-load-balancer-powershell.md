@@ -6,12 +6,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 52a43dff5d2e740633675b71d5177d0df876d3cd
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: f8e431124155fe23853fe61e985fe4db522c3f77
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71092209"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644274"
 ---
 # <a name="move-azure-internal-load-balancer-to-another-region-using-powershell"></a>Spostare Load Balancer interni di Azure in un'altra area usando PowerShell
 
@@ -32,7 +32,7 @@ I bilanciamenti del carico interno di Azure non possono essere spostati da un'ar
 
 - Verificare che la sottoscrizione di Azure consenta di creare bilanciamenti del carico interno nell'area di destinazione usata. Contattare il supporto tecnico per abilitare la quota necessaria.
 
-- Assicurarsi che la sottoscrizione disponga di risorse sufficienti per supportare l'aggiunta dei bilanciamenti del carico per questo processo.  Vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits)
+- Assicurarsi che la sottoscrizione disponga di risorse sufficienti per supportare l'aggiunta dei bilanciamenti del carico per questo processo.  Vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)
 
 
 ## <a name="prepare-and-move"></a>Preparare e spostare
@@ -60,7 +60,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
-4. Il file scaricato verrà denominato dopo il gruppo di risorse da cui è stata esportata la risorsa.  Individuare il file che è stato esportato dal comando denominato  **\<Resource-Group-Name >. JSON** e aprirlo in un editor di propria scelta:
+4. Il file scaricato verrà denominato dopo il gruppo di risorse da cui è stata esportata la risorsa.  Individuare il file che è stato esportato dal comando denominato **\<Resource-Group-name >. JSON** e aprirlo in un editor di propria scelta:
    
    ```azurepowershell
    notepad.exe <source-resource-group-name>.json
@@ -105,9 +105,9 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
     Get-AzLocation | format-table
     
     ```
-8.  È anche possibile modificare altri parametri nel  **\<file Resource-Group-Name >. JSON** se si sceglie e sono facoltativi in base ai requisiti:
+8.  È anche possibile modificare altri parametri nel file **\<Resource-Group-name >. JSON** se si sceglie e sono facoltativi in base ai requisiti:
 
-    * **Spazio degli indirizzi** : lo spazio degli indirizzi di VNET può essere modificato prima del salvataggio modificando la >   **\< sezione Resources addressSpace e modificando la proprietà addressPrefixes nel Resource-Group-Name > file. JSON** :
+    * **Spazio degli indirizzi** : lo spazio degli indirizzi di VNET può essere modificato prima del salvataggio modificando le **risorse** > sezione **addressSpace** e modificando la proprietà **addressPrefixes** nel file **\<Resource-Group-Name >. JSON** :
 
         ```json
                 "resources": [
@@ -127,7 +127,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
 
         ```
 
-    * **Subnet** : il nome della subnet e lo spazio degli indirizzi della subnet possono essere modificati o aggiunti a modificando la  **\<** sezione subnet del nome del gruppo di risorse > file con estensione JSON. Il nome della subnet può essere modificato modificando la proprietà **Name** . Lo spazio degli indirizzi della subnet può essere modificato modificando la proprietà **addressPrefix** nel  **\<file Resource-Group-Name >. JSON** :
+    * **Subnet** : il nome della subnet e lo spazio degli indirizzi della subnet possono essere modificati o aggiunti a modificando la sezione **subnet** del file **\<resource-Group-Name >. JSON** . Il nome della subnet può essere modificato modificando la proprietà **Name** . Lo spazio degli indirizzi della subnet può essere modificato modificando la proprietà **addressPrefix** nel file **\<Resource-group-name >. JSON** :
 
         ```json
                 "subnets": [
@@ -158,7 +158,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
                 ]
         ```
 
-         Nel file Resource- **Group-Name >. JSON, per modificare il prefisso dell'indirizzo, è necessario modificarlo in due posizioni, la sezione sopra indicata e la sezione Type elencata di seguito. \<**  Modificare la proprietà **addressPrefix** in modo che corrisponda a quella precedente:
+         Nel file **\<Resource-Group-name >. JSON** , per modificare il prefisso dell'indirizzo, è necessario modificarlo in due posizioni, la sezione sopra indicata e la sezione **Type** elencata di seguito.  Modificare la proprietà **addressPrefix** in modo che corrisponda a quella precedente:
 
         ```json
          "type": "Microsoft.Network/virtualNetworks/subnets",
@@ -194,7 +194,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
          ]
         ```
 
-9.  Salvare il  **\<file Resource-Group-Name >. JSON** .
+9.  Salvare il file **\<Resource-Group-name >. JSON** .
 
 10. Creare un gruppo di risorse nell'area di destinazione per la distribuzione di VNET di destinazione usando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0)
     
@@ -202,7 +202,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
-11. Distribuire il  **\<nome del gruppo di risorse modificato >** file con estensione JSON al gruppo di risorse creato nel passaggio precedente usando [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+11. Distribuire il file modificato **\<Resource-Group-name >. JSON** al gruppo di risorse creato nel passaggio precedente usando [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 
@@ -241,7 +241,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceIntLBID -IncludeParameterDefaultValue
    ```
-4. Il file scaricato verrà denominato dopo il gruppo di risorse da cui è stata esportata la risorsa.  Individuare il file che è stato esportato dal comando denominato  **\<Resource-Group-Name >. JSON** e aprirlo in un editor di propria scelta:
+4. Il file scaricato verrà denominato dopo il gruppo di risorse da cui è stata esportata la risorsa.  Individuare il file che è stato esportato dal comando denominato **\<Resource-Group-name >. JSON** e aprirlo in un editor di propria scelta:
    
    ```azurepowershell
    notepad.exe <source-resource-group-name>.json
@@ -263,7 +263,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
              }
     ```
  
-6. Per modificare il valore della rete virtuale di destinazione spostata sopra, è innanzitutto necessario ottenere l'ID risorsa e quindi copiarlo e incollarlo nel  **\<file Resource-Group-Name >. JSON** .  Per ottenere l'ID, usare [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0):
+6. Per modificare il valore della rete virtuale di destinazione spostata sopra, è innanzitutto necessario ottenere l'ID risorsa e quindi copiarlo e incollarlo nel file **\<Resource-Group-name >. JSON** .  Per ottenere l'ID, usare [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0):
    
    ```azurepowershell-interactive
     $targetVNETID = (Get-AzVirtualNetwork -Name <target-vnet-name> -ResourceGroupName <target-resource-group-name>).Id
@@ -275,7 +275,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
     /subscriptions/7668d659-17fc-4ffd-85ba-9de61fe977e8/resourceGroups/myResourceGroupVNET-Move/providers/Microsoft.Network/virtualNetworks/myVNET2-Move
     ```
 
-7.  Nel file  **Resource-Group-Name>.JSONincollarel'IDrisorsadallavariabilealpostodelDefaultValuenelsecondoparametroperl'IDretevirtualedidestinazione,assicurarsidiracchiudereilpercorso\<** tra virgolette:
+7.  Nel file **\<Resource-Group-name >. JSON** incollare l' **ID risorsa** dalla variabile al posto del **DefaultValue** nel secondo parametro per l'ID rete virtuale di destinazione, assicurarsi di racchiudere il percorso tra virgolette:
    
     ```json
          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -291,7 +291,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
              }
     ```
 
-8. Per modificare l'area di destinazione in cui verrà spostata la configurazione del servizio di bilanciamento del carico interno, modificare la proprietà **location** in **Resources** nel  **\<file Resource-Group-Name >. JSON** :
+8. Per modificare l'area di destinazione in cui verrà spostata la configurazione del servizio di bilanciamento del carico interno, modificare la proprietà **location** in **Resources** nel file **\<resource-Group-Name >. JSON** :
 
     ```json
         "resources": [
@@ -315,7 +315,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
     ```
 12. È anche possibile modificare altri parametri nel modello, se si sceglie, e sono facoltativi in base ai requisiti:
     
-    * **SKU** : è possibile modificare lo SKU del servizio di bilanciamento del carico interno nella configurazione da standard a Basic o Basic a standard modificando la proprietà**nome** **SKU** > in **\<Resource-Group-Name >. JSON**file:
+    * **SKU** : è possibile modificare lo SKU del servizio di bilanciamento del carico interno nella configurazione da standard a Basic o Basic a standard modificando la proprietà **SKU** > **Name** nel **\<Resource-Group-Name > file. JSON** :
 
         ```json
         "resources": [
@@ -331,7 +331,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
         ```
       Per altre informazioni sulle differenze tra i bilanciamenti del carico SKU Basic e standard, vedere [Panoramica di Azure Load Balancer standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
 
-    * **Regole di bilanciamento del carico** : è possibile aggiungere o rimuovere le regole di bilanciamento del carico nella configurazione aggiungendo o rimuovendo le voci nella  **\<sezione loadBalancingRules del file Resource-Group-Name >. JSON** :
+    * **Regole di bilanciamento del carico** : è possibile aggiungere o rimuovere le regole di bilanciamento del carico nella configurazione aggiungendo o rimuovendo le voci nella sezione **loadBalancingRules** del file **\<resource-Group-Name >. JSON** :
 
         ```json
         "loadBalancingRules": [
@@ -363,7 +363,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
         ```
        Per ulteriori informazioni sulle regole di bilanciamento del carico, vedere [che cos'è Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
 
-    * **Probe** : è possibile aggiungere o rimuovere un probe per il servizio di bilanciamento del carico nella configurazione aggiungendo o rimuovendo le voci nella  **\<sezione probe del file Resource-Group-Name >. JSON** :
+    * **Probe** : è possibile aggiungere o rimuovere un probe per il servizio di bilanciamento del carico nella configurazione aggiungendo o rimuovendo le voci nella sezione **Probe** del file **\<resource-Group-Name >. JSON** :
 
         ```json
         "probes": [
@@ -383,7 +383,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
         ```
        Per altre informazioni sui Probe di integrità di Azure Load Balancer, vedere [Probe di integrità Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)
 
-    * **Regole NAT in ingresso** : è possibile aggiungere o rimuovere le regole NAT in ingresso per il servizio di bilanciamento del carico aggiungendo o rimuovendo le voci nella  **\<sezione inboundNatRules del file Resource-Group-Name >. JSON** :
+    * **Regole NAT in ingresso** : è possibile aggiungere o rimuovere le regole NAT in ingresso per il servizio di bilanciamento del carico aggiungendo o rimuovendo le voci nella sezione **inboundNatRules** del file **\<resource-Group-Name >. JSON** :
 
         ```json
         "inboundNatRules": [
@@ -405,7 +405,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
                     }
                 ]
         ```
-        Per completare l'aggiunta o la rimozione di una regola NAT in ingresso, è necessario che la regola sia presente o rimossa come proprietà del **tipo** alla fine del  **\<nome del gruppo di risorse > file con estensione JSON** :
+        Per completare l'aggiunta o la rimozione di una regola NAT in ingresso, è necessario che la regola sia presente o rimossa come proprietà del **tipo** alla fine del file **\<Resource-group-name >. JSON** :
 
         ```json
         {
@@ -431,14 +431,14 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
         ```
         Per ulteriori informazioni sulle regole NAT in ingresso, vedere [che cos'è Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
     
-13. Salvare il  **\<file Resource-Group-Name >. JSON** .
+13. Salvare il file **\<Resource-Group-name >. JSON** .
     
 10. Creare o un gruppo di risorse nell'area di destinazione per la distribuzione del servizio di bilanciamento del carico interno di destinazione usando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0). Il gruppo di risorse esistente precedente può essere riutilizzato anche nell'ambito di questo processo:
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. Distribuire il  **\<nome del gruppo di risorse modificato >** file con estensione JSON al gruppo di risorse creato nel passaggio precedente usando [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+11. Distribuire il file modificato **\<Resource-Group-name >. JSON** al gruppo di risorse creato nel passaggio precedente usando [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 
@@ -460,7 +460,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
 
     ```
 
-## <a name="discard"></a>Annulla 
+## <a name="discard"></a>Discard 
 
 Dopo la distribuzione, se si vuole avviare o rimuovere la rete virtuale e il servizio di bilanciamento del carico nella destinazione, eliminare il gruppo di risorse creato nella destinazione e la rete virtuale spostata e il servizio di bilanciamento del carico verranno eliminati.  Per rimuovere il gruppo di risorse, usare [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
 

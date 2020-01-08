@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti-iperscalabilità (CITUS)-database di Azure per PostgreSQL
+title: Domande frequenti sull'iperscalabilità del database SQL di Azure
 description: Risposte alle domande comuni dei clienti sul database SQL di Azure nel livello di servizio Hyperscale, detto comunemente database Hyperscale.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/12/2019
-ms.openlocfilehash: 377de93733d94d8cff5518eebb8ebba38154d10d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 6a25d5197746e04ffa25ee397e6d8451e24ae176
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974020"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614997"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Domande frequenti sull'iperscalabilità del database SQL di Azure
 
@@ -39,7 +39,7 @@ Il livello di servizio Hyperscale è disponibile solo per i database singoli che
 
 I livelli di servizio basati su vCore sono differenziati in base alla disponibilità del database e al tipo di archiviazione, alle prestazioni e alle dimensioni massime, come descritto nella tabella seguente.
 
-| | Tipo di risorsa | Scopo generico |  Hyperscale | Business Critical |
+| | Tipo di risorsa | Scopo generico |  Hyperscale | Business critical |
 |:---:|:---:|:---:|:---:|:---:|
 | **Ideale per** |Tutto|Offre opzioni di calcolo e archiviazione bilanciate a prezzi convenienti.|La maggior parte dei carichi di lavoro aziendali. Ridimensionamento automatico delle dimensioni di archiviazione fino a 100 TB, scalabilità verticale e orizzontale rapida del calcolo, ripristino rapido del database.|Applicazioni OLTP con frequenza di transazione elevata e bassa latenza di i/o. Offre la massima resilienza agli errori e a failover rapidi usando più repliche aggiornate in modo sincrono.|
 |  **Tipo di risorsa** ||Database singolo/pool elastico/istanza gestita | Database singolo | Database singolo/pool elastico/istanza gestita |
@@ -157,7 +157,7 @@ Il log delle transazioni con il livello Hyperscale è praticamente infinito. Non
 
 ### <a name="does-my-tempdb-scale-as-my-database-grows"></a>Aumenta la scalabilità della `tempdb` Man mano che il database aumenta
 
-Il database `tempdb` si trova nell'archiviazione SSD locale ed è configurato in base alle dimensioni di calcolo di cui è stato effettuato il provisioning. Il `tempdb` è ottimizzato per offrire i massimi vantaggi a livello di prestazioni. `tempdb` dimensione non è configurabile e viene gestita per l'utente.
+Il database `tempdb` si trova nell'archivio SSD locale e viene ridimensionato proporzionalmente alle dimensioni di calcolo di cui si esegue il provisioning. Il `tempdb` è ottimizzato per offrire i massimi vantaggi a livello di prestazioni. `tempdb` dimensione non è configurabile e viene gestita per l'utente.
 
 ### <a name="does-my-database-size-automatically-grow-or-do-i-have-to-manage-the-size-of-data-files"></a>Le dimensioni del database aumentano automaticamente o è necessario gestire le dimensioni dei file di dati
 
@@ -165,7 +165,7 @@ Le dimensioni del database aumentano automaticamente man mano che si inseriscono
 
 ### <a name="what-is-the-smallest-database-size-that-hyperscale-supports-or-starts-with"></a>Qual è la dimensione minima del database supportata da iperscalare o che inizia con
 
-10 GB.
+40 GB. Viene creato un database con iperscalabilità con una dimensione iniziale di 10 GB. Inizia quindi a crescere di 10 GB ogni 10 minuti, fino a raggiungere le dimensioni di 40 GB. Ognuno di questi mandrini da 10 GB viene allocato in un server di pagine diverso per fornire più IOPS e un maggiore parallelismo di I/O. A causa di questa ottimizzazione, anche se si scelgono dimensioni di database iniziali inferiori a 40 GB, il database aumenterà automaticamente ad almeno 40 GB.
 
 ### <a name="in-what-increments-does-my-database-size-grow"></a>In base a quali incrementi aumentano le dimensioni del database
 
@@ -268,13 +268,13 @@ Sì.
 
 Il valore di RPO è 0 min. L'obiettivo di RTO è inferiore a 10 minuti, indipendentemente dalle dimensioni del database. 
 
-### <a name="do-backups-of-large-databases-affect-compute-performance-on-my-primary"></a>I backup di database di grandi dimensioni influiscono sulle prestazioni di calcolo del nodo primario
+### <a name="does-database-backup-affect-compute-performance-on-my-primary-or-secondary-replicas"></a>Il backup del database influisce sulle prestazioni di calcolo sulle repliche primarie o secondarie
 
-No. I backup vengono gestiti dal sottosistema di archiviazione e sfruttano gli snapshot di archiviazione. Non influiscano sul carico di lavoro dell'utente nel database primario.
+No. I backup vengono gestiti dal sottosistema di archiviazione e sfruttano gli snapshot di archiviazione. Non influiscano sui carichi di lavoro degli utenti.
 
 ### <a name="can-i-perform-geo-restore-with-a-hyperscale-database"></a>È possibile eseguire il ripristino geografico con un database con iperscalabilità
 
-Sì.  Il ripristino geografico è completamente supportato.
+Sì.  Il ripristino geografico è completamente supportato. A differenza del ripristino temporizzato, il ripristino geografico può richiedere un'operazione di dimensioni dei dati a esecuzione prolungata.
 
 ### <a name="can-i-set-up-geo-replication-with-hyperscale-database"></a>È possibile configurare la replica geografica con un database con iperscalabilità
 
@@ -296,7 +296,7 @@ No. La polibase non è supportata nel database SQL di Azure.
 
 ### <a name="does-hyperscale-have-support-for-r-and-python"></a>L'iperscalabilità ha supporto per R e Python
 
-No. R and Python non sono supportati nel database SQL di Azure.
+Non attualmente.
 
 ### <a name="are-compute-nodes-containerized"></a>Nodi di calcolo in contenitori
 
@@ -310,7 +310,7 @@ Il limite di velocità effettiva del log delle transazioni è impostato su 100 M
 
 ### <a name="how-many-iops-do-i-get-on-the-largest-compute"></a>Il numero di operazioni di i/o al secondo per il calcolo più grande
 
-La latenza di IOPS e i/o variano a seconda dei modelli di carico di lavoro. Se i dati a cui si accede vengono memorizzati nella cache della replica di calcolo, si vedranno le stesse prestazioni di i/o dell'unità SSD locale.
+La latenza di IOPS e i/o variano a seconda dei modelli di carico di lavoro. Se i dati a cui si accede vengono memorizzati nella cache della replica di calcolo, vengono visualizzate prestazioni di i/o simili a quelle dell'unità SSD locale.
 
 ### <a name="does-my-throughput-get-affected-by-backups"></a>La velocità effettiva è influenzata dai backup
 
@@ -318,7 +318,11 @@ No. Il calcolo è separato dal livello di archiviazione. In questo modo si elimi
 
 ### <a name="does-my-throughput-get-affected-as-i-provision-additional-compute-replicas"></a>La velocità effettiva viene influenzata durante il provisioning di repliche di calcolo aggiuntive
 
-Poiché l'archiviazione è condivisa e non viene eseguita alcuna replica fisica diretta tra le repliche di calcolo primarie e secondarie, tecnicamente, la velocità effettiva della replica primaria non sarà interessata dall'aggiunta di repliche secondarie. Tuttavia, è possibile limitare il carico di lavoro di scrittura continua aggressiva per consentire l'applicazione del log sulle repliche secondarie e sui server di paging, evitando così una riduzione delle prestazioni di lettura sulle repliche secondarie.
+Poiché l'archiviazione è condivisa e non viene eseguita alcuna replica fisica diretta tra le repliche di calcolo primarie e secondarie, la velocità effettiva della replica primaria non sarà interessata direttamente dall'aggiunta di repliche secondarie. Tuttavia, è possibile limitare il carico di lavoro di scrittura continua aggressiva sul database primario per consentire l'applicazione del log sulle repliche secondarie e sui server di paging, per evitare una riduzione delle prestazioni di lettura sulle repliche secondarie.
+
+### <a name="how-do-i-diagnose-and-troubleshoot-performance-problems-in-a-hyperscale-database"></a>Ricerca per categorie diagnosticare e risolvere i problemi di prestazioni in un database con iperscalabilità
+
+Per la maggior parte dei problemi di prestazioni, in particolare quelli non radicati nelle prestazioni di archiviazione, si applicano le procedure di diagnostica e di risoluzione dei problemi comuni SQL Server. Per la diagnostica dell'archiviazione specifica dell'iperscalabilità, vedere diagnostica per la [risoluzione dei problemi di prestazioni dell'iperscalabilità SQL](sql-database-hyperscale-performance-diagnostics.md).
 
 ## <a name="scalability-questions"></a>Domande sulla scalabilità
 
@@ -367,7 +371,7 @@ No. È possibile connettersi solo per le repliche con scalabilità orizzontale i
 
 ### <a name="does-the-system-do-intelligent-load-balancing-of-the-read-workload"></a>Il sistema esegue il bilanciamento del carico intelligente per il carico di lavoro di lettura
 
-No. Una connessione con finalità di sola lettura viene reindirizzata a una replica con scalabilità orizzontale in lettura arbitraria.
+No. Una nuova connessione con finalità di sola lettura viene reindirizzata a una replica con scalabilità orizzontale in lettura arbitraria.
 
 ### <a name="can-i-scale-updown-the-secondary-compute-replicas-independently-of-the-primary-replica"></a>È possibile ridimensionare le repliche di calcolo secondarie in modo indipendente dalla replica primaria
 
@@ -383,7 +387,7 @@ No. I database con iperscalabilità includono spazio di archiviazione condiviso,
 
 ### <a name="how-much-delay-is-there-going-to-be-between-the-primary-and-secondary-compute-replicas"></a>Il ritardo tra le repliche di calcolo primarie e secondarie
 
-Dal momento in cui viene eseguito il commit di una transazione nel database primario, a seconda della velocità di generazione del log corrente, può essere istantaneo o in millisecondi di basso livello.
+La latenza dei dati dal momento in cui viene eseguito il commit di una transazione nel database primario nel momento in cui è visibile in una replica secondaria dipende dalla frequenza di generazione del log corrente. La latenza dei dati tipica è di pochi millisecondi.
 
 ## <a name="next-steps"></a>Fasi successive
 

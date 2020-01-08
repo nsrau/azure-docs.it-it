@@ -1,19 +1,18 @@
 ---
 title: Usare i dati di riferimento per le ricerche in Analisi di flusso di Azure
 description: Questo articolo descrive come usare i dati di riferimento per cercare o correlare dati in una struttura di query di un processo di Analisi di flusso di Azure.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/8/2019
-ms.openlocfilehash: d058fdd48b8a271c8a2db7d327267de053c02c44
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: b3808524706b13761dd8eccffa301c602d08f481
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244851"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369565"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Uso dei dati di riferimento per le ricerche in Analisi di flusso
 
@@ -21,7 +20,7 @@ I dati di riferimento (noti anche come tabella di ricerca) sono un set di dati l
 
 Analisi di flusso supporta l'archivio BLOB di Azure e il database SQL di Azure come livello di archiviazione per i dati di riferimento. È anche possibile trasformare e/o copiare i dati di riferimento nell'archiviazione BLOB da Azure Data Factory per usare [qualsiasi numero di archivi dati locali e basati sul cloud](../data-factory/copy-activity-overview.md).
 
-## <a name="azure-blob-storage"></a>Archivio BLOB di Azure
+## <a name="azure-blob-storage"></a>Archiviazione BLOB di Azure
 
 I dati di riferimento sono modellati come una sequenza di BLOB (definiti nella configurazione di input) in ordine crescente in base alla data/ora specificata nel nome di BLOB. Supporta **solo** l'aggiunta alla fine della sequenza usando una data/ora **successiva** rispetto a quella specificata dall'ultimo BLOB nella sequenza.
 
@@ -36,10 +35,10 @@ Per configurare i dati di riferimento, è prima di tutto necessario creare un in
 |Chiave dell'account di archiviazione   | Chiave privata associata all'account di archiviazione. Viene compilata automaticamente se l'account di archiviazione si trova nella stessa sottoscrizione del processo di analisi di flusso.   |
 |Contenitore di archiviazione   | I contenitori forniscono un raggruppamento logico per gli oggetti BLOB archiviati nel servizio BLOB di Microsoft Azure. Quando si carica un oggetto BLOB nel servizio BLOB, è necessario specificare un contenitore per il BLOB.   |
 |Modello di percorso   | Percorso usato per individuare i BLOB nel contenitore specificato. All'interno del percorso è possibile scegliere di specificare una o più istanze delle 2 variabili seguenti:<BR>{date}, {time}<BR>Esempio 1: products/{date}/{time}/product-list.csv<BR>Esempio 2: products/{date}/product-list.csv<BR>Esempio 3: product-list. csv<BR><br> Se il blob non esiste nel percorso specificato, il processo di analisi di flusso attenderà per un periodo illimitato perché il blob diventi disponibile.   |
-|Formato data [facoltativo]   | Se è stata usata la variabile {date} nel modello di percorso specificato, è possibile selezionare il formato di data in cui sono organizzati i BLOB nell'elenco a discesa dei formati supportati.<BR>Esempio: AAAA/MM/GG, MM/GG/AAAA e così via.   |
+|Formato data [facoltativo]   | Se è stata usata la variabile {date} nel modello di percorso specificato, è possibile selezionare il formato di data in cui sono organizzati i BLOB nell'elenco a discesa dei formati supportati.<BR>Esempio: AAAA/MM/GG, MM/GG/AAAA e così via   |
 |Formato ora [facoltativo]   | Se è stata usata la variabile {time} nel modello di percorso specificato, è possibile selezionare il formato di ora in cui sono organizzati i BLOB nell'elenco a discesa dei formati supportati.<BR>Esempio: HH, HH/mm o HH-mm.  |
 |Formato di serializzazione eventi   | Per accertarsi che le query funzionino come previsto, l'analisi di flusso deve conoscere il formato di serializzazione usato per i flussi di dati in entrata. Per i dati di riferimento, i formati dati supportati sono CSV e JSON.  |
-|Codifica   | Al momento, UTF-8 è l'unico formato di codifica supportato.  |
+|Codifica   | Al momento UTF-8 è l'unico formato di codifica supportato.  |
 
 ### <a name="static-reference-data"></a>Dati di riferimento statici
 
@@ -54,13 +53,13 @@ Analisi di flusso di Azure verifica automaticamente se sono disponibili BLOB di 
 > [!NOTE]
 > Attualmente i processi di analisi di flusso cercano l'aggiornamento del BLOB solo quando la data/ora del computer precede quella codificata nel nome del BLOB. Ad esempio, il processo cercherà `sample/2015-04-16/17-30/products.csv` non appena possibile ma non prima delle 17.30 del 16 aprile 2015 nel fuso orario UTC. Il processo non cercherà *mai* un BLOB con data/ora codificata precedente all'ultima individuata.
 > 
-> Ad esempio, quando il processo trova il BLOB `sample/2015-04-16/17-30/products.csv` ignorerà tutti i file con una data codificata precedente alla 5:30 del 16 aprile 2015, quindi se viene creato un BLOB `sample/2015-04-16/17-25/products.csv` in ritardo nello stesso contenitore, il processo non lo userà.
+> Ad esempio, una volta che il processo trova il BLOB `sample/2015-04-16/17-30/products.csv` ignorerà tutti i file con una data codificata precedente alla 5:30 del 16 aprile 2015, quindi se viene creato un BLOB `sample/2015-04-16/17-25/products.csv` in ritardo nello stesso contenitore, il processo non lo utilizzerà.
 > 
 > Analogamente, se il file `sample/2015-04-16/17-30/products.csv` viene generato solo alle 22.03 del 16 aprile 2015, ma nel contenitore non è presente alcun BLOB con data/ora precedente, il processo usa questo file a partire dalle 22.03 del 16 aprile 2015 e i dati di riferimento precedenti fino a quel momento.
 > 
 > Un'eccezione a questo si verifica quando il processo deve elaborare nuovamente dei dati indietro nel tempo o quando il processo viene in primo luogo avviato. All'avvio, il processo cerca il BLOB più recente generato prima dell'ora di inizio del processo specificata. Questa operazione viene eseguita per verificare la presenza di un set di dati di riferimento **non vuoto** all'avvio del processo. Se non viene trovato, il processo restituisce il messaggio di diagnostica seguente: `Initializing input without a valid reference data blob for UTC time <start time>`.
 
-È possibile usare [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) per orchestrare l'attività di creazione dei BLOB aggiornati richiesti da Analisi di flusso per aggiornare le definizioni dei dati di riferimento. Data factory è un servizio di integrazione delle informazioni basato sul cloud che permette di automatizzare lo spostamento e la trasformazione dei dati. Data factory supporta la [connessione a un numero elevato di archivi dati basati su cloud e locali](../data-factory/copy-activity-overview.md) e il semplice trasferimento dei dati in base a una pianificazione regolare specificata dall'utente. Per altre informazioni e per istruzioni dettagliate su come configurare una pipeline di Data factory per generare dati di riferimento per l'analisi di flusso che vengano aggiornati in base a una pianificazione predefinita, consultare questo [esempio di GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs).
+È possibile usare [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) per orchestrare l'attività di creazione dei BLOB aggiornati richiesti da Analisi di flusso per aggiornare le definizioni dei dati di riferimento. Data factory è un servizio di integrazione dei dati basato sul cloud che orchestra e automatizza lo spostamento e la trasformazione dei dati. Data factory supporta la [connessione a un numero elevato di archivi dati basati su cloud e locali](../data-factory/copy-activity-overview.md) e il semplice trasferimento dei dati in base a una pianificazione regolare specificata dall'utente. Per altre informazioni e per istruzioni dettagliate su come configurare una pipeline di Data factory per generare dati di riferimento per l'analisi di flusso che vengano aggiornati in base a una pianificazione predefinita, consultare questo [esempio di GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs).
 
 ### <a name="tips-on-refreshing-blob-reference-data"></a>Suggerimenti sull'aggiornamento dei dati di riferimento BLOB
 
@@ -93,7 +92,7 @@ Per configurare i dati di riferimento del database SQL, è prima di tutto necess
 |Alias di input|Nome descrittivo che verrà usato nella query di processo per fare riferimento a questo input.|
 |Sottoscrizione|Scegliere la sottoscrizione|
 |Database|Database SQL di Azure che contiene i dati di riferimento. Per Istanza gestita di database SQL di Azure, è necessario specificare la porta 3342. Ad esempio, *sampleserver. public. database. Windows. NET, 3342*|
-|Nome utente|Nome utente associato al database SQL di Azure.|
+|Username|Nome utente associato al database SQL di Azure.|
 |Password|Password associata al database SQL di Azure.|
 |Aggiorna periodicamente|Questa opzione consente di scegliere una frequenza di aggiornamento. Scegliendo "Attivato" è possibile specificare la frequenza di aggiornamento in GG:HH:MM.|
 |Query snapshot|Si tratta dell'opzione di query predefinita che recupera i dati di riferimento dal database SQL.|
@@ -115,7 +114,7 @@ Il supporto per la compressione non è disponibile per i dati di riferimento.
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
-> [Avvio rapido: Creare un processo di Analisi di flusso tramite il portale di Azure](stream-analytics-quick-create-portal.md)
+> [Avvio rapido: creare un processo di Analisi di flusso di Azure tramite il portale di Azure](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

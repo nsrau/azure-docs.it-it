@@ -4,14 +4,14 @@ description: Informazioni su come effettuare il provisioning della velocità eff
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 12/13/2019
 ms.author: mjbrown
-ms.openlocfilehash: ed6a55c8b6049f16e96a4a95ecf3ef125db908d7
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: bfd18a009ed9ab5edffafcd0327b1d846cae02d8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872044"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75643849"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>Effettuare il provisioning della velocità effettiva in un contenitore di Azure Cosmos
 
@@ -63,7 +63,7 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 400 });
 ```
 
-### <a name="net-v3-sdk"></a>.Net V3 SDK
+### <a name="net-v3-sdk"></a>.NET V3 SDK
 [!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/ContainerDocsSampleCode.cs?name=ContainerCreateWithThroughput)]
 
 ## <a name="javascript-sdk"></a>JavaScript SDK
@@ -77,7 +77,7 @@ const { database } = await client.databases.createIfNotExists({ id: "databaseId"
 
 // Create a container with the specified throughput
 const { resource } = await database.containers.createIfNotExists({
-id: "contaierId ",
+id: "containerId",
 throughput: 1000
 });
 

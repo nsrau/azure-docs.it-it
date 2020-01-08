@@ -1,25 +1,14 @@
 ---
-title: Versioni cluster supportate in Azure Service Fabric | Microsoft Docs
-description: Informazioni sulle versioni del cluster in Service Fabric di Azure.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chakdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Versioni cluster supportate in Azure Service Fabric
+description: Informazioni sulle versioni del cluster in Azure Service Fabric, incluso un collegamento alle versioni più recenti dal Blog del team di Service Fabric.
 ms.topic: troubleshooting
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/18/2019
-ms.author: atsenthi
-ms.openlocfilehash: c2453167bbdabbb201f2463e1eec8206be6d4223
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 1d54f4f459b71469c5d10c949d35841572242c07
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186484"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639004"
 ---
 # <a name="supported-service-fabric-versions"></a>Versioni di Service Fabric supportate
 

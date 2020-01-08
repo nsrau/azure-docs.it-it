@@ -7,16 +7,16 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/04/2019
-ms.openlocfilehash: f0bf81ce6392e1650d9986d81a55eac9c416c24d
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 96bd66f96b04bd7032d976ba9ebbbeb60c8415e7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74822903"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444465"
 ---
 # <a name="debug-kusto-query-language-inline-python-using-vs-code"></a>Debug del linguaggio di query kusto inline Python con VS Code
 
-Azure Esplora dati supporta l'esecuzione di codice Python incorporato nel linguaggio di query kusto usando il plug-in [Python ()](/azure/kusto/query/pythonplugin). Il runtime del plug-in è ospitato in una sandbox, un ambiente Python isolato e sicuro. La funzionalità di plug-in Python () estende le funzionalità native di linguaggio di query kusto con il grande archivio di pacchetti OSS Python. Questa estensione consente di eseguire algoritmi avanzati, ad esempio Machine Learning, intelligenza artificiale, statistica e Time Series, come parte della query.
+Azure Esplora dati supporta l'esecuzione di codice Python incorporato nel linguaggio di query kusto usando il plug-in [Python ()](/azure/kusto/query/pythonplugin). Il runtime del plug-in è ospitato in una sandbox, un ambiente Python isolato e sicuro. La funzionalità di plug-in Python () estende le funzionalità native di linguaggio di query kusto con il grande archivio di pacchetti OSS Python. Questa estensione consente di eseguire algoritmi avanzati, ad esempio Machine Learning, intelligenza artificiale, statistica e Time Series come parte della query.
 
 Gli strumenti del linguaggio di query kusto non sono utili per lo sviluppo e il debug degli algoritmi Python. Sviluppare quindi l'algoritmo nei Integrated Development Environment Python preferiti, ad esempio Jupyter, PyCharm, VS o VS Code. Al termine dell'algoritmo, copiare e incollare in KQL. Per migliorare e semplificare questo flusso di lavoro, Azure Esplora dati supporta l'integrazione tra kusto Explorer o i client dell'interfaccia utente Web e VS Code per la creazione e il debug di codice Python inline KQL. 
 
@@ -32,7 +32,7 @@ Gli strumenti del linguaggio di query kusto non sono utili per lo sviluppo e il 
 ## <a name="run-your-query-in-your-client-application"></a>Eseguire la query nell'applicazione client
 
 1. Nell'applicazione client, anteporre al prefisso una query contenente Python inline con `set query_python_debug;`
-1. Eseguire la query.
+1. Consente di eseguire la query.
     * Kusto Explorer: VS Code viene avviato automaticamente con lo script *debug_python. py* .
     * Interfaccia utente Web di Kustori: 
         1. Scaricare e salvare *debug_python. py*, *DF. txt*e *kargs. txt*. In finestra selezionare **Consenti**. **Salva** i file nella directory selezionata. 

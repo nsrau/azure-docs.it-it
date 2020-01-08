@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: 50c0a670eb492aef01c3499bc2c8605917f4c7b8
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: a836c6b47e0e1346b5e8de9ba5fbe94f88961cbd
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965476"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75615039"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Risolvere i problemi relativi alle prestazioni delle macchine virtuali di Azure in Linux o Windows
 
@@ -30,7 +30,7 @@ In questo articolo viene illustrato come usare il monitoraggio per diagnosticare
 
 ### <a name="azure-iaas-virtual-machine-monitoring"></a>Monitoraggio delle macchine virtuali IAAS di Azure
 
-Per monitorare la macchina virtuale Guest, usare il monitoraggio delle VM di Azure, che segnalerà l'utente a determinate condizioni di risorse di alto livello. Per verificare se la diagnostica della macchina virtuale è abilitata, vedere [Panoramica dei log delle risorse di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-overview#collecting-resource-logs). Se viene visualizzato quanto segue, probabilmente la diagnostica non è abilitata:
+Per monitorare la macchina virtuale Guest, usare il monitoraggio delle VM di Azure, che segnalerà l'utente a determinate condizioni di risorse di alto livello. Per verificare se la diagnostica della macchina virtuale è abilitata, vedere [Panoramica dei log delle risorse di Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs). Se viene visualizzato quanto segue, probabilmente la diagnostica non è abilitata:
 
 ![Il monitoraggio non è abilitato](media/troubleshoot-performance-virtual-machine-linux-windows/1-virtual-machines-monitoring-not-enabled.png)
  
@@ -137,7 +137,7 @@ L'utilizzo della memoria Mostra la quantità di memoria utilizzata con la macchi
 
 Picco e costante/costante consumo costante: un utilizzo elevato della memoria potrebbe non essere la conseguenza di prestazioni non corrette, perché alcune applicazioni come i motori di database relazionali allocano una grande quantità di memoria e questo utilizzo potrebbe non essere significativo. Tuttavia, se sono presenti più applicazioni affamate di memoria, è possibile che si verifichi un calo delle prestazioni dalla contesa di memoria che causa il troncamento e il paging/swapping su disco. Questo scarso rendimento è spesso una delle cause evidenti dell'effetto sulle prestazioni dell'applicazione.
 
-Aumento del consumo costante: un'applicazione possibile "riscaldamento", questo consumo è comune tra l'avvio dei motori di database. Tuttavia, potrebbe anche essere un segno di una perdita di memoria in un'applicazione. Identificare l'applicazione e comprendere se il comportamento è previsto.
+Aumento del consumo costante: un'applicazione possibile "riscaldamento", questo consumo è comune tra l'avvio dei motori di database. Tuttavia, potrebbe anche essere un'indicazione di una perdita di memoria in un'applicazione. Identificare l'applicazione e comprendere se il comportamento è previsto.
 
 Utilizzo file di paging o di scambio: controllare se si sta utilizzando il file di paging di Windows (che si trova nel file di scambio D:\) o Linux (che si trova in `/dev/sdb`). Se non è presente alcun elemento in questi volumi, ad eccezione di questi file, verificare la presenza di letture/scritture elevate su tali dischi. Questo problema è indicativo di condizioni di memoria insufficiente.
 
@@ -252,4 +252,4 @@ Questi articoli illustrano gli scenari specifici:
 
 Per ulteriori informazioni in qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [Forum MSDN Azure e stack overflow](https://azure.microsoft.com/support/forums/).
 
-In alternativa, archiviare un evento imprevisto del supporto tecnico di Azure. Accedere al sito del [supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Richiedi supporto**.
+In alternativa, archiviare un evento imprevisto del supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**.

@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/7/2019
-ms.openlocfilehash: 397ecdb805f0be9f374c53ae7128f806bfb789d3
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 12/19/2019
+ms.openlocfilehash: 210c1814325e689dd70af9caa7fad08deed933e1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928296"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444493"
 ---
 # <a name="what-are-mapping-data-flows"></a>Che cosa sono i flussi di dati di mapping?
 
@@ -60,6 +60,8 @@ Il Azure Integration Runtime predefinito è un piccolo cluster di nodi di lavoro
 Se i flussi di dati vengono eseguiti in una pipeline in parallelo, ADF eseguirà il rollup di cluster Azure Databricks distinti per ogni esecuzione di attività in base alle impostazioni del Azure Integration Runtime associate a ogni attività. Per progettare esecuzioni parallele nelle pipeline di ADF, aggiungere le attività del flusso di dati senza vincoli di precedenza nell'interfaccia utente.
 
 Di queste tre opzioni, questa opzione verrà probabilmente eseguita nell'intervallo di tempo più breve. Tuttavia, ogni flusso di dati parallelo verrà eseguito contemporaneamente in cluster distinti, quindi l'ordine degli eventi è non deterministico.
+
+Se si eseguono le attività del flusso di dati in parallelo all'interno delle pipeline, è consigliabile non usare la durata (TTL). Ciò è dovuto al fatto che le esecuzioni parallele dei flussi di dati che utilizzano simultaneamente lo stesso Azure Integration Runtime comportano più istanze di pool calde per l'data factory.
 
 ##### <a name="overload-single-data-flow"></a>Overload di un singolo flusso di dati
 
@@ -123,11 +125,11 @@ Consente di compilare un'espressione che fornisce un intervallo fisso per i valo
 
 Se si dispone di una conoscenza corretta della cardinalità dei dati, il partizionamento delle chiavi potrebbe essere una strategia efficace. Il partizionamento con chiavi crea partizioni per ogni valore univoco nella colonna. Non è possibile impostare il numero di partizioni perché il numero sarà basato sui valori univoci nei dati.
 
-#### <a name="inspect"></a>Esaminare
+#### <a name="inspect"></a>Controllare
 
 La scheda **Controlla** fornisce una visualizzazione dei metadati del flusso di dati che si sta trasformando. È possibile visualizzare i conteggi delle colonne, le colonne modificate, le colonne aggiunte, i tipi di dati, l'ordinamento delle colonne e i riferimenti alle colonne. **Esaminare** è una visualizzazione di sola lettura dei metadati. Non è necessario che la modalità di debug sia abilitata per visualizzare i metadati nel riquadro di **controllo** .
 
-![Inspect](media/data-flow/inspect1.png "Esaminare")
+![Inspect](media/data-flow/inspect1.png "Controllare")
 
 Quando si modifica la forma dei dati tramite le trasformazioni, il flusso delle modifiche dei metadati verrà visualizzato nel riquadro **Controlla** . Se non è presente uno schema definito nella trasformazione origine, i metadati non saranno visibili nel riquadro **ispezione** . La mancanza di metadati è comune negli scenari di drifting dello schema.
 

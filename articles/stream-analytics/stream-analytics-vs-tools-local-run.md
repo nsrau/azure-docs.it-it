@@ -1,20 +1,18 @@
 ---
 title: Testare le query di analisi di flusso di Azure localmente in Visual Studio
 description: Questo articolo descrive come eseguire test locali delle query con gli strumenti di Analisi di flusso di Azure per Visual Studio.
-services: stream-analytics
 author: su-jie
 ms.author: sujie
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
-ms.openlocfilehash: 01383531293635af8c15f891928eec004e05b54d
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: c4854d050cce18082def436243a669ba09c474ad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72925047"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369661"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>Eseguire test locali delle query di Analisi di flusso con Visual Studio
 

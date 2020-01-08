@@ -1,19 +1,14 @@
 ---
-title: Migliorare le prestazioni delle applicazioni di Azure con Azure Advisor | Microsoft Docs
+title: Migliorare le prestazioni delle applicazioni di Azure con Azure Advisor
 description: Usare Advisor per ottimizzare le prestazioni delle distribuzioni di Azure.
-services: advisor
-documentationcenter: NA
-author: saket-ms
-ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: sagupt
-ms.openlocfilehash: 82c77568a2c62a0e02bf00c164f4600e221376da
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 405ec395feeb33b8511b9b915151b2ed9503c371
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74183113"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443048"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Migliorare le prestazioni delle applicazioni di Azure con Azure Advisor
 
@@ -121,7 +116,7 @@ Azure Advisor identificherà Azure Cosmos DB contenitori in cui vengono utilizza
 Per altre informazioni sui consigli di Advisor, vedere:
 
 * [Introduction to Advisor](advisor-overview.md) (Presentazione di Azure Advisor)
-* [Get started with Advisor](advisor-get-started.md) (Introduzione ad Advisor)
+* [Introduzione ad Advisor](advisor-get-started.md)
 * [Advisor Cost recommendations](advisor-cost-recommendations.md) (Consigli di Advisor sui costi)
 * [Advisor High Availability recommendations](advisor-high-availability-recommendations.md) (Consigli di Advisor sulla disponibilità elevata)
 * [Advisor Security recommendations](advisor-security-recommendations.md) (Consigli di Advisor sulla sicurezza)

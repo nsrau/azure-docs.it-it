@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 10/07/2019
-ms.openlocfilehash: fb2a11850370766ab174c67dd122f33879fb432a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 12/19/2019
+ms.openlocfilehash: 3036fb44cdd636c4a7b9e690ee19aa3d5ab2f5ac
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928523"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444515"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guida alle prestazioni e all'ottimizzazione del flusso di dati
 
@@ -67,7 +67,7 @@ In **Opzioni di origine** nella trasformazione origine le impostazioni seguenti 
 * L'impostazione di una query consente di filtrare le righe nell'origine prima che arrivino nel flusso di dati per l'elaborazione. Questo può rendere più veloce l'acquisizione iniziale dei dati. Se si usa una query, è possibile aggiungere hint di query facoltativi per il database SQL di Azure, ad esempio READ UNCOMMITTED.
 * Read uncommitted fornirà risultati più veloci per le query sulla trasformazione origine
 
-![Origine](media/data-flow/source4.png "Source (Sorgente)")
+![Origine](media/data-flow/source4.png "Origine")
 
 ### <a name="sink-batch-size"></a>Dimensioni batch sink
 
@@ -81,7 +81,7 @@ Anche se i dati non sono partizionati nelle tabelle di destinazione, è consigli
 
 ### <a name="disable-indexes-on-write"></a>Disabilita indici durante la scrittura
 
-Nella pipeline aggiungere un' [attività stored procedure](transform-data-using-stored-procedure.md) prima dell'attività flusso di dati che disabilita gli indici nelle tabelle di destinazione scritte dal sink. Dopo l'attività flusso di dati, aggiungere un'altra attività stored procedure che consenta tali indici.
+Nella pipeline aggiungere un' [attività stored procedure](transform-data-using-stored-procedure.md) prima dell'attività flusso di dati che disabilita gli indici nelle tabelle di destinazione scritte dal sink. Dopo l'attività flusso di dati, aggiungere un'altra attività stored procedure che consenta tali indici. In alternativa, usare gli script di pre-elaborazione e post-elaborazione in un sink di database.
 
 ### <a name="increase-the-size-of-your-azure-sql-db-and-dw"></a>Aumentare le dimensioni del database SQL di Azure e del data warehouse
 
@@ -114,7 +114,7 @@ Per evitare l'esaurimento delle risorse del nodo di calcolo, è possibile usare 
 
 ### <a name="looping-through-file-lists"></a>Ripetizione di loop negli elenchi di file
 
-Un flusso di dati di mapping verrà eseguito meglio quando la trasformazione di origine scorre più file anziché eseguire il ciclo tramite per ogni attività. È consigliabile usare caratteri jolly o elenchi di file nella trasformazione di origine. Il processo del flusso di dati verrà eseguito più velocemente consentendo il ciclo all'interno del cluster Spark. Per ulteriori informazioni, vedere [caratteri jolly nella trasformazione origine](data-flow-source.md#file-based-source-options).
+Un flusso di dati di mapping verrà eseguito meglio quando la trasformazione di origine scorre più file anziché eseguire il ciclo tramite per ogni attività. È consigliabile usare caratteri jolly o elenchi di file nella trasformazione di origine. Il processo del flusso di dati verrà eseguito più velocemente consentendo il ciclo all'interno del cluster Spark. Per ulteriori informazioni, vedere [caratteri jolly nella trasformazione origine](connector-azure-data-lake-storage.md#mapping-data-flow-properties).
 
 Se, ad esempio, si dispone di un elenco di file di dati da luglio 2019 che si desidera elaborare in una cartella nell'archiviazione BLOB, di seguito è riportato un carattere jolly che è possibile utilizzare nella trasformazione origine.
 
@@ -127,8 +127,8 @@ Utilizzando caratteri jolly, la pipeline conterrà solo un'attività flusso di d
 L'impostazione della velocità effettiva e delle proprietà batch nei sink CosmosDB ha effetto solo durante l'esecuzione del flusso di dati da un'attività flusso di dati della pipeline. Le impostazioni di raccolta originali verranno rispettate da CosmosDB dopo l'esecuzione del flusso di dati.
 
 * Dimensioni batch: calcolare la dimensione approssimativa delle righe dei dati e verificare che le dimensioni del batch rowSize * siano minori di 2 milioni. In caso contrario, aumentare la dimensione del batch per ottenere una velocità effettiva migliore
-* Velocità effettiva: impostare un'impostazione della velocità effettiva superiore per consentire ai documenti di scrivere più velocemente in CosmosDB. Tenere presente i costi delle unità richiesta maggiori in base a un'impostazione di velocità effettiva elevata.
-*   Budget della velocità effettiva di scrittura: usare un valore inferiore al numero totale di ur al minuto. Se si dispone di un flusso di dati con un numero elevato di partitiongs di Spark, l'impostazione di una velocità effettiva del budget consentirà un maggiore equilibrio tra le partizioni.
+* Velocità effettiva: impostare qui un'impostazione della velocità effettiva superiore per consentire ai documenti di scrivere più velocemente in CosmosDB. Tenere presente i costi delle unità richiesta maggiori in base a un'impostazione di velocità effettiva elevata.
+*   Budget della velocità effettiva di scrittura: usare un valore inferiore al numero totale di ur al minuto. Se si dispone di un flusso di dati con un numero elevato di partizioni Spark, l'impostazione di una velocità effettiva del budget consentirà un maggiore equilibrio tra le partizioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 08/27/2019
-ms.openlocfilehash: 939606412c55ddad29801776c2385b406dc93a33
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: b7c406c1d7f55b364d72b2b5626b3c17a34d8338
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286751"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552764"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Esercitazione: aggiungere un'istanza gestita di database SQL a un gruppo di failover
 
@@ -31,9 +31,10 @@ Aggiungere un'istanza gestita di database SQL a un gruppo di failover. In questo
   > [!NOTE]
   > - Quando si esegue questa esercitazione, assicurarsi di configurare le risorse con i [prerequisiti per la configurazione dei gruppi di failover per l'istanza gestita](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
   > - La creazione di un'istanza gestita può richiedere una quantità di tempo significativa. Di conseguenza, per il completamento di questa esercitazione potrebbero essere necessarie diverse ore. Per altre informazioni sui tempi di provisioning, vedere [operazioni di gestione di istanze gestite](sql-database-managed-instance.md#managed-instance-management-operations). 
+  > - Le istanze gestite che fanno parte di un gruppo di failover richiedono [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) o due gateway VPN connessi. Questa esercitazione illustra la procedura per creare e connettere i gateway VPN. Se ExpressRoute è già configurato, ignorare questa procedura. 
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 # <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 Per completare questa esercitazione, accertarsi di avere: 
@@ -381,7 +382,7 @@ Creare il gruppo di risorse e l'istanza gestita primaria usando PowerShell.
 
 Questa parte dell'esercitazione usa i cmdlet di PowerShell seguenti:
 
-| Comando | note |
+| Comando | Note |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Crea un gruppo di risorse di Azure.  |
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Crea una rete virtuale.  |
@@ -707,7 +708,7 @@ Creare l'istanza gestita secondaria usando PowerShell.
 
 Questa parte dell'esercitazione usa i cmdlet di PowerShell seguenti:
 
-| Comando | note |
+| Comando | Note |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Crea un gruppo di risorse di Azure.  |
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Crea una rete virtuale.  |
@@ -728,7 +729,9 @@ Questa parte dell'esercitazione usa i cmdlet di PowerShell seguenti:
 ---
 
 ## <a name="4---create-primary-gateway"></a>4-creare un gateway primario 
-Affinché due istanze gestite partecipino a un gruppo di failover, è necessario che sia configurato un gateway tra le reti virtuali delle due istanze gestite per consentire la comunicazione di rete. È possibile creare il gateway per l'istanza gestita primaria usando il portale di Azure. 
+Affinché due istanze gestite partecipino a un gruppo di failover, è necessario che ExpressRoute o un gateway sia configurato tra le reti virtuali delle due istanze gestite per consentire la comunicazione di rete. Se si sceglie di configurare [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) anziché connettere due gateway VPN, procedere con il [passaggio 7](#7---create-a-failover-group).  
+
+Questo articolo illustra la procedura per creare i due gateway VPN e connetterli, ma è possibile passare alla creazione del gruppo di failover se è stato configurato ExpressRoute. 
 
 
 # <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
@@ -757,10 +760,10 @@ Creare il gateway per la rete virtuale dell'istanza gestita primaria usando il p
     | **Tipo di gateway** | Selezionare **VPN**. |
     | **Tipo di VPN** | Seleziona **basato su Route** |
     | **SKU**| Lasciare il valore predefinito `VpnGw1`. |
-    | **Località**| Il percorso in cui si trova l'istanza gestita primaria e la rete virtuale primaria.   |
+    | **Posizione**| Il percorso in cui si trova l'istanza gestita primaria e la rete virtuale primaria.   |
     | **Rete virtuale**| Selezionare la rete virtuale creata nella sezione 2, ad esempio `vnet-sql-mi-primary`. |
     | **Indirizzo IP pubblico**| Selezionare **Crea nuovo**. |
-    | **Nome dell'indirizzo IP pubblico**| Immettere un nome per l'indirizzo IP, ad esempio `primary-gateway-IP`. |
+    | **Nome indirizzo IP pubblico**| Immettere un nome per l'indirizzo IP, ad esempio `primary-gateway-IP`. |
     | &nbsp; | &nbsp; |
 
 1. Lasciare gli altri valori predefiniti e quindi selezionare **Verifica + crea** per esaminare le impostazioni per il gateway di rete virtuale.
@@ -807,7 +810,7 @@ Creare il gateway per la rete virtuale dell'istanza gestita primaria usando Powe
 
 Questa parte dell'esercitazione usa i cmdlet di PowerShell seguenti:
 
-| Comando | note |
+| Comando | Note |
 |---|---|
 | [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | Ottiene una rete virtuale in un gruppo di risorse. |
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | Aggiunge una configurazione di subnet a una rete virtuale. | 
@@ -839,10 +842,10 @@ Usando il portale di Azure, ripetere i passaggi della sezione precedente per cre
    | **Tipo di gateway** | Selezionare **VPN**. |
    | **Tipo di VPN** | Seleziona **basato su Route** |
    | **SKU**| Lasciare il valore predefinito `VpnGw1`. |
-   | **Località**| Il percorso in cui si trova l'istanza gestita secondaria e la rete virtuale secondaria.   |
+   | **Posizione**| Il percorso in cui si trova l'istanza gestita secondaria e la rete virtuale secondaria.   |
    | **Rete virtuale**| Selezionare la rete virtuale creata nella sezione 2, ad esempio `vnet-sql-mi-secondary`. |
    | **Indirizzo IP pubblico**| Selezionare **Crea nuovo**. |
-   | **Nome dell'indirizzo IP pubblico**| Immettere un nome per l'indirizzo IP, ad esempio `secondary-gateway-IP`. |
+   | **Nome indirizzo IP pubblico**| Immettere un nome per l'indirizzo IP, ad esempio `secondary-gateway-IP`. |
    | &nbsp; | &nbsp; |
 
    ![Impostazioni del gateway secondario](media/sql-database-managed-instance-failover-group-tutorial/settings-for-secondary-gateway.png)
@@ -888,7 +891,7 @@ Creare il gateway per la rete virtuale dell'istanza gestita secondaria usando Po
 
 Questa parte dell'esercitazione usa i cmdlet di PowerShell seguenti:
 
-| Comando | note |
+| Comando | Note |
 |---|---|
 | [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | Ottiene una rete virtuale in un gruppo di risorse. |
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | Aggiunge una configurazione di subnet a una rete virtuale. | 
@@ -953,7 +956,7 @@ Connettere i due gateway usando PowerShell.
 
 Questa parte dell'esercitazione usa il cmdlet di PowerShell seguente:
 
-| Comando | note |
+| Comando | Note |
 |---|---|
 | [New-AzVirtualNetworkGatewayConnection](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) | Crea una connessione tra due gateway di rete virtuali.   |
 
@@ -995,7 +998,7 @@ Creare il gruppo di failover usando PowerShell.
 
 Questa parte dell'esercitazione usa il cmdlet di PowerShell seguente:
 
-| Comando | note |
+| Comando | Note |
 |---|---|
 | [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup)| Crea un nuovo gruppo di failover dell'istanza gestita del database SQL di Azure.  |
 
@@ -1061,7 +1064,7 @@ Ripristinare il gruppo di failover nel server primario:
 
 Questa parte dell'esercitazione usa i cmdlet di PowerShell seguenti:
 
-| Comando | note |
+| Comando | Note |
 |---|---|
 | [Get-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/get-azsqldatabaseinstancefailovergroup) | Ottiene o elenca i gruppi di failover dell'istanza gestita.| 
 | [Switch-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) | Esegue un failover di un gruppo di failover dell'istanza gestita. | 
@@ -1093,7 +1096,7 @@ Write-host "Removing residual resources and resouce group..."
 
 Questa parte dell'esercitazione usa il cmdlet di PowerShell seguente:
 
-| Comando | note |
+| Comando | Note |
 |---|---|
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Rimuove un gruppo di risorse. |
 
@@ -1106,7 +1109,7 @@ Questa parte dell'esercitazione usa il cmdlet di PowerShell seguente:
 
 Questo script usa i comandi seguenti. Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
 
-| Comando | note |
+| Comando | Note |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Crea un gruppo di risorse di Azure.  |
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Crea una rete virtuale.  |

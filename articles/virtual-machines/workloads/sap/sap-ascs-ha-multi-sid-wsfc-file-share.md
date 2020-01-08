@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 00c38c5c8140bffe0767ebe69470285bb15f5fc6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5638d71748c485c593dde8d9876400a40821ca28
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098708"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75643152"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -39,9 +39,9 @@ ms.locfileid: "70098708"
 
 [sap-installation-guides]:http://service.sap.com/instguides
 [sap-installation-guides-file-share]:https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html
-[networking-limits-azure-resource-manager]:../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[networking-limits-azure-resource-manager]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 [load-balancer-multivip-overview]:../../../load-balancer/load-balancer-multivip-overview.md
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -189,7 +189,7 @@ ms.locfileid: "70098708"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
@@ -215,7 +215,7 @@ Questo articolo si concentra sul passaggio da un'installazione di ASCS/SCS singo
 > La configurazione introdotta in questa documentazione non è ancora supportata per l'uso per le [zone di disponibilità di Azure](https://docs.microsoft.com/azure/availability-zones/az-overview).
 > 
 
-Per informazioni sui limiti del servizio di bilanciamento del carico, vedere la sezione relativa all'IP front-end privato per ogni servizio di bilanciamento del carico in [Limiti relativi alle reti - Azure Resource Manager][networking-limits-azure-resource-manager]. Considerare inoltre la possibilità di usare lo [SKU Load Balancer Standard di Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) anziché lo SKU Basic del servizio di bilanciamento del carico di Azure.
+Per altre informazioni sui limiti del servizio di bilanciamento del carico, vedere la sezione "IP front-end privato per ogni servizio di bilanciamento del carico" in [limiti di rete: Azure Resource Manager][networking-limits-azure-resource-manager]. Considerare inoltre la possibilità di usare lo [SKU Load Balancer Standard di Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) anziché lo SKU Basic del servizio di bilanciamento del carico di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -240,7 +240,7 @@ L'obiettivo è installare più istanze con cluster Advanced Business Application
 
 _**Figura 2:** Configurazione multi-SID di SAP in due cluster_
 
-L'installazione di un sistema **di \<> SAP SID2** aggiuntivo è identica all'installazione di un \<sistema SID >. Sono necessari due passaggi di preparazione aggiuntivi nel cluster ASCS/SCS e nel cluster di file server di scalabilità orizzontale della condivisione file.
+L'installazione di un sistema **SAP \<SID2 >** aggiuntivo è identica all'installazione di un \<SID > sistema. Sono necessari due passaggi di preparazione aggiuntivi nel cluster ASCS/SCS e nel cluster di file server di scalabilità orizzontale della condivisione file.
 
 ## <a name="prepare-the-infrastructure-for-an-sap-multi-sid-scenario"></a>Preparare l'infrastruttura per uno scenario di multi-SID di SAP
 
@@ -260,7 +260,7 @@ Questi passaggi sono descritti in [preparazione dell'infrastruttura per uno scen
 
 ### <a name="prepare-the-infrastructure-on-an-sofs-cluster-by-using-the-existing-sap-global-host"></a>Preparare l'infrastruttura in un cluster di file server di scalabilità orizzontale usando l'host globale SAP esistente
 
-È possibile riutilizzare il \<> SAPGlobalHost esistente e volume1 del primo sistema \<SAP SID1 >.
+È possibile riutilizzare il \<esistente SAPGlobalHost > e volume1 del primo sistema SAP \<SID1 >.
 
 ![Figura 3: Il file server di scalabilità orizzontale multi-SID è lo stesso del nome host globale SAP][sap-ha-guide-figure-8014]
 
@@ -270,7 +270,7 @@ _**Figura 3:** Il file server di scalabilità orizzontale multi-SID è lo stesso
 >Per il secondo sistema **SAP \<SID2>** , vengono usati lo stesso Volume1 e lo stesso nome di rete **\<SAPGlobalHost>** .
 >Dal momento che è già stato impostato **SAPMNT** come nome di condivisione per i vari sistemi SAP, per usare di nuovo il nome di rete **\<SAPGlobalHost>** , è necessario usare lo stesso **Volume1**.
 >
->Il percorso del file di \<SID2 > host globale è C:\ClusterStorage\\**volume1**\usr\sap\<SID2 > \sys\.
+>Il percorso del file per il \<SID2 > host globale è C:\ClusterStorage\\**volume1**\USR\SAP\<SID2 > \sys\.
 >
 
 Per il sistema \<SID2>, è necessario preparare la cartella SAP Global Host ..\SYS\. nel cluster del file server di scalabilità orizzontale.
@@ -346,7 +346,7 @@ Creare il secondo **Volume2**. Eseguire questo script di PowerShell:
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR2 -FileSystem CSVFS_ReFS -Size 5GB -ResiliencySettingName Mirror
 ```
 
-![Figura 5: Secondo Volume2 in Gestione cluster di failover][sap-ha-guide-figure-8016]
+![Figura 5: secondo Volume2 in Gestione cluster di failover][sap-ha-guide-figure-8016]
 
 _**Figura 5:** Secondo Volume2 in Gestione cluster di failover_
 
@@ -403,19 +403,19 @@ _**Figura 6:** Avviare la procedura guidata "Aggiungi condivisione file"_
 
 <br>
 
-![Figura 7: "Selezionare condivisione SMB-rapida"][sap-ha-guide-figure-8018]
+![Figura 7: "selezionare la condivisione SMB-Quick"][sap-ha-guide-figure-8018]
 
 _**Figura 7:** Selezionare "Condivisione SMB - rapida"_
 
 <br>
 
-![Figura 8: Selezionare "sapglobalhost2" e specificare il percorso in Volume2][sap-ha-guide-figure-8019]
+![Figura 8: selezionare "sapglobalhost2" e specificare il percorso in Volume2][sap-ha-guide-figure-8019]
 
 _**Figura 8:** Selezionare "sapglobalhost2" e specificare il percorso in Volume2_
 
 <br>
 
-![Figura 9: Impostare il nome della condivisione file su "sapmnt"][sap-ha-guide-figure-8020]
+![Figura 9: impostare il nome della condivisione file su "sapmnt"][sap-ha-guide-figure-8020]
 
 _**Figura 9:** Impostare il nome della condivisione file su "sapmnt"_
 
@@ -433,17 +433,17 @@ Assegnare le autorizzazioni *Controllo completo* sui file e sulla condivisione s
 
 ![Figura 11: Assegnare le autorizzazioni Controllo completo agli account di computer e di gruppo utenti][sap-ha-guide-figure-8022]
 
-_**Figura 11:** Assegnare il "Controllo completo" agli account di computer e di gruppo utenti_
+_**Figura 11:** Assegnare le autorizzazioni "Controllo completo" agli account di computer e di gruppo utenti_
 
 <br>
 
-![Figura 12: Scegliere "Crea"][sap-ha-guide-figure-8023]
+![Figura 12: selezionare "Crea"][sap-ha-guide-figure-8023]
 
 _**Figura 12:** Selezionare "Crea"_
 
 <br>
 
-![Figura 13: Viene creato il secondo sapmnt associato all'host all'sapglobal2 e Volume2][sap-ha-guide-figure-8024]
+![Figura 13: Viene creato il secondo sapmnt associato all'host sapglobal2 e Volume2][sap-ha-guide-figure-8024]
 
 _**Figura 13:** Viene creato il secondo sapmnt collegato all'host sapglobal2 e a Volume2_
 
@@ -460,7 +460,7 @@ Installare i server applicazioni DBMS e SAP come descritto in precedenza.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Installare un'istanza di ASC/SCS in un cluster di failover senza dischi condivisi][sap-official-ha-file-share-document]: linee guida SAP ufficiali per una condivisione file a disponibilità elevata
+* [Installare un'istanza di ASC/SCS in un cluster di failover senza dischi condivisi][sap-official-ha-file-share-document]: linee guida ufficiali per SAP per una condivisione file a disponibilità elevata
 
 * [Spazi di archiviazione diretta in Windows Server 2016][s2d-in-win-2016]
 

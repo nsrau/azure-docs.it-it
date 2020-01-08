@@ -1,19 +1,18 @@
 ---
 title: Analisi del sentiment su Twitter in tempo reale con Analisi di flusso di Azure
 description: Questo articolo descrive come usare Analisi di flusso per l'analisi del sentiment su Twitter in tempo reale. Istruzioni dettagliate, dalla generazione degli eventi fino ai dati in un dashboard in tempo reale.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: 8561789d53c3c1b00ac1477909bcbe356fe6a85d
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: f3ab21d55b7d59bb58760bfba452b4ea2d103496
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173166"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369899"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Analisi del sentiment su Twitter in tempo reale in Analisi di flusso di Azure
 
@@ -53,7 +52,7 @@ Creare uno spazio dei nomi dell'hub eventi e quindi aggiungere un hub eventi a t
  
 4. Al termine della distribuzione, lo spazio dei nomi dell'hub eventi è disponibile nell'elenco delle risorse di Azure. 
 
-5. Scegliere il nuovo spazio dei nomi e, nel relativo pannello, fare clic su  **+&nbsp;Hub eventi**. 
+5. Scegliere il nuovo spazio dei nomi e, nel relativo pannello, fare clic su **+&nbsp;Hub eventi**. 
 
     ![Pulsante Aggiungi hub eventi per creare un nuovo hub eventi](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-button.png)    
  
@@ -61,7 +60,7 @@ Creare uno spazio dei nomi dell'hub eventi e quindi aggiungere un hub eventi a t
 
     ![Pannello per creare un nuovo hub eventi](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub.png)
  
-7. Fare clic su **Create**(Crea).
+7. Fare clic su **Crea**.
 
 
 ### <a name="grant-access-to-the-event-hub"></a>Concedere l'accesso all'hub eventi
@@ -79,7 +78,7 @@ Prima che un processo possa inviare dati a un hub eventi, è necessario che per 
 
     ![Pannello per creare nuovi criteri di accesso all'hub eventi](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-shared-access-policy-manage.png)
  
-4.  Fare clic su **Create**(Crea).
+4.  Fare clic su **Crea**.
 
 5.  Dopo aver distribuito i criteri, fare clic nell'elenco dei criteri di accesso condiviso.
 
@@ -114,7 +113,7 @@ Se non si ha già un'applicazione Twitter che è possibile usare per questa guid
 
 1. In un Web browser passare a [Twitter per sviluppatori](https://developer.twitter.com/en/apps) e selezionare **Create an app** (Crea un'app). Potrebbe essere visualizzato un messaggio che indica che è necessario richiedere un account per sviluppatori Twitter. Eseguire questa operazione e, dopo l'approvazione della richiesta, si dovrebbe ricevere un messaggio di posta elettronica di conferma. L'approvazione di un account di sviluppatore potrebbe richiedere diversi giorni.
 
-   ![Conferma dell'account per sviluppatori Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/twitter-dev-confirmation.png "Conferma dell'account per sviluppatori Twitter")
+   ![Conferma dell'account sviluppatore Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/twitter-dev-confirmation.png "Conferma dell'account sviluppatore Twitter")
 
    ![Dettagli dell'applicazione Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details.png "Dettagli dell'applicazione Twitter")
 
@@ -199,7 +198,7 @@ Ora che gli eventi tweet vengono trasmessi in flusso in tempo reale da Twitter, 
 
     ![Creazione di un nuovo processo di Analisi di flusso](./media/stream-analytics-twitter-sentiment-analysis-trends/newjob.png)
 
-3. Fare clic su **Create**(Crea).
+3. Fare clic su **Crea**.
 
     Verrà creato il processo e il portale visualizzerà i relativi dettagli.
 
@@ -210,17 +209,17 @@ Ora che gli eventi tweet vengono trasmessi in flusso in tempo reale da Twitter, 
 
 2. Nel pannello **Input** fare clic su **+&nbsp;Aggiungi** e quindi compilare il pannello con questi valori:
 
-   * **Alias di input**: Usare il nome `TwitterStream`. Se si usa un nome diverso, tenerne traccia, poiché sarà necessario in un secondo momento.
+   * **Alias di input**: usare il nome `TwitterStream`. Se si usa un nome diverso, tenerne traccia, poiché sarà necessario in un secondo momento.
    * **Tipo di origine**: selezionare **Flusso dati**.
    * **Origine**: selezionare **Hub eventi**.
-   * **Opzione di importazione**: selezionare **Usa l'hub eventi della sottoscrizione corrente**. 
+   * **Opzioni di importazione**: selezionare **Usa l'hub eventi della sottoscrizione corrente**. 
    * **Spazio dei nomi del bus di servizio**: selezionare lo spazio dei nomi dell'hub eventi creato in precedenza (`<yourname>-socialtwitter-eh-ns`).
    * **Hub eventi**: selezionare l'hub eventi creato in precedenza (`socialtwitter-eh`).
    * **Nome criteri hub eventi**: selezionare i criteri di accesso creati in precedenza (`socialtwitter-access`).
 
      ![Creare un nuovo input per il processo di Analisi di flusso](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
 
-3. Fare clic su **Create**(Crea).
+3. Fare clic su **Crea**.
 
 
 ## <a name="specify-the-job-query"></a>Specificare la query del processo
@@ -265,7 +264,7 @@ Per confrontare il numero di menzioni tra gli argomenti, è possibile usare una 
 
 5. Fare clic su **Test**. La query viene eseguita sui dati che sono stati campionati.
     
-6. Fare clic su **Save**. In questo modo la query viene salvata nell'ambito del processo di Analisi di flusso. I dati di esempio non vengono salvati.
+6. Fare clic su **Salva**. In questo modo la query viene salvata nell'ambito del processo di Analisi di flusso. I dati di esempio non vengono salvati.
 
 
 ## <a name="experiment-using-different-fields-from-the-stream"></a>Provare a usare diversi campi dal flusso 
@@ -277,8 +276,8 @@ La tabella seguente elenca i campi che fanno parte dei dati di flusso JSON. È p
 |CreatedAt | Orario di creazione del tweet|
 |Argomento | Argomento che corrisponde alla parola chiave specificata|
 |SentimentScore | Punteggio del sentiment da Sentiment140|
-|Autore | Handle di Twitter che ha inviato il tweet|
-|Text | Corpo completo del tweet|
+|Creare | Handle di Twitter che ha inviato il tweet|
+|Testo | Corpo completo del tweet|
 
 
 ## <a name="create-an-output-sink"></a>Creare un sink di output
@@ -293,8 +292,8 @@ In questa guida è possibile scrivere gli eventi Tweet aggregati dalla query del
 
 2. Nel pannello **Output** fare clic su **+&nbsp;Aggiungi** e quindi compilare il pannello con questi valori:
 
-   * **Alias di output**: Usare il nome `TwitterStream-Output`. 
-   * **Sink**: Selezionare **Archivio BLOB**.
+   * **Alias di output**: usare il nome `TwitterStream-Output`. 
+   * **Sink**: selezionare **Archivio BLOB**.
    * **Opzioni di importazione**: selezionare **Usa l'archiviazione BLOB della sottoscrizione corrente**.
    * **Account di archiviazione**. Selezionare **Crea un nuovo account di archiviazione**.
    * **Account di archiviazione** (seconda casella). Immettere `YOURNAMEsa`, dove `YOURNAME` rappresenta il nome o un'altra stringa univoca. Il nome può contenere solo lettere minuscole e numeri e deve essere univoco in Azure. 
@@ -305,7 +304,7 @@ In questa guida è possibile scrivere gli eventi Tweet aggregati dalla query del
     
      ![Pannello "Nuovo output" per il processo di Analisi di flusso](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-output-blob-storage.png)
     
-4. Fare clic su **Create**(Crea). 
+4. Fare clic su **Crea**. 
 
     Azure crea l'account di archiviazione e genera automaticamente una chiave. 
 
@@ -320,7 +319,7 @@ Sono stati specificati l'input del processo, la query e l'output. A questo punto
 
 2. Nel pannello del processo fare clic su **Avvia**.
 
-    ![Avviare il processo di Analisi di flusso](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-sa-job-start-output.png)
+    ![Avviare il processo di analisi di flusso](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-sa-job-start-output.png)
 
 3. Nel pannello **Avvia processo**, per **Ora di inizio dell'output del processo**, selezionare **Ora** e quindi fare clic su **Avvia**. 
 
@@ -358,14 +357,14 @@ Ai fini di questa procedura, si verificano gli argomenti citati più di 20 volte
     HAVING COUNT(*) > 20
     ```
 
-4. Fare clic su **Save**.
+4. Fare clic su **Salva**.
 
 5. Verificare che l'applicazione TwitterWpfClient sia in esecuzione. 
 
 6. Fare clic su **Avvia** per riavviare il processo usando la nuova query.
 
 
-## <a name="get-support"></a>Supporto
+## <a name="get-support"></a>Ottenere supporto
 Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passaggi successivi

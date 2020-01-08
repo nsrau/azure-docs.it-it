@@ -14,16 +14,23 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/20/2019
 ms.author: tarcher
-ms.openlocfilehash: b97d9563f0bddcc2b3bf82807f41af68f3abbff1
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 819aeb225c4f55f803a5fad19eff33bd1748bf46
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034709"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75368930"
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Creare un'infrastruttura completa per la macchina virtuale Linux in Azure con Terraform
 
 Terraform consente di definire e creare distribuzioni di infrastrutture complete in Azure. I modelli Terrraform, compilati dall'utente in un formato leggibile, creano e configurano le risorse di Azure in modo coerente e riproducibile. In questo articolo viene illustrato come creare un ambiente Linux completo e le risorse di supporto con Terraform. È anche possibile apprendere come [installare e configurare Terraform](terraform-install-configure.md).
+
+> [!NOTE]
+> Per il supporto specifico, contattare direttamente il servizio di bonifica usando uno dei canali della community:
+>
+>   • La [sezione di bonifica](https://discuss.hashicorp.com/c/terraform-core) del portale della community contiene domande, casi d'uso e modelli utili.
+>
+>   • Per domande relative al provider, visitare la sezione relativa ai [provider di bonifica](https://discuss.hashicorp.com/c/terraform-providers) del portale della community.
 
 
 ## <a name="create-azure-connection-and-resource-group"></a>Creare una connessione ad Azure e il gruppo di risorse
@@ -187,7 +194,7 @@ resource "azurerm_storage_account" "mystorageaccount" {
 ```
 
 
-## <a name="create-virtual-machine"></a>Creare una macchina virtuale
+## <a name="create-virtual-machine"></a>Crea macchina virtuale
 
 Il passaggio finale consiste nel creare una macchina virtuale e usare tutte le risorse create. La sezione seguente crea una macchina virtuale denominata *myVM* e associa la scheda di rete virtuale denominata *myNIC*. Viene usata l'immagine più recente di *Ubuntu 16.04-LTS* e viene creato un nome utente *azureuser* con autenticazione della password disabilitata.
 

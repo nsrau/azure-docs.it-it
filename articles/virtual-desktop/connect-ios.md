@@ -5,33 +5,26 @@ services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 12/13/2019
 ms.author: helohr
-ms.openlocfilehash: bfc7efa6e8ead3b53704e3c9bd189b18cb787618
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 472b8800a09cb12bc3e703ef53d0aab2b578e0d3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605843"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460226"
 ---
 # <a name="connect-with-the-ios-client"></a>Connettersi con il client iOS
 
-> Si applica a: iOS 8,0 o versione successiva. Compatibile con iPhone, iPad e iPod touch.
-
->[!NOTE]
-> Il client iOS è attualmente ancora in anteprima.
+> Si applica a: iOS 13,0 o versione successiva. Compatibile con iPhone, iPad e iPod touch.
 
 È possibile accedere alle risorse di desktop virtuali Windows dal dispositivo iOS con il client scaricabile. Questa guida illustra come configurare il client iOS.
 
-## <a name="install-the-ios-beta-client"></a>Installare il client iOS Beta
-Per installare il client iOS Beta:
+## <a name="install-the-ios-client"></a>Installare il client iOS
 
-1. Installare l'app [Apple TestFlight](https://apps.apple.com/us/app/testflight/id899247664) nel dispositivo iOS.
-2. Sul dispositivo iOS aprire un browser e passare a [aka.ms/rdiosbeta](https://aka.ms/rdiosbeta).
-3. Nell'etichetta **passaggio 2: partecipare alla beta**selezionare **Avvia test**.
-4. Quando si viene reindirizzati all'app TestFlight, selezionare **accetta**, quindi selezionare **Installa**.
+Per iniziare, [scaricare](https://aka.ms/rdios) e installare il client nel dispositivo iOS.
 
-## <a name="subscribe-to-a-feed"></a>Sottoscrivere un feed
+## <a name="subscribe-to-a-feed"></a>Effettuare la sottoscrizione a un feed
 
 Sottoscrivere il feed fornito dall'amministratore per ottenere l'elenco delle risorse gestite a cui è possibile accedere nel dispositivo iOS.
 
@@ -41,12 +34,12 @@ Per sottoscrivere un feed:
 2. Immettere l'URL del feed nel campo **feed URL** . L'URL del feed può essere un URL o un indirizzo di posta elettronica.
    - Se si usa un URL, usare quello che l'amministratore ha assegnato. L'URL viene in genere <https://rdweb.wvd.microsoft.com>.
    - Per usare la posta elettronica, immettere l'indirizzo di posta elettronica. Indica al client di cercare un URL associato all'indirizzo di posta elettronica se l'amministratore ha configurato il server in modo.
-3. Toccare **Avanti**.
+3. Tocca **Next** (Avanti).
 4. Specificare le credenziali quando richiesto.
    - Per **nome utente**, assegnare al nome utente l'autorizzazione per accedere alle risorse.
    - Per **password**, assegnare la password associata al nome utente.
    - È anche possibile che venga richiesto di fornire altri fattori se l'amministratore ha configurato l'autenticazione in questo modo.
-5. Toccare **Salva**.
+5. Toccare **salvare**.
 
 Al termine di questa operazione, il Centro connessioni visualizzerà le risorse remote.
 

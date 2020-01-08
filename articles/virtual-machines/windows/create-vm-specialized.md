@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: ac18056f9bfdf22c55b5effac810b8c24ab4d81d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: fc157c2253a718860e028fa493574cb9aa2ccdf2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033849"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460197"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Creare una macchina virtuale Windows da un disco specializzato usando PowerShell
 
@@ -70,7 +70,7 @@ Usare il disco rigido virtuale così com'è per creare una nuova macchina virtua
 
 È possibile creare una copia di una macchina virtuale che usa dischi gestiti acquisendo uno snapshot della macchina virtuale e quindi usando tale snapshot per creare un nuovo disco gestito e una nuova macchina virtuale.
 
-Se si vuole copiare una macchina virtuale esistente in un'altra area, potrebbe essere necessario usare azcopy per [creare una copia di un disco in un'altra area](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk). 
+Se si vuole copiare una macchina virtuale esistente in un'altra area, è consigliabile usare azcopy per [creare una copia di un disco in un'altra area](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk). 
 
 ### <a name="take-a-snapshot-of-the-os-disk"></a>Acquisire uno snapshot del disco del sistema operativo
 

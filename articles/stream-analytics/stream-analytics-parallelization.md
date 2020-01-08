@@ -1,20 +1,18 @@
 ---
 title: Usare la parallelizzazione e il ridimensionamento delle query in Analisi di flusso di Azure
 description: Questo articolo descrive come ridimensionare i processi di Analisi di flusso configurando partizioni di input, ottimizzando la definizione delle query e impostando le unità di streaming dei processi.
-services: stream-analytics
 author: JSeb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 985746989af39aa55d5d8af735edf62f4c4b77b7
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: d1afb6037b5fc290de93faba405982ebd1fb68ea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73932281"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431566"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Sfruttare i vantaggi della parallelizzazione delle query in Analisi di flusso di Azure
 Questo articolo illustra come sfruttare i vantaggi della parallelizzazione in Analisi di flusso di Azure. Si apprenderà come ridimensionare i processi di Analisi di flusso configurando partizioni di input e ottimizzando la definizione di query.
@@ -32,19 +30,19 @@ Il ridimensionamento di un processo di Analisi di flusso sfrutta i vantaggi offe
 Tutti gli input di Analisi di flusso di Azure possono sfruttare i vantaggi del partizionamento:
 -   Hub eventi (è necessario impostare la chiave di partizione in modo esplicito con PARTITION BY)
 -   Hub IoT (è necessario impostare la chiave di partizione in modo esplicito con PARTITION BY)
--   Archivio BLOB
+-   Archiviazione BLOB
 
 ### <a name="outputs"></a>Output
 
 Quando si usa Analisi di flusso di Azure, è possibile sfruttare il partizionamento negli output:
--   Archiviazione di Azure Data Lake
+-   Archiviazione Azure Data Lake
 -   Funzioni di Azure
--   Tabella di Azure
+-   tabella di Azure
 -   Archiviazione BLOB (è necessario impostare la chiave di partizione in modo esplicito)
 -   Cosmos DB (è necessario impostare la chiave di partizione in modo esplicito)
 -   Hub eventi (è necessario impostare la chiave di partizione in modo esplicito)
 -   Hub IoT (è necessario impostare la chiave di partizione in modo esplicito)
--   BUS DI SERVIZIO
+-   Bus di servizio
 - Per altre informazioni su SQL e SQL Data Warehouse con il partizionamento facoltativo, vedere la [pagina dell'output in Database SQL di Azure](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-sql-output-perf).
 
 Power BI non supporta il partizionamento. È tuttavia possibile suddividere gli input in partizioni come descritto in [questa sezione](#multi-step-query-with-different-partition-by-values) 
@@ -256,28 +254,28 @@ Le osservazioni seguenti usano un processo di analisi di flusso con query senza 
 
 #### <a name="event-hub"></a>Hub eventi
 
-|Velocità di inserimento (eventi al secondo) | unità di streaming | Risorse di output  |
+|Velocità di inserimento (eventi al secondo) | Unità di flussi | Risorse di output  |
 |--------|---------|---------|
-| 1\.000     |    1    |  2 TU   |
-| 5 K     |    6    |  6 U   |
+| 1K     |    1    |  2 TU   |
+| 5K     |    6    |  6 U   |
 | 10.000    |    12   |  10 U  |
 
 La soluzione [Hub eventi](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-eventhubs) si ridimensiona in modo lineare in termini di unità di streaming e velocità effettiva, rendendola il modo più efficiente ed efficace per analizzare e trasmettere i dati da analisi di flusso. I processi possono essere ridimensionati fino a 192 unità di streaming, che approssimativamente si traduce nell'elaborazione fino a 200 MB/s o 19 mila miliardi eventi al giorno.
 
-#### <a name="azure-sql"></a>SQL di Azure
-|Velocità di inserimento (eventi al secondo) | unità di streaming | Risorse di output  |
+#### <a name="azure-sql"></a>Azure SQL
+|Velocità di inserimento (eventi al secondo) | Unità di flussi | Risorse di output  |
 |---------|------|-------|
-|    1\.000   |   3  |  S3   |
-|    5 K   |   18 |  P4   |
+|    1K   |   3  |  S3   |
+|    5K   |   18 |  P4   |
 |    10.000  |   36 |  P6   |
 
 [Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) supporta la scrittura in parallelo, denominata ereditarietà del partizionamento, ma non è abilitata per impostazione predefinita. Tuttavia, l'abilitazione del partizionamento ereditato, insieme a una query completamente parallela, potrebbe non essere sufficiente per ottenere una velocità effettiva più elevata. Le velocità effettiva di scrittura di SQL dipendono significativamente dalla configurazione del database SQL Azure e dallo schema della tabella. L'articolo relativo alle [prestazioni dell'output SQL](./stream-analytics-sql-output-perf.md) offre maggiori dettagli sui parametri che possono ottimizzare la velocità effettiva di scrittura. Come indicato nell'articolo [output di analisi di flusso di Azure per il database SQL di Azure](./stream-analytics-sql-output-perf.md#azure-stream-analytics) , questa soluzione non viene ridimensionata in modo lineare come pipeline completamente parallela oltre 8 partizioni e potrebbe essere necessario eseguire la ripartizionamento prima dell'output SQL (vedere [in](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Gli SKU Premium sono necessari per sostenere velocità di i/o elevate, oltre a sovraccarico dai backup del log che si verificano ogni pochi minuti.
 
 #### <a name="cosmos-db"></a>Cosmos DB
-|Velocità di inserimento (eventi al secondo) | unità di streaming | Risorse di output  |
+|Velocità di inserimento (eventi al secondo) | Unità di flussi | Risorse di output  |
 |-------|-------|---------|
-|  1\.000   |  3    | 20.000 UR  |
-|  5 K   |  24   | 60K UR  |
+|  1K   |  3    | 20.000 UR  |
+|  5K   |  24   | 60K UR  |
 |  10.000  |  48   | 120K UR |
 
 [Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) output di analisi di flusso è stato aggiornato per usare l'integrazione nativa con il [livello di compatibilità 1,2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12). Il livello di compatibilità 1,2 consente una velocità effettiva significativamente superiore e riduce il consumo delle unità richiesta rispetto a 1,1, che rappresenta il livello di compatibilità predefinito per i nuovi processi. La soluzione USA i contenitori CosmosDB partizionati in/deviceId e il resto della soluzione è configurato in modo identico.
@@ -301,19 +299,19 @@ Tutti gli [esempi di streaming su larga scala di Azure](https://github.com/Azure
 > [!NOTE]
 > Le configurazioni sono soggette a modifiche a causa dei vari componenti usati nella soluzione. Per una stima più accurata, personalizzare gli esempi per adattarlo allo scenario.
 
-### <a name="identifying-bottlenecks"></a>Identificazione di colli di bottiglia
+### <a name="identifying-bottlenecks"></a>Individuazione dei colli di bottiglia
 
 Usare il riquadro metriche nel processo di analisi di flusso di Azure per identificare i colli di bottiglia nella pipeline. Esaminare **gli eventi di input/output** per la velocità effettiva e il ["ritardo della filigrana"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) o **gli eventi con backlog** per verificare se il processo è in grado di mantenere la frequenza di input. Per le metriche dell'hub eventi, cercare **le richieste limitate** e modificare di conseguenza le unità di soglia. Per Cosmos DB metrica, esaminare il **numero massimo di ur/sec utilizzati per ogni intervallo di chiavi di partizione** in velocità effettiva per assicurarsi che gli intervalli di chiavi di partizione siano utilizzati in modo uniforme. Per il database SQL di Azure, monitorare IO e **CPU**del **log** .
 
-## <a name="get-help"></a>Ottenere aiuto
+## <a name="get-help"></a>Ottenere supporto
 
 Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Introduzione ad Analisi di flusso di Azure](stream-analytics-introduction.md)
-* [Introduzione all’uso di Analisi di flusso di Azure](stream-analytics-real-time-fraud-detection.md)
+* [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
+* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Image references-->
 

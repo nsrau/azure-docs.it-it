@@ -1,6 +1,6 @@
 ---
 title: "SAP in Azure: Guida alla pianificazione e all'implementazione"
-description: Guida alla pianificazione e all'implementazione di Macchine virtuali di Azure per SAP NetWeaver
+description: Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP NetWeaver
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
@@ -13,17 +13,17 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/16/2019
+ms.date: 12/13/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 863070eb025d8ac58f6a0946d49732dc6b2842b8
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: d9c5556934b31144e66f0985ab32d4e2cf759774
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951752"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75643271"
 ---
-# <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Guida alla pianificazione e all'implementazione di Macchine virtuali di Azure per SAP NetWeaver
+# <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP NetWeaver
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
@@ -76,8 +76,8 @@ ms.locfileid: "74951752"
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md#subscription-limits
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits
 
 [dbms-guide]:dbms-guide.md
 [dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f
@@ -235,7 +235,7 @@ ms.locfileid: "74951752"
 
 [powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-az-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
-[resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
+[resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
@@ -249,7 +249,7 @@ ms.locfileid: "74951752"
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md
 [storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
+[storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
@@ -311,15 +311,15 @@ ms.locfileid: "74951752"
 [xplat-cli-azure-resource-manager]:../../../xplat-cli-azure-resource-manager.md
 [capture-image-linux-step-2-create-vm-image]:../../linux/capture-image.md#step-2-create-vm-image
 
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
+
 
 Microsoft Azure consente alle aziende di acquisire risorse di calcolo e di archiviazione in poco tempo, senza lunghi cicli di approvvigionamento. Il servizio Macchine virtuali di Azure consente alle aziende di distribuire in Azure applicazioni classiche, ad esempio applicazioni basate su SAP NetWeaver, e di estenderne l'affidabilità e la disponibilità senza risorse aggiuntive in locale. I servizi Macchine virtuali di Azure supportano anche la connettività cross-premise, che consente alle aziende di integrare in modo attivo le Macchine virtuali di Azure nei propri domini locali, i propri cloud privati e nel panorama applicativo del sistema SAP.
 Questo white paper illustra i concetti fondamentali relativi alle Macchine virtuali di Microsoft Azure e fornisce considerazioni dettagliate sulla pianificazione e sull'implementazione per installazioni di SAP NetWeaver in Azure. È quindi necessario leggere questo documento prima di avviare le distribuzioni effettive di SAP NetWeaver in Azure.
-Questo documento è complementare alla documentazione relativa all'installazione di SAP e alle note su SAP che rappresentano le risorse principali per le installazioni e le distribuzioni del software SAP nelle piattaforme specifiche.
+Questo documento è complementare alla documentazione relativa all'installazione di SAP e alle note SAP, che rappresentano le risorse principali per le installazioni e le distribuzioni del software SAP su piattaforme specifiche.
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 Cloud computing è un termine ampiamente diffuso che sta assumendo un'importanza sempre più rilevante nel settore IT, dalle piccole imprese fino alle grandi aziende e alle multinazionali.
 
 Microsoft Azure è la piattaforma di servizi cloud di Microsoft che offre un'ampia gamma di nuove possibilità. I clienti possono infatti effettuare rapidamente il provisioning e il deprovisioning di applicazioni come servizi sul cloud, senza essere soggetti a eventuali limiti tecnici o di budget. Anziché investire tempo e denaro nell'infrastruttura hardware, le aziende possono concentrarsi sull'applicazione, sui processi aziendali e sui vantaggi per clienti e utenti.
@@ -329,12 +329,12 @@ Grazie ai servizi inclusi in Macchine virtuali di Microsoft Azure, Microsoft off
 Il documento stesso è incentrato su due aspetti principali:
 
 * La prima parte illustra due modelli di distribuzione supportati per applicazioni basate su SAP NetWeaver in Azure. Descrive anche la gestione generale di Azure, con particolare attenzione alle distribuzioni SAP.
-* La seconda parte illustra in modo dettagliato l'implementazione dei due scenari diversi illustrati nella prima parte.
+* La seconda parte illustra come implementare i diversi scenari descritti nella prima parte.
 
 Per altre risorse, vedere il capitolo [risorse][planning-guide-1.2] di questo documento.
 
 ### <a name="definitions-upfront"></a>Definizioni
-Nel documento sono usati i termini seguenti:
+Nel documento vengono usati i termini seguenti.
 
 * IaaS (Infrastructure as a Service): infrastruttura distribuita come servizio
 * PaaS (Platform as a Service): piattaforma distribuita come servizio
@@ -370,7 +370,7 @@ Il punto di ingresso per il carico di lavoro SAP nella documentazione di Azure �
 
 Le note seguenti su SAP sono correlate all'argomento relativo a SAP in Azure:
 
-| Numero della nota | Title |
+| Numero della nota | Titolo |
 | --- | --- |
 | [1928533] |Applicazioni SAP in Azure: dimensioni e prodotti supportati |
 | [2015553] |SAP in Microsoft Azure: prerequisiti per il supporto |
@@ -384,15 +384,14 @@ Le note seguenti su SAP sono correlate all'argomento relativo a SAP in Azure:
 | [2069760] |Installazione e aggiornamento di Oracle Linux 7.x SAP |
 | [1597355] |Raccomandazione sullo spazio di scambio per Linux |
 
-Leggere anche il [wiki su SCN](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) contenente tutte le note SAP per Linux.
+Vedere anche il [wiki in SCN](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) contenente tutte le note SAP per Linux.
 
-Le limitazioni predefinite generali e le limitazioni massime delle sottoscrizioni di Azure sono disponibili in [questo articolo][azure-subscription-service-limits-subscription].
+Le limitazioni predefinite generali e le limitazioni massime delle sottoscrizioni di Azure sono disponibili in [questo articolo][azure-resource-manager/management/azure-subscription-service-limits-subscription].
 
 ## <a name="possible-scenarios"></a>Scenari possibili
 SAP è spesso considerata una delle applicazioni più cruciali nelle aziende. L'architettura e le operazioni di queste applicazioni sono in genere complesse ed è quindi importante assicurare il rispetto dei requisiti per la disponibilità e le prestazioni.
 
-Le aziende devono quindi valutare con attenzione il provider di servizi cloud da scegliere per l'esecuzione di processi aziendali cruciali per l'azienda. Azure è la piattaforma cloud pubblica ideale per le applicazioni SAP aziendali e i processi aziendali. Data la vasta gamma di infrastrutture di Azure, quasi tutti i sistemi SAP NetWeaver e S/4HANA esistenti possono essere ospitati attualmente in Azure. Azure fornisce VM con molti terabyte di memoria e più di 200 CPU. Oltre ad Azure offre [istanze large di Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), che consentono distribuzioni Hana con scalabilità orizzontale fino a 24TB e DISTRIBUzioni Ana con scalabilità orizzontale fino a 120 TB. 
-
+Le aziende devono quindi valutare con attenzione il provider di servizi cloud da scegliere per l'esecuzione di processi aziendali cruciali per l'azienda. Azure è la piattaforma cloud pubblica ideale per le applicazioni SAP aziendali e i processi aziendali. Data la vasta gamma di infrastrutture di Azure, quasi tutti i sistemi SAP NetWeaver e S/4HANA esistenti possono essere ospitati attualmente in Azure. Azure fornisce VM con molti terabyte di memoria e più di 200 CPU. Oltre ad Azure offre [istanze large di Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), che consentono distribuzioni Hana con scalabilità orizzontale fino a 24TB e DISTRIBUzioni Ana con scalabilità orizzontale fino a 120 TB. Uno può dichiarare oggi che quasi tutti gli scenari SAP locali possono essere eseguiti anche in Azure. 
 
 Per distribuire correttamente i sistemi SAP in IaaS di Azure o IaaS generica, è importate comprendere le differenze significative tra le offerte di outsourcer o provider di servizi di hosting tradizionali e le offerte IaaS. Mentre il provider di hosting o l'outsourcing tradizionale adatta l'infrastruttura (rete, archiviazione e tipo di server) al carico di lavoro che un cliente vuole ospitare, è invece responsabilità del cliente o del partner di caratterizzare il carico di lavoro e scegliere la corretta Azure componenti di macchine virtuali, archiviazione e rete per le distribuzioni IaaS.
 
@@ -457,6 +456,18 @@ Leggere [questo articolo][vpn-gateway-create-site-to-site-rm-powershell] per alt
 * Le versioni supportate del sistema operativo e le versioni dei sistemi database supportate nei servizi di macchine virtuali di Azure insieme al software SAP sono indicate nella nota SAP [1928533].
 * Le applicazioni e le versioni SAP supportate nei servizi di macchine virtuali di Azure sono indicate nella nota SAP [1928533].
 * Sono supportate solo immagini a 64 bit per l'esecuzione come macchine virtuali guest in Azure per scenari SAP. Di conseguenza, sono supportati solo database e applicazioni SAP a 64 bit.
+
+
+## <a name="first-steps-planning-a-deployment"></a>Primi passaggi per la pianificazione di una distribuzione
+Il primo passaggio della pianificazione della distribuzione è quello di non verificare la disponibilità di VM per l'esecuzione di SAP. Il primo passaggio può essere quello che richiede molto tempo, ma più importante, consiste nel collaborare con i team di conformità e sicurezza dell'azienda per informazioni sulle condizioni limite per la distribuzione del tipo di carico di lavoro SAP o del processo di business nel cloud pubblico. Se la società ha distribuito altro software prima in Azure, il processo può essere semplice. Se la società è più all'inizio del viaggio, è possibile che siano necessarie discussioni più grandi per individuare le condizioni di limite, le condizioni di sicurezza, che consentono di ospitare determinati dati SAP e processi aziendali SAP nel cloud pubblico.
+
+Per una guida utile, è possibile puntare alle offerte di [conformità Microsoft](https://docs.microsoft.com/microsoft-365/compliance/offering-home) per un elenco di offerte di conformità che Microsoft è in grado di fornire. 
+
+Altre aree problematiche, come la crittografia dei dati per i dati inattivi o altre crittografie nel servizio di Azure, sono documentate in [panoramica sulla crittografia di Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview).
+
+Non sottovalutare questa fase del progetto nella pianificazione. Solo quando si dispone di un contratto e di regole in questo argomento, è necessario procedere al passaggio successivo, ovvero la pianificazione dell'architettura di rete distribuita in Azure.
+
+
 
 ## <a name="microsoft-azure-virtual-machine-services"></a>Servizi Macchine virtuali di Microsoft Azure
 La piattaforma Microsoft Azure è una piattaforma di servizi cloud su scala Internet ospitata e gestita nei data center Microsoft. La piattaforma include i servizi Macchine virtuali di Microsoft Azure (infrastruttura distribuita come servizio o IaaS) e un set di funzionalità avanzate per la piattaforma distribuita come servizio (PaaS).
@@ -586,7 +597,7 @@ Altre informazioni su Archiviazione Premium sono disponibili qui: <https://azure
 
 Quando si distribuiscono servizi o macchine virtuali in Azure, la distribuzione di dischi rigidi virtuali e immagini di VM può essere organizzata in unità definite account di archiviazione di Azure. Quando si pianifica una distribuzione di Azure, è necessario considerare con attenzione le restrizioni di Azure. Da un lato, è disponibile un numero limitato di account di archiviazione per ogni sottoscrizione di Azure. Anche se ogni account di archiviazione di Azure può includere un numero elevato di file VHD, è previsto un limite fisso sul totale di IOPS per ogni account di archiviazione. Quando si distribuiscono centinaia di VM SAP con sistemi DBMS che creano un numero significativo di chiamate di I/O, è consigliabile distribuire macchine virtuali con DBMS a livelli elevati di IOPS tra più account di archiviazione di Azure. Occorre prestare attenzione e non superare il limite attuale di account di archiviazione di Azure per sottoscrizione. Poiché l'archiviazione è una parte essenziale della distribuzione di database per un sistema SAP, questo concetto viene illustrato più dettagliatamente nella [Guida alla distribuzione di DBMS][dbms-guide]già citata.
 
-Altre informazioni sugli account di archiviazione di Azure sono disponibili in [questo articolo][storage-scalability-targets]. Leggendo questo articolo si noteranno differenze nelle limitazioni tra gli account di archiviazione Standard di Azure e gli account di archiviazione Premium. Le differenze principali sono relative al volume di dati che è possibile archiviare in tali account di archiviazione. Nell'Archiviazione Standard il volume risulta superiore rispetto all'Archiviazione Premium. D'altra parte, l'account di archiviazione Standard presenta notevoli limitazioni relative alle operazioni di I/O al secondo (vedere le informazioni relative alla **velocità totale delle richieste**), mentre per l'account di archiviazione Premium di Azure non sono previste tali limitazioni. I dettagli e i risultati di queste differenze verranno illustrati durante l'analisi delle distribuzioni di sistemi SAP e in particolare dei server DBMS.
+Altre informazioni sugli account di archiviazione di Azure sono disponibili negli [obiettivi di scalabilità per](../../../storage/common/scalability-targets-standard-account.md) gli account di archiviazione standard e gli [obiettivi di scalabilità per gli account di archiviazione BLOB di pagine Premium](../../../storage/blobs/scalability-targets-premium-page-blobs.md). Leggendo questi articoli si noterà che esistono differenze nelle limitazioni tra gli account di archiviazione standard di Azure e gli account di archiviazione Premium. Le differenze principali sono relative al volume di dati che è possibile archiviare in tali account di archiviazione. Nell'Archiviazione Standard il volume risulta superiore rispetto all'Archiviazione Premium. D'altra parte, l'account di archiviazione Standard presenta notevoli limitazioni relative alle operazioni di I/O al secondo (vedere le informazioni relative alla **velocità totale delle richieste**), mentre per l'account di archiviazione Premium di Azure non sono previste tali limitazioni. I dettagli e i risultati di queste differenze verranno illustrati durante l'analisi delle distribuzioni di sistemi SAP e in particolare dei server DBMS.
 
 In un account di archiviazione è possibile creare diversi contenitori per finalità di organizzazione e classificazione di diversi dischi rigidi virtuali. Questi contenitori vengono usati ad esempio per separare dischi rigidi virtuali di diverse macchine virtuali. L'uso di un solo contenitore o di più contenitori in un singolo account di archiviazione di Azure non comporta alcuna implicazione a livello di prestazioni.
 
@@ -952,7 +963,7 @@ Lo scopo di questo scenario è caricare un file VHD, con o senza sistema operati
 * Creare una nuova macchina virtuale dalla configurazione della macchina virtuale con *New-AzVM* . vedere <https://docs.microsoft.com/powershell/module/az.compute/new-Azvm>
 * Aggiungere un disco dati a una nuova VM con *Add-AzVMDataDisk* . vedere <https://docs.microsoft.com/powershell/module/az.compute/add-Azvmdatadisk>
 
-**interfaccia della riga di comando di Azure**
+**Interfaccia della riga di comando di Azure**
 
 * Accedere alla sottoscrizione con *az login*
 * Selezionare la propria sottoscrizione con *az account set --subscription `<subscription name or id`>*
@@ -980,7 +991,7 @@ Per caricare una VM o un disco rigido virtuale esistente dalla rete locale, per 
   * Immagine del disco gestito *set-AzVMSourceImage* . vedere <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmsourceimage>
 * Creare una nuova macchina virtuale dalla configurazione della macchina virtuale con *New-AzVM* . vedere <https://docs.microsoft.com/powershell/module/az.compute/new-Azvm>
 
-**interfaccia della riga di comando di Azure**
+**Interfaccia della riga di comando di Azure**
 
 * Usare *Sysprep* in Windows o *waagent-deprovision* in Linux per generalizzare la VM. vedere le informazioni di [riferimento tecnico su Sysprep](https://technet.microsoft.com/library/cc766049.aspx) per Windows o [come acquisire una macchina virtuale Linux da usare come modello di gestione risorse][capture-image-linux-step-2-create-vm-image] per Linux
 * Accedere alla sottoscrizione con *az login*
@@ -1224,7 +1235,7 @@ L'esperienza nelle distribuzioni SAP degli ultimi due anni ha insegnato alcune l
 ---
 > ![Windows][Logo_Windows] Windows
 >
-> * [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure][virtual-machines-sql-server-performance-best-practices]
+> * [Performance best practices for SQL Server in Azure Virtual Machines][virtual-machines-sql-server-performance-best-practices] (Procedure consigliate sulle prestazioni per SQL Server nelle macchine virtuali di Azure)
 >
 > ![Linux][Logo_Linux] Linux
 >
@@ -1315,7 +1326,7 @@ Più avanti in questo documento verrà illustrato un altro scenario importante, 
 
 Con Azure Resource Manager, non esistono più endpoint predefiniti come nel modello classico precedente. Tutte le porte di una macchina virtuale Azure Resource Manager sono aperte, purché:
 
-1. Non siano definiti gruppi di sicurezza di rete per la subnet o l'interfaccia di rete. Il traffico di rete verso le macchine virtuali di Azure sia protetto con i cosiddetti "Gruppi di sicurezza di rete". Per ulteriori informazioni, vedere [Che cos'è un gruppo di sicurezza di rete][virtual-networks-nsg]
+1. Non siano definiti gruppi di sicurezza di rete per la subnet o l'interfaccia di rete. Il traffico di rete verso le macchine virtuali di Azure sia protetto con i cosiddetti "Gruppi di sicurezza di rete". Per altre informazioni, vedere [Che cos'è un gruppo di sicurezza di rete][virtual-networks-nsg]
 2. Non sia definito Azure Load Balancer per l'interfaccia di rete   
 
 Vedere la differenza di architettura tra il modello classico e ARM, come descritto in [questo articolo][virtual-machines-azure-resource-manager-architecture].
@@ -1621,8 +1632,6 @@ Lo scenario cross-premise o ibrido può essere descritto approssimativamente com
 
 ![Connettività da sito a sito tra asset locali e di Azure][planning-guide-figure-2100]
 
-Lo scenario illustrato in precedenza descrive uno scenario in cui il locale
-
 Il requisito minimo è l'uso di protocolli di comunicazione protetta, ad esempio SSL/TLS per l'accesso dal browser o connessioni basate su VPN per l'accesso dal sistema ai servizi di Azure. Il presupposto è che le aziende gestiscano la connessione VPN tra la propria rete aziendale e Azure in modo diverso. Alcune aziende possono semplicemente aprire tutte le porte, altre potrebbero adottare un approccio più selettivo riguardo alle scelta delle porte da aprire e così via.
 
 Le porte di comunicazione SAP tipiche sono elencate nella tabella seguente. Sostanzialmente, è sufficiente aprire la porta del gateway SAP.
@@ -1774,7 +1783,7 @@ Si presuppone che nello scenario cross-premise le macchine virtuali, che eseguon
 
 Le istanze di SAP che si trovano in Azure devono accedere alle condivisioni file disponibili nell'ambiente aziendale. Inoltre, le istanze di SAP locali devono accedere alle condivisioni file che si trovano in Azure. Per abilitare le condivisioni file, è necessario configurare le autorizzazioni e le opzioni di condivisione nel sistema locale. Assicurarsi di aprire le porte della connessione VPN o ExpressRoute tra Azure e il data center.
 
-## <a name="supportability"></a>Supporto
+## <a name="supportability"></a>Facilità di supporto
 
 ### <a name="6f0a47f3-a289-4090-a053-2521618a28c3"></a>Estensione di Azure per SAP
 
@@ -2002,7 +2011,7 @@ Maggiori informazioni sull'avvio automatico per le istanze di SAP sono disponibi
 
 * [Avviare/arrestare SAP con l'avvio/l'arresto del server Unix](https://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
 * [Avviare e arrestare gli agenti di gestione di SAP NetWeaver](https://help.sap.com/saphelp_nwpi711/helpdata/en/49/9a15525b20423ee10000000a421938/content.htm)
-* [Come abilitare l'avvio automatico di Hana Database](http://www.freehanatutorials.com/2012/10/how-to-enable-auto-start-of-hana.html)
+* [Come abilitare l'avvio automatico di Hana Database](http://sapbasisinfo.com/blog/2016/08/15/enabling-autostart-of-sap-hana-database-on-server-boot-situation/)
 
 ### <a name="larger-3-tier-sap-systems"></a>Sistemi SAP a 3 livelli di maggiori dimensioni
 Gli aspetti di disponibilità elevata delle configurazioni SAP a 3 livelli sono già stati esaminati nelle sezioni precedenti. Ora verrà esaminato il caso dei sistemi con requisiti del server DBMS troppo elevati per essere posizionati in Azure, ma con un livello dell'applicazione SAP che potrebbe essere distribuito in Azure.
@@ -2053,7 +2062,7 @@ Dalla metà del 2014, le estensioni ai vari componenti di Hyper-V, System Center
 
 Per una descrizione dettagliata di come distribuire questa soluzione, vedere il blog seguente: <https://blogs.msdn.com/b/saponsqlserver/archive/2014/11/19/protecting-sap-solutions-with-azure-site-recovery.aspx>.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 I punti chiave della disponibilità elevata per i sistemi SAP in Azure sono i seguenti:
 

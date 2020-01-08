@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 8136e65636561079603986f0d6ff30bcbd68258f
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 32865b84de2dc1c1f8a3fd6beca80a2659f1e3d9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534216"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75370766"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configurazione di Pacemaker su SUSE Linux Enterprise Server in Azure
 
@@ -545,7 +545,8 @@ Per il file di input usare il contenuto seguente. Tale contenuto deve essere ada
   "Actions": [
     "Microsoft.Compute/*/read",
     "Microsoft.Compute/virtualMachines/deallocate/action",
-    "Microsoft.Compute/virtualMachines/start/action"
+    "Microsoft.Compute/virtualMachines/start/action", 
+    "Microsoft.Compute/virtualMachines/powerOff/action" 
   ],
   "NotActions": [
   ],
@@ -567,7 +568,7 @@ Assegnare all'entità servizio il ruolo personalizzato "Linux Fence Agent Role" 
 1. Fare clic su Aggiungi assegnazione ruolo
 1. Selezionare il ruolo "Linux Fence Agent Role".
 1. Immettere il nome dell'applicazione creata in precedenza
-1. Fare clic su Salva.
+1. Fai clic su Salva.
 
 Ripetere la procedura precedente per il secondo nodo del cluster.
 

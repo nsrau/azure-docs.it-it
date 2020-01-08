@@ -6,12 +6,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/29/2019
 ms.author: allensu
-ms.openlocfilehash: d18dfa7ebed3aefbf6fdb3ffdb6fdd2cf2160cb4
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: c55b6011381d385fed7c7b8175ff02ec9be66fdb
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71038927"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75641554"
 ---
 # <a name="move-azure-public-ip-to-another-region-using-azure-powershell"></a>Spostare l'IP pubblico di Azure in un'altra area usando Azure PowerShell
 
@@ -32,7 +32,7 @@ Gli indirizzi IP pubblici di Azure sono specifici dell'area e non possono essere
 
 - Verificare che la sottoscrizione di Azure consenta di creare indirizzi IP pubblici nell'area di destinazione usata. Contattare il supporto tecnico per abilitare la quota necessaria.
 
-- Assicurarsi che la sottoscrizione disponga di risorse sufficienti per supportare l'aggiunta di indirizzi IP pubblici per questo processo.  Vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
+- Assicurarsi che la sottoscrizione disponga di risorse sufficienti per supportare l'aggiunta di indirizzi IP pubblici per questo processo.  Vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
 
 ## <a name="prepare-and-move"></a>Preparare e spostare
@@ -61,7 +61,7 @@ I passaggi seguenti illustrano come preparare l'IP pubblico per lo spostamento d
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
-4. Il file scaricato verrà denominato dopo il gruppo di risorse da cui è stata esportata la risorsa.  Individuare il file che è stato esportato dal comando denominato  **\<Resource-Group-Name >. JSON** e aprirlo in un editor di propria scelta:
+4. Il file scaricato verrà denominato dopo il gruppo di risorse da cui è stata esportata la risorsa.  Individuare il file che è stato esportato dal comando denominato **\<Resource-Group-name >. JSON** e aprirlo in un editor di propria scelta:
    
    ```azurepowershell
    notepad <source-resource-group-name>.json
@@ -117,7 +117,7 @@ I passaggi seguenti illustrano come preparare l'IP pubblico per lo spostamento d
     ```
 8. È anche possibile modificare altri parametri nel modello, se si sceglie, e sono facoltativi in base ai requisiti:
 
-    * **SKU** : è possibile modificare lo SKU dell'indirizzo IP pubblico nella configurazione da standard a Basic o Basic a standard modificando la proprietà **SKU** > **Name** nel  **\<file Resource-Group-Name >. JSON** :
+    * **SKU** : è possibile modificare lo SKU dell'indirizzo IP pubblico nella configurazione da standard a Basic o Basic a standard modificando la proprietà **SKU** > **Name** nel **\<Resource-Group-Name > file. JSON** :
 
          ```json
             "resources": [
@@ -134,7 +134,7 @@ I passaggi seguenti illustrano come preparare l'IP pubblico per lo spostamento d
 
          Per altre informazioni sulle differenze tra gli indirizzi IP pubblici con SKU Basic e standard, vedere [creare, modificare o eliminare un indirizzo IP pubblico](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
 
-    * **Metodo di allocazione IP pubblico** e **timeout di inattività** : è possibile modificare entrambe le opzioni nel modello modificando la proprietà **publicIPAllocationMethod** da **dinamica** a **statica** o **statica** a **dinamica** . Il timeout di inattività può essere modificato modificando la proprietà **idleTimeoutInMinutes** in base al valore desiderato.  Il valore predefinito è **4**:
+    * **Metodo di allocazione IP pubblico** e **timeout di inattività** : è possibile modificare entrambe le opzioni nel modello modificando la proprietà **publicIPAllocationMethod** da **dinamico** a **statico** o **statico** a **dinamico**. Il timeout di inattività può essere modificato modificando la proprietà **idleTimeoutInMinutes** in base al valore desiderato.  Il valore predefinito è **4**:
 
          ```json
          "resources": [
@@ -162,14 +162,14 @@ I passaggi seguenti illustrano come preparare l'IP pubblico per lo spostamento d
         Per ulteriori informazioni sui metodi di allocazione e i valori di timeout di inattività, vedere [creare, modificare o eliminare un indirizzo IP pubblico](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
 
 
-9. Salvare il  **\<file Resource-Group-Name >. JSON** .
+9. Salvare il file **\<Resource-Group-name >. JSON** .
 
 10. Creare un gruppo di risorse nell'area di destinazione per l'indirizzo IP pubblico di destinazione da distribuire tramite [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0).
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. Distribuire il  **\<nome del gruppo di risorse modificato >** file con estensione JSON al gruppo di risorse creato nel passaggio precedente usando [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+11. Distribuire il file modificato **\<Resource-Group-name >. JSON** al gruppo di risorse creato nel passaggio precedente usando [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 
@@ -190,7 +190,7 @@ I passaggi seguenti illustrano come preparare l'IP pubblico per lo spostamento d
     Get-AzPublicIPAddress -Name <target-publicip-name> -ResourceGroupName <target-resource-group-name>
 
     ```
-## <a name="discard"></a>Annulla 
+## <a name="discard"></a>Discard 
 
 Dopo la distribuzione, se si vuole ricominciare o rimuovere l'indirizzo IP pubblico nella destinazione, eliminare il gruppo di risorse creato nella destinazione e l'indirizzo IP pubblico spostato verrà eliminato.  Per rimuovere il gruppo di risorse, usare [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
 

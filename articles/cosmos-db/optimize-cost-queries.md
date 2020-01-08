@@ -1,17 +1,17 @@
 ---
-title: Ottimizzare le unità di richiesta e i costi per l'esecuzione di query in Azure Cosmos DB
+title: Ottimizzare i costi e le UR/sec per eseguire query in Azure Cosmos DB
 description: Informazioni su come valutare gli addebiti delle unità di richiesta per una query e ottimizzare la query in termini di prestazioni e costi.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 376c1a32a70951448b35a4c02022719229a3aad2
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: dd75ad4ed1024292868f113e474fe8b8b73679b0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72753294"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445125"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Ottimizzare il costo delle query in Azure Cosmos DB
 
@@ -104,11 +104,11 @@ Per l'ottimizzazione del costo delle query, prendere in considerazione le proced
 È ora possibile passare ad altre informazioni sull'ottimizzazione dei costi in Azure Cosmos DB con gli articoli seguenti:
 
 * Altre informazioni sul [Funzionamento dei prezzi di Azure Cosmos DB](how-pricing-works.md)
-* Altre informazioni sull'[ottimizzazione di sviluppo e test](optimize-dev-test.md)
+* Altre informazioni sull'[Ottimizzazione di sviluppo e test](optimize-dev-test.md)
 * Altre informazioni su [come comprendere la fatturazione di Azure Cosmos DB](understand-your-bill.md)
-* Altre informazioni sull'[ottimizzazione dei costi della velocità effettiva](optimize-cost-throughput.md)
-* Altre informazioni sull'[Ottimizzazione dei costi di archiviazione](optimize-cost-storage.md)
+* Altre informazioni sull'[Ottimizzazione dei costi della velocità effettiva](optimize-cost-throughput.md)
+* Altre informazioni sull'[ottimizzazione dei costi di archiviazione](optimize-cost-storage.md)
 * Altre informazioni sull'[ottimizzazione del costo delle operazioni di lettura e scrittura](optimize-cost-reads-writes.md)
-* Altre informazioni sull'[ottimizzazione dei costi degli account Azure Cosmos multiarea](optimize-cost-regions.md)
+* Altre informazioni sull'[ottimizzazione dei costi degli account Azure Cosmos multi-area](optimize-cost-regions.md)
 * Altre informazioni sulla [capacità riservata di Azure Cosmos DB](cosmos-db-reserved-capacity.md)
 

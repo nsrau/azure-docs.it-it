@@ -1,20 +1,19 @@
 ---
 title: Criteri di errore di output in Analisi di flusso di Azure
 description: Informazioni sui criteri di gestione degli errori di output disponibili in Analisi di flusso di Azure.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: b31530966d2c5ca9a3f82f3e74ba349e66053a83
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22112272bb302769e5969cf6995d486438deb41f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61478922"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431616"
 ---
 # <a name="azure-stream-analytics-output-error-policy"></a>Criteri di errore di output in Analisi di flusso di Azure
 Questo articolo descrive i criteri di gestione degli errori per i dati di output che possono essere configurati in Analisi di flusso di Azure.
@@ -24,7 +23,7 @@ I criteri di gestione degli errori per i dati di output si applicano solo agli e
 ![Posizione dei criteri di errore di output in Analisi di flusso di Azure](./media/stream-analytics-output-error-policy/stream-analytics-error-policy-locate.png)
 
 
-## <a name="retry"></a>Retry
+## <a name="retry"></a>Riprova
 Quando si verifica un errore, Analisi di flusso di Azure prova a scrivere l'evento a tempo indeterminato fino a quando la scrittura non ha esito positivo. Non è impostato alcun timeout per i tentativi. Alla fine, l'elaborazione di tutti gli eventi successivi viene bloccata dall'evento in fase di esecuzione. Questa opzione è il criterio di gestione degli errori di output predefinito.
 
 ## <a name="drop"></a>Rilascia

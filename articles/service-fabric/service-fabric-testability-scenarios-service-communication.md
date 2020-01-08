@@ -1,27 +1,18 @@
 ---
-title: 'Testabilità: Comunicazione tra servizi | Microsoft Docs'
+title: 'Testabilità: comunicazione tra servizi'
 description: Le comunicazioni da servizio a servizio sono un punto di integrazione critico di un'applicazione Infrastruttura di servizi. Questo articolo illustra alcune considerazioni di progettazione e tecniche di test.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: 017557df-fb59-4e4a-a65d-2732f29255b8
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 529c8d74b6e0a63a7969f31d5b5e8073ecb79411
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 87b922cb9655588a22c739d26c9ce9e49d35781a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60543224"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465557"
 ---
-# <a name="service-fabric-testability-scenarios-service-communication"></a>Scenari di testabilità di Service Fabric: Comunicazione con i servizi
+# <a name="service-fabric-testability-scenarios-service-communication"></a>Scenari di Testabilità di Service Fabric: comunicazione tra servizi
 Gli stili dell'architettura orientata ai microservizi e ai servizi vengono visualizzati naturalmente in Azure Service Fabric. In questi tipi di architetture distribuite, le applicazioni di microservizi con componenti sono in genere costituite da più servizi che devono comunicare tra loro. Anche nei casi più semplici, in genere si ha almeno un servizio Web senza stato e un servizio di archiviazione dei dati con stato che devono comunicare.
 
 La comunicazione da servizio a servizio è un punto di integrazione critico di un'applicazione, in quanto ogni servizio espone un'API remota ad altri servizi. L'uso di un set di limiti di API che coinvolgono l'I/O richiede in genere particolare attenzione e diverse operazioni di test e di convalida.
@@ -44,11 +35,11 @@ Dal momento che i servizi si spostano all'interno del cluster, i client e gli al
 
 La gestione normale di questi scenari è importante per garantire che il sistema funzioni senza problemi. A tale scopo, tenere presente quanto segue:
 
-* Ogni servizio a cui è possibile connettersi ha un *indirizzo* sul quale è in ascolto, ad esempio HTTP o WebSocket. Quando un'istanza o una partizione del servizio si sposta, il relativo endpoint dell'indirizzo cambia. Si sposta in un altro nodo con un indirizzo IP diverso. Se si utilizzano componenti di comunicazione integrati, questi gestiranno automaticamente la nuova risoluzione degli indirizzi del servizio.
+* Ogni servizio a cui è possibile connettersi ha un *indirizzo* sul quale è in ascolto, ad esempio HTTP o WebSocket. Quando un'istanza o una partizione del servizio si sposta, il relativo endpoint dell'indirizzo cambia. Si sposta in un nodo diverso con un indirizzo IP diverso. Se si usano i componenti di comunicazione incorporati, questi gestiranno la ririsoluzione degli indirizzi del servizio.
 * Potrebbe esserci un aumento temporaneo della latenza del servizio quando l'istanza del servizio avvia nuovamente il listener. Ciò dipende dalla rapidità con cui il servizio apre il listener dopo lo spostamento dell'istanza del servizio.
 * Tutte le connessioni esistenti devono essere chiuse e riaperte dopo l'apertura del servizio in un nuovo nodo. Un arresto o un riavvio normale del nodo consente di attendere che le connessioni esistenti siano arrestate normalmente.
 
-### <a name="test-it-move-service-instances"></a>Eseguirne il test: Sposta le istanze del servizio
+### <a name="test-it-move-service-instances"></a>Test: spostare istanze del servizio
 Grazie agli strumenti di testabilità di Service Fabric, è possibile creare uno scenario di test per testare queste situazioni in modi diversi:
 
 1. Spostare la replica primaria di un servizio con stato.
@@ -77,7 +68,7 @@ Service Fabric è una piattaforma progettata per garantire elevata disponibilit�
 
 I servizi con stato usano un sistema basato su quorum per la replica dello stato per l'elevata disponibilità. Ciò significa che per eseguire le operazioni di scrittura deve essere disponibile un quorum di repliche. In rari casi, ad esempio nel caso di errore hardware diffuso, potrebbe non essere disponibile un quorum di repliche. In questi casi non sarà possibile eseguire operazioni di scrittura, ma sarà possibile eseguire operazioni di lettura.
 
-### <a name="test-it-write-operation-unavailability"></a>Eseguirne il test: Mancata disponibilità delle operazioni di scrittura
+### <a name="test-it-write-operation-unavailability"></a>Test: mancata disponibilità delle operazioni di scrittura
 Grazie agli strumenti di testabilità di Service Fabric, è possibile inserire come test un errore che provoca la perdita di quorum. Sebbene si tratti di uno scenario raro, è importante che i client e i servizi che dipendono da un servizio con stato siano preparati a gestire le situazioni in cui non possono eseguire richieste di scrittura al servizio. È importante anche che il servizio con stato sia a conoscenza di questa possibilità e sia in grado di comunicarla normalmente ai chiamanti.
 
 La perdita di quorum può essere indotta mediante il cmdlet di PowerShell **Invoke-ServiceFabricPartitionQuorumLoss** :

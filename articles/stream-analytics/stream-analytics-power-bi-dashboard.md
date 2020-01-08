@@ -1,21 +1,20 @@
 ---
 title: Integrazione del dashboard di Power BI con Analisi di flusso di Azure
 description: Questo articolo descrive come usare un dashboard di Power BI in tempo reale per visualizzare i dati al di fuori di un processo di Analisi di flusso di Azure.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: c415bdecdaf55f3068dcd804ab34de402fe7a31f
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 76f5c1f0cd3186244e9a262358c9c9a652a73fdb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612285"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431643"
 ---
-# <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Analisi di flusso e Power BI: un dashboard di analisi in tempo reale per il flusso di dati
+# <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Analisi di flusso e Power BI: dashboard di analisi in tempo reale per lo streaming dei dati
 
 Analisi di flusso di Azure permette di usare uno dei principali strumenti di Business Intelligence, [Microsoft Power BI](https://powerbi.com/). Questo articolo illustra come creare strumenti di Business Intelligence usando Power BI come output per i processi di Analisi di flusso di Azure. Illustra anche come creare e usare un dashboard in tempo reale.
 
@@ -38,15 +37,15 @@ Nell'esercitazione sul rilevamento delle frodi in tempo reale l'output viene inv
 
 1. Nel portale di Azure aprire il processo di Analisi di flusso creato in precedenza. Se si usa il nome suggerito, il processo è denominato `sa_frauddetection_job_demo`.
 
-2. Nel menu a sinistra, selezionare **Outputs** sotto **topologia processo**. Quindi, selezionare **+ Aggiungi** e scegliere **Power BI** nel menu a discesa.
+2. Nel menu a sinistra selezionare **output** in **topologia processo**. Quindi, selezionare **+ Aggiungi** e scegliere **Power bi** dal menu a discesa.
 
 3. Selezionare **+ Aggiungi** > **Power BI**. Compilare quindi il modulo con i dettagli seguenti e selezionare **Autorizza**:
 
    |**Impostazione**  |**Valore consigliato**  |
    |---------|---------|
    |Alias di output  |  CallStream-PowerBI  |
-   |Nome del set di dati  |   sa-dataset  |
-   |Nome tabella |  fraudulent-calls  |
+   |Nome del set di dati  |   set di dati SA  |
+   |Nome tabella |  chiamate fraudolente  |
 
    ![Configurare l'output Analisi di flusso di Azure](media/stream-analytics-power-bi-dashboard/configure-stream-analytics-output.png)
 
@@ -57,12 +56,12 @@ Nell'esercitazione sul rilevamento delle frodi in tempo reale l'output viene inv
 
 4. Quando si seleziona **Autorizza**, viene visualizzata una finestra popup in cui viene chiesto di fornire le credenziali per l'autenticazione dell'account di Power BI. Una volta completato il processo di autorizzazione, fare clic su **Salva** per salvare le impostazioni.
 
-8. Fare clic su **Create**(Crea).
+8. Fare clic su **Crea**.
 
 Il set di dati viene creato con le impostazioni seguenti:
 
-* **defaultRetentionPolicy: BasicFIFO** -Data è FIFO, con un massimo di 200.000 righe.
-* **defaultMode: pushStreaming** -il set di dati supporta sia i riquadri in streaming e basati sui report gli oggetti visivi tradizionali (noto anche come push).
+* **defaultRetentionPolicy: BasicFIFO** -data è FIFO, con un massimo di 200.000 righe.
+* **defaultMode: pushStreaming:** il set di dati supporta sia i riquadri di streaming che gli oggetti visivi basati su report tradizionali (noti anche come push).
 
 Attualmente non è possibile creare set di dati con altri flag.
 
@@ -100,7 +99,7 @@ Per altre informazioni sui set di dati di Power BI, vedere le informazioni di ri
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-4. Fare clic su **Save**.
+4. Fare clic su **Salva**.
 
 
 ## <a name="test-the-query"></a>Testare la query
@@ -115,17 +114,17 @@ Questa sezione è facoltativa ma consigliata.
 
        `telcodatagen.exe 1000 .2 2`
 
-2. Nel **Query** pagina per il processo di Stream Analitica, fare clic sui puntini accanto al `CallStream` di input e quindi selezionare **Campiona dati da input**.
+2. Nella pagina **query** per il processo di analisi di flusso fare clic sui puntini accanto all'input `CallStream` e quindi selezionare **dati di esempio da input**.
 
 3. Specificare che si desidera ottenere i dati di tre minuti e fare clic su **OK**. Attendere fino a quando non si riceve la notifica che i dati sono stati campionati.
 
-4. Fare clic su **Test** ed esaminare i risultati.
+4. Fare clic su **test** ed esaminare i risultati.
 
 ## <a name="run-the-job"></a>Eseguire il processo
 
-1. Assicurarsi che l'app TelcoStreaming sia in esecuzione.
+1. Verificare che l'app TelcoStreaming sia in esecuzione.
 
-2. Passare al **Overview** pagina per il processo di Stream Analitica e selezionare **avviare**.
+2. Passare alla pagina **Panoramica** per il processo di analisi di flusso e selezionare **Avvia**.
 
     ![Avviare il processo di analisi di flusso](./media/stream-analytics-power-bi-dashboard/stream-analytics-sa-job-start-output.png)
 
@@ -235,7 +234,7 @@ Se si tenta di avviare un processo dopo che il token è scaduto, si verifica un 
 
 Dopo aver aggiornato l'autorizzazione con Power BI, viene visualizzato un avviso verde nell'area di autorizzazione che indica che il problema è stato risolto.
 
-## <a name="get-help"></a>Ottenere aiuto
+## <a name="get-help"></a>Ottenere supporto
 Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passaggi successivi

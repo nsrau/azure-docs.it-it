@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: 37b8ad0fc09644d746c3528c174d1bf95d546d0f
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: f688f0ddfb62e988ddebada1f612aa842afa5181
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706269"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644597"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: domande frequenti
 
@@ -114,7 +114,7 @@ No, non è possibile eseguire Apache Kafka e Apache Spark nello stesso cluster H
 
 ### <a name="how-do-i-change-timezone-in-ambari"></a>Ricerca per categorie modificare il fuso orario in Ambari?
 
-1. Aprire l'interfaccia utente Web di Ambari in https://CLUSTERNAME.azurehdinsight.net, dove CLUSTERname è il nome del cluster.
+1. Aprire l'interfaccia utente Web di Ambari in `https://CLUSTERNAME.azurehdinsight.net`, dove CLUSTERname è il nome del cluster.
 2. Nell'angolo in alto a destra selezionare admin | Impostazioni. 
 
    ![Impostazioni Ambari](media/hdinsight-faq/ambari-settings.png)
@@ -263,7 +263,7 @@ No, attualmente non è possibile aggiungere un account di archiviazione Azure Da
  
 ### <a name="how-can-i-calculate-the-usage-of-storage-accounts-and-blob-containers-for-my-hdinsight-clusters"></a>Come è possibile calcolare l'utilizzo di account di archiviazione e contenitori BLOB per i cluster HDInsight?
 
-Eseguire una di queste operazioni:
+Eseguire una delle operazioni seguenti:
 
 - [Usare PowerShell](../storage/scripts/storage-blobs-container-calculate-size-powershell.md)
 

@@ -1,24 +1,23 @@
 ---
 title: Testare un processo di Analisi di flusso di Azure con dati di esempio
 description: Questo articolo descrive come usare il portale di Azure per testare un processo di Analisi di flusso di Azure, un input di esempio e caricare i dati di esempio.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: d68c1ee084efc146d69d8404aadb8acbb4cc33d1
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 85d32e96335a9fffa874f1f370f72883ff420df0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891761"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369865"
 ---
 # <a name="test-an-azure-stream-analytics-job-with-sample-data"></a>Testare un processo di Analisi di flusso di Azure con dati di esempio
 
-In analisi di flusso di Azure è possibile testare la query senza avviare o arrestare il processo. È possibile testare le query sui dati in ingresso dal sink di input o i dati di esempio caricati da un file locale nel portale di Azure. È anche possibile testare le query localmente da dati di esempio locali o dati dinamici in [Visual Studio](stream-analytics-live-data-local-testing.md) e [Visual Studio Code](vscode-local-run.md). 
+In analisi di flusso di Azure è possibile testare la query senza avviare o arrestare il processo. È possibile testare le query sui dati in ingresso dal sink di input o i dati di esempio caricati da un file locale nel portale di Azure. È anche possibile testare le query localmente da dati di esempio locali o dati dinamici in [Visual Studio](stream-analytics-live-data-local-testing.md) e [Visual Studio Code](visual-studio-code-local-run-live-input.md).
 
 ## <a name="sample-incoming-data-from-input"></a>Campionare i dati in ingresso dall'input
 
@@ -30,7 +29,7 @@ Analisi di flusso di Azure recupera automaticamente gli eventi dall'input di str
 
 3. Nella pagina del processo di Analisi di flusso selezionare **Query** nell'intestazione **Topologia processo** per aprire la finestra dell'editor Query. 
 
-4. Per visualizzare un elenco di eventi in ingresso di esempio, selezionare l'icona input con file. gli eventi di esempio verranno visualizzati automaticamente nell' **Anteprima di input**. 
+4. Per visualizzare un elenco di eventi in ingresso di esempio, selezionare l'icona input con file. gli eventi di esempio verranno visualizzati automaticamente nell' **Anteprima di input**.
 
    a. Il tipo di serializzazione per i dati viene rilevato automaticamente se il relativo JSON o CSV. È possibile modificarlo manualmente in JSON, CSV e AVRO cambiando l'opzione nel menu a discesa.
     
@@ -100,7 +99,7 @@ Invece di usare i dati dinamici, è possibile usare dati di esempio da un file l
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 
 * [Esempi di query per modelli di utilizzo comuni di analisi di flusso](stream-analytics-stream-analytics-query-patterns.md)
 

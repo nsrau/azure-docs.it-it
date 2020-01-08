@@ -7,20 +7,20 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/03/2019
-ms.openlocfilehash: 16b0fdcbae51b30e14fbf7ea4d98699dfaf19804
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
-ms.translationtype: MT
+ms.openlocfilehash: 6df7eebae0f0e7cfab790a4fca12dbb6ee5a5acf
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035724"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638987"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalizzare i cluster HDInsight di Azure usando azioni script
 
-HDInsight offre un metodo di configurazione denominato **azioni script** che richiama script personalizzati per personalizzare il cluster. Questi script vengono utilizzati per installare i componenti aggiuntivi e modificare le impostazioni di configurazione. Le azioni script possono essere usate durante o dopo la creazione del cluster.
+HDInsight offre un metodo di configurazione denominato **azioni script** che richiama script personalizzati per personalizzare il cluster. Questi script vengono usati per installare i componenti aggiuntivi e modificare le impostazioni di configurazione. Le azioni script possono essere usate durante o dopo la creazione del cluster.
 
-Le azioni di script possono anche essere pubblicate in Azure Marketplace come applicazione HDInsight. Per altre informazioni sulle applicazioni HDInsight, vedere [Pubblicare un'applicazione HDInsight in Azure Marketplace](hdinsight-apps-publish-applications.md).
+Le azioni script possono anche essere pubblicate in Azure Marketplace come applicazione HDInsight. Per altre informazioni sulle applicazioni HDInsight, vedere [Pubblicare un'applicazione HDInsight in Azure Marketplace](hdinsight-apps-publish-applications.md).
 
-## <a name="permissions"></a>autorizzazioni
+## <a name="permissions"></a>Autorizzazioni
 
 Per un cluster HDInsight aggiunto a un dominio, sono necessarie due autorizzazioni di Apache Ambari per l'uso di azioni script con il cluster:
 
@@ -302,7 +302,7 @@ Prima di iniziare, assicurarsi di installare e configurare l'interfaccia della r
 
     Se non vengono specificati alcuni parametri per il comando, verrà richiesto di specificarli. Se lo script specificato con `-u` accetta parametri, è possibile specificarli usando il parametro `-p`.
 
-    I tipi di nodo validi sono `headnode`, `workernode`, e `zookeeper`. Se lo script deve essere applicato a più tipi di nodo, specificare i tipi separati da punto e virgola `;`. Ad esempio `-n headnode;workernode`.
+    I tipi di nodo validi sono `headnode`, `workernode`, e `zookeeper`. Se lo script deve essere applicato a più tipi di nodo, specificare i tipi separati da punto e virgola `;`. Ad esempio: `-n headnode;workernode`.
 
     Per salvare lo script in modo permanente, aggiungere `--persistOnSuccess`. È anche possibile salvare lo script in modo permanente in un secondo momento usando `azure hdinsight script-action persisted set`.
 
@@ -422,7 +422,7 @@ Il servizio HDInsight permette di usare i componenti personalizzati in molti mod
 
 ### <a name="the-apache-ambari-web-ui"></a>Interfaccia utente Web di Apache Ambari
 
-1. Nel browser passare a https://CLUSTERNAME.azurehdinsight.net. Sostituire **CLUSTERNAME** con il nome del cluster HDInsight.
+1. Nel browser passare a `https://CLUSTERNAME.azurehdinsight.net`. Sostituire **CLUSTERNAME** con il nome del cluster HDInsight.
 
     Quando richiesto, immettere il nome dell'account amministratore, **admin**, e la password per il cluster. Potrebbe essere necessario immettere di nuovo le credenziali di amministratore in un modulo Web.
 
@@ -456,11 +456,11 @@ Se la creazione del cluster non riesce a causa di un errore nello script, i log 
 
         'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
 
-* È possibile creare più volte un cluster dell'azione di script con lo stesso nome. In questo caso, è possibile distinguere i log corrispondenti in base al nome della cartella **DATE**. Ad esempio, la struttura di cartelle per un cluster, **mycluster**, creato in diverse date sarà simile alle voci di log seguenti:
+* È possibile creare più volte un cluster dell'azione script con lo stesso nome. In questo caso, è possibile distinguere i log corrispondenti in base al nome della cartella **DATE**. Ad esempio, la struttura di cartelle per un cluster, **mycluster**, creato in diverse date sarà simile alle voci di log seguenti:
 
     `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-04` `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-05`
 
-* Se in uno stesso giorno si creano più cluster dell'azione di script con lo stesso nome, è possibile usare il prefisso univoco per identificare i file di registro corrispondenti.
+* Se in uno stesso giorno si creano più cluster dell'azione script con lo stesso nome, è possibile usare il prefisso univoco per identificare i file di registro corrispondenti.
 
 * Se si crea un cluster verso le 00.00 (mezzanotte), è possibile che i file di log si estendano su due giorni. In questo caso, per lo stesso cluster vengono visualizzate due diverse cartelle della data.
 

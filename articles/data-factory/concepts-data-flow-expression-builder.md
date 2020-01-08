@@ -1,44 +1,44 @@
 ---
 title: Generatore di espressioni nel flusso di dati di mapping
-description: Espressioni di compilazione che usano il generatore di espressioni nel mapping di flussi di dati in Azure Data Factory
+description: Compilazione di espressioni tramite Generatore di espressioni nel mapping di flussi di dati in Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 12/9/2019
-ms.openlocfilehash: 01aa2574ac6edd1ce5e1b209eac3e43bbed82fce
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 1dd782092ce91f7b71a3a2a6f2ed1646ee39a7e0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74969367"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444543"
 ---
-# <a name="building-expressions-in-mapping-data-flow"></a>Compilazione di espressioni nel flusso di dati di mapping
+# <a name="build-expressions-in-mapping-data-flow"></a>Espressioni di compilazione nel flusso di dati di mapping
 
 Nel flusso di dati del mapping, molte proprietà di trasformazione vengono immesse come espressioni. Queste espressioni sono costituite da valori di colonna, parametri, funzioni, operatori e valori letterali che restituiscono un tipo di dati Spark in fase di esecuzione.
 
-## <a name="opening-the-expression-builder"></a>Apertura del generatore di espressioni
+## <a name="open-expression-builder"></a>Apri generatore di espressioni
 
-L'interfaccia di modifica delle espressioni nel data factory UX è noto come **Generatore di espressioni**. Quando si immette nella logica dell'espressione, data factory USA il completamento del codice [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense?view=vs-2019) per l'evidenziazione, il controllo della sintassi e il completamento automatico.
+L'interfaccia di modifica delle espressioni nell'esperienza utente Azure Data Factory è nota come generatore di espressioni. Quando si immette la logica dell'espressione, Data Factory usa il completamento del codice [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense?view=vs-2019) per l'evidenziazione, il controllo della sintassi e il completamento automatico.
 
 ![Generatore di espressioni](media/data-flow/xpb1.png "Generatore di espressioni")
 
-Nelle trasformazioni, ad esempio la colonna derivata e il filtro, in cui le espressioni sono obbligatorie, aprire il generatore di espressioni facendo clic sulla casella espressione blu.
+Nelle trasformazioni, ad esempio la colonna derivata e il filtro, in cui le espressioni sono obbligatorie, aprire Generatore di espressioni selezionando la casella espressione blu.
 
-![Generatore di espressioni](media/data-flow/expressionbox.png "Generatore di espressioni")
+![Casella espressione blu](media/data-flow/expressionbox.png "Generatore di espressioni")
 
-Quando si fa riferimento a colonne in una condizione Group by o corrispondente, un'espressione può estrarre valori dalle colonne. Per creare un'espressione, selezionare l'opzione "colonna calcolata".
+Quando si fa riferimento a colonne in una condizione di corrispondenza o di raggruppamento, un'espressione può estrarre valori dalle colonne. Per creare un'espressione, selezionare **colonna calcolata**.
 
-![Generatore di espressioni](media/data-flow/computedcolumn.png "Generatore di espressioni")
+![Opzione della colonna calcolata](media/data-flow/computedcolumn.png "Generatore di espressioni")
 
-Nei casi in cui un'espressione o un valore letterale sono input validi,' Aggiungi contenuto dinamico ' consente di compilare un'espressione che restituisce un valore letterale.
+Nei casi in cui un'espressione o un valore letterale sono input validi, selezionare **Aggiungi contenuto dinamico** per compilare un'espressione che restituisca un valore letterale.
 
-![Generatore di espressioni](media/data-flow/add-dynamic-content.png "Generatore di espressioni")
+![Opzione Aggiungi contenuto dinamico](media/data-flow/add-dynamic-content.png "Generatore di espressioni")
 
 ## <a name="expression-language-reference"></a>Riferimento al linguaggio delle espressioni
 
-Il mapping di flussi di dati include funzioni e operatori predefiniti che possono essere utilizzati nelle espressioni. Un elenco delle funzioni disponibili si trova nella pagina di riferimento del [linguaggio espressione flusso di dati mapping](data-flow-expression-functions.md) .
+Il mapping di flussi di dati include funzioni e operatori predefiniti che possono essere utilizzati nelle espressioni. Per un elenco delle funzioni disponibili, vedere [funzioni di espressione nel flusso di dati di mapping](data-flow-expression-functions.md).
 
 ## <a name="column-names-with-special-characters"></a>Nomi di colonna con caratteri speciali
 
@@ -46,19 +46,19 @@ Quando sono presenti nomi di colonna che includono caratteri speciali o spazi, r
 
 ```{[dbo].this_is my complex name$$$}```
 
-## <a name="previewing-expression-results"></a>Visualizzazione in anteprima dei risultati delle espressioni
+## <a name="preview-expression-results"></a>Risultati espressione anteprima
 
-Se la [modalità di debug](concepts-data-flow-debug-mode.md) è attivata, è possibile usare il cluster Spark attivo per visualizzare un'anteprima in corso delle valutazioni dell'espressione. Quando si compila la logica, è possibile eseguire il debug dell'espressione in tempo reale. 
+Se la [modalità di debug](concepts-data-flow-debug-mode.md) è attivata, è possibile usare il cluster Spark in tempo reale per visualizzare un'anteprima in corso della valutazione dell'espressione. Quando si compila la logica, è possibile eseguire il debug dell'espressione in tempo reale. 
 
-![Generatore di espressioni](media/data-flow/exp4b.png "Anteprima dati espressione")
+![Anteprima in corso](media/data-flow/exp4b.png "Anteprima dati espressione")
 
-Fare clic sul pulsante Aggiorna per aggiornare i risultati dell'espressione rispetto a un campione Live dell'origine.
+Selezionare **Aggiorna** per aggiornare i risultati dell'espressione rispetto a un campione Live dell'origine.
 
-![Generatore di espressioni](media/data-flow/exp5.png "Anteprima dati espressione")
+![Pulsante Aggiorna](media/data-flow/exp5.png "Anteprima dati espressione")
 
 ## <a name="string-interpolation"></a>Interpolazione di stringhe
 
-Utilizzare le virgolette doppie per racchiudere il testo di stringa letterale insieme alle espressioni. È possibile includere funzioni di espressione, colonne e parametri. L'interpolazione di stringhe è utile per evitare l'utilizzo estensivo della concatenazione di stringhe quando si includono parametri nelle stringhe di query. Per utilizzare la sintassi delle espressioni, racchiuderla tra parentesi graffe,
+Utilizzare le virgolette per racchiudere il testo di stringa letterale insieme alle espressioni. È possibile includere funzioni di espressione, colonne e parametri. L'interpolazione di stringhe è utile per evitare l'utilizzo estensivo della concatenazione di stringhe quando i parametri sono inclusi nelle stringhe di query. Per utilizzare la sintassi delle espressioni, racchiuderla tra parentesi graffe,
 
 Alcuni esempi di interpolazione di stringhe:
 
@@ -68,13 +68,13 @@ Alcuni esempi di interpolazione di stringhe:
 
 * ```"Total cost with sales tax is {round(totalcost * 1.08,2)}"```
 
-## <a name="commenting-expressions"></a>Espressioni di commento
+## <a name="comment-expressions"></a>Espressioni di commento
 
-Aggiungere commenti per le espressioni che usano sintassi dei commenti su una riga singola e su righe multiple:
+Aggiungere commenti alle espressioni usando la sintassi di commento a riga singola e a più righe.
 
-![Commenti](media/data-flow/comments.png "Commenti")
+![Sintassi per commenti a riga singola e a più righe](media/data-flow/comments.png "Commenti")
 
-Di seguito sono riportati alcuni esempi di commenti validi:
+Gli esempi seguenti sono commenti validi:
 
 * ```/* This is my comment */```
 
@@ -83,48 +83,48 @@ Di seguito sono riportati alcuni esempi di commenti validi:
    
 * ```// This is a single line comment```
 
-Se si inserisce un commento all'inizio dell'espressione, questo verrà visualizzato nella casella di testo trasformazione per documentare le espressioni di trasformazione:
+Se si inserisce un commento all'inizio dell'espressione, questo viene visualizzato nella casella di testo trasformazione per documentare le espressioni di trasformazione.
 
-![Commenti](media/data-flow/comments2.png "Commenti")
+![Commento nella casella di testo trasformazione](media/data-flow/comments2.png "Commenti")
 
 ## <a name="regular-expressions"></a>Espressioni regolari
 
-Molte funzioni del linguaggio delle espressioni usano la sintassi delle espressioni regolari. Quando si utilizzano le funzioni di espressione regolare, il generatore di espressioni tenterà di interpretare la barra rovesciata (\\) come sequenza di caratteri di escape. Quando si usano le barre rovesciate nell'espressione regolare, racchiudere l'intera espressione regolare in cicli (\`) o usare una doppia barra rovesciata.
+Molte funzioni del linguaggio delle espressioni usano la sintassi delle espressioni regolari. Quando si usano le funzioni di espressione regolare, il generatore di espressioni tenta di interpretare una barra rovesciata (\\) come sequenza di caratteri di escape. Quando si usano le barre rovesciate nell'espressione regolare, racchiudere l'intera espressione regolare in apice inverso (\`) o usare una doppia barra rovesciata.
 
-Esempio di utilizzo di tick
+Esempio che usa i segni di inverso:
 
 ```
 regex_replace('100 and 200', `(\d+)`, 'digits')
 ```
 
-o della barra doppia
+Esempio che usa le barre doppie:
 
 ```
 regex_replace('100 and 200', '(\\d+)', 'digits')
 ```
 
-## <a name="addressing-array-indexes"></a>Indirizzamento degli indici della matrice
+## <a name="address-array-indexes"></a>Indici di matrici di indirizzi
 
-Con funzioni per le espressioni che restituiscono matrici, usare le parentesi quadre [] per indicare indici specifici all'interno di tale oggetto di restituzione della matrice. La matrice è basata sulle unità.
+Con le funzioni di espressione che restituiscono matrici, usare le parentesi quadre ([]) per indirizzare gli indici specifici all'interno di che restituiscono oggetti matrice. La matrice è basata su quelle.
 
 ![Matrice generatore di espressioni](media/data-flow/expb2.png "Anteprima dati espressione")
 
 ## <a name="keyboard-shortcuts"></a>Scelte rapide da tastiera
 
-* ```Ctrl-K Ctrl-C```: intera riga Commenti
-* ```Ctrl-K Ctrl-U```: rimuovere il commento
-* ```F1```: specificare i comandi della Guida dell'editor
-* ```Alt-Down Arrow```: Sposta giù riga corrente
-* ```Alt-Up Arrow```: sposta su riga corrente
-* ```Cntrl-Space```: Mostra la guida del contesto
+* CTRL + K CTRL + C: commento riga intera.
+* CTRL + K CTRL + U: rimuovere il commento.
+* F1: specificare i comandi della Guida dell'editor.
+* ALT + tasto freccia giù: Sposta giù riga corrente.
+* ALT + tasto freccia su: sposta su riga corrente.
+* CTRL + barra spaziatrice: Mostra la guida del contesto.
 
 ## <a name="convert-to-dates-or-timestamps"></a>Converti in date o timestamp
 
-Per includere valori letterali stringa nell'output timestamp, è necessario eseguire il wrapping della conversione in ```toString()```.
+Per includere valori letterali stringa nell'output timestamp, eseguire il wrapping della conversione in ```toString()```.
 
 ```toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')```
 
-Per convertire i millisecondi da Epoch a date o timestamp, usare `toTimestamp(<number of milliseconds>)`. Se il tempo è in secondi, moltiplicare per 1000.
+Per convertire i millisecondi da Epoch a date o timestamp, usare `toTimestamp(<number of milliseconds>)`. Se il tempo è in secondi, moltiplicare per 1.000.
 
 ```toTimestamp(1574127407*1000l)```
 
