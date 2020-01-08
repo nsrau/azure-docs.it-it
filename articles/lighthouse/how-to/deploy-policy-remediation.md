@@ -3,20 +3,20 @@ title: Distribuire un criterio che è possibile correggere
 description: Informazioni su come eseguire l'onboarding di un cliente nella gestione risorse delegate di Azure, consentendo l'accesso e la gestione delle risorse tramite il proprio tenant.
 ms.date: 10/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4522c9ebad741f5ec0cb7e56e68467312ef8f037
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: c06ed4ea597808aee18d4a848bcfea7152b9cf8e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463886"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456866"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Distribuire un criterio che è possibile correggere all'interno di una sottoscrizione delegata
 
-[Azure Lighthouse](../overview.md) consente ai provider di servizi di creare e modificare le definizioni dei criteri in una sottoscrizione delegata. Tuttavia, per distribuire i criteri che usano una [attività di correzione](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources) (ovvero criteri con effetto [deployIfNotExists ](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deployifnotexists) o [modify](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify)), è necessario creare una [identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) nel tenant del cliente. Questa identità gestita può essere usata da Criteri di Azure per distribuire il modello all'interno del criterio. Per abilitare questo scenario sono necessari alcuni passaggi, sia quando si esegue l'onboarding del cliente per la gestione delle risorse delegate di Azure, sia quando si distribuisce il criterio stesso.
+[Azure Lighthouse](../overview.md) consente ai provider di servizi di creare e modificare le definizioni dei criteri in una sottoscrizione delegata. Tuttavia, per distribuire i criteri che usano una [attività di correzione](../../governance/policy/how-to/remediate-resources.md) (ovvero criteri con effetto [deployIfNotExists ](../../governance/policy/concepts/effects.md#deployifnotexists) o [modify](../../governance/policy/concepts/effects.md#modify)), è necessario creare una [identità gestita](../../active-directory/managed-identities-azure-resources/overview.md) nel tenant del cliente. Questa identità gestita può essere usata da Criteri di Azure per distribuire il modello all'interno del criterio. Per abilitare questo scenario sono necessari alcuni passaggi, sia quando si esegue l'onboarding del cliente per la gestione delle risorse delegate di Azure, sia quando si distribuisce il criterio stesso.
 
 ## <a name="create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant"></a>Creare un utente che può assegnare ruoli a un'identità gestita nel tenant del cliente
 
-Quando si esegue l'onboarding di un cliente per la gestione delle risorse delegate di Azure, si usa un [modello di Azure Resource Manager](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer#create-an-azure-resource-manager-template) insieme a un file di parametri che definisce gli utenti, i gruppi di utenti e le entità servizio nel tenant di gestione che riusciranno ad accedere alle risorse delegate nel tenant del cliente. Nel file dei parametri, a ognuno di questi utenti (**principalId** ) viene assegnato un ruolo [predefinito](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) (**roleDefinitionId**) che definisce il livello di accesso.
+Quando si esegue l'onboarding di un cliente per la gestione delle risorse delegate di Azure, si usa un [modello di Azure Resource Manager](onboard-customer.md#create-an-azure-resource-manager-template) insieme a un file di parametri che definisce gli utenti, i gruppi di utenti e le entità servizio nel tenant di gestione che riusciranno ad accedere alle risorse delegate nel tenant del cliente. Nel file dei parametri, a ognuno di questi utenti (**principalId** ) viene assegnato un ruolo [predefinito](../../role-based-access-control/built-in-roles.md) (**roleDefinitionId**) che definisce il livello di accesso.
 
 Per consentire a un **principalId**  di creare un'identità gestita nel tenant del cliente, è necessario impostare il relativo **roleDefinitionId** su **Amministratore accessi utente**. Anche se questo ruolo non è generalmente supportato, può essere usato in questo scenario specifico, consentendo agli utenti con questa autorizzazione di assegnare uno o più ruoli predefiniti specifici alle identità gestite. Questi ruoli sono definiti nella proprietà **delegatedRoleDefinitionIds**. È possibile includere qualsiasi ruolo predefinito, ad eccezione del Proprietario o Amministratore Accesso utenti.
 
@@ -66,5 +66,5 @@ L'esempio seguente illustra un'assegnazione di ruolo con un **delegatedManagedId
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su [Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/).
-- Informazioni sulle [identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+- Informazioni su [Criteri di Azure](../../governance/policy/index.yml).
+- Informazioni sulle [identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md).

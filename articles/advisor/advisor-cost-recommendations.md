@@ -1,19 +1,14 @@
 ---
-title: Ridurre i costi del servizio con Azure Advisor | Microsoft Docs
+title: Ridurre i costi del servizio con Azure Advisor
 description: Usare Azure Advisor per ottimizzare il costo delle distribuzioni di Azure.
-services: advisor
-documentationcenter: NA
-author: saket-ms
-ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: sagupt
-ms.openlocfilehash: 9f074c8077f41392fa9d45022a6a7a537964afa9
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: afa5a4068d2ec5f4730d261801760fe68d7a330e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74180592"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443117"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Ridurre i costi del servizio con Azure Advisor
 
@@ -50,19 +45,21 @@ Advisor identifica gli indirizzi IP pubblici che non sono attualmente associati 
 Azure Advisor rileverà Azure Data Factory pipeline che hanno ripetutamente esito negativo e si consiglia di risolvere i problemi o eliminare le pipeline con esito negativo se non sono più necessarie. Verranno addebitati i costi per queste pipeline anche se non vengono utilizzate in caso di errore. 
 
 ## <a name="use-standard-snapshots-for-managed-disks"></a>USA snapshot standard per Managed Disks
-Per risparmiare il 60% dei costi, è consigliabile archiviare gli snapshot nell'archiviazione standard, indipendentemente dal tipo di archiviazione del disco padre. Questa è l'opzione predefinita per gli snapshot Managed Disks. Azure Advisor identificherà gli snapshot archiviati con archiviazione Premium e consiglia di eseguire la migrazione dello snapshot dall'archiviazione Premium a quella standard. [Scopri di più sui prezzi dei dischi gestiti](https://aka.ms/aa_manageddisksnapshot_learnmore)
+Per risparmiare il 60% dei costi, è consigliabile archiviare gli snapshot in Archiviazione Standard, indipendentemente dal tipo di archiviazione del disco padre. Questa opzione è l'opzione predefinita per gli snapshot Managed Disks. Azure Advisor identificherà gli snapshot archiviati con archiviazione Premium e consiglia di eseguire la migrazione dello snapshot dall'archiviazione Premium a quella standard. [Scopri di più sui prezzi dei dischi gestiti](https://aka.ms/aa_manageddisksnapshot_learnmore)
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Come accedere ai consigli sui costi in Azure Advisor
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e quindi aprire [Advisor](https://aka.ms/azureadvisordashboard).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2.  Nel dashboard di Advisor fare clic sulla scheda **Costo**.
+1. Cercare e selezionare [**Advisor**](https://aka.ms/azureadvisordashboard) da qualsiasi pagina.
+
+1. Nel dashboard di **Advisor** selezionare la scheda **costo** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sui consigli di Advisor, vedere:
 * [Introduction to Advisor](advisor-overview.md) (Presentazione di Azure Advisor)
-* [Attività iniziali](advisor-get-started.md)
+* [Introduzione](advisor-get-started.md)
 * [Advisor Performance recommendations](advisor-performance-recommendations.md) (Consigli di Advisor sulle prestazioni)
 * [Advisor High Availability recommendations](advisor-high-availability-recommendations.md) (Consigli di Advisor sulla disponibilità elevata)
 * [Advisor Security recommendations](advisor-security-recommendations.md) (Consigli di Advisor sulla sicurezza)

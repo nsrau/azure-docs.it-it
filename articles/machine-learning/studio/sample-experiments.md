@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/05/2018
-ms.openlocfilehash: 6b9f9e3cfc198610cf1f5f76b267ea52c551716a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: e5ff88b9a677fa53a70a28dbefc5d84cae2d1041
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838635"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427500"
 ---
 # <a name="create-azure-machine-learning-studio-classic-experiments-from-working-examples-in-azure-ai-gallery"></a>Creare esperimenti di Azure Machine Learning Studio (classico) dagli esempi funzionanti in Azure AI Gallery
 
@@ -49,7 +49,7 @@ Per esplorare tutti gli esperimenti:
     ![Esperimento di esempio](./media/sample-experiments/example-experiment.png)
 
 ## <a name="create-a-new-experiment-using-an-example-as-a-template"></a>Creare un nuovo esperimento usando un esempio come modello
-È anche possibile creare un nuovo esperimento nella versione classica di Machine Learning Studio usando un esempio di raccolta come modello.
+È anche possibile creare un nuovo esperimento in Machine Learning Studio (classico) usando un esempio di raccolta come modello.
 
 1. Accedere a [Studio](https://studio.azureml.net) con le credenziali dell'account Microsoft e quindi fare clic su **Nuovo** per creare un esperimento.
 2. Esplorare il contenuto e fare clic per selezionare un esempio.

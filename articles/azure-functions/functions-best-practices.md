@@ -3,14 +3,14 @@ title: Procedure consigliate per Funzioni di Azure
 description: Informazioni su modelli e procedure consigliate per Funzioni di Azure.
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
-ms.date: 10/16/2017
+ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fa85f636233a067713d127938d674b359bd03696
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 19674cb024bd9b9c9ea9f510080e30614fad8b60
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227376"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433304"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Ottimizzare le prestazioni e l'affidabilità delle funzioni di Azure
 
@@ -70,7 +70,11 @@ Esistono diversi fattori che influiscono sulle modalità di ridimensionamento de
 
 ### <a name="share-and-manage-connections"></a>Condividere e gestire le connessioni
 
-Riutilizzare le connessioni alle risorse esterne, quando possibile.  Vedere [come gestire le connessioni in Funzioni di Azure](./manage-connections.md).
+Riutilizzare le connessioni alle risorse esterne, quando possibile. Vedere [come gestire le connessioni in Funzioni di Azure](./manage-connections.md).
+
+### <a name="avoid-sharing-storage-accounts"></a>Evitare di condividere gli account di archiviazione
+
+Quando si crea un'app per le funzioni, è necessario associarla a un account di archiviazione. La connessione dell'account di archiviazione viene mantenuta nell' [impostazione dell'applicazione AzureWebJobsStorage](./functions-app-settings.md#azurewebjobsstorage). Per ottimizzare le prestazioni, usare un account di archiviazione separato per ogni app per le funzioni. Questa operazione è particolarmente importante quando si hanno Durable Functions o funzioni attivate da Hub eventi, che generano entrambe un volume elevato di transazioni di archiviazione. Quando la logica dell'applicazione interagisce con archiviazione di Azure, direttamente (usando l'SDK di archiviazione) o tramite una delle associazioni di archiviazione, è necessario usare un account di archiviazione dedicato. Ad esempio, se si dispone di una funzione attivata da Hub eventi che scrive alcuni dati nell'archivio BLOB, usare due account di archiviazione&mdash;uno per l'app per le funzioni e un altro per i BLOB archiviati dalla funzione.
 
 ### <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>Non combinare codice di test e di produzione nella stessa app per le funzioni
 
@@ -84,9 +88,17 @@ Non usare la registrazione dettagliata nel codice di produzione, che ha un impat
 
 ### <a name="use-async-code-but-avoid-blocking-calls"></a>Usare codice asincrono ma evitare di bloccare le chiamate
 
-La programmazione asincrona è una procedura consigliata. Evitare sempre, tuttavia, di fare riferimento alla proprietà `Result` o di chiamare il metodo `Wait` su un'istanza di `Task`. Questo approccio può causare l'esaurimento di un thread.
+La programmazione asincrona è una procedura consigliata, soprattutto quando sono interessati le operazioni di I/O di blocco.
+
+In C#evitare sempre di fare riferimento alla proprietà `Result` o di chiamare `Wait` metodo su un'istanza di `Task`. Questo approccio può causare l'esaurimento di un thread.
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
+
+### <a name="use-multiple-worker-processes"></a>Usare più processi di lavoro
+
+Per impostazione predefinita, qualsiasi istanza host per functions usa un singolo processo di lavoro. Per migliorare le prestazioni, soprattutto con i runtime a thread singolo come Python, usare il [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) per aumentare il numero di processi di lavoro per host (fino a 10). Funzioni di Azure tenta quindi di distribuire uniformemente le chiamate di funzioni simultanee tra questi thread di lavoro. 
+
+Il FUNCTIONS_WORKER_PROCESS_COUNT si applica a ogni host creato dalle funzioni durante la scalabilità orizzontale dell'applicazione per soddisfare la domanda. 
 
 ### <a name="receive-messages-in-batch-whenever-possible"></a>Ricevere messaggi in batch, se possibile
 

@@ -10,21 +10,21 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 828e8ae68286d7c208462d77a31a764427c79637
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 16cfb6c15a4d17ff3fb4f7f41f59f9f80af1e9e7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755277"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382124"
 ---
 # <a name="moderate-with-custom-term-lists-in-the-api-console"></a>Moderare il testo con elenchi personalizzati nella console dell'API
 
 L'elenco globale di termini predefinito in Azure Content Moderator è sufficiente per quasi tutte le esigenze di moderazione del contenuto. Può tuttavia essere necessario filtrare termini specifici per la propria organizzazione. Può ad esempio essere opportuno contrassegnare con tag i nomi delle società concorrenti per una successiva analisi. 
 
-Usare l'[API di gestione degli elenchi](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) per creare elenchi personalizzati di termini da usare con l'API di moderazione del testo. L'operazione **Text - Screen** (Testo - Filtra) analizza il testo per rilevare eventuale contenuto volgare e lo confronta con blacklist personalizzate e condivise.
+Usare l'[API di gestione degli elenchi](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) per creare elenchi personalizzati di termini da usare con l'API di moderazione del testo. L'operazione di **visualizzazione della schermata del testo** analizza il testo per la volgarità e confronta il testo con elenchi dei blocchi personalizzati e condivisi.
 
 > [!NOTE]
-> È previsto un limite massimo di **cinque elenchi di termini** e ogni elenco **non può includere più di 10.000 immagini**.
+> È previsto un limite massimo di **cinque elenchi di termini** e ogni elenco **non può includere più di 10.000 termini**.
 >
 
 L'API di gestione degli elenchi consente di eseguire queste attività:
@@ -38,7 +38,7 @@ L'API di gestione degli elenchi consente di eseguire queste attività:
 
 ## <a name="use-the-api-console"></a>Usare la console dell'API
 
-Prima di poter eseguire il test drive dell'API nella console online, è necessario avere la chiave di sottoscrizione. Questa si trova nella casella **Ocp-Apim-Subscription-Key** della scheda **Settings** (Impostazioni). Per altre informazioni, vedere la [panoramica](overview.md).
+Prima di poter eseguire il test drive dell'API nella console online è necessario disporre della chiave di sottoscrizione. Questa si trova nella casella **Ocp-Apim-Subscription-Key** della scheda **Settings** (Impostazioni). Per altre informazioni, vedere la [panoramica](overview.md).
 
 ## <a name="refresh-search-index"></a>Aggiornare l'indice di ricerca
 

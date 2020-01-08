@@ -6,14 +6,14 @@ manager: philmea
 ms.service: iot-pnp
 services: iot-pnp
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 12/26/2019
 ms.author: philmea
-ms.openlocfilehash: 77559636dab00a570db416118b047200320c0308
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c73848af299f87edf60ab36713d09ad4421b18fd
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978986"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531231"
 ---
 # <a name="onboard-to-the-azure-certified-for-iot-portal"></a>Eseguire l'onboarding nel portale Azure Certified per IoT
 
@@ -23,7 +23,7 @@ ms.locfileid: "74978986"
 - Trovare i modelli di funzionalità del dispositivo Plug and Play Preview. È possibile usare questi modelli per creare rapidamente dispositivi pronti per l'uso e integrarli con soluzioni.
 - Pubblicare un modello di funzionalità del dispositivo nel repository pubblico.
 
-## <a name="sign-in"></a>Accesso
+## <a name="sign-in"></a>Accedi
 
 Usare l' _account_ aziendale Microsoft per accedere al portale di [Azure Certified per](https://aka.ms/ACFI) il portale. Il portale controlla l'appartenenza al centro per i partner Microsoft quando si esegue l'accesso:
 

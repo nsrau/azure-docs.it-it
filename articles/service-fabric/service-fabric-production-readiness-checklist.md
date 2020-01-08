@@ -1,25 +1,14 @@
 ---
-title: Elenco di controllo per l'idoneità per la produzione di Azure Service Fabric | Microsoft Docs
+title: Elenco di controllo della conformità per la produzione di Azure Service Fabric
 description: Preparare l'applicazione e il cluster di Service Fabric per la produzione seguendo le procedure consigliate.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chakdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 6/05/2019
-ms.author: atsenthi
-ms.openlocfilehash: 9e86f7306ee70bee2e084b967867e2a9be5b66e1
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 90d600b01aa870f7b3a58e70ef32e774e7107524
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599349"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376801"
 ---
 # <a name="production-readiness-checklist"></a>Elenco di controllo per l'idoneità per la produzione
 
@@ -27,7 +16,7 @@ L'applicazione e il cluster sono pronti ad accettare il traffico della produzion
 
 
 ## <a name="prerequisites-for-production"></a>Prerequisiti per la produzione
-1. Procedure consigliate per Service Fabric di Azure: [Progettazione di applicazioni](./service-fabric-best-practices-applications.md), [sicurezza](./service-fabric-best-practices-security.md), [rete](./service-fabric-best-practices-networking.md), [pianificazione della capacità e scalabilità](./service-fabric-best-practices-capacity-scaling.md), [infrastruttura come codice](./service-fabric-best-practices-infrastructure-as-code.md), [monitoraggio e diagnostica](./service-fabric-best-practices-monitoring.md). 
+1. Azure Service Fabric procedure consigliate [: progettazione di applicazioni](./service-fabric-best-practices-applications.md), [sicurezza](./service-fabric-best-practices-security.md), [rete](./service-fabric-best-practices-networking.md), [pianificazione della capacità e scalabilità](./service-fabric-best-practices-capacity-scaling.md), [infrastruttura come codice](./service-fabric-best-practices-infrastructure-as-code.md), [monitoraggio e diagnostica](./service-fabric-best-practices-monitoring.md). 
 1. Implementare la configurazione di sicurezza di Reliable Actors, se si usa il modello di programmazione di Actors
 1. Per i cluster con più di 20 core o 10 nodi, creare un tipo di nodo primario dedicato per i servizi di sistema. Aggiungere [vincoli di posizionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) per riservare il tipo di nodo primario ai servizi di sistema.
 1. Per il tipo di nodo primario usare uno SKU D2v2 o superiore. È consigliabile scegliere uno SKU con capacità del disco rigido di almeno 50 GB.

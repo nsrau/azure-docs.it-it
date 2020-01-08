@@ -5,14 +5,14 @@ services: container-service
 author: sauryadas
 ms.service: container-service
 ms.topic: troubleshooting
-ms.date: 08/13/2018
+ms.date: 12/13/2019
 ms.author: saudas
-ms.openlocfilehash: 5ae97f18bb15b5ab2fe092a1e3b857ea3ef0aed0
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 5652c5035c2e4cd35ac6943ef90c8bcc02b95dba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012979"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442882"
 ---
 # <a name="aks-troubleshooting"></a>Risoluzione dei problemi di servizio Azure Kubernetes
 
@@ -79,7 +79,7 @@ Questo errore si verifica quando i cluster entrano in uno stato di errore per di
 
 1. Fino a quando il cluster non è `failed` stato, le operazioni di `upgrade` e `scale` non riusciranno. I problemi e le soluzioni principali comuni includono:
     * Ridimensionamento con **quota di calcolo (CRP) insufficiente**. Per risolvere il cluster, ridimensionare prima di tutto il cluster fino a uno stato di obiettivo stabile entro la quota. Seguire quindi questa [procedura per richiedere un aumento della quota di calcolo](../azure-supportability/resource-manager-core-quotas-request.md) prima di riprovare a eseguire la scalabilità verticale oltre i limiti di quota iniziali.
-    * Ridimensionamento di un cluster con rete avanzata e **risorse insufficienti per la subnet (rete)** . Per risolvere il cluster, ridimensionare prima di tutto il cluster fino a uno stato di obiettivo stabile entro la quota. Seguire quindi [questa procedura per richiedere un aumento della quota di risorse](../azure-resource-manager/resource-manager-quota-errors.md#solution) prima di provare a eseguire la scalabilità verticale oltre i limiti iniziali della quota.
+    * Ridimensionamento di un cluster con rete avanzata e **risorse insufficienti per la subnet (rete)** . Per risolvere il cluster, ridimensionare prima di tutto il cluster fino a uno stato di obiettivo stabile entro la quota. Seguire quindi [questa procedura per richiedere un aumento della quota di risorse](../azure-resource-manager/templates/error-resource-quota.md#solution) prima di provare a eseguire la scalabilità verticale oltre i limiti iniziali della quota.
 2. Una volta risolta la cause sottostante dell'errore di aggiornamento, il cluster deve essere in uno stato di esito positivo. Una volta verificato uno stato di esito positivo, ripetere l'operazione originale.
 
 ## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>Si sono verificati errori durante il tentativo di aggiornare o ridimensionare lo stato in corso di aggiornamento del cluster o l'aggiornamento non è riuscito
@@ -155,8 +155,8 @@ Verificare che le impostazioni non siano in conflitto con le porte in uscita, le
 
 | Versione di Kubernetes | Versione consigliata |
 | -- | :--: |
-| 1,12 | 1.12.9 o versione successiva |
-| 1,13 | 1.13.6 o versione successiva |
+| 1.12 | 1.12.9 o versione successiva |
+| 1.13 | 1.13.6 o versione successiva |
 | 1,14 | 1.14.2 o versione successiva |
 
 
@@ -164,8 +164,8 @@ Verificare che le impostazioni non siano in conflitto con le porte in uscita, le
 
 | Versione di Kubernetes | Versione consigliata |
 | -- | :--: |
-| 1,12 | 1.12.0 o versione successiva |
-| 1,13 | 1.13.0 o versione successiva |
+| 1.12 | 1.12.0 o versione successiva |
+| 1.13 | 1.13.0 o versione successiva |
 | 1,14 | 1.14.0 o versione successiva |
 
 
@@ -265,8 +265,8 @@ Questo problema è stato risolto nelle versioni seguenti di Kubernetes:
 | -- | :--: |
 | 1,10 | 1.10.10 o versione successiva |
 | 1.11 | 1.11.5 o versione successiva |
-| 1,12 | 1.12.3 o versione successiva |
-| 1,13 | 1.13.0 o versione successiva |
+| 1.12 | 1.12.3 o versione successiva |
+| 1.13 | 1.13.0 o versione successiva |
 | 1,14 e versioni successive | N/D |
 
 Se si usa una versione di Kubernetes che non ha la correzione per questo problema, è possibile attenuare il problema attendendo alcuni minuti e riprovare.
@@ -286,8 +286,8 @@ Questo problema è stato risolto nelle versioni seguenti di Kubernetes:
 | -- | :--: |
 | 1,10 | 1.10.12 o versione successiva |
 | 1.11 | 1.11.6 o versione successiva |
-| 1,12 | 1.12.4 o versione successiva |
-| 1,13 | 1.13.0 o versione successiva |
+| 1.12 | 1.12.4 o versione successiva |
+| 1.13 | 1.13.0 o versione successiva |
 | 1,14 e versioni successive | N/D |
 
 Se si usa una versione di Kubernetes che non ha la correzione per questo problema, è possibile attenuare il problema provando quanto segue:
@@ -307,8 +307,8 @@ Questo problema è stato risolto nelle versioni seguenti di Kubernetes:
 | Versione di Kubernetes | Versione fissa |
 | -- | :--: |
 | 1.11 | 1.11.9 o versione successiva |
-| 1,12 | 1.12.7 o versione successiva |
-| 1,13 | 1.13.4 o versione successiva |
+| 1.12 | 1.12.7 o versione successiva |
+| 1.13 | 1.13.4 o versione successiva |
 | 1,14 e versioni successive | N/D |
 
 Se si usa una versione di Kubernetes che non ha la correzione per questo problema, è possibile attenuare il problema scollegando manualmente il disco.
@@ -321,8 +321,8 @@ Questo problema è stato risolto nelle versioni seguenti di Kubernetes:
 
 | Versione di Kubernetes | Versione fissa |
 | -- | :--: |
-| 1,12 | 1.12.9 o versione successiva |
-| 1,13 | 1.13.6 o versione successiva |
+| 1.12 | 1.12.9 o versione successiva |
+| 1.13 | 1.13.6 o versione successiva |
 | 1,14 | 1.14.2 o versione successiva |
 | 1,15 e versioni successive | N/D |
 
@@ -341,8 +341,8 @@ Questo problema è stato risolto nelle versioni seguenti di Kubernetes:
 
 | Versione di Kubernetes | Versione fissa |
 | -- | :--: |
-| 1,12 | 1.12.10 o versione successiva |
-| 1,13 | 1.13.8 o versione successiva |
+| 1.12 | 1.12.10 o versione successiva |
+| 1.13 | 1.13.8 o versione successiva |
 | 1,14 | 1.14.4 o versione successiva |
 | 1,15 e versioni successive | N/D |
 
@@ -364,16 +364,16 @@ Se si usa una versione di Kubernetes che non ha la correzione per questo problem
  
 | Versione di Kubernetes | Versione consigliata |
 | -- | :--: |
-| 1,12 | 1.12.6 o versione successiva |
-| 1,13 | 1.13.4 o versione successiva |
+| 1.12 | 1.12.6 o versione successiva |
+| 1.13 | 1.13.4 o versione successiva |
 | 1,14 | 1.14.0 o versione successiva |
 
 ### <a name="what-versions-of-kubernetes-have-azure-files-support-on-the-sovereign-cloud"></a>Quali versioni di Kubernetes hanno supporto File di Azure nel cloud sovrano?
 
 | Versione di Kubernetes | Versione consigliata |
 | -- | :--: |
-| 1,12 | 1.12.0 o versione successiva |
-| 1,13 | 1.13.0 o versione successiva |
+| 1.12 | 1.12.0 o versione successiva |
+| 1.13 | 1.13.0 o versione successiva |
 | 1,14 | 1.14.0 o versione successiva |
 
 ### <a name="what-are-the-default-mountoptions-when-using-azure-files"></a>Quali sono i mountOptions predefiniti quando si usa File di Azure?
@@ -459,8 +459,8 @@ Questo problema è stato risolto nelle versioni seguenti di Kubernetes:
 
 | Versione di Kubernetes | Versione fissa |
 | -- | :--: |
-| 1,12 | 1.12.6 o versione successiva |
-| 1,13 | 1.13.4 o versione successiva |
+| 1.12 | 1.12.6 o versione successiva |
+| 1.13 | 1.13.4 o versione successiva |
 | 1,14 e versioni successive | N/D |
 
 ### <a name="azure-files-mount-fails-due-to-storage-account-key-changed"></a>Il montaggio File di Azure non riesce a causa della modifica della chiave dell'account di archiviazione
@@ -482,3 +482,17 @@ kubectl edit secret azure-storage-account-{storage-account-name}-secret
 ```
 
 Dopo alcuni minuti, il nodo Agent tenterà di ritentare il montaggio del file di Azure con la chiave di archiviazione aggiornata.
+
+### <a name="cluster-autoscaler-fails-to-scale-with-error-failed-to-fix-node-group-sizes"></a>La scalabilità automatica del cluster non riesce con errore non è stato possibile correggere le dimensioni dei gruppi di nodi
+
+Se il ridimensionamento automatico del cluster non aumenta o diminuisce e viene visualizzato un errore simile al seguente nei [log di scalabilità][view-master-logs]automatica del cluster.
+
+```console
+E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes: failed to decrease aks-default-35246781-vmss: attempt to delete existing nodes
+```
+
+Questo errore è dovuto a un cluster upstream che esegue il ridimensionamento automatico race condition dove il servizio di scalabilità automatica del cluster termina con un valore diverso da quello effettivamente presente nel cluster. Per uscire da questo stato, è sufficiente disabilitare e riabilitare il [ridimensionamento][cluster-autoscaler]automatico del cluster.
+
+<!-- LINKS - internal -->
+[view-master-logs]: view-master-logs.md
+[cluster-autoscaler]: cluster-autoscaler.md

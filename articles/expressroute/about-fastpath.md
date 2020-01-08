@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/05/2019
+ms.date: 12/16/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6ff1dac312bcb4df1e1afc9679df09fc8a2b28ff
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: c03be46207e7698d0557729c546488412c0cc5dd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74897364"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437107"
 ---
 # <a name="about-expressroute-fastpath"></a>Informazioni su ExpressRoute FastPath
 
@@ -26,14 +26,24 @@ FastPath è disponibile in tutti i circuiti ExpressRoute.
 
 ### <a name="gateways"></a>Gateway
 
-FastPath richiede ancora la creazione di un gateway di rete virtuale per scambiare le route tra la rete virtuale e la rete locale. Per ulteriori informazioni sui gateway di rete virtuale e ExpressRoute, vedere [gateway di rete virtuale ExpressRoute](expressroute-about-virtual-network-gateways.md).
+FastPath richiede ancora la creazione di un gateway di rete virtuale per scambiare le route tra la rete virtuale e la rete locale. Per altre informazioni sui gateway di rete virtuale e ExpressRoute, incluse le informazioni sulle prestazioni e gli SKU del gateway, vedere [gateway di rete virtuale ExpressRoute](expressroute-about-virtual-network-gateways.md).
 
-Il gateway di rete virtuale deve essere uno dei seguenti:
+Per configurare FastPath, il gateway di rete virtuale deve essere uno dei seguenti:
 
 * Prestazioni extra
 * ErGw3AZ
 
-## <a name="supported-features"></a>Funzionalità supportate
+#### <a name="aggthroughput"></a>Prestazioni stimate in base allo SKU del gateway
+La tabella seguente illustra i tipi di gateway e le prestazioni stimate. La tabella è valida per entrambi i modelli di distribuzione classica e di Gestione risorse.
+
+[!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
+
+> [!IMPORTANT]
+> Le prestazioni dell'applicazione dipendono da vari fattori, ad esempio la latenza end-to-end e il numero di flussi di traffico avviati dall'applicazione. I numeri nella tabella rappresentano il limite massimo che l'applicazione può raggiungere in teoria in un ambiente ideale.
+>
+>
+
+## <a name="supported-features"></a>Caratteristiche supportate
 
 Sebbene FastPath supporti la maggior parte delle configurazioni, non supporta le funzionalità seguenti:
 

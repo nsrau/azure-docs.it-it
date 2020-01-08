@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 87e1d94fe9f86f5916219feac732bf80af1f3121
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: a197f95963e5a4138136f5d336e276ec1c7f7af7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769031"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407621"
 ---
 # <a name="azure-maps-weather-coverage"></a>Copertura Meteo di Azure Maps
 
@@ -86,8 +86,8 @@ La tabella seguente fornisce informazioni sul tipo di informazioni meteorologich
 | Suriname                                 | ✓ |   |  ✓| 
 | Trinidad e Tobago                      | ✓ |   |  ✓| 
 | Isole Turks e Caicos                 | ✓ |   |  ✓| 
-| Isole esterne statunitensi                    | ✓ |   |  ✓| 
-| Isole Vergini americane                      | ✓ |   |  ✓| 
+| Altre isole americane del Pacifico                    | ✓ |   |  ✓| 
+| Isole Vergini Americane                      | ✓ |   |  ✓| 
 | Stati Uniti                            | ✓ | ✓ |  ✓| 
 | Uruguay                                  | ✓ |   |  ✓| 
 | Venezuela                                | ✓ |   |  ✓| 
@@ -110,8 +110,8 @@ La tabella seguente fornisce informazioni sul tipo di informazioni meteorologich
 | Repubblica Centrafricana    | ✓               |                              |        ✓| 
 | Chad                        | ✓               |                              |        ✓| 
 | Comore                     | ✓               |                              |        ✓| 
-| Congo (RDC)                 | ✓               |                              |        ✓|
-| Costa d'Avorio               | ✓               |                              |        ✓| 
+| Repubblica democratica del Congo                 | ✓               |                              |        ✓|
+| Côte d’Ivoire (Costa d'Avorio)               | ✓               |                              |        ✓| 
 | Gibuti                    | ✓               |                              |        ✓| 
 | Egitto                       | ✓               |                              |        ✓| 
 | Guinea equatoriale           | ✓               |                              |        ✓| 
@@ -177,7 +177,7 @@ La tabella seguente fornisce informazioni sul tipo di informazioni meteorologich
 | Paese/Area              |  Riquadri satellite | Previsioni del minuto, riquadri radar | Altri | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|  
 | Afghanistan                       | ✓ |   |  ✓| 
-| Isole Samoa americane                    | ✓ |   |  ✓| 
+| Samoa americane                    | ✓ |   |  ✓| 
 | Australia                         | ✓ | ✓ |  ✓| 
 | Azerbaigian                        | ✓ |   |  ✓| 
 | Bangladesh                        | ✓ |   |  ✓| 

@@ -1,5 +1,6 @@
 ---
-title: Guida introduttiva alla soluzione VMware di Azure di CloudSimple-utilizzo di macchine virtuali VMware in Azure
+title: 'Guida introduttiva: utilizzo di macchine virtuali VMware in Azure'
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Informazioni su come configurare e usare macchine virtuali VMware da portale di Azure tramite la soluzione VMware di Azure di CloudSimple
 author: sharaths-cs
 ms.author: dikamath
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 504550358bb56602093e58c90506c9140afccadb
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 4ab613c251bc43a025e0381046805ec998a04227
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574499"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452348"
 ---
 # <a name="quickstart---consume-vmware-vms-on-azure"></a>Guida introduttiva: usare macchine virtuali VMware in Azure
 
@@ -29,7 +30,7 @@ Creare una macchina virtuale nel cloud privato dall'interfaccia utente di vCente
 
 2. Cercare **Macchine virtuali CloudSimple**.
 
-3. Fare clic su **Aggiungi**.
+3. Scegliere **Aggiungi**.
 
     ![Creare una macchina virtuale CloudSimple](media/create-cloudsimple-virtual-machine.png)
 
@@ -37,12 +38,12 @@ Creare una macchina virtuale nel cloud privato dall'interfaccia utente di vCente
 
     ![Creare una macchina virtuale CloudSimple-nozioni di base](media/create-cloudsimple-virtual-machine-basic-info.png)
 
-    | Campo | DESCRIZIONE |
+    | Campo | Description |
     | ------------ | ------------- |
     | Sottoscrizione | Sottoscrizione di Azure associata al cloud privato.  |
     | Gruppo di risorse | Gruppo di risorse a cui verrà assegnata la macchina virtuale. È possibile selezionare un gruppo esistente o crearne uno nuovo. |
-    | Name | Nome per identificare la macchina virtuale.  |
-    | Location | Area di Azure in cui è ospitata questa macchina virtuale.  |
+    | Nome | Nome per identificare la macchina virtuale.  |
+    | Percorso | Area di Azure in cui è ospitata questa macchina virtuale.  |
     | Cloud privato | CloudSimple cloud privato in cui si vuole creare la macchina virtuale. |
     | Pool di risorse | Pool di risorse mappato per la macchina virtuale. Selezionare un pool di risorse tra quelli disponibili. |
     | Modello vSphere | modello vSphere per la macchina virtuale.  |
@@ -60,21 +61,21 @@ Creare una macchina virtuale nel cloud privato dall'interfaccia utente di vCente
 
     Per le interfacce di rete, fare clic su **Aggiungi interfaccia di rete** e configurare le impostazioni seguenti.
 
-    | Control | Descrizione |
+    | Controllo | Description |
     | ------------ | ------------- |
-    | Name | Immettere un nome per identificare l'interfaccia.  |
+    | Nome | Immettere un nome per identificare l'interfaccia.  |
     | Rete | Selezionare dall'elenco di gruppi di porte distribuite configurate nel cloud privato vSphere.  |
     | Adapter | Selezionare un adattatore vSphere dall'elenco dei tipi disponibili configurato per la macchina virtuale. Per ulteriori informazioni, vedere l'articolo della Knowledge Base VMware <a href="https://kb.vmware.com/s/article/1001805" target="_blank">scelta di una scheda di rete per la macchina virtuale</a>. |
     | Accensione all'avvio | Scegliere se abilitare l'hardware NIC all'avvio della macchina virtuale. Il valore predefinito è **Abilita**. |
 
     Per i dischi, fare clic su **Aggiungi disco** e configurare le impostazioni seguenti.
 
-    | Elemento | Descrizione |
+    | Elemento | Description |
     | ------------ | ------------- |
-    | Name | Immettere un nome per identificare il disco.  |
-    | Dimensione | Selezionare una delle dimensioni disponibili.  |
+    | Nome | Immettere un nome per identificare il disco.  |
+    | Dimensioni | Selezionare una delle dimensioni disponibili.  |
     | Controller SCSI | Selezionare un controller SCSI per il disco.  |
-    | Modalità | Determina la modalità di partecipazione del disco negli snapshot. Scegli una delle seguenti opzioni: <br> -Permanente indipendente: Tutti i dati scritti sul disco vengono scritti in modo permanente.<br> -Indipendente non persistente: le modifiche scritte su disco vengono eliminate quando si spegne o si ripristina la macchina virtuale.  La modalità indipendente non permanente consente di riavviare la macchina virtuale sempre nello stesso stato. Per altre informazioni, vedere la <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html" target="_blank">documentazione di VMware</a>.
+    | Mode | Determina la modalità di partecipazione del disco negli snapshot. Scegliere una delle opzioni seguenti: <br> -Permanente indipendente: tutti i dati scritti sul disco vengono scritti in modo permanente.<br> -Indipendente non persistente: le modifiche scritte nel disco vengono eliminate quando si spegne o si reimposta la macchina virtuale.  La modalità indipendente non permanente consente di riavviare la macchina virtuale sempre nello stesso stato. Per altre informazioni, vedere la <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html" target="_blank">documentazione di VMware</a>.
 
 7. Al termine della convalida, rivedere le impostazioni e fare clic su **Crea**. Per apportare modifiche, fare clic sulle schede nella parte superiore o fare clic su.
 

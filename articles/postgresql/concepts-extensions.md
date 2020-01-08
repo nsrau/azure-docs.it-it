@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 12/03/2019
-ms.openlocfilehash: 7a55cc9398cc511ced0a43f0d7a0c1aa6e37f155
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 12/20/2019
+ms.openlocfilehash: 069fc83e773c00be41e21e23fc01c589c13d687d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790391"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372704"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Estensioni di PostgreSQL nel database di Azure per PostgreSQL-server singolo
 PostgreSQL offre la capacità di estendere le funzionalità del database usando le estensioni. Le estensioni raggruppano più oggetti SQL correlati in un singolo pacchetto che può essere caricato o rimosso dal database con un unico comando. Dopo essere stato caricato nel database, le estensioni funzionano come le funzionalità predefinite.
@@ -31,14 +31,14 @@ Le estensioni seguenti sono disponibili nei server di database di Azure per Post
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | Consente di analizzare un indirizzo nei suoi elementi costitutivi. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Esempio di set di dati degli indirizzi standardizzati|
 > |[btree_gin](https://www.postgresql.org/docs/11/btree-gin.html)                    | 1.3             | supporto per l'indicizzazione di tipi di DataType comuni in GIN|
-> |[btree_gist](https://www.postgresql.org/docs/11/btree-gist.html)                   | 1,5             | supporto per l'indicizzazione di tipi di DataType comuni in GiST|
-> |[citext](https://www.postgresql.org/docs/11/citext.html)                       | 1,5             | tipo di dati per stringhe di caratteri senza distinzione tra maiuscole e minuscole|
+> |[btree_gist](https://www.postgresql.org/docs/11/btree-gist.html)                   | 1.5             | supporto per l'indicizzazione di tipi di DataType comuni in GiST|
+> |[citext](https://www.postgresql.org/docs/11/citext.html)                       | 1.5             | tipo di dati per stringhe di caratteri senza distinzione tra maiuscole e minuscole|
 > |[cube](https://www.postgresql.org/docs/11/cube.html)                         | 1.4             | tipo di dati per i cubi multidimensionali|
 > |[dblink](https://www.postgresql.org/docs/11/dblink.html)                       | 1.2             | connettersi ad altri database PostgreSQL dall'interno di un database|
 > |[dict_int](https://www.postgresql.org/docs/11/dict-int.html)                     | 1.0             | modello del dizionario di ricerca del testo per numeri interi|
 > |[earthdistance](https://www.postgresql.org/docs/11/earthdistance.html)                | 1.1             | calcola le distanze di grandi cerchio sulla superficie della terra|
 > |[fuzzystrmatch](https://www.postgresql.org/docs/11/fuzzystrmatch.html)                | 1.1             | determinare le analogie e la distanza tra le stringhe|
-> |[hstore](https://www.postgresql.org/docs/11/hstore.html)                       | 1,5             | tipo di dati per l'archiviazione di set di coppie (chiave, valore)|
+> |[hstore](https://www.postgresql.org/docs/11/hstore.html)                       | 1.5             | tipo di dati per l'archiviazione di set di coppie (chiave, valore)|
 > |[hypopg](https://hypopg.readthedocs.io/en/latest/)                       | 1.1.2           | Indici ipotetici per PostgreSQL|
 > |[intarray](https://www.postgresql.org/docs/11/intarray.html)                     | 1.2             | funzioni, operatori e supporto per gli indici per matrici unidimensionali di numeri interi|
 > |[isn](https://www.postgresql.org/docs/11/isn.html)                          | 1.2             | tipi di dati per gli standard di numerazione dei prodotti internazionali|
@@ -48,7 +48,7 @@ Le estensioni seguenti sono disponibili nei server di database di Azure per Post
 > |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1.3             | funzioni di crittografia|
 > |[pgrouting](https://pgrouting.org/)                    | 2.6.2           | Estensione pgRouting|
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | Mostra informazioni di blocco a livello di riga|
-> |[pgstattuple](https://www.postgresql.org/docs/11/pgstattuple.html)                  | 1,5             | Mostra statistiche a livello di tupla|
+> |[pgstattuple](https://www.postgresql.org/docs/11/pgstattuple.html)                  | 1.5             | Mostra statistiche a livello di tupla|
 > |[pg_buffercache](https://www.postgresql.org/docs/11/pgbuffercache.html)               | 1.3             | esaminare la cache del buffer condivisa|
 > |[pg_partman](https://github.com/pgpartman/pg_partman)                   | 4.0.0           | Estensione per gestire le tabelle partizionate in base all'ora o all'ID|
 > |[pg_prewarm](https://www.postgresql.org/docs/11/pgprewarm.html)                   | 1.2             | dati della relazione preriscaldati|
@@ -76,7 +76,7 @@ Le estensioni seguenti sono disponibili nei server di database di Azure per Post
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | Consente di analizzare un indirizzo nei suoi elementi costitutivi. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Esempio di set di dati degli indirizzi standardizzati|
 > |[btree_gin](https://www.postgresql.org/docs/10/btree-gin.html)                    | 1.3             | supporto per l'indicizzazione di tipi di DataType comuni in GIN|
-> |[btree_gist](https://www.postgresql.org/docs/10/btree-gist.html)                   | 1,5             | supporto per l'indicizzazione di tipi di DataType comuni in GiST|
+> |[btree_gist](https://www.postgresql.org/docs/10/btree-gist.html)                   | 1.5             | supporto per l'indicizzazione di tipi di DataType comuni in GiST|
 > |[chkpass](https://www.postgresql.org/docs/10/chkpass.html)                       | 1.0             | tipo di dati per le password crittografate automaticamente|
 > |[citext](https://www.postgresql.org/docs/10/citext.html)                       | 1.4             | tipo di dati per stringhe di caratteri senza distinzione tra maiuscole e minuscole|
 > |[cube](https://www.postgresql.org/docs/10/cube.html)                         | 1.2             | tipo di dati per i cubi multidimensionali|
@@ -94,7 +94,7 @@ Le estensioni seguenti sono disponibili nei server di database di Azure per Post
 > |[pgcrypto](https://www.postgresql.org/docs/10/pgcrypto.html)                     | 1.3             | funzioni di crittografia|
 > |[pgrouting](https://pgrouting.org/)                    | 2.5.2           | Estensione pgRouting|
 > |[pgrowlocks](https://www.postgresql.org/docs/10/pgrowlocks.html)                   | 1.2             | Mostra informazioni di blocco a livello di riga|
-> |[pgstattuple](https://www.postgresql.org/docs/10/pgstattuple.html)                  | 1,5             | Mostra statistiche a livello di tupla|
+> |[pgstattuple](https://www.postgresql.org/docs/10/pgstattuple.html)                  | 1.5             | Mostra statistiche a livello di tupla|
 > |[pg_buffercache](https://www.postgresql.org/docs/10/pgbuffercache.html)               | 1.3             | esaminare la cache del buffer condivisa|
 > |[pg_partman](https://github.com/pgpartman/pg_partman)                   | 2.6.3           | Estensione per gestire le tabelle partizionate in base all'ora o all'ID|
 > |[pg_prewarm](https://www.postgresql.org/docs/10/pgprewarm.html)                   | 1.1             | dati della relazione preriscaldati|
@@ -252,6 +252,26 @@ CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;
 > Se viene visualizzato un errore, confermare di aver [riavviato il server](howto-restart-server-portal.md) dopo avere salvato shared_preload_libraries. 
 
 È ora possibile creare un'ipertabella TimescaleDB [da zero](https://docs.timescale.com/getting-started/creating-hypertables) o migrare [i dati di serie temporali esistenti in PostgreSQL](https://docs.timescale.com/getting-started/migrating-data).
+
+### <a name="restoring-a-timescale-database"></a>Ripristino di un database di scala cronologica
+Per ripristinare un database di scala cronologica utilizzando pg_dump e pg_restore, è necessario eseguire due procedure di supporto nel database di destinazione: `timescaledb_pre_restore()` e `timescaledb_post restore()`.
+
+Preparare innanzitutto il database di destinazione:
+
+```SQL
+--create the new database where you'll perform the restore
+CREATE DATABASE tutorial;
+\c tutorial --connect to the database 
+CREATE EXTENSION timescaledb;
+
+SELECT timescaledb_pre_restore();
+```
+
+A questo punto è possibile eseguire pg_dump nel database originale, quindi eseguire pg_restore. Dopo il ripristino, assicurarsi di eseguire il comando seguente nel database ripristinato:
+
+```SQL
+SELECT timescaledb_post_restore();
+```
 
 
 ## <a name="next-steps"></a>Passaggi successivi

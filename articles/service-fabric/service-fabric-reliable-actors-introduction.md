@@ -1,27 +1,18 @@
 ---
-title: Panoramica di Reliable Actors di Service Fabric| Documentazione Microsoft
-description: Introduzione al modello di programmazione Service Fabric Reliable Actors
-services: service-fabric
-documentationcenter: .net
+title: Panoramica di Reliable Actors in Service Fabric
+description: Introduzione al modello di programmazione Service Fabric Reliable Actors, in base al modello di attore virtuale.
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: 7fdad07f-f2d6-4c74-804d-e0d56131f060
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 5a237e23dffed76e6122e17b59c85d20ca7e1baf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6aafa2a3372c431f8afa7fad41051c26c3fe5fcd
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60727184"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645566"
 ---
-# <a name="introduction-to-service-fabric-reliable-actors"></a>Introduzione a Service Fabric Reliable Actors
+# <a name="introduction-to-service-fabric-reliable-actors"></a>Introduzione a Reliable Actors in Service Fabric
 Reliable Actors è un framework di applicazione Service Fabric basato sul criterio [Actor virtuale](https://research.microsoft.com/en-us/projects/orleans/). L'API Reliable Actors offre un modello di programmazione a thread singolo basato sulle garanzie di affidabilità e scalabilità offerte da Service Fabric.
 
 ## <a name="what-are-actors"></a>Che cosa sono gli attori?
@@ -37,7 +28,7 @@ Sebbene lo schema progettuale dell'attore possa risultare idoneo per vari proble
 * Le istanze degli attori non bloccano i chiamanti con ritardi imprevedibili eseguendo operazioni I/O.
 
 ## <a name="actors-in-service-fabric"></a>Attori in Service Fabric
-In Service Fabric gli attori vengono implementati nel framework Reliable Actors: Un framework di applicazione basata su modello actor costruita basato su [Reliable Services di Service Fabric](service-fabric-reliable-services-introduction.md). Ogni servizio di tipo Reliable Actor che viene scritto è di fatto un servizio Reliable partizionato con stato.
+In Service Fabric gli attori sono implementati nel framework Reliable Actors: un framework di applicazioni imperniato sul criterio attore e basato su [Service Fabric Reliable Services](service-fabric-reliable-services-introduction.md). Ogni servizio di tipo Reliable Actor che viene scritto è di fatto un servizio Reliable partizionato con stato.
 
 Ogni attore è definito come un'istanza di un tipo di attore, come un oggetto .NET è un'istanza di un tipo .NET. Ad esempio, può essere definito un tipo di attore che implementa la funzionalità di una calcolatrice e possono esistere molti attori di quel tipo distribuiti su vari nodi di un cluster. Ciascuno di questi attori è identificato in modo univoco da un ID.
 

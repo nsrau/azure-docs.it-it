@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 89c7e398e24fb48c1829dbaa2811f440c5485a60
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: f3044a2701b0f1cd0e5f9ab3ab60c1d60cfb8f45
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038112"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436807"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Configurare una VPN da sito a sito tramite peering ExpressRoute Microsoft
 
@@ -130,7 +130,7 @@ Il diagramma seguente mostra una panoramica astratta della rete di esempio:
 
 ### <a name="about-the-azure-resource-manager-template-examples"></a>Informazioni sugli esempi di modello di Azure Resource Manager
 
-Negli esempi, il gateway VPN e le terminazioni dei tunnel IPsec vengono configurati tramite un Modello di Azure Resource Manager. Se non si ha familiarità con l'uso di modelli di Resource Manager o si desidera apprendere le nozioni di base del modello di Resource Manager, vedere [Comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Il modello contenuto in questa sezione crea un ambiente Azure greenfield (VNet). Tuttavia, se si dispone di una rete virtuale già esistente, è possibile farvi riferimento nel modello. Se non si ha familiarità con la configurazione da sito a sito IPsec/IKE di gateway VPN, vedere [Creare una connessione da sito a sito](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md).
+Negli esempi, il gateway VPN e le terminazioni dei tunnel IPsec vengono configurati tramite un Modello di Azure Resource Manager. Se non si ha familiarità con l'uso di modelli di Resource Manager o si desidera apprendere le nozioni di base del modello di Resource Manager, vedere [Comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). Il modello contenuto in questa sezione crea un ambiente Azure greenfield (VNet). Tuttavia, se si dispone di una rete virtuale già esistente, è possibile farvi riferimento nel modello. Se non si ha familiarità con la configurazione da sito a sito IPsec/IKE di gateway VPN, vedere [Creare una connessione da sito a sito](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md).
 
 >[!NOTE]
 >Non è necessario usare i modelli di Azure Resource Manager per creare questa configurazione. Questa configurazione può essere creata tramite il portale di Azure o PowerShell.

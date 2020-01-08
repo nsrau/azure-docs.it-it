@@ -1,33 +1,33 @@
 ---
 title: Usare PowerShell per creare una firma di accesso condiviso di delega utente per un contenitore o un BLOB
 titleSuffix: Azure Storage
-description: Informazioni su come creare una firma di accesso condiviso dell'utente (anteprima) con Azure Active Directory credenziali usando PowerShell.
+description: Informazioni su come creare una firma di accesso condiviso di delega utente con Azure Active Directory credenziali usando PowerShell.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 5f4947921a77f2bc94d1810c9b1d1951431d3d71
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 63075152ea4b3bf1a3aa208cf2a9642ef46642db
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892516"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371777"
 ---
-# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell-preview"></a>Creare una firma di accesso condiviso di delega utente per un contenitore o un BLOB con PowerShell (anteprima)
+# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell"></a>Creare una firma di accesso condiviso di delega utente per un contenitore o un BLOB con PowerShell
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-Questo articolo illustra come usare le credenziali Azure Active Directory (Azure AD) per creare una firma di accesso condiviso di delega utente per un contenitore o un BLOB con Azure PowerShell (anteprima).
+Questo articolo illustra come usare le credenziali Azure Active Directory (Azure AD) per creare una firma di accesso condiviso di delega utente per un contenitore o un BLOB con Azure PowerShell.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
-## <a name="install-the-preview-module"></a>Installare il modulo di anteprima
+## <a name="install-the-powershell-module"></a>Installa il modulo PowerShell
 
-Per usare PowerShell per creare una firma di accesso condiviso di delega utente, è necessario prima installare il modulo AZ. Storage 1.3.1-Preview. Per installare il modulo, seguire questa procedura:
+Per creare una firma di accesso condiviso di delega utente con PowerShell, installare la versione 1.10.0 o successiva del modulo AZ. storage. Per installare la versione più recente del modulo, seguire questa procedura:
 
 1. Disinstallare eventuali installazioni precedenti di Azure PowerShell:
 
@@ -48,23 +48,18 @@ Per usare PowerShell per creare una firma di accesso condiviso di delega utente,
     Install-Module Az –Repository PSGallery –AllowClobber
     ```
 
-1. Installare un modulo di anteprima di archiviazione di Azure che supporta la firma di accesso condiviso dell'utente:
+1. Assicurarsi di aver installato Azure PowerShell versione 3.2.0 o successiva. Eseguire il comando seguente per installare la versione più recente del modulo PowerShell di archiviazione di Azure:
 
     ```powershell
-    Install-Module Az.Storage `
-        –Repository PSGallery `
-        -RequiredVersion 1.3.1-preview `
-        –AllowPrerelease `
-        –AllowClobber `
-        –Force
+    Install-Module -Name Az.Storage -Repository PSGallery -Force
     ```
 
 1. Chiudere e riaprire la finestra di PowerShell.
 
-Poiché PowerShell carica il modulo AZ. storage più recente per impostazione predefinita, potrebbe essere necessario caricare in modo esplicito il modulo 1.3.1-Preview quando si avvia la console. Per caricare in modo esplicito il modulo di anteprima, eseguire il comando [Import-Module](/powershell/module/microsoft.powershell.core/import-module) :
+Per verificare quale versione del modulo AZ. storage è installato, eseguire il comando seguente:
 
 ```powershell
-Import-Module Az.Storage -RequiredVersion 1.3.1
+Get-Module -ListAvailable -Name Az.Storage -Refresh
 ```
 
 Per ulteriori informazioni sull'installazione di Azure PowerShell, vedere [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-az-ps).

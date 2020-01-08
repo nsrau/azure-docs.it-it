@@ -1,5 +1,5 @@
 ---
-title: Obiettivi di scalabilità e prestazioni per i dischi delle macchine virtuali in Windows-Microsoft Azure
+title: Obiettivi di scalabilità e prestazioni per i dischi delle VM in Windows
 description: Informazioni sugli obiettivi di scalabilità e prestazioni per dischi di macchine virtuali collegati a VM che eseguono Windows.
 author: roygara
 ms.author: rogarana
@@ -7,12 +7,12 @@ ms.date: 11/15/2017
 ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: c525ec4becbfda305343a3c7244d5975d60604a3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: dee3da6b6aa38a60ed1109009ba5a292a131ce97
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039752"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645158"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-windows"></a>Obiettivi di scalabilità e prestazioni per i dischi delle VM in Windows
 
@@ -31,6 +31,6 @@ Le dimensioni indicate con un asterisco sono attualmente in anteprima. Vedere la
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../../../includes/azure-storage-limits-vm-disks-premium.md)]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
-[Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-subscription-service-limits)
+[Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)

@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 12/18/2019
 ms.author: helohr
-ms.openlocfilehash: 27231dc25604e9031f0456d787530bf2a29616f7
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b6b310bf1958671583aab873ab42a70845f93f9a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167439"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452420"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Distribuire lo strumento di diagnostica
 
@@ -25,7 +25,7 @@ Ecco cosa può fare lo strumento di diagnostica per desktop virtuale di Windows:
 - Inviare un messaggio agli utenti attivi in un host sessione specifico.
 - Disconnettersi gli utenti da un host sessione.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 È necessario creare una registrazione dell'app Azure Active Directory e un'area di lavoro Log Analytics prima di poter distribuire il modello di Azure Resource Manager per lo strumento. L'utente o l'amministratore necessita di queste autorizzazioni per eseguire questa operazione:
 
@@ -156,7 +156,7 @@ Per poter visualizzare l'integrità delle macchine virtuali, è necessario abili
 2. Passare all'area di lavoro Log Analytics.
 3. Nel riquadro sinistro, in origini dati dell'area di lavoro, selezionare **macchine virtuali**.
 4. Selezionare il nome della macchina virtuale a cui ci si vuole connettere.
-5. Selezionare **Connessione**.
+5. Selezionare **Connetti**.
 
 ## <a name="deploy-the-diagnostics-tool"></a>Distribuire lo strumento di diagnostica
 
@@ -256,3 +256,8 @@ Nei risultati della ricerca trovare e selezionare l'host sessione per cui si vog
 - [Ritardo input utente per sessione (\*)\\ritardo input massimo](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
 
     - Soglia: superiore a 2000 ms è contrassegnato come non integro.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- Informazioni su come monitorare i log attività in [usare la diagnostica con log Analytics](diagnostics-log-analytics.md).
+- Per informazioni sugli scenari di errore comuni e su come risolverli, vedere [identificare e diagnosticare i problemi](diagnostics-role-service.md).

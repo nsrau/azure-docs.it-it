@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: 0c5f64e08446698bbd8d1ee4af5454e3aa1dd5ff
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 264c434849d5d5afb5934873c75d172a3783ac86
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693553"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459684"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi-preview"></a>Usare l'identità gestita per autenticare il processo di analisi di flusso di Azure per Power BI (anteprima)
 
@@ -169,6 +169,29 @@ Ora che il processo di analisi di flusso è stato creato, può essere concesso l
 3. Selezionare **Aggiungi** e chiudere il riquadro.
 
    ![Aggiungere un processo di analisi di flusso a Power BI area di lavoro](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-add-job-to-powerbi-workspace.png)
+
+### <a name="use-the-power-bi-powershell-cmdlets"></a>Usare i cmdlet di Power BI PowerShell
+
+1. Installare i cmdlet di Power BI `MicrosoftPowerBIMgmt` PowerShell.
+
+   > [!Important]
+   > Assicurarsi di usare la versione 1.0.821 o successiva dei cmdlet.
+
+```powershell
+Install-Module -Name MicrosoftPowerBIMgmt
+```
+
+2. Accedere a Power BI.
+
+```powershell
+Login-PowerBI
+```
+
+3. Aggiungere il processo di analisi di flusso come collaboratore all'area di lavoro.
+
+```powershell
+Add-PowerBIWorkspaceUser -WorkspaceId <group-id> -PrincipalId <principal-id> -PrincipalType App -AccessRight Contributor
+```
 
 ### <a name="use-the-power-bi-rest-api"></a>Usare l'API REST di Power BI
 

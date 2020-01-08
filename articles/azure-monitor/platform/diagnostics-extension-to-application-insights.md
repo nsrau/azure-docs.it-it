@@ -4,15 +4,15 @@ description: Aggiornare la configurazione pubblica di Diagnostica di Azure per i
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 03/19/2016
-ms.openlocfilehash: 6165ff13f489f9f23b9ece677b3643641150130d
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: b89e7d93113990e032f526d1f32e4e6acddffa75
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286001"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450572"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Inviare i dati di diagnostica del servizio Cloud, della macchina virtuale o di Service Fabric ad Application Insights
 I servizi cloud, le macchine virtuali, il set di scalabilità di macchine virtuali e Service Fabric usano l'estensione Diagnostica di Azure per raccogliere i dati.  La diagnostica di Azure invia i dati alle tabelle di Archiviazione di Azure.  Tuttavia, è possibile anche inviare pipe o un subset di dati ad altri percorsi con l'estensione Diagnostica di Azure 1.5 o versione successiva.
@@ -57,7 +57,7 @@ Esempio di configurazione di un sink per Application Insights:
     ]
 }
 ```
-- L'attributo **Sink** *name* è un valore della stringa che identifica in modo univoco il sink.
+- L'attributo del *nome* **sink** è un valore stringa che identifica in modo univoco il sink.
 
 - L'elemento **ApplicationInsights** specifica la chiave di strumentazione della risorsa di Application Insights a cui verranno inviati i dati di Diagnostica di Azure.
     - Se non si ha una risorsa di Application Insights, vedere [Creare una risorsa di Application Insights](../../azure-monitor/app/create-new-resource.md ) per altre informazioni sulla creazione di una risorsa e l'acquisizione della chiave di strumentazione.
@@ -69,7 +69,7 @@ Esempio di configurazione di un sink per Application Insights:
         - Dettagliato
         - Informazioni
         - Avviso
-        - Tipi di errore
+        - Errore
         - Critico
 
 Un canale agisce da filtro e consente di selezionare specifici livelli di log da inviare al sink di destinazione. Ad esempio, l'utente può raccogliere log dettagliati inviarli alla risorsa di archiviazione, ma inviare solo gli errori al sink.
@@ -213,7 +213,7 @@ Nella configurazione precedente, le righe riportate di seguito hanno i significa
 - **Il livello di log per un canale non può superare il livello di log relativo a quanto raccolto da Diagnostica di Azure.** Ad esempio, non è possibile raccogliere errori di log applicazioni nell'elemento Los e provare a inviare log Verbose al sink di Application Insight. L'attributo *scheduledTransferLogLevelFilter* deve sempre raccogliere un numero di log pari o superiore al numero di log che si sta tentando di inviare a un sink.
 - **Non è possibile inviare ad Application Insights dati BLOB raccolti dall'estensione Diagnostica di Azure.** Ad esempio qualsiasi elemento specificato nel nodo *Directories*. Per i dump di arresto anomalo, il dump effettivo di arresto anomalo viene inviato all'archiviazione BLOB e ad Application Insights viene inviata solo una notifica che attesta la creazione del dump di arresto anomalo.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 * Informazioni su come [visualizzare le informazioni di diagnostica di Azure](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices) in Application Insights.
 * Usare [PowerShell](../../cloud-services/cloud-services-diagnostics-powershell.md) per abilitare l'estensione di Diagnostica di Azure per un'applicazione.
 * Usare [Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) per abilitare l'estensione di Diagnostica di Azure per un'applicazione.

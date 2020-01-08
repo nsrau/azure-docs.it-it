@@ -1,5 +1,6 @@
 ---
-title: Implementare il ripristino di emergenza usando il backup e il ripristino in Gestione API di Azure | Documentazione Microsoft
+title: Implementare il ripristino di emergenza usando il backup e il ripristino in gestione API
+titleSuffix: Azure API Management
 description: Informazioni su come usare il backup e il ripristino per eseguire il ripristino di emergenza in Gestione API di Azure.
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 9c97723687484e8af82d63b6fb4999401a69fb2c
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: fccb9dfe88d39849fb87bdce4b81ac9ee22fada5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958537"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430705"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure
 
@@ -67,7 +68,7 @@ Tutte le attività che è possibile eseguire sulle risorse tramite Azure Resourc
 4. Immettere un nome per l'applicazione.
 5. Come tipo di applicazione selezionare **Nativo**.
 6. Immettere un URL di segnaposto, ad esempio `http://resources` per **URI di reindirizzamento**, che è un campo obbligatorio, ma il valore non viene usato in seguito. Selezionare la casella di controllo per salvare l'applicazione.
-7. Fare clic su **Create**(Crea).
+7. Fare clic su **Crea**.
 
 ### <a name="add-an-application"></a>Aggiungere un'applicazione
 
@@ -75,7 +76,7 @@ Tutte le attività che è possibile eseguire sulle risorse tramite Azure Resourc
 2. Fare clic su **Autorizzazioni necessarie**.
 3. Fare clic su **+Aggiungi**.
 4. Fare clic su **Selezionare un'API**.
-5. Scegliere **API Gestione dei servizi di** **Windows Azure**.
+5. Scegliere API Gestione dei servizi di **Windows** **Azure**.
 6. Fare clic su **Seleziona**.
 
     ![Aggiungere autorizzazioni](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
@@ -117,14 +118,14 @@ Sostituire `{tenant id}`, `{application id}` e `{redirect uri}` usando le istruz
 
 1. Sostituire `{tenant id}` con l'ID tenant dell'applicazione Azure Active Directory creata. È possibile accedere all'ID facendo clic su **Registrazioni app** -> **Endpoint**.
 
-    ![Endpoints][api-management-endpoint]
+    ![Endpoint][api-management-endpoint]
 
 2. Sostituire `{application id}` con il valore visualizzato passando alla pagina **Impostazioni**.
 3. Sostituire `{redirect uri}` con il valore proveniente dalla scheda **URL di reindirizzamento** dell'applicazione Azure Active Directory.
 
     Dopo avere specificato i valori, l'esempio di codice dovrebbe restituire un token simile all'esempio seguente:
 
-    ![Token][api-management-arm-token]
+    ![token][api-management-arm-token]
 
     > [!NOTE]
     > Il token può scadere dopo un certo periodo. Eseguire nuovamente l'esempio di codice per generare un nuovo token.
@@ -139,7 +140,7 @@ Prima di chiamare le operazioni di backup e ripristino descritte nelle sezioni s
 request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
 ```
 
-### <a name="step1"> </a>Backup di un servizio di Gestione API
+### <a name="step1"> </a>Eseguire il backup di un servizio gestione API
 
 Per eseguire il backup di un servizio di gestione API, emettere la seguente richiesta HTTP:
 
@@ -180,7 +181,7 @@ Quando si crea una richiesta di backup, occorre attenersi ai vincoli seguenti:
 -   Le **modifiche** apportate alla configurazione del servizio (ad esempio alle API, ai criteri e all'aspetto del portale per sviluppatori) durante l'esecuzione del processo di backup **potrebbero essere escluse dal backup e potrebbero andare perse**.
 -   **Consentire** l'accesso dal piano di controllo all'account di archiviazione di Azure. Il cliente deve aprire il seguente set di indirizzi IP in ingresso nell'account di archiviazione per il backup. 
     > 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 13.64.39.16/32, 40.81.47.216/32, 51.145.179.78/32, 52.142.95.35/32, 40.90.185.46/32, 20.40.125.155/32
-### <a name="step2"> </a>Ripristino di un servizio di Gestione API
+### <a name="step2"> </a>Ripristinare un servizio gestione API
 
 Per ripristinare un servizio di Gestione API da un backup creato in precedenza, creare la seguente richiesta HTTP:
 

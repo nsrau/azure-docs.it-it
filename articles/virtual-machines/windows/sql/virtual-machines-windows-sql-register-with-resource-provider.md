@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 6b2430b5135a5d3f7ad1f9ef0bd17d9149bf48ee
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: b59470a187fe060bd5e9a2c1bd84e63f598770df
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793463"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690792"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registrare una macchina virtuale SQL Server in Azure con il provider di risorse VM SQL
 
@@ -35,7 +35,7 @@ La distribuzione di un'immagine SQL Server VM di Azure Marketplace tramite il po
 
 - **Gestione semplificata delle licenze**: la registrazione con il provider di risorse VM SQL semplifica la gestione delle licenze SQL Server e consente di identificare rapidamente SQL Server VM con la vantaggio Azure Hybrid abilitata usando il [portale di Azure](virtual-machines-windows-sql-manage-portal.md), AZ CLI o PowerShell: 
 
-   # <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
+   # <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
    ```azurecli-interactive
    $vms = az sql vm list | ConvertFrom-Json
@@ -62,7 +62,7 @@ Per ulteriori informazioni sui vantaggi derivanti dall'utilizzo del provider di 
 Per registrare la macchina virtuale di SQL Server con il provider di risorse, è necessario: 
 
 - Una [sottoscrizione di Azure](https://azure.microsoft.com/free/).
-- Un modello di risorse di Azure [SQL Server macchina virtuale](virtual-machines-windows-portal-sql-server-provision.md) distribuita nel cloud pubblico. 
+- Un modello di risorse di Azure [SQL Server macchina virtuale](virtual-machines-windows-portal-sql-server-provision.md) distribuita nel cloud pubblico o Azure per enti pubblici. 
 - La versione più recente dell'interfaccia della riga di comando di [Azure](/cli/azure/install-azure-cli) o [PowerShell](/powershell/azure/new-azureps-module-az). 
 
 ## <a name="management-modes"></a>Modalità di gestione
@@ -286,8 +286,7 @@ Verificare lo stato di registrazione della macchina virtuale SQL Server corrente
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
   ```powershell-interactive
-  Get-AzResource -ResourceName <vm_name> -ResourceGroupName <resource_group> `
-  -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines
+  Get-AzSqlVM -Name <vm_name> -ResourceGroupName <resource_group>
   ```
 
 ---
@@ -325,7 +324,7 @@ Per annullare la registrazione della macchina virtuale SQL Server con il provide
 
 ### <a name="command-line"></a>Riga di comando
 
-# <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 Per annullare la registrazione della macchina virtuale SQL Server dal provider di risorse con l'interfaccia della riga di comando di Azure, usare il comando [AZ SQL VM Delete](/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-delete) . Verrà rimossa la *risorsa* della macchina virtuale SQL Server ma la macchina virtuale non verrà eliminata. 
 
 
@@ -349,7 +348,7 @@ Remove-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name>
 
 Il provider di risorse VM SQL supporta solo:
 - SQL Server macchine virtuali distribuite tramite l'Azure Resource Manager. SQL Server macchine virtuali distribuite con il modello classico non sono supportate. 
-- SQL Server macchine virtuali distribuite nel cloud pubblico. Le distribuzioni nel cloud privato o per enti pubblici non sono supportate. 
+- SQL Server macchine virtuali distribuite nel cloud pubblico o Azure per enti pubblici. Le distribuzioni in altri cloud privati o governativi non sono supportate. 
 
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti 
@@ -435,7 +434,7 @@ Sì. SQL Server istanze del cluster di failover in una macchina virtuale di Azur
 Sì. Non sono previste restrizioni per la registrazione di un'istanza di SQL Server in una macchina virtuale di Azure con il provider di risorse VM SQL se si partecipa a una configurazione del gruppo di disponibilità Always On.
 
 **Qual è il costo per la registrazione con il provider di risorse VM SQL o con l'aggiornamento alla modalità di gestibilità completa?**
-None. Non sono previste tariffe associate alla registrazione con il provider di risorse VM SQL o con una delle tre modalità di gestibilità. La gestione della macchina virtuale SQL Server con il provider di risorse è completamente gratuita. 
+Nessuno. Non sono previste tariffe associate alla registrazione con il provider di risorse VM SQL o con una delle tre modalità di gestibilità. La gestione della macchina virtuale SQL Server con il provider di risorse è completamente gratuita. 
 
 **Qual è l'effetto sulle prestazioni dell'utilizzo delle diverse modalità di gestibilità?**
 Non vi è alcun effetto quando si utilizzano le modalità *noagent* e la gestibilità *leggera* . Quando si usa la modalità di gestibilità *completa* di due servizi installati nel sistema operativo, l'effetto è minimo. Questi possono essere monitorati tramite Gestione attività e visualizzati nella console dei servizi Windows incorporata. 

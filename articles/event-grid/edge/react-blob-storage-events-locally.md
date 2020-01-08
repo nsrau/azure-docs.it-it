@@ -2,19 +2,19 @@
 title: Reagire agli eventi del modulo di archiviazione BLOB-IoT Edge di griglia di eventi di Azure | Microsoft Docs
 description: Reagire agli eventi del modulo di archiviazione BLOB
 author: arduppal
-manager: mchad
+manager: brymat
 ms.author: arduppal
 ms.reviewer: spelluru
-ms.date: 10/02/2019
+ms.date: 12/13/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: a074abf494e155e0dc088d0db6af7eba0b3cf3c2
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 2f52d72a1f2e3c3d1f3495c4b7f6f633db30778e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73100232"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437292"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Esercitazione: rispondere agli eventi di archiviazione BLOB in IoT Edge (anteprima)
 Questo articolo illustra come distribuire il servizio di archiviazione BLOB di Azure nel modulo Internet, che fungerebbe da server di pubblicazione di griglia di eventi per inviare gli eventi durante la creazione e l'eliminazione di BLOB in griglia di eventi.  
@@ -24,7 +24,7 @@ Per una panoramica dell'archiviazione BLOB di Azure in IoT Edge, vedere [archivi
 > [!WARNING]
 > Archiviazione BLOB di Azure in IoT Edge integrazione con griglia di eventi è in anteprima
 
-Per completare questa esercitazione, è necessario:
+Per completare questa esercitazione è necessario disporre degli elementi seguenti:
 
 * **Sottoscrizione di Azure** : creare un [account gratuito](https://azure.microsoft.com/free) se non ne è già disponibile uno. 
 * **Hub Azure e dispositivo IOT Edge** : seguire la procedura descritta nella Guida introduttiva per i [dispositivi](../../iot-edge/quickstart.md) [Linux](../../iot-edge/quickstart-linux.md) o Windows se non ne è già presente uno.
@@ -63,8 +63,8 @@ Un manifesto della distribuzione è un documento JSON contenente la descrizione 
         {
           "Env": [
            "inbound:serverAuth:tlsPolicy=enabled",
-            "inbound:clientAuth:clientCert:enabled=false",
-            "outbound:webhook:httpsOnly=false"
+           "inbound:clientAuth:clientCert:enabled=false",
+           "outbound:webhook:httpsOnly=false"
           ],
           "HostConfig": {
             "PortBindings": {
@@ -77,11 +77,12 @@ Un manifesto della distribuzione è un documento JSON contenente la descrizione 
           }
         }
     ```    
- 1. Fare clic su **Salva**.
+
+ 1. Fare clic su **Save** (Salva).
  1. Passare alla sezione successiva per aggiungere il modulo funzioni di Azure
 
     >[!IMPORTANT]
-    > In questa esercitazione verrà distribuito il modulo di griglia di eventi per consentire richieste HTTP/HTTPs, autenticazione client disabilitata e Consenti Sottoscrittori HTTP. Per i carichi di lavoro di produzione, è consigliabile abilitare solo le richieste HTTPs e i sottoscrittori con autenticazione client abilitata. Per altre informazioni su come configurare il modulo di griglia di eventi in modo sicuro, vedere [sicurezza e autenticazione](security-authentication.md).
+    > In questa esercitazione si apprenderà come distribuire il modulo di griglia di eventi per consentire richieste HTTP/HTTPs, l'autenticazione client disabilitata e consentire sottoscrittori HTTP. Per i carichi di lavoro di produzione, è consigliabile abilitare solo le richieste HTTPs e i sottoscrittori con autenticazione client abilitata. Per altre informazioni su come configurare il modulo di griglia di eventi in modo sicuro, vedere [sicurezza e autenticazione](security-authentication.md).
     
 
 ## <a name="deploy-azure-function-iot-edge-module"></a>Distribuire il modulo IoT Edge di funzioni di Azure
@@ -115,11 +116,8 @@ Questa sezione illustra come distribuire il modulo di Azure Functions, che funge
             }
        ```
 
-1. Fare clic su **Salva**.
+1. Fare clic su **Save** (Salva).
 1. Passare alla sezione successiva per aggiungere il modulo di archiviazione BLOB di Azure
-
-> [!NOTE]
-> Il modulo di archiviazione BLOB pubblica gli eventi tramite HTTP. Verificare che il modulo griglia di eventi consenta le richieste HTTP e HTTPS con la configurazione seguente: `inbound:serverAuth:tlsPolicy=enabled`.
 
 ## <a name="deploy-azure-blob-storage-module"></a>Distribuire il modulo di archiviazione BLOB di Azure
 
@@ -132,7 +130,7 @@ Questa sezione illustra come distribuire il modulo di archiviazione BLOB di Azur
 3. Fornire il nome, l'immagine e le opzioni di creazione del contenitore:
 
    * **Nome**: azureblobstorageoniotedge
-   * **URI immagine**: MCR.Microsoft.com/Azure-BLOB-Storage:1.2.2-Preview
+   * **URI immagine**: MCR.Microsoft.com/Azure-BLOB-Storage:Latest
    * **Opzioni di creazione del contenitore**:
 
 ```json
@@ -152,10 +150,16 @@ Questa sezione illustra come distribuire il modulo di archiviazione BLOB di Azur
          }
        }
 ```
+> [!IMPORTANT]
+> - Il modulo di archiviazione BLOB può pubblicare eventi usando HTTPS e HTTP. 
+> - Se è stata abilitata l'autenticazione basata su client per EventGrid, assicurarsi di aggiornare il valore di EVENTGRID_ENDPOINT per consentire il protocollo HTTPS in questo modo: `EVENTGRID_ENDPOINT=https://<event grid module name>:4438` 
+> - E aggiungere un'altra variabile di ambiente `AllowUnknownCertificateAuthority=true` al codice JSON precedente. Quando si comunica con EventGrid tramite HTTPS, **AllowUnknownCertificateAuthority** consente al modulo di archiviazione di considerare attendibili i certificati del server EventGrid autofirmati.
+
+
 
 4. Aggiornare il codice JSON copiato con le informazioni seguenti:
 
-   - Sostituire `<your storage account name>` con un nome facile da ricordare. I nomi degli account devono avere una lunghezza di 3 e 24 caratteri, con lettere minuscole e numeri. Nessun spazio.
+   - Sostituire `<your storage account name>` con un nome facile da ricordare. I nomi degli account devono avere una lunghezza di 3 e 24 caratteri, con lettere minuscole e numeri. Nessuno spazio.
 
    - Sostituire `<your storage account key>` con una chiave Base64 a 64 byte. È possibile generare una chiave con strumenti quali [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). Queste credenziali verranno usate per accedere all'archiviazione BLOB da altri moduli.
 
@@ -164,7 +168,7 @@ Questa sezione illustra come distribuire il modulo di archiviazione BLOB di Azur
      - Per i contenitori Linux, **My-volume:/blobroot**
      - Per i contenitori di Windows,**My-volume: C:/BlobRoot**
 
-5. Fare clic su **Salva**.
+5. Fare clic su **Save** (Salva).
 6. Fare clic su **Avanti** per passare alla sezione Route
 
     > [!NOTE]
@@ -210,6 +214,10 @@ Mantenere le route predefinite e fare clic su **Avanti** per passare alla sezion
         ]
     ```
 
+    > [!IMPORTANT]
+    > - Per il flusso HTTPS, se l'autenticazione client è abilitata tramite la chiave SAS, la chiave SAS specificata in precedenza deve essere aggiunta come intestazione. La richiesta curl sarà quindi: `curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview`
+    > - Per il flusso HTTPS, se l'autenticazione client viene abilitata tramite il certificato, la richiesta curl sarà: `curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview`
+
 2. I sottoscrittori possono registrarsi per gli eventi pubblicati in un argomento. Per ricevere qualsiasi evento, è necessario creare una sottoscrizione di griglia di eventi per l'argomento **MicrosoftStorage** .
     1. Creare blobsubscription. JSON con il contenuto seguente. Per informazioni dettagliate sul payload, vedere la [documentazione dell'API](api.md)
 
@@ -235,6 +243,11 @@ Mantenere le route predefinite e fare clic su **Avanti** per passare alla sezion
     curl -k -H "Content-Type: application/json" -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview
     ```
 
+    > [!IMPORTANT]
+    > - Per il flusso HTTPS, se l'autenticazione client è abilitata tramite la chiave SAS, la chiave SAS specificata in precedenza deve essere aggiunta come intestazione. La richiesta curl sarà quindi: `curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview` 
+    > - Per il flusso HTTPS, se l'autenticazione client viene abilitata tramite il certificato, la richiesta curl sarà:`curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
+
+
     3. Eseguire il comando seguente per verificare che la sottoscrizione sia stata creata correttamente. Viene restituito il codice di stato HTTP 200 OK.
 
     ```sh
@@ -259,6 +272,10 @@ Mantenere le route predefinite e fare clic su **Avanti** per passare alla sezion
           }
         }
     ```
+
+    > [!IMPORTANT]
+    > - Per il flusso HTTPS, se l'autenticazione client è abilitata tramite la chiave SAS, la chiave SAS specificata in precedenza deve essere aggiunta come intestazione. La richiesta curl sarà quindi: `curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
+    > - Per il flusso HTTPS, se l'autenticazione client viene abilitata tramite il certificato, la richiesta curl sarà: `curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
 
 2. Scaricare [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) e [connetterlo alla risorsa di archiviazione locale](../../iot-edge/how-to-store-data-blob.md#connect-to-your-local-storage-with-azure-storage-explorer)
 
@@ -326,13 +343,13 @@ Mantenere le route predefinite e fare clic su **Avanti** per passare alla sezion
           ]
     ```
 
-Congratulazioni. L'esercitazione è stata completata. Le sezioni seguenti forniscono informazioni dettagliate sulle proprietà dell'evento.
+Congratulazioni! L'esercitazione è stata completata. Le sezioni seguenti forniscono informazioni dettagliate sulle proprietà dell'evento.
 
 ### <a name="event-properties"></a>Proprietà degli eventi
 
 Di seguito è riportato l'elenco delle proprietà di evento supportate, i relativi tipi e descrizioni. 
 
-| Proprietà | Type | Description |
+| Proprietà | Tipo | Description |
 | -------- | ---- | ----------- |
 | argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
 | subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
@@ -345,7 +362,7 @@ Di seguito è riportato l'elenco delle proprietà di evento supportate, i relati
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Type | Description |
+| Proprietà | Tipo | Description |
 | -------- | ---- | ----------- |
 | api | string | L'operazione che ha attivato l'evento. Può essere uno dei valori seguenti: <ul><li>BlobCreated: i valori consentiti sono: `PutBlob` e `PutBlockList`</li><li>BlobDeleted: i valori consentiti sono `DeleteBlob`, `DeleteAfterUpload` e `AutoDelete`. <p>L'evento `DeleteAfterUpload` viene generato quando il BLOB viene eliminato automaticamente perché la proprietà desiderata deleteAfterUpload è impostata su true. </p><p>`AutoDelete` evento viene generato quando il BLOB viene eliminato automaticamente perché il valore della proprietà desiderata deleteAfterMinutes è scaduto.</p></li></ul>|
 | clientRequestId | string | ID richiesta fornito dal client per l'operazione dell'API di archiviazione. Questo ID può essere usato per la correlazione ai log di diagnostica di archiviazione di Azure usando il campo "client-Request-ID" nei log e può essere specificato nelle richieste client usando l'intestazione "x-MS-client-Request-ID". Per informazioni dettagliate, vedere [formato del log](/rest/api/storageservices/storage-analytics-log-format). |
@@ -354,7 +371,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | contentType | string | Il tipo di contenuto specificato per il BLOB. |
 | contentLength | integer | La dimensione del BLOB in byte. |
 | blobType | string | Il tipo di BLOB. I valori validi sono "BlockBlob" o "PageBlob". |
-| url | string | Percorso del BLOB. <br>Se il client usa un'API REST BLOB, l'URL ha questa struttura: *\<storage-account-name \>. blob.core.windows.net/\<container-name \> / \<file-name \>* . <br>Se il client usa un'API REST di Data Lake Storage, l'URL ha questa struttura: *\<storage-account-name \>. dfs.core.windows.net/\<file-System-name \> / \<file-name \>* . |
+| url | string | Percorso del BLOB. <br>Se il client usa un'API REST BLOB, l'URL ha questa struttura: *\<storage-account-name\>. blob.core.windows.net/\<nome-contenitore\>/\<nome file* \>. <br>Se il client usa un'API REST di Data Lake Storage, l'URL ha questa struttura: *\<nome-account-archiviazione\>. dfs.core.windows.net/\<file-System-name\>/\<nome file* \>. |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

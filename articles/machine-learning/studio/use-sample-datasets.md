@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: 84ac2b43c9ec2e46bcd2967cf411f1bb1f60f42a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c2700c8241905f6e219b566a10e3378dd6c7251d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839401"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427434"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Usare i set di impostazioni di esempio in Azure Machine Learning Studio (versione classica)
 [top]: #machine-learning-sample-datasets
@@ -27,7 +27,7 @@ Alcuni di questi set di dati sono disponibili nell'archivio BLOB di Azure. La ta
 La parte rimanente di questi set di dati di esempio è disponibile nell'area di lavoro presente in **Saved Datasets** (Set di dati salvati). È possibile trovarlo nella tavolozza dei moduli a sinistra dell'area di disegno dell'esperimento in Machine Learning Studio (classico).
 Per usare uno qualsiasi di questi set di dati in un esperimento personalizzato, trascinarlo all'area di disegno dell'esperimento.
 
-## <a name="datasets"></a>DATASETS
+## <a name="datasets"></a>Set di dati
 
 <table>
 
@@ -51,7 +51,7 @@ Subset del database relativo al censimento del 1994, che usa adulti lavoratori d
   <td>
 Codici degli aeroporti degli Stati Uniti.
 <p></p>
-Questo set di dati contiene una riga per ogni aeroporto degli Stati Uniti, con il nome e il numero ID dell'aeroporto, la città e lo stato.
+Questo set di dati contiene una riga per ogni aeroporto degli Stati Uniti, contenente il nome e il numero ID dell'aeroporto, la città e lo stato.
   </td>
 </tr>
 
@@ -70,7 +70,7 @@ Il punteggio di rischio viene inizialmente associato al prezzo dell'automobile e
 <tr>
   <td>Bike Rental UCI dataset</td>
   <td>
-Set di dati UCI relativi al noleggio di biciclette basato su dati reali della società Capital Bikeshare che gestisce una rete di noleggio di biciclette a Washington DC.
+Set di dati UCI relativo al noleggio di biciclette basato su dati reali della società Capital Bikeshare che gestisce una rete di noleggio di biciclette a Washington DC.
 <p></p>
 Il set di dati comprende una riga per ogni ora di ogni giorno del 2011 e del 2012, per un totale di 17.379 righe. Il numero di biciclette noleggiate su base oraria è compreso tra 1 e 977.
 
@@ -89,7 +89,7 @@ Il codice per la conversione dell'immagine è disponibile nella pagina descritti
 <tr>
   <td>Blood donation data</td>
   <td>
-Subset di dati dal database di donatori di sangue del Blood Transfusion Service Center di Hsin-Chu City, Taiwan.
+Sottoinsieme di dati dal database di donatori di sangue del Blood Transfusion Service Center di Hsin-Chu City, Taiwan.
 <p></p>
 I dati relativi al donatore includono i mesi trascorsi dopo l'ultima donazione, la frequenza o il numero totale di donazioni, il tempo trascorso dopo l'ultima donazione e la quantità di sangue donata.
 <p></p>
@@ -169,7 +169,7 @@ Raccolta di profili energetici simulati, basati su 12 forme di edifici diverse. 
   <td>
 Dati relativi alle prestazioni in fase di volo passeggero ricavati dalla raccolta di dati TranStats del Ministero del trasporto statunitense (<a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">on-time</a>).
 <p></p>
-Il set di dati copre il periodo aprile-ottobre 2013. Prima di caricare nella versione classica di Azure Machine Learning Studio, il set di dati è stato elaborato come segue:
+Il set di dati copre il periodo aprile-ottobre 2013. Prima di caricare in Azure Machine Learning Studio (versione classica), il set di dati è stato elaborato come segue:
 <ul>
   <li>Il set di dati è stato filtrato in modo da coprire solo i 70 aeroporti più trafficati degli Stati Uniti continentali</li>
   <li>I voli cancellati sono stati etichettati in modo da indicare un ritardo superiore a 15 minuti</li>
@@ -239,7 +239,7 @@ Il set di dati è una versione estesa di quello relativo ai tweet sui film. Il s
 <tr>
   <td>MPG data for various automobiles</td>
   <td>
-Questo set di dati è una versione leggermente modificata del set di dati disponibile nella raccolta StatLib della Carnegie Mellon University. Il set di dati è stato usato nella American Statistical Association Exposition del 1983.
+Questo set di dati è una versione leggermente modificata del set di dati disponibile nella raccolta StatLib della Carnegie Mellon University. Il set di dati è stato usato presso la American Statistical Association Exposition del 1983.
 <p></p>
 I dati elencano il consumo di carburante per diverse automobili, in miglia per gallone, oltre a informazioni quali numero di cilindri, cilindrata, potenza, peso totale e accelerazione.
 <p></p>
@@ -329,7 +329,7 @@ Si noti anche che il numero di eventi di fondo (h per piogge adroniche) è sotto
   <td>
 Le osservazioni meteo sono su base oraria e al suolo e vengono fornite dalla NOAA (<a href="https://az754797.vo.msecnd.net/data/WeatherDataset.csv">dati uniti dal mese di aprile al mese di ottobre 2013</a>).
 <p></p>
-I dati relativi al meteo riguardano le osservazioni effettuate dalle stazioni meteo degli aeroporti nel periodo aprile-ottobre 2013. Prima di caricare nella versione classica di Azure Machine Learning Studio, il set di dati è stato elaborato come segue:
+I dati relativi al meteo riguardano le osservazioni effettuate dalle stazioni meteo degli aeroporti nel periodo aprile-ottobre 2013. Prima di caricare in Azure Machine Learning Studio (versione classica), il set di dati è stato elaborato come segue:
 <ul>
   <li>Gli ID delle stazioni meteo sono stati mappati agli ID degli aeroporti corrispondenti</li>
   <li>Le stazioni meteo non associate ai 70 aeroporti più trafficati sono state escluse</li>
@@ -344,7 +344,7 @@ I dati relativi al meteo riguardano le osservazioni effettuate dalle stazioni me
   <td>
 I dati sono tratti da articoli di Wikipedia (<a href="https://www.wikipedia.org/">https://www.wikipedia.org/</a>) su ognuna delle società incluse nell'indice S&P 500 e sono archiviati come dati XML.
 <p></p>
-Prima di caricare nella versione classica di Azure Machine Learning Studio, il set di dati è stato elaborato come segue:
+Prima di caricare in Azure Machine Learning Studio (versione classica), il set di dati è stato elaborato come segue:
 <ul>
   <li>Estrazione del contenuto di testo per ogni specifica società</li>
   <li>Rimozione della formattazione wiki</li>
@@ -390,16 +390,16 @@ Questo set di dati è stato scaricato e memorizzato nell'archiviazione BLOB di A
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2.topics.qrels.csv</a></td>
   <td>
-Assegnazioni degli argomenti per gli articoli del set di dati relativo alle notizie RCV1-V2 Reuters. Un articolo può essere assegnato a più argomenti. Il formato di ogni riga è "&lt;nome argomento&gt; &lt;ID documento&gt; 1". Il set di dati contiene 2,6 milioni di assegnazioni di argomenti. Il set di dati è stato messo a disposizione da David. D. Lewis.
+Assegnazioni degli argomenti per gli articoli del set di dati relativo alle notizie RCV1-V2 Reuters. Un articolo può essere assegnato a più argomenti. Il formato di ogni riga è "&lt;nome dell'argomento&gt; &lt;ID documento&gt; 1". Il set di dati contiene 2,6 milioni di assegnazioni di argomenti. Il set di dati è stato messo a disposizione da David. D. Lewis.
   </td>
 </tr>
 
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td>
-Questi dati provengono dalla competizione KDD Cup 2010 Student performance evaluation (<a href="https://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">student performance evaluation</a>). Il set di dati usato è il training set Algebra_2008_2009 (Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). (2010). Set di dati di competizione dalla KDD Cup 2010 dedicata al data mining in ambito didattico. È disponibile in <a href="https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>.
+Questi dati provengono dalla competizione KDD Cup 2010 Student performance evaluation (<a href="https://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">student performance evaluation</a>). Il set di dati usato è il training set Algebra_2008_2009 (Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). Algebra I 2008-2009. Set di dati di competizione dalla KDD Cup 2010 dedicata al data mining in ambito didattico. È disponibile in <a href="https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>.
 <p></p>
-Il set di dati è stato scaricato e memorizzato nell'archivio BLOB di Azure (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) e contiene i file di log di un sistema di tutoring degli studenti. Le funzionalità fornite includono: ID del problema e breve descrizione, ID dello studente, timestamp e numero di tentativi effettuati dallo studente prima di risolvere il problema nel modo corretto. Il set di dati originale contiene 8,9 milioni di record e questo set di dati è stato ridotto alle prime 100.000 righe. Nel set di dati sono presenti 23 colonne separate da tabulazioni, di vari tipi: numerico, categorico e timestamp.
+Il set di dati è stato scaricato e memorizzato Archiviazione BLOB di Azure (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) e contiene i file di log provenienti dal sistema relativo alle lezioni private per gli studenti. Le funzionalità fornite includono: ID del problema e breve descrizione, ID dello studente, timestamp e numero di tentativi effettuati dallo studente prima di risolvere il problema nel modo corretto. Il set di dati originale contiene 8,9 milioni di record e questo set di dati è stato ridotto alle prime 100.000 righe. Nel set di dati sono presenti 23 colonne separate da tabulazioni, di vari tipi: numerico, categorico e timestamp.
   </td>
 </tr>
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: c3b4fabb319a3ea76ee62c8c699d4613184a4e76
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 4919c8f303488b583ea4d10dca87dd29bfb52e99
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791039"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374081"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Domande frequenti su SQL Server in esecuzione in macchine virtuali Windows in Azure
 
@@ -84,12 +84,12 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 
 1. **È necessario pagare la licenza di SQL Server in una VM di Azure se viene utilizzata solo per standby/failover?**
 
-   Per avere una licenza passiva gratuita per un gruppo di disponibilità secondario o un'istanza del cluster di failover di standby, è necessario soddisfare tutti i criteri seguenti, come descritto nel [PDF della Guida alle licenze](https://download.microsoft.com/download/7/8/C/78CDF005-97C1-4129-926B-CE4A6FE92CF5/SQL_Server_2017_Licensing_guide.pdf):
+   Per avere una licenza passiva gratuita per un gruppo di disponibilità secondario o un'istanza del cluster di failover di standby, è necessario soddisfare tutti i criteri seguenti, come descritto nelle [condizioni di licenza del prodotto](https://www.microsoft.com/licensing/product-licensing/products):
 
    1. La [mobilità delle licenze](https://www.microsoft.com/licensing/licensing-programs/software-assurance-license-mobility?activetab=software-assurance-license-mobility-pivot:primaryr2) è [garantita tramite Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3). 
-   1. L'istanza di SQL Server passiva non fornisce dati SQL Server ai client o esegue carichi di lavoro SQL Server attivi. Viene usato solo per la sincronizzazione con il server primario e in caso contrario mantiene il database passivo in uno stato warm standby. Se vengono utilizzati i dati, ad esempio i report ai client che eseguono carichi di lavoro di SQL Server attivi o che eseguono qualsiasi "lavoro", ad esempio backup aggiuntivi dal server secondario, deve essere un'istanza di SQL Server a pagamento con licenza. 
+   1. L'istanza di SQL Server passiva non fornisce dati SQL Server ai client o esegue carichi di lavoro SQL Server attivi. Viene usato solo per la sincronizzazione con il server primario e in caso contrario mantiene il database passivo in uno stato warm standby. Se vengono utilizzati i dati, ad esempio i report ai client che eseguono carichi di lavoro di SQL Server attivi o che eseguono qualsiasi lavoro diverso da quello specificato nelle condizioni del prodotto, deve trattarsi di un'istanza di SQL Server a pagamento con licenza. Nell'istanza secondaria è consentita l'attività seguente: verifiche di coerenza del database o CheckDB, backup completi, backup del log delle transazioni e dati di utilizzo delle risorse di monitoraggio. È anche possibile eseguire simultaneamente l'istanza primaria e corrispondente di ripristino di emergenza per brevi periodi di test del ripristino di emergenza ogni 90 giorni. 
    1. La licenza Active SQL Server è coperta da Software Assurance e consente di usare **un'** istanza di SQL Server secondaria passiva, con la stessa quantità di risorse di calcolo del server attivo concesso in licenza. 
-   1. La macchina virtuale SQL Server secondaria usa il [modello di licenza](virtual-machines-windows-sql-ahb.md)Bring-your-own-License (BYOL) o vantaggio Azure Hybrid (vantaggio Azure Hybrid). 
+   1. La macchina virtuale SQL Server secondaria usa la licenza di [ripristino di emergenza](virtual-machines-windows-sql-high-availability-dr.md#free-dr-replica-in-azure) nel portale di Azure.
 
 1. **È possibile modificare una VM per l'uso di una licenza di SQL Server, se è stata creata da una delle immagini della raccolta con pagamento in base al consumo?**
 
@@ -133,7 +133,7 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
    
 
 
-## <a name="administration"></a>Administration
+## <a name="administration"></a>Amministrazione
 
 1. **È possibile installare una seconda istanza di SQL Server nella stessa VM? È possibile modificare le funzionalità installate dell'istanza predefinita?**
 
@@ -163,8 +163,8 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 
 1. **Dove è possibile ottenere il supporto di installazione per modificare l'edizione o la versione di SQL Server?**
 
-  I clienti che dispongono di [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) possono ottenere i supporti di installazione da [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). I clienti che non hanno Software Assurance possono usare il supporto di installazione da un Marketplace SQL Server immagine di macchina virtuale con l'edizione desiderata.
-
+   I clienti che dispongono di [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) possono ottenere i supporti di installazione da [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). I clienti che non hanno Software Assurance possono usare il supporto di installazione da un Marketplace SQL Server immagine di macchina virtuale con l'edizione desiderata.
+   
 1. **Come si applicano gli aggiornamenti e i Service Pack a una VM di SQL Server?**
 
    Le macchine virtuali consentono di controllare il computer host e di decidere quindi quando e come applicare gli aggiornamenti. Per il sistema operativo, è possibile applicare manualmente gli aggiornamenti di Windows oppure abilitare un servizio di pianificazione definito [Applicazione automatica delle patch](virtual-machines-windows-sql-automated-patching.md). Applicazione automatica delle patch installa tutti gli aggiornamenti contrassegnati come importanti, inclusi gli aggiornamenti di SQL Server in tale categoria. Gli aggiornamenti facoltativi di SQL Server devono essere installati manualmente.
@@ -172,6 +172,12 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 1. **È possibile aggiornare l'istanza di SQL Server 2008/2008 R2 dopo averla registrata con il provider di risorse VM SQL Server?**
 
    Sì. È possibile utilizzare qualsiasi supporto di installazione per aggiornare la versione e l'edizione di SQL Server, quindi è possibile aggiornare la [modalità di estensione IaaS di SQL](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes)) da _Nessun agente_ a _completo_. In questo modo si otterrà l'accesso a tutti i vantaggi dell'estensione IaaS di SQL, ad esempio la gestibilità del portale, i backup automatici e l'applicazione automatica delle patch. 
+
+1. **Come è possibile ottenere aggiornamenti della sicurezza estesi gratuiti per la fine del supporto SQL Server 2008 e le istanze di SQL Server 2008 R2?**
+
+   È possibile ottenere [aggiornamenti della sicurezza estesi gratuiti](virtual-machines-windows-sql-server-2008-eos-extend-support.md) spostando il SQL Server così com'è in una macchina virtuale SQL di Azure. Per ulteriori informazioni, vedere la pagina relativa [alla fine delle opzioni di supporto](/sql/sql-server/end-of-support/sql-server-end-of-life-overview). 
+  
+   
 
 ## <a name="general"></a>Informazioni di carattere generale
 
@@ -194,7 +200,7 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
    
     Sì. DTC locale è supportato per SQL Server 2016 SP2 e versioni successive. Tuttavia, le applicazioni devono essere testate quando si utilizza Gruppi di disponibilità Always On, perché le transazioni in corso durante un failover avranno esito negativo e dovranno essere ritentate. DTC cluster è disponibile a partire da Windows Server 2019. 
 
-## <a name="resources"></a>resources
+## <a name="resources"></a>Risorse
 
 **Macchine virtuali Windows**:
 
@@ -202,7 +208,7 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 * [Effettuare il provisioning di una macchina virtuale Windows di SQL Server](virtual-machines-windows-portal-sql-server-provision.md)
 * [Migrazione di un database a SQL Server su una macchina virtuale di Azure](virtual-machines-windows-migrate-sql.md)
 * [Disponibilità elevata e ripristino di emergenza di SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-high-availability-dr.md)
-* [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-performance.md)
+* [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md) (Procedure consigliate sulle prestazioni per SQL Server nelle macchine virtuali di Azure)
 * [Modelli di applicazione e strategie di sviluppo per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 
 **Macchine virtuali Linux**:

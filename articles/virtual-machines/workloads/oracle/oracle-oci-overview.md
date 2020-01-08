@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: 0f35f22d6bd32d75d5c3b07d8a20b4bb7714e247
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: aacba12b32e9da75c2a4b9a20c0faa235cf6836a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71799554"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459309"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Soluzioni di applicazioni Oracle che integrano Microsoft Azure e l'infrastruttura cloud Oracle (anteprima)
 
@@ -50,7 +50,7 @@ Il diagramma seguente è una panoramica di alto livello della soluzione connessa
 
 ## <a name="preview-limitations"></a>Limiti di anteprima
 
-* La connettività tra cloud in versione di anteprima è limitata alle aree degli Stati Uniti orientali di Azure (eastus) & Regno Unito meridionale (uksouth) e di Ashburn (Stati Uniti orientali) & Londra (Regno Unito meridionale). Per Regno Unito meridionale, usare il dominio di disponibilità 1 (AD 1) in OCI quando si distribuisce l'interconnessione per le latenze più basse.
+* La connettività tra cloud in anteprima è limitata alle aree Stati Uniti orientali di Azure (eastus), Regno Unito meridionale (uksouth) e Canada centrale (canadacentral) e le aree OCI Ashburn (Stati Uniti orientali), Londra (Regno Unito meridionale) e Toronto (Canada sudorientale). Per Regno Unito meridionale, usare il dominio di disponibilità 1 (AD 1) in OCI quando si distribuisce l'interconnessione per le latenze più basse.
 
 ## <a name="networking"></a>Rete
 
@@ -66,7 +66,7 @@ La sicurezza di rete è un componente fondamentale di qualsiasi applicazione azi
 
 Inoltre, è possibile configurare gli [elenchi di sicurezza](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/securitylists.htm) nella rete del cloud virtuale OCI e nelle regole di sicurezza (collegate ai [gruppi di sicurezza di rete](../../../virtual-network/security-overview.md)di Azure). Usare queste regole per controllare il flusso di traffico tra i computer nelle reti virtuali. È possibile aggiungere regole di sicurezza di rete a livello di computer, a livello di subnet e a livello di rete virtuale.
  
-## <a name="identity"></a>identità
+## <a name="identity"></a>Identità
 
 Identity è uno dei principali pilastri della partnership tra Microsoft e Oracle. È stato eseguito un lavoro significativo per integrare [Oracle Identity Cloud Service](https://docs.oracle.com/en/cloud/paas/identity-cloud/index.html) (IDC) con [Azure Active Directory](../../../active-directory/index.yml) (Azure ad). Azure AD è il servizio Microsoft di gestione delle identità e degli accessi basato sul cloud. Consente agli utenti di accedere e accedere a diverse risorse. Azure AD consente inoltre di gestire gli utenti e le relative autorizzazioni.
 

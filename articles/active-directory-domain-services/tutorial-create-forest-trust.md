@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: f861303b7f3bc8d37caf6da0eaf2f4cef4b36ee5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bd0ec46d224e68f92b5d042826633d1efc7c336e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233597"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425426"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Esercitazione: creare un trust tra foreste in uscita per un dominio locale in Azure Active Directory Domain Services (anteprima)
 
@@ -23,7 +23,7 @@ Negli ambienti in cui non è possibile sincronizzare gli hash delle password opp
 
 ![Diagramma del trust tra foreste da Azure AD DS a servizi di dominio Active Directory locale](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Configurare DNS in un ambiente AD DS locale per supportare la connettività Azure AD DS
@@ -33,7 +33,7 @@ In questa esercitazione si apprenderà come:
 
 Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti:
 
@@ -43,6 +43,9 @@ Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti
     * Se necessario, [creare un tenant di Azure Active Directory][create-azure-ad-tenant] o [associare una sottoscrizione di Azure al proprio account][associate-azure-ad-tenant].
 * Un dominio gestito Azure Active Directory Domain Services creato con una foresta di risorse e configurato nel tenant del Azure AD.
     * Se necessario, [creare e configurare un'istanza di Azure Active Directory Domain Services][create-azure-ad-ds-instance-advanced].
+    
+    > [!IMPORTANT]
+    > Assicurarsi di creare un dominio gestito di Azure AD DS usando una foresta di *risorse* . L'opzione predefinita crea una foresta di *utenti* . Solo le foreste di risorse possono creare trust per gli ambienti locali di servizi di dominio Active Directory.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -82,6 +85,10 @@ Per configurare il trust in ingresso nel dominio servizi di dominio Active Direc
 1. Selezionare **Start | Strumenti di amministrazione | Domini Active Directory e trust**
 1. Fare clic con il pulsante destro del mouse su dominio, ad esempio *OnPrem.contoso.com*, selezionare **Proprietà**
 1. Scegliere la scheda **trust** , quindi **nuovo trust**
+
+   > [!NOTE]
+   > Se non viene visualizzata l'opzione di menu **trust** , controllare in **Proprietà** per il *tipo di foresta*. Solo le foreste di *risorse* possono creare trust. Se il tipo di foresta è *User*, non è possibile creare trust. Attualmente non è possibile modificare il tipo di foresta di un dominio gestito di Azure AD DS. È necessario eliminare e ricreare il dominio gestito come foresta di risorse.
+
 1. Immettere il nome Azure AD nome di dominio DS, ad esempio *aadds.contoso.com*, quindi fare clic su **Avanti** .
 1. Selezionare l'opzione per creare un **trust tra foreste**, quindi creare un trust in **ingresso unidirezionale** .
 1. Scegliere di creare il trust **solo per questo dominio**. Nel passaggio successivo si creerà il trust nel portale di Azure per il dominio gestito Azure AD DS.
@@ -181,7 +188,7 @@ Usando la macchina virtuale Windows Server aggiunta alla foresta delle risorse A
 1. Selezionare *FileServerAccess* nell'elenco **gruppi o nomi utente** . Nell'elenco **autorizzazioni per FileServerAccess** scegliere *Consenti* per le autorizzazioni **modifica** e **scrittura** , quindi fare clic su **OK**.
 1. Selezionare la scheda **condivisione** , quindi scegliere **condivisione avanzata...**
 1. Scegliere **Condividi questa cartella**, quindi immettere un nome memorabile per la condivisione file in **nome condivisione** , ad esempio *CrossForestShare*.
-1. Selezionare **autorizzazioni**. Nell'elenco **autorizzazioni per Everyone** scegliere **Consenti** per l'autorizzazione **modifica** .
+1. Selezionare **Autorizzazioni**. Nell'elenco **autorizzazioni per Everyone** scegliere **Consenti** per l'autorizzazione **modifica** .
 1. Fare clic su **OK** due volte e quindi su **Chiudi**.
 
 #### <a name="validate-cross-forest-authentication-to-a-resource"></a>Convalidare l'autenticazione tra foreste a una risorsa
@@ -197,7 +204,7 @@ Usando la macchina virtuale Windows Server aggiunta alla foresta delle risorse A
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Configurare DNS in un ambiente AD DS locale per supportare la connettività Azure AD DS

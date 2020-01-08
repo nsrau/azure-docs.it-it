@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 398b68221681f0d14dbcc20ac7c0cb603313eaee
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f6a7f3e4e1470bc3788ceae68f035f68f05ae449
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919464"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423545"
 ---
 # <a name="web-app-that-calls-web-apis---acquire-a-token-for-the-app"></a>App Web che chiama le API Web: acquisisce un token per l'app
 
@@ -33,7 +33,7 @@ Ora che è stato compilato l'oggetto applicazione client, questo verrà usato pe
 
 I metodi controller sono protetti da un attributo `[Authorize]` che impone agli utenti autenticati di usare l'app Web. Ecco il codice che chiama Microsoft Graph.
 
-```CSharp
+```csharp
 [Authorize]
 public class HomeController : Controller
 {
@@ -54,7 +54,7 @@ Il servizio `ITokenAcquisition` viene inserito da ASP.NET tramite l'inserimento 
 
 Di seguito è riportato un codice semplificato dell'azione di HomeController, che ottiene un token per chiamare il Microsoft Graph.
 
-```CSharp
+```csharp
 public async Task<IActionResult> Profile()
 {
  // Acquire the access token
@@ -153,7 +153,7 @@ public ModelAndView getUserFromGraph(HttpServletRequest httpRequest, HttpServlet
 
 Nell'esempio Python, il codice che chiama Microsoft Graph si trova in [app. py # L53-L62](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/48637475ed7d7733795ebeac55c5d58663714c60/app.py#L53-L62).
 
-Tenta di ottenere un token dalla cache dei token e quindi chiama l'API EB dopo aver impostato l'intestazione dell'autorizzazione. In caso contrario, viene nuovamente firmato nell'utente.
+Tenta di ottenere un token dalla cache dei token e quindi chiama l'API Web dopo aver impostato l'intestazione dell'autorizzazione. In caso contrario, viene nuovamente firmato nell'utente.
 
 ```python
 @app.route("/graphcall")

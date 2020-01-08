@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 41166d57a8ea9b9cf34f76ecce318351d5131794
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: b77cb73f08852768d10de8c76cde5e299f0776c2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559987"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75408910"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Eseguire il rendering di dati personalizzati in una mappa raster
 
@@ -22,12 +22,14 @@ Questo articolo illustra come usare il [servizio immagini statiche](https://docs
 
 Per eseguire il rendering di puntine da disegno, etichette e sovrapposizioni di geometria personalizzati, è possibile usare l'applicazione post. È possibile usare le [API del servizio dati](https://docs.microsoft.com/rest/api/maps/data) di Azure Maps per archiviare ed eseguire il rendering di sovrimpressioni.
 
+> [!Tip]
+> Spesso è molto più conveniente usare Azure Maps Web SDK per mostrare una semplice mappa in una pagina Web rispetto all'uso del servizio immagini statiche. L'SDK Web usa le tessere mappa e, a meno che l'utente non riquadri e ingrandisce la mappa, genererà spesso solo una frazione di una transazione per carico mappa. Si noti che Azure Maps Web SDK include opzioni per disabilitare la panoramica e lo zoom. Azure Maps Web SDK offre inoltre un set più completo di opzioni di visualizzazione dei dati rispetto a un servizio Web mappa statica.  
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="create-an-azure-maps-account"></a>Creare un account di Mappe di Azure
 
-Per completare le procedure descritte in questo articolo, è necessario creare prima di tutto un account Azure Maps seguendo le istruzioni in [gestire l'account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) e seguire i passaggi in [ottenere la chiave primaria](./tutorial-search-location.md#getkey) per recuperare una chiave di sottoscrizione primaria per l'account.
+Per completare le procedure descritte in questo articolo, è necessario creare prima di tutto un account Azure Maps e ottenere la chiave dell'account Maps. Per ottenere la chiave primaria per l'account, seguire le istruzioni riportate in [creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps) per creare una sottoscrizione dell'account Azure Maps e seguire i passaggi in [ottenere](quick-demo-map-app.md#get-the-primary-key-for-your-account) la chiave primaria. Per altri dettagli sull'autenticazione in mappe di Azure, vedere [gestire l'autenticazione in mappe di Azure](./how-to-manage-authentication.md).
 
 
 ## <a name="render-pushpins-with-labels-and-a-custom-image"></a>Eseguire il rendering di puntine da disegno con etichette e un'immagine personalizzata

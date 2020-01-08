@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 1abfd8af7e0ef18d4e7bcf05b4726c5d0bcb0a84
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 57351ccf0c6155a1a3532ec9e6481a724e3219aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151701"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462451"
 ---
 # <a name="workflow-automation-preview"></a>Automazione del flusso di lavoro (anteprima)
 
@@ -87,6 +87,9 @@ Per eseguire manualmente un'app per la logica, aprire una raccomandazione e fare
 
 [![attivare manualmente un'app per la logica](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
 
+## <a name="data-types-schemas"></a>Schemi dei tipi di dati
+
+Per visualizzare gli schemi di eventi non elaborati degli avvisi di sicurezza o degli eventi di raccomandazione passati all'istanza dell'app per la logica, vedere gli [schemi dei tipi di dati di automazione del flusso di lavoro](https://aka.ms/ASCAutomationSchemas). Questo può essere utile nei casi in cui non si usano i connettori di app per la logica predefiniti del Centro sicurezza indicati in precedenza, ma si usa il connettore HTTP generico dell'app per la logica. è possibile usare lo schema JSON dell'evento per analizzarlo manualmente nel modo appropriato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -98,3 +101,4 @@ Per altri materiali correlati, vedere gli articoli seguenti:
 - [Avvisi di sicurezza nel Centro sicurezza di Azure](security-center-alerts-overview.md)
 - [Informazioni sulle app per la logica di Azure](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)
 - [Connettori di App per la logica](https://docs.microsoft.com/connectors/)
+- [Schemi dei tipi di dati di automazione del flusso di lavoro](https://aka.ms/ASCAutomationSchemas)

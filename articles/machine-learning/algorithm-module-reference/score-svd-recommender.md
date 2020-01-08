@@ -1,7 +1,7 @@
 ---
 title: 'Score SVD Recommender: riferimento al modulo'
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo Score SVD Recommender nel servizio Azure Machine Learning per assegnare punteggi alle stime delle raccomandazioni per un set di dati.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo Score SVD Recommender in Azure Machine Learning per assegnare punteggi alle stime delle raccomandazioni per un set di dati.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: be590ba04de5c8ee671e7e865d04b4ea6c638c00
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 554101ac70f01f1dd92337a8cf424f8b26ca0fc9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717226"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456332"
 ---
-# <a name="score-svd-recommender"></a>Punteggio SVD Recommender
+# <a name="score-svd-recommender"></a>Score SVD Recommender
 
 Questo articolo descrive come usare il modulo Score SVD Recommender in Azure Machine Learning Designer (Preview). Utilizzare questo modulo per creare stime utilizzando un modello di raccomandazione con training basato sull'algoritmo SVD (Single value Decomposition).
 
@@ -123,4 +123,4 @@ Quando si rendere operativo il modello, in genere si modifica la modalità di st
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per il servizio Azure Machine Learning. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 

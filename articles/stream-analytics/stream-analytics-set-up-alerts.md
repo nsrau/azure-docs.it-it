@@ -1,28 +1,27 @@
 ---
 title: Impostare gli avvisi di monitoraggio per i processi di Analisi di flusso di Azure
 description: Questo articolo descrive come usare il portale di Azure per impostare il monitoraggio e gli avvisi per i processi di Analisi di flusso di Azure.
-services: stream-analytics
 author: jseb225
 ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 0fd489d856a16953a5a450a347c9737fe440ad28
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 836b7a489e3c73d745b128cbbc0c3566220ac409
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621767"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458725"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Impostare gli avvisi per i processi di Analisi di flusso di Azure
 
 È importante monitorare il processo di Analisi di flusso di Azure per garantire che l'esecuzione del processo sia continua e senza problemi. Questo articolo descrive come configurare gli avvisi per gli scenari comuni che devono essere monitorati. 
 
-È possibile definire regole per le metriche dai dati di log delle operazioni tramite il portale, nonché [a livello di programmazione](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a).
+È possibile definire regole sulle metriche dei dati dei log delle operazioni tramite il portale, nonché [a livello di codice](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a).
 
 ## <a name="set-up-alerts-in-the-azure-portal"></a>Configurare gli avvisi nel portale di Azure
-### <a name="get-alerted-when-a-job-stops-unexpectedly"></a>Ricevere un avviso quando un processo di arresto imprevisto
+### <a name="get-alerted-when-a-job-stops-unexpectedly"></a>Ricevere un avviso quando un processo viene arrestato in modo imprevisto
 
 L'esempio seguente dimostra come configurare gli avvisi per l'attivazione di uno stato di errore per il processo. Questo avviso è consigliato per tutti i processi.
 
@@ -30,7 +29,7 @@ L'esempio seguente dimostra come configurare gli avvisi per l'attivazione di uno
 
 2. Nella pagina **Processo** passare alla sezione **Monitoraggio**.  
 
-3. Selezionare **metriche**e quindi **nuova regola di avviso**.
+3. Selezionare **metrica**, quindi **nuova regola di avviso**.
 
    ![Configurazione degli avvisi di Analisi di flusso nel portale di Azure](./media/stream-analytics-set-up-alerts/stream-analytics-set-up-alerts.png)  
 
@@ -38,7 +37,7 @@ L'esempio seguente dimostra come configurare gli avvisi per l'attivazione di uno
 
    ![Selezionare il nome del segnale per l'avviso di Analisi di flusso](./media/stream-analytics-set-up-alerts/stream-analytics-condition-signal.png)  
 
-5. In **Configura logica dei segnali** impostare **Livello evento** su **Tutti** e **Stato** su **Errore**. Lasciare **evento avviato da** vuoto e selezionare **eseguita**.
+5. In **Configura logica dei segnali** impostare **Livello evento** su **Tutti** e **Stato** su **Errore**. Lasciare l' **evento avviato da** Blank e selezionare **fine**.
 
    ![Configurare la logica dei segnali per l'avviso di Analisi di flusso](./media/stream-analytics-set-up-alerts/stream-analytics-configure-signal-logic.png) 
 
@@ -60,12 +59,12 @@ Gli avvisi seguenti sono consigliati per il monitoraggio delle prestazioni del p
 
 |Metrica|Condizione|Aggregazione temporale|Soglia|Azioni correttive|
 |-|-|-|-|-|
-|% utilizzo unità di streaming|Maggiore di|Massima|80|Esistono più fattori che determinano un maggiore utilizzo in percentuale delle unità di streaming. È possibile ridimensionare con la parallelizzazione delle query o aumentare il numero di unità di streaming. Per altre informazioni, vedere [Sfruttare i vantaggi della parallelizzazione delle query in Analisi di flusso di Azure](stream-analytics-parallelization.md).|
-|Errori di runtime|Maggiore di|Totale|0|Esaminare i log di attività o di diagnostica e apportare le modifiche appropriate per input, query o output.|
-|Ritardo limite|Maggiore di|Massima|Quando il valore medio della metrica negli ultimi 15 minuti è maggiore della tolleranza per arrivo in ritardo (in secondi). Se non è stata modificata la tolleranza per arrivo in ritardo, il valore predefinito è impostato su 5 secondi.|Provare ad aumentare il numero di unità di streaming o la parallelizzazione delle query. Per altre informazioni sulle unità di streaming, vedere [Informazioni sulle unità di streaming e su come modificarle](stream-analytics-streaming-unit-consumption.md#how-many-sus-are-required-for-a-job). Per altre informazioni sulla parallelizzazione delle query, vedere [Sfruttare i vantaggi della parallelizzazione delle query in Analisi di flusso di Azure](stream-analytics-parallelization.md).|
-|Errori di deserializzazione dell'input|Maggiore di|Totale|0|Esaminare i log di attività o di diagnostica e apportare le modifiche appropriate per l'input. Per altre informazioni sui log di diagnostica, vedere [Risoluzione dei problemi di Analisi di flusso di Azure tramite i log di diagnostica](stream-analytics-job-diagnostic-logs.md)|
+|% utilizzo unità di streaming|Più di|Massimo|80|Esistono più fattori che determinano un maggiore utilizzo in percentuale delle unità di streaming. È possibile ridimensionare con la parallelizzazione delle query o aumentare il numero di unità di streaming. Per altre informazioni, vedere [Sfruttare i vantaggi della parallelizzazione delle query in Analisi di flusso di Azure](stream-analytics-parallelization.md).|
+|Errori di runtime|Più di|Totale|0|Esaminare i log di attività o di diagnostica e apportare le modifiche appropriate per input, query o output.|
+|Ritardo limite|Più di|Massimo|Quando il valore medio della metrica negli ultimi 15 minuti è maggiore della tolleranza per arrivo in ritardo (in secondi). Se non è stata modificata la tolleranza per arrivo in ritardo, il valore predefinito è impostato su 5 secondi.|Provare ad aumentare il numero di unità di streaming o la parallelizzazione delle query. Per altre informazioni sulle unità di streaming, vedere [Informazioni sulle unità di streaming e su come modificarle](stream-analytics-streaming-unit-consumption.md#how-many-sus-are-required-for-a-job). Per altre informazioni sulla parallelizzazione delle query, vedere [Sfruttare i vantaggi della parallelizzazione delle query in Analisi di flusso di Azure](stream-analytics-parallelization.md).|
+|Errori di deserializzazione dell'input|Più di|Totale|0|Esaminare i log di attività o di diagnostica e apportare le modifiche appropriate per l'input. Per altre informazioni sui log di diagnostica, vedere [Risoluzione dei problemi di Analisi di flusso di Azure tramite i log di diagnostica](stream-analytics-job-diagnostic-logs.md)|
 
-## <a name="get-help"></a>Ottenere aiuto
+## <a name="get-help"></a>Ottenere supporto
 
 Per altre informazioni dettagliate sulla configurazione degli avvisi nel portale di Azure, vedere [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) (Ricevere notifiche di avviso).  
 

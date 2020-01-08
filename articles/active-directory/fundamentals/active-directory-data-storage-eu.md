@@ -1,5 +1,5 @@
 ---
-title: Archivi dati relativi all'identità per i clienti europei - Azure Active Directory | Microsoft Docs
+title: Archiviazione dei dati Identity per i clienti europei-Azure AD
 description: Informazioni su dove Azure Active Directory archivia i dati relativi all'identità per i clienti europei.
 services: active-directory
 author: msaburnley
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 178f81cf42e5c57be4a0b69ada6560d46951a3a3
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 7360b11f41cc08c2beb3ffa227e1658881798502
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68942853"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422990"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Archivi dati relativi all'identità per i clienti europei - Azure Active Directory
 I dati di identità vengono archiviati da Azure AD in una posizione geografica in base all'indirizzo fornito dall'organizzazione quando si sottoscrive un servizio online Microsoft, ad esempio Office 365 e Azure. Per informazioni sul percorso di archiviazione dei dati di identità, è possibile usare la sezione [dove si trovano i dati?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) di Microsoft Trust Center.
@@ -30,7 +30,7 @@ Per i clienti che hanno fornito un indirizzo in Europa, Azure AD mantiene la mag
 - Le notifiche push che usano l'app Microsoft Authenticator provengono dai data center statunitensi. Inoltre, è possibile che anche i servizi specifici del fornitore del dispositivo entrino in gioco e questi servizi siano all'esterno dell'Europa.
 - I codici OATH vengono sempre convalidati negli Stati Uniti. 
 
-Per altre informazioni sulle informazioni sugli utenti raccolte dal server Azure multi-factor authentication (server di autenticazione a più fattori) e dall'autenticazione a più fattori di Azure basata sul cloud, vedere [raccolta di dati utente di Azure multi-factor authentication](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting-datacollection).
+Per altre informazioni sulle informazioni sugli utenti raccolte da Azure server Multi-Factor Authentication (server di autenticazione a più fattori) e dall'autenticazione a più fattori di Azure basata sul cloud, vedere [raccolta di dati utente multi-factor authentication di Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting-datacollection).
 
 ## <a name="microsoft-azure-active-directory-b2c-azure-ad-b2c"></a>Microsoft Azure Active Directory B2C (Azure AD B2C)
 
@@ -50,7 +50,7 @@ Azure Active Directory Domain Services archivia i dati utente nella stessa posiz
 - Elenco di domini federati approvati per l'applicazione
 - Chiave pubblica per la firma di token dell'applicazione 
 
-Per ulteriori informazioni sulla Federazione in Microsoft Exchange Server, vedere [Federazione: Articolo della Guida](https://docs.microsoft.com/exchange/federation-exchange-2013-help) di Exchange 2013.
+Per ulteriori informazioni sulla Federazione in Microsoft Exchange Server, vedere l'articolo della Guida relativa alla [Federazione: Exchange 2013](https://docs.microsoft.com/exchange/federation-exchange-2013-help) .
 
 
 ## <a name="other-considerations"></a>Altre considerazioni

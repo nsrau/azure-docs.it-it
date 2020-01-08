@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: c44c13f268a561e3094ae76757504a86627e1f58
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 6bb93c3fb6599a05978e11ef5fbc179ccfaa9ec2
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895212"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614897"
 ---
 # <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>Archiviazione con ridondanza geografica: replica tra più aree per Archiviazione di Azure
 
@@ -31,7 +31,7 @@ Alcune considerazioni da ricordare quando si usa l'archiviazione con ridondanza 
 
 - L'applicazione deve gestire l'endpoint con cui interagire quando usa l'archiviazione con ridondanza geografica e accesso in lettura.
 - Poiché la replica asincrona implica un ritardo, è possibile che le modifiche non ancora replicate nell'area secondaria vadano perse se non è possibile recuperare i dati dall'area primaria.
-- È possibile controllare l'ora dell'ultima sincronizzazione dell'account di archiviazione. L'ora dell'ultima sincronizzazione è un valore di data/ora GMT. Tutte le scritture nell'area primaria precedenti all'ora dell'ultima sincronizzazione sono state scritte correttamente nella località secondaria, vale a dire che sono disponibili per la lettura dalla località secondaria. Le scritture nell'area primaria successive all'ora dell'ultima sincronizzazione possono essere o meno già disponibili per la lettura. È possibile eseguire query su questo valore usando il [portale di Azure](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md) o una delle librerie client di Archiviazione di Azure.
+- È possibile controllare la proprietà **ora ultima sincronizzazione** per l'account di archiviazione. **L'ora dell'ultima sincronizzazione** è un valore di data/ora GMT. Tutte le Scritture primarie effettuate prima dell' **ora dell'ultima sincronizzazione** sono state scritte correttamente nella posizione secondaria, vale a dire che sono disponibili per la lettura dalla posizione secondaria. Le Scritture primarie dopo l' **ora dell'ultima sincronizzazione** potrebbero non essere ancora disponibili per le letture. È possibile eseguire query su questo valore usando PowerShell, l'interfaccia della riga di comando di Azure o una delle librerie client di archiviazione di Azure. Per altre informazioni, vedere **ottenere l'ora dell'ultima sincronizzazione** nella [progettazione di applicazioni a disponibilità elevata tramite l'archiviazione con ridondanza geografica e accesso in lettura](storage-designing-ha-apps-with-ragrs.md#getting-the-last-sync-time).
 - Se si avvia il failover di un account (anteprima) nell'area secondaria, per un account di archiviazione con ridondanza geografica oppure con ridondanza geografica e accesso in lettura, l'accesso in scrittura a tale account viene ripristinato al termine del failover. Per altre informazioni, vedere [Ripristino di emergenza e failover dell'account di archiviazione (anteprima)](storage-disaster-recovery-guidance.md).
 - L'archiviazione con ridondanza geografica e accesso in lettura è pensata per rispondere a requisiti di disponibilità elevata. Per indicazioni sulla scalabilità, vedere l'[elenco di controllo delle prestazioni](storage-performance-checklist.md).
 - Per suggerimenti su come progettare la disponibilità elevata con l'archiviazione con ridondanza geografica e accesso in lettura, vedere [Progettazione di applicazioni a disponibilità elevata con RA-GRS](storage-designing-ha-apps-with-ragrs.md).

@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: 2448550cf35f92bc8d91bc6ad9d5b22cc90b5ae0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 47bcc9a4f906fa1e0cc0560cdbd2e0cebec481ab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494303"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435368"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Integrare Apache Spark e Apache Hive con il connettore del warehouse di hive
 
@@ -38,7 +38,7 @@ Di seguito sono riportate alcune delle operazioni supportate dal connettore del 
 
 Seguire questa procedura per configurare il connettore del warehouse di hive tra un cluster Spark e un cluster Interactive query in Azure HDInsight:
 
-### <a name="create-clusters"></a>Creare i cluster
+### <a name="create-clusters"></a>Creare cluster
 
 1. Creare un cluster HDInsight Spark **4,0** con un account di archiviazione e una rete virtuale di Azure personalizzata. Per informazioni sulla creazione di un cluster in una rete virtuale di Azure, vedere [aggiungere HDInsight a una rete virtuale esistente](../../hdinsight/hdinsight-plan-virtual-network-deployment.md#existingvnet).
 
@@ -46,7 +46,7 @@ Seguire questa procedura per configurare il connettore del warehouse di hive tra
 
 ### <a name="modify-hosts-file"></a>Modificare il file degli host
 
-Copiare le informazioni sul nodo dal file `/etc/hosts` in headnode0 del cluster Interactive query e concatenare le informazioni al file `/etc/hosts` nel headnode0 del cluster Spark. Questo passaggio consente al cluster Spark di risolvere gli indirizzi IP dei nodi nel cluster Interactive query. Visualizzare il contenuto del file aggiornato con `cat /etc/hosts`. L'output finale dovrebbe avere un aspetto simile a quello mostrato nella schermata seguente.
+Copiare le informazioni sul nodo dal file di `/etc/hosts` in headnode0 del cluster interattivo di query e concatenare le informazioni al file di `/etc/hosts` nella headnode0 del cluster Spark. Questo passaggio consente al cluster Spark di risolvere gli indirizzi IP dei nodi nel cluster Interactive query. Visualizzare il contenuto del file aggiornato con `cat /etc/hosts`. L'output finale dovrebbe avere un aspetto simile a quello mostrato nella schermata seguente.
 
 ![il connettore del warehouse di hive ospita il file](./media/apache-hive-warehouse-connector/hive-warehouse-connector-hosts-file.png)
 
@@ -91,7 +91,7 @@ Salvare le modifiche e riavviare i componenti in base alle esigenze.
 
 È possibile scegliere tra alcuni metodi diversi per connettersi al cluster Interactive query ed eseguire query usando il connettore del warehouse di hive. I metodi supportati includono gli strumenti seguenti:
 
-* [Shell Spark](../spark/apache-spark-shell.md)
+* [spark-shell](../spark/apache-spark-shell.md)
 * PySpark
 * Spark-Submit
 * [Zeppelin](../spark/apache-spark-zeppelin-notebook.md)
@@ -107,11 +107,11 @@ Per avviare una sessione di Spark-Shell, seguire questa procedura:
 
     ```bash
     spark-shell --master yarn \
-    --jars /usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-1.0.0.3.0.2.1-8.jar \
+    --jars /usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-<STACK_VERSION>.jar \
     --conf spark.security.credentials.hiveserver2.enabled=false
     ```
 
-    Verrà visualizzato un messaggio di benvenuto e un prompt `scala>` in cui è possibile immettere i comandi.
+    Verrà visualizzato un messaggio di benvenuto e una richiesta di `scala>` in cui è possibile immettere i comandi.
 
 1. Dopo l'avvio di Spark-Shell, è possibile avviare un'istanza del connettore del warehouse di hive usando i comandi seguenti:
 
@@ -132,7 +132,7 @@ Il Enterprise Security Package (ESP) fornisce funzionalità di livello aziendale
 
     ```bash
     spark-shell --master yarn \
-    --jars /usr/hdp/3.0.1.0-183/hive_warehouse_connector/hive-warehouse-connector-assembly-1.0.0.3.0.1.0-183.jar \
+    --jars /usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-<STACK_VERSION>.jar \
     --conf spark.security.credentials.hiveserver2.enabled=false
     --conf spark.hadoop.hive.llap.daemon.service.hosts='<LLAP_APP_NAME>'
     --conf spark.sql.hive.hiveserver2.jdbc.url='jdbc:hive2://<ZOOKEEPER_QUORUM>;serviceDiscoveryMode=zookeeper;zookeeperNamespace=hiveserver2-interactive'
@@ -237,7 +237,7 @@ Usare **CTRL + C** per arrestare netcat nella seconda sessione SSH. Usare `:q` p
     INSERT INTO demo VALUES ('InteractiveQuery');
     ```
 
-1. Visualizzare il contenuto della tabella con il comando seguente. Prima di applicare il criterio, nella tabella `demo` viene visualizzata la colonna full.
+1. Visualizzare il contenuto della tabella con il comando seguente. Prima di applicare il criterio, nella tabella `demo` viene visualizzata la colonna completo.
 
     ```scala
     hive.executeQuery("SELECT * FROM demo").show()
@@ -246,14 +246,14 @@ Usare **CTRL + C** per arrestare netcat nella seconda sessione SSH. Usare `:q` p
     ![tabella demo prima di applicare i criteri Ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-before-ranger-policy.png)
 
 1. Applicare un criterio di mascheramento delle colonne che mostra solo gli ultimi quattro caratteri della colonna.  
-    1. Passare all'interfaccia utente di amministrazione di Ranger a `https://CLUSTERNAME.azurehdinsight.net/ranger/`.
+    1. Passare all'interfaccia utente di amministrazione di Ranger all'`https://CLUSTERNAME.azurehdinsight.net/ranger/`.
     1. Fare clic sul servizio Hive per il cluster in **hive**.
         ](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png) di gestione del servizio ![Ranger
     1. Fare clic sulla scheda **maschera** e quindi su **Aggiungi nuovo criterio**
 
         ![elenco dei criteri hive del connettore warehouse di hive](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
 
-    a. Specificare un nome di criterio desiderato. Selezione database: **predefinito**, tabella hive: **demo**, colonna hive: **nome**, utente: **rsadmin2**, tipi di accesso: **Seleziona**e **maschera parziale: Mostra gli ultimi 4** dal menu **Opzioni di selezione maschera** . Fare clic su **Aggiungi**.
+    a. Specificare un nome di criterio desiderato. Selezione database: **predefinito**, tabella hive: **demo**, colonna hive: **nome**, utente: **rsadmin2**, tipi di accesso: **Seleziona**e **maschera parziale: Mostra gli ultimi 4** dal menu **Opzioni di selezione maschera** . Scegliere **Aggiungi**.
                 ![Crea criterio](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
 1. Visualizzare di nuovo il contenuto della tabella. Dopo aver applicato i criteri Ranger, è possibile visualizzare solo gli ultimi quattro caratteri della colonna.
 

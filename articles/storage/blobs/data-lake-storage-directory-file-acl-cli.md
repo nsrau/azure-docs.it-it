@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 11/24/2019
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: dcd75cfefd53b3c9104052146607869515e1c86e
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 596f8334b647daf6fe3a15521f7caeecb0c0e303
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534288"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462592"
 ---
-# <a name="use-azure-cli-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>Usare l'interfaccia della riga di comando di Azure per i file & ACL in Azure Data Lake Storage Gen2 (anteprima)
+# <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Usare l'interfaccia della riga di comando di Azure per gestire directory, file e ACL in Azure Data Lake Storage Gen2 (anteprima)
 
 Questo articolo illustra come usare l'interfaccia della [riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) per creare e gestire directory, file e autorizzazioni negli account di archiviazione che hanno uno spazio dei nomi gerarchico. 
 
@@ -198,7 +198,7 @@ Questo esempio elimina un file denominato `my-file.txt`
 az storage blob delete -c my-file-system -b my-file.txt --account-name mystorageaccount 
 ```
 
-## <a name="manage-permissions"></a>Gestisci autorizzazioni
+## <a name="manage-permissions"></a>Gestione autorizzazioni
 
 È possibile ottenere, impostare e aggiornare le autorizzazioni di accesso di directory e file.
 

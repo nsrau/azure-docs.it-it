@@ -1,18 +1,15 @@
 ---
 title: Ottenere gli eventi di integrità per le risorse tramite l'API REST di Azure | Microsoft Docs
 description: Usare le API REST di Azure per ottenere gli eventi di integrità per le risorse di Azure.
-author: stephbaron
-ms.author: stbaron
-ms.service: service-health
 ms.custom: REST
 ms.topic: article
 ms.date: 06/06/2017
-ms.openlocfilehash: 6d83aed6910127ceb34b9a694f48ca9c19ab6d18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 353bd65b0466902e450e38677a350a177a1d602c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60790913"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451383"
 ---
 # <a name="get-resource-health-using-the-rest-api"></a>Ottenere Integrità risorse tramite l'API REST 
 
@@ -32,14 +29,14 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/microsoft
 
 Gli argomenti seguenti sono obbligatori: 
 
-|Intestazione della richiesta|Descrizione|  
+|Intestazione della richiesta|Description|  
 |--------------------|-----------------|  
-|*Content-Type:*|Richiesto. Impostare su `application/json`.|  
-|*Authorization:*|Richiesto. Impostare su un [token di accesso](/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer` valido. |  
+|*Content-Type:*|Obbligatorio. Impostare su `application/json`.|  
+|*Authorization:*|Obbligatorio. Impostare su un token di [accesso](/rest/api/azure/#authorization-code-grant-interactive-clients)`Bearer` valido. |  
 
 ### <a name="uri-parameters"></a>Parametri URI
 
-| NOME | Descrizione |
+| Nome | Description |
 | :--- | :---------- |
 | subscriptionId | ID sottoscrizione che identifica una sottoscrizione di Azure. Se sono disponibili più sottoscrizioni, vedere [Uso di più sottoscrizioni](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | api-version | Versione dell'API da usare per la richiesta.<br /><br /> Questo documento illustra la versione api-version `2015-04-01`, inclusa nell'URL precedente.  |

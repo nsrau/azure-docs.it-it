@@ -1,25 +1,16 @@
 ---
-title: Modificare le impostazioni degli attori di Azure Service Fabric | Microsoft Docs
+title: Modificare le impostazioni di KVSActorStateProvider
 description: Informazioni sulla configurazione di attori con stato di tipo KVSActorStateProvider in Service Fabric di Azure.
-services: Service-Fabric
-documentationcenter: .net
 author: sumukhs
-manager: chackdan
-editor: ''
-ms.assetid: dbed72f4-dda5-4287-bd56-da492710cd96
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: 8b10ef18fd389179a4f5422783606c45fa2e0d32
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cdb115bd57cf3d5af4388f4efa03c2522feef9ca
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60728050"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609775"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Configurare KVSActorStateProvider di Reliable Actors
 È possibile modificare la configurazione predefinita di KVSActorStateProvider cambiando il file settings.xml generato nella radice del pacchetto di Microsoft Visual Studio all'interno della cartella Config per l'attore specificato.
@@ -49,8 +40,8 @@ La configurazione predefinita viene generata dal modello di Visual Studio e dovr
 ### <a name="section-name"></a>Nome della sezione
 &lt;ActorName&gt;ServiceReplicatorConfig
 
-### <a name="configuration-names"></a>Nomi delle configurazioni
-| Name | Unità | Valore predefinito | Note |
+### <a name="configuration-names"></a>Nomi di configurazione
+| Nome | Unità | Valore predefinito | Osservazioni |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Secondi |0,015 |Periodo di tempo per cui il replicatore, dopo aver ricevuto un'operazione, attende presso il replicatore secondario prima di inviare un acknowledgement al replicatore principale. Gli altri acknowledgement relativi alle operazioni elaborate all'interno di questo intervallo vengono inviati come risposta unica. |
 | ReplicatorEndpoint |N/D |Nessun valore predefinito: parametro obbligatorio |Indirizzo IP e porta che il replicatore principale/secondario userà per comunicare con altri replicatori nel set di repliche. Deve fare riferimento a un endpoint di risorsa TCP nel manifesto del servizio. Per sapere di più sulla definizione delle risorse dell'endpoint nel manifesto del servizio, vedere [Specificare le risorse in un manifesto del servizio](service-fabric-service-manifest-resources.md) . |
@@ -66,8 +57,8 @@ La configurazione predefinita viene generata dal modello di Visual Studio e dovr
 ### <a name="section-name"></a>Nome della sezione
 &lt;ActorName&gt;ServiceLocalStoreConfig
 
-### <a name="configuration-names"></a>Nomi delle configurazioni
-| NOME | Unità | Valore predefinito | Note |
+### <a name="configuration-names"></a>Nomi di configurazione
+| Nome | Unità | Valore predefinito | Osservazioni |
 | --- | --- | --- | --- |
 | MaxAsyncCommitDelayInMilliseconds |Millisecondi |200 |Intervallo massimo di invio in batch per i commit durevoli nell'archivio locale. |
 | MaxVerPages |Numero di pagine |16384 |Numero massimo di pagine della versione nel database dell'archivio locale. Determina il numero massimo di transazioni in sospeso. |
@@ -94,7 +85,7 @@ La configurazione predefinita viene generata dal modello di Visual Studio e dovr
    </Section>
 </Settings>
 ```
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 Il parametro BatchAcknowledgementInterval controlla la latenza di replica. Il valore '0' determina la latenza più bassa possibile a scapito della velocità effettiva, in quanto è necessario inviare ed elaborare una maggiore quantità di messaggi di acknowledgement, ciascuno dei quali contenente un numero minore di acknowledgement.
 Più alto è il valore di BatchAcknowledgementInterval, maggiore sarà la velocità effettiva di replica complessiva, ma con una latenza delle operazioni più elevata. Questo ha un impatto diretto sulla latenza dei commit delle transazioni.
 

@@ -1,25 +1,14 @@
 ---
-title: Esercitazione sull'aggiornamento di un'app di Service Fabric | Documentazione Microsoft
+title: Esercitazione sull'aggiornamento dell'app Service Fabric
 description: Questo articolo esamina l'esperienza di distribuzione di un'applicazione di Service Fabric, la modifica del codice e l'implementazione di un aggiornamento tramite Visual Studio.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: a3181a7a-9ab1-4216-b07a-05b79bd826a4
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: 5e693a219c4a430f742ebd27878518ebb99ce5da
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: db814b972db1aee56be0858c9ff5d1c382640642
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167378"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464817"
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Esercitazione sull'aggiornamento di un'applicazione di Service Fabric tramite Visual Studio
 > [!div class="op_single_selector"]
@@ -32,7 +21,7 @@ ms.locfileid: "72167378"
 
 Azure Service Fabric semplifica il processo di aggiornamento delle applicazioni cloud garantendo che solo i servizi modificati vengano aggiornati e che l'integrità delle applicazioni venga monitorata durante l'intero processo di aggiornamento. Se rileva un problema, esegue automaticamente il rollback dell'applicazione alla versione precedente. Gli aggiornamenti delle applicazioni di Service Fabric, inoltre, sono *privi di tempi di inattività*. Questa esercitazione illustra come completare un aggiornamento in sequenza da Visual Studio.
 
-## <a name="step-1-build-and-publish-the-visual-objects-sample"></a>Passaggio 1: Compilare e pubblicare l'esempio di oggetti visivi
+## <a name="step-1-build-and-publish-the-visual-objects-sample"></a>Passaggio 1: creare e pubblicare l'applicazione Oggetti visivi di esempio
 Innanzitutto scaricare l'applicazione [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Actors/VisualObjects) da GitHub. Quindi compilare e pubblicare l'applicazione facendo clic con il pulsante destro del mouse sul progetto dell'applicazione, **VisualObjects**, e selezionando il comando **Pubblica** dalla voce di menu Service Fabric.
 
 ![Menu di scelta rapida per un'applicazione di Service Fabric][image1]
@@ -43,7 +32,7 @@ Selezionando **Pubblica** viene visualizzata una finestra popup in cui è possib
 
 Fare clic su **Pubblica** nella finestra di dialogo. È ora possibile usare [Service Fabric Explorer per visualizzare il cluster e l'applicazione](service-fabric-visualizing-your-cluster.md). L'applicazione Visual Objects include un servizio Web a cui è possibile accedere digitando [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) nella barra degli indirizzi del browser.  Sullo schermo verranno visualizzati dieci oggetti visivi mobili.
 
-**NOTA:** Se si esegue la distribuzione nel profilo `Cloud.xml` (Azure Service Fabric), l'applicazione deve essere disponibile all'indirizzo **http://{nomeservicefabric}. { Region}. cloudapp. Azure. com: 8081/visualobjects/** . Assicurarsi che `8081/TCP` sia stato configurato nel servizio di bilanciamento del carico (il servizio di bilanciamento del carico si trova nello stesso gruppo di risorse dell'istanza di Service Fabric).
+**NOTA:** in caso di distribuzione nel profilo `Cloud.xml` (Azure Service Fabric), l'applicazione deve quindi essere disponibile all'indirizzo **http://{NomeServiceFabric}.{Area}.cloudapp.azure.com:8081/visualobjects/** . Assicurarsi che `8081/TCP` sia stato configurato nel servizio di bilanciamento del carico (il servizio di bilanciamento del carico si trova nello stesso gruppo di risorse dell'istanza di Service Fabric).
 
 ## <a name="step-2-update-the-visual-objects-sample"></a>Passaggio 2: aggiornare l'applicazione Oggetti visivi di esempio
 È possibile osservare come con la versione distribuita al passaggio 1 gli oggetti visivi non ruotino. L'applicazione può essere aggiornata in modo che gli oggetti visivi ruotino.
@@ -62,7 +51,7 @@ Gli strumenti di Visual Studio possono eseguire il rollup automatico delle versi
 
 Salvare le modifiche e controllare la casella **Aggiorna l'applicazione** .
 
-## <a name="step-3--upgrade-your-application"></a>Passaggio 3:  Aggiornare l'applicazione
+## <a name="step-3--upgrade-your-application"></a>Passaggio 3: Aggiornare l'applicazione
 È consigliabile acquisire familiarità con i [parametri di aggiornamento dell'applicazione](service-fabric-application-upgrade-parameters.md) e con il [processo di aggiornamento](service-fabric-application-upgrade.md) per conoscere i vari parametri di aggiornamento, i valori di timeout e i criteri di integrità applicabili. Per questa procedura dettagliata si usa l'impostazione predefinita per il criterio di valutazione dell'integrità del servizio (modalità UnMonitored). È possibile configurare queste impostazioni selezionando l'opzione **Configura le impostazioni di aggiornamento** e modificando i parametri in base alle esigenze.
 
 È ora possibile avviare l'aggiornamento dell'applicazione selezionando il pulsante **Pubblica**. L'applicazione viene aggiornata alla versione 2.0.0, che supporta la rotazione degli oggetti. Service Fabric aggiorna un dominio di aggiornamento alla volta (alcuni oggetti vengono aggiornati prima, altri dopo) e durante l'aggiornamento il servizio rimane accessibile. L'accesso al servizio può essere controllato tramite il client (browser).  

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 090a066afb24c4776f9844b8850264ffad842c59
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 57bc60cab7e6980f7051af6fc4685bd2a426f4ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60350159"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422425"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Operazioni di Azure Active Directory Connect Health
 Questo argomento descrive le varie operazioni che è possibile eseguire tramite Azure Active Directory (Azure AD) Connect Health.
@@ -32,7 +32,6 @@ Questo argomento descrive le varie operazioni che è possibile eseguire tramite 
 > [!NOTE]
 > Le notifiche di posta elettronica sono abilitate per impostazione predefinita.
 >
->
 
 ### <a name="to-enable-azure-ad-connect-health-email-notifications"></a>Per abilitare le notifiche di posta elettronica di Azure AD Connect Health
 1. Aprire il pannello **Avvisi** per il servizio per cui si desidera ricevere una notifica di posta elettronica.
@@ -41,6 +40,13 @@ Questo argomento descrive le varie operazioni che è possibile eseguire tramite 
 4. Selezionare la casella di controllo per fare in modo che tutti gli amministratori globali ricevano notifiche di posta elettronica.
 5. Se si desidera ricevere notifiche di posta elettronica ad altri indirizzi di posta elettronica, specificarli nella casella **Destinatari di posta elettronica aggiuntivi**. Per rimuovere un indirizzo di posta elettronica da questo elenco, fare clic con il pulsante destro del mouse sulla voce interessata e scegliere **Elimina**.
 6. Per finalizzare le modifiche, fare clic su **Salva**. Le modifiche diventano effettive dopo il salvataggio.
+
+>[!NOTE] 
+> Quando si verificano problemi durante l'elaborazione delle richieste di sincronizzazione nel servizio back-end, questo servizio invia un messaggio di posta elettronica di notifica con i dettagli dell'errore agli indirizzi di posta elettronica dei contatti amministrativi del tenant. I clienti hanno inviato commenti e suggerimenti che, in alcuni casi, il volume di questi messaggi è eccessivamente grande, quindi si sta cambiando il modo in cui vengono inviati i messaggi. 
+>
+> Anziché inviare un messaggio per ogni errore di sincronizzazione ogni volta che si verifica, verrà inviato un digest giornaliero di tutti gli errori restituiti dal servizio back-end. Questo consente ai clienti di elaborare questi errori in modo più efficiente e di ridurre il numero di messaggi di errore duplicati.
+>
+> Si prevede che questa modifica venga implementata il 15 gennaio 2020.
 
 ## <a name="delete-a-server-or-service-instance"></a>Eliminare un server o un'istanza del servizio
 
@@ -106,7 +112,7 @@ Azure AD Connect Health supporta i ruoli predefiniti seguenti:
 | --- | --- |
 | Proprietario |I proprietari possono *gestire l'accesso* (ad esempio assegnare ruoli a un utente o gruppo), *visualizzare tutte le informazioni* (ad esempio visualizzare gli avvisi) dal portale e *modificare le impostazioni* (ad esempio le notifiche di posta elettronica) all'interno di Azure AD Connect Health. <br>Per impostazione predefinita, gli amministratori globali di Azure AD vengono assegnati a questo ruolo e questa assegnazione non è modificabile. |
 | Collaboratore |I collaboratori possono *visualizzare tutte le informazioni* (ad esempio visualizzare gli avvisi) dal portale e *modificare le impostazioni* (ad esempio le notifiche di posta elettronica) all'interno di Azure AD Connect Health. |
-| Lettore |I lettori possono *visualizzare tutte le informazioni* (ad esempio visualizzare gli avvisi) dal portale all'interno di Azure AD Connect Health. |
+| Reader |I lettori possono *visualizzare tutte le informazioni* (ad esempio visualizzare gli avvisi) dal portale all'interno di Azure AD Connect Health. |
 
 Tutti gli altri ruoli, ad esempio gli amministratori dell'accesso utente o gli utenti DevTest Labs, anche se disponibili nell'esperienza del portale, non influiscono sull'accesso all'interno di Azure AD Connect Health.
 

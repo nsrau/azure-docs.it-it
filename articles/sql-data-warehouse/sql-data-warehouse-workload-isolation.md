@@ -11,12 +11,12 @@ ms.date: 11/27/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 82270c126d8a0894cd3a388dcab62017ed63c2cd
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: cd1d57643f9a1eb7c50d0de06d42fbbcec085f34
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974649"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458775"
 ---
 # <a name="sql-data-warehouse-workload-group-isolation-preview"></a>Isolamento del gruppo di carico di lavoro SQL Data Warehouse (anteprima)
 
@@ -32,18 +32,18 @@ Nelle sezioni seguenti viene evidenziato in che modo i gruppi del carico di lavo
 
 L'isolamento del carico di lavoro significa che le risorse sono riservate esclusivamente per un gruppo di carico di lavoro.  Per ottenere l'isolamento del carico di lavoro, è necessario configurare il parametro MIN_PERCENTAGE_RESOURCE su un valore maggiore di zero nella sintassi [create workload Group](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) .  Per i carichi di lavoro di esecuzione continua che devono essere conformi a contratti di sicurezza limitati, l'isolamento garantisce che le risorse siano sempre disponibili per il gruppo del carico di lavoro 
 
-La configurazione dell'isolamento del carico di lavoro definisce in modo implicito un livello di concorrenza garantito.  Con un MIN_PERCENTAGE_RESOURCE impostato sul 30% e REQUEST_MIN_RESOURCE_GRANT_PERCENT impostato su 2%, per il gruppo del carico di lavoro viene garantito un livello di concorrenza pari a 15.  Prendere in considerazione il metodo seguente per determinare la concorrenza garantita:
+La configurazione dell'isolamento del carico di lavoro definisce in modo implicito un livello di concorrenza garantito. Con un MIN_PERCENTAGE_RESOURCE impostato sul 30% e REQUEST_MIN_RESOURCE_GRANT_PERCENT impostato su 2%, per il gruppo del carico di lavoro viene garantito un livello di concorrenza pari a 15.  Prendere in considerazione il metodo seguente per determinare la concorrenza garantita:
 
 [Concorrenza garantita] = [`MIN_PERCENTAGE_RESOURCE`]/[`REQUEST_MIN_RESOURCE_GRANT_PERCENT`]
 
 > [!NOTE] 
-> Per min_percentage_resource sono disponibili valori minimi validi per il livello di servizio.  Per ulteriori informazioni, vedere [valori effettivi](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest#effective-values) .
+> Per min_percentage_resource sono disponibili valori minimi validi per il livello di servizio.  Per ulteriori informazioni, vedere [valori effettivi](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest#effective-values) .
 
 In assenza di isolamento del carico di lavoro, le richieste funzionano nel pool di risorse [condiviso](#shared-pool-resources) .  L'accesso alle risorse nel pool condiviso non è garantito e viene assegnato in base alla [priorità](sql-data-warehouse-workload-importance.md) .
 
-La configurazione dell'isolamento del carico di lavoro deve essere eseguita con cautela poiché le risorse vengono allocate al gruppo del carico di lavoro anche se non sono presenti richieste attive nel gruppo del carico di lavoro.  L'isolamento con configurazione eccessiva può causare un utilizzo complessivo del sistema ridotto.
+La configurazione dell'isolamento del carico di lavoro deve essere eseguita con cautela poiché le risorse vengono allocate al gruppo del carico di lavoro anche se non sono presenti richieste attive nel gruppo del carico di lavoro. L'isolamento con configurazione eccessiva può causare un utilizzo complessivo del sistema ridotto.
 
-Gli utenti devono evitare una soluzione di gestione del carico di lavoro che configuri l'isolamento del carico di lavoro 100%: l'isolamento del 100% viene effettuato quando la somma di min_percentage_resource configurata in tutti i 100 gruppi del carico di lavoro  Questo tipo di configurazione è eccessivamente restrittiva e rigida, lasciando spazio sufficiente per le richieste di risorse accidentalmente classificate in modo errato.  È disponibile un provisioning per consentire l'esecuzione di una richiesta da gruppi di carico di lavoro non configurati per l'isolamento.  Le risorse allocate a questa richiesta vengono visualizzate come zero nei sistemi DMV e prendono in prestito un livello smallrc di concessione di risorse da risorse riservate del sistema.
+Gli utenti devono evitare una soluzione di gestione del carico di lavoro che configuri l'isolamento del carico di lavoro 100%: l'isolamento del 100% viene effettuato quando la somma di min_percentage_resource configurata in tutti i 100 gruppi del carico di lavoro  Questo tipo di configurazione è eccessivamente restrittiva e rigida, lasciando spazio sufficiente per le richieste di risorse accidentalmente classificate in modo errato. È disponibile un provisioning per consentire l'esecuzione di una richiesta da gruppi di carico di lavoro non configurati per l'isolamento. Le risorse allocate a questa richiesta vengono visualizzate come zero nei sistemi DMV e prendono in prestito un livello smallrc di concessione di risorse da risorse riservate del sistema.
 
 > [!NOTE] 
 > Per garantire un utilizzo ottimale delle risorse, prendere in considerazione una soluzione di gestione del carico di lavoro che sfrutta un certo isolamento per garantire che i contratti di contratto vengano soddisfatti e combinati con le risorse condivise a cui si accede in base all' [importanza](sql-data-warehouse-workload-importance.md)
@@ -57,7 +57,7 @@ La configurazione del contenimento del carico di lavoro definisce in modo implic
 [Massima concorrenza] = [`CAP_PERCENTAGE_RESOURCE`]/[`REQUEST_MIN_RESOURCE_GRANT_PERCENT`]
 
 > [!NOTE] 
-> Il CAP_PERCENTAGE_RESOURCE effettivo di un gruppo di carico di lavoro non raggiungerà il 100% quando verranno creati gruppi di carico di lavoro con MIN_PERCENTAGE_RESOURCE a un livello maggiore di zero.  Vedere [sys. dm_workload_management_workload_groups_stats](https://review.docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest) per i valori di runtime effettivi.
+> Il CAP_PERCENTAGE_RESOURCE effettivo di un gruppo di carico di lavoro non raggiungerà il 100% quando verranno creati gruppi di carico di lavoro con MIN_PERCENTAGE_RESOURCE a un livello maggiore di zero.  Vedere [sys. dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest) per i valori di runtime effettivi.
 
 ## <a name="resources-per-request-definition"></a>Risorse per definizione di richiesta
 
@@ -71,7 +71,7 @@ Come la scelta di una classe di risorse, la configurazione di REQUEST_MIN_RESOUR
 La configurazione di REQUEST_MAX_RESOURCE_GRANT_PERCENT su un valore maggiore di REQUEST_MIN_RESOURCE_GRANT_PERCENT consente al sistema di allocare più risorse per ogni richiesta.  Durante la pianificazione di una richiesta, il sistema determina l'allocazione effettiva di risorse alla richiesta, che è tra REQUEST_MIN_RESOURCE_GRANT_PERCENT e REQUEST_MAX_RESOURCE_GRANT_PERCENT, in base alla disponibilità delle risorse nel pool condiviso e al carico corrente sul sistema.  Quando la query è pianificata, le risorse devono esistere nel [pool condiviso](#shared-pool-resources) di risorse.  
 
 > [!NOTE] 
-> REQUEST_MIN_RESOURCE_GRANT_PERCENT e REQUEST_MAX_RESOURCE_GRANT_PERCENT hanno valori effettivi che dipendono dai valori di MIN_PERCENTAGE_RESOURCE e CAP_PERCENTAGE_RESOURCE effettivi.  Vedere [sys. dm_workload_management_workload_groups_stats](https://review.docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest) per i valori di runtime effettivi.
+> REQUEST_MIN_RESOURCE_GRANT_PERCENT e REQUEST_MAX_RESOURCE_GRANT_PERCENT hanno valori effettivi che dipendono dai valori di MIN_PERCENTAGE_RESOURCE e CAP_PERCENTAGE_RESOURCE effettivi.  Vedere [sys. dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest) per i valori di runtime effettivi.
 
 ## <a name="execution-rules"></a>Regole di esecuzione
 

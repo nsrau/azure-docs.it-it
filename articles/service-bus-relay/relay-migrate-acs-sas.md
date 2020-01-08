@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione dall'autorizzazione del Servizio di controllo di accesso di Azure Active Directory all'autorizzazione con firma di accesso condiviso | Microsoft Docs
+title: "Inoltro di Azure: eseguire la migrazione a un'autorizzazione di firma di accesso condiviso"
 description: Eseguire la migrazione di applicazioni dal Servizio di controllo di accesso alla firma di accesso condiviso
 services: service-bus-relay
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 12/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 7f71b6884413309e6806658f25313c22e074a71b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8aec2483f39f698a62be60f6da6018f8981df423
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64686389"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355043"
 ---
-# <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Eseguire la migrazione dall'autorizzazione del Servizio di controllo di accesso di Azure Active Directory all'autorizzazione con firma di accesso condiviso
+# <a name="azure-relay---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Inoltro di Azure: eseguire la migrazione dal servizio di controllo di accesso Azure Active Directory all'autorizzazione di firma di accesso condiviso
 
 Per le applicazioni di Inoltro di Azure è sempre stato possibile scegliere tra due diversi modelli di autorizzazione: il modello token con [firma di accesso condiviso (SAS)](../service-bus-messaging/service-bus-sas.md) fornito direttamente dal servizio di inoltro e un modello federato in cui la gestione delle regole di autorizzazione viene eseguita all'interno del Servizio di controllo di accesso di [Azure Active Directory](/azure/active-directory/); i token ottenuti dal Servizio di controllo di accesso vengono passati al servizio di inoltro per autorizzare l'accesso alle funzionalità desiderate.
 

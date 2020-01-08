@@ -1,19 +1,14 @@
 ---
 title: Informazioni sulle notifiche per l'integrità del servizio.
 description: Le notifiche sull'integrità del servizio consentono di visualizzare i messaggi sull'integrità del servizio pubblicati da Microsoft Azure.
-author: stephbaron
-services: monitoring
-ms.service: azure-monitor
-ms.topic: conceptual
+ms.topic: article
 ms.date: 4/12/2018
-ms.author: stbaron
-ms.subservice: logs
-ms.openlocfilehash: b41c2cdc54ab5eecdc4503cbd98e69932c901a3d
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: f2d79dc920129241c801c75cc9009b3ba8f34b78
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007099"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451563"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Visualizzare le notifiche sull'integrità del servizio tramite il portale di Azure
 
@@ -29,13 +24,13 @@ Sono disponibili varie classi di notifiche sull'integrità del servizio:
 
 Ogni notifica sull'integrità del servizio contiene informazioni dettagliate sull'ambito e sull'effetto sulle risorse. I dettagli includono:
 
-Nome proprietà | DESCRIZIONE
+Nome proprietà | Description
 -------- | -----------
 channels | Uno dei valori seguenti: **Admin** o **Operation**.
 correlationId | In genere un GUID in formato stringa. Gli eventi che appartengono alla stessa azione in genere condividono lo stesso correlationId.
 eventDataId | Identificatore univoco di un evento.
 eventName | Titolo di un evento.
-necessario | Livello di un evento.
+level | Livello di un evento.
 resourceProviderName | Nome del provider di risorse della risorsa interessata.
 resourceType| Tipo della risorsa interessata.
 subStatus | In genere il codice di stato HTTP della chiamata REST corrispondente, ma può includere anche altre stringhe che descrivono uno stato secondario. Ad esempio: OK (codice di stato HTTP: 200), Created (codice di stato HTTP: 201), Accepted (codice di stato HTTP: 202), No Content (codice di stato HTTP: 204), Bad Request (codice di stato HTTP: 400), Not Found (codice di stato HTTP: 404), Conflict (codice di stato HTTP: 409), Internal Server Error (codice di stato HTTP: 500), Service Unavailable (codice di stato HTTP: 503), Gateway Timeout (codice di stato HTTP: 504).
@@ -53,7 +48,7 @@ Properties.trackingId | L'evento imprevisto a cui è associato l'evento. Usare q
 Properties.impactedServices | BLOB JSON preceduto da un carattere di escape che descrive i servizi e le aree su cui ha effetto l'evento imprevisto. La proprietà include un elenco di servizi, ognuno dei quali ha un **ServiceName** e un elenco delle aree interessate, ognuna con un nome di area **RegionName**.
 Properties.defaultLanguageTitle | La comunicazione in inglese.
 Properties.defaultLanguageContent | La comunicazione in inglese con markup HTML o come testo normale.
-Properties.stage | I valori possibili di **Incident** e **Security** sono **Active,** **Resolved** o **RCA**. Per **ActionRequired** o **Informational** l'unico valore è **Active.** Per **Maintenance** i valori possibili sono: **Active**, **Planned**, **InProgress**, **Canceled**, **Rescheduled**, **Resolved** o **Complete**.
+Properties.stage | I valori possibili per **evento imprevisto**e **sicurezza** sono **attivo,** **risolto** o **RCA**. Per **ActionRequired** o **Informational** l'unico valore è **Active.** Per **Maintenance** i valori possibili sono: **Active**, **Planned**, **InProgress**, **Canceled**, **Rescheduled**, **Resolved** o **Complete**.
 Properties.communicationId | La comunicazione a cui è associato l'evento.
 
 ### <a name="details-on-service-health-level-information"></a>Informazioni sui livelli di integrità dei servizi

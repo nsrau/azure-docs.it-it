@@ -3,20 +3,20 @@ title: Come creare e distribuire un servizio Cloud | Documentazione Microsoft
 description: Informazioni su come creare e distribuire un servizio cloud mediante il portale di Azure.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
-ms.author: gwallace
-ms.openlocfilehash: 3d5b3f291eb42edc1f7999f33cf6c0879c33bcf4
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 53f53976b20359afc45abe1b25ca60325b5d6a2b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359122"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386171"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Come creare e distribuire un servizio Cloud
-Il portale di Azure offre due modi per creare e distribuire un servizio cloud: *Creazione rapida* e *creazione personalizzata*.
+Nel portale di Azure sono disponibili due modi per creare e distribuire un servizio cloud: *Creazione rapida* e *Creazione personalizzata*.
 
 In questo argomento viene descritto come usare il metodo di creazione rapida di un nuovo servizio cloud e come caricare e distribuire un pacchetto del servizio cloud in Azure tramite l'opzione **Carica** . Quando si usa questo metodo, il portale di Azure rende disponibili comodi collegamenti per completare tutti i requisiti man mano che si procede. Se si è pronti per distribuire il servizio cloud durante la creazione, è possibile effettuare contemporaneamente entrambe le operazioni usando Creazione personalizzata.
 
@@ -56,7 +56,7 @@ Per creare un servizio cloud con le distribuzioni dei ruoli Web o dei ruoli di l
 1. Accedere al [Portale di Azure](https://portal.azure.com/).
 2. Fare clic su **Crea una risorsa > Calcolo**, quindi scorrere verso il basso e fare clic su **Servizio cloud**.
 
-    ![Pubblica il servizio cloud](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
+    ![Pubblicare il servizio cloud](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 3. Nel nuovo riquadro **Servizio cloud** immettere un valore per il **nome DNS**.
 4. Creare un nuovo **Gruppo di risorse** o selezionarne uno esistente.
 5. Selezionare un **percorso**.
@@ -65,7 +65,7 @@ Per creare un servizio cloud con le distribuzioni dei ruoli Web o dei ruoli di l
 8. Fare clic su **OK** per chiudere il riquadro **Carica un pacchetto**.
 9. Se non è disponibile un certificato da aggiungere, fare clic su **Crea**.
 
-    ![Pubblica il servizio cloud](media/cloud-services-how-to-create-deploy-portal/select-package.png)
+    ![Pubblicare il servizio cloud](media/cloud-services-how-to-create-deploy-portal/select-package.png)
 
 ## <a name="upload-a-certificate"></a>Caricamento di un certificato
 Se il pacchetto di distribuzione è stato [configurato per usare i certificati](cloud-services-configure-ssl-certificate-portal.md#modify), a questo punto è possibile caricare il certificato.
@@ -74,7 +74,7 @@ Se il pacchetto di distribuzione è stato [configurato per usare i certificati](
 2. Fare clic su **Collega certificato** e quindi su **OK** nel riquadro **Aggiungi certificati**.
 3. Fare clic su **Crea** nel riquadro **Servizio cloud**. Quando la distribuzione ha raggiunto lo stato **Ready** , è possibile procedere con i passaggi successivi.
 
-    ![Pubblica il servizio cloud](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
+    ![Pubblicare il servizio cloud](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 
 ## <a name="verify-your-deployment-completed-successfully"></a>Verificare che la distribuzione sia stata completata correttamente
 1. Fare clic sull'istanza del servizio cloud.
@@ -91,3 +91,6 @@ Se il pacchetto di distribuzione è stato [configurato per usare i certificati](
 * Configurare un [nome di dominio personalizzato](cloud-services-custom-domain-name-portal.md).
 * [Gestire il servizio cloud](cloud-services-how-to-manage-portal.md).
 * Configurare i [certificati ssl](cloud-services-configure-ssl-certificate-portal.md).
+
+
+

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/15/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 45168c23964c735a4bd51ba11c2340d4ff95fed4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 31a9da0678f602afcc117e5b2f7927af379da668
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012407"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75468707"
 ---
 Azure Managed Disks offre attualmente quattro tipi di dischi, ciascuno dei quali è destinato a scenari specifici del cliente.
 
@@ -21,19 +21,19 @@ Azure Managed Disks offre attualmente quattro tipi di dischi, ciascuno dei quali
 
 La tabella seguente fornisce un confronto tra dischi Ultra, unità SSD Premium, unità SSD standard e unità disco rigido standard (HDD) per Managed disks che consentono di decidere cosa usare.
 
-|   | Disco Ultra   | SSD Premium   | SSD Standard   | HDD Standard   |
+|   | Disco Ultra   | Premium SSD   | SSD Standard   | Standard HDD   |
 |---------|---------|---------|---------|---------|
-|Tipo di disco   |SSD   |SSD   |SSD   |HDD   |
+|Tipo di disco   |Unità SSD   |Unità SSD   |Unità SSD   |Unità disco rigido   |
 |Scenario   |Carichi di lavoro intensivo di i/o, come [SAP Hana](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md), database di livello superiore (ad esempio, SQL, Oracle) e altri carichi di lavoro con transazioni pesanti.   |Carichi di lavoro di produzione su cui influiscono le prestazioni   |Server Web, applicazioni aziendali con un utilizzo non intensivo e sviluppo/test   |Backup, carichi di lavoro non critici, accesso poco frequente   |
-|Dimensioni massime del disco   |65.536 gibibyte (GiB)    |32.767 GiB    |32.767 GiB   |32.767 GiB   |
+|Dimensioni massime disco   |65.536 gibibyte (GiB)    |32.767 GiB    |32.767 GiB   |32.767 GiB   |
 |Velocità effettiva massima   |2\.000 MiB/s    |900 MiB/s   |750 MiB/s   |500 MiB/s   |
 |Operazioni di I/O al secondo max   |160.000    |20.000   |6000   |2\.000   |
 
 ## <a name="ultra-disk"></a>Disco Ultra
 
-I dischi di Azure ultra offrono velocità effettiva elevata, IOPS elevate e archiviazione su disco a bassa latenza coerente per le macchine virtuali IaaS di Azure. Alcuni vantaggi aggiuntivi di ultra disks includono la possibilità di modificare dinamicamente le prestazioni del disco, insieme ai carichi di lavoro, senza dover riavviare le macchine virtuali (VM). I dischi Ultra sono adatti per carichi di lavoro con utilizzo intensivo di dati, ad esempio SAP HANA, database di livello superiore e carichi di lavoro pesanti per le transazioni. I dischi Ultra possono essere usati solo come dischi dati. È consigliabile usare unità SSD Premium come dischi del sistema operativo.
+I dischi Ultra di Azure offrono una velocità effettiva elevata, un numero elevato di operazioni di I/O al secondo e archiviazione su disco con bassa latenza coerente per le macchine virtuali IaaS di Azure. Alcuni vantaggi aggiuntivi di ultra disks includono la possibilità di modificare dinamicamente le prestazioni del disco, insieme ai carichi di lavoro, senza dover riavviare le macchine virtuali (VM). I dischi Ultra sono idonei per carichi di lavoro a elevato utilizzo di dati, come SAP HANA, database di alto livello e carichi di lavoro con numerose transazioni. I dischi Ultra possono essere usati solo come dischi dati. È consigliabile usare unità SSD Premium come dischi del sistema operativo.
 
-### <a name="performance"></a>Prestazioni
+### <a name="performance"></a>Performance
 
 Quando si effettua il provisioning di un disco Ultra, è possibile configurare in modo indipendente la capacità e le prestazioni del disco. I dischi Ultra includono diverse dimensioni fisse, comprese tra 4 GiB e 64 TiB, e dispongono di un modello di configurazione delle prestazioni flessibile che consente di configurare in modo indipendente IOPS e velocità effettiva.
 

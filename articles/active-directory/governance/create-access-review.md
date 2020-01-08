@@ -1,5 +1,5 @@
 ---
-title: Creare una verifica di accesso di gruppi o applicazioni-Azure Active Directory | Microsoft Docs
+title: Creare una verifica di accesso dei gruppi & applicazioni-Azure AD
 description: Informazioni su come creare una verifica di accesso dei membri del gruppo o dell'accesso alle applicazioni in Azure Active Directory verifiche di accesso.
 services: active-directory
 author: msaburnley
@@ -15,14 +15,14 @@ ms.date: 05/21/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 230fb40c8e3a100d2fdfa0af6b40c93c3e5b47d2
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 583eb62e6eeaaa799d2ea75261ee511fb8ddb7ac
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499734"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422681"
 ---
-# <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Creare una verifica di accesso di gruppi o applicazioni in Azure AD verifiche di accesso
+# <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Creare una verifica di accesso dei gruppi e delle applicazioni nelle verifiche di accesso Azure AD
 
 L'accesso a gruppi e applicazioni per dipendenti e utenti guest cambia nel corso del tempo. Per ridurre i rischi associati alle assegnazioni di accesso obsolete, gli amministratori possono usare Azure Active Directory (Azure AD) per creare verifiche di accesso per i membri dei gruppi o l'accesso alle applicazioni. Se è necessario esaminare periodicamente l'accesso, è anche possibile creare verifiche di accesso ricorrenti. Per altre informazioni su questi scenari, vedere [Gestire l'accesso utente](manage-user-access-with-access-reviews.md) e [Gestire l'accesso guest](manage-guest-access-with-access-reviews.md).
 
@@ -30,7 +30,7 @@ Questo articolo descrive come creare una o più verifiche di accesso per i membr
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Azure AD P2 Premium
+- Azure AD Premium P2
 - Amministratore globale o Amministratore utenti
 
 Per altre informazioni, vedere [quali utenti devono avere licenze?](access-reviews-overview.md#which-users-must-have-licenses).
@@ -130,7 +130,7 @@ Se sono stati assegnati Guest come revisori che non hanno accettato l'invito, no
 
 ## <a name="create-reviews-via-apis"></a>Creare verifiche tramite API
 
-È anche possibile creare verifiche di accesso usando le API. Le operazioni eseguite per gestire le verifiche di accesso di gruppi e utenti di applicazioni nel portale di Azure possono essere svolte anche tramite le API Microsoft Graph. Per altre informazioni, vedere le informazioni di [riferimento sull'API Azure ad Access](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta)revisioni. Per un esempio di codice, vedere [esempio di recupero delle verifiche di accesso Azure ad tramite Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
+È anche possibile creare verifiche di accesso usando le API. Le operazioni eseguite per gestire le verifiche di accesso di gruppi e utenti di applicazioni nel portale di Azure possono essere svolte anche tramite le API Microsoft Graph. Per altre informazioni, vedere le informazioni di [riferimento sull'API Azure ad Access revisioni](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta). Per un esempio di codice, vedere [esempio di recupero delle verifiche di accesso Azure ad tramite Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

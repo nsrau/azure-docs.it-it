@@ -12,20 +12,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 12/17/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/08/2019
-ms.openlocfilehash: 0725b4fc80fc3a41491bdb9ed084d33b36b490b8
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 6ddadcafd4f068f6516039017a3d491095c78e30
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213082"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378263"
 ---
 # <a name="registration-management"></a>Gestione delle registrazioni
-
-## <a name="overview"></a>Panoramica
 
 In questo argomento viene illustrato come registrare i dispositivi con gli hub di notifica al fine di ricevere notifiche push. Vengono descritte le registrazioni a livello generale, quindi sono presentati i due modelli principali per la registrazione dei dispositivi: la registrazione dal dispositivo direttamente nell'hub di notifica e la registrazione tramite un back-end dell'applicazione.
 
@@ -35,22 +33,22 @@ La registrazione del dispositivo con un hub di notifica viene eseguita tramite u
 
 ### <a name="registrations"></a>Registrazioni
 
-La registrazione associa l'handle del servizio di notifica della piattaforma (PNS) per un dispositivo con tag ed eventualmente un modello. L'handle PNS può essere un valore di ChannelURI, un token di dispositivo o un ID di registrazione FCM. I tag vengono usati per instradare le notifiche al set corretto di handle di dispositivo. Per altre informazioni, vedere [Routing ed espressioni tag](notification-hubs-tags-segment-push-message.md). I modelli vengono usati per implementare una trasformazione a livello di singola registrazione. Per altre informazioni, vedere [Modelli](notification-hubs-templates-cross-platform-push-messages.md).
+La registrazione associa l'handle del servizio di notifica della piattaforma (PNS) per un dispositivo con tag ed eventualmente un modello. L'handle PNS può essere un URI, un token del dispositivo o un ID di registrazione FCM. I tag vengono usati per indirizzare le notifiche al set corretto di handle di dispositivo. Per altre informazioni, vedere [Routing ed espressioni tag](notification-hubs-tags-segment-push-message.md). I modelli vengono usati per implementare una trasformazione a livello di singola registrazione. Per altre informazioni, vedere [Modelli](notification-hubs-templates-cross-platform-push-messages.md).
 
 > [!NOTE]
 > Hub di notifica di Azure supporta un massimo di 60 Tag per dispositivo.
 
 ### <a name="installations"></a>Installazioni
 
-Un'installazione è una registrazione avanzata che include un contenitore di proprietà correlate al push. È comunque l'approccio migliore e più recente alla registrazione dei dispositivi. Tuttavia, non è supportato dall'SDK .NET lato client ([SDK dell'hub di notifica per le operazioni di back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)), per adesso.  Questo significa che in caso di registrazione dal dispositivo client stesso, è necessario utilizzare l’approccio [API REST hub di notifica](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation) per supportare le installazioni. Se si utilizza un servizio di back-end, è possibile utilizzare l’ [SDK dell’hub di notifica per le operazioni di back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+Un'installazione è una registrazione avanzata che include un contenitore di proprietà correlate al push. È comunque l'approccio migliore e più recente alla registrazione dei dispositivi. Tuttavia, non è supportato dall'SDK .NET lato client ([SDK dell'hub di notifica per le operazioni di back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)), per adesso.  Questo significa che in caso di registrazione dal dispositivo client stesso, è necessario utilizzare l’approccio [API REST hub di notifica](/rest/api/notificationhubs/create-overwrite-installation) per supportare le installazioni. Se si utilizza un servizio di back-end, è possibile utilizzare l’ [SDK dell’hub di notifica per le operazioni di back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 Ecco alcuni vantaggi chiave dell'uso delle installazioni:
 
 - La creazione o l'aggiornamento di un'installazione è completamente idempotente. È quindi possibile riprovare a eseguire l'operazione senza preoccuparsi di registrazioni duplicate.
-- Il modello di installazione supporta un formato di tag`$InstallationId:{INSTALLATION_ID}`speciale () che consente l'invio di una notifica direttamente al dispositivo specifico. Se, ad esempio, il codice dell'app imposta un ID di `joe93developer` installazione per questo particolare dispositivo, uno sviluppatore può fare riferimento `$InstallationId:{joe93developer}` a questo dispositivo quando invia una notifica al tag. In questo modo è possibile fare riferimento a un dispositivo specifico senza dover eseguire altre operazioni di codifica.
+- Il modello di installazione supporta un formato di tag speciale (`$InstallationId:{INSTALLATION_ID}`) che consente l'invio di una notifica direttamente al dispositivo specifico. Se, ad esempio, il codice dell'app imposta un ID di installazione di `joe93developer` per questo particolare dispositivo, uno sviluppatore può utilizzare questo dispositivo quando invia una notifica al tag di `$InstallationId:{joe93developer}`. In questo modo è possibile fare riferimento a un dispositivo specifico senza dover eseguire altre operazioni di codifica.
 - L'uso delle installazioni consente inoltre di eseguire aggiornamenti parziali delle registrazioni. L'aggiornamento parziale di un'installazione è richiesto con un metodo PATCH che usa lo [standard JSON-Patch](https://tools.ietf.org/html/rfc6902). Questo è utile quando si intende aggiornare i tag nella registrazione. Non è necessario disattivare l'intera registrazione e quindi inviare di nuovo tutti i tag precedenti.
 
-Un'installazione può contenere le proprietà seguenti. Per un elenco completo delle proprietà di installazione, vedere [Creare o sovrascrivere un'installazione con API REST](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation) o [Proprietà Installation](https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.installation).
+Un'installazione può contenere le proprietà seguenti. Per un elenco completo delle proprietà di installazione, vedere [Creare o sovrascrivere un'installazione con API REST](/rest/api/notificationhubs/create-overwrite-installation) o [Proprietà Installation](/dotnet/api/microsoft.azure.notificationhubs.installation).
 
 ```json
 // Example installation format to show some supported properties
@@ -100,7 +98,7 @@ Le registrazioni e le installazioni devono contenere un handle PNS valido per og
 
 Se si intende usare [modelli](notification-hubs-templates-cross-platform-push-messages.md), l'installazione del dispositivo contiene anche tutti i modelli associati al dispositivo in un formato JSON (vedere l'esempio precedente). I nomi dei modelli consentono di usare diversi modelli per lo stesso dispositivo.
 
-Il nome di ogni modello è associato al corpo di un modello e a un set di tag facoltativo. Inoltre, ogni piattaforma può avere ulteriori proprietà del modello. Per Windows Store (che usa WNS) e Windows Phone 8 (che usa MPNS), un set di intestazioni aggiuntivo può far parte del modello. Nel caso degli APN, è possibile impostare una proprietà di scadenza su una costante o un'espressione del modello. Per un elenco completo delle proprietà di installazione, vedere l'argomento [Creare o sovrascrivere un'installazione con REST](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation) .
+Il nome di ogni modello è associato al corpo di un modello e a un set di tag facoltativo. Inoltre, ogni piattaforma può avere ulteriori proprietà del modello. Per Windows Store (che usa WNS) e Windows Phone 8 (che usa MPNS), un set di intestazioni aggiuntivo può far parte del modello. Nel caso degli APN, è possibile impostare una proprietà di scadenza su una costante o un'espressione del modello. Per un elenco completo delle proprietà di installazione, vedere l'argomento [Creare o sovrascrivere un'installazione con REST](/rest/api/notificationhubs/create-overwrite-installation) .
 
 ### <a name="secondary-tiles-for-windows-store-apps"></a>Riquadri secondari per le app di Windows Store
 
@@ -112,7 +110,7 @@ Il dizionario SecondaryTiles usa lo stesso TileId che viene usato per creare l'o
 
 Quando si gestisce la registrazione del dispositivo dalle app client, il back-end è responsabile solo dell'invio delle notifiche. Le app client mantengono aggiornati gli handle PNS e registrano i tag. Questo modello è illustrato nell'immagine seguente.
 
-![](./media/notification-hubs-registration-management/notification-hubs-registering-on-device.png)
+![Registrazione dal dispositivo](./media/notification-hubs-registration-management/notification-hubs-registering-on-device.png)
 
 Il dispositivo recupera l'handle PNS dal PNS, quindi esegue la registrazione direttamente con l'hub di notifica. Una volta che la registrazione ha esito positivo, il back-end dell'app può inviare una notifica relativa alla registrazione. Per altre informazioni su come inviare le notifiche, vedere [Routing ed espressioni tag](notification-hubs-tags-segment-push-message.md).
 
@@ -125,11 +123,11 @@ La registrazione dal dispositivo è il metodo più semplice, ma presenta alcuni 
 
 ### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-an-installation"></a>Codice di esempio per la registrazione con un hub di notifica da un dispositivo tramite un'installazione
 
-Al momento, questa operazione è supportata solo tramite l' [API REST degli hub di notifica](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation).
+Al momento, questa operazione è supportata solo tramite l' [API REST degli hub di notifica](/rest/api/notificationhubs/create-overwrite-installation).
 
 È inoltre possibile usare il metodo PATCH tramite lo [standard JSON-Patch](https://tools.ietf.org/html/rfc6902) per l'aggiornamento dell'installazione.
 
-```
+```csharp
 class DeviceInstallation
 {
     public string installationId { get; set; }
@@ -210,7 +208,7 @@ else
 
 Questi metodi creano o aggiornano una registrazione per il dispositivo in cui vengono chiamati. Ciò significa che, per aggiornare l'handle o i tag, è necessario sovrascrivere l'intera registrazione. Tenere presente che le registrazioni sono temporanee, quindi è necessario disporre sempre di un archivio affidabile con i tag correnti necessari per il dispositivo specifico.
 
-```
+```csharp
 // Initialize the Notification Hub
 NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(listenConnString, hubName);
 
@@ -265,17 +263,17 @@ catch (Microsoft.WindowsAzure.Messaging.RegistrationGoneException e)
 
 La gestione delle registrazioni dal back-end richiede la scrittura di codice aggiuntivo. L'app dal dispositivo deve fornire l'handle PNS aggiornato al back-end a ogni avvio dell'app (insieme ai tag e ai modelli) e il back-end deve aggiornare tale handle nell'hub di notifica. Questa progettazione è illustrata nell'immagine seguente.
 
-![](./media/notification-hubs-registration-management/notification-hubs-registering-on-backend.png)
+![Gestione delle registrazioni](./media/notification-hubs-registration-management/notification-hubs-registering-on-backend.png)
 
 I vantaggi della gestione delle registrazioni dal back-end includono la possibilità di modificare i tag delle registrazioni anche quando l'app corrispondente nel dispositivo è inattiva e di autenticare l'app client prima di aggiungere un tag alla relativa registrazione.
 
 ### <a name="example-code-to-register-with-a-notification-hub-from-a-backend-using-an-installation"></a>Codice di esempio per la registrazione con un hub di notifica da un back-end tramite un'installazione
 
-Il dispositivo client ottiene ancora il relativo handle PNS e le proprietà di installazione rilevanti come prima e chiama un'API personalizzata nel back-end che può eseguire la registrazione, autorizzare i tag e così via. Il back-end può sfruttare l'[SDK degli hub di notifica per le operazioni di back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+Il dispositivo client ottiene comunque il proprio handle PNS e le proprietà di installazione pertinenti come prima e chiama un'API personalizzata nel back-end che può eseguire la registrazione e autorizzare i tag e così via. Il back-end può sfruttare l' [SDK di hub di notifica per le operazioni back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 È inoltre possibile usare il metodo PATCH tramite lo [standard JSON-Patch](https://tools.ietf.org/html/rfc6902) per l'aggiornamento dell'installazione.
 
-```
+```csharp
 // Initialize the Notification Hub
 NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(listenConnString, hubName);
 
@@ -319,9 +317,9 @@ public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
 
 ### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>Codice di esempio per la registrazione con un hub di notifica da un dispositivo tramite un ID di registrazione
 
-Dal back-end dell'app è possibile eseguire operazioni CRUD di base sulle registrazioni. Esempio:
+Dal back-end dell'app è possibile eseguire operazioni CRUD di base sulle registrazioni. Ad esempio:
 
-```
+```csharp
 var hub = NotificationHubClient.CreateClientFromConnectionString("{connectionString}", "hubName");
 
 // create a registration description object of the correct type, e.g.

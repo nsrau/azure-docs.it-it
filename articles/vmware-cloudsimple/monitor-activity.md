@@ -1,5 +1,6 @@
 ---
-title: Soluzione VMware di Azure di CloudSimple-monitoraggio dell'attività del cloud privato
+title: Monitorare l'attività del cloud privato
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Descrive le informazioni disponibili sulle attività nella soluzione VMware di Azure in base all'ambiente CloudSimple, inclusi gli avvisi, gli eventi, le attività e il controllo.
 author: sharaths-cs
 ms.author: b-shsury
@@ -8,18 +9,18 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ddb3741c987e839fafb8bc222231547988d72f01
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 1228f3a54e02d4fe7a5133e2bfba55c38e34718a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543768"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459210"
 ---
 # <a name="monitor-vmware-solution-by-cloudsimple-activity"></a>Monitora l'attività CloudSimple della soluzione VMware
 
 I log attività di CloudSimple forniscono informazioni dettagliate sulle operazioni eseguite nel portale di CloudSimple.  L'elenco include gli avvisi, gli eventi, le attività e il controllo.  Usare i log attività per determinare chi, quando e quali operazioni sono state eseguite.  I log attività non includono le operazioni di lettura eseguite da un utente.
 
-## <a name="sign-in-to-azure"></a>Accedi ad Azure
+## <a name="sign-in-to-azure"></a>Accedere a Azure
 
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 
@@ -45,15 +46,15 @@ Per confermare gli avvisi e rimuoverli dall'elenco, selezionare uno o più nell'
 
 Per gli avvisi sono disponibili le seguenti colonne di informazioni. Fare clic su **modifica colonne** e selezionare le colonne che si desidera visualizzare.
 
-| Colonna | DESCRIZIONE |
+| Colonna | Description |
 ------------ | ------------- |
 | Tipo di avviso | Categoria di avviso.|
-| Time | Ora in cui si è verificato l'avviso. |
-| severity | Importanza dell'avviso.|
+| Durata | Ora in cui si è verificato l'avviso. |
+| Gravità | Importanza dell'avviso.|
 | Nome risorsa | Nome assegnato alla risorsa, ad esempio il nome del cloud privato. |
-| Tipo di risorsa | Categoria della risorsa: Cloud privato, rack cloud. |
+| Tipo di risorsa | Categoria della risorsa: cloud privato, rack cloud. |
 | ID risorsa | Identificatore della risorsa. |
-| Descrizione | Descrizione dell'elemento che ha attivato l'avviso. |
+| Description | Descrizione dell'elemento che ha attivato l'avviso. |
 | Confermato | Indica se l'avviso è stato riconosciuto. |
 
 ## <a name="events"></a>Eventi
@@ -62,14 +63,14 @@ Eventi Mostra l'attività dell'utente e del sistema nel portale di CloudSimple. 
 
 Per gli avvisi sono disponibili le seguenti colonne di informazioni. Fare clic su **modifica colonne** e selezionare le colonne che si desidera visualizzare.
 
-| Colonna | DESCRIZIONE |
+| Colonna | Description |
 ------------ | ------------- |
-| Time | Data e ora in cui si è verificato l'evento. |
+| Durata | Data e ora in cui si è verificato l'evento. |
 | Tipo evento | Codice numerico che identifica l'evento. |
-| severity | Gravità dell'evento.|
+| Gravità | Gravità dell'evento.|
 | Nome risorsa | Nome assegnato alla risorsa, ad esempio il nome del cloud privato. |
-| Tipo di risorsa | Categoria della risorsa: Cloud privato, rack cloud. |
-| Descrizione | Descrizione dell'elemento che ha attivato l'avviso. |
+| Tipo di risorsa | Categoria della risorsa: cloud privato, rack cloud. |
+| Description | Descrizione dell'elemento che ha attivato l'avviso. |
 
 ## <a name="tasks"></a>Attività
 
@@ -77,19 +78,19 @@ Le attività sono attività del cloud privato che dovrebbero richiedere oltre 30
 
 Per gli avvisi sono disponibili le seguenti colonne di informazioni. Fare clic su **modifica colonne** e selezionare le colonne che si desidera visualizzare.
 
-| Colonna | Descrizione |
+| Colonna | Description |
 ------------ | ------------- |
 | ID attività | Identificatore univoco per l'attività. |
 | Operazione | Azione eseguita dall'attività. |
 | Utente | Utente assegnato per completare l'attività. |
 | Nome risorsa | Nome assegnato alla risorsa. |
-| Tipo di risorsa | Categoria della risorsa: Cloud privato, rack cloud. |
+| Tipo di risorsa | Categoria della risorsa: cloud privato, rack cloud. |
 | ID risorsa | Identificatore della risorsa. |
-| Start | Ora di inizio dell'attività. |
+| Inizio | Ora di inizio dell'attività. |
 | Fine | Ora di fine dell'attività. |
 | Stato | Stato corrente dell'attività. |
 | Tempo trascorso | Tempo richiesto per il completamento dell'attività (se completata) o in corso (se in corso). |
-| Descrizione | Descrizione dell'attività. |
+| Description | Descrizione attività. |
 
 ## <a name="audit"></a>Audit
 
@@ -97,17 +98,17 @@ I log di controllo tengono traccia delle attività degli utenti. È possibile ut
 
 Per gli avvisi sono disponibili le seguenti colonne di informazioni. Fare clic su **modifica colonne** e selezionare le colonne che si desidera visualizzare.
 
-| Colonna | Descrizione |
+| Colonna | Description |
 ------------ | ------------- |
-| Time | Ora della voce di controllo. |
+| Durata | Ora della voce di controllo. |
 | Operazione | Azione eseguita dall'attività. |
 | Utente | Utente assegnato all'attività. |
 | Nome risorsa | Nome assegnato alla risorsa. |
-| Tipo di risorsa | Categoria della risorsa: Cloud privato, rack cloud. |
+| Tipo di risorsa | Categoria della risorsa: cloud privato, rack cloud. |
 | ID risorsa | Identificatore della risorsa. |
 | Risultato | Risultato dell'attività, ad esempio **Success**. |
 | Tempo impiegato | Tempo necessario per completare l'attività. |
-| DESCRIZIONE | Descrizione dell'azione. |
+| Description | Descrizione dell'azione. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

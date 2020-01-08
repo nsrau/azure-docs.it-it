@@ -1,44 +1,33 @@
 ---
-title: Transazioni e modalità di blocco delle raccolte Reliable Collections in Azure Service Fabric | Microsoft Docs
+title: Transazioni e modalità di blocco in Reliable Collections
 description: Transazioni e blocco delle raccolte Reliable Collections e di Reliable State Manager in Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: masnider,rajak
-ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 5/1/2017
-ms.author: atsenthi
-ms.openlocfilehash: 8e77e488a3c0a40a714a0e8efffba0a2947454bf
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: f27381aa0979b37c759f66d0e873126edc006d6d
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599323"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614180"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transazioni e modalità di blocco delle raccolte Reliable Collections in Azure Service Fabric
 
 ## <a name="transaction"></a>Transazione
-Una transazione è una sequenza di operazioni eseguite in un'unica unità logica di lavoro
+Una transazione è una sequenza di operazioni eseguite in un'unica unità logica di lavoro.
 e deve includere le proprietà seguenti, dette ACID (atomicità, coerenza, isolamento e durabilità) (vedere: https://technet.microsoft.com/library/ms190612)
 * **Atomicità**: una transazione deve essere un'unità di lavoro atomica. In altre parole, devono essere eseguite tutte le modifiche dei dati oppure non ne deve essere eseguita nessuna.
-* **Coerenza**: al termine della transazione, tutti i dati devono essere in uno stato coerente. e tutte le strutture di dati interne devono risultare corrette.
-* **Isolamento**: le modifiche apportate dalle transazioni simultanee devono essere isolate da quelle apportate da qualsiasi altra transazione simultanea. Il livello di isolamento usato per un'operazione all'interno di un oggetto ITransaction è determinato dall'interfaccia IReliableState che esegue l'operazione.
-* **Durabilità**: dopo il completamento di una transazione, i suoi effetti vengono salvati in modo permanente nel sistema. Le modifiche eseguite rimangono valide anche in caso di errore del sistema.
+* **Coerenza**: al termine della transazione, tutti i dati devono essere coerenti e tutte le strutture di dati interne devono risultare corrette.
+* **Isolamento**: le modifiche eseguite da transazioni simultanee devono essere isolate da quelle eseguite da qualsiasi altra transazione simultanea. Il livello di isolamento usato per un'operazione all'interno di un oggetto ITransaction è determinato dall'interfaccia IReliableState che esegue l'operazione.
+* **Durabilità**: gli effetti di una transazione completata sono permanenti all'interno del sistema. Le modifiche eseguite rimangono valide anche in caso di errore del sistema.
 
 ### <a name="isolation-levels"></a>Livelli di isolamento
 Il livello di isolamento definisce il grado in cui la transazione deve essere isolata dalle modifiche apportate da altre transazioni.
 Le raccolte Reliable Collections supportano due livelli di isolamento:
 
-* **Lettura ripetibile**: specifica che le istruzioni non possono leggere dati modificati da altre transazioni di cui non è ancora stato eseguito il commit e che nessun'altra transazione può modificare i dati letti dalla transazione corrente, finché quest'ultima non viene completata. Per informazioni dettagliate, vedere [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
+* **Repeatable Read**: specifica che le istruzioni non possono leggere dati modificati da altre transazioni di cui non è ancora stato eseguito il commit e che nessun'altra transazione può modificare i dati letti dalla transazione corrente, finché quest'ultima non viene completata. Per informazioni dettagliate, vedere [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
 * **Snapshot**: specifica che i dati letti da qualsiasi istruzione in una transazione rappresentano la versione coerente dal punto di vista transazionale dei dati esistenti al momento dell'avvio della transazione.
   La transazione può quindi riconoscere solo le modifiche dei dati di cui è stato eseguito il commit prima dell'avvio della transazione.
-  Le modifiche apportate da altre transazioni dopo l'inizio della transazione corrente non sono visibili per le istruzioni eseguite nella transazione corrente.
+  Le modifiche ai dati apportate da altre transazioni dopo l'avvio della transazione corrente non sono visibili per le istruzioni eseguite nella transazione corrente.
   È come se le istruzioni di una transazione ottenessero uno snapshot dei dati di cui è stato eseguito il commit così come si presentavano al momento dell'avvio della transazione.
   Gli snapshot tra le Reliable Collections sono coerenti.
   Per informazioni dettagliate, vedere [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
@@ -46,7 +35,7 @@ Le raccolte Reliable Collections supportano due livelli di isolamento:
 Le raccolte Reliable Collections scelgono automaticamente il livello di isolamento da usare per una determinata operazione di lettura a seconda dell'operazione stessa e del ruolo della replica al momento della creazione della transazione.
 La tabella seguente descrive i valori predefiniti del livello di isolamento per le operazioni Reliable Dictionary e Reliable Queue.
 
-| Operazione\Ruolo | Primario | Secondario |
+| Operazione\Ruolo | Primaria | Secondari |
 | --- |:--- |:--- |
 | Lettura di entità singola |Repeatable Read |Snapshot |
 | Enumerazione, conteggio |Snapshot |Snapshot |
@@ -58,7 +47,7 @@ La tabella seguente descrive i valori predefiniti del livello di isolamento per 
 Gli oggetti ReliableDictionary e ReliableQueue supportano entrambi il criterio "Read Your Writes".
 In altri termini, qualsiasi operazione di scrittura all'interno di una transazione sarà visibile a una lettura successiva appartenente alla stessa transazione.
 
-## <a name="locks"></a>Blocchi
+## <a name="locks"></a>Locks
 Nelle raccolte Reliable Collections tutte le transazioni implementano un rigoroso blocco in due fasi: una transazione non rilascia i blocchi acquisiti fino a quando non termina con un'interruzione o un commit.
 
 L'operazione Reliable Dictionary usa il blocco a livello di riga per tutte le operazioni sulla singola entità.
@@ -75,10 +64,10 @@ Il blocco di aggiornamento è asimmetrico e viene usato per impedire una forma c
 
 La matrice di compatibilità dei blocchi è disponibile nella tabella seguente:
 
-| Richiesto\Concesso | Nessuno | Condiviso | Aggiorna | Esclusivo |
+| Richiesto\Concesso | Nessuno | Condivisione | Aggiornamento | Esclusivo |
 | --- |:--- |:--- |:--- |:--- |
-| Condiviso |Nessun conflitto |Nessun conflitto |Conflitto |Conflitto |
-| Aggiorna |Nessun conflitto |Nessun conflitto |Conflitto |Conflitto |
+| Condivisione |Nessun conflitto |Nessun conflitto |Conflitto |Conflitto |
+| Aggiornamento |Nessun conflitto |Nessun conflitto |Conflitto |Conflitto |
 | Esclusivo |Nessun conflitto |Conflitto |Conflitto |Conflitto |
 
 Per il rilevamento dei deadlock viene usato un argomento timeout delle API Reliable Collections.

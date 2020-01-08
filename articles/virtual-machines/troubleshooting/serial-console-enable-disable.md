@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 8/20/2019
 ms.author: alsin
-ms.openlocfilehash: fa400d875a8f39d54d10820c603e12e97f0cd854
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: e09e08f8ba36cf576bc27551254225adee3bb0fd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452226"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451294"
 ---
 # <a name="enable-and-disable-the-azure-serial-console"></a>Abilitare e disabilitare la console seriale di Azure
 
@@ -32,6 +32,9 @@ La console seriale può essere disabilitata per una VM specifica o un set di sca
 
 
 ## <a name="subscription-level-enabledisable"></a>Abilita/Disabilita a livello di sottoscrizione
+
+> [!NOTE]
+> Prima di eseguire questo comando, assicurarsi di trovarsi nel cloud appropriato (cloud pubblico di Azure, cloud per il governo degli Stati Uniti di Azure). È possibile verificare con `az cloud list` e impostare il cloud con `az cloud set -n <Name of cloud>`.
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
@@ -57,9 +60,6 @@ subscriptionId=$(az account show --output=json | jq -r .id)
 
 az resource show --ids "/subscriptions/$subscriptionId/providers/Microsoft.SerialConsole/consoleServices/default" --output=json --api-version="2018-05-01" | jq .properties
 ```
-
-> [!NOTE]
-> Prima di eseguire questo comando, assicurarsi di trovarsi nel cloud appropriato (cloud pubblico di Azure, cloud per il governo degli Stati Uniti di Azure). È possibile verificare con `az cloud list` e impostare il cloud con `az cloud set -n <Name of cloud>`.
 
 ### <a name="powershell"></a>PowerShell
 

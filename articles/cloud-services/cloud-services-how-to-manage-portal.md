@@ -3,17 +3,17 @@ title: Attività comuni di gestione di servizi cloud | Documentazione Microsoft
 description: Informazioni su come gestire Servizi cloud nel portale di Azure. Questi esempi utilizzano il portale di Azure.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: gwallace
-ms.openlocfilehash: 8ec7784fb51d0fa4de2563f76444b0b5e5f34902
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 185bb9d03bec042a5c8e9223616b40eba6629e36
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359607"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360906"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Gestire Servizi cloud nel portale di Azure
 Nell'area **Servizi cloud** del portale di Azure è possibile:
@@ -81,7 +81,7 @@ Esistono due prerequisiti chiave per lo scambio corretto di distribuzioni:
 
 Si noti che anche gli aggiornamenti del sistema operativo guest e le operazioni di correzione del servizio possono ostacolare il corretto scambio delle distribuzioni. Per altre informazioni, vedere [Risolvere eventuali problemi di distribuzione dei servizi cloud](cloud-services-troubleshoot-deployment-problems.md).
 
-**Uno scambio comporta un tempo di inattività per l'applicazione? Come gestire questa situazione?**
+**Uno scambio comporta tempi di inattività per l'applicazione? Come è possibile gestirla?**
 
 Come descritto nella sezione precedente, lo scambio di distribuzioni è in genere veloce perché è una semplice modifica della configurazione in Azure Load Balancer. In alcuni casi, può richiedere più di 10 secondi e causare errori di connessione temporanei. Per limitare l'impatto sui clienti, si consiglia di implementare la [logica di ripetizione dei tentativi nel client](../best-practices-retry-general.md).
 
@@ -124,3 +124,6 @@ Il pannello **Panoramica** comprende una barra di stato in alto. Quando si selez
 * Procedura [distribuire un servizio cloud](cloud-services-how-to-create-deploy-portal.md).
 * Configurare un [nome di dominio personalizzato](cloud-services-custom-domain-name-portal.md).
 * Configurare i [certificati SSL](cloud-services-configure-ssl-certificate-portal.md).
+
+
+

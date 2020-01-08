@@ -2,17 +2,17 @@
 title: Configurazione della scalabilità automatica di un servizio cloud nel portale | Documentazione Microsoft
 description: Informazioni su come usare il portale per configurare le regole di scalabilità automatica per un ruolo Web o un ruolo di lavoro del servizio cloud in Azure.
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
-ms.author: gwallace
-ms.openlocfilehash: 7e106dbd237be79be924afadbe893669c4f3daf8
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 5880544137855a2ea5bcd6d6e4bada46563564ad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359615"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360838"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Come configurare la scalabilità automatica per un servizio cloud nel portale
 
@@ -41,7 +41,7 @@ Prima di configurare la scalabilità per l'applicazione, tenere presente quanto 
 Dopo aver selezionato il servizio cloud, viene visualizzato il pannello del servizio cloud.
 
 1. Nel pannello del servizio cloud, nel riquadro **Ruoli e istanze** , selezionare il nome del servizio cloud.   
-   **IMPORTANTE**: Assicurarsi di fare clic sul ruolo del servizio cloud, non sull'istanza del ruolo che si trova sotto il ruolo.
+   **IMPORTANTE**: assicurarsi di selezionare il ruolo del servizio cloud, non l'istanza del ruolo che si trova sotto il ruolo.
 
     ![](./media/cloud-services-how-to-scale-portal/roles-instances.png)
 2. Selezionare il riquadro **Ridimensiona** .
@@ -105,3 +105,6 @@ Questa impostazione rimuove la scalabilità automatica dal ruolo e quindi è pos
 3. Istanze del ruolo da ridimensionare.
 
 Dopo aver configurato il profilo e le regole, selezionare l'icona **Salva** nella parte superiore.
+
+
+

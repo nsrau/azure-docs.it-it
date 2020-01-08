@@ -4,15 +4,15 @@ description: Questo articolo illustra i passaggi per connettere Configuration Ma
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 08/28/2019
-ms.openlocfilehash: fee6f09ba8e290ae6599f07d4ed831fb89427f76
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 2262c951b52ef58006bacde4be76dc92468a20ba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932647"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364051"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Connetti Configuration Manager a monitoraggio di Azure
 È possibile connettere l'ambiente System Center Configuration Manager a monitoraggio di Azure per sincronizzare i dati della raccolta dispositivi e fare riferimento a tali raccolte in monitoraggio di Azure e automazione di Azure.  
@@ -22,7 +22,7 @@ ms.locfileid: "72932647"
 Monitoraggio di Azure supporta System Center Configuration Manager Current Branch, versione 1606 e successive.
 
 >[!NOTE]
->La funzionalità per la connessione Configuration Manager con un'area di lavoro Log Analytics è facoltativa e non è abilitata per impostazione predefinita. È necessario abilitare questa funzionalità prima di utilizzarla. Per altre informazioni, vedere [abilitare le funzionalità facoltative dagli aggiornamenti](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_options).
+>La funzionalità per la connessione Configuration Manager con un'area di lavoro Log Analytics è facoltativa e non è abilitata per impostazione predefinita. Pertanto sarà necessario abilitarla prima di poterla usare. Per altre informazioni, vedere [Enable optional features from updates](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_options) (Abilitare le funzioni facoltative dagli aggiornamenti).
 
 ## <a name="configuration-overview"></a>Panoramica della configurazione
 
@@ -80,8 +80,8 @@ Vedere l'articolo [connettere computer Windows a monitoraggio di Azure in Azure]
 
 4. Nella pagina servizi di Azure della procedura guidata per i servizi di Azure:
 
-    1. Specificare un **nome** per l'oggetto in Configuration Manager.
-    2. Specificare una **Descrizione** facoltativa che consenta di identificare il servizio.
+    1. Specificare un **Nome** per l'oggetto in Configuration Manager.
+    2. Specificare un parametro facoltativo **Descrizione** per identificare il servizio.
     3. Selezionare il **connettore OMS**per i servizi di Azure.
 
     >[!NOTE]
@@ -109,7 +109,7 @@ Vedere l'articolo [connettere computer Windows a monitoraggio di Azure in Azure]
 
     8. Selezionare **Verifica** e a destra i risultati dovrebbero essere visualizzati **correttamente**.
 
-8. Nella pagina **configurazione** esaminare le informazioni per verificare che i campi **sottoscrizioni di Azure**, **gruppo di risorse di Azure**e area di lavoro di **Operations Management Suite** siano pre-popolati indicando che l'applicazione Azure ad ha autorizzazioni sufficienti nel gruppo di risorse. Se i campi sono vuoti, significa che l'applicazione non dispone dei diritti necessari. Selezionare le raccolte di dispositivi da raccogliere e trasmettere all'area di lavoro, quindi selezionare **Aggiungi**.
+8. Nella pagina **configurazione** esaminare le informazioni per verificare che i campi **sottoscrizioni Azure**, **gruppo di risorse di Azure**e area di lavoro di **Operations Management Suite** siano già popolati indicando che l'applicazione Azure ad dispone di autorizzazioni sufficienti nel gruppo di risorse. Se i campi sono vuoti, significa che l'applicazione non dispone dei diritti necessari. Selezionare le raccolte di dispositivi da raccogliere e trasmettere all'area di lavoro, quindi selezionare **Aggiungi**.
 
 9. Esaminare le opzioni nella pagina **Conferma impostazioni** e selezionare **Avanti** per iniziare a creare e configurare la connessione.
 

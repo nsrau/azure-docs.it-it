@@ -1,19 +1,14 @@
 ---
-title: Migliorare la disponibilità dell'applicazione con Azure Advisor | Microsoft Docs
+title: Migliorare la disponibilità dell'applicazione con Azure Advisor
 description: Usare Azure Advisor per aumentare la disponibilità delle distribuzioni di Azure.
-services: advisor
-documentationcenter: NA
-author: saket-ms
-ms.author: sagupt
-ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: dd1b898adf4c4cdff45e05427757d90d5f80bf25
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 997681ed62fa9985e3122ece22565dbae0e65b53
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74145341"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443100"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Migliorare la disponibilità dell'applicazione con Azure Advisor
 
@@ -107,7 +102,7 @@ Le macchine virtuali in cui non è abilitata la replica in un'altra area non son
 
 Per altre informazioni sui consigli di Advisor, vedere:
 * [Introduction to Azure Advisor](advisor-overview.md) (Presentazione di Azure Advisor)
-* [Get started with Advisor](advisor-get-started.md) (Introduzione ad Advisor)
+* [Introduzione ad Advisor](advisor-get-started.md)
 * [Advisor Cost recommendations](advisor-cost-recommendations.md) (Consigli di Advisor sui costi)
 * [Advisor Performance recommendations](advisor-performance-recommendations.md) (Consigli di Advisor sulle prestazioni)
 * [Advisor Security recommendations](advisor-security-recommendations.md) (Consigli di Advisor sulla sicurezza)

@@ -1,25 +1,14 @@
 ---
 title: Distribuzione di Service Fabric di Azure con PowerShell
-description: Come distribuire e rimuovere applicazioni in Service Fabric con PowerShell.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: b120ffbf-f1e3-4b26-a492-347c29f8f66b
-ms.service: service-fabric
-ms.devlang: dotnet
+description: Informazioni sulla rimozione e la distribuzione di applicazioni in Azure Service Fabric e su come eseguire queste azioni in PowerShell.
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/19/2018
-ms.author: atsenthi
-ms.openlocfilehash: 0080ba0807a4cb31fedeb132932e2e08137dd40b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: e3fdd194f2949f1246e991968e02b3278f33f7db
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013282"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614503"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Distribuire e rimuovere applicazioni con PowerShell
 
@@ -27,7 +16,7 @@ ms.locfileid: "74013282"
 > * [Gestione risorse](service-fabric-application-arm-resource.md)
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
 > * [Interfaccia della riga di comando di Service Fabric](service-fabric-application-lifecycle-sfctl.md)
-> * [API client Fabric](service-fabric-deploy-remove-applications-fabricclient.md)
+> * [API FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
 
 <br/>
 
@@ -58,9 +47,9 @@ Per la pulizia, rimuovere le istanze dell'applicazione e annullare la registrazi
 
  
 
-## <a name="connect-to-the-cluster"></a>Connettersi al cluster
+## <a name="connect-to-the-cluster"></a>Stabilire la connessione al cluster
 
-Prima di eseguire qualsiasi comando di PowerShell incluso in questo articolo, iniziare sempre utilizzando [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) per connettersi al cluster di Service Fabric. Per connettersi al cluster di sviluppo locale eseguire le operazioni seguenti:
+Prima di eseguire qualsiasi comando PowerShell incluso in questo articolo, iniziare sempre usando [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) per connettersi al cluster di Service Fabric. Per connettersi al cluster di sviluppo locale eseguire le operazioni seguenti:
 
 ```powershell
 Connect-ServiceFabricCluster
@@ -146,7 +135,7 @@ Ad esempio, ecco le statistiche della compressione per alcuni pacchetti, che mos
 |2048|1000|00:01:04.3775554|1231|
 |5012|100|00:02:45.2951288|3074|
 
-Una volta compresso, un pacchetto può essere caricato in uno o più cluster di Service Fabric in base alle necessità. Il meccanismo di distribuzione è lo stesso per i pacchetti compressi e per quelli non compressi. I pacchetti compressi vengono archiviati nell'archivio immagini del cluster così come sono. Vengono quindi decompressi nel nodo prima che venga eseguita l'applicazione.
+Una volta compresso, un pacchetto può essere caricato in uno o più cluster di Service Fabric in base alle necessità. Il meccanismo di distribuzione è lo stesso per i pacchetti compressi e non. I pacchetti compressi vengono archiviati nell'archivio immagini del cluster così come sono. Vengono quindi decompressi nel nodo prima che venga eseguita l'applicazione.
 
 
 L'esempio seguente carica il pacchetto nell'archivio di immagini, in una cartella denominata "MyApplicationV1":
@@ -232,7 +221,7 @@ Se un pacchetto è stato copiato nell'archivio immagini, è consigliabile rimuov
 Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore MyApplicationV1
 ```
 
-## <a name="create-the-application"></a>Creare l'applicazione
+## <a name="create-the-application"></a>Creazione dell'applicazione
 
 È possibile creare un'istanza di un'applicazione da qualsiasi versione del tipo di applicazione registrata mediante il cmdlet [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps). Il nome di ogni applicazione deve iniziare con lo schema *"fabric:"* e deve essere univoco per ogni istanza dell'applicazione. Vengono creati anche i servizi predefiniti specificati nel manifesto dell'applicazione del tipo di applicazione di destinazione.
 

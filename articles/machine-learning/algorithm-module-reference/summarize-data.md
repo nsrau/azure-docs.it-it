@@ -1,7 +1,7 @@
 ---
-title: Riepiloga dati
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo riepiloga dati nel servizio Azure Machine Learning per generare un report delle statistiche descrittive di base per le colonne in un set di dati.
+title: Riepilogare i dati
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo riepiloga dati in Azure Machine Learning per generare un report delle statistiche descrittive di base per le colonne in un set di dati.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,20 +9,20 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 503eb533b83cbeedcc16b73a9c1dbe821a4d4d94
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 80e2acf08960796ccb2f3ad87c16674e477c9c00
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492577"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428447"
 ---
-# <a name="summarize-data"></a>Riepiloga dati
+# <a name="summarize-data"></a>Riepilogare i dati
 
 Questo articolo descrive un modulo di Azure Machine Learning Designer (anteprima).
 
 Usare il modulo riepiloga dati per creare un set di misure statistiche standard che descrivono ogni colonna della tabella di input.
 
-Le statistiche di riepilogo sono utili quando si desidera comprendere le caratteristiche del set di dati completo. Ad esempio, potrebbe essere necessario tenere presente quanto segue:
+Le statistiche di riepilogo sono utili quando si desidera comprendere le caratteristiche del set di dati completo. Ad esempio, potrebbe essere necessario sapere:
 
 - Quanti valori mancanti sono presenti in ogni colonna?
 - Quanti valori univoci sono presenti in una colonna della funzionalità?
@@ -46,18 +46,18 @@ Il modulo calcola i punteggi importanti per ogni colonna e restituisce una riga 
 
 Il report del modulo può includere le statistiche seguenti. 
 
-|Nome colonna|Descrizione|
+|Nome colonna|Description|
 |------|------|  
 |**Funzionalità**|Nome della colonna|
-|**Numero**|Conteggio di tutte le righe|
+|**Numero**|Count of all rows|
 |**Conteggio valori univoci**|Numero di valori univoci nella colonna|
 |**Conteggio valori mancanti**|Numero di valori univoci nella colonna|
 |**Min**|Valore minimo nella colonna|  
 |**Max**|Valore massimo nella colonna|
-|**Significa**|Media di tutti i valori di colonna|
+|**Media**|Media di tutti i valori di colonna|
 |**Deviazione media**|Deviazione media dei valori di colonna|
 |**primo quartile**|Valore al primo quartile|
-|**Mediana**|Valore della colonna mediana|
+|**Median**|Valore della colonna mediana|
 |**terzo quartile**|Valore al terzo quartile|
 |**Modalità**|Modalità dei valori di colonna|
 |**Range**|Integer che rappresenta il numero di valori compresi tra i valori minimo e massimo|
@@ -73,4 +73,4 @@ Il report del modulo può includere le statistiche seguenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning servizio.  
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning.  

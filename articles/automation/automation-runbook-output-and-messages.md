@@ -2,19 +2,15 @@
 title: Output di runbook e messaggi in Automazione di Azure
 description: Viene descritto come creare e recuperare messaggi di output e di errore da manuali operativi in automazione di Azure.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 12/04/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: af199439fedddaef5b1bd3b219a60db697fb25ab
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 34246d66a48baec160a83411511ed78948c5dd8d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849650"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421049"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Output di runbook e messaggi in automazione di Azure
 
@@ -22,13 +18,13 @@ La maggior parte dei runbook di Automazione Azure ha una forma di output. L'outp
 
 La tabella seguente include una breve descrizione di ogni flusso e il relativo comportamento nel portale di Azure per un runbook pubblicato e per il [test di un runbook](automation-testing-runbook.md). Nelle sezioni successive vengono specificati ulteriori dettagli su ogni flusso.
 
-| Flusso | Description | Pubblicato | Test |
+| Stream | Description | Pubblicato | Test |
 |:--- |:--- |:--- |:--- |
 | Output |Gli oggetti devono essere utilizzati da altri runbook. |Scrivere la cronologia dei processi. |Visualizzata nel pannello Output del Test. |
 | Avviso |Messaggio di avviso destinato all'utente. |Scrivere la cronologia dei processi. |Visualizzata nel pannello Output del Test. |
 | Errore |Messaggio di errore previsto per l'utente. A differenza di un'eccezione, il runbook continua dopo un messaggio di errore per impostazione predefinita. |Scrivere la cronologia dei processi. |Visualizzata nel pannello Output del Test. |
 | Dettagliato |Messaggi che includono informazioni generali o di debug. |Scritti nella cronologia del processo solo se è attivata la registrazione dettagliata per il runbook. |Viene visualizzata nel pannello Output del Test solo se $VerbosePreference è impostata su Continue nel runbook. |
-| Avanzamento |Record generati automaticamente prima e dopo ogni attività del runbook. Il runbook non dovrebbe tentare di creare i propri record di stato di avanzamento, dato che sono destinati a un utente interattivo. |Scritti nella cronologia processo solo se lo stato di avanzamento della registrazione è attivata per il runbook. |Non sono visualizzati nel pannello Output del Test. |
+| Progress |Record generati automaticamente prima e dopo ogni attività del runbook. Il runbook non dovrebbe tentare di creare i propri record di stato di avanzamento, dato che sono destinati a un utente interattivo. |Scritti nella cronologia processo solo se lo stato di avanzamento della registrazione è attivata per il runbook. |Non sono visualizzati nel pannello Output del Test. |
 | Debug |Messaggi destinati a un utente interattivo. Non devono essere utilizzati nei runbook. |Non scritti nella cronologia del processo. |Non scritti nel pannello Output del Test. |
 
 ## <a name="output-stream"></a>Flusso di output
@@ -170,7 +166,7 @@ Windows PowerShell utilizza [le variabili di preferenza](https://technet.microso
 
 La tabella seguente elenca le variabili di preferenza che possono essere utilizzate nei runbook con i relativi valori validi e predefiniti. Questa tabella include solo i valori validi in un runbook. Gli altri valori sono validi per le variabili di preferenza, se utilizzate in Windows PowerShell al di fuori di automazione di Azure.
 
-| Variabile | Default value | Valori validi |
+| Variabile | Default Value | Valori validi |
 |:--- |:--- |:--- |
 | WarningPreference |Continua |Interrompi<br>Continua<br>SilentlyContinue |
 | ErrorActionPreference |Continua |Interrompi<br>Continua<br>SilentlyContinue |
@@ -178,7 +174,7 @@ La tabella seguente elenca le variabili di preferenza che possono essere utilizz
 
 Nella tabella seguente è elencato il comportamento dei valori delle variabili di preferenza valide nei runbook.
 
-| Value | Comportamento |
+| Valore | Comportamento |
 |:--- |:--- |
 | Continua |Registra il messaggio e continua l'esecuzione del runbook. |
 | SilentlyContinue |Continua l'esecuzione del runbook senza registrazione del messaggio. Questo valore fa in modo che il messaggio venga ignorato. |

@@ -1,26 +1,18 @@
 ---
-title: Procedure consigliate per la sicurezza di Azure Service Fabric | Microsoft Docs
+title: Procedure consigliate per la sicurezza di Azure Service Fabric
 description: Questo articolo offre un set di procedure consigliate per la sicurezza di Azure Service Fabric.
-services: security
-documentationcenter: na
 author: unifycloud
-manager: barbkess
-editor: tomsh
-ms.assetid: ''
+ms.author: tomsh
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/16/2019
-ms.author: tomsh
-ms.openlocfilehash: dc063621e6b3e1d0d3e1a51d744ca9d9a6ef8c8d
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 458a1d474e9a722a98ca068e1827cf0e1abf4b47
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934634"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548820"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Procedure consigliate per la sicurezza di Azure Service Fabric
 Distribuire un'applicazione in Azure è veloce, semplice ed economico. Prima di distribuire l'applicazione cloud in produzione, esaminare l'elenco di procedure consigliate essenziali e consigliate per l'implementazione di cluster sicuri nell'applicazione.
@@ -71,7 +63,7 @@ In questo scenario i cluster in esecuzione in Azure o i cluster autonomi in esec
 -   Controllo degli accessi in base al ruolo: questo scenario usa identità separate (certificati, Azure AD e così via) per ogni ruolo client di amministratore e utente che accede al cluster. Specificare le identità del ruolo quando si crea il cluster.
 
 >[!NOTE]
->**Suggerimento per la sicurezza per i cluster di Azure:** per la sicurezza da nodo a nodo, usare la sicurezza di Azure AD per l'autenticazione dei client e dei certificati.
+>**Consigli di sicurezza per i cluster di Azure.** usare la sicurezza di Azure AD per l'autenticazione dei client e dei certificati per la sicurezza da nodo a nodo.
 
 Per configurare un cluster Windows autonomo, vedere [Impostazioni di configurazione per un cluster autonomo in Windows](../../service-fabric/service-fabric-cluster-manifest.md).
 
@@ -102,10 +94,10 @@ Se il cluster non è protetto, chiunque può connettersi in qualsiasi momento ed
 
 Per altre informazioni sui certificati X.509, vedere [Aggiungere o rimuovere certificati per un cluster Service Fabric in Azure](../../service-fabric/service-fabric-cluster-security-update-certs-azure.md).
 
-## <a name="configure-security-policies"></a>Configurare i criteri di sicurezza
+## <a name="configure-security-policies"></a>Configurare criteri di sicurezza
 Service Fabric protegge anche le risorse usate dalle applicazioni. Risorse tra cui file, directory e certificati vengono archiviate negli account utente quando l'applicazione viene distribuita. Con questa funzione le applicazioni in esecuzione, anche in un ambiente ospitato condiviso, sono reciprocamente protette.
 
--   Usare un utente o un gruppo di dominio di Active Directory: eseguire il servizio con le credenziali per un account utente o gruppo di Active Directory. Accertarsi di usare Active Directory locale nel dominio e non Azure Active Directory. Accedere ad altre risorse del dominio a cui sono state concesse le autorizzazioni usando un utente o un gruppo del dominio. Ad esempio, risorse come condivisioni file.
+-   Usare un utente o un gruppo di dominio Active Directory: eseguire il servizio con le credenziali per un account utente o un gruppo di Active Directory. Accertarsi di usare Active Directory locale nel dominio e non Azure Active Directory. Accedere ad altre risorse del dominio a cui sono state concesse le autorizzazioni usando un utente o un gruppo del dominio. Ad esempio, risorse come condivisioni file.
 
 -   Assegnare criteri di accesso di sicurezza per gli endpoint HTTP e HTTPS: specificare la proprietà **SecurityAccessPolicy** per applicare criteri **RunAs** a un servizio quando il manifesto del servizio dichiara le risorse di endpoint con HTTP. Le porte allocate agli endpoint HTTP sono elenchi con controllo corretto degli accessi per l'account utente RunAs in cui è in esecuzione il servizio. Se i criteri non sono impostati, http.sys non ha accesso al servizio e le chiamate del client possono avere esito negativo.
 
@@ -152,7 +144,7 @@ Il protocollo HTTP non è sicuro ed è soggetto ad attacchi di eavesdropping. I 
 Per altre informazioni sull'uso dei certificati SSL, vedere [Configurazione di SSL per un'applicazione in Azure](../../cloud-services/cloud-services-configure-ssl-certificate-portal.md).
 
 ## <a name="use-network-isolation-and-security-with-azure-service-fabric"></a>Usare l'isolamento e la sicurezza di rete con Azure Service Fabric
-Configurare un cluster 3 nodetype sicuro con il [modello di Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) come esempio. Controllare il traffico di rete in ingresso e in uscita usando il modello e i gruppi di sicurezza di rete.
+Configurare un cluster 3 nodetype sicuro con il [modello di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) come esempio. Controllare il traffico di rete in ingresso e in uscita usando il modello e i gruppi di sicurezza di rete.
 
 Il modello dispone di un gruppo di sicurezza di rete per ogni set di scalabilità di macchine virtuali e consente di controllare il traffico da e verso il set. Per impostazione predefinita, le regole vengono configurate per consentire tutto il traffico necessario per i servizi di sistema e le porte delle applicazioni specificate nel modello. Rivedere tali regole e modificarle in base alle proprie esigenze, inclusa l'aggiunta di nuove regole per le applicazioni in uso.
 
@@ -177,7 +169,7 @@ Per configurare un insieme di credenziali delle chiavi sono disponibili due pass
 Per altre informazioni su come configurare un insieme di credenziali delle chiavi, vedere [Che cos'è Azure Key Vault?](../../key-vault/key-vault-overview.md).
 
 ## <a name="assign-users-to-roles"></a>Assegnare utenti ai ruoli
-Dopo aver creato le applicazioni per rappresentare il cluster, assegnare gli utenti ai ruoli supportati da Service Fabric: sola lettura e amministratore. È possibile assegnare questi ruoli usando il portale di Azure.
+Dopo aver creato le applicazioni per rappresentare il cluster, assegnare gli utenti ai ruoli supportati da Service Fabric: sola lettura e amministratore. È possibile assegnare questi ruoli tramite il portale di Azure.
 
 >[!NOTE]
 > Per altre informazioni sull'uso dei ruoli in Service Fabric, vedere [Controllo di accesso basato sui ruoli per i client di Service Fabric](../../service-fabric/service-fabric-cluster-security-roles.md).

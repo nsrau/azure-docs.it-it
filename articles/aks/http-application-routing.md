@@ -8,14 +8,14 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: laevenso
-ms.openlocfilehash: f0975d0a60081b66d3d5a513954deb0c4fa1b978
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: cfd69ebf6408acaa2938271ba87f36768416de80
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851541"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442955"
 ---
-# <a name="http-application-routing"></a>Routing HTTP dell'applicazione
+# <a name="http-application-routing"></a>Routing di applicazioni HTTP
 
 La soluzione Routing di applicazioni HTTP semplifica l'accesso alle applicazioni distribuite nel cluster del servizio Azure Kubernetes. Quando la soluzione è abilitata, configura un [controller di ingresso](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) nel cluster AKS. Man mano che le applicazioni vengono distribuite, la soluzione crea anche nomi DNS pubblicamente accessibili per gli endpoint applicazione.
 
@@ -28,12 +28,12 @@ Quando il componente aggiuntivo è abilitato, viene creata una zona DNS nella so
 
 Il componente aggiuntivo distribuisce due componenti: un [controller di ingresso di Kubernetes][ingress] e un controller [DNS esterno][external-dns] .
 
-- **Controller di ingresso**: questo controller di ingresso è esposto a Internet tramite un servizio Kubernetes di tipo LoadBalancer. Il controller di ingresso controlla e implementa [le risorse di ingresso Kubernetes][ingress-resource], che creano route per gli endpoint dell'applicazione.
+- **Controller di ingresso**: questo controller è esposto a Internet tramite un servizio Kubernetes di tipo LoadBalancer. Il controller di ingresso controlla e implementa [le risorse di ingresso Kubernetes][ingress-resource], che creano route per gli endpoint dell'applicazione.
 - **Controller External-DNS**: controlla le risorse di ingresso Kubernetes e crea record DNS A nella zona DNS specifica del cluster.
 
-## <a name="deploy-http-routing-cli"></a>Distribuire il routing HTTP: Interfaccia della riga di comando
+## <a name="deploy-http-routing-cli"></a>Implementare il routing HTTP: interfaccia della riga di comando
 
-Il componente aggiuntivo Routing di applicazioni HTTP può essere abilitato tramite l'interfaccia della riga di comando di Azure al momento dell'implementazione di un cluster servizio Azure Kubernetes. A tale scopo, usare il comando [AZ AKS create][az-aks-create] con l' `--enable-addons` argomento.
+Il componente aggiuntivo Routing di applicazioni HTTP può essere abilitato tramite l'interfaccia della riga di comando di Azure al momento dell'implementazione di un cluster servizio Azure Kubernetes. A tale scopo, usare il comando [AZ AKS create][az-aks-create] con l'argomento `--enable-addons`.
 
 ```azurecli
 az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons http_application_routing
@@ -51,14 +51,15 @@ az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addo
 Dopo aver distribuito o aggiornato il cluster, usare il comando [AZ AKS Show][az-aks-show] per recuperare il nome della zona DNS. Questo nome è necessario per la distribuzione delle applicazioni nel cluster servizio Azure Kubernetes.
 
 ```azurecli
-$ az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
-
-Result
------------------------------------------------------
-9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io
+az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpapplicationrouting.config.HTTPApplicationRoutingZoneName -o table
 ```
 
-## <a name="deploy-http-routing-portal"></a>Distribuire il routing HTTP: Portale
+Risultato
+
+9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io
+
+
+## <a name="deploy-http-routing-portal"></a>Implementare il routing HTTP: portale
 
 Il componente aggiuntivo Routing di applicazioni HTTP può essere abilitato tramite il portale di Azure al momento dell'implementazione di un cluster servizio Azure Kubernetes.
 
@@ -207,7 +208,7 @@ kubectl delete configmaps addon-http-application-routing-nginx-configuration --n
 
 Ripetere il passaggio `kubectl delete` precedente per tutte le risorse *addon-http-application-routing* rimaste nel cluster.
 
-## <a name="troubleshoot"></a>Risolvere problemi
+## <a name="troubleshoot"></a>Risolvere i problemi
 
 Usare il comando [kubectl logs][kubectl-logs] per visualizzare i log dell'applicazione per l'applicazione DNS esterna. I log dovrebbero confermare che sono stati creati correttamente un record DNS A e un record DNS TXT.
 

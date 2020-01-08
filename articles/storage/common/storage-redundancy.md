@@ -9,12 +9,12 @@ ms.date: 09/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 8025228275afeb3f23268db759eb7659b9887132
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: cdddf284028c6fc9749082e1991e5b9dee4acf99
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71670792"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75560369"
 ---
 # <a name="azure-storage-redundancy"></a>Ridondanza di Archiviazione di Azure
 
@@ -32,25 +32,27 @@ Quando si crea un account di archiviazione, è possibile selezionare una delle o
 
 La tabella seguente presenta una rapida panoramica dell'ambito di durabilità e disponibilità che ogni strategia di replica è in grado di offrire per un determinato tipo di evento (o un evento di impatto simile).
 
-| Scenario                                                                                                 | Archiviazione con ridondanza locale                             | Archiviazione con ridondanza della zona                              | GRS/RA-GRS                                  | GZRS/RA-GZRS (anteprima)                              |
+| Scenario                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS (anteprima)                              |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| Mancata disponibilità di un nodo in un data center                                                                 | Yes                             | Yes                              | Yes                                  | Yes                                  |
-| Mancata disponibilità di un intero data center (di zona o non di zona)                                           | No                              | Yes                              | Yes                                  | Yes                                  |
-| Interruzione a livello di area                                                                                     | No                              | No                               | Yes                                  | Yes                                  |
+| Mancata disponibilità di un nodo in un data center                                                                 | Sì                             | Sì                              | Sì                                  | Sì                                  |
+| Mancata disponibilità di un intero data center (di zona o non di zona)                                           | No                              | Sì                              | Sì                                  | Sì                                  |
+| Interruzione a livello di area                                                                                     | No                              | No                               | Sì                                  | Sì                                  |
 | Accesso in lettura ai dati (in un'area remota con replica geografica) in caso di mancata disponibilità a livello di area | No                              | No                               | Sì (con RA-GRS)                                   | Sì (con RA-GZRS)                                 |
-| Replica progettata per fornire una durabilità di \_\_ per gli oggetti nel corso di un determinato anno                                          | Almeno 99,999999999% (11 9) | Almeno 99,9999999999% (12 9) | Almeno 99,99999999999999% (16 9) | Almeno 99,99999999999999% (16 9) |
-| Tipi di account di archiviazione supportati                                                                   | GPv2, GPv1, BLOB                | GPv2                             | GPv2, GPv1, BLOB                     | GPv2                     |
-| Contratto di servizio relativo alla disponibilità per le richieste di lettura | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno il 99,9% (99% per il livello di accesso sporadico) per GRS<br /><br />Almeno il 99,99% (99,9% per il livello di accesso sporadico) per RA-GRS | Almeno il 99,9% (99% per il livello di accesso sporadico) per GZRS<br /><br />Almeno il 99,99% (99,9% per il livello di accesso sporadico) per RA-GZRS |
-| Contratto di servizio relativo alla disponibilità per le richieste di scrittura | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) |
+| Progettato per fornire \_\_ durabilità degli oggetti in un determinato anno<sup>1</sup>                                          | Almeno 99,999999999% (11 9) | Almeno 99,9999999999% (12 9) | Almeno 99,99999999999999% (16 9) | Almeno 99,99999999999999% (16 9) |
+| Tipi di account di archiviazione supportati<sup>2</sup>                                                                   | GPv2, utilizzo generico V1, BlockBlobStorage, BlobStorage, filestorage                | GPv2, BlockBlobStorage, filestorage                             | GPv2, utilizzo generico V1, BlobStorage                     | GPv2                     |
+| CONTRATTO di disponibilità per richieste di lettura<sup>1</sup>  | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno il 99,9% (99% per il livello di accesso sporadico) per GRS<br /><br />Almeno il 99,99% (99,9% per il livello di accesso sporadico) per RA-GRS | Almeno il 99,9% (99% per il livello di accesso sporadico) per GZRS<br /><br />Almeno il 99,99% (99,9% per il livello di accesso sporadico) per RA-GZRS |
+| CONTRATTO di disponibilità per richieste di scrittura<sup>1</sup>  | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) |
 
-Tutti i dati nell'account di archiviazione vengono replicati, inclusi i BLOB in blocchi e i BLOB di Accodamento, i BLOB di pagine, le code, le tabelle e i file. Tutti i tipi di account di archiviazione vengono replicati, anche se ZRS richiede un account di archiviazione per utilizzo generico V2.
+<sup>1</sup> per informazioni sulle garanzie per la durabilità e la disponibilità di archiviazione di Azure, vedere il [contratto di Service di archiviazione di Azure](https://azure.microsoft.com/support/legal/sla/storage/).   
 
-Per informazioni sui prezzi delle varie opzioni di ridondanza, vedere [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/). 
+<sup>2</sup> per informazioni sui tipi di account di archiviazione, vedere [Panoramica dell'account di archiviazione](storage-account-overview.md).
 
-Per informazioni sulla garanzia di durabilità e disponibilità di Archiviazione di Azure, vedere il [contratto di servizio di Archiviazione di Azure](https://azure.microsoft.com/support/legal/sla/storage/).
+Tutti i dati per tutti i tipi di account di archiviazione vengono replicati, inclusi i BLOB in blocchi, i BLOB di Accodamento, i BLOB di pagine, le code, le tabelle e i file.
+
+Per informazioni sui prezzi delle varie opzioni di ridondanza, vedere [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 > [!NOTE]
-> Archiviazione Premium di Azure supporta attualmente solo l'archiviazione con ridondanza locale (con ridondanza locale).
+> Azure Premium archiviazione su disco supporta attualmente solo l'archiviazione con ridondanza locale (con ridondanza locale). Archiviazione BLOB in blocchi di Azure Premium supporta l'archiviazione redudant locale (con ridondanza locale) e la zona redudant Storage (ZRS) in determinate aree.
 
 ## <a name="changing-replication-strategy"></a>Modifica della strategia di replica
 
@@ -67,8 +69,9 @@ Se si esegue la migrazione dell'account di archiviazione da GRS a con ridondanza
 
 Se si esegue la migrazione dell'account di archiviazione da RA-GRS a GRS o con ridondanza locale, tale account viene fatturato come RA-GRS per altri 30 giorni oltre la data in cui è stata convertita.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
+- [Panoramica dell'account di archiviazione](storage-account-overview.md)
 - [Archiviazione con ridondanza locale: ridondanza dei dati a basso costo per Archiviazione di Azure](storage-redundancy-lrs.md)
 - [Archiviazione con ridondanza della zona (ZRS): applicazioni di Archiviazione di Azure a disponibilità elevata](storage-redundancy-zrs.md)
 - [Archiviazione con ridondanza geografica: replica tra più aree per Archiviazione di Azure](storage-redundancy-grs.md)

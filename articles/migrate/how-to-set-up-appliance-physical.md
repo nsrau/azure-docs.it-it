@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: db67defc72dcc7d913f897c6fb61548c5c33cf52
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 548ebfca9a937e58dfc5c1aff1adf6f6cb2dcc5d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278323"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454602"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configurare un'appliance per i server fisici
 
@@ -55,7 +55,7 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
 2. Eseguire il comando seguente per generare il codice hash per il disco rigido virtuale
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Esempio di utilizzo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3.  Per la versione più recente del dispositivo, l'hash generato deve corrispondere a queste impostazioni.
+3.  Per la versione dell'appliance più recente, l'hash generato deve corrispondere a queste impostazioni.
 
   **Algoritmo** | **Valore hash**
   --- | ---
@@ -82,7 +82,7 @@ Eseguire lo script nel modo seguente:
 3. Modificare la directory di PowerShell nella cartella in cui è stato estratto il contenuto del file compresso scaricato.
 4. Eseguire lo script eseguendo il comando seguente:
     ```
-    PS C:\Users\Administrators\Desktop> AzureMigrateInstaller-physical.ps1
+    AzureMigrateInstaller.ps1
     ```
 Lo script avvierà l'applicazione Web dell'appliance al termine dell'operazione.
 

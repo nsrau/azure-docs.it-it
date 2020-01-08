@@ -1,5 +1,5 @@
 ---
-title: Aggiungere o rimuovere un gruppo da un altro gruppo in Azure Active Directory | Microsoft Docs
+title: Aggiungere o rimuovere un gruppo da un altro gruppo-Azure AD
 description: Istruzioni su come aggiungere o rimuovere un gruppo da un altro gruppo con Azure Active Directory.
 services: active-directory
 author: msaburnley
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 896a8b2c96dc10afbc3f179aed5a8497a8948ca9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 830bf7134b3a8b0425c53673a1347dd77897a5bd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561923"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423090"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Aggiungere o rimuovere un gruppo da un altro gruppo con Azure Active Directory
 Questo articolo descrive come aggiungere o rimuovere un gruppo da un altro gruppo con Azure Active Directory.
@@ -30,7 +30,7 @@ Questo articolo descrive come aggiungere o rimuovere un gruppo da un altro grupp
 È possibile aggiungere un gruppo di sicurezza esistente a un altro gruppo di sicurezza esistente, ovvero creare gruppi annidati, creando un gruppo membri, o sottogruppo, e un gruppo padre. Il gruppo membri eredita gli attributi e le proprietà del gruppo padre, consentendo di risparmiare tempo di configurazione.
 
 >[!Important]
->Attualmente non sono supportate le operazioni seguenti:<ul><li>Aggiunta di gruppi a un gruppo sincronizzato con Active Directory locale.</li><li>Aggiunta di gruppi di sicurezza a gruppi di Office 365.</li><li>Aggiunta di gruppi di Office 365 a gruppi di sicurezza o ad altri gruppi di Office 365.</li><li>Assegnazione di app a gruppi annidati.</li><li>Applicazione di licenze a gruppi annidati.</li></ul>
+>Attualmente non sono supportate le operazioni seguenti:<ul><li>Aggiunta di gruppi a un gruppo sincronizzato con Active Directory locale.</li><li>Aggiunta di gruppi di sicurezza a gruppi di Office 365.</li><li>Aggiunta di gruppi di Office 365 a gruppi di sicurezza o ad altri gruppi di Office 365.</li><li>Assegnazione di app a gruppi annidati.</li><li>Applicazione di licenze a gruppi annidati.</li><li>Aggiunta di gruppi di distribuzione in scenari di annidamento.</li></ul>
 
 ### <a name="to-add-a-group-as-a-member-of-another-group"></a>Per aggiungere un gruppo come membro di un altro gruppo
 
@@ -49,15 +49,11 @@ Questo articolo descrive come aggiungere o rimuovere un gruppo da un altro grupp
 
     Il gruppo **MDM policy - West** ora è un membro del gruppo **MDM policy - All org** ed eredita tutte le proprietà e la configurazione del gruppo MDM policy - All org.
 
-    ![Creare l'appartenenza a un gruppo tramite l'aggiunta di un gruppo a un altro gruppo](media/active-directory-groups-membership-azure-portal/add-group-membership.png)
+    ![Creare l'appartenenza a un gruppo tramite l'aggiunta di un gruppo a un altro gruppo](media/active-directory-groups-membership-azure-portal/group-add-group-membership.png)
 
 5. Rivedere la pagina **MDM policy - West - Appartenenze a gruppi** per visualizzare la relazione tra il gruppo e i membri.
 
-    ![Pagina MDM policy - West - Appartenenze a gruppi che visualizza il gruppo padre](media/active-directory-groups-membership-azure-portal/group-membership-blade.png)
-
 6. Per una visualizzazione più dettagliata della relazione tra gruppo e membri, selezionare il nome del gruppo (**MDM policy - All org**) e osservare i dettagli della pagina **MDM policy - West**.
-
-    ![Pagina delle appartenenze ai gruppi con i dettagli sia del membro che del gruppo](media/active-directory-groups-membership-azure-portal/group-membership-review.png)
 
 ## <a name="remove-a-group-from-another-group"></a>Rimuovere un gruppo da un altro gruppo
 È possibile rimuovere un gruppo di sicurezza esistente da un altro gruppo di sicurezza. Tuttavia, rimuovendo il gruppo vengono rimossi anche tutti gli attributi e le proprietà ereditati per i membri.
@@ -67,12 +63,9 @@ Questo articolo descrive come aggiungere o rimuovere un gruppo da un altro grupp
 
 2. Nella pagina **Panoramica MDM policy - West**  selezionare **Appartenenze a gruppi**.
 
-    ![Pagina Panoramica MDM policy - West](media/active-directory-groups-membership-azure-portal/group-membership-overview.png)
-
 3. Selezionare il gruppo **MDM policy - All org** nella pagina **MDM policy - West - Appartenenze a gruppi** e quindi selezionare **Rimuovi** dai dettagli della pagina **MDM policy - West**.
 
     ![Pagina delle appartenenze ai gruppi con i dettagli sia del membro che del gruppo](media/active-directory-groups-membership-azure-portal/group-membership-remove.png)
-
 
 ## <a name="additional-information"></a>Informazioni aggiuntive
 Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.

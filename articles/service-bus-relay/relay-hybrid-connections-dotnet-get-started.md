@@ -1,6 +1,6 @@
 ---
-title: Introduzione a Azure WebSockets connessioni ibride di inoltro in .NET | Microsoft Docs
-description: Scrivere un C# console applicazioni affinché i WebSocket le connessioni ibride inoltro di Azure.
+title: Connessioni ibride di inoltro di Azure-WebSocket in .NET
+description: Scrivere un' C# applicazione console per l'inoltro di Azure connessioni ibride WebSocket.
 services: service-bus-relay
 documentationcenter: .net
 author: spelluru
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 6ad1d5415feefcf30ebae860bc8f4d8a3e2261d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 13612f8ffa343e483165a8dbdd54d1b2b1f5e2cf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428347"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355186"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Introduzione a Websocket per Connessioni ibride di Inoltro di Azure in .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -64,7 +64,7 @@ In Visual Studio scrivere un'applicazione console in C# per inviare messaggi all
 
     ![applicazioni in esecuzione](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
 
-Complimenti, aver creato un'applicazione completa di connessioni ibride.
+Congratulazioni, è stata creata un'applicazione Connessioni ibride completa.
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questa guida introduttiva sono state create applicazioni client e server .NET che usano WebSocket per inviare e ricevere messaggi. La funzionalità Connessioni ibride di Inoltro di Azure supporta anche l'uso di HTTP per l'invio e la ricezione di messaggi. Per informazioni sull'uso di HTTP con Connessioni ibride di Inoltro di Azure, vedere la [guida introduttiva di HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md).

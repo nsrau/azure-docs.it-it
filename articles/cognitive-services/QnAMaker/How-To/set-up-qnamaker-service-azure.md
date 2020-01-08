@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 6d52062561e3f08a214f3e191706583edc844786
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: ec19f4b4140fb6f4a1dc968f4e2cac3c3d7a1e76
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73794221"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447708"
 ---
 # <a name="manage-qna-maker-resources"></a>Gestisci risorse QnA Maker
 
@@ -26,12 +26,12 @@ Prima di poter creare una Knowledge Base di QnA Maker, è necessario configurare
 
 Il servizio QnA Maker gestisce due tipi di chiavi: chiavi di **sottoscrizione** e **chiavi dell'endpoint**.
 
-![Gestione della chiave](../media/qnamaker-how-to-key-management/key-management.png)
+![Gestione delle chiavi](../media/qnamaker-how-to-key-management/key-management.png)
 
-|Name|Percorso|Scopo|
+|Nome|Percorso|Finalità|
 |--|--|--|
-|Chiave della sottoscrizione|[Portale di Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|queste chiavi vengono usate per accedere alle [API del servizio di gestione di QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Queste API consentono di modificare le domande e le risposte nella Knowledge base e di pubblicare la Knowledge base. Queste chiavi vengono create quando si crea un nuovo servizio QnA Maker.<br><br>Trovare queste chiavi nella risorsa **Servizi cognitivi** nella pagina **chiavi** .|
-|Chiave endpoint|[Portale di QnA Maker](http://www.qnamaker.ai)|Queste chiavi vengono utilizzate per accedere all'endpoint della Knowledge base pubblicata per ottenere una risposta per una domanda utente. Questo endpoint viene in genere usato in chat bot o nel codice dell'applicazione client che si connette al servizio QnA Maker. Queste chiavi vengono create quando si pubblica la QnA Maker Knowledge base.<br><br>Trovare queste chiavi nella pagina **Impostazioni servizio** . Trovare questa pagina dal menu dell'utente nella parte superiore destra della pagina nel menu a discesa.|
+|Chiave della sottoscrizione|[Azure portal](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|Queste chiavi vengono usate per accedere alle [API del servizio di gestione QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Queste API consentono di modificare le domande e le risposte nella Knowledge base e di pubblicare la Knowledge base. Queste chiavi vengono create quando si crea un nuovo servizio QnA Maker.<br><br>Trovare queste chiavi nella risorsa **Servizi cognitivi** nella pagina **chiavi** .|
+|Chiave endpoint|[Portale di QnA Maker](https://www.qnamaker.ai)|Queste chiavi vengono utilizzate per accedere all'endpoint della Knowledge base pubblicata per ottenere una risposta per una domanda utente. Questo endpoint viene in genere usato in chat bot o nel codice dell'applicazione client che si connette al servizio QnA Maker. Queste chiavi vengono create quando si pubblica la QnA Maker Knowledge base.<br><br>Trovare queste chiavi nella pagina **Impostazioni servizio** . Trovare questa pagina dal menu dell'utente nella parte superiore destra della pagina nel menu a discesa.|
 
 ## <a name="create-a-new-qna-maker-service"></a>Creare un nuovo servizio QnA Maker
 
@@ -63,7 +63,7 @@ Questa procedura consente di creare le risorse di Azure necessarie per gestire i
 
     * Specificare se si desidera abilitare o meno **Application Insights**. Se **Application Insights** è abilitato, QnA Maker raccoglierà dati di telemetria su traffico, log delle chat ed errori.
     * Scegliere il **percorso di App Insights** in cui verrà distribuita la risorsa Application Insights.
-    * Per le misure di risparmio sui costi, è possibile [condividere](#share-existing-services-with-qna-maker) alcune ma non tutte le risorse di Azure create per QnA Maker. 
+    * Per le misure di risparmio sui costi, è possibile [condividere](#share-existing-services-with-qna-maker) alcune ma non tutte le risorse di Azure create per QnA Maker.
 
 1. Dopo la convalida di tutti i campi, selezionare **Crea**. Il completamento del processo può richiedere alcuni minuti.
 
@@ -106,7 +106,7 @@ Le chiavi endpoint possono essere gestite dal [portale di QnA Maker](https://qna
 
 QnA Maker crea diverse risorse di Azure. Per ridurre la gestione e trarre vantaggio dalla condivisione dei costi, usare la tabella seguente per comprendere cosa è possibile e non è possibile condividere:
 
-|Service|Condividi|Motivo|
+|Servizio|Condivisione|Motivo|
 |--|--|--|
 |Servizi cognitivi|X|Non possibile dalla progettazione|
 |Piano di servizio app|✔|Spazio su disco fisso allocato per un piano di servizio app. Se altre app che condividono lo stesso piano di servizio app usano spazio su disco significativo, si verificheranno problemi nell'istanza del servizio app QnAMaker.|

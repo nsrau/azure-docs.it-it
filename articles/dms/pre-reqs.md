@@ -1,5 +1,5 @@
 ---
-title: Panoramica dei prerequisiti per usare il Servizio Migrazione del database di Azure | Microsoft Docs
+title: Prerequisiti per il servizio migrazione del database di Azure
 description: Informazioni sulla panoramica dei prerequisiti per usare il Servizio Migrazione del database di Azure per eseguire le migrazioni di database.
 services: database-migration
 author: HJToland3
@@ -8,19 +8,19 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 05/29/2019
-ms.openlocfilehash: 4e21014f7b4ed86846a100ed9a2b1cd4b0400974
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a262b75e4ab0f178e5d4bea34f5046f2292ab40
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304267"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437756"
 ---
 # <a name="overview-of-prerequisites-for-using-the-azure-database-migration-service"></a>Panoramica dei prerequisiti per usare il Servizio Migrazione del database di Azure
 
-Esistono diversi prerequisiti obbligatori per verificare che servizio migrazione del Database venga eseguito senza problemi quando si eseguono migrazioni di database. Alcuni dei prerequisiti si applicano a tutti gli scenari (coppie di origine-destinazione) supportati dal servizio, mentre altri prerequisiti sono univoci per uno scenario specifico.
+Sono necessari alcuni prerequisiti per garantire che il servizio migrazione del database di Azure venga eseguito senza problemi durante l'esecuzione delle migrazioni del database. Alcuni dei prerequisiti si applicano a tutti gli scenari (coppie di origine-destinazione) supportati dal servizio, mentre altri prerequisiti sono univoci per uno scenario specifico.
 
 I prerequisiti associati all'utilizzo del Servizio Migrazione del database di Azure sono elencati nelle sezioni seguenti.
 
@@ -29,13 +29,13 @@ I prerequisiti associati all'utilizzo del Servizio Migrazione del database di Az
 In base ai prerequisiti del Servizio Migrazione del database di Azure comuni a tutti gli scenari di migrazione supportati, è necessario:
 
 * Creare una rete virtuale di Azure per il Servizio Migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager, che offre la connettività da sito a sito per i server di origine locali con [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-* Assicurarsi che le regole del gruppo di sicurezza rete (NSG) di rete virtuale non bloccano le seguenti porte di comunicazione 443, 53, 9354, 445, 12000. Per informazioni dettagliate sui filtri del traffico dei gruppi di sicurezza di rete relativi alla rete virtuale di Azure, vedere l'articolo [Filtrare il traffico di rete con gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Verificare che le regole del gruppo di sicurezza di rete VNet (NSG) non blocchino le porte di comunicazione seguenti 443, 53, 9354, 445, 12000. Per informazioni dettagliate sui filtri del traffico dei gruppi di sicurezza di rete relativi alla rete virtuale di Azure, vedere l'articolo [Filtrare il traffico di rete con gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Quando si usa un'appliance firewall all'ingresso dei database di origine, potrebbe essere necessario aggiungere regole del firewall per consentire al Servizio Migrazione del database di Azure di accedere ai database di origine per la migrazione.
 * Configurare [Windows Firewall per l'accesso al motore di database](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Abilitare il protocollo TCP/IP, che viene disabilitato per impostazione predefinita durante l'installazione di SQL Server Express, seguendo le istruzioni riportate nell'articolo [Abilitare o disabilitare un protocollo di rete del server](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
 
     > [!IMPORTANT]
-    > Creazione di un'istanza del servizio migrazione del Database di Azure richiede l'accesso alle impostazioni di rete virtuale in genere non sono nello stesso gruppo di risorse. Di conseguenza, l'utente che crea un'istanza del servizio migrazione del database è richiesta l'autorizzazione a livello di sottoscrizione. Per creare i ruoli richiesti, che è possibile assegnare in base alle esigenze, eseguire lo script seguente:
+    > La creazione di un'istanza del servizio migrazione del database di Azure richiede l'accesso alle impostazioni di VNet che in genere non rientrano nello stesso gruppo di risorse. Di conseguenza, l'utente che crea un'istanza di DMS richiede l'autorizzazione a livello di sottoscrizione. Per creare i ruoli necessari, che è possibile assegnare in base alle esigenze, eseguire lo script seguente:
     >
     > ```
     >
@@ -118,9 +118,9 @@ Quando si usa il Servizio Migrazione del database di Azure per eseguire le migra
    > Per l'elenco completo dei prerequisiti richiesti per usare il Servizio Migrazione del database di Azure per eseguire le migrazioni da SQL Server al database SQL di Azure, vedere l'esercitazione [Eseguire la migrazione di SQL Server nel database SQL di Azure](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-azure-sql).
    > 
 
-## <a name="prerequisites-for-migrating-sql-server-to-an-azure-sql-database-managed-instance"></a>Prerequisiti per la migrazione a SQL Server a un'istanza gestita di Database SQL di Azure
+## <a name="prerequisites-for-migrating-sql-server-to-an-azure-sql-database-managed-instance"></a>Prerequisiti per la migrazione di SQL Server a un'istanza gestita di database SQL di Azure
 
-* Creare un'istanza gestita di Database SQL di Azure seguendo le istruzioni riportate nell'articolo [creare un'istanza gestita di Azure SQL Database nel portale di Azure](https://aka.ms/sqldbmi).
+* Creare un'istanza gestita di database SQL di Azure seguendo le istruzioni riportate nell'articolo [creare un istanza gestita di database SQL di Azure nel portale di Azure](https://aka.ms/sqldbmi).
 * Aprire i firewall per consentire il traffico SMB sulla porta 445 per l'intervallo di indirizzi IP o di subnet del Servizio Migrazione del database di Azure.
 * Aprire Windows Firewall per consentire al Servizio Migrazione del database di Azure di accedere a SQL Server di origine, che per impostazione predefinita è la porta TCP 1433.
 * Se si eseguono più istanze di SQL Server denominate usando le porte dinamiche, è consigliabile abilitare il Servizio browser SQL e consentire l'accesso alla porta UDP 1434 attraverso i firewall, in modo che il Servizio Migrazione del database di Azure possa connettersi a un'istanza denominata nel server di origine.

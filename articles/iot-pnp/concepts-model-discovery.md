@@ -3,18 +3,18 @@ title: Implementare l'individuazione del modello Plug and Play di anteprima | Mi
 description: Gli sviluppatori di soluzioni possono scoprire come implementare l'individuazione dei modelli Plug and Play nella soluzione.
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 07/17/2019
+ms.date: 12/26/2019
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: c37446fd5a0cdc986044405a9aa3da32462d9c04
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 66da0321930ac38217a336380c9889963a433e67
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114268"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531361"
 ---
 # <a name="implement-iot-plug-and-play-preview-model-discovery-in-an-iot-solution"></a>Implementare l'individuazione del modello di Plug and Play di anteprima in una soluzione Internet delle cose
 

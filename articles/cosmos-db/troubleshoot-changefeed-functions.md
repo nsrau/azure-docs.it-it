@@ -1,5 +1,5 @@
 ---
-title: Diagnosticare e risolvere i problemi quando si usa il trigger di funzioni di Azure per Cosmos DB
+title: Risolvere i problemi relativi all'uso del trigger funzioni di Azure per Cosmos DB
 description: Problemi comuni, soluzioni alternative e procedure di diagnostica, quando si usa il trigger di funzioni di Azure per Cosmos DB
 author: ealsur
 ms.service: cosmos-db
@@ -7,18 +7,18 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: e3ff86770ec0337c9a4a11b30c6d88e8365bfa24
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: f3af350c96d1dd9eaf4773db503acb10d8a08a8f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064113"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441110"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnosticare e risolvere i problemi quando si usa il trigger di funzioni di Azure per Cosmos DB
 
 Questo articolo descrive i problemi comuni, le soluzioni alternative e i passaggi di diagnostica, quando si usa il [trigger di funzioni di Azure per Cosmos DB](change-feed-functions.md).
 
-## <a name="dependencies"></a>Dipendenze
+## <a name="dependencies"></a>Dependencies
 
 Il trigger e le associazioni di funzioni di Azure per Cosmos DB dipendono dai pacchetti di estensione nel runtime di funzioni di Azure di base. Mantieni sempre aggiornati i pacchetti, in quanto potrebbero includere correzioni e nuove funzionalità che potrebbero risolvere eventuali problemi potenziali che possono verificarsi:
 
@@ -78,12 +78,12 @@ Quando la funzione di Azure riceve le modifiche, le elabora spesso e può facolt
 
 Se nella destinazione mancano alcune modifiche, ciò potrebbe indicare che si è verificato un errore durante l'esecuzione della funzione di Azure dopo la ricezione delle modifiche.
 
-In questo scenario, il modo migliore consiste nell'aggiungere `try/catch` blocchi nel codice e all'interno dei cicli che potrebbero elaborare le modifiche, per rilevare qualsiasi errore per un particolare subset di elementi e gestirli di conseguenza (inviarli a un'altra risorsa di archiviazione per ulteriori analisi o ripetizione dei tentativi). 
+In questo scenario, il modo migliore consiste nell'aggiungere `try/catch` blocchi nel codice e all'interno dei cicli che potrebbero elaborare le modifiche, per rilevare eventuali errori relativi a un particolare subset di elementi e gestirli di conseguenza (inviarli a un'altra risorsa di archiviazione per un'ulteriore analisi o ripetizione dei tentativi). 
 
 > [!NOTE]
 > Il trigger di funzioni di Azure per Cosmos DB, per impostazione predefinita, non ripeterà un batch di modifiche se si è verificata un'eccezione non gestita durante l'esecuzione del codice. Ciò significa che il motivo per cui le modifiche non arrivano alla destinazione è dovuto al fatto che l'elaborazione non è riuscita.
 
-Se si rileva che alcune modifiche non sono state ricevute dal trigger, lo scenario più comune è che è **in esecuzione un'altra funzione di Azure**. Potrebbe trattarsi di un'altra funzione di Azure distribuita in Azure o di una funzione di Azure in esecuzione in locale nel computer di uno sviluppatore che ha **esattamente la stessa configurazione** (gli stessi contenitori monitorati e di lease) e che questa funzione di Azure sta rubando un subset delle modifiche si aspetterebbe che la funzione di Azure venga elaborata.
+Se si rileva che alcune modifiche non sono state ricevute dal trigger, lo scenario più comune è che è **in esecuzione un'altra funzione di Azure**. Potrebbe trattarsi di un'altra funzione di Azure distribuita in Azure o di una funzione di Azure in esecuzione in locale nel computer di uno sviluppatore che ha **esattamente la stessa configurazione** (gli stessi contenitori monitorati e di lease) e che questa funzione di Azure sta rubando un subset delle modifiche che si prevede vengano elaborate dalla funzione di Azure.
 
 Inoltre, è possibile convalidare lo scenario, se si conosce il numero di istanze di app per le funzioni di Azure in esecuzione. Se si esamina il contenitore dei lease e si conta il numero di elementi di lease in, i valori distinti della proprietà `Owner` devono essere uguali al numero di istanze del app per le funzioni. Se il numero di proprietari supera quello delle istanze note dell'app per le funzioni di Azure, significa che questi proprietari extra "rubano" le modifiche.
 

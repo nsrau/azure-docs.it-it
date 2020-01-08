@@ -1,6 +1,6 @@
 ---
-title: Rete per i set di scalabilità di macchine virtuali di Azure | Microsoft Docs
-description: Configurazione delle proprietà della rete per i set di scalabilità di macchine virtuali di Azure.
+title: Rete per i set di scalabilità di macchine virtuali di Azure
+description: Come configurare alcune delle proprietà di rete più avanzate per i set di scalabilità di macchine virtuali di Azure.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: manayar
-ms.openlocfilehash: 5be64ad2b3141791d5612aba84324278ea812875
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 390da9179280a1ab8898d1ccea4df81e3b98805a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244837"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647578"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Rete per i set di scalabilità di macchine virtuali di Azure
 
@@ -29,7 +29,7 @@ Quando si distribuisce un set di scalabilità di macchine virtuali di Azure tram
 È possibile configurare tutte le funzionalità illustrate in questo articolo usando i modelli di Azure Resource Manager. Sono inclusi anche esempi dell'interfaccia della riga di comando di Azure e di PowerShell per le funzionalità selezionate.
 
 ## <a name="accelerated-networking"></a>Rete accelerata
-La rete accelerata di Azure migliora le prestazioni di rete abilitando Single-Root I/O Virtualization (SR-IOV) per le macchine virtuali. Per altre informazioni sull'uso della rete accelerata, vedere Rete accelerata per macchine virtuali [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) o [Linux](../virtual-network/create-vm-accelerated-networking-cli.md). Per usare la rete accelerata con i set di scalabilità, impostare enableAcceleratedNetworking su **true** nelle impostazioni networkInterfaceConfigurations del set di scalabilità, Esempio:
+La rete accelerata di Azure migliora le prestazioni di rete abilitando Single-Root I/O Virtualization (SR-IOV) per le macchine virtuali. Per altre informazioni sull'uso della rete accelerata, vedere Rete accelerata per macchine virtuali [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) o [Linux](../virtual-network/create-vm-accelerated-networking-cli.md). Per usare la rete accelerata con i set di scalabilità, impostare enableAcceleratedNetworking su **true** nelle impostazioni networkInterfaceConfigurations del set di scalabilità, Ad esempio:
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -95,11 +95,11 @@ Per creare un set di scalabilità che usa un gateway applicazione, fare riferime
 Per impostazione predefinita, ai set di scalabilità vengono applicate le impostazioni DNS specifiche della rete virtuale e della subnet in cui sono state create. È tuttavia possibile configurare direttamente le impostazioni DNS per un set di scalabilità.
 
 ### <a name="creating-a-scale-set-with-configurable-dns-servers"></a>Creazione di un set di scalabilità con server DNS configurabili
-Per creare un set di scalabilità con una configurazione DNS personalizzata usando l'interfaccia della riga di comando di Azure, aggiungere l'argomento **--dns-servers** al comando **vmss create**, facendo seguire l'argomento dagli indirizzi IP dei server separati da spazi. Esempio:
+Per creare un set di scalabilità con una configurazione DNS personalizzata usando l'interfaccia della riga di comando di Azure, aggiungere l'argomento **--dns-servers** al comando **vmss create**, facendo seguire l'argomento dagli indirizzi IP dei server separati da spazi. Ad esempio:
 ```bash
 --dns-servers 10.0.0.6 10.0.0.5
 ```
-Per configurare server DNS personalizzati in un modello di Azure, aggiungere una proprietà dnsSettings alla sezione networkInterfaceConfigurations del set di scalabilità, Esempio:
+Per configurare server DNS personalizzati in un modello di Azure, aggiungere una proprietà dnsSettings alla sezione networkInterfaceConfigurations del set di scalabilità, Ad esempio:
 ```json
 "dnsSettings":{
     "dnsServers":["10.0.0.6", "10.0.0.5"]
@@ -109,7 +109,7 @@ Per configurare server DNS personalizzati in un modello di Azure, aggiungere una
 ### <a name="creating-a-scale-set-with-configurable-virtual-machine-domain-names"></a>Creazione di un set di scalabilità con nomi di dominio di macchine virtuali configurabili
 Per creare un set di scalabilità con un nome DNS personalizzato per le macchine virtuali usando l'interfaccia della riga di comando di Azure, aggiungere l'argomento **--vm-domain-name** al comando di **creazione di set di scalabilità di macchine virtuali** , facendo seguire l'argomento da una stringa che rappresenta il nome di dominio.
 
-Per impostare il nome di dominio in un modello di Azure, aggiungere una proprietà **dnsSettings** alla sezione **networkInterfaceConfigurations** del set di scalabilità, Esempio:
+Per impostare il nome di dominio in un modello di Azure, aggiungere una proprietà **dnsSettings** alla sezione **networkInterfaceConfigurations** del set di scalabilità, Ad esempio:
 
 ```json
 "networkProfile": {
@@ -154,7 +154,7 @@ Alcuni scenari tuttavia richiedono che le macchine virtuali del set di scalabili
 ### <a name="creating-a-scale-set-with-public-ip-per-virtual-machine"></a>Creazione di un set di scalabilità con un IP pubblico per ogni macchina virtuale
 Per creare un set di scalabilità che assegni un indirizzo IP pubblico a ogni macchina virtuale con l'interfaccia della riga di comando di Azure, aggiungere il parametro **--public-ip-per-vm** al comando **vmss create**. 
 
-Per creare un set di scalabilità usando un modello di Azure, verificare che la versione API della risorsa Microsoft.Compute/virtualMachineScaleSets sia almeno **2017-03-30** e aggiungere una proprietà JSON **publicIpAddressConfiguration** alla sezione ipConfigurations del set di scalabilità, Esempio:
+Per creare un set di scalabilità usando un modello di Azure, verificare che la versione API della risorsa Microsoft.Compute/virtualMachineScaleSets sia almeno **2017-03-30** e aggiungere una proprietà JSON **publicIpAddressConfiguration** alla sezione ipConfigurations del set di scalabilità, Ad esempio:
 
 ```json
 "publicIpAddressConfiguration": {
@@ -169,12 +169,12 @@ Modello di esempio: [201-vmss-public-ip-linux](https://github.com/Azure/azure-qu
 ### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>Query degli indirizzi IP pubblici delle macchine virtuali in un set di scalabilità
 Per elencare gli indirizzi IP pubblici assegnati alle macchine virtuali del set di scalabilità usando l'interfaccia della riga di comando di Azure, eseguire il comando **az vmss list-instance-public-ips**.
 
-Per ottenere un elenco degli indirizzi IP pubblici del set di scalabilità con PowerShell, usare il comando _Get-AzPublicIpAddress_. Esempio:
+Per ottenere un elenco degli indirizzi IP pubblici del set di scalabilità con PowerShell, usare il comando _Get-AzPublicIpAddress_. Ad esempio:
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
-È anche possibile eseguire una query sugli indirizzi IP pubblici facendo direttamente riferimento all'ID risorsa della configurazione degli indirizzi IP pubblici, Esempio:
+È anche possibile eseguire una query sugli indirizzi IP pubblici facendo direttamente riferimento all'ID risorsa della configurazione degli indirizzi IP pubblici, Ad esempio:
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
@@ -238,7 +238,7 @@ Esempio di output da [Azure Resource Explorer](https://resources.azure.com) e da
 ```
 
 ## <a name="multiple-ip-addresses-per-nic"></a>Più indirizzi IP per ogni scheda di interfaccia di rete
-Ogni scheda di interfaccia di rete collegata a una macchina virtuale in un set di scalabilità può avere una o più configurazioni IP associate. A ogni configurazione viene assegnato un indirizzo IP privato. Ogni configurazione può anche avere una risorsa di indirizzo IP pubblico associata. Per sapere quanti indirizzi IP possono essere assegnati a una scheda di interfaccia di rete e quanti indirizzi IP pubblici è possibile usare in una sottoscrizione di Azure, vedere [Limiti di Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Ogni scheda di interfaccia di rete collegata a una macchina virtuale in un set di scalabilità può avere una o più configurazioni IP associate. A ogni configurazione viene assegnato un indirizzo IP privato. Ogni configurazione può anche avere una risorsa di indirizzo IP pubblico associata. Per sapere quanti indirizzi IP possono essere assegnati a una scheda di interfaccia di rete e quanti indirizzi IP pubblici è possibile usare in una sottoscrizione di Azure, vedere [Limiti di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## <a name="multiple-nics-per-virtual-machine"></a>Più schede di interfaccia di rete per ogni macchina virtuale
 È possibile avere fino a 8 schede di interfaccia di rete per ogni macchina virtuale, a seconda delle dimensioni del computer. Il numero massimo di schede di interfaccia di rete per computer è disponibile nell'[articolo sulle dimensioni per le VM](../virtual-machines/windows/sizes.md). Tutte le schede di interfaccia di rete connesse a un'istanza di macchina virtuale devono connettersi alla stessa rete virtuale. Le schede di interfaccia di rete possono connettersi a subnet diverse, ma tutte le subnet devono far parte della stessa rete virtuale.
@@ -323,7 +323,7 @@ I gruppi di sicurezza di rete possono essere applicati direttamente a un set di 
 
 I gruppi di sicurezza delle applicazioni possono essere specificati anche direttamente in un set di scalabilità, aggiungendo un riferimento alla sezione delle configurazioni IP dell'interfaccia di rete delle proprietà delle macchine virtuali del set di scalabilità.
 
-Esempio: 
+Ad esempio: 
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [

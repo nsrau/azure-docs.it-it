@@ -4,15 +4,15 @@ description: I dati in transito sono dati di prestazioni e di rete consolidati p
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/03/2018
-ms.openlocfilehash: 5e19c9bd47fe253f9a416b923ec0cb1748682842
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 031a09203ab2ab2bcfcdf4352e975c1374446c25
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900597"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365802"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Soluzione Wire Data 2.0 (anteprima) in monitoraggio di Azure
 
@@ -54,9 +54,9 @@ Wire Data ottiene i dati da Microsoft Dependency Agent. Il Dependency Agent dipe
 
 | **Origine connessa** | **Supportato** | **Descrizione** |
 | --- | --- | --- |
-| Agenti Windows | SÌ | Wire Data analizza e raccoglie i dati da computer agente Windows. <br><br> Oltre all'[agente di Log Analytics per Windows](../platform/agent-windows.md), gli agenti Windows richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere [Sistemi operativi supportati](vminsights-enable-overview.md#supported-operating-systems). |
-| Agenti Linux | SÌ | Wire Data analizza e raccoglie i dati da computer agente Linux.<br><br> Oltre all'[agente di Log Analytics per Linux](../learn/quick-collect-linux-computer.md), gli agenti Linux richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere [Sistemi operativi supportati](vminsights-enable-overview.md#supported-operating-systems). |
-| Gruppo di gestione di System Center Operations Manager | SÌ | Wire Data analizza e raccoglie i dati dagli agenti Windows e Linux in un [gruppo di gestione di System Center Operations Manager](../platform/om-agents.md) connesso. <br><br> È necessaria una connessione diretta dal computer agente System Center Operations Manager a monitoraggio di Azure. |
+| Agenti Windows | Sì | Wire Data analizza e raccoglie i dati da computer agente Windows. <br><br> Oltre all'[agente di Log Analytics per Windows](../platform/agent-windows.md), gli agenti Windows richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere [Sistemi operativi supportati](vminsights-enable-overview.md#supported-operating-systems). |
+| Agenti Linux | Sì | Wire Data analizza e raccoglie i dati da computer agente Linux.<br><br> Oltre all'[agente di Log Analytics per Linux](../learn/quick-collect-linux-computer.md), gli agenti Linux richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere [Sistemi operativi supportati](vminsights-enable-overview.md#supported-operating-systems). |
+| Gruppo di gestione di System Center Operations Manager | Sì | Wire Data analizza e raccoglie i dati dagli agenti Windows e Linux in un [gruppo di gestione di System Center Operations Manager](../platform/om-agents.md) connesso. <br><br> È necessaria una connessione diretta dal computer agente System Center Operations Manager a monitoraggio di Azure. |
 | Account di archiviazione di Azure | No | Wire Data raccoglie i dati dai computer agente, quindi non devono essere raccolti dati da Archiviazione di Azure. |
 
 In Windows, il Microsoft Monitoring Agent (MMA) viene usato sia da System Center Operations Manager che da monitoraggio di Azure per raccogliere e inviare dati. A seconda del contesto, l'agente viene chiamato agente di System Center Operations Manager, agente di Log Analytics, agente MMA o agente diretto. System Center Operations Manager e monitoraggio di Azure forniscono versioni leggermente diverse di MMA. Queste versioni possono eseguire ogni report System Center Operations Manager, monitoraggio di Azure o entrambi.
@@ -224,7 +224,7 @@ InstallDependencyAgent-Linux64.bin -help
 
 I file relativi a Dependency Agent sono memorizzati nelle directory seguenti:
 
-| **File** | **Località** |
+| **File** | **Posizione** |
 | --- | --- |
 | File core | /opt/microsoft/dependency-agent |
 | File di log | /var/opt/microsoft/dependency-agent/log |
@@ -391,9 +391,9 @@ Per ogni tipo di dati di input vene creato un record con tipo _WireData_. I reco
 | ReceivedBytes | Quantità di byte ricevuta |
 | ProtocolName | Nome del protocollo di rete usato |
 | IPVersion | Versione IP |
-| Direzione | In ingresso o in uscita |
+| Direction | In ingresso o in uscita |
 | MaliciousIP | Indirizzo IP di un'origine dannosa nota |
-| Severity | Gravità del software dannoso sospetto |
+| Gravità | Gravità del software dannoso sospetto |
 | RemoteIPCountry | Paese/area geografica dell'indirizzo IP remoto |
 | ManagementGroupName | Nome del gruppo di gestione di Operations Manager |
 | SourceSystem | Origine in cui sono stati raccolti i dati |

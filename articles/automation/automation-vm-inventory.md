@@ -2,20 +2,16 @@
 title: Gestire una macchina virtuale di Azure con la raccolta dell'inventario | Microsoft Docs
 description: Gestire una macchina virtuale di Azure con la raccolta dell'inventario
 services: automation
-ms.service: automation
 ms.subservice: change-inventory-management
 keywords: inventario, automazione, modifica, gestione
-author: jennyhunter-msft
-ms.author: jehunte
 ms.date: 02/06/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 59f36595e0b6cc8b9d9ea0669c9ecb5be1e74b42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c5ac5cb1b1f02ea1e8b7eccb65fba978c99cc4f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61304157"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75419821"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Gestire una macchina virtuale di Azure con la raccolta dell'inventario
 
@@ -36,7 +32,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 1. Nel riquadro sinistro del portale di Azure selezionare **Macchine virtuali**.
 2. Nell'elenco delle macchine virtuali selezionare una macchina virtuale.
 3. In **Operazioni** scegliere **Inventario** dal menu **Risorsa**.
-4. Selezionare un'area di lavoro di Log Analitica per archiviare i log di dati.
+4. Selezionare un'area di lavoro Log Analytics per archiviare i log di dati.
     Se non sono disponibili aree di lavoro per l'area, viene chiesto se creare un'area di lavoro e un account di automazione predefiniti.
 5. Per avviare il caricamento del computer, selezionare **Abilita**.
 
@@ -60,29 +56,29 @@ Le tabelle seguenti forniscono informazioni sulle proprietà che possono essere 
 
 ### <a name="windows-registry"></a>Registro di sistema di Windows
 
-|Proprietà  |Descrizione  |
+|Proprietà  |Description  |
 |---------|---------|
-|Enabled     | Determina se l'impostazione viene applicata        |
+|Attivato     | Determina se l'impostazione viene applicata        |
 |Nome elemento     | Nome descrittivo del file da rilevare        |
-|Group     | Nome del gruppo per il raggruppamento logico dei file        |
-|Chiave del Registro di sistema di Windows   | Percorso in cui cercare il file, ad esempio: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Gruppo     | Nome del gruppo per il raggruppamento logico dei file        |
+|Chiave del Registro di sistema di Windows   | Percorso in cui cercare il file, ad esempio "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ### <a name="windows-files"></a>File Windows
 
-|Proprietà  |Descrizione  |
+|Proprietà  |Description  |
 |---------|---------|
-|Enabled     | Determina se l'impostazione viene applicata        |
+|Attivato     | Determina se l'impostazione viene applicata        |
 |Nome elemento     | Nome descrittivo del file da rilevare        |
-|Group     | Nome del gruppo per il raggruppamento logico dei file        |
+|Gruppo     | Nome del gruppo per il raggruppamento logico dei file        |
 |Immettere il percorso     | Percorso in cui cercare il file, ad esempio "c:\temp\myfile.txt"
 
 ### <a name="linux-files"></a>File di Linux
 
-|Proprietà  |Descrizione  |
+|Proprietà  |Description  |
 |---------|---------|
-|Enabled     | Determina se l'impostazione viene applicata        |
+|Attivato     | Determina se l'impostazione viene applicata        |
 |Nome elemento     | Nome descrittivo del file da rilevare        |
-|Group     | Nome del gruppo per il raggruppamento logico dei file        |
+|Gruppo     | Nome del gruppo per il raggruppamento logico dei file        |
 |Immettere il percorso     | Percorso in cui cercare il file, ad esempio "/etc/*.conf"       |
 |Tipo di percorso     | Tipo di elemento da rilevare. I valori possibili sono File e Directory        |
 |Ricorsione     | Determina se viene usata la ricorsione per la ricerca dell'elemento da rilevare.        |
@@ -91,7 +87,7 @@ Le tabelle seguenti forniscono informazioni sulle proprietà che possono essere 
 
 ## <a name="manage-machine-groups"></a>Gestire i gruppi di computer
 
-Inventario consente di creare e visualizzare i gruppi di computer in log di monitoraggio di Azure. I gruppi di computer sono raccolte di computer definito da una query nei log di monitoraggio di Azure.
+L'inventario consente di creare e visualizzare i gruppi di computer nei log di monitoraggio di Azure. I gruppi di computer sono raccolte di computer definiti da una query nei log di monitoraggio di Azure.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -105,7 +101,7 @@ Selezionando un gruppo di computer nell'elenco, si apre la pagina Gruppi di comp
 
 Fare clic sul pulsante **+ Clona** per clonare il gruppo di computer. È necessario assegnare al gruppo un nuovo nome e un alias. In questa fase è possibile modificare la definizione. Dopo aver modificato la query, fare clic su **Convalida query** per visualizzare in anteprima i computer che verranno selezionati. Quando si è ottenuto il gruppo desiderato, fare clic su **Crea** per creare il gruppo di computer
 
-Se si desidera creare un nuovo gruppo di computer, selezionare **+ crea un gruppo di computer**. Questo pulsante apre la pagina **Crea un gruppo di computer** in cui è possibile definire il nuovo gruppo. Fare clic su **Crea** per creare il gruppo.
+Se si vuole creare un nuovo gruppo di computer, selezionare **+ Crea un gruppo di computer**. Questo pulsante apre la pagina **Crea un gruppo di computer** in cui è possibile definire il nuovo gruppo. Fare clic su **Crea** per creare il gruppo.
 
 ![Creare il nuovo gruppo di computer](./media/automation-vm-inventory/create-new-group.png)
 
@@ -118,7 +114,7 @@ Per rimuovere la macchina virtuale dalla gestione dell'inventario:
 3. Nell'elenco selezionare la macchina virtuale che si vuole disconnettere. La macchina virtuale avrà un segno di spunta verde accanto alla voce **Questa area di lavoro** nella colonna **Connessione OMS**.
 
    >[!NOTE]
-   >OMS è ora nota come log di monitoraggio di Azure.
+   >OMS è ora indicato come log di monitoraggio di Azure.
    
 4. Nella parte superiore della pagina successiva selezionare **Disconnetti**.
 5. Nella finestra di conferma fare clic su **Sì**.

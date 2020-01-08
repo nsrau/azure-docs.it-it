@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
-ms.openlocfilehash: d8a1d64ac8e65fd52730ee1750c0b0b1949b3512
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 3fd0a8bf6bacfec5e2be6dfa52ca51e46c7025f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088476"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443592"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Ciclo di riavvio di Windows in una macchina virtuale di Azure
 Questo articolo descrive una situazione di ciclo di riavvio che può verificarsi in una macchina virtuale Windows in Microsoft Azure.
@@ -86,7 +86,7 @@ Per risolvere questo problema, [eseguire il backup del disco del sistema operati
     - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupInquirySvc\ErrorControl`
     - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupPluginSvc\ErrorControl`
 
-13. Selezionare la chiave **BROKENSYSTEM** e, nel menu, selezionare **File** > **Carica Hive**.
+13. Selezionare la chiave **BROKENSYSTEM** e quindi selezionare **file** > **unload hive** dal menu.
 
 14. Scollegare il disco del sistema operativo dalla macchina virtuale per la risoluzione dei problemi.
 

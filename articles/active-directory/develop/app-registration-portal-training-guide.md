@@ -1,5 +1,5 @@
 ---
-title: Passaggio dal portale di registrazione delle applicazioni alla nuova esperienza Registrazioni app nel portale di Azure
+title: Nuova esperienza di registrazione di portale di Azure app
 titleSuffix: Microsoft identity platform
 description: Introduzione alla nuova esperienza di registrazione delle app nel portale di Azure
 services: active-directory
@@ -14,27 +14,27 @@ ms.author: aragra
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93af32e99e725a72c20c05690b2a96c74082e2ff
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 2f7ed8902da40dc7b5783ebb116a6c993bbbba5b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74844517"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424646"
 ---
-# <a name="transitioning-from-application-registration-portal-to-the-new-app-registrations-experience-in-the-azure-portal"></a>Passaggio dal portale di registrazione delle applicazioni alla nuova esperienza Registrazioni app nel portale di Azure
+# <a name="the-new-azure-portal-app-registration-experience"></a>Nuova esperienza di registrazione delle app portale di Azure
 
 Sono stati apportati numerosi miglioramenti alla nuova esperienza [registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) nel portale di Azure. Se si ha familiarità con l'esperienza del portale di registrazione delle applicazioni (apps.dev.microsoft.com) per la registrazione o la gestione di applicazioni convergenti, denominate esperienza precedente, questa guida alla formazione consente di iniziare a usare la nuova esperienza.
 
 ## <a name="whats-not-changing"></a>Cosa non cambia?
 
--   Le applicazioni e le configurazioni correlate possono essere trovate così come sono nella nuova esperienza. Non è necessario registrare di nuovo le applicazioni e gli utenti delle applicazioni non dovranno eseguire di nuovo l'accesso.
+- Le applicazioni e le configurazioni correlate possono essere trovate così come sono nella nuova esperienza. Non è necessario registrare di nuovo le applicazioni e gli utenti delle applicazioni non dovranno eseguire di nuovo l'accesso.
 
     > [!NOTE]
     > È necessario accedere con l'account usato per registrare le applicazioni per trovarle nel portale di Azure. Si consiglia di controllare che l'utente connesso nella portale di Azure corrisponda all'utente che ha eseguito l'accesso al portale di registrazione delle applicazioni confrontando l'indirizzo di posta elettronica dal profilo.
     > 
     > In alcuni casi, in particolare quando si effettua l'accesso con account Microsoft personali (ad esempio Outlook, Live, Xbox e così via) con un indirizzo di posta elettronica di Azure AD, è stato rilevato che quando si passa al portale di Azure dalla vecchia esperienza, si accede a un account diverso con lo stesso inviare un messaggio di posta elettronica nel tenant Azure AD. Se si ritiene che le applicazioni siano mancanti, disconnettersi e accedere con l'account corretto.
 
--   Le app Live SDK create con account Microsoft personali non sono ancora supportate nella portale di Azure e continueranno a rimanere nella vecchia esperienza nel prossimo futuro.
+- Le app Live SDK create con account Microsoft personali non sono ancora supportate nella portale di Azure e continueranno a rimanere nella vecchia esperienza nel prossimo futuro.
 
 ## <a name="key-changes"></a>Modifiche principali
 
@@ -83,12 +83,12 @@ Nella nuova esperienza, i **segreti dell'applicazione** sono stati rinominati in
 ## <a name="platformsauthentication-reply-urlsredirect-uris"></a>Piattaforme/autenticazione: URL di risposta/URI di Reindirizzamento
 Nell'esperienza precedente, un'app aveva una sezione Platforms per l'API Web, nativa e Web per configurare gli URL di reindirizzamento, l'URL di disconnessione e il flusso implicito.
 
-Nella nuova esperienza, gli URL di risposta sono reperibili nella sezione relativa all'autenticazione di un'app\'s. Vengono inoltre definiti URI di reindirizzamento e il formato degli URI di reindirizzamento è stato modificato. È necessario che siano associati a un tipo di app (Web o client pubblico-mobile e desktop). [Ulteriori informazioni](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
+Nella nuova esperienza, gli URL di risposta sono reperibili nella sezione relativa all'autenticazione di un'app\'s. Vengono inoltre definiti URI di reindirizzamento e il formato degli URI di reindirizzamento è stato modificato. È necessario che siano associati a un tipo di app (Web o client pubblico-mobile e desktop). [Altre informazioni](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
 
 Le API Web sono configurate nella pagina esporre un'API.
 
 > [!NOTE] 
-> Provare la nuova esperienza di impostazioni di autenticazione in cui è possibile configurare le impostazioni per l'applicazione in base alla piattaforma o al dispositivo di destinazione. [Ulteriori informazioni](quickstart-configure-app-access-web-apis.md#configure-platform-settings-for-your-application)
+> Provare la nuova esperienza di impostazioni di autenticazione in cui è possibile configurare le impostazioni per l'applicazione in base alla piattaforma o al dispositivo di destinazione. [Altre informazioni](quickstart-configure-app-access-web-apis.md#configure-platform-settings-for-your-application)
 
 ## <a name="microsoft-graph-permissionsapi-permissions"></a>Autorizzazioni Microsoft Graph/autorizzazioni API
 

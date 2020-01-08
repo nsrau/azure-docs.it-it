@@ -1,25 +1,14 @@
 ---
 title: ReliableConcurrentQueue in Azure Service Fabric
 description: Coda reliableconcurrentqueue è una coda con velocità effettiva elevata che consente l'accodamento e la rimozione di code parallele.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: raja,tyadam,masnider,vturecek
-ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 5/1/2017
-ms.author: atsenthi
-ms.openlocfilehash: 776d330e36e6bcafe610bbab54e13ff6c41e2edf
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: a7115db8259fde0e87e53557ecef730f8e82d2fd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350286"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462734"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Introduzione a ReliableConcurrentQueue in Azure Service Fabric
 La coda simultanea affidabile è una coda replicata, transazionale e asincrona che assicura concorrenza elevata per le operazioni di accodamento e rimozione dalla coda. È progettata per offrire velocità effettiva elevata e bassa latenza allentando il vincolo di ordinamento FIFO fornito dalla [coda affidabile](https://msdn.microsoft.com/library/azure/dn971527.aspx) e fornisce invece un ordinamento in base al migliore sforzo.
@@ -52,7 +41,7 @@ Un esempio di caso d'uso per ReliableConcurrentQueue è lo scenario della [coda 
 ## <a name="code-snippets"></a>Frammenti di codice
 Ecco alcuni frammenti di codice e i relativi output previsti. La gestione delle eccezioni viene ignorata in questa sezione.
 
-### <a name="instantiation"></a>Istanze
+### <a name="instantiation"></a>Creazione di istanze
 La creazione di un'istanza di una coda simultanea affidabile è simile a qualsiasi altra raccolta Reliable Collections.
 
 ```csharp
@@ -153,7 +142,7 @@ Si supponga che le attività siano state completate, che siano state eseguite in
 
 Lo stesso elemento *non* sarà presente in entrambi gli elenchi. Di conseguenza, se dequeue1 contiene i valori *10*, *30*, dequeue2 conterrà i valori *20* e *40*.
 
-- *Caso 3: Ordine di rimozione dalla coda con interruzione della transazione*
+- *Caso 3: ordine di rimozione dalla coda con interruzione della transazione*
 
 L'interruzione di una transazione con rimozioni delle coda in transito riporta gli elementi all'inizio della coda. L'ordine in cui gli elementi vengono reinseriti all'inizio della coda non è garantito. Esaminare il codice seguente:
 
@@ -313,7 +302,7 @@ do
 } while (ret.HasValue);
 ```
 
-### <a name="peek"></a>Anteprima
+### <a name="peek"></a>Visualizzazione
 ReliableConcurrentQueue non fornisce l'API *TryPeekAsync*. Gli utenti possono ottenere la visualizzazione semantica usando *TryDequeueAsync* e quindi interrompendo la transazione. In questo esempio le rimozioni dalla coda vengono elaborate solo se il valore dell'elemento è maggiore di *10*.
 
 ```

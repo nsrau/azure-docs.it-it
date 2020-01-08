@@ -16,12 +16,12 @@ ms.date: 09/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebe362be49995ce2cd1f4c43a5cfbee408396976
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: b8238d2b417dbe03ad0623e472f1a239940c1bc8
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900397"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75681379"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Verificare lo stato del provisioning utenti
 
@@ -35,7 +35,7 @@ Quando si configura per la prima volta il provisioning automatico, la sezione **
 - Il tipo di ciclo di provisioning (iniziale o incrementale) attualmente in esecuzione o è stato completato per ultimo.
 - **Indicatore di stato** che mostra la percentuale del ciclo di provisioning completato. La percentuale riflette il numero di pagine di cui è stato effettuato il provisioning. Si noti che ogni pagina potrebbe contenere più utenti o gruppi, quindi la percentuale non è direttamente correlata al numero di utenti, gruppi o ruoli di cui è stato effettuato il provisioning.
 - Pulsante **Aggiorna** che è possibile utilizzare per aggiornare la visualizzazione.
-- Il numero di **utenti** e **gruppi** di cui è stato effettuato il provisioning e il numero di ruoli creati. Durante il ciclo iniziale, il numero di **utenti** viene conteggiato per 1 quando un utente viene creato o aggiornato e viene conteggiato di 1 quando viene eliminato un utente. Durante un ciclo incrementale, gli aggiornamenti utente non influiscono sul numero di **utenti** . il numero viene modificato solo quando gli utenti vengono creati o eliminati.
+- Il numero di **utenti** e **gruppi** nell'archivio dati del connettore. Il numero aumenta ogni volta che un oggetto viene aggiunto all'ambito del provisioning. Il conteggio non viene disattivato se un utente è eliminato temporaneamente o è stato eliminato definitivamente perché non rimuove l'oggetto dall'archivio dati del connettore. Il conteggio verrà ricaculated la prima sincronizzazione dopo la [reimpostazione](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http) del CD 
 - Un collegamento **Visualizza log di controllo** , che consente di aprire i log di provisioning Azure ad per informazioni dettagliate su tutte le operazioni eseguite dal servizio di provisioning utenti, incluso lo stato del provisioning per i singoli utenti (vedere la sezione [usare i log di provisioning](#use-provisioning-logs-to-check-a-users-provisioning-status) più avanti).
 
 Al termine di un ciclo di provisioning, nella sezione **statistiche per data** vengono visualizzati i numeri cumulativi di utenti e gruppi di cui è stato effettuato il provisioning in data, insieme alla data di completamento e alla durata dell'ultimo ciclo. L' **ID attività** identifica in modo univoco il ciclo di provisioning più recente. L' **ID del processo** è un identificatore univoco per il processo di provisioning ed è specifico dell'app nel tenant.

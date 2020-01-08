@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.date: 11/04/2019
-ms.openlocfilehash: 10714e155bebdd7acc5d7febb345c17fa81bab13
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d8b381c1afdea05618d9ad5d791a7597092c8519
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516292"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530783"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Foglio informativo sugli algoritmi di Machine Learning per Azure Machine Learning Designer
 
@@ -56,10 +56,10 @@ Nell'apprendimento per rinforzo l'algoritmo arriva a scegliere un'azione in risp
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni [su Studio in Azure Machine Learning e portale di Azure](service/overview-what-is-azure-ml.md).
+* Informazioni [su Studio in Azure Machine Learning e portale di Azure](overview-what-is-azure-ml.md).
 
 * Vedere un elenco di algoritmi e moduli nell' [algoritmo e nel riferimento al modulo](algorithm-module-reference/module-reference.md).
 
 * [Esercitazione: creare un modello di stima in Azure machine learning designer](service/ui-tutorial-automobile-price-train-score.md).
 
-* [Scopri di più su apprendimento avanzato e Machine Learning](service/concept-deep-learning-vs-machine-learning.md).
+* [Scopri di più su apprendimento avanzato e Machine Learning](concept-deep-learning-vs-machine-learning.md).

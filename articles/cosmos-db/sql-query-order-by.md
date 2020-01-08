@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: 14f61d14b59dca4bcf2e0f4b93e918f101a61833
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 5cae2bdd7d1f2f26e626c81ea95d2cee3cc8ae13
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326844"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444782"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>Clausola ORDER BY in Azure Cosmos DB
 
@@ -45,13 +45,16 @@ ORDER BY <sort_specification>
   
 - `ASC | DESC`  
   
-   Specifica che i valori presenti nella colonna specificata devono essere ordinati in ordine crescente o decrescente. ASC (crescente) esegue l'ordinamento dal valore più basso a quello più alto. DESC (decrescente) esegue l'ordinamento dal valore più alto a quello più basso. L'ordinamento predefinito è ASC (crescente). I valori Null vengono considerati come i valori più bassi possibile.  
+   Specifica che i valori nella colonna specificata devono essere ordinati in ordine crescente o decrescente. ASC consente di ordinare i valori dal più piccolo al più grande. DESC consente di ordinare i valori dal più grande al più piccolo. ASC è l'ordinamento predefinito. I valori Null vengono considerati i valori in assoluto più piccoli.  
   
 ## <a name="remarks"></a>Osservazioni  
   
    Per la clausola ORDER BY è necessario che i criteri di indicizzazione includano un indice per i campi da ordinare. Il runtime di query di Azure Cosmos DB supporta l'ordinamento in base a un nome di proprietà e non alle proprietà calcolate. Azure Cosmos DB supporta più proprietà ORDER BY. Per eseguire una query con più proprietà ORDER BY, è necessario definire un [indice composto](index-policy.md#composite-indexes) sui campi da ordinare.
+   
+> [!Note] 
+> Quando si usa .NET SDK 3.4.0 o versione successiva, se le proprietà ordinate in base a potrebbero non essere definite per alcuni documenti, è necessario creare un indice in modo esplicito per tali proprietà. I criteri di indicizzazione predefiniti non consentiranno il recupero dei documenti in cui la proprietà di ordinamento non è definita.
 
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 
 Ad esempio, ecco una query che recupera le famiglie in ordine crescente di nome della città residente:
 
@@ -76,7 +79,7 @@ I risultati sono:
     ]
 ```
 
-La query seguente recupera la famiglia `id` in ordine di data di creazione dell'elemento. Item `creationDate` è un numero che rappresenta l' *ora del periodo*o il tempo trascorso da Jan. 1, 1970 in secondi.
+La query seguente recupera la famiglia `id`s nell'ordine della data di creazione dell'elemento. Item `creationDate` è un numero che rappresenta l' *ora di epoche*o il tempo trascorso da Jan. 1, 1970 in secondi.
 
 ```sql
     SELECT f.id, f.creationDate
@@ -99,7 +102,7 @@ I risultati sono:
     ]
 ```
 
-È inoltre possibile ordinare in base a più proprietà. Una query che ordina in base a più proprietà richiede un [indice composto](index-policy.md#composite-indexes). Considerare la query seguente:
+È inoltre possibile ordinare in base a più proprietà. Una query che ordina in base a più proprietà richiede un [indice composto](index-policy.md#composite-indexes). Si consideri la query seguente:
 
 ```sql
     SELECT f.id, f.creationDate
@@ -107,7 +110,7 @@ I risultati sono:
     ORDER BY f.address.city ASC, f.creationDate DESC
 ```
 
-Questa query recupera la famiglia `id` in ordine crescente in base al nome della città. Se più elementi hanno lo stesso nome di città, la query viene ordinata in base al `creationDate` in ordine decrescente.
+Questa query recupera la famiglia `id` in ordine crescente in base al nome della città. Se più elementi hanno lo stesso nome di città, la query viene ordinata in base alla `creationDate` in ordine decrescente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

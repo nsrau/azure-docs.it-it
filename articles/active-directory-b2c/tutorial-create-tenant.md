@@ -10,24 +10,24 @@ ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: de29929c8fda476fe276f91d4a68ce4d632503fd
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: b7e872f3320a2c72b6e9fb3ffba65510b205ca03
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345221"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425569"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Esercitazione: Creare un tenant di Azure Active Directory B2C
 
 Prima che le applicazioni possano interagire con Azure Active Directory B2C (Azure AD B2C), devono essere registrate in un tenant gestito dall'utente.
 
-In questo articolo viene spiegato come:
+In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Creare un tenant di Azure AD B2C
 > * Collegare il tenant alla sottoscrizione
 > * Passa alla directory contenente il tenant di Azure AD B2C
-> * Aggiungere la risorsa Azure AD B2C come *preferito* nell'portale di Azure
+> * Aggiungere la risorsa Azure AD B2C come **preferito** nell'portale di Azure
 
 La registrazione di un'applicazione verrà illustrata nell'esercitazione successiva.
 
@@ -35,15 +35,16 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="create-an-azure-ad-b2c-tenant"></a>Creare un tenant di Azure AD B2C
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).
-1. Assicurarsi di usare la directory che contiene la sottoscrizione.
+1. Accedere al [portale di Azure](https://portal.azure.com/). Accedere con un account Azure a cui è stato assegnato almeno il ruolo [collaboratore](../role-based-access-control/built-in-roles.md) all'interno della sottoscrizione o un gruppo di risorse all'interno della sottoscrizione.
 
-    Selezionare il filtro **directory + sottoscrizione** nel menu in alto e quindi selezionare la directory che contiene la sottoscrizione. Questa directory è diversa da quella che conterrà il tenant del Azure AD B2C.
+1. Selezionare la directory che contiene la sottoscrizione.
 
-    ![Filtro directory + sottoscrizione con tenant di sottoscrizione selezionato](media/tutorial-create-tenant/portal-01-select-directory.png)
+    Nella barra degli strumenti portale di Azure selezionare l'icona **directory + sottoscrizione** e quindi selezionare la directory che contiene la sottoscrizione. Questa directory è diversa da quella che conterrà il tenant del Azure AD B2C.
 
-1. Selezionare **Crea una risorsa** nell'angolo in alto a sinistra del portale di Azure.
-1. Cercare e selezionare **Active Directory B2C**, quindi selezionare **Crea**.
+    ![Tenant sottoscrizione, filtro directory + sottoscrizione con tenant di sottoscrizione selezionato](media/tutorial-create-tenant/portal-01-pick-directory.png)
+
+1. Nel menu del portale di Azure o dalla pagina **Home** selezionare **Crea una risorsa**.
+1. Cercare **Azure Active Directory B2C**, quindi selezionare **Crea**.
 1. Selezionare **Crea un nuovo tenant Azure AD B2C**.
 
     ![Crea un nuovo tenant Azure AD B2C selezionato in portale di Azure](media/tutorial-create-tenant/portal-02-create-tenant.png)
@@ -82,16 +83,16 @@ Se inizialmente non viene visualizzato il nuovo tenant di Azure B2C nell'elenco,
 
 Questo passaggio facoltativo rende più semplice selezionare il tenant Azure AD B2C nelle esercitazioni seguenti e in tutte le esercitazioni successive.
 
-Anziché cercare "Azure AD B2C" in **tutti i servizi** ogni volta che si desidera lavorare con il tenant, è invece possibile aggiungere la risorsa a Preferiti. Quindi, è possibile selezionarlo dal menu **Preferiti** a sinistra per passare rapidamente al tenant Azure ad B2C.
+Anziché cercare *Azure ad B2C* in **tutti i servizi** ogni volta che si desidera lavorare con il tenant, è invece possibile aggiungere la risorsa a Preferiti. Quindi, è possibile selezionarlo dalla sezione **Preferiti** del menu del portale per passare rapidamente al tenant Azure ad B2C.
 
 È sufficiente eseguire questa operazione una sola volta. Prima di eseguire questi passaggi, assicurarsi di passare alla directory contenente il tenant Azure AD B2C come descritto nella sezione precedente, [selezionare la directory del tenant B2C](#select-your-b2c-tenant-directory).
 
-1. Selezionare **tutti i servizi** nel menu a sinistra della [portale di Azure](https://portal.azure.com)
-1. Immettere *Azure ad B2C* nella casella di testo di ricerca
-1. Selezionare la **stella** per aggiungere Azure ad B2C ai Preferiti
-1. *Azure ad B2C* ora viene visualizzato nel menu a sinistra **Preferiti** . È quindi possibile selezionarlo e trascinarlo più in alto nell'elenco, se si vuole, come illustrato nella figura seguente:
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Scegliere **tutti i servizi**dal menu portale di Azure.
+1. Nella casella di ricerca **tutti i servizi** cercare **Azure ad B2C**, passare il puntatore sul risultato della ricerca e quindi selezionare l'icona a stella nella descrizione comando. **Azure ad B2C** ora viene visualizzato nella portale di Azure in **Preferiti**.
+1. Se si desidera modificare la posizione del nuovo preferito, scegliere **Azure ad B2C**dal menu portale di Azure, quindi trascinarlo verso l'alto o verso il basso nella posizione desiderata.
 
-![Procedura per aggiungere Azure AD B2C come preferito nell'portale di Azure](media/tutorial-create-tenant/portal-08-favorite-b2c.png)
+    ![Azure AD B2C, menu Preferiti portale di Microsoft Azure](media/tutorial-create-tenant/portal-08-b2c-favorite.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -101,7 +102,7 @@ In questo articolo si è appreso come:
 > * Creare un tenant di Azure AD B2C
 > * Collegare il tenant alla sottoscrizione
 > * Passa alla directory contenente il tenant di Azure AD B2C
-> * Aggiungere la risorsa Azure AD B2C come *preferito* nell'portale di Azure
+> * Aggiungere la risorsa Azure AD B2C come **preferito** nell'portale di Azure
 
 Successivamente, informazioni su come registrare un'applicazione Web nel nuovo tenant.
 

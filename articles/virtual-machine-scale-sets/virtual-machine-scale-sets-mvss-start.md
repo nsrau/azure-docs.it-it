@@ -1,6 +1,6 @@
 ---
-title: Informazioni sui modelli di set di scalabilità di macchine virtuali | Microsoft Docs
-description: Informazioni su come creare un modello di set di scalabilità di base per set di scalabilità di macchine virtuali
+title: Informazioni sui modelli di set di scalabilità di macchine virtuali
+description: Informazioni su come creare un modello di set di scalabilità di base per i set di scalabilità di macchine virtuali di Azure tramite diversi semplici passaggi.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: manayar
-ms.openlocfilehash: 267c715de67df57abd30ac18966b8b3b8440810c
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: e3d8ada67b0a592df9c2dba145626836f27da631
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376117"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459380"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Informazioni sui modelli di set di scalabilità di macchine virtuali
 I [modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview#template-deployment-process) sono un ottimo modo di distribuire gruppi di risorse correlate. Questa serie di esercitazioni illustra come creare un modello di set di scalabilità di base e come modificare questo modello per adattarsi a diversi scenari. Tutti gli esempi provengono da questo [archivio GitHub](https://github.com/gatneil/mvss).
@@ -131,7 +131,7 @@ Il set di scalabilità deve conoscere le dimensioni della macchina virtuale da c
 ```
 
 ### <a name="choose-type-of-updates"></a>Scegliere un tipo di aggiornamenti
-Il set di scalabilità deve inoltre sapere come gestire gli aggiornamenti: Attualmente sono disponibili tre opzioni, `Manual`, `Rolling` e `Automatic`. Per ulteriori informazioni sulle differenze tra le due opzioni, vedere la documentazione su [come aggiornare un set di scalabilità](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
+Il set di scalabilità deve inoltre sapere come gestire gli aggiornamenti: Attualmente sono disponibili tre opzioni: `Manual`, `Rolling` e `Automatic`. Per ulteriori informazioni sulle differenze tra le due opzioni, vedere la documentazione su [come aggiornare un set di scalabilità](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
 
 ```json
        "properties": {

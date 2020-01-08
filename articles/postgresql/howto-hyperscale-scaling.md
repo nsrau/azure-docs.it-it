@@ -5,17 +5,17 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 9/17/2019
-ms.openlocfilehash: 5d8bbe493887c5340f0943a585eb6ff250bd3728
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 12/17/2019
+ms.openlocfilehash: bec2a40d8cf5fb178418ec6bb59a52a0bfe3eb8c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977557"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453044"
 ---
 # <a name="scale-a-hyperscale-citus-server-group"></a>Ridimensionare un gruppo di server di scalabilità (CITUS)
 
-Database di Azure per PostgreSQL-iperscalabilità (CITUS) offre la scalabilità self-service per gestire un aumento del carico. Il portale di Azure facilita l'aggiunta di nuovi nodi di lavoro e la capacità dei nodi esistenti.
+Database di Azure per PostgreSQL-iperscalabilità (CITUS) offre la scalabilità self-service per gestire un aumento del carico. Il portale di Azure semplifica l'aggiunta di nuovi nodi del ruolo di lavoro e per aumentare il vcore dei nodi esistenti.
 
 ## <a name="add-worker-nodes"></a>Aggiunta di nodi di lavoro
 
@@ -38,9 +38,9 @@ SELECT rebalance_table_shards('distributed_table_name');
 
 La funzione `rebalance_table_shards` ribilancia tutte le tabelle nel gruppo della condivisione [percorso](concepts-hyperscale-colocation.md) della tabella denominata nell'argomento. Pertanto non è necessario chiamare la funzione per ogni tabella distribuita, ma è sufficiente chiamarla in una tabella rappresentativa di ogni gruppo di condivisione percorso.
 
-## <a name="increase-vcores-or-storage-space"></a>Aumentare la Vcore o lo spazio di archiviazione
+## <a name="increase-vcores"></a>Aumenta vcore
 
-Oltre ad aggiungere nuovi nodi, è possibile aumentare le capacità dei nodi esistenti. Passare alla scheda **Configura** del gruppo di server di iperscalabilità (CITUS) e trascinare il dispositivo di scorrimento per **Vcore** e **archiviazione** per modificare questi valori per tutti i nodi del ruolo di lavoro. Assicurarsi di fare clic su **Salva** per applicare le modifiche.
+Oltre ad aggiungere nuovi nodi, è possibile aumentare le capacità dei nodi esistenti. Questa funzionalità è attualmente disponibile in anteprima: per richiedere un aumento della Vcore per i nodi del gruppo di server, [contattare il supporto tecnico di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

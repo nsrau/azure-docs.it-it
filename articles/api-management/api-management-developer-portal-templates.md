@@ -1,5 +1,6 @@
 ---
-title: Personalizzare il portale per sviluppatori di Gestione API con i modelli - Azure| Documentazione Microsoft
+title: Personalizzare il portale per sviluppatori di gestione API usando i modelli
+titleSuffix: Azure API Management
 description: Informazioni su come personalizzare il portale per sviluppatori di Gestione API di Azure usando i modelli.
 services: api-management
 documentationcenter: ''
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 9657414c56296ee710f17663bf0bbdd3a4d67ac8
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 7a8c348340be143f7059ce7e64a1c66b66074a45
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176806"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430780"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Come personalizzare il portale per sviluppatori di Gestione API di Azure con i modelli
 
@@ -161,7 +162,7 @@ Per annullare la modifiche alla versione pubblicata precedente di un modello, fa
 
 ![Annullare le modifiche al modello][api-management-revert-template]
 
-Fare clic su **Yes** per confermare.
+Fare clic su **Sì** per confermare.
 
 ![Conferma][api-management-revert-template-confirm]
 
@@ -174,7 +175,7 @@ Per ripristinare la versione predefinita di un singolo modello, fare clic sull'i
 
 ![Annullare le modifiche al modello][api-management-reset-template]
 
-Fare clic su **Yes** per confermare.
+Fare clic su **Sì** per confermare.
 
 ![Conferma][api-management-reset-template-confirm]
 

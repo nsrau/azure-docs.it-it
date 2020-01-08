@@ -2,17 +2,17 @@
 title: Informazioni su Servizi cloud di Azure | Microsoft Docs
 description: Informazioni sui servizi cloud di Azure.
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: multiple
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: gwallace
-ms.openlocfilehash: 61369d51056607d8176d301afa945c7c77895b12
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: c531e02656c9f6342670024b2220386e789a2d98
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359698"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386851"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Panoramica di Servizi Cloud di Azure
 Servizi cloud di Azure è un esempio di [piattaforma distribuita come servizio](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Analogamente a [Servizio app di Azure](../app-service/overview.md), questa tecnologia è stata progettata per supportare applicazioni scalabili, attendibili ed economicamente efficienti. Proprio come Servizio app, anche Servizi cloud di Azure è ospitato in macchine virtuali (VM). Tuttavia, il controllo sulle macchine virtuali è maggiore. È possibile installare software personalizzato nelle macchine virtuali che usano Servizi cloud di Azure e accedervi in remoto.
@@ -23,7 +23,7 @@ Maggiore controllo significa anche minore semplicità d'uso. Pertanto, se non so
 
 Sono disponibili due tipi di ruoli di Servizi cloud di Azure. L'unica differenza tra i due è il modo in cui il ruolo è ospitato nella macchina virtuale:
 
-* **Ruolo Web**: Distribuisce e ospita automaticamente l'app tramite IIS.
+* **Ruolo Web**: distribuisce e ospita automaticamente l'app tramite IIS.
 
 * **Ruolo di lavoro**: non usa IIS ed esegue l'app autonomamente.
 
@@ -38,7 +38,7 @@ Se si usa Servizi cloud di Azure, non è necessario creare macchine virtuali. Si
 
 Un'applicazione di Servizi cloud di Azure viene in genere resa disponibile agli utenti mediante un processo in due fasi. Prima di tutto lo sviluppatore [carica l'applicazione](cloud-services-how-to-create-deploy-portal.md) nell'area di gestione temporanea della piattaforma. Quando lo sviluppatore è pronto per l'attivazione dell'applicazione, usa il portale per il passaggio in produzione. Il [passaggio dalla gestione temporanea alla produzione](cloud-services-how-to-manage-portal.md#swap-deployments-to-promote-a-staged-deployment-to-production) può essere eseguito senza tempi di inattività, consentendo l'aggiornamento di un'applicazione in esecuzione a una nuova versione senza interferire con l'uso da parte degli utenti.
 
-## <a name="monitoring"></a>Monitoraggio
+## <a name="monitoring"></a>Monitorare
 Servizi cloud di Azure offre inoltre funzionalità di monitoraggio. Analogamente a Macchine virtuali, rileva un server fisico in errore e riavvia le VM in esecuzione su tale server in una nuova macchina. Servizi cloud di Azure consente inoltre di rilevare errori di macchine virtuali e applicazioni, non solo errori hardware. A differenza di Macchine virtuali, dispone di un agente in ogni ruolo Web e di lavoro ed è quindi in grado di avviare nuove macchine virtuali e istanze di applicazione in caso di errori.
 
 L'uso della tecnologia PaaS da parte di Servizi cloud di Azure comporta anche altre implicazioni, A tale scopo, è necessario che lo stato di un'applicazione di Servizi cloud non venga salvato nel file system delle rispettive macchine virtuali. A tale scopo, è necessario che lo stato di un'applicazione di Servizi cloud di Azure non venga salvato nel file system delle rispettive macchine virtuali. A differenza delle VM create tramite Macchine virtuali, le operazioni di scrittura effettuate nelle VM di Servizi cloud di Azure non sono persistenti. La persistenza è offerta solo dai dischi dati di Macchine virtuali. È pertanto necessario che tutti gli stati di un'applicazione di Servizi cloud di Azure vengano scritti esplicitamente nel database SQL di Azure, in BLOB, tabelle o altre risorse di archiviazione esterne. Le applicazioni create in questo modo risulteranno più scalabili e più resistenti agli errori, due obiettivi essenziali di Servizi cloud di Azure.
@@ -48,6 +48,9 @@ L'uso della tecnologia PaaS da parte di Servizi cloud di Azure comporta anche al
 * [Creare un'app di servizio cloud in Node.js](cloud-services-nodejs-develop-deploy-app.md) 
 * [Creare un'app di servizio cloud in PHP](../cloud-services-php-create-web-role.md) 
 * [Creare un'app del servizio cloud in Python](cloud-services-python-ptvs.md)
+
+
+
 
 
 

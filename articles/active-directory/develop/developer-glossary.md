@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/28/2019
+ms.date: 12/13/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ffc9c0ed5787803fff01d929567bda23b698135
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: fb4deaf3d8fdc0347058b0af2079aebbd4cb22e5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74843207"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424553"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glossario per sviluppatori Microsoft Identity Platform
 
@@ -41,7 +41,7 @@ Identificatore univoco generato da Azure AD per la registrazione di un'applicazi
 
 ## <a name="application-manifest"></a>manifesto dell'applicazione
 
-Funzionalità fornita dalla [portale di Azure][AZURE-portal], che produce una rappresentazione JSON della configurazione dell'identità dell'applicazione, usata come meccanismo per aggiornare le entità [ServicePrincipal][AAD-Graph-Sp-Entity] e [dell'applicazione][AAD-Graph-App-Entity] associate. Per altri dettagli, vedere [informazioni sul manifesto dell'applicazione Azure Active Directory][AAD-App-Manifest] .
+Funzionalità fornita dalla [portale di Azure][AZURE-portal], che produce una rappresentazione JSON della configurazione dell'identità dell'applicazione, usata come meccanismo per aggiornare le entità [ServicePrincipal][Graph-Sp-Resource] e [dell'applicazione][Graph-App-Resource] associate. Per altri dettagli, vedere [informazioni sul manifesto dell'applicazione Azure Active Directory][AAD-App-Manifest] .
 
 ## <a name="application-object"></a>oggetto applicazione
 
@@ -59,7 +59,7 @@ Per consentire a un'applicazione l'integrazione con le funzioni di gestione dell
 
 Per altri dettagli, vedere [integrazione di applicazioni con Azure Active Directory][AAD-Integrating-Apps] .
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>autenticazione
 
 Richiesta di credenziali legittime a una parte, che costituisce la base per la creazione di un'entità di sicurezza da usare per il controllo delle identità e di accesso. Durante una [concessione di autorizzazione OAuth2](#authorization-grant), ad esempio, la parte che esegue l'autenticazione svolge il ruolo di [proprietario delle risorse](#resource-owner) o di [applicazione client](#client-application) a seconda della concessione usata.
 
@@ -137,7 +137,7 @@ Un'[applicazione client](#client-application) ottiene l'accesso a un [server di 
 
 Vengono presentate anche durante il processo di [consenso](#consent) per offrire all'amministratore o al proprietario delle risorse l'opportunità di concedere/negare l'accesso client alle risorse nel tenant.
 
-Le richieste di autorizzazione vengono configurate nella pagina **autorizzazioni API** per un'applicazione nel [portale di Azure][AZURE-portal], selezionando le "autorizzazioni delegate" e le "autorizzazioni applicazione" desiderate (quest'ultimo richiede l'appartenenza al ruolo di amministratore globale). Dal momento che un [client pubblico](#client-application) non può gestire le credenziali in modo sicuro, può solo richiedere autorizzazioni delegate, mentre un [client riservato](#client-application) può richiedere autorizzazioni sia delegate che applicazione. L' [oggetto applicazione](#application-object) del client archivia le autorizzazioni dichiarate nella relativa [Proprietà requiredResourceAccess][AAD-Graph-App-Entity].
+Le richieste di autorizzazione vengono configurate nella pagina **autorizzazioni API** per un'applicazione nel [portale di Azure][AZURE-portal], selezionando le "autorizzazioni delegate" e le "autorizzazioni applicazione" desiderate (quest'ultimo richiede l'appartenenza al ruolo di amministratore globale). Dal momento che un [client pubblico](#client-application) non può gestire le credenziali in modo sicuro, può solo richiedere autorizzazioni delegate, mentre un [client riservato](#client-application) può richiedere autorizzazioni sia delegate che applicazione. L' [oggetto applicazione](#application-object) del client archivia le autorizzazioni dichiarate nella relativa [Proprietà requiredResourceAccess][Graph-App-Resource].
 
 ## <a name="resource-owner"></a>proprietario delle risorse
 
@@ -147,25 +147,25 @@ Come definito dal [Framework di autorizzazione OAuth2][OAuth2-Role-Def], un'enti
 
 Come definito dal [Framework di autorizzazione di OAuth2][OAuth2-Role-Def], server che ospita risorse protette, in grado di accettare e rispondere alle richieste di risorse protette da parte di [applicazioni client](#client-application) che presentano un [token di accesso](#access-token). È detto anche server di risorse protette o applicazione della risorsa.
 
-Un server di risorse espone le API e consente l'accesso alle proprie risorse protette tramite [ambiti](#scopes) e [ruoli](#roles), usando il framework di autorizzazione di OAuth 2.0. Gli esempi includono l'API Graph di Azure AD che consente di accedere ai dati dei tenant di Azure AD e le API di Office 365 che consentono di accedere a dati come posta e calendario. Entrambi sono accessibili anche tramite l' [API Microsoft Graph][Microsoft-Graph].
+Un server di risorse espone le API e consente l'accesso alle proprie risorse protette tramite [ambiti](#scopes) e [ruoli](#roles), usando il framework di autorizzazione di OAuth 2.0. Gli esempi includono l' [api Microsoft Graph][Microsoft-Graph] che fornisce l'accesso ai dati del tenant di Azure ad e le API di Office 365 che consentono di accedere ai dati, ad esempio la posta elettronica e il calendario. 
 
-Così come per un'applicazione client, la configurazione di identità dell'applicazione della risorsa viene definita tramite la [registrazione](#application-registration) in un tenant di Azure AD, con cui vengono specificati sia l'oggetto applicazione che l'oggetto entità servizio. Alcune API fornite da Microsoft, come l'API Graph di Azure AD, includono entità servizio preregistrate che vengono rese disponibili in tutti i tenant durante il provisioning.
+Così come per un'applicazione client, la configurazione di identità dell'applicazione della risorsa viene definita tramite la [registrazione](#application-registration) in un tenant di Azure AD, con cui vengono specificati sia l'oggetto applicazione che l'oggetto entità servizio. Alcune API fornite da Microsoft, ad esempio l'API Microsoft Graph, hanno entità servizio pre-registrate rese disponibili in tutti i tenant durante il provisioning.
 
 ## <a name="roles"></a>roles
 
 Così come gli [ambiti](#scopes), i ruoli consentono a un [server di risorse](#resource-server) di controllare l'accesso alle proprie risorse protette. Ne esistono due tipi: il ruolo "utente" implementa il controllo degli accessi in base al ruolo per gli utenti e i gruppi che devono accedere alla risorsa, mentre il ruolo "applicazione" esegue la stessa implementazione per le [applicazioni client](#client-application) che devono accedere.
 
-I ruoli sono stringhe definite a una risorsa, ad esempio "responsabile approvazione spese", "sola lettura", "directory. ReadWrite. All", gestite nel [portale di Azure][AZURE-portal] tramite il [manifesto dell'applicazione](#application-manifest)della risorsa e archiviate nella [Proprietà appRoles][AAD-Graph-Sp-Entity]della risorsa. Il portale di Azure viene usato anche per assegnare gli utenti ai ruoli utente e configurare le [autorizzazioni applicazione](#permissions) client per l'accesso a un ruolo applicazione.
+I ruoli sono stringhe definite a una risorsa, ad esempio "responsabile approvazione spese", "sola lettura", "directory. ReadWrite. All", gestite nel [portale di Azure][AZURE-portal] tramite il [manifesto dell'applicazione](#application-manifest)della risorsa e archiviate nella [Proprietà appRoles][Graph-Sp-Resource]della risorsa. Il portale di Azure viene usato anche per assegnare gli utenti ai ruoli utente e configurare le [autorizzazioni applicazione](#permissions) client per l'accesso a un ruolo applicazione.
 
-Per una descrizione dettagliata dei ruoli applicazione esposti dall'API Graph di Azure AD, vedere [API Graph ambiti di autorizzazione][AAD-Graph-Perm-Scopes]. Per un esempio dettagliato di implementazione, vedere [gestire l'accesso con RBAC e il portale di Azure][AAD-RBAC].
+Per una descrizione dettagliata dei ruoli applicazione esposti dall'API Microsoft Graph, vedere [API Graph ambiti di autorizzazione][Graph-Perm-Scopes]. Per un esempio dettagliato di implementazione, vedere [gestire l'accesso con RBAC e il portale di Azure][AAD-RBAC].
 
 ## <a name="scopes"></a>ambiti
 
 Così come i [ruoli](#roles), gli ambiti consentono a un [server di risorse](#resource-server) di controllare l'accesso alle proprie risorse protette. Gli ambiti vengono usati per implementare il controllo degli accessi in [base all'ambito][OAuth2-Access-Token-Scopes] , per un' [applicazione client](#client-application) a cui è stato assegnato l'accesso delegato alla risorsa dal relativo proprietario.
 
-Gli ambiti sono stringhe definite a livello di risorsa, ad esempio "mail. Read", "directory. ReadWrite. All", gestite nella [portale di Azure][AZURE-portal] tramite il [manifesto dell'applicazione](#application-manifest)della risorsa e vengono archiviati nella [Proprietà oauth2Permissions][AAD-Graph-Sp-Entity]della risorsa. Il portale di Azure viene usato anche per configurare le [autorizzazioni delegate](#permissions) dell'applicazione client per l'accesso a un ambito.
+Gli ambiti sono stringhe definite a livello di risorsa, ad esempio "mail. Read", "directory. ReadWrite. All", gestite nella [portale di Azure][AZURE-portal] tramite il [manifesto dell'applicazione](#application-manifest)della risorsa e vengono archiviati nella [Proprietà oauth2Permissions][Graph-Sp-Resource]della risorsa. Il portale di Azure viene usato anche per configurare le [autorizzazioni delegate](#permissions) dell'applicazione client per l'accesso a un ambito.
 
-Come convenzione di denominazione, la procedura consigliata è usare il formato "risorsa.operazione.vincolo". Per una descrizione dettagliata degli ambiti esposti dall'API Graph di Azure AD, vedere [API Graph ambiti di autorizzazione][AAD-Graph-Perm-Scopes]. Per gli ambiti esposti dai servizi di Office 365, vedere informazioni di [riferimento sulle autorizzazioni dell'API di office 365][O365-Perm-Ref].
+Come convenzione di denominazione, la procedura consigliata è usare il formato "risorsa.operazione.vincolo". Per una descrizione dettagliata degli ambiti esposti da Microsoft Graph API, vedere [API Graph ambiti di autorizzazione][Graph-Perm-Scopes]. Per gli ambiti esposti dai servizi di Office 365, vedere informazioni di [riferimento sulle autorizzazioni dell'API di office 365][O365-Perm-Ref].
 
 ## <a name="security-token"></a>token di sicurezza
 
@@ -207,7 +207,7 @@ Tipo di [applicazione client](#client-application) che scarica il codice da un s
 
 ## <a name="user-principal"></a>entità utente
 
-Analogamente a un oggetto entità servizio che viene usato per rappresentare un'istanza dell'applicazione, un oggetto entità utente è un altro tipo di entità di sicurezza che rappresenta un utente. L' [entità utente][AAD-Graph-User-Entity] Azure AD Graph definisce lo schema per un oggetto utente, incluse le proprietà relative all'utente, ad esempio nome e cognome, nome dell'entità utente, appartenenza al ruolo della directory e così via. In questo modo viene fornita la configurazione dell'identità utente per Azure AD per stabilire un'entità utente in fase di esecuzione. L'entità utente viene usata per rappresentare un utente autenticato per Single Sign-On, durante la registrazione della delega del [consenso](#consent), le decisioni di controllo di accesso e così via.
+Analogamente a un oggetto entità servizio che viene usato per rappresentare un'istanza dell'applicazione, un oggetto entità utente è un altro tipo di entità di sicurezza che rappresenta un utente. Il [tipo di risorsa utente][Graph-User-Resource] Microsoft Graph definisce lo schema per un oggetto utente, incluse le proprietà relative all'utente, ad esempio nome e cognome, nome dell'entità utente, appartenenza al ruolo della directory e così via. In questo modo viene fornita la configurazione dell'identità utente per Azure AD per stabilire un'entità utente in fase di esecuzione. L'entità utente viene usata per rappresentare un utente autenticato per Single Sign-On, durante la registrazione della delega del [consenso](#consent), le decisioni di controllo di accesso e così via.
 
 ## <a name="web-client"></a>client Web
 
@@ -226,10 +226,10 @@ Usare la seguente sezione commenti per fornire commenti e suggerimenti per aiuta
 [AAD-App-SP-Objects]:app-objects-and-service-principals.md
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
-[AAD-Graph-Perm-Scopes]: /graph/permissions-reference
-[AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
-[AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
-[AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity
+[Graph-Perm-Scopes]: /graph/permissions-reference
+[Graph-App-Resource]: /graph/api/resources/application
+[Graph-Sp-Resource]: /graph/api/resources/serviceprincipal?view=graph-rest-beta
+[Graph-User-Resource]: /graph/api/resources/user
 [AAD-How-Subscriptions-Assoc]:../fundamentals/active-directory-how-subscriptions-associated-directory.md
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
 [AAD-How-To-Tenant]:quickstart-create-new-tenant.md

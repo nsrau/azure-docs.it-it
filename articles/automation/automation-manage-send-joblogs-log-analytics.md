@@ -2,19 +2,15 @@
 title: Inoltrare i dati dei processi di Automazione di Azure ai log di Monitoraggio di Azure
 description: Questo articolo illustra come inviare lo stato del processo e i flussi del processo Runbook ai log di monitoraggio di Azure per offrire informazioni e gestione aggiuntive.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 02/05/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: d2433e8193026b8aaa3cbf29eb1411c7449a4953
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: beb69edc57b5a13db0f6d2e5e1536804f3472aff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849735"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421907"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Inviare lo stato e i flussi del processo dall'automazione ai log di monitoraggio di Azure
 
@@ -176,7 +172,7 @@ $automationAccountId = "[resource id of your automation account]"
 Remove-AzDiagnosticSetting -ResourceId $automationAccountId
 ```
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Inviando lo stato del processo di automazione e i dati di flusso ai log di monitoraggio di Azure, è possibile ottenere informazioni più dettagliate sullo stato dei processi di automazione per:
 + Configurando avvisi che segnalino la presenza di un problema.

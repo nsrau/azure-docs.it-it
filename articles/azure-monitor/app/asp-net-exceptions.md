@@ -1,5 +1,5 @@
 ---
-title: Errori ed eccezioni di diagnosi nelle app Web con Azure Application Insights | Microsoft Docs
+title: Diagnosticare errori ed eccezioni con applicazione Azure Insights
 description: Acquisire le eccezioni da app ASP.NET insieme ai dati di telemetria della richiesta.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/11/2019
-ms.openlocfilehash: 90f03baa35d0bf2b63ec480a23db30409df3845f
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: f89149de9b1173a659176f686053e8dc564ab85c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677780"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432661"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnosticare eccezioni nelle app Web con Application Insights
 Le eccezioni nell'applicazione Web attiva vengono segnalate da [Application Insights](../../azure-monitor/app/app-insights-overview.md). È possibile correlare le richieste non riuscite con le eccezioni e altri eventi nel client e nel server, in modo da poter diagnosticare rapidamente le cause.
@@ -201,7 +201,7 @@ Se però sono presenti reindirizzamenti attivi, aggiungere le righe seguenti all
 ## <a name="mvc"></a>MVC
 A partire da Application Insights Web SDK versione 2.6 (beta 3 e versioni successive), Application Insights raccoglie le eccezioni non gestite generate automaticamente nei metodi dei controller MVC 5+. Se in precedenza è stato aggiunto un gestore personalizzato per tenere traccia di tali eccezioni (come descritto negli esempi seguenti), è possibile rimuoverlo per evitare il doppio rilevamento delle eccezioni.
 
-Alcuni casi non possono essere gestiti dai filtri eccezioni. ad esempio:
+Alcuni casi non possono essere gestiti dai filtri eccezioni. Ad esempio:
 
 * Eccezioni generate dai costruttori dei controller.
 * Eccezioni generate dai gestori di messaggi.
@@ -293,7 +293,7 @@ Registrare AiHandleErrorAttribute come filtro globale in FilterConfig.cs:
 ## <a name="web-api"></a>API Web
 A partire da Application Insights Web SDK versione 2.6 (beta 3 e versioni successive), Application Insights raccoglie le eccezioni non gestite generate automaticamente nei metodi dei controller per WebAPI 2+. Se in precedenza è stato aggiunto un gestore personalizzato per tenere traccia di tali eccezioni (come descritto negli esempi seguenti), è possibile rimuoverlo per evitare il doppio rilevamento delle eccezioni.
 
-Alcuni casi non possono essere gestiti dai filtri eccezioni. ad esempio:
+Alcuni casi non possono essere gestiti dai filtri eccezioni. Ad esempio:
 
 * Eccezioni generate dai costruttori dei controller.
 * Eccezioni generate dai gestori di messaggi.

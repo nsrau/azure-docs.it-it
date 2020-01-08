@@ -5,16 +5,20 @@ author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
-ms.openlocfilehash: a30ac638422f99134ebe9cc26e4b418f5de079b9
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: c7d778a0afca4b3552976526d58a2cb2efe12161
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672137"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689610"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>Ripristinare un'app del servizio App eliminata con PowerShell
 
 Se l'app è stata eliminata accidentalmente nel servizio app Azure, è possibile ripristinarla usando i comandi del [modulo AZ PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-2.6.0&viewFallbackFrom=azps-2.2.0).
+
+> [!NOTE]
+> Le app eliminate vengono eliminate dal sistema 30 giorni dopo l'eliminazione iniziale. Una volta che un'app è stata eliminata, non è possibile recuperarla.
+>
 
 ## <a name="re-register-app-service-resource-provider"></a>Registrare di nuovo il provider di risorse del servizio app
 Alcuni clienti potrebbero riscontrare un problema a causa del quale il recupero dell'elenco di App eliminate ha esito negativo. Per risolvere il problema, eseguire il comando seguente:

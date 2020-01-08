@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: peterclu
 ms.author: peterlu
-ms.date: 11/11/2019
-ms.openlocfilehash: 21577936f2487313683ac763b0c6c661c6c1f958
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.date: 12/17/2019
+ms.openlocfilehash: df2e73138cec6c684d612543280871eb2d49b207
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039326"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456348"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer"></a>Guida di riferimento al modulo & dell'algoritmo per Azure Machine Learning Designer
 
@@ -29,24 +29,24 @@ Ogni modulo rappresenta un set di codice che può essere eseguito in modo indipe
 
 I moduli sono organizzati per funzionalità:
 
-| Funzionalità | DESCRIZIONE | Modulo |
-| --- |--- | ---- |
-| Input e output dei dati | Spostare i dati dalle origini cloud alla pipeline. Scrivere i risultati o i dati intermedi in archiviazione di Azure, un database SQL o hive, durante l'esecuzione di una pipeline, oppure usare l'archiviazione cloud per scambiare dati tra pipeline.  | [Importazione dei dati](import-data.md) <br/> [Immissione manuale dei dati](enter-data-manually.md) <br/>[Esportazione dei dati](export-data.md) |
-| Trasformazione dei dati | Operazioni sui dati che sono univoche per Machine Learning, ad esempio la normalizzazione o la suddivisione in contenitori dei dati, la riduzione della dimensionalità e la conversione dei dati tra diversi formati di file.| [Aggiungi colonne](add-columns.md) <br/> [Aggiungi righe](add-rows.md) <br/> [Pulisci i dati mancanti](clean-missing-data.md) <br/> [Converti in CSV](convert-to-csv.md) <br/> [Converti in DataSet](convert-to-dataset.md) <br/> [Modificare i metadati](edit-metadata.md) <br/> [Unisci dati](join-data.md) <br/> [Normalizza i dati](normalize-data.md) <br/> [Rimuovi righe duplicate](remove-duplicate-rows.md) <br/> [Selezione trasformazione colonne](select-columns-transform.md) <br/> [Selezionare le colonne nel set di dati](select-columns-in-dataset.md) |
-| Campionamento | Suddividere i dati in uno o più subset di sottoinsiemi per eseguire il training e il test dei modelli di machine learning.  | [Modello Cross Validate](cross-validate-model.md) <br/> [Partition ed Sample](partition-and-sample.md) <br/> [COLPÌ](smote.md) <br/> [Dividere dati](split-data.md) |
-| Selezione delle funzioni | Consente di selezionare un subset di funzionalità utili rilevanti da utilizzare per la compilazione di un modello analitico. | [Selezione delle funzioni basata su filtro](filter-based-feature-selection.md) <br/> [Importanza della funzionalità di permutazione](permutation-feature-importance.md) |
-| Python e R | Scrivere codice e incorporarlo in un modulo per integrare Python e R con la pipeline. | [Creare un modello Python](create-python-model.md) <br/> [Esegui script Python](execute-python-script.md)   <br/>  [Esegui script R](execute-r-script.md)
-| Text Analytics | Fornire strumenti di calcolo specializzati per lavorare con testo strutturato e non strutturato. | [Estrai le funzionalità di N grammi dal testo](extract-n-gram-features-from-text.md) <br/> [Hashing delle funzionalità](feature-hashing.md) <br/> [Pre-elabora testo](preprocess-text.md) |
+| Funzionalità | Description | Modulo |
+| --- |--- | --- |
+|  | **Preparazione dei dati**: | |
+| Input e output dei dati | Spostare i dati dalle origini cloud alla pipeline. Scrivere i risultati o i dati intermedi in archiviazione di Azure, un database SQL o hive, durante l'esecuzione di una pipeline, oppure usare l'archiviazione cloud per scambiare dati tra pipeline.  | [Immissione manuale dei dati](enter-data-manually.md) <br/> [Esportazione dei dati](export-data.md) <br/> [Importazione dei dati](import-data.md) |
+| Trasformazione dei dati | Operazioni sui dati che sono univoche per Machine Learning, ad esempio la normalizzazione o la suddivisione in contenitori dei dati, la riduzione della dimensionalità e la conversione dei dati tra diversi formati di file.| [Aggiungi colonne](add-columns.md) <br/> [Aggiungi righe](add-rows.md) <br/> [Applica operazione matematica](apply-math-operation.md) <br/> [Applica trasformazione SQL](apply-sql-transformation.md) <br/> [Pulisci i dati mancanti](clean-missing-data.md) <br/> [Ritaglia valori](clip-values.md) <br/> [Converti in CSV](convert-to-csv.md) <br/> [Converti in DataSet](convert-to-dataset.md) <br/> [Modificare i metadati](edit-metadata.md) <br/> [Unisci dati](join-data.md) <br/> [Normalizza i dati](normalize-data.md) <br/> [Partition ed Sample](partition-and-sample.md)  <br/> [Rimuovi righe duplicate](remove-duplicate-rows.md) <br/> [COLPÌ](smote.md) <br/> [Selezione trasformazione colonne](select-columns-transform.md) <br/> [Selezionare le colonne nel set di dati](select-columns-in-dataset.md) <br/> [Dividere dati](split-data.md) |
+| Selezione caratteristiche | Consente di selezionare un subset di funzionalità utili rilevanti da utilizzare per la compilazione di un modello analitico. | [Selezione delle funzioni basata su filtro](filter-based-feature-selection.md) <br/> [Importanza della funzionalità di permutazione](permutation-feature-importance.md) |
+| Funzioni di statistiche | Fornire un'ampia gamma di metodi statistici correlati a data science. | [Riepiloga dati](summarize-data.md)|
 |  | **Algoritmi di Machine Learning**: | |
-| Classificazione | Stimare una classe.  Scegliere tra algoritmi binari (a due classi) o multiclasse.| [Foresta delle decisioni multiclasse](multiclass-decision-forest.md) <br/> [Albero delle decisioni con boosting multiclasse](multiclass-boosted-decision-tree.md) <br/> [Regressione logistica multiclasse](multiclass-logistic-regression.md)  <br/> [Rete neurale multiclasse](multiclass-neural-network.md) <br/> [Una o tutte le multiclasse](one-vs-all-multiclass.md) <br/>  [Regressione logistica a due classi](two-class-logistic-regression.md)  <br/>[Perceptron media a due classi](two-class-averaged-perceptron.md) <br/> [Albero delle decisioni incrementato a due classi](two-class-boosted-decision-tree.md)  <br/> [Foresta delle decisioni a due classi](two-class-decision-forest.md)  <br/> [Rete neurale a due classi](two-class-neural-network.md) <br/> [Macchina a vettori di supporto per due classi](two-class-support-vector-machine.md) | 
-| clustering | Raggruppare i dati.| [Clustering K-means](k-means-clustering.md)
-| regressione | Stimare un valore. | [Regressione dell'albero delle decisioni con boosting](boosted-decision-tree-regression.md) <br/> [Regressione della foresta delle decisioni](decision-forest-regression.md) <br/> [Regressione lineare](linear-regression.md)  <br/> [Regressione di rete neurale](neural-network-regression.md)  <br/> |
-| Recommender | Compilare i modelli di raccomandazione. | [Valuta la raccomandazione](evaluate-recommender.md) <br/> [Punteggio SVD Recommender](score-svd-recommender.md) <br/> [Train SVD Recommender](train-SVD-recommender.md) |
+| Regressione | Stimare un valore. | [Regressione dell'albero delle decisioni con boosting](boosted-decision-tree-regression.md) <br/> [Regressione della foresta delle decisioni](decision-forest-regression.md) <br/> [Regressione lineare](linear-regression.md)  <br/> [Regressione di rete neurale](neural-network-regression.md)  <br/> |
+| Clustering | Raggruppare i dati.| [Clustering K-means](k-means-clustering.md)
+| Classificazione | Stimare una classe.  Scegliere tra algoritmi binari (a due classi) o multiclasse.| [Albero delle decisioni con boosting multiclasse](multiclass-boosted-decision-tree.md) <br/> [Foresta delle decisioni multiclasse](multiclass-decision-forest.md) <br/> [Regressione logistica multiclasse](multiclass-logistic-regression.md)  <br/> [Rete neurale multiclasse](multiclass-neural-network.md) <br/> [Una o tutte le multiclasse](one-vs-all-multiclass.md) <br/> [Perceptron media a due classi](two-class-averaged-perceptron.md) <br/>  [Albero delle decisioni incrementato a due classi](two-class-boosted-decision-tree.md)  <br/> [Foresta delle decisioni a due classi](two-class-decision-forest.md) <br/>  [Regressione logistica a due classi](two-class-logistic-regression.md) <br/> [Rete neurale a due classi](two-class-neural-network.md) <br/> [Macchina a vettori di supporto per due classi](two-class-support-vector-machine.md) | 
 |  | **Compilare e valutare i modelli**: | |
-| Eseguire il training   | Eseguire i dati tramite l'algoritmo. | [Eseguire il training del modello](train-model.md)  <br/> [Training del modello di clustering](train-clustering-model.md) <br/>  [Ottimizzazione degli iperparametri del modello](tune-model-hyperparameters.md) |
-| Evaluate Model (Valutazione del modello) | Misurare l'accuratezza del modello sottoposto a training. |  [Valuta modello](evaluate-model.md) |
-| Score | Ottenere le stime dal modello appena sottoposto a training. | [Applica trasformazione](apply-transformation.md)<br/>[Assegnare i dati ai cluster](assign-data-to-clusters.md) <br/>[Modello di Punteggio](score-model.md) |
-| Funzioni di statistiche | Fornire un'ampia gamma di metodi statistici correlati a data science. | [Applica operazione matematica](apply-math-operation.md) <br/> [Riepiloga dati](summarize-data.md)|
+| Training dei modelli | Eseguire i dati tramite l'algoritmo. |  [Training del modello di clustering](train-clustering-model.md) <br/> [Eseguire il training del modello](train-model.md)  <br/> [Ottimizzazione degli iperparametri del modello](tune-model-hyperparameters.md) |
+| Valutazione e punteggio del modello | Misurare l'accuratezza del modello sottoposto a training. | [Applica trasformazione](apply-transformation.md) <br/> [Assegnare i dati ai cluster](assign-data-to-clusters.md) <br/> [Modello Cross Validate](cross-validate-model.md) <br/> [Valuta modello](evaluate-model.md) <br/> [Modello di Punteggio](score-model.md) |
+| Linguaggio di programmazione di Python | Scrivere il codice e incorporarlo in un modulo per integrare Python con la pipeline. | [Creare un modello Python](create-python-model.md) <br/> [Esegui script Python](execute-python-script.md) |
+| Linguaggio R | Scrivere codice e incorporarlo in un modulo per integrare R con la pipeline. | [Esegui script R](execute-r-script.md) |
+| Analisi del testo | Fornire strumenti di calcolo specializzati per lavorare con testo strutturato e non strutturato. | [Estrai le funzionalità di N grammi dal testo](extract-n-gram-features-from-text.md) <br/> [Hashing delle funzionalità](feature-hashing.md) <br/> [Pre-elabora testo](preprocess-text.md) |
+| Recommendation | Compilare i modelli di raccomandazione. | [Valuta la raccomandazione](evaluate-recommender.md) <br/> [Punteggio SVD Recommender](score-svd-recommender.md) <br/> [Train SVD Recommender](train-SVD-recommender.md) |
 
 ## <a name="error-messages"></a>messaggi di errore
 

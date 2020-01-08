@@ -1,25 +1,16 @@
 ---
-title: Enumerare gli attori in Azure Service Fabric | Microsoft Docs
-description: Informazioni su come enumerare Reliable Actors e i relativi metadati.
-services: service-fabric
-documentationcenter: .net
+title: Enumerare gli attori in Azure Service Fabric
+description: Informazioni sull'enumerazione dei Reliable Actors e i relativi metadati in un'applicazione Service Fabric di Azure con esempi.
 author: vturecek
-manager: chackdan
-editor: amanbha
-ms.assetid: 45839a7f-0536-46f1-ae2b-8ba3556407fb
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 04e2c32b18e6897d6443fea68587aba9ae294be5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1516c9005a7c4dd0adcb279e9954e5f882c575c1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60729138"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645600"
 ---
 # <a name="enumerate-service-fabric-reliable-actors"></a>Enumerare Service Fabric Reliable Actors
 Il servizio Reliable Actors consente al client di enumerare i metadati relativi agli attori ospitati dal servizio. Dato che il servizio attore è un servizio con stato partizionato, l'enumerazione viene eseguita per partizione. Poiché ogni partizione può contenere molti attori, l'enumerazione viene restituita come set di risultati a pagine. Le pagine vengono esaminate in ciclo fino a quando non vengono lette tutte. L'esempio seguente illustra come creare un elenco di tutti gli attori attivi in una partizione di un servizio Actor:

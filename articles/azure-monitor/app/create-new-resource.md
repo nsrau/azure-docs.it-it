@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/02/2019
-ms.openlocfilehash: 11b581649e6d7a048899394d69e574e8f9a4d22c
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 1ba6d6e1774db4e9c95b107e1482a0c6ce532bb5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689206"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432623"
 ---
 # <a name="create-an-application-insights-resource"></a>Creare una risorsa di Application Insights
 
 Application Insights di Azure visualizza dati relativi all'applicazione in una *risorsa* di Microsoft Azure. La creazione di una nuova risorsa fa quindi parte della [configurazione di Application Insights per il monitoraggio di una nuova applicazione][start]. Dopo aver creato la nuova risorsa, è possibile ottenere la relativa chiave di strumentazione e usarla per configurare il Application Insights SDK. La chiave di strumentazione collega i dati di telemetria alla risorsa.
 
-## <a name="sign-in-to-microsoft-azure"></a>Accedi per Microsoft Azure
+## <a name="sign-in-to-microsoft-azure"></a>Accedi a Microsoft Azure
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -28,11 +28,11 @@ Accedere al [portale di Azure](https://portal.azure.com)e creare una risorsa App
 
 ![Fare clic sul segno "+" nell'angolo superiore sinistro. Selezionare Strumenti di sviluppo seguito da Application Insights](./media/create-new-resource/new-app-insights.png)
 
-   | Impostazioni        |  Value           | Description  |
+   | Impostazioni        |  Valore           | Description  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valore univoco | Nome che identifica l'app che si sta monitorando. |
    | **Gruppo di risorse**     | myResourceGroup      | Nome del gruppo di risorse nuovo o esistente per ospitare i dati di App Insights. |
-   | **Località** | Stati Uniti Orientali | Scegliere una località nelle vicinanze o in prossimità della posizione in cui è ospitata l'app. |
+   | **Posizione** | Stati Uniti orientali | Scegliere una località nelle vicinanze o in prossimità della posizione in cui è ospitata l'app. |
 
 > [!NOTE]
 > Sebbene sia possibile usare lo stesso nome di risorsa in gruppi di risorse diversi, può essere utile usare un nome univoco globale. Questa operazione può essere utile se si prevede di [eseguire query tra risorse](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query#identifying-an-application) perché semplifica la sintassi richiesta.

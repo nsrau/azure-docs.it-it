@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6520f205d0a9c1a33d0cb4911a58a5e680bdadb7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6b8f5708aa14b4cc7cffa62da055f92f8d99dee5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929722"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75409111"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Ridimensionamento e hosting di Funzioni di Azure
 
@@ -126,7 +126,9 @@ Quando l'output di questo comando è `dynamic`, l'app per le funzioni è nel pia
 
 In qualsiasi piano, un'app per le funzioni richiede un account di archiviazione di Azure generale che supporta archiviazione BLOB, code, file e tabelle di Azure. Il motivo è che Funzioni si basa su Archiviazione di Azure per operazioni come la gestione dei trigger e la registrazione dell'esecuzione di funzioni, ma alcuni account di archiviazione non supportano code e tabelle. Questi account, che includono l'archiviazione solo BLOB (tra cui Archiviazione premium) e gli account di archiviazione per utilizzo generico con replica di archiviazione con ridondanza della zona, vengono esclusi dalle selezioni di **Account di archiviazione** esistenti quando si crea un'app per le funzioni.
 
-Lo stesso account di archiviazione usato dall'app per le funzioni può essere usato anche dai trigger e dalle associazioni per archiviare i dati dell'applicazione. Tuttavia, per le operazioni con utilizzo intensivo di archiviazione, è necessario usare un account di archiviazione separato.   
+Lo stesso account di archiviazione usato dall'app per le funzioni può essere usato anche dai trigger e dalle associazioni per archiviare i dati dell'applicazione. Tuttavia, per le operazioni con utilizzo intensivo di archiviazione, è necessario usare un account di archiviazione separato.  
+
+È certamente possibile che più app per le funzioni condividano lo stesso account di archiviazione senza problemi. Un esempio valido è quando si sviluppano più app nell'ambiente locale usando l'emulatore di archiviazione di Azure, che agisce come un account di archiviazione. 
 
 <!-- JH: Does using a Premium Storage account improve perf? -->
 
@@ -161,6 +163,8 @@ Trigger distinti possono avere limiti di ridimensionamento diversi come illustra
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>Procedure consigliate e modelli per app scalabili
 
 Esistono molti aspetti di un'app per le funzioni che hanno un impatto sull'accuratezza del ridimensionamento, ad esempio la configurazione dell'host, il footprint del runtime e l'efficienza delle risorse.  Per altre informazioni, vedere la [sezione relativa alla scalabilità nell'articolo sulle prestazioni](functions-best-practices.md#scalability-best-practices). È inoltre necessario comprendere il funzionamento delle connessioni quando l'app per le funzioni viene ridimensionata. Per altre informazioni, vedere [How to manage connections in Azure Functions](manage-connections.md) (Come gestire le connessioni in Funzioni di Azure).
+
+Per altre informazioni sul ridimensionamento in Python e node. js, vedere Guida per sviluppatori Python di funzioni di Azure-guida per gli sviluppatori di [scalabilità e concorrenza](functions-reference-python.md#scaling-and-concurrency) e [funzioni di Azure-guida per gli sviluppatori: scalabilità e concorrenza](functions-reference-node.md#scaling-and-concurrency).
 
 ### <a name="billing-model"></a>Modello di fatturazione
 

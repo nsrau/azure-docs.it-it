@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 497efda857dcd7de3079d702be00a094d221b779
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 130ce05e332f4705feb4acd54cbeb25d25a82532
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034857"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900826"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Assegnare licenze agli utenti in base all'appartenenza ai gruppi in Azure Active Directory
 
@@ -41,7 +41,7 @@ In questo esempio il tenant contiene un gruppo di sicurezza denominato **HR Depa
 
 1. In **tutti i prodotti**selezionare Office 365 Enterprise E5 e Enterprise Mobility + Security E3 selezionando i nomi dei prodotti. Per avviare l'assegnazione, selezionare **assegna** nella parte superiore della pagina.
 
-   ![Selezionare i prodotti per assegnare le licenze](./media/licensing-groups-assign/all-products-assign.png)
+   ![Selezionare i prodotti per assegnare le licenze](./media/licensing-groups-assign/licenses-all-products-assign.png)
   
 1. Nella pagina **assegnazione licenza** selezionare **utenti e gruppi** per aprire un elenco di utenti e gruppi.
 
@@ -59,7 +59,7 @@ Quando si assegnano licenze a un gruppo, Azure AD elabora tutti i membri esisten
 
 ## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>Passaggio 2: verificare che l'assegnazione iniziale sia terminata
 
-1. Passare a **Azure Active Directory** > **gruppi**. Consente di selezionare il gruppo a cui sono state assegnate le licenze.
+1. Passare a **Azure Active Directory** **gruppi**di > . Consente di selezionare il gruppo a cui sono state assegnate le licenze.
 
 1. Nella pagina gruppo selezionare **licenze**. Questo consente di verificare rapidamente se le licenze sono state completamente assegnate agli utenti e se ci sono errori che richiedono attenzione. Sono disponibili le informazioni seguenti:
 
@@ -79,9 +79,9 @@ Quando si assegnano licenze a un gruppo, Azure AD elabora tutti i membri esisten
 
    [Leggere questa sezione](licensing-group-advanced.md#use-audit-logs-to-monitor-group-based-licensing-activity) per ulteriori informazioni su come usare i log di controllo per analizzare le modifiche apportate dalle licenze basate sui gruppi.
 
-## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Passaggio 3: controllare i problemi relativi alle licenze e risolverli
+## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Passaggio 3: Controllare i problemi relativi alle licenze e risolverli
 
-1. Passare a **Azure Active Directory** > **gruppi**e individuare il gruppo a cui sono state assegnate le licenze.
+1. Passare a **Azure Active Directory** **gruppi**di > e individuare il gruppo a cui sono state assegnate le licenze.
 1. Nella pagina gruppo selezionare **licenze**. La notifica nella parte superiore della pagina mostra che sono presenti 10 utenti a cui non è stato possibile assegnare le licenze. Aprirlo per visualizzare un elenco di tutti gli utenti in uno stato di errore di licenza per questo gruppo.
 1. La colonna **N. assegnazioni con errori** indica che non è stato possibile assegnare entrambe le licenze prodotto agli utenti. La colonna **Principali cause dell'errore** contiene la causa dell'errore. In questo caso si tratta di **Piani di servizio in conflitto**.
 
@@ -89,7 +89,7 @@ Quando si assegnano licenze a un gruppo, Azure AD elabora tutti i membri esisten
 
 1. Selezionare un utente per aprire la pagina **licenze** dell'utente. In questa pagina vengono visualizzate tutte le licenze attualmente assegnate all'utente. In questo esempio l'utente ha la licenza di Office 365 Enterprise E1 ereditata dal gruppo **Kiosk users**. Questo genera un conflitto con la licenza E3 che il sistema ha provato ad applicare dal gruppo **HR Department**. Nessuna licenza del gruppo è stata quindi assegnata all'utente.
 
-   ![Visualizza tutti i conflitti di licenza per un utente](./media/licensing-groups-assign/user-license-view.png)
+   ![Visualizza tutti i conflitti di licenza per un utente](./media/licensing-groups-assign/user-licence-conflicting-service-plans.png)
 
 1. Per risolvere questo conflitto, rimuovere l'utente dal gruppo **Kiosk users**. Dopo che Azure AD elabora la modifica, le licenze del **Reparto risorse umane** sono assegnate correttamente.
 

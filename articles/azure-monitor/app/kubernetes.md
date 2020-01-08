@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: tokaplan
 ms.author: alkaplan
 ms.date: 04/25/2019
-ms.openlocfilehash: 3056b6c56be32cf5c054c4526a88157650a3e30b
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: a7821db85d4218cbccb6c10f12ecbc624f2702fe
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820769"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432516"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>Monitoraggio dell'applicazione con zero strumentazione per applicazioni ospitate in Kubernetes
 
@@ -21,10 +21,10 @@ ms.locfileid: "72820769"
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Monitoraggio di Azure sfrutta ora il servizio Mesh Tech nel cluster Kubernetes per fornire il monitoraggio delle applicazioni per qualsiasi app ospitata in Kubernetes. Con le funzionalità predefinite di Application Insight, come la [mappa delle applicazioni](../../azure-monitor/app/app-map.md) , per modellare le dipendenze, [Live Metrics Stream](../../azure-monitor/app/live-stream.md) per il monitoraggio in tempo reale, visualizzazioni potenti con il [dashboard predefinito](../../azure-monitor/app/overview-dashboard.md), [Esplora metriche](../../azure-monitor/platform/metrics-getting-started.md)e [ Cartelle di lavoro](../../azure-monitor/app/usage-workbooks.md)di. Questa funzionalità consentirà agli utenti di individuare i colli di bottiglia delle prestazioni e gli hotspot di errore in tutti i carichi di lavoro Kubernetes all'interno di uno spazio dei nomi Kubernetes selezionato. Grazie alla possibilità di sfruttare gli investimenti esistenti di mesh Service con tecnologie come Istio, monitoraggio di Azure consente il monitoraggio delle app con strumentazione automatica senza alcuna modifica al codice dell'applicazione.
+Monitoraggio di Azure sfrutta ora il servizio Mesh Tech nel cluster Kubernetes per fornire il monitoraggio delle applicazioni per qualsiasi app ospitata in Kubernetes. Con le funzionalità predefinite di Application Insight, come la [mappa delle applicazioni](../../azure-monitor/app/app-map.md) , per modellare le dipendenze, [Live Metrics Stream](../../azure-monitor/app/live-stream.md) per il monitoraggio in tempo reale, visualizzazioni potenti con il [dashboard predefinito](../../azure-monitor/app/overview-dashboard.md), [Esplora metriche](../../azure-monitor/platform/metrics-getting-started.md)e [cartelle di lavoro](../../azure-monitor/app/usage-workbooks.md). Questa funzionalità consentirà agli utenti di individuare i colli di bottiglia delle prestazioni e gli hotspot di errore in tutti i carichi di lavoro Kubernetes all'interno di uno spazio dei nomi Kubernetes selezionato. Grazie alla possibilità di sfruttare gli investimenti esistenti di mesh Service con tecnologie come Istio, monitoraggio di Azure consente il monitoraggio delle app con strumentazione automatica senza alcuna modifica al codice dell'applicazione.
 
 > [!NOTE]
-> Questo è uno dei numerosi modi per eseguire il monitoraggio delle applicazioni in Kubernetes. È anche possibile instrumentare qualsiasi app ospitata in Kubernetes usando il [Application Insights SDK](../../azure-monitor/azure-monitor-app-hub.md) senza che sia necessaria una mesh di servizi. Per monitorare Kubernetes senza instrumentare l'applicazione con un SDK, è possibile usare il metodo seguente.
+> Questo è uno dei numerosi modi per eseguire il monitoraggio delle applicazioni in Kubernetes. È anche possibile instrumentare qualsiasi app ospitata in Kubernetes usando il [Application Insights SDK](../../azure-monitor/azure-monitor-app-hub.yml) senza che sia necessaria una mesh di servizi. Per monitorare Kubernetes senza instrumentare l'applicazione con un SDK, è possibile usare il metodo seguente.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -33,7 +33,7 @@ Monitoraggio di Azure sfrutta ora il servizio Mesh Tech nel cluster Kubernetes p
 - Una [risorsa Application Insights](create-new-resource.md)
 - Disporre di una rete mesh di servizi. Se nel cluster non è distribuito Istio, è possibile apprendere come [installare e usare Istio nel servizio Kubernetes di Azure](https://docs.microsoft.com/azure/aks/istio-install).
 
-## <a name="capabilities"></a>Capabilities
+## <a name="capabilities"></a>Funzionalità
 
 Usando il monitoraggio dell'applicazione con zero strumentazione per le app ospitate in Kubernetes, sarà possibile usare:
 
@@ -75,8 +75,8 @@ Le applicazioni in esecuzione all'esterno della mesh del servizio non sono inter
 1. Scaricare ed estrarre una [versione di *Adapter Application Insights* ](https://github.com/Microsoft/Application-Insights-Istio-Adapter/releases/).
 2. Passare a */src/kubernetes/* all'interno della cartella Release.
 3. Modificare *Application-Insights-Istio-mixer-Adapter-Deployment. YAML*
-    - modificare il valore della variabile di ambiente *ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY* in modo che contenga la chiave di strumentazione della risorsa Application Insights in portale di Azure per contenere i dati di telemetria.
-    - Se necessario, modificare il valore della variabile di ambiente *ISTIO_MIXER_PLUGIN_WATCHLIST_NAMESPACES* in modo che contenga un elenco delimitato da virgole di spazi dei nomi per cui si vuole abilitare il monitoraggio. Lasciare vuoto il campo per monitorare tutti gli spazi dei nomi.
+    - modificare il valore della variabile di ambiente *ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY* in modo che contenga la chiave di strumentazione della risorsa di Application Insights in portale di Azure per contenere i dati di telemetria.
+    - Se necessario, modificare il valore di *ISTIO_MIXER_PLUGIN_WATCHLIST_NAMESPACES* variabile di ambiente in modo che contenga un elenco delimitato da virgole di spazi dei nomi per cui si desidera abilitare il monitoraggio. Lasciare vuoto il campo per monitorare tutti gli spazi dei nomi.
 4. Applicare *ogni* file YAML trovato in *src/kubernetes/* eseguendo il comando seguente (è ancora necessario trovarsi all'interno di */src/kubernetes/* ):
 
    ```console
@@ -98,12 +98,12 @@ Le applicazioni in esecuzione all'esterno della mesh del servizio non sono inter
 - Generare una richiesta di esempio sull'applicazione per verificare il corretto funzionamento del monitoraggio.
 - Entro 3-5 minuti è necessario iniziare a visualizzare i dati di telemetria nella portale di Azure. Assicurarsi di consultare la sezione *mappa delle applicazioni* della risorsa Application Insights nel portale.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Di seguito è riportato il flusso di risoluzione dei problemi da usare quando i dati di telemetria non vengono visualizzati nel portale di Azure come previsto.
 
 1. Assicurarsi che l'applicazione sia sotto carico e che invii/riceva richieste in HTTP normale. Dato che la telemetria viene sollevata dalla rete, il traffico crittografato non è supportato. Se non sono presenti richieste in ingresso o in uscita, non saranno presenti dati di telemetria.
-2. Verificare che la chiave di strumentazione corretta sia disponibile nella variabile di ambiente *ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY* in *Application-Insights-ISTIO-mixer-Adapter-Deployment. YAML*. La chiave di strumentazione si trova nella scheda *Panoramica* della risorsa Application Insights nel portale di Azure.
+2. Verificare che nella variabile di ambiente *ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY* venga fornita la chiave di strumentazione corretta in *Application-Insights-ISTIO-mixer-Adapter-Deployment. YAML*. La chiave di strumentazione si trova nella scheda *Panoramica* della risorsa Application Insights nel portale di Azure.
 3. Verificare che nella variabile di ambiente *ISTIO_MIXER_PLUGIN_WATCHLIST_NAMESPACES* sia disponibile lo spazio dei nomi Kubernetes corretto in *Application-Insights-ISTIO-mixer-Adapter-Deployment. YAML*. Lasciare vuoto il campo per monitorare tutti gli spazi dei nomi.
 4. Assicurarsi che i pod dell'applicazione siano stati inseriti in sidecar da Istio. Verificare che il sidecar di Istio esista in ogni pod.
 

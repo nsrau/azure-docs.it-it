@@ -14,21 +14,21 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 8/30/2019
 ms.author: alsin
-ms.openlocfilehash: 2ae1f3769254575e33eaa5b4e3a24c47b9eb1aff
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 20bc22661f9faad1b289dbbe7200f4f83c097f0e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194170"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451235"
 ---
 # <a name="azure-serial-console"></a>Console seriale di Azure
 
-La console seriale nell'portale di Azure fornisce l'accesso a una console basata su testo per le macchine virtuali (VM) e le istanze del set di scalabilità di macchine virtuali che eseguono Linux o Windows. Questa connessione seriale si connette alla porta seriale ttyS0 o COM1 della VM o dell'istanza del set di scalabilità di macchine virtuali, fornendo accesso indipendente dalla rete o dallo stato del sistema operativo. È possibile accedere alla console seriale solo usando la portale di Azure ed è consentita solo per gli utenti che hanno un ruolo accesso di collaboratore o superiore alla macchina virtuale o al set di scalabilità di macchine virtuali.
+La console seriale nell'portale di Azure fornisce l'accesso a una console basata su testo per le macchine virtuali (VM) e le istanze del set di scalabilità di macchine virtuali che eseguono Linux o Windows. Questa connessione seriale viene stabilita con la porta seriale ttyS0 o COM1 della macchina virtuale o dell'istanza del set di scalabilità di macchine virtuali e fornisce l'accesso indipendente dallo stato del sistema operativo o della rete. È possibile accedere alla console seriale solo usando la portale di Azure ed è consentita solo per gli utenti che hanno un ruolo accesso di collaboratore o superiore alla macchina virtuale o al set di scalabilità di macchine virtuali.
 
 La console seriale funziona allo stesso modo per le macchine virtuali e le istanze del set di scalabilità di macchine virtuali. In questo documento, tutte le menzioni delle macchine virtuali includeranno in modo implicito le istanze del set di scalabilità di macchine virtuali, se non diversamente specificato.
 
 > [!NOTE]
-> La console seriale è disponibile a livello generale nelle aree globali di Azure. Non è al momento disponibile nei cloud di Azure per enti pubblici o di Azure Cina.
+> La console seriale è disponibile a livello generale nelle aree globali di Azure e in anteprima pubblica in Azure per enti pubblici. Non è ancora disponibile nel cloud di Azure China.
 
 ## <a name="prerequisites-to-access-the-azure-serial-console"></a>Prerequisiti per accedere alla console seriale di Azure
 Per accedere alla console seriale nell'istanza della VM o del set di scalabilità di macchine virtuali, è necessario quanto segue:

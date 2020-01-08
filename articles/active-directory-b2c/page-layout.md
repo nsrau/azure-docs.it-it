@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/04/2019
+ms.date: 12/18/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 108d86e35422e1dc1d10aeb6b2c9488f5067232e
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: b8bf44893bf23502aaf8c446d9e6d7c9022bfce3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389678"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425648"
 ---
 # <a name="select-a-page-layout-in-azure-active-directory-b2c-using-custom-policies"></a>Selezionare un layout di pagina in Azure Active Directory B2C usando criteri personalizzati
 
@@ -46,9 +46,9 @@ Nei criteri personalizzati possono essere inclusi elementi [ContentDefinition](c
 </ContentDefinition>
 ```
 
-Per selezionare un layout di pagina, è necessario modificare i valori di **DataUri** in [ContentDefinitions](contentdefinitions.md) nei criteri. Passando dai valori di **DataUri** precedenti a quelli nuovi, si seleziona un pacchetto non modificabile. Il vantaggio dell'uso di questo pacchetto è la certezza che non cambierà e non provocherà un comportamento imprevisto nella pagina.
+Per selezionare un layout di pagina, è necessario modificare i valori di **DataUri** in [ContentDefinitions](contentdefinitions.md) nei criteri. Passando dai valori di **DataUri** precedenti a quelli nuovi, si seleziona un pacchetto non modificabile. Il vantaggio derivante dall'utilizzo di questo pacchetto è che si è certi che non cambierà e provocherà un comportamento imprevisto nella pagina.
 
-Per configurare un layout di pagina, usare la tabella seguente per trovare i valori **DataUri** .
+Per specificare un layout di pagina nei criteri personalizzati che usano un valore **DataUri** precedente, inserire `contract` tra `elements` e il tipo di pagina (ad esempio, `selfasserted`) e specificare il numero di versione. Ad esempio:
 
 | Valore di DataUri precedente | Nuovo valore di DataUri |
 | ----------------- | ----------------- |
@@ -68,17 +68,23 @@ Per configurare un layout di pagina, usare la tabella seguente per trovare i val
 
 I pacchetti del layout di pagina vengono aggiornati periodicamente per includere correzioni e miglioramenti negli elementi della pagina. Nel log delle modifiche seguente vengono specificate le modifiche introdotte in ogni versione.
 
-### <a name="120"></a>1.2.0 
+### <a name="200"></a>2.0.0
+
+- Pagina autocertificata (`selfasserted`)
+  - Aggiunta del supporto per la [visualizzazione dei controlli](display-controls.md) nei criteri personalizzati.
+
+### <a name="120"></a>1.2.0
+
 - Tutte le pagine
   - Correzioni di accessibilità
   - È ora possibile aggiungere l'attributo `data-preload="true"` nei tag HTML per controllare l'ordine di caricamento per CSS e JavaScript. Gli scenari includono:
-      - Usare il collegamento CSS per caricare il CSS contemporaneamente al codice HTML in modo che non venga "sfarfallio" tra il caricamento dei file
-      - Questo attributo consente di controllare l'ordine in cui i tag di script vengono recuperati ed eseguiti prima del caricamento della pagina
+    - Usare il collegamento CSS per caricare il CSS contemporaneamente al codice HTML in modo che non venga "sfarfallio" tra il caricamento dei file
+    - Questo attributo consente di controllare l'ordine in cui i tag di script vengono recuperati ed eseguiti prima del caricamento della pagina
   - Il campo posta elettronica è ora `type=email` e le tastiere mobili forniranno i suggerimenti corretti
   - Supporto per la conversione di Chrome
 - Pagina unificata e autocertificata
   - I campi nome utente/indirizzo di posta elettronica e password ora usano l'elemento HTML del modulo.  In questo modo Edge e IE verranno consentiti per salvare correttamente queste informazioni
-  
+
 ### <a name="110"></a>1.1.0
 
 - Pagina eccezione (globalexception)

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 11/06/2019
-ms.openlocfilehash: 0e2dcec15566749b58c439b68532829b67716754
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 29c1aaf18ea45d869d32a8817aeb03faa3b67c32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815102"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456567"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Connettersi a origini dati locali da App per la logica di Azure
 
@@ -82,8 +82,8 @@ Dopo aver installato il gateway in un computer locale, creare la risorsa di Azur
    |----------|-------------|
    | **Nome risorsa** | Specificare un nome per la risorsa del gateway che contenga solo lettere, numeri, trattini (`-`), caratteri di sottolineatura (`_`), parentesi (`(`, `)`) o punti (`.`). |
    | **Sottoscrizione** | Selezionare la sottoscrizione di Azure per l'account Azure usato per l'installazione del gateway. La sottoscrizione predefinita si basa sull'account di Azure usato per accedere. |
-   | **Gruppo di risorse** | Il [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) che si vuole usare |
-   | **Località** | La stessa area o la stessa località selezionata per il servizio cloud gateway durante l' [installazione del gateway](../logic-apps/logic-apps-gateway-install.md). In caso contrario, l'installazione del gateway non verrà visualizzata nell'elenco **nome installazione** . Il percorso dell'app per la logica può essere diverso da quello delle risorse del gateway. |
+   | **Gruppo di risorse** | Il [gruppo di risorse di Azure](../azure-resource-manager/management/overview.md) che si vuole usare |
+   | **Posizione** | La stessa area o la stessa località selezionata per il servizio cloud gateway durante l' [installazione del gateway](../logic-apps/logic-apps-gateway-install.md). In caso contrario, l'installazione del gateway non verrà visualizzata nell'elenco **nome installazione** . Il percorso dell'app per la logica può essere diverso da quello delle risorse del gateway. |
    | **Nome installazione** | Selezionare un'installazione del gateway che viene visualizzata nell'elenco solo quando vengono soddisfatte le condizioni seguenti: <p><p>-L'installazione del gateway usa la stessa area della risorsa del gateway che si vuole creare. <br>-L'installazione del gateway non è collegata a un'altra risorsa del gateway di Azure. <br>-L'installazione del gateway è collegata allo stesso account Azure usato per creare la risorsa del gateway. <br>-L'account Azure appartiene a un singolo [tenant o a una singola Azure Active Directory (Azure ad)](../active-directory/fundamentals/active-directory-whatis.md#terminology) ed è lo stesso account usato per l'installazione del gateway. <p><p>Per ulteriori informazioni, vedere la sezione [domande frequenti](#faq) . |
    |||
 
@@ -114,7 +114,7 @@ Dopo aver creato la risorsa per il gateway e associato la sottoscrizione di Azur
 
    Un nome di connessione univoco consente di individuare facilmente la connessione in un secondo momento, soprattutto se si creano più connessioni. Se applicabile, è necessario includere anche il dominio completo per il proprio nome utente.
 
-   Di seguito è fornito un esempio:
+   Esempio:
 
    ![Creare una connessione tra l'app per la logica e il gateway dati](./media/logic-apps-gateway-connection/logic-app-gateway-connection.png)
 
@@ -150,7 +150,7 @@ Per creare una risorsa del gateway diversa, collegare l'installazione del gatewa
 
 1. Se non è già selezionato, nel menu della risorsa del gateway selezionare **Gateway dati locale**. Sulla barra degli strumenti delle risorse del gateway selezionare **Elimina**.
 
-   ad esempio:
+   Ad esempio:
 
    ![Eliminare la risorsa del gateway in Azure](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway.png)
 

@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 11/27/2019
-ms.openlocfilehash: 816cf7cc78d3dfcb783b09f039f468ef3b23a06b
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 90f39a5edd32225b7fed259ca48dcf4802d0ced3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74548381"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443819"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Panoramica dei limiti delle risorse dell'istanza gestita di database SQL di Azure
 
@@ -47,8 +47,8 @@ La quantità di spazio di OLTP in memoria in [business critical](sql-database-se
 
 | Spazio OLTP in memoria  | **Quinta generazione** | **Quarta generazione** |
 | --- | --- | --- |
-| 4 vcore  | 3,14 GB | |   
-| 8 vcore  | 6,28 GB | 8 GB |
+| 4 vCore  | 3,14 GB | |   
+| 8 vCore  | 6,28 GB | 8 GB |
 | 16 vcore | 15,77 GB | 20 GB |
 | 24 vcore | 25,25 GB | 36 GB |
 | 32 vcore | 37,94 GB | |
@@ -87,7 +87,7 @@ Istanza gestita ha due livelli di servizio: [per utilizzo generico](sql-database
 > - La dimensione di archiviazione dell'istanza, che viene confrontata con la dimensione massima di archiviazione, include la dimensione dei dati e dei file di log presenti sia nel database utenti che in quello di sistema. Usare la vista di sistema <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> per determinare lo spazio totale usato dai database. I log degli errori non vengono salvati in modo permanente e non sono inclusi nella dimensione. I backup non sono inclusi nella dimensione di archiviazione.
 > - La velocità effettiva e gli IOPS nel livello di per utilizzo generico dipendono anche dalle [dimensioni del file](#file-io-characteristics-in-general-purpose-tier) non esplicitamente limitate dall'istanza gestita.
 > - È possibile creare un'altra replica leggibile in un'area di Azure diversa usando i gruppi di failover automatico.
-> - Il numero massimo di IOPS dell'istanza dipende dal layout del file e dalla distribuzione del carico di lavoro. Ad esempio, se si crea un file da 7 x 1 GB con numero massimo di 5 GB di IOPS ciascuno e 7 piccoli file (inferiori a 128 GB) con 500 IOPS ciascuno, è possibile ottenere 38500 IOPS per istanza (7x5000 + 7x500) se il carico di lavoro può usare tutti i file. Si noti che per i backup automatici viene usata anche una certa quantità di IOPS.
+> - Il numero massimo di IOPS dell'istanza dipende dal layout del file e dalla distribuzione del carico di lavoro. Ad esempio, se si creano 7 file da 1 TB con Max 5K IOPS ciascuno e 7 piccoli file (inferiori a 128 GB) con 500 IOPS ciascuno, è possibile ottenere 38500 IOPS per istanza (7x5000 + 7x500) se il carico di lavoro può usare tutti i file. Si noti che per i backup automatici viene usata anche una certa quantità di IOPS.
 
 > [!NOTE]
 > Altre informazioni sui [limiti delle risorse nei pool di istanze gestite sono disponibili in questo articolo](sql-database-instance-pools.md#instance-pools-resource-limitations).
@@ -96,7 +96,7 @@ Istanza gestita ha due livelli di servizio: [per utilizzo generico](sql-database
 
 In per utilizzo generico livello di servizio ogni file di database sta ottenendo IOPS e velocità effettiva dedicati che dipendono dalle dimensioni del file. I file più grandi ricevono un numero maggiore di IOPS e velocità effettiva. Le caratteristiche di i/o dei file di database sono illustrate nella tabella seguente:
 
-| Dimensioni complete           | GiB 0-128 | 128-256 GiB | 256-512 GiB | 0,5-1 TiB    | 1-2 TiB    | 2-4 TiB | 4-8 TiB |
+| Dimensione del file           | GiB 0-128 | 128-256 GiB | 256-512 GiB | 0,5-1 TiB    | 1-2 TiB    | 2-4 TiB | 4-8 TiB |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
 | IOPS per file       | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12.500   |
 | Velocità effettiva per file | 100 MiB/s | 125 MiB/s | 150 MiB/s | 200 MiB/s | 250 MiB/s | 250 MiB/s | 480 MiB/s | 
@@ -162,7 +162,7 @@ Per avviare il processo di acquisizione di una quota maggiore:
 
      ![Tipo di problema: Quota](media/sql-database-managed-instance-resource-limits/issue-type-quota.png)
 
-3. Fare clic su **Next** (Avanti).
+3. Fare clic su **Avanti**.
 4. Nella **scheda problema** relativa alla nuova richiesta di supporto:
    - Per **Gravità** selezionare il livello di gravità del problema.
    - In **Dettagli** inserire informazioni aggiuntive relative al problema riscontrato, inclusi i messaggi di errore.
@@ -176,9 +176,9 @@ Per avviare il processo di acquisizione di una quota maggiore:
      > - Numero necessario di Vcore, per livello di servizio nelle subnet esistenti dopo l'aumento della quota (se è necessario espandere una delle subnet esistenti.
      > - Numero necessario di nuove subnet e numero totale di Vcore per ogni livello di servizio all'interno delle nuove subnet, se è necessario distribuire istanze gestite in nuove subnet.
 
-5. Fare clic su **Next** (Avanti).
+5. Fare clic su **Avanti**.
 6. Nella scheda Informazioni contatto della nuova richiesta di supporto immettere la modalità di contatto preferita (posta elettronica o telefono) e i dettagli di contatto.
-7. Fare clic su **Create**(Crea).
+7. Fare clic su **Crea**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

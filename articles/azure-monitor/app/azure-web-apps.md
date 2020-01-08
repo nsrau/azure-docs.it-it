@@ -6,13 +6,13 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 12/04/2019
-ms.openlocfilehash: 86a94cfdbd2c1755907bc13aa698fba92f5ce649
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.date: 12/11/2019
+ms.openlocfilehash: 62a66f180fd6e89329fe17a96115ecc4ca914107
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850075"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407241"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorare le prestazioni del Servizio app di Azure
 
@@ -77,9 +77,9 @@ Esistono due modi per abilitare il monitoraggio dell'applicazione per le applica
 
 # <a name="net-coretabnetcore"></a>[.NET Core](#tab/netcore)
 
-Sono supportate le versioni seguenti di .NET Core: ASP.NET Core 2,0, ASP.NET Core 2,1, ASP.NET Core 2,2
+Sono supportate le versioni seguenti di .NET Core: ASP.NET Core 2,0, ASP.NET Core 2,1, ASP.NET Core 2,2, ASP.NET Core 3,0
 
-La destinazione del Framework completo da .NET Core, la distribuzione autonoma e la ASP.NET Core 3,0 non sono attualmente **supportate** con il monitoraggio basato su agenti/estensioni. La[Strumentazione manuale](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) tramite codice funzionerà in tutti gli scenari precedenti.
+La definizione del Framework completo da .NET Core, la distribuzione autonoma e le applicazioni basate su Linux non sono attualmente **supportate** con il monitoraggio basato su agenti/estensioni. La[Strumentazione manuale](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) tramite codice funzionerà in tutti gli scenari precedenti.
 
 1. **Selezionare Application Insights** nel pannello di controllo di Azure per il servizio app.
 
@@ -92,7 +92,7 @@ La destinazione del Framework completo da .NET Core, la distribuzione autonoma e
 
      ![Instrumentazione dell'App Web](./media/azure-web-apps/create-resource-01.png)
 
-2. Dopo aver specificato la risorsa da usare, è possibile scegliere come si vuole Application Insights raccogliere i dati per piattaforma per l'applicazione. .NET Core offre una **raccolta consigliata** o **disabilitata** per .net core 2,0, 2,1 e 2,2.
+2. Dopo aver specificato la risorsa da usare, è possibile scegliere come si vuole Application Insights raccogliere i dati per piattaforma per l'applicazione. .NET Core offre una **raccolta consigliata** o **disabilitata** per .net core 2,0, 2,1, 2,2 e 3,0.
 
     ![Scegliere le opzioni per ogni piattaforma](./media/azure-web-apps/choose-options-new-net-core.png)
 
@@ -110,7 +110,7 @@ Le applicazioni Web basate sul servizio app Python non supportano attualmente il
 
 ---
 
-## <a name="enable-client-side-monitoring"></a>Abilitare il monitoraggio lato client
+## <a name="enable-client-side-monitoring"></a>Abilita monitoraggio lato client
 
 # <a name="nettabnet"></a>[.NET](#tab/net)
 
@@ -168,7 +168,7 @@ Per abilitare la raccolta di dati di telemetria con Application Insights, è nec
 
 ### <a name="application-settings-definitions"></a>Definizioni delle impostazioni dell'applicazione
 
-|Nome impostazione app |  Definizione | Value |
+|Nome impostazione app |  Definizione | Valore |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | Estensione principale, che controlla il monitoraggio in fase di esecuzione. | `~2` |
 |XDT_MicrosoftApplicationInsights_Mode |  Solo in modalità predefinita sono abilitate le funzionalità essenziali per garantire prestazioni ottimali. | `default` o `recommended`. |
@@ -349,7 +349,7 @@ A partire dalla versione 2.8.9 viene utilizzata l'estensione del sito preinstall
 
 Se l'aggiornamento viene eseguito da una versione precedente alla 2.5.1, verificare che le DLL di ApplicationInsigths vengano rimosse dalla cartella bin dell'applicazione, [vedere la procedura di risoluzione dei problemi](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Di seguito è riportata la guida dettagliata alla risoluzione dei problemi per il monitoraggio di estensioni/agenti per le applicazioni .NET e .NET Core in esecuzione in app Azure Services.
 
@@ -377,7 +377,7 @@ Di seguito è riportata la guida dettagliata alla risoluzione dei problemi per i
 
 La tabella seguente fornisce una spiegazione più dettagliata del significato di questi valori, delle cause sottostanti e delle correzioni consigliate:
 
-|Valore problema|Spiegazione|Correzione
+|Valore problema|Spiegazione|Fix
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | Questo valore indica che l'estensione ha rilevato che alcuni aspetti dell'SDK sono già presenti nell'applicazione e che verrà eseguito il backup. Può essere dovuto a un riferimento a `System.Diagnostics.DiagnosticSource`, `Microsoft.AspNet.TelemetryCorrelation`o `Microsoft.ApplicationInsights`  | Rimuovere i riferimenti. Alcuni di questi riferimenti vengono aggiunti per impostazione predefinita da determinati modelli di Visual Studio e le versioni precedenti di Visual Studio possono aggiungere riferimenti a `Microsoft.ApplicationInsights`.
 |`AppAlreadyInstrumented:true` | Se l'applicazione è destinata a .NET Core 2,1 o 2,2 e si riferisce al metapacchetto [Microsoft. AspNetCore. All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) , la porta Application Insights e l'estensione verrà riattivata. | Per i clienti di .NET Core 2.1, 2.2 è [consigliabile](https://github.com/aspnet/Announcements/issues/287) usare invece il meta pacchetto Microsoft. AspNetCore. app.|

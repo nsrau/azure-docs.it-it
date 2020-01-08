@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b7bdd1e1922d9d8845a8187cabb3fd39af4694ab
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 75fe9c8587a15ed37366dceda05b5befb353ebb3
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70077905"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647510"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Installare la disponibilità elevata di SAP NetWeaver in un cluster di failover Windows e condivisione file per le istanze di SAP ASCS/SCS in Azure
 
@@ -36,8 +36,8 @@ ms.locfileid: "70077905"
 
 [sap-powershell-scrips]:https://github.com/Azure-Samples/sap-powershell
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [s2d-in-win-2016]:https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview
 [sofs-overview]:https://technet.microsoft.com/library/hh831349(v=ws.11).aspx
@@ -193,7 +193,7 @@ ms.locfileid: "70077905"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
@@ -203,7 +203,7 @@ Questo articolo descrive la procedura di installazione e configurazione di un si
 
 Prima di iniziare l'installazione, esaminare gli articoli seguenti:
 
-* [Guida all'architettura: Cluster di un'istanza di SAP ASC/SCS in un cluster di failover Windows tramite la condivisione file][sap-high-availability-guide-wsfc-file-share]
+* [Guida all'architettura: cluster di un'istanza di SAP ASC/SCS in un cluster di failover Windows tramite condivisione file][sap-high-availability-guide-wsfc-file-share]
 
 * [Preparare l'infrastruttura di Azure disponibilità elevata di SAP usando un cluster di failover Windows e la condivisione file per le istanze di SAP ASC/SCS][sap-high-availability-infrastructure-wsfc-file-share]
 
@@ -231,7 +231,7 @@ Non esistono particolari considerazioni per il caso in cui servizi DBMS differen
 
 Creare il volume e la condivisione file seguenti nel cluster SOFS:
 
-* Struttura del file `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\` SAP GLOBALHOST nel volume condiviso cluster SOFS (CSV)
+* Struttura del file di `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\` SAP GLOBALHOST nel volume condiviso cluster SOFS (CSV)
 
 * Condivisione file SAPMNT
 
@@ -299,7 +299,7 @@ Creare un nome di rete del cluster SAP ASC/SCS (ad esempio, **Pr1-ASC [10.0.6.7]
 
 Installare un'istanza di SAP ASC/SCS nel primo nodo del cluster. Per installare l'istanza, nello strumento di installazione SAP SWPM passare a:
 
-**\<Prodotto >**  >  >  **sistemaDBMS>\<** installazione > del server applicazioni ABAP (o Java) > **sistema a disponibilità elevata**  >  **Istanza di ASC/SCS** **Primo nodo del cluster.**  > 
+**\<Product >**  >  **\<DBMS >**  > **installazione** > **Server applicazioni ABAP** (o **Java**) > **sistema a disponibilità elevata** > **istanza ASC/SCS** > **primo nodo del cluster**.
 
 ### <a name="add-a-probe-port"></a>Aggiungere una porta probe
 
@@ -309,12 +309,12 @@ Configurare una porta probe SAP-SID-IP della risorsa cluster SAP tramite PowerSh
 
 Installare un'istanza di SAP ASC/SCS nel secondo nodo del cluster. Per installare l'istanza, nello strumento di installazione SAP SWPM passare a:
 
-**\<Prodotto >**  >  >  **sistemaDBMS>\<** installazione > del server applicazioni ABAP (o Java) > **sistema a disponibilità elevata**  >  **Istanza di ASC/SCS** **Nodo cluster aggiuntivo.**  > 
+**\<> del prodotto** >  **\<DBMS >**  > **installazione** > **Server applicazioni ABAP** (o **Java**) > **sistema a disponibilità elevata** > **istanza ASC/SCS** > **nodo cluster aggiuntivo**.
 
 
 ## <a name="update-the-sap-ascsscs-instance-profile"></a>Aggiornare il profilo dell'istanza di SAP ASCS/SCS
 
-Aggiornare i parametri nel SID del profilo \<dell'istanza di SAP ASC/SCS >_ASC/SCS\<Nr >_ \<> host.
+Aggiornare i parametri nel profilo dell'istanza di SAP ASC/SCS \<SID >_ASC/scs\<Nr >_ \<host >.
 
 
 | Nome parametro | Valore del parametro |
@@ -323,7 +323,7 @@ Aggiornare i parametri nel SID del profilo \<dell'istanza di SAP ASC/SCS >_ASC/S
 | enque/encni/set_so_keepalive  | **true** |
 | service/ha_check_node | **1** |
 
-Riavviare l'istanza di SAP ASC/SCS. Impostare `KeepAlive` i parametri in entrambi i nodi del cluster SAP ASC/SCS seguire le istruzioni per [impostare le voci del registro di sistema nei nodi del cluster dell'istanza di SAP ASC/SCS][high-availability-guide]. 
+Riavviare l'istanza di SAP ASC/SCS. Impostare `KeepAlive` parametri in entrambi i nodi del cluster SAP ASC/SCS seguire le istruzioni per [impostare le voci del registro di sistema nei nodi del cluster dell'istanza di SAP ASC/SCS][high-availability-guide]. 
 
 ## <a name="install-a-dbms-instance-and-sap-application-servers"></a>Installare un'istanza di DBMS e i server applicazioni SAP
 

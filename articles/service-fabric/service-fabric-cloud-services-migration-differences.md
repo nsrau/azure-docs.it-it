@@ -1,25 +1,16 @@
 ---
-title: Differenze tra Servizi cloud e Service Fabric | Documentazione Microsoft
+title: Differenze tra servizi cloud e Service Fabric
 description: Panoramica concettuale per la migrazione di applicazioni da Servizi cloud a Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: 0b87b1d3-88ad-4658-a465-9f05a3376dee
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 8b486e617389e1611dfebf3d347d2d64df088593
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 283ad2c63bb59771dab7881522e737f773ab1705
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258643"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463377"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Informazioni sulle differenze tra Servizi cloud e Service Fabric che è opportuno conoscere prima di procedere alla migrazione di applicazioni.
 Microsoft Azure Service Fabric è la piattaforma di applicazioni cloud di nuova generazione per applicazioni distribuite con livelli di scalabilità e affidabilità elevati. Introduce molte nuove funzionalità per la creazione di pacchetti, la distribuzione, l'aggiornamento e la gestione di applicazioni cloud distribuite. 
@@ -73,14 +64,14 @@ Con la comunicazione diretta i livelli possono comunicare direttamente tramite l
 
  La comunicazione diretta è un modello di comunicazione comune in Service Fabric. La differenza principale tra Service Fabric e Servizi cloud è che in Servizi cloud ci si connette a una macchina virtuale, mentre in Service Fabric ci si connette a un servizio. Questa è una distinzione importante per due motivi:
 
-* Servizi di Service Fabric non sono associati alle macchine virtuali che ospitano. i servizi possono spostarsi all'interno del cluster, mentre in realtà, verranno inseriti spostino per vari motivi: Bilanciamento delle risorse, failover, gli aggiornamenti dell'applicazione e l'infrastruttura e vincoli di posizionamento o di carico. Ciò significa che l'indirizzo di un'istanza del servizio può cambiare in qualsiasi momento. 
+* I servizi di Service Fabric non sono associati alle macchine virtuali che li ospitano. I servizi possono spostarsi all'interno del cluster e, in effetti, è previsto che si spostino per vari motivi, ovvero per bilanciamento delle risorse, failover, aggiornamenti di applicazioni e infrastruttura e vincoli di bilanciamento di carico o selezione. Ciò significa che l'indirizzo di un'istanza del servizio può cambiare in qualsiasi momento. 
 * Una macchina virtuale in Service Fabric può ospitare più servizi, ognuno con un endpoint univoco.
 
 Service Fabric fornisce un meccanismo di individuazione del servizio, detto Naming Service, che può essere usato per risolvere gli indirizzi degli endpoint dei servizi. 
 
 ![Comunicazione diretta di Service Fabric][6]
 
-### <a name="queues"></a>Queues
+### <a name="queues"></a>Code
 Un meccanismo di comunicazione comune tra i livelli in ambienti senza stati come Servizi cloud consiste nell'usare una coda di archiviazione esterna per archiviare in modo permanente le attività di lavoro da un livello a un altro. Uno scenario comune è un livello web che invia processi a una coda di Azure o un bus di servizio in cui le istanze del ruolo di lavoro possono rimuovere dalla coda ed elaborare i processi.
 
 ![Comunicazione con coda di Servizi cloud][7]
@@ -89,23 +80,23 @@ Lo stesso modello di comunicazione può essere usato in Service Fabric. Può ess
 
 ![Comunicazione diretta di Service Fabric][8]
 
-## <a name="parity"></a>Parità
-[Servizi cloud è simile a Service Fabric in grado di controllo e semplicità d'uso, ma ora è un servizio legacy e Service Fabric è consigliato per nuove attività di sviluppo](https://docs.microsoft.com/azure/app-service/overview-compare); di seguito è riportato un confronto di API:
+## <a name="parity"></a>Parity
+I [servizi cloud sono simili a Service fabric in grado di controllare rispetto alla semplicità d'uso, ma ora è un servizio legacy e Service Fabric è consigliato per il nuovo sviluppo](https://docs.microsoft.com/azure/app-service/overview-compare); di seguito è riportato un confronto tra API:
 
 
-| **API del servizio cloud** | **API di Service Fabric** | **Note** |
+| **API del servizio cloud** | **API Service Fabric** | **Note** |
 | --- | --- | --- |
-| RoleInstance.GetID | FabricRuntime.GetNodeContext.NodeId o. NodeName | ID è una proprietà di NodeName |
-| RoleInstance.GetFaultDomain | FabricClient.QueryManager.GetNodeList | Filtrare per NodeName e usare proprietà di dominio di errore |
-| RoleInstance.GetUpgradeDomain | FabricClient.QueryManager.GetNodeList | Filtrare per NodeName e usare proprietà aggiornamento |
-| RoleInstance.GetInstanceEndpoints | FabricRuntime.GetActivationContext o Naming (ResolveService) | CodePackageActivationContext fornito da FabricRuntime.GetActivationContext sia all'interno di repliche tramite ServiceInitializationParameters.CodePackageActivationContext fornito durante. Inizializzare |
-| RoleEnvironment.GetRoles | FabricClient.QueryManager.GetNodeList | Se si desidera ottenere lo stesso tipo di filtro per tipo che è possibile ottenere l'elenco dei tipi di nodo dal cluster manifest tramite FabricClient.ClusterManager.GetClusterManifest e agganciare i tipi di nodo del ruolo/da tale posizione. |
-| RoleEnvironment.GetIsAvailable | Connect-WindowsFabricCluster o creare un FabricRuntime puntata a un nodo specifico | * |
+| RoleInstance.GetID | FabricRuntime. GetNodeContext. NodeId o. NodeName | ID è una proprietà di nodeName |
+| RoleInstance.GetFaultDomain | FabricClient.QueryManager.GetNodeList | Filtrare in nodeName e usare la proprietà FD |
+| RoleInstance.GetUpgradeDomain | FabricClient.QueryManager.GetNodeList | Filtrare in nodeName e usare la proprietà upgrade |
+| RoleInstance.GetInstanceEndpoints | FabricRuntime. GetActivationContext o Naming (ResolveService) | CodePackageActivationContext fornito da FabricRuntime. GetActivationContext e all'interno delle repliche tramite ServiceInitializationParameters. CodePackageActivationContext fornito durante. Inizializzare |
+| RoleEnvironment.GetRoles | FabricClient.QueryManager.GetNodeList | Se si vuole eseguire la stessa operazione di filtro in base al tipo, è possibile ottenere l'elenco dei tipi di nodo dal manifesto del cluster tramite FabricClient. ClusterManager. GetClusterManifest e acquisire i tipi di ruolo/nodo da questa posizione. |
+| RoleEnvironment.GetIsAvailable | Connect-WindowsFabricCluster o creare un FabricRuntime che punta a un nodo specifico | * |
 | RoleEnvironment.GetLocalResource | CodePackageActivationContext.Log/Temp/Work | * |
 | RoleEnvironment.GetCurrentRoleInstance | CodePackageActivationContext.Log/Temp/Work | * |
 | LocalResource.GetRootPath | CodePackageActivationContext.Log/Temp/Work | * |
-| Role.GetInstances | FabricClient.QueryManager.GetNodeList o ResolveService | * |
-| RoleInstanceEndpoint.GetIPEndpoint | FabricRuntime.GetActivationContext o Naming (ResolveService) | * |
+| Role.GetInstances | FabricClient. QueryManager. getnodelist o ResolveService | * |
+| RoleInstanceEndpoint.GetIPEndpoint | FabricRuntime. GetActivationContext o Naming (ResolveService) | * |
 
 ## <a name="next-steps"></a>Fasi successive
 Il percorso di migrazione più semplice da Servizi cloud a Service Fabric consiste nel sostituire solo la distribuzione di Servizi cloud con un'applicazione di Service Fabric, conservando approssimativamente la stessa l'architettura complessiva. L'articolo seguente fornisce una guida per convertire un ruolo di lavoro o Web in un servizio di Service Fabric senza stato.

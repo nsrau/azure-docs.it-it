@@ -1,6 +1,6 @@
 ---
 title: Esportare o eliminare le impostazioni del portale di Azure | Microsoft Docs
-description: Informazioni su come è possibile esportare o eliminare le impostazioni utente, i dashboard privati e le impostazioni personalizzate nel portale di Azure.
+description: Informazioni su come esportare o eliminare le impostazioni utente, i dashboard privati e le impostazioni personalizzate nel portale di Azure.
 services: azure-portal
 keywords: ''
 author: santhoshsomayajula
@@ -9,46 +9,46 @@ ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: ''
 manager: mtillman
-ms.author: kfollis
-ms.openlocfilehash: fde7ffbaa3ef4d47eea48302a99948932aeb4f00
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mblythe
+ms.openlocfilehash: f033af37985077f4d8df9d541b55764df0c75eda
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60551668"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640177"
 ---
 # <a name="export-or-delete-user-settings"></a>Esportare o eliminare le impostazioni utente
 
-È possibile utilizzare le impostazioni e funzionalità nel portale di Azure per creare un'esperienza personalizzata. Informazioni sulle impostazioni personalizzate vengono archiviate in Azure. È possibile esportare o eliminare i dati utente seguenti:
+È possibile utilizzare le impostazioni e le funzionalità nel portale di Azure per creare un'esperienza personalizzata. Le informazioni sulle impostazioni personalizzate vengono archiviate in Azure. È possibile esportare o eliminare i dati utente seguenti:
 
-* Dashboard privati nel portale di Azure
-* Impostazioni utente come preferite sottoscrizioni o directory e ultima directory ha eseguito l'accesso
-* I temi e altre impostazioni del portale personalizzati
+* Dashboard privati nell'portale di Azure
+* Impostazioni utente come le sottoscrizioni o le directory preferite e l'ultima directory di accesso
+* Temi e altre impostazioni personalizzate del portale
 
-È una buona idea per esportare e controllare le impostazioni prima dell'eliminazione. La ricompilazione di dashboard o Ripristina le impostazioni personalizzate può richiedere molto tempo.
+È consigliabile esportare ed esaminare le impostazioni prima di eliminarle. La ricompilazione di dashboard o la reimpostazione delle impostazioni personalizzate può richiedere molto tempo.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="export-or-delete-your-portal-settings"></a>Esportare o eliminare le impostazioni del portale
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Nell'intestazione del portale, selezionare **impostazioni**.
+2. Nell'intestazione del portale selezionare **Impostazioni**.
 
     ![Screenshot che mostra l'ingranaggio per le impostazioni del portale](media/azure-portal-export-delete-settings/azure-portal-settings-icon.png)
 
 3. Selezionare **Esporta tutte le impostazioni** o **Elimina tutte le impostazioni e i dashboard privati**.
 
-    ![Screenshot che mostra il portale di esportazione ed eliminazione delle impostazioni](media/azure-portal-export-delete-settings/azure-portal-export-delete-settings.png)
+    ![Screenshot che mostra le impostazioni di esportazione ed eliminazione del portale](media/azure-portal-export-delete-settings/azure-portal-export-delete-settings.png)
 
-      Nella tabella seguente vengono descritte tali azioni.
+      Nella tabella seguente vengono descritte queste azioni.
 
-      | Azione | Descrizione |
+      | Azione | Description |
       | --- | --- |
-      | **Esporta tutte le impostazioni** | Crea un file con estensione JSON che contiene le impostazioni dell'utente, ad esempio il tema colori, report Preferiti e i dashboard privati.|
-      | **Elimina tutte le impostazioni e i dashboard privati** | Elimina tutti i collegamenti ai dashboard privato e altre impostazioni personalizzate che sono state apportate al portale. |
+      | **Esporta tutte le impostazioni** | Consente di creare un file con estensione JSON che contiene le impostazioni utente, ad esempio il tema colori, i Preferiti e i dashboard privati.|
+      | **Elimina tutte le impostazioni e i dashboard privati** | Elimina tutti i collegamenti a Dashboard privati e altre impostazioni personalizzate apportate al portale. |
 
 > [!NOTE]
-> A causa della natura dinamica delle impostazioni utente e rischio di danneggiamento dei dati, è possibile importare le impostazioni dal file con estensione JSON.
+> A causa della natura dinamica delle impostazioni utente e del rischio di danneggiamento dei dati, non è possibile importare le impostazioni dal file con estensione JSON.
 >
 >
 
@@ -56,4 +56,4 @@ ms.locfileid: "60551668"
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Creare e condividere dashboard di Azure](azure-portal-dashboard-share-access.md)
-* [Aggiungere, rimuovere e ordinare i Preferiti](azure-portal-add-remove-sort-favorites.md)
+* [Aggiunta, rimozione e ordinamento di Preferiti](azure-portal-add-remove-sort-favorites.md)

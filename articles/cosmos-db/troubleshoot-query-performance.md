@@ -1,5 +1,5 @@
 ---
-title: Diagnosticare e risolvere i problemi di query quando si usa Azure Cosmos DB
+title: Risolvere i problemi di query quando si usa Azure Cosmos DB
 description: Informazioni su come identificare, diagnosticare e risolvere i problemi Azure Cosmos DB query SQL.
 author: ginamr
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.date: 07/10/2019
 ms.author: girobins
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: fd8e80c7cd7cb71e4e0418d970cf2f328f1a3d79
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 1859fa8f71b5c4c44d6e5da1b6a36ca9d9399516
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184721"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444714"
 ---
 # <a name="troubleshoot-query-performance-for-azure-cosmos-db"></a>Risolvere i problemi relativi alle prestazioni delle query per Azure Cosmos DB
 Questo articolo illustra come identificare, diagnosticare e risolvere i problemi Azure Cosmos DB query SQL. Per ottenere prestazioni ottimali per le query Azure Cosmos DB, attenersi alla procedura di risoluzione dei problemi riportata di seguito. 
@@ -26,7 +26,7 @@ Il [livello di coerenza](consistency-levels.md) può influisca sulle prestazioni
 
 ## <a name="log-the-executed-sql-query"></a>Registrare la query SQL eseguita 
 
-È possibile registrare la query SQL eseguita in un account di archiviazione o nella tabella del log di diagnostica. Log di [query SQL tramite i log di diagnostica](monitor-cosmos-db.md#diagnostic-settings) consente di registrare la query offuscata in un account di archiviazione di propria scelta. In questo modo è possibile esaminare i log e trovare la query che usa le UR più elevate. Successivamente, è possibile usare l'ID attività per trovare la corrispondenza con la query effettiva in QueryRuntimeStatistics. La query viene offuscata per finalità di sicurezza e i nomi dei parametri di query e i relativi valori nelle clausole WHERE sono diversi rispetto ai nomi e ai valori effettivi. È possibile usare la registrazione nell'account di archiviazione per mantenere la conservazione a lungo termine delle query eseguite.  
+È possibile registrare la query SQL eseguita in un account di archiviazione o nella tabella del log di diagnostica. Log di [query SQL tramite i log di diagnostica](cosmosdb-monitor-resource-logs.md) consente di registrare la query offuscata in un account di archiviazione di propria scelta. In questo modo è possibile esaminare i log e trovare la query che usa le UR più elevate. Successivamente, è possibile usare l'ID attività per trovare la corrispondenza con la query effettiva in QueryRuntimeStatistics. La query viene offuscata per finalità di sicurezza e i nomi dei parametri di query e i relativi valori nelle clausole WHERE sono diversi rispetto ai nomi e ai valori effettivi. È possibile usare la registrazione nell'account di archiviazione per mantenere la conservazione a lungo termine delle query eseguite.  
 
 ## <a name="log-query-metrics"></a>Metrica della query di log
 

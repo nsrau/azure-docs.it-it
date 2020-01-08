@@ -13,25 +13,25 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: fe9b0f590dbb728a54ac66fcaa49bf3d00417e41
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 130d3315b5a9a6f175bd3d67ed33a034ab5f8dda
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033115"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371412"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Come aprire le porte in una macchina virtuale con il portale di Azure
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 
-## <a name="sign-in-to-azure"></a>Accedere ad Azure
+## <a name="sign-in-to-azure"></a>Accedere a Azure
 Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="create-a-network-security-group"></a>Creare un gruppo di sicurezza di rete
 
 1. Cercare e selezionare un gruppo di risorse per la macchina virtuale, scegliere **Aggiungi**, quindi cercare e selezionare **Gruppo di sicurezza di rete**.
 
-2. Selezionare **Create**.
+2. Selezionare **Create** (Crea).
 
     Viene visualizzata la finestra **Crea gruppo di sicurezza di rete**.
 
@@ -51,7 +51,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
     ![Aggiungere una regola in ingresso](./media/nsg-quickstart-portal/add-inbound-rule.png)
 
-3. Selezionare **Advanced** (Avanzate). 
+3. Fare clic su **Avanzate**. 
 
 4. Scegliere un **servizio** comune dal menu a discesa, ad esempio **HTTP**. È possibile anche selezionare l'opzione **Personalizzata** per indicare una porta specifica da usare. 
 
@@ -85,5 +85,5 @@ Per le applicazioni Web a disponibilità elevata, è consigliabile posizionare l
 In questo articolo è stato creato un gruppo di sicurezza di rete, è stata definita una regola in ingresso che consente il traffico HTTP sulla porta 80 ed è stata associata tale regola a una subnet. 
 
 È possibile trovare informazioni sulla creazione di ambienti più dettagliati negli articoli seguenti:
-- [Panoramica di Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)
+- [Panoramica di Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 - [Gruppi di sicurezza](../../virtual-network/security-overview.md)

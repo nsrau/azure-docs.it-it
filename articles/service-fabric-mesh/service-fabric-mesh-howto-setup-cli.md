@@ -1,27 +1,23 @@
 ---
-title: Configurare l'interfaccia della riga di comando di Azure Service Fabric Mesh | Microsoft Docs
+title: Configurare l'interfaccia della riga di comando di Azure Service Fabric mesh
 description: L'interfaccia della riga di comando di Service Fabric Mesh è necessaria per distribuire e gestire risorse in locale e in Azure Service Fabric Mesh. Di seguito viene illustrato come configurarlo.
-services: service-fabric-mesh
-keywords: ''
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/28/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: timlt
-ms.openlocfilehash: 5c9733a5fc5aec337a326fe39e78c3e5c0b8ca4f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0fb65ceeabca9331130083f8ec5b3fe8acce13b8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686293"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461882"
 ---
 # <a name="set-up-service-fabric-mesh-cli"></a>Configurare l'interfaccia della riga di comando di mesh Service Fabric
 L'interfaccia della riga di comando di Service Fabric Mesh è necessaria per distribuire e gestire risorse in locale e in Azure Service Fabric Mesh. Di seguito viene illustrato come configurarlo.
 
 È possibile usare tre tipi di interfaccia della riga di comando, riepilogati nella tabella seguente.
 
-| Modulo interfaccia della riga di comando | Ambiente di destinazione |  Descrizione | 
+| Modulo interfaccia della riga di comando | Ambiente di destinazione |  Description | 
 |---|---|---|
 | az mesh | Azure Service Fabric Mesh | Interfaccia della riga di comando principale, che consente di distribuire le applicazioni e gestire le risorse nell'ambiente di Azure Service Fabric Mesh. 
 | sfctl | Cluster locali | Interfaccia della riga di comando di Service Fabric, che consente di distribuire e testare le risorse di Service Fabric sui cluster locali.  

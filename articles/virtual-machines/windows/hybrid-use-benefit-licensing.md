@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
-ms.openlocfilehash: 40697925d399962399da499e0469198a0e997f66
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: d6e3d4d059e464795c712af1226d8202d00bfd74
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038636"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461167"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Vantaggio Azure Hybrid per Windows Server
 Per i clienti con Software Assurance, il vantaggio Azure Hybrid per Windows Server consente di usare le licenze di Windows Server locali e di eseguire macchine virtuali di Windows in Azure a costi ridotti. È possibile usare il vantaggio Azure Hybrid per Windows Server per distribuire nuove macchine virtuali con il sistema operativo Windows. Questo articolo illustra la procedura necessaria per distribuire nuove macchine virtuali con il vantaggio Azure Hybrid per Windows Server e per aggiornare le macchine virtuali in esecuzione esistenti. Per altre informazioni sulle licenze e i risparmi associati al vantaggio Azure Hybrid per Windows Server, vedere la pagina sulle [licenze disponibili per il vantaggio Azure Hybrid per Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -49,7 +49,7 @@ Esistono più modi per usare macchine virtuali di Windows con il vantaggio Azure
 ## <a name="create-a-vm-with-azure-hybrid-benefit-for-windows-server"></a>Creare una macchina virtuale con il vantaggio Azure Hybrid per Windows Server
 Tutte le immagini basate sul sistema operativo Windows Server sono supportate con il vantaggio Azure Hybrid per Windows Server. È possibile usare le immagini di supporto della piattaforma Azure o caricare le immagini di Windows Server personalizzate. 
 
-### <a name="portal"></a>di Microsoft Azure
+### <a name="portal"></a>Portale
 Per creare una macchina virtuale con il vantaggio Azure Hybrid per Windows Server, usare l'interruttore nella sezione Risparmio sui costi.
 
 ### <a name="powershell"></a>PowerShell
@@ -64,7 +64,7 @@ New-AzVm `
     -LicenseType "Windows_Server"
 ```
 
-### <a name="cli"></a>CLI
+### <a name="cli"></a>Interfaccia della riga di comando
 ```azurecli
 az vm create \
     --resource-group myResourceGroup \
@@ -90,7 +90,7 @@ Se si vuole convertire una macchina virtuale esistente per l'utilizzo con il Van
 > La modifica del tipo di licenza nella macchina virtuale non determina il riavvio del sistema o un'interruzione del servizio,  ma è semplicemente un aggiornamento su un flag di metadati.
 > 
 
-### <a name="portal"></a>di Microsoft Azure
+### <a name="portal"></a>Portale
 Nel pannello della macchina virtuale del portale è possibile aggiornare la macchina virtuale per l'utilizzo con il vantaggio Azure Hybrid selezionando l'opzione "Configurazione" e modificando l'opzione "Vantaggio Azure Hybrid"
 
 ### <a name="powershell"></a>PowerShell
@@ -110,7 +110,7 @@ Nel pannello della macchina virtuale del portale è possibile aggiornare la macc
     Update-AzVM -ResourceGroupName rg-name -VM $vm
     ```
     
-### <a name="cli"></a>CLI
+### <a name="cli"></a>Interfaccia della riga di comando
 - Convertire una macchina virtuale Windows Server esistente affinché usi il vantaggio Azure Hybrid per Windows Server
 
     ```azurecli
@@ -120,7 +120,7 @@ Nel pannello della macchina virtuale del portale è possibile aggiornare la macc
 ### <a name="how-to-verify-your-vm-is-utilizing-the-licensing-benefit"></a>Come verificare che la macchina virtuale usi il vantaggio della licenza
 Dopo aver distribuito la macchina virtuale con PowerShell, il modello Resource Manager o il portale, è possibile verificare l'impostazione con i metodi seguenti.
 
-### <a name="portal"></a>di Microsoft Azure
+### <a name="portal"></a>Portale
 Dal pannello della macchina virtuale nel portale, è possibile visualizzare l'interruttore del vantaggio Azure Hybrid per Windows Server selezionando la scheda "Configurazione".
 
 ### <a name="powershell"></a>PowerShell
@@ -143,7 +143,7 @@ Location                 : westus
 LicenseType              :
 ```
 
-### <a name="cli"></a>CLI
+### <a name="cli"></a>Interfaccia della riga di comando
 ```azurecli
 az vm get-instance-view -g MyResourceGroup -n MyVM --query "[?licenseType=='Windows_Server']" -o table
 ```
@@ -155,7 +155,7 @@ az vm get-instance-view -g MyResourceGroup -n MyVM --query "[?licenseType=='Wind
 ## <a name="list-all-vms-with-azure-hybrid-benefit-for-windows-server-in-a-subscription"></a>Elenca tutte le macchine virtuali con il vantaggio Azure Hybrid per Windows Server presenti in una sottoscrizione
 Per visualizzare e contare tutte le macchine virtuali distribuite con il vantaggio Azure Hybrid per Windows Server, è possibile eseguire il comando seguente dalla sottoscrizione:
 
-### <a name="portal"></a>di Microsoft Azure
+### <a name="portal"></a>Portale
 Dal pannello della risorsa della macchina virtuale o dei set di scalabilità di macchine virtuali è possibile visualizzare un elenco di tutte le macchine virtuali e dei tipi di licenza configurando la colonna della tabella affinché includa "Vantaggio Azure Hybrid". L'impostazione per la macchina virtuale può essere sullo stato "Abilitato", "Non è abilitato" o "Non supportato".
 
 ### <a name="powershell"></a>PowerShell
@@ -164,7 +164,7 @@ $vms = Get-AzVM
 $vms | ?{$_.LicenseType -like "Windows_Server"} | select ResourceGroupName, Name, LicenseType
 ```
 
-### <a name="cli"></a>CLI
+### <a name="cli"></a>Interfaccia della riga di comando
 ```azurecli
 az vm list --query "[?licenseType=='Windows_Server']" -o table
 ```
@@ -201,4 +201,4 @@ Altre informazioni su come [Modificare un set di scalabilità di macchine virtua
 - Altre informazioni sulle [indicazioni dettagliate delle licenze per il vantaggio Azure Hybrid per Windows Server](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)
 - Altre informazioni su come il [Vantaggio Azure Hybrid e Azure Site Recovery rendano la migrazione delle applicazioni in Azure ancora più conveniente](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)
 - Altre informazioni su [Windows 10 in Azure con Multitenant Hosting Rights](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
-- Altre informazioni sull' [uso dei modelli di Resource Manager](../../azure-resource-manager/resource-group-overview.md)
+- Altre informazioni sull' [uso dei modelli di Resource Manager](../../azure-resource-manager/management/overview.md)

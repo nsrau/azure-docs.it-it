@@ -6,19 +6,19 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2259343d2c7bca1f60a5256efcd572e6cc21b565
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: a744ac2574f54b0c2934d440ddf5c48e54304595
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706043"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445107"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-in-autopilot-mode-preview"></a>Creare contenitori e database di Azure Cosmos in modalità Autopilot (anteprima)
 
-Azure Cosmos DB consente di effettuare il provisioning della velocità effettiva nei contenitori in modalità manuale o automatico. Questo articolo descrive i vantaggi e i casi d'uso della modalità Autopilot.
+Azure Cosmos DB consente di effettuare il provisioning della velocità effettiva nei contenitori in modalità manuale o Autopilot. Questo articolo descrive i vantaggi e i casi d'uso della modalità Autopilot.
 
 > [!NOTE]
-> La modalità Autopilot è attualmente disponibile in anteprima pubblica. Per abilitare la funzionalità Autopilot per l'account Azure Cosmos, vedere la sezione [abilitare Autopilot](#enable-autopilot) di questo articolo. È possibile abilitare Autopilot solo per i nuovi database e per i contenitori, non è disponibile per i contenitori e i database esistenti.
+> La modalità Autopilot è attualmente disponibile in anteprima pubblica. È possibile [abilitare Autopilot solo per i nuovi database e per i contenitori](#create-a-database-or-a-container-with-autopilot-mode) . Non è disponibile per i contenitori e i database esistenti.
 
 Oltre al provisioning manuale della velocità effettiva, è ora possibile configurare i contenitori di Azure Cosmos in modalità Autopilot. I contenitori e i database di Azure Cosmos configurati in modalità Autopilot consentono di **ridimensionare automaticamente e immediatamente la velocità effettiva con provisioning in base alle esigenze dell'applicazione senza compromettere i contratti** di contratto.
 
@@ -68,31 +68,21 @@ Le soluzioni ai problemi precedenti non solo richiedono una quantità di tempo m
 | **Prezzi** | UR/sec di cui è stato effettuato manualmente il provisioning all'ora. | Per gli account con singola area di scrittura, si paga per la velocità effettiva usata su base oraria, usando la tariffa di Autopilot ur/sec per ora. <br/><br/>Per gli account con più aree di scrittura, non sono previsti costi aggiuntivi per Autopilot. Paghi per la velocità effettiva usata su base oraria usando la stessa tariffa per più master ur/sec per ogni ora. |
 | **Ideale per i tipi di carico di lavoro** |  Carichi di lavoro prevedibili e stabili|   Carichi di lavoro imprevedibili e variabili  |
 
-## <a id="enable-autopilot"></a>Abilita Autopilot da portale di Azure
-
-È possibile provare Autopilot negli account Azure Cosmos abilitando in da portale di Azure. Per abilitare l'opzione Autopilot, attenersi alla procedura seguente:
-
-1. Accedere al [portale di Azure.](https://portal.azure.com)
-
-2. Passare all'account Azure Cosmos e aprire la scheda **nuove funzionalità** . Selezionare **pilota automatico** e **registra** come illustrato nello screenshot seguente:
-
-![Creazione di un contenitore in modalità Autopilot](./media/provision-throughput-autopilot/enable-autopilot-azure-portal.png)
-
 ## <a name="create-a-database-or-a-container-with-autopilot-mode"></a>Creazione di un database o di un contenitore con la modalità Autopilot
 
-È possibile configurare Autopilot per i database o i contenitori durante la creazione. Usare i passaggi seguenti per un nuovo database o contenitore, abilitare Autopilot e specificare la velocità effettiva massima.
+È possibile configurare Autopilot per nuovi database o contenitori durante la creazione tramite la portale di Azure. Usare la procedura seguente per creare un nuovo database o contenitore, abilitare Autopilot e specificare la velocità effettiva massima (UR/sec).
 
 1. Accedere al [portale di Azure](https://portal.azure.com) o ad [Azure Cosmos Explorer.](https://cosmos.azure.com/)
 
 1. Passare all'account Azure Cosmos e aprire la scheda **Esplora dati** .
 
-1. Selezionare **nuovo contenitore**, immettere un nome per il contenitore, una chiave di partizione. Selezionare l'opzione **Autopilot** e scegliere la velocità effettiva massima che il contenitore non può superare quando si usa l'opzione Autopilot.
+1. Selezionare **nuovo contenitore.** Immettere un nome per il database, il contenitore e una chiave di partizione. Selezionare l'opzione **Autopilot** e scegliere la velocità effettiva massima (UR/sec) che il database o il contenitore non può superare quando si usa l'opzione Autopilot.
 
    ![Creazione di un contenitore in modalità Autopilot](./media/provision-throughput-autopilot/create-container-autopilot-mode.png)
 
 1. Selezionare **OK**.
 
-Con una procedura analoga, è anche possibile creare un database con la velocità effettiva con provisioning in modalità Autopilot.
+È possibile creare un database con velocità effettiva condivisa con la modalità Autopilot selezionando l'opzione **provisioning database throughput** .
 
 ## <a id="autopilot-limits"></a>Limiti di velocità effettiva e archiviazione per Autopilot
 
@@ -107,6 +97,7 @@ Nella tabella seguente vengono indicati i limiti massimi per l'intero e l'archiv
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+* Vedere le [domande frequenti su AUTOPILOT](autopilot-faq.md).
 * [Partizionamento e scalabilità orizzontale in Azure Cosmos DB](partition-data.md)
 * [Effettuare il provisioning della velocità effettiva in un contenitore di Azure Cosmos](how-to-provision-container-throughput.md)
 * [Effettuare il provisioning della velocità effettiva in un database di Azure Cosmos](how-to-provision-database-throughput.md)

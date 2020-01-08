@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/17/2019
-ms.openlocfilehash: 75490edfd30541aa641656a2ccc17a259bfbe927
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 3f9a04d767ffeb5112e2b06ed319a3c28f3b7f57
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951361"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406525"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Gestire Application Insights risorse con PowerShell
 
@@ -23,7 +23,7 @@ L'articolo descrive come automatizzare la creazione e l'aggiornamento di risorse
 La chiave per la creazione di queste risorse è rappresentata dai modelli JSON per [Gestione risorse di Azure](../../azure-resource-manager/manage-resources-powershell.md). La procedura di base è: scaricare le definizioni JSON delle risorse esistenti; parametrizzare determinati valori, ad esempio i nomi; quindi eseguire il modello ogni volta che si vuole creare una nuova risorsa. È possibile raggruppare diverse risorse per crearle tutte in un’unica volta - ad esempio, un monitoraggio app con test di disponibilità, avvisi e risorsa di archiviazione per l'esportazione continua. Esistono alcune sottigliezze di alcuni parametri, che verranno illustrate di seguito.
 
 ## <a name="one-time-setup"></a>Installazione singola
-Se non si è utilizzato prima PowerShell con la sottoscrizione di Azure:
+Se non si è mai usato PowerShell con la sottoscrizione di Azure:
 
 Installare il modulo Azure Powershell nel computer in cui si desidera eseguire gli script:
 
@@ -164,7 +164,8 @@ Creare un nuovo file con estensione .json - definirlo `template1.json` in questo
                 "location": "[parameters('appLocation')]",
                 "tags": {},
                 "properties": {
-                    "ApplicationId": "[parameters('appName')]"
+                    "ApplicationId": "[parameters('appName')]",
+                    "retentionInDays": "[parameters('retentionInDays')]"
                 },
                 "dependsOn": []
             },
@@ -178,7 +179,6 @@ Creare un nuovo file con estensione .json - definirlo `template1.json` in questo
                 ],
                 "properties": {
                     "CurrentBillingFeatures": "[variables('pricePlan')]",
-                    "retentionInDays": "[parameters('retentionInDays')]",
                     "DataVolumeCap": {
                         "Cap": "[parameters('dailyQuota')]",
                         "WarningThreshold": "[parameters('warningThreshold')]",
@@ -394,13 +394,13 @@ Per automatizzare la creazione di altre risorse di qualsiasi tipo, creare un ese
     `"apiVersion": "2015-05-01",`
 
 ### <a name="parameterize-the-template"></a>Impostazione dei parametri per il modello
-È necessario sostituire i nomi specifici con i parametri. Per [impostare i parametri di un modello](../../azure-resource-manager/resource-group-authoring-templates.md), si scrivono espressioni mediante un [set di funzioni di supporto](../../azure-resource-manager/resource-group-template-functions.md). 
+È necessario sostituire i nomi specifici con i parametri. Per [impostare i parametri di un modello](../../azure-resource-manager/templates/template-syntax.md), si scrivono espressioni mediante un [set di funzioni di supporto](../../azure-resource-manager/resource-group-template-functions.md). 
 
 È Impossibile impostare i parametri per una sola parte di una stringa, quindi utilizzare `concat()` per compilare stringhe.
 
 Di seguito sono riportati esempi delle sostituzioni che si possono apportare. Sono presenti più occorrenze di ogni sostituzione. Potrebbero esserne necessarie altre nel modello. Questi esempi utilizzano i parametri e le variabili definite nella parte superiore del modello.
 
-| find | sostituire con |
+| trovare | sostituire con |
 | --- | --- |
 | `"hidden-link:/subscriptions/.../../components/MyAppName"` |`"[concat('hidden-link:',`<br/>`resourceId('microsoft.insights/components',` <br/> `parameters('appName')))]"` |
 | `"/subscriptions/.../../alertrules/myAlertName-myAppName-subsId",` |`"[resourceId('Microsoft.Insights/alertrules', variables('alertRuleName'))]",` |

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/24/2019
-ms.openlocfilehash: 1b1b02e310c98a78006d258333c0ec10e89e3b31
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 28d0da369083d75bc175111d808828e186a366fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927457"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444127"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Guida alla scalabilità e alle prestazioni dell'attività di copia
 
@@ -242,7 +242,7 @@ Attualmente, non è possibile copiare i dati tra due archivi dati connessi trami
 
 Configurare l'impostazione **enableStaging** nell'attività di copia per specificare se si desidera che i dati vengano gestiti temporaneamente nell'archivio BLOB prima di caricarli in un archivio dati di destinazione. Quando si imposta **enableStaging** su `TRUE`, specificare le proprietà aggiuntive elencate nella tabella seguente. È anche necessario creare un servizio collegato di archiviazione di Azure o di archiviazione con firma di accesso condiviso per la gestione temporanea, se non è già presente.
 
-| Proprietà | Description | Valore predefinito | Obbligatoria |
+| Proprietà | Description | Valore predefinito | Obbligatorio |
 | --- | --- | --- | --- |
 | enableStaging |Specificare se si vuole copiare i dati tramite un archivio di staging provvisorio. |Falso |No |
 | linkedServiceName |Specificare il nome di un servizio collegato [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) che fa riferimento all'istanza di archiviazione usata come archivio di staging provvisorio. <br/><br/> Non è possibile usare l'archiviazione con una firma di accesso condiviso per caricare i dati in SQL Data Warehouse tramite la polibase. Può essere usata in tutti gli altri scenari. |N/D |Sì, quando **enableStaging** è impostato su TRUE |
@@ -293,7 +293,8 @@ I costi vengono addebitati in base a due passaggi: durata della copia e tipo di 
 
 Di seguito sono riportati alcuni riferimenti sul monitoraggio e l'ottimizzazione delle prestazioni per alcuni degli archivi dati supportati:
 
-* Archiviazione di Azure, che include archiviazione BLOB e archiviazione tabelle: [obiettivi di scalabilità di archiviazione di Azure](../storage/common/storage-scalability-targets.md) e [elenco di controllo di prestazioni e scalabilità per archiviazione di](../storage/common/storage-performance-checklist.md)Azure
+* Archiviazione BLOB di Azure: [obiettivi di scalabilità e prestazioni per](../storage/blobs/scalability-targets.md) l'archiviazione BLOB e l' [elenco di controllo di prestazioni e scalabilità per l'archiviazione BLOB](../storage/blobs/storage-performance-checklist.md).
+* Archiviazione tabelle di Azure: [obiettivi di scalabilità e prestazioni per](../storage/tables/scalability-targets.md) l'archiviazione tabelle e l' [elenco di controllo di prestazioni e scalabilità per l'archiviazione tabelle](../storage/tables/storage-performance-checklist.md).
 * Database SQL di Azure: è possibile [monitorare le prestazioni](../sql-database/sql-database-single-database-monitor.md) e controllare la percentuale di unità di transazione di database (DTU).
 * Azure SQL Data Warehouse: la relativa funzionalità viene misurata in unità di data warehouse (DWU). Vedere [gestire la potenza di calcolo in Azure SQL data warehouse (panoramica)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 * Azure Cosmos DB: [livelli di prestazioni in Azure Cosmos DB](../cosmos-db/performance-levels.md).

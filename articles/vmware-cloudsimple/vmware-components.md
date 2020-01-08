@@ -1,5 +1,6 @@
 ---
-title: Soluzione VMware di Azure di CloudSimple-componenti VMware del cloud privato
+title: Componenti VMware del cloud privato
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Descrive la modalità di installazione dei componenti VMware in un cloud privato
 author: sharaths-cs
 ms.author: dikamath
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: bd83cff243c94ed62014ff95f6ca7c4e878f6af7
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 9c9b80cd4d8a7a7ac5597d10bbb87095564bd461
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814575"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452324"
 ---
 # <a name="private-cloud-vmware-components"></a>Componenti VMware del cloud privato
 
@@ -32,8 +33,8 @@ Un cloud privato VMware stack viene distribuito con la versione del software seg
 |-----------|---------|------------------|
 | ESXi | 6.7 U2 | Enterprise Plus |
 | vCenter | 6.7 U2 | Standard vCenter |
-| vSAN | 6.7 | Enterprise |
-| Data Center NSX | 2.4.1 | Avanzate |
+| vSAN | 6.7 | Organizzazioni |
+| Data Center NSX | 2.4.1 | Funzionalità avanzate |
 
 ## <a name="esxi"></a>ESXi
 
@@ -47,7 +48,7 @@ vCenter Server Appliance (VCSA) fornisce le funzioni di autenticazione, gestione
 
 ### <a name="vcenter-single-sign-on"></a>Single Sign-On vCenter
 
-Il controller Embedded Platform Services in VCSA è associato a un **dominio Single Sign-on di vCenter**.  Il nome di dominio è **cloudsimple. local**.  Per accedere a **CloudOwner@cloudsimple.com** vCenter viene creato un utente predefinito.  È possibile aggiungere le origini di identità locali/Azure Active Directory [per vCenter](set-vcenter-identity.md).
+Il controller Embedded Platform Services in VCSA è associato a un **dominio Single Sign-on di vCenter**.  Il nome di dominio è **cloudsimple. local**.  Per accedere a vCenter viene creato un **CloudOwner@cloudsimple.com** utente predefinito.  È possibile aggiungere le origini di identità locali/Azure Active Directory [per vCenter](set-vcenter-identity.md).
 
 ## <a name="vsan-storage"></a>archiviazione rete VSAN
 
@@ -81,11 +82,11 @@ NSX Data Center offre funzionalità di virtualizzazione di rete, micro segmentaz
 
 ## <a name="vsphere-cluster"></a>cluster vSphere
 
-Gli host ESXi sono configurati come cluster per garantire la disponibilità elevata del cloud privato.  Quando si crea un cloud privato, i componenti di gestione di vSphere vengono distribuiti nel primo cluster.  Viene creato un pool di risorse per i componenti di gestione e tutte le macchine virtuali di gestione vengono distribuite in questo pool di risorse. Non è possibile eliminare il primo cluster per compattare il cloud privato.  il cluster vSphere offre disponibilità elevata per le macchine virtuali che usano **vSphere ha**.  Gli errori da tollerare si basano sul numero di nodi disponibili nel cluster.  È possibile utilizzare la formula ```Number of nodes = 2N+1``` in ```N``` cui è il numero di errori da tollerare.
+Gli host ESXi sono configurati come cluster per garantire la disponibilità elevata del cloud privato.  Quando si crea un cloud privato, i componenti di gestione di vSphere vengono distribuiti nel primo cluster.  Viene creato un pool di risorse per i componenti di gestione e tutte le macchine virtuali di gestione vengono distribuite in questo pool di risorse. Non è possibile eliminare il primo cluster per compattare il cloud privato.  il cluster vSphere offre disponibilità elevata per le macchine virtuali che usano **vSphere ha**.  Gli errori da tollerare si basano sul numero di nodi disponibili nel cluster.  È possibile utilizzare la formula ```Number of nodes = 2N+1``` dove ```N``` è il numero di errori da tollerare.
 
 ### <a name="vsphere-cluster-limits"></a>limiti del cluster vSphere
 
-| Risorsa | Limite |
+| Gruppi | Limite |
 |----------|-------|
 | Numero minimo di nodi per la creazione di un cloud privato (primo cluster vSphere) | 3 |
 | Numero massimo di nodi in un cluster vSphere in un cloud privato | 16 |

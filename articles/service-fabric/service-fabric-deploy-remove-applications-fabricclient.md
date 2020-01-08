@@ -1,32 +1,21 @@
 ---
 title: Distribuzione di Service Fabric di Azure con FabricClient
 description: Usare le API del client Fabric per distribuire e rimuovere le applicazioni in Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: b120ffbf-f1e3-4b26-a492-347c29f8f66b
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/19/2018
-ms.author: atsenthi
-ms.openlocfilehash: cdb5ae4efbd4119422101eb8a05ce71e7b58d51f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 25b874d1be8ab50d8076ff8fe9423c8cc0187512
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013303"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376971"
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Distribuire e rimuovere applicazioni con il client Fabric
 > [!div class="op_single_selector"]
 > * [Gestione risorse](service-fabric-application-arm-resource.md)
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
 > * [Interfaccia della riga di comando di Service Fabric](service-fabric-application-lifecycle-sfctl.md)
-> * [API client Fabric](service-fabric-deploy-remove-applications-fabricclient.md)
+> * [API FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
 > 
 > 
 
@@ -46,7 +35,7 @@ Dopo aver distribuito un'applicazione ed eseguito un'istanza nel cluster, è pos
 
 Se si usa Visual Studio per eseguire la distribuzione e il debug delle applicazioni nel cluster di sviluppo locale, tutti i passaggi precedenti vengono gestiti automaticamente tramite uno script di PowerShell.  Questo script è disponibile nella cartella *Scripts* del progetto dell'applicazione. Questo articolo fornisce informazioni di base sulle operazioni eseguite dallo script, in modo da poter eseguire le stesse operazioni all'esterno di Visual Studio. 
  
-## <a name="connect-to-the-cluster"></a>Connettersi al cluster
+## <a name="connect-to-the-cluster"></a>Stabilire la connessione al cluster
 Connettersi al cluster tramite la creazione di un'istanza [client Fabric](/dotnet/api/system.fabric.fabricclient) prima di eseguire uno degli esempi di codice forniti in questo articolo. Per esempi di connessione a un cluster di sviluppo locale, un cluster remoto o un cluster protetto usando Azure Active Directory, certificati X509 o Windows Active Directory, vedere [Connettersi a un cluster sicuro](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis). Per connettersi al cluster di sviluppo locale, eseguire l'esempio seguente:
 
 ```csharp

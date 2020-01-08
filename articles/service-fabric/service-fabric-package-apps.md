@@ -1,25 +1,14 @@
 ---
-title: Inserire un'applicazione Azure Service Fabric di Azure in un pacchetto | Microsoft Docs
-description: Come inserire un'applicazione Service Fabric in un pacchetto prima della distribuzione in un cluster.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: mani-ramaswamy
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Creare un pacchetto di un'app Service Fabric di Azure
+description: Informazioni su come creare un pacchetto di un'applicazione Service Fabric di Azure e su come prepararsi per la distribuzione in un cluster.
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: b8e66a9d5bba0c48f15b1ccd3f2d47e5405db792
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16bd48963040a8e30ff81f40c01134014eaccf48
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60718370"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639684"
 ---
 # <a name="package-an-application"></a>Inserire un'applicazione in un pacchetto
 
@@ -63,7 +52,7 @@ Per altre informazioni su come configurare **SetupEntryPoint**, vedere [Configur
 
 <a id="Package-App"></a>
 
-## <a name="configure"></a>Configurare
+## <a name="configure"></a>Configurazione
 
 ### <a name="build-a-package-by-using-visual-studio"></a>Creare un pacchetto mediante Visual Studio
 
@@ -237,11 +226,11 @@ Per eseguire il provisioning del pacchetto, usare il provisioning esterno, che r
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Distribuire e rimuovere applicazioni con PowerShell][10]: descrive come usare PowerShell per gestire le istanze dell'applicazione
+[Distribuire e rimuovere applicazioni][10] descrive come usare PowerShell per gestire le istanze dell'applicazione
 
-[Gestire i parametri dell'applicazione per più ambienti][11]: descrive come configurare parametri e variabili di ambiente per istanze di applicazione diverse.
+[Gestione dei parametri dell'applicazione per più ambienti][11] descrive come configurare i parametri e le variabili di ambiente per diverse istanze dell'applicazione.
 
-[Configurare i criteri di sicurezza per l'applicazione][12]: descrive come eseguire i servizi nell'ambito dei criteri di sicurezza per limitare l'accesso.
+[Configurare i criteri di sicurezza per l'applicazione][12] descrive come eseguire i servizi in criteri di sicurezza per limitare l'accesso.
 
 <!--Image references-->
 [vs-package-command]: ./media/service-fabric-package-apps/vs-package-command.png

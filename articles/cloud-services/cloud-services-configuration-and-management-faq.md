@@ -1,5 +1,6 @@
 ---
-title: Domande frequenti relative ai problemi di configurazione e gestione per Servizi cloud di Microsoft Azure| Microsoft Docs
+title: Domande frequenti sui problemi di configurazione e gestione
+titleSuffix: Azure Cloud Services
 description: Questo articolo elenca le domande frequenti relative alla configurazione e alla gestione per Servizi cloud di Microsoft Azure.
 services: cloud-services
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 704d6d4a12550507a8e38be4777e5abc7b57fe74
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 47a75d10f6016eb49061f9e7158b00899a387f2f
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161760"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660614"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di configurazione e gestione per Servizi cloud di Azure: domande frequenti
 
@@ -27,7 +28,7 @@ Questo articolo include le domande frequenti relative ai problemi di configurazi
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-**Certificates**
+**Certificati**
 
 - [Perché la catena di certificati del certificato SSL del servizio cloud non è completa?](#why-is-the-certificate-chain-of-my-cloud-service-ssl-certificate-incomplete)
 - [Qual è lo scopo del certificato di crittografia degli strumenti di Microsoft Azure per le estensioni?](#what-is-the-purpose-of-the-windows-azure-tools-encryption-certificate-for-extensions)
@@ -49,7 +50,7 @@ Questo articolo include le domande frequenti relative ai problemi di configurazi
 - [Quali sono le caratteristiche e le funzionalità fornite dai sistemi di base di rilevamento e prevenzione delle intrusioni e di prevenzione degli attacchi DDoS di Azure?](#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
 - [Come è possibile abilitare HTTP/2 nella macchina virtuale di Servizi cloud di Microsoft Azure?](#how-to-enable-http2-on-cloud-services-vm)
 
-**autorizzazioni**
+**Autorizzazioni**
 
 - [I tecnici interni Microsoft possono usare desktop remoto per le istanze dei servizi cloud senza autorizzazione?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission)
 - [Non è possibile usare desktop remoto per la macchina virtuale del servizio cloud tramite il file RDP. Si è verificato l'errore seguente: si è verificato un errore di autenticazione (codice: 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
@@ -211,7 +212,7 @@ Dopo questa operazione è possibile verificare l'abilitazione del protocollo HTT
 
 Per altre informazioni, vedere [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2) (HTTP/2 in IIS).
 
-## <a name="permissions"></a>autorizzazioni
+## <a name="permissions"></a>Autorizzazioni
 
 ### <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>Come si implementa l'accesso in base al ruolo per Servizi cloud?
 Servizi cloud non supporta il modello di controllo degli accessi in base al ruolo, perché non è un servizio basato su Azure Resource Manager.
@@ -276,7 +277,7 @@ Per impedire che i client eseguano lo sniffing dei tipi MIME, aggiungere un'impo
 Usare lo script di avvio di IIS dell'articolo sulle [attività di avvio comuni](cloud-services-startup-tasks-common.md#configure-iis-startup-with-appcmdexe).
 
 ### <a name="what-is-the-quota-limit-for-my-cloud-service"></a>Qual è il limite di quota per il servizio cloud?
-Vedere [Limiti specifici del servizio](../azure-subscription-service-limits.md#subscription-limits).
+Vedere [Limiti specifici del servizio](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits).
 
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>Perché l'unità della macchina virtuale del servizio cloud ha pochissimo spazio libero su disco?
 Questo comportamento è previsto e non dovrebbe causare alcun problema all'applicazione. L'inserimento nel giornale di registrazione è attivato per l'unità %approot% nelle macchine virtuali PaaS di Azure e ciò comporta essenzialmente l'utilizzo del doppio della quantità di spazio normalmente occupata dai file. Ci sono tuttavia alcuni aspetti da considerare che permettono di capire come questo non sia un vero problema.
@@ -310,7 +311,7 @@ Per altre informazioni sugli scenari di distribuzione dell'estensione Antimalwar
     
 Come descritto [qui](https://technet.microsoft.com/library/ee790567.aspx), $sslFlags potrebbe assumere uno dei valori seguenti:
 
-|Value|Significato|
+|Valore|Significato|
 ------|------
 |0|Nessuna indicazione nome server|
 |1|Indicazione nome server abilitata|
@@ -330,7 +331,7 @@ Come descritto [qui](https://technet.microsoft.com/library/ee790567.aspx), $sslF
                     serverManager.CommitChanges(); 
     //</code snip> 
     
-Usando uno qualsiasi degli approcci descritti in precedenza, è necessario che i rispettivi certificati (PFX) per nomi host specifici vengano installati prima nelle istanze dei ruoli usando un'attività di avvio o tramite il codice perché l'associazione SNI diventi efficace.
+Usando uno qualsiasi degli approcci descritti in precedenza, è necessario che i rispettivi certificati (\*.PFX) per nomi host specifici vengano installati prima nelle istanze dei ruoli usando un'attività di avvio o tramite il codice perché l'associazione SNI diventi efficace.
 
 ### <a name="how-can-i-add-tags-to-my-azure-cloud-service"></a>Come è possibile aggiungere tag al servizio cloud di Azure? 
 

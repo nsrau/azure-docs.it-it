@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 0c0ad6ea5a687d066c78533b45a7f531561661bf
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 5c663bb507656dad6f073b9906fdbf104714c8f2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180014"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450817"
 ---
 Queste domande frequenti si applicano alle connessioni da punto a sito che usano il modello di distribuzione classica.
 
@@ -27,7 +27,7 @@ Sono supportati i sistemi operativi client seguenti:
 * Windows 8.1 (a 32 e 64 bit)
 * Windows Server 2012 (solo a 64 bit)
 * Windows Server 2012 R2 (solo a 64 bit)
-* Windows 10
+* Windows 10
 
 ### <a name="can-i-use-any-software-vpn-client-that-supports-sstp-for-point-to-site"></a>Per la connettività da punto a sito è possibile usare qualsiasi client VPN software che supporta SSTP?
 
@@ -35,7 +35,8 @@ No. L'assistenza è limitata solo alle versioni dei sistemi operativi Windows el
 
 ### <a name="how-many-vpn-client-endpoints-can-exist-in-my-point-to-site-configuration"></a>Quanti endpoint client VPN possono esistere nella configurazione da punto sito?
 
-Fino a 128 client VPN possono connettersi contemporaneamente a una rete virtuale.
+La quantità di endpoint client VPN dipende dallo SKU e dal protocollo del gateway.
+[! INCLUDERE la velocità effettiva aggregata per SKU]
 
 ### <a name="can-i-use-my-own-internal-pki-root-ca-for-point-to-site-connectivity"></a>È possibile usare la CA radice della PKI interna per la connettività da punto a sito?
 

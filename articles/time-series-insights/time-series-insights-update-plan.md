@@ -1,6 +1,6 @@
 ---
 title: Pianificare l'ambiente di anteprima-Azure Time Series Insights | Microsoft Docs
-description: Informazioni su come pianificare l'ambiente di Azure Time Series Insights Preview.
+description: Procedure consigliate per configurare, gestire, pianificare e distribuire l'ambiente di Azure Time Series Insights Preview.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9fb2dcf2c05b709340f8e9ae549bab5756e6abf2
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: c305da097a4474e6a4aa91ec0e784e627533ee43
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420318"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452443"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Pianificare un ambiente di anteprima di Azure Time Series Insights
 
@@ -48,7 +48,7 @@ Come parte del processo di provisioning, specificare se si vuole abilitare un ar
 Le query sull'archivio a caldo sono gratuite, mentre le query sull'archivio a freddo sono soggette a costi. È importante comprendere i modelli di query e pianificare la configurazione del negozio a caldo di conseguenza. È consigliabile che le analisi interattive sui dati più recenti risiedano nel negozio a caldo e l'analisi dei modelli e le tendenze a lungo termine risiedano a freddo.
 
 > [!NOTE]
-> Attualmente è supportato un massimo di 1.000 proprietà con l'archivio a caldo.
+> Per altre informazioni su come eseguire query sui dati caldi, [vedere qui](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters).
 
 Per iniziare, sono necessari altri tre elementi:
 

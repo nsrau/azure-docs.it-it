@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/14/2019
-ms.openlocfilehash: 315d65b635f34847d0310e6b6adf03e20f2afd45
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 019ddbac1900856666b958d90b4395f25eb5ee84
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73807535"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461563"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Esercitazione: configurare sincronizzazione dati SQL tra il database SQL di Azure e SQL Server locale
 
@@ -33,14 +33,20 @@ Per esempi di PowerShell su come configurare la sincronizzazione dati SQL, veder
 
 ## <a name="create-sync-group"></a>Creare un gruppo di sincronizzazione
 
-1. Nel browser passare al portale di Azure. Individuare il database SQL dal dashboard o selezionare l'icona **Database SQL** sulla barra degli strumenti e nella pagina **Database SQL** selezionare il database da usare come database hub per la sincronizzazione dati.
+1. Passare alla [portale di Azure](https://portal.azure.com) per trovare il database SQL. Cercare e selezionare **Database SQL**.
+
+    ![Ricerca di database SQL, portale di Microsoft Azure](media/sql-database-get-started-sql-data-sync/search-for-sql-databases.png)
+
+1. Selezionare il database che si vuole usare come database hub per la sincronizzazione dei dati.
+
+    ![Selezionare dall'elenco database SQL portale di Microsoft Azure](media/sql-database-get-started-sql-data-sync/select-sql-database.png)
 
     > [!NOTE]
-    > Il database hub è un endpoint centrale della topologia di sincronizzazione, in cui per un gruppo di sincronizzazione sono presenti più endpoint del database. Tutti gli altri database membri con endpoint nel gruppo di sincronizzazione eseguono la sincronizzazione con il database hub.
+    > Il database hub è un endpoint centrale della topologia di sincronizzazione, in cui un gruppo di sincronizzazione dispone di più endpoint di database. Tutti gli altri database membri con endpoint nel gruppo di sincronizzazione eseguono la sincronizzazione con il database hub.
 
-1. Nella pagina **Database SQL** per il database selezionato selezionare **Sincronizza con altri database**.
+1. Nel menu **database SQL** per il database selezionato selezionare **Sincronizza con altri database**.
 
-    ![Opzione Sincronizza con altri database](media/sql-database-get-started-sql-data-sync/datasync-overview.png)
+    ![Sincronizzare con altri database, database SQL portale di Microsoft Azure](media/sql-database-get-started-sql-data-sync/sync-to-other-databases.png)
 
 1. Nella pagina **Sincronizza con altri database** selezionare **Nuovo gruppo di sincronizzazione**. Verrà aperta la pagina **Nuovo gruppo di sincronizzazione** con il primo passaggio di **Crea gruppo di sincronizzazione** in evidenza.
 
@@ -48,7 +54,7 @@ Per esempi di PowerShell su come configurare la sincronizzazione dati SQL, veder
 
    Nella pagina **Crea gruppo di sincronizzazione dati** cambiare le impostazioni seguenti:
 
-   | Impostazione                        | Descrizione |
+   | Impostazione                        | Description |
    | ------------------------------ | ------------------------------------------------- |
    | **Nome gruppo di sincronizzazione** | Immettere un nome per il nuovo gruppo di sincronizzazione. Questo nome è distinto dal nome del database stesso. |
    | **Database dei metadati di sincronizzazione** | Scegliere di creare un database (scelta consigliata) o usare un database esistente.<br/><br/>Se si sceglie **Nuovo database**, selezionare **Crea nuovo database**. Nella pagina **Database SQL**, quindi, specificare un nome per il nuovo database, configurarlo e selezionare **OK**.<br/><br/>Se si sceglie **Usa database esistente**, selezionare il database dall'elenco. |
@@ -76,7 +82,7 @@ Nella sezione **Database membro** aggiungere facoltativamente un database SQL di
 
   Nella pagina **Configura database SQL di Azure** cambiare le impostazioni seguenti:
 
-  | Impostazione                       | Descrizione |
+  | Impostazione                       | Description |
   | ----------------------------- | ------------------------------------------------- |
   | **Nome membro di sincronizzazione** | Specificare un nome per il nuovo membro di sincronizzazione. Questo nome è distinto dal nome del database. |
   | **Sottoscrizione** | Selezionare la sottoscrizione di Azure associata ai fini della fatturazione. |
@@ -163,7 +169,7 @@ Dopo la creazione e la distribuzione dei nuovi membri del gruppo di sincronizzaz
 
     ![Sincronizzazione manuale](media/sql-database-get-started-sql-data-sync/datasync-sync.png)
 
-## <a name="faq"></a>domande frequenti
+## <a name="faq"></a>FAQ
 
 **Con quale frequenza viene eseguita la sincronizzazione dei dati?**
 
@@ -231,7 +237,7 @@ Per altre informazioni sulla sincronizzazione dati SQL, vedere:
 
 - [Agente di sincronizzazione dei dati per la sincronizzazione dati SQL Azure](sql-database-data-sync-agent.md)
 - [Procedure consigliate](sql-database-best-practices-data-sync.md) e [Come risolvere i problemi di sincronizzazione dati SQL di Azure](sql-database-troubleshoot-data-sync.md)
-- [Monitorare sincronizzazione dati SQL con i log di monitoraggio di Azure](sql-database-sync-monitor-oms.md)
+- [Monitorare la sincronizzazione dati SQL con i log di Monitoraggio di Azure](sql-database-sync-monitor-oms.md)
 - [Aggiornare lo schema di sincronizzazione con Transact-SQL](sql-database-update-sync-schema.md) o [PowerShell](scripts/sql-database-sync-update-schema.md)
 
 Per altre informazioni sul database SQL, vedere:

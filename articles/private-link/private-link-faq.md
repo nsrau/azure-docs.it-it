@@ -2,17 +2,17 @@
 title: Domande frequenti sul collegamento privato di Azure
 description: Informazioni sul collegamento privato di Azure.
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 53cb9b91d62c65cefb33451c716e677599306e9c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7870b68ca931123d50e88e846aa066ce53972dbc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229324"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75349933"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Domande frequenti sul collegamento privato di Azure
 
@@ -28,6 +28,7 @@ Il traffico viene inviato privatamente usando la backbone Microsoft. Non attrave
  
 ### <a name="what-is-the-difference-between-a-service-endpoints-and-a-private-endpoints"></a>Qual è la differenza tra gli endpoint di servizio e gli endpoint privati?
 - Quando si usano endpoint privati, l'accesso alla rete viene concesso a risorse specifiche dietro a un determinato servizio che fornisce segmentazione granulare, anche il traffico può raggiungere la risorsa del servizio da locale senza usare endpoint pubblici.
+- Un endpoint del servizio rimane un indirizzo IP instradabile pubblicamente.  Un endpoint privato è un indirizzo IP privato nello spazio degli indirizzi della rete virtuale in cui è configurato l'endpoint privato.
 
 ### <a name="what-is-the-relationship-between-private-link-service-and-private-endpoint"></a>Qual è la relazione tra il servizio di collegamento privato e l'endpoint privato?
 L'endpoint privato consente di accedere a più tipi di risorse di collegamento privato, inclusi i servizi PaaS di Azure e il servizio di collegamento privato. Si tratta di una relazione uno-a-molti. Un servizio di collegamento privato può ricevere connessioni da più endpoint privati. D'altra parte, un endpoint privato può connettersi a un solo servizio di collegamento privato.    

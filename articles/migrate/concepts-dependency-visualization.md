@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: hamusa
-ms.openlocfilehash: 17ba06d6ac09f220b4343092292275a1cc315377
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 828f3078c992bed4fa556a374468e69dd58ebc04
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489206"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75494514"
 ---
 # <a name="dependency-visualization"></a>Visualizzazione delle dipendenze
 
@@ -32,8 +32,8 @@ La visualizzazione delle dipendenze consente di comprendere le dipendenze tra i 
 
 Sono disponibili due opzioni per la distribuzione della visualizzazione delle dipendenze:
 
-- **Visualizzazione delle dipendenze senza agente**: questa opzione è attualmente in anteprima. Non richiede l'installazione di agenti nei computer. 
-    - L'operazione viene eseguita acquisendo i dati di connessione TCP da computer per i quali è abilitata. [Altre informazioni](how-to-create-group-machine-dependencies-agentless.md).
+- **Visualizzazione delle dipendenze senza agente**: questa opzione è attualmente in anteprima ed è disponibile solo per le macchine virtuali VMware. Non richiede l'installazione di agenti nei computer. 
+    - L'operazione viene eseguita acquisendo i dati di connessione TCP da computer per i quali è abilitata. [Altre informazioni](how-to-create-group-machine-dependencies-agentless.md)
 Dopo l'avvio dell'individuazione delle dipendenze, l'appliance raccoglie i dati dai computer a un intervallo di polling di cinque minuti.
     - Vengono raccolti i dati seguenti:
         - Connessioni TCP

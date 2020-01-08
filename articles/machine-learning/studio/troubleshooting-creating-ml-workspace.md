@@ -1,7 +1,7 @@
 ---
 title: Risoluzione dei problemi relativi a un'area di lavoro
 titleSuffix: ML Studio (classic) - Azure
-description: Questa guida fornisce soluzioni per alcune delle principali problemi riscontrati quando si configura la versione classica di Azure Machine Learning Studio aree di lavoro.
+description: Questa guida fornisce soluzioni per alcune delle principali problemi riscontrati durante la configurazione delle aree di lavoro Azure Machine Learning Studio (classiche).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 88f4e1edae84892892d1a8a9e76499d71d551abf
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 3f2cc3dcc5c9e34590d1cb2d0d3747fd1255f0e7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838029"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427475"
 ---
 # <a name="troubleshooting-guide-create-and-connect-to-an-azure-machine-learning-studio-classic-workspace"></a>Guida alla risoluzione dei problemi: creare e connettersi a un'area di lavoro di Azure Machine Learning Studio (classica)
 Questa guida fornisce soluzioni per alcune delle principali problemi riscontrati durante la configurazione delle aree di lavoro Azure Machine Learning Studio (classiche).
@@ -49,7 +49,7 @@ Dopo aver creato la nuova area di lavoro Machine Learning Studio (classica), è 
 
 2. Nella scheda **Generale** fare clic su **Elimina**.
 
-   ![Generale](media/troubleshooting-creating-ml-workspace/screen5.png)
+   ![Scheda Generale](media/troubleshooting-creating-ml-workspace/screen5.png)
 
 3. Nella finestra di dialogo **Elimina cronologia esplorazioni** assicurarsi che l'opzione **Cookie e dati di siti Web** sia selezionata, quindi fare clic su **Elimina**.
 

@@ -6,18 +6,18 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: allensu
-ms.openlocfilehash: d6f417e53e7d7a1a242a0c0dc56c2356f78f5344
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: c54725d9a947b0c912a822686d7b2cffe1a7b5c9
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828958"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640789"
 ---
 # <a name="move-an-azure-virtual-network-to-another-region-by-using-the-azure-portal"></a>Spostare una rete virtuale di Azure in un'altra area usando il portale di Azure
 
 Esistono diversi scenari per lo trasferimento di una rete virtuale di Azure esistente da un'area a un'altra. Ad esempio, potrebbe essere necessario creare una rete virtuale con la stessa configurazione per il test e la disponibilità della rete virtuale esistente. In alternativa, potrebbe essere necessario spostare una rete virtuale di produzione in un'altra area nell'ambito della pianificazione del ripristino di emergenza.
 
-È possibile usare un modello di Azure Resource Manager per completare lo spostamento della rete virtuale in un'altra area. A tale scopo, esportare la rete virtuale in un modello, modificare i parametri in modo che corrispondano all'area di destinazione e quindi distribuire il modello nella nuova area. Per ulteriori informazioni sui modelli di Gestione risorse, vedere [Quickstart: Creare e distribuire modelli di Azure Resource Manager con il portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+È possibile usare un modello di Azure Resource Manager per completare lo spostamento della rete virtuale in un'altra area. A tale scopo, esportare la rete virtuale in un modello, modificare i parametri in modo che corrispondano all'area di destinazione e quindi distribuire il modello nella nuova area. Per ulteriori informazioni sui modelli di Gestione risorse, vedere [Guida introduttiva: creare e distribuire modelli di Azure Resource Manager tramite il portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -32,7 +32,7 @@ Esistono diversi scenari per lo trasferimento di una rete virtuale di Azure esis
 
 - Verificare che la sottoscrizione di Azure consenta di creare reti virtuali nell'area di destinazione. Per abilitare la quota richiesta, contattare il supporto tecnico.
 
-- Assicurarsi che la sottoscrizione disponga di risorse sufficienti per supportare l'aggiunta di reti virtuali per questo processo. Per altre informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
+- Assicurarsi che la sottoscrizione disponga di risorse sufficienti per supportare l'aggiunta di reti virtuali per questo processo. Per altre informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
 
 ## <a name="prepare-for-the-move"></a>Preparare lo spostamento
@@ -42,7 +42,7 @@ Per esportare la rete virtuale e distribuire la rete virtuale di destinazione us
 
 1. Accedere al [portale di Azure](https://portal.azure.com), quindi selezionare **gruppi di risorse**.
 1. Individuare il gruppo di risorse che contiene la rete virtuale di origine e quindi selezionarlo.
-1. Selezionare **Impostazioni** > **Esporta modello**.
+1. Selezionare **impostazioni** > **Esporta modello**.
 1. Nel riquadro **Esporta modello** selezionare **Distribuisci**.
 1. Per aprire il file *Parameters. JSON* nell'editor online, selezionare **modello** > **modifica parametri**.
 1. Per modificare il parametro del nome della rete virtuale, modificare la proprietà **value** in **Parameters**:
@@ -63,7 +63,7 @@ Per esportare la rete virtuale e distribuire la rete virtuale di destinazione us
 
 1. Selezionare **Save (Salva** ) nell'editor.
 
-1. Per aprire il file *template. JSON* nell'editor online, selezionare **template** > **Edit template**.
+1. Per aprire il file *template. JSON* nell'editor online, selezionare **modello** > **modifica modello**.
 
 1. Nell'editor online per modificare l'area di destinazione in cui verrà spostata la rete virtuale, modificare la proprietà **location** in **Resources**:
 
@@ -89,7 +89,7 @@ Per esportare la rete virtuale e distribuire la rete virtuale di destinazione us
 
 1. Opzionale È anche possibile modificare altri parametri nel modello, a seconda dei requisiti:
 
-    * **Spazio degli indirizzi**: Prima di salvare il file, è possibile modificare lo spazio degli indirizzi della rete virtuale modificando la sezione **resources** > **addressSpace** e modificando la proprietà **addressPrefixes** :
+    * **Spazio degli indirizzi**: prima di salvare il file, è possibile modificare lo spazio degli indirizzi della rete virtuale modificando **le risorse** > sezione **addressSpace** e modificando la proprietà **addressPrefixes** :
 
         ```json
                 "resources": [
@@ -109,7 +109,7 @@ Per esportare la rete virtuale e distribuire la rete virtuale di destinazione us
 
         ```
 
-    * **Subnet**: È possibile modificare o aggiungere al nome della subnet e allo spazio di indirizzi della subnet modificando la sezione **subnet** del modello. È possibile modificare il nome della subnet modificando la proprietà **Name** . È possibile modificare lo spazio degli indirizzi della subnet modificando la proprietà **addressPrefix** :
+    * **Subnet**: è possibile modificare o aggiungere al nome della subnet e allo spazio degli indirizzi della subnet modificando la sezione **Subnet** del modello. È possibile modificare il nome della subnet modificando la proprietà **Name** . È possibile modificare lo spazio degli indirizzi della subnet modificando la proprietà **addressPrefix** :
 
         ```json
                 "subnets": [
@@ -184,7 +184,7 @@ Per esportare la rete virtuale e distribuire la rete virtuale di destinazione us
 
     Se è necessario creare un nuovo gruppo di risorse per la rete virtuale di destinazione, selezionare **Crea nuovo**. Verificare che il nome non sia uguale al nome del gruppo di risorse di origine nella rete virtuale esistente.
 
-1. Verificare che i **concetti di base** > **percorso** siano impostati sul percorso di destinazione in cui si desidera distribuire la rete virtuale.
+1. Verificare che **nozioni di base** > **percorso** sia impostato sul percorso di destinazione in cui si desidera distribuire la rete virtuale.
 
 1. In **Impostazioni**verificare che il nome corrisponda al nome immesso in precedenza nell'editor dei parametri.
 
@@ -194,13 +194,13 @@ Per esportare la rete virtuale e distribuire la rete virtuale di destinazione us
 
 ## <a name="delete-the-target-virtual-network"></a>Eliminare la rete virtuale di destinazione
 
-Per rimuovere la rete virtuale di destinazione, eliminare il gruppo di risorse che contiene la rete virtuale di destinazione. A tale scopo:
+Per rimuovere la rete virtuale di destinazione, eliminare il gruppo di risorse che contiene la rete virtuale di destinazione. A tale scopo, procedere come indicato di seguito:
 1. Nel dashboard portale di Azure selezionare il gruppo di risorse.
 1. Nella parte superiore del riquadro **Panoramica** selezionare **Elimina**.
 
 ## <a name="clean-up"></a>Eseguire la pulizia
 
-Per eseguire il commit delle modifiche e completare lo spostamento della rete virtuale, eliminare la rete virtuale o il gruppo di risorse di origine. A tale scopo:
+Per eseguire il commit delle modifiche e completare lo spostamento della rete virtuale, eliminare la rete virtuale o il gruppo di risorse di origine. A tale scopo, procedere come indicato di seguito:
 1. Nel dashboard portale di Azure selezionare la rete virtuale o il gruppo di risorse.
 1. Nella parte superiore di ogni riquadro selezionare **Elimina**.
 

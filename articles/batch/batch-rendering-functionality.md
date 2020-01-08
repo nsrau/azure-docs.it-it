@@ -1,18 +1,18 @@
 ---
 title: Funzionalità di rendering - Azure Batch
-description: Funzionalità per il rendering specifiche in Azure Batch
+description: Le funzionalità di Azure Batch standard vengono usate per eseguire i carichi di lavoro e le app di rendering. Batch include funzionalità specifiche per il supporto dei carichi di lavoro di rendering.
 services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: b5eaaa6d41b9dae97a2d6219ffa44fb75ed67e61
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 697e2640b7215e0bbb9202c672f936535831eb99
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350038"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449716"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Funzionalità di rendering di Azure Batch
 
@@ -30,10 +30,10 @@ Sono disponibili un'immagine Windows 2016 e un'immagine CentOS.  In [Azure Marke
 
 Per una configurazione pool di esempio, vedere l'[esercitazione sul rendering nell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli).  Il portale di Azure e Batch Explorer forniscono strumenti dell'interfaccia utente grafica per selezionare un'immagine di VM di rendering quando si crea un pool.  Se si usa un'API Batch, specificare i valori della proprietà seguenti per [ImageReference](https://docs.microsoft.com/rest/api/batchservice/pool/add#imagereference) quando si crea un pool:
 
-| Autore | Offerta | SKU | Versione |
+| Editore | Offerta | SKU | Versione |
 |---------|---------|---------|--------|
-| o batch | rendering-centos73 | rendering | più recente |
-| o batch | rendering-windows2016 | rendering | più recente |
+| batch | rendering-centos73 | rendering | latest |
+| batch | rendering-windows2016 | rendering | latest |
 
 Sono disponibili altre opzioni se sono necessarie applicazioni aggiuntive nelle VM del pool:
 
@@ -62,7 +62,7 @@ Se viene fatto un tentativo di usare un'applicazione, ma l'applicazione non è s
 
 Per poter creare la riga di comando per le attività di rendering, è necessario specificare il percorso di installazione dei file eseguibili delle applicazioni di rendering.  Nelle immagini di VM di Azure Marketplace sono state create variabili di ambiente di sistema, che possono essere usate invece di dover specificare i percorsi effettivi.  Queste variabili di ambiente si aggiungono alle [variabili di ambiente di Batch standard](https://docs.microsoft.com/azure/batch/batch-compute-node-environment-variables) create per ogni attività.
 
-|Applicazione|File eseguibile dell'applicazione|Variabile di ambiente|
+|Richiesta|File eseguibile dell'applicazione|Variabile di ambiente|
 |---------|---------|---------|
 |Autodesk 3ds Max 2018|3dsmaxcmdio.exe|3DSMAX_2018_EXEC|
 |Autodesk 3ds Max 2019|3dsmaxcmdio.exe|3DSMAX_2019_EXEC|

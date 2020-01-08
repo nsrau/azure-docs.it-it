@@ -1,25 +1,14 @@
 ---
-title: Serializzazione di un oggetto Reliable Collections in Azure Service Fabric | Microsoft Docs
-description: Serializzazione di un oggetto Reliable Collections di Azure Service Fabric
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: masnider,rajak
-ms.assetid: 9d35374c-2d75-4856-b776-e59284641956
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Serializzazione di oggetti Reliable Collection
+description: Informazioni sulla serializzazione degli oggetti di Azure Service Fabric Reliable Collections, inclusa la strategia predefinita e come definire la serializzazione personalizzata.
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 5/8/2017
-ms.author: atsenthi
-ms.openlocfilehash: d5e7dfb84f6e8a8fbd029ccc0b15c17f68216c33
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 666e1bb45a9c75ee143f15a0d871d6ae1408eca9
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599302"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639548"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Serializzazione di un oggetto Reliable Collections in Azure Service Fabric
 Le raccolte Reliable Collections replicano e mantengono i propri elementi per garantirne la persistenza anche in caso di errori del computer o interruzioni dell'alimentazione.
@@ -34,7 +23,7 @@ Reliable State Manager include serializzatori predefiniti per alcuni tipi comuni
 I serializzatori predefiniti risultano più efficienti perché sanno che i loro tipi non possono essere modificati e non hanno bisogno di includere informazioni sul tipo quali il nome.
 
 Reliable State Manager dispone di un serializzatore predefinito per i tipi seguenti: 
-- Guid
+- GUID
 - bool
 - byte
 - sbyte
@@ -42,7 +31,7 @@ Reliable State Manager dispone di un serializzatore predefinito per i tipi segue
 - char
 - string
 - decimal
-- Double
+- double
 - float
 - int
 - uint
@@ -55,7 +44,7 @@ Reliable State Manager dispone di un serializzatore predefinito per i tipi segue
 
 I serializzatori personalizzati vengono comunemente usati per migliorare le prestazioni o per crittografare i dati in rete e su disco. Tra le altre ragioni, i serializzatori personalizzati sono in genere più efficienti dei serializzatori generici poiché questi non devono serializzare le informazioni sul tipo. 
 
-[IReliableStateManager. TryAddStateSerializer\<T >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) viene usato per registrare un serializzatore personalizzato per il tipo specificato t. Questa registrazione dovrebbe verificarsi nella costruzione di StatefulServiceBase per garantire che prima dell'avvio del ripristino, tutte le raccolte Reliable Collections abbiano accesso al serializzatore pertinente per leggere i dati salvati in modo permanente.
+[IReliableStateManager. TryAddStateSerializer\<t >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) viene usato per registrare un serializzatore personalizzato per il tipo specificato t. Questa registrazione dovrebbe verificarsi nella costruzione di StatefulServiceBase per garantire che prima dell'avvio del ripristino, tutte le raccolte Reliable Collections abbiano accesso al serializzatore pertinente per leggere i dati salvati in modo permanente.
 
 ```csharp
 public StatefulBackendService(StatefulServiceContext context)
@@ -73,10 +62,10 @@ public StatefulBackendService(StatefulServiceContext context)
 
 ### <a name="how-to-implement-a-custom-serializer"></a>Come implementare un serializzatore personalizzato
 
-Un serializzatore personalizzato deve implementare l' [interfaccia\<IStateSerializer T >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1) .
+Un serializzatore personalizzato deve implementare l'interfaccia [IStateSerializer\<t >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1) .
 
 > [!NOTE]
-> IStateSerializer\<t > include un overload per la scrittura e la lettura che accetta un valore di base t aggiuntivo denominato. Questa API è per la serializzazione differenziale. Attualmente la funzionalità di serializzazione differenziale non è esposta. Di conseguenza, questi due overload non vengono chiamati fino a quando la serializzazione differenziale non è esposta e abilitata.
+> IStateSerializer\<T > include un overload per la scrittura e la lettura che accetta una T aggiuntiva denominata valore di base. Questa API è per la serializzazione differenziale. Attualmente la funzionalità di serializzazione differenziale non è esposta. Di conseguenza, questi due overload non vengono chiamati fino a quando la serializzazione differenziale non è esposta e abilitata.
 
 Di seguito è riportato un esempio di un tipo personalizzato denominato OrderKey che contiene quattro proprietà
 
@@ -96,7 +85,7 @@ public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 }
 ```
 
-Di seguito è riportato un esempio di\<implementazione di IStateSerializer OrderKey >.
+Di seguito è riportato un esempio di implementazione di IStateSerializer\<OrderKey >.
 Si noti che gli overload Write e Read che accettano baseValue chiamano il rispettivo overload per la compatibilità di inoltro.
 
 ```csharp

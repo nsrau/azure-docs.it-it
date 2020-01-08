@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 06/25/2019
-ms.openlocfilehash: 6c133f99ce31d4994753aba11cee90cfc1b5afc9
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 54122d784467bc090d82f4126e03ab688883ea7d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552808"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364799"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi del log attività tramite monitoraggio di Azure  
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 Gli avvisi del log attività vengono attivati quando si verifica un nuovo evento del log attività che corrisponde alle condizioni specificate nell'avviso.
 
 Questi avvisi sono per le risorse di Azure e possono essere creati usando un modello di Azure Resource Manager. Possono essere create, aggiornate o eliminate anche nel portale di Azure. In genere, si creano avvisi del log attività per ricevere notifiche quando si verificano modifiche specifiche alle risorse nella sottoscrizione di Azure. Gli avvisi sono spesso limitati a risorse o gruppi di risorse specifici. Ad esempio, potrebbe essere necessario ricevere una notifica quando viene eliminata una macchina virtuale nel gruppo di risorse di esempio **myProductionResourceGroup** . In alternativa, potrebbe essere necessario ricevere una notifica se vengono assegnati nuovi ruoli a un utente nella sottoscrizione.
@@ -38,9 +38,9 @@ Quando si creano regole di avviso, verificare quanto segue:
 
 ### <a name="create-with-the-azure-portal"></a>Creare con la portale di Azure
 
-Utilizzare la procedura riportata di seguito.
+Usare la procedura seguente.
 
-1. Nella portale di Azure selezionare **monitoraggio**  > **avvisi**.
+1. Nella portale di Azure selezionare **monitoraggio** > **avvisi**.
 2. Selezionare **nuova regola di avviso** nell'angolo superiore sinistro della finestra **avvisi** .
 
      ![Nuova regola di avviso](media/alerts-activity-log/AlertsPreviewOption.png)
@@ -51,11 +51,11 @@ Utilizzare la procedura riportata di seguito.
 
 3. In **Definisci condizione di avviso**, specificare le informazioni seguenti e selezionare **fine**:
 
-   - **Destinazione avviso:** Per visualizzare e selezionare la destinazione per il nuovo avviso, usare **Filtra per sottoscrizione**  / **filtrare per tipo di risorsa**. Selezionare la risorsa o il gruppo di risorse dall'elenco visualizzato.
+   - **Destinazione avviso:** Per visualizzare e selezionare la destinazione per il nuovo avviso, usare **Filtra per sottoscrizione** / **filtrare per tipo di risorsa**. Selezionare la risorsa o il gruppo di risorse dall'elenco visualizzato.
 
      > [!NOTE]
      > 
-     > È possibile selezionare solo [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) risorsa rilevata, il gruppo di risorse o un'intera sottoscrizione per un segnale del log attività. 
+     > È possibile selezionare solo [Azure Resource Manager](../../azure-resource-manager/management/overview.md) risorsa rilevata, il gruppo di risorse o un'intera sottoscrizione per un segnale del log attività. 
 
      **Visualizzazione di esempio di destinazione di avviso**
 
@@ -106,7 +106,7 @@ Una semplice analogia per comprendere le condizioni in cui è possibile creare r
 
 ### <a name="view-and-manage-in-the-azure-portal"></a>Visualizzare e gestire nella portale di Azure
 
-1. Nella portale di Azure selezionare **monitoraggio**  > **avvisi**. Selezionare **Gestisci regole di avviso** nell'angolo superiore sinistro della finestra.
+1. Nella portale di Azure selezionare **monitoraggio** > **avvisi**. Selezionare **Gestisci regole di avviso** nell'angolo superiore sinistro della finestra.
 
     ![Gestire le regole di avviso](media/alerts-activity-log/manage-alert-rules.png)
 

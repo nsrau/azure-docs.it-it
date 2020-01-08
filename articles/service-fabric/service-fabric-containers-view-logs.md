@@ -1,25 +1,14 @@
 ---
-title: Visualizzare i log dei contenitori in Azure Service Fabric | Microsoft Docs
+title: Visualizzare i log dei contenitori in Azure Service Fabric
 description: Viene descritto come visualizzare i log dei contenitori per un servizio contenitore di Service Fabric in esecuzione tramite Service Fabric Explorer.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 05/15/2018
-ms.author: atsenthi
-ms.openlocfilehash: fd1787318e8573183293ddd832a11cf8cfe09cf2
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c47a408b272f95dbfcf3d791c644bfeb52254a72
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832613"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458189"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Visualizzare i log per un servizio contenitore di Service Fabric
 Azure Service Fabric è un agente di orchestrazione dei contenitori e supporta [contenitori Linux e Windows](service-fabric-containers-overview.md).  Questo articolo descrive come visualizzare i log dei contenitori di un servizio contenitore in esecuzione o di un contenitore non utilizzato, in modo da diagnosticare e risolvere i problemi.
@@ -44,7 +33,7 @@ Per semplificare la diagnosi degli errori di avvio dei contenitori, Service Fabr
 
 L'impostazione **ContainersRetentionCount** specifica il numero di contenitori da conservare in caso di errore. Se viene specificato un valore negativo, verranno conservati tutti i contenitori con errori. Quando l'attributo **ContainersRetentionCount** non viene specificato, non verrà conservato alcun contenitore. L'attributo **ContainersRetentionCount** supporta anche i parametri dell'applicazione, quindi gli utenti possono specificare valori diversi per cluster di test e di produzione. Usare vincoli di posizionamento per specificare come destinazione un nodo specifico per il servizio contenitore quando si usa questa funzionalità, per evitare che il servizio contenitore passi ad altri nodi. Eventuali contenitori conservati tramite questa funzionalità devono essere rimossi manualmente.
 
-L'impostazione **RunInteractive** corrisponde ai `--interactive`flag`tty` [ e ](https://docs.docker.com/engine/reference/commandline/run/#options) di Docker. Quando questa impostazione è true nel file manifesto, tali flag vengono usati per avviare il contenitore.  
+L'impostazione **RunInteractive** corrisponde ai [flag](https://docs.docker.com/engine/reference/commandline/run/#options)`--interactive` e `tty` di Docker. Quando questa impostazione è true nel file manifesto, tali flag vengono usati per avviare il contenitore.  
 
 ### <a name="rest"></a>REST
 Usare l'operazione per [ottenere i log dei contenitori distribuiti nel nodo](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) per ottenere i log per un contenitore arrestato in modo anomalo. Specificare il nome del nodo in cui era in esecuzione il contenitore, il nome dell'applicazione, il nome del manifesto del servizio e il nome del pacchetto di codice.  Specificare `&Previous=true`. La risposta conterrà i log dei contenitori per il contenitore non utilizzato dell'istanza del pacchetto di codice.

@@ -1,5 +1,6 @@
 ---
-title: Guida introduttiva alla soluzione VMware di Azure di CloudSimple-Crea servizio
+title: 'Guida introduttiva: creare un servizio CloudSimple VMware'
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Informazioni su come creare il servizio CloudSimple, i nodi di acquisto e i nodi di riserva
 author: sharaths-cs
 ms.author: dikamath
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 228ca0f43322c271b1a6db55a37c852ca1f66799
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 8ca8c5cacd2b1a1a7b4f70615831d2901510045e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828912"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452373"
 ---
 # <a name="quickstart---create-azure-vmware-solution-by-cloudsimple-service"></a>Guida introduttiva-creare una soluzione VMware di Azure tramite il servizio CloudSimple
 
@@ -31,7 +32,7 @@ Allocare un blocco CIDR/28 per la subnet del gateway.  È necessaria una subnet 
 
 Verificare i [prerequisiti di rete](cloudsimple-network-checklist.md). 
 
-## <a name="sign-in-to-azure"></a>Accedi ad Azure
+## <a name="sign-in-to-azure"></a>Accedere a Azure
 
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 
@@ -81,7 +82,7 @@ Per configurare la capacità con pagamento in base al consumo per un ambiente cl
 11. Selezionare il numero di nodi di cui eseguire il provisioning.
 12. Selezionare **Rivedi e crea**.
 13. Esaminare le impostazioni. Per modificare le impostazioni, fare clic su **indietro**.
-14. Selezionare **Create**.
+14. Selezionare **Create** (Crea).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

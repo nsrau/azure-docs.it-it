@@ -1,7 +1,7 @@
 ---
 title: 'Modello Cross Validate: riferimento al modulo'
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo Cross-Validate Model nel servizio Azure Machine Learning per convalidare in modo incrociato le stime dei parametri per i modelli di classificazione o di regressione partizionando i dati.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo Cross-Validate Model in Azure Machine Learning per convalidare in modo incrociato le stime dei parametri per i modelli di classificazione o di regressione partizionando i dati.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: d83a9b5df7acc9d626613e53369f483367e55a54
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: b7c898c232dc39398b13f16beea814aa4e554845
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717231"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428552"
 ---
-# <a name="cross-validate-model"></a>Modello Cross Validate
+# <a name="cross-validate-model"></a>Cross Validate Model
 
 Questo articolo descrive come usare il modulo Cross Validate Model in Azure Machine Learning Designer (anteprima). La *convalida incrociata* è una tecnica spesso usata nell'apprendimento automatico per valutare la variabilità di un set di dati e l'affidabilità di qualsiasi modello sottoposto a training tramite i dati.  
 
@@ -28,7 +28,7 @@ Cross Validate Model restituisce inoltre risultati stimati e probabilità per il
 
 1. La convalida incrociata divide in modo casuale i dati di training in riduzioni. 
 
-   Se il set di dati non è stato partizionato in precedenza, per impostazione predefinita l'algoritmo è 10 riduzioni. Per dividere il set di dati in un numero diverso di riduzioni, è possibile usare il modulo [Partition and Sample](partition-and-sample.md) e indicare il numero di riduzioni da usare.  
+   L'algoritmo prevede 10 sezioni per impostazione predefinita se il set di dati non è stato partizionato in precedenza. Per dividere il set di dati in un numero diverso di riduzioni, è possibile usare il modulo [Partition and Sample](partition-and-sample.md) e indicare il numero di riduzioni da usare.  
 
 2.  Il modulo consente di accantonare i dati nella sezione 1 da usare per la convalida. Questa operazione viene a volte definita *riduzioni di esenzione*. Il modulo usa le riduzioni rimanenti per eseguire il training di un modello. 
 
@@ -82,15 +82,15 @@ In questo scenario è necessario eseguire il training e il test del modello usan
 
 Una volta completate tutte le iterazioni, Cross Validate Model crea i punteggi per l'intero set di dati. Vengono inoltre create le metriche delle prestazioni che è possibile utilizzare per valutare la qualità del modello.
 
-### <a name="scored-results"></a>Risultati con Punteggio
+### <a name="scored-results"></a>Scored results
 
 Il primo output del modulo fornisce i dati di origine per ogni riga, insieme ad alcuni valori stimati e a probabilità correlate. 
 
 Per visualizzare questi risultati, nella pipeline fare clic con il pulsante destro del mouse sul modulo Cross Validate Model. Selezionare **risultati con punteggio**, quindi selezionare **Visualizza**.
 
-| Nome nuova colonna      | Descrizione                              |
+| Nome nuova colonna      | Description                              |
 | -------------------- | ---------------------------------------- |
-| Etichette con Punteggio        | Questa colonna viene aggiunta alla fine del set di dati. Contiene il valore stimato per ogni riga. |
+| Scored Labels        | Questa colonna viene aggiunta alla fine del set di dati. Contiene il valore stimato per ogni riga. |
 | Probabilità con Punteggio | Questa colonna viene aggiunta alla fine del set di dati. Indica la probabilità stimata del valore nelle **etichette con punteggio**. |
 | Numero di riduzioni          | Indica l'indice in base zero della riduzioni a cui è stata assegnata ogni riga di dati durante la convalida incrociata. |
 
@@ -103,7 +103,7 @@ In questo report, le riduzioni sono elencate in base al valore di indice in ordi
 Per visualizzare questi risultati, nella pipeline fare clic con il pulsante destro del mouse sul modulo Cross Validate Model. Selezionare **Risultati valutazione per**Riduci, quindi selezionare **Visualizza**.
 
 
-|Nome colonna| Descrizione|
+|Nome colonna| Description|
 |----|----|
 |Numero di riduzioni| Identificatore per ogni riduzioni. Se sono state create cinque riduzioni, saranno presenti cinque subset di dati, numerati da 0 a 4.
 |Numero di esempi in riduzioni|Numero di righe assegnate a ogni riduzioni. Devono essere approssimativamente uguali. |
@@ -127,5 +127,5 @@ Il modulo include anche le metriche seguenti per ogni riduzioni, a seconda del t
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per il servizio Azure Machine Learning. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 
 

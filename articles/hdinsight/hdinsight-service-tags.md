@@ -4,15 +4,15 @@ description: Usare i tag del servizio HDInsight per consentire il traffico in in
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/19/2019
-ms.openlocfilehash: 7e3ce33bdf0773ababe5eb190877a9288c094c5c
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.custom: hdinsightactive
+ms.date: 12/05/2019
+ms.openlocfilehash: 24ecf90c2ffc88415afbf84f54af3efa7d5f4a39
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74187085"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435466"
 ---
 # <a name="network-security-group-nsg-service-tags-for-azure-hdinsight"></a>Tag di servizio del gruppo di sicurezza di rete (NSG) per Azure HDInsight
 
@@ -26,13 +26,23 @@ Sono disponibili due opzioni per l'uso dei tag di servizio nei gruppi di sicurez
 
 1. Usa un singolo tag del servizio HDInsight: questa opzione consente di aprire la rete virtuale a tutti gli indirizzi IP utilizzati dal servizio HDInsight per monitorare i cluster in tutte le aree. Questa opzione è il metodo più semplice, ma potrebbe non essere appropriata se si hanno requisiti di sicurezza restrittivi.
 
-1. Usare più tag di servizio internazionali: questa opzione consente di aprire la rete virtuale solo per gli indirizzi IP usati da HDInsight in tale area specifica. Tuttavia, se si usano più aree, sarà necessario aggiungere più tag di servizio alla rete virtuale.
+1. Usare più tag di servizio internazionali: questa opzione consente di aprire la rete virtuale solo per gli indirizzi IP usati da HDInsight in tale area specifica. Tuttavia, se si usano più aree, è necessario aggiungere più tag di servizio alla rete virtuale.
 
 ## <a name="use-a-single-global-hdinsight-service-tag"></a>Usa un singolo tag del servizio HDInsight globale
 
-Il modo più semplice per iniziare a usare i tag di servizio con il cluster HDInsight consiste nell'aggiungere il tag globale `HDInsight` a una regola del gruppo di sicurezza di rete. Per istruzioni su come aggiungere tag di servizio al gruppo di sicurezza di rete, vedere [gruppi di sicurezza: Tag del servizio](../virtual-network/security-overview.md#service-tags).
+Il modo più semplice per iniziare a usare i tag di servizio con il cluster HDInsight consiste nell'aggiungere il tag globale `HDInsight` a una regola del gruppo di sicurezza di rete.
 
-Questo tag contiene gli indirizzi IP dei servizi di gestione e integrità per tutte le aree in cui HDInsight è disponibile e garantisce che il cluster sia in grado di comunicare con i servizi di integrità e gestione necessari indipendentemente dalla posizione in cui viene creato.
+1. Dal [portale di Azure](https://portal.azure.com/)selezionare il gruppo di sicurezza di rete.
+
+1. In **Impostazioni**selezionare **regole di sicurezza in ingresso**e quindi selezionare **+ Aggiungi**.
+
+1. Dall'elenco a discesa **origine** selezionare **tag servizio**.
+
+1. Dall'elenco a discesa **tag servizio di origine** selezionare **HDInsight**.
+
+    ![portale di Azure Aggiungi tag servizio](./media/hdinisght-service-tags/azure-portal-add-service-tag.png)
+
+Questo tag contiene gli indirizzi IP dei servizi di gestione e integrità per tutte le aree in cui HDInsight è disponibile e garantisce che il cluster sia in grado di comunicare con i servizi di integrità e gestione necessari indipendentemente dalla posizione in cui vengono creati.
 
 ## <a name="use-regional-hdinsight-service-tags"></a>Usare i tag di servizio HDInsight regionali
 
@@ -56,14 +66,14 @@ Se si preferisce l'opzione due dei tag del servizio e il cluster si trova in una
 | &nbsp; | Stati Uniti centro-occidentali | HDInsight. WestCentralUS |
 | Canada | Canada orientale | HDInsight. CanadaEast |
 | Brasile | Brasile meridionale | HDInsight. BrazilSouth |
-| Corea del Sud | Corea del Sud centrale | HDInsight. KoreaCentral |
-| &nbsp; | Corea del Sud meridionale | HDInsight. KoreaSouth |
+| Corea | Corea centrale | HDInsight. KoreaCentral |
+| &nbsp; | Corea meridionale | HDInsight. KoreaSouth |
 | India | India centrale | HDInsight. CentralIndia |
 | &nbsp; | India meridionale | HDInsight. SouthIndia |
 | Giappone | Giappone occidentale | HDInsight. JapanWest |
 | Francia | Francia centrale| HDInsight. FranceCentral |
 | Regno Unito | Regno Unito meridionale | HDInsight. UKSouth |
-| Azure per enti pubblici (Fairfax) | DOD Central   | HDInsight. USDoDCentral |
+| Azure per enti pubblici | DOD Central   | HDInsight. USDoDCentral |
 | &nbsp; | Governo degli Stati Uniti - Texas | HDInsight. USGovTexas |
 | &nbsp; | DOD est | HDInsight. USDoDEast |
 
@@ -89,13 +99,13 @@ Ad esempio, se il cluster viene creato nell'area `East US 2`, sarà necessario a
 | &nbsp; | Stati Uniti centrali | HDInsight. Centralus |
 | &nbsp; | NorthCentral US | HDInsight. NorthCentralUS |
 | &nbsp; | Stati Uniti centro-meridionali | HDInsight. SouthCentralUS |
-| &nbsp; | Stati Uniti Orientali | HDInsight. Eastus |
+| &nbsp; | Stati Uniti orientali | HDInsight. Eastus |
 | &nbsp; | Stati Uniti occidentali | HDInsight. Westus |
 | Giappone | Giappone orientale | HDInsight. JapanEast |
 | Europa | Europa settentrionale | HDInsight. NorthEurope |
 | &nbsp; | Europa occidentale| HDInsight. WestEurope |
 | Asia | Asia orientale | HDInsight. EastAsia |
-| &nbsp; | Asia sudorientale | HDInsight. SoutheastAsia |
+| &nbsp; | Asia sud-orientale | HDInsight. SoutheastAsia |
 | Australia | Australia orientale | HDInsight. AustraliaEast |
 
 #### <a name="group-2"></a>Gruppo 2
@@ -112,5 +122,5 @@ I cluster nelle aree di **Germania centrale** e **Germania nord-orientale**devon
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Gruppi di sicurezza di rete-tag del servizio](../virtual-network/security-overview.md#security-rules)
-* [Creare reti virtuali per i cluster HDInsight di Azure](hdinsight-create-virtual-network.md)
+- [Gruppi di sicurezza di rete-tag del servizio](../virtual-network/security-overview.md#security-rules)
+- [Creare reti virtuali per i cluster HDInsight di Azure](hdinsight-create-virtual-network.md)

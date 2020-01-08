@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: ad4a30b9bcd537a59f3d2ef17d3d2f215c1f4b98
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 5c51eff77c0375491f4376f12c9ff959f033e2ad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848893"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425380"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Abilitare i controlli di sicurezza per Azure Active Directory Domain Services
 
@@ -70,7 +70,7 @@ Nella tabella seguente vengono illustrati gli scenari per ogni tipo di risorsa d
 
 | Risorsa di destinazione | Scenario |
 |:---|:---|
-|Archiviazione di Azure| Questa destinazione deve essere utilizzata quando la necessità principale è archiviare gli eventi di controllo di sicurezza per scopi di archiviazione. Le altre destinazioni possono essere usate per scopi di archiviazione, ma tali destinazioni forniscono funzionalità oltre la necessità principale di archiviazione. Prima di abilitare gli eventi di controllo di sicurezza di Azure AD DS, [creare un account di archiviazione di Azure](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal#create-a-storage-account-1).|
+|Archiviazione di Azure| Questa destinazione deve essere utilizzata quando la necessità principale è archiviare gli eventi di controllo di sicurezza per scopi di archiviazione. Le altre destinazioni possono essere usate per scopi di archiviazione, ma tali destinazioni forniscono funzionalità oltre la necessità principale di archiviazione. Prima di abilitare gli eventi di controllo di sicurezza Azure AD DS, [creare prima un account di archiviazione di Azure](../storage/common/storage-account-create.md).|
 |Hub eventi di Azure| Questa destinazione deve essere utilizzata quando la necessità principale consiste nel condividere gli eventi di controllo di sicurezza con software aggiuntivo, ad esempio software di analisi dei dati o informazioni sulla sicurezza & software di gestione degli eventi (SIEM). Prima di abilitare gli eventi di controllo di sicurezza di Azure AD DS, [creare un hub eventi usando portale di Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)|
 |Area di lavoro di Azure Log Analytics| Questa destinazione deve essere usata quando la necessità principale consiste nell'analizzare ed esaminare i controlli protetti direttamente dalla portale di Azure. Prima di abilitare gli eventi di controllo di sicurezza Azure AD DS, [creare un'area di lavoro log Analytics nel portale di Azure.](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)|
 
@@ -173,7 +173,7 @@ Per abilitare gli eventi di controllo di sicurezza Azure AD DS usando Azure Powe
 Le aree di lavoro di analisi dei log consentono di visualizzare e analizzare gli eventi di controllo di sicurezza usando monitoraggio di Azure e il linguaggio di query kusto. Questo linguaggio di query è progettato per l'utilizzo di sola lettura che offre funzionalità di analisi del risparmio energia con una sintassi di facile lettura. Per altre informazioni su come iniziare a usare i linguaggi di query kusto, vedere gli articoli seguenti:
 
 * [Documentazione di Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/)
-* [Introduzione a Log Analytics in monitoraggio di Azure](../azure-monitor/log-query/get-started-portal.md)
+* [Introduzione a Log Analytics in Monitoraggio di Azure](../azure-monitor/log-query/get-started-portal.md)
 * [Introduzione alle query di log in monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md)
 * [Creare e condividere i dashboard dei dati di Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 

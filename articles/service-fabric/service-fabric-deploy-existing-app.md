@@ -1,25 +1,14 @@
 ---
-title: Distribuire un eseguibile esistente in Azure Service Fabric | Documentazione Microsoft
+title: Distribuire un eseguibile esistente in Azure Service Fabric
 description: Informazioni su come creare il pacchetto di un'applicazione esistente come eseguibile guest, in modo da consentirne la distribuzione in un cluster di Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: na
 ms.date: 07/02/2017
-ms.author: atsenthi
-ms.openlocfilehash: 575303cc2ec3e880187bac64da06d05721df14e6
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: cdbc965d0e8ec4a8f42fbe438b8ac6ddfe05a1b3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599658"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75377107"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Creare il pacchetto e distribuire un eseguibile esistente in Service Fabric
 Quando si crea il pacchetto di un eseguibile esistente come [eseguibile guest](service-fabric-guest-executables-introduction.md), è possibile scegliere di usare un modello di progetto di Visual Studio oppure di [creare manualmente il pacchetto dell'applicazione](#manually). Se si usa Visual Studio, la struttura del pacchetto dell'applicazione e i file manifesto vengono creati automaticamente dal nuovo modello di progetto.
@@ -143,7 +132,7 @@ L’elemento CodePackage specifica il percorso (e la versione) del codice del se
 
 L'elemento `Name` consente di specificare il nome della directory nel pacchetto dell'applicazione che contiene il codice del servizio. `CodePackage` include anche l'attributo `version`, Questo consente di specificare la versione del codice e potenzialmente di aggiornare il codice del servizio mediante l'infrastruttura Application Lifecycle Management di Service Fabric.
 
-#### <a name="optional-update-setupentrypoint"></a>Facoltativo: Aggiornare SetupEntryPoint
+#### <a name="optional-update-setupentrypoint"></a>Facoltativo: aggiornare SetupEntrypoint
 ```xml
 <SetupEntryPoint>
    <ExeHost>
@@ -170,7 +159,7 @@ Nell'esempio precedente SetupEntryPoint esegue un file batch denominato `LaunchC
 
 L'elemento `EntryPoint` nel manifesto del servizio consente di specificare la modalità di avvio del servizio.
 
-L'elemento `ExeHost` specifica il file eseguibile e i relativi argomenti da usare per avviare il servizio. Facoltativamente, è possibile aggiungere l'attributo `IsExternalExecutable="true"` a `ExeHost` per indicare che il programma è un eseguibile esterno di fuori del pacchetto di codice. Ad esempio `<ExeHost IsExternalExecutable="true">`.
+L'elemento `ExeHost` specifica il file eseguibile e i relativi argomenti da usare per avviare il servizio. Facoltativamente, è possibile aggiungere l'attributo `IsExternalExecutable="true"` a `ExeHost` per indicare che il programma è un eseguibile esterno di fuori del pacchetto di codice. Ad esempio: `<ExeHost IsExternalExecutable="true">`.
 
 * `Program` specifica il nome dell'eseguibile che deve avviare il servizio.
 * `Arguments` specifica gli argomenti da passare al file eseguibile. Può essere un elenco di parametri con argomenti.

@@ -1,14 +1,14 @@
 ---
 title: Risolvere gli errori di backup SAP HANA database
 description: Viene descritto come risolvere gli errori comuni che possono verificarsi quando si usa backup di Azure per eseguire il backup di SAP HANA database.
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 9958b241c44d619efea2f9ad516a2bd6d4f33d6e
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 04f9bafba0ca490b33a0daf3c3725e57d81bcc7e
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892601"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75664599"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Risolvere i problemi di backup di database SAP HANA in Azure
 
@@ -84,27 +84,27 @@ Prestare attenzione agli input durante il ripristino di un singolo database cont
 
 Si supponga che venga eseguito il backup di un'istanza DSC HANA "H21". Nella pagina elementi di backup viene visualizzato il nome dell'elemento di backup come **"H21 (DSC)"** . Se si tenta di ripristinare il database in un'altra DSC di destinazione, ad esempio H11, è necessario fornire gli input seguenti.
 
-![Input di ripristino DSC](media/backup-azure-sap-hana-database/hana-sdc-restore.png)
+![Nome del database DSC ripristinato](media/backup-azure-sap-hana-database/hana-sdc-restore.png)
 
 Tenere presente quanto segue:
 
-- Per impostazione predefinita, il nome del database ripristinato verrà popolato con il nome dell'elemento di backup, ad esempio H21 (DSC)
+- Per impostazione predefinita, il nome del database ripristinato verrà popolato con il nome dell'elemento di backup. In questo caso, H21 (DSC).
 - Se si seleziona la destinazione come H11, il nome del database ripristinato non verrà modificato automaticamente. **Deve essere modificato in H11 (DSC)** . Per quanto concerne DSC, il nome del database ripristinato sarà l'ID dell'istanza di destinazione con lettere minuscole e "DSC" accodato tra parentesi quadre.
 - Poiché la DSC può avere un solo database singolo, è anche necessario fare clic sulla casella di controllo per consentire l'override dei dati del database esistenti con i dati del punto di ripristino.
-- Linux distingue tra maiuscole e minuscole. Prestare quindi attenzione a mantenere il caso.
+- Linux distingue tra maiuscole e minuscole. Prestare attenzione a mantenere il caso.
 
 ### <a name="multiple-container-database-mdc-restore"></a>Ripristino di più database contenitore (MDC)
 
-In più database contenitore per HANA la configurazione standard è SYSTEMDB + 1 o più DB tenant. Il ripristino di un'intera istanza di SAP HANA significa ripristinare sia i database SYSTEMDB che i database tenant. Uno Ripristina prima SYSTEMDB, quindi procede per il database tenant. Il database di sistema indica essenzialmente di sostituire le informazioni di sistema nella destinazione selezionata. Questa operazione di ripristino sostituisce inoltre le informazioni correlate a BackInt nell'istanza di di destinazione. Quindi, dopo che il database di sistema è stato ripristinato in un'istanza di destinazione, è necessario eseguire di nuovo lo script di pre-registrazione. Solo i ripristini di database tenant successivi riusciranno.
+In più database contenitore per HANA la configurazione standard è SYSTEMDB + 1 o più DB tenant. Il ripristino di un'intera istanza di SAP HANA significa ripristinare sia i database SYSTEMDB che i database tenant. Uno Ripristina prima SYSTEMDB, quindi procede per il database tenant. Il database di sistema indica essenzialmente di sostituire le informazioni di sistema nella destinazione selezionata. Questa operazione di ripristino sostituisce inoltre le informazioni correlate a BackInt nell'istanza di di destinazione. Quindi, dopo il ripristino del database di sistema in un'istanza di destinazione, eseguire di nuovo lo script di pre-registrazione. Solo i ripristini di database tenant successivi riusciranno.
 
 ## <a name="upgrading-from-sap-hana-10-to-20"></a>Aggiornamento da SAP HANA 1,0 a 2,0
 
-Se si sta proteggendo SAP HANA database 1,0 e si vuole eseguire l'aggiornamento a 2,0, eseguire i passaggi descritti di seguito:
+Se si sta proteggendo SAP HANA database 1,0 e si vuole eseguire l'aggiornamento a 2,0, seguire questa procedura:
 
 - [Arrestare la protezione](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) con Mantieni i dati per il database DSC precedente.
 - Eseguire l'aggiornamento. Al termine, HANA è ora MDC con un database di sistema e i database tenant
 - Eseguire di nuovo [lo script di pre-registrazione](https://aka.ms/scriptforpermsonhana) con i dettagli corretti di (SID e MDC).
-- Ripetere la registrazione dell'estensione per lo stesso computer nel portale di Azure (backup-> View Details-> selezionare la relativa VM di Azure > ripetere la registrazione).
+- Ripetere la registrazione dell'estensione per lo stesso computer in portale di Azure (backup-> visualizzare i dettagli-> selezionare la VM di Azure pertinente-> Re-Register).
 - Fare clic su riindividuare i database per la stessa macchina virtuale. Questa azione dovrebbe mostrare i nuovi database nel passaggio 2 con i dettagli corretti (SYSTEMDB e tenant DB, non DSC).
 - Configurare il backup per questi nuovi database.
 

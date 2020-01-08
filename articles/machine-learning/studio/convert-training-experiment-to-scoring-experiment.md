@@ -9,18 +9,18 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 03/28/2017
-ms.openlocfilehash: 4b07150ac9f35085763786c505d3d746428a542b
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: e397cfaa9ce521ebe3c2f46ef6cc015bff3112f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839668"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454833"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio-classic"></a>Come preparare il modello per la distribuzione in Azure Machine Learning Studio (classico)
 
 Azure Machine Learning Studio (classico) offre gli strumenti necessari per sviluppare un modello di analisi predittiva e quindi rendere operativorlo distribuendo il modello come servizio Web di Azure.
 
-A tale scopo, si usa la versione classica di studio per creare un esperimento, denominato *esperimento di training* , in cui si esegue il training, il punteggio e la modifica del modello. Quando si è soddisfatti del risultato, è possibile procedere alla distribuzione del modello convertendo l'esperimento di training in un *esperimento predittivo* configurato in modo da assegnare un punteggio ai dati utente.
+A tale scopo, è possibile usare Studio (classico) per creare un esperimento, denominato *esperimento di training* , in cui si esegue il training, il punteggio e la modifica del modello. Quando si è soddisfatti del risultato, è possibile procedere alla distribuzione del modello convertendo l'esperimento di training in un *esperimento predittivo* configurato in modo da assegnare un punteggio ai dati utente.
 
 È possibile vedere un esempio di questo processo in [esercitazione 1: prevedere il rischio di credito](tutorial-part1-credit-risk.md).
 
@@ -28,7 +28,7 @@ Questo articolo contiene informazioni approfondite su come convertire un esperim
 
 
 
-## <a name="overview"></a>Panoramica 
+## <a name="overview"></a>Overview 
 
 Il processo di conversione di un esperimento di training in un esperimento predittivo prevede tre passaggi:
 
@@ -50,7 +50,7 @@ Dopo aver eseguito l'esperimento (fare clic su **RUN** (ESEGUI) nella parte infe
 
 Ad esempio, il seguente esperimento esegue il training di un modello di albero delle decisioni incrementato a due classi utilizzando dati di classificazione di esempio:
 
-![Esperimento di training](./media/convert-training-experiment-to-scoring-experiment/figure1.png)
+![esperimento di training](./media/convert-training-experiment-to-scoring-experiment/figure1.png)
 
 I moduli nell'esperimento eseguono fondamentalmente quattro diverse funzioni:
 

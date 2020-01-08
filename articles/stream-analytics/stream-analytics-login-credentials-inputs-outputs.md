@@ -1,20 +1,19 @@
 ---
 title: Ruotare le credenziali di accesso nei processi di Analisi di flusso di Azure
 description: Questo articolo descrive come aggiornare le credenziali dei sink di input e di output nei processi di Analisi di flusso di Azure.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: aad6f237a37ce4782e2c103a7a14e0a3951093de
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 3ae639dd7c5a42fc6880240988f0fb2817b09f43
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612357"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425966"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Ruotare le credenziali di accesso per input e output in un processo di Analisi di flusso
 
@@ -32,7 +31,7 @@ Questa sezione illustra la procedura da seguire per rigenerare le credenziali pe
 4. Dal portale di Azure passare al processo di Analisi di flusso, selezionare **Arresta** e attendere l'arresto del processo.    
 5. Individuare l'input o l'output di Archiviazione BLOB o tabelle per cui aggiornare le credenziali.    
 6. Individuare il campo **Chiave dell'account di archiviazione**, incollarvi la chiave appena generata e quindi fare clic su **Salva**.    
-7. Al salvataggio delle modifiche, verrà automaticamente avviato un test di connessione. È possibile visualizzarlo dalla scheda delle notifiche. Sono presenti due notifiche che corrispondono rispettivamente al salvataggio dell'aggiornamento e al test della connessione:  
+7. Quando si salvano le modifiche, verrà automaticamente avviato un test di connessione. è possibile visualizzarlo nella scheda notifiche. Ci sono due notifiche: una corrisponde al salvataggio dell'aggiornamento e altre corrisponde al test della connessione:  
    ![Notifiche dopo la modifica della chiave](media/stream-analytics-login-credentials-inputs-outputs/edited-key-notifications.png)
 8. Passare alla sezione [Avviare il processo dall'ultimo arresto](#start-your-job-from-the-last-stopped-time).
 

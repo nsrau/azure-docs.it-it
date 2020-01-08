@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione dal servizio di controllo di accesso Azure AD a SAS
+title: "Bus di servizio di Azure: eseguire la migrazione a un'autorizzazione di firma di accesso condiviso"
 description: Informazioni sulla migrazione dal servizio di controllo di accesso Azure Active Directory all'autorizzazione di firma di accesso condiviso.
 services: service-bus-messaging
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: aschhab
-ms.openlocfilehash: ae0dd3827e17cc63b4b698eb8d88a08799c7278f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: fe0acedeb65f010f9af2ea55cd37e6fe3046d989
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790338"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462155"
 ---
-# <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Eseguire la migrazione dall'autorizzazione del Servizio di controllo di accesso di Azure Active Directory all'autorizzazione con firma di accesso condiviso
+# <a name="service-bus---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Bus di servizio: eseguire la migrazione dal servizio di controllo di accesso Azure Active Directory all'autorizzazione di firma di accesso condiviso
 
 Per le applicazioni del bus di servizio è sempre stato possibile scegliere tra due diversi modelli di autorizzazione: il modello token con [firma di accesso condiviso (SAS)](service-bus-sas.md) fornito direttamente dal bus di servizio e un modello federato in cui la gestione delle regole di autorizzazione viene eseguita all'interno del Servizio di controllo di accesso di [Azure Active Directory](/azure/active-directory/); i token ottenuti dal Servizio di controllo di accesso vengono passati al bus di servizio per autorizzare l'accesso alle funzionalità desiderate.
 

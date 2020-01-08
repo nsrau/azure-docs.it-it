@@ -1,16 +1,16 @@
 ---
-title: Abilitare automaticamente il backup durante la creazione della macchina virtuale usando criteri di Azure
+title: Abilitare automaticamente il backup durante la creazione di macchine virtuali con Criteri di Azure
 description: Articolo che descrive come usare i criteri di Azure per abilitare automaticamente il backup per tutte le macchine virtuali create in un determinato ambito
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: ea3c0d217c8495078e91e171caef695bb32d129b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 7a3b526d654936d4e7ec89127a9074146c1b0179
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74980127"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450127"
 ---
-# <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Abilitare automaticamente il backup durante la creazione della macchina virtuale usando criteri di Azure
+# <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Abilitare automaticamente il backup durante la creazione di macchine virtuali con Criteri di Azure
 
 Una delle responsabilità principali di un amministratore di backup o di conformità in un'organizzazione è garantire che tutti i computer cruciali per l'azienda vengano sottoposti a backup con il periodo di conservazione appropriato.
 
@@ -25,6 +25,8 @@ Attualmente, backup di Azure fornisce un criterio predefinito (usando criteri di
 * L'insieme di credenziali specificato e le macchine virtuali configurate per il backup possono trovarsi in gruppi di risorse diversi.
 
 * Ambito del gruppo di gestione attualmente non supportato.
+
+* Il criterio predefinito non è attualmente disponibile nei cloud nazionali.
 
 ## <a name="using-the-built-in-policy"></a>Uso dei criteri predefiniti
 

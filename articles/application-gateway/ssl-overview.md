@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: e52a32c1897a7add939880fbe27d6b4b7fbee0bd
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 64b90afd598b96604fc9c3ddc4bc10586e714363
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883583"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75657982"
 ---
 # <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>Panoramica della terminazione SSL e del protocollo SSL end-to-end con il gateway applicazione
 
@@ -42,15 +42,15 @@ Per il corretto funzionamento della connessione SSL, è necessario assicurarsi c
 
 Il gateway applicazione supporta i tipi di certificati seguenti:
 
-- Certificato CA (autorità di certificazione): Un certificato CA è un certificato digitale emesso da un'autorità di certificazione (CA)
-- Certificato EV (Extended Validation): Un certificato EV è un certificato standard di settore. In questo modo verrà riattivata la barra di localizzazione del browser e verrà pubblicato anche il nome della società.
-- Certificato con caratteri jolly: Questo certificato supporta un numero qualsiasi di sottodomini basati su *. site.com, in cui il sottodominio sostituirà *. Tuttavia, non supporta site.com, quindi, nel caso in cui gli utenti accedano al sito Web senza digitare il "www", il certificato con caratteri jolly non lo coprirà.
-- Certificati autofirmati: I browser client non considerano attendibile questi certificati e avvisano l'utente che il certificato del servizio virtuale non fa parte di una catena di trust. I certificati autofirmati sono utili per i test o gli ambienti in cui gli amministratori controllano i client e possono ignorare in modo sicuro gli avvisi di sicurezza del browser. I carichi di lavoro di produzione non devono mai usare certificati autofirmati.
+- Certificato CA (autorità di certificazione): un certificato della CA è un certificato digitale emesso da un'autorità di certificazione (CA)
+- Certificato EV (Extended Validation): un certificato EV è un certificato standard di settore. In questo modo verrà riattivata la barra di localizzazione del browser e verrà pubblicato anche il nome della società.
+- Certificato con caratteri jolly: questo certificato supporta un numero qualsiasi di sottodomini basati su *. site.com, in cui il sottodominio sostituirà *. Tuttavia, non supporta site.com, quindi, nel caso in cui gli utenti accedano al sito Web senza digitare il "www", il certificato con caratteri jolly non lo coprirà.
+- Certificati autofirmati: i browser client non considerano attendibili questi certificati e avvisano l'utente che il certificato del servizio virtuale non fa parte di una catena di trust. I certificati autofirmati sono utili per i test o gli ambienti in cui gli amministratori controllano i client e possono ignorare in modo sicuro gli avvisi di sicurezza del browser. I carichi di lavoro di produzione non devono mai usare certificati autofirmati.
 
 Per altre informazioni, vedere [configurare la terminazione SSL con il gateway applicazione](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
 
 ### <a name="size-of-the-certificate"></a>Dimensioni del certificato
-Per informazioni sulle dimensioni massime del certificato SSL supportate, vedere la sezione [limiti del gateway applicazione](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits) .
+Per informazioni sulle dimensioni massime del certificato SSL supportate, vedere la sezione [limiti del gateway applicazione](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits) .
 
 ## <a name="end-to-end-ssl-encryption"></a>Crittografia SSL end-to-end
 

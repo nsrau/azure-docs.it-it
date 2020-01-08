@@ -1,5 +1,5 @@
 ---
-title: Verificare l'accesso a gruppi o applicazioni nelle verifiche di accesso-Azure Active Directory | Microsoft Docs
+title: Verificare l'accesso ai gruppi & le applicazioni nelle verifiche di accesso-Azure AD
 description: Informazioni su come verificare l'accesso dei membri del gruppo o dell'accesso alle applicazioni in Azure Active Directory verifiche di accesso.
 services: active-directory
 author: msaburnley
@@ -15,14 +15,14 @@ ms.date: 05/21/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e51ad8faecd935ea999b1287e542e4b14d55290a
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 8393a1e4719137aa09233d0a87dabdf81d8ccb59
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71948234"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422446"
 ---
-# <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Verificare l'accesso a gruppi o applicazioni in Azure AD verifiche di accesso
+# <a name="review-access-to-groups-and-applications-in-azure-ad-access-reviews"></a>Esaminare l'accesso ai gruppi e alle applicazioni nelle verifiche di accesso Azure AD
 
 Azure Active Directory (Azure AD) semplifica il modo in cui le aziende gestiscono l'accesso ai gruppi e alle applicazioni in Azure AD e in altri Microsoft Online Services con una funzionalità denominata verifiche di accesso Azure AD.
 
@@ -40,7 +40,7 @@ Il primo passaggio per eseguire una verifica di accesso consiste nell'individuar
 
 Se non si dispone del messaggio di posta elettronica, è possibile trovare le verifiche di accesso in sospeso seguendo questa procedura.
 
-1. Accedere al portale app Web in [https://myapps.microsoft.com](https://myapps.microsoft.com).
+1. Accedere al portale app Web all' [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
     ![Portale app Web che elenca le app a cui si hanno le autorizzazioni](./media/perform-access-review/myapps-access-panel.png)
 

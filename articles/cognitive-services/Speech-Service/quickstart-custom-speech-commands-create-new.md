@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: 056dd4331d30335078ea68350f711e37a7b42070
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d8e28b88757fa7557b04ee471ede17012094bb9e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976622"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446903"
 ---
 # <a name="quickstart-create-a-custom-command-preview"></a>Guida introduttiva: creare un comando personalizzato (anteprima)
 
@@ -24,10 +24,15 @@ L'applicazione rileverà un enunciato come "accendere la TV" e rispondere con un
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Sottoscrizione vocale. [Prova il servizio di riconoscimento vocale gratuitamente](~/articles/cognitive-services/speech-service/get-started.md).
+- Sottoscrizione vocale. 
+
+Se non si ha una sottoscrizione vocale, è possibile crearne una passando a [speech studio](https://speech.microsoft.com/) e selezionando **Crea una risorsa vocale**.
+
+  > [!div class="mx-imgBorder"]
+  > [![creare un progetto](media/custom-speech-commands/create-new-subscription.png)](media/custom-speech-commands/create-new-subscription.png#lightbox)
 
   > [!NOTE]
-  > Durante l'anteprima, solo l'area westus2 è supportata per le chiavi di sottoscrizione.
+  > Durante la fase di anteprima è supportata solo l'area westus2.
 
 ## <a name="go-to-the-speech-studio-for-custom-commands"></a>Vai a speech studio per i comandi personalizzati
 
@@ -66,6 +71,20 @@ La visualizzazione predefinita è un elenco delle applicazioni dei comandi perso
 
 La visualizzazione dovrebbe ora essere una panoramica dell'applicazione comandi personalizzata.
 
+## <a name="update-luis-resources-optional"></a>Aggiornare le risorse LUIS (facoltativo)
+
+È possibile aggiornare il set di risorse di creazione nella finestra nuovo progetto e impostare una risorsa di stima utilizzata per riconoscere gli input in fase di esecuzione. 
+
+> [!NOTE]
+> È necessario impostare una risorsa di stima prima che l'applicazione richieda le stime oltre le 1.000 richieste fornite dalla risorsa di creazione.
+
+> [!div class="mx-imgBorder"]
+> ![impostare le risorse LUIS](media/custom-speech-commands/set-luis-resources.png)
+
+1. Passare al riquadro risorse LUIS selezionando **Impostazioni** dal riquadro a sinistra e quindi **risorse Luis** dal riquadro centrale.
+1. Selezionare una risorsa di stima o crearne una selezionando **Crea nuova risorsa**
+1. Selezionare **Salva**
+
 ## <a name="create-a-new-command"></a>Crea un nuovo comando
 
 A questo punto è possibile creare un comando. Verrà ora usato un esempio che accetta un singolo enunciato, `turn on the tv`e risponderà con il messaggio `Ok, turning on the TV`.
@@ -78,10 +97,10 @@ A questo punto è possibile creare un comando. Verrà ora usato un esempio che a
 
 Un comando è un set di:
 
-| Group            | Description                                                                                                                 |
+| Gruppo            | Description                                                                                                                 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | Frasi di esempio | Espressioni di esempio che l'utente può pronunciare per attivare questo comando                                                                 |
-| parameters       | Informazioni necessarie per completare il comando                                                                                |
+| Parametri       | Informazioni necessarie per completare il comando                                                                                |
 | Regole di completamento | Azioni da intraprendere per completare il comando. Ad esempio, per rispondere all'utente o comunicare con un altro servizio Web |
 | Regole avanzate   | Regole aggiuntive per la gestione di situazioni più specifiche o complesse                                                              |
 
@@ -116,14 +135,13 @@ Aggiungere ora una regola di completamento per rispondere all'utente che indica 
 > [!div class="mx-imgBorder"]
 > ![creare una regola di completamento](media/custom-speech-commands/create-basic-completion-response-rule.png)
 
-
-| Impostazione    | Valore consigliato                        | Description                                        |
-| ---------- | -------------------------------------- | -------------------------------------------------- |
-| Nome regola  | "ConfirmationResponse"                 | Nome che descrive lo scopo della regola          |
-| Condizioni | Nessuno                                   | Condizioni che determinano quando la regola può essere eseguita    |
+| Impostazione    | Valore consigliato                          | Description                                        |
+| ---------- | ---------------------------------------- | -------------------------------------------------- |
+| Nome regola  | "ConfirmationResponse"                   | Nome che descrive lo scopo della regola          |
+| Condizioni | Nessuno                                     | Condizioni che determinano quando la regola può essere eseguita    |
 | Azioni    | SpeechResponse "-OK, accensione della TV" | Azione da eseguire quando la condizione della regola è true |
 
-## <a name="try-it-out"></a>Provare il servizio
+## <a name="try-it-out"></a>Prova
 
 Testare il comportamento usando il pannello test chat.
 

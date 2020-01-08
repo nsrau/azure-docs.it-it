@@ -4,15 +4,15 @@ description: Il pacchetto della soluzione Stato replica di Active Directory cont
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 01/24/2018
-ms.openlocfilehash: 04112042c871f5268c64bda374f040f1bba92969
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 31e6d0c8b374bd494ae8fda36f4f38aabb1ac96b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931348"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406086"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Monitorare lo stato della replica di Active Directory con Monitoraggio di Azure
 
@@ -20,12 +20,19 @@ ms.locfileid: "72931348"
 
 Active Directory è un componente chiave di un ambiente IT aziendale. Per garantire disponibilità e prestazioni elevate, ogni controller di dominio ha la propria copia del database di Active Directory. I controller di dominio si replicano tra loro per propagare le modifiche all'interno dell'azienda. Gli errori in questo processo di replica possono causare una serie di problemi all'interno dell'azienda.
 
-Il pacchetto della soluzione Stato replica di Active Directory controlla periodicamente l'ambiente Active Directory per rilevare eventuali errori di replica.
+La soluzione Stato replica di AD monitora regolarmente l'ambiente Active Directory per eventuali errori di replica.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand-solution.md)]
 
 ## <a name="installing-and-configuring-the-solution"></a>Installazione e configurazione della soluzione
 Usare le informazioni seguenti per installare e configurare la soluzione.
+
+### <a name="prerequisites"></a>Prerequisiti
+
+* Per la soluzione Stato replica di AD è necessaria una versione supportata di .NET Framework 4.6.2 o versione successiva installata in ogni computer in cui è installato Log Analytics Agent per Windows (noto anche come Microsoft Monitoring Agent (MMA)).  L'agente viene usato da System Center 2016-Operations Manager, Operations Manager 2012 R2 e monitoraggio di Azure.
+* La soluzione supporta controller di dominio che eseguono Windows Server 2008 e 2008 R2, Windows Server 2012 e 2012 R2 e Windows Server 2016.
+* area di lavoro Log Analytics per aggiungere la soluzione Controllo integrità Active Directory da Azure Marketplace al portale di Azure. Non è necessaria alcuna configurazione aggiuntiva.
+
 
 ### <a name="install-agents-on-domain-controllers"></a>Installare agenti nei controller di dominio
 È necessario installare agenti nei controller di dominio membri del dominio da valutare. In alternativa, è necessario installare gli agenti nei server membri e configurare gli agenti per inviare dati di replica di Active Directory a Monitoraggio di Azure. Per informazioni su come connettere i computer Windows a Monitoraggio di Azure, vedere [Connettere computer Windows a Monitoraggio di Azure](../../azure-monitor/platform/agent-windows.md). Se il controller di dominio fa già parte di un ambiente System Center Operations Manager esistente che si intende connettere a Monitoraggio di Azure, vedere [Connettere Operations Manager a Monitoraggio di Azure](../../azure-monitor/platform/om-agents.md).

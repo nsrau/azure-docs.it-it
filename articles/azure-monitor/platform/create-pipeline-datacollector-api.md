@@ -4,15 +4,15 @@ description: È possibile usare l'API dell'agente di raccolta dati HTTP di Monit
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 08/09/2018
-ms.openlocfilehash: 8b739d86ec557ca8c7de7e0999c905b51d1d97a7
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3074d8d9dfcb3dbca31821d73cfd6daee056edb9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932620"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363966"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Creare una pipeline di dati con l'API dell'Agente di raccolta dati
 
@@ -21,7 +21,7 @@ L'[API dell'agente di raccolta dati di Monitoraggio di Azure](data-collector-api
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="example-problem"></a>Problema di esempio
-Nella parte restante di questo articolo, verranno esaminati i dati relativi alle visualizzazioni pagina in Application Insights. Nel nostro scenario ipotetico, vogliamo correlare le informazioni geografiche raccolte per impostazione predefinita da Application Insights SDK ai dati personalizzati che contengono la popolazione di ogni paese/area geografica del mondo, con l'obiettivo di identificare la posizione in cui deve essere spesa il maggior numero di dollari di marketing. 
+Nella parte restante di questo articolo, verranno esaminati i dati relativi alle visualizzazioni pagina in Application Insights. Nel nostro scenario ipotetico, vogliamo correlare le informazioni geografiche raccolte per impostazione predefinita da Application Insights SDK ai dati personalizzati che contengono la popolazione di ogni paese/area geografica del mondo, con l'obiettivo di identificare la posizione in cui è necessario spendere il maggior numero di dollari di marketing. 
 
 A questo scopo verrà usata un'origine dati pubblica, come ad esempio gli [UN World Population Prospect](https://esa.un.org/unpd/wpp/). I dati seguiranno il seguente schema semplice:
 

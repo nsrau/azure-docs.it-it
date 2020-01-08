@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86cce0ee2a4966e2c2c8d74ad63a50976c199eb6
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 2a622245a7431058582131d9ba224ddfb676d8aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74967303"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425144"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Domande frequenti su Azure Multi-Factor Authentication
 
@@ -26,9 +26,12 @@ Queste domande frequenti offrono risposte su Azure Multi-Factor Authentication e
 
 > [!IMPORTANT]
 > A partire dal 1 ° luglio 2019, Microsoft non offrirà più il server multi-factor authentication per le nuove distribuzioni. I nuovi clienti che desiderano richiedere l'autenticazione a più fattori dagli utenti devono usare Azure Multi-Factor Authentication basato sul cloud. I clienti esistenti che hanno attivato il server di autenticazione a più fattori prima del 1 ° luglio potranno scaricare la versione più recente, gli aggiornamenti futuri e generare le credenziali di attivazione come di consueto.
+> 
+> Le licenze basate sul consumo non sono più disponibili per i nuovi clienti a partire dal 1 ° settembre 2018.
+> A partire dal 1 ° settembre 2018 non è più possibile creare nuovi provider di autenticazione. I provider di autenticazione esistenti potranno continuare a essere usati e aggiornato. L'autenticazione a più fattori continuerà a essere una funzionalità disponibile nelle licenze di Azure AD Premium.
+
 > [!NOTE]
 > Le informazioni riportate di seguito relative all'server Multi-Factor Authentication di Azure sono valide solo per gli utenti che hanno già eseguito il server di autenticazione a più fattori.
-
 
 **D: In che modo il server Azure Multi-Factor Authentication gestisce i dati utente?**
 

@@ -1,6 +1,7 @@
 ---
-title: "Esercitazione: Usare Servizio Migrazione del database di Azure per eseguire la migrazione online di MongoDB all'API di Azure Cosmos DB per MongoDB | Microsoft Docs"
-description: Informazioni su come eseguire la migrazione online da MongoDB in locale all'API di Azure Cosmos DB per MongoDB con Servizio Migrazione del database di Azure.
+title: "Esercitazione: eseguire la migrazione di MongoDB online all'API Azure Cosmos DB per MongoDB"
+titleSuffix: Azure Database Migration Service
+description: Informazioni su come eseguire la migrazione da MongoDB locale a Azure Cosmos DB API per MongoDB online usando il servizio migrazione del database di Azure.
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -8,21 +9,21 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 09/25/2019
-ms.openlocfilehash: a73f3eefbf76b2ea24f34ed496ff45c5d2467e3e
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
-ms.translationtype: HT
+ms.openlocfilehash: 1090a7f75bd5dc2200dd619a785a0e389259040a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266348"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437644"
 ---
-# <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>Esercitazione: Eseguire la migrazione online di MongoDB all'API di Azure Cosmos DB per MongoDB con Servizio Migrazione del database
+# <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>Esercitazione: eseguire la migrazione di MongoDB all'API Azure Cosmos DB per MongoDB online con DMS
 
 È possibile usare Servizio Migrazione del database di Azure per eseguire una migrazione online di database (con tempi di inattività minimi) da un'istanza locale o cloud di MongoDB all'API di Azure Cosmos DB per MongoDB.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 >
 > * Creare un'istanza del Servizio Migrazione del database di Azure.
@@ -60,7 +61,7 @@ Per completare questa esercitazione, è necessario:
     >
     > Questa configurazione è necessaria perché il Servizio Migrazione del database di Azure non ha connettività Internet.
 
-* Verificare che le regole del gruppo di sicurezza di rete (NSG) per la rete virtuale non blocchino le porte di comunicazione: 53, 443, 445, 9354 e da 10000 a 20000. Per informazioni dettagliate sui filtri del traffico dei gruppi di sicurezza di rete relativi alla rete virtuale di Azure, vedere l'articolo [Filtrare il traffico di rete con gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Verificare che le regole del gruppo di sicurezza di rete VNet (NSG) non blocchino le porte di comunicazione seguenti: 53, 443, 445, 9354 e 10000-20000. Per informazioni dettagliate sui filtri del traffico dei gruppi di sicurezza di rete relativi alla rete virtuale di Azure, vedere l'articolo [Filtrare il traffico di rete con gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Aprire Windows Firewall per consentire a Servizio Migrazione del database di Azure di accedere al server MongoDB di origine, per impostazione predefinita attraverso la porta TCP 27017.
 * Quando si usa un'appliance firewall all'ingresso dei database di origine, potrebbe essere necessario aggiungere regole del firewall per consentire al Servizio Migrazione del database di Azure di accedere ai database di origine per la migrazione.
 
@@ -234,7 +235,7 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
     ![Stato dell'attività: Riproduzione](media/tutorial-mongodb-to-cosmosdb-online/dms-verify-data.png)
 
-## <a name="complete-the-migration"></a>Completare la migrazione
+## <a name="complete-the-migration"></a>Completa la migrazione
 
 * Quando tutti i documenti dell'origine sono disponibili nella destinazione Cosmos DB, selezionare **Fine** nel menu di scelta rapida dell'attività di migrazione per completare la migrazione.
 

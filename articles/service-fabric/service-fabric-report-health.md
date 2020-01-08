@@ -1,25 +1,16 @@
 ---
-title: Aggiungere report personalizzati sull'integrità di Service Fabric | Documentazione Microsoft
+title: Aggiungere report sull'integrità di Service Fabric personalizzati
 description: Questo articolo descrive come inviare report sull'integrità personalizzati alle entità di integrità di Azure Service Fabric. Offre consigli per la progettazione e l'implementazione di report efficaci relativi all'integrità.
-services: service-fabric
-documentationcenter: .net
 author: oanapl
-manager: chackdan
-editor: ''
-ms.assetid: 0a00a7d2-510e-47d0-8aa8-24c851ea847f
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 49ebf4ab95816a3da2f74a464b12b46de6228456
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d00f740085b15bdb5fe698a069d97f168507f31f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60723446"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451594"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Aggiungere report sull'integrità di Service Fabric personalizzati
 In Azure Service Fabric è disponibile un [modello di integrità](service-fabric-health-introduction.md) progettato per contrassegnare condizioni di non integrità di cluster e applicazioni in entità specifiche. Il modello di integrità usa **i** , costituiti da watchdog e componenti di sistema. Lo scopo è semplificare e velocizzare la diagnosi e la risoluzione dei problemi. Gli sviluppatori del servizio devono tenere conto dell'integrità fin dall'inizio. È necessario segnalare tutte le condizioni che possono influire sull'integrità, soprattutto se aiutano a risalire alla causa dei problemi. Le informazioni sull'integrità consentono di risparmiare tempo ed energie per il debug e l'analisi. L'utilità è particolarmente evidente quando il servizio è in esecuzione su larga scala nel cloud (privato o Azure).
@@ -55,18 +46,18 @@ Una volta definita la progettazione dei report sull'integrità, è possibile inv
 > 
 
 ## <a name="health-client"></a>Client di integrità
-I report sull'integrità vengono inviati a health manager tramite un client di integrità, che si trova all'interno del client fabric. Il gestore integrità consente di salvare i report nell'archivio integrità. Il client di integrità può essere configurato con le impostazioni seguenti:
+I report sull'integrità vengono inviati al gestore dell'integrità tramite un client di integrità, che risiede all'interno del client dell'infrastruttura. Il gestore integrità Salva i report nell'archivio integrità. Il client di integrità può essere configurato con le impostazioni seguenti:
 
-* **HealthReportSendInterval**: Il ritardo tra il momento in cui che il report viene aggiunto al client e l'ora viene inviato a health manager. Questo valore viene usato per inviare i report in batch un singolo messaggio, anziché inviare un messaggio per ogni report, e migliorare così le prestazioni. Predefinito: 30 secondi.
-* **HealthReportRetrySendInterval**: I report l'intervallo in corrispondenza del quale il client di integrità invia nuovamente sull'integrità accumulati a health manager. Predefinito: 30 secondi, minima: 1 secondo.
-* **HealthOperationTimeout**: Il periodo di timeout per un messaggio di report inviato a health manager. Se un messaggio scade, il client di integrità Riprova a inviarlo finché il gestore integrità conferma che il report è stato elaborato. Valore predefinito: due minuti.
+* **HealthReportSendInterval**: ritardo tra il momento in cui il report viene aggiunto al client e il momento in cui viene inviato al gestore dell'integrità. Questo valore viene usato per inviare i report in batch un singolo messaggio, anziché inviare un messaggio per ogni report, e migliorare così le prestazioni. Impostazione predefinita: 30 secondi.
+* **HealthReportRetrySendInterval**: intervallo al quale il client di integrità invia nuovamente i report sull'integrità accumulati al gestore dell'integrità. Impostazione predefinita: 30 secondi, minimo: 1 secondo.
+* **HealthOperationTimeout**: periodo di timeout per un messaggio di report inviato al gestore dell'integrità. Se si verifica il timeout di un messaggio, il client di integrità lo ritenta finché il gestore integrità non conferma che il report è stato elaborato. Valore predefinito: due minuti.
 
 > [!NOTE]
-> Quando i report vengono riuniti in batch, il client Fabric deve restare attivo almeno per il tempo previsto da HealthReportSendInterval per garantire l'invio dei report. Se il messaggio viene perso o health manager non è possibile applicare a causa di errori temporanei, il client fabric deve restare attivo più per assegnargli una possibilità di riprovare.
+> Quando i report vengono riuniti in batch, il client Fabric deve restare attivo almeno per il tempo previsto da HealthReportSendInterval per garantire l'invio dei report. Se il messaggio viene perso o il gestore dell'integrità non è in grado di applicarli a causa di errori temporanei, il client di Fabric deve essere mantenuto attivo più a lungo per dare la possibilità di riprovare.
 > 
 > 
 
-La memorizzazione nel buffer sul client tiene conto dell'unicità dei report. Se un particolare generatore di report non corretto crea 100 report al secondo per la stessa proprietà della stessa entità, ad esempio, i report vengono sostituiti con l'ultima versione. Nella coda del client sarà presente al massimo uno di questi report. Se l'invio in batch è configurata, il numero di report inviato a health manager è solo uno per ogni intervallo di invio. Questo è l'ultimo report aggiunto, che riflette lo stato più recente dell'entità.
+La memorizzazione nel buffer sul client tiene conto dell'unicità dei report. Se un particolare generatore di report non corretto crea 100 report al secondo per la stessa proprietà della stessa entità, ad esempio, i report vengono sostituiti con l'ultima versione. Nella coda del client sarà presente al massimo uno di questi report. Se la suddivisione in batch è configurata, il numero di report inviati al gestore di integrità è solo uno per ogni intervallo di invio. Questo è l'ultimo report aggiunto, che riflette lo stato più recente dell'entità.
 Specificare i parametri di configurazione quando viene creato `FabricClient` passando [FabricClientSettings](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclientsettings) con i valori desiderati per le voci correlate all'integrità.
 
 L'esempio seguente crea un client Fabric e specifica che i report devono essere inviati quando vengono aggiunti. In caso di timeout ed errori che supportano nuovi tentativi, questi vengono eseguiti ogni 40 secondi.
@@ -148,7 +139,7 @@ Non è sempre possibile creare report dall'interno del servizio monitorato. Un w
 
 A volte anche un watchdog in esecuzione nel cluster può non essere una soluzione efficace. Se la condizione monitorate è la disponibilità o la funzionalità del servizio dal punto di vista degli utenti, è preferibile inserire i watchdog nella stessa posizione dei client degli utenti, dove possono testare le operazioni allo stesso modo in cui vengono eseguite dagli utenti. Ad esempio, è possibile configurare un watchdog esterno al cluster che invia le richieste al servizio e controlla la latenza e la correttezza del risultato. Ad esempio, per un servizio calcolatrice, verificare se l'operazione 2+2 restituisce 4 in tempi ragionevoli.
 
-Una volta finalizzati i dettagli del watchdog, stabilire un ID di origine che lo identifichi in modo univoco. Se nel cluster sono presenti più watchdog dello stesso tipo, devono generare report per entità diverse oppure, se generano report per la stessa entità, usare proprietà o ID di origine diversi. In questo modo, i report possono coesistere. La proprietà del report sull'integrità deve contenere la condizione monitorata. Ad esempio, nel caso sopra riportato la proprietà può essere **ShareSize**. Se più report si applicano alla stessa condizione, la proprietà deve contenere alcune informazioni dinamiche per consentire la coesistenza dei report. Ad esempio, se è necessario monitorare più condivisioni, il nome della proprietà può essere **ShareSize-sharename**.
+Una volta finalizzati i dettagli del watchdog, stabilire un ID di origine che lo identifichi in modo univoco. Se nel cluster sono presenti più watchdog dello stesso tipo, devono generare report per entità diverse oppure, se generano report per la stessa entità, usare proprietà o ID di origine diversi. In questo modo, i report possono coesistere. La proprietà del report sull'integrità deve contenere la condizione monitorata. Per l'esempio precedente, la proprietà può essere **ShareSize**. Se più report si applicano alla stessa condizione, la proprietà deve contenere alcune informazioni dinamiche che consentono la coesistenza dei report. Ad esempio, se è necessario monitorare più condivisioni, il nome della proprietà può essere **ShareSize-sharename**.
 
 > [!NOTE]
 > *Non* usare l'archivio integrità per conservare informazioni sullo stato. Nei report solo le informazioni correlate all'integrità devono essere segnalate come informazioni sull'integrità, perché influiscono sulla valutazione dell'integrità di un'entità. L'archivio integrità non è stato progettato come archivio per utilizzo generico. Usa la logica di valutazione dell'integrità per aggregare tutti i dati nello stato di integrità. L'invio di informazioni non correlate all'integrità, come la creazione di report sullo stato con stato di integrità OK, non ha ripercussioni sullo stato di integrità aggregato, ma può influire negativamente sulle prestazioni dell'archivio integrità.
@@ -181,7 +172,7 @@ La creazione di report relativi alle transizioni risulta utile per i servizi che
 ## <a name="implement-health-reporting"></a>Implementare report sull'integrità
 Dopo aver definito l'entità e i dettagli del report, l'invio dei report sull'integrità può essere eseguito tramite API, PowerShell o REST.
 
-### <a name="api"></a>API
+### <a name="api"></a>API SmartBear Ready!
 Per usare un'API, è necessario creare un report sull'integrità specifico per il tipo di entità desiderato. Assegnare il report a un client di integrità. In alternativa, creare informazioni sull'integrità e passarle ai metodi di creazione report corretti in `Partition` o `CodePackageActivationContext` per generare report sulle entità correnti.
 
 L'esempio seguente illustra la generazione periodica di report da un watchdog all'interno del cluster. I controlli del watchdog determinano se è possibile accedere a una risorsa esterna dall'interno di un nodo. La risorsa è richiesta da un manifesto del servizio all'interno dell'applicazione. Se la risorsa non è disponibile, gli altri servizi all'interno dell'applicazione possono comunque funzionare correttamente. Il report viene quindi inviato per l'entità del pacchetto del servizio distribuito ogni 30 secondi.

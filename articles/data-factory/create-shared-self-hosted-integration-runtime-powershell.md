@@ -11,12 +11,12 @@ author: nabhishek
 manager: anansub
 ms.custom: seo-lt-2019
 ms.date: 10/31/2018
-ms.openlocfilehash: 2b83c61d05cbc9d84c74d03004839a21505519fa
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: a2f24d8203ac5fb9724370cbdf4309bdc43c166a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928471"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444107"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Creare un runtime di integrazione self-hosted condiviso in Azure Data Factory
 
@@ -99,7 +99,7 @@ Per creare un runtime di integrazione self-hosted condiviso usando Azure PowerSh
     > [!NOTE]  
     > Questo passaggio è facoltativo. Se è già presente una data factory, ignorare questo passaggio. 
 
-    Creare un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) usando il comando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) . Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite come gruppo. L'esempio seguente crea un gruppo di risorse denominato `myResourceGroup` nell'area Europa occidentale: 
+    Creare un [gruppo di risorse di Azure](../azure-resource-manager/management/overview.md) usando il comando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) . Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite come gruppo. L'esempio seguente crea un gruppo di risorse denominato `myResourceGroup` nell'area Europa occidentale: 
 
     ```powershell
     New-AzResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
@@ -162,7 +162,7 @@ $factory = Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
     -Location $DataFactoryLocation `
     -Name $LinkedDataFactoryName
 ```
-#### <a name="grant-permission"></a>Concedere l'autorizzazione
+#### <a name="grant-permission"></a>Concedere un'autorizzazione
 
 Concedere l'autorizzazione alla data factory che deve accedere al runtime di integrazione self-hosted creato e registrato.
 

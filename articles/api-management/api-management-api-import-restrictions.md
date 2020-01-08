@@ -1,6 +1,7 @@
 ---
-title: Limitazioni e problemi noti dell'importazione dell'API di Gestione API di Azure | Microsoft Docs
-description: Dettagli di problemi noti e limitazioni relative all'importazione in Gestione API di Azure con i formati Open API, WSDL o WADL.
+title: Limitazioni e dettagli del supporto dei formati API
+titleSuffix: Azure API Management
+description: Informazioni dettagliate sui problemi noti e sulle restrizioni per il supporto dei formati Open API, WSDL e WADL in gestione API di Azure.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -11,49 +12,87 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/06/2019
+ms.date: 01/02/2020
 ms.author: apimpm
-ms.openlocfilehash: 88ef235d47a548ce426eaa2e8a8a56fb9dcb01d2
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: a1c514368960d39834125bd497d05b3d9ebeae7c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796042"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640704"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Problemi noti e limitazioni dell'importazione dell'API
 
 ## <a name="about-this-list"></a>Informazioni sull'elenco
 
-Quando si importa un'API è possibile riscontrare delle restrizioni o identificare dei problemi che è necessario correggere per completare l'importazione. L'articolo illustra questi aspetti, organizzati in base al formato di importazione dell'API.
+Quando si importa un'API, è possibile che si verifichino alcune restrizioni o si identifichino i problemi che devono essere corretti prima di poter eseguire correttamente l'importazione. Questo articolo descrive queste limitazioni, organizzate in base al formato di importazione dell'API. Viene inoltre descritto il funzionamento dell'esportazione OpenAPI.
 
-## <a name="open-api"> </a>OpenAPI/Swagger
+## <a name="open-api"> </a>Limitazioni di importazione openapi/spavalderia
 
 Se vengono restituiti errori durante l'importazione del documento OpenAPI, verificare che sia stato prima convalidato. A tale scopo, usare la finestra di progettazione nel portale di Azure (Progettazione - Front End - Editor della specifica OpenAPI) o usare uno strumento di terze parti come <a href="https://editor.swagger.io">Swagger Editor</a>.
 
-### <a name="open-api-general"> </a>Generale
+### <a name="open-api-general"> </a>Informazioni generali
 
 -   I parametri obbligatori per percorso e query devono avere nomi univoci. In OpenAPI un nome di parametro deve essere univoco solo all'interno di una determinata posizione, ad esempio percorso, query, intestazione. In Gestione API, invece, le operazioni possono essere discriminate in base a parametri sia di percorso che di query, cosa che non è possibile in OpenAPI. Per questo motivo è necessario che i nomi dei parametri siano univoci all'interno dell'intero modello di URL.
--   **\$** puntatori Ref non possono fare riferimento a file esterni.
--   **x-ms-paths** e **x-servers** sono le uniche estensioni supportate.
+-   i puntatori `\$ref` non possono fare riferimento a file esterni.
+-   `x-ms-paths` e `x-servers` sono le uniche estensioni supportate.
 -   Le estensioni personalizzate vengono ignorate in fase di importazione e non vengono salvate o mantenute per l'esportazione.
--   **Ricorsione**: Gestione API non supporta le definizioni con carattere ricorsivo, ad esempio gli schemi che fanno riferimento a se stessi.
+-   `Recursion`-gestione API non supporta le definizioni definite in modo ricorsivo, ad esempio gli schemi che fanno riferimento a se stessi.
 -   L'URL del file di origine, se disponibile, viene applicato agli URL di server relativi.
 -   Le definizioni di sicurezza vengono ignorate.
 -   Le definizioni dello schema inline per le operazioni API non sono supportate. Le definizioni dello schema sono definite nell'ambito dell'API ed è possibile farvi riferimento negli ambiti di richiesta o di risposta delle operazioni dell'API.
 -   Un parametro URL definito deve far parte del modello URL.
--   La parola chiave **produces** , che descrive i tipi MIME restituiti da un'API, non è supportata. 
+-   `Produces` parola chiave, che descrive i tipi MIME restituiti da un'API, non è supportata. 
 
-### <a name="open-api-v2"> </a>OpenAPI versione 2
+### <a name="open-api-v2"> </a>Openapi versione 2
 
 -   È supportato solo il formato JSON.
 
-### <a name="open-api-v3"> </a>OpenAPI versione 3
+### <a name="open-api-v3"> </a>Openapi versione 3
 
--   Se sono specificati molti **server**, Gestione API proverà a selezionare il primo URL HTTPs. Se non vi sono URL HTTPs, selezionerà il primo URL HTTP. Se non vi sono nemmeno URL HTTP, l'URL del server sarà vuoto.
--   **Examples** non è supportato, mentre **example** lo è.
--   **Multipart/form-data** non è supportato.
+-   Se vengono specificati molti `servers`, gestione API tenterà di selezionare il primo URL HTTPs. Se non vi sono URL HTTPs, selezionerà il primo URL HTTP. Se non vi sono nemmeno URL HTTP, l'URL del server sarà vuoto.
+-   `Examples` non è supportato, ma `example` è.
+-   `Multipart/form-data` non è supportata.
 
-## <a name="wsdl"></a>WSDL
+## <a name="openapi-import-update-and-export-mechanisms"></a>Meccanismi di importazione, aggiornamento ed esportazione di OpenAPI
+
+### <a name="add-new-api-via-openapi-import"></a>Aggiungi nuova API tramite l'importazione OpenAPI
+
+Per ogni operazione trovata nel documento OpenAPI, viene creata una nuova operazione con il nome della risorsa di Azure e il nome visualizzato impostati rispettivamente su `operationId` e `summary`. `operationId` valore viene normalizzato in seguito alle regole descritte di seguito. `summary` valore viene importato così com'è e la lunghezza è limitata a 300 caratteri.
+
+Se non viene specificato `operationId` (ovvero non presente, `null`o vuoto), il valore del nome della risorsa di Azure verrà generato combinando il metodo HTTP e il modello di percorso, ad esempio `get-foo`.
+
+Se `summary` non è specificato (ovvero non è presente, `null`o vuoto), `display name` valore verrà impostato su `operationId`. Se `operationId` non viene specificato, il valore del nome visualizzato verrà generato combinando il metodo HTTP e il modello di percorso, ad esempio `Get - /foo`.
+
+### <a name="update-an-existing-api-via-openapi-import"></a>Aggiornare un'API esistente tramite l'importazione OpenAPI
+
+Durante l'importazione, l'API esistente è stata modificata in modo da corrispondere all'API descritta nel documento OpenAPI. Ogni operazione nel documento OpenAPI viene confrontata con l'operazione esistente confrontando il relativo valore `operationId` con il nome della risorsa di Azure dell'operazione esistente.
+
+Se viene trovata una corrispondenza, le proprietà dell'operazione esistente verranno aggiornate "sul posto".
+
+Se una corrispondenza non viene trovata, verrà creata una nuova operazione usando le regole descritte nella sezione precedente. Per ogni nuova operazione, l'importazione tenterà di copiare i criteri da un'operazione esistente con lo stesso modello di percorso e metodo HTTP.
+
+Tutte le operazioni senza corrispondenza esistenti verranno eliminate.
+
+Per rendere l'importazione più prevedibile, attenersi alle seguenti linee guida:
+
+- Assicurarsi di specificare `operationId` proprietà per ogni operazione.
+- Evitare di modificare `operationId` dopo l'importazione iniziale.
+- Non modificare mai `operationId` e il metodo HTTP o il modello di percorso nello stesso momento.
+
+### <a name="export-api-as-openapi"></a>Esporta API come OpenAPI
+
+Per ogni operazione, il nome della risorsa di Azure verrà esportato come `operationId`e il nome visualizzato verrà esportato come `summary`.
+Regole di normalizzazione per operationId
+
+- Consente di convertire la stringa in caratteri minuscoli.
+- Sostituire ogni sequenza di caratteri non alfanumerici con un trattino singolo, ad esempio `GET-/foo/{bar}?buzz={quix}` verranno trasformati in `get-foo-bar-buzz-quix-`.
+- Tagliare i trattini su entrambi i lati, ad esempio `get-foo-bar-buzz-quix-` diventerà `get-foo-bar-buzz-quix`
+- Troncare per adattare a 76 caratteri, quattro caratteri inferiori al limite massimo per un nome di risorsa.
+- Utilizzare rimanenti quattro caratteri per un suffisso di deduplicazione, se necessario, sotto forma di `-1, -2, ..., -999`.
+
+
+## <a name="wsdl"> </a>WSDL
 
 I file WSDL vengono usati per creare API pass-through e SOAP-to-REST SOAP.
 
@@ -63,7 +102,7 @@ I file WSDL vengono usati per creare API pass-through e SOAP-to-REST SOAP.
 -   **wsHttpBinding di WCF**: i servizi SOAP creati con Windows Communication Foundation devono usare basicHttpBinding poiché wsHttpBinding non è supportato.
 -   **MTOM**: i servizi che usano MTOM <em>potrebbero</em> funzionare. Al momento il supporto ufficiale non è previsto.
 -   **Ricorsione**: i tipi definiti in modo ricorsivo, che, ad esempio, fanno riferimento a una matrice di se stessi, non sono supportati da APIM.
--   **Più spazi dei nomi**: possono essere usati più spazi dei nomi in uno schema, ma solo lo spazio dei nomi di destinazione può essere usato per definire le parti del messaggio. Gli spazi dei nomi diversi dalla destinazione, che vengono usati per definire altri elementi di input o output non vengono mantenuti. Sebbene un documento WSDL di questo tipo possa essere importato, in caso di esportazione tutte le parti del messaggio avranno lo spazio dei nomi di destinazione del documento WSDL.
+-   **Più spazi dei nomi**: possono essere usati più spazi dei nomi in uno schema, ma solo lo spazio dei nomi di destinazione può essere usato per definire le parti del messaggio. Gli spazi dei nomi diversi dalla destinazione, usati per definire altri elementi di input o output, non vengono mantenuti. Sebbene un documento WSDL di questo tipo possa essere importato, in caso di esportazione tutte le parti del messaggio avranno lo spazio dei nomi di destinazione del documento WSDL.
 -   **Matrici** : la trasformazione da SOAP a REST supporta solo matrici di cui è stato eseguito il wrapper mostrate nell'esempio seguente:
 
 ```xml
@@ -81,6 +120,6 @@ I file WSDL vengono usati per creare API pass-through e SOAP-to-REST SOAP.
     </complexType>
 ```
 
-## <a name="wadl"> </a>WADL
+## <a name="wadl"> </a>Wadl
 
 Attualmente non sono noti problemi di importazione del formato WADL.

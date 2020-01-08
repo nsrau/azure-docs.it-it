@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 8e29c632ff3920c77a757fe45475a12c212cf579
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 2d9de5e7294fdca7514989ba009e9dee8985a084
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74684010"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421954"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Come usare Azure WebJobs SDK per l'elaborazione in background guidata dagli eventi
 
@@ -84,7 +84,7 @@ Il processo di abilitazione della modalità di sviluppo dipende dalla versione d
 Versione 3. *x* usa le API ASP.net core standard. Chiamare il metodo [`UseEnvironment`](/dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.useenvironment) sull'istanza di [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) . Passare una stringa denominata `development`, come nell'esempio seguente:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.UseEnvironment("development");
@@ -95,7 +95,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -223,7 +223,7 @@ static void Main(string[] args)
 
 ## <a name="input-and-output-bindings"></a>Associazioni di input e output
 
-Le associazioni di input offrono una modalità dichiarativa per rendere disponibili nel codice i dati dei servizi di Azure o di terze parti. Le associazioni di output garantiscono un modo per aggiornare i dati. L'articolo [introduttivo](webjobs-sdk-get-started.md) illustra un esempio di ciascuna di esse.
+Le associazioni di input offrono una modalità dichiarativa per rendere disponibili nel codice i dati dei servizi di Azure o di terze parti. Le associazioni di output garantiscono un modo per aggiornare i dati. L' [articolo introduttivo](webjobs-sdk-get-started.md) illustra un esempio di ciascuna di esse.
 
 È possibile usare un valore restituito del metodo per un'associazione di output applicando l'attributo al valore restituito del metodo. Vedere l'esempio in [uso del valore restituito della funzione di Azure](../azure-functions/functions-bindings-return-value.md).
 
@@ -236,7 +236,7 @@ Il processo per l'installazione e la gestione dei tipi di binding varia a second
 Nella versione 3. *x*, le associazioni di archiviazione sono incluse nel pacchetto di `Microsoft.Azure.WebJobs.Extensions.Storage`. Chiamare il metodo di estensione `AddAzureStorage` nel metodo `ConfigureWebJobs`, come illustrato di seguito:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -247,7 +247,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -255,7 +255,7 @@ static void Main()
 Per usare altri tipi di trigger e associazioni, installare il pacchetto NuGet che li contiene e chiamare il metodo di estensione `Add<binding>` implementato nell'estensione. Se, ad esempio, si desidera utilizzare un'associazione Azure Cosmos DB, installare `Microsoft.Azure.WebJobs.Extensions.CosmosDB` e chiamare `AddCosmosDB`, come indicato di seguito:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -266,7 +266,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -318,7 +318,7 @@ Il processo per l'associazione al [`ExecutionContext`] dipende dalla versione de
 Chiamare il metodo di estensione `AddExecutionContextBinding` nel metodo `ConfigureWebJobs`, come illustrato di seguito:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -329,7 +329,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -373,7 +373,7 @@ Queste impostazioni specifiche dell'associazione sono equivalenti alle impostazi
 Questo esempio illustra come configurare il trigger Azure Cosmos DB:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -390,8 +390,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -403,7 +402,7 @@ Per altri dettagli, vedere l'articolo relativo all' [associazione di Azure Cosmo
 Questo esempio illustra come configurare il trigger di hub eventi:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -419,8 +418,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -434,7 +432,7 @@ Questi esempi illustrano come configurare il trigger di archiviazione code:
 #### <a name="version-3x"></a>Versione 3. *x*
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -450,8 +448,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -480,7 +477,7 @@ Per ulteriori informazioni, vedere il [riferimento host. JSON V1. x](../azure-fu
 Questo esempio Mostra come configurare l'associazione di output di SendGrid:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -495,8 +492,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -508,7 +504,7 @@ Per altri dettagli, vedere l'articolo relativo all' [associazione di SendGrid](.
 Questo esempio illustra come configurare il trigger del bus di servizio:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -523,8 +519,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -538,7 +533,7 @@ Alcuni tipi di trigger e binding definiscono tipi di configurazione personalizza
 #### <a name="version-3x"></a>Versione 3. *x*
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -549,8 +544,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -751,7 +745,7 @@ Alcuni trigger dispongono del supporto integrato per la gestione della concorren
 
 * **QueueTrigger**. Impostare `JobHostConfiguration.Queues.BatchSize` su `1`.
 * **ServiceBusTrigger**. Impostare `ServiceBusConfiguration.MessageOptions.MaxConcurrentCalls` su `1`.
-* **Filetrigger**. Impostare `FileProcessor.MaxDegreeOfParallelism` su `1`.
+* **FileTrigger**. Impostare `FileProcessor.MaxDegreeOfParallelism` su `1`.
 
 È possibile usare queste impostazioni per assicurarsi che la funzione viene eseguita come singleton in una singola istanza. Per assicurarsi che venga eseguita una sola istanza della funzione quando l'app Web viene scalata in orizzontale a più istanze, applicare un blocco singleton a livello di listener sulla funzione (`[Singleton(Mode = SingletonMode.Listener)]`). I blocchi del listener vengono acquisiti all'avvio del JobHost. Se tutte e tre le istanze aumentate vengono avviate nello stesso momento, una sola istanza acquisisce il blocco e viene avviato un solo listener.
 
@@ -805,7 +799,7 @@ Per informazioni su come scrivere codice per le funzioni asincrone, vedere la [d
 
 Per informazioni su come gestire i token di annullamento, vedere la documentazione su [token di annullamento e arresto normale](../azure-functions/functions-dotnet-class-library.md#cancellation-tokens) di Funzioni di Azure.
 
-## <a name="multiple-instances"></a>Più istanze
+## <a name="multiple-instances"></a>Istanze multiple
 
 Se l'app Web viene eseguita in più istanze, WebJob viene eseguito continuativamente in ogni istanza, in ascolto dei trigger e chiamando le funzioni. Le diverse associazioni di trigger sono progettate per condividere in modo efficiente la collaborazione tra le istanze, così che l'aumento delle istanze consenta di gestire un carico maggiore.
 
@@ -821,7 +815,7 @@ I filtri funzione (anteprima) offrono un modo per personalizzare la pipeline di 
 
 ## <a name="logging-and-monitoring"></a>Registrazione e monitoraggio
 
-Si consiglia il Framework di registrazione sviluppato per ASP.NET. L'articolo [introduttivo](webjobs-sdk-get-started.md) illustra come usarlo. 
+Si consiglia il Framework di registrazione sviluppato per ASP.NET. L' [articolo introduttivo](webjobs-sdk-get-started.md) illustra come usarlo. 
 
 ### <a name="log-filtering"></a>Filtro del log
 
@@ -924,7 +918,7 @@ internal class CustomTelemetryInitializer : ITelemetryInitializer
 Chiamare [`ConfigureServices`] nel generatore per aggiungere l'[`ITelemetryInitializer`] personalizzato alla pipeline.
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -951,8 +945,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -1009,4 +1002,4 @@ Questo articolo ha fornito frammenti di codice che illustrano come gestire scena
 [`ConfigureServices`]: /dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.configureservices
 [`ITelemetryInitializer`]: /dotnet/api/microsoft.applicationinsights.extensibility.itelemetryinitializer
 [`TelemetryConfiguration`]: /dotnet/api/microsoft.applicationinsights.extensibility.telemetryconfiguration
-[JobHostConfiguration]: https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.Host/JobHostConfiguration.cs
+[`JobHostConfiguration`]: https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.Host/JobHostConfiguration.cs

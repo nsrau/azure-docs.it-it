@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/15/2018
-ms.openlocfilehash: 99f26bb2b89ef9642a36aa2be2037d04aafcdcd4
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: ef67801fee574ae43d83af650d6b715e12426c7e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819272"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432552"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Raccogliere tracce distribuite da Go (anteprima)
 
@@ -32,7 +32,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-application-insights-resource"></a>Creare una risorsa di Application Insights
 
-Prima di tutto, è necessario creare una risorsa di Application Insights, che genererà una chiave di strumentazione (iKey). La chiave di strumentazione viene quindi usata per configurare l'agente d'inoltro locale per inviare tracce distribuite dall'applicazione OpenCensus instrumentata ad Application Insights.   
+Prima di tutto, è necessario creare una risorsa di Application Insights, che genererà una chiave di strumentazione (iKey). La chiave di strumentazione verrà quindi usata per configurare il servizio d'inoltro locale per inviare tracce distribuite dall'applicazione OpenCensus instrumentata ad Application Insights.   
 
 1. Selezionare **Crea una risorsa** > **Strumenti di sviluppo** > **Application Insights**.
 
@@ -43,13 +43,13 @@ Prima di tutto, è necessario creare una risorsa di Application Insights, che ge
 
    Verrà visualizzata una casella di configurazione. Usare la tabella seguente per completare i campi di input.
 
-    | Impostazioni        | Value           | Description  |
+   | Impostazioni        | Valore           | Description  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valore globalmente univoco | Nome che identifica l'app da monitorare |
    | **Gruppo di risorse**     | myResourceGroup      | Nome del nuovo gruppo di risorse per l'hosting dei dati di Application Insights |
-   | **Località** | Stati Uniti Orientali | Scegliere una località nelle vicinanze o vicina a quella in cui è ospitata l'app |
+   | **Posizione** | Stati Uniti orientali | Scegliere una località nelle vicinanze o vicina a quella in cui è ospitata l'app |
 
-2. Fare clic su **Create**(Crea).
+2. Fare clic su **Crea**.
 
 ## <a name="configure-local-forwarder"></a>Configurare il servizio d'inoltro locale
 
@@ -74,7 +74,7 @@ Prima di tutto, è necessario creare una risorsa di Application Insights, che ge
     </LocalForwarderConfiguration>
     ```
 
-3. Riavviare il **servizio di inoltro locale** dell'applicazione.
+3. Riavviare il **servizio d'inoltro locale** dell'applicazione.
 
 ## <a name="opencensus-go-packages"></a>Pacchetti OpenCensus Go
 

@@ -7,14 +7,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 12/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 45ce22f208ee31b7202705eb4e42c38bedf09a8b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 7eeaadc80a97a96e6effdfc9e5cc76c201998f3f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013972"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438050"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Creare e gestire assegnazioni di ruolo in Gemelli digitali di Azure
 
@@ -36,13 +36,13 @@ Ogni assegnazione di ruolo è conforme alla definizione seguente:
 
 La tabella seguente descrive i singoli attributi:
 
-| Attribute | Nome | obbligatori | digitare | DESCRIZIONE |
+| Attributo | Nome | Obbligatorio | Tipo | Description |
 | --- | --- | --- | --- | --- |
-| RoleId | Identificatore della definizione di ruolo | Sì | String | ID univoco dell'assegnazione di ruolo desiderata. È possibile ottenere le definizioni dei ruoli e i relativi identificatori eseguendo una query sull'API di sistema o consultando la tabella seguente. |
-| objectId | Identificatore di oggetto | Sì | String | ID di Azure Active Directory, ID oggetto dell'entità servizio o nome di dominio. Destinatario dell'assegnazione di ruolo. L'assegnazione di ruolo deve essere formattata in base al tipo associato. Per l'elemento objectIdType `DomainName`, objectId deve iniziare con il carattere `“@”`. |
-| objectIdType | Tipo di identificatore di oggetto | Sì | String | Tipo di identificatore di oggetto usato. Vedere **ObjectIdType supportati** di seguito. |
-| path | Percorso di spazio | Sì | String | Percorso di accesso completo dell'oggetto `Space`. Un esempio è `/{Guid}/{Guid}`. Se un identificatore richiede l'assegnazione di ruolo per l'intero grafico, specificare `"/"`. Questo carattere designa la radice, ma non è consigliabile usarlo. Seguire sempre il principio del privilegio minimo. |
-| TenantId | Identificatore del tenant | Variabile | String | Nella maggior parte dei casi, ID tenant di Azure Active Directory. Non consentito per gli elementi ObjectIdType `DeviceId` e `TenantId`. Obbligatorio per gli elementi ObjectIdType `UserId` e `ServicePrincipalId`. Facoltativo per l'elemento ObjectIdType DomainName. |
+| RoleId | Identificatore della definizione di ruolo | Sì | string | ID univoco dell'assegnazione di ruolo desiderata. È possibile ottenere le definizioni dei ruoli e i relativi identificatori eseguendo una query sull'API di sistema o consultando la tabella seguente. |
+| objectId | Identificatori di oggetto | Sì | string | ID di Azure Active Directory, ID oggetto dell'entità servizio o nome di dominio. Destinatario dell'assegnazione di ruolo. L'assegnazione di ruolo deve essere formattata in base al tipo associato. Per l'elemento objectIdType `DomainName`, objectId deve iniziare con il carattere `“@”`. |
+| objectIdType | Tipo di identificatore di oggetto | Sì | string | Tipo di identificatore di oggetto usato. Vedere **ObjectIdType supportati** di seguito. |
+| path | Percorso di spazio | Sì | string | Percorso di accesso completo dell'oggetto `Space`. Un esempio è `/{Guid}/{Guid}`. Se un identificatore richiede l'assegnazione di ruolo per l'intero grafico, specificare `"/"`. Questo carattere designa la radice, ma non è consigliabile usarlo. Seguire sempre il principio del privilegio minimo. |
+| TenantId | Identificatore del tenant | Variabile | string | Nella maggior parte dei casi, ID tenant di Azure Active Directory. Non consentito per gli elementi ObjectIdType `DeviceId` e `TenantId`. Obbligatorio per gli elementi ObjectIdType `UserId` e `ServicePrincipalId`. Facoltativo per l'elemento ObjectIdType DomainName. |
 
 ### <a name="supported-role-definition-identifiers"></a>Identificatori delle definizioni del ruolo supportati
 
@@ -163,10 +163,10 @@ YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH
 
 | **Valore del parametro** | **Obbligatorio** |  **Tipo** |  **Descrizione** |
 | --- | --- | --- | --- |
-| YOUR_USER_ID |  true | String |   objectId dell'objectIdType UserId. |
-| YOUR_PATH | true | String |   Percorso per cui verificare l'accesso. |
-| YOUR_ACCESS_TYPE |  true | String |   *Lettura*, *creazione*, *aggiornamento*o *eliminazione* |
-| YOUR_RESOURCE_TYPE | true | String |  *Device*, *DeviceBlobMetadata*, *DeviceExtendedProperty*, *ExtendedPropertyKey*, *ExtendedType*, *endpoint*, *keystore*, *coincidono*, *ontologia*, *report*, *RoleDefinition*, *Sensor*, *SensorExtendedProperty*, *Space*, *SpaceBlobMetadata*, *SpaceExtendedProperty*, *SpaceResource*, *SpaceRoleAssignment*, *System*,  *UerDefinedFunction*, *User*, *UserBlobMetadata*o *UserExtendedProperty* |
+| YOUR_USER_ID |  Vero | string |   objectId dell'objectIdType UserId. |
+| YOUR_PATH | Vero | string |   Percorso per cui verificare l'accesso. |
+| YOUR_ACCESS_TYPE |  Vero | string |   *Lettura*, *creazione*, *aggiornamento*o *eliminazione* |
+| YOUR_RESOURCE_TYPE | Vero | string |  *Device*, *DeviceBlobMetadata*, *DeviceExtendedProperty*, *ExtendedPropertyKey*, *ExtendedType*, *endpoint*, *keystore*, *coincidono*, *ontologia*, *report*, *RoleDefinition*, *Sensor*, *SensorExtendedProperty*, *Space*, *SpaceBlobMetadata*, *SpaceExtendedProperty*, *SpaceResource*, *SpaceRoleAssignment*, *System*,  *UerDefinedFunction*, *User*, *UserBlobMetadata*o *UserExtendedProperty* |
 
 Una richiesta riuscita restituirà un valore booleano `true` o `false` per indicare se il tipo di accesso è stato assegnato all'utente per il percorso e la risorsa specificati.
 
@@ -204,7 +204,7 @@ Per revocare un'autorizzazione da un destinatario, eliminare l'assegnazione di r
 YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ASSIGNMENT_ID
 ```
 
-| . | Sostituire con |
+| Parametro | Sostituire con |
 | --- | --- |
 | *YOUR_ROLE_ASSIGNMENT_ID* | **ID** dell'assegnazione di ruolo da rimuovere |
 

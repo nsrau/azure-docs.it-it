@@ -1,5 +1,5 @@
 ---
-title: Acquisire eventi di streaming tramite il portale di Azure - Hub eventi di Azure | Microsoft Docs
+title: Hub eventi-Acquisisci eventi di streaming con portale di Azure
 description: Questo articolo descrive come abilitare l'acquisizione di eventi in streaming tramite Hub eventi di Azure tramite il portale di Azure.
 services: event-hubs
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.custom: seodec18
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 12/20/2019
 ms.author: shvija
-ms.openlocfilehash: 18dea8e8e4cfcabec63e35dd302f6a5259721a8a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 267f7c47d101406463378ad12c295ace80aecb7f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320301"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437227"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Abilitare l'acquisizione di eventi in streaming tramite Hub eventi di Azure
 
@@ -64,11 +64,11 @@ Per acquisire i dati in Azure Data Lake Store, si creano un account Data Lake St
 
 È possibile configurare l'acquisizione in hub eventi esistenti che si trovano in spazi dei nomi di Hub eventi. Per abilitare l'acquisizione in un hub eventi esistente o per modificarne le impostazioni, fare clic sullo spazio dei nomi per caricare la schermata Panoramica e quindi sull'hub eventi per cui si vuole abilitare l'acquisizione o modificarne l'impostazione. Infine fare clic sull'opzione **Acquisisci** nella parte sinistra della pagina aperta e quindi modificare le impostazioni come illustrato nelle figure seguenti:
 
-### <a name="azure-blob-storage"></a>Archivio BLOB di Azure
+### <a name="azure-blob-storage"></a>Archiviazione BLOB di Azure
 
 ![Configurare Archiviazione BLOB di Azure][2]
 
-### <a name="azure-data-lake-store"></a>Archivio Azure Data Lake
+### <a name="azure-data-lake-store"></a>Azure Data Lake Store
 
 ![Configurare Azure Data Lake Storage][4]
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 5e6910db7765c4cb8f151401a6803e6d4d3f998e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: c666d718586d3e5351974da287a91f6a3a8c04ba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159749"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459153"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento nel cloud pubblico di Azure
 Azure consente di eseguire applicazioni e macchine virtuali (VM) in un'infrastruttura fisica condivisa. Uno dei motivi economici principali per l'esecuzione di applicazioni in un ambiente cloud è la possibilità di distribuire il costo delle risorse condivise tra più clienti. Questa pratica di multi-tenancy aumenta l'efficienza grazie al multiplexing delle risorse tra i diversi clienti a costi ridotti, ma introduce purtroppo i rischi correlati alla condivisione di server fisici e altre risorse dell'infrastruttura per l'esecuzione di applicazioni sensibili del cliente insieme a VM che possono appartenere a un utente qualsiasi, potenzialmente malintenzionato.
@@ -205,7 +205,7 @@ La crittografia in transito è un meccanismo di protezione dei dati durante la t
 
 -   [Crittografia a livello di trasporto](../../storage/common/storage-security-guide.md), ad esempio HTTPS quando si trasferiscono dati all'interno o all'esterno di Archiviazione di Azure.
 
--   [Crittografia di rete](../../storage/common/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), ad esempio la crittografia SMB 3.0 per le condivisioni file di Azure.
+-   [Crittografia di rete](../../storage/common/storage-security-guide.md), ad esempio la crittografia SMB 3.0 per le condivisioni file di Azure.
 
 -   [Crittografia lato client](../../storage/common/storage-security-guide.md), per crittografare i dati prima che siano trasferiti nella risorsa di archiviazione e decrittografarli dopo il trasferimento dalla risorsa di archiviazione.
 

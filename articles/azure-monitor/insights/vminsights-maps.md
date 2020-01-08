@@ -4,15 +4,15 @@ description: Map è una funzionalità di Monitoraggio di Azure per le macchine v
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 7ca79b0df55dbfea6a0e2c016773f9f32bf29667
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: d91c4f7c3abdb06bfe0116e0fadf67c5b7a7a394
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199088"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450714"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-preview-to-understand-application-components"></a>Utilizzare la funzionalità di mapping di Monitoraggio di Azure per le macchine virtuali (anteprima) per comprendere i componenti dell'applicazione
 In Monitoraggio di Azure per le macchine virtuali, è possibile visualizzare i componenti dell'applicazione individuati in macchine virtuali Windows e Linux in esecuzione in Azure o nell'ambiente in uso. È possibile osservare le macchine virtuali in due modi. Visualizzare una mappa direttamente da una macchina virtuale o visualizzare una mappa da monitoraggio di Azure per visualizzare i componenti tra gruppi di macchine virtuali. Questo articolo consente di comprendere questi due metodi di visualizzazione e come usare la funzionalità mappa. 
@@ -115,13 +115,13 @@ Per impostazione predefinita, la mappa visualizza gli ultimi 30 minuti. Se si de
 ![Panoramica di mappe direttamente da macchina virtuale](./media/vminsights-maps/map-direct-vmss-01.png)
 
 >[!NOTE]
->È anche possibile accedere a una mappa per un'istanza specifica dalla visualizzazione **istanze** per il set di scalabilità di macchine virtuali. Nella sezione **Impostazioni** passare a **istanze**  > **Insights (anteprima)** .
+>È anche possibile accedere a una mappa per un'istanza specifica dalla visualizzazione **istanze** per il set di scalabilità di macchine virtuali. Nella sezione **Impostazioni** passare a **istanze** > **Insights (anteprima)** .
 
 ## <a name="view-a-map-from-azure-monitor"></a>Visualizzare una mappa da monitoraggio di Azure
 
 In monitoraggio di Azure, la funzionalità mappa fornisce una visualizzazione globale delle VM e delle relative dipendenze. Per accedere alla funzionalità mappa in monitoraggio di Azure:
 
-1. Nel portale di Azure selezionare **Monitor**. 
+1. Nel portale di Azure selezionare **Monitoraggio**. 
 2. Nella sezione **Insights** scegliere **macchine virtuali (anteprima)** .
 3. Selezionare la scheda **Mappa**.
 

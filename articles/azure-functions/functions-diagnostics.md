@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: yunjchoi
 ms.custom: na
-ms.openlocfilehash: 71edb9a32254eeee123b874305dd25b699e05cc1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 29f90508bf0bdd77f02d78cbcba8fdfe7009f0d2
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227012"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562052"
 ---
 # <a name="azure-functions-diagnostics-overview"></a>Panoramica della diagnostica di funzioni di Azure
 
@@ -40,11 +40,11 @@ Dopo aver selezionato un riquadro, è possibile visualizzare un elenco di argome
 
 ## <a name="view-a-diagnostic-report"></a>Visualizzare un report di diagnostica
 
-Dopo aver scelto un argomento, è possibile visualizzare un report di diagnostica specifico per l'app per le funzioni. I report di diagnostica usano le icone di stato per indicare eventuali problemi specifici dell'app. Viene visualizzata una descrizione dettagliata del problema, delle azioni consigliate, delle metriche correlate e dei documenti utili. I report di diagnostica personalizzati vengono generati da una serie di controlli eseguiti nell'app per le funzioni. I report di diagnostica possono essere uno strumento utile per individuare i problemi nell'app per le funzioni e guidare l'utente alla risoluzione del problema.
+Dopo aver scelto un argomento, è possibile visualizzare un report di diagnostica specifico per l'app per le funzioni. I report di diagnostica usano le icone di stato per indicare se sono presenti problemi specifici dell'app. Viene visualizzata una descrizione dettagliata del problema, delle azioni consigliate, delle metriche correlate e dei documenti utili. I report di diagnostica personalizzati vengono generati da una serie di controlli eseguiti nell'app per le funzioni. I report di diagnostica possono essere uno strumento utile per individuare i problemi nell'app per le funzioni e guidare l'utente alla risoluzione del problema.
 
 ## <a name="find-the-problem-code"></a>Trovare il codice problema 
 
-Per le funzioni basate su script, è possibile usare **l'esecuzione di funzioni** e gli **errori in app per le funzioni o segnalare errori** per restringere la riga di codice che causa eccezioni o errori. Questa funzionalità può essere utile per ottenere la causa principale e correggere i problemi da una riga di codice specifica. Questa opzione non è disponibile per C# le funzioni precompilate e Java.
+Per le funzioni basate su script, è possibile usare **l'esecuzione di funzioni** e gli **errori** in **app per le funzioni o segnalare errori** per restringere la riga di codice che causa eccezioni o errori. Questa funzionalità può essere utile per ottenere la causa principale e correggere i problemi da una riga di codice specifica. Questa opzione non è disponibile per C# le funzioni precompilate e Java.
 
 ![Report di diagnostica sugli errori di esecuzione della funzione](./media/functions-diagnostics/diagnostic-report-on-function-execution-errors.png)
 

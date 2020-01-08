@@ -1,5 +1,6 @@
 ---
-title: Accesso alla soluzione VMware di Azure da CloudSimple da locale
+title: Accedere alla soluzione VMware di Azure tramite CloudSimple da locale
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Accesso alla soluzione VMware di Azure da CloudSimple dalla rete locale tramite un firewall
 author: sharaths-cs
 ms.author: dikamath
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c0f575417819f0e2d46565ad15aaa23a04fd7cf1
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: df4c51953c6f50e30ba61b993cdb35856fcb8e25
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972635"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452401"
 ---
 # <a name="accessing-your-cloudsimple-private-cloud-environment-and-applications-from-on-premises"></a>Accesso all'ambiente cloud privato di CloudSimple e alle applicazioni da locale
 
@@ -23,10 +24,10 @@ ms.locfileid: "69972635"
 
 Per accedere alla gestione del cloud privato vCenter e NSX-T, le porte definite nella tabella seguente devono essere aperte nel firewall locale.  
 
-| Port       | Source                           | Destination                      | Scopo                                                                                                                |
+| Porta       | Origine                           | Destinazione                      | Finalità                                                                                                                |
 |------------|----------------------------------|----------------------------------|------------------------------------------------------------------------------------------------------------------------|
-| 53 (UDP)   | Server DNS locali          | Server DNS del cloud privato        | Obbligatorio per l'invio della ricerca DNS di *AZ.cloudsimple.io* ai server DNS del cloud privato dalla rete locale.       |
-| 53 (UDP)   | Server DNS del cloud privato        | Server DNS locali          | Obbligatorio per l'invio della ricerca DNS di nomi di dominio locali dal cloud privato vCenter ai server DNS locali. |
+| 53 (UDP)   | server DNS locali          | Server DNS del cloud privato        | Obbligatorio per l'invio della ricerca DNS di *AZ.cloudsimple.io* ai server DNS del cloud privato dalla rete locale.       |
+| 53 (UDP)   | Server DNS del cloud privato        | server DNS locali          | Obbligatorio per l'invio della ricerca DNS di nomi di dominio locali dal cloud privato vCenter ai server DNS locali. |
 | 80 (TCP)   | Rete locale              | Rete di gestione del cloud privato | Obbligatorio per il reindirizzamento dell'URL vCenter da *http* a *https*.                                                           |
 | 443 (TCP)  | Rete locale              | Rete di gestione del cloud privato | Obbligatorio per accedere alla gestione vCenter e NSX-T dalla rete locale.                                             |
 | 8000 (TCP) | Rete locale              | Rete di gestione del cloud privato | Obbligatorio per vMotion di macchine virtuali da locale a cloud privato.                                            |
@@ -36,9 +37,9 @@ Per accedere alla gestione del cloud privato vCenter e NSX-T, le porte definite 
 
 Per configurare Active Directory locale come origine di identità nel cloud privato vCenter, è necessario aprire le porte definite nella tabella.  Per la procedura di configurazione, vedere [usare Azure ad come provider di identità per vCenter in CloudSimple private cloud](https://docs.azure.cloudsimple.com/azure-ad/) .
 
-| Port         | Source                           | Destination                                         | Scopo                                                                                                                                          |
+| Porta         | Origine                           | Destinazione                                         | Finalità                                                                                                                                          |
 |--------------|----------------------------------|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
-| 53 (UDP)      | Server DNS del cloud privato        | Server DNS locali                             | Obbligatorio per l'invio della ricerca DNS di nomi di dominio di Active Directory locali dal cloud privato vCenter ai server DNS locali.          |
+| 53 (UDP)      | Server DNS del cloud privato        | server DNS locali                             | Obbligatorio per l'invio della ricerca DNS di nomi di dominio di Active Directory locali dal cloud privato vCenter ai server DNS locali.          |
 | 389 (TCP/UDP) | Rete di gestione del cloud privato | Controller di dominio di Active Directory locali     | Obbligatorio per la comunicazione LDAP dal server vCenter del cloud privato ai controller di dominio Active Directory per l'autenticazione utente.                |
 | 636 (TCP)     | Rete di gestione del cloud privato | Controller di dominio di Active Directory locali     | Necessaria per la comunicazione LDAP sicura (LDAPs) dal server vCenter del cloud privato ai controller di dominio Active Directory per l'autenticazione utente. |
 | 3268 (TCP)    | Rete di gestione del cloud privato | Server di catalogo globale di Active Directory locale | Obbligatorio per la comunicazione LDAP in una distribuzione di controller multidominio.                                                                        |
@@ -48,7 +49,7 @@ Per configurare Active Directory locale come origine di identità nel cloud priv
 
 Per accedere alle macchine virtuali del carico di lavoro in esecuzione nel cloud privato, è necessario aprire le porte nel firewall locale.  La tabella seguente mostra alcune delle porte comuni necessarie e il relativo scopo.  Per tutti i requisiti di porta specifici dell'applicazione, fare riferimento alla documentazione dell'applicazione.
 
-| Port         | Source                         | Destination                          | Scopo                                                                              |
+| Porta         | Origine                         | Destinazione                          | Finalità                                                                              |
 |--------------|--------------------------------|--------------------------------------|--------------------------------------------------------------------------------------|
 | 22 (TCP)      | Rete locale            | Rete del carico di lavoro del cloud privato       | Proteggere l'accesso alla Shell alle macchine virtuali Linux in esecuzione nel cloud privato.              |
 | 3389 (TCP)    | Rete locale            | Rete del carico di lavoro del cloud privato       | Desktop remoto per macchine virtuali Windows in esecuzione in un cloud privato.                 |

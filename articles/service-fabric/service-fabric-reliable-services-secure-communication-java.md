@@ -1,24 +1,16 @@
 ---
-title: Proteggere le comunicazioni remote per i servizi in Azure Service Fabric con Java | Microsoft Docs
+title: Proteggere le comunicazioni remote del servizio con Java
 description: Informazioni su come proteggere le comunicazioni remote per Reliable Services Java in esecuzione in un cluster di Azure Service Fabric.
-services: service-fabric
-documentationcenter: java
 author: PavanKunapareddyMSFT
-manager: chackdan
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: b465ab602a14285f8cf40b24ce1dfa9c763fecb8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: adefeadf939d398268624343d82c18cbf5ec87cd
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60773350"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609639"
 ---
 # <a name="secure-service-remoting-communications-in-a-java-service"></a>Proteggere le comunicazioni remote per Reliable Services in un servizio Java
 > [!div class="op_single_selector"]

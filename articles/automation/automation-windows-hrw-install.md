@@ -2,19 +2,15 @@
 title: Ruolo di lavoro ibrido per runbook Windows di Automazione di Azure
 description: Questo articolo fornisce informazioni sull'installazione di un ruolo di lavoro ibrido per runbook di Automazione di Azure che consente di eseguire i runbook su computer Windows nel data center locale o nell'ambiente cloud.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 11/25/2019
+ms.date: 12/10/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: cd599fcfe403d64483e6b4db869b93b26f5db754
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 696885fa3e082ae7096954fb55b17da5b77788bc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480810"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75418908"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Distribuire un ruolo di lavoro ibrido per runbook di Windows
 
@@ -22,7 +18,13 @@ ms.locfileid: "74480810"
 
 ## <a name="installing-the-windows-hybrid-runbook-worker"></a>Installazione del ruolo di lavoro ibrido per runbook di Windows
 
-Per installare e configurare un ruolo di lavoro ibrido per runbook di Windows, è possibile usare due metodi. Il metodo consigliato consiste nell'usare un runbook di Automazione per automatizzare completamente il processo necessario di configurazione di un computer Windows. Il secondo metodo prevede l'esecuzione di una procedura dettagliata per installare e configurare il ruolo manualmente.
+Per installare e configurare un ruolo di lavoro ibrido per Runbook di Windows, è possibile usare uno dei tre metodi seguenti:
+
+* Per le macchine virtuali di Azure, è possibile installare l'agente di Log Analytics per Windows usando l' [estensione della macchina virtuale per Windows](../virtual-machines/extensions/oms-windows.md). L'estensione installa l'agente di Log Analytics in macchine virtuali di Azure e registra le macchine virtuali in un'area di lavoro di Log Analytics esistente usando un modello di Azure Resource Manager o con PowerShell. Una volta installato l'agente, la macchina virtuale può essere aggiunta a un gruppo di ruolo di lavoro ibrido per Runbook nell'account di automazione, nel **passaggio 4** della sezione relativa alla [distribuzione manuale](#manual-deployment) riportata di seguito.
+
+* Usare un Runbook di automazione per automatizzare completamente il processo di configurazione di un computer Windows. Questo è il metodo consigliato per i computer nel Data Center o in un altro ambiente cloud.
+
+* Seguire una procedura dettagliata per installare e configurare manualmente il ruolo di lavoro ibrido per Runbook nella macchina virtuale non di Azure.
 
 > [!NOTE]
 > Per gestire la configurazione dei server che supportano il ruolo di lavoro ibrido per runbook con DSC (Desired State Configuration), è necessario aggiungerli come nodi DSC.
@@ -39,7 +41,7 @@ I requisiti minimi per un ruolo di lavoro ibrido per runbook di Windows sono i s
 Per altri requisiti di rete per il ruolo di lavoro ibrido per runbook, vedere la sezione [Configurazione della rete](automation-hybrid-runbook-worker.md#network-planning).
 
 Per informazioni sul caricamento dei server per la gestione con DSC, vedere [Caricamento di computer per la gestione con Automation DSC per Azure](automation-dsc-onboarding.md).
-Se si abilita la [soluzione Gestione aggiornamenti](../operations-management-suite/oms-solution-update-management.md), qualsiasi computer Windows connesso all'area di lavoro Azure Log Analytics viene automaticamente configurato come ruolo di lavoro ibrido per runbook per supportare i runbook che fanno parte di questa soluzione. Non viene però eseguita la registrazione con i gruppi di ruoli di lavoro ibridi già definiti nell'account di Automazione. 
+Se si Abilita la [soluzione Gestione aggiornamenti](../operations-management-suite/oms-solution-update-management.md), qualsiasi computer Windows connesso all'area di lavoro di log Analytics viene configurato automaticamente come ruolo di lavoro ibrido per Runbook per supportare manuali operativi incluso in questa soluzione. Non viene però eseguita la registrazione con i gruppi di ruoli di lavoro ibridi già definiti nell'account di Automazione. 
 
 È possibile aggiungere il computer a un gruppo di ruoli di lavoro ibridi per runbook nell'account di Automazione per supportare i runbook di Automazione, purché si usi lo stesso account sia per la soluzione che per l'appartenenza al gruppo di ruoli di lavoro ibridi per runbook. Questa funzionalità è stata aggiunta alla versione 7.2.12024.0 del ruolo di lavoro ibrido per runbook.
 
@@ -89,29 +91,37 @@ Eseguire i primi due passaggi una volta per l'ambiente di automazione e quindi r
 
 #### <a name="1-create-a-log-analytics-workspace"></a>1. creare un'area di lavoro Log Analytics
 
-Se non si ha ancora un'area di lavoro Log Analytics, crearne una seguendo le istruzioni contenute in [Gestire le aree di lavoro](../azure-monitor/platform/manage-access.md). Se già si dispone di un'area di lavoro, è possibile usarla.
+Se non si dispone già di un'area di lavoro Log Analytics, prima di creare un'area di lavoro esaminare le [linee guida](../azure-monitor/platform/design-logs-deployment.md) per la progettazione dei log di monitoraggio di Azure. 
 
 #### <a name="2-add-the-automation-solution-to-the-log-analytics-workspace"></a>2. aggiungere la soluzione di automazione all'area di lavoro Log Analytics
 
-La soluzione automazione log di monitoraggio di Azure aggiunge funzionalità per automazione di Azure, incluso il supporto per il ruolo di lavoro ibrido per Runbook. Quando si aggiunge la soluzione all'area di lavoro, i componenti del ruolo di lavoro vengono automaticamente propagati al computer dell'agente che verrà installato nel passaggio successivo.
+La soluzione di automazione aggiunge funzionalità per Automazione di Azure, incluso il supporto per il ruolo di lavoro ibrido per runbook. Quando si aggiunge la soluzione all'area di lavoro Log Analytics, inserisce automaticamente i componenti del ruolo di lavoro nel computer agente che verrà installato nel passaggio successivo.
 
-Per aggiungere la soluzione **Automation** log di monitoraggio di Azure all'area di lavoro, eseguire il comando PowerShell seguente.
+Per aggiungere la soluzione di **automazione** all'area di lavoro, eseguire il comando PowerShell seguente.
 
 ```powershell-interactive
 Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <LogAnalyticsWorkspaceName> -IntelligencePackName "AzureAutomation" -Enabled $true
 ```
 
-#### <a name="3-install-the-microsoft-monitoring-agent"></a>3. installare il Microsoft Monitoring Agent
+#### <a name="3-install-the-log-analytics-agent-for-windows"></a>3. installare l'agente di Log Analytics per Windows
 
-Il Microsoft Monitoring Agent connette i computer ai log di monitoraggio di Azure. Quando si installa l'agente nel computer locale e lo si connette all'area di lavoro, viene eseguito automaticamente il download dei componenti necessari per il ruolo di lavoro ibrido per runbook.
+L'agente di Log Analytics per Windows connette i computer a un'area di lavoro Log Analytics di monitoraggio di Azure. Quando si installa l'agente nel computer e lo si connette all'area di lavoro, vengono scaricati automaticamente i componenti necessari per il ruolo di lavoro ibrido per Runbook.
 
-Per installare l'agente nel computer locale, seguire le istruzioni in [connettere i computer Windows ai log di monitoraggio di Azure](../log-analytics/log-analytics-windows-agent.md). È possibile ripetere questo processo per più computer per aggiungere più ruoli di lavoro nell'ambiente.
+Per installare l'agente nel computer, seguire le istruzioni riportate in [connettere i computer Windows ai log di monitoraggio di Azure](../log-analytics/log-analytics-windows-agent.md). È possibile ripetere questo processo per più computer per aggiungere più ruoli di lavoro nell'ambiente.
 
-Quando l'agente si è connesso correttamente ai log di monitoraggio di Azure, viene elencato nella scheda **origini connesse** della pagina **Impostazioni** di log Analytics. È possibile verificare che l'agente abbia scaricato correttamente la soluzione di automazione se include una cartella **AzureAutomationFiles** in C:\Programmi\Microsoft Monitoring Agent\Agent. Per verificare la versione del ruolo di lavoro ibrido per runbook, passare a C:\Programmi\Microsoft Monitoring Agent\Agent\AzureAutomation\ e prendere nota della sottocartella \\*version*.
+Quando l'agente si è connesso correttamente all'area di lavoro di Log Analytics, dopo alcuni minuti è possibile eseguire la query seguente per verificare che invii i dati heartbeat all'area di lavoro:
+
+```kusto
+Heartbeat 
+| where Category == "Direct Agent" 
+| where TimeGenerated > ago(30m)
+```
+
+Nei risultati della ricerca restituiti, devono venire visualizzati i record di heartbeat per il computer indicanti che è connesso e che invia report al servizio. Per impostazione predefinita, il record heartbeat viene inviato da ogni agente all'area di lavoro assegnata. È possibile verificare che l'agente abbia scaricato correttamente la soluzione di automazione se include una cartella **AzureAutomationFiles** in C:\Programmi\Microsoft Monitoring Agent\Agent. Per verificare la versione del ruolo di lavoro ibrido per runbook, passare a C:\Programmi\Microsoft Monitoring Agent\Agent\AzureAutomation\ e prendere nota della sottocartella \\*version*.
 
 #### <a name="4-install-the-runbook-environment-and-connect-to-azure-automation"></a>4. installare l'ambiente Runbook e connettersi ad automazione di Azure
 
-Quando si aggiunge un agente ai log di monitoraggio di Azure, la soluzione di automazione esegue il push del modulo **HybridRegistration** di PowerShell, che contiene il cmdlet **Add-HybridRunbookWorker** . È possibile usare questo cmdlet per installare l'ambiente runbook nel computer e registrarlo in Automazione di Azure.
+Quando si configura un agente per la segnalazione a un'area di lavoro Log Analytics, la soluzione di automazione esegue il push del modulo **HybridRegistration** di PowerShell, che contiene il cmdlet **Add-HybridRunbookWorker** . È possibile usare questo cmdlet per installare l'ambiente runbook nel computer e registrarlo in Automazione di Azure.
 
 Aprire una sessione di PowerShell in modalità amministratore ed eseguire i comandi seguenti per importare il modulo:
 

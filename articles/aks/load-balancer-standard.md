@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: ef826239bc916b4ccf25785f92397286017d00f7
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 43a2c64560b145531e15a35deb9321b6553782a4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171395"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430813"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Usare un servizio di bilanciamento del carico con SKU standard in Azure Kubernetes Service (AKS)
 
@@ -54,6 +54,10 @@ Quando si creano e si gestiscono cluster AKS che supportano un servizio di bilan
 * La definizione dello SKU del servizio di bilanciamento del carico può essere eseguita solo quando si crea un cluster AKS. Non è possibile modificare lo SKU del servizio di bilanciamento del carico dopo che è stato creato un cluster AKS.
 * È possibile usare un solo tipo di SKU di Load Balancer (Basic o standard) in un singolo cluster.
 * *Standard* I bilanciamenti del carico SKU supportano solo indirizzi IP SKU *standard* .
+
+## <a name="use-the-standard-sku-load-balancer"></a>Usare il servizio di bilanciamento del carico SKU *standard*
+
+Quando si crea un cluster AKS, per impostazione predefinita viene usato il servizio di bilanciamento del carico SKU *standard* quando si eseguono i servizi in tale cluster. Ad esempio, [la Guida introduttiva usando l'interfaccia della][aks-quickstart-cli] riga di comando di Azure distribuisce un'applicazione di esempio che usa il servizio di bilanciamento del carico SKU *standard* . 
 
 ## <a name="configure-the-load-balancer-to-be-internal"></a>Configurare il servizio di bilanciamento del carico come interno
 
@@ -177,12 +181,34 @@ AllocatedOutboundPorts    EnableTcpReset    IdleTimeoutInMinutes    Name        
 
 Nell'output di esempio, *AllocatedOutboundPorts* è 0. Il valore di *AllocatedOutboundPorts* indica che l'allocazione delle porte SNAT ripristina l'assegnazione automatica in base alle dimensioni del pool back-end. Per informazioni dettagliate, vedere [Load Balancer regole in uscita][azure-lb-outbound-rules] e [connessioni in uscita in Azure][azure-lb-outbound-connections] .
 
+## <a name="restrict-access-to-specific-ip-ranges"></a>Limitazione dell'accesso a intervalli IP specifici
+
+Per impostazione predefinita, il gruppo di sicurezza di rete (NSG) associato alla rete virtuale per il servizio di bilanciamento del carico ha una regola per consentire tutto il traffico esterno in ingresso. È possibile aggiornare questa regola in modo da consentire solo intervalli IP specifici per il traffico in ingresso. Il manifesto seguente usa *loadBalancerSourceRanges* per specificare un nuovo intervallo IP per il traffico esterno in ingresso:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-vote-front
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: azure-vote-front
+  loadBalancerSourceRanges:
+  - MY_EXTERNAL_IP_RANGE
+```
+
+L'esempio precedente aggiorna la regola in modo da consentire solo il traffico esterno in ingresso dall'intervallo di *MY_EXTERNAL_IP_RANGE* . Altre informazioni sull'uso di questo metodo per limitare l'accesso al servizio di bilanciamento del carico sono disponibili nella [documentazione di Kubernetes][kubernetes-cloud-provider-firewall].
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sui servizi Kubernetes, vedere la [documentazione relativa ai servizi di Kubernetes][kubernetes-services].
 
 <!-- LINKS - External -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubernetes-cloud-provider-firewall]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/#restrict-access-for-loadbalancer-service
 [kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply

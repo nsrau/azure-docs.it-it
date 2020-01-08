@@ -1,18 +1,18 @@
 ---
-title: Limitazione dell'accesso per gli indirizzi IP
-description: Informazioni su come proteggere l'app nel servizio app Azure inserendo in modo esplicito gli indirizzi IP o gli intervalli di indirizzi del client.
+title: Restrizioni di accesso al servizio app Azure
+description: Informazioni su come proteggere l'app nel servizio app Azure specificando restrizioni di accesso.
 author: ccompy
 ms.assetid: 3be1f4bd-8a81-4565-8a56-528c037b24bd
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 64ce74c84f8f69e72510be76a1309e1a5ea42f2f
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 42f25c1b66261ac644f015290bed2c7473acbdaa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672176"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422230"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Restrizioni di accesso al servizio app Azure #
 
@@ -24,7 +24,7 @@ Quando viene effettuata una richiesta all'app, l'indirizzo FROM viene valutato i
 
 La funzionalità restrizioni di accesso è implementata nei ruoli front-end del servizio app, che sono upstream degli host di lavoro in cui viene eseguito il codice. Di conseguenza, le restrizioni di accesso sono gli ACL di rete.
 
-La possibilità di limitare l'accesso all'app Web da una rete virtuale di Azure (VNet) viene definita [endpoint di servizio][serviceendpoints]. Gli endpoint di servizio consentono di limitare l'accesso a un servizio multi-tenant dalle subnet selezionate. È necessario abilitarla sia sul lato rete che sul servizio con cui è abilitata. Non funziona per limitare il traffico alle app ospitate in un ambiente del servizio app.  Se ci si trova in una ambiente del servizio app, è possibile controllare l'accesso all'app con le regole degli indirizzi IP.
+La possibilità di limitare l'accesso all'app Web da una rete virtuale di Azure (VNet) viene definita [endpoint di servizio][serviceendpoints]. Gli endpoint di servizio consentono di limitare l'accesso a un servizio multi-tenant dalle subnet selezionate. È necessario abilitarla sia sul lato rete che sul servizio con cui è abilitata. Non funziona per limitare il traffico alle app ospitate in un ambiente del servizio app. Se ci si trova in una ambiente del servizio app, è possibile controllare l'accesso all'app con le regole degli indirizzi IP.
 
 ![flusso restrizioni di accesso](media/app-service-ip-restrictions/access-restrictions-flow.png)
 
@@ -58,7 +58,7 @@ Gli endpoint di servizio consentono di limitare l'accesso alle subnet della rete
 
 Gli endpoint di servizio non possono essere usati per limitare l'accesso alle app eseguite in un ambiente del servizio app. Quando l'app si trova in una ambiente del servizio app, è possibile controllare l'accesso all'app con le regole di accesso IP. 
 
-Con gli endpoint di servizio è possibile configurare l'app con gateway applicazione o altri dispositivi WAF. È anche possibile configurare applicazioni multilivello con backend protetti. Per altri dettagli su alcune delle possibilità, vedere [funzionalità di rete e servizio app](networking-features.md).
+Con gli endpoint di servizio è possibile configurare l'app con gateway applicazione o altri dispositivi WAF. È anche possibile configurare applicazioni multilivello con backend protetti. Per altri dettagli su alcune delle possibilità, vedere [funzionalità di rete e integrazione del servizio app](networking-features.md) e del [gateway applicazione con gli endpoint di servizio](networking/app-gateway-with-service-endpoints.md).
 
 ## <a name="managing-access-restriction-rules"></a>Gestione delle regole di restrizione dell'accesso
 
@@ -90,34 +90,49 @@ Oltre a essere in grado di controllare l'accesso all'app, è anche possibile lim
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>Manipolazione a livello di codice delle regole di restrizione di accesso ##
 
-Attualmente non è disponibile un'interfaccia della riga di comando o PowerShell per le nuove funzionalità di restrizione dell'accesso, ma i valori possono essere impostati manualmente con un'operazione di inserimento dell' [API REST di Azure](https://docs.microsoft.com/rest/api/azure/) nella configurazione dell'app in Gestione risorse. Come esempio, è possibile usare resources.azure.com e modificare il blocco ipSecurityRestrictions per aggiungere il JSON necessario.
+L'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/webapp/config/access-restriction?view=azure-cli-latest) e [Azure PowerShell](https://docs.microsoft.com/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule?view=azps-3.1.0) supporta la modifica delle restrizioni di accesso. Esempio di aggiunta di una restrizione di accesso usando l'interfaccia della riga di comando:
+
+```azurecli-interactive
+az webapp config access-restriction add --resource-group ResourceGroup --name AppName \
+    --rule-name 'IP example rule' --action Allow --ip-address 122.133.144.0/24 --priority 100
+```
+Esempio di aggiunta di una restrizione di accesso con Azure PowerShell:
+
+```azurepowershell-interactive
+Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName"
+    -Name "Ip example rule" -Priority 100 -Action Allow -IpAddress 122.133.144.0/24
+```
+
+I valori possono essere impostati anche manualmente con un'operazione di inserimento dell' [API REST di Azure](https://docs.microsoft.com/rest/api/azure/) nella configurazione dell'app in Gestione risorse o usando un modello di Azure Resource Manager. Come esempio, è possibile usare resources.azure.com e modificare il blocco ipSecurityRestrictions per aggiungere il JSON necessario.
 
 Il percorso per questa informazione in Gestione risorse è:
 
 management.azure.com/subscriptions/**subscription ID**/resourceGroups/**resource groups**/providers/Microsoft.Web/sites/**web app name**/config/web?api-version=2018-02-01
 
 La sintassi JSON per l'esempio precedente è:
-
-    {
-      "properties": {
-        "ipSecurityRestrictions": [
-          {
-            "ipAddress": "122.133.144.0/24",
-            "action": "Allow",
-            "tag": "Default",
-            "priority": 100,
-            "name": "IP example rule"
-          }
-        ]
+```json
+{
+  "properties": {
+    "ipSecurityRestrictions": [
+      {
+        "ipAddress": "122.133.144.0/24",
+        "action": "Allow",
+        "priority": 100,
+        "name": "IP example rule"
       }
-    }
+    ]
+  }
+}
+```
 
-## <a name="function-app-ip-restrictions"></a>Restrizioni IP app per le funzioni
+## <a name="azure-function-app-access-restrictions"></a>Restrizioni per l'accesso ad Azure app per le funzioni
 
-Le restrizioni IP sono disponibili per entrambe le app per le funzioni con le stesse funzionalità dei piani di servizio app. Con l'abilitazione delle restrizioni IP, l'editor del codice del portale viene disabilitato per tutti gli indirizzi IP non
+Le restrizioni di accesso sono disponibili per entrambe le app per le funzioni con le stesse funzionalità dei piani di servizio app. Con l'abilitazione delle restrizioni di accesso, l'editor del codice del portale viene disabilitato per tutti gli indirizzi IP non
 
-Fare clic [qui](../azure-functions/functions-networking-options.md#inbound-ip-restrictions) per altre informazioni
+## <a name="next-steps"></a>Passaggi successivi
+[Limitazioni di accesso per le app per le funzioni di Azure](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
 
+[Integrazione del gateway applicazione con gli endpoint di servizio](networking/app-gateway-with-service-endpoints.md)
 
 <!--Links-->
 [serviceendpoints]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview

@@ -1,6 +1,6 @@
 ---
-title: Domande frequenti sui set di scalabilità di macchine virtuali di Azure | Microsoft Docs
-description: Risposte alle domande frequenti sui set di scalabilità di macchine virtuali.
+title: Domande frequenti sui set di scalabilità di macchine virtuali di Azure
+description: Risposte alle domande più frequenti sui set di scalabilità di macchine virtuali in Azure.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/24/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 429e201ba1d15103ae130ee2fb767cd1b4fa909a
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 47ea23f3018e9d28c0ccfd6640b3d365103ab9ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779418"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356209"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Domande frequenti sui set di scalabilità di macchine virtuali di Azure
 
@@ -72,7 +72,7 @@ Un set di scalabilità basato sull'area e non sulla zona usa i *gruppi di posizi
 Sì. Per altre informazioni, vedere il [documento sulle zone del set di scalabilità](./virtual-machine-scale-sets-use-availability-zones.md).
 
 
-## <a name="autoscale"></a>Autoscale
+## <a name="autoscale"></a>Scalabilità automatica
 
 ### <a name="what-are-best-practices-for-azure-autoscale"></a>Quali sono le procedure consigliate per la scalabilità automatica di Azure?
 
@@ -229,7 +229,7 @@ Quando si crea una VM Linux è possibile fornire le chiavi pubbliche SSH in test
 }
 ```
 
-Nome dell'elemento linuxConfiguration | Obbligatorio | Type | DESCRIZIONE
+Nome dell'elemento linuxConfiguration | Obbligatorio | Tipo | Description
 --- | --- | --- | ---
 ssh | No | Raccolta | Specifica la configurazione delle chiavi SSH per un sistema operativo Linux
 path | Sì | string | Specifica il percorso del file Linux in cui devono essere salvate le chiavi SSH o il certificato
@@ -239,7 +239,7 @@ Per un esempio, vedere il [modello di avvio rapido 101-vm-sshkey di GitHub](http
 
 ### <a name="when-i-run-update-azvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>Quando si esegue `Update-AzVmss` dopo avere aggiunto più di un certificato dallo stesso insieme di credenziali delle chiavi, viene visualizzato il messaggio seguente:
 
->Update-AzVmss: L'elenco Secret contiene istanze ripetute\<di/subscriptions/My-Subscription-ID >/resourceGroups/Internal-RG-dev/Providers/Microsoft.KeyVault/Vaults/Internal-keyvault-dev, che non è consentito.
+>Update-AzVmss: l'elenco Secret contiene istanze ripetute di/subscriptions/\<My-Subscription-ID >/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, che non è consentito.
 
 Questo problema si può verificare se si prova ad aggiungere di nuovo lo stesso insieme di credenziali invece di usare un nuovo certificato dell'insieme di credenziali per l'insieme di credenziali di origine esistente. Il comando `Add-AzVmssSecret` non funziona correttamente se si aggiungono altri segreti.
 
@@ -343,6 +343,13 @@ Per altre informazioni, vedere il [Centro protezione Microsoft](https://www.micr
 
 Sì. È possibile vedere alcuni modelli MSI di esempio in modelli di avvio rapido di Azure per [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) e [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
 
+## <a name="deleting"></a>Eliminazione 
+
+### <a name="will-the-locks-i-set-in-place-on-virtual-machine-scale-set-instances-be-respected-when-deleting-instances"></a>I blocchi impostati sul posto sulle istanze del set di scalabilità di macchine virtuali vengono rispettati durante l'eliminazione di istanze?
+
+Nel portale di Azure è possibile eliminare una singola istanza o l'eliminazione bulk selezionando più istanze. Se si tenta di eliminare una singola istanza con un blocco sul posto, il blocco viene rispettato e non sarà possibile eliminare l'istanza. Tuttavia, se si selezionano in blocco più istanze e si verifica un blocco per una di queste istanze, i blocchi non verranno rispettati e tutte le istanze selezionate verranno eliminate. 
+ 
+Nell'interfaccia della riga di comando di Azure è possibile eliminare una singola istanza. Se si tenta di eliminare una singola istanza con un blocco, il blocco viene rispettato e non sarà possibile eliminare l'istanza. 
 
 ## <a name="extensions"></a>Estensioni
 
@@ -507,7 +514,7 @@ Sì. È possibile applicare un gruppo di sicurezza di rete direttamente a un set
 
 ### <a name="how-do-i-do-a-vip-swap-for-virtual-machine-scale-sets-in-the-same-subscription-and-same-region"></a>Come si esegue lo scambio di indirizzi VIP per i set di scalabilità di macchine virtuali che si trovano nella stessa sottoscrizione e nella stessa area?
 
-Se si hanno due set di scalabilità di macchine virtuali con front-end di Azure Load Balancer, che sono nella stessa sottoscrizione e area, è possibile deallocare gli indirizzi IP pubblici da uno e assegnarli all'altro. Vedere ad esempio [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) (Scambio di indirizzi VIP: distribuzione di tipo "blu-verde" in Azure Resource Manager). Ciò implica un ritardo anche se le risorse vengono deallocate/allocate a livello di rete. Un'opzione più rapida consiste nell'usare il Gateway applicazione di Azure con due pool di back-end e una regola di routing. In alternativa, è possibile ospitare l'applicazione con [Servizio app di Azure](https://azure.microsoft.com/services/app-service/) che offre il supporto per commutare rapidamente gli slot di gestione temporanea in slot di produzione.
+Se si hanno due set di scalabilità di macchine virtuali con front-end di Azure Load Balancer, che sono nella stessa sottoscrizione e area, è possibile deallocare gli indirizzi IP pubblici da uno e assegnarli all'altro. Per un esempio, vedere [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) (Scambio di indirizzi VIP: distribuzione di tipo "blu-verde" in Azure Resource Manager). Ciò implica un ritardo anche se le risorse vengono deallocate/allocate a livello di rete. Un'opzione più rapida consiste nell'usare il Gateway applicazione di Azure con due pool di back-end e una regola di routing. In alternativa, è possibile ospitare l'applicazione con [Servizio app di Azure](https://azure.microsoft.com/services/app-service/) che offre il supporto per commutare rapidamente gli slot di gestione temporanea in slot di produzione.
 
 ### <a name="how-do-i-specify-a-range-of-private-ip-addresses-to-use-for-static-private-ip-address-allocation"></a>Come è possibile specificare un intervallo di indirizzi IP privati per l'allocazione di indirizzi IP privati statici?
 
@@ -521,7 +528,7 @@ Per distribuire un set di scalabilità di macchine virtuali in una rete virtuale
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>È possibile usare i set di scalabilità con la rete accelerata?
 
-Sì. Per usare la rete accelerata, impostare enableAcceleratedNetworking su true nelle impostazioni networkInterfaceConfigurations del set di scalabilità. Ad esempio
+Sì. Per usare la rete accelerata, impostare enableAcceleratedNetworking su true nelle impostazioni networkInterfaceConfigurations del set di scalabilità. Ad esempio:
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -564,7 +571,7 @@ Per creare un set di scalabilità di macchine virtuali che assegni un indirizzo 
 
 Sì. È possibile aggiungere gli ID risorsa per più pool di indirizzi back-end del gateway applicazione all'elenco _applicationGatewayBackendAddressPools_ nella sezione _ipConfigurations_ del profilo di rete del set di scalabilità.
 
-## <a name="scale"></a>Scalabilità
+## <a name="scale"></a>Scalare
 
 ### <a name="in-what-case-would-i-create-a-virtual-machine-scale-set-with-fewer-than-two-vms"></a>In quale caso è consigliabile creare un set di scalabilità di macchine virtuali con meno di due macchine virtuali?
 
@@ -650,7 +657,7 @@ az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.Ente
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 ### <a name="how-do-i-turn-on-boot-diagnostics"></a>Come si attiva la diagnostica di avvio?
 
@@ -686,7 +693,7 @@ Per ottenere informazioni sulle proprietà per ogni macchina virtuale senza eseg
 
 No, non è possibile passare argomenti di estensione diversi a diverse VM in un set di scalabilità di macchine virtuali. Le estensioni possono tuttavia funzionare in base alle proprietà univoche della macchina virtuale sulla quale sono in esecuzione, ad esempio il nome della macchina. Le estensioni possono anche eseguire query sui metadati delle istanze in http://169.254.169.254 per ottenere altre informazioni sulla VM.
 
-### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>Perché sono presenti gap tra i nomi delle macchine virtuali del set di scalabilità di macchine virtuali e gli ID, Ad esempio:  0, 1, 3...
+### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>Perché sono presenti gap tra i nomi delle macchine virtuali del set di scalabilità di macchine virtuali e gli ID, ad esempio 0, 1, 3?
 
 Sono presenti gap tra i nomi delle macchine virtuali del set di scalabilità di macchine virtuali e gli ID delle VM perché la proprietà **overprovision** del set di scalabilità di macchine virtuali è impostata sul valore predefinito **true**. Se la proprietà overprovision è impostata su **true**, viene creato un numero di VM superiore al necessario. Le VM aggiuntive vengono quindi eliminate. In questo caso si ottiene una maggiore affidabilità per la distribuzione, a scapito tuttavia delle regole di contiguità di denominazione e di NAT (Network Address Translation).
 

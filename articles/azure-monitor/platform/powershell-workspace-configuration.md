@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/19/2019
-ms.openlocfilehash: 9404bbf0ad79df41b0b5960977d6605697da5df5
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 68cd0d51c16ecd63a1446c284f81c5dea07b8c06
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894580"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363524"
 ---
 # <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Gestire Log Analytics area di lavoro in monitoraggio di Azure con PowerShell
 
@@ -177,6 +177,10 @@ New-AzOperationalInsightsWindowsPerformanceCounterDataSource -ResourceGroupName 
 New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -CustomLogRawJson "$CustomLog" -Name "Example Custom Log Collection"
 
 ```
+
+> [!NOTE]
+> Il formato del parametro **CustomLogRawJson** che definisce la configurazione per un log personalizzato può essere complesso. Usare [Get-AzOperationalInsightsDataSource](https://docs.microsoft.com/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.2.0) per recuperare la configurazione per un log personalizzato esistente. La proprietà **Properties** è la configurazione richiesta per il parametro **CustomLogRawJson** .
+
 Nell'esempio precedente regexDelimiter è stato definito come "\\n" per la nuova riga. Il delimitatore di log può anche essere un timestamp.  Questi sono i formati supportati:
 
 | Format | Il formato RegEx JSON usa due \\ per ogni \ in un'espressione RegEx standard, quindi in caso di test in un'app RegEx ridurre \\ a \ | | |
@@ -198,24 +202,24 @@ Per il monitoraggio senza agenti delle risorse di Azure, in queste ultime la dia
 
 | Tipo di risorsa | Log | Metriche |
 | --- | --- | --- |
-| Gateway applicazione    | SÌ | SÌ |
-| Account di Automazione     | SÌ | |
-| Account Batch          | SÌ | SÌ |
-| Data Lake Analytics     | SÌ | |
-| Data Lake Store         | SÌ | |
-| Pool SQL elastico        |     | SÌ |
-| Spazio dei nomi dell'hub eventi     |     | SÌ |
-| Hub IoT                |     | SÌ |
-| Key Vault               | SÌ | |
-| Servizi di bilanciamento del carico          | SÌ | |
-| App per la logica              | SÌ | SÌ |
-| Gruppi di sicurezza di rete | SÌ | |
-| Cache Redis di Azure             |     | SÌ |
-| Servizi di ricerca         | SÌ | SÌ |
-| Spazio dei nomi del bus di servizio   |     | SÌ |
-| SQL (versione 12)               |     | SÌ |
-| Siti Web               |     | SÌ |
-| Server farm Web        |     | SÌ |
+| Gateway applicazione    | Sì | Sì |
+| Account di Automazione     | Sì | |
+| Account Batch          | Sì | Sì |
+| Data Lake Analytics     | Sì | |
+| Data Lake Store         | Sì | |
+| Pool SQL elastico        |     | Sì |
+| Spazio dei nomi dell'hub eventi     |     | Sì |
+| Hub IoT                |     | Sì |
+| Key Vault               | Sì | |
+| Servizi di bilanciamento del carico          | Sì | |
+| App per la logica              | Sì | Sì |
+| Gruppi di sicurezza di rete | Sì | |
+| Cache Redis di Azure             |     | Sì |
+| Servizi di ricerca         | Sì | Sì |
+| Spazio dei nomi del bus di servizio   |     | Sì |
+| SQL (versione 12)               |     | Sì |
+| Siti Web               |     | Sì |
+| Server farm Web        |     | Sì |
 
 Per informazioni dettagliate sulle metriche disponibili, vedere [Metriche supportate con il monitoraggio di Azure](../../azure-monitor/platform/metrics-supported.md).
 

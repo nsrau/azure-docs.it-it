@@ -7,24 +7,33 @@ author: LuisCabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: d65b9b60ce93656c9acdc76c77291114468d345a
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 12/17/2019
+ms.openlocfilehash: 7ec18cab74d683e4547843f965d22026e7ba22aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113938"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461134"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Alleghi una risorsa di servizi cognitivi a un Skills in Azure ricerca cognitiva 
 
-Gli algoritmi di intelligenza artificiale consentono di usare le [pipeline di arricchimento](cognitive-search-concept-intro.md) usate per la trasformazione del contenuto in Azure ricerca cognitiva. Questi algoritmi sono basati sulle risorse dei servizi cognitivi di Azure, tra cui [visione artificiale](https://azure.microsoft.com/services/cognitive-services/computer-vision/) per l'analisi delle immagini e il riconoscimento ottico dei caratteri (OCR) e [analisi del testo](https://azure.microsoft.com/services/cognitive-services/text-analytics/) per il riconoscimento delle entità, l'estrazione di frasi chiave e altri miglioramenti. Come usato da Azure ricerca cognitiva per scopi di arricchimento dei documenti, gli algoritmi vengono incapsulati all'interno di una *competenza*, inseriti in un *skillt*e a cui fa riferimento un *indicizzatore* durante l'indicizzazione.
+Quando si configura una pipeline di arricchimento in Azure ricerca cognitiva, è possibile arricchire un numero limitato di documenti senza costi aggiuntivi. Per carichi di lavoro più grandi e più frequenti, è necessario alleghi una risorsa di servizi cognitivi fatturabile.
 
-Puoi arricchire gratuitamente un numero limitato di documenti. In alternativa, è possibile allungare una risorsa di servizi cognitivi fatturabili a un livello di *competenze* per carichi di lavoro più grandi e più frequenti. In questo articolo si apprenderà come alleghi una risorsa di servizi cognitivi fatturabile per arricchire i documenti durante l' [indicizzazione](search-what-is-an-index.md)ricerca cognitiva di Azure.
+In questo articolo si apprenderà come associare una risorsa assegnando una chiave a un skillt che definisce una pipeline di arricchimento.
 
-> [!NOTE]
-> Gli eventi fatturabili includono chiamate a API Servizi cognitivi ed estrazione di immagini come parte della fase di cracking del documento in Azure ricerca cognitiva. Non è previsto alcun addebito per l'estrazione del testo dai documenti o per le competenze che non chiamano servizi cognitivi.
->
-> L'esecuzione di competenze fatturabili è il [prezzo con pagamento in base al consumo di servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/). Per i prezzi di estrazione delle immagini, vedere la [pagina dei prezzi di Azure ricerca cognitiva](https://go.microsoft.com/fwlink/?linkid=2042400).
+## <a name="resources-used-during-enrichment"></a>Risorse usate durante l'arricchimento
+
+Azure ricerca cognitiva presenta una dipendenza da servizi cognitivi, inclusi [visione artificiale](https://azure.microsoft.com/services/cognitive-services/computer-vision/) per l'analisi delle immagini e il riconoscimento ottico dei caratteri (OCR), [analisi del testo](https://azure.microsoft.com/services/cognitive-services/text-analytics/) per l'elaborazione del linguaggio naturale e altri arricchimenti come la [traduzione testuale](https://azure.microsoft.com/services/cognitive-services/translator-text-api/). Nel contesto dell'arricchimento in ricerca cognitiva di Azure, questi algoritmi di intelligenza artificiale vengono incapsulati all'interno di una *competenza*, inseriti in un *skillt*e a cui fa riferimento un *indicizzatore* durante l'indicizzazione.
+
+## <a name="how-billing-works"></a>Modalità di funzionamento della fatturazione
+
++ Azure ricerca cognitiva usa la chiave di risorsa Servizi cognitivi fornita in un competenze per la fatturazione per l'arricchimento di immagini e testo. L'esecuzione di competenze fatturabili è il [prezzo con pagamento in base al consumo di servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/).
+
++ L'estrazione di immagini è un'operazione di ricerca cognitiva di Azure che si verifica quando i documenti vengono incrinati prima dell'arricchimento. L'estrazione delle immagini è fatturabile. Per i prezzi di estrazione delle immagini, vedere la [pagina dei prezzi di Azure ricerca cognitiva](https://go.microsoft.com/fwlink/?linkid=2042400).
+
++ L'estrazione del testo si verifica anche durante la frase di cracking del documento. Non è fatturabile.
+
++ Le competenze che non chiamano servizi cognitivi, incluse le competenze condizionali, di modellazione, Unione del testo e suddivisione del testo, non sono fatturabili.
 
 ## <a name="same-region-requirement"></a>Requisito della stessa area
 
@@ -33,7 +42,7 @@ Puoi arricchire gratuitamente un numero limitato di documenti. In alternativa, �
 Non è possibile spostare un servizio tra le aree. Se si riceve questo errore, è necessario creare una nuova risorsa di servizi cognitivi nella stessa area di Azure ricerca cognitiva.
 
 > [!NOTE]
-> Alcune competenze predefinite sono basate su servizi cognitivi non locali (ad esempio, la capacità di [traduzione del testo](cognitive-search-skill-text-translation.md)). Tenere presente che se si aggiunge una di queste competenze al proprio Skills, non è garantito che i dati si trovino nella stessa area della ricerca cognitiva di Azure o della risorsa Servizi cognitivi. Per ulteriori informazioni, vedere la [pagina relativa allo stato del servizio](https://aka.ms/allinoneregioninfo) .
+> Alcune competenze predefinite sono basate su servizi cognitivi non locali (ad esempio, la capacità di [traduzione del testo](cognitive-search-skill-text-translation.md)). L'uso di una competenza non regionale significa che la richiesta può essere gestita in un'area diversa dall'area ricerca cognitiva di Azure. Per ulteriori informazioni sui servizi non regionali, vedere la pagina relativa al [prodotto in base all'area di servizi cognitivi](https://aka.ms/allinoneregioninfo) .
 
 ## <a name="use-free-resources"></a>Usare risorse gratuite
 
@@ -160,6 +169,6 @@ Riunendola, pagherai circa $57,00 per inserire i documenti PDF 1.000 di questo t
 
 ## <a name="next-steps"></a>Passaggi successivi
 + [Pagina dei prezzi di Azure ricerca cognitiva](https://azure.microsoft.com/pricing/details/search/)
-+ [Come definire un insieme di competenze](cognitive-search-defining-skillset.md)
++ [Come definire un set di competenze](cognitive-search-defining-skillset.md)
 + [Creare un set di competenze (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Come eseguire il mapping dei campi arricchiti](cognitive-search-output-field-mapping.md)

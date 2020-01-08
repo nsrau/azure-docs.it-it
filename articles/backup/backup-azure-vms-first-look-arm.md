@@ -3,12 +3,12 @@ title: Eseguire il backup di una macchina virtuale di Azure dalle impostazioni d
 description: Questo articolo illustra come eseguire il backup di una singola macchina virtuale di Azure o di più macchine virtuali di Azure con il servizio backup di Azure.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 02cdab727adc29be99f52b262cb94de4fc4fe8f8
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 1895f27370e6f928ce2183798dd892a2ff7225c3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172521"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75391443"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Eseguire il backup di una macchina virtuale di Azure dalle impostazioni della macchina virtuale
 
@@ -61,10 +61,6 @@ Per eseguire il backup di macchine virtuali di Azure, Backup di Azure installa u
 10. Dopo l'abilitazione del backup, viene eseguito un backup iniziale. È possibile avviare il backup iniziale immediatamente o attendere fino a quando non viene avviato in base alla pianificazione dello stesso.
     - Fino al completamento del backup iniziale, lo **stato dell'ultimo backup** è **Avviso (backup iniziale in sospeso)** .
     - Per visualizzare quando verrà eseguito il successivo backup pianificato, fare clic sul nome del criterio di backup.
-
-> [!NOTE]
-> Il servizio backup di Azure crea un gruppo di risorse distinto (diverso dal gruppo di risorse VM) per archiviare gli snapshot, con il formato di denominazione **AzureBackupRG_geography_number** (ad esempio: AzureBackupRG_northeurope_1). I dati in questo gruppo di risorse verranno conservati per la durata in giorni, come specificato nella sezione "Mantieni snapshot di ripristino istantaneo" del criterio di backup della macchina virtuale di Azure. L'applicazione di un blocco a questo gruppo di risorse può causare errori di backup.<br>
-Questo gruppo di risorse deve essere escluso da qualsiasi restrizione relativa a nome/tag poiché i criteri di restrizione bloccano la creazione di raccolte di punti risorse in un nuovo errore causando errori di backup.
 
 ## <a name="run-a-backup-immediately"></a>Eseguire immediatamente un backup
 

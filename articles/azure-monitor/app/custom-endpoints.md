@@ -1,22 +1,22 @@
 ---
-title: 'Monitoraggio di Azure: applicazione Azure Insights sostituisce gli endpoint SDK predefiniti | Microsoft Docs'
-description: Modificare gli endpoint predefiniti di applicazione Azure Insights SDK per le aree come Azure per enti pubblici.
+title: applicazione Azure Insights sostituisce gli endpoint SDK predefiniti
+description: Modificare gli endpoint di Azure Application Insights SDK predefiniti per le aree come Azure per enti pubblici.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/26/2019
-ms.openlocfilehash: e1db9782fe923f7a5759f4e001cd0db970606fed
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: c04b793512eccf6aaff7d3ed3cc65efdd3dfc303
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677485"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432584"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Application Insights l'override degli endpoint predefiniti
 
-Per inviare dati da Application Insights a determinate aree, è necessario eseguire l'override degli indirizzi endpoint predefiniti. Ogni SDK richiede modifiche leggermente diverse, descritte in questo articolo. Per queste modifiche è necessario modificare il codice di esempio e sostituire i valori segnaposto per `QuickPulse_Endpoint_Address`, `TelemetryChannel_Endpoint_Address` e `Profile_Query_Endpoint_address` con gli indirizzi endpoint effettivi per l'area specifica. La fine di questo articolo contiene i collegamenti agli indirizzi degli endpoint per le aree in cui è necessaria questa configurazione.
+Per inviare dati da Application Insights a determinate aree, è necessario eseguire l'override degli indirizzi endpoint predefiniti. Ogni SDK richiede modifiche leggermente diverse, descritte in questo articolo. Per queste modifiche è necessario modificare il codice di esempio e sostituire i valori segnaposto per `QuickPulse_Endpoint_Address`, `TelemetryChannel_Endpoint_Address`e `Profile_Query_Endpoint_address` con gli indirizzi endpoint effettivi per l'area specifica. La fine di questo articolo contiene i collegamenti agli indirizzi degli endpoint per le aree in cui è necessaria questa configurazione.
 
 ## <a name="sdk-code-changes"></a>Modifiche al codice SDK
 
@@ -195,7 +195,7 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 
 Attualmente le uniche aree che richiedono modifiche all'endpoint sono [Azure per enti pubblici](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights) e [Azure Cina](https://docs.microsoft.com/azure/china/resources-developer-guide).
 
-|Area geografica |  Nome endpoint | Value |
+|Area |  Nome endpoint | Valore |
 |-----------------|:------------|:-------------|
 | Azure Cina | Canale di telemetria | `https://dc.applicationinsights.azure.cn/v2/track` |
 | Azure Cina | QuickPulse (metriche attive) |`https://live.applicationinsights.azure.cn/QuickPulseService.svc` |
@@ -207,7 +207,7 @@ Attualmente le uniche aree che richiedono modifiche all'endpoint sono [Azure per
 Se attualmente si usa l' [API REST di Application Insights](https://dev.applicationinsights.io/
 ) , a cui si accede in genere tramite "API.applicationinsights.io", sarà necessario usare un endpoint locale per l'area:
 
-|Area geografica |  Nome endpoint | Value |
+|Area |  Nome endpoint | Valore |
 |-----------------|:------------|:-------------|
 | Azure Cina | API REST | `api.applicationinsights.azure.cn` |
 | Azure per enti pubblici | API REST | `api.applicationinsights.us`|

@@ -3,15 +3,15 @@ title: Azioni di GitHub & servizio Azure Kubernetes
 services: azure-dev-spaces
 ms.date: 11/04/2019
 ms.topic: conceptual
-description: Esaminare e testare le modifiche da una richiesta pull direttamente nel servizio Azure Kubernetes usando le azioni di GitHub e Azure Dev Spaces.
+description: Esaminare e testare le modifiche da una richiesta pull direttamente nel servizio Azure Kubernetes usando le azioni di GitHub e Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, servizio Kubernetes di Azure, contenitori, azioni di GitHub, Helm, mesh dei servizi, routing mesh del servizio, kubectl, K8S
 manager: gwallace
-ms.openlocfilehash: e20efc6b109eeef234dcd621374d25b812cdc0ce
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: ace94bdeccf3063f6a3b72ea208f437a14332694
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483922"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438504"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Azioni di GitHub & servizio Azure Kubernetes (anteprima)
 
@@ -27,11 +27,11 @@ In questa guida si apprenderà come:
 > [!IMPORTANT]
 > Questa funzionalità è attualmente in anteprima. Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratuito](https://azure.microsoft.com/free).
 * [L'interfaccia della riga di comando di Azure installata][azure-cli-installed].
-* [Helm 2,13-2,16 installato][helm-installed].
+* [Helm 3 installato][helm-installed].
 * Un account GitHub con [azioni di GitHub abilitata][github-actions-beta-signup].
 * L' [applicazione di esempio Azure Dev Spaces bike sharing](https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp/README.md) in esecuzione in un cluster AKS.
 
@@ -180,8 +180,7 @@ Informazioni su come Azure Dev Spaces consente di sviluppare applicazioni più c
 [github-actions-beta-signup]: https://github.com/features/actions
 [github-action-yaml]: https://github.com/Azure/dev-spaces/blob/master/.github/workflows/bikes.yml
 [github-action-bikesharing-yaml]: https://github.com/Azure/dev-spaces/blob/master/.github/workflows/bikesharing.yml
-[helm-installed]: https://v2.helm.sh/docs/using_helm/#installing-helm
-[tiller-rbac]: https://helm.sh/docs/using_helm/#role-based-access-control
+[helm-installed]: https://helm.sh/docs/intro/install/
 [supported-regions]: ../about.md#supported-regions-and-configurations
 [sp-acr]: ../../container-registry/container-registry-auth-service-principal.md
 [sp-aks]: ../../aks/kubernetes-service-principal.md

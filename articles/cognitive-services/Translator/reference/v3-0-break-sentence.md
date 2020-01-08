@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: b4eb083b0f98112274a5d00631af8662ff5c063a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c8ef1d4dacf500c459ae1ab9a534ed118ca9e05a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73835878"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446691"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>API Traduzione testuale 3.0: BreakSentence
 
@@ -35,13 +35,13 @@ I parametri della richiesta inviati a una stringa di query sono:
 
 <table width="100%">
   <th width="20%">Query parameter (Parametro di query)</th>
-  <th>Descrizione</th>
+  <th>Description</th>
   <tr>
     <td>api-version</td>
     <td>*Parametro di query obbligatorio*.<br/>Versione dell'API richiesta dal client. Il valore deve essere `3.0`.</td>
   </tr>
   <tr>
-    <td>Lingua</td>
+    <td>Linguaggio</td>
     <td>*Parametro di query facoltativo*.<br/>Tag di lingua che identifica la lingua del testo di input. Se non viene specificato un codice, verrà applicato il rilevamento automatico della lingua.</td>
   </tr>
   <tr>
@@ -54,7 +54,7 @@ Le intestazioni della richiesta includono:
 
 <table width="100%">
   <th width="20%">Headers</th>
-  <th>Descrizione</th>
+  <th>Description</th>
   <tr>
     <td>Intestazione/e di autenticazione</td>
     <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>.</td>
@@ -87,7 +87,7 @@ Si applicano le limitazioni seguenti:
 
 * La matrice deve essere composta al massimo da 100 elementi.
 * Il valore di testo di un elemento della matrice non può superare 10.000 caratteri spazi inclusi.
-* L'intero testo incluso nella richiesta non può superare 50.000 caratteri inclusi gli spazi.
+* L'intero testo incluso nella richiesta non può superare 50.000 caratteri spazi inclusi.
 * Se viene specificato il parametro di query `language`, tutti gli elementi di matrice devono essere nella stessa lingua. In caso contrario, verrà applicato il rilevamento automatico della lingua a ogni elemento della matrice in modo indipendente.
 
 ## <a name="response-body"></a>Corpo della risposta
@@ -109,7 +109,7 @@ Una risposta JSON di esempio è:
 ```json
 [
   {
-    "sentenceLengths": [ 13, 11, 22 ]
+    "sentLen": [ 13, 11, 22 ]
     "detectedLanguage": {
       "language": "en",
       "score": 401
@@ -122,7 +122,7 @@ Una risposta JSON di esempio è:
 
 <table width="100%">
   <th width="20%">Headers</th>
-  <th>Descrizione</th>
+  <th>Description</th>
   <tr>
     <td>X-RequestId</td>
     <td>Valore generato dal servizio per identificare la richiesta. Viene usato per la risoluzione dei problemi.</td>
@@ -135,14 +135,14 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
 
 <table width="100%">
   <th width="20%">Codice di stato</th>
-  <th>Descrizione</th>
+  <th>Description</th>
   <tr>
     <td>200</td>
-    <td>Completamento della procedura.</td>
+    <td>Esito positivo.</td>
   </tr>
   <tr>
     <td>400</td>
-    <td>Uno dei parametri di query è mancante o non valido. Prima di riprovare, correggere i parametri della richiesta.</td>
+    <td>Uno dei parametri di query manca o non è valido. Prima di riprovare, correggere i parametri della richiesta.</td>
   </tr>
   <tr>
     <td>401</td>
@@ -158,11 +158,11 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   </tr>
   <tr>
     <td>500</td>
-    <td>Si è verificato un errore imprevisto. Se l'errore permane, segnalarlo con: data e ora dell'errore, identificativo della richiesta dall'intestazione di risposta `X-RequestId` e l'identificativo del client dall'intestazione di risposta `X-ClientTraceId`.</td>
+    <td>Si è verificato un errore imprevisto. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta dall'intestazione della riposta `X-RequestId` e identificatore del client dall'intestazione della richiesta `X-ClientTraceId`.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Il server è temporaneamente non disponibile. ripetere la richiesta. Se l'errore permane, segnalarlo con: data e ora dell'errore, identificativo della richiesta dall'intestazione di risposta `X-RequestId` e l'identificativo del client dall'intestazione di risposta `X-ClientTraceId`.</td>
+    <td>Il server è temporaneamente non disponibile. ripetere la richiesta. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta dall'intestazione della riposta `X-RequestId` e identificatore del client dall'intestazione della richiesta `X-ClientTraceId`.</td>
   </tr>
 </table> 
 

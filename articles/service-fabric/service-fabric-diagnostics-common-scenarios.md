@@ -1,29 +1,20 @@
 ---
-title: Scenari comuni di diagnosi per Azure Service Fabric | Microsoft Docs
-description: Informazioni su come risolvere i problemi degli scenari comuni con Azure Service Fabric
-services: service-fabric
-documentationcenter: .net
+title: Scenari comuni di diagnostica di Azure Service Fabric
+description: Informazioni sulla risoluzione dei problemi relativi agli scenari di monitoraggio e diagnostica comuni nelle applicazioni Service Fabric di Azure.
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 265aea1b8873d812859b39175c732c3e7118cbb5
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: b012e37bef7fe21e869fc3af415ca57b74c61dd8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "60394208"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645787"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Scenari comuni di diagnosi con Service Fabric
 
-Questo articolo illustra gli scenari comuni affrontati dagli utenti nell'ambito del monitoraggio e della diagnostica con Service Fabric. Gli scenari presentati illustrano tutti i 3 livelli di Service Fabric: applicazione, cluster e infrastruttura. Ogni soluzione USA Application Insights e i log di monitoraggio di Azure, gli strumenti di monitoraggio di Azure, per completare ogni scenario. I passaggi in ogni soluzione forniscono agli utenti un'introduzione su come usare Application Insights e i log di monitoraggio di Azure nel contesto di Service Fabric.
+Questo articolo illustra gli scenari comuni affrontati dagli utenti nell'ambito del monitoraggio e della diagnostica con Service Fabric. Gli scenari indicati coprono tutti e 3 i livelli di Service Fabric: infrastruttura, cluster e applicazione. Ogni soluzione USA Application Insights e i log di monitoraggio di Azure, gli strumenti di monitoraggio di Azure, per completare ogni scenario. I passaggi in ogni soluzione forniscono agli utenti un'introduzione su come usare Application Insights e i log di monitoraggio di Azure nel contesto di Service Fabric.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -56,7 +47,7 @@ Le soluzioni in questo articolo useranno gli strumenti seguenti. È consigliabil
 1. Nella stessa risorsa di Application Insights è possibile filtrare in base alle "richieste" invece che alle eccezioni e visualizzare tutte le richieste effettuate
 2. Se si usa Service Fabric Application Insights SDK, è possibile visualizzare una rappresentazione visiva della connessione tra i servizi e il numero di richieste con esito positivo e negativo. A sinistra fare clic su "Mappa delle applicazioni"
 
-    ![Pannello Mappa delle app di AI](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png) ![Mappa delle app di AI](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
+    ![pannello Mappa app per intelligenza artificiale](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png) ![mappa app per intelligenza artificiale](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
 
     Per altre informazioni sulla mappa delle app, vedere la [documentazione sulla mappa delle applicazioni](../azure-monitor/app/app-map.md)
 
@@ -101,7 +92,7 @@ Nella stessa visualizzazione con tutti i grafici si noteranno alcuni riquadri pe
 
 ## <a name="how-can-i-monitor-performance-counters"></a>Come monitorare i contatori delle prestazioni
 
-1. Dopo aver aggiunto l'agente di Log Analytics al cluster, è necessario aggiungere i contatori delle prestazioni specifici di cui si vuole tenere traccia. Passare alla pagina dell'area di lavoro Log Analytics nel portale. Nella pagina della soluzione la scheda dell'area di lavoro è nel menu a sinistra.
+1. Una volta aggiunto il Log Analytics Agent al cluster, è necessario aggiungere i contatori delle prestazioni specifici di cui si vuole tenere traccia. Passare alla pagina dell'area di lavoro Log Analytics nel portale. nella pagina della soluzione la scheda area di lavoro si trova nel menu a sinistra.
 
     ![Scheda dell'area di lavoro Log Analytics](media/service-fabric-diagnostics-common-scenarios/workspacetab.png)
 

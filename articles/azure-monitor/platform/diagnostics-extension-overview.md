@@ -4,15 +4,15 @@ description: Usare Diagnostica di Azure per debug, valutazione delle prestazioni
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: d1721411b57fc3542af48fc5f48eca7e4a2d06c8
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 1bdefc6b61e4e5cc5b8648880c5fdd8662af1bc1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552157"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395360"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Cos'è l'estensione Diagnostica di Azure
 L'estensione Diagnostica di Azure è un agente di Azure che consente la raccolta di dati di diagnostica in un'applicazione distribuita. È possibile usare l'estensione di diagnostica da numerose origini diverse. Sono attualmente supportati ruoli Web e di lavoro (classici) del servizio cloud di Azure, macchine virtuali, set di scalabilità di macchine virtuali e Service Fabric. Altri servizi di Azure hanno altri metodi di diagnostica. Vedere la [panoramica sul monitoraggio in Azure](../../azure-monitor/overview.md).
@@ -29,7 +29,7 @@ L'estensione Diagnostica di Azure può raccogliere i tipi di dati seguenti:
 | Log applicazioni |Messaggi di traccia scritti dall'applicazione |
 | Log eventi di Windows |Informazioni inviate al sistema di registrazione eventi di Windows. |
 | Log EventSource .NET |Eventi di scrittura di codice con la classe [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) di .NET |
-| log di IIS |Informazioni sui siti Web di IIS |
+| Log IIS |Informazioni sui siti Web di IIS |
 | [Log ETW basati su manifesto](https://docs.microsoft.com/windows/desktop/etw/about-event-tracing) |Traccia di eventi per eventi Windows generati da qualsiasi processo.(1) |
 | Dump di arresto anomalo (log) |Informazioni sullo stato del processo in caso di arresto anomalo di un'applicazione |
 | Log degli errori personalizzati |Log creati dall'applicazione o dal servizio. |
@@ -62,29 +62,29 @@ Vedere [Versioni e cronologia degli schemi di configurazione dell'estensione di 
 Scegliere il servizio per cui si vuole tentare la raccolta di dati di diagnostica e usare gli articoli seguenti per iniziare. Usare i collegamenti di diagnostica di Azure generali per riferimento per attività specifiche.
 
 ## <a name="cloud-services-using-azure-diagnostics"></a>Servizi cloud con Diagnostica di Azure
-* Se si usa Visual Studio, vedere [Debug di un servizio cloud o di una macchina virtuale di Azure in Visual Studio](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines) per iniziare. In alternativa, vedere
-* [Come monitorare i servizi cloud usando Diagnostica di Azure](../../cloud-services/cloud-services-how-to-monitor.md)
-* [Configurare Diagnostica di Azure in un'applicazione di servizi cloud](../../cloud-services/cloud-services-dotnet-diagnostics.md)
+* Se si usa Visual Studio, per iniziare vedere l'articolo su come [usare Visual Studio per tracciare un'applicazione di Servizi cloud](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines). In alternativa, vedere
+* [Come monitorare i servizi cloud con Diagnostica di Azure](../../cloud-services/cloud-services-how-to-monitor.md)
+* [Configurare Diagnostica di Azure in un'applicazione di Servizi cloud](../../cloud-services/cloud-services-dotnet-diagnostics.md)
 
 Per argomenti più avanzati, vedere
 
-* [Uso di Diagnostica di Azure con Application Insights per i servizi cloud](../../azure-monitor/app/cloudservices.md)
-* [Tracciare il flusso in un'applicazione di Servizi cloud con Diagnostica di Azure](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
-* [Usare PowerShell per configurare la diagnostica nei servizi cloud](../../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Uso di Diagnostica di Azure con Application Insights per Servizi cloud](../../azure-monitor/app/cloudservices.md)
+* [Tracciare il flusso di un'applicazione di Servizi cloud con Diagnostica di Azure](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
+* [Usare PowerShell per configurare la diagnostica in Servizi cloud](../../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="virtual-machines"></a>Macchine virtuali
-* Se si usa Visual Studio, vedere [Debug di un servizio cloud o di una macchina virtuale di Azure in Visual Studio](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines) per iniziare. In alternativa, vedere
+* Se si usa Visual Studio, per iniziare vedere l'articolo su come [usare Visual Studio per tracciare le macchine virtuali di Azure](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines). In alternativa, vedere
 * [Configurare Diagnostica di Azure in una macchina virtuale di Azure](/azure/virtual-machines/extensions/diagnostics-windows)
 
 Per argomenti più avanzati, vedere
 
-* [Usare PowerShell per abilitare la Diagnostica di Azure in una macchina virtuale di Azure](../../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Usare PowerShell per abilitare Diagnostica di Azure nelle macchine virtuali di Azure](../../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Creare una macchina virtuale Windows con monitoraggio e diagnostica con un modello di Azure Resource Manager](../../virtual-machines/extensions/diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="service-fabric"></a>Service Fabric
 Per un'introduzione, vedere [Monitorare un'applicazione di Service Fabric](../../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). Numerosi altri articoli sulla diagnostica di Service Fabric sono disponibili nella struttura di navigazione a sinistra.
 
 ## <a name="general-articles"></a>Articoli generali
-* Informazioni su come [Creare e usare contatori di prestazioni in un'applicazione Azure](../../cloud-services/diagnostics-performance-counters.md).
+* Informazioni su come [usare i contatori delle prestazioni in Diagnostica di Azure](../../cloud-services/diagnostics-performance-counters.md).
 * In caso di problemi nell'avvio della diagnostica o nell'individuazione dei dati nelle tabelle di archiviazione di Azure, vedere [Risoluzione dei problemi di Diagnostica di Azure](diagnostics-extension-troubleshooting.md)
 

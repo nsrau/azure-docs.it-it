@@ -4,16 +4,16 @@ description: Usare le variabili di ambiente e creare opzioni per abilitare l'acc
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/15/2019
+ms.date: 11/18/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 72fb7cfad5683edeb3b3335c28c53a7e693d00d5
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 079d5845917e63fadcf0466e5a744ed637d704ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330811"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434529"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>Consentire ai moduli di accedere all'archiviazione locale di un dispositivo
 
@@ -23,14 +23,14 @@ Oltre a archiviare i dati usando i servizi di archiviazione di Azure o nell'arch
 
 Per abilitare un collegamento dalla risorsa di archiviazione del modulo alla risorsa di archiviazione nel sistema host, creare una variabile di ambiente per il modulo che punta a una cartella di archiviazione nel contenitore. Usare quindi le opzioni di creazione per associare tale cartella di archiviazione a una cartella nel computer host.
 
-Ad esempio, se si vuole abilitare l'hub IoT Edge per archiviare i messaggi nell'archiviazione locale del dispositivo e recuperarli in un secondo momento, è possibile configurare le variabili di ambiente e le opzioni di creazione nella portale di Azure nelle **Impostazioni avanzate di runtime di Edge** sezione.
+Ad esempio, se si vuole abilitare l'hub IoT Edge per archiviare i messaggi nell'archiviazione locale del dispositivo e recuperarli in un secondo momento, è possibile configurare le variabili di ambiente e le opzioni di creazione nel portale di Azure nella sezione **impostazioni di runtime** .
 
 1. Per entrambi IoT Edge Hub e IoT Edge Agent, aggiungere una variabile di ambiente denominata **StorageFolder** che punta a una directory del modulo.
-1. Per IoT Edge Hub e IoT Edge Agent, aggiungere binding per connettere una directory locale nel computer host a una directory del modulo. ad esempio:
+1. Per IoT Edge Hub e IoT Edge Agent, aggiungere binding per connettere una directory locale nel computer host a una directory del modulo. Ad esempio:
 
    ![Aggiungere le opzioni di creazione e le variabili di ambiente per l'archiviazione locale](./media/how-to-access-host-storage-from-module/offline-storage.png)
 
-In alternativa, è possibile configurare l'archiviazione locale direttamente nel manifesto della distribuzione. ad esempio:
+In alternativa, è possibile configurare l'archiviazione locale direttamente nel manifesto della distribuzione. Ad esempio:
 
 ```json
 "systemModules": {
@@ -72,9 +72,9 @@ In alternativa, è possibile configurare l'archiviazione locale direttamente nel
 
 Sostituire `<HostStoragePath>` e `<ModuleStoragePath>` con il percorso di archiviazione dell'host e del modulo; entrambi i valori devono essere un percorso assoluto.
 
-Ad esempio, in un sistema Linux, `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` indica che la directory **/etc/iotedge/storage** nel sistema host è mappata alla directory **/iotedge/storage/** nel contenitore. In un sistema Windows, come altro esempio, `"Binds":["C:\\temp:C:\\contemp"]` indica che la directory **c: \\temp** nel sistema host è mappata alla directory **c: \\contemp** nel contenitore.
+Ad esempio, in un sistema Linux `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` indica che la directory **/etc/iotedge/storage** nel sistema host è mappata alla directory **/iotedge/storage/** nel contenitore. In un sistema Windows, come altro esempio, `"Binds":["C:\\temp:C:\\contemp"]` indica che la directory **c:\\Temp** nel sistema host è mappata alla directory **c:\\contemp** nel contenitore.
 
-Inoltre, nei dispositivi Linux, verificare che il profilo utente per il modulo disponga delle autorizzazioni di lettura, scrittura ed esecuzione necessarie per la directory del sistema host. Tornando all'esempio precedente di abilitazione di IoT Edge Hub per archiviare i messaggi nell'archiviazione locale del dispositivo, è necessario concedere le autorizzazioni al relativo profilo utente, UID 1000. L'agente di IoT Edge funge da radice, quindi non necessita di autorizzazioni aggiuntive. Esistono diversi modi per gestire le autorizzazioni della directory nei sistemi Linux, incluso l'uso di `chown` per modificare il proprietario della directory e quindi `chmod` per modificare le autorizzazioni, ad esempio:
+Inoltre, nei dispositivi Linux, verificare che il profilo utente per il modulo disponga delle autorizzazioni di lettura, scrittura ed esecuzione necessarie per la directory del sistema host. Tornando all'esempio precedente di abilitazione di IoT Edge Hub per archiviare i messaggi nell'archiviazione locale del dispositivo, è necessario concedere le autorizzazioni al relativo profilo utente, UID 1000. L'agente di IoT Edge funge da radice, quindi non necessita di autorizzazioni aggiuntive. Esistono diversi modi per gestire le autorizzazioni di directory nei sistemi Linux, incluso l'uso di `chown` per modificare il proprietario della directory e quindi `chmod` modificare le autorizzazioni, ad esempio:
 
 ```bash
 sudo chown 1000 <HostStoragePath>

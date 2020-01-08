@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: a3df48115dde27478446614c0446d64709adbc6f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1a9c058e590e5df9ab9ec82d900e22f7154d00a0
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226805"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561933"
 ---
 # <a name="azure-functions-networking-options"></a>Opzioni di rete di funzioni di Azure
 
@@ -28,12 +28,12 @@ I modelli di hosting hanno diversi livelli di isolamento della rete disponibili.
 
 ## <a name="matrix-of-networking-features"></a>Matrice delle funzionalità di rete
 
-|                |[Piano a consumo](functions-scale.md#consumption-plan)|[Piano Premium](functions-scale.md#premium-plan)|[Piano di servizio app](functions-scale.md#app-service-plan)|[ambiente del servizio app](../app-service/environment/intro.md)|
+|                |[Piano a consumo](functions-scale.md#consumption-plan)|[Piano Premium](functions-scale.md#premium-plan)|[Piano di servizio app](functions-scale.md#app-service-plan)|[Ambiente del servizio app](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[Restrizioni IP in ingresso & accesso al sito privato](#inbound-ip-restrictions)|✅Sì|✅Sì|✅Sì|✅Sì|
 |[Integrazione della rete virtuale](#virtual-network-integration)|❌No|✅Sì (regione)|✅Sì (Regional e gateway)|✅Sì|
-|[Trigger della rete virtuale (non HTTP)](#virtual-network-triggers-non-http)|❌No| ❌No|✅Sì|✅Sì|
-|[Connessioni ibride](#hybrid-connections)|❌No|✅Sì|✅Sì|✅Sì|
+|[Trigger della rete virtuale (non HTTP)](#virtual-network-triggers-non-http)|❌No| ✅Sì |✅Sì|✅Sì|
+|[Connessioni ibride](#hybrid-connections) (solo Windows)|❌No|✅Sì|✅Sì|✅Sì|
 |[Restrizioni IP in uscita](#outbound-ip-restrictions)|❌No| ❌No|❌No|✅Sì|
 
 ## <a name="inbound-ip-restrictions"></a>Restrizioni degli indirizzi IP in ingresso
@@ -79,7 +79,7 @@ Nessuna delle due funzionalità consente di raggiungere indirizzi non RFC 1918 t
 
 L'uso dell'integrazione della rete virtuale a livello di area non connette la rete virtuale agli endpoint locali o configura gli endpoint di servizio. Si tratta di una configurazione di rete separata. L'integrazione di rete virtuale a livello di area consente solo all'app di effettuare chiamate tra i tipi di connessione.
 
-Indipendentemente dalla versione usata, l'integrazione della rete virtuale consente all'app per le funzioni di accedere alle risorse nella rete virtuale, ma non concede l'accesso al sito privato all'app per le funzioni dalla rete virtuale. L'accesso al sito privato significa rendere l'app accessibile solo da una rete privata come una rete virtuale di Azure. l'integrazione della rete virtuale è solo per la creazione di chiamate in uscita dall'app nella rete virtuale.
+Indipendentemente dalla versione usata, l'integrazione della rete virtuale consente all'app per le funzioni di accedere alle risorse nella rete virtuale, ma non concede l'accesso al sito privato all'app per le funzioni dalla rete virtuale. L'accesso al sito privato significa rendere l'app accessibile solo da una rete privata come una rete virtuale di Azure. L'integrazione della rete virtuale è solo per la creazione di chiamate in uscita dall'app nella rete virtuale.
 
 Funzionalità di integrazione della rete virtuale:
 
@@ -123,19 +123,51 @@ Attualmente [Key Vault riferimenti](../app-service/app-service-key-vault-referen
 
 ## <a name="virtual-network-triggers-non-http"></a>Trigger della rete virtuale (non HTTP)
 
-Attualmente, per usare trigger di funzione diversi da HTTP dall'interno di una rete virtuale, è necessario eseguire l'app per le funzioni in un piano di servizio app o in un ambiente del servizio app.
+Attualmente, è possibile usare funzioni trigger non HTTP da una rete virtuale in uno dei due modi seguenti: 
++ Eseguire l'app per le funzioni in un piano Premium e abilitare il supporto dei trigger della rete virtuale.
++ Eseguire l'app per le funzioni in un piano di servizio app o in ambiente del servizio app.
 
-Si supponga, ad esempio, di voler configurare Azure Cosmos DB per accettare il traffico solo da una rete virtuale. È necessario distribuire l'app per le funzioni in un piano di servizio app che fornisce l'integrazione della rete virtuale con tale rete virtuale per configurare Azure Cosmos DB trigger da tale risorsa. Durante la fase di anteprima, la configurazione dell'integrazione della rete virtuale non consente al piano Premium di attivare tale risorsa Azure Cosmos DB.
+### <a name="premium-plan-with-virtual-network-triggers"></a>Piano Premium con trigger di rete virtuale
 
-Vedere [questo elenco per tutti i trigger non http](./functions-triggers-bindings.md#supported-bindings) per verificare il doppio degli elementi supportati.
+Quando è in esecuzione in un piano Premium, è possibile connettere funzioni trigger non HTTP ai servizi in esecuzione all'interno di una rete virtuale. A tale scopo, è necessario abilitare il supporto dei trigger della rete virtuale per l'app per le funzioni. L'impostazione di supporto per il **trigger della rete virtuale** si trova nel [portale di Azure](https://portal.azure.com) in **impostazioni app**per le funzioni.
+
+![VNETToggle](media/functions-networking-options/virtual-network-trigger-toggle.png)
+
+È anche possibile abilitare i trigger della rete virtuale usando il comando dell'interfaccia della riga di comando di Azure seguente:
+
+```azurecli-interactive
+az resource update -g <resource_group> -n <premium_plan_name> --set properties.functionsRuntimeScaleMonitoringEnabled=1
+```
+
+I trigger della rete virtuale sono supportati nella versione 2. x e successive del runtime di funzioni. Sono supportati i tipi di trigger non HTTP seguenti.
+
+| Estensione | Versione minima |
+|-----------|---------| 
+|[Microsoft. Azure. webjobs. Extensions. storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/) | 3.0.10 o versione successiva |
+|[Microsoft. Azure. webjobs. Extensions. EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs)| 4.1.0 o versione successiva|
+|[Microsoft. Azure. webjobs. Extensions. ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus)| 3.2.0 o versione successiva|
+|[Microsoft. Azure. webjobs. Extensions. CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB)| 3.0.5 o versione successiva|
+|[Microsoft. Azure. webjobs. Extensions. DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask)| 2.0.0 o versione successiva|
+
+> [!IMPORTANT]
+> Quando si Abilita il supporto dei trigger della rete virtuale, solo i tipi di trigger sopra riportano in modo dinamico con l'applicazione. È comunque possibile usare i trigger non elencati sopra, ma non vengono ridimensionati oltre il numero di istanze pre-riscaldate. Per l'elenco completo dei trigger [, vedere Trigger e associazioni](./functions-triggers-bindings.md#supported-bindings) .
+
+### <a name="app-service-plan-and-app-service-environment-with-virtual-network-triggers"></a>Piano di servizio app e ambiente del servizio app con i trigger della rete virtuale
+
+Quando l'app per le funzioni viene eseguita in un piano di servizio app o in una ambiente del servizio app, è possibile usare funzioni trigger non HTTP. Affinché le funzioni vengano attivate correttamente, è necessario essere connessi a una rete virtuale con accesso alla risorsa definita nella connessione trigger. 
+
+Si supponga, ad esempio, di voler configurare Azure Cosmos DB per accettare il traffico solo da una rete virtuale. In questo caso, è necessario distribuire l'app per le funzioni in un piano di servizio app che fornisce l'integrazione della rete virtuale con tale rete virtuale. Ciò consente a una funzione di essere attivata da tale risorsa Azure Cosmos DB. 
 
 ## <a name="hybrid-connections"></a>Connessioni ibride
 
-[Connessioni ibride](../service-bus-relay/relay-hybrid-connections-protocol.md) è una funzionalità del servizio di inoltro di Azure che è possibile usare per accedere alle risorse dell'applicazione in altre reti. Fornisce l'accesso dalla propria app a un endpoint applicazione. Non è possibile usarlo per accedere all'applicazione. Connessioni ibride è disponibile per le funzioni in esecuzione in tutti i piani a consumo.
+[Connessioni ibride](../service-bus-relay/relay-hybrid-connections-protocol.md) è una funzionalità del servizio di inoltro di Azure che è possibile usare per accedere alle risorse dell'applicazione in altre reti. Fornisce l'accesso dalla propria app a un endpoint applicazione. Non è possibile usarlo per accedere all'applicazione. Connessioni ibride è disponibile per le funzioni in esecuzione in Windows in tutto tranne il piano a consumo.
 
 Come usato in funzioni di Azure, ogni connessione ibrida è correlata a una singola combinazione di host e porta TCP. Ciò significa che l'endpoint della connessione ibrida può trovarsi in qualsiasi sistema operativo e qualsiasi applicazione, purché si acceda a una porta di ascolto TCP. La funzionalità Connessioni ibride non conosce né interessa il protocollo dell'applicazione o ciò che si sta accedendo. Fornisce solo l'accesso alla rete.
 
 Per altre informazioni, vedere la [documentazione del servizio app per connessioni ibride](../app-service/app-service-hybrid-connections.md). Questi stessi passaggi di configurazione supportano funzioni di Azure.
+
+>[!IMPORTANT]
+> Connessioni ibride è supportato solo nei piani di Windows. Linux non è supportato
 
 ## <a name="outbound-ip-restrictions"></a>Restrizioni IP in uscita
 

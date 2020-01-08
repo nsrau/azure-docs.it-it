@@ -8,18 +8,18 @@ ms.date: 10/22/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: f5aafbb22ecbff416d90aa5b98eb027c33872b35
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 19b5635d8444c28e66bcf4c6d34f602c9914e7e4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048553"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371531"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Trasferire i dati con AzCopy e l'archiviazione BLOB
 
 AzCopy è un'utilità da riga di comando che è possibile usare per copiare i dati in, da o tra account di archiviazione. Questo articolo contiene i comandi di esempio che funzionano con l'archivio BLOB.
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Inizia oggi stesso
 
 Vedere l'articolo [Introduzione a AzCopy](storage-use-azcopy-v10.md) per scaricare AzCopy e informazioni sui modi in cui è possibile fornire le credenziali di autorizzazione al servizio di archiviazione.
 
@@ -100,7 +100,7 @@ Se si specifica il nome di una directory che non esiste nel contenitore, AzCopy 
 
 |    |     |
 |--------|-----------|
-| **Sintassi** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>` |
+| **Sintassi** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>'` |
 | **Esempio** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory'` |
 | **Esempio** (spazio dei nomi gerarchico) | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory'` |
 
@@ -139,7 +139,7 @@ Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l'opzione `--incl
 
 Le opzioni `--include-pattern` e `--exclude-pattern` sono valide solo per i nomi file e non per il percorso.  Se si desidera copiare tutti i file di testo presenti in un albero di directory, utilizzare l'opzione `–recursive` per ottenere l'intero albero di directory, quindi utilizzare l'`–include-pattern` e specificare `*.txt` per ottenere tutti i file di testo.
 
-## <a name="download-files"></a>Download dei file
+## <a name="download-files"></a>Scaricare i file
 
 È possibile usare il comando [copy di azcopy](storage-ref-azcopy-copy.md) per scaricare i BLOB, le directory e i contenitori nel computer locale.
 
@@ -173,7 +173,7 @@ Per informazioni dettagliate sulla documentazione di riferimento, vedere [azcopy
 |--------|-----------|
 | **Sintassi** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>' '<local-directory-path>' --recursive` |
 | **Esempio** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' 'C:\myDirectory'  --recursive` |
-| **Esempio** (spazio dei nomi gerarchico) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory 'C:\myDirectory'  --recursive` |
+| **Esempio** (spazio dei nomi gerarchico) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory' 'C:\myDirectory'  --recursive` |
 
 Questo esempio genera una directory denominata `C:\myDirectory\myBlobDirectory` che contiene tutti i file scaricati.
 
@@ -224,7 +224,7 @@ Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l'opzione `--incl
 
 Le opzioni `--include-pattern` e `--exclude-pattern` sono valide solo per i nomi file e non per il percorso.  Se si desidera copiare tutti i file di testo presenti in un albero di directory, utilizzare l'opzione `–recursive` per ottenere l'intero albero di directory, quindi utilizzare l'`–include-pattern` e specificare `*.txt` per ottenere tutti i file di testo.
 
-## <a name="copy-blobs-between-storage-accounts"></a>Copiare i BLOB tra gli account di archiviazione
+## <a name="copy-blobs-between-storage-accounts"></a>Copiare i BLOB tra account di archiviazione
 
 È possibile usare AzCopy per copiare i BLOB in altri account di archiviazione. L'operazione di copia è sincrona, quindi quando il comando restituisce, che indica che tutti i file sono stati copiati. 
 
@@ -233,7 +233,6 @@ AzCopy usa le [API](https://docs.microsoft.com/rest/api/storageservices/put-page
 > [!NOTE]
 > Questo scenario presenta le limitazioni seguenti nella versione corrente.
 >
-> - Sono supportati solo gli account che non dispongono di uno spazio dei nomi gerarchico.
 > - È necessario aggiungere un token SAS a ogni URL di origine. Se si forniscono le credenziali di autorizzazione usando Azure Active Directory (AD), è possibile omettere il token SAS solo dall'URL di destinazione.
 >-  Gli account di archiviazione BLOB in blocchi Premium non supportano i livelli di accesso. Omettere il livello di accesso di un BLOB dall'operazione di copia impostando il `s2s-preserve-access-tier` su `false`, ad esempio `--s2s-preserve-access-tier=false`.
 
@@ -244,6 +243,8 @@ Questa sezione contiene gli esempi seguenti:
 > * Copiare una directory in un altro account di archiviazione
 > * Copiare un contenitore in un altro account di archiviazione
 > * Copia tutti i contenitori, le directory e i file in un altro account di archiviazione
+
+Questi esempi funzionano anche con gli account che hanno uno spazio dei nomi gerarchico.
 
 Per informazioni dettagliate sulla documentazione di riferimento, vedere [azcopy Copy](storage-ref-azcopy-copy.md).
 
@@ -280,10 +281,10 @@ Per informazioni dettagliate sulla documentazione di riferimento, vedere [azcopy
 
 ## <a name="synchronize-files"></a>Sincronizzare i file
 
-È possibile sincronizzare il contenuto di un file system locale con un contenitore BLOB. È anche possibile sincronizzare i contenitori e le directory virtuali tra loro. La sincronizzazione è unidirezionale. In altre parole, è possibile scegliere quali di questi due endpoint sono l'origine e quella di destinazione. La sincronizzazione usa anche API da server a server.
+È possibile sincronizzare il contenuto di un file system locale con un contenitore BLOB. È anche possibile sincronizzare i contenitori e le directory virtuali tra loro. La sincronizzazione è unidirezionale. In altre parole, è possibile scegliere quali di questi due endpoint sono l'origine e quella di destinazione. La sincronizzazione usa anche API da server a server. Gli esempi presentati in questa sezione funzionano anche con gli account che hanno uno spazio dei nomi gerarchico. 
 
 > [!NOTE]
-> Attualmente, questo scenario è supportato solo per gli account che non dispongono di uno spazio dei nomi gerarchico. La versione corrente di AzCopy non esegue la sincronizzazione tra altre origini e destinazioni, ad esempio file storage o Amazon Web Services (AWS) S3 bucket).
+> La versione corrente di AzCopy non esegue la sincronizzazione tra altre origini e destinazioni, ad esempio file storage o Amazon Web Services (AWS) S3 bucket).
 
 Il comando di [sincronizzazione](storage-ref-azcopy-sync.md) Confronta i nomi di file e i timestamp dell'Ultima modifica. Impostare il flag `--delete-destination` facoltativo sul valore `true` o `prompt` per eliminare i file nella directory di destinazione se tali file non sono più presenti nella directory di origine.
 
@@ -299,7 +300,7 @@ Per informazioni dettagliate sulla documentazione di riferimento, vedere [azcopy
 
 ### <a name="update-a-container-with-changes-to-a-local-file-system"></a>Aggiornare un contenitore con modifiche a una file system locale
 
-In questo caso, il contenitore è la destinazione e la file system locale è l'origine.
+In questo caso, il contenitore è la destinazione e la file system locale è l'origine. 
 
 |    |     |
 |--------|-----------|
@@ -314,7 +315,6 @@ In questo caso, il file system locale è la destinazione e il contenitore è l'o
 |--------|-----------|
 | **Sintassi** | `azcopy sync 'https://<storage-account-name>.blob.core.windows.net/<container-name>' 'C:\myDirectory' --recursive` |
 | **Esempio** | `azcopy sync 'https://mystorageaccount.blob.core.windows.net/mycontainer' 'C:\myDirectory' --recursive` |
-|
 
 ### <a name="update-a-container-with-changes-in-another-container"></a>Aggiornare un contenitore con le modifiche in un altro contenitore
 

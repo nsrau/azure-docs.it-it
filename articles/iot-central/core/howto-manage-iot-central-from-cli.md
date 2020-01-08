@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: c5622f32dbf849b9a21a1fd2e458f35b8aa1d098
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 1051ea91378cc2e2facec7e34f6d303297b91ce8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480394"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454056"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Gestire IoT Central dall'interfaccia della riga di comando di Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "74480394"
 
 Invece di creare e gestire applicazioni IoT Central nel sito Web di [azure IOT Central Application Manager](https://aka.ms/iotcentral) , è possibile usare l'interfaccia della riga di comando di [Azure](/cli/azure/) per gestire le applicazioni.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -50,28 +50,26 @@ az iotcentral app create \
 
 Questi comandi creano prima di tutto un gruppo di risorse nella località Stati Uniti orientali per l'applicazione. La tabella seguente descrive i parametri usati con il comando **AZ iotcentral app create** :
 
-| .         | DESCRIZIONE |
+| Parametro         | Description |
 | ----------------- | ----------- |
 | resource-group    | Gruppo di risorse che contiene l'applicazione. Questo gruppo di risorse deve già esistere nella sottoscrizione. |
-| location          | Per impostazione predefinita, questo comando usa il percorso del gruppo di risorse. Attualmente, è possibile creare un'applicazione IoT Central in **Stati Uniti**, **Australia**, **Asia Pacifico**o nelle località dell' **Europa** . |
-| Nome              | Nome dell'applicazione nel portale di Azure. |
+| posizione          | Per impostazione predefinita, questo comando usa il percorso del gruppo di risorse. Attualmente, è possibile creare un'applicazione IoT Central in **Stati Uniti**, **Australia**, **Asia Pacifico**o nelle località dell' **Europa** . |
+| name              | Nome dell'applicazione nel portale di Azure. |
 | sottodominio         | Sottodominio nell'URL dell'applicazione. In questo esempio l'URL dell'applicazione è https://mysubdomain.azureiotcentral.com. |
 | sku               | L'unico valore attualmente disponibile è **S1** (livello standard). Vedere [Prezzi di Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
 | template          | Modello di applicazione da usare. Per altre informazioni, vedere la tabella seguente: |
 | display-name      | Nome dell'applicazione visualizzato nell'interfaccia utente. |
 
-**Modelli di applicazione con funzionalità disponibili a livello generale**
+**Modello di applicazione con funzionalità disponibili a livello generale**
 
-| Nome modello            | DESCRIZIONE |
+| Nome modello            | Description |
 | ------------------------ | ----------- |
-| iotc-default@1.0.0       | Crea un'applicazione vuota per l'utente da popolare con i propri modelli di dispositivi e dispositivi. |
-| iotc-demo@1.0.0          | Crea un'applicazione che include un modello di dispositivo già creato per un distributore automatico refrigerato. Usare questo modello per iniziare a esplorare Azure IoT Central. |
-| iotc-devkit-sample@1.0.0 | Crea un'applicazione con modelli di dispositivo pronti per la connessione a un dispositivo MXChip o Raspberry Pi. Si consiglia di usare questo modello agli sviluppatori di dispositivi che vogliono fare pratica con questi tipi di dispositivi. |
+| iotc-default@1.0.0       | Crea un'applicazione vuota per l'utente da popolare con i propri modelli di dispositivi e dispositivi.
 
 
 **Modelli di applicazione con funzionalità di anteprima pubblica**
 
-| Nome modello            | DESCRIZIONE |
+| Nome modello            | Description |
 | ------------------------ | ----------- |
 | iotc-pnp-preview@1.0.0   | Consente di creare un'applicazione di anteprima plug and Play vuota da popolare con i propri dispositivi e modelli di dispositivo. |
 | iotc-condition@1.0.0     | Crea un'applicazione con un modello di monitoraggio della condizione di analisi in archivio. Usare questo modello per connettersi e monitorare l'ambiente di archiviazione. |

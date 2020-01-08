@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/11/2019
-ms.openlocfilehash: 356c8389ed486246ce55b5006e1e489ac7c3c1e3
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 5a647dda21855f754754f76682e5c00443eaac55
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73884792"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432612"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Georilevazione e gestione degli indirizzi IP
 
@@ -59,13 +59,13 @@ Per abilitare la raccolta e l'archiviazione IP, è necessario impostare la propr
 }
 ```
 
-### <a name="portal"></a>di Microsoft Azure 
+### <a name="portal"></a>Portale 
 
 Se è necessario modificare solo il comportamento per una singola risorsa Application Insights il modo più semplice per eseguire questa operazione è tramite la portale di Azure.  
 
 1. Passare alle **Impostazioni** del > di risorse Application Insights > **Esporta modello** 
 
-    ![Esporta modello](media/ip-collection/export-template.png)
+    ![Export Template](media/ip-collection/export-template.png)
 
 2. Selezionare **Distribuisci**
 
@@ -73,7 +73,7 @@ Se è necessario modificare solo il comportamento per una singola risorsa Applic
 
 3. Selezionare **modifica modello**. Se il modello contiene proprietà o risorse aggiuntive che non sono presenti in questo modello di esempio, procedere con cautela per assicurarsi che tutte le risorse accettino la distribuzione del modello come modifica/aggiornamento incrementale.
 
-    ![Modifica modello](media/ip-collection/edit-template.png)
+    ![Modificare il modello](media/ip-collection/edit-template.png)
 
 4. Apportare le modifiche seguenti al codice JSON per la risorsa e quindi fare clic su **Salva**:
 
@@ -84,7 +84,7 @@ Se è necessario modificare solo il comportamento per una singola risorsa Applic
 
 5. Selezionare **accetto** > **acquisto**. 
 
-    ![Modifica modello](media/ip-collection/purchase.png)
+    ![Modificare il modello](media/ip-collection/purchase.png)
 
     In questo caso non è in corso l'acquisto di nuovi elementi, si sta semplicemente aggiornando la configurazione della risorsa Application Insights esistente.
 
@@ -154,7 +154,7 @@ namespace MyWebApp
 > [!NOTE]
 > Se non si riesce ad accedere a `ISupportProperties`, verificare e assicurarsi di eseguire la versione stabile più recente di Application Insights SDK. `ISupportProperties` sono destinati a valori di cardinalità elevata, mentre `GlobalProperties` sono più appropriati per i valori di cardinalità bassa, ad esempio il nome dell'area, il nome dell'ambiente e così via. 
 
-### <a name="enable-telemetry-initializer-for-aspnet"></a>Abilitare l'inizializzatore di telemetria per. ASP.NET
+### <a name="enable-telemetry-initializer-for-aspnet"></a>Abilita inizializzatore di telemetria per ASP.NET
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility;
@@ -235,7 +235,7 @@ requests
 
 Nella colonna `customDimensions_client-ip` verranno visualizzati gli indirizzi IP appena raccolti. Per la colonna `client-ip` predefinita, tutti i 4 ottetti verranno azzerati o verranno visualizzati solo i primi tre ottetti a seconda di come è stata configurata la raccolta di indirizzi IP a livello di componente. Se si esegue il test in locale dopo l'implementazione dell'inizializzatore di telemetria e il valore visualizzato per `customDimensions_client-ip` è `::1` questo comportamento previsto. `::1` rappresenta l'indirizzo di loopback in IPv6. Equivale a `127.0.01` in IPv4 ed è il risultato che verrà visualizzato durante il test da localhost.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 * Scopri di più sulla [raccolta di dati personali](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt) in Application Insights.
 

@@ -1,28 +1,19 @@
 ---
-title: I log di analisi eventi di Service Fabric Azure con monitoraggio di Azure | Microsoft Docs
-description: Informazioni sulla visualizzazione e l'analisi di eventi usando i log di monitoraggio di Azure per il monitoraggio e diagnostica dei cluster di Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
+title: Analisi degli eventi di Azure Service Fabric con i log di monitoraggio di Azure
+description: Informazioni sulla visualizzazione e l'analisi degli eventi usando i log di monitoraggio di Azure per il monitoraggio e la diagnostica dei cluster di Azure Service Fabric.
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/21/2019
 ms.author: srrengar
-ms.openlocfilehash: ba4923edbc59f0e6650fda1a71e1c4f79b884cf2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 40dd930aa21e3056d5ecc908359215d6874ed8ae
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393486"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464731"
 ---
-# <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Analisi degli eventi e la visualizzazione con i log di monitoraggio di Azure
- I log di Monitoraggio di Azure raccolgono e analizzano i dati telemetrici delle applicazioni e dei servizi ospitati nel cloud e forniscono gli strumenti di analisi per sfruttarne al meglio la disponibilità e le prestazioni. Questo articolo illustra come eseguire query nei log di monitoraggio di Azure per ottenere informazioni dettagliate e risolvere i problemi di ciò che avviene nel cluster. Vengono affrontate le seguenti domande comuni:
+# <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Analisi e visualizzazione di eventi con i log di monitoraggio di Azure
+ I log di Monitoraggio di Azure raccolgono e analizzano i dati telemetrici delle applicazioni e dei servizi ospitati nel cloud e forniscono gli strumenti di analisi per sfruttarne al meglio la disponibilità e le prestazioni. Questo articolo illustra come eseguire query nei log di monitoraggio di Azure per ottenere informazioni dettagliate e risolvere i problemi che si verificano nel cluster. Vengono affrontate le seguenti domande comuni:
 
 * Com'è possibile risolvere i problemi relativi agli eventi di integrità?
 * Com'è possibile sapere quando un nodo diventa inattivo?
@@ -30,18 +21,18 @@ ms.locfileid: "60393486"
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="overview-of-the-log-analytics-workspace"></a>Panoramica dell'area di lavoro di Log Analitica
+## <a name="overview-of-the-log-analytics-workspace"></a>Panoramica dell'area di lavoro Log Analytics
 
 >[!NOTE] 
 >Mentre l'archiviazione di diagnostica è abilitata per impostazione predefinita al momento della creazione del cluster, è tuttavia necessario configurare l'area di lavoro Log Analytics per la lettura dall'archiviazione di diagnostica.
 
-Monitoraggio di Azure vengono registrati i dati raccolti dalle risorse gestite, tra cui una tabella di archiviazione di Azure o un agente e li gestisce in un repository centrale. I dati possono essere quindi usati per analisi, avvisi e visualizzazioni o altre esportazioni. Monitoraggio di Azure Registra eventi supporta, i dati sulle prestazioni o altri dati personalizzati. Consulta [passaggi per configurare l'estensione diagnostica di aggregazione di eventi](service-fabric-diagnostics-event-aggregation-wad.md) e [passaggi per creare un'area di lavoro di Log Analitica per la lettura degli eventi nell'archiviazione](service-fabric-diagnostics-oms-setup.md) per assicurarsi che i dati vengono trasmessi a monitoraggio di Azure log.
+Log di monitoraggio di Azure raccoglie dati da risorse gestite, tra cui una tabella di archiviazione di Azure o un agente, e li gestisce in un repository centrale. I dati possono essere quindi usati per analisi, avvisi e visualizzazioni o altre esportazioni. Log di monitoraggio di Azure supporta eventi, dati sulle prestazioni o altri dati personalizzati. Esaminare [i passaggi per configurare l'estensione di diagnostica per aggregare gli eventi e i](service-fabric-diagnostics-event-aggregation-wad.md) [passaggi per creare un'area di lavoro log Analytics per leggere gli eventi nell'archiviazione](service-fabric-diagnostics-oms-setup.md) per assicurarsi che i dati vengano propagati nei log di monitoraggio di Azure.
 
-Dopo la ricezione dei dati per i log di monitoraggio di Azure, Azure dispone di numerose *soluzioni di monitoraggio* che sono soluzioni predefinite o i dashboard operativi per monitorare i dati in ingresso, personalizzati per diversi scenari. Sono inclusi una soluzione di *Analisi Service Fabric* e una soluzione *contenitori*, le due soluzioni di diagnostica e monitoraggio più importanti se si usano i cluster di Service Fabric. In questo articolo viene descritto come usare la soluzione Analisi Service Fabric, che viene creata con l'area di lavoro.
+Quando i dati vengono ricevuti dai log di monitoraggio di Azure, Azure offre diverse *soluzioni di monitoraggio* che sono soluzioni preconfezionate o Dashboard operativi per monitorare i dati in ingresso, personalizzati in diversi scenari. Sono inclusi una soluzione di *Analisi Service Fabric* e una soluzione *contenitori*, le due soluzioni di diagnostica e monitoraggio più importanti se si usano i cluster di Service Fabric. In questo articolo viene descritto come usare la soluzione Analisi Service Fabric, che viene creata con l'area di lavoro.
 
 ## <a name="access-the-service-fabric-analytics-solution"></a>Accedere alla soluzione Analisi Service Fabric
 
-Nel [portale di Azure](https://portal.azure.com), passare al gruppo di risorse in cui è stata creata la soluzione Service Fabric Analitica.
+Nel [portale di Azure](https://portal.azure.com)passare al gruppo di risorse in cui è stata creata la soluzione analisi Service Fabric.
 
 Selezionare la risorsa **ServiceFabric\<nomeareadilavoroOMS\>** .
 
@@ -112,7 +103,7 @@ Il linguaggio di query Kusto è potente. Un'altra query importante che è possib
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per abilitare il monitoraggio dell'infrastruttura, ovvero i contatori delle prestazioni, vedere come [aggiungere l'agente di Log Analytics](service-fabric-diagnostics-oms-agent.md). L'agente raccoglie i contatori delle prestazioni e li aggiunge all'area di lavoro esistente.
-* Per i cluster in locale, i log di monitoraggio di Azure offre un Gateway (Proxy di inoltro HTTP) che può essere utilizzato per inviare dati a log di monitoraggio di Azure. Per ulteriori informazioni in [connettere computer senza accesso a Internet per i log di monitoraggio di Azure usando il gateway Log Analitica](../azure-monitor/platform/gateway.md).
+* Per i cluster locali, log di monitoraggio di Azure offre un gateway (proxy di inoltro HTTP) che può essere usato per inviare dati ai log di monitoraggio di Azure. Per altre informazioni, vedere [connessione di computer senza accesso a Internet ai log di monitoraggio di Azure tramite il gateway log Analytics](../azure-monitor/platform/gateway.md).
 * Configurare gli [avvisi automatizzati](../log-analytics/log-analytics-alerts.md) in modo da semplificare il rilevamento e la diagnostica.
 * Acquisire familiarità con le funzionalità di [ricerca log ed esecuzione di query](../log-analytics/log-analytics-log-searches.md) incluse nei log di Monitoraggio di Azure.
-* Ottenere una panoramica più dettagliata dei log di monitoraggio di Azure e sui vantaggi offerti, leggere [What ' s i log di monitoraggio di Azure?](../operations-management-suite/operations-management-suite-overview.md).
+* Ottenere una panoramica più dettagliata dei log di monitoraggio di Azure e delle relative offerte, vedere informazioni sui [log di monitoraggio di Azure](../operations-management-suite/operations-management-suite-overview.md).

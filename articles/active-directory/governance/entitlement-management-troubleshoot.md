@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi di gestione dei diritti Azure AD-Azure Active Directory
+title: Risolvere i problemi di gestione dei diritti-Azure AD
 description: Informazioni su alcuni elementi da controllare per la risoluzione dei problemi Azure Active Directory la gestione dei diritti.
 services: active-directory
 documentationCenter: ''
@@ -16,24 +16,24 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f7e5e6168e8b365a04040f595f30e68e4e82f0a
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: e291a032c1aac45ebc783126e69b524e1d0af95b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73173324"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422483"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Risolvere i problemi di Azure AD gestione dei diritti
 
 Questo articolo descrive alcuni elementi da controllare per semplificare la risoluzione dei problemi di Azure Active Directory (Azure AD) la gestione dei diritti.
 
-## <a name="administration"></a>Administration
+## <a name="administration"></a>Amministrazione
 
 * Se si riceve un messaggio di accesso negato quando si configura la gestione dei diritti e si è un amministratore globale, assicurarsi che la directory disponga di una [licenza Azure ad Premium P2 (o EMS E5)](entitlement-management-overview.md#license-requirements).
 
 * Se si riceve un messaggio di accesso negato durante la creazione o la visualizzazione di pacchetti di accesso e si è un membro di un gruppo di autori del catalogo, è necessario [creare un catalogo](entitlement-management-catalog-create.md) prima di creare il primo pacchetto di accesso.
 
-## <a name="resources"></a>resources
+## <a name="resources"></a>Risorse
 
 * I ruoli per le applicazioni sono definiti dall'applicazione stessa e vengono gestiti in Azure AD. Se un'applicazione non dispone di alcun ruolo delle risorse, la gestione dei diritti assegna gli utenti a un ruolo di **accesso predefinito** .
 
@@ -129,7 +129,7 @@ Se una richiesta rileva un errore, è possibile rielaborare la richiesta per rip
 
 * Quando si applicano più criteri, i criteri selezionati automaticamente o i criteri visualizzati per il richiedente sono basati sulla logica di priorità seguente:
 
-    | Priorità dei criteri | Scope |
+    | Priorità dei criteri | Ambito |
     | --- | --- |
     | P1 | Utenti e gruppi specifici nella directory o in organizzazioni connesse specifiche |
     | P2 | Tutti i membri della directory (esclusi i guest) |

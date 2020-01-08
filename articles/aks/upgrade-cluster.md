@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: 36bd05940644b62bc3e58b642bfe6c00238383fa
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7113fd7f17fd7695e25489931d7a6cbf35e334ec
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472465"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442826"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Aggiornare un cluster del servizio Azure Kubernetes
 
@@ -26,6 +26,7 @@ Questo articolo richiede la versione 2.0.65 o successiva dell'interfaccia della 
 
 > [!WARNING]
 > Un aggiornamento del cluster AKS attiva un cordone e lo svuotamento dei nodi. Se è disponibile una quota di calcolo bassa, l'aggiornamento potrebbe non riuscire.  Per altre informazioni, vedere [aumentare le quote](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request?branch=pr-en-us-83289) .
+> Se si esegue la distribuzione del servizio di scalabilità automatica del cluster, disabilitarla (è possibile ridimensionarla a zero repliche) durante l'aggiornamento, in quanto esiste la possibilità che interferisca con il processo di aggiornamento. Il ridimensionamento automatico gestito lo gestisce automaticamente. 
 
 ## <a name="check-for-available-aks-cluster-upgrades"></a>Verificare la presenza di aggiornamenti disponibili per il cluster del servizio Azure Kubernetes
 

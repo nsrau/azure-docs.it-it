@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2019
+ms.date: 12/19/2019
 ms.author: mimart
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a986c2032fc41bbd34230c5b0ead745f88b000f
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: e8e1fd51e0190e0f8889112b17b58680ed9329e3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199834"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443455"
 ---
 # <a name="create-workspaces-on-the-my-apps-preview-portal"></a>Creare aree di lavoro nel portale app personali (anteprima)
 
@@ -45,7 +45,7 @@ Gli utenti possono usare il portale app personali (anteprima) per visualizzare e
    ![Funzionalità di anteprima utente](media/access-panel-workspaces/user-preview-features.png)
 
 > [!NOTE]
-> Per aprire il portale app personali, gli utenti possono usare il collegamento `https://myapps.microsoft.com` o il collegamento personalizzato per l'organizzazione, ad esempio `https://myapps.microsoft.com/contoso.com`. Se gli utenti non vengono reindirizzati alla versione di anteprima delle app personali, gli utenti devono provare `https://myapplications.microsoft.com` o `https://myapplications.microsoft.com/contoso.com`.
+> Per aprire il portale app personali, gli utenti possono usare il collegamento `https://myapps.microsoft.com` o il collegamento personalizzato per l'organizzazione, ad esempio `https://myapps.microsoft.com/contoso.com`. Dopo aver abilitato la nuova esperienza app personali, il banner **disponibile nell'esperienza applicazioni personali viene** visualizzato nella parte superiore della pagina App personali e gli utenti possono selezionare **prova** per visualizzare la nuova esperienza. Per interrompere l'uso della nuova esperienza, gli utenti possono selezionare **Sì** nel banner **lascia nuova esperienza** nella parte superiore della pagina.
 
 ## <a name="create-a-workspace"></a>Creare un'area di lavoro
 
@@ -98,6 +98,15 @@ I log di controllo registrano le operazioni dell'area di lavoro app, incluse le 
 
    ![Assegnare ruoli a utenti e gruppi](media/access-panel-workspaces/audit-log-myapps.png)
 
+## <a name="get-support-for-my-account-pages"></a>Ottenere supporto per le pagine account personali
+
+Dalla pagina App personali, un utente può selezionare **il mio account** > **visualizzare il mio account** per aprire le impostazioni dell'account. Nella pagina Azure AD **account personale** , gli utenti possono gestire le informazioni di sicurezza, i dispositivi, le password e altro ancora. Possono anche accedere alle impostazioni dell'account Office.
+
+Se è necessario inviare una richiesta di supporto per un problema con la pagina account Azure AD o con l'account di Office, attenersi alla procedura seguente per instradare correttamente la richiesta: 
+
+* Per i problemi relativi alla **Azure ad pagina "account personale"** , aprire una richiesta di supporto dall'interno del portale di Azure. Passare a **portale di Azure** > **Azure Active Directory** > **nuova richiesta di supporto**.
+
+* Per i problemi relativi alla pagina **"account personale" di Office** , aprire una richiesta di supporto dall'interfaccia di amministrazione di Microsoft 365. Passare a **Microsoft 365** interfaccia di amministrazione > **supporto**. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Esperienza dell'utente finale per le applicazioni in Azure Active Directory](end-user-experiences.md)

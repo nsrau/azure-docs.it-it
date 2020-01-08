@@ -4,18 +4,18 @@ description: In questo articolo vengono fornite le risposte alle domande comuni 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 30036d6cf241e1ac840b2be67ca78fbda6c60061
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b8e259c6212e9a1e81b6b0c8825287f3025f9068
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172570"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680529"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Domande frequenti-eseguire il backup di macchine virtuali di Azure
 
 Questo articolo risponde a domande comuni sul backup di macchine virtuali di Azure con il servizio [backup di Azure](backup-introduction-to-azure-backup.md) .
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Eseguire il backup
 
 ### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>Quali immagini di macchina virtuale possono essere abilitate per il backup durante la creazione?
 
@@ -93,7 +93,7 @@ Il backup pianificato verrà attivato entro 2 ore dall'ora del backup pianificat
 
 Il criterio di backup della macchina virtuale di Azure supporta un periodo di conservazione minimo di sette giorni fino a 9999 giorni. Qualsiasi modifica a un criterio di backup di VM esistente con meno di sette giorni richiederà un aggiornamento per soddisfare il periodo di mantenimento dati minimo di sette giorni.
 
-## <a name="restore"></a>Ripristino
+## <a name="restore"></a>Ripristinare
 
 ### <a name="how-do-i-decide-whether-to-restore-disks-only-or-a-full-vm"></a>In che modo si decide se è opportuno ripristinare solo i dischi oppure una macchina virtuale completa?
 
@@ -111,16 +111,9 @@ L'opzione di ripristino di un disco consente di:
 
 Sì, è possibile usare i backup eseguiti prima della migrazione dei dischi da non gestiti a gestiti.
 
-- Per impostazione predefinita, il processo di ripristino di una macchina virtuale crea una macchina virtuale non gestita.
-- È tuttavia possibile ripristinare i dischi e usarli per creare una macchina virtuale gestita.
-
 ### <a name="how-do-i-restore-a-vm-to-a-restore-point-before-the-vm-was-migrated-to-managed-disks"></a>In che modo si ripristina una macchina virtuale in un punto di ripristino prima della migrazione di tale macchina a dischi gestiti?
 
-Per impostazione predefinita, il processo di ripristino di una macchina virtuale crea una macchina virtuale con dischi non gestiti. Per creare una macchina virtuale con dischi gestiti:
-
-1. [Eseguire il ripristino della macchina virtuale con dischi non gestiti](tutorial-restore-disk.md#restore-a-vm-disk).
-2. [Convertire i dischi ripristinati in dischi gestiti](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk).
-3. [Creare una macchina virtuale con dischi gestiti](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk).
+Il processo di ripristino rimane invariato. Se il punto di ripristino è temporizzato quando la macchina virtuale dispone di dischi non gestiti, è possibile ripristinare i [dischi come non gestiti](tutorial-restore-disk.md#unmanaged-disks-restore). Se la macchina virtuale aveva dischi gestiti, è possibile [ripristinare i dischi come Managed disks](tutorial-restore-disk.md#managed-disk-restore). Quindi, è possibile [creare una macchina virtuale da tali dischi](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk).
 
 [Altre informazioni](backup-azure-vms-automation.md#restore-an-azure-vm) su come eseguire questa procedura in PowerShell.
 

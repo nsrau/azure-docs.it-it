@@ -1,7 +1,7 @@
 ---
-title: Utenti di accesso senza browser | Azure
+title: Flusso del codice del dispositivo OAuth 2,0 | Azure
 titleSuffix: Microsoft identity platform
-description: Crea flussi di autenticazione incorporati e senza browser usando la concessione di autorizzazione del dispositivo.
+description: Utenti di accesso senza browser. Crea flussi di autenticazione incorporati e senza browser usando la concessione di autorizzazione del dispositivo.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e937955f0b122d3a878141655475f34b051622e7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1035d5cd7c992bea74180b482bb8e3c2c9e0f461
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919240"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423247"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Microsoft Identity Platform e il flusso di concessione dell'autorizzazione del dispositivo OAuth 2,0
 
@@ -63,8 +63,8 @@ scope=user.read%20openid%20profile
 
 | Parametro | Condizione | Description |
 | --- | --- | --- |
-| `tenant` | Obbligatoria | Può essere/Common,/consumers o/Organizations.  Può anche essere il tenant di directory per cui si desidera richiedere l'autorizzazione nel formato GUID o nome descrittivo.  |
-| `client_id` | Obbligatoria | **ID dell'applicazione (client)** che la [portale di Azure registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) l'esperienza assegnata all'app. |
+| `tenant` | Obbligatorio | Può essere/Common,/consumers o/Organizations.  Può anche essere il tenant di directory per cui si desidera richiedere l'autorizzazione nel formato GUID o nome descrittivo.  |
+| `client_id` | Obbligatorio | **ID dell'applicazione (client)** che la [portale di Azure registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) l'esperienza assegnata all'app. |
 | `scope` | Consigliato | Elenco separato da spazi di [ambiti](v2-permissions-and-consent.md) a cui si vuole che l'utente dia il consenso.  |
 
 ### <a name="device-authorization-response"></a>Risposta di autorizzazione dispositivo
@@ -73,12 +73,12 @@ Una risposta con esito positivo sarà un oggetto JSON contenente le informazioni
 
 | Parametro | Format | Description |
 | ---              | --- | --- |
-|`device_code`     | Stringa | Una stringa lunga usata per verificare la sessione tra il client e il server di autorizzazione. Il client usa questo parametro per richiedere il token di accesso dal server di autorizzazione. |
-|`user_code`       | Stringa | Una stringa breve mostrata all'utente usato per identificare la sessione in un dispositivo secondario.|
+|`device_code`     | string | Una stringa lunga usata per verificare la sessione tra il client e il server di autorizzazione. Il client usa questo parametro per richiedere il token di accesso dal server di autorizzazione. |
+|`user_code`       | string | Una stringa breve mostrata all'utente usato per identificare la sessione in un dispositivo secondario.|
 |`verification_uri`| URI | L'URI a cui l'utente deve passare con il `user_code` per eseguire l'accesso. |
 |`expires_in`      | int | Il numero di secondi prima della scadenza del `device_code` e del `user_code`. |
 |`interval`        | int | Il numero di secondi di attesa del client tra le richieste di polling. |
-| `message`        | Stringa | Una stringa leggibile dall'utente con le istruzioni per l'utente. Può essere localizzata includendo un **parametro di query** nella richiesta del form `?mkt=xx-XX`, compilando l'apposito codice della lingua di destinazione. |
+| `message`        | string | Una stringa leggibile dall'utente con le istruzioni per l'utente. Può essere localizzata includendo un **parametro di query** nella richiesta del form `?mkt=xx-XX`, compilando l'apposito codice della lingua di destinazione. |
 
 > [!NOTE]
 > Il campo della risposta `verification_uri_complete` non è incluso né supportato in questo momento.  Questa operazione viene citata perché, se si legge lo [standard](https://tools.ietf.org/html/rfc8628) , si noterà che `verification_uri_complete` è elencato come parte facoltativa dello standard del flusso del codice del dispositivo.
@@ -100,12 +100,12 @@ client_id: 6731de76-14a6-49ae-97bc-6eba6914391e
 device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 ```
 
-| Parametro | Obbligatoria | Description|
+| Parametro | Obbligatorio | Description|
 | -------- | -------- | ---------- |
-| `tenant`  | Obbligatoria | Stesso alias tenant o tenant usato nella richiesta iniziale. | 
-| `grant_type` | Obbligatoria | Deve essere `urn:ietf:params:oauth:grant-type:device_code`|
-| `client_id`  | Obbligatoria | Deve corrispondere al `client_id` usato nella richiesta iniziale. |
-| `device_code`| Obbligatoria | Il `device_code` restituito nella richiesta di autorizzazione del dispositivo.  |
+| `tenant`  | Obbligatorio | Stesso alias tenant o tenant usato nella richiesta iniziale. | 
+| `grant_type` | Obbligatorio | Deve essere `urn:ietf:params:oauth:grant-type:device_code`|
+| `client_id`  | Obbligatorio | Deve corrispondere al `client_id` usato nella richiesta iniziale. |
+| `device_code`| Obbligatorio | Il `device_code` restituito nella richiesta di autorizzazione del dispositivo.  |
 
 ### <a name="expected-errors"></a>Errori previsti
 
@@ -135,7 +135,7 @@ Una risposta token con esito positivo ha un aspetto simile al seguente:
 
 | Parametro | Format | Description |
 | --------- | ------ | ----------- |
-| `token_type` | Stringa| Sempre "Bearer". |
+| `token_type` | string| Sempre "Bearer". |
 | `scope` | Stringhe separate da uno spazio | Se è stato restituito un token di accesso, verranno elencati gli ambiti per cui è valido. |
 | `expires_in`| int | Numero di secondi per cui il token di accesso incluso verrà considerato valido. |
 | `access_token`| Stringa opaca | Emessa per gli [ambiti](v2-permissions-and-consent.md) che sono stati richiesti.  |

@@ -5,20 +5,20 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 07/10/2019
+ms.date: 12/17/2019
 ms.author: helohr
-ms.openlocfilehash: b53bf80774a0715c7a02d837975284e985958635
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 925894aea267e4f100f7bcdb817424b5cdfe6c25
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607442"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459467"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Creazione di pool di host e tenant
 
 In questo articolo vengono illustrati i problemi durante la configurazione iniziale del tenant di desktop virtuale Windows e l'infrastruttura del pool di host sessione correlata.
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 
 Visitare la pagina [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) per discutere del servizio Desktop virtuale Windows con il team del prodotto e i membri attivi della community.
 
@@ -59,7 +59,7 @@ Esempio di errore non elaborato:
 
 ## <a name="creating-windows-virtual-desktop-session-host-vms"></a>Creazione di VM host sessione desktop virtuale Windows
 
-È possibile creare macchine virtuali host sessione in diversi modi, ma i team di desktop virtuali Servizi Desktop remoto/Windows supportano solo i problemi di provisioning delle VM correlati al modello di Azure Resource Manager. Il modello di Azure Resource Manager è disponibile in [Azure Marketplace](https://azuremarketplace.microsoft.com/) e in [GitHub](https://github.com/).
+È possibile creare macchine virtuali host sessione in diversi modi, ma il team di desktop virtuali Windows supporta solo i problemi di provisioning delle VM correlati all'offerta di [Azure Marketplace](https://azuremarketplace.microsoft.com/) . Per informazioni dettagliate, vedere [problemi relativi all'uso di desktop virtuali Windows-effettuare il provisioning di un'offerta di Azure Marketplace](#issues-using-windows-virtual-desktop--provision-a-host-pool-azure-marketplace-offering)
 
 ## <a name="issues-using-windows-virtual-desktop--provision-a-host-pool-azure-marketplace-offering"></a>Problemi di utilizzo del desktop virtuale di Windows: effettuare il provisioning di un'offerta di Azure Marketplace
 
@@ -87,6 +87,27 @@ Il modello desktop virtuale Windows-provisioning di un pool di host è disponibi
     #create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%
     2FRDS-Templates%2Fmaster%2Fwvd-templates%2FCreate%20and%20provision%20WVD%20host%20pool%2FmainTemplate.json
     ```
+
+### <a name="error-you-receive-template-deployment-is-not-valid-error"></a>Errore: viene visualizzato l'errore "distribuzione modello non valida"
+
+![Screenshot della distribuzione del modello... errore non valido](media/troubleshooting-marketplace-validation-error-generic.png)
+
+Prima di eseguire un'azione specifica, è necessario controllare il log attività per visualizzare l'errore dettagliato per la convalida della distribuzione non riuscita.
+
+Per visualizzare l'errore nel log attività:
+
+1. Uscire dall'offerta di distribuzione corrente di Azure Marketplace.
+2. Nella barra di ricerca superiore cercare e selezionare **log attività**.
+3. Individuare un'attività denominata **Validate Deployment** con lo stato **non riuscito** e selezionare l'attività.
+   ![screenshot della singola attività * * Validate Deployment * * con uno stato * * Failed * *](media/troubleshooting-marketplace-validation-error-activity-summary.png)
+
+4. Selezionare JSON, quindi scorrere fino alla fine della schermata fino a visualizzare il campo "statusMessage".
+   ![screenshot dell'attività non riuscita, con una casella rossa intorno alla proprietà statusMessage del testo JSON.](media/troubleshooting-marketplace-validation-error-json-boxed.png)
+
+Se il modello di operazione supera il limite di quota, è possibile eseguire una delle operazioni seguenti per risolvere il problema:
+
+ - Eseguire Azure Marketplace con i parametri usati per la prima volta, ma questa volta usare un minor numero di VM e Core VM.
+ - Aprire il collegamento visualizzato nel campo **StatusMessage** in un browser per inviare una richiesta di aumento della quota per la sottoscrizione di Azure per lo SKU di VM specificato.
 
 ## <a name="azure-resource-manager-template-and-powershell-desired-state-configuration-dsc-errors"></a>Errori del modello di Azure Resource Manager e di PowerShell DSC (Desired state Configuration)
 
@@ -346,9 +367,10 @@ Se si esegue il modello di Azure Resource Manager di GitHub, fornire i valori pe
 
 - Per una panoramica sulla risoluzione dei problemi relativi a desktop virtuale Windows e alle tracce di escalation, vedere [panoramica sulla risoluzione dei problemi, commenti e suggerimenti e supporto](troubleshoot-set-up-overview.md).
 - Per risolvere i problemi durante la configurazione di una macchina virtuale (VM) in desktop virtuale di Windows, vedere [configurazione della macchina virtuale host sessione](troubleshoot-vm-configuration.md).
-- Per risolvere i problemi relativi alle connessioni client di desktop virtuali Windows, vedere [Desktop remoto connessioni client](troubleshoot-client-connection.md).
+- Per risolvere i problemi relativi alle connessioni client di desktop virtuali Windows, vedere [connessioni al servizio desktop virtuale di Windows](troubleshoot-service-connection.md).
+- Per risolvere i problemi relativi ai client di Desktop remoto, vedere [risoluzione dei problemi del client di desktop remoto](troubleshoot-client.md)
 - Per risolvere i problemi relativi all'uso di PowerShell con desktop virtuale di Windows, vedere [PowerShell per desktop virtuale di Windows](troubleshoot-powershell.md).
-- Per ulteriori informazioni sul servizio, vedere [ambiente desktop virtuale di Windows](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
-- Per un'esercitazione per la risoluzione dei problemi, vedere [esercitazione: risolvere i problemi relativi alle distribuzioni di modelli gestione risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
-- Per altre informazioni sulle azioni di controllo, vedere [Operazioni di controllo con Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
-- Per altre informazioni sulle azioni che consentono di determinare gli errori di distribuzione, vedere [Visualizzare le operazioni di distribuzione con il portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).
+- Per ulteriori informazioni sul servizio, vedere [ambiente desktop virtuale di Windows](environment-setup.md).
+- Per un'esercitazione per la risoluzione dei problemi, vedere [esercitazione: risolvere i problemi relativi alle distribuzioni di modelli gestione risorse](../azure-resource-manager/resource-manager-tutorial-troubleshoot.md).
+- Per altre informazioni sulle azioni di controllo, vedere [Operazioni di controllo con Resource Manager](../azure-resource-manager/resource-group-audit.md).
+- Per altre informazioni sulle azioni che consentono di determinare gli errori di distribuzione, vedere [Visualizzare le operazioni di distribuzione con il portale di Azure](../azure-resource-manager/resource-manager-deployment-operations.md).

@@ -1,5 +1,5 @@
 ---
-title: Delega e ruoli in Azure AD gestione dei diritti-Azure Active Directory
+title: Delega e ruoli nella gestione dei diritti-Azure AD
 description: Informazioni su come delegare la governance degli accessi dagli amministratori IT ai responsabili del reparto e ai responsabili di progetto in modo che possano gestire l'accesso.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d68728c4ca4f9fe511faedcf2ca177b7160f112
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 86d924860e97b15a0a4af46c5bc35b0e0050292b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174264"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422592"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delega e ruoli in Azure AD gestione dei diritti
 
@@ -65,7 +65,7 @@ Il diagramma seguente mostra i cataloghi con risorse per gli uffici marketing, F
 
 Dopo la delega, il reparto marketing potrebbe avere ruoli simili alla tabella seguente.
 
-| Utente | Posizione lavorativa | Ruolo Azure AD | Ruolo di gestione dei diritti |
+| Utente | Posizione lavorativa | Ruolo di Azure AD | Ruolo di gestione dei diritti |
 | --- | --- | --- | --- |
 | Hana | Amministratore IT | Amministratore globale o Amministratore utenti |  |
 | Muja | Responsabile marketing | Utente | Autore del catalogo e proprietario del catalogo |
@@ -87,11 +87,11 @@ Inoltre, un responsabile approvazione designato e un richiedente di un pacchetto
 | Right | Description |
 | --- | --- |
 | Responsabile approvazione | Autorizzazione eseguita da un criterio per approvare o negare le richieste di accesso ai pacchetti, sebbene non possano modificare le definizioni dei pacchetti di accesso. |
-| Richiedente | Autorizzazione eseguita da un criterio di un pacchetto di accesso per richiedere il pacchetto di accesso. |
+| Utente supporto tecnico | Autorizzazione eseguita da un criterio di un pacchetto di accesso per richiedere il pacchetto di accesso. |
 
 Nella tabella seguente sono elencate le attività che i ruoli di gestione dei diritti possono eseguire.
 
-| Attività | Admin | Creatore del catalogo | Proprietario Catalogo | Gestione pacchetti di Access |
+| Attività | Amministrativi | Creatore del catalogo | Proprietario Catalogo | Gestione pacchetti di Access |
 | --- | :---: | :---: | :---: | :---: |
 | [Delega a un creatore del catalogo](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |
 | [Aggiungere un'organizzazione connessa](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |

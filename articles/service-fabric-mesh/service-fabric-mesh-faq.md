@@ -1,20 +1,15 @@
 ---
-title: Domande frequenti su Azure Service Fabric Mesh | Microsoft Docs
+title: Domande comuni per Azure Service Fabric mesh
 description: Informazioni sulle domande frequenti e sulle risposte relative a Azure Service Fabric Mesh.
-services: service-fabric-mesh
-keywords: ''
-author: chackdan
 ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
-ms.service: service-fabric-mesh
-manager: jeanpaul.connock
-ms.openlocfilehash: edd30dc8799ae9e5410ebc862574d632d09b9483
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 3fe6289ad7616dec97706c2f1779a74c508a0f76
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168674"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461984"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Domande frequenti su Service Fabric Mesh
 
@@ -35,11 +30,11 @@ Non sono attualmente previsti addebiti per la distribuzione di applicazioni o co
 Sì. Per ogni sottoscrizione sono previste le quote seguenti:
 
 - Numero di applicazioni: 5
-- Numero di core per applicazione: 12
-- Quantità totale di RAM per applicazione: 48 GB
-- Numero di endpoint di ingresso e rete: 5
-- Numero di volumi di Azure che è possibile collegare: 10
-- Numero di repliche dei servizi: 3
+- Core per applicazione: 12
+- RAM totale per applicazione: 48 GB
+- Endpoint di rete e ingresso: 5
+- Volumi di Azure che è possibile aggiungere: 10
+- Numero di repliche del servizio: 3
 - Il contenitore maggiore che è possibile distribuire è limitato a 4 core e 16 GB di RAM.
 - È possibile allocare core parziali ai contenitori con incrementi di 0,5 core fino a un massimo di 6 core.
 
@@ -49,7 +44,7 @@ Al momento la durata di un'applicazione è stata limitata a due giorni. Lo scopo
 
 In questo caso, è possibile convalidare l'arresto da parte del sistema eseguendo il comando `az mesh app show` nell'interfaccia della riga di comando di Azure e verificare se restituisce `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
 
-Esempio: 
+Ad esempio: 
 
 ```cli
 ~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
@@ -86,7 +81,6 @@ Se le attività di sviluppo vengono eseguite in un computer con Windows Fall Cre
 Se le attività di sviluppo vengono eseguite in un computer Windows 10 con aggiornamento di aprile 2018 (versione 1803), è possibile usare le immagini Docker di Windows versione 1709 o di Windows versione 1803.
 
 Per distribuire i servizi, possono essere usate le immagini del sistema operativo contenitore seguenti:
-
 - Windows: windowsservercore e nanoserver
     - Windows Server 1709
     - Windows Server 1803
@@ -109,8 +103,8 @@ Per distribuire i servizi, possono essere usate le immagini del sistema operativ
 Le query DNS in uscita da un contenitore al servizio DNS di Service Fabric DNS potrebbero non riuscire in determinate circostanze. Il problema è in fase di analisi. Per attenuare il problema:
 
 - Usare Windows Fall Creators Update (versione 1709) o versione successiva come immagine del contenitore di base.
-- Se il nome del servizio da solo non funziona, provare a specificare il nome completo: ServiceName.ApplicationName.
-- Nel file Docker per il servizio aggiungere `EXPOSE <port>`, dove "port" indica la porta a cui si espone il servizio. Esempio:
+- Se il nome del servizio da solo non funziona, provare il nome completo: ServiceName. ApplicationName.
+- Nel file Docker per il servizio aggiungere `EXPOSE <port>`, dove "port" indica la porta a cui si espone il servizio. Ad esempio:
 
 ```Dockerfile
 EXPOSE 80
@@ -124,7 +118,7 @@ Nel cluster di sviluppo locale usare `{serviceName}.{applicationName}`. In Azure
 
 Azure Service Fabric Mesh attualmente non supporta la risoluzione DNS tra le applicazioni.
 
-Per altri problemi noti relativi al DNS durante l'esecuzione di un cluster di sviluppo di Service Fabric in Windows 10, vedere: [Eseguire il debug di contenitori Windows](/azure/service-fabric/service-fabric-how-to-debug-windows-containers) e [Problemi DNS noti](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#known-issues).
+Per altri problemi noti relativi a DNS con l'esecuzione di un cluster di sviluppo Service Fabric in Windows 10, vedere: [eseguire il debug di contenitori Windows](/azure/service-fabric/service-fabric-how-to-debug-windows-containers) e [problemi DNS noti](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#known-issues).
 
 ### <a name="networking"></a>Rete
 

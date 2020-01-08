@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 8fb121999176e43f07283e970d7336a7c569eaca
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 5c947617f0c27708e72f9bff92e2b0041473cd92
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688708"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422059"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Creare un'app Web in un ambiente del servizio app (versione 1)
 
@@ -20,7 +20,7 @@ ms.locfileid: "74688708"
 > Questo articolo riguarda l'ambiente del servizio app v1.  Esiste una nuova versione dell'ambiente del servizio app che, oltre ad essere più facile da usare, può essere eseguita in un'infrastruttura più potente. Per altre informazioni su questa nuova versione, vedere [Introduzione ad Ambiente del servizio app](intro.md).
 > 
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 Questa esercitazione illustra come creare app Web e piani di servizio app in un [ambiente del servizio app (versione 1)](app-service-app-service-environment-intro.md). 
 
 > [!NOTE]
@@ -40,7 +40,7 @@ Questa esercitazione presuppone che l'utente abbia creato un ambiente del serviz
     Se sono presenti più sottoscrizioni, ricordare che per creare un'app nell'ambiente del servizio app è necessario usare la stessa sottoscrizione usata per la creazione dell'ambiente. 
 3. Selezionare o creare un gruppo di risorse.
    
-    I *gruppi di risorse* consentono di gestire risorse di Azure correlate come un'unità e sono utili per stabilire le regole di *controllo degli accessi in base al ruolo*  per le app. Per altre informazioni, vedere [Panoramica di Azure Resource Manager][ResourceGroups]. 
+    I *gruppi di risorse* consentono di gestire risorse di Azure correlate come un'unità e sono utili per stabilire le regole di *controllo degli accessi in base al ruolo* per le app. Per altre informazioni, vedere [Panoramica di Azure Resource Manager][ResourceGroups]. 
 4. Selezionare o creare un piano di servizio app.
    
     *piani di servizio app* sono costituiti da set gestiti di app Web.  Quando si seleziona il prezzo, in genere l'importo addebitato viene applicato al piano di servizio app invece che alle singole app. Nell'ambiente del servizio app vengono addebitate le istanze di calcolo allocate all'ambiente e non quanto elencato nel piano di servizio app.  Per aumentare il numero di istanze di un'app Web, si aumentano le istanze del piano di servizio app e tale operazione influisce su tutte le app Web incluse nel piano.  Il piano può prevedere restrizioni relative alla quantità per alcune funzionalità, come gli slot di sito o l'integrazione della rete virtuale.  Per altre informazioni, vedere [Panoramica approfondita dei piani del servizio app di Azure](../overview-hosting-plans.md)
@@ -104,5 +104,5 @@ Dopo aver creato l'app Web e il piano di servizio app, è consigliabile aumentar
 [HowtoCreateASE]: app-service-web-how-to-create-an-app-service-environment.md
 [HowtoScale]: app-service-web-scale-a-web-app-in-an-app-service-environment.md
 [HowtoConfigureASE]: app-service-web-configure-an-app-service-environment.md
-[ResourceGroups]: ../../azure-resource-manager/resource-group-overview.md
+[ResourceGroups]: ../../azure-resource-manager/management/overview.md
 [AzurePowershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/

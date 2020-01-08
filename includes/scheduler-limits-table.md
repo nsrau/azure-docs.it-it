@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 08/16/2016
 ms.author: deli
 ms.custom: include file
-ms.openlocfilehash: b3788ede23a423bebf96661ea88b227bfb5fdf4c
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: eb13d889cb72911e2268b7538a74336befe3320b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67180523"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392254"
 ---
 Nella tabella seguente viene descritto ciascuno dei principali quote, limiti, impostazioni predefinite e limitazioni nell'utilità di pianificazione di Azure.
 
-| Risorsa | Descrizione limite |
+| Gruppi | Descrizione limite |
 | -------- | ----------------- |
 | **Dimensioni del processo** | Le dimensioni massime del processo sono pari a 16.000. Se un'operazione PUT o PATCH determina un processo di dimensioni maggiori rispetto a questo limite, viene restituito un codice di stato 400 di richiesta non valida. | 
 | **Raccolte processi** | Il numero massimo di raccolte processi per ogni sottoscrizione di Azure è 200.000. | 
-| **Processi per raccolta** | Per impostazione predefinita, il numero massimo è di cinque processi per le raccolte di processi gratuite e di 50 processi nelle raccolte di processi standard. <p>È possibile modificare il numero massimo di processi nelle raccolte di processi. Tutti i processi in una raccolta sono limitati al valore impostato nella raccolta stessa. Se si prova a creare più processi rispetto alla quota massima, la richiesta ha esito negativo e restituisce un codice di stato 409 conflitto. | 
+| **Processi per raccolta** | Per impostazione predefinita, il numero massimo è di cinque processi per le raccolte di processi gratuite e di 50 processi nelle raccolte di processi standard. È possibile modificare il numero massimo di processi nelle raccolte di processi. Tutti i processi in una raccolta sono limitati al valore impostato nella raccolta stessa. Se si prova a creare più processi rispetto alla quota massima, la richiesta ha esito negativo e restituisce un codice di stato 409 conflitto. | 
 | **Tempo dall’ora di inizio** | Il massimo "tempo dall'ora di inizio" è di 18 mesi. |
 | **Intervallo di ricorrenza** | L'intervallo massimo delle ricorrenze è di 18 mesi. | 
 | **Frequenza** | Per impostazione predefinita, la frequenza massima è di un'ora per le raccolte di processi gratuite e di un minuto nelle raccolte di processi standard. <p>È possibile impostare la frequenza massima in una raccolta di processi su un valore inferiore a quello massimo consentito. Tutti i processi nella raccolta sono limitati al valore impostato nella raccolta stessa. Se si prova a creare un processo con una frequenza maggiore rispetto alla frequenza massima nella raccolta, la richiesta ha esito negativo con codice di stato 409 Conflitto. | 

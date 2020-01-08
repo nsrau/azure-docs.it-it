@@ -1,25 +1,15 @@
 ---
-title: Pianificazione della capacità del cluster di Service Fabric | Documentazione Microsoft
+title: Pianificazione della capacità del cluster Service Fabric
 description: Considerazioni sulla pianificazione della capacità del cluster Service Fabric. Tipi di nodo, operazioni, livelli di affidabilità e durabilità
-services: service-fabric
-documentationcenter: .net
-author: ChackDan
-manager: chackdan
-editor: ''
-ms.assetid: 4c584f4a-cb1f-400c-b61f-1f797f11c982
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/09/2019
 ms.author: pepogors
-ms.openlocfilehash: 1cbbc1fde22262d5841766978d40487f812e0963
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 6e60fc10dd7e0eec24de4a089d09d914624dcfbc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333116"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463301"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerazioni sulla pianificazione della capacità del cluster Service Fabric
 La pianificazione della capacità è un passaggio importante per qualsiasi distribuzione di produzione. Ecco alcuni aspetti da considerare nell'ambito di tale processo.
@@ -76,9 +66,9 @@ Il livello di durabilità viene usato per indicare al sistema i privilegi delle 
 
 | Livello di durabilità  | Numero minimo richiesto di macchine virtuali | SKU di macchine virtuali supportati                                                                  | Aggiornamenti al set di scalabilità di macchine virtuali                               | Aggiornamenti e manutenzione avviati da Azure                                                              | 
 | ---------------- |  ----------------------------  | ---------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| Gold             | 5                              | SKU con tutti i nodi dedicati a un singolo cliente (ad esempio, L32s, GS5, G5, DS15_v2, D15_v2) | Può essere ritardato fino all'approvazione da parte del cluster di Service Fabric | Può essere sospeso per 2 ore per ogni dominio di aggiornamento, per concedere più tempo per il ripristino delle repliche da errori precedenti |
-| Silver           | 5                              | VM di un core singolo o superiore con almeno 50 GB di unità SSD locale                      | Può essere ritardato fino all'approvazione da parte del cluster di Service Fabric | Non può essere ritardato per un periodo di tempo significativo                                                    |
-| Bronze           | 1                              | VM con almeno 50 GB di unità SSD locale                                              | Non verrà ritardato dal cluster di Service Fabric           | Non può essere ritardato per un periodo di tempo significativo                                                    |
+| Oro             | 5                              | SKU con tutti i nodi dedicati a un singolo cliente (ad esempio, L32s, GS5, G5, DS15_v2, D15_v2) | Può essere ritardato fino all'approvazione da parte del cluster di Service Fabric | Può essere sospeso per 2 ore per ogni dominio di aggiornamento, per concedere più tempo per il ripristino delle repliche da errori precedenti |
+| Argento           | 5                              | VM di un core singolo o superiore con almeno 50 GB di unità SSD locale                      | Può essere ritardato fino all'approvazione da parte del cluster di Service Fabric | Non può essere ritardato per un periodo di tempo significativo                                                    |
+| Bronzo           | 1                              | VM con almeno 50 GB di unità SSD locale                                              | Non verrà ritardato dal cluster di Service Fabric           | Non può essere ritardato per un periodo di tempo significativo                                                    |
 
 > [!WARNING]
 > I tipi di nodo in esecuzione con durabilità Bronze _non ottengono privilegi_. Ciò significa che i processi di infrastruttura che influiscano sui carichi di lavoro con stato non verranno interrotti o posticipati, che potrebbero influito sui carichi di lavoro. Usare il livello Bronze solo per i tipi di nodo che eseguono esclusivamente carichi di lavoro senza stato. Per i carichi di lavoro di produzione è consigliabile eseguire il livello Silver o superiore. 
@@ -142,9 +132,9 @@ Ecco la raccomandazione per la scelta del livello di affidabilità.  Il numero d
 | **Numero di nodi del cluster** | **Livello di affidabilità** |
 | --- | --- |
 | 1 |Non specificare il parametro Livello di affidabilità perché viene calcolato automaticamente dal sistema |
-| 3 |Bronze |
-| 5 o 6|Silver |
-| 7 o 8 |Gold |
+| 3 |Bronzo |
+| 5 o 6|Argento |
+| 7 o 8 |Oro |
 | Da 9 in su |Platinum |
 
 ## <a name="primary-node-type---capacity-guidance"></a>Tipo di nodo primario: guida alla capacità
@@ -161,7 +151,7 @@ Per i carichi di lavoro di produzione:
 
 - Si consiglia di dedicare i cluster di tipo di nodo primario a servizi di sistema e utilizzare i vincoli di posizionamento per distribuire l'applicazione ai tipi di nodo secondario.
 - Lo SKU di VM consigliato è D2_V2 standard o equivalente con almeno 50 GB di unità SSD locale.
-- Lo SKU di VM use minimo supportato è Standard_D2_V3 o D1_V2 standard o equivalente con almeno 50 GB di unità SSD locale. 
+- Lo SKU di VM use minimo supportato è Standard_D2_V3 o standard D1_V2 o equivalente con almeno 50 GB di unità SSD locale. 
 - È consigliabile disporre di un'unità SSD di almeno 50 GB. Per i carichi di lavoro in esecuzione, in particolare quando eseguono contenitori Windows, sono necessari dischi di maggiori dimensioni. 
 - Gli SKU per VM con core parziali, ad esempio Standard A0, non sono supportati per i carichi di lavoro di produzione.
 - Gli SKU di VM serie non sono supportati per i carichi di lavoro di produzione per motivi di prestazioni.
@@ -183,7 +173,7 @@ Per i carichi di lavoro di produzione, la dimensione minima consigliata per il t
 Per i carichi di lavoro di produzione 
 
 - Lo SKU di VM consigliato è D2_V2 standard o equivalente con almeno 50 GB di unità SSD locale.
-- Lo SKU di VM use minimo supportato è Standard_D2_V3 o D1_V2 standard o equivalente con almeno 50 GB di unità SSD locale. 
+- Lo SKU di VM use minimo supportato è Standard_D2_V3 o standard D1_V2 o equivalente con almeno 50 GB di unità SSD locale. 
 - Gli SKU per VM con core parziali, ad esempio Standard A0, non sono supportati per i carichi di lavoro di produzione.
 - Gli SKU di VM serie non sono supportati per i carichi di lavoro di produzione per motivi di prestazioni.
 

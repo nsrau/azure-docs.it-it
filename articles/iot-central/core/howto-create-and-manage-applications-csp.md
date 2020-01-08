@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: d74bd67dedb70308061e54c05d23a4bb63adc8f8
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 0e49a5c8edd074c71d5972ee8d9c2e81f9c512ea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851333"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453953"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>Creare e gestire un'applicazione IoT Central di Azure dal portale CSP
 
@@ -33,7 +33,7 @@ Passare alla pagina Application Manager di Azure IoT Central. Azure IoT Central 
 
 ![Create Manager (Crea manager) per CSP](media/howto-create-application-csp/image3.png)
 
-Per creare un'applicazione IoT Central di Azure, selezionare **Compila** nel menu a sinistra. Scegliere uno dei modelli di settore o scegliere **app personalizzata** per creare un'applicazione da zero. Verrà caricata la pagina Application Creation (Creazione applicazione). Completare tutti i campi in questa pagina e quindi scegliere **Create** (Crea). Vengono fornite maggiori informazioni su ognuno dei campi qui di seguito.
+Per creare un'applicazione IoT Central di Azure, selezionare **Compila** nel menu a sinistra. Scegliere uno dei modelli di settore o scegliere **applicazione legacy** per creare un'applicazione da zero. Verrà caricata la pagina Application Creation (Creazione applicazione). Completare tutti i campi in questa pagina e quindi scegliere **Create** (Crea). Vengono fornite maggiori informazioni su ognuno dei campi qui di seguito.
 
 ![La pagina Create Application (Crea applicazione) per CSP](media/howto-create-application-csp/image4.png)
 
@@ -69,7 +69,7 @@ Se non si ha una sottoscrizione di Azure, è possibile crearne una nel Centro pe
 
 Per altre informazioni, vedere la documentazione sulle [sottoscrizioni di Azure](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing).
 
-## <a name="region"></a>Area geografica
+## <a name="region"></a>Area
 
 Scegliere la regione o l'area [geografica](https://azure.microsoft.com/global-infrastructure/geographies/) in cui si vuole creare l'applicazione IoT Central di Azure. In genere, è consigliabile scegliere l'area più vicina fisicamente ai dispositivi per ottenere prestazioni ottimali.
 
@@ -85,13 +85,12 @@ Per altre informazioni, vedere [aree di Azure](https://azure.microsoft.com/globa
 
 ## <a name="application-template"></a>Modello di applicazione
 
-Per la nuova applicazione Azure IoT Central è possibile scegliere uno dei modelli di applicazione disponibili. Un modello di applicazione può contenere elementi predefiniti, ad esempio modelli di dispositivi e dashboard, che facilitano i primi passi.
+È possibile scegliere il modello di applicazione seguente per la nuova applicazione IoT Central di Azure.
 
 | Modello di applicazione | Description |
 | -------------------- | ----------- |
-| Applicazione personalizzata   | Crea un'applicazione vuota per l'utente da popolare con i propri modelli di dispositivi e dispositivi. |
-| Esempio Contoso       | Crea un'applicazione che include un modello di dispositivo per un dispositivo connesso semplice. Usare questo modello per iniziare a esplorare Azure IoT Central. |
-| Esempio Devkits       | Crea un'applicazione con modelli di dispositivo pronti per la connessione a un dispositivo MXChip o Raspberry Pi. Si consiglia di usare questo modello agli sviluppatori di dispositivi che vogliono sperimentare il codice in uno di questi dispositivi. |
+| Applicazione legacy   | Crea un'applicazione vuota per l'utente da popolare con i propri modelli di dispositivi e dispositivi. |
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

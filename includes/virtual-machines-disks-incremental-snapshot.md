@@ -1,27 +1,25 @@
 ---
-title: file di inclusione
-description: file di inclusione
+title: File di inclusione
+description: File di inclusione
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/23/2019
+ms.date: 12/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a0325a7fd3aca3d27b24c193a9f131546a70d80b
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
-ms.translationtype: MT
+ms.openlocfilehash: b936c3a320a99d0853cb331fcd0bc44718527b9e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74566284"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75468280"
 ---
 Gli snapshot incrementali (anteprima) sono backup temporizzati per i dischi gestiti che, quando vengono eseguiti, sono costituiti solo da tutte le modifiche apportate dopo l'ultimo snapshot. Quando si tenta di scaricare o utilizzare in altro modo uno snapshot incrementale, viene utilizzato il VHD completo. Questa nuova funzionalità per gli snapshot dei dischi gestiti può consentire loro di essere più conveniente, perché non è più necessario archiviare l'intero disco con ogni singolo snapshot, a meno che non si scelga di. Analogamente agli snapshot regolari, è possibile usare gli snapshot incrementali per creare un disco gestito completo o, per creare uno snapshot regolare.
 
 Esistono alcune differenze tra uno snapshot incrementale e uno snapshot regolare. Gli snapshot incrementali utilizzeranno sempre l'archiviazione HDD standard, indipendentemente dal tipo di archiviazione del disco, mentre gli snapshot regolari possono usare unità SSD Premium. Se si usano snapshot regolari nell'archiviazione Premium per la scalabilità verticale delle distribuzioni di macchine virtuali, è consigliabile usare immagini personalizzate nell'archiviazione standard della [raccolta immagini condivise](../articles/virtual-machines/linux/shared-image-galleries.md). Consente di ottenere una scalabilità più massiccia con costi ridotti. Inoltre, gli snapshot incrementali offrono potenzialmente una migliore affidabilità con l' [archiviazione con ridondanza della zona](../articles/storage/common/storage-redundancy-zrs.md) (ZRS). Se ZRS è disponibile nell'area selezionata, verrà usato automaticamente ZRS per uno snapshot incrementale. Se ZRS non è disponibile nell'area, lo snapshot utilizzerà per impostazione predefinita l' [archiviazione con ridondanza locale](../articles/storage/common/storage-redundancy-lrs.md) (con ridondanza locale). È possibile eseguire l'override di questo comportamento e selezionarne uno manualmente, ma non è consigliabile.
 
 Gli snapshot incrementali offrono inoltre una funzionalità differenziale, disponibile in modo univoco per i dischi gestiti. Consentono di ottenere le modifiche tra due snapshot incrementali degli stessi dischi gestiti, fino al livello di blocco. È possibile usare questa funzionalità per ridurre il footprint dei dati durante la copia degli snapshot tra le aree.
-
-Se non è ancora stata effettuata l'iscrizione per l'anteprima e si vuole iniziare a usare gli snapshot incrementali, inviare un messaggio di posta elettronica all'AzureDisks@microsoft.com per ottenere l'accesso all'anteprima pubblica.
 
 ## <a name="restrictions"></a>Restrizioni
 
@@ -156,8 +154,4 @@ az snapshot list -g <yourResourceGroupNameHere> -o json \
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-1. Se non è ancora stata effettuata l'iscrizione per l'anteprima e si vuole iniziare a usare gli snapshot incrementali, inviare un messaggio di posta elettronica all'AzureDisks@microsoft.com per ottenere l'accesso all'anteprima pubblica. 
-
-2. Esaminare gli esempi seguenti per la copia tra aree di snapshot incrementali con funzionalità differenziale   
-
-    - [Uso di Azure .NET SDK](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots)
+Se si vuole vedere il codice di esempio che illustra la funzionalità differenziale degli snapshot incrementali, usando .NET, vedere [copiare i backup di Azure Managed disks in un'altra area con funzionalità differenziali di snapshot incrementali](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots).

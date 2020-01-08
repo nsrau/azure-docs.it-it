@@ -2,19 +2,15 @@
 title: Configurare pre e post-script per la distribuzione di Gestione aggiornamenti in Azure
 description: Questo articolo descrive come configurare e gestire gli script preliminari e i post-script per le distribuzioni degli aggiornamenti.
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 05/17/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: a5d68b64fc24577621c82be62f833c356e8fb9c2
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 35fba966fcdb6d1c5cd7c531bb22c9c78ae16ff3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850245"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75417792"
 ---
 # <a name="manage-pre-and-post-scripts"></a>Gestire pre e post-script
 

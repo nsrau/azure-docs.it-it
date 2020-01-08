@@ -1,5 +1,5 @@
 ---
-title: Completare una verifica di accesso di gruppi o applicazioni-Azure Active Directory | Microsoft Docs
+title: Completare una verifica di accesso dei gruppi & applicazioni-Azure AD
 description: Informazioni su come completare una verifica di accesso dei membri del gruppo o dell'accesso alle applicazioni in Azure Active Directory verifiche di accesso.
 services: active-directory
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97c405032368ffd06f5808bc4518302d2f6d66b9
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 0c6f3405354136e11600ae059f3e05890d3534ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489152"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422730"
 ---
-# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Completare una verifica di accesso di gruppi o applicazioni in Azure AD verifiche di accesso
+# <a name="complete-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Completare una verifica di accesso dei gruppi e delle applicazioni nelle verifiche di accesso Azure AD
 
 In qualità di amministratore, si [Crea una verifica di accesso di gruppi o applicazioni](create-access-review.md) e i revisori [eseguono la verifica dell'accesso](perform-access-review.md). Questo articolo descrive come visualizzare i risultati della verifica di accesso e applicare i risultati.
 
@@ -31,7 +31,7 @@ In qualità di amministratore, si [Crea una verifica di accesso di gruppi o appl
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Azure AD P2 Premium
+- Azure AD Premium P2
 - Amministratore globale, Amministratore utenti, amministratore della sicurezza o lettore sicurezza
 
 Per altre informazioni, vedere [quali utenti devono avere licenze?](access-reviews-overview.md#which-users-must-have-licenses).

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9ce6459dd65c75c6fcff5591d4e4667e4b0c75fa
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 56194bcfb9531def87a9918ad442a2927413c964
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928484"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432967"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Trovare un indirizzo usando il servizio di ricerca di Mappe di Azure
 
@@ -26,9 +26,9 @@ In questo articolo si apprenderà come:
 * Eseguire una [ricerca di indirizzi inversi](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) per cercare un indirizzo via
 * Cercare una traversa usando l' [API di ricerca inversa dell'indirizzo di ricerca](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-Per eseguire chiamate alle API del servizio Mappe sono necessari un account di Mappe e una chiave. Per informazioni sulla creazione di un account, seguire le istruzioni in [gestire l'account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) e seguire i passaggi in [ottenere la chiave primaria](./tutorial-search-location.md#getkey) per recuperare una chiave di sottoscrizione primaria per l'account.
+Per eseguire chiamate alle API del servizio Mappe sono necessari un account di Mappe e una chiave. Per ottenere la chiave primaria per l'account, seguire le istruzioni riportate in [creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps) per creare una sottoscrizione dell'account Azure Maps e seguire i passaggi in [ottenere](quick-demo-map-app.md#get-the-primary-key-for-your-account) la chiave primaria. Per altri dettagli sull'autenticazione in mappe di Azure, vedere [gestire l'autenticazione in mappe di Azure](./how-to-manage-authentication.md).
 
 Questo articolo usa l'[app Postman](https://www.getpostman.com/apps) per compilare le chiamate REST. È possibile usare qualsiasi ambiente di sviluppo API preferito.
 
@@ -46,7 +46,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
     ![Ricerca fuzzy](./media/how-to-search-for-address/fuzzy_search_url.png)
 
-    | . | Valore consigliato |
+    | Parametro | Valore consigliato |
     |---------------|------------------------------------------------|
     | Metodo HTTP | GET |
     | URL richiesta | [https://atlas.microsoft.com/search/fuzzy/json?](https://atlas.microsoft.com/search/fuzzy/json?) |
@@ -98,7 +98,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
     ![Ricerca di indirizzi](./media/how-to-search-for-address/address_search_url.png)
   
-    | . | Valore consigliato |
+    | Parametro | Valore consigliato |
     |---------------|------------------------------------------------|
     | Metodo HTTP | GET |
     | URL richiesta | [https://atlas.microsoft.com/search/address/json?](https://atlas.microsoft.com/search/address/json?) |
@@ -139,7 +139,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
   
     ![URL di ricerca di indirizzi inversa](./media/how-to-search-for-address/reverse_address_search_url.png)
   
-    | . | Valore consigliato |
+    | Parametro | Valore consigliato |
     |---------------|------------------------------------------------|
     | Metodo HTTP | GET |
     | URL richiesta | [https://atlas.microsoft.com/search/address/reverse/json?](https://atlas.microsoft.com/search/address/reverse/json?) |
@@ -163,7 +163,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
     | Chiave | Valore |
     |-----|------------|
-    | number | true |
+    | d'acquisto | true |
 
     Se con la richiesta viene inviato il parametro di query [number](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse), la risposta può includere il lato della via (sinistro/destro) e anche una posizione di variazione per il numero.
   
@@ -199,7 +199,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
   
     ![Ricerca di strade secondarie inversa](./media/how-to-search-for-address/reverse_address_search_url.png)
   
-    | . | Valore consigliato |
+    | Parametro | Valore consigliato |
     |---------------|------------------------------------------------|
     | Metodo HTTP | GET |
     | URL richiesta | [https://atlas.microsoft.com/search/address/reverse/crossstreet/json?](https://atlas.microsoft.com/search/address/reverse/crossstreet/json?) |

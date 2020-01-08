@@ -3,22 +3,22 @@ title: Distribuire Criteri di Azure nelle sottoscrizioni delegate su larga scala
 description: Informazioni sul modo in cui la gestione risorse delegate di Azure consente di distribuire una definizione e un'assegnazione dei criteri tra più tenant.
 ms.date: 11/8/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3853e8fc163dfc662adc675dd3df1d15958d329a
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 9e061995b728e2864d1bd33a32d530634ab794d8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463865"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456852"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Distribuire Criteri di Azure nelle sottoscrizioni delegate su larga scala
 
 I provider di servizi potrebbero aver integrato più tenant di clienti per la gestione risorse delegate di Azure. [Azure Lighthouse](../overview.md) consente ai provider di servizi di eseguire operazioni su larga scala tra più tenant contemporaneamente, rendendo più efficienti le attività di gestione.
 
-Questo argomento illustra come usare [Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/) per distribuire una definizione e un'assegnazione dei criteri tra più tenant usando i comandi di PowerShell. In questo esempio, la definizione dei criteri garantisce che gli account di archiviazione siano protetti consentendo solo il traffico HTTPS.
+Questo argomento illustra come usare [Criteri di Azure](../../governance/policy/index.yml) per distribuire una definizione e un'assegnazione dei criteri tra più tenant usando i comandi di PowerShell. In questo esempio, la definizione dei criteri garantisce che gli account di archiviazione siano protetti consentendo solo il traffico HTTPS.
 
 ## <a name="use-azure-resource-graph-to-query-across-customer-tenants"></a>Usare Azure Resource Graph per eseguire query tra tenant di clienti
 
-È possibile usare [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/) per eseguire query su tutte le sottoscrizioni nei tenant di clienti gestiti. In questo esempio verranno identificati gli account di archiviazione in queste sottoscrizioni che attualmente non richiedono traffico HTTPS.  
+È possibile usare [Azure Resource Graph](../../governance/resource-graph/index.yml) per eseguire query su tutte le sottoscrizioni nei tenant di clienti gestiti. In questo esempio verranno identificati gli account di archiviazione in queste sottoscrizioni che attualmente non richiedono traffico HTTPS.  
 
 ```powershell
 $MspTenant = "insert your managing tenantId here"
@@ -90,5 +90,5 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su [Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/).
+- Informazioni su [Criteri di Azure](../../governance/policy/index.yml).
 - Informazioni sulle [esperienze di gestione tra tenant](../concepts/cross-tenant-management-experience.md).

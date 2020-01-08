@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/08/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 097429e9c761d447a7164c813a6c84d3f07f0ab6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: ddba2b70bc9d9e01518cdc0f373fc31224e9c932
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891411"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425942"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Carichi di lavoro SAP in Azure: elenco di controllo di pianificazione e distribuzione
 
@@ -77,7 +77,7 @@ Durante questa fase si pianifica la migrazione del carico di lavoro SAP alla pia
     - Convenzioni di denominazione per le macchine virtuali e altri componenti dell'infrastruttura e/o nomi logici.
 5.  Contratto Microsoft supporto tecnico Premier. Identificare Microsoft Technical Account Manager (TAM). Per i requisiti di supporto SAP, vedere la [Nota di supporto sap #2015553](https://launchpad.support.sap.com/#/notes/2015553).
 6.  Il numero di sottoscrizioni di Azure e la quota di core per le sottoscrizioni. [Aprire le richieste di supporto per aumentare le quote delle sottoscrizioni di Azure](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) in base alle esigenze.
-7.  Riduzione dei dati e piano di migrazione dei dati per la migrazione dei dati SAP in Azure. Per i sistemi SAP NetWeaver, SAP offre linee guida su come limitare il volume di grandi quantità di dati. Vedere [questa guida SAP](https://help.sap.com/http.svc/rc/2eb2fba8f8b1421c9a37a8d7233da545/7.0/en-US/Data_Management_Guide_Version_70E.PDF) sulla gestione dei dati nei sistemi SAP ERP. Parte del contenuto si applica anche ai sistemi NetWeaver e S/4HANA in generale.
+7.  Riduzione dei dati e piano di migrazione dei dati per la migrazione dei dati SAP in Azure. Per i sistemi SAP NetWeaver, SAP offre linee guida su come limitare il volume di grandi quantità di dati. Vedere [questa guida SAP](https://wiki.scn.sap.com/wiki/download/attachments/247399467/DVM_%20Guide_7.2.pdf?version=1&modificationDate=1549365516000&api=v2) sulla gestione dei dati nei sistemi SAP ERP. Parte del contenuto si applica anche ai sistemi NetWeaver e S/4HANA in generale.
 8.  Approccio di distribuzione automatizzato. L'obiettivo dell'automazione delle distribuzioni di infrastruttura in Azure consiste nel distribuire in modo deterministico e ottenere risultati deterministici. Molti clienti usano gli script basati su PowerShell o sull'interfaccia della riga di comando. Esistono tuttavia diverse tecnologie open source che è possibile usare per distribuire l'infrastruttura di Azure per SAP e persino installare il software SAP. È possibile trovare esempi su GitHub:
     - [Distribuzioni SAP automatizzate nel cloud di Azure](https://github.com/Azure/sap-hana)
     - [Installazione di SAP HANA](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
@@ -111,7 +111,7 @@ Si consiglia di configurare e convalidare una soluzione HADR completa e la proge
         - Per i diversi tipi di DBMS, consultare la [documentazione di DBMS generica relativa a SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) e la documentazione specifica di DBMS a cui fa riferimento il documento generico.
         - Per altre informazioni sulle SAP HANA, vedere [SAP Hana configurazioni e operazioni dell'infrastruttura in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations).
         - Non montare mai dischi dati di Azure in una macchina virtuale Linux di Azure tramite l'ID dispositivo. Usare invece l'identificatore univoco universale (UUID). Prestare attenzione quando si usano, ad esempio, strumenti grafici per il montaggio di dischi dati di Azure. Controllare le voci in/etc/fstab per assicurarsi che l'UUID venga usato per montare i dischi. Altre informazioni sono disponibili in [questo articolo](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#connect-to-the-linux-vm-to-mount-the-new-disk).
-   3. Rete.
+   3. Funzionalità di rete.
         - Testare e valutare l'infrastruttura di rete virtuale e la distribuzione delle applicazioni SAP nelle diverse reti virtuali di Azure.
         -  Valutare l'approccio dell'architettura di rete virtuale Hub e spoke o l'approccio di microsegmentazione all'interno di una singola rete virtuale di Azure. Basa la valutazione su:
                1. Costi dello scambio di dati tra [reti virtuali di Azure con peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). Per informazioni sui costi, vedere [prezzi di rete virtuale](https://azure.microsoft.com/pricing/details/virtual-network/).
@@ -122,7 +122,7 @@ Si consiglia di configurare e convalidare una soluzione HADR completa e la proge
             -  La posizione del livello dell'applicazione SAP e del sistema DBMS SAP in diverse reti virtuali di Azure con peering non è supportata.
             -  È possibile usare le regole del gruppo di sicurezza delle [applicazioni e del gruppo di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/security-overview) per definire le route tra il livello applicazione SAP e il livello DBMS di SAP.
         - Assicurarsi che la [rete accelerata di Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) sia abilitata nelle macchine virtuali usate nel livello applicazione SAP e nel livello DBMS di SAP. Tenere presente che per supportare Rete accelerata in Azure sono necessari diversi livelli di sistema operativo:
-            - Windows Server 2012 R2 o versione successiva.
+            - Windows Server 2012 R2 o versioni successive.
             - SUSE Linux 12 SP3 o versione successiva.
             - RHEL 7,4 o versione successiva.
             - Oracle Linux 7.5. Se si usa il kernel RHCKL, è necessario rilasciare 3.10.0-862.13.1. EL7. Se si usa il kernel Oracle UEK, è richiesta la versione 5.
@@ -255,7 +255,7 @@ Durante la fase di Go-Live, assicurarsi di seguire i PlayBook sviluppati durante
         - Scritture su disco in KBps, per singolo disco
         - Scritture disco/sec, per singolo disco
         - Scritture su disco in microsecondi/lettura, per singolo disco
-    - Rete.
+    - Rete:
         - Pacchetti di rete in/secondo
         - Pacchetti di rete in uscita al secondo
         - KB di rete in/secondo

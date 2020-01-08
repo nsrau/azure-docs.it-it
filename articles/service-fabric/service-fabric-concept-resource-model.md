@@ -1,18 +1,14 @@
 ---
-title: Modello di risorsa dell'applicazione Service Fabric di Azure | Microsoft Docs
+title: Modello di risorsa dell'applicazione Service Fabric di Azure
 description: Questo articolo fornisce una panoramica della gestione di un'applicazione Service Fabric di Azure con Azure Resource Manager
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 10/21/2019
-ms.author: atsenthi
-ms.openlocfilehash: b9a3534c24649e71385cd8fdc8b4981ac471cf90
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: b3cf0b8f21565a8d51b16ff6c8b4c52bbfe8edc8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72752312"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464814"
 ---
 # <a name="what-is-the-service-fabric-application-resource-model"></a>Che cos'è il modello di risorsa Service Fabric applicazione?
 Si consiglia di distribuire Service Fabric applicazioni nel cluster Service Fabric tramite Azure Resource Manager. Questo metodo rende possibile descrivere le applicazioni e i servizi in JSON e distribuirli nello stesso modello di Gestione risorse del cluster. Invece di distribuire e gestire le applicazioni tramite PowerShell o l'interfaccia della riga di comando di Azure, non è necessario attendere che il cluster sia pronto. Il processo di registrazione, provisioning e distribuzione delle applicazioni avviene in un unico passaggio. Si tratta della procedura consigliata per gestire il ciclo di vita delle applicazioni nel cluster. Per altre informazioni, vedere [procedure consigliate](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources).
@@ -57,10 +53,10 @@ Prima di poter distribuire l'applicazione, è necessario eseguire la gestione te
 1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto di voto e selezionare pacchetto.   
 ![Applicazione pacchetto][PackageApplication]  
 2. Aprire la directory **.\Service-Fabric-DotNet-quickstart\Voting\pkg\Debug** che è stata creata e comprimere il contenuto in un file denominato **voter. zip** in modo che ApplicationManifest. XML si trovi alla radice del file zip.  
-][ZipApplication] applicazione ![Zip  
+![applicazione zip][ZipApplication]  
 3. Rinominare l'estensione del file da zip a **. sfpkg**.
 4. Nel portale di Azure, nel contenitore **app** dell'account di archiviazione, fare clic su **carica** e carica **Voto. sfpkg**.  
-][UploadAppPkg] pacchetto app ![Upload
+![caricare il pacchetto dell'app][UploadAppPkg]
 
 L'applicazione è ora preparata per la gestione temporanea. A questo punto è possibile creare il modello di Azure Resource Manager per distribuire l'applicazione.      
    
@@ -77,7 +73,7 @@ L'applicazione di esempio contiene [modelli di Azure Resource Manager](https://g
 | clusterName            | Nome del cluster in cui si sta eseguendo la distribuzione | SF-cluster123                                                |                                                              |
 | application            | Nome dell'applicazione                 | Voto                                                       |
 | applicationTypeName    | Nome del tipo di applicazione           | VotingType                                                   | Deve corrispondere a ciò che è presente in ApplicationManifest. XML                 |
-| ApplicationTypeVersion | Versione del tipo di applicazione         | 1.0.0                                                        | Deve corrispondere a ciò che è presente in ApplicationManifest. XML                 |
+| applicationTypeVersion | Versione del tipo di applicazione         | 1.0.0                                                        | Deve corrispondere a ciò che è presente in ApplicationManifest. XML                 |
 | serviceName            | Nome del servizio         | Voto ~ VotingWeb                                             | Deve essere nel formato ApplicationName ~ ServiceType            |
 | serviceTypeName        | Nome del tipo del servizio                | VotingWeb                                                    | Deve corrispondere a ciò che si trova in ServiceManifest. XML                 |
 | appPackageUrl          | URL di archiviazione BLOB dell'applicazione     | https://servicefabricapps.blob.core.windows.net/apps/Voting.sfpkg | L'URL del pacchetto dell'applicazione nell'archivio BLOB (la procedura per impostarlo è descritto di seguito) |

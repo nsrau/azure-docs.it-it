@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f98373fe8eab07519e665ab1eddfd7a9ce6b7e22
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 481e1762e805f162aa515dd4d12cc7b6b2e95d71
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847867"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75560257"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Distribuire la protezione delle password di Azure AD
 
@@ -92,7 +92,7 @@ Dopo che la funzionalità è stata eseguita in modalità di controllo per un per
 
 Il diagramma seguente illustra il modo in cui i componenti di base di Azure AD la protezione delle password interagiscono in un ambiente Active Directory locale.
 
-![Modalità di interazione tra i componenti di protezione password di Azure AD](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
+![Come si integrano i componenti della password di protezione di Azure AD](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
 
 È consigliabile esaminare il funzionamento del software prima di distribuirlo. Vedere [panoramica concettuale di Azure ad Password Protection](concept-password-ban-bad-on-premises.md).
 
@@ -129,11 +129,13 @@ Per la protezione Azure AD password sono disponibili due programmi di installazi
      Il risultato dovrebbe mostrare **lo stato** "Running".
 
 1. Registrare il proxy.
-   * Al termine del passaggio 3, il servizio proxy è in esecuzione nel computer. Ma il servizio non ha ancora le credenziali necessarie per comunicare con Azure AD. La registrazione con Azure AD è obbligatoria:
+   * Al termine del passaggio 3, il servizio proxy è in esecuzione nel computer, ma non ha ancora le credenziali necessarie per comunicare con Azure AD. La registrazione con Azure AD è obbligatoria:
 
      `Register-AzureADPasswordProtectionProxy`
 
-     Questo cmdlet richiede le credenziali di amministratore globale per il tenant di Azure. Sono necessari anche i privilegi di amministratore di dominio Active Directory locali nel dominio radice della foresta. Dopo che il comando ha avuto esito positivo una volta per un servizio proxy, le chiamate aggiuntive verranno riuscite, ma non sono necessarie.
+     Questo cmdlet richiede le credenziali di amministratore globale per il tenant di Azure. Sono necessari anche i privilegi di amministratore di dominio Active Directory locali nel dominio radice della foresta. È inoltre necessario eseguire questo cmdlet utilizzando un account con privilegi di amministratore locale.
+
+     Dopo che il comando ha avuto esito positivo una volta per un servizio proxy, le chiamate aggiuntive verranno riuscite, ma non sono necessarie.
 
       Il cmdlet `Register-AzureADPasswordProtectionProxy` supporta le tre modalità di autenticazione seguenti. Le prime due modalità supportano Azure Multi-Factor Authentication ma la terza modalità non lo è. Per altri dettagli, vedere i commenti seguenti.
 
@@ -177,7 +179,9 @@ Per la protezione Azure AD password sono disponibili due programmi di installazi
    > È possibile che si verifichi un ritardo notevole prima del completamento la prima volta che questo cmdlet viene eseguito per un tenant di Azure specifico. A meno che non venga segnalato un errore, non preoccuparti di questo ritardo.
 
 1. Registrare la foresta.
-   * È necessario inizializzare la foresta Active Directory locale con le credenziali necessarie per comunicare con Azure tramite il cmdlet `Register-AzureADPasswordProtectionForest` PowerShell. Il cmdlet richiede le credenziali di amministratore globale per il tenant di Azure. Richiede anche privilegi di amministratore dell'organizzazione Active Directory locale. Questo passaggio viene eseguito una volta per ogni foresta.
+   * È necessario inizializzare la foresta Active Directory locale con le credenziali necessarie per comunicare con Azure tramite il cmdlet `Register-AzureADPasswordProtectionForest` PowerShell.
+
+      Il cmdlet richiede le credenziali di amministratore globale per il tenant di Azure.  È inoltre necessario eseguire questo cmdlet utilizzando un account con privilegi di amministratore locale. Richiede anche privilegi di amministratore dell'organizzazione Active Directory locale. Questo passaggio viene eseguito una volta per ogni foresta.
 
       Il cmdlet `Register-AzureADPasswordProtectionForest` supporta le tre modalità di autenticazione seguenti. Le prime due modalità supportano Azure Multi-Factor Authentication ma la terza modalità non lo è. Per altri dettagli, vedere i commenti seguenti.
 
@@ -302,7 +306,7 @@ Per la protezione Azure AD password sono disponibili due programmi di installazi
 
    È possibile installare il servizio DC Agent in un computer che non è ancora un controller di dominio. In questo caso, il servizio verrà avviato ed eseguito ma rimarrà inattivo fino a quando il computer non viene promosso a controller di dominio.
 
-   È possibile automatizzare l'installazione del software utilizzando le procedure MSI standard. ad esempio:
+   È possibile automatizzare l'installazione del software utilizzando le procedure MSI standard. Ad esempio:
 
    `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`
 

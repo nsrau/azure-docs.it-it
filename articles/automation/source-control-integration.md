@@ -2,19 +2,15 @@
 title: Integrazione del controllo del codice sorgente in Automazione di Azure
 description: Questo articolo descrive l'integrazione del controllo del codice sorgente con GitHub in Automazione di Azure.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 12/10/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 4e5e0135e4ab56d319c78b7daeab9dd2e9d101f9
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 837ebd71886e9435a44080b06c079623c3936c69
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996511"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75417061"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integrazione del controllo del codice sorgente in Automazione di Azure
 
@@ -49,7 +45,7 @@ Inserire le informazioni nella pagina **Riepilogo del Controllo del codice sorge
 |---------|---------|
 |Nome del controllo del codice sorgente     | Nome descrittivo per il controllo del codice sorgente. *Questo nome deve contenere solo lettere e numeri.*        |
 |Tipo di controllo del codice sorgente     | Specifica del tipo di controllo del codice sorgente. Le opzioni disponibili sono:</br> GitHub</br>Azure Repos (git)</br> Azure Repos (TFVC)        |
-|Repository     | Nome del repository o del progetto. Vengono restituiti i primi 200 repository. Per cercare un repository, digitare il nome nel campo e fare clic **su Cerca in GitHub**.|
+|Archivio     | Nome del repository o del progetto. Vengono restituiti i primi 200 repository. Per cercare un repository, digitare il nome nel campo e fare clic **su Cerca in GitHub**.|
 |Branch     | Ramo da cui eseguire il pull dei file di origine. La destinazione del ramo non è disponibile per il tipo di controllo del codice sorgente TFVC.          |
 |Percorso della cartella     | Cartella che contiene il manuali operativi da sincronizzare. Esempio:/runbooks </br>*Vengono sincronizzati solo manuali operativi nella cartella specificata. La ricorsione non è supportata.*        |
 |Sincronizzazione automatica<sup>1</sup>     | Attiva o disattiva la sincronizzazione automatica quando viene eseguito un commit nel repository del controllo del codice sorgente         |
@@ -93,7 +89,7 @@ Controllo del codice sorgente richiede alcune autorizzazioni minime per i token 
 
 Per altre informazioni sulla creazione di un token di accesso personale in GitHub, vedere [creazione di un token di accesso personale per la riga di comando](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
 
-|Scope  |Description  |
+|Ambito  |Description  |
 |---------|---------|
 |**repo**     |         |
 |repo:status     | Accedere allo stato del commit         |
@@ -107,7 +103,7 @@ Per altre informazioni sulla creazione di un token di accesso personale in GitHu
 
 Per altre informazioni sulla creazione di un token di accesso personale in Azure Repos, vedere [autenticare l'accesso con i token di accesso personali](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
 
-|Scope  |
+|Ambito  |
 |---------|
 |Codice (lettura)     |
 |Progetto e team (lettura)|

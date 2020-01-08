@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 12/17/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae50c7cfcb5087903edd8dadca08c38ab1775e20
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 17538d383d7f796803c88d9490aa68ed75351445
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919291"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423291"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft Identity Platform e il flusso di credenziali client OAuth 2,0
 
@@ -65,7 +65,7 @@ Questo tipo di autorizzazione è comune per gli account daemon e di servizio che
 
 ### <a name="application-permissions"></a>Autorizzazioni dell'applicazione
 
-Anziché utilizzare gli elenchi di controllo di accesso, è possibile utilizzare le API per esporre un set di autorizzazioni per l'applicazione. Un'autorizzazione dell'applicazione viene concessa a un'applicazione da un amministratore dell'organizzazione e può essere usata solo per accedere ai dati di proprietà dell'organizzazione e dei propri dipendenti. Ad esempio, Microsoft Graph espone diverse autorizzazioni dell'applicazione per le operazioni seguenti:
+Anziché utilizzare gli ACL, è possibile utilizzare le API per esporre un set di **autorizzazioni dell'applicazione**. Un'autorizzazione dell'applicazione viene concessa a un'applicazione da un amministratore dell'organizzazione e può essere usata solo per accedere ai dati di proprietà dell'organizzazione e dei propri dipendenti. Ad esempio, Microsoft Graph espone diverse autorizzazioni dell'applicazione per le operazioni seguenti:
 
 * Lettura di e-mail in tutte le caselle e-mail
 * Lettura e scrittura di e-mail in tutte le caselle e-mail
@@ -75,6 +75,11 @@ Anziché utilizzare gli elenchi di controllo di accesso, è possibile utilizzare
 Per ulteriori informazioni sulle autorizzazioni per le applicazioni, vedere [Microsoft Graph](https://developer.microsoft.com/graph).
 
 Per usare le autorizzazioni per le applicazioni nell'app, seguire i passaggi illustrati nelle sezioni successive.
+
+
+> [!NOTE]
+> Quando si esegue l'autenticazione come applicazione, anziché con un utente, non è possibile usare "autorizzazioni delegate" (ambiti concessi da un utente).  È necessario usare "autorizzazioni applicazione", note anche come "ruoli", che vengono concesse da un amministratore per l'applicazione (o tramite la preautorizzazione da parte dell'API Web).    
+
 
 #### <a name="request-the-permissions-in-the-app-registration-portal"></a>Richiedere le autorizzazioni nel portale di registrazione dell'app
 
@@ -115,9 +120,9 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | Parametro | Condizione | Description |
 | --- | --- | --- |
-| `tenant` | Obbligatoria | Il tenant della directory da cui si desidera richiedere autorizzazioni. Può essere fornito nel formato di nome descrittivo o GUID. Se non si conosce il tenant di appartenenza dell'utente e si desidera consentire l'accesso con qualsiasi tentant, usare `common`. |
-| `client_id` | Obbligatoria | **ID dell'applicazione (client)** che la [portale di Azure registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) l'esperienza assegnata all'app. |
-| `redirect_uri` | Obbligatoria | URI di reindirizzamento in cui si desidera che venga inviata la risposta per la gestione da parte dell'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL e disporre di segmenti di percorso aggiuntivi. |
+| `tenant` | Obbligatorio | Il tenant della directory da cui si desidera richiedere autorizzazioni. Può essere fornito nel formato di nome descrittivo o GUID. Se non si conosce il tenant di appartenenza dell'utente e si desidera consentire l'accesso con qualsiasi tentant, usare `common`. |
+| `client_id` | Obbligatorio | **ID dell'applicazione (client)** che la [portale di Azure registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) l'esperienza assegnata all'app. |
+| `redirect_uri` | Obbligatorio | URI di reindirizzamento in cui si desidera che venga inviata la risposta per la gestione da parte dell'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL e disporre di segmenti di percorso aggiuntivi. |
 | `state` | Consigliato | Valore incluso nella richiesta che viene restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Lo stato viene usato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
 
 A questo punto, Azure AD impone che solo un amministratore tenant possa accedere per completare la richiesta. L'amministratore dovrà approvare tutte le autorizzazioni dirette dell'applicazione richieste per l'app nel portale di registrazione.
@@ -178,11 +183,11 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 
 | Parametro | Condizione | Description |
 | --- | --- | --- |
-| `tenant` | Obbligatoria | Tenant di directory su cui l'applicazione intende agire, in formato di GUID o nome di dominio. |
-| `client_id` | Obbligatoria | ID applicazione assegnato all'app. È possibile trovare queste informazioni nel portale in cui è stata registrata l'app. |
-| `scope` | Obbligatoria | Il valore passato per il parametro `scope` nella richiesta deve essere l'identificatore della risorsa (URI ID applicazione) della risorsa desiderata, con l'aggiunta del suffisso `.default`. Per l'esempio di Microsoft Graph, il valore deve essere `https://graph.microsoft.com/.default`. <br/>Questo valore indica all'endpoint della piattaforma di identità Microsoft che di tutte le autorizzazioni dirette dell'applicazione configurate per l'app, l'endpoint deve emettere un token per quelli associati alla risorsa che si vuole usare. Per altre informazioni sull'ambito `/.default`, vedere la [documentazione relativa al consenso](v2-permissions-and-consent.md#the-default-scope). |
-| `client_secret` | Obbligatoria | Il segreto client generato per l'app nel portale di registrazione delle app. Prima di essere inviato, il segreto client deve essere codificato come URL. |
-| `grant_type` | Obbligatoria | Il valore deve essere impostato su `client_credentials`. |
+| `tenant` | Obbligatorio | Tenant di directory su cui l'applicazione intende agire, in formato di GUID o nome di dominio. |
+| `client_id` | Obbligatorio | ID applicazione assegnato all'app. È possibile trovare queste informazioni nel portale in cui è stata registrata l'app. |
+| `scope` | Obbligatorio | Il valore passato per il parametro `scope` nella richiesta deve essere l'identificatore della risorsa (URI ID applicazione) della risorsa desiderata, con l'aggiunta del suffisso `.default`. Per l'esempio di Microsoft Graph, il valore deve essere `https://graph.microsoft.com/.default`. <br/>Questo valore indica all'endpoint della piattaforma di identità Microsoft che di tutte le autorizzazioni dirette dell'applicazione configurate per l'app, l'endpoint deve emettere un token per quelli associati alla risorsa che si vuole usare. Per altre informazioni sull'ambito `/.default`, vedere la [documentazione relativa al consenso](v2-permissions-and-consent.md#the-default-scope). |
+| `client_secret` | Obbligatorio | Il segreto client generato per l'app nel portale di registrazione delle app. Prima di essere inviato, il segreto client deve essere codificato come URL. |
+| `grant_type` | Obbligatorio | Il valore deve essere impostato su `client_credentials`. |
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Secondo caso: richiesta del token di accesso con un certificato
 
@@ -200,12 +205,12 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 | Parametro | Condizione | Description |
 | --- | --- | --- |
-| `tenant` | Obbligatoria | Tenant di directory su cui l'applicazione intende agire, in formato di GUID o nome di dominio. |
-| `client_id` | Obbligatoria |ID applicazione (client) assegnato all'app. |
-| `scope` | Obbligatoria | Il valore passato per il parametro `scope` nella richiesta deve essere l'identificatore della risorsa (URI ID applicazione) della risorsa desiderata, con l'aggiunta del suffisso `.default`. Per l'esempio di Microsoft Graph, il valore deve essere `https://graph.microsoft.com/.default`. <br/>Questo valore informa l'endpoint della piattaforma di identità Microsoft che di tutte le autorizzazioni dirette dell'applicazione configurate per l'app, deve emettere un token per quelli associati alla risorsa che si vuole usare. Per altre informazioni sull'ambito `/.default`, vedere la [documentazione relativa al consenso](v2-permissions-and-consent.md#the-default-scope). |
-| `client_assertion_type` | Obbligatoria | Il valore deve essere impostato su `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
-| `client_assertion` | Obbligatoria | Un'asserzione (un token JSON Web) che è necessario creare e firmare con il certificato registrato come credenziale per l'applicazione. Leggere l'articolo relativo alle [credenziali basate su certificato](active-directory-certificate-credentials.md) per informazioni sulla registrazione del certificato e il formato dell'asserzione.|
-| `grant_type` | Obbligatoria | Il valore deve essere impostato su `client_credentials`. |
+| `tenant` | Obbligatorio | Tenant di directory su cui l'applicazione intende agire, in formato di GUID o nome di dominio. |
+| `client_id` | Obbligatorio |ID applicazione (client) assegnato all'app. |
+| `scope` | Obbligatorio | Il valore passato per il parametro `scope` nella richiesta deve essere l'identificatore della risorsa (URI ID applicazione) della risorsa desiderata, con l'aggiunta del suffisso `.default`. Per l'esempio di Microsoft Graph, il valore deve essere `https://graph.microsoft.com/.default`. <br/>Questo valore informa l'endpoint della piattaforma di identità Microsoft che di tutte le autorizzazioni dirette dell'applicazione configurate per l'app, deve emettere un token per quelli associati alla risorsa che si vuole usare. Per altre informazioni sull'ambito `/.default`, vedere la [documentazione relativa al consenso](v2-permissions-and-consent.md#the-default-scope). |
+| `client_assertion_type` | Obbligatorio | Il valore deve essere impostato su `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
+| `client_assertion` | Obbligatorio | Un'asserzione (un token JSON Web) che è necessario creare e firmare con il certificato registrato come credenziale per l'applicazione. Leggere l'articolo relativo alle [credenziali basate su certificato](active-directory-certificate-credentials.md) per informazioni sulla registrazione del certificato e il formato dell'asserzione.|
+| `grant_type` | Obbligatorio | Il valore deve essere impostato su `client_credentials`. |
 
 Si noti che i parametri sono quasi uguali a quelli usati nella richiesta tramite segreto condiviso, con l'eccezione del parametro client_secret che viene sostituito da due parametri: client_assertion_type e client_assertion.
 

@@ -9,20 +9,20 @@ ms.service: event-hubs
 ms.devlang: na
 ms.custom: seodec18
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 12/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 2350586501fae84726aa2aa2438ea676b90c1dbb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: a988fbb089bd94456e0b91b377574ab27a67617f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279677"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437198"
 ---
-# <a name="use-firewall-rules"></a>Usare le regole del firewall
+# <a name="azure-event-hubs---use-firewall-rules"></a>Hub eventi di Azure: usare le regole del firewall
 
 Per gli scenari in cui Hub eventi di Azure deve essere accessibile solo da determinati siti noti, le regole del firewall consentono di configurare regole per accettare il traffico proveniente da indirizzi IPv4 specifici, ad esempio quelli di un gateway NAT aziendale.
 
-## <a name="when-to-use"></a>Quando usare la funzionalità
+## <a name="when-to-use"></a>Quando usare questa opzione
 
 Se si desidera configurare lo spazio dei nomi in Hub eventi in modo che riceva il traffico solo da un intervallo specificato di indirizzi IP e rifiutare tutto il resto, è possibile usare una *regola del firewall* per bloccare gli endpoint di Hub eventi da altri indirizzi IP. Ad esempio, se si usa hub eventi con [Azure Express Route][express-route], è possibile creare una *regola del firewall* per limitare il traffico dagli indirizzi IP dell'infrastruttura locale.
 
@@ -46,7 +46,7 @@ Le regole del filtro IP vengono applicate in ordine e la prima regola corrispond
 > I servizi Microsoft attendibili non sono supportati quando sono implementate le funzionalità di filtro IP (firewall), ma saranno presto disponibili.
 >
 > Scenari comuni di Azure che non supportano il filtro IP (l'elenco **NON** è esaustivo)
-> - Azure Stream Analytics
+> - Analisi di flusso di Azure
 > - Integrazione con Griglia di eventi di Azure
 > - Route dell'hub IoT di Azure
 > - Azure IoT Device Explorer
@@ -70,11 +70,11 @@ Parametri del modello:
 > Sebbene non siano possibili regole di rifiuto, il modello di Azure Resource Manager ha l'azione predefinita impostata su **"Consenti"** , che non limita le connessioni.
 > Quando si creano regole di rete virtuale o del firewall, occorre modificare ***"defaultAction"***
 > 
-> Da
+> da
 > ```json
 > "defaultAction": "Allow"
 > ```
-> To
+> to
 > ```json
 > "defaultAction": "Deny"
 > ```

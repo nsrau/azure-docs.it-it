@@ -1,33 +1,35 @@
 ---
 title: Usare l'interfaccia della riga di comando di Azure per creare una firma di accesso condiviso per un contenitore o un BLOB
 titleSuffix: Azure Storage
-description: Informazioni su come creare una firma di accesso condiviso di delega utente (anteprima) con Azure Active Directory credenziali usando l'interfaccia della riga di comando di Azure.
+description: Informazioni su come creare una firma di accesso condiviso dell'utente con Azure Active Directory credenziali usando l'interfaccia della riga di comando di Azure.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 85f49799472c92770cc8a503a5a1be0b496387f7
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: e1a81b25042501a166cee122279d21e3702cd419
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892550"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371990"
 ---
-# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli-preview"></a>Creare una firma di accesso condiviso di delega utente per un contenitore o BLOB con l'interfaccia della riga di comando di Azure (anteprima)
+# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli"></a>Creare una firma di accesso condiviso per un contenitore o un BLOB con l'interfaccia della riga di comando di Azure
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-Questo articolo illustra come usare le credenziali Azure Active Directory (Azure AD) per creare una firma di accesso condiviso di delega utente per un contenitore o un BLOB con l'interfaccia della riga di comando di Azure (anteprima).
+Questo articolo illustra come usare le credenziali Azure Active Directory (Azure AD) per creare una firma di accesso condiviso di delega utente per un contenitore o un BLOB con l'interfaccia della riga di comando di Azure.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
 ## <a name="install-the-latest-version-of-the-azure-cli"></a>Installare la versione più recente dell'interfaccia della riga di comando di Azure
 
 Per usare l'interfaccia della riga di comando di Azure per proteggere una firma di accesso condiviso con Azure AD credenziali, assicurarsi prima di installare la versione più recente dell'interfaccia della riga di comando di Azure. Per altre informazioni sull'installazione dell'interfaccia della riga di comando di Azure, vedere [Install the Azure CLI](/cli/azure/install-azure-cli).
+
+Per creare una firma di accesso condiviso di delega utente usando l'interfaccia della riga di comando di Azure, assicurarsi di aver installato la versione 2.0.78 o successiva. Per controllare la versione installata, usare il comando `az --version`.
 
 ## <a name="sign-in-with-azure-ad-credentials"></a>Accedi con credenziali di Azure AD
 

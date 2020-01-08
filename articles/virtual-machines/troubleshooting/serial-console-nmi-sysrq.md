@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: d5c647bac2bc6abc85a74531e052f0f3a54b2047
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3ad68438f5fc015b6a9150d67485b90a095f1a4a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70090081"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451274"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Console seriale per le chiamate SysRq e NMI
 
 ## <a name="system-request-sysrq"></a>Richiesta del sistema (SysRq)
 Un SysRq è una sequenza di tasti riconosciuta dal kernel del sistema operazione Linux, che può attivare un set di azioni predefinite. Questi comandi vengono spesso usati quando la risoluzione dei problemi o il ripristino della macchina virtuale non può essere eseguito tramite l'amministrazione tradizionale, ad esempio se la macchina virtuale non risponde. Usando la funzionalità SysRq della console seriale di Azure si imita la pressione della chiave di SysRq e i caratteri inseriti su una tastiera fisica.
 
-Dopo che la sequenza SysRq viene recapitata, la configurazione del kernel potrà controllare la modalità di risposta del sistema. Per informazioni sull'abilitazione e disabilitazione di SysRq, vedere la *Guida dell'amministratore SysRq* [testo](https://aka.ms/kernelorgsysreqdoc) | [markdown](https://aka.ms/linuxsysrq).  
+Dopo che la sequenza SysRq viene recapitata, la configurazione del kernel potrà controllare la modalità di risposta del sistema. Per informazioni sull'abilitazione e disabilitazione di SysRq, vedere il [testo](https://aka.ms/kernelorgsysreqdoc) della *Guida dell'amministratore di sysrq* | [Markdown](https://aka.ms/linuxsysrq).
 
 La console seriale di Azure può essere usata per inviare una SysRq a una macchina virtuale di Azure usando l'icona della tastiera nella barra dei comandi, mostrata di seguito.
 
@@ -37,7 +37,7 @@ Scegliendo "Invia comando SysRq" verrà aperta una finestra di dialogo, che offr
 
 Il comando SysRq non può essere usato nelle macchine virtuali che vengono arrestate o il cui kernel è in uno stato di non risposta. (ad esempio un kernel panic).
 
-### <a name="enable-sysrq"></a>Abilitare SysRq 
+### <a name="enable-sysrq"></a>Abilitare SysRq
 Come descritto nella *Guida dell'amministratore SysRq* sopra, SysRq può essere configurato in modo che tutti, nessuno o solo alcuni comandi siano disponibili. È possibile abilitare tutti i comandi SysRq utilizzando la seguente operazione, ma non verrà conservata dopo il riavvio:
 ```
 echo "1" >/proc/sys/kernel/sysrq
@@ -48,7 +48,7 @@ Per rendere persistente la configurazione SysReq, è possibile eseguire il coman
 1. Riavviare o aggiornare sysctl eseguendo <br>
     `sysctl -p`
 
-### <a name="command-keys"></a>Chiavi di comando 
+### <a name="command-keys"></a>Chiavi di comando
 Dalla Guida dell'amministratore SysRq precedente:
 
 |Comando| Funzione
@@ -62,7 +62,7 @@ Dalla Guida dell'amministratore SysRq precedente:
 |``h``  |   Verrà visualizzata la Guida (anche qualsiasi altra chiave rispetto a quelle elencate di seguito visualizza la Guida, ma ``h`` è facile da ricordare :-)
 |``i``  |    Inviare un SIGKILL a tutti i processi, ad eccezione di init.
 |``j``  |    "Semplicemente sbloccalo" in modo forzato - file system bloccato dall’ioctl FIFREEZE.
-|``k``  |    Chiave di accesso sicuro (SAK) termina tutti i programmi nella console virtuale corrente. NOTA:  vedere i commenti importanti nella sezione SAK.
+|``k``  |    Chiave di accesso sicuro (SAK) termina tutti i programmi nella console virtuale corrente. Nota: vedere i commenti importanti nella sezione SAK.
 |``l``  |    Mostra una traccia dello stack per tutte le CPU attive.
 |``m``  |    Viene eseguito il dump delle informazioni sulla memoria corrente per la console.
 |``n``  |    Consente di eseguire attività RT interessanti
@@ -97,7 +97,7 @@ Per la documentazione specifica per la distribuzione in SysRq e per i passaggi p
 #### <a name="coreos"></a>CoreOS ####
 - [Raccolta dei log di arresto anomalo del sistema](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
-## <a name="non-maskable-interrupt-nmi"></a>Interrupt non mascherabile (NMI) 
+## <a name="non-maskable-interrupt-nmi"></a>Interrupt non mascherabile (NMI)
 Un interrupt non mascherabile (NMI) è progettato per creare un segnale che il software in una macchina virtuale non ignorerà. In passato, gli NMI sono stati usati per verificare la presenza di problemi hardware in sistemi che necessitavano di tempi di risposta specifici.  Attualmente, i programmatori e gli amministratori di sistema spesso utilizzano NMI come meccanismo per il debug o la risoluzione dei problemi di sistemi che non rispondono.
 
 La console seriale può essere usata per inviare un NMI a una macchina virtuale di Azure usando l'icona della tastiera nella barra dei comandi, mostrata di seguito. Dopo che l'interrupt non mascherabile viene recapitato, la configurazione della macchina virtuale potrà controllare la modalità di risposta del sistema.  I sistemi operativi Linux possono essere configurati per l'arresto anomalo del sistema e per creare un dump della memoria quando il sistema operativo riceve un NMI.
@@ -111,20 +111,20 @@ Per i sistemi Linux che supportano sysctl per la configurazione dei parametri de
 1. Riavviare o aggiornare sysctl eseguendo <br>
     `sysctl -p`
 
-Per altre informazioni sulle configurazioni di kernel di Linux, inclusi `unknown_nmi_panic`, `panic_on_io_nmi` e `panic_on_unrecovered_nmi`, consultare: [Documentation for /proc/sys/kernel/*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt) (Documentazione per /proc/sys/kernel/) Per la documentazione specifica per la distribuzione in NMI e per i passaggi per configurare Linux per creare un dump di arresto anomalo del sistema quando riceve un NMI, vedere i collegamenti seguenti:
- 
-### <a name="ubuntu"></a>Ubuntu 
+Per altre informazioni sulle configurazioni di kernel di Linux, inclusi `unknown_nmi_panic`, `panic_on_io_nmi`, e `panic_on_unrecovered_nmi`, vedere: [documentazione per /proc/sys/kernel / *](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Per la documentazione specifica per la distribuzione in NMI e per i passaggi per configurare Linux per creare un dump di arresto anomalo del sistema quando riceve un NMI, vedere i collegamenti seguenti:
+
+### <a name="ubuntu"></a>Ubuntu
  - [Dump di arresto anomalo del kernel](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
 
-### <a name="red-hat"></a>Red Hat 
+### <a name="red-hat"></a>Red Hat
  - [Che cos'è un NMI e per cosa è utilizzabile?](https://access.redhat.com/solutions/4127)
  - [Come è possibile configurare il sistema per l’arresto anomalo quando viene eseguito il commutatore NMI?](https://access.redhat.com/solutions/125103)
  - [Guida dell'amministratore per il dump di arresto anomalo del sistema](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/pdf/kernel_crash_dump_guide/kernel-crash-dump-guide.pdf)
 
-### <a name="suse"></a>SUSE 
+### <a name="suse"></a>SUSE
 - [Configurare l'acquisizione di core dump kernel](https://www.suse.com/support/kb/doc/?id=3374462)
 
-### <a name="coreos"></a>CoreOS 
+### <a name="coreos"></a>CoreOS
 - [Raccolta dei log di arresto anomalo del sistema](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
 ## <a name="next-steps"></a>Passaggi successivi

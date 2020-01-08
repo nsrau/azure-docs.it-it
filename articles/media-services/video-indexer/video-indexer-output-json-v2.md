@@ -10,16 +10,16 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: juliako
-ms.openlocfilehash: c978fed1675ea80ae9b2f6fb7fbe9a4c84472638
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ab48787edcdd8c28891ca49d0f8b64305ce0e747
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978305"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454646"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Esaminare l'output del Video Indexer prodotto dall'API
 
-Quando si chiama l'API **Get Video Index** (Ottieni indice video) e lo stato della risposta è OK, viene restituito un output JSON dettagliato come contenuto della risposta. Il contenuto JSON include le informazioni dettagliate sul video specificato. Le informazioni dettagliate includono dimensioni come: trascrizioni, OCR, visi, argomenti, blocchi e così via. Le dimensioni hanno istanze degli intervalli temporali che indicano quando ogni dimensione è stata visualizzata nel video.  
+Quando si chiama l'API **Get Video Index** (Ottieni indice video) e lo stato della risposta è OK, viene restituito un output JSON dettagliato come contenuto della risposta. Il contenuto JSON include le informazioni dettagliate sul video specificato. Le informazioni dettagliate includono: trascrizioni, OCR, visi, argomenti, blocchi e così via. Ogni tipo di informazioni include le istanze degli intervalli temporali che mostrano quando l'Insight viene visualizzato nel video. 
 
 1. Per recuperare il file JSON, chiamare [Get video index API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?)
 1. Se si è interessati anche a elementi specifici, chiamare [Get video artefatte URL download API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Artifact-Download-Url?)
@@ -38,7 +38,7 @@ In questo articolo viene esaminato il contenuto JSON restituito dall'API **Get V
 
 ## <a name="root-elements"></a>Elementi radice
 
-|name|Description|
+|Nome|Description|
 |---|---|
 |accountId|ID account Video Indexer della playlist.|
 |id|ID della playlist.|
@@ -92,13 +92,13 @@ Questa sezione mostra il riepilogo delle informazioni dettagliate.
 |audioEffects| Può contenere zero o più audioEffects. Per informazioni più dettagliate, vedere [audioEffects](#audioEffects).|
 |Etichette| Può contenere zero o più etichette. Per informazioni più dettagliate, vedere [labels](#labels).|
 |brands| Può contenere zero o più marchi. Per informazioni più dettagliate, vedere [brands](#brands).|
-|statistics | Per informazioni più dettagliate, vedere [statistics](#statistics).|
+|statistiche | Per informazioni più dettagliate, vedere [statistics](#statistics).|
 |emotions| Può contenere zero o più emozioni. Per informazioni più dettagliate, vedere [emotions](#emotions).|
-|topics|Può contenere zero o più argomenti. Dimensione [topics](#topics).|
+|topics|Può contenere zero o più argomenti. Informazioni dettagliate sugli [argomenti](#topics) .|
 
 ## <a name="videos"></a>videos
 
-|name|Description|
+|Nome|Description|
 |---|---|
 |accountId|ID account Video Indexer del video.|
 |id|ID del video.|
@@ -117,11 +117,11 @@ Questa sezione mostra il riepilogo delle informazioni dettagliate.
 |publishedUrlProxy|URL da cui eseguire lo streaming del video (per i dispositivi Apple).|
 |viewToken|Token di visualizzazione di breve durata per lo streaming del video.|
 |sourceLanguage|Lingua di origine del video.|
-|Lingua|Lingua effettiva del video (traduzione).|
+|Linguaggio|Lingua effettiva del video (traduzione).|
 |indexingPreset|Set di impostazioni usato per indicizzare il video.|
 |streamingPreset|Set di impostazioni usato per pubblicare il video.|
 |linguisticModelId|Modello CRIS usato per la trascrizione del video.|
-|statistics | Per altre informazioni, vedere [statistics](#statistics).|
+|statistiche | Per altre informazioni, vedere [statistics](#statistics).|
 
 ```json
 {
@@ -150,28 +150,28 @@ Questa sezione mostra il riepilogo delle informazioni dettagliate.
 ```
 ### <a name="insights"></a>insights
 
-Le informazioni dettagliate sono un set di dimensioni (ad esempio, righe di trascrizione, volti, marchi e così via), dove ogni dimensione è un elenco di elementi univoci (ad esempio, volto1, volto2, volto3) e ogni elemento ha i propri metadati e un elenco delle relative istanze (ovvero, intervalli di tempo con metadati aggiuntivi facoltativi).
+Ogni informazione, ad esempio linee trascrizioni, visi, marchi e così via, contiene un elenco di elementi univoci, ad esempio face1, Face2, face3, e ogni elemento ha i propri metadati e un elenco delle relative istanze (ovvero intervalli di tempo con metadati facoltativi aggiuntivi).
 
 Una faccia potrebbe avere un ID, un nome, un'anteprima, altri metadati e un elenco delle istanze temporali, ad esempio: 00:00:05-00:00:10, 00:01:00-00:02:30 e 00:41:21-00:41:49. Ogni istanza temporale può avere metadati aggiuntivi. ad esempio le coordinate del rettangolo del volto (20,230,60,60).
 
 |Versione|Versione del codice|
 |---|---|
 |sourceLanguage|Lingua di origine del video (presupponendo una sola lingua principale), nel formato di una stringa [BCP-47](https://tools.ietf.org/html/bcp47).|
-|Lingua|Lingua delle informazioni dettagliate (tradotte dalla lingua di origine), nel formato di una stringa [BCP-47](https://tools.ietf.org/html/bcp47).|
-|transcript|Dimensione [transcript](#transcript).|
-|ocr|Dimensione [OCR](#ocr) .|
-|keywords|Dimensione [keywords](#keywords).|
+|Linguaggio|Lingua delle informazioni dettagliate (tradotte dalla lingua di origine), nel formato di una stringa [BCP-47](https://tools.ietf.org/html/bcp47).|
+|transcript|Informazioni dettagliate sulle [trascrizioni](#transcript) .|
+|ocr|Informazioni dettagliate sull' [OCR](#ocr) .|
+|keywords|[Parole chiave](#keywords) Insight.|
 |blocks|Può contenere uno o più [blocchi](#blocks)|
-|faces|Dimensione [faces](#faces).|
-|Etichette|Dimensione [labels](#labels).|
-|shots|Dimensione [shots](#shots).|
-|brands|Dimensione [brands](#brands).|
-|audioEffects|Dimensione [audioEffects](#audioEffects).|
-|sentiments|Dimensione [sentiments](#sentiments).|
-|visualContentModeration|Dimensione [visualContentModeration](#visualcontentmoderation).|
-|textualContentModeration|Dimensione [textualContentModeration](#textualcontentmoderation).|
-|emotions| Dimensione [emotions](#emotions).|
-|topics|Dimensione [topics](#topics).|
+|faces|Informazioni dettagliate sui [visi](#faces) .|
+|Etichette|Informazioni dettagliate sulle [etichette](#labels) .|
+|shots|Informazioni [dettagliate](#shots) .|
+|brands|Informazioni dettagliate sui [marchi](#brands) .|
+|audioEffects|Informazioni dettagliate su [audioEffects](#audioEffects) .|
+|sentiments|Informazioni dettagliate sui [sentimenti](#sentiments) .|
+|visualContentModeration|Informazioni dettagliate su [visualContentModeration](#visualcontentmoderation) .|
+|textualContentModeration|Informazioni dettagliate su [textualContentModeration](#textualcontentmoderation) .|
+|emotions| Le [emozioni](#emotions) approfondite.|
+|topics|Informazioni dettagliate sugli [argomenti](#topics) .|
 
 Esempio:
 
@@ -203,11 +203,11 @@ istanze|Elenco degli intervalli di tempo di questo blocco.|
 
 #### <a name="transcript"></a>transcript
 
-|name|Description|
+|Nome|Description|
 |---|---|
 |id|ID della riga.|
 |text|Testo della trascrizione.|
-|Lingua|Lingua della trascrizione. Questo elemento è stato progettato per supportare trascrizioni in cui ogni riga può avere una lingua diversa.|
+|Linguaggio|Lingua della trascrizione. Questo elemento è stato progettato per supportare trascrizioni in cui ogni riga può avere una lingua diversa.|
 |istanze|Elenco degli intervalli di tempo in cui è presente la riga. Se l'istanza corrisponde a un'intera trascrizione, è riportata una sola istanza.|
 
 Esempio:
@@ -241,12 +241,12 @@ Esempio:
 
 #### <a name="ocr"></a>ocr
 
-|name|Description|
+|Nome|Description|
 |---|---|
 |id|ID della riga di riconoscimento ottico dei caratteri.|
 |text|Testo risultante dal riconoscimento ottico dei caratteri.|
 |confidence|Grado di attendibilità del riconoscimento.|
-|Lingua|Lingua del riconoscimento ottico dei caratteri.|
+|Linguaggio|Lingua del riconoscimento ottico dei caratteri.|
 |istanze|Elenco degli intervalli di tempo in cui è presente la riga di riconoscimento ottico dei caratteri. La stessa riga può apparire più volte.|
 |height|Altezza del rettangolo OCR|
 |top|Posizione superiore in px|
@@ -276,12 +276,12 @@ Esempio:
 
 #### <a name="keywords"></a>keywords
 
-|name|Description|
+|Nome|Description|
 |---|---|
 |id|ID della parola chiave.|
 |text|Testo della parola chiave.|
 |confidence|Grado di attendibilità del riconoscimento della parola chiave.|
-|Lingua|Lingua della parola chiave, quando tradotta.|
+|Linguaggio|Lingua della parola chiave, quando tradotta.|
 |istanze|Elenco degli intervalli di tempo in cui è presente la parola chiave. La stessa parola chiave può apparire più volte.|
 
 ```json
@@ -307,7 +307,7 @@ Esempio:
 
 #### <a name="faces"></a>faces
 
-|name|Description|
+|Nome|Description|
 |---|---|
 |id|ID del volto.|
 |name|Nome del viso. Può essere 'Unknown #0, un personaggio noto identificato o una persona per cui il cliente ha eseguito il training.|
@@ -352,11 +352,11 @@ Esempio:
 
 #### <a name="labels"></a>Etichette
 
-|name|Description|
+|Nome|Description|
 |---|---|
 |id|ID dell'etichetta.|
 |name|Nome dell'etichetta, ad esempio 'Computer' o 'TV'.|
-|Lingua|Lingua del nome dell'etichetta, quando tradotto. BCP-47|
+|Linguaggio|Lingua del nome dell'etichetta, quando tradotto. BCP-47|
 |istanze|Elenco degli intervalli di tempo in cui è presente l'etichetta. La stessa etichetta può apparire più volte. Ogni istanza ha un campo che indica il grado di attendibilità. |
 
 
@@ -411,7 +411,7 @@ Esempio:
 
 #### <a name="scenes"></a>scenes
 
-|name|Description|
+|Nome|Description|
 |---|---|
 |id|ID della scena.|
 |istanze|Elenco di intervalli temporali di questa scena (una scena può avere solo 1 istanza).|
@@ -444,7 +444,7 @@ Esempio:
 
 #### <a name="shots"></a>shots
 
-|name|Description|
+|Nome|Description|
 |---|---|
 |id|ID dello scatto.|
 |keyFrames|Elenco di fotogrammi chiave all'interno dell'immagine, ognuno con un ID e un elenco di intervalli di tempo di istanze. Ogni istanza del fotogramma chiave ha un campo thumbnailId, che contiene l'ID anteprima del fotogramma chiave.|
@@ -494,7 +494,7 @@ Esempio:
 
 Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscimento vocale e/o nell'OCR del video. Non include il riconoscimento visivo dei marchi o il rilevamento dei logo.
 
-|name|Description|
+|Nome|Description|
 |---|---|
 |id|ID del marchio.|
 |name|Nome del marchio.|
@@ -551,9 +551,9 @@ Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscime
 ]
 ```
 
-#### <a name="statistics"></a>statistics
+#### <a name="statistics"></a>statistiche
 
-|name|Description|
+|Nome|Description|
 |---|---|
 |CorrespondenceCount|Numero di corrispondenze nel video.|
 |SpeakerWordCount|Numero di parole per ogni voce.|
@@ -563,7 +563,7 @@ Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscime
 
 #### <a name="a-idaudioeffectsaudioeffects"></a><a id="audioEffects"/>audioEffects
 
-|name|Description|
+|Nome|Description|
 |---|---|
 |id|L'ID dell'effetto audio.|
 |type|Tipo di effetto audio, ad esempio applausi, voce o silenzio.|
@@ -592,7 +592,7 @@ Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscime
 
 Le valutazioni vengono aggregate in base al campo sentimentType (positivo/neutro/negativo), ad esempio 0-0.1, 0.1-0.2.
 
-|name|Description|
+|Nome|Description|
 |---|---|
 |id|ID della valutazione.|
 |averageScore |Media di tutti i punteggi di tutte le istanze di un determinato tipo di valutazione: positivo/neutro/negativo.|
@@ -631,7 +631,7 @@ Il blocco visualContentModeration contiene gli intervalli di tempo in cui Video 
 
 I video in cui vengono rilevati contenuti per adulti o spinti potrebbero essere disponibili solo per la visualizzazione privata. Gli utenti hanno la possibilità di inviare una richiesta per una revisione umana del contenuto, nel quale caso l'attributo IsAdult conterrà il risultato della revisione umana.
 
-|name|Description|
+|Nome|Description|
 |---|---|
 |id|ID della moderazione dei contenuti visivi.|
 |adultScore|Punteggio contenuti per adulti (dalla moderazione del contenuto).|
@@ -667,7 +667,7 @@ I video in cui vengono rilevati contenuti per adulti o spinti potrebbero essere 
 
 #### <a name="textualcontentmoderation"></a>textualContentModeration 
 
-|name|Description|
+|Nome|Description|
 |---|---|
 |id|ID della moderazione dei contenuti di testo.|
 |bannedWordsCount |Numero di parole escluse.|
@@ -677,7 +677,7 @@ I video in cui vengono rilevati contenuti per adulti o spinti potrebbero essere 
 
 Video Indexer identifica le emozioni in base ai suggerimenti vocali e audio. L'emozione identificata potrebbe essere: gioia, tristezza, rabbia o timore.
 
-|name|Description|
+|Nome|Description|
 |---|---|
 |id|ID dell'emozione.|
 |type|Il momento in cui l'emozione è stata identificata in base ai suggerimenti vocali e audio. L'emozione potrebbe essere: gioia, tristezza, rabbia o timore.|
@@ -767,13 +767,13 @@ Video Indexer identifica le emozioni in base ai suggerimenti vocali e audio. L'e
 
 Video Indexer deduce gli argomenti principali dalle trascrizioni. Quando possibile, viene inclusa la tassonomia [IPTC](https://iptc.org/standards/media-topics/) di secondo livello. 
 
-|name|Description|
+|Nome|Description|
 |---|---|
 |id|ID dell'argomento.|
 |name|Nome dell'argomento, ad esempio "Prodotti farmaceutici".|
 |referenceId|Percorsi di navigazione che riflettono la gerarchia di argomenti. Ad esempio: "Salute e benessere / Medicina e sanità / Prodotti farmaceutici".|
 |confidence|Punteggio di attendibilità nell'intervallo [0,1]. A un punteggio maggiore corrisponde una maggiore attendibilità.|
-|Lingua|Lingua usata nell'argomento.|
+|Linguaggio|Lingua usata nell'argomento.|
 |iptcName|Nome del codice per i media IPTC, se rilevato.|
 |istanze |Video Indexer attualmente non esegue l'indicizzazione di un argomento in base a intervalli di tempo, quindi l'intero video viene usato come intervallo.|
 

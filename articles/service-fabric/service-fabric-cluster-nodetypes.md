@@ -1,25 +1,15 @@
 ---
-title: Tipi di nodo di Azure Service Fabric e set di scalabilità di macchine virtuali | Microsoft Docs
+title: Tipi di nodo e set di scalabilità di macchine virtuali
 description: Informazioni su come i tipi di nodo di Azure Service Fabric sono correlati ai set di scalabilità di macchine virtuali e su come connettersi in remoto a un'istanza del set di scalabilità o a un nodo del cluster.
-services: service-fabric
-documentationcenter: .net
-author: ChackDan
-manager: chackdan
-editor: ''
-ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/23/2018
 ms.author: pepogors
-ms.openlocfilehash: cec134f9e71f86cd0ed17912f1a3c76adc9a4164
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: d67a99be7b55cfa75980688ee30edc4fce7c0946
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167314"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610166"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipi di nodo di Azure Service Fabric e set di scalabilità di macchine virtuali
 I [set di scalabilità di macchine virtuali](/azure/virtual-machine-scale-sets) sono una risorsa di calcolo di Azure. I set di scalabilità possono essere usati per distribuire e gestire una raccolta di macchine virtuali come un set. Ogni tipo di nodo definito in un cluster di Azure Service Fabric configura un set di scalabilità separato.  Il runtime di Service Fabric installato in ogni macchina virtuale nel set di scalabilità dall'estensione della macchina virtuale Microsoft. Azure. ServiceFabric. È possibile aumentare o ridurre in modo indipendente ogni nodo, cambiare lo SKU del sistema operativo in esecuzione in ogni nodo del cluster, avere diversi set di porte aperte e usare metriche per la capacità diverse.
@@ -77,7 +67,7 @@ Di seguito sono riportate le descrizioni delle proprietà:
 
 | **Nome** | **Valori consentiti** | ** --- ** | **Indicazioni o breve descrizione** |
 | --- | --- | --- | --- |
-| Nome | string | --- | nome univoco per l'estensione |
+| name | string | --- | nome univoco per l'estensione |
 | type | "ServiceFabricLinuxNode" o "ServiceFabricWindowsNode" | --- | Identifica Service Fabric del sistema operativo per il bootstrap |
 | autoUpgradeMinorVersion | true o false | --- | Abilita l'aggiornamento automatico delle versioni secondarie di runtime SF |
 | publisher | Microsoft.Azure.ServiceFabric | --- | nome del server di pubblicazione dell'estensione di Service Fabric |

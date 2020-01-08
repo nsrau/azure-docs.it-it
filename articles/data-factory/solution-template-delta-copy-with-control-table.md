@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/24/2018
-ms.openlocfilehash: 4c72bd37a636ec31c13737705c22aaa895b9ad72
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3c077e2c04cae94d2e1a2a84ccd7d09c7a0829b4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928206"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439618"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Copia Delta da un database con una tabella di controllo
 
@@ -38,10 +38,13 @@ Il modello contiene quattro attività:
 - **Copia** solo le modifiche apportate al database di origine nell'archivio di destinazione. La query che identifica le modifiche nel database di origine è simile a' SELECT * FROM Data_Source_Table dove TIMESTAMP_Column > "ultimo limite massimo" e TIMESTAMP_Column < = "limite massimo corrente".
 - **SqlServerStoredProcedure** scrive il valore di limite massimo corrente in una tabella di controllo esterna per la copia Delta la volta successiva.
 
-Il modello definisce cinque parametri:
+Il modello definisce i parametri seguenti:
 - *Data_Source_Table_Name* è la tabella nel database di origine da cui si desidera caricare i dati.
 - *Data_Source_WaterMarkColumn* è il nome della colonna nella tabella di origine utilizzata per identificare le righe nuove o aggiornate. Il tipo di questa colonna è in genere *DateTime*, *int*o similar.
-- *Data_Destination_Folder_Path* o *Data_Destination_Table_Name* è la posizione in cui vengono copiati i dati nell'archivio di destinazione.
+- *Data_Destination_Container* è il percorso radice della posizione in cui vengono copiati i dati nell'archivio di destinazione.
+- *Data_Destination_Directory* è il percorso della directory sotto la radice della posizione in cui vengono copiati i dati nell'archivio di destinazione.
+- *Data_Destination_Table_Name* è la posizione in cui vengono copiati i dati nell'archivio di destinazione (applicabile quando si seleziona "Azure sinapsi Analytics (in precedenza SQL DW)" come destinazione dati.
+- *Data_Destination_Folder_Path* è la posizione in cui vengono copiati i dati nell'archivio di destinazione (applicabile quando "file System" o "Azure Data Lake storage Gen1" è selezionato come destinazione dei dati).
 - *Control_Table_Table_Name* è la tabella di controllo esterna in cui è archiviato il valore limite massimo.
 - *Control_Table_Column_Name* è la colonna della tabella di controllo esterno che archivia il valore limite massimo.
 
@@ -100,20 +103,18 @@ Il modello definisce cinque parametri:
     ![Creare una nuova connessione all'archivio dati della tabella di controllo](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable6.png)
 
 7. Selezionare **Usa questo modello**.
-
-     ![Usa questo modello](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable7.png)
     
 8. Viene visualizzata la pipeline disponibile, come illustrato nell'esempio seguente:
+  
+    ![Esaminare la pipeline](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
 
-     ![Esaminare la pipeline](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
+9. Selezionare **stored procedure**. Per **Nome stored procedure**scegliere **[dbo]. [ update_watermark]** . Selezionare **Importa parametro**, quindi selezionare **Aggiungi contenuto dinamico**.  
 
-9. Selezionare **stored procedure**. Per **Nome stored procedure**scegliere **[update_watermark]** . Selezionare **Importa parametro**, quindi selezionare **Aggiungi contenuto dinamico**.  
-
-     ![Impostare l'attività stored procedure](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png) 
+    ![Impostare l'attività stored procedure](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png)  
 
 10. Scrivere il contenuto **\@{Activity (' LookupCurrentWaterMark '). output. FirstRow. NewWatermarkValue}** , quindi selezionare **Finish (fine**).  
 
-     ![Scrivere il contenuto per i parametri dell'stored procedure](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)      
+    ![Scrivere il contenuto per i parametri dell'stored procedure](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)       
      
 11. Selezionare **debug**, immettere i **parametri**e quindi fare clic su **fine**.
 
@@ -132,13 +133,12 @@ Il modello definisce cinque parametri:
             INSERT INTO data_source_table
             VALUES (11, 'newdata','9/11/2017 9:01:00 AM')
     ```
-14. Per eseguire di nuovo la pipeline, selezionare **debug**, immettere i **parametri**e quindi fare clic su **fine**.
 
-    ![Selezionare * * debug * *](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png)
+14. Per eseguire di nuovo la pipeline, selezionare **debug**, immettere i **parametri**e quindi fare clic su **fine**.
 
     Si noterà che nella destinazione sono state copiate solo le nuove righe.
 
-15. Opzionale Se è stata selezionata l'opzione SQL Data Warehouse come destinazione dei dati, è necessario fornire anche una connessione all'archivio BLOB di Azure per la gestione temporanea, richiesta da SQL Data Warehouse polibase. Verificare che il contenitore sia già stato creato nell'archivio BLOB.
+15. Opzionale Se si seleziona Azure sinapsi Analytics (in precedenza SQL DW) come destinazione dei dati, è necessario fornire anche una connessione all'archivio BLOB di Azure per la gestione temporanea, necessaria per SQL Data Warehouse polibase. Il modello genererà automaticamente un percorso del contenitore. Dopo l'esecuzione della pipeline, controllare se il contenitore è stato creato nell'archivio BLOB.
     
     ![Configurare PolyBase](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable15.png)
     

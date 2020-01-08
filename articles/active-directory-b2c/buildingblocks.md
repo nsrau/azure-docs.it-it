@@ -1,5 +1,6 @@
 ---
-title: BuildingBlocks - Azure Active Directory B2C | Microsoft Docs
+title: BuildingBlocks
+titleSuffix: Azure AD B2C
 description: Specificare l'elemento BuildingBlocks di un criterio personalizzato di Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -7,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5ab2b11749aa57065a1a4d688b02fed97731ab7c
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 87157980a352f9665852c78a94dcfc227c08b487
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68464740"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367555"
 ---
 # <a name="buildingblocks"></a>BuildingBlocks
 
@@ -52,26 +53,29 @@ L'elemento **BuildingBlocks** viene aggiunto all'interno dell'elemento [TrustFra
     <Localization>
       ...
     </Localization>
+    <DisplayControls>
+      ...
+    </DisplayControls>
  </BuildingBlocks>
 ```
 
 L'elemento **BuildingBlocks** contiene gli elementi seguenti, che devono essere specificati nell'ordine definito:
 
-- [ClaimsSchema](claimsschema.md): definisce i tipi di attestazione a cui è possibile fare riferimento nei criteri. Lo schema di attestazioni è il posto in cui si dichiarano i tipi di attestazioni. Un tipo di attestazione è simile a una variabile in molti linguaggi di programmazione. È possibile usare il tipo di attestazione per raccogliere i dati dell'utente dell'applicazione, ricevere le attestazioni dai provider di identità di social networking, inviare e ricevere dati da un'API REST personalizzata o per archiviare dati interni usati dai criteri personalizzati. 
+- [ClaimsSchema](claimsschema.md): definisce i tipi di attestazione a cui è possibile fare riferimento nei criteri. Lo schema di attestazioni è il posto in cui si dichiarano i tipi di attestazioni. Un tipo di attestazione è simile a una variabile in molti linguaggi di programmazione. È possibile usare il tipo di attestazione per raccogliere i dati dell'utente dell'applicazione, ricevere le attestazioni dai provider di identità di social networking, inviare e ricevere dati da un'API REST personalizzata o per archiviare dati interni usati dai criteri personalizzati.
 
 - [Predicates and PredicateValidationsInput](predicates.md): consente di eseguire un processo di convalida per garantire l'inserimento dei soli dati formattati adeguatamente in un'attestazione.
- 
-- [ClaimsTransformations](claimstransformations.md): contiene un elenco di trasformazioni di attestazioni che possono essere usati nei criteri.  Una trasformazione di attestazioni converte una determinata attestazione in un'altra. Nella trasformazione delle attestazioni si specifica un metodo di trasformazione, ad esempio: 
-    - Modifica delle maiuscole/minuscole di un'attestazione di stringa rispetto a quella specificata. Ad esempio è possibile cambiare le lettere di una stringa da minuscole a maiuscole.
-    - Confronto tra due attestazioni e restituzione di un'attestazione con true che indica che le attestazioni corrispondono, in caso contrario si avrà false.
-    - Creazione di un'attestazione di tipo stringa dal parametro fornito nei criteri.
-    - Creazione di una stringa casuale tramite il generatore di numeri casuali.
-    - Formattazione di un'attestazione in base alla stringa formato fornita. Questa trasformazione usa il metodo C# `String.Format`.
-    
+
+- [ClaimsTransformations](claimstransformations.md): contiene un elenco di trasformazioni di attestazioni che possono essere usati nei criteri.  Una trasformazione di attestazioni converte una determinata attestazione in un'altra. Nella trasformazione delle attestazioni si specifica un metodo di trasformazione, ad esempio:
+  - Modifica delle maiuscole/minuscole di un'attestazione di stringa rispetto a quella specificata. Ad esempio è possibile cambiare le lettere di una stringa da minuscole a maiuscole.
+  - Confronto tra due attestazioni e restituzione di un'attestazione con true che indica che le attestazioni corrispondono, in caso contrario si avrà false.
+  - Creazione di un'attestazione di tipo stringa dal parametro fornito nei criteri.
+  - Creazione di una stringa casuale tramite il generatore di numeri casuali.
+  - Formattazione di un'attestazione in base alla stringa formato fornita. Questa trasformazione usa il metodo C# `String.Format`.
+
 - InputValidation: questo elemento consente di eseguire aggregazioni booleane simili a *and* e *or*.
 
 - [ContentDefinitions](contentdefinitions.md): contiene gli URL per i modelli HTML5 da usare nel percorso utente. Nei criteri personalizzati una definizione del contenuto indica l'URI della pagina HTML5 usato per un passaggio del percorso utente. Ad esempio, le pagine di accesso o iscrizione, reimpostazione della password o di errore. Nei criteri di estensione è possibile modificare l'aspetto eseguendo l'override del LoadUri per il file HTML5. Oppure è possibile creare nuove definizioni del contenuto in base alle esigenze. Questo elemento può contenere un riferimento alle risorse localizzate tramite un ID di localizzazione.
 
 - [Localization](localization.md): consente di supportare più lingue. Il supporto di localizzazione nei criteri consente di impostare l'elenco delle lingue supportate in un criterio e di selezionare una lingua predefinita. Sono inoltre supportate stringhe e raccolte specifiche della lingua.
 
-
+- [DisplayControls](display-controls.md) : definisce i controlli da visualizzare in una pagina. I controlli di visualizzazione hanno funzionalità speciali e interagiscono con i profili tecnici di convalida back-end. I controlli di visualizzazione sono attualmente in **Anteprima**.

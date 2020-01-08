@@ -1,25 +1,16 @@
 ---
-title: Interfaccia della riga di comando Azure Service Fabric - sfctl | Microsoft Docs
-description: Descrive i comandi dell'interfaccia della riga di comando di Service Fabric sfctl.
-services: service-fabric
-documentationcenter: na
+title: INTERFACCIA della riga di comando di Azure Service Fabric-sfctl
+description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric. Include un elenco di comandi e sottogruppi.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: 7e7fc7bbc65e92960d7839f6531ef1f7c1935ed3
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 518e60ee92a637533fdf5ab44053d1a1c8757bbe
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900871"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645243"
 ---
 # <a name="sfctl"></a>sfctl
 Comandi per la gestione di cluster ed entità di Service Fabric. Questa versione è compatibile con il runtime di Service Fabric 6,5.

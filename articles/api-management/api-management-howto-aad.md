@@ -1,5 +1,6 @@
 ---
-title: Autorizzare gli account per sviluppatori usando Azure Active Directory - Gestione API di Azure | Microsoft Docs
+title: Autorizzare gli account per sviluppatori usando Azure Active Directory
+titleSuffix: Azure API Management
 description: Informazioni su come autorizzare gli utenti usando Azure Active Directory in Gestione API.
 services: api-management
 documentationcenter: API Management
@@ -12,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 067d4488b064ede572a4b3ad94c94fb1552c827d
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 131621e05d7800e59ce3bbdec5c11c1da9facf11
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454462"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442808"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorizzare gli account per sviluppatori usando Azure Active Directory in Gestione API di Azure
 
 Questo articolo illustra come abilitare l'accesso al portale per sviluppatori per gli utenti da Azure Active Directory (Azure AD). Spiega anche come gestire gruppi di utenti di Azure AD aggiungendo gruppi esterni contenenti gli utenti.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
 - Importare e pubblicare un'istanza di Gestione API di Azure. Per altre informazioni, vedere [Importare e pubblicare un'API](import-and-publish.md).
@@ -33,7 +34,7 @@ Questo articolo illustra come abilitare l'accesso al portale per sviluppatori pe
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Autorizzare gli account per sviluppatori usando Azure AD
 
 1. Accedere al [portale di Azure](https://portal.azure.com). 
-2. Selezionare ![freccia](./media/api-management-howto-aad/arrow.png).
+2. Seleziona ![freccia](./media/api-management-howto-aad/arrow.png).
 3. Nella casella di ricerca digitare **api**.
 4. Selezionare **Servizi Gestione API**.
 5. Selezionare l'istanza del servizio Gestione API in esecuzione.
@@ -49,7 +50,7 @@ Questo articolo illustra come abilitare l'accesso al portale per sviluppatori pe
    ![Passaggi per l'aggiunta di un provider di identità nel portale di Azure](./media/api-management-howto-aad/api-management-with-aad001.png)  
 10. Nel browser aprire una scheda diversa. 
 11. Passare al [Registrazioni app portale di Azure](https://go.microsoft.com/fwlink/?linkid=2083908) per registrare un'App in Active Directory.
-12. In **Gestisci**selezionare **registrazioni app**.
+12. In **Gestione** selezionare **Registrazioni per l'app**.
 13. Selezionare **Nuova registrazione**. Nella pagina **registra un'applicazione** impostare i valori come segue:
     
 * Impostare **nome** su un nome significativo. ad esempio, *Developer-Portal*
@@ -59,7 +60,7 @@ Questo articolo illustra come abilitare l'accesso al portale per sviluppatori pe
 
 14.  Dopo aver registrato l'applicazione, copiare l' **ID applicazione (client)** dalla pagina **Panoramica** . 
 15. Tornare all'istanza di gestione API. Nella finestra **Aggiungi provider di identità** incollare il valore di **ID applicazione (client)** nella casella **ID client** .
-16. Tornare alla configurazione di Azure AD, selezionare **certificati & segreti** in **Gestisci**. Selezionare il pulsante **nuovo segreto client** . Immettere un valore in **Descrizione**, selezionare un'opzione per la **scadenza** e scegliere **Aggiungi**. Copiare il valore del segreto client prima di uscire dalla pagina. Saranno necessari nel passaggio successivo. 
+16. Tornare alla configurazione di Azure AD, selezionare **certificati & segreti** in **Gestisci**. Selezionare il pulsante **New client secret** (Nuovo segreto client). Immettere un valore in **Descrizione**, selezionare un'opzione per **Scadenza** e scegliere **Aggiungi**. Copiare il valore del segreto client prima di uscire dalla pagina. Saranno necessari nel passaggio successivo. 
 17. In **Gestisci**selezionare **autenticazione** , quindi selezionare **token ID** in **concessione implicita**
 18. Tornare all'istanza di gestione API e incollare il segreto nella casella **Secret client** .
 
@@ -73,7 +74,7 @@ Questo articolo illustra come abilitare l'accesso al portale per sviluppatori pe
 > [!NOTE]
 > Nella sezione **Tenant consentiti** si possono specificare più domini. Per consentire a un utente di accedere da un dominio diverso da quello originale in cui è stata registrata l'applicazione, un amministratore globale dell'altro dominio deve concedere l'autorizzazione che permette all'applicazione di accedere ai dati della directory. Per concedere l'autorizzazione, l'amministratore globale deve: a. Passare a `https://<URL of your developer portal>/aadadminconsent` (ad esempio, https://contoso.portal.azure-api.net/aadadminconsent).
 > b. Digitare il nome di dominio del tenant di Azure AD a cui concedere l'accesso.
-> C. Selezionare **Submit** (Invia). 
+> c. Selezionare **Submit** (Invia). 
 
 20.  Dopo aver specificato la configurazione desiderata, selezionare **Aggiungi**.
 

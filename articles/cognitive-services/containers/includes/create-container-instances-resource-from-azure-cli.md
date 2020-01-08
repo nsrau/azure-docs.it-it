@@ -7,24 +7,24 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 7/5/2019
+ms.date: 01/06/2020
 ms.author: dapine
-ms.openlocfilehash: 2080d283c6cb7466dcb4847a81d76a4c3109217a
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 700a04b58c13a9c7fd5301875226ca234cabeb96
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "69012176"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689430"
 ---
 ## <a name="create-an-azure-container-instance-resource-from-the-azure-cli"></a>Creare una risorsa dell'istanza di contenitore di Azure dall'interfaccia della riga di comando di Azure
 
-Il YAML seguente definisce la risorsa dell'istanza di contenitore di Azure. Copiare e incollare il contenuto in un nuovo file, denominato `my-aci.yaml` e sostituire i valori commentati con quelli personalizzati. Vedere il [formato del modello][template-format] per YAML valido. Vedere i [repository del contenitore e le immagini][repositories-and-images] per i nomi delle immagini disponibili e il repository corrispondente.
+Il YAML seguente definisce la risorsa dell'istanza di contenitore di Azure. Copiare e incollare il contenuto in un nuovo file, denominato `my-aci.yaml` e sostituire i valori commentati con quelli personalizzati. Vedere il [formato del modello][template-format] per YAML valido. Vedere i [repository del contenitore e le immagini][repositories-and-images] per i nomi delle immagini disponibili e il repository corrispondente. Per altre informazioni sul riferimento YAML per le istanze di contenitore, vedere informazioni di [riferimento su YAML: istanze di contenitore di Azure][aci-yaml-ref].
 
 ```YAML
 apiVersion: 2018-10-01
 location: # < Valid location >
 name: # < Container Group name >
-imageRegistryCredentials:
+imageRegistryCredentials: # This is required when pulling a non-public image
   - server: containerpreview.azurecr.io
     username: # < The username for the preview container registry >
     password: # < The password for the preview container registry >
@@ -47,6 +47,12 @@ properties:
       ports:
         - port: 5000
   osType: Linux
+  volumes: # This node, is only required for container instances that pull their model in at runtime, such as LUIS.
+  - name: aci-file-share
+    azureFile:
+      shareName: # < File share name >
+      storageAccountName: # < Storage account name>
+      storageAccountKey: # < Storage account key >
   restartPolicy: OnFailure
   ipAddress:
     type: Public
@@ -58,9 +64,9 @@ type: Microsoft.ContainerInstance/containerGroups
 ```
 
 > [!NOTE]
-> Non tutti i percorsi hanno la stessa disponibilità di CPU e memoria. Vedere la tabella [location and][location-to-resource] Resources per l'elenco delle risorse disponibili per i contenitori per località e sistema operativo.
+> Non tutti i percorsi hanno la stessa disponibilità di CPU e memoria. Vedere la tabella [location and resources][location-to-resource] per l'elenco delle risorse disponibili per i contenitori per località e sistema operativo.
 
-Ci affidiamo al file YAML creato per il [`az container create`][azure-container-create] comando. Dall'interfaccia della riga di comando di `az container create` Azure, eseguire `<resource-group>` il comando sostituendo con il proprio. Inoltre, per proteggere i valori in una distribuzione YAML, fare riferimento a [valori sicuri][secure-values].
+Si farà affidamento sul file YAML creato per il comando [`az container create`][azure-container-create] . Dall'interfaccia della riga di comando di Azure eseguire il comando `az container create` sostituendo l'`<resource-group>` con il proprio. Inoltre, per proteggere i valori in una distribuzione YAML, fare riferimento a [valori sicuri][secure-values].
 
 ```azurecli
 az container create -g <resource-group> -f my-aci.yaml
@@ -73,7 +79,7 @@ L'output del comando è `Running...` se valido, dopo qualche minuto l'output vie
 
 [azure-container-create]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-create
 [template-format]: https://docs.microsoft.com/azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups#template-format
-
+[aci-yaml-ref]: ../../../container-instances/container-instances-reference-yaml.md
 [repositories-and-images]: ../../cognitive-services-container-support.md#container-repositories-and-images
 [location-to-resource]: ../../../container-instances/container-instances-region-availability.md#availability---general
 [secure-values]: ../../../container-instances/container-instances-environment-variables.md#secure-values

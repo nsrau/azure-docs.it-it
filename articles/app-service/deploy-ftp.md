@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: bccf4fa0b17f261d41c0a80d9f75fe391f591bfb
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 7bc637b5719da3c5f5e5607436aa7da0721f5a9e
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671715"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680921"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Distribuire l'app nel servizio app di Azure usando FTP/S
 
@@ -21,15 +21,21 @@ L'endpoint FTP/S per l'app è già attivo. Non è necessaria alcuna configurazio
 
 ## <a name="open-ftp-dashboard"></a>Aprire un dashboard FTP
 
-Nel [portale di Azure](https://portal.azure.com) aprire la [pagina delle risorse](../azure-resource-manager/manage-resources-portal.md#manage-resources) dell'app.
+1. Nella [portale di Azure](https://portal.azure.com)cercare e selezionare **Servizi app**.
 
-Per aprire il dashboard FTP, fare clic su **Centro distribuzione** > **FTP** > **Dashboard**.
+    ![Cercare i servizi app.](media/app-service-continuous-deployment/search-for-app-services.png)
 
-![Aprire un dashboard FTP](./media/app-service-deploy-ftp/open-dashboard.png)
+2. Selezionare l'app Web che si vuole distribuire.
+
+    ![Selezionare l'app.](media/app-service-continuous-deployment/select-your-app.png)
+
+3. Selezionare **centro distribuzione** > **Dashboard** > **FTP** .
+
+    ![Aprire un dashboard FTP](./media/app-service-deploy-ftp/open-dashboard.png)
 
 ## <a name="get-ftp-connection-information"></a>Ottenere informazioni di connessione a FTP
 
-Nel dashboard FTP fare clic su **Copia** per copiare le credenziali FTPS di endpoint e app.
+Nel dashboard FTP selezionare **copia** per copiare l'endpoint FTPS e le credenziali dell'app.
 
 ![Copiare le informazioni FTP](./media/app-service-deploy-ftp/ftp-dashboard.png)
 
@@ -46,7 +52,7 @@ Nel dashboard FTP fare clic su **Copia** per copiare le credenziali FTPS di endp
 ## <a name="deploy-files-to-azure"></a>Distribuire file in Azure
 
 1. Nel client FTP, ad esempio [Visual Studio](https://www.visualstudio.com/vs/community/), [Cyberduck](https://cyberduck.io/) o [WinSCP](https://winscp.net/index.php), usare le specifiche informazioni raccolte per connettersi all'app.
-2. Copiare i file e la struttura di directory corrispondente nella directory [ **/site/wwwroot** ](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure o nella directory **/site/wwwroot/App_Data/Jobs/** per i processi Web.
+2. Copiare i file e la struttura di directory corrispondente nella directory [ **/site/wwwroot**](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure o nella directory **/site/wwwroot/App_Data/Jobs/** per i processi Web.
 3. Passare all'URL dell'app per verificare che l'applicazione venga eseguita correttamente. 
 
 > [!NOTE] 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 91a71f914cff25dcdf4a85f3baafcfd9bc96b104
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 63b778379dda39a795cccdcfa0c1443870d50365
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74218882"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440990"
 ---
 # <a name="understand-and-work-with-scopes"></a>Informazioni e utilizzo degli ambiti
 
@@ -45,7 +45,7 @@ Azure supporta tre ambiti per la gestione delle risorse. Ogni ambito supporta la
 
     Tipo di risorsa: [Microsoft. resources/subscriptions](/rest/api/resources/subscriptions)
 
-- [**Gruppi di risorse**](../azure-resource-manager/resource-group-overview.md#resource-groups) : raggruppamenti logici di risorse correlate per una soluzione di Azure che condividono lo stesso ciclo di vita. Ad esempio risorse distribuite ed eliminate insieme.
+- [**Gruppi di risorse**](../azure-resource-manager/management/overview.md#resource-groups) : raggruppamenti logici di risorse correlate per una soluzione di Azure che condividono lo stesso ciclo di vita. Ad esempio risorse distribuite ed eliminate insieme.
 
     Tipo di risorsa: [Microsoft. resources/subscriptions/resourceGroups](/rest/api/resources/resourcegroups)
 
@@ -234,7 +234,7 @@ Quando si lavora con le API di gestione costi, la conoscenza dell'ambito è fond
 3. Copiare l'ID del gruppo di gestione dalla tabella.
 4. L'ambito è: `"/providers/Microsoft.Management/managementGroups/{id}"`
 
-### <a name="subscription"></a>sottoscrizione
+### <a name="subscription"></a>Sottoscrizione
 
 1. Aprire il portale di Azure e passare alle **sottoscrizioni** nell'elenco dei servizi.
 2. Copiare l'ID sottoscrizione dalla tabella.

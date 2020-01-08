@@ -11,12 +11,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 ms.date: 06/15/2017
-ms.openlocfilehash: 90ee036275e13b209d9f6c37aba6d16ed564cf5d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0b0dfeb6a19e2f6f24568de0b4712758d2b7ad4a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466951"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427406"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Abilitare la registrazione per i servizi Web di Azure Machine Learning Studio (classico)
 In questo documento vengono fornite informazioni sulla funzionalità di registrazione dei servizi Web di Machine Learning Studio (classico). La registrazione fornisce informazioni aggiuntive, oltre a un numero di errore e un messaggio, che consentono di risolvere i problemi relativi alle chiamate alle API Machine Learning Studio (classiche).  
@@ -25,7 +25,7 @@ In questo documento vengono fornite informazioni sulla funzionalità di registra
 
 È possibile abilitare la registrazione dal portale dei [servizi Web Azure Machine Learning Studio (classico)](https://services.azureml.net) . 
 
-1. Accedere al portale dei servizi Web di Azure Machine Learning Studio (classico) all' [https://services.azureml.net](https://services.azureml.net). Per un servizio Web classico, è anche possibile raggiungere il portale facendo clic su **nuova esperienza servizi Web** nella pagina dei servizi Web Machine Learning Studio (classica) nella versione classica di Machine Learning Studio.
+1. Accedere al portale dei servizi Web di Azure Machine Learning Studio (classico) all' [https://services.azureml.net](https://services.azureml.net). Per un servizio Web classico, è anche possibile raggiungere il portale facendo clic su **nuova esperienza servizi Web** nella pagina dei servizi Web Machine Learning Studio (classica) in studio (versione classica).
 
    ![Collegamento New Web Services Experience](./media/web-services-logging/new-web-services-experience-link.png)
 
@@ -41,7 +41,7 @@ In questo documento vengono fornite informazioni sulla funzionalità di registra
 
    ![Selezione del livello di registrazione](./media/web-services-logging/enable-logging.png)
 
-6. Fare clic su **Save**.
+6. Fare clic su **Salva**.
 
 7. Per i servizi Web classici, creare il contenitore **ml-diagnostics**.
 
@@ -57,7 +57,7 @@ In questo documento vengono fornite informazioni sulla funzionalità di registra
 
 > [!TIP]
 >
-> Per un servizio Web classico, il dashboard dei servizi Web nella versione classica di Machine Learning Studio dispone anche di un'opzione per abilitare la registrazione. Tuttavia, poiché la registrazione ora è gestita tramite il portale dei servizi Web, è necessario abilitarla tramite il portale come descritto in questo articolo. Se è già stata abilitata la registrazione in studio (versione classica), nel portale dei servizi Web disabilitare la registrazione e abilitarla di nuovo.
+> Per un servizio Web classico, il dashboard dei servizi Web in Machine Learning Studio (classico) dispone inoltre di un'opzione per abilitare la registrazione. Tuttavia, poiché la registrazione ora è gestita tramite il portale dei servizi Web, è necessario abilitarla tramite il portale come descritto in questo articolo. Se è già stata abilitata la registrazione in studio (versione classica), nel portale dei servizi Web disabilitare la registrazione e abilitarla di nuovo.
 
 
 ## <a name="the-effects-of-enabling-logging"></a>Effetti dell'abilitazione della registrazione
@@ -80,7 +80,7 @@ Il nome di ogni BLOB riporta un prefisso nel formato seguente:
 
 Dove _Tipo di log_ corrisponde a uno dei valori seguenti:  
 
-* o batch  
+* batch  
 * punteggio/richieste  
 * punteggio/init  
 

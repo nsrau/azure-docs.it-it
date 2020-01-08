@@ -1,5 +1,6 @@
 ---
-title: Operazioni da eseguire in caso di un'interruzione del servizio Azure con impatto sui servizi cloud di Azure | Microsoft Docs
+title: Gestione di un'ininterrottità del servizio Azure che influisca sui servizi cloud di Azure
+titleSuffix: Azure Cloud Services
 description: Informazioni sulle operazioni da eseguire in caso di un'interruzione del servizio Azure con impatto sui servizi cloud di Azure.
 services: cloud-services
 documentationcenter: ''
@@ -9,12 +10,12 @@ ms.workload: cloud-services
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: memccror
-ms.openlocfilehash: a014c3d5ada2024609e9262d8943090ac7b205c6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: f65b61d7265268b33d2c9a113503cc1b5a87db8e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888317"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75361212"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>Operazioni da eseguire in caso di un'interruzione del servizio Azure con impatto sui servizi cloud di Azure
 Microsoft si impegna costantemente per garantire agli utenti la disponibilità dei servizi in base alle esigenze. Eventi imprevisti possono, tuttavia, causare interruzioni non pianificate dei servizi.

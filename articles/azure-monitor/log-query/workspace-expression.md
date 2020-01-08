@@ -1,18 +1,17 @@
 ---
 title: Espressione workspace() nelle query di log di Monitoraggio di Azure | Microsoft Docs
 description: L'espressione workspace viene usata in una query di log di Monitoraggio di Azure per recuperare dati da un'area di lavoro specifica nello stesso gruppo di risorse, in un altro gruppo di risorse o in un'altra sottoscrizione.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2018
-ms.openlocfilehash: f26b9534fbf95cc301ae782d47ab7030988fa469
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 255888acf5da6149b6a964b23ed038b99715481c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932844"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364952"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>Espressione workspace() nelle query di log di Monitoraggio di Azure
 
@@ -32,7 +31,7 @@ L'espressione `workspace` viene usata in una query di Monitoraggio di Azure per 
 | Nome risorsa | Nome leggibile dell'area di lavoro (noto anche come "nome componente") | workspace("contosoretail") |
 | Nome completo | Nome completo dell'area di lavoro nel formato: "subscriptionName/resourceGroup/componentName" | workspace('Contoso/ContosoResource/ContosoWorkspace') |
 | ID | Identificatore univoco dell'area di lavoro | workspace("b438b3f6-912a-46d5-9db1-b42069242ab4") |
-| ID risorssa di Azure | Identificatore della risorsa di Azure | workspace("/subscriptions/e4227-645-44e-9c67-3b84b5982/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail") |
+| ID risorsa di Azure | Identificatore della risorsa di Azure | workspace("/subscriptions/e4227-645-44e-9c67-3b84b5982/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail") |
 
 
 ## <a name="notes"></a>Note
@@ -40,7 +39,7 @@ L'espressione `workspace` viene usata in una query di Monitoraggio di Azure per 
 * È necessario disporre dell'accesso in lettura all'area di lavoro.
 * Un'espressione correlata è `app`, che consente di eseguire query nelle applicazioni di Application Insights.
 
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 
 ```Kusto
 workspace("contosoretail").Update | count
@@ -66,5 +65,5 @@ union
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Vedere l' [espressione app](app-expression.md) per fare riferimento a un'app Application Insights.
-- Accedere alle informazioni su come vengono archiviati i [dati di Monitoraggio di Azure](log-query-overview.md).
+- Vedere altre informazioni su come vengono archiviati i [dati di Monitoraggio di Azure](log-query-overview.md).
 - Accedere alla documentazione completa relativa al [linguaggio di query Kusto](/azure/kusto/query/).

@@ -1,25 +1,18 @@
 ---
-title: Creare cluster di Azure Service Fabric su Windows Server e Linux | Documentazione Microsoft
+title: Creare cluster in Windows Server e Linux
 description: I cluster di Service Fabric vengono eseguiti in Windows Server e Linux, per poter distribuire e ospitare le applicazioni di Service Fabric in qualsiasi ambiente che esegue Windows Server o Linux.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: edb6a84762ce65e65ff33492f3a7bcebbce60777
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: b6942c2a0647401df0d88b83e1b144ca3207a6db
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390369"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614673"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Panoramica dei cluster di Service Fabric in Azure
 Un cluster di Service Fabric è un set di computer fisici o macchine virtuali connessi in rete, in cui vengono distribuiti e gestiti i microservizi. Un computer o una VM che fa parte di un cluster è chiamato nodo del cluster. I cluster possono essere ridimensionati fino a migliaia di nodi. Se si aggiungono nuovi nodi al cluster, Service Fabric ribilancia le repliche e le istanze di partizione del servizio nel numero incrementato di nodi. Le prestazioni complessive dell'applicazione migliorano e la contesa per l'accesso alla memoria si riduce. Se i nodi del cluster non vengono usati in modo efficiente, è possibile ridurre il numero di nodi del cluster. Service Fabric ribilancia di nuovo le repliche e le istanze di partizione nel numero ridotto di nodi per usare al meglio l'hardware in ogni nodo.
@@ -62,7 +55,7 @@ Le macchine virtuali in un cluster hanno solo [indirizzi IP privati](/azure/virt
 ### <a name="storage-accounts"></a>Account di archiviazione
 Ogni tipo di nodo del cluster è supportato da un [account di archiviazione di Azure](/azure/storage/common/storage-introduction) e da dischi gestiti.
 
-## <a name="cluster-security"></a>Sicurezza del cluster
+## <a name="cluster-security"></a>Sicurezza dei cluster
 Un cluster di Service Fabric è una risorsa di cui si è proprietari.  È responsabilità dell'utente proteggere i cluster per evitare che utenti non autorizzati si connettano a essi. Un cluster sicuro è particolarmente importante quando si eseguono carichi di lavoro nel cluster. 
 
 ### <a name="node-to-node-security"></a>Sicurezza da nodo a nodo
@@ -80,7 +73,7 @@ Per altre informazioni, vedere [Sicurezza da client a nodo](service-fabric-clust
 ### <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
 Il controllo degli accessi in base al ruolo consente di assegnare controlli di accesso dettagliati sulle risorse di Azure.  È possibile assegnare regole di accesso diverse a sottoscrizioni, gruppi di risorse e risorse.  Le regole di controllo degli accessi in base al ruolo vengono ereditate lungo la gerarchia delle risorse, a meno che non ne venga eseguito l'override a un livello inferiore.  È possibile assegnare regole di controllo degli accessi in base al ruolo a qualsiasi utente o gruppo utenti in Azure Active Directory, per consentire agli utenti e ai gruppi designati di modificare il cluster.  Per altre informazioni, vedere [Che cos'è il controllo degli accessi in base al ruolo?](/azure/role-based-access-control/overview)
 
-Service Fabric supporta inoltre il controllo di accesso per limitare l'accesso a determinate operazioni di cluster per gruppi di utenti diversi. In questo modo il cluster è più sicuro. Per i client che si connettono a un cluster sono supportati due tipi di controllo di accesso diversi: il ruolo di amministratore e il ruolo utente.  
+Service Fabric supporta anche il controllo di accesso per limitare l'accesso a determinate operazioni di cluster per gruppi di utenti diversi. In questo modo il cluster è più sicuro. Per i client che si connettono a un cluster, sono supportati due tipi di controllo di accesso diversi: il ruolo di amministratore e il ruolo utente.  
 
 Per altre informazioni, vedere [Controllo degli accessi in base al ruolo](service-fabric-cluster-security.md#role-based-access-control-rbac).
 
@@ -89,7 +82,7 @@ I gruppi di sicurezza di rete (NSG) controllano il traffico in ingresso e in usc
 
 Per altre informazioni, vedere [Gruppi di sicurezza](/azure/virtual-network/security-overview)
 
-## <a name="scaling"></a>Ridimensionamento
+## <a name="scaling"></a>Scalabilità
 
 Le richieste delle applicazioni cambiano nel tempo. Potrebbe essere necessario aumentare le risorse del cluster per supportare l'aumento del carico di lavoro delle applicazioni o del traffico di rete oppure ridurre le risorse del cluster quando le richieste si riducono. Dopo aver creato un cluster di Service Fabric, è possibile scalare il cluster in orizzontale (modificare il numero di nodi) o in verticale (modificare le risorse dei nodi). È possibile ridimensionare il cluster in qualsiasi momento, anche quando sono in esecuzione carichi di lavoro nel cluster. Quando si ridimensiona il cluster, vengono automaticamente ridimensionate anche le applicazioni.
 

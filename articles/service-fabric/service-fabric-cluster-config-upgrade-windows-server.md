@@ -1,25 +1,16 @@
 ---
-title: Aggiornare la configurazione di un cluster autonomo di Azure Service Fabric | Microsoft Docs
+title: Aggiornare la configurazione di un cluster autonomo
 description: Informazioni su come aggiornare la configurazione di un cluster autonomo di Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: f99c1ebb64bf881bcd42f15e13bb81b96ccfa064
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8e7e01dac29cb9ba91c83270dac4e46c73b2089e
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60387129"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610124"
 ---
 # <a name="upgrade-the-configuration-of-a-standalone-cluster"></a>Aggiornare la configurazione di un cluster autonomo 
 
@@ -59,7 +50,7 @@ Oppure, usare questo script:
 TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File> -OldClusterConfigFilePath <Path to the old Configuration File> -FabricRuntimePackagePath <Path to the .cab file which you want to test the configuration against>
 ```
 
-Alcune configurazioni non possono essere aggiornate, ad esempio gli endpoint, il nome del cluster, l'IP del nodo e così via. Il nuovo file JSON di configurazione cluster verrà testato confrontandolo con quello precedente e, in caso di problemi, verranno generati errori nella finestra di PowerShell.
+Alcune configurazioni non possono essere aggiornate, ad esempio endpoint, nome del cluster, IP del nodo e così via. Il nuovo file JSON di configurazione del cluster viene testato rispetto a quello precedente e genera errori nella finestra di PowerShell in caso di problemi.
 
 ## <a name="upgrade-the-cluster-configuration"></a>Aggiornare la configurazione del cluster
 Per aggiornare la configurazione del cluster, eseguire [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade). L'aggiornamento della configurazione viene eseguito per dominio di aggiornamento.
@@ -73,13 +64,13 @@ Per l'autenticazione tra i nodi del cluster viene usato un certificato del clust
 
 Sono supportate quattro opzioni:  
 
-* Aggiornamento certificato singolo: Il percorso di aggiornamento è certificato A (primario) -> certificato B (primario) -> certificato C (primario) ->...
+* Aggiornamento certificato singolo: il percorso di aggiornamento è "Certificato (primario)-> Certificato B (primario)-> Certificato C (primario)->...".
 
-* Aggiornamento certificato doppio: Il percorso di aggiornamento è certificato A (primario) -> certificato A (primario) e B (secondario) -> certificato B (primario) -> certificato B (primario) e C (secondario) -> certificato C (primario) ->...
+* Aggiornamento certificato doppio: il percorso di aggiornamento è "Certificato A (primario) -> Certificato A (primario) e B (secondario) -> Certificato B (primario) -> Certificato B (primario) e C (secondario) -> Certificato C (primario) ->...".
 
-* Aggiornamento di tipo certificato: Configurazione di certificati basati su CommonName configurazione <> – basati su identificazione personale del certificato. Ad esempio, identificazione personale del certificato A (primario) e identificazione personale B (secondario) -> CommonName del certificato C.
+* Aggiornamento del tipo di certificato: configurazione dei certificati basati su identificazione personale <-> configurazione dei certificati basati su CommonName. Ad esempio, identificazione personale del certificato A (primario) e identificazione personale B (secondario) -> CommonName del certificato C.
 
-* Aggiornamento dell'identificazione personale dell'autorità emittente del certificato: Il percorso di aggiornamento è certificato CN = A, IssuerThumbprint CN=a,issuerthumbprint=IT1 (primario) -> certificato CN=A,ISSUERTHUMBPRINT=IT1,IT2 = A, IssuerThumbprint CN=a,issuerthumbprint=IT1, IT2 (primario) -> certificato CN=A,ISSUERTHUMBPRINT=IT1,IT2 = A, IssuerThumbprint CN=a,issuerthumbprint=it2 (primario).
+* Aggiornamento dell'identificazione personale dell'autorità di certificazione: il percorso di aggiornamento è "Certificato CN=A,IssuerThumbprint=IT1 (primario) -> Certificato CN=A,IssuerThumbprint=IT1,IT2 (primario) -> Certificato CN=A,IssuerThumbprint=IT2 (primario)".
 
 
 ## <a name="next-steps"></a>Passaggi successivi

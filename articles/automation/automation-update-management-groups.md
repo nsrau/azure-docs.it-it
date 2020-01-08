@@ -2,19 +2,15 @@
 title: Usare i gruppi dinamici con Gestione aggiornamenti di Azure
 description: Questo articolo descrive il funzionamento dei gruppi dinamici con Gestione aggiornamenti di automazione di Azure.
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/20/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 022c2061febb54666acee1cfed4ec595421660a3
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 678b3f361e4456a2c482896f7d7dc20d530b917b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278750"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420389"
 ---
 # <a name="use-dynamic-groups-with-update-management"></a>Usare i gruppi dinamici con Gestione aggiornamenti
 
@@ -24,7 +20,7 @@ Gestione aggiornamenti offre la possibilità di specificare come destinazione un
 
 Questi gruppi vengono definiti da una query. Quando inizia una distribuzione di aggiornamenti, i membri di tale gruppo vengono valutati. I gruppi dinamici non funzionano con le VM classiche. Quando si definisce la query, gli elementi seguenti possono essere utilizzati insieme per popolare il gruppo dinamico:
 
-* sottoscrizione
+* Sottoscrizione
 * Gruppi di risorse
 * Località
 * Tag

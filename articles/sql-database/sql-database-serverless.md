@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: e90bff7548be5f469ebbcdc21dd9b93dc887a30e
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2b11bbc22714ab1905421812e3cb24ee660ee667
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931964"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372331"
 ---
 # <a name="azure-sql-database-serverless"></a>Database SQL di Azure serverless
 
@@ -126,7 +126,7 @@ La ripresa automatica viene attivata se si verifica una delle condizioni seguent
 
 |Funzionalità|Trigger di ripresa automatica|
 |---|---|
-|Autenticazione e autorizzazione|Login|
+|Autenticazione e autorizzazione|Accesso|
 |Rilevamento delle minacce|Abilitazione o disabilitazione delle impostazioni di rilevamento delle minacce a livello di database o di server.<br>Modifica delle impostazioni di rilevamento delle minacce a livello di database o di server.|
 |Individuazione e classificazione dei dati|Aggiunta, modifica, eliminazione o visualizzazione delle etichette di riservatezza|
 |Controllo|Visualizzazione dei record di controllo<br>Aggiornamento o visualizzazione dei criteri di controllo.|
@@ -145,7 +145,7 @@ La ripresa automatica viene attivata anche durante la distribuzione di alcuni ag
 
 Se un database senza server viene sospeso, il primo account di accesso riprenderà il database e restituirà un errore indicante che il database non è disponibile con codice di errore 40613. Dopo la ripresa del database è necessario ripetere l'accesso per stabilire la connettività. I client del database con la logica di ripetizione dei tentativi di connessione non devono essere modificati.
 
-### <a name="latency"></a>Latency
+### <a name="latency"></a>Latenza
 
 La latenza per il riavvio e la sospensione di un database senza server è in genere un ordine di 1 minuto per il riavvio e 1-10 minuti di sospensione.
 
@@ -155,7 +155,7 @@ La creazione di un nuovo database o lo trasferimento di un database esistente in
 
 1. Specificare il nome dell'obiettivo di servizio. L'obiettivo di servizio prevede il livello di servizio, la generazione hardware e il numero massimo di vcore. La tabella seguente mostra le opzioni relative all'obiettivo di servizio:
 
-   |Nome dell'obiettivo di servizio|Livello di servizio|Generazione dell'hardware|Numero massimo di vCore|
+   |Nome dell'obiettivo di servizio|Livello di servizio|Generazione dell'hardware|Numero massimo vCore|
    |---|---|---|---|
    |GP_S_Gen5_1|Scopo generico|Quinta generazione|1|
    |GP_S_Gen5_2|Scopo generico|Quinta generazione|2|
@@ -177,30 +177,27 @@ La creazione di un nuovo database o lo trasferimento di un database esistente in
 
 ### <a name="create-new-database-in-serverless-compute-tier"></a>Crea nuovo database nel livello di calcolo senza server 
 
+Negli esempi seguenti viene creato un nuovo database nel livello di calcolo senza server. Gli esempi specificano in modo esplicito il ritardo min Vcore, Max Vcore e autopause.
+
 #### <a name="use-azure-portal"></a>Usare il portale di Azure
 
 Vedere [Guida introduttiva: creare un database singolo nel database SQL di Azure usando il portale di Azure](sql-database-single-database-get-started.md).
 
+
 #### <a name="use-powershell"></a>Usare PowerShell
-
-Nell'esempio seguente viene creato un nuovo database nel livello di calcolo senza server.  In questo esempio vengono specificati in modo esplicito il numero minimo e massimo di vCore e il ritardo di sospensione automatica.
-
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```powershell
 New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName `
   -ComputeModel Serverless -Edition GeneralPurpose -ComputeGeneration Gen5 `
   -MinVcore 0.5 -MaxVcore 2 -AutoPauseDelayInMinutes 720
 ```
+#### <a name="use-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
 
-# <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
-
-```powershell
+```azurecli
 az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
   -e GeneralPurpose -f Gen5 -min-capacity 0.5 -c 2 --compute-model Serverless --auto-pause-delay 720
 ```
 
-* * *
 
 #### <a name="use-transact-sql-t-sql"></a>Usare Transact-SQL (T-SQL)
 
@@ -215,11 +212,10 @@ Per informazioni dettagliate, vedere [create database](/sql/t-sql/statements/cre
 
 ### <a name="move-database-from-provisioned-compute-tier-into-serverless-compute-tier"></a>Spostare il database dal livello di calcolo di cui è stato effettuato il provisioning nel livello di calcolo senza server
 
+Gli esempi seguenti spostano un database dal livello di calcolo di cui è stato effettuato il provisioning nel livello di calcolo senza server. Gli esempi specificano in modo esplicito il ritardo min Vcore, Max Vcore e autopause.
+
 #### <a name="use-powershell"></a>Usare PowerShell
 
-L'esempio seguente sposta un database dal livello di calcolo di cui è stato effettuato il provisioning nel livello di calcolo senza server. In questo esempio vengono specificati in modo esplicito il numero minimo e massimo di vCore e il ritardo di sospensione automatica.
-
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```powershell
 Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName `
@@ -227,14 +223,13 @@ Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName 
   -MinVcore 1 -MaxVcore 4 -AutoPauseDelayInMinutes 1440
 ```
 
-# <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
+#### <a name="use-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
 
-```powershell
+```azurecli
 az sql db update -g $resourceGroupName -s $serverName -n $databaseName `
   --edition GeneralPurpose --min-capacity 1 --capacity 4 --family Gen5 --compute-model Serverless --auto-pause-delay 1440
 ```
 
-* * *
 
 #### <a name="use-transact-sql-t-sql"></a>Usare Transact-SQL (T-SQL)
 
@@ -253,15 +248,14 @@ La procedura per spostare un database serverless in un livello di calcolo con pr
 
 ## <a name="modifying-serverless-configuration"></a>Modifica della configurazione senza server
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="use-powershell"></a>Usare PowerShell
 
 Per modificare il vcore massimo o minimo e il ritardo di sospensione, viene eseguita usando il comando [set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) in PowerShell usando gli argomenti `MaxVcore`, `MinVcore`e `AutoPauseDelayInMinutes`.
 
-# <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
+### <a name="use-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
 
 Per modificare il vcore massimo o minimo e il ritardo di sospensione, è necessario usare il comando [AZ SQL DB Update](/cli/azure/sql/db#az-sql-db-update) nell'interfaccia della riga di comando di Azure usando gli argomenti `capacity`, `min-capacity`e `auto-pause-delay`.
 
-* * *
 
 ## <a name="monitoring"></a>Monitorare
 
@@ -296,22 +290,21 @@ Nella tabella seguente sono elencate le metriche per il monitoraggio dell'utiliz
 
 Nel portale di Azure lo stato del database è visualizzato nel riquadro della panoramica del server in cui sono elencati i database in esso contenuti. Lo stato del database è anche visualizzato nel riquadro della panoramica relativo al database.
 
-Usare usa il comando PowerShell seguente per eseguire una query sullo stato di sospensione e ripresa di un database:
+Usare i comandi seguenti per eseguire una query sullo stato di sospensione e ripresa di un database:
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+#### <a name="use-powershell"></a>Usare PowerShell
 
 ```powershell
 Get-AzSqlDatabase -ResourceGroupName $resourcegroupname -ServerName $servername -DatabaseName $databasename `
   | Select -ExpandProperty "Status"
 ```
 
-# <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
+#### <a name="use-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
 
-```powershell
+```azurecli
 az sql db show --name $databasename --resource-group $resourcegroupname --server $servername --query 'status' -o json
 ```
 
-* * *
 
 ## <a name="resource-limits"></a>Limiti delle risorse
 

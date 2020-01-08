@@ -1,6 +1,6 @@
 ---
-title: file di inclusione
-description: file di inclusione
+title: File di inclusione
+description: File di inclusione
 services: networking
 author: anavinahar
 ms.service: networking
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/09/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 2596351a0db921276ad74c27e30a8e2af93f2f36
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
-ms.translationtype: MT
+ms.openlocfilehash: d6cc6c787e38cc72a0a3d4340d55c0248918dba6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74980760"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392285"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Limiti di rete: Azure Resource Manager si applicano i limiti seguenti solo per le risorse di rete gestite tramite **Azure Resource Manager** per area per sottoscrizione. Informazioni su come [visualizzare l'utilizzo delle risorse corrente rispetto ai limiti della sottoscrizione](../articles/networking/check-usage-against-limits.md).
 
@@ -63,8 +63,7 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Servizi di bilanciamento del carico | 1\.000 | 
 | Regole per risorsa, Basic | 250 |
 | Regole per risorsa, Standard | 1\.500 | 
-| Regole per configurazione IP | 299 |
-| Regole per NIC | 300 |
+| Regole per NIC (in tutti gli indirizzi IP in una scheda di interfaccia di rete) | 300 |
 | Configurazioni IP front-end, di base | 200 |
 | Configurazioni IP front-end, standard | 600 |
 | Pool back-end, di base | 100, singolo set di disponibilità |

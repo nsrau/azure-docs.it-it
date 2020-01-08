@@ -1,74 +1,87 @@
 ---
-title: Visualizzare gli eventi del log attività di Azure in Monitoraggio di Azure
-description: Visualizzare il log attività di Azure in Monitoraggio di Azure e recuperare con PowerShell, CLI e API REST.
+title: Visualizzare gli eventi del log attività di Azure in monitoraggio di Azure
+description: Visualizzare il log attività di Azure in monitoraggio di Azure e recuperare con PowerShell, l'interfaccia della riga di comando e l'API REST.
 author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/10/2019
+ms.date: 12/07/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 32578f77f2b3f30d80953bdd1099d22c945c640b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 54a1d3e503ddb8b11109596decde94a2834dbf47
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66248115"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529967"
 ---
 # <a name="view-and-retrieve-azure-activity-log-events"></a>Visualizzare e recuperare gli eventi del log attività di Azure
 
-Il [Log attività di Azure](activity-logs-overview.md) fornisce approfondite sugli eventi a livello di sottoscrizione che si sono verificati in Azure. Questo articolo fornisce informazioni dettagliate sui diversi metodi per la visualizzazione e il recupero di eventi del Log attività.
+Il [log attività di Azure](activity-logs-overview.md) fornisce informazioni approfondite sugli eventi a livello di sottoscrizione che si sono verificati in Azure. Questo articolo fornisce informazioni dettagliate sui diversi metodi per la visualizzazione e il recupero degli eventi del log attività.
 
 ## <a name="azure-portal"></a>Portale di Azure
-Visualizzare il Log attività per tutte le risorse dal **Monitor** menu nel portale di Azure. Visualizzare il Log attività per una determinata risorsa dal **Log attività** opzione nel menu della risorsa.
+Visualizzare il log attività per tutte le risorse dal menu **monitoraggio** nel portale di Azure. Visualizzare il log attività per una determinata risorsa dall'opzione **log attività** nel menu di tale risorsa.
 
-![Visualizzare il Log attività](./media/activity-logs-overview/view-activity-log.png)
+![Visualizzare il log attività](./media/activity-logs-overview/view-activity-log.png)
 
-È possibile filtrare gli eventi del Log attività per i campi seguenti:
+È possibile filtrare gli eventi del log attività in base ai campi seguenti:
 
-* **Intervallo di tempo**: Ora di inizio e fine per gli eventi.
-* **Categoria**: La categoria di eventi, come descritto in [categorie nel Log attività](activity-logs-overview.md#categories-in-the-activity-log).
-* **Sottoscrizione** Uno o più nomi di sottoscrizione di Azure.
-* **Gruppo di risorse**: Uno o più gruppi di risorse all'interno delle sottoscrizioni selezionate.
-* **Risorsa (nome)** :-il nome di una risorsa specifica.
-* **Tipo di risorsa**: Il tipo di risorsa, ad esempio _COMPUTE/virtualmachines_.
-* **Nome dell'operazione** -il nome di un'operazione di Azure Resource Manager, ad esempio _Microsoft.SQL/servers/Write_.
-* **Gravità**: Il livello di gravità dell'evento. I valori disponibili sono _Informational_, _avviso_, _errore_, _critico_.
-* **Evento avviato da**: L'utente che ha eseguito l'operazione.
-* **Aprire la ricerca**: Casella di ricerca di testo aperta che cerca tale stringa in tutti i campi in tutti gli eventi.
+* **TimeSpan**: ora di inizio e di fine per gli eventi.
+* **Category**: la categoria di eventi, come descritto in [categorie nel log attività](activity-log-view.md#categories-in-the-activity-log).
+* **Sottoscrizione**: uno o più nomi di sottoscrizione di Azure.
+* **Gruppo di risorse**: uno o più gruppi di risorse all'interno delle sottoscrizioni selezionate.
+* **Resource (Name)** : nome di una risorsa specifica.
+* **Tipo di risorsa**: tipo di risorsa, ad esempio _Microsoft. Compute/VirtualMachines_.
+* **Nome operazione** : nome di un'operazione di Azure Resource Manager, ad esempio _Microsoft. SQL/Servers/Write_.
+* **Gravità**: livello di gravità dell'evento. I valori disponibili sono _informazioni_, _avviso_, _errore_, _critico_.
+* **Evento avviato da**: l'utente che ha eseguito l'operazione.
+* **Apri ricerca**: apre la casella di ricerca di testo che cerca la stringa in tutti i campi in tutti gli eventi.
 
-### <a name="view-change-history"></a>Visualizzare la cronologia modifiche
+## <a name="categories-in-the-activity-log"></a>Categorie nel log attività
+Ogni evento nel log attività dispone di una categoria specifica descritta nella tabella seguente. Per informazioni dettagliate sugli schemi di queste categorie, vedere [Schema degli eventi del log attività di Azure](activity-log-schema.md). 
 
-Quando si rivede il Log attività, può essere utile per vedere cosa è successo modifiche durante tale ora dell'evento. È possibile visualizzare queste informazioni con **cronologia modifiche**. Selezionare un evento dal Log attività di cui si desidera cercare dettagli della gestione. Selezionare il **cronologia revisioni (anteprima)** scheda per visualizzare qualsiasi associato le modifiche all'evento.
+| Categoria | Description |
+|:---|:---|
+| Administrative | Contiene il record di tutte le operazioni di creazione, aggiornamento, eliminazione e azione eseguite tramite Gestione risorse. Esempi di eventi amministrativi includono _creare una macchina virtuale_ ed _eliminare un gruppo di sicurezza di rete_.<br><br>Ogni azione eseguita da un utente o da un'applicazione che usa Gestione risorse viene modellata come operazione su un particolare tipo di risorsa. Se il tipo di operazione è _Write_, _Delete_o _Action_, i record di avvio e di esito positivo o negativo di tale operazione vengono registrati nella categoria amministrativa. Gli eventi amministrativi includono anche eventuali modifiche al controllo degli accessi in base al ruolo in una sottoscrizione. |
+| Integrità del servizio | Contiene il record degli eventi imprevisti di integrità del servizio che si sono verificati in Azure. Un esempio di evento di integrità del servizio _SQL Azure negli Stati Uniti orientali sta riscontrando tempi di inattività_. <br><br>Gli eventi di integrità del servizio sono disponibili in sei varietà: _azione richiesta_, _ripristino assistito_, eventi _imprevisti_, _manutenzione_, _informazioni_o _sicurezza_. Questi eventi vengono creati solo se si dispone di una risorsa nella sottoscrizione che potrebbe essere interessata dall'evento.
+| Integrità delle risorse | Contiene il record degli eventi di integrità delle risorse che si sono verificati nelle risorse di Azure. Un esempio di evento Integrità risorse è _lo stato di integrità della macchina virtuale modificato in non disponibile_.<br><br>Gli eventi Integrità risorse possono rappresentare uno dei quattro stati di integrità seguenti: _disponibile_, non _disponibile_, _danneggiato_e _sconosciuto_. Inoltre, gli eventi Integrità risorse possono essere categorizzati come _avviati dalla piattaforma_ o _avviati dall'utente_. |
+| Avviso | Contiene il record delle attivazioni per gli avvisi di Azure. Un esempio di evento di avviso è _la percentuale della CPU su myVM è stata superata 80 per gli ultimi 5 minuti_.|
+| Scalabilità automatica | Contiene il record degli eventi correlati all'operazione del motore di ridimensionamento automatico in base alle impostazioni di scalabilità automatica definite nella sottoscrizione. Un esempio di evento di scalabilità automatica è l'azione di scalabilità _orizzontale automatica non riuscita_. |
+| Recommendation | Contiene gli eventi di raccomandazione da Azure Advisor. |
+| Sicurezza | Contiene il record degli avvisi generati dal centro sicurezza di Azure. Un esempio di evento di sicurezza è un _file di estensione doppio sospetto eseguito_. |
+| Criterio | Contiene i record di tutte le operazioni di azione effetto eseguite da criteri di Azure. Esempi di eventi dei criteri includono _Audit_ e _Deny_. Ogni azione eseguita da Criteri viene modellata come operazione su una risorsa. |
 
-![Modificare l'elenco di cronologia di un evento](media/activity-logs-overview/change-history-event.png)
+## <a name="view-change-history"></a>Visualizzare la cronologia modifiche
 
-Se sono state apportate modifiche associate all'evento, si verrà visualizzato un elenco di modifiche che è possibile selezionare. Verrà visualizzato il **cronologia revisioni (anteprima)** pagina. In questa pagina visualizzare le modifiche alla risorsa. Come può notare nell'esempio seguente, siamo in grado di vedere non solo che la macchina virtuale modificati dimensioni, ma ciò che le dimensioni VM precedente erano prima della modifica e ciò che è stata modificata in.
+Quando si esamina il log attività, può essere utile vedere quali modifiche sono state apportate durante l'intervallo di tempo dell'evento. È possibile visualizzare queste informazioni con la **cronologia delle modifiche**. Selezionare un evento nel log attività in cui si desidera eseguire una ricerca più approfondita. Selezionare la scheda **cronologia modifiche (anteprima)** per visualizzare eventuali modifiche associate a tale evento.
 
-![Pagina Cronologia Cambia visualizzazione delle differenze](media/activity-logs-overview/change-history-event-details.png)
+![Elenco cronologia modifiche per un evento](media/activity-logs-overview/change-history-event.png)
+
+Se sono presenti modifiche associate all'evento, verrà visualizzato un elenco di modifiche che è possibile selezionare. Verrà visualizzata la pagina **cronologia modifiche (anteprima)** . In questa pagina vengono visualizzate le modifiche apportate alla risorsa. Come si può notare dall'esempio seguente, è possibile vedere non solo che le dimensioni della macchina virtuale sono cambiate, ma la dimensione precedente della macchina virtuale è precedente alla modifica e a cosa è stato modificato.
+
+![Pagina della cronologia delle modifiche che mostra le differenze](media/activity-logs-overview/change-history-event-details.png)
 
 Per altre informazioni sulla cronologia delle modifiche, vedere [ottenere le modifiche alle risorse](../../governance/resource-graph/how-to/get-resource-changes.md).
 
 
-## <a name="log-analytics-workspace"></a>Area di lavoro Log Analytics
-Fare clic su **registri** nella parte superiore del **Log attività** pagina per aprire il [Analitica di Log attività di soluzione di monitoraggio](activity-log-collect.md) per la sottoscrizione. Ciò consentirà di visualizzare analitica per il Log attività e di eseguire [query di log](../log-query/log-query-overview.md) con il **AzureActivity** tabella. Se il Log attività non è connesso a un'area di lavoro di Log Analitica, verrà richiesto di eseguire questa configurazione.
+
 
 
 
 ## <a name="powershell"></a>PowerShell
-Usare la [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) cmdlet per recuperare il Log attività da PowerShell. Di seguito sono riportati alcuni esempi comuni.
+Usare il cmdlet [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) per recuperare il log attività da PowerShell. Di seguito sono riportati alcuni esempi comuni.
 
 > [!NOTE]
-> `Get-AzLog` fornisce solo 15 giorni di cronologia. Usare la **- MaxEvents** parametro per eseguire una query ultimi N eventi oltre i 15 giorni. Per accedere agli eventi precedenti ai 15 giorni, usare l'API REST o SDK. Se non si include **StartTime**, il valore predefinito è **EndTime** meno un'ora. Se non si include **EndTime**, il valore predefinito è l’ora corrente. Tutte le ore sono in formato UTC.
+> `Get-AzLog` fornisce solo 15 giorni di cronologia. Usare il parametro **-MaxEvents** per eseguire una query sugli ultimi N eventi oltre i 15 giorni. Per accedere agli eventi più vecchi di 15 giorni, usare l'API REST o l'SDK. Se non si include **StartTime**, il valore predefinito è **EndTime** meno un'ora. Se non si include **EndTime**, il valore predefinito è l’ora corrente. Tutte le ore sono in formato UTC.
 
 
-Ottenere le voci di log create dopo una data specifica ora:
+Ottenere le voci di log create dopo una determinata data/ora:
 
 ```powershell
 Get-AzLog -StartTime 2016-03-01T10:30
 ```
 
-Ottenere le voci di log tra un intervallo di tempo data:
+Ottenere le voci di log tra un intervallo di data e ora:
 
 ```powershell
 Get-AzLog -StartTime 2015-01-01T10:30 -EndTime 2015-01-01T11:30
@@ -80,7 +93,7 @@ Ottenere le voci di log da un gruppo di risorse specifico:
 Get-AzLog -ResourceGroup 'myrg1'
 ```
 
-Ottenere le voci di log da un provider di risorse specifico tra un intervallo di tempo data:
+Ottenere le voci di log da un provider di risorse specifico tra un intervallo di tempo di data:
 
 ```powershell
 Get-AzLog -ResourceProvider 'Microsoft.Web' -StartTime 2015-01-01T10:30 -EndTime 2015-01-01T11:30
@@ -99,11 +112,11 @@ Get-AzLog -MaxEvents 1000
 ```
 
 
-## <a name="cli"></a>CLI
-Uso [az monitor log attività](cli-samples.md#view-activity-log-for-a-subscription) per recuperare il Log attività della riga di comando. Di seguito sono riportati alcuni esempi comuni.
+## <a name="cli"></a>Interfaccia della riga di comando
+Usare [AZ monitor Activity-log](cli-samples.md#view-activity-log-for-a-subscription) per recuperare il log attività dall'interfaccia della riga di comando. Di seguito sono riportati alcuni esempi comuni.
 
 
-Visualizzare tutte le opzioni disponibili.
+Visualizza tutte le opzioni disponibili.
 
 ```azurecli
 az monitor activity-log list -h
@@ -121,7 +134,7 @@ Ottenere le voci di log con un chiamante specifico:
 az monitor activity-log list --caller myname@company.com
 ```
 
-Ottenere i log dal chiamante in un tipo di risorsa, all'interno di un intervallo di date:
+Ottenere i log in base al chiamante in un tipo di risorsa, entro un intervallo di date:
 
 ```azurecli
 az monitor activity-log list --resource-provider Microsoft.Web \
@@ -131,21 +144,21 @@ az monitor activity-log list --resource-provider Microsoft.Web \
 ```
 
 ## <a name="rest-api"></a>API REST
-Usare la [API REST di monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/) per recuperare il Log attività da un client REST. Di seguito sono riportati alcuni esempi comuni.
+Usare l' [API REST di monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/) per recuperare il log attività da un client REST. Di seguito sono riportati alcuni esempi comuni.
 
-Ottenere i log attività con il filtro:
+Ottenere i log attività con Filter:
 
 ``` HTTP
 GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2018-01-21T20:00:00Z' and eventTimestamp le '2018-01-23T20:00:00Z' and resourceGroupName eq 'MSSupportGroup'
 ```
 
-Ottenere i log attività con filtro e selezionare:
+Ottenere i log attività con Filter e selezionare:
 
 ```HTTP
 GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2015-01-21T20:00:00Z' and eventTimestamp le '2015-01-23T20:00:00Z' and resourceGroupName eq 'MSSupportGroup'&$select=eventName,id,resourceGroupName,resourceProviderName,operationName,status,eventTimestamp,correlationId,submissionTimestamp,level
 ```
 
-Ottenere i log attività con l'istruzione select:
+Ottenere i log attività con SELECT:
 
 ```HTTP
 GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$select=eventName,id,resourceGroupName,resourceProviderName,operationName,status,eventTimestamp,correlationId,submissionTimestamp,level
@@ -158,10 +171,36 @@ GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5
 ```
 
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="activity-logs-analytics-monitoring-solution"></a>Soluzione di monitoraggio dei log attività
+La soluzione di monitoraggio di Azure Log Analytics include più query e visualizzazioni di log per analizzare i record del log attività nell'area di lavoro Log Analytics.
 
-* [Leggere una panoramica del Log attività](activity-logs-overview.md)
-* [Archiviare il Log attività di archiviazione o trasmetterli all'hub eventi](activity-log-export.md)
-* [Trasmettere il log attività di Azure a Hub eventi](activity-logs-stream-event-hubs.md)
-* [Archiviare il Log attività di Azure all'archiviazione](archive-activity-log.md)
+### <a name="prerequisites"></a>Prerequisiti
+È necessario creare un'impostazione di diagnostica per inviare il log attività per la sottoscrizione a un'area di lavoro Log Analytics. Vedere [raccogliere i log della piattaforma Azure nell'area di lavoro log Analytics in monitoraggio di Azure](resource-logs-collect-workspace.md).
 
+### <a name="install-the-solution"></a>Installare la soluzione
+Usare la procedura descritta in [installare una soluzione di monitoraggio](../insights/solutions.md#install-a-monitoring-solution) per installare la soluzione **analisi log attività** . Non è necessaria alcuna configurazione aggiuntiva.
+
+### <a name="use-the-solution"></a>Usare la soluzione
+Fare clic su **log** nella parte superiore della pagina **log attività** per aprire la [soluzione di monitoraggio analisi log attività](activity-log-collect.md) per la sottoscrizione. In alternativa, accedere a tutte le soluzioni di monitoraggio nel menu di **monitoraggio** della sottoscrizione nel portale di Azure. Per aprire la pagina **Panoramica** con i riquadri della soluzione, selezionare **altre informazioni** nella sezione **Insights** . Il riquadro **log attività di Azure** Visualizza un conteggio del numero di record **AzureActivity** nell'area di lavoro.
+
+![Riquadro Log attività di Azure](media/collect-activity-logs/azure-activity-logs-tile.png)
+
+
+Fare clic sul riquadro **log attività di Azure** per aprire la visualizzazione **log attività di Azure** . La vista include le parti di visualizzazione nella tabella seguente. Ogni parte elenca fino a 10 elementi corrispondenti ai criteri delle parti per l'intervallo di tempo specificato. È possibile eseguire una query di log che restituisce tutti i record corrispondenti facendo clic su **Visualizza tutto** nella parte inferiore della parte.
+
+![Dashboard Log attività di Azure](media/collect-activity-logs/activity-log-dash.png)
+
+| Parte della visualizzazione | Description |
+| --- | --- |
+| Voci del Log attività di Azure | Mostra un grafico a barre dei totali dei record di voci del log attività di Azure superiore per l'intervallo di date selezionato e Mostra un elenco dei primi 10 chiamanti di attività. Fare clic sul grafico a barre per eseguire una ricerca di log per `AzureActivity`. Fare clic su un elemento chiamante per eseguire una ricerca log che restituisce tutte le voci del log attività per tale elemento. |
+| Log attività per stato | Mostra un grafico ad anello per lo stato del log attività di Azure per l'intervallo di date selezionato e un elenco dei primi dieci record di stato. Fare clic sul grafico per eseguire una query di log per `AzureActivity | summarize AggregatedValue = count() by ActivityStatus`. Fare clic su un elemento di stato per eseguire una ricerca log che restituisce tutte le voci del log attività per il record di stato. |
+| Log attività per risorsa | Mostra il numero totale di risorse con log attività ed elenca le prime dieci risorse con conteggi di record per ogni risorsa. Fare clic sull'area totale per eseguire una ricerca di log per `AzureActivity | summarize AggregatedValue = count() by Resource`, che mostra tutte le risorse di Azure disponibili per la soluzione. Fare clic su una risorsa per eseguire una query di log che restituisce tutti i record di attività per tale risorsa. |
+| Log attività per provider di risorse | Mostra il numero totale di provider di risorse che producono log attività ed elenca i primi dieci. Fare clic sull'area totale per eseguire una query di log per `AzureActivity | summarize AggregatedValue = count() by ResourceProvider`, che Mostra tutti i provider di risorse di Azure. Fare clic su un provider di risorse per eseguire una query di log che restituisce tutti i record di attività per il provider. |
+
+
+
+
+## <a name="next-steps"></a>Passaggi successivi
+
+* [Leggi una panoramica dei log della piattaforma](platform-logs-overview.md)
+* [Creare un'impostazione di diagnostica per inviare i log attività ad altre destinazioni](diagnostic-settings.md)

@@ -1,7 +1,7 @@
 ---
-title: Applica operazione matematica
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo Apply Math Operation nel servizio Azure Machine Learning per applicare un'operazione matematica ai valori di colonna in una pipeline.
+title: Applicare operazioni matematiche
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo Apply Math Operation in Azure Machine Learning per applicare un'operazione matematica ai valori di colonna in una pipeline.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: a2f3665355cc2023aaf4b66c9207aaff4a3bc6db
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: af7431dd808a7d5eb106eff96a790eb876a20026
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493940"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428615"
 ---
-# <a name="apply-math-operation"></a>Applica operazione matematica
+# <a name="apply-math-operation"></a>Applicare operazioni matematiche
 
 Questo articolo descrive un modulo di Azure Machine Learning Designer (anteprima).
 
@@ -32,7 +32,7 @@ Dopo aver definito un'operazione ed eseguito la pipeline, i valori vengono aggiu
 
 Cercare l'operazione necessaria in queste categorie:  
 
-- [Basic](#basic-math-operations)  
+- [Base](#basic-math-operations)  
   
      Le funzioni della categoria **Basic** possono essere usate per modificare un singolo valore o una colonna di valori. Ad esempio, è possibile ottenere il valore assoluto di tutti i numeri in una colonna oppure calcolare la radice quadrata di ogni valore in una colonna.  
   
@@ -82,7 +82,7 @@ Ogni istanza di questo modulo può eseguire un solo tipo di operazione alla volt
   
 1.  Usare l'opzione **modalità output** per indicare come si vuole che venga generata l'operazione matematica: 
 
-    - **Accoda**. Tutte le colonne utilizzate come input sono incluse nel set di dati di output, oltre a una colonna aggiuntiva che contiene i risultati dell'operazione matematica.
+    - **Append**. Tutte le colonne utilizzate come input sono incluse nel set di dati di output, oltre a una colonna aggiuntiva che contiene i risultati dell'operazione matematica.
     - **Inserire**. I valori nelle colonne utilizzate come input vengono sostituiti con i nuovi valori calcolati. 
     - **ResultOnly**. Viene restituita una singola colonna contenente i risultati dell'operazione matematica.
   
@@ -93,7 +93,7 @@ Ogni istanza di questo modulo può eseguire un solo tipo di operazione alla volt
 Se si generano i risultati utilizzando le opzioni **Append** o **ResultOnly** , le intestazioni di colonna del set di dati restituito indicano l'operazione e le colonne utilizzate. Se, ad esempio, si confrontano due colonne usando l'operatore **Equals** , i risultati saranno simili ai seguenti:  
   
 -   **Equals (Col2_Col1)** , che indica che è stato eseguito il test di col2 in col1.  
--   **Equals (Col2_ $10)** , che indica che è stata confrontata la colonna 2 con la costante 10.  
+-   **Uguale a (Col2_ $10)** , che indica che è stata confrontata la colonna 2 con la costante 10.  
 
 Anche se si usa l'opzione **InPlace** , i dati di origine non vengono eliminati o modificati. la colonna nel set di dati originale è ancora disponibile nella finestra di progettazione. Per visualizzare i dati originali, è possibile connettere il modulo [Aggiungi colonne](add-columns.md) e aggiungerlo all'output di **Apply Math Operation**.  
     
@@ -103,7 +103,7 @@ Le funzioni nella categoria **Basic** accettano in genere un singolo valore da u
   
  Azure Machine Learning supporta le funzioni seguenti nella categoria di **base** :  
 
-### <a name="abs"></a>ABS
+### <a name="abs"></a>Abs
 
 Restituisce il valore assoluto delle colonne selezionate.  
   
@@ -113,9 +113,9 @@ Restituisce una tangente inversa a quattro quadranti.
 
 Consente di selezionare le colonne che contengono le coordinate del punto. Per il secondo argomento, che corrisponde alla coordinata x, è anche possibile specificare una costante.  
 
-Corrisponde alla funzione ATAN2 in MATLAB.  
+Corrisponde alla funzione ATAN2 in Matlab.  
 
-### <a name="conj"></a>CONJ
+### <a name="conj"></a>Conj
 
 Restituisce il coniugato per i valori nella colonna selezionata.  
 
@@ -126,9 +126,9 @@ Calcola la radice del cubo per i valori nella colonna selezionata.
 ### <a name="doublefactorial"></a>DoubleFactorial  
  Calcola il fattoriale doppio per i valori nella colonna selezionata. Il doppio fattoriale è un'estensione della funzione fattoriale normale e viene indicato come x!!.  
 
-### <a name="eps"></a>EPS
+### <a name="eps"></a>Eps
 
-Restituisce la dimensione del gap tra il valore corrente e il successivo numero a precisione doppia più alto. Corrisponde alla funzione EPS in MATLAB.  
+Restituisce la dimensione del gap tra il valore corrente e il successivo numero a precisione doppia più alto. Corrisponde alla funzione EPS in Matlab.  
   
 ### <a name="exp"></a>Exp
 
@@ -151,10 +151,10 @@ Restituisce l'esponente negativo per i valori nella colonna selezionata.
 ### <a name="factorial"></a>Fattoriale
 Restituisce il fattoriale per i valori nella colonna selezionata.  
 
-### <a name="hypotenuse"></a>Ipotenusa
+### <a name="hypotenuse"></a>Hypotenuse
 Calcola l'ipotenusa per un triangolo in cui la lunghezza di un lato viene specificata come una colonna di valori e la lunghezza del secondo lato viene specificata come costante o come due colonne.  
 
-### <a name="ln"></a>Ln
+### <a name="ln"></a>Ri
 
 Restituisce il logaritmo naturale per i valori nella colonna selezionata.  
 
@@ -164,7 +164,7 @@ Restituisce il logaritmo naturale più uno per i valori nella colonna selezionat
 
 ### <a name="log"></a>Log
 
-Restituisce il log dei valori nella colonna selezionata, data la base specificata.  
+Restituisce il logaritmo dei valori nella colonna selezionata secondo la base specificata.  
 
 È possibile specificare la base (il secondo argomento) come costante o selezionando un'altra colonna di valori.  
 
@@ -184,7 +184,7 @@ Selezionare le colonne per cui si desidera calcolare la radice utilizzando l'opz
 In **secondo tipo di argomento**selezionare un'altra colonna contenente la radice oppure specificare una costante da usare come radice.  
 
 Se il secondo argomento è una colonna, ogni valore della colonna viene utilizzato come valore di n per la riga corrispondente. Se il secondo argomento è una costante, digitare il valore di n nella casella di testo del **secondo argomento** .
-### <a name="pow"></a>POW
+### <a name="pow"></a>Pow
 
 Calcola X elevato alla potenza di Y per ognuno dei valori della colonna selezionata.  
 
@@ -254,13 +254,13 @@ L'ordine in cui si scelgono le colonne per divisione e sottrazione può sembrare
 Operazione|Num1|Num2|Colonna risultati|Valore risultato|
 ----|----|----|----|----
 |Addizione|1|5|Aggiungi (Num2_Num1)| 4|
-|Moltiplicazione|1|5|Multiplo (Num2_Num1)|5|
+|Moltiplicazione|1|5|Più (Num2_Num1)|5|
 |Sottrazione|1|5|Sottrazione (Num2_Num1)|4|
 |Sottrazione|0|1|Sottrazione (Num2_Num1)|0|
 |Divisione|1|5|Divisione (Num2_Num1)|5|
 |Divisione|0|1|Divisione (Num2_Num1)|Infinity|
 
-### <a name="add"></a>Add
+### <a name="add"></a>Aggiungi
 
 Specificare le colonne di origine utilizzando il **set di colonne**e quindi aggiungere a tali valori un numero specificato nel **secondo argomento**.  
 
@@ -302,11 +302,11 @@ Restituisce la superficie per i valori in **Column set**, alla precisione specif
 
 Restituisce la parte frazionaria dei valori in **Column set**, alla precisione specificata.  
 
-### <a name="quotient"></a>Quoziente
+### <a name="quotient"></a>Quotient
 
 Restituisce la parte frazionaria dei valori in **Column set**, alla precisione specificata.  
 
-### <a name="remainder"></a>Resto
+### <a name="remainder"></a>Remainder
 
 Restituisce il resto per i valori in **Column set**.  
 
@@ -330,7 +330,7 @@ Restituisce i valori in **Column set**, arrotondati al numero pari intero più v
 
 Restituisce i valori in **Column set**, arrotondati al numero dispari intero più vicino.  
 
-### <a name="truncate"></a>Troncare
+### <a name="truncate"></a>Truncate
 
 Tronca i valori in **Column set** rimuovendo tutte le cifre non consentite dalla precisione specificata.  
   
@@ -350,11 +350,11 @@ Restituisce il valore dell'integrale ellittico incompleto.
 
 Restituisce il valore dell'integrale ellittico completo (K).  
 
-### <a name="erf"></a>ERF
+### <a name="erf"></a>Erf
 
-Restituisce il valore della funzione Error.  
+Restituisce il valore della funzione di errore.  
 
-La funzione Error (denominata anche funzione di errore di Gauss) è una funzione speciale della forma Sigma usata nella probabilità per descrivere la diffusione.  
+La funzione di errore (denominata anche funzione di errore di Gauss) è una funzione speciale di forma sigmoide usata nella probabilità per descrivere la diffusione.  
 
 ### <a name="erfc"></a>Erfc
 
@@ -364,13 +364,13 @@ Erfc è definito come 1 – ERF (x).
 
 ### <a name="erfscaled"></a>ErfScaled
 
-Restituisce il valore della funzione di errore ridimensionata.  
+Restituisce il valore della funzione di errore in scala.  
 
-La versione ridimensionata della funzione Error può essere usata per evitare l'underflow aritmetico.  
+La versione in scala della funzione di errore consente di evitare l'underflow aritmetico.  
 
 ### <a name="erfinverse"></a>ErfInverse
 
-Restituisce il valore della funzione ERF inversa.  
+Restituisce il valore della funzione inversa di erf.  
 
 ### <a name="exponentialintegralein"></a>ExponentialIntegralEin
 
@@ -386,29 +386,29 @@ Restituisce il logaritmo naturale della funzione gamma.
 
 ### <a name="gammaregularizedp"></a>GammaRegularizedP
 
-Restituisce il valore della funzione Gamma incompleta regolarizzata.  
+Restituisce il valore della funzione gamma incompleta regolarizzata.  
 
 Questa funzione accetta un secondo argomento, che può essere specificato come una costante o una colonna di valori.  
 
 ### <a name="gammaregularizedpinverse"></a>GammaRegularizedPInverse
 
-Restituisce il valore della funzione Gamma incompleta regolarizzata inversa.  
+Restituisce il valore della funzione gamma incompleta regolarizzata inversa.  
 
 Questa funzione accetta un secondo argomento, che può essere specificato come una costante o una colonna di valori.  
 
 ### <a name="gammaregularizedq"></a>GammaRegularizedQ  
 
-Restituisce il valore della funzione Gamma incompleta regolarizzata.  
+Restituisce il valore della funzione gamma incompleta regolarizzata.  
 
 Questa funzione accetta un secondo argomento, che può essere specificato come una costante o una colonna di valori.  
 
 ### <a name="gammaregularizedqinverse"></a>GammaRegularizedQInverse
 
-Restituisce il valore della funzione gamma completa generalizzata inversa generalizzata.
+Restituisce il valore della funzione gamma incompleta regolarizzata generalizzata inversa.
 
 Questa funzione accetta un secondo argomento, che può essere specificato come una costante o una colonna di valori.  
 
-### <a name="polygamma"></a>Poligamma
+### <a name="polygamma"></a>PolyGamma
 
 Restituisce il valore della funzione poligamma.  
 
@@ -497,7 +497,7 @@ Calcola il coseno per i valori di colonna, in gradi.
 
 Calcola il coseno iperbolico per i valori della colonna.  
 
-### <a name="cot"></a>Culla
+### <a name="cot"></a>Cot
 
 Calcola la cotangente per i valori della colonna.  
 
@@ -508,7 +508,7 @@ Calcola la cotangente per i valori di colonna, in gradi.
 ### <a name="coth"></a>Coth
 Calcola la cotangente iperbolica per i valori di colonna.  
 
-### <a name="csc"></a>CSC
+### <a name="csc"></a>Csc
 
 Calcola la cosecante per i valori della colonna.  
 
@@ -540,7 +540,7 @@ Calcola la secante iperbolica dei valori della colonna.
 
 Restituisce il segno dei valori della colonna.  
 
-### <a name="sin"></a>Peccato
+### <a name="sin"></a>Sin
 
 Calcola il seno dei valori della colonna.  
 
@@ -590,4 +590,4 @@ In alternativa, usare uno dei moduli seguenti per eseguire tutti i calcoli conte
   
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning servizio. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 

@@ -1,5 +1,5 @@
 ---
-title: Utilizzo delle stored procedure, dei trigger e delle funzioni definite dall'utente in Azure Cosmos DB
+title: Utilizzare stored procedure, trigger e funzioni definite dall'utente in Azure Cosmos DB
 description: Questo articolo illustra concetti quali stored procedure, trigger e funzioni definite dall'utente in Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 700cd6c0c75b25d56e812a394d6bdd193e4fb57c
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 706f52a6cda2bbcb0e5ca1cfe9372600fa6709d0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614065"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441232"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Stored procedure, trigger e funzioni definite dall'utente
 
@@ -22,26 +22,26 @@ Azure Cosmos DB offre l'esecuzione transazionale di JavaScript integrata nel lin
 
 La scrittura di stored procedure, trigger e funzioni definite dall'utente (UDF) in JavaScript consente di creare applicazioni avanzate con i vantaggi seguenti:
 
-* **Logica procedurale:** come linguaggio di programmazione di alto livello, JavaScript offre un'interfaccia completa e familiare per esprimere la logica di business. È possibile eseguire una sequenza di operazioni complesse sui dati.
+* **Logica procedurale:** JavaScript come linguaggio di programmazione di alto livello che fornisce un'interfaccia ricca e familiare per esprimere la logica di business. È possibile eseguire una sequenza di operazioni complesse sui dati.
 
-* **Transazioni atomiche:** Azure Cosmos DB garantisce che le operazioni di database all'interno di una singola stored procedure o un trigger siano atomiche. Questa funzionalità atomica consente a un'applicazione di combinare le operazioni correlate in un unico batch, in modo che o nessuna o tutte abbiano esito positivo.
+* **Transazioni atomiche:** Azure Cosmos DB garantisce che le operazioni del database eseguite all'interno di un singolo stored procedure o di un trigger siano atomiche. Questa funzionalità atomica consente a un'applicazione di combinare le operazioni correlate in un unico batch, in modo che o nessuna o tutte abbiano esito positivo.
 
-* **Prestazioni:** i dati JSON sono intrinsecamente mappati al sistema di tipi di linguaggio JavaScript. Questo mapping consente un numero di ottimizzazioni, ad esempio la materializzazione differita dei documenti JSON nel pool di buffer e la relativa disponibilità su richiesta per il codice di esecuzione. Vi sono altri vantaggi relativi alle prestazioni associati all'integrazione della logica di business nel database, tra cui:
+* **Prestazioni:** I dati JSON vengono mappati in modo intrinseco al sistema di tipi di linguaggio JavaScript. Questo mapping consente un numero di ottimizzazioni, ad esempio la materializzazione differita dei documenti JSON nel pool di buffer e la relativa disponibilità su richiesta per il codice di esecuzione. Vi sono altri vantaggi relativi alle prestazioni associati all'integrazione della logica di business nel database, tra cui:
 
-   * *Invio in batch:* è possibile raggruppare operazioni come gli inserimenti e inviarle in blocco. Ciò comporta una drastica riduzione dei costi legati alla latenza del traffico di rete e dei costi generali di archiviazione per la creazione di transazioni separate.
+   * Invio in *batch:* È possibile raggruppare operazioni come gli inserimenti e inviarle in blocco. Ciò comporta una drastica riduzione dei costi legati alla latenza del traffico di rete e dei costi generali di archiviazione per la creazione di transazioni separate.
 
-   * *Precompilazione:* le stored procedure, i trigger e le UDF vengono precompilati implicitamente nel formato di codice byte per evitare costi di compilazione a ogni chiamata dello script. La precompilazione garantisce velocità elevata e footprint ridotto delle chiamate delle stored procedure.
+   * *Pre-compilazione:* Stored procedure, trigger e funzioni definite dall'utente vengono precompilati in modo implicito nel formato di codice byte per evitare il costo di compilazione al momento della chiamata di ogni script. La precompilazione garantisce velocità elevata e footprint ridotto delle chiamate delle stored procedure.
 
-   * *Sequenziazione:* a volte le operazioni necessitano di un meccanismo di attivazione che possa eseguire uno o più aggiornamenti per i dati. Oltre all'atomicità, esistono anche vantaggi per le prestazioni durante l'esecuzione sul lato server.
+   * *Sequenziazione:* A volte le operazioni richiedono un meccanismo di attivazione che può eseguire uno o più aggiornamenti ai dati. Oltre all'atomicità, esistono anche vantaggi per le prestazioni durante l'esecuzione sul lato server.
 
-* **Incapsulamento:** è possibile usare le stored procedure per raggruppare la logica in un solo posto. L'incapsulamento aggiunge un livello di astrazione al di sopra dei dati, consentendo l'evoluzione delle applicazioni indipendentemente dai dati. Questo livello di astrazione è utile quando i dati sono senza schema e non è necessario gestire l'aggiunta di altra logica direttamente nell'applicazione. Questa astrazione consente di proteggere i dati semplificando l'accesso dagli script.
+* **Incapsulamento:** Le stored procedure possono essere utilizzate per raggruppare la logica in un'unica posizione. L'incapsulamento aggiunge un livello di astrazione al di sopra dei dati, consentendo l'evoluzione delle applicazioni indipendentemente dai dati. Questo livello di astrazione è utile quando i dati sono senza schema e non è necessario gestire l'aggiunta di altra logica direttamente nell'applicazione. Questa astrazione consente di proteggere i dati semplificando l'accesso dagli script.
 
 > [!TIP]
 > Le stored procedure sono ideali per operazioni di scrittura e richiedono una transazione in un valore di chiave di partizione. Quando si decide se utilizzare le stored procedure, è possibile ottimizzare l'incapsulamento della quantità massima di Scritture. In generale, le stored procedure non rappresentano il modo più efficiente per eseguire un numero elevato di operazioni di lettura o di query, pertanto l'utilizzo di stored procedure per eseguire il batch di un numero elevato di letture per tornare al client non produrrà il vantaggio desiderato. Per ottenere prestazioni ottimali, è consigliabile eseguire le operazioni di lettura sul lato client, usando Cosmos SDK. 
 
 ## <a name="transactions"></a>Transazioni
 
-Una transazione in un tipico database può essere definita come una sequenza di operazioni eseguite come singola unità di lavoro logica. Ogni transazione offre **garanzie di proprietà ACID**. ACID è un acronimo noto di: **A**tomicity, **C**onsistency, **I**solation e **D**urability (atomicità, coerenza, isolamento e durabilità). 
+Una transazione in un tipico database può essere definita come una sequenza di operazioni eseguite come singola unità di lavoro logica. Ogni transazione offre **garanzie di proprietà ACID**. ACID è un acronimo noto che sta per **: tomicity,** **C**onsistency, **I**solation e **D**urability. 
 
 * L'atomicità garantisce che tutte le operazioni eseguite nell'ambito di una transazione siano trattate come unità singola e che venga eseguito il commit di tutte le operazioni o di nessuna di esse. 
 
@@ -79,7 +79,7 @@ Azure Cosmos DB supporta due tipi di trigger:
 
 ### <a name="pre-triggers"></a>Pre-trigger
 
-Azure Cosmos DB fornisce trigger che possono essere richiamati eseguendo un'operazione su un elemento di Azure Cosmos. È ad esempio possibile specificare un pre-trigger durante la creazione di un elemento. In questo caso, il pre-trigger verrà eseguito prima della creazione dell'elemento. I pre-trigger non possono avere parametri di input. Se necessario, l'oggetto richiesta è utilizzabile per aggiornare il corpo del documento della richiesta originale. Quando i trigger vengono registrati, gli utenti possono specificare le operazioni con le quali è possibile eseguirli. Se un trigger è stato creato con `TriggerOperation.Create`, non sarà consentito usarlo in un'operazione di sostituzione. Per gli esempi, vedere [Come scrivere i trigger](how-to-write-stored-procedures-triggers-udfs.md#triggers).
+Azure Cosmos DB include trigger che possono essere richiamati eseguendo un'operazione su un elemento di Azure Cosmos. È ad esempio possibile specificare un pre-trigger durante la creazione di un elemento. In questo caso, il pre-trigger verrà eseguito prima della creazione dell'elemento. I pre-trigger non possono avere parametri di input. Se necessario, l'oggetto richiesta è utilizzabile per aggiornare il corpo del documento della richiesta originale. Quando i trigger vengono registrati, gli utenti possono specificare le operazioni con le quali è possibile eseguirli. Se un trigger è stato creato con `TriggerOperation.Create`, non sarà consentito usarlo in un'operazione di sostituzione. Per gli esempi, vedere [Come scrivere i trigger](how-to-write-stored-procedures-triggers-udfs.md#triggers).
 
 ### <a name="post-triggers"></a>Post-trigger
 

@@ -3,12 +3,12 @@ title: Informazioni di riferimento su host.json per Funzioni di Azure 2.x
 description: Documentazione di riferimento per il file host.json di Funzioni di Azure con il runtime v2.
 ms.topic: conceptual
 ms.date: 09/08/2018
-ms.openlocfilehash: 08d772fc9b2871262b449a017f8be59a344576b2
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 374d00a75423274d03320b9c1299a2c2dae080ef
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975449"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433181"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>informazioni di riferimento su host. JSON per funzioni di Azure 2. x e versioni successive 
 
@@ -95,11 +95,15 @@ Le sezioni seguenti di questo articolo illustrano ogni proprietà di livello sup
 
 Questa impostazione è un elemento figlio di [logging](#logging).
 
-Controlla le [funzionalità di campionamento in Application Insights](./functions-monitoring.md#configure-sampling).
+Controlla le opzioni per Application Insights, incluse le [Opzioni di campionamento](./functions-monitoring.md#configure-sampling).
 
 ```json
 {
-    "applicationInsights": {
+    "applicationInsights": {        
+        "enableDependencyTracking": true,
+        "enablePerformanceCountersCollection": true,
+        "samplingExcludedTypes": "Trace;Exception",
+        "samplingIncludedTypes": "Request;Dependency",
         "samplingSettings": {
           "isEnabled": true,
           "maxTelemetryItemsPerSecond" : 20
@@ -113,11 +117,12 @@ Controlla le [funzionalità di campionamento in Application Insights](./function
 
 |Proprietà  |Predefinito | Description |
 |---------|---------|---------| 
-|isEnabled|true|Abilita o disabilita il campionamento.| 
-|maxTelemetryItemsPerSecond|20|La soglia oltre la quale viene avviato il campionamento.| 
-|EnableLiveMetrics |true|Abilita la raccolta di metriche attive.|
-|EnableDependencyTracking|true|Abilita il rilevamento delle dipendenze.|
-|EnablePerformanceCountersCollection|true|Abilita la raccolta dei contatori delle prestazioni Kudu.|
+|enableDependencyTracking|true|Abilita il rilevamento delle dipendenze.|
+|enablePerformanceCountersCollection|true|Abilita la raccolta dei contatori delle prestazioni.|
+|samplingExcludedTypes|Null|Elenco dei tipi da non campionare delimitato dal punto e virgola. I tipi riconosciuti sono: dipendenza, evento, eccezione, pageview, richiesta, traccia. Tutte le istanze dei tipi specificati vengono trasmesse; i tipi non specificati vengono campionati.| 
+|samplingIncludedTypes|Null|Elenco dei tipi da campionare delimitato dal punto e virgola. I tipi riconosciuti sono: dipendenza, evento, eccezione, pageview, richiesta, traccia. I tipi specificati vengono campionati; tutte le istanze degli altri tipi vengono sempre trasmesse.|
+|samplingSettings. IsEnabled|true|Abilita o disabilita il campionamento.| 
+|samplingSettings.maxTelemetryItemsPerSecond|20|La soglia oltre la quale viene avviato il campionamento.|
 
 ## <a name="cosmosdb"></a>cosmosDb
 
@@ -183,7 +188,7 @@ Impostazioni di configurazione per il [monitoraggio integrità host](https://git
 
 |Proprietà  |Predefinito | Description |
 |---------|---------|---------| 
-|enabled|true|Indica se la funzionalità è abilitata. | 
+|Enabled|true|Indica se la funzionalità è abilitata. | 
 |healthCheckInterval|10 secondi|Intervallo di tempo tra i controlli dell'integrità periodici in background. | 
 |healthCheckWindow|2 minuti|Finestra temporale scorrevole usata in combinazione con l'impostazione `healthCheckThreshold`.| 
 |healthCheckThreshold|6|Numero massimo di volte in cui il controllo dell'integrità può non riuscire prima che venga avviato un riciclo host.| 

@@ -1,5 +1,5 @@
 ---
-title: Verificare l'accesso per se stessi a gruppi o applicazioni nelle verifiche di accesso-Azure Active Directory | Microsoft Docs
+title: Controllare l'accesso ai gruppi & app nelle verifiche di accesso-Azure AD
 description: Informazioni su come verificare il proprio accesso a gruppi o applicazioni in Azure Active Directory verifiche di accesso.
 services: active-directory
 author: msaburnley
@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df8b03d513e2d78083031fbc9a3f6dbc1b7d15d9
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 0d75d7ffe28fa126ee5e359cba19e66e3c0f36e2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958560"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422411"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Verificare l'accesso per se stessi a gruppi o applicazioni in Azure AD verifiche di accesso
 
@@ -40,7 +40,7 @@ Il primo passaggio per eseguire una verifica di accesso consiste nell'individuar
 
 Se non si dispone del messaggio di posta elettronica, è possibile trovare le verifiche di accesso in sospeso seguendo questa procedura.
 
-1. Accedere al portale app Web in [https://myapps.microsoft.com](https://myapps.microsoft.com).
+1. Accedere al portale app Web all' [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
     ![Portale app Web che elenca le app a cui si hanno le autorizzazioni](./media/review-your-access/myapps-access-panel.png)
 
@@ -70,7 +70,7 @@ Dopo aver aperto la verifica di accesso, è possibile visualizzare l'accesso.
 
     ![Verifica di accesso completato che chiede se è ancora necessario l'accesso a un gruppo](./media/review-your-access/perform-access-review-submit.png)
 
-1. Fare clic su **Invia**.
+1. Fare clic su **Submit** (Invia).
 
     La selezione viene inviata e si torna al portale app.
 

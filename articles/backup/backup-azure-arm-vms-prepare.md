@@ -3,18 +3,18 @@ title: Eseguire il backup di macchine virtuali di Azure in un insieme di credenz
 description: Viene descritto come eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di servizi di ripristino con backup di Azure
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: dc47aa2b4da08a0fc2c9a91b4d547a0d19e1869a
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: f2954ad2693d7b4f56e3f1b33e804a6936cf8a65
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173352"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450136"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino
 
 Questo articolo descrive come eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di servizi di ripristino tramite il servizio [backup di Azure](backup-overview.md) .
 
-In questo articolo viene spiegato come:
+In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 >
@@ -63,9 +63,8 @@ Una volta creato, l'insieme di credenziali viene visualizzato nell'elenco insiem
 
 ![Elenco degli insiemi di credenziali per il backup](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
-> [!NOTE]
-> Il servizio backup di Azure crea un gruppo di risorse distinto (diverso dal gruppo di risorse VM) per archiviare gli snapshot, con il formato di denominazione **AzureBackupRG_geography_number** (ad esempio: AzureBackupRG_northeurope_1). I dati in questo gruppo di risorse verranno conservati per la durata in giorni, come specificato nella sezione *Mantieni snapshot Instant Recovery* del criterio di backup della macchina virtuale di Azure.  L'applicazione di un blocco a questo gruppo di risorse può causare errori di backup.<br>
-Questo gruppo di risorse deve essere escluso da qualsiasi restrizione relativa a nome/tag poiché i criteri di restrizione bloccano la creazione di raccolte di punti risorse in un nuovo errore causando errori di backup.
+>[!NOTE]
+> Backup di Azure consente ora la personalizzazione del nome del gruppo di risorse creato dal servizio backup di Azure. Per altre informazioni, vedere [gruppo di risorse di backup di Azure per le macchine virtuali](backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
 
 ### <a name="modify-storage-replication"></a>Modificare la replica di archiviazione
 
@@ -169,11 +168,11 @@ Lo stato del processo può variare a seconda dei seguenti scenari:
 
 **Snapshot** | **Trasferire i dati nell'insieme di credenziali** | **Stato processo**
 --- | --- | ---
-Completed | In corso | In corso
-Completed | Skipped | Completed
-Completed | Completed | Completed
-Completed | Non riuscito | Completato con avviso
-Non riuscito | Non riuscito | Non riuscito
+Completi | In corso | In corso
+Completi | Operazione ignorata | Completi
+Completi | Completi | Completi
+Completi | Operazione non riuscita | Completato con avviso
+Operazione non riuscita | Operazione non riuscita | Operazione non riuscita
 
 Ora con questa funzionalità, per la stessa macchina virtuale, due backup possono essere eseguiti in parallelo, ma in entrambe le fasi (snapshot, trasferimento di dati nell'insieme di credenziali) è possibile eseguire una sola attività secondaria. Quindi, in scenari in cui un processo di backup è stato eseguito, il backup del giorno successivo avrà esito negativo con questa funzionalità di separazione. Per i backup del giorno successivo è possibile completare lo snapshot mentre **i dati trasferiti** nell'insieme di credenziali sono stati ignorati se il processo di backup di un giorno precedente è in corso.
 Il punto di ripristino incrementale creato nell'insieme di credenziali acquisirà tutta la varianza dall'ultimo punto di ripristino creato nell'insieme di credenziali. L'utente non ha alcun impatto sui costi.
@@ -198,7 +197,7 @@ L'estensione di backup in esecuzione nella macchina virtuale richiede l'accesso 
 
 **Opzione** | **Azione** | **Dettagli**
 --- | --- | ---
-**Configurare le regole del gruppo di sicurezza di rete** | consentire gli [intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653).<br/><br/> Anziché consentire e gestire ogni intervallo di indirizzi, è possibile aggiungere una regola che consenta l'accesso al servizio backup di Azure usando un [tag di servizio](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure). | [Altre informazioni](../virtual-network/security-overview.md#service-tags) sui tag di servizio.<br/><br/> I tag dei servizi semplificano la gestione degli accessi e non incorrono costi aggiuntivi.
+**Configurare le regole del gruppo di sicurezza di rete** | Consentire gli [intervalli IP del Data Center di Azure](https://www.microsoft.com/download/details.aspx?id=41653).<br/><br/> Anziché consentire e gestire ogni intervallo di indirizzi, è possibile aggiungere una regola che consenta l'accesso al servizio backup di Azure usando un [tag di servizio](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure). | [Altre informazioni](../virtual-network/security-overview.md#service-tags) sui tag di servizio.<br/><br/> I tag dei servizi semplificano la gestione degli accessi e non incorrono costi aggiuntivi.
 **Distribuire un proxy** | Distribuire un server proxy HTTP per eseguire il routing del traffico | Possibilità di accesso a tutto l'ambiente Azure, non solo al servizio di archiviazione.<br/><br/> Possibilità di controllo granulare sugli URL di archiviazione.<br/><br/> Singolo punto di accesso Internet per le macchine virtuali.<br/><br/> Costi aggiuntivi per il proxy.
 **Configurare il Firewall di Azure** | Consentire il traffico attraverso Firewall di Azure nella macchina virtuale usando un tag FQDN per il servizio Backup di Azure | Semplice da usare se il firewall di Azure è configurato in una subnet VNet.<br/><br/> Non è possibile creare tag FQDN personalizzati o modificare FQDN in un tag.<br/><br/> Se le macchine virtuali di Azure dispongono di dischi gestiti, potrebbe essere necessario aprire una porta aggiuntiva (8443) nei firewall.
 

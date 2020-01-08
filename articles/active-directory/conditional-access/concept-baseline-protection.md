@@ -5,28 +5,31 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: calebb, rogoya
+ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9bb384045c8b2e0a5743fdc301a829792639b7e
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: a15b55aa3d8cc8f16a35c858d11e3d20c260bff8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420581"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424998"
 ---
 # <a name="what-are-baseline-policies"></a>Che cosa sono i criteri di base?
 
-I criteri di base sono un set di criteri predefiniti che consentono di proteggere le organizzazioni da molti attacchi comuni. Questi attacchi comuni possono includere spray, riproduzione e phishing delle password. I criteri di base sono disponibili in tutte le edizioni di Azure AD. Microsoft sta rendendo disponibili i criteri di protezione di base a tutti perché gli attacchi basati sull'identità sono stati in crescita negli ultimi anni. L'obiettivo di questi quattro criteri è garantire che tutte le organizzazioni dispongano di un livello di sicurezza di base abilitato senza costi aggiuntivi.  
+I criteri di base sono un set di criteri predefiniti che consentono di proteggere le organizzazioni da molti attacchi comuni. Questi attacchi comuni possono includere password spraying, riproduzione e phishing. I criteri di base sono disponibili in tutte le edizioni di Azure AD. A seguito dell'aumento degli attacchi basati sull'identità registrato negli ultimi anni, Microsoft li renderà presto disponibili a tutti gli utenti. L'obiettivo di questi quattro criteri è garantire che tutte le organizzazioni dispongano di un livello di sicurezza di base abilitato senza costi aggiuntivi.
 
 Per la gestione dei criteri di accesso condizionale personalizzati è necessaria una licenza Azure AD Premium.
 
+> [!IMPORTANT]
+> I criteri di base sono in fase di depricated. Per ulteriori informazioni, vedere [novità di Azure Active Directory](../fundamentals/whats-new.md#replacement-of-baseline-policies-with-security-defaults) .
+
 ## <a name="baseline-policies"></a>Criteri di base
 
-![Criteri di base per l'accesso condizionale nella portale di Azure](./media/concept-baseline-protection/conditional-access-policies.png)
+![Criteri di base per l'accesso condizionale nella portale di Azure](./media/concept-baseline-protection/conditional-access-baseline-policies.png)
 
 Sono disponibili quattro criteri di base:
 
@@ -36,6 +39,10 @@ Sono disponibili quattro criteri di base:
 * Richiedi autenticazione a più fattori per la gestione dei servizi (anteprima)
 
 Tutti e quattro questi criteri influiscono sui flussi di autenticazione legacy, ad esempio POP, IMAP e client desktop di Office meno recenti.
+
+### <a name="exclusions"></a>Esclusioni
+
+Quando i criteri di base entrano nell'anteprima pubblica iniziale, è disponibile un'opzione che consente di escludere gli utenti dai criteri. Questa funzionalità si è evoluta attraverso la versione di anteprima ed è stata rimossa nel luglio 2019. Le organizzazioni che hanno già creato esclusioni potevano continuare a mantenere i nuovi utenti non erano in grado di aggiungere esclusioni ai criteri.
 
 ### <a name="require-mfa-for-admins-preview"></a>Richiedi autenticazione a più fattori per gli amministratori (anteprima)
 
@@ -58,10 +65,10 @@ Se l'organizzazione dispone di questi account in uso negli script o nel codice, 
 
 Gli amministratori con privilegi elevati non sono gli unici destinati ad attacchi. Gli attori cattivi tendono a raggiungere utenti normali. Una volta effettuato l'accesso, questi attori malintenzionati possono richiedere l'accesso a informazioni privilegiate per conto del titolare dell'account originale oppure scaricare l'intera directory ed eseguire un attacco di phishing all'intera organizzazione. Un metodo comune per migliorare la protezione per tutti gli utenti è quello di richiedere una forma più avanzata di verifica dell'account quando viene rilevato un accesso rischioso.
 
-La **protezione dell'utente finale (anteprima)** è un criterio di base che protegge tutti gli utenti di una directory. Per abilitare questo criterio, è necessario che tutti gli utenti si registrino per Multi-Factor Authentication di Azure entro 14 giorni. Una volta effettuata la registrazione, agli utenti verrà richiesto di eseguire l'autenticazione a più fattori solo durante i tentativi di accesso rischioso. Gli account utente compromessi vengono bloccati fino alla reimpostazione della password e al rischio. 
+La **protezione dell'utente finale (anteprima)** è un criterio di base che protegge tutti gli utenti di una directory. Per abilitare questo criterio, è necessario che tutti gli utenti si registrino per Multi-Factor Authentication di Azure entro 14 giorni. Al termine della registrazione, agli utenti verrà richiesto di eseguire l'autenticazione a più fattori solo durante i tentativi di accesso rischioso. Gli account utente compromessi vengono bloccati fino alla reimpostazione della password e alla rimozione del rischio. 
 
-[!NOTE]
-Tutti gli utenti contrassegnati in precedenza per il rischio vengono bloccati fino alla reimpostazione della password e alla dismissione del rischio dopo l'attivazione dei criteri.
+> [!NOTE]
+> Tutti gli utenti contrassegnati in precedenza per il rischio vengono bloccati fino alla reimpostazione della password e alla dismissione del rischio dopo l'attivazione dei criteri.
 
 ### <a name="block-legacy-authentication-preview"></a>Blocca autenticazione legacy (anteprima)
 
@@ -75,7 +82,7 @@ I criteri di base **blocca autenticazione legacy (anteprima)** bloccano le richi
 
 Le organizzazioni usano un'ampia gamma di servizi di Azure e li gestiscono da strumenti Azure Resource Manager basati su, ad esempio:
 
-* portale di Azure
+* Portale di Azure
 * Azure PowerShell
 * Interfaccia della riga di comando di Azure
 
@@ -85,8 +92,8 @@ Per proteggere le azioni con privilegi, è necessario che l'autenticazione a pi�
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni, vedere:
+Per scoprire di più, vedi:
 
+* [Abilitazione delle impostazioni predefinite di sicurezza](../fundamentals/concept-fundamentals-security-defaults.md)
 * [Criteri di accesso condizionale comuni](concept-conditional-access-policy-common.md)
 * [Cinque passaggi per proteggere l'infrastruttura di identità](../../security/fundamentals/steps-secure-identity.md)
-* [Che cos'è l'accesso condizionale in Azure Active Directory?](overview.md)

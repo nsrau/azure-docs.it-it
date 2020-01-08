@@ -1,20 +1,18 @@
 ---
 title: Aggregazioni JavaScript definite dall'utente in Analisi di flusso di Azure
 description: Questo articolo descrive come eseguire meccanismi di query avanzati con aggregazioni JavaScript definite dall'utente in Analisi di flusso di Azure.
-services: stream-analytics
 author: rodrigoamicrosoft
 ms.author: rodrigoa
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.openlocfilehash: 6c590ae62e080a6681e49c87264089f9a5f4ce2f
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: d9b37810146f66806be9b8ce7a38f8dac31facb9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489528"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426099"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates"></a>Funzioni di aggregazione JavaScript definite dall'utente in analisi di flusso di Azure
  
@@ -80,7 +78,7 @@ Ogni aggregazione JavaScript definita dall'utente viene definita dalla dichiaraz
 
 ### <a name="function-alias"></a>Alias di funzione
 
-L'alias di funzione rappresenta l'identificatore dell'aggregazione definita dall'utente. Quando viene chiamato in una query di Analisi di flusso di Azure, usare sempre l'alias dell'aggregazione definita dall'utente con un prefisso "uda" .
+L'alias di funzione rappresenta l'identificatore dell'aggregazione definita dall'utente. Quando viene chiamato in una query di Analisi di flusso di Azure, usare sempre l'alias dell'aggregazione definita dall'utente con un prefisso "uda" biz:,
 
 ### <a name="function-type"></a>Tipo di funzione
 
@@ -90,7 +88,7 @@ Per l'aggregazione definita dall'utente, il tipo di funzione deve essere **UDA J
 
 Tipo specifico supportato dal processo di Analisi di flusso di Azure oppure "Any" se si desidera gestire il tipo nella query.
 
-### <a name="function-name"></a>Nome funzione
+### <a name="function-name"></a>Nome della funzione
 
 Nome dell'oggetto Function corrente. Il nome della funzione deve corrispondere all'alias UDA.
 
@@ -225,7 +223,7 @@ Creare un file JSON locale con il contenuto riportato di seguito, caricare il fi
 ]
 ```
 
-## <a name="get-help"></a>Guida
+## <a name="get-help"></a>Ottenere supporto
 
 Per ulteriore assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 

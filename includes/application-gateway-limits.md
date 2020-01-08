@@ -4,14 +4,14 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 6/5/2019
 ms.author: victorh
-ms.openlocfilehash: 3b692ed697d69deca4c50a0595cc54251bac4990
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 0ba21fe3789fba03cd4814d19fb103c3a2559c13
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74174968"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75662935"
 ---
-| Risorsa | Limite predefinito/massimo | Nota |
+| Gruppi | Limite predefinito/massimo | Note |
 | --- | --- | --- |
 | Gateway applicazione di Azure |1\.000 per sottoscrizione | |
 | Configurazioni IP front-end |2 |1 pubblica e 1 privata |
@@ -36,7 +36,7 @@ ms.locfileid: "74174968"
 | Lunghezza massima dell'URL|32 KB| |
 | Dimensioni massime dell'intestazione per HTTP/2 |4KB| |
 | Dimensioni massime di caricamento file, standard |2 GB | |
-| Dimensioni massime caricamento file WAF |Gateway WAF medi, 100 MB<br>Gateway WAF di grandi dimensioni, 500 MB| |
+| Dimensioni massime caricamento file WAF |V1 gateway WAF medi, 100 MB<br>V1 gateway WAF di grandi dimensioni, 500 MB<br>V2 WAF, 750 MB| |
 | Limite dimensioni corpo WAF, senza file|128 KB||
 | Numero massimo di regole personalizzate WAF|100||
 | Numero massimo di esclusioni WAF|100||

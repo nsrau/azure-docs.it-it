@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 7676077f0122cb731d2d5d2c7acf78acbd8aa1a7
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f92226a76462289b9f26ae9d3bab22d780fb35db
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792201"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464986"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configurare un'istanza del cluster di failover di SQL Server con una condivisione file Premium in macchine virtuali di Azure
 
@@ -84,7 +84,6 @@ Prima di completare i passaggi descritti in questo articolo, è necessario avere
    - Indirizzo IP per ogni istanza del cluster di failover.
 - DNS configurato nella rete di Azure, che punta ai controller di dominio.
 - Una [condivisione file Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) basata sulla quota di archiviazione del database per i file di dati.
-- Una condivisione file per i backup diversi dalla condivisione file Premium utilizzata per i file di dati. Questa condivisione file può essere standard o Premium.
 
 Con questi prerequisiti, è possibile iniziare a compilare il cluster di failover. Il primo passaggio consiste nel creare le macchine virtuali.
 
@@ -144,7 +143,7 @@ Con questi prerequisiti, è possibile iniziare a compilare il cluster di failove
    1. Selezionare l'istanza predefinita.
    1. Rimuovere tutte le funzionalità in **Servizi motore di database**. Non rimuovere le **funzionalità condivise**. Verrà visualizzata una schermata simile alla seguente:
 
-        ![Selezione funzionalità](./media/virtual-machines-windows-portal-sql-create-failover-cluster/03-remove-features.png)
+        ![Seleziona caratteristiche](./media/virtual-machines-windows-portal-sql-create-failover-cluster/03-remove-features.png)
 
    1. Selezionare **Avanti**, quindi selezionare **Rimuovi**.
 
@@ -175,7 +174,7 @@ Dopo aver creato e configurato le macchine virtuali, è possibile configurare la
 1. Usare RDP per connettersi alla macchina virtuale SQL Server con l'account che la SQL Server FCI utilizzerà per l'account del servizio.
 1. Aprire una console del comando di PowerShell amministrativa.
 1. Eseguire i comandi salvati in precedenza quando si lavora nel portale.
-1. Passare alla condivisione usando Esplora file o la finestra di dialogo **Esegui** (tasto logo Windows + r). Usare il percorso di rete `\\storageaccountname.file.core.windows.net\filesharename`. Ad esempio: `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
+1. Passare alla condivisione usando Esplora file o la finestra di dialogo **Esegui** (tasto logo Windows + r). Usare il percorso di rete `\\storageaccountname.file.core.windows.net\filesharename`. Ad esempio, usare `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
 
 1. Creare almeno una cartella nella condivisione file appena connessa in cui inserire i file di dati SQL.
 1. Ripetere questi passaggi in ogni macchina virtuale SQL Server che parteciperà al cluster.
@@ -297,7 +296,7 @@ Dopo aver configurato il cluster di failover, è possibile creare il SQL Server 
 
 1. Selezionare **nuovo SQL Server installazione del cluster di failover**. Seguire le istruzioni della procedura guidata per installare l'istanza del cluster di failover di SQL Server.
 
-   Le directory dati FCI devono trovarsi nella condivisione file Premium. Immettere il percorso completo della condivisione, in questo formato: `\\storageaccountname.file.core.windows.net\filesharename\foldername`. Verrà visualizzato un avviso che informa che è stato specificato un file server come directory dei dati. Questo avviso è previsto. Verificare che l'account con cui è stata resa permanente la condivisione file sia lo stesso account utilizzato dal servizio SQL Server per evitare possibili errori.
+   Le directory dati FCI devono trovarsi nella condivisione file Premium. Immettere il percorso completo della condivisione, in questo formato: `\\storageaccountname.file.core.windows.net\filesharename\foldername`. Verrà visualizzato un avviso che informa che è stato specificato un file server come directory dei dati. Si tratta di un comportamento previsto. Verificare che l'account con cui è stata resa permanente la condivisione file sia lo stesso account utilizzato dal servizio SQL Server per evitare possibili errori.
 
    :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share/use-file-share-as-data-directories.png" alt-text="Usare la condivisione file come directory dati SQL":::
 

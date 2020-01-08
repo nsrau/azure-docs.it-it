@@ -1,7 +1,7 @@
 ---
 title: 'Train SVD Recommender: riferimento al modulo'
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo Train SVD Recommender nel servizio Azure Machine Learning per eseguire il training di un Recommender Bayes usando l'algoritmo SVD.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo Train SVD Recommender in Azure Machine Learning per eseguire il training di un Recommender Bayes usando l'algoritmo SVD.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 2019b752ab224abc244e471de3d427a77f7ed93a
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: dc78322b09548e4e9c2f666e0c8315ce688d6541
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716911"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428429"
 ---
 # <a name="train-svd-recommender"></a>Train SVD Recommender
 
@@ -50,14 +50,14 @@ Prima di usare il modulo, i dati di input devono essere nel formato previsto dal
 
 Il set di dati delle **classificazioni dei ristoranti** in Azure Machine Learning Designer (selezionare i set di dati **salvati** e quindi gli **esempi**) illustra il formato previsto:
 
-|UserID|placeID|rating|
+|userID|placeID|rating|
 |------------|-------------|------------|
 |U1077|135085|2|
 |U1077|135038|2|
 
 Da questo esempio è possibile notare che un singolo utente ha valutato due ristoranti distinti. 
 
-### <a name="train-the-model"></a>Eseguire il training del modello
+### <a name="train-the-model"></a>Training del modello
 
 1.  Aggiungere il modulo Train SVD Recommender alla pipeline nella finestra di progettazione e connetterlo ai dati di training.  
    
@@ -76,4 +76,4 @@ Da questo esempio è possibile notare che un singolo utente ha valutato due rist
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per il servizio Azure Machine Learning. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 

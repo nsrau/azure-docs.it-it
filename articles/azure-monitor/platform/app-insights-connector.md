@@ -4,15 +4,15 @@ description: È possibile usare la soluzione Connettore di Application Insights 
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: b956c3bc7d04908db1cc45092cf5926ecfcc305c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d0cfca44878130e870c633040afcfbdd55ba8b7b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932737"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75396558"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Soluzione di gestione Connettore di Application Insights (deprecata)
 
@@ -45,7 +45,7 @@ A differenza della maggior parte delle altre soluzioni Log Analytics, i dati per
 
 | Origine connessa | Supportato | Description |
 | --- | --- | --- |
-| [Agenti di Windows](../../azure-monitor/platform/agent-windows.md) | No | La soluzione non raccoglie le informazioni dagli agenti di Windows. |
+| [Agenti Windows](../../azure-monitor/platform/agent-windows.md) | No | La soluzione non raccoglie le informazioni dagli agenti di Windows. |
 | [Agenti Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | No | La soluzione non raccoglie le informazioni dagli agenti di Linux. |
 | [Gruppo di gestione SCOM](../../azure-monitor/platform/om-agents.md) | No | La soluzione non raccoglie le informazioni dagli agenti in un gruppo di gestione SCOM connesso. |
 | [Account di archiviazione di Azure](collect-azure-metrics-logs.md) | No | La soluzione non raccoglie le informazioni da Archiviazione di Azure. |
@@ -61,7 +61,7 @@ A differenza della maggior parte delle altre soluzioni Log Analytics, i dati per
 1. Abilitare la soluzione Analisi app Web di Azure da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview) o seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](../../azure-monitor/insights/solutions.md).
 2. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Tutti i servizi** per aprire Application Insights. Cercare quindi Application Insights. 
 3. In **Sottoscrizioni** selezionare una sottoscrizione che contenga risorse di Application Insights e quindi in **Nome** selezionare una o più applicazioni.
-4. Fare clic su **Salva**
+4. Fare clic su **Salva**.
 
 Dopo circa 30 minuti, i dati diverranno disponibili e il riquadro Application Insights verrà aggiornato con alcuni dati, come nell'immagine seguente:
 
@@ -145,7 +145,7 @@ A tale scopo, fare clic sui puntini di sospensione ( **...** ) visualizzati alla
 
 ### <a name="sample-corrected-data"></a>Dati con correzione di campionamento
 
-Application Insights offre *[dati con correzione di campionamento](../../azure-monitor/app/sampling.md)*  per ridurre il traffico di telemetria. Quando si abilita il campionamento nell'app di Application Insights, si ottiene un numero ridotto di voci archiviate sia in Application Insights sia in Log Analytics. Sebbene venga mantenuta la coerenza dei dati nella pagina **Connettore di Application Insights** e nelle prospettive, è consigliabile correggere manualmente i dati campionati per le query personalizzate.
+Application Insights offre *[dati con correzione di campionamento](../../azure-monitor/app/sampling.md)* per ridurre il traffico di telemetria. Quando si abilita il campionamento nell'app di Application Insights, si ottiene un numero ridotto di voci archiviate sia in Application Insights sia in Log Analytics. Sebbene venga mantenuta la coerenza dei dati nella pagina **Connettore di Application Insights** e nelle prospettive, è consigliabile correggere manualmente i dati campionati per le query personalizzate.
 
 Di seguito è riportato un esempio di correzione di campionamento in una query di ricerca log:
 
@@ -177,7 +177,7 @@ Viene creato un record con un *tipo* di *ApplicationInsights* per ogni tipo di d
 
 | Proprietà | Description |
 | --- | --- |
-| Type | ApplicationInsights |
+| Tipo | ApplicationInsights |
 | ClientIP |   |
 | TimeGenerated | Ora del record |
 | ApplicationId | Chiave di strumentazione dell'app Application Insights |
@@ -226,7 +226,7 @@ Viene creato un record con un *tipo* di *ApplicationInsights* per ogni tipo di d
 
 ### <a name="exception-specific-fields"></a>Campi specifici di eccezione
 
-| Type | ApplicationInsights |
+| Tipo | ApplicationInsights |
 | --- | --- |
 | TelemetryType | Eccezione |
 | ExceptionType | Tipo di eccezione |
@@ -245,7 +245,7 @@ Viene creato un record con un *tipo* di *ApplicationInsights* per ogni tipo di d
 
 | Proprietà | Description |
 | --- | --- |
-| Type | ApplicationInsights |
+| Tipo | ApplicationInsights |
 | TelemetryType | Richiesta |
 | ResponseCode | Risposta HTTP inviata al client |
 | RequestSuccess | Indica l'esito positivo o negativo. True o false. |

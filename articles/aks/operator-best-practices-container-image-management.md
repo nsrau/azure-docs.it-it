@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mlearned
-ms.openlocfilehash: 3feadaca361950df2a09f8da33fe380fc3763763
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: cd859a4009782ca39732ec004a3d3e05edd377b0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67614826"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442910"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la gestione e la sicurezza delle immagini del contenitore nel servizio Azure Kubernetes
 
@@ -25,6 +25,8 @@ Questo articolo illustra in particolare come proteggere i contenitori nel serviz
 > * Attivare e ridistribuire automaticamente le immagini del contenitore quando un'immagine di base viene aggiornata
 
 È anche possibile leggere le procedure consigliate per la [sicurezza del cluster][best-practices-cluster-security] e per la [sicurezza Pod][best-practices-pod-security].
+
+È anche possibile usare la [sicurezza del contenitore nel centro sicurezza][security-center-containers] per analizzare i contenitori per individuare eventuali vulnerabilità.  È disponibile anche l' [integrazione container Registry di Azure][security-center-acr] con il Centro sicurezza per proteggere le immagini e il registro di sistema da vulnerabilità.
 
 ## <a name="secure-the-images-and-run-time"></a>Proteggere le immagini e il runtime
 
@@ -44,7 +46,7 @@ Ogni volta che un'immagine di base viene aggiornata, devono essere aggiornate an
 
 Le immagini del contenitore possono essere aggiornate automaticamente anche da Attività del Registro Azure Container quando l'immagine di base viene aggiornata. Questa funzionalità consente di compilare un numero limitato di immagini di base e di mantenerle regolarmente aggiornate con correzioni di bug e per la sicurezza.
 
-Per altre informazioni sugli aggiornamenti delle immagini di base, vedere automatizzare le compilazioni di immagini [sull'aggiornamento di un'immagine di base con Azure container Registry attività][acr-base-image-update].
+Per altre informazioni sugli aggiornamenti delle immagini di base, vedere [automatizzare le compilazioni di immagini sull'aggiornamento di un'immagine di base con Azure container Registry attività][acr-base-image-update].
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -61,3 +63,5 @@ In questo articolo è stato illustrato in particolare come proteggere i contenit
 [best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [best-practices-pod-security]: developer-best-practices-pod-security.md
 [acr-base-image-update]: ../container-registry/container-registry-tutorial-base-image-update.md
+[security-center-containers]: /azure/security-center/container-security
+[security-center-acr]: /azure/security-center/azure-container-registry-integration

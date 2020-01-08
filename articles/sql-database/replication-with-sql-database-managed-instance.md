@@ -1,26 +1,30 @@
 ---
 title: Configurare la replica in un database di istanza gestita
-description: Informazioni sulla configurazione della replica transazionale in un database dell'istanza gestita di database SQL di Azure
+description: Informazioni sulla configurazione della replica transazionale tra un server di pubblicazione/distribuzione di istanza gestita di database SQL di Azure e un Sottoscrittore di istanza gestita.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: MashaMSFT
+ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 02/07/2019
-ms.openlocfilehash: f303a363fd4d42889e7817273be5d5e5440a2293
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: fd881142e0260d313e197d5e40ae25a2621646df
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822582"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372474"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configurare la replica in un database dell'istanza gestita di database SQL di Azure
 
 La replica transazionale consente di replicare i dati in un database dell'istanza gestita di database SQL di Azure da un database di SQL Server o da un altro database dell'istanza. 
+
+Questo articolo illustra come configurare la replica tra un server di pubblicazione o un server di distribuzione di istanze gestite e un Sottoscrittore di istanza gestita. 
+
+![Eseguire la replica tra due istanze gestite](media/replication-with-sql-database-managed-instance/sqlmi-sqlmi-repl.png)
 
 È anche possibile usare la replica transazionale per eseguire il push delle modifiche apportate in un database di istanza nell'istanza gestita di database SQL di Azure per:
 
@@ -31,7 +35,8 @@ La replica transazionale consente di replicare i dati in un database dell'istanz
 La replica transazionale è in anteprima pubblica nell' [istanza gestita di database SQL di Azure](sql-database-managed-instance.md). Un'istanza gestita può ospitare database di pubblicazione, distribuzione e sottoscrittore. Per le configurazioni disponibili, vedere [Configurazioni di replica transazionale](sql-database-managed-instance-transactional-replication.md#common-configurations).
 
   > [!NOTE]
-  > Questo articolo ha lo scopo di guidare un utente nella configurazione della replica con un'istanza gestita di database di Azure da end-to-end, a partire dalla creazione del gruppo di risorse. Se sono già state distribuite istanze gestite, procedere con il [passaggio 4](#4---create-a-publisher-database) per creare il database del server di pubblicazione oppure il [passaggio 6](#6---configure-distribution) se si dispone già di un server di pubblicazione e di un database Sottoscrittore e si è pronti per iniziare la configurazione della replica.  
+  > - Questo articolo ha lo scopo di guidare un utente nella configurazione della replica con un'istanza gestita di database di Azure da end-to-end, a partire dalla creazione del gruppo di risorse. Se sono già state distribuite istanze gestite, procedere con il [passaggio 4](#4---create-a-publisher-database) per creare il database del server di pubblicazione oppure il [passaggio 6](#6---configure-distribution) se si dispone già di un server di pubblicazione e di un database Sottoscrittore e si è pronti per iniziare la configurazione della replica.  
+  > - Questo articolo consente di configurare il server di pubblicazione e il server di distribuzione nella stessa istanza gestita. Per inserire il server di distribuzione in un'istanza gestita separata, vedere l'esercitazione [configurare la replica tra un server di pubblicazione mi e un server di distribuzione mi](sql-database-managed-instance-configure-replication-tutorial.md). 
 
 ## <a name="requirements"></a>Requisiti
 
@@ -48,9 +53,9 @@ La configurazione di un'istanza gestita per fungere da server di pubblicazione e
  > I database singoli e in pool nel database SQL di Azure possono essere usati solo come sottoscrittori. 
 
 
-## <a name="features"></a>Funzionalità
+## <a name="features"></a>database elastico
 
-Supporta:
+Supporto:
 
 - Combinazione di replica transazionale e replica snapshot di istanze locali e gestite di SQL Server nel database SQL di Azure.
 - I sottoscrittori possono trovarsi in database SQL Server locali, in database singoli/istanze gestite nel database SQL di Azure o in pool di database in pool elastici del database SQL di Azure.
@@ -67,10 +72,10 @@ Usare il [portale di Azure](https://portal.azure.com) per creare un gruppo di ri
 
 ## <a name="2---create-managed-instances"></a>2-creare istanze gestite
 
-Usare il [portale di Azure](https://portal.azure.com) per creare due [istanze gestite](sql-database-managed-instance-create-tutorial-portal.md) nella stessa rete virtuale e nella stessa subnet. Le due istanze gestite devono essere denominate:
+Usare il [portale di Azure](https://portal.azure.com) per creare due [istanze gestite](sql-database-managed-instance-create-tutorial-portal.md) nella stessa rete virtuale e nella stessa subnet. Ad esempio, denominare le due istanze gestite:
 
-- `sql-mi-pub`
-- `sql-mi-sub`
+- `sql-mi-pub` (insieme ad alcuni caratteri per la sequenza casuale)
+- `sql-mi-sub` (insieme ad alcuni caratteri per la sequenza casuale)
 
 Sarà anche necessario [configurare una macchina virtuale di Azure per la connessione](sql-database-managed-instance-configure-vm.md) alle istanze gestite del database SQL di Azure. 
 
@@ -80,9 +85,13 @@ Sarà anche necessario [configurare una macchina virtuale di Azure per la connes
 
 Copiare il percorso della condivisione file nel formato: `\\storage-account-name.file.core.windows.net\file-share-name`
 
+Esempio: `\\replstorage.file.core.windows.net\replshare`
+
 Copiare le chiavi di accesso alle archiviazione nel formato: `DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
 
- Per altre informazioni, vedere [Gestire le chiavi di accesso alle risorse di archiviazione](../storage/common/storage-account-manage.md#access-keys). 
+Esempio: `DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT5hHZVu9aTgIteGfpYE64cfis0mpKTmmc8+EP53GxuRg6TCwe5eTYWrQM4AmQSG5lb3OBskhg==;EndpointSuffix=core.windows.net`
+
+Per altre informazioni, vedere [gestire le chiavi di accesso all'account di archiviazione](../storage/common/storage-account-keys-manage.md). 
 
 ## <a name="4---create-a-publisher-database"></a>4-creare un database del server di pubblicazione
 
@@ -160,8 +169,9 @@ Nell'istanza gestita del server di pubblicazione `sql-mi-pub`modificare l'esecuz
 :setvar username loginUsedToAccessSourceManagedInstance
 :setvar password passwordUsedToAccessSourceManagedInstance
 :setvar file_storage "\\storage-account-name.file.core.windows.net\file-share-name"
+-- example: file_storage "\\replstorage.file.core.windows.net\replshare"
 :setvar file_storage_key "DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net"
-
+-- example: file_storage_key "DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT5hHZVu9aTgIteGfpYE64cfis0mpKTmmc8+EP53GxuRg6TCwe5eTYWrQM4AmQSG5lb3OBskhg==;EndpointSuffix=core.windows.net"
 
 USE [master]
 EXEC sp_adddistpublisher
@@ -173,6 +183,9 @@ EXEC sp_adddistpublisher
   @working_directory = N'$(file_storage)',
   @storage_connection_string = N'$(file_storage_key)'; -- Remove this parameter for on-premises publishers
 ```
+
+   > [!NOTE]
+   > Assicurarsi di usare solo le barre rovesciate (`\`) per il parametro del file_storage. L'uso di una barra (`/`) può causare un errore durante la connessione alla condivisione file. 
 
 Questo script configura un server di pubblicazione locale nell'istanza gestita, aggiunge un server collegato e crea un set di processi per la SQL Server Agent. 
 
@@ -322,10 +335,11 @@ EXEC sp_dropdistributor @no_checks = 1
 GO
 ```
 
-Per eseguire la pulizia delle risorse di Azure, è possibile [eliminare le risorse dell'istanza gestita dal gruppo di risorse](../azure-resource-manager/manage-resources-portal.md#delete-resources) e quindi eliminare il gruppo di risorse `SQLMI-Repl`. 
+Per eseguire la pulizia delle risorse di Azure, è possibile [eliminare le risorse dell'istanza gestita dal gruppo di risorse](../azure-resource-manager/management/manage-resources-portal.md#delete-resources) e quindi eliminare il gruppo di risorse `SQLMI-Repl`. 
 
    
 ## <a name="see-also"></a>Vedere anche
 
 - [Replica transazionale](sql-database-managed-instance-transactional-replication.md)
+- [Esercitazione: configurare la replica transazionale tra un server di pubblicazione MI e SQL Server sottoscrittore](sql-database-managed-instance-configure-replication-tutorial.md)
 - [Informazioni su Istanza gestita](sql-database-managed-instance.md)

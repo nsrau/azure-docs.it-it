@@ -1,5 +1,5 @@
 ---
-title: Gestire l'accesso guest con le verifiche di accesso-Azure Active Directory | Microsoft Docs
+title: Gestire l'accesso guest con le verifiche di accesso-Azure AD
 description: Gestire gli utenti guest come membri di un gruppo o assegnati a un'applicazione con le verifiche di accesso di Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 12/13/2018
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a982b97bcef6a24f026bf6ad2943661db18d6af0
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 562a94bbbd1999b9ca9cf0c65cdb816848648133
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499453"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422463"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gestire l'accesso guest con le verifiche di accesso di Azure AD
 
@@ -35,7 +35,7 @@ Con Azure Active Directory (Azure AD) è possibile abilitare facilmente la colla
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Azure AD P2 Premium
+- Azure AD Premium P2
 
 Per altre informazioni, vedere [quali utenti devono avere licenze?](access-reviews-overview.md#which-users-must-have-licenses).
 

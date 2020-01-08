@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: d28893133c27fe4945918071c60b889e997b775b
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 01327d24aebee02c3b14594c2b0b2f2f175211fd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74424167"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450819"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Configurare una connessione da punto a sito usando l'autenticazione del certificato (versione classica)
 
@@ -29,7 +29,7 @@ ms.locfileid: "74424167"
 Questo articolo illustra come creare una rete virtuale con una connessione da punto a sito. Si crea questa rete virtuale con il modello di distribuzione classica tramite il portale di Azure. Questa configurazione usa i certificati autofirmati o rilasciati da un'autorità di certificazione per autenticare il client di connessione. È anche possibile creare questa configurazione con un diverso modello o strumento di distribuzione usando le opzioni descritte negli articoli seguenti:
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 > * [Portale di Azure (classico)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
@@ -43,7 +43,7 @@ Si usa un gateway VPN da punto a sito (P2S) per creare una connessione sicura al
 
 ![Diagramma da punto a sito](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Le connessioni da punto a sito con l'autenticazione del certificato richiedono i prerequisiti seguenti:
 
@@ -101,7 +101,7 @@ Se non si ha una rete virtuale, crearne una. Gli screenshot sono forniti come es
 
 5. Selezionare la **Sottoscrizione** da usare nell'elenco a discesa.
 
-6. Selezionare un **Gruppo di risorse** esistente. In alternativa, creare un nuovo gruppo di risorse selezionando **Crea nuovo** e specificando un nome. Se si crea un nuovo gruppo di risorse, denominare il gruppo in base ai valori di configurazione pianificati. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#resource-groups).
+6. Selezionare un **Gruppo di risorse** esistente. In alternativa, creare un nuovo gruppo di risorse selezionando **Crea nuovo** e specificando un nome. Se si crea un nuovo gruppo di risorse, denominare il gruppo in base ai valori di configurazione pianificati. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/management/overview.md#resource-groups).
 
 7. Selezionare una **Posizione** per la rete virtuale. Questa impostazione determina la posizione geografica delle risorse distribuite in questa rete virtuale.
 
@@ -176,7 +176,7 @@ Dopo la creazione del gateway, caricare il file con estensione cer, che contiene
 
 4. Selezionare l'icona della cartella per cercare il file CER. Selezionare il file e quindi selezionare **OK**. Il certificato caricato viene visualizzato nella pagina **Certificati**.
 
-   ![Carica certificato](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/upload.png)
+   ![Caricamento del certificato](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/upload.png)
 
 
 ## <a name="configure-the-client"></a>Configurare il client
@@ -210,7 +210,7 @@ Per creare una connessione da punto a sito da un computer client diverso da quel
 >
 >
 
-1. Per connettersi a VNet, nel computer client passare a **connessioni VPN** nel portale di Azure e individuare la connessione VPN creata. che ha lo stesso nome della rete virtuale. Selezionare **Connessione**. Se viene visualizzato un messaggio popup sul certificato, selezionare **Continua** per usare privilegi elevati.
+1. Per connettersi a VNet, nel computer client passare a **connessioni VPN** nel portale di Azure e individuare la connessione VPN creata. che ha lo stesso nome della rete virtuale. Selezionare **Connetti**. Se viene visualizzato un messaggio popup sul certificato, selezionare **Continua** per usare privilegi elevati.
 
 2. Nella pagina di stato **Connessione** fare clic su **Connetti** per avviare la connessione. Se viene visualizzata la schermata **Seleziona certificato**, verificare che il certificato client visualizzato sia quello corretto. In caso contrario, selezionare il certificato corretto nell'elenco a discesa e quindi selezionare **OK**.
 
@@ -280,7 +280,7 @@ La regola generale è quella di usare il certificato radice per gestire l'access
 3. Passare alla rete virtuale classica. Selezionare **Connessione VPN da punto a sito**, quindi selezionare **Gestisci certificato** per aprire la pagina **Certificati**.
 4. Selezionare **Elenco di revoche** per aprire la pagina **Elenco di revoche**. 
 5. Selezionare **Aggiungi certificato** per aprire la pagina **Aggiungi certificato all'elenco di revoche**.
-6. Nella pagina **Identificazione personale** incollare l'identificazione personale del certificato come una riga di testo continua, senza spazi. Selezionare **OK** per terminare.
+6. Nella pagina **Identificazione personale** incollare l'identificazione personale del certificato come una riga di testo continua, senza spazi. Al termine selezionare **OK**.
 
 Dopo aver completato l'aggiornamento, il certificato non può più essere usato per la connessione. Ai client che provano a connettersi con questo certificato verrà visualizzato un messaggio che informa che il certificato non è più valido.
 

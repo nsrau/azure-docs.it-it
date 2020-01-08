@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: 9005b2e01cdb17d6aa6c630ec8be3d702d5b138c
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: ff612c43a058fce02bd801e15632c27979f22d17
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688098"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435863"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurare i criteri per Apache Hive in HDInsight con Enterprise Security Package
 
@@ -40,11 +40,11 @@ Informazioni su come configurare i criteri di Apache Ranger per Apache Hive. In 
 
 ## <a name="create-domain-users"></a>Creazione di utenti del dominio
 
-Per informazioni su come creare hiveruser1 e hiveuser2, vedere [Creare un cluster HDInsight con ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp). In questo articolo vengono usati i due account utente.
+Per informazioni su come creare hiveruser1 e hiveuser2, vedere [Creare un cluster HDInsight con ESP](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp). In questo articolo vengono usati i due account utente.
 
 ## <a name="create-ranger-policies"></a>Creazione dei criteri di Ranger
 
-In questa sezione vengono creati due criteri di Ranger per accedere a hivesampletable. Vengono concesse autorizzazioni di selezione su diversi set di colonne. Entrambi gli utenti sono stati creati tramite la procedura descritta in [Creare un cluster HDInsight con ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp). Nella sezione successiva verranno testati i due criteri in Excel.
+In questa sezione vengono creati due criteri di Ranger per accedere a hivesampletable. Vengono concesse autorizzazioni di selezione su diversi set di colonne. Entrambi gli utenti sono stati creati tramite la procedura descritta in [Creare un cluster HDInsight con ESP](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp). Nella sezione successiva verranno testati i due criteri in Excel.
 
 **Per creare criteri di Ranger**
 
@@ -52,14 +52,14 @@ In questa sezione vengono creati due criteri di Ranger per accedere a hivesample
 2. Selezionare **CLUSTERNAME_Hive**, in **hive**. Verranno visualizzati due criteri preconfigurati.
 3. Selezionare **Aggiungi nuovo criterio**, quindi immettere i valori seguenti:
 
-    |Proprietà |Value |
+    |Proprietà |Valore |
     |---|---|
     |Nome criterio|Read-hivesampletable-all|
     |Database hive|default|
-    |table|hivesampletable|
+    |tabella|hivesampletable|
     |Colonna hive|*|
     |Seleziona utente|hiveuser1|
-    |autorizzazioni|seleziona|
+    |Autorizzazioni|Proprietà|
 
     ![Configurazione di HDInsight ESP Ranger hive Policy](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
 
@@ -70,14 +70,14 @@ In questa sezione vengono creati due criteri di Ranger per accedere a hivesample
 
 5. Ripetere gli ultimi due passaggi per creare un altro criterio con le proprietà seguenti:
 
-    |Proprietà |Value |
+    |Proprietà |Valore |
     |---|---|
     |Nome criterio|Read-hivesampletable-devicemake|
     |Database hive|default|
-    |table|hivesampletable|
+    |tabella|hivesampletable|
     |Colonna hive|ClientID, devicemake|
     |Seleziona utente|hiveuser2|
-    |autorizzazioni|seleziona|
+    |Autorizzazioni|Proprietà|
 
 ## <a name="create-hive-odbc-data-source"></a>Creare un'origine dati Hive ODBC
 
@@ -92,7 +92,7 @@ Le istruzioni sono disponibili in [Creare un'origine dati Hive ODBC](../hadoop/a
  | Hive Server Type | Selezionare **Hive Server 2** |
  | Mechanism | Selezionare **Azure HDInsight Service** |
  | HTTP Path | Lasciare vuoto. |
- | User Name | Immettere hiveuser1@contoso158.onmicrosoft.com. Se è diverso, aggiornare il nome di dominio. |
+ | Nome utente | Immettere hiveuser1@contoso158.onmicrosoft.com. Se è diverso, aggiornare il nome di dominio. |
  | Password | Immettere la password per hiveuser1. |
 
 Assicurarsi di fare clic su **Test** prima di salvare l'origine dati.

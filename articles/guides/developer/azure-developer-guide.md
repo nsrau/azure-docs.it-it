@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: c8ab954471e597cfea5c6f56cd45b2191aa73242
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 92ff08d460e9bf11b49700570a156a101811a533
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74424073"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435998"
 ---
-# <a name="get-started-guide-for-azure-developers"></a>Guida introduttiva per gli sviluppatori in Azure
+# <a name="get-started-guide-for-azure-developers"></a>Guida introduttiva per gli sviluppatori Azure
 
-## <a name="what-is-azure"></a>Cos'è Azure?
+## <a name="what-is-azure"></a>Che cos'è Azure?
 
 Azure è una piattaforma cloud completa che può ospitare le applicazioni esistenti e semplificare lo sviluppo di nuove applicazioni. Azure può persino migliorare le applicazioni locali. Azure integra i servizi cloud necessari per sviluppare, testare, distribuire e gestire le applicazioni, sfruttando al contempo le efficienze dei cloud computing.
 
@@ -50,7 +50,7 @@ Azure offre servizi a supporto dello sviluppo di applicazioni e per la soddisfaz
 ![Opzioni di hosting di applicazioni offerte da Azure](./media/azure-developer-guide/azure-developer-hosting-options.png)
 
 
-#### <a name="azure-app-service"></a>servizio app di Azure 
+#### <a name="azure-app-service"></a>Servizio app di Azure 
 
 Se si vuole usare il percorso più rapido per la pubblicazione di progetti basati sul Web, prendere in considerazione il servizio app di Azure. Il servizio App rende più semplice estendere le app Web per il supporto di client per dispositivi mobili e pubblicare API REST facilmente utilizzabili. Questa piattaforma consente l'autenticazione tramite provider basati su social network, il ridimensionamento automatico in base al traffico, l'esecuzione di test nell'ambiente di produzione e la distribuzione continua e basata sul contenitore.
 
@@ -94,9 +94,9 @@ Azure Service Fabric è una piattaforma di sistemi distribuiti. Questa piattafor
 
 * Provisioning
 * Distribuzione 
-* Monitoraggio
+* Monitorare
 * Aggiornamento/applicazione di patch
-* Deleting 
+* Eliminazione 
 
 Le app, eseguite in un pool condiviso di computer, possono essere inizialmente di piccole dimensioni e ridimensionarsi in seguito su centinaia o migliaia di computer in base alle esigenze.
 
@@ -104,7 +104,7 @@ Service Fabric supporta API Web con Open Web Interface for .NET (OWIN) e ASP.NET
 
 > **Uso consigliato:** Service Fabric è una scelta valida quando si deve creare una nuova applicazione o riscrivere un'applicazione esistente per l'architettura dei microservizi. È consigliabile usare Service Fabric se è necessario un controllo più approfondito sull'infrastruttura sottostante o l'accesso diretto a questa.
 > 
-> **Come iniziare:** [creare la prima applicazione Azure Service Fabric](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md).
+> Come **iniziare:** [creare la prima applicazione Service fabric di Azure](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md).
 
 ### <a name="enhance-your-applications-with-azure-services"></a>Migliorare le applicazioni con i servizi di Azure
 
@@ -135,7 +135,7 @@ La maggior parte delle applicazioni deve archiviare i dati, quindi, tuttavia, si
 
 È possibile usare [Azure Data Factory](../../data-factory/introduction.md) per spostare in Azure dati locali esistenti. Se non è ancora possibile spostare i dati nel cloud, [Connessioni ibride](../../biztalk-services/integration-hybrid-connection-overview.md) in Servizi BizTalk consente di connettere le app ospitate del servizio app a risorse locali. È anche possibile connettersi ai servizi dati e di archiviazione di Azure dalle applicazioni locali.
 
-#### <a name="docker-support"></a>Supporto di Docker
+#### <a name="docker-support"></a>Supporto Docker
 
 I contenitori Docker, un tipo di virtualizzazione del sistema operativo, consente di distribuire le applicazioni in modo più efficiente e prevedibile. Un'applicazione all'interno di un contenitore funziona in produzione allo stesso modo dei sistemi di sviluppo e test. È possibile gestire i contenitori tramite gli strumenti di Docker standard. Per distribuire e gestire le applicazioni basate su contenitore in Azure, è possibile usare le competenze esistenti e gli strumenti open source più diffusi.
 
@@ -181,7 +181,7 @@ In Azure sono disponibili diverse modalità d'uso dei contenitori nelle applicaz
 
 Per altre informazioni sulle procedure consigliate per la sicurezza in Azure, vedere [Procedure consigliate e modelli per la sicurezza di Azure](../../security/fundamentals/best-practices-and-patterns.md).
 
-### <a name="monitoring"></a>Monitoraggio
+### <a name="monitoring"></a>Monitorare
 
 Con l'applicazione in esecuzione in Azure, è necessario monitorare le prestazioni, controllare la presenza di problemi e vedere in che modo i clienti usano l'app. Azure offre diverse opzioni di monitoraggio.
 
@@ -193,7 +193,7 @@ Con l'applicazione in esecuzione in Azure, è necessario monitorare le prestazio
  
     >**Come iniziare**: [Introduzione al monitoraggio di Azure](../../monitoring-and-diagnostics/monitoring-get-started.md).
 
-### <a name="devops-integration"></a>Integrazione di strumenti DevOps
+### <a name="devops-integration"></a>Integrazione con DevOps
 
 Sia che si tratti di eseguire il provisioning di VM o di pubblicare app Web con integrazione continua, Azure si integra con la maggior parte degli strumenti DevOps più diffusi. È possibile usare gli strumenti già disponibili e ottimizzare l'esperienza esistente con il supporto per strumenti come: 
 
@@ -207,7 +207,7 @@ Sia che si tratti di eseguire il provisioning di VM o di pubblicare app Web con 
 
 > **Come iniziare**: per visualizzare le opzioni di DevOps per le app del servizio app, vedere [Distribuzione continua nel servizio app di Azure](../../app-service/deploy-continuous-deployment.md).
 > 
-> **Prova adesso:** [alcune integrazioni di DevOps](https://azure.microsoft.com/try/devops/).
+> **Provare ora:** [provare diverse integrazioni di DevOps](https://azure.microsoft.com/try/devops/).
 
 
 ## <a name="azure-regions"></a>Aree di Azure
@@ -238,7 +238,7 @@ Azure offre due modi per gestire le applicazioni e i servizi dalla riga di coman
 
 -   [Azure PowerShell](../../powershell-install-configure.md): mette a disposizione un set di moduli con cmdlet che consentono di gestire le risorse di Azure tramite Windows PowerShell.
 
-### <a name="azure-portal"></a>portale di Azure
+### <a name="azure-portal"></a>Portale di Azure
 
 Il [portale di Azure](https://portal.azure.com) è un'applicazione basata sul Web. È possibile usare la portale di Azure per creare, gestire e rimuovere risorse e servizi di Azure. Sono inclusi:
 
@@ -255,7 +255,7 @@ Azure si basa su un set di API REST che supportano l'interfaccia utente del Port
 Oltre alle API REST, molti servizi di Azure consentono di gestire a livello di codice le risorse dalle applicazioni usando Azure SDK specifici della piattaforma, inclusi gli SDK per le piattaforme di sviluppo seguenti:
 
 -   [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
--   [Node.JS](https://docs.microsoft.com/azure/javascript/)
+-   [Node.js](https://docs.microsoft.com/azure/javascript/)
 -   [Java](https://docs.microsoft.com/java/azure)
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
 -   [Python](/azure/python/)
@@ -264,9 +264,9 @@ Oltre alle API REST, molti servizi di Azure consentono di gestire a livello di c
 
 Per servizi quali [App per dispositivi mobili](../../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md) e [Servizi multimediali di Azure](../../media-services/previous/media-services-dotnet-how-to-use.md) sono disponibili SDK lato client per l'accesso ai servizi dal Web e da app client per dispositivi mobili.
 
-### <a name="azure-resource-manager"></a>Gestione risorse di Azure 
+### <a name="azure-resource-manager"></a>Azure Resource Manager 
     
-L'esecuzione dell'app in Azure probabilmente comporta l'uso di più servizi di Azure. Questi servizi seguono lo stesso ciclo di vita e possono essere considerati come un'unità logica. Ad esempio, un'app Web può usare i servizi app Web, database SQL, Archiviazione, Cache Redis di Azure e Rete di distribuzione dei contenuti di Microsoft Azure. [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) consente di usare le risorse dell'applicazione come gruppo. È possibile distribuire, aggiornare o eliminare tutte le risorse con un'unica operazione coordinata.
+L'esecuzione dell'app in Azure probabilmente comporta l'uso di più servizi di Azure. Questi servizi seguono lo stesso ciclo di vita e possono essere considerati come un'unità logica. Ad esempio, un'app Web può usare i servizi app Web, database SQL, Archiviazione, Cache Redis di Azure e Rete di distribuzione dei contenuti di Microsoft Azure. [Azure Resource Manager](../../azure-resource-manager/management/overview.md) consente di usare le risorse dell'applicazione come gruppo. È possibile distribuire, aggiornare o eliminare tutte le risorse con un'unica operazione coordinata.
 
 Oltre a raggruppare e gestire in modo logico le risorse correlate, Azure Resource Manager include funzionalità di distribuzione che consentono di personalizzare la distribuzione e la configurazione delle risorse correlate. Ad esempio, è possibile usare Gestione risorse distribuire e configurare un'applicazione. Questa applicazione può essere costituita da più macchine virtuali, un servizio di bilanciamento del carico e un database SQL di Azure come singola unità.
 
@@ -320,7 +320,7 @@ Azure Resource Manager consente di assegnare tag personalizzati a risorse singol
 * Nel modello di Azure Resource Manager 
 * Utilizzo dell'API REST
 * Uso dell'interfaccia della riga di comando di Azure
-* Tramite PowerShell 
+* Con PowerShell 
 
 È possibile assegnare più tag a ogni risorsa. Per altre informazioni, vedere [Uso dei tag per organizzare le risorse di Azure](../../resource-group-using-tags.md).
 

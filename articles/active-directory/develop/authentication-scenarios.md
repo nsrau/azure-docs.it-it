@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/15/2019
+ms.date: 12/18/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ffe0773c943983fc098d41f56b21b898682b2a0
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: eb09228b561718819c0c48aac4fc66d8205fe384
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74843989"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424606"
 ---
 # <a name="authentication-basics"></a>Nozioni di base sull'autenticazione
 
@@ -165,6 +165,7 @@ Per impostazione predefinita, MSAL usa il browser di sistema ad eccezione di .NE
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per acquisire familiarità con i termini comuni, vedere il [Glossario per sviluppatori Microsoft Identity Platform](developer-glossary.md) .
-Vedere [flussi di autenticazione e scenari di app](authentication-flows-app-scenarios.md) per altre informazioni su altri scenari per l'autenticazione degli utenti supportati dalla piattaforma di identità Microsoft.
-Per informazioni sulle librerie Microsoft che consentono di sviluppare applicazioni che interagiscono con account Microsoft, Azure AD account e Azure AD B2C utenti in un unico modello di programmazione semplificato, vedere [librerie MSAL](msal-overview.md) .
+- Per acquisire familiarità con i termini comuni, vedere il [Glossario per sviluppatori Microsoft Identity Platform](developer-glossary.md) .
+- Vedere [flussi di autenticazione e scenari di app](authentication-flows-app-scenarios.md) per altre informazioni su altri scenari per l'autenticazione degli utenti supportati dalla piattaforma di identità Microsoft.
+- Per informazioni sulle librerie Microsoft che consentono di sviluppare applicazioni che interagiscono con account Microsoft, Azure AD account e Azure AD B2C utenti in un unico modello di programmazione semplificato, vedere [librerie MSAL](msal-overview.md) .
+- Vedere [integrare il servizio app con la piattaforma di identità Microsfot](/azure/app-service/configure-authentication-provider-aad) per informazioni su come configurare l'autenticazione per l'app del servizio app.

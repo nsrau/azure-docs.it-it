@@ -15,24 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 0d77a1be2a3469282dabb646b02c43e350313ce5
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: b675198756ff7bc0791d49fee3649717e3e4da7f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596293"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367417"
 ---
-# <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Distribuire il Centro sicurezza di Azure C# per l'agente di sicurezza basato su Internet delle cose per Linux
+# <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Distribuire un agente di sicurezza per Linux basato su C# del Centro sicurezza di Azure per IoT
 
 
 Questa guida illustra come installare e distribuire il Centro sicurezza di Azure per l' C#agente di sicurezza basato su Internet delle cose in Linux.
 
 Questa guida illustra come eseguire queste operazioni: 
 > [!div class="checklist"]
-> * Installa
-> * Verifica distribuzione
+> * Installazione
+> * Verificare la distribuzione
 > * Disinstallare l'agente
-> * Risolvere problemi 
+> * Risolvere i problemi 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -52,7 +52,7 @@ Per distribuire l'agente sicurezza, attenersi alla procedura seguente:
 
 1. Aggiungere le autorizzazioni di esecuzione dello script **InstallSecurityAgent** eseguendo `chmod +x InstallSecurityAgent.sh` 
 
-1. Quindi eseguire: 
+1. Eseguire quindi il comando seguente con **privilegi radice**: 
 
    ```
    ./InstallSecurityAgent.sh -i -aui <authentication identity>  -aum <authentication method> -f <file path> -hn <host name>  -di <device id> -cl <certificate location kind>
@@ -82,7 +82,7 @@ Per disinstallare l'agente, eseguire lo script con il parametro –u: `./Install
 > [!NOTE]
 > La disinstallazione non rimuove gli eventuali prerequisiti mancanti che sono stati installati.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi  
+## <a name="troubleshooting"></a>Risoluzione dei problemi  
 
 1. Controllare lo stato di distribuzione eseguendo:
 

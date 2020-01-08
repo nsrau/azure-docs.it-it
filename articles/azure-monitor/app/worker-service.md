@@ -1,18 +1,18 @@
 ---
-title: Application Insights per le app del servizio Worker (app non HTTP) | Microsoft Docs
-description: Monitoraggio di app .NET Core/. NET Framework non HTTP con Application Insights.
+title: Application Insights per le app del servizio Worker (app non HTTP)
+description: Monitoraggio delle app non HTTP .NET Core/.NET Framework con Application Insights di monitoraggio di Azure.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 09/15/2019
-ms.openlocfilehash: 386c171e4785fac2c7fa6da39f249e211f4c660c
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.date: 12/16/2019
+ms.openlocfilehash: bea30ade6d9f6eb77d18c671b824b138ba94fddb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893299"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406195"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights per le applicazioni del servizio Worker (applicazioni non HTTP)
 
@@ -35,7 +35,7 @@ Chiave di strumentazione Application Insights valida. Questa chiave è necessari
 
 ```xml
     <ItemGroup>
-        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.8.2" />
+        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.12.0" />
     </ItemGroup>
 ```
 
@@ -125,7 +125,7 @@ L'esempio completo è condiviso [qui](https://github.com/microsoft/ApplicationIn
 ```
 
 In alternativa, specificare la chiave di strumentazione in una delle variabili di ambiente seguenti.
-`APPINSIGHTS_INSTRUMENTATIONKEY` oppure `ApplicationInsights:InstrumentationKey`
+`APPINSIGHTS_INSTRUMENTATIONKEY` o `ApplicationInsights:InstrumentationKey`
 
 Ad esempio: `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 O `SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
@@ -251,7 +251,8 @@ L'esempio completo è condiviso [qui](https://github.com/microsoft/ApplicationIn
                 IServiceCollection services = new ServiceCollection();
 
                 // Being a regular console app, there is no appsettings.json or configuration providers enabled by default.
-                // Hence instrumentation key must be specified here.
+                // Hence instrumentation key and any changes to default logging level must be specified here.
+                services.AddLogging(loggingBuilder => loggingBuilder.AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>("Category", LogLevel.Information));
                 services.AddApplicationInsightsTelemetryWorkerService("instrumentationkeyhere");
 
                 // Build ServiceProvider.
@@ -309,7 +310,7 @@ Di seguito sono elencati i dati di telemetria completi raccolti automaticamente 
 
 I log emessi tramite `ILogger` di gravità `Warning` o superiore vengono acquisiti automaticamente. Seguire i [documenti di ILogger](ilogger.md#control-logging-level) per personalizzare i livelli di log acquisiti da Application Insights.
 
-### <a name="dependencies"></a>Dipendenze
+### <a name="dependencies"></a>Dependencies
 
 La raccolta delle dipendenze è abilitata per impostazione predefinita. [Questo](asp-net-dependencies.md#automatically-tracked-dependencies) articolo illustra le dipendenze che vengono raccolte automaticamente e contiene anche i passaggi per eseguire il rilevamento manuale.
 
@@ -363,7 +364,7 @@ Impostazioni utilizzate comunemente in `ApplicationInsightsServiceOptions`
 
 Per l'elenco più aggiornato, vedere le [impostazioni configurabili in `ApplicationInsightsServiceOptions`](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) .
 
-### <a name="sampling"></a>campionamento
+### <a name="sampling"></a>Campionamento
 
 Il Application Insights SDK per il servizio Worker supporta sia il campionamento a frequenza fissa che quello adattivo. Il campionamento adattivo è abilitato per impostazione predefinita. La configurazione del campionamento per il servizio worker viene eseguita nello stesso modo delle [applicazioni ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/sampling#configuring-adaptive-sampling-for-aspnet-core-applications).
 

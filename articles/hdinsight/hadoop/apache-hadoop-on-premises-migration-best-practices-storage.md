@@ -2,18 +2,18 @@
 title: 'Archiviazione: eseguire la migrazione di Apache Hadoop locali ad Azure HDInsight'
 description: Informazioni sulle procedure consigliate di archiviazione per la migrazione dei cluster Hadoop locali in Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.author: hrasheed
-ms.openlocfilehash: b22c3c7e7dbbf7a93fff10ded1fbb7bef8fc5900
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 12/10/2019
+ms.openlocfilehash: 6fe7dfaccc3cf1c3fbe4a9ea42578c56f910ea36
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494954"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435762"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Eseguire la migrazione di cluster di Apache Hadoop locali ad Azure HDInsight
 
@@ -29,22 +29,21 @@ I cluster HDInsight possono usare il contenitore BLOB in Archiviazione di Azure 
 
 Gli account di archiviazione definiti nel processo di creazione e le rispettive chiavi vengono archiviati in `%HADOOP_HOME%/conf/core-site.xml` nei nodi del cluster. Tali account sono accessibili anche nella sezione "Custom core site" nella configurazione HDFS dell'interfaccia utente di Ambari. La chiave dell'account di archiviazione viene crittografata per impostazione predefinita e uno script di decrittografia personalizzato viene usato per decrittografare le chiavi prima di essere passate al daemon Hadoop. I processi, inclusi Hive, MapReduce, lo streaming Hadoop e Pig, includono una descrizione degli account di archiviazione e dei metadati associati.
 
-Archiviazione di Azure può eseguire la replica geografica. Sebbene la replica geografica offra ripristino geografico e ridondanza dei dati, un failover nella posizione sottoposta a replica geografica incide molto negativamente sulle prestazioni e può comportare costi aggiuntivi. È pertanto consigliabile scegliere la replica geografica con oculatezza e solo se il valore dei dati giustifica i costi aggiuntivi.
+Archiviazione di Azure può essere replicata geograficamente. Sebbene la replica geografica offra ripristino geografico e ridondanza dei dati, un failover nella posizione sottoposta a replica geografica incide molto negativamente sulle prestazioni e può comportare costi aggiuntivi. È pertanto consigliabile scegliere la replica geografica con oculatezza e solo se il valore dei dati giustifica i costi aggiuntivi.
 
 Per accedere ai dati memorizzati in Archiviazione di Azure, è possibile usare i formati seguenti.
 
-|Formato di accesso ai dati |Descrizione |
+|Formato di accesso ai dati |Description |
 |---|---|
 |`wasb:///`|Accesso allo spazio di archiviazione predefinito usando la comunicazione non crittografata.|
 |`wasbs:///`|Accesso allo spazio di archiviazione predefinito usando la comunicazione crittografata.|
 |`wasb://<container-name>@<account-name>.blob.core.windows.net/`|Usato durante la comunicazione con un account di archiviazione non predefinito. |
 
-
-In [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../../storage/common/storage-scalability-targets.md) vengono elencati i limiti correnti per gli account di Archiviazione di Azure. Se le esigenze dell'applicazione superano gli obiettivi di scalabilità di un singolo account di archiviazione, l'applicazione può essere creata per usare più account di archiviazione e quindi partizionare gli oggetti dati tra tali account.
+[Obiettivi di scalabilità per gli account di archiviazione standard](../../storage/common/scalability-targets-standard-account.md) elenca i limiti correnti per gli account di archiviazione di Azure. Se le esigenze dell'applicazione superano gli obiettivi di scalabilità di un singolo account di archiviazione, l'applicazione può essere creata per usare più account di archiviazione e quindi partizionare gli oggetti dati tra tali account.
 
 [Analisi archiviazione di Azure](../../storage/storage-analytics.md)  offre metriche per tutti i servizi di archiviazione e il portale di Azure può essere configurate per raccogliere metriche da visualizzare tramite i grafici. È possibile creare avvisi per inviare una notifica quando sono state raggiunte le soglie per le metriche delle risorse di archiviazione.
 
-Archiviazione di Azure offre l'[eliminazione temporanea per gli oggetti BLOB](../../storage/blobs/storage-blob-soft-delete.md) per recuperare i dati quando vengono modificati o eliminati accidentalmente da un'applicazione o da altri account utente di archiviazione.
+Archiviazione di Azure offre l' [eliminazione temporanea per gli oggetti BLOB](../../storage/blobs/storage-blob-soft-delete.md) che consentono di ripristinare i dati quando vengono accidentalmente modificati o eliminati da un'applicazione o da un altro utente dell'account di archiviazione.
 
 È possibile creare [snapshot di BLOB](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob). Uno snapshot è una versione di sola lettura di un BLOB e viene acquisito in un determinato momento per eseguire il backup di un BLOB. Una volta creato uno snapshot, è possibile leggerlo, copiarlo o eliminarlo, ma non modificarlo.
 
@@ -73,13 +72,14 @@ keytool -list -v -keystore /path/to/jre/lib/security/cacerts
 
 Per altre informazioni, vedere gli articoli seguenti:
 
-- [Usare una risorsa di archiviazione di Azure con cluster Azure HDInsight](../hdinsight-hadoop-use-blob-storage.md)
-- [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../../storage/common/storage-scalability-targets.md)
+- [Usare archiviazione di Azure con i cluster HDInsight di Azure](../hdinsight-hadoop-use-blob-storage.md)
+- [Obiettivi di scalabilità per gli account di archiviazione standard](../../storage/common/scalability-targets-standard-account.md)
+- [Obiettivi di scalabilità e prestazioni per l'archiviazione BLOB](../../storage/blobs/scalability-targets.md)
 - [Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure](../../storage/common/storage-performance-checklist.md)
 - [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione di Microsoft Azure](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md)
 - [Monitorare un account di archiviazione nel portale di Azure](../../storage/common/storage-monitor-storage-account.md)
 
-### <a name="azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1
+### <a name="azure-data-lake-storage-gen1"></a>Archiviazione Azure Data Lake di prima generazione
 
 Azure Data Lake Store implementa il modello di controllo di accesso HDFS e POSIX e offre anche un'integrazione di livello elevato con AAD per il controllo di accesso con granularità fine. Non sono previsti limiti alle dimensioni dei dati che è possibile archiviare né alla capacità di eseguire analisi con architettura altamente parallela.
 
@@ -120,7 +120,7 @@ Per altre informazioni, vedere gli articoli seguenti:
 
 ## <a name="secure-azure-storage-keys-within-on-premises-hadoop-cluster-configuration"></a>Proteggere le chiavi di Archiviazione di Azure nella configurazione di cluster Hadoop locali
 
-Le chiavi di Archiviazione di Azure aggiunte ai file di configurazione Hadoop stabiliscono la connettività tra il file system HDFS locale e Archiviazione BLOB di Azure. Tali chiavi possono essere protette tramite la crittografia con il framework di provider di credenziali di Hadoop. Dopo essere state crittografate, le chiavi possono essere archiviate ed è possibile accedervi in modo sicuro.
+Le chiavi di archiviazione di Azure che vengono aggiunte ai file di configurazione di Hadoop stabiliscono la connettività tra HDFS locali e l'archiviazione BLOB di Azure. Tali chiavi possono essere protette tramite la crittografia con il framework di provider di credenziali di Hadoop. Dopo essere state crittografate, le chiavi possono essere archiviate ed è possibile accedervi in modo sicuro.
 
 **Per eseguire il provisioning di credenziali:**
 
@@ -147,7 +147,7 @@ hadoop credential create fs.azure.account.key.account.blob.core.windows.net -val
 hadoop distcp -D hadoop.security.credential.provider.path=jceks://hdfs@headnode.xx.internal.cloudapp.net/path/to/jceks /user/user1/ wasb:<//yourcontainer@youraccount.blob.core.windows.net/>user1
 ```
 
-## <a name="restrict-azure-storage-data-access-using-sas"></a>Limitare l'accesso ai dati di Archiviazione di Azure con la firma di accesso condiviso
+## <a name="restrict-azure-storage-data-access-using-sas"></a>Limitare l'accesso ai dati di archiviazione di Azure con SAS
 
 Per impostazione predefinito, HDInsight ha accesso completo ai dati negli account di Archiviazione di Azure associati al cluster. Le firme di accesso condiviso per il contenitore BLOB possono essere usate per limitare l'accesso ai dati, ad esempio per concedere agli utenti l'accesso in sola lettura.
 
@@ -155,7 +155,7 @@ Per impostazione predefinito, HDInsight ha accesso completo ai dati negli accoun
 
 1. Aprire il file [SASToken.py](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature/blob/master/Python/SASToken.py) e modificare i valori seguenti:
 
-    |Proprietà token|Descrizione|
+    |Proprietà token|Description|
     |---|---|
     |policy_name|nome da usare per i criteri archiviati da creare.|
     |storage_account_name|nome dell'account di archiviazione.|
@@ -173,7 +173,7 @@ Per impostazione predefinito, HDInsight ha accesso completo ai dati negli accoun
 
 6. Usare i valori seguenti per i campi **Key** e **Value**:
 
-    **Key**(Chiave): `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **Value**(Valore): chiave di firma di accesso condiviso restituita dall'applicazione Python nel passaggio 4 precedente.
+    **Chiave**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **valore**: la chiave SAS restituita dall'applicazione Python del passaggio 4 precedente.
 
 7. Fare clic sul pulsate **Add** per salvare la chiave e il valore, quindi fare clic sul pulsante **Save** per salvare le modifiche alla configurazione. Quando richiesto, aggiungere una descrizione della modifica, ad esempio "aggiunta di accesso alle risorse di archiviazione per le firme di accesso condiviso", e quindi fare clic su **Save** (Salva).
 
@@ -181,35 +181,35 @@ Per impostazione predefinito, HDInsight ha accesso completo ai dati negli accoun
 
 9. Ripetere il processo per MapReduce2 e YARN.
 
-Esistono tre aspetti importanti da ricordare in relazione all'uso dei token di firma di accesso condiviso in Azure:
+Esistono tre aspetti importanti da ricordare sull'uso dei token SAS in Azure:
 
 1. Quando si creano i token di firma di accesso condiviso con autorizzazioni di "READ + LIST", gli utenti che hanno accesso al contenitore BLOB con questo token non sono in grado di scrivere né di eliminare dati. Gli utenti che hanno accesso al contenitore BLOB con questo token di firma di accesso condiviso e provano a eseguire un'operazione di scrittura o eliminazione, ricevono un messaggio analogo a `"This request is not authorized to perform this operation"`.
 
-2. Quando vengono generati i token di firma di accesso condiviso con le autorizzazioni `READ + LIST + WRITE` (solo per limitare `DELETE` solo), comandi come `hadoop fs -put` scrivono prima in un file `\_COPYING\_` e quindi provano a rinominare il file. Questa operazione HDFS esegue il mapping in un'operazione `copy+delete` per WASB. Poiché l'autorizzazione `DELETE` non è stata specificata, l'operazione "put" avrebbe esito negativo. L'operazione `\_COPYING\_` è una funzionalità Hadoop pensata per offrire controllo della concorrenza. Attualmente non è possibile limitare semplicemente l'operazione "DELETE", senza influenzare anche operazioni "WRITE".
+2. Quando vengono generati i token di firma di accesso condiviso con le autorizzazioni `READ + LIST + WRITE` (solo per limitare `DELETE` solo), comandi come `hadoop fs -put` scrivono prima in un file `\_COPYING\_` e quindi provano a rinominare il file. Questa operazione HDFS esegue il mapping in un'operazione `copy+delete` per WASB. Poiché l'autorizzazione `DELETE` non è stata specificata, il "put" avrà esito negativo. L'operazione `\_COPYING\_` è una funzionalità Hadoop pensata per offrire controllo della concorrenza. Attualmente non è possibile limitare solo l'operazione "DELETE" senza influire sulle operazioni di "scrittura".
 
-3. Sfortunatamente, il provider di credenziali Hadoop e delle chiavi di crittografia (ShellDecryptionKeyProvider) attualmente non funzionano con i token di firma di accesso condiviso e pertanto non può essere protetto dalla visibilità.
+3. Sfortunatamente, il provider di credenziali Hadoop e il provider di chiavi di decrittografia (ShellDecryptionKeyProvider) attualmente non funzionano con i token di firma di accesso condiviso e pertanto non possono attualmente essere protetti dalla visibilità.
 
 Per altre informazioni, vedere [Usare le firme di accesso condiviso di Archiviazione di Azure per limitare l'accesso ai dati in HDInsight](../hdinsight-storage-sharedaccesssignature-permissions.md).
 
 ## <a name="use-data-encryption-and-replication"></a>Usare la crittografia e la replica dei dati
 
-Tutti i dati scritti in Archiviazione di Azure vengono crittografati automaticamente con la  [crittografia del servizio di archiviazione](../../storage/common/storage-service-encryption.md). I dati nell'account di Archiviazione di Azure vengono sempre replicati per ottenere disponibilità elevata. Quando si crea un account di archiviazione, è possibile scegliere una delle opzioni di replica seguenti:
+Tutti i dati scritti in Archiviazione di Azure vengono crittografati automaticamente con la  [crittografia del servizio di archiviazione](../../storage/common/storage-service-encryption.md). I dati nell'account di archiviazione di Azure vengono sempre replicati per la disponibilità elevata. Quando si crea un account di archiviazione, è possibile scegliere una delle opzioni di replica seguenti:
 
 - [Archiviazione con ridondanza locale (LRS)](../../storage/common/storage-redundancy-lrs.md)
 - [Archiviazione con ridondanza della zona (ZRS).](../../storage/common/storage-redundancy-zrs.md)
 - [Archiviazione con ridondanza geografica (GRS)](../../storage/common/storage-redundancy-grs.md)
 - [Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS).](../../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
 
-Azure Data Lake Store offre archiviazione con ridondanza locale, ma è anche necessario copiare i dati critici da un altro account di Data Lake Storage in un'area diversa con una frequenza adeguata alle esigenze del piano di ripristino di emergenza. Sono disponibili diversi metodi per copiare i dati, tra cui [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md), DistCp, [Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md)o [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md). È inoltre consigliabile applicare i criteri di accesso per l'account Data Lake Storage per impedire l'eliminazione accidentale.
+Azure Data Lake Store offre archiviazione con ridondanza locale, ma è anche necessario copiare i dati critici da un altro account di Data Lake Storage in un'area diversa con una frequenza adeguata alle esigenze del piano di ripristino di emergenza. Esistono diversi metodi per copiare i dati, tra cui [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md), [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html), [Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md)o [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md). È inoltre consigliabile applicare i criteri di accesso per l'account Data Lake Storage per impedire l'eliminazione accidentale.
 
 Per altre informazioni, vedere gli articoli seguenti:
 
 - [Replica di Archiviazione di Azure](../../storage/common/storage-redundancy.md)
 - [Materiale sussidiario per il ripristino di emergenza dei dati in Azure Data Lake Storage Gen1](../../data-lake-store/data-lake-store-disaster-recovery-guidance.md)
 
-## <a name="attach-additional-azure-storage-accounts-to-cluster"></a>Collegare account di Archiviazione di Azure aggiuntivi al cluster
+## <a name="attach-additional-azure-storage-accounts-to-cluster"></a>Aggiungere altri account di archiviazione di Azure al cluster
 
-Durante il processo di creazione di HDInsight, un account di Archiviazione di Azure o un account di Archiviazione di Azure Data Lake viene scelto come file system predefinito. Oltre all'account di archiviazione predefinito, durante il processo di creazione o dopo la creazione di un cluster è possibile aggiungere altri account di archiviazione della stessa sottoscrizione di Azure o di sottoscrizioni di Azure diverse.
+Durante il processo di creazione di HDInsight, viene scelto un account di archiviazione di Azure o un account Azure Data Lake Storage come file system predefinito. Oltre all'account di archiviazione predefinito, durante il processo di creazione o dopo la creazione di un cluster è possibile aggiungere altri account di archiviazione della stessa sottoscrizione di Azure o di sottoscrizioni di Azure diverse.
 
 Altri account di archiviazione possono essere aggiunti in uno in modi seguenti:
 - Usare Ambari HDFS Config Advanced Custom core-site Aggiungere il nome dell'account di archiviazione e la chiave Riavviare i servizi
@@ -218,11 +218,8 @@ Altri account di archiviazione possono essere aggiunti in uno in modi seguenti:
 > [!Note]
 > Nei casi di uso validi i limiti sull'archiviazione di Azure possono essere aumentati tramite una richiesta inviata al  [supporto tecnico di Azure](https://azure.microsoft.com/support/faq/).
 
-Per altre informazioni, vedere gli articoli seguenti:
-- [Aggiungere altri account di archiviazione a HDInsight](../hdinsight-hadoop-add-storage.md)
+Per altre informazioni, vedere [Aggiungere altri account di archiviazione a HDInsight](../hdinsight-hadoop-add-storage.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Leggere l'articolo successivo di questa serie:
-
-- [Storage best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-data-migration.md) (Procedure consigliate per la migrazione dei dati relative alla migrazione da un ambiente locale ad Azure HDInsight Hadoop)
+Leggere il prossimo articolo di questa serie: [procedure consigliate per la migrazione dei dati per la migrazione da sito locale a Azure HDInsight Hadoop](apache-hadoop-on-premises-migration-best-practices-data-migration.md).

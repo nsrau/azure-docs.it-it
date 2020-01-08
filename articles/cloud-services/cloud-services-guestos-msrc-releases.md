@@ -10,17 +10,59 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/5/2019
+ms.date: 12/13/2019
 ms.author: raiye
-ms.openlocfilehash: 027fb5176ecf1fdb32119c933d1b44eaf9f82bb8
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 742f54ffb6c77d9f84582d6a68dff936fdbbe99c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894636"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386205"
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamenti sono sempre disponibili per la [famiglia][family-explain] specifica in cui sono stati introdotti.
+
+## <a name="december-2019-guest-os"></a>Sistema operativo guest 2019 dicembre
+
+>[!NOTE]
+>Il sistema operativo guest di dicembre è in corso di implementazione nelle macchine virtuali del servizio cloud configurate per gli aggiornamenti automatici. Una volta completata l'implementazione, questa versione sarà resa disponibile per gli aggiornamenti manuali tramite i file di configurazione e il portale di Azure. Le patch seguenti sono incluse nel sistema operativo guest di dicembre. L'elenco è soggetto a variazioni.
+
+| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| --- | --- | --- | --- | --- |
+|  Rel 19-12  |  [4530692]  |  Windows Security  | 2,93 | 10 dicembre 2019 |
+|  Rel 19-12  |  [4530677]  |  Internet Explorer  | 2,93 | 10 dicembre 2019 |
+|  Rel 19-12  |  [4530677]  |  Internet Explorer  | 3,80 | 10 dicembre 2019 |
+|  Rel 19-12  |  [4530698]  |  Windows Security  | 3,80 | 10 dicembre 2019 |
+|  Rel 19-12  |  [4530730]  |  Windows Security  | 4,73 | 10 dicembre 2019 |
+|  Rel 19-12  |  [4530677]  |  Internet Explorer  | 4,73 | 10 dicembre 2019 |
+|  Rel 19-12  |  [4530689]  |  Aggiornamento cumulativo più recente  | 5,38 | 10 dicembre 2019 |
+|  Rel 19-12  |  [4530715]  |  Aggiornamento cumulativo più recente  | 6,14 | 10 dicembre 2019 |
+|  Rel 19-12  |  [4525235]  |  Non-sicurezza  | 2,93 | 12 nov, 2019 |
+|  Rel 19-12  |  [4531786]  |  Aggiornamento dello stack di manutenzione  | 2,93 | 10 dicembre 2019 |
+|  Rel 19-12  |  [4525246]  |  Non-sicurezza  | 3,80 | 12 nov, 2019 |
+|  Rel 19-12  |  [4523208]  |  Aggiornamento dello stack di manutenzione  | 3.8 | 12 nov, 2019 |
+|  Rel 19-12  |  [4525243]  |  Non-sicurezza  | 4,73 | 12 nov, 2019 |
+|  Rel 19-12  |  [4524445]  |  Aggiornamento dello stack di manutenzione  | 4,73 | 12 nov, 2019 |
+|  Rel 19-12  |  [4520724]  |  Aggiornamento dello stack di manutenzione  | 5,38 | 12 nov, 2019 |
+|  Rel 19-12  |  [4523204]  |  ServicingStackUpdate  | 6,14 | 12 nov, 2019 |
+
+[4530692]: https://support.microsoft.com/kb/4530692
+[4530677]: https://support.microsoft.com/kb/4530677
+[4530677]: https://support.microsoft.com/kb/4530677
+[4530698]: https://support.microsoft.com/kb/4530698
+[4530730]: https://support.microsoft.com/kb/4530730
+[4530677]: https://support.microsoft.com/kb/4530677
+[4530689]: https://support.microsoft.com/kb/4530689
+[4530715]: https://support.microsoft.com/kb/4530715
+[4525235]: https://support.microsoft.com/kb/4525235
+[4531786]: https://support.microsoft.com/kb/4531786
+[4525246]: https://support.microsoft.com/kb/4525246
+[4523208]: https://support.microsoft.com/kb/4523208
+[4525243]: https://support.microsoft.com/kb/4525243
+[4524445]: https://support.microsoft.com/kb/4524445
+[4520724]: https://support.microsoft.com/kb/4520724
+[4523204]: https://support.microsoft.com/kb/4523204
+
 
 ## <a name="november-2019-guest-os"></a>Sistema operativo guest di novembre 2019
 

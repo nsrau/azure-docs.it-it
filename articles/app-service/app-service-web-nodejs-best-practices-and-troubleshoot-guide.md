@@ -1,19 +1,19 @@
 ---
 title: Procedure consigliate e risoluzione dei problemi di node. js
 description: Informazioni sulle procedure consigliate e i passaggi per la risoluzione dei problemi per le applicazioni node. js in esecuzione nel servizio app Azure.
-author: ranjithr
+author: msangapu-msft
 ms.assetid: 387ea217-7910-4468-8987-9a1022a99bef
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: bwren
+ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 75195bd7ad228bb66dfd21d2c65997cc8c02680e
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 682884d11b298a97e27056af3c10802dfd410e4c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672035"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430572"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Procedure consigliate e risoluzione dei problemi per le applicazioni Node nel Servizio app di Azure per Windows
 
@@ -87,7 +87,7 @@ Elenco di file con valori separati da punti e virgola che vengono controllati pe
 
 ### <a name="recyclesignalenabled"></a>recycleSignalEnabled
 
-Il valore predefinito è False. Se questa funzionalità è abilitata, l'applicazione Node si può connettere a una named pipe (variabile di ambiente IISNODE\_CONTROL\_PIPE) e può inviare un messaggio di "riciclo". In questo modo w3wp verrà riciclato correttamente.
+Il valore predefinito è false. Se questa funzionalità è abilitata, l'applicazione Node si può connettere a una named pipe (variabile di ambiente IISNODE\_CONTROL\_PIPE) e può inviare un messaggio di "riciclo". In questo modo w3wp verrà riciclato correttamente.
 
 ### <a name="idlepageouttimeperiod"></a>idlePageOutTimePeriod
 
@@ -99,7 +99,7 @@ Il valore predefinito è 0, ovvero questa funzionalità è disabilitata. Se si s
 
 ### <a name="debugheaderenabled"></a>debugHeaderEnabled
 
-Il valore predefinito è False. Se è True, iisnode aggiunge un'intestazione di risposta HTTP `iisnode-debug` a ogni risposta HTTP inviata. Il valore di intestazione `iisnode-debug` è un URL. Le singole informazioni di diagnostica possono essere ottenute esaminando il frammento di URL, ma è disponibile una visualizzazione tramite l'apertura dell'URL in un browser.
+Il valore predefinito è false. Se è True, iisnode aggiunge un'intestazione di risposta HTTP `iisnode-debug` a ogni risposta HTTP inviata. Il valore di intestazione `iisnode-debug` è un URL. Le singole informazioni di diagnostica possono essere ottenute esaminando il frammento di URL, ma è disponibile una visualizzazione tramite l'apertura dell'URL in un browser.
 
 ### <a name="loggingenabled"></a>loggingEnabled
 
@@ -107,7 +107,7 @@ Questa impostazione controlla la registrazione di stdout e stderr da parte di ii
 
 ### <a name="deverrorsenabled"></a>devErrorsEnabled
 
-Il valore predefinito è False. Se questo valore è impostato su True, iisnode visualizza il codice di stato HTTP e il codice errore Win32 nel browser. Il codice win32 risulta utile per il debug di determinati tipi di problemi.
+Il valore predefinito è false. Se questo valore è impostato su True, iisnode visualizza il codice di stato HTTP e il codice errore Win32 nel browser. Il codice win32 risulta utile per il debug di determinati tipi di problemi.
 
 ### <a name="debuggingenabled-do-not-enable-on-live-production-site"></a>debuggingEnabled (non abilitare questa impostazione nel sito di produzione live)
 
@@ -251,7 +251,7 @@ Ecco alcune soluzione per velocizzare questo processo:
 
 ## <a name="iisnode-http-status-and-substatus"></a>Stato e stato secondario HTTP di IISNODE
 
-Il [file di origine](https://github.com/Azure/iisnode/blob/master/src/iisnode/cnodeconstants.h) `cnodeconstants` elenca tutte le possibili combinazioni di stato/stato secondario che possono essere restituite da iisnode a causa di un errore.
+Il [file di origine](https://github.com/Azure/iisnode/blob/master/src/iisnode/cnodeconstants.h) `cnodeconstants` elenca tutte le combinazioni possibili di stato/stato secondario che iisnode può restituire a causa di un errore.
 
 Abilitare FREB per l'applicazione per visualizzare il codice errore win32. Assicurarsi di abilitare FREB solo in siti non di produzione, per motivi di prestazioni.
 
@@ -277,5 +277,5 @@ Per altre informazioni sulle applicazioni node.js nel servizio app di Azure, sel
 * [Come eseguire il debug di un'app Web Node.js nel servizio app di Azure](https://blogs.msdn.microsoft.com/azureossds/2018/08/03/debugging-node-js-apps-on-azure-app-services/)
 * [Utilizzo di moduli Node.js con le applicazioni Azure](../nodejs-use-node-modules-azure-apps.md)
 * [Blog sulle app Web del servizio app di Azure: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
-* [Centro per sviluppatori di Node.js](../nodejs-use-node-modules-azure-apps.md)
+* [Centro per sviluppatori di Node. js](../nodejs-use-node-modules-azure-apps.md)
 * [Exploring the Super Secret Kudu Debug Console (Esplorazione della console segreta di debug di Kudu)](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)

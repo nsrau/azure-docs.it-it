@@ -1,25 +1,16 @@
 ---
-title: Cluster Resource Manager di Service Fabric - Integrazione della gestione | Microsoft Docs
+title: Gestione risorse cluster-integrazione della gestione
 description: Panoramica dei punti di integrazione tra Cluster Resource Manager e le funzionalità di gestione di Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 956cd0b8-b6e3-4436-a224-8766320e8cd7
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 2b3ccf16aca04ebd398e2f97007b817cc0a6ef8d
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 50751c7d23797a597dc5e2d209c1e3eecf6f7a40
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196505"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614622"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Integrazione di Cluster Resource Manager con la gestione dei cluster di Service Fabric
 Cluster Resource Manager di Service Fabric non gestisce gli aggiornamenti in Service Fabric ma partecipa al processo. Il primo modo in cui Cluster Resource Manager facilita la gestione è monitorando lo stato desiderato del cluster e i servizi al suo interno. Cluster Resource Manager invia report di integrità quando non riesce ad attivare la configurazione del cluster desiderata. Se ad esempio la capacità è insufficiente, Cluster Resource Manager invia avvisi ed errori relativi all'integrità che indicano il problema. Un altro aspetto dell'integrazione ha a che fare con il funzionamento degli aggiornamenti. Durante gli aggiornamenti Cluster Resource Manager modifica leggermente il suo comportamento.  
@@ -77,7 +68,7 @@ Ecco che cosa indica questo messaggio di stato:
 2. Il vincolo di distribuzione del dominio di aggiornamento è attualmente violato. Ciò significa che un particolare dominio di aggiornamento ha più repliche di questa partizione rispetto a quanto previsto.
 3. Qual è il nodo che contiene la replica che causa la violazione. In questo caso è il nodo denominato "Node.8"
 4. Se è in corso un aggiornamento per questa partizione ("Currently Upgrading -- false")
-5. I criteri di distribuzione per questo servizio: "Distribution Policy -- Packing". Regolato dal `RequireDomainDistribution` [criterio di selezione](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing). "Packing" indica che in questo caso DomainDistribution _non_ era necessario e quindi che per questo servizio il criterio di selezione non è stato specificato. 
+5. I criteri di distribuzione per questo servizio: "Distribution Policy -- Packing". Questa regola è regolata dai [criteri di posizionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing)`RequireDomainDistribution`. "Packing" indica che in questo caso DomainDistribution _non_ era necessario e quindi che per questo servizio il criterio di selezione non è stato specificato. 
 6. Quando è stato inviato il report 10/8/2015 19:13:02
 
 Informazioni come queste producono avvisi che vengono generati nell'ambiente di produzione per informare l'utente che qualcosa non ha funzionato e per rilevare e arrestare aggiornamenti non validi. In questo caso sarebbe opportuno comprendere perché Resource Manager ha dovuto comprimere le repliche nel dominio di aggiornamento. Di solito la compressione è temporanea ad esempio perché i nodi negli altri domini di aggiornamento erano inattivi.
@@ -114,7 +105,7 @@ Il blocklisting non è una condizione permanente. Dopo alcuni minuti, il nodo vi
 
 Dato l'elevato numero di questi vincoli si potrebbe ritenere che i vincoli di dominio di errore siano i più importanti del sistema. Per garantire che non venga violato il vincolo di dominio di errore, si possono violare altri vincoli.
 
-I vincoli possono essere configurati con diversi livelli di priorità. Si tratta di:
+I vincoli possono essere configurati con diversi livelli di priorità. ovvero:
 
    - “hard” (0)
    - “soft” (1)
@@ -183,7 +174,7 @@ mediante ClusterConfig.json per le distribuzioni autonome o Template.json per i 
 ## <a name="fault-domain-and-upgrade-domain-constraints"></a>Vincoli di dominio di errore e di dominio di aggiornamento
 Cluster Resource Manager distribuisce i servizi tra i domini di errore e di aggiornamento. Viene modellato come un vincolo all'interno del motore di Cluster Resource Manager. Per altre informazioni sull'uso e sul comportamento specifico, vedere l'articolo sulla [configurazione del cluster](service-fabric-cluster-resource-manager-cluster-description.md#fault-and-upgrade-domain-constraints-and-resulting-behavior).
 
-Cluster Resource Manager potrebbe dover comprimere un paio di repliche in un dominio di aggiornamento per far fronte ad aggiornamenti, errori o altre violazioni di vincoli. La compressione in domini di errore o di aggiornamento si verifica in genere quando sono presenti molti errori o altra varianza nel sistema che impedisce il corretto posizionamento. Se si desidera impedire la compressione anche durante queste situazioni, è possibile usare il `RequireDomainDistribution` [criterio di selezione](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing). Si noti che questo può influire sulla disponibilità e l'affidabilità del servizio come effetto collaterale e pertanto valutarlo attentamente.
+Cluster Resource Manager potrebbe dover comprimere un paio di repliche in un dominio di aggiornamento per far fronte ad aggiornamenti, errori o altre violazioni di vincoli. La compressione in domini di errore o di aggiornamento si verifica in genere quando sono presenti molti errori o altra varianza nel sistema che impedisce il corretto posizionamento. Se si desidera impedire la compressione anche durante tali situazioni, è possibile utilizzare i criteri di [posizionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing)`RequireDomainDistribution`. Si noti che questo può influire sulla disponibilità e l'affidabilità del servizio come effetto collaterale e pertanto valutarlo attentamente.
 
 Se l'ambiente è configurato correttamente tutti i vincoli vengono completamente rispettati anche durante gli aggiornamenti. L'elemento fondamentale è che Cluster Resource Manager controlla i vincoli. Quando rileva una violazione la segnala immediatamente e tenta di risolvere il problema.
 

@@ -1,25 +1,14 @@
 ---
-title: Connettersi in remoto a un nodo di cluster di Azure Service Fabric | Microsoft Docs
+title: Connettersi in remoto a un nodo del cluster di Azure Service Fabric
 description: Informazioni su come connettersi in remoto a un'istanza di set di scalabilità, ovvero a un nodo di cluster di Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: 12508fd5297691f06bce46e056527672083c3a91
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: c7ca4f0d5dce1b19837a44d5c9749f3e1293c6b8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599938"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458323"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Connessione remota a un'istanza di set di scalabilità di macchine virtuali o a un nodo del cluster
 In un cluster di Service Fabric in esecuzione in Azure, ogni tipo di nodo del cluster definito [configura un'istanza separata di set di scalabilità di macchine virtuali](service-fabric-cluster-nodetypes.md).  È possibile connettersi in remoto a istanze specifiche di set di scalabilità (nodi del cluster).  Diversamente dalle macchine virtuali a istanza singola, le istanze dei set di scalabilità non ottengono un proprio indirizzo IP virtuale. Può quindi essere difficile cercare un indirizzo IP e una porta da usare per connettersi in remoto a un'istanza specifica.
@@ -28,7 +17,7 @@ Per trovare un indirizzo IP e una porta da usare per connettersi in remoto a un'
 
 1. Ottenere le regole NAT in ingresso per Remote Desktop Protocol (RDP).
 
-    In genere, ogni tipo di nodo definito nel cluster ha il proprio indirizzo IP virtuale e un bilanciamento del carico dedicato. Per impostazione predefinita, il servizio di bilanciamento del carico per un tipo di nodo viene denominato con il formato seguente: *Lb-{nome-cluster}-{nodo-tipo}* ; ad esempio, *lb-cluster-frontend*. 
+    In genere, ogni tipo di nodo definito nel cluster ha il proprio indirizzo IP virtuale e un bilanciamento del carico dedicato. Per impostazione predefinita, il bilanciamento del carico per un tipo di nodo è denominato in base al formato seguente: *LB-{nome-cluster}-{tipo-di-nodo}* , ad esempio *LB-mycluster-FrontEnd*. 
     
     Nella pagina del bilanciamento del carico nel portale di Azure selezionare **Impostazioni** > **Regole NAT in ingresso**: 
 

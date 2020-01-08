@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 691b2ae7e497c9292975083e3687d9240ce6f3e6
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: ec9f7ecf218b635588065c14bd4d11283d027c11
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286128"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364085"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Inviare le metriche del sistema operativo guest all'archivio delle metriche di Monitoraggio di Azure usando un modello di Azure Resource Manager per un set di scalabilità di macchine virtuali Windows
 
@@ -23,9 +23,9 @@ L'[estensione Diagnostica di Microsoft Azure (WAD)](diagnostics-extension-overvi
 
 In questo articolo viene descritto il processo per inviare le metriche delle prestazioni del sistema operativo guest per un set di scalabilità di macchine virtuali Windows all'archivio dati di Monitoraggio di Azure. A partire dalla versione 1.11 di Diagnostica di Microsoft Azure è possibile scrivere le metriche direttamente nell'archivio delle metriche di Monitoraggio di Azure in cui sono già state raccolte le metriche standard della piattaforma. L'archiviazione in questa posizione consente di accedere alle stesse azioni disponibili per le metriche della piattaforma. Le azioni includono la creazione di avvisi in tempo quasi reale, la creazione di grafici, il routing, l'accesso dall'API REST e altro ancora. Le versioni precedenti dell'estensione Diagnostica di Microsoft Azure eseguono operazioni di scrittura in Archiviazione di Azure, ma non nell'archivio dati di Monitoraggio di Azure.  
 
-Se non si ha familiarità con i modelli di Resource Manager, vedere le [distribuzioni dei modelli](../../azure-resource-manager/resource-group-overview.md) e la struttura e la sintassi correlate.  
+Se non si ha familiarità con i modelli di Resource Manager, vedere le [distribuzioni dei modelli](../../azure-resource-manager/management/overview.md) e la struttura e la sintassi correlate.  
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - La sottoscrizione deve essere registrata con [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 

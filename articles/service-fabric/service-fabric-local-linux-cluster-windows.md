@@ -1,25 +1,16 @@
 ---
-title: Configurare un cluster Linux di Azure Service Fabric in Windows| Microsoft Docs
+title: Configurare il cluster Azure Service Fabric Linux in Windows
 description: In questo articolo si descrive come configurare un cluster Linux di Azure Service Fabric in esecuzione su computer di sviluppo Windows. Ciò è particolarmente utile per lo sviluppo multipiattaforma.
-services: service-fabric
-documentationcenter: .net
 author: suhuruli
-manager: mfussell
-editor: ''
-ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/20/2017
 ms.author: suhuruli
-ms.openlocfilehash: e700250a6ebcdb82f99c1b460a510811d7ceb96c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 806e77a928d25e30aed24147525f74507bc32795
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60719941"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462989"
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Configurazione di un cluster Linux di Service Fabric sul computer di sviluppo Windows
 
@@ -30,7 +21,7 @@ I cluster di Service Fabric basati su Linux non vengono eseguiti in modo nativo 
 
 * Almeno 4 GB di RAM
 * Ultima versione di [Docker](https://store.docker.com/editions/community/docker-ce-desktop-windows)
-* Docker deve essere in esecuzione in modalità di Linux
+* Docker deve essere in esecuzione in modalità Linux
 
 >[!TIP]
 > * Per installare Docker nel computer Windows, è possibile seguire la procedura descritta nella [documentazione](https://store.docker.com/editions/community/docker-ce-desktop-windows/plans/docker-ce-desktop-windows-tier?tab=instructions) ufficiale di Docker. 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 803deb9a4d9eaf02129bd16dd6465362b87b7e84
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 1e6465584dd4e67f736b94d2939678c1a69163bf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995916"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435656"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurare la replica di cluster Apache HBase nelle reti virtuali di Azure
 
@@ -51,7 +51,7 @@ Sono disponibili tre opzioni di configurazione:
 
 Questo articolo illustra lo scenario di replica geografica.
 
-Per semplificare la configurazione degli ambienti, sono disponibili alcuni [modelli di Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Se si preferisce configurare gli ambienti con altri metodi, vedere:
+Per semplificare la configurazione degli ambienti, sono disponibili alcuni [modelli di Azure Resource Manager](../../azure-resource-manager/management/overview.md). Se si preferisce configurare gli ambienti con altri metodi, vedere:
 
 - [Creare cluster Apache Hadoop in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
 - [Creare cluster Apache HBase nella rete virtuale di Azure](apache-hbase-provision-vnet.md)
@@ -66,9 +66,9 @@ Alcuni valori hardcoded nel modello:
 
 **Rete virtuale 1**
 
-| Proprietà | Value |
+| Proprietà | Valore |
 |----------|-------|
-| Località | Stati Uniti occidentali |
+| Percorso | Stati Uniti occidentali |
 | Nome della rete virtuale | &lt;ClusterNamePrevix>-vnet1 |
 | Prefisso dello spazio degli indirizzi | 10.1.0.0/16 |
 | Nome della subnet | subnet 1 |
@@ -83,9 +83,9 @@ Alcuni valori hardcoded nel modello:
 
 **VNet 2**
 
-| Proprietà | Value |
+| Proprietà | Valore |
 |----------|-------|
-| Località | Stati Uniti Orientali |
+| Percorso | Stati Uniti orientali |
 | Nome della rete virtuale | &lt;ClusterNamePrevix>-vnet2 |
 | Prefisso dello spazio degli indirizzi | 10.2.0.0/16 |
 | Nome della subnet | subnet 1 |
@@ -307,7 +307,7 @@ La procedura seguente illustra come chiamare lo script di azione script dal port
 
 Argomenti obbligatori:
 
-|name|Description|
+|Nome|Description|
 |----|-----------|
 |-s, --src-cluster | Specifica il nome DNS del cluster HBase di origine. Ad esempio: -s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, - dst-cluster | Specifica il nome DNS del cluster HBase di destinazione (replica). Ad esempio: -s dsthbcluster, --src-cluster=dsthbcluster |
@@ -316,7 +316,7 @@ Argomenti obbligatori:
 
 Argomenti facoltativi:
 
-|name|Description|
+|Nome|Description|
 |----|-----------|
 |-su, --src-ambari-user | Specifica il nome utente amministratore per Ambari nel cluster HBase di origine. Il valore predefinito è **admin**. |
 |-du, --dst-ambari-user | Specifica il nome utente amministratore per Ambari nel cluster HBase di destinazione. Il valore predefinito è **admin**. |
@@ -369,7 +369,7 @@ La sezione `print_usage()` dello [script](https://github.com/Azure/hbase-utils/b
 - **Copiare tabelle specifiche (test1, test2 e test3) per tutte le righe modificate finora (timestamp corrente)** :
 
         -m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
-  In alternativa:
+  Oppure:
 
         -m hn1 -t "test1::;test2::;test3::" --replication-peer="zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
 

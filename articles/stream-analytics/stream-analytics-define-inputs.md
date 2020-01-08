@@ -1,19 +1,18 @@
 ---
 title: Trasmettere dati come input in Analisi di flusso di Azure
 description: Informazioni sulla configurazione di una connessione dati in Analisi di flusso di Azure. Gli input includono un flusso di dati dagli eventi, oltre a dati di riferimento.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: df111d605b7c05bcb934771b6063f2be04770ea9
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 72568be0cf87770e8878f95de4a9c82842b470df
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606471"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646847"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Trasmettere dati come input in Analisi di flusso
 
@@ -31,7 +30,7 @@ Analisi di flusso supporta la compressione tra tutte le origini di input del flu
 
 ## <a name="create-edit-or-test-inputs"></a>Creare, modificare o testare gli input
 
-È possibile usare la [portale di Azure](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md)e [Visual Studio Code](quick-create-vs-code.md) per aggiungere e visualizzare o modificare gli input esistenti nel processo di streaming. È anche possibile testare le connessioni di input e [testare le query](stream-analytics-manage-job.md#test-your-query) dai dati di esempio dal portale di Azure, da [Visual Studio](stream-analytics-vs-tools-local-run.md)e da [Visual Studio Code](vscode-local-run.md). Quando si scrive una query, si elenca l'input nella clausola FROM. È possibile ottenere l'elenco degli input disponibili dalla pagina **Query** del portale. Per usare più input, è possibile usare il comando `JOIN` per unirli oppure scrivere più query `SELECT`.
+È possibile usare la [portale di Azure](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md)e [Visual Studio Code](quick-create-vs-code.md) per aggiungere e visualizzare o modificare gli input esistenti nel processo di streaming. È anche possibile testare le connessioni di input e [testare le query](stream-analytics-manage-job.md#test-your-query) dai dati di esempio dal portale di Azure, da [Visual Studio](stream-analytics-vs-tools-local-run.md)e da [Visual Studio Code](visual-studio-code-local-run.md). Quando si scrive una query, si elenca l'input nella clausola FROM. È possibile ottenere l'elenco degli input disponibili dalla pagina **Query** del portale. Per usare più input, è possibile usare il comando `JOIN` per unirli oppure scrivere più query `SELECT`.
 
 
 ## <a name="stream-data-from-event-hubs"></a>Trasmettere dati da Hub eventi
@@ -48,21 +47,21 @@ Il timestamp `EventEnqueuedUtcTime` si riferisce all'arrivo di un evento nell'hu
 
 La tabella seguente descrive le proprietà disponibili nella pagina **Nuovo input** del portale di Azure per lo streaming dell'input dei dati da un hub eventi:
 
-| Proprietà | Descrizione |
+| Proprietà | Description |
 | --- | --- |
 | **Alias di input** |Nome descrittivo che viene usato nella query del processo per fare riferimento a questo input. |
 | **Sottoscrizione** | Scegliere la sottoscrizione in cui esiste la risorsa di Hub eventi. | 
 | **Spazio dei nomi dell'hub eventi** | Lo spazio dei nomi dell'hub eventi è un contenitore per un set di entità di messaggistica. Quando si crea un nuovo hub eventi, viene creato anche lo spazio dei nomi. |
 | **Nome hub eventi** | Nome dell'hub eventi da usare come input. |
-| **Nome criteri hub eventi** | Criteri di accesso condiviso che consentono di accedere all'hub eventi. Ogni criterio di accesso condiviso ha un nome, autorizzazioni impostate e chiavi di accesso. Il valore di questa opzione viene inserito automaticamente, a meno che non si selezioni l'opzione per specificare le impostazioni dell'hub eventi manualmente.|
+| **Nome criteri hub eventi** | Criteri di accesso condiviso che consentono di accedere all'hub eventi. Tutti i criteri di accesso condiviso dispongono di un nome e di autorizzazioni impostati, nonché di chiavi di accesso. Il valore di questa opzione viene inserito automaticamente, a meno che non si selezioni l'opzione per specificare le impostazioni dell'hub eventi manualmente.|
 | **Gruppo di consumer dell'hub eventi** (consigliata) | È vivamente consigliato usare un gruppo di consumer distinto per ogni processo di Analisi di flusso. Questa stringa identifica il gruppo di consumer da usare per l'inserimento di dati dall'hub eventi. Se non è specificato alcun gruppo di consumer, il processo di Analisi di flusso usa il gruppo di consumer $Default.  |
 | **Formato di serializzazione eventi** | Formato di serializzazione (JSON, CSV, avro o [other (protobuf, XML, proprietario...)](custom-deserializer.md)) del flusso di dati in ingresso.  Assicurarsi che il formato JSON sia allineato alla specifica e non includa uno 0 iniziale per i numeri decimali. |
-| **Codifica** | L'unico formato di codifica attualmente supportato è UTF-8. |
+| **Encoding** | L'unico formato di codifica attualmente supportato è UTF-8. |
 | **Tipo di compressione eventi** | Il tipo di compressione usato per leggere il flusso dei dati in ingresso, ad esempio Nessuno (predefinito), GZip o Deflate. |
 
 Quando i dati provengono da un input del flusso di Hub eventi, è possibile accedere ai campi di metadati seguenti nella query di Analisi di flusso:
 
-| Proprietà | Descrizione |
+| Proprietà | Description |
 | --- | --- |
 | **EventProcessedUtcTime** |Data e ora di elaborazione dell'evento in Analisi di flusso. |
 | **EventEnqueuedUtcTime** |Data e ora di ricezione dell'evento da parte di Hub eventi. |
@@ -96,23 +95,23 @@ Il timestamp predefinito degli eventi provenienti da un hub IoT in Analisi di fl
 
 La tabella seguente contiene la descrizione delle proprietà disponibili nella pagina **Nuovo input** del portale di Azure quando si configura un hub IoT come input del flusso.
 
-| Proprietà | Descrizione |
+| Proprietà | Description |
 | --- | --- |
 | **Alias di input** | Nome descrittivo che viene usato nella query del processo per fare riferimento a questo input.|
 | **Sottoscrizione** | Scegliere la sottoscrizione in cui esiste la risorsa dell'hub IoT. | 
 | **Hub IoT** | Nome dell'hub IoT da usare come input. |
 | **Endpoint** | Endpoint per l'hub IoT.|
-| **Nome criteri di accesso condiviso** | Criteri di accesso condiviso che consentono di accedere all'hub IoT. Ogni criterio di accesso condiviso ha un nome, autorizzazioni impostate e chiavi di accesso. |
+| **Nome criteri di accesso condiviso** | Criteri di accesso condiviso che consentono di accedere all'hub IoT. Tutti i criteri di accesso condiviso dispongono di un nome e di autorizzazioni impostati, nonché di chiavi di accesso. |
 | **Chiave criteri di accesso condiviso** | Chiave di accesso condiviso usata per autorizzare l'accesso all'hub IoT.  Il valore di questa opzione viene inserito automaticamente, a meno che non si selezioni l'opzione per specificare le impostazioni dell'hub IoT manualmente. |
 | **Gruppo di consumer** | È vivamente consigliato usare un gruppo di consumer differente per ogni processo di Analisi di flusso. Il gruppo di consumer viene usato per inserire dati dall'hub IoT. Analisi di flusso usa il gruppo di consumer $Default se non diversamente specificato.  |
 | **Formato di serializzazione eventi** | Formato di serializzazione (JSON, CSV, avro o [other (protobuf, XML, proprietario...)](custom-deserializer.md)) del flusso di dati in ingresso.  Assicurarsi che il formato JSON sia allineato alla specifica e non includa uno 0 iniziale per i numeri decimali. |
-| **Codifica** | L'unico formato di codifica attualmente supportato è UTF-8. |
+| **Encoding** | L'unico formato di codifica attualmente supportato è UTF-8. |
 | **Tipo di compressione eventi** | Il tipo di compressione usato per leggere il flusso dei dati in ingresso, ad esempio Nessuno (predefinito), GZip o Deflate. |
 
 
 Quando si usano i dati di flusso provenienti da un hub IoT, è possibile accedere ai campi di metadati seguenti nella query di Analisi di flusso:
 
-| Proprietà | Descrizione |
+| Proprietà | Description |
 | --- | --- |
 | **EventProcessedUtcTime** | Data e ora di elaborazione dell'evento. |
 | **EventEnqueuedUtcTime** | Data e ora di ricezione dell'evento da parte dell'hub IoT. |
@@ -148,23 +147,23 @@ Il caricamento di un numero molto elevato di BLOB in una sola volta può impedir
 
 La tabella seguente contiene la descrizione delle proprietà disponibili nella pagina **Nuovo input** del portale di Azure quando si configura l'archiviazione BLOB come input del flusso.
 
-| Proprietà | Descrizione |
+| Proprietà | Description |
 | --- | --- |
 | **Alias di input** | Nome descrittivo che viene usato nella query del processo per fare riferimento a questo input. |
 | **Sottoscrizione** | Scegliere la sottoscrizione in cui esiste la risorsa dell'hub IoT. | 
 | **Account di archiviazione** | Nome dell'account di archiviazione in cui si trovano i file BLOB. |
 | **Chiave dell'account di archiviazione** | Chiave privata associata all'account di archiviazione. Il valore di questa opzione viene inserito automaticamente, a meno che non si selezioni l'opzione per specificare le impostazioni dell'archiviazione BLOB manualmente. |
 | **Contenitore** | Contenitore per l'input del servizio BLOB. I contenitori forniscono un raggruppamento logico per gli oggetti BLOB archiviati nel servizio BLOB di Microsoft Azure. Quando si carica un oggetto BLOB nel servizio Archiviazione BLOB di Azure, è necessario specificare un contenitore per tale BLOB. È possibile scegliere il contenitore **Usa esistente** o **Crea nuovo** per creare un nuovo contenitore.|
-| **Modello percorso** (facoltativa) | Percorso del file usato per trovare gli oggetti BLOB nel contenitore specificato. Se si desidera leggere i BLOB dalla radice del contenitore, non impostare un modello di percorso. All'interno del percorso è possibile specificare una o più istanze delle tre variabili seguenti: `{date}`, `{time}` o `{partition}`<br/><br/>Esempio 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Esempio 2: `cluster1/logs/{date}`<br/><br/>Il carattere `*` non è un valore consentito per il prefisso del percorso. Sono consentiti solo <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Caratteri BLOB di Azure</a> validi. Non includere i nomi di contenitori o di file. |
+| **Modello percorso** (facoltativa) | Percorso del file usato per trovare gli oggetti BLOB nel contenitore specificato. Se si desidera leggere i BLOB dalla radice del contenitore, non impostare un modello di percorso. All'interno del percorso è possibile specificare una o più istanze delle tre variabili seguenti: `{date}`, `{time}` o `{partition}`<br/><br/>Esempio 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Esempio 2: `cluster1/logs/{date}`<br/><br/>Il carattere `*` non è un valore consentito per il prefisso del percorso. Sono consentiti solo <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Caratteri BLOB di Azure</a> validi. Non includere nomi di contenitori o nomi di file. |
 | **Formato data** (facoltativa) | Formato della data in base al quale vengono organizzati i file, se si usa la variabile date nel percorso. Esempio: `YYYY/MM/DD` |
 | **Formato ora** (facoltativa) |  Formato dell'ora in base al quale vengono organizzati i file, se si usa la variabile time nel percorso. Al momento, l'unico valore supportato è `HH` per le ore. |
 | **Formato di serializzazione eventi** | Formato di serializzazione (JSON, CSV, avro o [other (protobuf, XML, proprietario...)](custom-deserializer.md)) del flusso di dati in ingresso.  Assicurarsi che il formato JSON sia allineato alla specifica e non includa uno 0 iniziale per i numeri decimali. |
-| **Codifica** | Per CSV e JSON, l'unico formato di codifica attualmente supportato è UTF-8. |
+| **Encoding** | Per CSV e JSON, l'unico formato di codifica attualmente supportato è UTF-8. |
 | **Compressione** | Il tipo di compressione usato per leggere il flusso dei dati in ingresso, ad esempio Nessuno (predefinito), GZip o Deflate. |
 
 Quando i dati provengono da un'origine di archiviazione BLOB, è possibile accedere ai campi di metadati seguenti nella query di Analisi di flusso:
 
-| Proprietà | Descrizione |
+| Proprietà | Description |
 | --- | --- |
 | **BlobName** |Nome del BLOB di input da cui proviene l'evento. |
 | **EventProcessedUtcTime** |Data e ora di elaborazione dell'evento in Analisi di flusso. |
@@ -183,7 +182,7 @@ FROM Input
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
-> [Guida introduttiva: Creare un processo di Analisi di flusso di Azure tramite il portale di Azure](stream-analytics-quick-create-portal.md)
+> [Avvio rapido: creare un processo di Analisi di flusso di Azure tramite il portale di Azure](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 33ae3f9f928a55f50f4ecd0c6c98790a384e880b
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 11df1557fdcad059910dd2a87e9056e19a90bf01
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74684189"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640839"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introduzione ad Azure WebJobs SDK per l'elaborazione in background guidata dagli eventi
 
@@ -320,13 +320,13 @@ In questa sezione si configura la registrazione in Application Insights prima de
 
 1. Nella casella **Stringhe di connessione** aggiungere la voce seguente.
 
-   |name  |Stringa di connessione  |Tipo di database|
+   |Nome  |Stringa di connessione  |Tipo di database|
    |---------|---------|------|
    |AzureWebJobsStorage | {stringa di connessione di archiviazione copiata in precedenza}|Personalizzato|
 
 1. Se la casella **Impostazioni applicazione** non contiene una chiave di strumentazione di Application Insights, aggiungere quella copiata in precedenza. La presenza o meno della chiave di strumentazione dipende da come è stata creata l'app del servizio app.
 
-   |name  |Value  |
+   |Nome  |Valore  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {instrumentation key} |
 
@@ -399,21 +399,23 @@ Per poter sfruttare la registrazione di [Application Insights](../azure-monitor/
 
 In questa sezione si ripete l'esecuzione in locale per verificare che i dati di registrazione vengano ora inviati sia ad Application Insights che alla console.
 
-1. Usare **Esplora server** in Visual Studio per creare un messaggio nella coda così come è stato fatto [in precedenza](#trigger-the-function-in-azure), immettendo però *Hello App Insights!* come testo del messaggio.
+1. Usare **Esplora server** in Visual Studio per creare un messaggio in coda come in [precedenza](#test-locally), eccetto immettere *Hello App Insights.* come testo del messaggio.
 
 1. Eseguire il progetto.
 
-   WebJobs SDK elabora il messaggio nella coda e nella finestra della console vengono visualizzati i log.
+   Webjobs SDK elabora il messaggio della coda e i log vengono visualizzati nella finestra della console.
 
 1. Chiudere la finestra della console.
 
-1. Aprire il [portale di Azure](https://portal.azure.com/) e passare alla risorsa di Application Insights.
+1. Passare alla [portale di Azure](https://portal.azure.com/) per visualizzare la risorsa Application Insights. Cercare e selezionare **Application Insights**.
+
+1. Scegliere l'istanza di Application Insights.
 
 1. Selezionare **Cerca**.
 
    ![Selezionare Cerca](./media/webjobs-sdk-get-started/select-search.png)
 
-1. Se il messaggio *Hello App Insights!* non viene visualizzato, selezionare periodicamente **Aggiorna** per alcuni minuti. I log non vengono visualizzati immediatamente perché il client di Application Insights impiega tempo per scaricare i log che elabora.
+1. Se il messaggio *Hello App Insights!* non viene visualizzato, selezionare periodicamente **Aggiorna** per alcuni minuti. I log non vengono visualizzati immediatamente, perché il client di Application Insights deve scaricare i log elaborati.
 
    ![Log in Application Insights](./media/webjobs-sdk-get-started/logs-in-ai.png)
 

@@ -5,15 +5,15 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 05/17/2018
+ms.date: 01/03/2020
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: b1252c455c2dfad2963f914ee746bcb932e59aa9
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 6d8f29e9272f3e05bb585c032240cce67c37d2bf
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74451508"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665159"
 ---
 1. Per visualizzare i tag per una risorsa o un gruppo di risorse, cercare i tag esistenti nella panoramica. Se in precedenza non sono stati applicati tag, l'elenco è vuoto.
    
@@ -52,7 +52,7 @@ Per eseguire l'assegnazione in blocco dei tag a più risorse:
 
 Per visualizzare tutte le risorse con un tag:
 
-1. Scegliere **tutti i servizi**dal menu portale di Azure. Selezionare **generale**, quindi **tag**.
+1. Nel menu del portale di Azure selezionare **Tutti i servizi**. Selezionare **generale**, quindi **tag**.
 
      ![Ricerca in base al tag](./media/resource-manager-tag-resources/find-tags-general.png)
 
@@ -63,11 +63,3 @@ Per visualizzare tutte le risorse con un tag:
 1. Vengono visualizzate tutte le risorse con tale tag.
 
      ![Visualizzare le risorse in base al tag](./media/resource-manager-tag-resources/view-resources-by-tag.png)
-
-1. Per l'accesso rapido, aggiungere la visualizzazione al dashboard.
-
-     ![Aggiungi al dashboard](./media/resource-manager-tag-resources/pin-to-dashboard.png)
-
-1. La visualizzazione è disponibile dal dashboard.
-
-     ![Dashboard](./media/resource-manager-tag-resources/dashboard-with-view.png)

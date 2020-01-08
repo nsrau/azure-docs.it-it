@@ -1,5 +1,6 @@
 ---
-title: Monitorare le API con Gestione API di Azure, Hub eventi e Moesif | Microsoft Docs
+title: Monitorare le API con gestione API di Azure, Hub eventi e Moesif
+titleSuffix: Azure API Management
 description: Applicazione di esempio che illustra il criterio log-to-eventhub tramite la connessione di Gestione API di Azure, Hub eventi di Azure e Moesif per operazioni di registrazione e monitoraggio HTTP
 services: api-management
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: c52a1942bda9881f8f782a227c81feaa4813722d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4a0717bf7a284668af4808acae3050cc7f42f836
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60656732"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442534"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Monitorare le API con Gestione API di Azure, Hub eventi e Moesif
 Il [servizio Gestione API](api-management-key-concepts.md) offre molte capacità per migliorare l'elaborazione di richieste HTTP inviate all'API HTTP. L'esistenza di richieste e risposte è tuttavia temporanea. La richiesta viene effettuata e passa attraverso al servizio Gestione API fino all'API back-end. L'API elabora la richiesta e una risposta viene restituita al consumer dell'API. Il servizio Gestione API mantiene alcune statistiche importanti sulle API da visualizzare nel dashboard del portale di Azure, ma eventuali altri dettagli verranno eliminati.
@@ -78,7 +79,7 @@ Per potere creare questo messaggio, è necessario sfruttare le [espressioni di c
 ### <a name="policy-declaration"></a>Dichiarazione di criteri
 È necessario evidenziare alcuni aspetti di questa espressione di criteri. Il criterio log-to-eventhub ha un attributo denominato logger-id che fa riferimento al nome del logger creato nel servizio Gestione API. I dettagli relativi alla configurazione di un logger dell'Hub eventi nel servizio Gestione API sono disponibili nel documento [Come registrare eventi nell'Hub eventi di Azure in Gestione API di Azure](api-management-howto-log-event-hubs.md). Il secondo attributo è un parametro opzionale che indica all'Hub eventi la partizione in cui archiviare il messaggio. Hub eventi usa le partizioni per abilitare la scalabilità e richiede almeno due partizioni. Il recapito ordinato dei messaggi è garantito solo entro una partizione. Se non si indica all'Hub eventi la partizione in cui inserire il messaggio, verrà usato un algoritmo round-robin per distribuire il carico. È tuttavia possibile che ciò provochi l'elaborazione non ordinata di alcuni messaggi.
 
-### <a name="partitions"></a>Partitions
+### <a name="partitions"></a>Partizioni
 Per assicurarsi che i messaggi vengano recapitati ai consumer in base all'ordine stabilito e sfruttare i vantaggi della capacità di distribuzione del carico delle partizioni, è possibile scegliere di inviare messaggi di richiesta HTTP a una partizione e messaggi di risposta HTTP a una seconda partizione. In questo modo si assicura una distribuzione uniforme del carico e sarà possibile garantire che tutte le richieste e le risposte vengano utilizzate nell'ordine stabilito. È possibile che una risposta venga utilizzata prima della risposta corrispondente, ma questo non costituisce un problema, perché è disponibile un meccanismo diverso per la correlazione delle richieste alle risposte e si sa che le richieste precedono sempre le risposte.
 
 ### <a name="http-payloads"></a>Payload HTTP
@@ -293,7 +294,7 @@ public class MoesifHttpMessageProcessor : IHttpMessageProcessor
 }
 ```
 
-`MoesifHttpMessageProcessor` si avvale di una [libreria di API C# per Moesif](https://www.moesif.com/docs/api?csharp#events) che facilita il push di dati di eventi HTTP nel proprio servizio. Per inviare dati HTTP all'API di raccolta Moesif sono necessari un account e un ID applicazione. Per ottenere un ID applicazione Moesif, creare un account nel [sito Web Moesif](https://www.moesif.com) e quindi passare al _menu in alto a destra_ -> _App Setup_ (Configurazione app).
+`MoesifHttpMessageProcessor` si avvale di una [libreria di API C# per Moesif](https://www.moesif.com/docs/api?csharp#events) che facilita il push di dati di eventi HTTP nel proprio servizio. Per inviare i dati HTTP all'API dell'agente di raccolta Moesif, sono necessari un account e un ID applicazione. Per ottenere un ID applicazione Moesif, creare un account nel [sito Web di Moesif](https://www.moesif.com) e quindi andare al _menu in alto a destra_ -> installazione dell' _app_.
 
 ## <a name="complete-sample"></a>Esempio completo
 Il [codice sorgente](https://github.com/dgilling/ApimEventProcessor) e i test per l'esempio sono disponibili su GitHub. Per eseguire l'esempio, è necessario disporre di un [servizio Gestione API](get-started-create-service-instance.md), [un hub eventi connesso](api-management-howto-log-event-hubs.md) e un [account di archiviazione](../storage/common/storage-create-storage-account.md).   

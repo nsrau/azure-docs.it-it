@@ -8,20 +8,20 @@ ms.author: bobuc
 ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3477bac051346e4b334ff3437085c402090b2c98
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 6143f50b9f1f6738daf3e69d4cc0e00742e1e35a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765462"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356344"
 ---
 # <a name="coarse-relocalization"></a>Rilocalizzazione grossolana
 
-La rilocalizzazione grossolana è una funzionalità che fornisce una risposta iniziale alla domanda: *dove si trova il dispositivo ora/quale contenuto è opportuno osservare?* La risposta non è precisa, ma è invece nel formato: *si è vicini a questi ancoraggi, provare a individuarne uno*.
+La rilocalizzazione grossolana è una funzionalità che fornisce una risposta iniziale alla domanda: *dove si trova il dispositivo ora/quale contenuto è opportuno osservare?* La risposta non è precisa, ma è nel formato: *si è vicini a questi ancoraggi; provare a individuarne uno*.
 
-La rilocalizzazione grossolana funziona associando varie letture del sensore sul dispositivo con la creazione e l'esecuzione di query degli ancoraggi. Per gli scenari esterni, i dati del sensore sono in genere la posizione GPS (Global Positioning System) del dispositivo. Quando il GPS non è disponibile o non è affidabile (ad esempio, in ingresso), i dati del sensore sono costituiti dai punti di accesso Wi-Fi e dai beacon Bluetooth nell'intervallo. Tutti i dati dei sensori raccolti contribuiscono alla gestione di un indice spaziale. L'indice spaziale viene usato dal servizio di ancoraggio per determinare rapidamente gli ancoraggi che rientrano approssimativamente a 100 metri del dispositivo.
+La rilocalizzazione grossolana funziona associando varie letture del sensore sul dispositivo con la creazione e l'esecuzione di query degli ancoraggi. Per gli scenari esterni, i dati del sensore sono in genere la posizione GPS (Global Positioning System) del dispositivo. Quando il GPS non è disponibile o non è affidabile (ad esempio, in ingresso), i dati del sensore sono costituiti dai punti di accesso Wi-Fi e dai beacon Bluetooth nell'intervallo. Tutti i dati dei sensori raccolti contribuiscono alla gestione di un indice spaziale. questa operazione viene usata dagli ancoraggi spaziali di Azure per determinare rapidamente gli ancoraggi entro circa 100 metri dal dispositivo.
 
-La ricerca rapida di ancoraggi abilitati dalla rilocalizzazione grossolana semplifica lo sviluppo di applicazioni supportate da raccolte su scala mondiale di (ad indicare milioni di ancoraggi con distribuzione geografica). La complessità della gestione degli ancoraggi è completamente nascosta, consentendo di concentrarsi maggiormente sulla logica dell'applicazione. Tutto il lifting di ancoraggio viene eseguito automaticamente dietro le quinte del servizio.
+La ricerca rapida di ancoraggi abilitati dalla rilocalizzazione grossolana semplifica lo sviluppo di applicazioni supportate da raccolte su scala globale di ancoraggi, ad affermare milioni di ancoraggi con distribuzione geografica. La complessità della gestione degli ancoraggi è completamente nascosta, consentendo di concentrarsi maggiormente sulla logica dell'applicazione. Tutto il lifting di ancoraggio viene eseguito automaticamente dietro le quinte dagli ancoraggi spaziali di Azure.
 
 ## <a name="collected-sensor-data"></a>Dati dei sensori raccolti
 
@@ -91,7 +91,7 @@ cloudSpatialAnchorSession = new CloudSpatialAnchorSession();
 cloudSpatialAnchorSession.setLocationProvider(sensorProvider);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 // Create the sensor fingerprint provider
@@ -118,7 +118,7 @@ cloudSpatialAnchorSession.LocationProvider(sensorProvider);
 ```
 ---
 
-Successivamente, è necessario decidere quali sensori si vuole usare per la rilocalizzazione approssimativa. Questa decisione, in generale, è specifica dell'applicazione che si sta sviluppando, ma i consigli indicati nella tabella seguente dovrebbero fornire un valido punto di partenza:
+Successivamente, è necessario decidere quali sensori si vuole usare per la rilocalizzazione approssimativa. Questa decisione è specifica dell'applicazione che si sta sviluppando, ma i consigli indicati nella tabella seguente dovrebbero fornire un valido punto di partenza:
 
 
 |             | Interni | Autunno |
@@ -159,7 +159,7 @@ SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setGeoLocationEnabled(true);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
@@ -182,8 +182,9 @@ Quando si usa il GPS nell'applicazione, tenere presente che le letture fornite d
 
 In generale, il sistema operativo del dispositivo e gli ancoraggi spaziali di Azure eseguiranno alcune operazioni di filtro e estrapolazione sul segnale GPS non elaborato nel tentativo di attenuare questi problemi. Questa elaborazione aggiuntiva richiede ulteriore tempo per la convergenza, quindi per ottenere risultati ottimali è consigliabile:
 
-* creare il provider di impronte digitali del sensore il prima possibile nell'applicazione
-* Mantieni attivo il provider di impronte digitali del sensore e Condividi tra più sessioni
+* creare un provider di impronte digitali del sensore il prima possibile nell'applicazione
+* Mantieni attivo il provider di impronte digitali del sensore tra più sessioni
+* condividere il provider di impronte digitali del sensore tra più sessioni
 
 Se si prevede di usare il provider di impronte digitali del sensore al di fuori di una sessione di ancoraggio, assicurarsi di avviarlo prima di richiedere le stime dei sensori. Ad esempio, il codice seguente si occuperà di aggiornare la posizione del dispositivo sulla mappa in tempo reale:
 
@@ -271,7 +272,7 @@ while (m_isRunning)
 sensorProvider.stop();
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 // Game about to start, start tracking the sensors
@@ -344,7 +345,7 @@ SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setWifiEnabled(true);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
@@ -402,7 +403,7 @@ SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setBluetoothEnabled(true);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
@@ -418,7 +419,7 @@ sensors.BluetoothEnabled(true);
 
 ---
 
-I beacon sono in genere dispositivi versatili, in cui è possibile configurare tutti gli elementi, inclusi UUID e indirizzi MAC. Questa flessibilità può essere problematica per gli ancoraggi spaziali di Azure che considera i beacon identificati in modo univoco dai rispettivi UUID. Il mancato assicurando che questa unicità venga convertita più probabilmente nei wormhole spaziali. Per ottenere risultati ottimali, è necessario:
+I beacon sono in genere dispositivi versatili, in cui è possibile configurare tutti gli elementi, inclusi UUID e indirizzi MAC. Questa flessibilità può essere problematica per gli ancoraggi spaziali di Azure poiché considera i beacon come identificati in modo univoco dai rispettivi UUID. Il mancato assicurando che questa unicità provochi molto probabilmente i wormhole spaziali. Per ottenere risultati ottimali, è necessario:
 
 * assegnare UUID univoci ai beacon.
 * distribuirli, in genere in un modello regolare, ad esempio una griglia.
@@ -466,7 +467,7 @@ SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setKnownBeaconProximityUuids(uuids);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 std::vector<std::string> uuids;
@@ -490,13 +491,13 @@ sensors.KnownBeaconProximityUuids(uuids);
 
 ---
 
-Gli ancoraggi spaziali di Azure rileveranno solo i beacon Bluetooth presenti nell'elenco. I beacon dannosi programmati in modo da consentire gli UUID elencati possono comunque influire negativamente sulla qualità del servizio. Per questo motivo, è consigliabile usare Beacon solo negli spazi curati in cui è possibile controllare la distribuzione.
+Gli ancoraggi spaziali di Azure rileveranno solo i beacon Bluetooth presenti nell'elenco UUID di prossimità di Beacon noti. I beacon dannosi programmati in modo da consentire gli UUID elencati possono comunque influire negativamente sulla qualità del servizio. Per questo motivo, è consigliabile usare Beacon solo negli spazi curati in cui è possibile controllare la distribuzione.
 
 ## <a name="querying-with-sensor-data"></a>Esecuzione di query con i dati del sensore
 
-Dopo aver creato gli ancoraggi con i dati del sensore associati, è possibile iniziare a recuperarli usando le letture del sensore segnalate dal dispositivo. Non è più necessario fornire al servizio un elenco di ancoraggi noti che si prevede di trovare. al contrario, è sufficiente lasciare che il servizio conosca la posizione del dispositivo come segnalato dai sensori di onboarding. Il servizio di ancoraggio spaziale rileverà quindi il set di ancoraggi vicino al dispositivo e tenterà di trovare una corrispondenza visiva.
+Dopo aver creato gli ancoraggi con i dati del sensore associati, è possibile iniziare a recuperarli usando le letture del sensore segnalate dal dispositivo. Non è più necessario fornire al servizio un elenco di ancoraggi noti che si prevede di trovare. al contrario, è sufficiente lasciare che il servizio conosca la posizione del dispositivo come segnalato dai sensori di onboarding. Gli ancoraggi spaziali di Azure rileveranno quindi il set di ancoraggi vicino al dispositivo e tenterà di trovare una corrispondenza visiva.
 
-Per fare in modo che le query usino i dati del sensore, iniziare creando un criterio di individuazione:
+Per fare in modo che le query usino i dati del sensore, iniziare creando i criteri "near Device":
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -558,7 +559,7 @@ AnchorLocateCriteria anchorLocateCriteria = new AnchorLocateCriteria();
 anchorLocateCriteria.setNearDevice(nearDeviceCriteria);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 auto nearDeviceCriteria = std::make_shared<NearDeviceCriteria>();
@@ -593,7 +594,7 @@ anchorLocateCriteria.NearDevice(nearDeviceCriteria);
 
 Il parametro `DistanceInMeters` controlla il punto in cui si esplorerà il grafico di ancoraggio per recuperare il contenuto. Si supponga, ad esempio, di avere popolato uno spazio con ancoraggi a densità costante pari a 2 ogni contatore. Inoltre, la fotocamera del dispositivo sta osservando un singolo ancoraggio e il servizio lo ha individuato correttamente. È molto probabile che si sia interessati a recuperare tutti gli ancoraggi posizionati nelle vicinanze, anziché il singolo ancoraggio attualmente in osservazione. Supponendo che gli ancoraggi posizionati siano connessi in un grafico, il servizio può recuperare tutti gli ancoraggi adiacenti per l'utente seguendo i bordi nel grafico. La quantità di attraversamento del grafo eseguita è controllata dal `DistanceInMeters`; verranno assegnati tutti gli ancoraggi connessi a quello che si trova, più vicino a `DistanceInMeters`.
 
-Tenere presente che i valori di grandi dimensioni per `MaxResultCount` potrebbero influire negativamente sulle prestazioni. Provare a impostarla su un valore ragionevole che abbia senso per l'applicazione.
+Tenere presente che i valori di grandi dimensioni per `MaxResultCount` potrebbero influire negativamente sulle prestazioni. Impostarla su un valore ragionevole per l'applicazione.
 
 Infine, sarà necessario indicare alla sessione di utilizzare la ricerca basata su sensori:
 
@@ -621,7 +622,7 @@ cloudSpatialAnchorSession!.createWatcher(anchorLocateCriteria)
 cloudSpatialAnchorSession.createWatcher(anchorLocateCriteria);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 cloudSpatialAnchorSession->CreateWatcher(anchorLocateCriteria);

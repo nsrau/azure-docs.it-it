@@ -1,18 +1,15 @@
 ---
-title: Configurare le notifiche di integrità dei servizi di Azure per i sistemi di gestione dei problemi esistenti usando un webhook
+title: Inviare notifiche sull'integrità dei servizi di Azure con un webhook
 description: Inviare notifiche personalizzate sugli eventi di integrità del servizio al sistema di gestione dei problemi esistente.
-author: stephbaron
-ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
-ms.workload: Supportability
 ms.date: 3/27/2018
-ms.openlocfilehash: 8f84b43519c197797b39397cfd15c4f90444177c
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 95926185057d9fc1177b974fe76b2da18ebfc124
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854375"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551676"
 ---
 # <a name="use-a-webhook-to-configure-health-notifications-for-problem-management-systems"></a>Usare un webhook per configurare le notifiche di integrità per i sistemi di gestione dei problemi
 
@@ -34,9 +31,9 @@ Se si vuole usare un'integrazione preconfigurata, vedere:
 ## <a name="configure-a-custom-notification-by-using-the-service-health-webhook-payload"></a>Configurare una notifica personalizzata usando il payload del webhook di integrità del servizio
 Per configurare l'integrazione di Webhook personalizzata, è necessario analizzare il payload JSON inviato tramite la notifica sull'integrità del servizio.
 
-Vedere [un payload di esempio](../azure-monitor/platform/activity-log-alerts-webhook.md) `ServiceHealth` del webhook.
+Vedere [un esempio](../azure-monitor/platform/activity-log-alerts-webhook.md) `ServiceHealth` payload del webhook.
 
-È possibile verificare che si tratta di un avviso di integrità del servizio `context.eventSource == "ServiceHealth"`osservando. Di seguito sono riportate le proprietà più rilevanti:
+È possibile verificare che si tratta di un avviso di integrità dei servizi esaminando `context.eventSource == "ServiceHealth"`. Di seguito sono riportate le proprietà più rilevanti:
 - **Data. Context. activityLog. status**
 - **Data. Context. activityLog. Level**
 - **Data. Context. activityLog. subscriptionId**
@@ -49,14 +46,14 @@ Vedere [un payload di esempio](../azure-monitor/platform/activity-log-alerts-web
 ## <a name="create-a-link-to-the-service-health-dashboard-for-an-incident"></a>Creare un collegamento al dashboard di integrità dei servizi per un evento imprevisto
 È possibile creare un collegamento diretto al dashboard per l'integrità dei servizi in un desktop o in un dispositivo mobile generando un URL specifico. Usare il *trackingId* e le prime tre e ultime tre cifre di *SubscriptionId* nel formato seguente:
 
-https<i></i>://app.Azure.com/h/ *&lt;trackingId&gt;* /*prime tre e ultime tre cifre di SubscriptionID&gt; &lt;*
+https<i></i>://app.Azure.com/h/ *&lt;trackingId&gt;* / *&lt;prime tre e ultime tre cifre di SubscriptionId&gt;*
 
 Ad esempio, se *SubscriptionId* è Bba14129-E895-429B-8809-278e836ecdb3 e *trackingId* è 0DET-Urb, l'URL di integrità del servizio è:
 
 https<i></i>://app.Azure.com/h/0DET-Urb/bbadb3
 
 ## <a name="use-the-level-to-detect-the-severity-of-the-issue"></a>Usare il livello per rilevare la gravità del problema
-Dal più basso al più alto livello di gravità, la proprietà **Level** nel payload può essere informativa, *avviso*, *errore*o *critico*.
+Dal più basso al più alto livello di gravità, la proprietà **Level** nel payload può essere *informativa*, *avviso*, *errore*o *critico*.
 
 ## <a name="parse-the-impacted-services-to-determine-the-incident-scope"></a>Analizzare i servizi interessati per determinare l'ambito dell'evento imprevisto
 Gli avvisi di integrità del servizio possono fornire informazioni sui problemi in più aree e servizi. Per ottenere i dettagli completi, è necessario analizzare il valore di `impactedServices`.
@@ -99,7 +96,7 @@ In questo esempio vengono illustrati i problemi relativi a:
 
 ## <a name="test-your-webhook-integration-via-an-http-post-request"></a>Testare l'integrazione del webhook tramite una richiesta HTTP POST
 
-Attenersi ai passaggi riportati di seguito.
+A tale scopo, seguire questa procedura:
 
 1. Creare il payload di integrità del servizio che si desidera inviare. Vedere un esempio di payload del webhook di integrità del servizio in [webhook per gli avvisi del log attività di Azure](../azure-monitor/platform/activity-log-alerts-webhook.md).
 

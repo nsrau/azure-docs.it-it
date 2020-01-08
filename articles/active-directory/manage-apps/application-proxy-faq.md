@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: 612b6caf47ec4764aa2bbef162592100198ed0c4
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 47c1ce3391129525237566fb92cec2e9b33ca08f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832204"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443406"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Domande frequenti sul proxy di applicazione Active Directory (Azure AD)
 
@@ -36,7 +36,7 @@ Per usare Azure AD proxy di applicazione, è necessario disporre di una licenza 
 
 Assicurarsi di avere almeno una licenza Azure AD Premium P1 o P2 e un connettore proxy di applicazione Azure AD installato. Dopo aver installato correttamente il primo connettore, il servizio proxy applicazione Azure AD verrà abilitato automaticamente.
 
-## <a name="connector-configuration"></a>Configurazione connettore
+## <a name="connector-configuration"></a>Configurazione del connettore
 
 ### <a name="can-application-proxy-connector-services-run-in-a-different-user-context-than-the-default"></a>I servizi del connettore proxy di applicazione possono essere eseguiti in un contesto utente diverso da quello predefinito?
 
@@ -53,9 +53,9 @@ Per indicazioni, vedere [disponibilità elevata e bilanciamento del carico delle
 
 No, questo scenario non è supportato. Solo il connettore e i servizi di aggiornamento possono essere configurati per usare un proxy di inoltro per il traffico in uscita in Azure. Vedere [usare server proxy locali esistenti](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers)
 
-### <a name="is-ssl-termination-sslhhtps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>La terminazione SSL (ispezione SSL/HHTPS o accelerazione) sul traffico dai server del connettore ad Azure è supportata?
+### <a name="is-ssl-termination-sslhttps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>La terminazione SSL (ispezione SSL/HTTPS o accelerazione) sul traffico dai server del connettore ad Azure è supportata?
 
-Il connettore del proxy di applicazione esegue l'autenticazione basata sui certificati in Azure. Terminazione SSL (ispezione SSL/HHTPS o accelerazione) interrompe questo metodo di autenticazione e non è supportato. Il traffico dal connettore ad Azure deve ignorare tutti i dispositivi che eseguono la terminazione SSL.  
+Il connettore del proxy di applicazione esegue l'autenticazione basata sui certificati in Azure. La terminazione SSL (ispezione SSL/HTTPS o accelerazione) interrompe questo metodo di autenticazione e non è supportata. Il traffico dal connettore ad Azure deve ignorare tutti i dispositivi che eseguono la terminazione SSL.  
 
 ### <a name="should-i-create-a-dedicated-account-to-register-the-connector-with-azure-ad-application-proxy"></a>È necessario creare un account dedicato per registrare il connettore con Azure AD proxy di applicazione?
 
@@ -63,7 +63,7 @@ Nessun motivo. Tutti gli account di amministratore globale o di amministratore d
 
 ### <a name="how-can-i-monitor-the-performance-of-the-azure-ad-application-proxy-connector"></a>Come è possibile monitorare le prestazioni del connettore del proxy di applicazione Azure AD?
 
-Sono presenti contatori di performance monitor installati insieme al connettore. Per visualizzarli:  
+Sono presenti contatori di performance monitor installati insieme al connettore. A tale scopo:  
 
 1. Selezionare **Start**, digitare "perfmon" e premere INVIO.
 2. Selezionare **Performance Monitor** e fare clic sull'icona verde **+** .

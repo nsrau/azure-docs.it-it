@@ -1,6 +1,7 @@
 ---
-title: Articolo sui problemi noti/limitazioni della migrazione con migrazioni online da PostgreSQL a database di Azure per PostgreSQL-server singolo | Microsoft Docs
-description: Informazioni sui problemi noti/limitazioni della migrazione con migrazioni online da PostgreSQL a database di Azure per PostgreSQL.
+title: 'Problemi noti: migrazioni online da PostgreSQL a database di Azure per PostgreSQL'
+titleSuffix: Azure Database Migration Service
+description: Informazioni sui problemi noti e sulle limitazioni della migrazione con migrazioni online da PostgreSQL a database di Azure per PostgreSQL-server singolo con il servizio migrazione del database di Azure.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,15 +9,17 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom:
+- seo-lt-2019
+- seo-dt-2019
 ms.topic: article
 ms.date: 10/27/2019
-ms.openlocfilehash: e25e31a9ed656d625d2025d8d0086d23ecf10682
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: c5c0015c5034dd3b30b716264fd97e9881b3fe67
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043196"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437863"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql-single-server"></a>Problemi noti/limitazioni della migrazione con migrazioni online da PostgreSQL a database di Azure per PostgreSQL-server singolo
 
@@ -34,7 +37,7 @@ Le sezioni seguenti illustrano i problemi noti e le limitazioni associate alle m
   - **wal_level** = logical
   - **max_replication_slots** = [numero massimo di database per la migrazione]; Se si desidera eseguire la migrazione di quattro database, impostare il valore su 4.
   - **max_wal_senders** = [numero di database eseguiti contemporaneamente]; il valore consigliato è 10
-- Aggiungere l'indirizzo IP dell'agente DMS all'origine PostgreSQL pg_hba. conf
+- Aggiungere l'indirizzo IP dell'agente DMS al pg_hba PostgreSQL di origine. conf
   1. Prendere nota dell'indirizzo IP del Servizio Migrazione del database dopo aver completato il provisioning di un'istanza nel Servizio Migrazione del database.
   2. Aggiungere l'indirizzo IP al file pg_hba.conf come illustrato:
 

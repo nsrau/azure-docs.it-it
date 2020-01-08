@@ -9,18 +9,18 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 04/25/2019
-ms.openlocfilehash: c1f9a9248494344cd6577ca2bf743a4c80730cda
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: bc4eea53c026eef9dc8f390976442426e2ba1067
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837989"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427541"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio-classic"></a>Moduli di PowerShell per Azure Machine Learning Studio (versione classica)
 
 Usando i moduli di PowerShell, è possibile gestire a livello di codice le risorse di studio (classiche) e gli asset, ad esempio aree di lavoro, set di impostazioni e servizi Web.
 
-È possibile interagire con la versione classica delle risorse di studio usando tre moduli di PowerShell:
+È possibile interagire con le risorse di studio (classiche) usando tre moduli di PowerShell:
 
 * [Azure PowerShell Az](#az-rm) rilasciato nel 2018, include tutte le funzionalità di AzureRM, anche se con nomi di cmdlet diversi
 * [AzureRM](#az-rm) rilasciato in 2016, sostituito da PowerShell AZ

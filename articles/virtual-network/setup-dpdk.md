@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/27/2018
 ms.author: labattul
-ms.openlocfilehash: c5cb840035c5d0d5694982324c7237c58001e689
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 876e64cd29aabe1fd4274872800a29cf1a83a0d6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60731601"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350497"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Configurare DPDK in una macchina virtuale Linux
 
@@ -33,7 +33,7 @@ DPDK può essere eseguito nelle macchine virtuali di Azure che supportano più d
 
 ## <a name="benefit"></a>Vantaggi
 
-**Più pacchetti al secondo (PPS)** : Ignorando il kernel e controllo di acquisizione di pacchetti nello spazio utente riduce il conteggio di cicli, eliminando i cambi di contesto. Viene anche migliorata la frequenza dei pacchetti elaborati al secondo nelle macchine virtuali Linux di Azure.
+**Più pacchetti al secondo (PPS)** : ignorando il kernel e acquisendo il controllo dei pacchetti nello spazio utente viene ridotto il numero di cicli grazie all'eliminazione dei cambi di contesto. Viene anche migliorata la frequenza dei pacchetti elaborati al secondo nelle macchine virtuali Linux di Azure.
 
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
@@ -73,6 +73,7 @@ sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev lib
 ### <a name="ubuntu-1804"></a>Ubuntu 18.04
 
 ```bash
+sudo add-apt-repository ppa:canonical-server/dpdk-azure -y
 sudo apt-get update
 sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev libmnl-dev
 ```
@@ -133,7 +134,7 @@ Dopo il riavvio, eseguire i comandi seguenti una sola volta:
      > [!NOTE]
      > È possibile modificare il file di grub in modo che le hugepage vengano riservate in fase di avvio seguendo le [istruzioni](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) per DPDK. Le istruzioni sono disponibili in fondo alla pagina. Quando si usa una macchina virtuale Linux di Azure, modificare invece i file in **/etc/config/grub.d** per riservare le hugepage dopo i riavvii.
 
-2. Indirizzi MAC e IP: Usare `ifconfig –a` per visualizzare l'indirizzo IP e MAC delle interfacce di rete. Le interfacce di rete *VF* e *NETVSC* hanno lo stesso indirizzo MAC, ma solo *NETVSC* ha un indirizzo IP. Le interfacce VF sono in esecuzione come subordinate delle interfacce NETVSC.
+2. Indirizzi MAC e IP: usare `ifconfig –a` per visualizzare l'indirizzo IP e MAC delle interfacce di rete. Le interfacce di rete *VF* e *NETVSC* hanno lo stesso indirizzo MAC, ma solo *NETVSC* ha un indirizzo IP. Le interfacce VF sono in esecuzione come subordinate delle interfacce NETVSC.
 
 3. Indirizzi PCI
 
@@ -152,7 +153,7 @@ L'esecuzione di un'applicazione DPDK tramite l'operatore alternativo PMD garanti
 
 Per eseguire testpmd in modalità root, usare `sudo` prima del comando *testpmd*.
 
-### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>Basic: Verifica dell'integrità, inizializzazione dell'adapter di tipo operatore alternativo
+### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>Basic: verifica dell'integrità, inizializzazione dell'adattatore di tipo operatore alternativo
 
 1. Eseguire i comandi seguenti per avviare un'applicazione testpmd a porta singola:
 
@@ -180,7 +181,7 @@ Per eseguire testpmd in modalità root, usare `sudo` prima del comando *testpmd*
 
 I comandi precedenti avviano *testpmd* in modalità interattiva, consigliata per provare i comandi testpmd.
 
-### <a name="basic-single-sendersingle-receiver"></a>Basic: Ricevitore singolo mittente/single
+### <a name="basic-single-sendersingle-receiver"></a>Basic: ricevitore singolo/mittente singolo
 
 I seguenti comandi stampano periodicamente i pacchetti per statistiche al secondo:
 
@@ -216,7 +217,7 @@ I seguenti comandi stampano periodicamente i pacchetti per statistiche al second
 
 Quando si eseguono i comandi precedenti in una macchina virtuale, modificare *IP_SRC_ADDR* e *IP_DST_ADDR* in `app/test-pmd/txonly.c` per la corrispondenza all'indirizzo IP effettivo delle macchine virtuali prima della compilazione. In caso contrario, i pacchetti vengono eliminati prima di raggiungere il destinatario.
 
-### <a name="advanced-single-sendersingle-forwarder"></a>Funzionalità avanzate: Server d'inoltro singolo mittente/single
+### <a name="advanced-single-sendersingle-forwarder"></a>Avanzata: mittente singolo/server d'inoltro singolo
 I seguenti comandi stampano periodicamente i pacchetti per statistiche al secondo:
 
 1. Sul lato TX, eseguire il comando seguente:

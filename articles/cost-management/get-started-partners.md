@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/15/2019
+ms.date: 12/19/2019
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: ecef301d2745cf7c86f61f0ffa9106c7bfd10623
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 958335892b62c17e7e8bc3129796e2906cff2070
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74219213"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441039"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introduzione a gestione costi di Azure per i partner
 
@@ -28,6 +28,7 @@ I partner CSP utilizzano Gestione costi per:
 - Visualizzare i costi delle risorse per i quali è stato applicato il credito guadagnato dal partner nell'analisi dei costi.
 - Configurare notifiche e automazione usando [budget](tutorial-acm-create-budgets.md) e avvisi a livello di codice quando i costi superano i budget.
 - Abilitare i criteri di Azure Resource Manager che forniscono l'accesso dei clienti ai dati di gestione dei costi. I clienti possono quindi visualizzare i dati sui costi di utilizzo per le proprie sottoscrizioni usando [tariffe con pagamento in base al](https://azure.microsoft.com/pricing/calculator/)consumo.
+- Esporta i dati relativi ai costi e all'utilizzo in un BLOB di archiviazione con una sottoscrizione con pagamento in base al consumo.
 
 Ecco un esempio che mostra i costi per tutti i clienti.
 ![esempio che mostra i costi per tutti i clienti](./media/get-started-partners/customer-costs1.png)
@@ -37,11 +38,17 @@ Ecco un esempio che mostra i costi per un singolo cliente.
 
 Tutte le funzionalità disponibili in gestione costi di Azure sono disponibili anche con le API REST. Usare le API per automatizzare le attività di gestione dei costi.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-Gestione costi di Azure richiede l'accesso in lettura all'account di fatturazione o alla sottoscrizione. È possibile concedere l'accesso a qualsiasi livello al di sopra delle risorse, dall'account di fatturazione o da un gruppo di gestione a singoli gruppi di risorse in cui si gestiscono le app. Per altre informazioni sull'abilitazione e l'assegnazione dell'accesso a gestione costi di Azure per un account di fatturazione, vedere [assegnare utenti a ruoli e autorizzazioni](/partner-center/permissions-overview). I ruoli **amministratore globale** e **agente di amministrazione** possono gestire i costi per un account di fatturazione.
+In qualità di partner, gestione costi di Azure è disponibile a livello nativo solo per le sottoscrizioni nel piano Azure.
 
-Per visualizzare un elenco completo dei tipi di account supportati, vedere [informazioni sui dati di gestione dei costi](understand-cost-mgt-data.md).
+Per abilitare Gestione costi di Azure nella portale di Azure, è necessario avere confermato l'accettazione del contratto del cliente Microsoft (per conto del cliente) e aver passato il cliente al piano di Azure. Solo i costi per le sottoscrizioni di cui è stata effettuata la transizione al piano di Azure sono disponibili in gestione costi di Azure.
+
+Gestione costi di Azure richiede l'accesso in lettura all'account di fatturazione o alla sottoscrizione.
+
+Per altre informazioni sull'abilitazione e l'assegnazione dell'accesso a gestione costi di Azure per un account di fatturazione, vedere [assegnare utenti a ruoli e autorizzazioni](/partner-center/permissions-overview). I ruoli **amministratore globale** e **agente di amministrazione** possono gestire i costi per un account di fatturazione.
+
+Per accedere a gestione costi di Azure nell'ambito della sottoscrizione, qualsiasi utente con accesso RBAC a una sottoscrizione può visualizzare i costi alle tariffe al dettaglio (pagamento in base al consumo). È tuttavia necessario abilitare i criteri di visibilità dei costi per il tenant del cliente. Per visualizzare un elenco completo dei tipi di account supportati, vedere [informazioni sui dati di gestione dei costi](understand-cost-mgt-data.md).
 
 
 ## <a name="how-cost-management-uses-scopes"></a>Modalità di utilizzo degli ambiti in gestione costi
@@ -84,11 +91,11 @@ I partner possono usare l'ambito per riconciliare le fatture. E usano l'ambito p
 
 - Fattura filtrata specifica
 - Customer
-- sottoscrizione
-- Resource group
-- Risorsa
+- Sottoscrizione
+- Gruppo di risorse
+- Gruppi
 - Servizio di Azure
-- Contatore
+- Misuratore
 - ResellerMPNID
 
 ### <a name="customer-scope"></a>Ambito del cliente
@@ -113,13 +120,13 @@ Indipendentemente dai criteri, i partner possono anche visualizzare i costi se h
 
 I partner usano le informazioni seguenti per consentire ai criteri di visualizzare gli addebiti per l'utilizzo di Azure per i clienti.
 
-Nella portale di Azure accedere al tenant partner e fare clic su **Gestione costi e fatturazione**. Selezionare un account di fatturazione e quindi fare clic su **clienti**. L'elenco dei clienti è associato all'account di fatturazione.
+Nella portale di Azure accedere al tenant partner e selezionare **Gestione costi e fatturazione**. Selezionare un account di fatturazione e quindi selezionare **Customers (clienti**). L'elenco dei clienti è associato all'account di fatturazione.
 
 Nell'elenco dei clienti selezionare il cliente che si desidera consentire per visualizzare i costi.
 
 ![Selezionare i clienti in gestione costi](./media/get-started-partners/customer-list.png)
 
-In **Impostazioni**fare clic su **criteri**.
+In **Impostazioni**selezionare **criteri**.
 
 I criteri di visibilità dei costi correnti vengono visualizzati per i costi di **utilizzo di Azure** associati alle sottoscrizioni per il cliente selezionato.
 ![criteri per consentire ai clienti di visualizzare gli addebiti con pagamento in base al consumo](./media/get-started-partners/cost-management-billing-policies.png)
@@ -130,15 +137,15 @@ Quando il criterio di costo è impostato su **Sì**, gli utenti della sottoscriz
 
 Quando i criteri di visibilità dei costi sono abilitati, tutti i servizi con utilizzo delle sottoscrizioni mostrano i costi in base alle tariffe con pagamento in base al consumo. L'utilizzo della prenotazione viene visualizzato con costi zero per i costi effettivi e ammortizzati. Gli acquisti e i diritti non sono associati a una sottoscrizione specifica. Quindi, gli acquisti non vengono visualizzati nell'ambito della sottoscrizione.
 
-Per visualizzare i costi per il tenant del cliente, aprire Gestione costi e fatturazione, quindi fare clic su account di fatturazione. Nell'elenco degli account di fatturazione fare clic su un account di fatturazione.
+Per visualizzare i costi per il tenant del cliente, aprire Gestione costi e fatturazione, quindi selezionare account di fatturazione. Nell'elenco degli account di fatturazione selezionare un account di fatturazione.
 
 ![Selezionare un account di fatturazione](./media/get-started-partners/select-billing-account.png)
 
-In **fatturazione**fare clic su **sottoscrizioni Azure**, quindi fare clic su un cliente.
+In **fatturazione**selezionare **sottoscrizioni di Azure**e quindi selezionare un cliente.
 
 ![Selezionare un cliente per la sottoscrizione di Azure](./media/get-started-partners/subscriptions-select-customer.png)
 
-Fare clic su **analisi costi** e iniziare a esaminare i costi.
+Selezionare **analisi dei costi** e iniziare a esaminare i costi.
 L'analisi dei costi, i budget e gli avvisi sono disponibili per gli ambiti di sottoscrizione e del gruppo di risorse RBAC con costi basati sulla velocità con pagamento in base al consumo.
 
 ![Visualizzazione dell'analisi dei costi come cliente ](./media/get-started-partners/customer-tenant-view-cost-analysis.png)
@@ -147,7 +154,9 @@ Le visualizzazioni ammortizzate e i costi effettivi per le istanze riservate neg
 
 ## <a name="analyze-costs-in-cost-analysis"></a>Analizzare i costi nell'analisi dei costi
 
-I partner possono esplorare e analizzare i costi nell'analisi dei costi tra i clienti per un cliente specifico o per una fattura. Nella visualizzazione [analisi costi](quick-acm-cost-analysis.md) è inoltre possibile salvare le [visualizzazioni](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) ed esportare i dati in [file CSV e png](quick-acm-cost-analysis.md#automation-and-offline-analysis).
+I partner con accesso agli ambiti di fatturazione nel tenant partner possono esplorare e analizzare i costi fatturati nell'analisi dei costi tra i clienti per un cliente specifico o per una fattura. Nella visualizzazione [analisi costi](quick-acm-cost-analysis.md) è inoltre possibile salvare le [visualizzazioni](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) ed esportare i dati in [file CSV e png](quick-acm-cost-analysis.md#automation-and-offline-analysis).
+
+Gli utenti con controllo degli accessi in base al ruolo con accesso alla sottoscrizione nel tenant del cliente possono anche analizzare i costi di vendita per le sottoscrizioni nel tenant del cliente, salvare le visualizzazioni ed esportare i dati in file CSV e PNG.
 
 Per analizzare i costi in base a più campi, è possibile utilizzare le funzionalità di filtro e di raggruppamento in base all'analisi dei costi. Nella sezione successiva vengono visualizzati i campi specifici del partner.
 
@@ -174,9 +183,9 @@ I campi dati seguenti si trovano nei file di dettagli sull'utilizzo e nelle API 
 | costCenter | Centro di costo associato alla sottoscrizione. | N/D |
 | billingPeriodStartDate | Data di inizio del periodo di fatturazione, come illustrato nella fattura. | N/D |
 | billingPeriodEndDate | Data di fine del periodo di fatturazione, come illustrato nella fattura. | N/D |
-| servicePeriodStartDate | Data di inizio del periodo di valutazione in cui l'utilizzo del servizio è stato valutato per gli addebiti. I prezzi per i servizi di Azure sono determinati per il periodo di valutazione. | ChargeStartDate nel centro per i partner. Data di inizio del ciclo di fatturazione, tranne quando vengono presentate date di dati di utilizzo latenti precedentemente non addebitati da un ciclo di fatturazione precedente. L'ora è sempre l'inizio della giornata, 0:00. |
+| servicePeriodStartDate | Data di inizio del periodo di valutazione in cui l'utilizzo del servizio è stato valutato per gli addebiti. I prezzi per i servizi di Azure sono determinati per il periodo di valutazione. | ChargeStartDate nel centro per i partner. Data di inizio del ciclo di fatturazione, tranne quando vengono presentate date di dati di utilizzo latenti precedentemente non addebitati da un ciclo di fatturazione precedente. L'ora indicata è sempre l'inizio della giornata, le 0:00. |
 | servicePeriodStartDate | Data di fine del periodo in cui l'utilizzo del servizio è stato valutato per gli addebiti. I prezzi per i servizi di Azure sono determinati in base al periodo di valutazione. | N/D |
-| date | Per i dati sul consumo di Azure, Visualizza la data di utilizzo nominale. Per l'istanza riservata, viene visualizzata la data di acquisto. Per gli addebiti ricorrenti e i costi monouso, ad esempio Marketplace e supporto, viene visualizzata la data di acquisto. | N/D |
+| Data | Per i dati sul consumo di Azure, Visualizza la data di utilizzo nominale. Per l'istanza riservata, viene visualizzata la data di acquisto. Per gli addebiti ricorrenti e i costi monouso, ad esempio Marketplace e supporto, viene visualizzata la data di acquisto. | N/D |
 | productID | Identificatore per il prodotto che ha accumulato addebiti per consumo o acquisto. Si tratta della chiave concatenata di productID e SKuID, come illustrato nel centro per i partner. | ID del prodotto. |
 | product | Nome del prodotto che ha accumulato addebiti per consumo o acquisto, come illustrato nella fattura. | Nome del prodotto nel catalogo. |
 | serviceFamily | Mostra la famiglia di servizi per il prodotto acquistato o addebitato. Ad esempio, archiviazione o calcolo. | N/D |
@@ -190,7 +199,7 @@ I campi dati seguenti si trovano nei file di dettagli sull'utilizzo e nelle API 
 | meterRegion | Identifica la posizione del datacenter per determinati servizi il cui prezzo dipende dalla posizione stessa. | Posizione regionale di un data center per i servizi, laddove applicabile e popolato. |
 | ID sottoscrizione | Identificatore univoco generato da Microsoft per la sottoscrizione di Azure. | N/D |
 | subscriptionName | Nome della sottoscrizione di Azure. | N/D |
-| Termine | Visualizza il termine della validità dell'offerta. Le istanze riservate, ad esempio, mostrano 12 mesi di un termine annuale dell'istanza riservata. Per gli acquisti monouso o gli acquisti ricorrenti, il termine Visualizza un mese per SaaS, Azure Marketplace e il supporto. Non applicabile per il consumo di Azure. | N/D |
+| Durata | Visualizza il termine della validità dell'offerta. Le istanze riservate, ad esempio, mostrano 12 mesi di un termine annuale dell'istanza riservata. Per gli acquisti monouso o gli acquisti ricorrenti, il termine Visualizza un mese per SaaS, Azure Marketplace e il supporto. Non applicabile per il consumo di Azure. | N/D |
 | publisherType (firstParty, thirdPartyReseller, thirdPartyAgency) | Tipo di server di pubblicazione che identifica il server di pubblicazione come prima parte, rivenditore di terze parti o agenzia di terze parti. | N/D |
 | partNumber | Numero di parte per l'istanza riservata non usata e per i servizi di Azure Marketplace. | N/D |
 | publisherName | Nome dell'autore del servizio che include autori Microsoft o di terze parti. | Nome del server di pubblicazione del prodotto.|
@@ -201,13 +210,13 @@ I campi dati seguenti si trovano nei file di dettagli sull'utilizzo e nelle API 
 | resourceGroup | Nome del gruppo di risorse di Azure usato per la gestione delle risorse del ciclo di vita. | Nome del gruppo di risorse. |
 | instanceID (o) ResourceID | Identificatore dell'istanza di risorsa. | Visualizzato come ResourceURI che include le proprietà complete delle risorse. |
 | resourceLocation | Nome della posizione della risorsa. | Posizione della risorsa. |
-| Location | Posizione normalizzata della risorsa. | N/D |
+| Percorso | Posizione normalizzata della risorsa. | N/D |
 | effectivePrice | Prezzo unitario effettivo del servizio, in valuta prezzo. Univoco per un prodotto, una famiglia di servizi, un contatore e un'offerta. Usato con prezzi nell'elenco prezzi per l'account di fatturazione. Quando sono presenti prezzi a livelli o una quantità inclusa, viene visualizzato il prezzo misto per l'utilizzo. | Il prezzo unitario dopo le modifiche apportate. |
 | Quantità | Quantità misurata acquistata o utilizzata. Quantità del contatore utilizzata durante il periodo di fatturazione. | Numero di unità. Assicurarsi che corrisponda alle informazioni del sistema di fatturazione durante la riconciliazione. |
 | unitOfMeasure | Identifica l'unità in base alla quale viene addebitato il servizio. Ad esempio, GB e ore. | Identifica l'unità in base alla quale viene addebitato il servizio. Ad esempio, GB, ore e 10 migliaia. |
-| pricingCurrency | Valuta che definisce il prezzo unitario. | Valuta nel listino prezzi.|
+| pricingCurrency | Valuta che definisce il prezzo unitario. | Valuta nell'elenco prezzi.|
 | billingCurrency | Valuta che definisce il costo fatturato. | Valuta dell'area geografica del cliente. |
-| chargeType | Definisce il tipo di addebito rappresentato dal costo in gestione costi di Azure, ad esempio acquisto e rimborso. | Tipo di addebito o regolazione. Non disponibile per l'attività corrente. |
+| chargeType | Definisce il tipo di addebito rappresentato dal costo in gestione costi di Azure, ad esempio acquisto e rimborso. | Tipo di addebito o rettifica. Non disponibile per l'attività corrente. |
 | costinBillingCurrency | Costo costo esteso o blended prima delle imposte nella valuta fatturata. | N/D |
 | costinPricingCurrency | Costo di costo esteso o blended prima dell'imposta sulla valuta dei prezzi per la correlazione con i prezzi. | N/D |
 | **costinUSD** | Costo stimato di costo esteso o blended prima dell'imposizione in USD. | N/D |
@@ -219,7 +228,7 @@ I campi dati seguenti si trovano nei file di dettagli sull'utilizzo e nelle API 
 | serviceInfo1 | Campo legacy che acquisisce i metadati specifici del servizio facoltativo. | Metadati interni del servizio di Azure. |
 | serviceInfo2 | Campo legacy che acquisisce i metadati specifici del servizio facoltativo. | Informazioni sul servizio. Ad esempio, un tipo di immagine per una macchina virtuale e un nome di ISP per ExpressRoute.|
 | additionalInfo | Metadati specifici del servizio. Ad esempio un tipo di immagine per una macchina virtuale. | Eventuali informazioni aggiuntive non incluse in altre colonne. Metadati specifici del servizio. Ad esempio un tipo di immagine per una macchina virtuale.|
-| Tag | Tag assegnato al contatore. Usare i tag per raggruppare i record di fatturazione. È possibile, ad esempio, usare i tag per distribuire i costi in base al reparto che usa il contatore. | Tag aggiunti dal cliente.|
+| tags | Tag assegnato al contatore. Usare i tag per raggruppare i record di fatturazione. È possibile, ad esempio, usare i tag per distribuire i costi in base al reparto che usa il contatore. | Tag aggiunti dal cliente.|
 | **partnerEarnedCreditRate** | Tasso di sconto applicato se è presente un credito guadagnato dal partner (PEC) in base all'accesso al collegamento dell'amministratore del partner. | Frequenza di credito guadagnato dal partner (PEC). Ad esempio 0% o 15%. |
 | **partnerEarnedCreditApplied** | Indica se è stato applicato il credito guadagnato dal partner. | N/D |
 
@@ -227,11 +236,11 @@ I campi dati seguenti si trovano nei file di dettagli sull'utilizzo e nelle API 
 
 In gestione costi di Azure, i partner possono usare l'analisi dei costi per visualizzare i costi che hanno ricevuto i vantaggi PEC.
 
-Nella portale di Azure accedere al tenant partner e selezionare **Gestione costi e fatturazione**. In **Gestione costi**fare clic su **analisi dei costi**.
+Nella portale di Azure accedere al tenant partner e selezionare **Gestione costi e fatturazione**. In **Gestione costi**selezionare **analisi dei costi**.
 
 La visualizzazione analisi dei costi Mostra i costi dell'account di fatturazione per il partner. Selezionare l' **ambito** necessario per il partner, un cliente specifico o un profilo di fatturazione per riconciliare le fatture.
 
-In un grafico ad anello fare clic sull'elenco a discesa e selezionare **PartnerEarnedCreditApplied** per esaminare i costi di PEC.
+In un grafico ad anello selezionare l'elenco a discesa e selezionare **PartnerEarnedCreditApplied** per esaminare i costi di PEC.
 
 ![Esempio che illustra come visualizzare il credito guadagnato dal partner](./media/get-started-partners/cost-analysis-pec1.png)
 
@@ -245,6 +254,26 @@ I dati sull'utilizzo del servizio normalmente richiedono 8-24 ore per essere vis
 È anche possibile raggruppare e filtrare in base alla proprietà **PartnerEarnedCreditApplied** usando le opzioni **Group by** . Usare le opzioni per esaminare i costi che hanno e non hanno PEC.
 
 ![Raggruppare o filtrare in base al credito guadagnato dal partner](./media/get-started-partners/cost-analysis-pec2.png)
+
+## <a name="export-cost-data-to-azure-storage"></a>Esportare i dati dei costi in archiviazione di Azure
+
+I partner con accesso agli ambiti di fatturazione in un tenant partner possono esportare i dati relativi ai costi e all'utilizzo in un BLOB di archiviazione di Azure. Il BLOB deve trovarsi in una sottoscrizione nel tenant partner che non è una sottoscrizione del servizio condiviso o una sottoscrizione di un cliente. Per abilitare l'esportazione dei dati sui costi, è consigliabile configurare una sottoscrizione con pagamento in base al consumo indipendente nel tenant partner per ospitare i dati dei costi esportati. L'account di archiviazione di esportazione viene creato nel BLOB di archiviazione di Azure ospitato nella sottoscrizione con pagamento in base al consumo. In base all'ambito in cui il partner crea l'esportazione, i dati associati vengono esportati automaticamente nell'account di archiviazione in caso di ricorrenza.
+
+Gli utenti con accesso RBAC alla sottoscrizione possono anche esportare i dati sui costi in un BLOB di archiviazione di Azure ospitato in qualsiasi sottoscrizione nel tenant del cliente.
+
+### <a name="create-an-export-in-a-partner-tenant-or-customer-tenant"></a>Creare un'esportazione in un tenant partner o un tenant del cliente
+
+Nella portale di Azure accedere al tenant partner o al tenant del cliente e selezionare **Gestione costi e fatturazione**. Selezionare un ambito appropriato, ad esempio un account di fatturazione, quindi selezionare **analisi dei costi**. Quando la pagina viene caricata, selezionare **Esporta**. Selezionare **Visualizza tutte le esportazioni** in Pianifica esportazione.
+
+Selezionare quindi **Aggiungi** e digitare il nome e selezionare un tipo di esportazione. Selezionare la scheda **archiviazione** e immettere le informazioni necessarie.
+
+Quando si crea un'esportazione nel tenant partner, selezionare la sottoscrizione con pagamento in base al consumo nel tenant partner. Creare un account di archiviazione di Azure usando tale sottoscrizione.
+
+Per gli utenti RBAC nel tenant del cliente, selezionare una sottoscrizione nel tenant del cliente. Creare un account di archiviazione di Azure usando la sottoscrizione.
+
+Esaminare il contenuto e quindi selezionare **Crea** per pianificare un'esportazione.
+
+Per verificare i dati nell'elenco Esporta, selezionare il nome dell'account di archiviazione. Nella pagina account di archiviazione selezionare **contenitori** , quindi selezionare il contenitore. Passare alla cartella corrispondente e selezionare il file CSV. Selezionare **download** per ottenere il file CSV e aprirlo. I dati esportati esportati sono simili ai dati dei costi simili ai dettagli di utilizzo del portale di Azure.
 
 ## <a name="cost-management-rest-apis"></a>API REST di gestione costi
 

@@ -14,20 +14,22 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6b2546226d31334592034cfe0455fc32644a3900
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 7c93538982b7fd7bb2f5ac25027ed92cc6ccbfa3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132766"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75357850"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Estendi il supporto per SQL Server 2008 e SQL Server 2008 R2 con Azure
 
-SQL Server 2008 e SQL Server 2008 R2 si avvicinano alla [fine del ciclo di vita del supporto (EOS)](https://www.microsoft.com/sql-server/sql-server-2008). Poiché molti clienti usano ancora entrambe le versioni, sono disponibili diverse opzioni per continuare a ottenere supporto. È possibile eseguire la migrazione delle istanze di SQL Server locali alle macchine virtuali di Azure, eseguire la migrazione al database SQL di Azure o rimanere in locale e acquistare aggiornamenti della sicurezza estesi.
+SQL Server 2008 e SQL Server 2008 R2 hanno raggiunto il [termine del ciclo di vita del supporto (EOS)](https://www.microsoft.com/sql-server/sql-server-2008). Poiché molti clienti usano ancora entrambe le versioni, sono disponibili diverse opzioni per continuare a ottenere supporto. È possibile eseguire la migrazione delle istanze di SQL Server locali alle macchine virtuali di Azure, eseguire la migrazione al database SQL di Azure o rimanere in locale e acquistare aggiornamenti della sicurezza estesi.
 
 A differenza di un'istanza gestita, per eseguire la migrazione a una macchina virtuale di Azure non è necessario ricertificare le applicazioni. A differenza di quanto avviene in locale, si riceveranno patch di sicurezza estese gratuite eseguendo la migrazione a una macchina virtuale di Azure.
 
 Nella parte restante di questo articolo vengono fornite alcune considerazioni per la migrazione dell'istanza di SQL Server a una macchina virtuale di Azure.
+
+Per ulteriori informazioni sulle opzioni di fine del supporto, vedere [fine del supporto tecnico](/sql/sql-server/end-of-support/sql-server-end-of-life-overview).
 
 ## <a name="provisioning"></a>Provisioning
 
@@ -56,7 +58,7 @@ Per le migrazioni bulk, si consiglia il servizio [Azure Site Recovery](/azure/si
 
 SQL Server richiede snapshot Azure Site Recovery coerenti con l'app per garantire il ripristino. Azure Site Recovery supporta snapshot coerenti con l'app con un intervallo minimo di 1 ora. L'obiettivo del punto di ripristino minimo (RPO) possibile per SQL Server con Azure Site Recovery migrazioni è 1 ora. L'obiettivo del tempo di ripristino (RTO) è di 2 ore più SQL Server tempo di ripristino.
 
-### <a name="database-migration-service"></a>Servizio Migrazione del database
+### <a name="database-migration-service"></a>Database Migration Service
 
 Il [servizio migrazione del database](/azure/dms/dms-overview) è un'opzione per i clienti che eseguono la migrazione da locale a una macchina virtuale di Azure aggiornando SQL Server alla versione 2012 o successiva.
 
@@ -87,3 +89,7 @@ Inizia a usare SQL Server in macchine virtuali di Azure:
 Risposte alle domande frequenti sulle macchine virtuali SQL Server:
 
 * [Domande frequenti per SQL Server in macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-faq.md)
+
+Scopri di più sulle opzioni di fine supporto e sugli aggiornamenti della sicurezza estesi:
+
+* [Fine del supporto](/sql/sql-server/end-of-support/sql-server-end-of-life-overview) & [aggiornamenti della sicurezza estesi](/sql/sql-server/end-of-support/sql-server-extended-security-updates)

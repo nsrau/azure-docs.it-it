@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 1c97fd4f4d5646b6654f5261abd99372c521c389
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 564126ab262306f2b01948e29baf239b725083e0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228242"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427600"
 ---
 # <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Servizi Web di Azure Machine Learning Studio (classico): distribuzione e utilizzo
 
@@ -41,13 +41,13 @@ I collegamenti seguenti offrono informazioni generali su come distribuire un nuo
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>Con le API del provider di risorse di servizi Web (API di Azure Resource Manager)
 
-La versione classica del provider di risorse Azure Machine Learning Studio per i servizi Web consente la distribuzione e la gestione dei servizi Web tramite chiamate API REST. Per altre informazioni, vedere i riferimenti al [servizio Web di Machine Learning (REST)](/rest/api/machinelearning/index).
+Il provider di risorse Azure Machine Learning Studio (classico) per i servizi Web consente la distribuzione e la gestione dei servizi Web tramite chiamate API REST. Per altre informazioni, vedere i riferimenti al [servizio Web di Machine Learning (REST)](/rest/api/machinelearning/index).
 
 <!-- [Machine Learning Web Service (REST)](https://msdn.microsoft.com/library/azure/mt767538.aspx) reference. -->
 
 ### <a name="with-powershell-cmdlets"></a>Con i cmdlet di PowerShell
 
-La versione classica del provider di risorse Azure Machine Learning Studio per i servizi Web consente la distribuzione e la gestione dei servizi Web tramite i cmdlet di PowerShell.
+Il provider di risorse Azure Machine Learning Studio (classico) per i servizi Web consente la distribuzione e la gestione dei servizi Web tramite i cmdlet di PowerShell.
 
 Per usare i cmdlet, è necessario prima accedere al proprio account Azure dall'interno dell'ambiente di PowerShell usando il cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) . Se non si ha familiarità con la chiamata di comandi di PowerShell basati su Resource Manger, vedere [Uso di Azure PowerShell con Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md).
 
@@ -66,7 +66,7 @@ Con l'esecuzione dell'applicazione viene creato un modello JSON di servizio Web.
 
 Aggiungere le informazioni al modello JSON come figli del nodo *Properties* allo stesso livello del nodo *MachineLearningWorkspace*.
 
-Ecco un esempio:
+Ad esempio:
 
     "StorageAccount": {
             "name": "YourStorageAccountName",

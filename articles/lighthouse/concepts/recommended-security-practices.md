@@ -3,12 +3,12 @@ title: Procedure di sicurezza consigliate
 description: Quando si usa la gestione delle risorse delegata di Azure, è importante considerare sicurezza e controllo di accesso.
 ms.date: 07/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: 18decc337722c1dc64fac94679d783dd55915ee6
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 8972d6548eccb1006d90bfcbb4dba8c01b05a981
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463893"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456875"
 ---
 # <a name="recommended-security-practices"></a>Procedure di sicurezza consigliate
 
@@ -16,7 +16,7 @@ Quando si usa la gestione delle risorse delegata di Azure, è importante conside
 
 ## <a name="require-azure-multi-factor-authentication"></a>Richiedere Azure Multi-Factor Authentication
 
-[Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (definita anche verifica in due passaggi) impedisce agli utenti malintenzionati di ottenere l'accesso a un account richiedendo più passaggi di autenticazione. È consigliabile richiedere Multi-Factor Authentication per tutti gli utenti nel tenant del provider di servizi, inclusi gli utenti che avranno accesso alle risorse dei clienti.
+[Azure multi-factor authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (anche noto come verifica in due passaggi) aiuta a impedire agli utenti malintenzionati di accedere a un account richiedendo più passaggi di autenticazione. È consigliabile richiedere Multi-Factor Authentication per tutti gli utenti nel tenant del provider di servizi, inclusi gli utenti che avranno accesso alle risorse dei clienti.
 
 Si consiglia di chiedere ai clienti di implementare Azure Multi-Factor Authentication anche nei propri tenant.
 
@@ -28,10 +28,10 @@ Quando si crea la struttura di autorizzazioni, assicurarsi di seguire il princip
 
 È ad esempio possibile usare una struttura simile alla seguente:
 
-|Nome gruppo  |digitare  |principalId  |Definizione di ruolo  |ID di definizione del ruolo  |
+|Nome gruppo  |Tipo  |principalId  |Definizione di ruolo  |ID di definizione del ruolo  |
 |---------|---------|---------|---------|---------|
 |Architetti     |Gruppo utenti         |\<principalId\>         |Collaboratore         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
-|Valutazione     |Gruppo utenti         |\<principalId\>         |reader         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
+|Valutazione     |Gruppo utenti         |\<principalId\>         |Reader         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
 |Specialisti di macchine virtuali     |Gruppo utenti         |\<principalId\>         |Collaboratore macchina virtuale         |9980e02c-c2be-4d73-94e8-173b1dc7cf3c  |
 |Automazione     |Nome dell'entità servizio (SPN)         |\<principalId\>         |Collaboratore         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 

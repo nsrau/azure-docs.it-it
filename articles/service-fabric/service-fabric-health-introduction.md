@@ -1,25 +1,16 @@
 ---
-title: Monitoraggio dello stato in Service Fabric | Microsoft Docs
+title: Monitoraggio dello stato in Service Fabric
 description: Introduzione al modello di monitoraggio dell'integrità di Azure Service Fabric, che offre il monitoraggio del cluster e dei relativi servizi e applicazioni.
-services: service-fabric
-documentationcenter: .net
 author: oanapl
-manager: chackdan
-editor: ''
-ms.assetid: 1d979210-b1eb-4022-be24-799fd9d8e003
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: d0ef9f34d6b657a063e50b0f144197c41905e809
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 473aa2b9a74193a857390cd3e29b2b559b6084d3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "60949165"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433893"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introduzione al monitoraggio dell'integrità di Service Fabric
 Con Azure Service Fabric è stato introdotto un modello di integrità che offre funzionalità di valutazione e reporting dell'integrità dettagliate, flessibili ed estendibili. Il modello include il monitoraggio quasi in tempo reale dello stato del cluster e dei servizi in esso eseguiti. Questo consente di ottenere facilmente informazioni relative all'integrità e correggere i potenziali problemi prima che si propaghino a catena e causino un numero elevato di interruzioni. Nel modello tipico i servizi inviano report basati sulla situazione locale e le informazioni vengono aggregate per fornire una panoramica generale a livello di cluster.
@@ -37,7 +28,7 @@ L'archivio integrità mantiene le informazioni di integrità relative alle entit
 ## <a name="health-entities-and-hierarchy"></a>Entità e gerarchia di integrità
 Le entità di integrità sono organizzate in una gerarchia logica che acquisisce le interazioni e le dipendenze tra le diverse entità. L'archivio integrità crea automaticamente la gerarchia e le entità di integrità in base ai report ricevuti dai componenti di Service Fabric.
 
-Le entità di integrità corrispondono alle entità di Service Fabric. Ad esempio, un'**entità applicazione di integrità** corrisponde a un'istanza di applicazione distribuita nel cluster, mentre un'**entità nodo di integrità** corrisponde a un nodo del cluster di Service Fabric. La gerarchia di integrità acquisisce le interazioni delle entità di sistema e costituisce la base per una valutazione avanzata dell'integrità. Per informazioni sui concetti chiave di Service Fabric, vedere la [panoramica tecnica di Service Fabric](service-fabric-technical-overview.md). Per altre informazioni sull'applicazione, vedere il [modello di applicazione di Service Fabric](service-fabric-application-model.md).
+Le entità di integrità corrispondono alle entità di Service Fabric. Ad esempio, l' **entità applicazione integrità** corrisponde a un'istanza dell'applicazione distribuita nel cluster, mentre l' **entità del nodo di integrità** corrisponde a un nodo del cluster Service Fabric. La gerarchia di integrità acquisisce le interazioni delle entità di sistema ed è la base per la valutazione avanzata dell'integrità. Per informazioni sui concetti chiave di Service Fabric, vedere la [panoramica tecnica di Service Fabric](service-fabric-technical-overview.md). Per altre informazioni sull'applicazione, vedere il [modello di applicazione di Service Fabric](service-fabric-application-model.md).
 
 Le entità e la gerarchia di integrità consentono di eseguire in modo efficace la creazione di report, il debug e il monitoraggio del cluster e delle applicazioni. Il modello di integrità offre un'accurata rappresentazione *granulare* dell'integrità dei numerosi elementi mobili all'interno del cluster.
 
@@ -49,7 +40,7 @@ Le entità di integrità, organizzate in una gerarchia basata su relazioni padre
 Le entità di integrità sono le seguenti:
 
 * **Cluster**. Rappresenta l'integrità di un cluster di Service Fabric. I report sull'integrità del cluster illustrano le condizioni che interessano l'intero cluster. Queste condizioni interessano più entità nel cluster o il cluster stesso. In base alla condizione, il reporter non può restringere il problema a uno o più elementi figlio non integri. ad esempio lo split brain del cluster a causa di problemi di comunicazione o di partizionamento della rete.
-* **Nodo**. Rappresenta l'integrità di un nodo di Service Fabric. I report sull'integrità del nodo illustrano le condizioni che influiscono sulla funzionalità del nodo. In genere influiscono su tutte le entità distribuite in esecuzione su di esso. Ad esempio, un nodo con spazio su disco non sufficiente o con problemi relativi ad altre proprietà a livello di computer, come la memoria o le connessioni, oppure la presenza di un nodo non attivo. L'entità nodo è identificata dal nome del nodo (stringa).
+* **Node**. Rappresenta l'integrità di un nodo di Service Fabric. I report sull'integrità del nodo illustrano le condizioni che influiscono sulla funzionalità del nodo. In genere influiscono su tutte le entità distribuite in esecuzione su di esso. Ad esempio, un nodo con spazio su disco non sufficiente o con problemi relativi ad altre proprietà a livello di computer, come la memoria o le connessioni, oppure la presenza di un nodo non attivo. L'entità nodo è identificata dal nome del nodo (stringa).
 * **Applicazione**. Rappresenta l'integrità di un'istanza di applicazione in esecuzione nel cluster. I report sull'integrità dell'applicazione illustrano le condizioni che influiscono sull'integrità generale dell'applicazione e non possono essere limitati a singoli elementi figlio, servizi o applicazioni distribuite. Ad esempio, indicano l'interazione end-to-end tra diversi servizi nell'applicazione. L'entità applicazione è identificata dal nome dell'applicazione (URI).
 * **Servizio**. Rappresenta l'integrità di un servizio in esecuzione nel cluster. I report sull'integrità del servizio illustrano le condizioni che interessano l'integrità generale del servizio. Il reporter non può restringere il problema a una partizione o una replica non integra. Ad esempio, indicano una configurazione del servizio, una porta o una condivisione file esterna, che causa problemi a tutte le partizioni. L'entità servizio è identificata dal nome del servizio (URI).
 * **Partizione**. Rappresenta l'integrità di una partizione del servizio. I report sull'integrità della partizione illustrano le condizioni che influiscono sull'intero set di repliche. Ad esempio, indicano quando un numero di repliche è al di sotto del conteggio target o quando una partizione mostra una perdita di quorum. L'entità partizione è identificata dall'ID partizione (GUID).
@@ -196,7 +187,7 @@ I [report sull'integrità](https://docs.microsoft.com/dotnet/api/system.fabric.h
 * **SourceId**. Stringa che identifica in modo univoco il generatore di report per l'evento di integrità.
 * **Entity identifier**. Identifica l'entità a cui viene applicato il report. Varia in base al [tipo di entità](service-fabric-health-introduction.md#health-entities-and-hierarchy):
   
-  * Cluster. No.
+  * Cluster. Nessuno.
   * Node. Nome del nodo (stringa).
   * Application. Nome dell'applicazione (URI). Rappresenta il nome dell'istanza di applicazione distribuita nel cluster.
   * Service. Nome del servizio (URI). Rappresenta il nome dell'istanza di servizio distribuita nel cluster.
@@ -208,7 +199,7 @@ I [report sull'integrità](https://docs.microsoft.com/dotnet/api/system.fabric.h
 * **Description**. Stringa che consente a un generatore di report di fornire informazioni dettagliate sull'evento di integrità. **SourceId**, **Property** e **HealthState** descrivono il report in modo esauriente. Description aggiunge informazioni leggibili sul report semplificando la comprensione del report sull'integrità da parte di amministratori e utenti.
 * **HealthState**. [Enumerazione](service-fabric-health-introduction.md#health-states) che descrive lo stato di integrità del report. I valori accettati sono OK, Warning ed Error.
 * **TimeToLive**. Intervallo di tempo che indica per quanto è valido il report sull'integrità. Insieme a **RemoveWhenExpired**, indica all'archivio integrità come valutare gli eventi scaduti. Per impostazione predefinita, il valore è infinito e quindi il report è sempre valido.
-* **RemoveWhenExpired**. Valore booleano. Se è impostato su true, il report sull'integrità scaduto viene rimosso automaticamente dall'archivio integrità e non incide sulla valutazione dell'integrità dell'entità. Viene usato quando il report è valido solo per un periodo di tempo specificato e non deve essere eliminato esplicitamente dal generatore di report. Viene usato anche per eliminare i report dall'archivio integrità. Ad esempio, se un watchdog viene modificato e smette di inviare report con la proprietà e l'origine precedenti. Può inviare un report con un valore TimeToLive basso e RemoveWhenExpired per cancellare qualsiasi stato precedente dall'archivio integrità. Se il valore è impostato su false, il report scaduto viene considerato come un errore nella valutazione dell'integrità. Il valore false indica all'archivio integrità che l'origine dovrebbe inviare periodicamente informazioni su questa proprietà. In caso contrario, il watchdog potrebbe avere un problema. L'integrità del watchdog viene acquisita considerando l'evento come un errore.
+* **RemoveWhenExpired**. Valore booleano. Se è impostato su true, il report sull'integrità scaduto viene rimosso automaticamente dall'archivio integrità e non incide sulla valutazione dell'integrità dell'entità. Utilizzato quando il report è valido solo per un periodo di tempo specificato e il giornalista non deve cancellarlo esplicitamente. Viene anche usato per eliminare i report dall'archivio integrità, ad esempio un watchdog viene modificato e interrompe l'invio di report con l'origine e la proprietà precedenti. Può inviare un report con un valore TimeToLive basso e RemoveWhenExpired per cancellare qualsiasi stato precedente dall'archivio integrità. Se il valore è impostato su false, il report scaduto viene considerato come un errore nella valutazione dell'integrità. Il valore false indica all'archivio integrità che l'origine dovrebbe inviare periodicamente informazioni su questa proprietà. In caso contrario, il watchdog potrebbe avere un problema. L'integrità del watchdog viene acquisita considerando l'evento come un errore.
 * **SequenceNumber**. Numero intero positivo che deve essere sempre crescente, perché rappresenta l'ordine dei report. Viene usato dall'archivio integrità per rilevare i report non aggiornati, ricevuti in ritardo a causa di ritardi sulla rete o di altri problemi. I report vengono rifiutati se il numero di sequenza è minore o uguale all'ultimo numero applicato per la stessa entità, origine e proprietà. Se non è specificato, il numero di sequenza viene generato automaticamente. È necessario inserire il numero di sequenza solo quando si inviano report sulle transizioni di stato. In questo caso, l'origine deve ricordare i report inviati e mantenere le informazioni per recuperarle in caso di failover.
 
 SourceId, l'identificatore dell'entità, Property e HealthState sono dati obbligatori per tutti i report sull'integrità. La stringa SourceId non può iniziare con il prefisso "**System.** ", che è riservato ai report di sistema. Per la stessa entità è disponibile un solo report per la stessa origine e la stessa proprietà. Più report per la stessa origine e la stessa proprietà si sostituiscono l'uno all'altro sul lato del client di integrità (se sono in batch) o sul lato dell'archivio integrità. La sostituzione avviene in base al numero di sequenza, quindi i report più recenti con un numero di sequenza più alto sostituiscono quelli meno recenti.

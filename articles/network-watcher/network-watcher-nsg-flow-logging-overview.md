@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 1da1bc330af9d2b652c44114e44dc6d6c9f0d575
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: 2530c9b2f366bd64013c7125b4d7984ca2a69248
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559179"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454279"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete
 
@@ -36,13 +36,13 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 ```
 È possibile analizzare i log dei flussi e ottenere informazioni approfondite del traffico di rete usando l'[analisi del traffico](traffic-analytics.md).
 
-Ai log dei flussi si applicano gli stessi criteri di conservazione degli altri log. Per i criteri di conservazione dei log è possibile impostare da 1 a 2147483647 giorni. Se i criteri di conservazione non sono impostati, i log vengono conservati per sempre.
+Ai log dei flussi si applicano gli stessi criteri di conservazione degli altri log. È possibile impostare i criteri di conservazione dei log da 1 giorno a 365 giorni. Se i criteri di conservazione non sono impostati, i log vengono conservati per sempre.
 
 > [!NOTE] 
 > L'uso della funzionalità dei criteri di conservazione insieme alla registrazione dei flussi dei gruppi di sicurezza di rete può avere come effetto un volume elevato di operazioni di archiviazione, con i conseguenti costi associati. Se non è necessario usare la funzionalità dei criteri di conservazione, è consigliabile impostare questo valore su 0.
 
 
-## <a name="log-file"></a>File di log
+## <a name="log-file"></a>File di registro
 
 I log dei flussi includono le proprietà seguenti:
 
@@ -95,14 +95,13 @@ Di seguito è riportato un testo di esempio di log dei flussi. Come si può osse
 3. Nessun endpoint di servizio: a causa di una limitazione corrente, i log possono essere emessi direttamente solo negli account di archiviazione e non tramite gli endpoint di servizio. Vedere [ricerca per categorie usare i log di flusso NSG con gli endpoint del servizio?](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions#how-do-i-use-nsg-flow-logs-with-service-endpoints) per informazioni sulla rimozione degli endpoint di servizio esistenti.
 4. Rotazione automatica delle chiavi: se si modificano/ruotano le chiavi di accesso all'account di archiviazione, i log di flusso NSG smetteranno di funzionare. Per risolvere questo problema, è necessario disabilitare e quindi riabilitare i log dei flussi di NSG.
 
-**Abilitare la registrazione del flusso NSG in tutti gruppi collegati a una risorsa**: la registrazione dei flussi in Azure è configurata nella risorsa NSG. Un flusso sarà associato a una sola regola di gruppo di sicurezza di rete. Negli scenari in cui vengono usati più gruppi di sicurezza di rete, è consigliabile abilitare la registrazione dei flussi in tutti i gruppi di sicurezza di rete applicati all'interfaccia di rete o subnet di una risorsa per assicurarsi che tutto il traffico venga registrato. Per altre informazioni sui gruppi di sicurezza di rete, vedere [Modalità di valutazione del traffico](../virtual-network/security-overview.md#how-traffic-is-evaluated). 
+**Abilitare la registrazione del flusso NSG in tutti gruppi collegati a una risorsa**: la registrazione dei flussi in Azure è configurata nella risorsa NSG. Un flusso sarà associato a una sola regola di gruppo di sicurezza di rete. Negli scenari in cui vengono usati più gruppi di sicurezza di rete, è consigliabile abilitare la registrazione dei flussi in tutti i gruppi di sicurezza di rete applicati all'interfaccia di rete o subnet di una risorsa per assicurarsi che tutto il traffico venga registrato. Per altre informazioni [, vedere come viene valutato il traffico](../virtual-network/security-overview.md#how-traffic-is-evaluated) nei gruppi di sicurezza di rete.
 
-**Costi**per la registrazione dei flussi: la registrazione del flusso NSG viene addebitata sul volume dei log prodotti. Un volume di traffico elevato può avere come effetto un volume elevato dei log dei flussi, con i conseguenti costi associati. I prezzi dei log dei flussi dei gruppi di sicurezza di rete non includono i costi di archiviazione sottostanti. L'uso della funzionalità dei criteri di conservazione insieme alla registrazione dei flussi dei gruppi di sicurezza di rete può avere come effetto un volume elevato di operazioni di archiviazione, con i conseguenti costi associati. Se non è necessario usare la funzionalità dei criteri di conservazione, è consigliabile impostare questo valore su 0. Per altre informazioni, vedere [Prezzi di Network Watcher](https://azure.microsoft.com/pricing/details/network-watcher/) e [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
-
-> [!IMPORTANT]
-> Attualmente si verifica un problema per cui [i log dei flussi del gruppo di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md) per Network Watcher non vengono eliminati automaticamente dall'archiviazione BLOB in base alle impostazioni dei criteri di conservazione. Se è impostato un criterio di conservazione diverso da zero, è consigliabile eliminare periodicamente i BLOB di archiviazione che superano il periodo di conservazione per evitare eventuali addebiti. Per altre informazioni su come eliminare i BLOB di archiviazione dei log dei flussi del gruppo di sicurezza di rete, vedere [Eliminare i BLOB di archiviazione dei log dei flussi del gruppo di sicurezza di rete](network-watcher-delete-nsg-flow-log-blobs.md).
+**Costi**per la registrazione dei flussi: la registrazione del flusso NSG viene addebitata sul volume dei log prodotti. Un volume di traffico elevato può avere come effetto un volume elevato dei log dei flussi, con i conseguenti costi associati. I prezzi dei log dei flussi dei gruppi di sicurezza di rete non includono i costi di archiviazione sottostanti. L'uso della funzionalità dei criteri di conservazione insieme alla registrazione dei flussi dei gruppi di sicurezza di rete può avere come effetto un volume elevato di operazioni di archiviazione, con i conseguenti costi associati. Se non è necessario usare la funzionalità dei criteri di conservazione, è consigliabile impostare questo valore su 0. Per ulteriori informazioni, vedere [Network Watcher prezzi](https://azure.microsoft.com/pricing/details/network-watcher/) e [prezzi di archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/) .
 
 **Flussi in ingresso registrati da indirizzi IP Internet alle VM senza IP pubblici**: le macchine virtuali che non hanno un indirizzo IP pubblico assegnato tramite un indirizzo IP pubblico associato alla scheda di interfaccia di rete come IP pubblico a livello di istanza o che fanno parte di un pool back-end di bilanciamento del carico di base, usano [SNAT predefiniti](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) e hanno un indirizzo IP assegnato da Azure per semplificare la connettività in uscita. Di conseguenza, è possibile visualizzare le voci del log di flusso per i flussi da indirizzi IP Internet, se il flusso è destinato a una porta nell'intervallo di porte assegnate per SNAT. Sebbene Azure non consenta questi flussi alla macchina virtuale, il tentativo viene registrato e viene visualizzato nel log di flusso NSG di Network Watcher in base alla progettazione. È consigliabile che il traffico Internet in ingresso indesiderato venga bloccato in modo esplicito con NSG.
+
+**Conteggio di byte e pacchetti non corretti per i flussi**senza stato: i [gruppi di sicurezza di rete (gruppi)](https://docs.microsoft.com/azure/virtual-network/security-overview) vengono implementati come [Firewall con stato](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). Tuttavia, molte regole predefinite/interne che controllano il flusso di traffico vengono implementate in modo senza stato. A causa delle limitazioni della piattaforma, i conteggi di byte e pacchetti non vengono registrati per i flussi senza stato, ovvero i flussi di traffico che passano attraverso regole senza stato, vengono registrati solo per i flussi con stato. Di conseguenza, il numero di byte e i pacchetti segnalati nei log di flusso NSG (e Analisi del traffico) potrebbero essere diversi dai flussi effettivi. Questa limitazione è stata pianificata per la correzione entro il 2020 giugno.
 
 ## <a name="sample-log-records"></a>Record di log di esempio
 

@@ -2,19 +2,15 @@
 title: Parametri di input dei runbook
 description: I parametri di input dei runbook ne aumentano la flessibilità perché consentono di passare dati a un runbook al momento dell'avvio. Questo articolo descrive vari scenari in cui i parametri di input vengono usati nei runbook.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 02/14/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: be7d244f5aa422b2083d35fc56a52318a4379b79
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: b16219c34ea30b4229195c8f019dfa8e1f147d8b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850228"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75417595"
 ---
 # <a name="runbook-input-parameters"></a>Parametri di input dei runbook
 
@@ -30,10 +26,10 @@ I runbook di PowerShell e di Flusso di lavoro PowerShell in Automazione di Azure
 
 | **Proprietà** | **Descrizione** |
 |:--- |:--- |
-| `Type` |Richiesto. Tipo di dati previsto per il valore del parametro. Qualsiasi tipo .NET è valido. |
-| `Name` |Richiesto. Nome del parametro. Questo valore deve essere univoco all'interno del runbook e può contenere solo lettere, numeri o caratteri di sottolineatura. Deve iniziare con una lettera. |
-| `Mandatory` |facoltativo. Specifica se è necessario specificare un valore per il parametro. Se la proprietà è impostata su **\$true**, è necessario specificare un valore quando viene avviato il runbook. Se la proprietà è impostata su **\$false**, il valore è facoltativo. |
-| `Default value` |facoltativo. Specifica un valore che verrà usato per il parametro se non viene passato un valore all'avvio del runbook. È possibile impostare un valore predefinito per qualsiasi parametro, rendendolo automaticamente facoltativo indipendentemente dall'impostazione della proprietà Mandatory. |
+| `Type` |Obbligatorio. Tipo di dati previsto per il valore del parametro. Qualsiasi tipo .NET è valido. |
+| `Name` |Obbligatorio. Nome del parametro. Questo valore deve essere univoco all'interno del runbook e può contenere solo lettere, numeri o caratteri di sottolineatura. Deve iniziare con una lettera. |
+| `Mandatory` |Facoltativa. Specifica se è necessario specificare un valore per il parametro. Se la proprietà è impostata su **\$true**, è necessario specificare un valore quando viene avviato il runbook. Se la proprietà è impostata su **\$false**, il valore è facoltativo. |
+| `Default value` |Facoltativa. Specifica un valore che verrà usato per il parametro se non viene passato un valore all'avvio del runbook. È possibile impostare un valore predefinito per qualsiasi parametro, rendendolo automaticamente facoltativo indipendentemente dall'impostazione della proprietà Mandatory. |
 
 Windows PowerShell supporta più attributi dei parametri di input di quelli elencati di seguito, ad esempio la convalida, gli alias e i set di parametri. Tuttavia, Automazione di Azure attualmente supporta solo i parametri di input sopra elencati.
 
@@ -73,7 +69,7 @@ Se il runbook include un parametro di input di tipo object, per passare un valor
 ```
 
 > [!NOTE]
-> Se non si passano valori a un parametro facoltativo di tipo `[String]` che ha un _valore predefinito_ di `\$null`, il valore del parametro sarà una _stringa vuota_, **anziché** `\$null`.
+> Quando non si passa alcun valore a un parametro di tipo `[String]` facoltativo che ha un _valore predefinito_ di `\$null`, il valore del parametro sarà una _stringa vuota_, **non** `\$null`.
 
 ## <a name="configure-input-parameters-in-graphical-runbooks"></a>Configurare i parametri di input in runbook grafici
 
@@ -94,11 +90,11 @@ Per [configurare un runbook grafico](automation-first-runbook-graphical.md) con 
 
    | **Proprietà** | **Descrizione** |
    |:--- |:--- |
-   | `Name` |Richiesto. Nome del parametro. Questo valore deve essere univoco all'interno del runbook e può contenere solo lettere, numeri o caratteri di sottolineatura. Deve iniziare con una lettera. |
-   | `Description` |facoltativo. Descrizione dello scopo del parametro di input. |
-   | `Type` |facoltativo. Tipo di dati previsto per il valore del parametro. I tipi di parametro supportati sono **String**, **Int32**, **Int64**, **Decimal**, **Boolean**, **DateTime** e **Object**. Se non è selezionato un tipo di dati, l'impostazione predefinita è **String**. |
-   | `Mandatory` |facoltativo. Specifica se è necessario specificare un valore per il parametro. Se si sceglie **Sì**, è necessario specificare un valore quando viene avviato il runbook. Se si sceglie **No**, non è necessario specificare un valore all'avvio del runbook ed è possibile impostare un valore predefinito. |
-   | `Default Value` |facoltativo. Specifica un valore che verrà usato per il parametro se non viene passato un valore all'avvio del runbook. È possibile impostare un valore predefinito per un parametro non obbligatorio. Per impostare un valore predefinito, scegliere **Personalizzato**. Questo valore viene usato a meno che non venga specificato un altro valore all'avvio del runbook. Scegliere **Nessuno** se non si vuole specificare alcun valore predefinito. |
+   | `Name` |Obbligatorio. Nome del parametro. Questo valore deve essere univoco all'interno del runbook e può contenere solo lettere, numeri o caratteri di sottolineatura. Deve iniziare con una lettera. |
+   | `Description` |Facoltativa. Descrizione dello scopo del parametro di input. |
+   | `Type` |Facoltativa. Tipo di dati previsto per il valore del parametro. I tipi di parametro supportati sono **String**, **Int32**, **Int64**, **Decimal**, **Boolean**, **DateTime** e **Object**. Se non è selezionato un tipo di dati, l'impostazione predefinita è **String**. |
+   | `Mandatory` |Facoltativa. Specifica se è necessario specificare un valore per il parametro. Se si sceglie **Sì**, è necessario specificare un valore quando viene avviato il runbook. Se si sceglie **No**, non è necessario specificare un valore all'avvio del runbook ed è possibile impostare un valore predefinito. |
+   | `Default Value` |Facoltativa. Specifica un valore che verrà usato per il parametro se non viene passato un valore all'avvio del runbook. È possibile impostare un valore predefinito per un parametro non obbligatorio. Per impostare un valore predefinito, scegliere **Personalizzato**. Questo valore viene usato a meno che non venga specificato un altro valore all'avvio del runbook. Scegliere **Nessuno** se non si vuole specificare alcun valore predefinito. |
 
     ![Aggiunta di nuovo input](media/automation-runbook-input-parameters/automation-runbook-input-parameter-new.png)
 4. Creare due parametri con le proprietà seguenti che verranno usate dall'attività **Get-AzureRmVm**:

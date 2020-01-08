@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: c064a5afee8db0c747273ab1c38c901a6f10ef98
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 10a061163447a60f1c25b386ef28028436284650
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876143"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453065"
 ---
 # <a name="microsoft-global-network"></a>Rete globale Microsoft
 
@@ -40,14 +40,14 @@ Se, ad esempio, un utente di Londra tenta di accedere a un servizio a Tokyo, il 
   
 Quindi, significa tutto il traffico quando si usano i servizi Microsoft? Sì, il traffico tra i Data Center, all'interno Microsoft Azure o tra i servizi Microsoft, ad esempio macchine virtuali, Office 365, XBox, database SQL, archiviazione e reti virtuali, viene instradato all'interno della rete globale e mai sulla rete Internet pubblica, per garantire la corretta ottimizzazione prestazioni e integrità.  
  
-Gli investimenti massivi nella capacità e nell'eterogeneità di fiber in percorsi metro, terrestri e sottomarini sono fondamentali per garantire un livello di servizio coerente e elevato, garantendo al tempo stesso la crescita estrema del cloud e Servizi online. Le aggiunte recenti alla nostra rete globale sono il nostro cavo sottomarino di [marea](https://www.submarinecablemap.com/#/submarine-cable/marea) , il primo sistema open line di settore (OLS) su sottomarini, tra Bilbao, Spagna e Virginia Beach, Virginia, USA e l' [AEC](https://www.submarinecablemap.com/#/submarine-cable/aeconnect-1) tra New York, USA e Dublino, Irlanda e [New Cross Pacific (NCP)](https://www.submarinecablemap.com/#/submarine-cable/new-cross-pacific-ncp-cable-system) tra Tokyo, Giappone e Portland, Oregon, Stati Uniti. 
+Gli investimenti massivi nella capacità e nell'eterogeneità di fiber in percorsi metro, terrestri e sottomarini sono fondamentali per garantire un livello di servizio coerente e elevato, garantendo al tempo stesso la crescita estrema del cloud e Servizi online. Le aggiunte recenti alla nostra rete globale sono il nostro cavo sottomarino di [marea](https://www.submarinecablemap.com/#/submarine-cable/marea) , il primo sistema open line (OLS) del settore su sottomarino, tra Bilbao, Spain e Virginia Beach, Virginia, USA, oltre a [AEC](https://www.submarinecablemap.com/#/submarine-cable/aeconnect-1) tra New York, USA e Dublin, Ireland e [New Cross Pacific (NCP)](https://www.submarinecablemap.com/#/submarine-cable/new-cross-pacific-ncp-cable-system) tra Tokyo, Giappone e Portland, Oregon, USA. 
  
 
 ## <a name="our-network-is-your-network"></a>La nostra rete è la tua rete
 
 Sono stati rilevati due decenni di esperienza, insieme a investimenti massicci nella rete, per garantire prestazioni ottimali in qualsiasi momento. Le aziende possono sfruttare al meglio gli asset di rete e creare architetture sovrapposte avanzate. 
  
-Microsoft Azure offre il portfolio più completo di servizi e funzionalità, consentendo ai clienti di creare, espandere e soddisfare in modo semplice e rapido i requisiti di rete in qualsiasi punto. La nostra famiglia di servizi di connettività si estende sul peering di reti virtuali tra aree, ibride e architetture da punto a sito e da sito a sito, nonché da scenari di transito IP globali.  Per le aziende che desiderano connettere il proprio Data Center o la propria rete ad Azure o i clienti con esigenze di inserimento o transito di dati di grandi dimensioni, [ExpressRoute](../expressroute/expressroute-introduction.md)e [ExpressRoute Direct](../expressroute/expressroute-erdirect-about.md) forniscono opzioni fino a 100 Gbps di larghezza di banda, direttamente in Rete globale Microsoft in località di peering in tutto il mondo.  
+Microsoft Azure offre il portfolio più completo di servizi e funzionalità, consentendo ai clienti di creare, espandere e soddisfare in modo semplice e rapido i requisiti di rete in qualsiasi punto. La nostra famiglia di servizi di connettività si estende sul peering di reti virtuali tra aree, ibride e architetture da punto a sito e da sito a sito, nonché da scenari di transito IP globali.  Per le aziende che desiderano connettere il proprio Data Center o la propria rete ad Azure o i clienti con esigenze di inserimento o transito di dati di grandi dimensioni, [ExpressRoute](../expressroute/expressroute-introduction.md)e [ExpressRoute Direct](../expressroute/expressroute-erdirect-about.md) forniscono opzioni fino a 100 Gbps di larghezza di banda, direttamente nella rete globale di Microsoft in località di peering in tutto il mondo.  
  
 [ExpressRoute copertura globale](../expressroute/expressroute-global-reach.md) è progettato per integrare l'implementazione WAN del provider di servizi e connettere i siti locali in tutto il mondo. Se si esegue un'operazione globale, è possibile usare ExpressRoute Copertura globale insieme ai provider di servizi preferiti e locali per connettere tutti i siti globali usando la rete globale Microsoft. Espandendo la nuova rete nel cloud (WAN) per includere un numero elevato di rami, è possibile usare la rete WAN virtuale di Azure, che offre la possibilità di connettere facilmente i rami alla rete globale Microsoft con SDWAN & i dispositivi VPN, ovvero Apparecchiature locali del cliente o CPE) con facilità di utilizzo e connettività automatizzate e gestione della configurazione. 
  
@@ -56,7 +56,7 @@ Il [peering VNet globale](../virtual-network/virtual-network-peering-overview.md
 
 ## <a name="well-managed-using-software-defined-innovation"></a>Ben gestito con l'innovazione definita dal software
 
-Con l'esecuzione di uno dei cloud principali del mondo, Microsoft ha acquisito numerose informazioni ed esperienza nella [creazione e nella gestione](https://myignite.techcommunity.microsoft.com/sessions/66668) di un'infrastruttura globale a prestazioni elevate.  
+Con l'esecuzione di uno dei cloud principali del mondo, Microsoft ha acquisito numerose informazioni ed esperienza nella creazione e nella gestione di un'infrastruttura globale a prestazioni elevate.  
  
 Ci atterremo a un solido set di principi operativi: 
  

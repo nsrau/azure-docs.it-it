@@ -1,5 +1,5 @@
 ---
-title: Controllo degli accessi del bus di servizio di Azure con firme di accesso condiviso | Microsoft Docs
+title: Controllo di accesso del bus di servizio di Azure con firme di accesso condiviso
 description: Panoramica del controllo degli accessi del bus di servizio con firme di accesso condiviso, dettagli dell'autorizzazione con firme di accesso condiviso con il bus di servizio di Azure.
 services: service-bus-messaging
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2019
+ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: ac240fee9a71714f2c7368b43e60f4e6c5d7093d
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 15b7dab7de2affb67fa080d69b4895a31bf9ba3b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013059"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462069"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controllo degli accessi del bus di servizio con firme di accesso condiviso
 
@@ -29,7 +29,7 @@ La firma di accesso condiviso consente inoltre l'accesso al bus di servizio in b
 > [!NOTE]
 > Il bus di servizio di Azure supporta l'autorizzazione dell'accesso a uno spazio dei nomi del bus di servizio e alle relative entità usando Azure Active Directory (Azure AD). L'autorizzazione di utenti o applicazioni che usano il token OAuth 2,0 restituito da Azure AD offre sicurezza e facilità d'uso superiori rispetto alle firme di accesso condiviso (SAS). Con Azure AD, non è necessario archiviare i token nel codice e rischiare potenziali vulnerabilità della sicurezza.
 >
-> Microsoft consiglia di usare Azure AD con le applicazioni del bus di servizio di Azure, quando possibile. Per altre informazioni, vedere i seguenti articoli:
+> Microsoft consiglia di usare Azure AD con le applicazioni del bus di servizio di Azure, quando possibile. Per altre informazioni, vedere gli articoli seguenti:
 > - [Autenticare e autorizzare un'applicazione con Azure Active Directory per accedere alle entità del bus di servizio di Azure](authenticate-application.md).
 > - [Autenticare un'identità gestita con Azure Active Directory per accedere alle risorse del bus di servizio di Azure](service-bus-managed-service-identity.md)
 
@@ -110,7 +110,7 @@ Se è noto o si sospetta che una chiave è compromessa ed è necessario revocare
 
 Gli scenari illustrati di seguito includono la configurazione delle regole di autorizzazione, la generazione di token di firma di accesso condiviso e l'autorizzazione dei client.
 
-Per un esempio pratico completo di un'applicazione del bus di servizio che illustra la configurazione e usa l'autorizzazione con firma di accesso condiviso, vedere [Autenticazione della firma di accesso condiviso con il bus di servizio](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Un esempio correlato che illustra l'uso delle regole di autorizzazione con firma di accesso condiviso configurate negli spazi dei nomi o negli argomenti per proteggere le sottoscrizioni del bus di servizio è disponibile nella pagina relativa all'[uso dell'autenticazione con firma di accesso condiviso con le sottoscrizioni del bus di servizio](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
+Per un esempio pratico completo di un'applicazione del bus di servizio che illustra la configurazione e usa l'autorizzazione con firma di accesso condiviso, vedere [Autenticazione della firma di accesso condiviso con il bus di servizio](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Un esempio correlato che illustra l'uso delle regole di autorizzazione con firma di accesso condiviso configurate negli spazi dei nomi o negli argomenti per proteggere le sottoscrizioni del bus di servizio è disponibile nella pagina relativa all' [uso dell'autenticazione con firma di accesso condiviso con le sottoscrizioni del bus di servizio](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
 
 ## <a name="access-shared-access-authorization-rules-on-an-entity"></a>Accedere alle regole di autorizzazione per l'accesso condiviso in un'entità
 
@@ -191,7 +191,7 @@ Nella sezione precedente, è stato illustrato come utilizzare il token SAS con u
 
 Prima di iniziare a inviare i dati al bus di servizio, il server di pubblicazione deve inviare il token di firma di accesso condiviso all'interno di un messaggio AMQP a un nodo AMQP ben definito denominato **"$cbs"** . Può essere visualizzato come una coda "speciale" usata dal servizio per acquisire e convalidare tutti i token di firma di accesso condiviso. Il server di pubblicazione deve specificare il campo **ReplyTo** all'interno del messaggio AMQP. Si tratta del nodo in cui il servizio invia una risposta al server di pubblicazione con il risultato della convalida del token. È un modello di richiesta/risposta semplice tra il server di pubblicazione e il servizio. Questo nodo risposta viene creato al momento in quanto "creazione dinamica di nodo remoto" come descritto nella specifica di AMQP 1.0. Dopo avere verificato che il token di firma di accesso condiviso è valido, il server di pubblicazione può andare avanti e iniziare a inviare dati al servizio.
 
-I passaggi seguenti illustrano come inviare il token SAS con il protocollo AMQP usando la libreria [AMQP.NET Lite](https://github.com/Azure/amqpnetlite) . Questa operazione è utile se non è possibile usare l'SDK ufficiale del bus di servizio (ad esempio in WinRT, .NET Compact Framework, .NET Micro Framework e mono\#) che si sviluppa in C. Naturalmente, questa libreria è utile per comprendere il funzionamento della sicurezza basata sulle attestazioni a livello AMQP, dopo aver visto il funzionamento a livello HTTP (con una richiesta HTTP POST e il token SAS inviati all'interno dell'intestazione "Authorization"). Se non sono necessarie informazioni approfondite su AMQP, è possibile usare l'SDK ufficiale del bus di servizio con .NET Framework applicazioni, che lo eseguirà per l'utente.
+I passaggi seguenti illustrano come inviare il token SAS con il protocollo AMQP usando la libreria [AMQP.NET Lite](https://github.com/Azure/amqpnetlite) . Questa operazione è utile se non è possibile usare l'SDK ufficiale del bus di servizio (ad esempio in WinRT, .NET Compact Framework, .NET Micro Framework e mono) che si sviluppa in C\#. Naturalmente, questa libreria è utile per comprendere il funzionamento della sicurezza basata sulle attestazioni a livello AMQP, dopo aver visto il funzionamento a livello HTTP (con una richiesta HTTP POST e il token SAS inviati all'interno dell'intestazione "Authorization"). Se non sono necessarie informazioni approfondite su AMQP, è possibile usare l'SDK ufficiale del bus di servizio con .NET Framework applicazioni, che lo eseguirà per l'utente.
 
 ### <a name="c35"></a>C&#35;
 
@@ -264,45 +264,45 @@ La tabella seguente illustra i diritti di accesso necessari per l'esecuzione di 
 | Operazione | Attestazione necessaria | Ambito attestazione |
 | --- | --- | --- |
 | **Spazio dei nomi** | | |
-| Configurare le regole di autorizzazione relative a uno spazio dei nomi |Gestisci |Qualsiasi indirizzo dello spazio dei nomi |
+| Configurare le regole di autorizzazione relative a uno spazio dei nomi |Gestire |Qualsiasi indirizzo dello spazio dei nomi |
 | **Registro di sistema del servizio** | | |
-| Enumerare i criteri privati |Gestisci |Qualsiasi indirizzo dello spazio dei nomi |
-| Iniziare l'attesa su uno spazio dei nomi del servizio |Ascolto |Qualsiasi indirizzo dello spazio dei nomi |
-| Inviare messaggi a un listener in uno spazio dei nomi |Invio |Qualsiasi indirizzo dello spazio dei nomi |
+| Enumerare i criteri privati |Gestire |Qualsiasi indirizzo dello spazio dei nomi |
+| Iniziare l'attesa su uno spazio dei nomi del servizio |Attesa |Qualsiasi indirizzo dello spazio dei nomi |
+| Inviare messaggi a un listener in uno spazio dei nomi |Invia |Qualsiasi indirizzo dello spazio dei nomi |
 | **Coda** | | |
-| Crea una coda |Gestisci |Qualsiasi indirizzo dello spazio dei nomi |
-| Eliminare una coda |Gestisci |Qualsiasi indirizzo valido della coda |
-| Enumerare le code |Gestisci |/$Resources/Queues |
-| Ottenere la descrizione di una coda |Gestisci |Qualsiasi indirizzo valido della coda |
-| Configurare le regole di autorizzazione per una coda |Gestisci |Qualsiasi indirizzo valido della coda |
-| Effettuare un invio alla coda |Invio |Qualsiasi indirizzo valido della coda |
-| Ricevere messaggi da una coda |Ascolto |Qualsiasi indirizzo valido della coda |
-| Abbandonare o completare messaggi dopo la ricezione del messaggio in modalità PeekLock (blocco di visualizzazione) |Ascolto |Qualsiasi indirizzo valido della coda |
-| Rinviare un messaggio per il successivo recupero |Ascolto |Qualsiasi indirizzo valido della coda |
-| Spostare un messaggio nella coda dei messaggi non recapitabili |Ascolto |Qualsiasi indirizzo valido della coda |
-| Ottenere lo stato associato a una sessione della coda dei messaggi |Ascolto |Qualsiasi indirizzo valido della coda |
-| Impostare lo stato associato a una sessione della coda dei messaggi |Ascolto |Qualsiasi indirizzo valido della coda |
-| Pianificare il recapito ritardato di un messaggio, ad esempio [ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Ascolto | Qualsiasi indirizzo valido della coda
+| Creare una coda |Gestire |Qualsiasi indirizzo dello spazio dei nomi |
+| Eliminare una coda |Gestire |Qualsiasi indirizzo valido della coda |
+| Enumerare le code |Gestire |/$Resources/Queues |
+| Ottenere la descrizione di una coda |Gestire |Qualsiasi indirizzo valido della coda |
+| Configurare le regole di autorizzazione per una coda |Gestire |Qualsiasi indirizzo valido della coda |
+| Effettuare un invio alla coda |Invia |Qualsiasi indirizzo valido della coda |
+| Ricevere messaggi da una coda |Attesa |Qualsiasi indirizzo valido della coda |
+| Abbandonare o completare messaggi dopo la ricezione del messaggio in modalità PeekLock (blocco di visualizzazione) |Attesa |Qualsiasi indirizzo valido della coda |
+| Rinviare un messaggio per il successivo recupero |Attesa |Qualsiasi indirizzo valido della coda |
+| Spostare un messaggio nella coda dei messaggi non recapitabili |Attesa |Qualsiasi indirizzo valido della coda |
+| Ottenere lo stato associato a una sessione della coda dei messaggi |Attesa |Qualsiasi indirizzo valido della coda |
+| Impostare lo stato associato a una sessione della coda dei messaggi |Attesa |Qualsiasi indirizzo valido della coda |
+| Pianificare il recapito ritardato di un messaggio, ad esempio [ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Attesa | Qualsiasi indirizzo valido della coda
 | **Argomento** | | |
-| Crea un argomento |Gestisci |Qualsiasi indirizzo dello spazio dei nomi |
-| Eliminare un argomento |Gestisci |Qualsiasi indirizzo valido dell'argomento |
-| Enumerare gli argomenti |Gestisci |/$Resources/Topics |
-| Ottenere la descrizione di un argomento |Gestisci |Qualsiasi indirizzo valido dell'argomento |
-| Configurare le regole di autorizzazione per un argomento |Gestisci |Qualsiasi indirizzo valido dell'argomento |
-| Effettuare un invio all'argomento |Invio |Qualsiasi indirizzo valido dell'argomento |
+| Creare un argomento |Gestire |Qualsiasi indirizzo dello spazio dei nomi |
+| Eliminare un argomento |Gestire |Qualsiasi indirizzo valido dell'argomento |
+| Enumerare gli argomenti |Gestire |/$Resources/Topics |
+| Ottenere la descrizione di un argomento |Gestire |Qualsiasi indirizzo valido dell'argomento |
+| Configurare le regole di autorizzazione per un argomento |Gestire |Qualsiasi indirizzo valido dell'argomento |
+| Effettuare un invio all'argomento |Invia |Qualsiasi indirizzo valido dell'argomento |
 | **Sottoscrizione** | | |
-| Crea una sottoscrizione |Gestisci |Qualsiasi indirizzo dello spazio dei nomi |
-| Eliminare una sottoscrizione |Gestisci |../myTopic/Subscriptions/mySubscription |
-| Enumerare le sottoscrizioni |Gestisci |../myTopic/Subscriptions |
-| Ottenere la descrizione di una sottoscrizione |Gestisci |../myTopic/Subscriptions/mySubscription |
-| Abbandonare o completare messaggi dopo la ricezione del messaggio in modalità PeekLock (blocco di visualizzazione) |Ascolto |../myTopic/Subscriptions/mySubscription |
-| Rinviare un messaggio per il successivo recupero |Ascolto |../myTopic/Subscriptions/mySubscription |
-| Spostare un messaggio nella coda dei messaggi non recapitabili |Ascolto |../myTopic/Subscriptions/mySubscription |
-| Ottenere lo stato associato a una sessione dell'argomento |Ascolto |../myTopic/Subscriptions/mySubscription |
-| Impostare lo stato associato a una sessione dell'argomento |Ascolto |../myTopic/Subscriptions/mySubscription |
+| Creare una sottoscrizione |Gestire |Qualsiasi indirizzo dello spazio dei nomi |
+| Eliminare una sottoscrizione |Gestire |../myTopic/Subscriptions/mySubscription |
+| Enumerare le sottoscrizioni |Gestire |../myTopic/Subscriptions |
+| Ottenere la descrizione di una sottoscrizione |Gestire |../myTopic/Subscriptions/mySubscription |
+| Abbandonare o completare messaggi dopo la ricezione del messaggio in modalità PeekLock (blocco di visualizzazione) |Attesa |../myTopic/Subscriptions/mySubscription |
+| Rinviare un messaggio per il successivo recupero |Attesa |../myTopic/Subscriptions/mySubscription |
+| Spostare un messaggio nella coda dei messaggi non recapitabili |Attesa |../myTopic/Subscriptions/mySubscription |
+| Ottenere lo stato associato a una sessione dell'argomento |Attesa |../myTopic/Subscriptions/mySubscription |
+| Impostare lo stato associato a una sessione dell'argomento |Attesa |../myTopic/Subscriptions/mySubscription |
 | **Regole** | | |
-| Creare una regola |Gestisci |../myTopic/Subscriptions/mySubscription |
-| Eliminare una regola |Gestisci |../myTopic/Subscriptions/mySubscription |
+| Creare una regola |Gestire |../myTopic/Subscriptions/mySubscription |
+| Eliminare una regola |Gestire |../myTopic/Subscriptions/mySubscription |
 | Enumerare le regole |Manage o Listen |../myTopic/Subscriptions/mySubscription/Rules
 
 ## <a name="next-steps"></a>Passaggi successivi

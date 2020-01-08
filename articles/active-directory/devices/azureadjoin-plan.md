@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d70e87a9a0c7fb9b28f2a025db15ce4ba666255
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 69086ee8d8d64ada7379bdb6af24c8d604e00aed
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379604"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665117"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure AD
 
@@ -24,7 +24,7 @@ L'aggiunta ad Azure AD permette di aggiungere dispositivi direttamente ad Azure 
 
 Questo articolo contiene le informazioni necessarie per pianificare l'implementazione dell'aggiunta ad Azure AD.
  
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Questo articolo presuppone che l'utente abbia familiarità con quanto descritto in [Introduzione alla gestione dei dispositivi in Azure Active Directory](../device-management-introduction.md).
 
@@ -75,7 +75,7 @@ Quando si usa AD FS, è necessario abilitare gli endpoint WS-Trust seguenti: `/a
  `/adfs/services/trust/2005/certificatemixed`
  `/adfs/services/trust/13/certificatemixed`
 
-Se il provider di identità non supporta questi protocolli, l'aggiunta ad Azure AD non funziona in modo nativo. A partire da Windows 10 1809, gli utenti possono accedere a un dispositivo aggiunto ad Azure AD con un provider di identità basato su SAML attraverso l'[accesso Web in Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Attualmente, l'accesso Web è una funzionalità di anteprima e non è consigliato per le distribuzioni di produzione.
+Se il provider di identità non supporta questi protocolli, l'aggiunta ad Azure AD non funziona in modo nativo. A partire da Windows 10 1809, gli utenti possono accedere a un dispositivo aggiunto ad Azure AD con un provider di identità basato su SAML attraverso l'[accesso Web in Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Attualmente, l'accesso Web è una funzionalità di anteprima e non è progettato per le distribuzioni di produzione.
 
 >[!NOTE]
 > Attualmente, Azure AD join non funziona con [AD FS 2019 configurato con provider di autenticazione esterni come metodo di autenticazione principale](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). Per impostazione predefinita, Azure AD join è l'autenticazione con password come metodo principale, che comporta errori di autenticazione in questo scenario
@@ -141,7 +141,7 @@ Le sezioni seguenti elencano alcune considerazioni per i diversi tipi di applica
 
 ### <a name="cloud-based-applications"></a>Applicazioni basate sul cloud
 
-Se un'applicazione viene aggiunta alla raccolta di app Azure AD, gli utenti ottengono SSO tramite i dispositivi aggiunti ad Azure AD. Non sono necessarie altre configurazioni. Gli utenti ottengono SSO sia in Microsoft Edge sia in Chrome. Per Chrome, è necessario distribuire l'[estensione per gli account Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). 
+Se un'applicazione viene aggiunta alla raccolta di app Azure AD, gli utenti ottengono SSO tramite i dispositivi aggiunti ad Azure AD. Non è richiesta alcuna configurazione aggiuntiva. Gli utenti ottengono SSO sia in Microsoft Edge sia in Chrome. Per Chrome, è necessario distribuire l'[estensione per gli account Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). 
 
 Tutte le applicazioni Win32 che:
 

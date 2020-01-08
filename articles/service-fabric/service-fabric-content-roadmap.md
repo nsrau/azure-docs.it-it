@@ -1,25 +1,14 @@
 ---
-title: Altre informazioni su Azure Service Fabric | Microsoft Docs
+title: Scopri di più su Azure Service Fabric
 description: Informazioni sui concetti di base e sulle aree principali di Azure Service Fabric. Offre una panoramica approfondita di Service Fabric e della creazione di microservizi.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/08/2017
-ms.author: atsenthi
-ms.openlocfilehash: 1227871f2003ded7b9cb92eaf32bd9a984958f9f
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 4e6e21f5f9ebfeddb5292e00dc8a929341e77372
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537812"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458157"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Informazioni su Service Fabric
 Azure Service Fabric è una piattaforma di sistemi distribuiti che semplifica la creazione di pacchetti, la distribuzione e la gestione di microservizi scalabili e affidabili.  Service Fabric ha una struttura molto estesa e richiede un apprendimento completo.  Questo articolo offre un riepilogo di Service Fabric e descrive i concetti di base, i modelli di programmazione, il ciclo di vita dell'applicazione, i test, i cluster e il monitoraggio dell'integrità. Leggere [Panoramica](service-fabric-overview.md) e [Cosa sono i microservizi?](service-fabric-overview-microservices.md) per la presentazione di Service Fabric e per informazioni su come usarlo per creare microservizi. Questo articolo non offre un elenco completo dei contenuti ma include collegamenti ad articoli di panoramica e introduttivi su tutte le aree di Service Fabric. 
@@ -28,11 +17,11 @@ Azure Service Fabric è una piattaforma di sistemi distribuiti che semplifica la
 Gli articoli [Panoramica della terminologia di Service Fabric](service-fabric-technical-overview.md), [Modellare un'applicazione in Service Fabric](service-fabric-application-model.md) e [Panoramica dei modelli di programmazione di Service Fabric](service-fabric-choose-framework.md) permettono di approfondire altri concetti e descrizioni, ma questo articolo contiene le nozioni di base.
 
 ### <a name="design-time-service-type-service-package-and-manifest-application-type-application-package-and-manifest"></a>Fase di progettazione: tipo di servizio, pacchetto del servizio e manifesto, tipo di applicazione, pacchetto dell'applicazione e manifesto
-Il tipo di servizio è il nome o la versione assegnata ai pacchetti di codice, ai pacchetti di dati e ai pacchetti di configurazione del servizio. Ciò viene definito in un file servicemanifest. Xml. Il tipo di servizio è costituito da codice eseguibile e le impostazioni di configurazione del servizio, che vengono caricate in fase di esecuzione, e dai dati statici utilizzati dal servizio.
+Il tipo di servizio è il nome o la versione assegnata ai pacchetti di codice, ai pacchetti di dati e ai pacchetti di configurazione del servizio. Questa operazione è definita in un file ServiceManifest. XML. Il tipo di servizio è costituito dalle impostazioni di configurazione del servizio e del codice eseguibile, caricate in fase di esecuzione, e dai dati statici utilizzati dal servizio.
 
 Il pacchetto del servizio è una directory del disco contenente il file ServiceManifest.xml del tipo di servizio, che fa riferimento al codice, ai dati statici e ai pacchetti di configurazione del tipo di servizio. Ad esempio, un pacchetto del servizio può fare riferimento al codice, ai dati statici e ai pacchetti di configurazione che costituiscono un servizio di database.
 
-Il tipo di applicazione è il nome o la versione assegnata a una raccolta di tipi di servizio. Ciò viene definito in un file ApplicationManifest. Xml.
+Il tipo di applicazione è il nome o la versione assegnata a una raccolta di tipi di servizio. Questa operazione è definita in un file ApplicationManifest. XML.
 
 ![Tipi di applicazioni di Service Fabric e tipi di servizio][cluster-imagestore-apptypes]
 
@@ -60,14 +49,14 @@ Il diagramma seguente illustra la relazione tra applicazioni e istanze di serviz
 ### <a name="partitioning-scaling-and-availability"></a>Partizionamento, scalabilità e disponibilità
 Il [partizionamento](service-fabric-concepts-partitioning.md) non è una procedura specifica di Service Fabric. Una forma molto conosciuta di partizionamento è il partizionamento dei dati o partizionamento orizzontale. I servizi con stato con grandi quantità di stato suddividono i dati tra partizioni. Ogni partizione è responsabile di una parte dello stato completo del servizio. 
 
-Le repliche di ogni partizione vengono distribuite tra i nodi del cluster, il che consente la [scalabilità](service-fabric-concepts-scalability.md) dello stato del servizio denominato. Quando i dati richiedono uno spazio maggiore, le partizioni crescono e Service Fabric ribilancia le partizioni tra i nodi per usare in modo efficiente le risorse hardware. Se si aggiungono nuovi nodi al cluster, Service Fabric ribilancerà le repliche di partizione sul nuovo e maggiore numero di nodi. Le prestazioni complessive dell'applicazione migliorano e la concorrenza per l'accesso alla memoria si riduce. Se i nodi del cluster non vengono usati in modo efficiente, è possibile ridurre il numero di nodi del cluster. Service Fabric ribilancia nuovamente le repliche di partizione sul nuovo e minore numero di nodi, per usare al meglio l'hardware in ogni nodo.
+Le repliche di ogni partizione vengono distribuite tra i nodi del cluster, il che consente la [scalabilità](service-fabric-concepts-scalability.md) dello stato del servizio denominato. Quando i dati richiedono uno spazio maggiore, le partizioni crescono e Service Fabric ribilancia le partizioni tra i nodi per usare in modo efficiente le risorse hardware. Se si aggiungono nuovi nodi al cluster, Service Fabric ribilancerà le repliche di partizione sul nuovo e maggiore numero di nodi. Le prestazioni complessive dell'applicazione migliorano e la contesa per l'accesso alla memoria si riduce. Se i nodi del cluster non vengono usati in modo efficiente, è possibile ridurre il numero di nodi del cluster. Service Fabric ribilancia nuovamente le repliche di partizione sul nuovo e minore numero di nodi, per usare al meglio l'hardware in ogni nodo.
 
 All'interno di una partizione, per i servizi denominati senza stato sono presenti istanze mentre per i servizi denominati con stato sono presenti repliche. In genere i servizi denominati senza stato avranno sempre una sola partizione, dal momento che non hanno uno stato interno. Le istanze della partizione garantiscono la [disponibilità](service-fabric-availability-services.md). Se un'istanza presenta un errore, le altre continuano a funzionare normalmente e Service Fabric creerà una nuova istanza. I servizi denominati con stato gestiscono il proprio stato all'interno delle repliche e ogni partizione contiene un set di repliche dedicato. Le operazioni di lettura e scrittura vengono eseguite in una replica (denominata replica primaria). I cambiamenti di stato dovuti a operazioni di scrittura vengono replicati in altre repliche (denominate repliche secondarie attive). Se una replica presenta un errore, Service Fabric ne crea una nuova da quelle esistenti.
 
 ## <a name="stateless-and-stateful-microservices-for-service-fabric"></a>Microservizi con e senza stato per Service Fabric
 Service Fabric consente di compilare applicazioni costituite da microservizi o contenitori. I microservizi senza stato, come i gateway di protocollo, i proxy Web e così via, non mantengono uno stato variabile al di fuori di una richiesta e della relativa risposta fornita dal servizio. I ruoli di lavoro di Servizi cloud di Azure sono un esempio di servizio senza stato. I microservizi con stato, come gli account utente, i database, i dispositivi, i carrelli acquisti e le code, mantengono invece uno stato variabile e autorevole anche all'esterno della richiesta e della relativa risposta. Le attuali applicazioni su scala Internet sono costituite da una combinazione di microservizi con e senza stato. 
 
-Un fattore di differenziazione chiave di Service Fabric è incentrato sulla compilazione di servizi con stato, mediante la [modelli di programmazione incorporati](service-fabric-choose-framework.md) o con servizi con stati in contenitori. L'articolo [Scenari di applicazione di Service Fabric](service-fabric-application-scenarios.md) descrive gli scenari in cui vengono usati i servizi con stato.
+Una differenziazione chiave con Service Fabric è l'obiettivo principale della creazione di servizi con stato, con i [modelli di programmazione incorporati](service-fabric-choose-framework.md) o con i servizi con stato in contenitori. L'articolo [Scenari di applicazione di Service Fabric](service-fabric-application-scenarios.md) descrive gli scenari in cui vengono usati i servizi con stato.
 
 Perché avere microservizi con stato insieme a quelli senza stato? I due motivi principali sono:
 
@@ -95,7 +84,7 @@ Service Fabric è integrato con [ASP.NET Core](service-fabric-reliable-services-
 ### <a name="guest-executables"></a>Eseguibili guest
 Un [eseguibile guest](service-fabric-guest-executables-introduction.md) è un eseguibile arbitrario esistente, scritto in un qualsiasi linguaggio, ospitato in un cluster di Service Fabric insieme ad altri servizi. Gli eseguibili guest non si integrano direttamente con le API di Service Fabric. Tuttavia sfruttano le funzionalità offerte dalla piattaforma, quali report di integrità e caricamento personalizzati e individuabilità dei servizi mediante chiamate ad API REST. Gli eseguibili guest dispongono anche di supporto completo del ciclo di vita dell'applicazione. 
 
-## <a name="application-lifecycle"></a>Ciclo di vita dell'applicazione
+## <a name="application-lifecycle"></a>Ciclo di vita delle applicazioni
 Analogamente ad altre piattaforme, un'applicazione su Service Fabric in genere passa attraverso le fasi seguenti: progettazione, sviluppo, test, distribuzione, aggiornamento, manutenzione e rimozione. Service Fabric di Azure offre un supporto di prima categoria per l'intero ciclo di vita delle applicazioni cloud, dallo sviluppo alla distribuzione, alla gestione giornaliera, alla manutenzione e infine alla rimozione delle autorizzazioni. Il modello di servizio abilita diversi ruoli per la partecipazione indipendente al ciclo di vita delle applicazioni. [Ciclo di vita dell'applicazione di Service Fabric](service-fabric-application-lifecycle.md) offre una panoramica delle interfacce API e del modo in cui vengono usate dai diversi ruoli nelle fasi del ciclo di vita di un'applicazione di Service Fabric. 
 
 L'intero ciclo di vita dell'app può essere gestito tramite i [cmdlet di PowerShell](/powershell/module/ServiceFabric/), i [comandi dell'interfaccia della riga di comando](service-fabric-sfctl.md), le [API C#](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), le [API Java](/java/api/overview/azure/servicefabric) e le [API REST](/rest/api/servicefabric/). È anche possibile configurare pipeline di distribuzione/integrazione continua con strumenti quali [Azure Pipelines](service-fabric-set-up-continuous-integration.md) o [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
@@ -116,12 +105,12 @@ Gli [scenari](service-fabric-testability-scenarios.md) sono operazioni complesse
 * Lo [scenario di failover](service-fabric-testability-scenarios.md#failover-test) è una versione dello scenario di test chaos destinata a una specifica partizione del servizio che non ha effetti sugli altri servizi.
 
 ## <a name="clusters"></a>Cluster
-Un [cluster di Service Fabric](service-fabric-deploy-anywhere.md) è un set di computer fisici o macchine virtuali connesse tramite rete in cui vengono distribuiti e gestiti i microservizi. I cluster possono supportare migliaia di macchine. Un computer o una VM che fa parte di un cluster è chiamato nodo cluster. A ogni nodo viene assegnato un nome (stringa). I nodi presentano delle caratteristiche, ad esempio le proprietà di posizionamento. In ogni computer o macchina virtuale è disponibile il servizio di avvio automatico `FabricHost.exe`, che viene eseguito all'avvio e che a sua volta avvia due eseguibili: Fabric.exe e FabricGateway.exe. Questi due eseguibili costituiscono il nodo. Negli scenari di test è possibile ospitare più nodi in un singolo PC o una singola macchina virtuale eseguendo più istanze di `Fabric.exe` e `FabricGateway.exe`.
+Un [cluster di Service Fabric](service-fabric-deploy-anywhere.md) è un set di computer fisici o macchine virtuali connesse tramite rete in cui vengono distribuiti e gestiti i microservizi. I cluster possono supportare migliaia di macchine. Un computer o una VM che fa parte di un cluster è chiamato nodo del cluster. A ogni nodo viene assegnato un nome (stringa). I nodi presentano delle caratteristiche, ad esempio le proprietà di posizionamento. In ogni computer o VM è disponibile un servizio di avvio automatico, `FabricHost.exe`, che viene eseguito all'avvio e che a sua volta avvia due eseguibili: Fabric.exe e FabricGateway.exe. Questi due eseguibili costituiscono il nodo. Negli scenari di test è possibile ospitare più nodi in un singolo PC o una singola macchina virtuale eseguendo più istanze di `Fabric.exe` e `FabricGateway.exe`.
 
 È possibile creare cluster di Service Fabric su qualsiasi macchina virtuale o computer che esegue Windows Server o Linux. È quindi possibile distribuire ed eseguire applicazioni di Service Fabric in qualsiasi ambiente in cui è presente un set di computer Windows Server o Linux interconnessi, in locale, in Microsoft Azure o con qualsiasi provider di cloud.
 
 ### <a name="clusters-on-azure"></a>Cluster in Azure
-L'esecuzione dei cluster di Service Fabric in Azure offre l'integrazione con altre funzionalità e servizi; rendendo più facili e affidabili le operazioni e la gestione del cluster. Un cluster è una risorsa di Azure Resource Manager, pertanto è possibile modellare i cluster come qualsiasi altra risorsa in Azure. Resource Manager fornisce inoltre una gestione semplificata di tutte le risorse utilizzate dal cluster come una singola unità. I cluster in Azure sono integrati con diagnostica di Azure e log di monitoraggio di Azure. Poiché i tipi di nodo del cluster sono [set di scalabilità di macchina virtuale](/azure/virtual-machine-scale-sets/index), la funzionalità di scalabilità automatica è incorporata.
+L'esecuzione dei cluster di Service Fabric in Azure offre l'integrazione con altre funzionalità e servizi; rendendo più facili e affidabili le operazioni e la gestione del cluster. Un cluster è una risorsa di Azure Resource Manager, pertanto è possibile modellare i cluster come qualsiasi altra risorsa in Azure. Resource Manager fornisce inoltre una gestione semplificata di tutte le risorse utilizzate dal cluster come una singola unità. I cluster in Azure sono integrati con la diagnostica di Azure e i log di monitoraggio di Azure. Poiché i tipi di nodo del cluster sono [set di scalabilità di macchina virtuale](/azure/virtual-machine-scale-sets/index), la funzionalità di scalabilità automatica è incorporata.
 
 È possibile creare un cluster in Azure tramite il [portale di Azure](service-fabric-cluster-creation-via-portal.md), da un [modello](service-fabric-cluster-creation-via-arm.md) o da [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md).
 
@@ -136,7 +125,7 @@ Service Fabric offre un pacchetto di installazione per creare cluster autonomi d
 
 I cluster Linux autonomi non sono ancora supportati.
 
-### <a name="cluster-security"></a>Sicurezza del cluster
+### <a name="cluster-security"></a>Sicurezza dei cluster
 Per impedire a utenti non autorizzati di connettersi ai cluster, è necessario proteggerli, in particolare quando sono in esecuzione carichi di lavoro di produzione. La creazione di cluster non protetti, anche se possibile, consente a utenti anonimi di connettersi a un cluster che espone gli endpoint di gestione a Internet pubblico. Non è possibile abilitare la sicurezza in un cluster non protetto in un secondo momento: la protezione del cluster viene abilitata al momento della creazione del cluster stesso.
 
 Gli scenari di sicurezza del cluster sono:
@@ -146,8 +135,8 @@ Gli scenari di sicurezza del cluster sono:
 
 Per altre informazioni, vedere [Proteggere un cluster](service-fabric-cluster-security.md).
 
-### <a name="scaling"></a>Ridimensionamento
-Se si aggiungono nuovi nodi al cluster, Service Fabric ribilancerà le repliche e istanze di partizione sul nuovo e maggiore numero di nodi. Le prestazioni complessive dell'applicazione migliorano e la contesa per l'accesso alla memoria si riduce. Se i nodi del cluster non vengono usati in modo efficiente, è possibile ridurre il numero di nodi del cluster. Service Fabric ribilancia nuovamente le repliche e le istanze di partizione sul nuovo e minore numero di nodi, per usare al meglio l'hardware in ogni nodo. È possibile scalare i cluster in Azure [manualmente](service-fabric-cluster-scale-up-down.md) o [a livello di codice](service-fabric-cluster-programmatic-scaling.md). I cluster autonomi possono essere scalati [manualmente](service-fabric-cluster-windows-server-add-remove-nodes.md).
+### <a name="scaling"></a>Scalabilità
+Se si aggiungono nuovi nodi al cluster, Service Fabric ribilancerà le repliche e istanze di partizione sul nuovo e maggiore numero di nodi. Le prestazioni complessive dell'applicazione migliorano e la contesa per l'accesso alla memoria si riduce. Se i nodi del cluster non vengono usati in modo efficiente, è possibile ridurre il numero di nodi del cluster. Service Fabric ribilancia di nuovo le repliche e le istanze di partizione nel numero ridotto di nodi per usare al meglio l'hardware in ogni nodo. È possibile scalare i cluster in Azure [manualmente](service-fabric-cluster-scale-up-down.md) o [a livello di codice](service-fabric-cluster-programmatic-scaling.md). I cluster autonomi possono essere scalati [manualmente](service-fabric-cluster-windows-server-add-remove-nodes.md).
 
 ### <a name="cluster-upgrades"></a>Aggiornamenti dei cluster
 Periodicamente vengono rilasciate nuove versioni del runtime di Service Fabric. Eseguire gli aggiornamenti del runtime o dell'infrastruttura nel cluster in modo che sia sempre in esecuzione una [versione supportata](service-fabric-support.md). Oltre agli aggiornamenti dell'infrastruttura, è possibile aggiornare anche la configurazione del cluster, ad esempio i certificati o le porte delle applicazioni.
@@ -156,7 +145,7 @@ Un cluster di Service Fabric è una risorsa di proprietà dell'utente parzialmen
 
 Un cluster autonomo è una risorsa che si possiede interamente. Perciò si è responsabili dell'applicazione delle patch al sistema operativo sottostante e dell'avvio degli aggiornamenti dell'infrastruttura. Se il cluster può connettersi a [https://www.microsoft.com/download](https://www.microsoft.com/download), è possibile configurare il cluster in modo che scarichi ed esegua automaticamente il provisioning del nuovo pacchetto di runtime di Service Fabric. Quindi si avvierà l'aggiornamento. Se il cluster non può accedere a [https://www.microsoft.com/download](https://www.microsoft.com/download), è possibile scaricare manualmente il nuovo pacchetto di runtime da un computer connesso a Internet e quindi avviare l'aggiornamento. Per altre informazioni, vedere [Aggiornare il cluster autonomo di Azure Service Fabric in Windows Server](service-fabric-cluster-upgrade-windows-server.md).
 
-## <a name="health-monitoring"></a>Monitoraggio dell’integrità
+## <a name="health-monitoring"></a>Monitoraggio dell'integrità
 In Service Fabric è disponibile un [modello di integrità](service-fabric-health-introduction.md) progettato per contrassegnare condizioni di non integrità di cluster e applicazioni in entità specifiche, come i nodi cluster e le repliche dei servizi. Il modello di integrità usa i reporter di integrità, costituiti da watchdog e componenti di sistema. Lo scopo è semplificare e velocizzare la diagnosi e la risoluzione dei problemi. Gli autori del servizio devono pensare in anticipo all'integrità e a come [progettare i report sull'integrità](service-fabric-report-health.md#design-health-reporting). È necessario segnalare tutte le condizioni che possono influire sull'integrità, soprattutto se aiutano a risalire alla causa dei problemi. Le informazioni sull'integrità consentono di risparmiare tempo ed energie per il debug e l'analisi quando il servizio sarà in esecuzione su vasta scala in produzione.
 
 I generatori di report di Service Fabric eseguono il monitoraggio di condizioni di particolare interesse. Generano report su tali condizioni in base alla visualizzazione locale. L'[archivio integrità](service-fabric-health-introduction.md#health-store) aggrega i dati sull'integrità inviati da tutti i reporter per determinare se le entità sono complessivamente integre. Il modello è concepito per essere completo, flessibile e facile da usare. La qualità dei report sull'integrità determina il livello di accuratezza della visualizzazione dell'integrità del cluster. I falsi positivi che visualizzano erroneamente problemi di non integrità possono influire negativamente sugli aggiornamenti o su altri servizi che usano i dati di integrità, come ad esempio i servizi di ripristino e i meccanismi di avviso. Pertanto, è necessario creare report che segnalino le condizioni a cui si è interessati nel miglior modo possibile.
@@ -167,7 +156,7 @@ I report possono essere creati da:
 * Watchdog interni eseguiti sui nodi di Service Fabric ma non implementati come servizi di Service Fabric.
 * Watchdog esterni che interrogano la risorsa dall'esterno del cluster di Service Fabric, ad esempio un servizio di monitoraggio come Gomez.
 
-I componenti di Azure Service Fabric forniscono report sull'integrità predefiniti su tutte le entità del cluster. I [report sull'integrità del sistema](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) forniscono la visibilità delle funzionalità del cluster e dell'applicazione e contrassegnano i problemi riscontrati a livello di integrità. Per le applicazioni e i servizi, i report sull'integrità del sistema verificano che le entità siano implementate e si comportino correttamente dal punto di vista del runtime di Service Fabric. I report non forniscono il monitoraggio dell'integrità della logica di business del servizio o rilevare i processi che non rispondono. Per aggiungere informazioni di integrità specifiche della logica del servizio, [implementare report sull'integrità personalizzati](service-fabric-report-health.md) nei servizi.
+I componenti di Azure Service Fabric forniscono report sull'integrità predefiniti su tutte le entità del cluster. I [report sull'integrità del sistema](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) forniscono la visibilità delle funzionalità del cluster e dell'applicazione e contrassegnano i problemi riscontrati a livello di integrità. Per le applicazioni e i servizi, i report sull'integrità del sistema verificano che le entità siano implementate e si comportino correttamente dal punto di vista del runtime di Service Fabric. I report non forniscono il monitoraggio dell'integrità della logica di business del servizio o rilevano i processi che non rispondono. Per aggiungere informazioni di integrità specifiche della logica del servizio, [implementare report sull'integrità personalizzati](service-fabric-report-health.md) nei servizi.
 
 Service Fabric offre diversi modi per [visualizzare i report sull'integrità](service-fabric-view-entities-aggregated-health.md) aggregati nell'archivio di integrità:
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) o altri strumenti di visualizzazione.

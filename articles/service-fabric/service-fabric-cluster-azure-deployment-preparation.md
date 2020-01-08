@@ -1,24 +1,14 @@
 ---
-title: Pianificare una distribuzione di Azure Service Fabric cluster | Microsoft Docs
+title: Pianificare una distribuzione di Azure Service Fabric cluster
 description: Informazioni sulla pianificazione e la preparazione per la distribuzione di un cluster Service Fabric di produzione in Azure.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/20/2019
-ms.author: atsenthi
-ms.openlocfilehash: a130e9bc8859360704c9be1c0a7fe066d2ed4567
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 69fb97e4e679b3ce5817a51d619799a3384fd753
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599995"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463328"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Pianificare e preparare la distribuzione di un cluster
 
@@ -28,7 +18,7 @@ La pianificazione e la preparazione per la distribuzione di un cluster di produz
 Per gestire correttamente le applicazioni e i cluster di Azure Service Fabric, è consigliabile eseguire alcune operazioni per ottimizzare l'affidabilità dell'ambiente di produzione.  Per altre informazioni, vedere [Service Fabric procedure consigliate per le applicazioni e i cluster](service-fabric-best-practices-overview.md).
 
 ## <a name="select-the-os-for-the-cluster"></a>Selezionare il sistema operativo per il cluster
-Service Fabric permette di creare cluster di Service Fabric in qualsiasi VM o computer con Windows Server o Linux in esecuzione.  Prima di distribuire il cluster, è necessario scegliere il sistema operativo:  Windows o Linux.  Ogni nodo (macchina virtuale) del cluster esegue lo stesso sistema operativo, non è possibile combinare macchine virtuali Windows e Linux nello stesso cluster.
+Service Fabric permette di creare cluster di Service Fabric in qualsiasi VM o computer con Windows Server o Linux in esecuzione.  Prima di distribuire il cluster, è necessario scegliere il sistema operativo: Windows o Linux.  Ogni nodo (macchina virtuale) del cluster esegue lo stesso sistema operativo, non è possibile combinare macchine virtuali Windows e Linux nello stesso cluster.
 
 ## <a name="capacity-planning"></a>Pianificazione della capacità
 La pianificazione della capacità è un passaggio importante per qualsiasi distribuzione di produzione. Di seguito sono elencati alcuni aspetti da considerare nell'ambito di questo processo.
@@ -57,7 +47,7 @@ Il livello di durabilità viene usato per indicare al sistema i privilegi delle 
 Il livello di affidabilità viene usato per impostare il numero di repliche dei servizi di sistema che si vuole eseguire in questo cluster nel tipo di nodo primario. I servizi di sistema nel cluster sono tanto più affidabili quanto più elevato è il numero di repliche.  Per i vantaggi dei diversi livelli e consigli sul livello da usare e quando, vedere [le caratteristiche di affidabilità del cluster][reliability]. 
 
 ## <a name="enable-reverse-proxy-andor-dns"></a>Abilita proxy inverso e/o DNS
-I servizi che si connettono tra loro in un cluster possono in genere accedere direttamente agli endpoint di altri servizi perché i nodi di un cluster si trovano nella stessa rete locale. Per semplificare la connessione tra i servizi, Service Fabric fornisce servizi aggiuntivi: Un servizio [DNS](service-fabric-dnsservice.md) e un [servizio proxy inverso](service-fabric-reverseproxy.md).  Entrambi i servizi possono essere abilitati quando si distribuisce un cluster.
+I servizi che si connettono tra loro in un cluster possono in genere accedere direttamente agli endpoint di altri servizi perché i nodi di un cluster si trovano nella stessa rete locale. Per semplificare la connessione tra i servizi, Service Fabric fornisce servizi aggiuntivi: un [servizio DNS](service-fabric-dnsservice.md) e un [servizio proxy inverso](service-fabric-reverseproxy.md).  Entrambi i servizi possono essere abilitati quando si distribuisce un cluster.
 
 Poiché molti servizi, in particolare quelli in contenitori, possono avere un nome di URL esistente, la possibilità di risolverli usando il protocollo DNS standard (anziché il protocollo Naming Service) è molto utile, in particolare negli scenari di "Lift-and-Shift" dell'applicazione. Questo è esattamente ciò che fa il servizio DNS. Consente di eseguire il mapping di nomi DNS a nomi di servizi e di conseguenza di risolvere gli indirizzi IP degli endpoint.
 

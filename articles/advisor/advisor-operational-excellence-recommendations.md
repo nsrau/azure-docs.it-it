@@ -1,19 +1,14 @@
 ---
-title: Migliorare l'eccellenza operativa per le sottoscrizioni di Azure con Azure Advisor | Microsoft Docs
-description: USA Advisor per ottimizzare e ottenere una maturità operativa per le tue sottoscrizioni di Azure.
-services: advisor
-documentationcenter: NA
-author: sagupt
-ms.service: advisor
+title: Migliorare l'eccellenza operativa per le sottoscrizioni di Azure con Azure Advisor
+description: USA Advisor per ottimizzare e ottenere una maturazione dell'eccellenza operativa per le tue sottoscrizioni di Azure
 ms.topic: article
 ms.date: 10/24/2019
-ms.author: sagupt
-ms.openlocfilehash: 7cf3d3b34d0921cd111f8111bc2008ef0eced962
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: f34284ba62bd5dea98345ebe73365b332d38ee78
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73033290"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443080"
 ---
 # <a name="achieve-operational-excellence-with-azure-advisor"></a>Ottenere l'eccellenza operativa con Azure Advisor
 
@@ -37,7 +32,7 @@ Azure Advisor rileverà le regole di avviso con query non valide specificate nel
 
 ## <a name="follow-best-practices-using-azure-policy"></a>Seguire le procedure consigliate con criteri di Azure
 
-Criteri di Azure è un servizio disponibile in Azure che consente di creare, assegnare e gestire criteri. Questi criteri applicano regole e effetti differenti sulle risorse. Di seguito sono riportate le indicazioni per i criteri di Azure che consentono di ottenere l'eccellenza operativa: 
+Criteri di Azure è un servizio disponibile in Azure che consente di creare, assegnare e gestire criteri. Questi criteri applicano regole ed effetti diversi alle risorse. Di seguito sono riportate le indicazioni per i criteri di Azure che consentono di ottenere l'eccellenza operativa: 
 1. Gestione dei tag con criteri di Azure: questo criterio aggiunge o sostituisce il tag e il valore specificati quando viene creata o aggiornata una risorsa. È possibile correggere le risorse esistenti attivando un'attività di correzione. Inoltre, non modifica i tag nei gruppi di risorse.
 2. Applicare i requisiti di conformità geografica usando criteri di Azure: il criterio consente di limitare le posizioni che l'organizzazione può specificare durante la distribuzione delle risorse. 
 3. Specificare gli SKU delle macchine virtuali consentite per le distribuzioni: questo criterio consente di specificare un set di SKU di macchine virtuali che l'organizzazione può distribuire.
@@ -48,7 +43,7 @@ Criteri di Azure è un servizio disponibile in Azure che consente di creare, ass
 
 Per altre informazioni sui consigli di Advisor, vedere:
 * [Introduction to Advisor](advisor-overview.md) (Presentazione di Azure Advisor)
-* [esercitazione introduttiva](advisor-get-started.md)
+* [Introduzione](advisor-get-started.md)
 * [Advisor Cost recommendations](advisor-cost-recommendations.md) (Consigli di Advisor sui costi)
 * [Advisor Performance recommendations](advisor-performance-recommendations.md) (Consigli di Advisor sulle prestazioni)
 * [Advisor High Availability recommendations](advisor-high-availability-recommendations.md) (Consigli di Advisor sulla disponibilità elevata)

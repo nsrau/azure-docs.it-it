@@ -1,6 +1,6 @@
 ---
-title: Creazione e uso di file di risorse-Azure Batch | Microsoft Docs
-description: Informazioni su come creare Azure Batch file di risorse da varie origini di input.
+title: Creazione e uso di file di risorse-Azure Batch
+description: Informazioni su come creare file di risorse batch da varie origini di input. Questo articolo illustra alcuni metodi comuni su come crearli e inserirli in una macchina virtuale.
 services: batch
 author: laurenhughes
 manager: gwallace
@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: lahugh
-ms.openlocfilehash: 9c55b22d1cb85fb645087cf48b54f9d5ac12d58f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: e890bce378327fe5b1f4068d6719e6b905404f3c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322175"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390060"
 ---
 # <a name="creating-and-using-resource-files"></a>Creazione e utilizzo di file di risorse
 
@@ -32,9 +32,9 @@ Sono disponibili alcune opzioni diverse per generare file di risorse. Il process
 
 Opzioni per la creazione di un file di risorse:
 
-- [URL del contenitore di archiviazione](#storage-container-url): Genera un file di risorse da qualsiasi contenitore di archiviazione in Azure
-- [Nome del contenitore di archiviazione](#storage-container-name): Genera un file di risorse dal nome di un contenitore in un account di archiviazione di Azure collegato al batch
-- [Endpoint Web](#web-endpoint): Genera un file di risorse da qualsiasi URL HTTP valido
+- [Storage container URL](#storage-container-url): genera un file di risorse da qualsiasi contenitore di archiviazione in Azure
+- [Storage Container Name](#storage-container-name): genera un file di risorse dal nome di un contenitore in un account di archiviazione di Azure collegato al batch
+- [Endpoint Web](#web-endpoint): genera un file di risorse da qualsiasi URL http valido
 
 ### <a name="storage-container-url"></a>URL del contenitore di archiviazione
 
@@ -53,9 +53,9 @@ SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy
 ```
 
 > [!NOTE]
-> Per l'accesso al contenitore è necessario disporre `Read` di `List` entrambe le autorizzazioni e, mentre con l'accesso al `Read` BLOB è necessaria solo l'autorizzazione.
+> Per l'accesso al contenitore è necessario disporre di autorizzazioni sia `Read` che `List`, mentre con l'accesso al BLOB è necessario solo `Read` autorizzazione.
 
-Una volta configurate le autorizzazioni, creare il token SAS e formattare l'URL di firma di accesso condiviso per accedere al contenitore di archiviazione. Usando l'URL SAS formattato per il contenitore di archiviazione, generare un file [`FromStorageContainerUrl`](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.resourcefile.fromstoragecontainerurl?view=azure-dotnet)di risorse con.
+Una volta configurate le autorizzazioni, creare il token SAS e formattare l'URL di firma di accesso condiviso per accedere al contenitore di archiviazione. Usando l'URL SAS formattato per il contenitore di archiviazione, generare un file di risorse con [`FromStorageContainerUrl`](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.resourcefile.fromstoragecontainerurl?view=azure-dotnet).
 
 ```csharp
 CloudBlobContainer container = blobClient.GetContainerReference(containerName);

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/13/2019
-ms.openlocfilehash: 19b1b345c72361ae1fcdad5221dcd0e877b32fe7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 5809307ff8e047ebc6120cb5ebf36590f2a2a51a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926297"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444015"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Copiare dati da Azure Data Lake Storage Gen1 a Gen2 con Azure Data Factory
 
@@ -49,7 +49,7 @@ Questo articolo illustra come usare lo strumento copia dati Data Factory per cop
  
     * **Nome**: immettere un nome univoco globale per la data factory di Azure. Se viene visualizzato l'errore "Il nome \"LoadADLSDemo\" per la data factory non è disponibile", immettere un nome diverso per la data factory. Ad esempio, usare il nome _**nomeutente**_ **ADFTutorialDataFactory**. Creare nuovamente il data factory. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere [Azure Data Factory - Regole di denominazione](naming-rules.md).
     * **Sottoscrizione**: selezionare la sottoscrizione di Azure in cui creare la data factory. 
-    * **Gruppo di risorse**: selezionare un gruppo di risorse esistente dall'elenco a discesa. È anche possibile selezionare l'opzione **Crea nuovo** e immettere il nome di un gruppo di risorse. Per informazioni sui gruppi di risorse, vedere l'articolo su come [usare gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/resource-group-overview.md). 
+    * **Gruppo di risorse**: selezionare un gruppo di risorse esistente dall'elenco a discesa. È anche possibile selezionare l'opzione **Crea nuovo** e immettere il nome di un gruppo di risorse. Per informazioni sui gruppi di risorse, vedere l'articolo su come [usare gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/management/overview.md). 
     * **Versione**: selezionare **V2**.
     * **Località**: selezionare la località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati usati dalla data factory possono trovarsi in altre località e aree. 
 
@@ -80,7 +80,7 @@ Questo articolo illustra come usare lo strumento copia dati Data Factory per cop
 
    a. Selezionare la propria istanza di Data Lake Storage Gen1 per il nome dell'account e specificare o convalidare il **Tenant**.
   
-   b. Selezionare **Test connessione** per convalidare le impostazioni. Selezionare quindi **Fine**.
+   b. Selezionare **Test connessione** per convalidare le impostazioni. Quindi selezionare **Fine**.
   
    c. Si noterà che è stata creata una nuova connessione. Selezionare **Avanti**.
    
@@ -105,7 +105,7 @@ Questo articolo illustra come usare lo strumento copia dati Data Factory per cop
 
    a. Selezionare l'account Data Lake Storage Gen2 idoneo nell'elenco a discesa **nome account di archiviazione** .
    
-   b. Selezionare **Fine** per creare la connessione. Quindi selezionare **Avanti**.
+   b. Selezionare **Fine** per creare la connessione. Fare quindi clic su **Avanti**.
    
    ![Specificare un account di Azure Data Lake Storage Gen2](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
 
@@ -157,7 +157,7 @@ Usare un modello di prova per verificare la soluzione end-to-end e testare la ve
 
 È possibile controllare la concorrenza dei processi di copia Data Factory che leggono i dati da Data Lake Storage Gen1 e scrivono i dati in Data Lake Storage Gen2. In questo modo, è possibile gestire l'utilizzo di tale I/O di archiviazione per evitare di influire sul normale lavoro aziendale in Data Lake Storage Gen1 durante la migrazione.
 
-### <a name="permissions"></a>autorizzazioni 
+### <a name="permissions"></a>Autorizzazioni 
 
 In Data Factory, il [connettore data Lake storage Gen1](connector-azure-data-lake-store.md) supporta l'entità servizio e l'identità gestita per le autenticazioni di risorse di Azure. Il [connettore data Lake storage Gen2](connector-azure-data-lake-storage.md) supporta la chiave dell'account, l'entità servizio e l'identità gestita per le autenticazioni di risorse di Azure. Per rendere Data Factory in grado di esplorare e copiare tutti i file o gli elenchi di controllo di accesso (ACL) necessari, concedere autorizzazioni sufficienti per l'account fornito per accedere, leggere o scrivere tutti i file e impostare gli ACL se si sceglie di. Concedere a tale utente un ruolo di proprietario o utente con privilegi avanzati durante il periodo di migrazione. 
 

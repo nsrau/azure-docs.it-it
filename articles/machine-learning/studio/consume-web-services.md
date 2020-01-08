@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: 1a567e8f910ccf539038a19eef0319f21833f336
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: a53128605e1f124cbd26fb679e799822b8abad29
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839698"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454800"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-classic-web-service"></a>Come utilizzare un servizio Web di Azure Machine Learning Studio (classico)
 
@@ -29,10 +29,10 @@ Per ulteriori informazioni su come creare e distribuire un servizio Web di Machi
 
 
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 Con il servizio Web di Azure Machine Learning, un'applicazione esterna comunica con un modello di valutazione del flusso di lavoro di Machine Learning in tempo reale. Una chiamata al servizio Web di Machine Learning restituisce i risultati della stima a un'applicazione esterna. Per effettuare una chiamata al servizio Web di Machine Learning, passare una chiave API creata quando si distribuisce una stima. Il servizio Web di Machine Learning è basato su REST, una scelta di architettura diffusa per progetti di programmazione Web.
 
-La versione classica di Azure Machine Learning Studio dispone di due tipi di servizi:
+Azure Machine Learning Studio (versione classica) dispone di due tipi di servizi:
 
 * Servizio di richiesta-risposta (RRS): servizio a bassa latenza e scalabilità elevata che fornisce un'interfaccia per i modelli senza stato creati e distribuiti dal Machine Learning Studio (classico).
 * Servizio esecuzione batch (BES). Un servizio asincrono che valuta un batch di record di dati.

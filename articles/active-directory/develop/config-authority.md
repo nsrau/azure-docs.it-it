@@ -1,5 +1,5 @@
 ---
-title: Configurare provider di identità diversi (MSAL iOS/macOS) | Azure
+title: Configurare i provider di identità (MSAL iOS/macOS) | Azure
 titleSuffix: Microsoft identity platform
 description: Informazioni su come usare autorità diverse, ad esempio B2C, cloud sovrani e utenti guest, con MSAL per iOS e macOS.
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: twhitney
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f2408dc2dd80ab3f52b158a18355087fe941b48
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c2c072ccfe1ba83813ab135fa08c3ffdf5d80d4e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917982"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424598"
 ---
 # <a name="how-to-configure-msal-for-ios-and-macos-to-use-different-identity-providers"></a>Procedura: configurare MSAL per iOS e macOS per l'uso di provider di identità diversi
 
@@ -181,7 +181,7 @@ Potrebbe essere necessario passare ambiti diversi a ogni cloud sovrano. Gli ambi
 
 Quando l'URL dell'autorità è impostato su `"login.microsoftonline.com/common"`, l'utente verrà connesso al tenant Home. Tuttavia, alcune app possono richiedere l'accesso dell'utente in un tenant diverso e alcune app funzionano solo con un singolo tenant.
 
-Per far accedere l'utente a un tenant specifico, configurare `MSALPublicClientApplication` con un'autorità specifica. ad esempio:
+Per far accedere l'utente a un tenant specifico, configurare `MSALPublicClientApplication` con un'autorità specifica. Ad esempio:
 
 `https://login.microsoftonline.com/469fdeb4-d4fd-4fde-991e-308a78e4bea4`
 

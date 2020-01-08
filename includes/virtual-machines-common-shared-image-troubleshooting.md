@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 1476830313296615591a69a2cadd04bcc56b22bc
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: cc35133df073eea056586dede62c451713e98c10
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180084"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75663185"
 ---
 Se si verificano problemi durante l'esecuzione di operazioni su raccolte di immagini condivise, definizioni di immagini e versioni di immagini, eseguire di nuovo il comando per cui si è verificato l'errore in modalità di debug. La modalità di debug viene attivata passando l'opzione **-debug** con l'interfaccia della riga di comando e l'opzione **-Debug** con PowerShell. Dopo aver individuato il problema, seguire questo documento per risolvere gli errori.
 
@@ -37,7 +37,7 @@ Possibili cause:
 
 *Il nome della definizione dell'immagine non è valido.*
 
-Caratteri consentiti per la definizione dell'immagine sono periodi, cifre, punti, trattini e lettere maiuscole o minuscole. Modificare il nome della definizione dell'immagine e riprovare.
+I caratteri consentiti per la definizione dell'immagine sono lettere maiuscole o minuscole, cifre, punti, trattini e punti. Modificare il nome della definizione dell'immagine e riprovare.
 
 *Le proprietà obbligatorie per la creazione di una definizione dell'immagine non sono popolate.*
 
@@ -52,7 +52,7 @@ Possibili cause:
 
 *Il nome della versione dell'immagine non è valido.*
 
-I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *MajorVersion.MinorVersion.Patch*. Modificare il nome della versione dell'immagine e riprovare.
+I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *VersionePrincipale.VersioneSecondaria.Patch*. Modificare il nome della versione dell'immagine e riprovare.
 
 *Non è possibile trovare l'immagine gestita di origine da cui viene creata la versione dell'immagine.* 
 
@@ -62,7 +62,7 @@ Controllare se l'immagine di origine esiste e si trova nella stessa area della v
 
 Assicurarsi che lo stato provisioning dell'immagine gestita di origine sia **Riuscito**.
 
-*Elenco delle aree di destinazione non include l'area di origine.*
+*L'elenco delle aree di destinazione non include l'area di origine.*
 
 L'elenco delle aree di destinazione deve includere l'area di origine della versione dell'immagine. Assicurarsi che l'area di origine sia stata inclusa nell'elenco delle aree di destinazione in cui si vuole che Azure replichi la versione dell'immagine.
 
@@ -88,7 +88,7 @@ Verificare che il valore di **OSType** della versione dell'immagine da cui si st
 
 ## <a name="unable-to-share-resources"></a>Impossibile condividere le risorse
 
-La condivisione della raccolta di immagini condivise, definizione dell'immagine e le risorse della versione immagine tra le sottoscrizioni attivata mediante [Role-Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
+Il [controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC) consente di condividere le risorse della raccolta di immagini condivise, della definizione dell'immagine e della versione di immagine tra le sottoscrizioni. 
 
 ## <a name="replication-is-slow"></a>La replica è lenta
 
@@ -96,7 +96,7 @@ Usare il flag **--expand ReplicationStatus** per controllare se la replica in tu
 
 ## <a name="azure-limits-and-quotas"></a>Limiti e quote di Azure 
 
-[Limiti e quote di Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits) si applicano a tutte le risorse della raccolta di immagini condivisa, della definizione dell'immagine e della versione dell'immagine. Assicurarsi di rispettare i limiti per le sottoscrizioni. 
+[Limiti e quote di Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-resource-manager/management/azure-subscription-service-limits) si applicano a tutte le risorse della raccolta di immagini condivisa, della definizione dell'immagine e della versione dell'immagine. Assicurarsi di rispettare i limiti per le sottoscrizioni. 
 
 
 

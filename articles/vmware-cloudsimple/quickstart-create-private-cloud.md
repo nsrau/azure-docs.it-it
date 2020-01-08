@@ -1,5 +1,6 @@
 ---
-title: 'Guida introduttiva alla soluzione VMware di Azure di CloudSimple: creare un cloud privato'
+title: 'Guida introduttiva: creare un cloud privato'
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Informazioni su come creare e configurare un cloud privato con la soluzione VMware di Azure di CloudSimple
 author: sharaths-cs
 ms.author: dikamath
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c32045c6d68a813eaeb6e4e5de433160c2a30634
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: e4890186022842179ef4b66c03db03dd9b58a3d8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901451"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452384"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Guida introduttiva-configurare un ambiente cloud privato
 
@@ -57,7 +58,7 @@ I cloud privati vengono gestiti tramite il portale CloudSimple. Hanno il proprio
 
 11. Fare clic su **Avanti: esaminare e creare**.
 12. Esaminare le impostazioni. Se è necessario modificare le impostazioni, fare clic su **indietro**.
-13. Fare clic su **Create**(Crea).
+13. Fare clic su **Crea**.
 
 Viene avviato il processo di provisioning del cloud privato.  Il provisioning del cloud privato può richiedere fino a due ore.
 
@@ -108,7 +109,7 @@ Una connessione VPN da punto a sito è il modo più semplice per connettersi al 
 
 ### <a name="connect-to-cloudsimple-using-point-to-site-vpn"></a>Connettersi a CloudSimple tramite una VPN da punto a sito
 
-Il client VPN è necessario per la connessione a CloudSimple dal computer.  Scaricare il [client OpenVPN](https://openvpn.net/community-downloads/) per Windows o la [viscosità](https://www.sparklabs.com/viscosity/download/) per MacOS e OS X.
+Il client VPN è necessario per la connessione a CloudSimple dal computer.  Scaricare il [client OpenVPN](https://openvpn.net/community-downloads/) per Windows o [la viscosità](https://www.sparklabs.com/viscosity/download/) per MacOS e OS X.
 
 1. Avviare il portale di CloudSimple e selezionare **rete**.
 2. Selezionare **gateway VPN**.
@@ -157,7 +158,7 @@ CloudSimple fornisce un circuito ExpressRoute per il cloud privato. È possibile
 
     ![Avviare vSphere client](media/launch-vcenter-from-cloudsimple-portal.png)
 
-2. Selezionare il client vSphere preferito per accedere a vCenter e accedere con il nome utente e la password.  Le impostazioni predefinite sono:
+2. Selezionare il client vSphere preferito per accedere a vCenter e accedere con il nome utente e la password.  Di seguito sono indicati i valori predefiniti:
     * Nome utente: **CloudOwner@cloudsimple.local**
     * Password: **CloudSimple123!**  
 

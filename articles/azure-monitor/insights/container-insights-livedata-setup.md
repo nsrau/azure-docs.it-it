@@ -1,24 +1,14 @@
 ---
 title: Configurare monitoraggio di Azure per i contenitori in tempo reale (anteprima) | Microsoft Docs
 description: Questo articolo descrive come configurare la visualizzazione in tempo reale dei log del contenitore (stdout/stderr) ed eventi senza usare kubectl con monitoraggio di Azure per i contenitori.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 10/16/2019
-ms.author: magoedte
-ms.openlocfilehash: 596c5ad378d471c6c98616a48f44e96c365ee0bb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5a3d020132e3c93eab7fec46d1ffe45d00b5ed43
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514368"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75404710"
 ---
 # <a name="how-to-setup-the-live-data-preview-feature"></a>Come configurare la funzionalità dati in tempo reale (anteprima)
 
@@ -132,7 +122,7 @@ Per altre informazioni sulla configurazione della sicurezza avanzata in Kubernet
 >[!IMPORTANT]
 >Se è stato riconfigurato Azure AD per l'autenticazione utente usando l'URI aggiornato, deselezionare la cache del browser per verificare che il token di autenticazione aggiornato venga scaricato e applicato.
 
-## <a name="grant-permission"></a>Concedere l'autorizzazione
+## <a name="grant-permission"></a>Concedere un'autorizzazione
 
 Per accedere alla funzionalità dei dati in tempo reale (anteprima), è necessario concedere a ogni account Azure AD le autorizzazioni per le API appropriate in Kubernetes. I passaggi per concedere il Azure Active Directory account sono simili ai passaggi descritti nella sezione [autenticazione RBAC di Kubernetes](#configure-kubernetes-rbac-authentication) . Prima di applicare il modello di configurazione YAML al cluster, sostituire **clusterUser** in **ClusterRoleBinding** con l'utente desiderato. 
 

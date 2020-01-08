@@ -1,7 +1,7 @@
 ---
 title: 'Selezione colonne trasformazione: riferimento al modulo'
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come utilizzare il modulo Select Columns Transform nel servizio Azure Machine Learning per creare una trasformazione che selezioni lo stesso subset di colonne del set di dati specificato.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo Select Columns Transform in Azure Machine Learning per creare una trasformazione che seleziona lo stesso subset di colonne del set di dati specificato.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 383adeb2bd081893d4202239cb97c12bf9a5a170
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: d0dfbec3abd379c7bf8add6445296dff74d92a76
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717042"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428480"
 ---
-# <a name="select-columns-transform"></a>Selezione trasformazione colonne
+# <a name="select-columns-transform"></a>Select Columns Transform
 
 Questo articolo descrive come usare il modulo Select Columns Transform in Azure Machine Learning Designer (Preview). Lo scopo del modulo Select Columns Transform è quello di garantire che un set di colonne prevedibile e coerente venga usato nelle operazioni di Machine Learning downstream.
 
@@ -55,4 +55,4 @@ Questo processo di salvataggio e applicazione di una selezione di colonna garant
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per il servizio Azure Machine Learning. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 

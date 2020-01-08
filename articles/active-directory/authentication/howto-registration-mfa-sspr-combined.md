@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2bd3f61ffc07881ed8e502788b11fc0f435735b
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 25c64d9e959b1d68de23e83e26d3495bd3939986
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847355"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425173"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Abilitare la registrazione delle informazioni di sicurezza combinate (anteprima)
 
@@ -39,10 +39,10 @@ Prima di abilitare la nuova esperienza, vedere l'articolo relativo alla [registr
 Completare questi passaggi per abilitare la registrazione combinata:
 
 1. Accedere al portale di Azure come amministratore utente o amministratore globale.
-2. Passare a **Azure Active Directory** > **impostazioni utente** > **Gestisci impostazioni per le funzionalità di anteprima del pannello di accesso**.
-3. In **utenti possono usare le funzionalità di anteprima per la registrazione e la gestione delle informazioni di sicurezza-aggiornamento**, scegliere di abilitare per un gruppo **selezionato** di utenti o per **tutti** gli utenti.
+2. Passare a **Azure Active Directory** > **impostazioni utente** > **Gestisci le impostazioni di anteprima delle funzionalità utente**.
+3. In **utenti possono usare le funzionalità di anteprima per la registrazione e la gestione delle informazioni di sicurezza**, scegliere di abilitare per un gruppo **selezionato** di utenti o per **tutti** gli utenti.
 
-   ![Abilitare l'esperienza combinata di anteprima delle informazioni di sicurezza per tutti gli utenti](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
+   ![Abilitare l'esperienza combinata di anteprima delle informazioni di sicurezza per tutti gli utenti](media/howto-registration-mfa-sspr-combined/enable-the-combined-security-info-preview.png)
 
 > [!IMPORTANT]
 > A partire da marzo 2019, le opzioni per la telefonata non saranno disponibili per Multi-Factor Authentication e SSPR gli utenti in tenant Azure AD gratuiti/di valutazione. I messaggi SMS non sono interessati da questa modifica. Le opzioni per la telefonata saranno ancora disponibili per gli utenti in tenant Azure AD a pagamento.
@@ -64,9 +64,9 @@ Se è stato configurato l'elenco di assegnazione da sito a zona in Internet Expl
 
 I criteri seguenti si applicano a tutti gli utenti selezionati, che tentano di eseguire la registrazione usando l'esperienza di registrazione combinata e bloccano l'accesso a meno che non si connettano da un percorso contrassegnato come rete attendibile.
 
-![Creare un criterio di autorità di certificazione per controllare la registrazione delle informazioni di sicurezza](media/howto-registration-mfa-sspr-combined/conditional-access-register-security-info.png)
+![Creare un criterio di autorità di certificazione per controllare la registrazione delle informazioni di sicurezza](media/howto-registration-mfa-sspr-combined/require-registration-from-trusted-location.png)
 
-1. Nella **portale di Azure**individuare **Azure Active Directory** > **l'accesso condizionale**
+1. Nella **portale di Azure**individuare **Azure Active Directory** > **sicurezza** > **accesso condizionale**
 1. Selezionare **Nuovi criteri**
 1. In nome immettere un nome per il criterio. Ad esempio, la **registrazione delle informazioni di sicurezza combinata su reti attendibili**
 1. In **assegnazioni**fare clic su **utenti e gruppi**e selezionare gli utenti e i gruppi a cui si desidera applicare questo criterio

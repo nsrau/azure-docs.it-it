@@ -2,19 +2,15 @@
 title: Visualizzare le modifiche nel contenuto dei file con Automazione di Azure
 description: Usare la funzionalità di modifica del contenuto del file di Rilevamento modifiche per visualizzare il contenuto che è stato modificato.
 services: automation
-ms.service: automation
 ms.subservice: change-inventory-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 07/03/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 4ab88aa2dc604172f00d875353dabba61fd101af
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 23c4f24e430d58895eb551c3e2cb62b5f0003ac0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850585"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75418818"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Visualizza i contenuti di un file verificati con Rilevamento modifiche
 
@@ -34,7 +30,7 @@ La verifica del contenuto dei file consente di visualizzare i contenuti prima e 
 2. Nel menu in alto, selezionare **Modifica Impostazioni**.
 3. Selezionare **Contenuto file** e fare clic su **Collegamento**. Si aprirà così il riquadro **Aggiungere la posizione del contenuto per Rilevamento modifiche**.
 
-   ![enable](./media/change-tracking-file-contents/enable.png)
+   ![abilitare](./media/change-tracking-file-contents/enable.png)
 
 4. Selezionare la sottoscrizione e l'account di archiviazione da usare per memorizzare il contenuto del file. Se si desidera abilitare il rilevamento di contenuto dei file per tutti i file verificati esistenti, selezionare **On** per **Caricare il contenuto del file per tutte le impostazioni**. È possibile modificare questa impostazione per qualsiasi percorso di file in un secondo momento.
 

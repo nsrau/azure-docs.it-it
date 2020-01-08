@@ -1,6 +1,6 @@
 ---
-title: file di inclusione
-description: file di inclusione
+title: File di inclusione
+description: File di inclusione
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 8eda3ed7d35c9ff94a00eacb49f2e4f3b3e6f150
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 7e83aa69cb4099885fc45e719c812a6c92299b7a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74796015"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359962"
 ---
 Questo articolo risponde alle domande frequenti su Managed Disks e i dischi SSD Premium di Azure.
 
@@ -169,7 +169,7 @@ La prenotazione dei dischi di Azure viene acquistata per un'area e uno SKU speci
 **Cosa accade quando la prenotazione di dischi di Azure scade?**
 Si riceveranno le notifiche tramite posta elettronica 30 giorni prima della scadenza e nuovamente alla data di scadenza. Al termine della prenotazione, i dischi distribuiti continueranno a essere eseguiti e verranno fatturati con le [tariffe con pagamento in base](https://azure.microsoft.com/pricing/details/managed-disks/)al consumo più recenti.
 
-## <a name="ultra-disks"></a>Dischi ultra
+## <a name="ultra-disks"></a>Dischi Ultra
 
 **Per cosa è necessario impostare la velocità effettiva del disco Ultra?**
 Se non si è certi di cosa impostare la velocità effettiva del disco, è consigliabile iniziare supponendo una dimensione di i/o di 16 KiB e regolare le prestazioni da tale posizione durante il monitoraggio dell'applicazione. La formula è: velocità effettiva in MBps = # di IOPS * 16/1000.
@@ -301,7 +301,7 @@ No. È disponibile Azure Site Recovery la protezione da Azure ad Azure per le ma
 
 **È possibile eseguire la migrazione di macchine virtuali con dischi non gestiti ubicati in account di archiviazione che sono o sono stati crittografati in precedenza in VM con dischi gestiti?**
 
-SÌ
+Sì
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks e crittografia del servizio di archiviazione
 
@@ -342,7 +342,7 @@ Sì. Tutte le immagini e gli snapshot gestiti creati dopo il 9 giugno 2017 vengo
 
 **È possibile convertire macchine virtuali con dischi non gestiti ubicati in account di archiviazione che sono o sono stati crittografati in precedenza in VM con dischi gestiti?**
 
-SÌ
+Sì
 
 **Un disco rigido virtuale esportato da un disco gestito o uno snapshot verrà crittografato?**
 
@@ -398,7 +398,7 @@ No, non è possibile usare dischi gestiti SSD standard di qualsiasi dimensione c
 
 **Qual è la dimensioni massima supportata per i dischi gestiti e il sistema operativo?**
 
-Il tipo di partizione supportata da Azure per un disco del sistema operativo è MBR (Master Boot Record). Il formato MBR supporta un disco con dimensioni massime pari a 2 TiB. La dimensione massima supportata da Azure per un disco di sistema operativo è a 2 TiB. Azure supporta fino a 32 TiB per i dischi dati gestiti in Azure globale, 4 TiB nei cloud sovrani di Azure.
+Il tipo di partizione supportata da Azure per un disco del sistema operativo è MBR (Master Boot Record). Il formato MBR supporta un disco con dimensioni massime pari a 2 TiB. La dimensione massima supportata da Azure per un disco di sistema operativo è a 2 TiB. Azure supporta fino a 32 TiB per i dischi dati gestiti.
 
 **Quali sono le dimensioni massime del disco non gestito supportate per il sistema operativo e i dischi dati?**
 
@@ -441,7 +441,7 @@ La dimensione del disco massima supportata dal Backup di Azure e dal servizio Az
 
 **Quali sono le dimensioni di macchina virtuale consigliate per le dimensioni dei dischi più grandi (> 4 TiB) per i dischi SDD Standard e HDD Standard per ottenere una larghezza di banda e un numero di unità ottimizzate**
 
-Per ottenere la velocità effettiva del disco di SDD Standard e HDD Standard grandi dimensioni dei dischi (> 4 TiB) oltre 500 IOPS e 60 MiB/s, è consigliabile distribuire una nuova macchina virtuale da una delle dimensioni di macchina virtuale seguenti per ottimizzare le prestazioni: serie B, serie DSv2, serie Dsv3, serie ESv3 , Serie FS, serie Fsv2, serie M, serie GS, serie NCv2, serie NCv3 o VM serie LS. Il montaggio di dischi di grandi dimensioni in macchine virtuali o macchine virtuali esistenti che non usano le dimensioni consigliate precedente può comportare prestazioni ridotte.
+Per ottenere la velocità effettiva del disco di SDD Standard e HDD Standard grandi dimensioni dei dischi (> 4 TiB) oltre 500 IOPS e 60 MiB/s, per ottimizzare le prestazioni, è consigliabile distribuire una nuova macchina virtuale da una delle dimensioni di macchina virtuale seguenti: serie B, serie DSv2, serie Dsv3, serie ESv3, serie FS, serie Fsv2, serie M, serie GS, NCv2, serie NCv3 o VM serie LS. Il montaggio di dischi di grandi dimensioni in macchine virtuali o macchine virtuali esistenti che non usano le dimensioni consigliate precedente può comportare prestazioni ridotte.
 
 **Come è possibile aggiornare i dischi (> 4 TiB) che sono stati distribuiti durante l'anteprima di dimensioni dei dischi più grandi per ottenere i valori di IOPS più elevati & larghezza di banda in GA?**
 

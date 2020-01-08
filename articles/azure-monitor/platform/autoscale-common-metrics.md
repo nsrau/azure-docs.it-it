@@ -1,19 +1,15 @@
 ---
 title: Metriche comuni per la scalabilità automatica
 description: Informazioni su quali metriche vengono comunemente usate per la scalabilità automatica di servizi cloud, macchine virtuali e app Web.
-author: anirudhcavale
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/6/2016
-ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 9da8e5fb88ff34e561b579b760973ecd23c884a3
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 7b9c19ba3b85813eb12f6b906427f3cfdc9a0f67
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "66129740"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364595"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Metriche comuni per la scalabilità automatica di Monitoraggio di Azure
 
@@ -51,34 +47,34 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 
 È possibile creare un avviso per le metriche seguenti:
 
-| Nome della metrica | Unità |
+| Nome misurazione | Unità |
 | --- | --- |
-| \Processor(_Total)\% Processor Time |Percent |
-| \Processor(_Total)\% Privileged Time |Percent |
-| \Processor(_Total)\% User Time |Percent |
+| \Processor(_Total)\% Processor Time |Percentuale |
+| \Processor(_Total)\% Privileged Time |Percentuale |
+| \Processor(_Total)\% User Time |Percentuale |
 | \Processor Information(_Total)\Processor Frequency |Conteggio |
 | \System\Processes |Conteggio |
 | \Process(_Total)\Thread Count |Conteggio |
 | \Process(_Total)\Handle Count |Conteggio |
-| \Memory\% Committed Bytes In Use |Percent |
+| \Memory\% Committed Bytes In Use |Percentuale |
 | \Memory\Available Bytes |Byte |
 | \Memory\Committed Bytes |Byte |
 | \Memory\Commit Limit |Byte |
 | \Memory\Pool Paged Bytes |Byte |
 | \Memory\Pool Nonpaged Bytes |Byte |
-| \PhysicalDisk(_Total)\% Disk Time |Percent |
-| \PhysicalDisk(_Total)\% Disk Read Time |Percent |
-| \PhysicalDisk(_Total)\% Disk Write Time |Percent |
-| \DiscoFisico(_Totale)\Trasferimenti disco/secondo |CountPerSecond |
-| \PhysicalDisk(_Total)\Disk Reads/sec |CountPerSecond |
+| \PhysicalDisk(_Total)\% Disk Time |Percentuale |
+| \PhysicalDisk(_Total)\% Disk Read Time |Percentuale |
+| \PhysicalDisk(_Total)\% Disk Write Time |Percentuale |
+| \DiscoFisico(_Totale)\Trasferimenti disco/secondo |Conteggio al secondo |
+| \PhysicalDisk(_Total)\Disk Reads/sec |Conteggio al secondo |
 | \PhysicalDisk(_Total)\Disk Writes/sec |Conteggio al secondo |
 | \PhysicalDisk(_Total)\Disk Bytes/sec |Byte al secondo |
 | \PhysicalDisk(_Total)\Disk Read Bytes/sec |Byte al secondo |
 | \PhysicalDisk(_Total)\Disk Write Bytes/sec |Byte al secondo |
-| \PhysicalDisk(_Total)\Avg. Lunghezza coda disco |Conteggio |
-| \PhysicalDisk(_Total)\Avg. Disk Read Queue Length |Conteggio |
-| \PhysicalDisk(_Total)\Avg. Disk Write Queue Length |Conteggio |
-| \LogicalDisk(_Total)\% Free Space |Percent |
+| Lunghezza coda del disco \PhysicalDisk (_Total) \Media |Conteggio |
+| Lunghezza coda lettura disco \Media \PhysicalDisk (_Total) |Conteggio |
+| Lunghezza coda di scrittura su disco \PhysicalDisk (_Total) \Media |Conteggio |
+| \LogicalDisk(_Total)\% Free Space |Percentuale |
 | \LogicalDisk(_Total)\Free Megabytes |Conteggio |
 
 ### <a name="guest-os-metrics-linux-vms"></a>Metriche del sistema operativo guest per le VM Linux
@@ -92,34 +88,34 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 
  È possibile creare un avviso per le metriche seguenti:
 
-| Nome della metrica | Unità |
+| Nome misurazione | Unità |
 | --- | --- |
 | \Memory\AvailableMemory |Byte |
-| \Memory\PercentAvailableMemory |Percent |
+| \Memory\PercentAvailableMemory |Percentuale |
 | \Memory\UsedMemory |Byte |
-| \Memory\PercentUsedMemory |Percent |
-| \Memory\PercentUsedByCache |Percent |
-| \Memory\PagesPerSec |CountPerSecond |
-| \Memory\PagesReadPerSec |CountPerSecond |
-| \Memory\PagesWrittenPerSec |CountPerSecond |
+| \Memory\PercentUsedMemory |Percentuale |
+| \Memory\PercentUsedByCache |Percentuale |
+| \Memory\PagesPerSec |Conteggio al secondo |
+| \Memory\PagesReadPerSec |Conteggio al secondo |
+| \Memory\PagesWrittenPerSec |Conteggio al secondo |
 | \Memory\AvailableSwap |Byte |
-| \Memory\PercentAvailableSwap |Percent |
+| \Memory\PercentAvailableSwap |Percentuale |
 | \Memory\UsedSwap |Byte |
-| \Memory\PercentUsedSwap |Percent |
-| \Processor\PercentIdleTime |Percent |
-| \Processor\PercentUserTime |Percent |
-| \Processor\PercentNiceTime |Percent |
-| \Processor\PercentPrivilegedTime |Percent |
-| \Processor\PercentInterruptTime |Percent |
-| \Processor\PercentDPCTime |Percent |
-| \Processor\PercentProcessorTime |Percent |
-| \Processor\PercentIOWaitTime |Percent |
+| \Memory\PercentUsedSwap |Percentuale |
+| \Processor\PercentIdleTime |Percentuale |
+| \Processor\PercentUserTime |Percentuale |
+| \Processor\PercentNiceTime |Percentuale |
+| \Processor\PercentPrivilegedTime |Percentuale |
+| \Processor\PercentInterruptTime |Percentuale |
+| \Processor\PercentDPCTime |Percentuale |
+| \Processor\PercentProcessorTime |Percentuale |
+| \Processor\PercentIOWaitTime |Percentuale |
 | \PhysicalDisk\BytesPerSecond |Byte al secondo |
 | \PhysicalDisk\ReadBytesPerSecond |Byte al secondo |
 | \PhysicalDisk\WriteBytesPerSecond |Byte al secondo |
-| \PhysicalDisk\TransfersPerSecond |CountPerSecond |
-| \PhysicalDisk\ReadsPerSecond |CountPerSecond |
-| \PhysicalDisk\WritesPerSecond |CountPerSecond |
+| \PhysicalDisk\TransfersPerSecond |Conteggio al secondo |
+| \PhysicalDisk\ReadsPerSecond |Conteggio al secondo |
+| \PhysicalDisk\WritesPerSecond |Conteggio al secondo |
 | \PhysicalDisk\AverageReadTime |Secondi |
 | \PhysicalDisk\AverageWriteTime |Secondi |
 | \PhysicalDisk\AverageTransferTime |Secondi |
@@ -145,10 +141,10 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 
 È possibile generare avvisi o ridimensionare in base a queste metriche.
 
-| Nome della metrica | Unità |
+| Nome misurazione | Unità |
 | --- | --- |
-| CpuPercentage |Percent |
-| MemoryPercentage |Percent |
+| CpuPercentage |Percentuale |
+| MemoryPercentage |Percentuale |
 | DiskQueueLength |Conteggio |
 | HttpQueueLength |Conteggio |
 | BytesReceived |Byte |

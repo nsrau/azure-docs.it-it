@@ -1,6 +1,6 @@
 ---
-title: Automatizzare il provisioning delle app usando SCIM in Azure AD
-description: Informazioni su come creare un endpoint SCIM, integrare l'API SCIM con Azure Active Directory e avviare l'automazione del provisioning di utenti e gruppi nelle applicazioni.
+title: Compilare un endpoint SCIM per il provisioning degli utenti nelle app da Azure AD
+description: Scopri come creare un endpoint SCIM, integrare l'API SCIM con Azure Active Directory e iniziare ad automatizzare il provisioning di utenti e gruppi nelle tue applicazioni cloud.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,16 +16,16 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d4694dfa92d282e1dc098a510ac82dd9c703c1e
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: e43eae8b7308f71886d855bbc53f341bd674e6c5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276481"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433804"
 ---
-# <a name="scim-user-provisioning-with-azure-active-directory-azure-ad"></a>Provisioning utenti di SCIM con Azure Active Directory (Azure AD)
+# <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Compilare un endpoint SCIM e configurare il provisioning utenti con Azure Active Directory (Azure AD)
 
-Questo articolo descrive come usare System for Cross-Domain Identity Management ([scim](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards)) per automatizzare il provisioning e il deprovisioning di utenti e gruppi in un'applicazione. La specifica SCIM fornisce uno schema utente comune per il provisioning. Se usato in combinazione con gli standard di federazione come SAML o OpenID Connect, SCIM offre agli amministratori una soluzione end-to-end basata sugli standard per la gestione degli accessi.
+Gli sviluppatori di applicazioni possono usare l'API di gestione degli utenti di System for Cross-Domain Identity Management (SCIM) per abilitare il provisioning automatico di utenti e gruppi tra l'applicazione e Azure AD. Questo articolo descrive come creare un endpoint SCIM e integrarsi con il servizio di provisioning di Azure AD. La specifica SCIM fornisce uno schema utente comune per il provisioning. Se usato in combinazione con gli standard di federazione come SAML o OpenID Connect, SCIM offre agli amministratori una soluzione end-to-end basata sugli standard per la gestione degli accessi.
 
 SCIM è una definizione standardizzata di due endpoint: un endpoint/Users e un endpoint/groups. Usa verbi REST comuni per creare, aggiornare ed eliminare oggetti e uno schema predefinito per attributi comuni come nome del gruppo, nome utente, nome, cognome e indirizzo di posta elettronica. Le app che offrono un'API REST SCIM 2,0 possono ridurre o eliminare il dolore dovuto all'uso di un'API proprietaria per la gestione degli utenti. Ad esempio, tutti i client SCIM conformi sanno come creare un POST HTTP di un oggetto JSON nell'endpoint/Users per creare una nuova voce utente. Anziché richiedere un'API leggermente diversa per le stesse azioni di base, le app conformi allo standard SCIM possono sfruttare immediatamente i vantaggi di client, strumenti e codice preesistenti. 
 
@@ -140,7 +140,7 @@ Il provisioning e il deprovisioning del gruppo sono facoltativi. Quando implemen
 Questa sezione fornisce le richieste SCIM di esempio emesse dal client Azure AD SCIM e dalle risposte previste di esempio. Per ottenere risultati ottimali, è necessario codificare l'app in modo che gestisca queste richieste in questo formato e generare le risposte previste.
 
 > [!IMPORTANT]
-> Per comprendere come e quando il servizio di provisioning utenti Azure AD emette le operazioni descritte di seguito, vedere [cosa accade durante il provisioning dell'utente](user-provisioning.md#what-happens-during-provisioning)?
+> Per comprendere come e quando il servizio di provisioning utenti Azure AD emette le operazioni descritte di seguito, vedere la sezione [cicli di provisioning: iniziale e incrementale](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) nel funzionamento del [provisioning](how-provisioning-works.md).
 
 [Operazioni utente](#user-operations)
   - [Crea utente](#create-user) ([richiesta](#request) / [risposta](#response))
@@ -171,9 +171,9 @@ Questa sezione fornisce le richieste SCIM di esempio emesse dal client Azure AD 
 
 * Gli utenti possono eseguire query sugli attributi `userName` o `email[type eq "work"]`.  
 
-#### <a name="create-user"></a>Create User
+#### <a name="create-user"></a>Crea utente
 
-###### <a name="request"></a>Request
+###### <a name="request"></a>Richiesta
 
 *POST/Users*
 ```json
@@ -201,7 +201,7 @@ Questa sezione fornisce le richieste SCIM di esempio emesse dal client Azure AD 
 }
 ```
 
-##### <a name="response"></a>response
+##### <a name="response"></a>Risposta
 
 *HTTP/1.1 201 creato*
 ```json
@@ -261,7 +261,7 @@ Questa sezione fornisce le richieste SCIM di esempio emesse dal client Azure AD 
 }
 ```
 
-###### <a name="request"></a>Request
+###### <a name="request"></a>Richiesta
 *OTTENERE/Users/5171a35d82074e068ce2* 
 
 ###### <a name="response-user-not-found-note-that-the-detail-is-not-required-only-status"></a>Risposta (l'utente non è stato trovato. Si noti che i dettagli non sono obbligatori, ma solo dello stato.
@@ -280,7 +280,7 @@ Questa sezione fornisce le richieste SCIM di esempio emesse dal client Azure AD 
 
 ##### <a name="request-2"></a>Richiesta
 
-*GET/Users? filter = userName EQ "Test_User_dfeef4c5-5681 -4387-B016-bdf221e82081"*
+*GET /Users?filter=userName eq "Test_User_dfeef4c5-5681-4387-b016-bdf221e82081"*
 
 ##### <a name="response-2"></a>Risposta
 
@@ -616,7 +616,7 @@ Questa sezione fornisce le richieste SCIM di esempio emesse dal client Azure AD 
 
 Grazie alla creazione di un servizio Web SCIM che si interfaccia con Azure Active Directory, è possibile abilitare il provisioning utenti automatico per praticamente qualsiasi applicazione o archivio identità.
 
-Il servizio funziona nel modo seguente:
+Il funzionamento è il seguente:
 
 1. Azure AD fornisce una libreria CLI (Common Language Infrastructure) denominata Microsoft. SystemForCrossDomainIdentityManagement, inclusa negli esempi di codice riportati di seguito. Gli integratori di sistemi e gli sviluppatori possono usare questa libreria per creare e distribuire un endpoint del servizio Web basato su SCIM in grado di connettersi Azure AD all'archivio identità di qualsiasi applicazione.
 2. I mapping vengono implementati nel servizio Web per il mapping dello schema utente standardizzato allo schema utente e al protocollo richiesto dall'applicazione. 
@@ -634,7 +634,7 @@ Per semplificare questo processo, vengono forniti [esempi di codice](https://git
 * Computer Windows che supporta ASP.NET Framework 4.5 da usare come endpoint SCIM. Il computer deve essere accessibile dal cloud.
 * [Una sottoscrizione di Azure con una versione di prova o concessa in licenza di Azure AD Premium](https://azure.microsoft.com/services/active-directory/)
 
-### <a name="getting-started"></a>Per iniziare
+### <a name="getting-started"></a>Inizia ora
 
 Il modo più semplice per implementare un endpoint SCIM in grado di accettare richieste di provisioning da Azure AD consiste nel compilare e distribuire l'esempio di codice che fornisce come output gli utenti con provisioning in un file CSV (Comma-Separated Value).
 
@@ -683,7 +683,7 @@ Il modo più semplice per implementare un endpoint SCIM in grado di accettare ri
 1. Selezionare **Save (Salva** ) per avviare il servizio di provisioning Azure ad.
 1. Se si sincronizzano solo utenti e gruppi assegnati (scelta consigliata), assicurarsi di selezionare la scheda **utenti e gruppi** e di assegnare gli utenti o i gruppi che si desidera sincronizzare.
 
-Una volta avviato il ciclo iniziale, è possibile selezionare i **log di controllo** nel riquadro sinistro per monitorare lo stato di avanzamento, che Mostra tutte le azioni eseguite dal servizio di provisioning nell'app. Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere [Esercitazione: creazione di report sul provisioning automatico degli account utente](check-status-user-account-provisioning.md).
+Una volta avviato il ciclo iniziale, è possibile selezionare i **log di controllo** nel riquadro sinistro per monitorare lo stato di avanzamento, che Mostra tutte le azioni eseguite dal servizio di provisioning nell'app. Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](check-status-user-account-provisioning.md).
 
 Il passaggio finale della verifica dell'esempio consiste nell'aprire il file TargetFile.csv nella cartella \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug del computer Windows. Dopo l'esecuzione del processo di provisioning, questo file include i dettagli di tutti gli utenti e gruppi assegnati e sottoposti a provisioning.
 
@@ -1256,9 +1256,9 @@ Azure AD può essere configurato per eseguire automaticamente il provisioning di
 Verificare la conformità ai requisiti sopra riportati con il provider dell'applicazione o consultando la documentazione fornita dal provider.
 
 > [!IMPORTANT]
-> Il Azure AD implementazione di SCIM si basa sul servizio di provisioning utenti Azure AD, progettato per consentire agli utenti di sincronizzare costantemente gli utenti tra Azure AD e l'applicazione di destinazione e implementa un set molto specifico di operazioni standard. È importante comprendere questi comportamenti per comprendere il comportamento del client di Azure AD SCIM. Per ulteriori informazioni, vedere [cosa accade durante il provisioning dell'utente?](user-provisioning.md#what-happens-during-provisioning).
+> Il Azure AD implementazione di SCIM si basa sul servizio di provisioning utenti Azure AD, progettato per consentire agli utenti di sincronizzare costantemente gli utenti tra Azure AD e l'applicazione di destinazione e implementa un set molto specifico di operazioni standard. È importante comprendere questi comportamenti per comprendere il comportamento del client di Azure AD SCIM. Per ulteriori informazioni, vedere la sezione [cicli di provisioning: iniziale e incrementale](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) nel funzionamento del [provisioning](how-provisioning-works.md).
 
-### <a name="getting-started"></a>Per iniziare
+### <a name="getting-started"></a>Inizia ora
 
 Le applicazioni che supportano il profilo SCIM descritto in questo articolo possono essere connesse ad Azure Active Directory usando la funzionalità "Applicazione non nella raccolta" nella raccolta di applicazioni di Azure AD. Una volta stabilita la connessione, Azure AD esegue un processo di sincronizzazione ogni 40 minuti in cui interroga l'endpoint SCIM dell'applicazione in merito agli utenti e ai gruppi assegnati e li crea o li modifica in base alle istruzioni di assegnazione.
 
@@ -1298,7 +1298,7 @@ Le applicazioni che supportano il profilo SCIM descritto in questo articolo poss
 14. Selezionare **Save (Salva** ) per avviare il servizio di provisioning Azure ad.
 15. Se si sincronizzano solo utenti e gruppi assegnati (scelta consigliata), assicurarsi di selezionare la scheda **utenti e gruppi** e di assegnare gli utenti o i gruppi che si desidera sincronizzare.
 
-Una volta avviato il ciclo iniziale, è possibile selezionare i **log di provisioning** nel riquadro sinistro per monitorare lo stato di avanzamento, che Mostra tutte le azioni eseguite dal servizio di provisioning nell'app. Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere [Esercitazione: creazione di report sul provisioning automatico degli account utente](check-status-user-account-provisioning.md).
+Una volta avviato il ciclo iniziale, è possibile selezionare i **log di provisioning** nel riquadro sinistro per monitorare lo stato di avanzamento, che Mostra tutte le azioni eseguite dal servizio di provisioning nell'app. Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](check-status-user-account-provisioning.md).
 
 > [!NOTE]
 > Il ciclo iniziale richiede più tempo delle sincronizzazioni successive, che vengono eseguite approssimativamente ogni 40 minuti, a condizione che il servizio sia in esecuzione.
@@ -1332,9 +1332,9 @@ Determinate app consentono il traffico in ingresso verso l'app. Affinché il ser
 ## <a name="related-articles"></a>Articoli correlati
 
 * [Automatizzare il provisioning e il deprovisioning utenti in app SaaS](user-provisioning.md)
-* [Personalizzazione dei mapping degli attributi per il Provisioning dell’utente](customize-application-attributes.md)
-* [Scrittura di espressioni per il mapping degli attributi](functions-for-customizing-application-data.md)
-* [Ambito dei filtri per il Provisioning utente](define-conditional-rules-for-provisioning-user-accounts.md)
+* [Personalizzare i mapping degli attributi per il provisioning degli utenti](customize-application-attributes.md)
+* [Scrittura di espressioni per i mapping degli attributi](functions-for-customizing-application-data.md)
+* [Filtri di ambito per il provisioning degli utenti](define-conditional-rules-for-provisioning-user-accounts.md)
 * [Notifiche relative al provisioning dell'account](user-provisioning.md)
 * [Elenco di esercitazioni pratiche sulla procedura di integrazione delle applicazioni SaaS](../saas-apps/tutorial-list.md)
 

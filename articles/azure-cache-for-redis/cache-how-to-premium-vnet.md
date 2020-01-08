@@ -1,17 +1,17 @@
 ---
-title: Configurare una rete virtuale per una cache di Azure Premium per Redis
+title: Configurare una rete virtuale-cache di Azure Premium per Redis
 description: In questo articolo viene spiegato come creare e gestire il supporto di una rete virtuale per le istanze di Cache Redis di Azure Premium
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: yegu
-ms.openlocfilehash: 03cc5bd4e6e7198a6a3a916226c72e9b0f9ff1b2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f449dc08dede30a7dec977bb66e0a2c0b509a1f0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233122"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433496"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Come configurare il supporto di una rete virtuale per una Cache Redis di Azure Premium
 Cache Redis di Azure include diverse soluzioni cache che offrono flessibilità di scelta riguardo alle dimensioni e alle funzionalità della cache, tra cui le funzionalità del livello Premium come clustering, persistenza e supporto per reti virtuali. Una rete virtuale è una rete privata nel cloud. Quando un'istanza di Cache Redis di Azure viene configurata con una rete virtuale, non è indirizzabile pubblicamente ed è accessibile solo da macchine virtuali e applicazioni all'interno della rete virtuale. Questo articolo descrive come configurare il supporto di una rete virtuale per un'istanza Premium di Cache Redis di Azure.
@@ -21,7 +21,7 @@ Cache Redis di Azure include diverse soluzioni cache che offrono flessibilità d
 > 
 > 
 
-Per informazioni su altre funzionalità della cache di livello Premium, vedere [Introduction to the Azure Cache for Redis Premium tier](cache-premium-tier-intro.md) (Introduzione al livello Premium di Cache Redis di Azure).
+Per informazioni su altre funzionalità della cache di livello Premium, vedere [Introduzione al livello Premium di Cache Redis di Azure](cache-premium-tier-intro.md).
 
 ## <a name="why-vnet"></a>Perché usare una rete virtuale?
 La distribuzione di [Rete virtuale (VNet) di Azure](https://azure.microsoft.com/services/virtual-network/) offre sicurezza e isolamento migliorate per Cache Redis di Azure, nonché subnet, criteri di controllo di accesso e altre funzionalità per limitare ulteriormente l'accesso.
@@ -35,7 +35,7 @@ Dopo aver selezionato un piano tariffario Premium, è possibile configurare l'in
 
 Per configurare la rete virtuale per la nuova cache, fare clic su **Rete virtuale** nel pannello **Nuova cache Redis di Azure** e selezionare la rete virtuale desiderata dall'elenco a discesa.
 
-![rete virtuale][redis-cache-vnet]
+![Rete virtuale][redis-cache-vnet]
 
 Nell'elenco a discesa **Subnet** selezionare la subnet desiderata e specificare l'**indirizzo IP statico**. Se si usa una rete virtuale classica, il campo **Indirizzo IP statico** è facoltativo e, se non è specificato, ne verrà scelto uno dalla subnet selezionata.
 
@@ -44,7 +44,7 @@ Nell'elenco a discesa **Subnet** selezionare la subnet desiderata e specificare 
 > 
 > 
 
-![rete virtuale][redis-cache-vnet-ip]
+![Rete virtuale][redis-cache-vnet-ip]
 
 > [!IMPORTANT]
 > Azure riserva alcuni indirizzi IP all'interno di ogni subnet e questi indirizzi non possono essere usati. Il primo e l'ultimo indirizzo IP delle subnet sono riservati per motivi di conformità al protocollo, insieme ad altri tre indirizzi usati per i servizi di Azure. Per altre informazioni, vedere [Esistono restrizioni sull'uso di indirizzi IP all'interno di tali subnet?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
@@ -55,7 +55,7 @@ Nell'elenco a discesa **Subnet** selezionare la subnet desiderata e specificare 
 
 Dopo aver creato la cache, è possibile visualizzare la configurazione della rete virtuale facendo clic su **Rete virtuale** dal **menu Risorse**.
 
-![rete virtuale][redis-cache-vnet-info]
+![Rete virtuale][redis-cache-vnet-info]
 
 Per connettersi all'istanza di Cache Redis di Azure quando si usa una rete virtuale, specificare il nome host della cache nella stringa di connessione, come mostrato nell'esempio seguente:
 
@@ -98,7 +98,7 @@ Quando Cache Redis di Azure è ospitata in una rete virtuale, vengono usate le p
 
 Sono previsti nove requisiti per le porte in uscita. Le richieste in uscita in questi intervalli sono in uscita con altri servizi necessari per il funzionamento della cache o interni alla subnet Redis per la comunicazione tra nodi. Per la replica geografica sono disponibili altri requisiti in uscita per la comunicazione tra subnet della cache primaria e secondaria.
 
-| Porte | Direzione | Protocollo di trasporto | Scopo | IP locale | IP remoto |
+| Porte | Direction | Protocollo di trasporto | Finalità | IP locale | IP remoto |
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 |In uscita |TCP |Dipendenze Redis in Archiviazione di Azure/PKI (Internet) | (Subnet Redis) |* |
 | 443 | In uscita | TCP | Dipendenza Redis da Azure Key Vault | (Subnet Redis) | AzureKeyVault <sup>1</sup> |
@@ -124,15 +124,15 @@ Se si usa la replica georeplica tra le cache nelle reti virtuali di Azure, si no
 
 Vi sono otto requisiti delle porte in ingresso. Le richieste in ingresso in questi intervalli provengono da altri servizi ospitati nella stessa VNET o sono interne alle comunicazioni subnet di Redis.
 
-| Porte | Direzione | Protocollo di trasporto | Scopo | IP locale | IP remoto |
+| Porte | Direction | Protocollo di trasporto | Finalità | IP locale | IP remoto |
 | --- | --- | --- | --- | --- | --- |
 | 6379, 6380 |In ingresso |TCP |Comunicazione tra client e Redis, bilanciamento del carico di Azure | (Subnet Redis) | (Subnet Redis), rete virtuale, Azure Load Balancer <sup>1</sup> |
 | 8443 |In ingresso |TCP |Comunicazioni interne per Redis | (Subnet Redis) |(Subnet Redis) |
-| 8500 |In ingresso |TCP/UDP |Bilanciamento del carico di Azure | (Subnet Redis) |Servizio di bilanciamento del carico di Azure |
+| 8500 |In ingresso |TCP/UDP |Bilanciamento del carico di Azure | (Subnet Redis) |Azure Load Balancer |
 | 10221-10231 |In ingresso |TCP |Comunicazioni interne per Redis | (Subnet Redis) |(Subnet Redis), bilanciamento del carico di Azure |
 | 13000-13999 |In ingresso |TCP |Comunicazione tra client e cluster Redis, bilanciamento del carico di Azure | (Subnet Redis) |Rete virtuale, Bilanciamento carico di Azure |
 | 15000-15999 |In ingresso |TCP |Comunicazione tra client e cluster Redis, bilanciamento del carico di Azure e replica geografica | (Subnet Redis) |Rete virtuale, Azure Load Balancer, (subnet peer di replica geografica) |
-| 16001 |In ingresso |TCP/UDP |Bilanciamento del carico di Azure | (Subnet Redis) |Servizio di bilanciamento del carico di Azure |
+| 16001 |In ingresso |TCP/UDP |Bilanciamento del carico di Azure | (Subnet Redis) |Azure Load Balancer |
 | 20226 |In ingresso |TCP |Comunicazioni interne per Redis | (Subnet Redis) |(Subnet Redis) |
 
 <sup>1</sup> è possibile usare il tag di servizio ' AzureLoadBalancer ' (Gestione risorse) (o ' AZURE_LOADBALANCER ' per la distribuzione classica) per la creazione delle regole NSG.
@@ -226,7 +226,7 @@ Per motivi di prestazioni, la connessione a un'istanza di Cache Redis di Azure d
 >Le route definite in un UDR **devono** essere sufficientemente specifiche per avere la precedenza su qualsiasi route annunciata dalla configurazione di ExpressRoute. Nell'esempio di seguito viene utilizzato l'intervallo di indirizzi ampio 0.0.0.0/0 e pertanto può essere accidentalmente sottoposto a override dagli annunci di route mediante più intervalli di indirizzi specifici.
 
 >[!WARNING]  
->Cache Redis di Azure non è supportato con le configurazioni di ExpressRoute che **annunciano erroneamente route dal percorso di peering pubblico al percorso di peering privato**. Le configurazioni di ExpressRoute per cui è configurato il peering pubblico riceveranno gli annunci delle route da Microsoft per un elevato numero di intervalli di indirizzi IP di Microsoft Azure. Se questi intervalli di indirizzi vengono annunciati in modo non corretto nel percorso di peering privato, il risultato finale è che tutti i pacchetti di rete in uscita dalla subnet dell'istanza di Cache Redis di Azure verranno erroneamente sottoposti a tunneling forzato verso l'infrastruttura di rete locale del cliente. Questo flusso di rete interromperà Cache Redis di Azure. La soluzione a questo problema consiste nell'interrompere l’annuncio di più route dal percorso di peering pubblico al percorso di peering privato.
+>Cache Redis di Azure non è supportato con le configurazioni di ExpressRoute che **annunciano erroneamente route dal percorso di peering pubblico al percorso di peering privato**. Le configurazioni di ExpressRoute per cui è configurato il peering pubblico riceveranno gli annunci delle route da Microsoft per un elevato numero di intervalli di indirizzi IP di Microsoft Azure. Se questi intervalli di indirizzi vengono annunciati in modo non corretto nel percorso di peering privato, il risultato finale è che tutti i pacchetti di rete in uscita dalla subnet dell'istanza di Cache Redis di Azure verranno erroneamente sottoposti a tunneling forzato verso l'infrastruttura di rete locale del cliente. Questo flusso di rete interromperà Cache Redis di Azure. La soluzione a questo problema consiste nell'interrompere l'annuncio di più route dal percorso di peering pubblico al percorso di peering privato.
 
 
 Le informazioni generali sulle route definite dall'utente sono disponibili in questa [panoramica](../virtual-network/virtual-networks-udr-overview.md).

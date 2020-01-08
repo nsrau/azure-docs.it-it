@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: a2c1ba1d4cd2dfdbf2a94005c539e70705486ba4
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1b9a836491e989b676663d13b8eebb994c5145d8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851095"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454796"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Distribuire un servizio Web di Azure Machine Learning Studio (classico)
 
@@ -23,7 +23,7 @@ Azure Machine Learning Studio (classico) consente di compilare e testare una sol
 
 I servizi Web di Machine Learning Studio (classico) forniscono un'interfaccia tra un'applicazione e un modello di valutazione del flusso di lavoro Machine Learning Studio (classico). Un'applicazione esterna può comunicare con un modello di punteggio del flusso di lavoro Machine Learning Studio (classico) in tempo reale. Una chiamata a un servizio Web di Machine Learning Studio (classico) restituisce i risultati della stima a un'applicazione esterna. Per effettuare una chiamata a un servizio Web, passare una chiave API creata al momento della distribuzione del servizio Web. Un servizio Web di Machine Learning Studio (classico) è basato su REST, una scelta di architettura diffusa per progetti di programmazione Web.
 
-La versione classica di Azure Machine Learning Studio dispone di due tipi di servizi Web:
+Azure Machine Learning Studio (versione classica) dispone di due tipi di servizi Web:
 
 * Servizio di richiesta-risposta (RRS): servizio A bassa latenza e scalabilità elevata che assegna un punteggio a un singolo record di dati.
 * Servizio esecuzione batch (BES): un servizio asincrono che assegna un punteggio a un batch di record di dati.
@@ -32,13 +32,13 @@ L'input per BES è simile all'input di dati usato da RRS. La differenza principa
 
 In generale, la distribuzione del modello avviene in tre passaggi:
 
-* **[Creare un esperimento di training]** : nella versione classica di studio è possibile eseguire il training e il test di un modello di analisi predittiva usando i dati di training forniti, usando un ampio set di algoritmi di Machine Learning predefiniti.
+* **[Creare un esperimento di training]** : in studio (classico), è possibile eseguire il training e il test di un modello di analisi predittiva usando i dati di training forniti, usando un ampio set di algoritmi di Machine Learning predefiniti.
 * **[Eseguire la conversione in un esperimento predittivo]** - Dopo avere eseguito il training del modello con i dati esistenti, preparare e ottimizzare l'esperimento per la stima quando si è pronti a usarlo per l'assegnazione dei punteggi ai nuovi dati.
 * **Eseguire la distribuzione** come **[nuovo servizio Web]** o come **[servizio Web classico]** : quando si distribuisce l'esperimento predittivo come servizio Web di Azure, gli utenti possono inviare dati al modello e ricevere le stime del modello.
 
 ## <a name="create-a-training-experiment"></a>Creare un esperimento di training
 
-Per eseguire il training di un modello di analisi predittiva, è possibile usare la versione classica di Azure Machine Learning Studio per creare un esperimento di training in cui si includono diversi moduli per caricare i dati di training, preparare i dati in modo necessario, applicare algoritmi di machine learning e valutare i risultati. È possibile eseguire l'iterazione dell'esperimento e provare diversi algoritmi di apprendimento automatico per confrontare e valutare i risultati.
+Per eseguire il training di un modello di analisi predittiva, è possibile usare Azure Machine Learning Studio (classico) per creare un esperimento di training in cui si includono diversi moduli per caricare i dati di training, preparare i dati in modo necessario, applicare algoritmi di machine learning e valutare Risultati. È possibile eseguire l'iterazione dell'esperimento e provare diversi algoritmi di apprendimento automatico per confrontare e valutare i risultati.
 
 Il processo di creazione e gestione degli esperimenti di training è trattato in modo più approfondito altrove. Per altre informazioni, vedere questi articoli:
 
@@ -95,9 +95,9 @@ Per eseguire il test usando il servizio di richiesta-risposta (RRS), nella modal
 
 ![Immettere i valori appropriati per testare il servizio Web](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
 
-Per testare il servizio BES, fare clic su **Batch**. Nella pagina di test Batch, fare clic su Sfoglia sotto l'input dell'utente e selezionare un file CSV contenente i valori di esempio appropriati. Se non si ha un file CSV e l'esperimento predittivo è stato creato con la versione classica di Machine Learning Studio, è possibile scaricare il set di dati per l'esperimento predittivo e usarlo.
+Per testare il servizio BES, fare clic su **Batch**. Nella pagina di test Batch, fare clic su Sfoglia sotto l'input dell'utente e selezionare un file CSV contenente i valori di esempio appropriati. Se non si ha un file CSV e l'esperimento predittivo è stato creato usando Machine Learning Studio (versione classica), è possibile scaricare il set di dati per l'esperimento predittivo e usarlo.
 
-Per scaricare il set di dati, aprire la versione classica di Machine Learning Studio. Aprire l'esperimento predittivo e fare clic con il pulsante destro del mouse sull'input per l'esperimento. Dal menu di scelta rapida scegliere **dataset** (set di dati) e quindi selezionare **Download**(Scarica).
+Per scaricare il set di dati, aprire Machine Learning Studio (classico). Aprire l'esperimento predittivo e fare clic con il pulsante destro del mouse sull'input per l'esperimento. Dal menu di scelta rapida scegliere **dataset** (set di dati) e quindi selezionare **Download**(Scarica).
 
 ![Scaricare il set di dati dall'area di disegno di studio (classico)](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
 
@@ -113,7 +113,7 @@ Nella pagina **CONFIGURAZIONE** è possibile modificare la descrizione e il tito
 
 ### <a name="access-your-new-web-service"></a>Accedere al nuovo servizio Web
 
-Dopo aver distribuito il servizio Web dalla versione classica di Machine Learning Studio, è possibile inviare dati al servizio e ricevere risposte a livello di codice.
+Dopo aver distribuito il servizio Web da Machine Learning Studio (classico), è possibile inviare dati al servizio e ricevere risposte a livello di codice.
 
 La pagina **Consume** (Uso) offre tutte le informazioni necessarie per accedere al servizio Web. Ad esempio, viene fornita la chiave API per consentire l'accesso autorizzato al servizio.
 
@@ -136,24 +136,24 @@ I prezzi sono specifici per ogni area, quindi è necessario definire un piano di
 3. Nella pagina della panoramica Plans (Piani), fare clic su **New**(Nuovo).
 4. Nell'elenco a discesa **Subscription** (Sottoscrizione) selezionare la sottoscrizione in cui risiederà il nuovo piano.
 5. Nell'elenco a discesa **Regione** (Area) selezionare un'area per il nuovo piano. Le opzioni del piano per l'area selezionata verranno visualizzate nella sezione **Plan Options** (Opzioni del piano) della pagina.
-6. Nell'elenco a discesa **Resource Group** (Gruppo di risorse) selezionare un gruppo di risorse per il piano. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+6. Nell'elenco a discesa **Resource Group** (Gruppo di risorse) selezionare un gruppo di risorse per il piano. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 7. In **Plan Name** (Nome piano) digitare il nome del piano.
 8. In **Plan Options**(Opzioni piano) selezionare il livello di fatturazione per il nuovo piano.
-9. Fare clic su **Create**(Crea).
+9. Fare clic su **Crea**.
 
 #### <a name="deploy-the-web-service-to-another-region"></a>Eseguire la distribuzione del servizio Web in un'altra area
 
 1. Nella pagina de servizi Web di Microsoft Azure Machine Learning fare clic sull'opzione di menu **Servizi Web**.
 2. Selezionare il servizio Web da distribuire in una nuova area.
-3. Fare clic su **Copy**.
+3. Fare clic su **Copia**.
 4. In **Web Service Name**(Nome servizio Web) digitare un nuovo nome per il servizio Web.
 5. In **Web service description**(Descrizione servizio Web) immettere una descrizione per il servizio Web.
 6. Nell'elenco a discesa **Subscription** (Sottoscrizione) selezionare la sottoscrizione in cui risiederà il nuovo servizio Web.
-7. Nell'elenco a discesa **Resource Group** (Gruppo di risorse) selezionare un gruppo di risorse per il servizio Web. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+7. Nell'elenco a discesa **Resource Group** (Gruppo di risorse) selezionare un gruppo di risorse per il servizio Web. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 8. Nell'elenco a discesa **Region** (Area) selezionare l'area in cui si desidera distribuire il servizio Web.
 9. Nell'elenco a discesa **Storage account** (Account di archiviazione) selezionare un account di archiviazione in cui archiviare il servizio Web.
 10. Nell'elenco a discesa **Price Plan** (Piano tariffario) selezionare un piano nell'area scelta nel passaggio 8.
-11. Fare clic su **Copy**.
+11. Fare clic su **Copia**.
 
 ## <a name="deploy-it-as-a-classic-web-service"></a>Eseguire la distribuzione come servizio Web classico
 
@@ -169,9 +169,9 @@ Per distribuire l'esperimento predittivo, fare clic su **Run** (Esegui) nella pa
 
 Per testare il servizio Web Richiesta-risposta, fare clic sul collegamento **Test** nel dashboard del servizio Web. Viene visualizzata una finestra di dialogo che richiede i dati di input per il servizio. Si tratta delle colonne necessarie per l'esperimento di classificazione. Immettere un set di dati e quindi fare clic su **OK**. Il risultato generato dal servizio Web viene visualizzato in fondo al dashboard.
 
-È possibile fare clic sul collegamento anteprima **test** per testare il servizio nella versione classica di Azure Machine Learning Studio portale dei servizi Web, come illustrato in precedenza nella sezione relativa al nuovo servizio Web.
+È possibile fare clic sul collegamento anteprima **test** per testare il servizio nel portale dei servizi Web Azure Machine Learning Studio (classico), come illustrato in precedenza nella sezione relativa al nuovo servizio Web.
 
-Per testare il servizio Esecuzione batch, fare clic sul collegamento di anteprima **Test**. Nella pagina di test Batch, fare clic su Sfoglia sotto l'input dell'utente e selezionare un file CSV contenente i valori di esempio appropriati. Se non si ha un file CSV e l'esperimento predittivo è stato creato con la versione classica di Machine Learning Studio, è possibile scaricare il set di dati per l'esperimento predittivo e usarlo.
+Per testare il servizio Esecuzione batch, fare clic sul collegamento di anteprima **Test**. Nella pagina di test Batch, fare clic su Sfoglia sotto l'input dell'utente e selezionare un file CSV contenente i valori di esempio appropriati. Se non si ha un file CSV e l'esperimento predittivo è stato creato usando Machine Learning Studio (versione classica), è possibile scaricare il set di dati per l'esperimento predittivo e usarlo.
 
 ![Testare il servizio Web](./media/publish-a-machine-learning-web-service/figure-3.png)
 
@@ -187,7 +187,7 @@ Nella pagina **CONFIGURATION** (CONFIGURAZIONE) è possibile modificare il nome 
 
 ### <a name="access-your-classic-web-service"></a>Accedere al servizio Web classico
 
-Dopo aver distribuito il servizio Web dalla versione classica di Machine Learning Studio, è possibile inviare dati al servizio e ricevere risposte a livello di codice.
+Dopo aver distribuito il servizio Web da Azure Machine Learning Studio (classico), è possibile inviare dati al servizio e ricevere risposte a livello di codice.
 
 Il dashboard offre tutte le informazioni necessarie per accedere al servizio Web. Ad esempio, la chiave API viene offerta per consentire l'accesso autorizzato al servizio, mentre le pagine della guida API hanno lo scopo di aiutare nella scrittura di codice.
 

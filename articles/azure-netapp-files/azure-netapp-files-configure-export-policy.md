@@ -1,31 +1,25 @@
 ---
-title: Configurare i criteri di esportazione per un volume NFS usando Azure NetApp Files | Microsoft Docs
+title: Configurare i criteri di esportazione per il volume Azure NetApp Files NFS
 description: Viene descritto come configurare i criteri di esportazione per controllare l'accesso a un volume NFS utilizzando Azure NetApp Files
 services: azure-netapp-files
-documentationcenter: ''
 author: b-juche
-manager: ''
-editor: ''
-ms.assetid: ''
+ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.author: b-juche
-ms.openlocfilehash: d323bd0b9684cfe4930d8c779a6728fcfd3836fb
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: b96fca3a5627a1c6c96c8db5c1c209a51c5e102a
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72674919"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551559"
 ---
 # <a name="configure-export-policy-for-an-nfs-volume"></a>Configurare i criteri di esportazione per un volume NFS
 
 È facoltativamente possibile configurare i criteri di esportazione per controllare l'accesso a un volume di Azure NetApp Files. Azure NetApp Files i criteri di esportazione supportano solo i volumi NFS.  Sono supportati sia NFSv3 che NFSv4. 
 
-## <a name="steps"></a>Passi 
+## <a name="steps"></a>Procedure 
 
 1.  Fare clic su **Esporta criterio** nel riquadro di spostamento Azure NetApp files. 
 
@@ -39,7 +33,7 @@ ms.locfileid: "72674919"
         * Indirizzo IPv4, ad esempio, `10.1.12.24` 
         * Indirizzo IPv4 con subnet mask espressa sotto forma di numero di bit, ad esempio, `10.1.12.10/4`
 
-    * **Accedervi**  
+    * **Accedere**  
         Selezionare uno dei tipi di accesso seguenti:  
         * Nessun accesso 
         * Lettura e scrittura

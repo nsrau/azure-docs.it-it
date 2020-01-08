@@ -1,5 +1,5 @@
 ---
-title: Personalizzare i browser & le visualizzazioni WebView | Azure
+title: Personalizzare i browser & Webviews (MSAL iOS/macOS) | Azure
 titleSuffix: Microsoft identity platform
 description: Informazioni su come personalizzare l'esperienza del browser iOS/macOS MSAL per l'accesso degli utenti.
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: twhitney
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5dbdadc6afa3a6822a76fdcecdfcaa6f2ad8c98
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f409ff519c699ed712ec05213979d9c3308d4197
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963716"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424576"
 ---
 # <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>Procedura: personalizzare browser e WebView per iOS/macOS
 
@@ -66,10 +66,10 @@ Il browser utilizzato influisca sull'esperienza SSO grazie alla modalità di con
 
 | Tecnologia    | Tipo di browser  | disponibilità di iOS | disponibilità di macOS | Condivide i cookie e altri dati  | Disponibilità MSAL | SSO |
 |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|-------------:|
-| [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | Sistema | iOS12 | macOS 10,15 e su | SÌ | Solo iOS | istanze di w/Safari
-| [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) | Sistema | iOS11 | N/D | SÌ | Solo iOS |  istanze di w/Safari
+| [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | Sistema | iOS12 | macOS 10,15 e su | Sì | Solo iOS | istanze di w/Safari
+| [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) | Sistema | iOS11 | N/D | Sì | Solo iOS |  istanze di w/Safari
 | [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | Sistema | iOS11 | N/D | No | Solo iOS | No**
-| **SFSafariViewController** | Sistema | iOS10 | N/D | SÌ | Solo iOS |  istanze di w/Safari
+| **SFSafariViewController** | Sistema | iOS10 | N/D | Sì | Solo iOS |  istanze di w/Safari
 | **WKWebView**  | In-app | iOS 8 | macOS 10,10 e su | No | iOS e macOS | No**
 
 \* * Per il funzionamento dell'accesso SSO, è necessario condividere i token tra le app. Questa operazione richiede una cache di token o un'applicazione broker, ad esempio Microsoft Authenticator per iOS.
@@ -88,7 +88,7 @@ Ogni richiesta può essere configurata in modo da eseguire l'override del browse
 
 Inoltre, MSAL supporta il passaggio di un `WKWebView` personalizzato impostando la proprietà `MSALInteractiveTokenParameters.webviewParameters.customWebView`.
 
-ad esempio:
+Ad esempio:
 
 Objective-C
 ```objc

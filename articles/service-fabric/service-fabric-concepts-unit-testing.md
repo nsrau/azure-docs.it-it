@@ -1,25 +1,14 @@
 ---
-title: Testing unità per i servizi con stato in Azure Service Fabric | Microsoft Docs
+title: Unit test di servizi con stato in Azure Service Fabric
 description: Informazioni su concetti e procedure consigliate di servizi con stato di Service Fabric di testing unità.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: vturecek
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/04/2018
-ms.author: atsenthi
-ms.openlocfilehash: 012d75ff6ad4acdc6612a197f274e2dfdb98370a
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 12e8a47d9685dee12594f4e2afaa848d9688d185
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249277"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433917"
 ---
 # <a name="unit-testing-stateful-services-in-service-fabric"></a>Testing unità dei servizi con stato in Service Fabric
 
@@ -51,8 +40,8 @@ Inoltre, la presenza di più istanze consente ai test di invertire i ruoli di ci
 Il gestore di stato deve essere considerato come una risorsa remota e pertanto fittizia. Quando si simula il gestore di stato, ci deve essere una risorsa di archiviazione sottostante in memoria per tenere traccia di ciò che viene salvato nel gestore di stato, in modo che ciò possa essere letto e verificato. Un modo semplice per ottenere questo risultato consiste nel creare istanze fittizie di ciascuno dei tipi di raccolte affidabili. All'interno di tali oggetti fittizi, usare un tipo di dati che si allinea con le operazioni eseguite a fronte di tale raccolta. Ecco alcuni tipi di dati suggeriti per ogni raccolta affidabile
 
 - IReliableDictionary<TKey, TValue> -> System.Collections.Concurrent.ConcurrentDictionary<TKey, TValue>
-- IReliableQueue\<t >-> System. Collections. Generic.\<Queue T >
-- IReliableConcurrentQueue\<t >-> System. Collections. Concurrent\<. ConcurrentQueue t >
+- IReliableQueue\<T >-> System. Collections. Generic. Queue\<T >
+- IReliableConcurrentQueue\<T >-> System. Collections. Concurrent. ConcurrentQueue\<T >
 
 #### <a name="many-state-manager-instances-single-storage"></a>Molte istanze di gestione di stato, archiviazione singola
 Come accennato in precedenza, il gestore di stato e le raccolte affidabili devono essere considerate come una risorsa remota. Pertanto, queste risorse devono essere e saranno simulate all'interno degli unit test. Tuttavia, quando si eseguono più istanze di un servizio con stato sarà una sfida per mantenere sincronizzata ogni gestione fittizia dello stato tra più istanze di servizio con stato diverso. Quando il servizio con stato è in esecuzione nel cluster, Service Fabric si occupa del mantenimento della coerenza del gestore di stato di ogni replica secondaria con la replica primaria. Di conseguenza, i test devono comportarsi in modo che sia possibile simulare modifiche dei ruoli.

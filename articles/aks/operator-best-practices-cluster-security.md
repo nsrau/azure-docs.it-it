@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mlearned
-ms.openlocfilehash: 46e44804ddbabd8bf5620ad9516f1ca2d5017bfa
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 4629e4e9cfd5c8f9861b692b2aec89057f83587c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019300"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442928"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la sicurezza e gli aggiornamenti dei cluster nel servizio Azure Kubernetes
 
@@ -27,6 +27,8 @@ Questo articolo illustra in particolare come proteggere il cluster del servizio 
 > * Mantenere i nodi aggiornati e applicare automaticamente le patch di protezione
 
 È anche possibile leggere le procedure consigliate per la [gestione delle immagini del contenitore][best-practices-container-image-management] e per la [sicurezza Pod][best-practices-pod-security].
+
+È anche possibile usare l' [integrazione dei servizi Kubernetes di Azure con il Centro sicurezza][security-center-aks] per individuare le minacce e visualizzare le raccomandazioni per la protezione dei cluster AKS.
 
 ## <a name="secure-access-to-the-api-server-and-cluster-nodes"></a>Proteggere l'accesso al server dell'API e ai nodi del cluster
 
@@ -48,7 +50,7 @@ Per ulteriori informazioni sull'integrazione di Azure AD e sul controllo degli a
 
 **Indicazioni sulle procedure consigliate** - Limitare l'accesso alle azioni che possono essere eseguite dai contenitori. Concedere il minor numero possibile di autorizzazioni ed evitare l'uso dell'accesso radice o dell'escalation dei privilegi.
 
-Così come è opportuno concedere a utenti o gruppi il minor numero di privilegi necessari, anche i contenitori dovrebbero essere limitati ai soli processi e azioni che devono eseguire. Per ridurre al minimo i rischi di attacchi, non configurare applicazioni e contenitori che richiedono l'escalation dei privilegi o l'accesso radice. Ad esempio, impostare `allowPrivilegeEscalation: false` nel manifesto del pod. Questi *contesti di protezione dei pod* sono integrati in Kubernetes e consentono di definire autorizzazioni aggiuntive come l'account utente o di gruppo da usare o le funzionalità Linux da esporre. Per altre procedure consigliate, vedere [Secure Pod Access to][pod-security-contexts]resources.
+Così come è opportuno concedere a utenti o gruppi il minor numero di privilegi necessari, anche i contenitori dovrebbero essere limitati ai soli processi e azioni che devono eseguire. Per ridurre al minimo i rischi di attacchi, non configurare applicazioni e contenitori che richiedono l'escalation dei privilegi o l'accesso radice. Ad esempio, impostare `allowPrivilegeEscalation: false` nel manifesto del pod. Questi *contesti di protezione dei pod* sono integrati in Kubernetes e consentono di definire autorizzazioni aggiuntive come l'account utente o di gruppo da usare o le funzionalità Linux da esporre. Per altre procedure consigliate, vedere [Secure Pod Access to resources][pod-security-contexts].
 
 Per un controllo più granulare delle azioni dei contenitori, è anche possibile usare funzionalità di sicurezza predefinite di Linux, come *AppArmor* e *seccomp*. Queste funzionalità vengono definite a livello di nodo e quindi implementate tramite un manifesto pod. Le funzionalità di sicurezza Linux predefinite sono disponibili solo nei nodi e nei Pod Linux.
 
@@ -173,7 +175,7 @@ Per altre informazioni sui filtri disponibili, vedere [profili di sicurezza Secc
 
 ## <a name="regularly-update-to-the-latest-version-of-kubernetes"></a>Eseguire regolarmente l'aggiornamento alla versione più recente di Kubernetes
 
-**Indicazioni sulle procedure consigliate** - Per mantenere l'ambiente aggiornato con le nuove funzionalità e correzioni di bug, aggiornare regolarmente la versione di Kubernetes nel cluster AKS.
+**Indicazioni sulle procedure consigliate** - Per mantenere l'ambiente aggiornato con le nuove funzionalità e correzioni di bug, aggiornare regolarmente la versione di Kubernetes nel cluster del servizio Azure Kubernetes.
 
 Kubernetes rilascia nuove funzionalità con maggiore frequenza rispetto alle piattaforme di infrastruttura più tradizionali. Gli aggiornamenti di Kubernetes includono nuove funzionalità e correzioni di bug o correzioni rapide per la sicurezza. Le nuove funzionalità passano in genere dallo stato *alpha* allo stato *beta* per diventare infine *stabili* e generalmente disponibili e consigliate per l'uso in ambiente di produzione. Questo ciclo di rilascio dovrebbe consentire di aggiornare Kubernetes senza riscontrare regolarmente modifiche di rilievo o dover modificare le proprie distribuzioni e i modelli.
 
@@ -235,3 +237,4 @@ In questo articolo è stato illustrato in particolare come proteggere il cluster
 [best-practices-pod-security]: developer-best-practices-pod-security.md
 [pod-security-contexts]: developer-best-practices-pod-security.md#secure-pod-access-to-resources
 [aks-ssh]: ssh.md
+[security-center-aks]: /azure/security-center/azure-kubernetes-service-integration

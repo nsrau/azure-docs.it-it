@@ -1,6 +1,6 @@
 ---
 title: Endpoint del servizio rete virtuale-bus di servizio di Azure
-description: Aggiungere un endpoint del servizio Microsoft.ServiceBus a una rete virtuale.
+description: Questo articolo fornisce informazioni su come aggiungere un endpoint di servizio Microsoft. ServiceBus a una rete virtuale.
 services: service-bus
 documentationcenter: ''
 author: axisc
@@ -8,14 +8,14 @@ editor: spelluru
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: 99a705c3923821739ddc1dedd8f7c079dc534a1a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5446ee12a6933a916444d4f64a0eb983a35a59f8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277299"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462053"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Usare gli endpoint servizio di rete virtuale con il bus di servizio di Azure
 
@@ -31,13 +31,13 @@ Il risultato è una relazione privata e isolata tra i carichi di lavoro associat
 > I servizi Microsoft considerati attendibili non sono supportati quando sono implementate reti virtuali.
 >
 > Scenari comuni di Azure che non supportano le reti virtuali (l'elenco **NON** è esaustivo) -
-> - Azure Stream Analytics
+> - Analisi di flusso di Azure
 > - Integrazione con Griglia di eventi di Azure
 > - Route dell'hub IoT di Azure
 > - Azure IoT Device Explorer
 >
 > I servizi Microsoft seguenti devono essere in una rete virtuale
-> - servizio app di Azure
+> - Servizio app di Azure
 > - Funzioni di Azure
 
 > [!IMPORTANT]
@@ -76,11 +76,11 @@ Parametri del modello:
 > Sebbene non siano possibili regole di rifiuto, il modello di Azure Resource Manager ha l'azione predefinita impostata su **"Consenti"** , che non limita le connessioni.
 > Quando si creano regole di rete virtuale o del firewall, occorre modificare ***"defaultAction"***
 > 
-> Da
+> da
 > ```json
 > "defaultAction": "Allow"
 > ```
-> To
+> to
 > ```json
 > "defaultAction": "Deny"
 > ```

@@ -3,12 +3,12 @@ title: Cosa è possibile proteggere con il server di Backup di Azure
 description: Questo articolo offre una matrice di supporto che elenca tutti i carichi di lavoro, i tipi di dati e le installazioni che vengono protetti dal server di Backup di Azure.
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7e34ba81ad20b2d6a4e89995ab8b834f5f7dc725
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 8f1ae1432f619dafc5084d250e3f89707405e08b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996154"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449881"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Matrice di protezione del server di Backup di Azure
 
@@ -82,9 +82,23 @@ Questo articolo elenca i vari server e carichi di lavoro che è possibile proteg
 
 ## <a name="azure-expressroute-support"></a>Supporto di Azure ExpressRoute
 
-Se Azure ExpressRoute è configurato con peering privato o Microsoft, non può essere usato per eseguire il backup dei dati in Azure.
+È possibile eseguire il backup dei dati tramite Azure ExpressRoute con il peering pubblico (disponibile per i circuiti precedenti) e il peering Microsoft. Il backup sul peering privato non è supportato.
 
-Se Azure ExpressRoute è configurato con il peering pubblico, può essere usato per eseguire il backup dei dati in Azure.
+Con peering pubblico: garantire l'accesso ai seguenti domini/indirizzi:
+
+* `http://www.msftncsi.com/ncsi.txt`
+* `microsoft.com`
+* `.WindowsAzure.com`
+* `.microsoftonline.com`
+* `.windows.net`
+
+Con il peering Microsoft, selezionare i seguenti servizi/aree e i valori della community pertinenti:
+
+* Azure Active Directory (12076:5060)
+* Area Microsoft Azure (in base alla posizione dell'insieme di credenziali di servizi di ripristino)
+* Archiviazione di Azure (in base alla posizione dell'insieme di credenziali di servizi di ripristino)
+
+Per ulteriori informazioni, vedere i [requisiti di routing di ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
 
 >[!NOTE]
 >Il peering pubblico è deprecato per i nuovi circuiti.
@@ -93,17 +107,17 @@ Se Azure ExpressRoute è configurato con il peering pubblico, può essere usato 
 
 Il server di Backup di Azure può proteggere i dati nelle applicazioni in cluster seguenti:
 
-- File server
+* File server
 
-- SQL Server
+* SQL Server
 
-- Hyper-V: se si protegge un cluster Hyper-V usando l'agente protezione MAB con scalabilità orizzontale, non è possibile aggiungere la protezione secondaria per i carichi di lavoro di Hyper-V protetti.
+* Hyper-V: se si protegge un cluster Hyper-V usando l'agente protezione MAB con scalabilità orizzontale, non è possibile aggiungere la protezione secondaria per i carichi di lavoro di Hyper-V protetti.
 
     Se si esegue Hyper-V in Windows Server 2008 R2, assicurarsi di installare l'aggiornamento descritto in KB [975354](https://support.microsoft.com/kb/975354).
     Se si esegue Hyper-V in Windows Server 2008 R2 in una configurazione cluster, assicurarsi di installare SP2, come descritto in KB [971394](https://support.microsoft.com/kb/971394).
 
-- Exchange Server - Il server di Backup di Azure può proteggere i cluster di dischi non condivisi per le versioni di Exchange Server supportate (replica continua cluster) e può inoltre proteggere Exchange Server configurato per la replica continua locale.
+* Exchange Server - Il server di Backup di Azure può proteggere i cluster di dischi non condivisi per le versioni di Exchange Server supportate (replica continua cluster) e può inoltre proteggere Exchange Server configurato per la replica continua locale.
 
-- SQL Server - Il server di Backup di Azure non supporta il backup dei database di SQL Server ospitati in volumi condivisi cluster (CSV).
+* SQL Server - Il server di Backup di Azure non supporta il backup dei database di SQL Server ospitati in volumi condivisi cluster (CSV).
 
 Server di Backup di Azure possibile proteggere i carichi di lavoro del cluster che si trovano nello stesso dominio del server MAB e in un dominio figlio o trusted. Per proteggere le origini dati in domini o gruppi di lavoro non attendibili, usare l'autenticazione di NTLM o del certificato per un singolo server, o l'autenticazione del certificato solo per un cluster.

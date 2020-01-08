@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: kumud
-ms.openlocfilehash: 340c9192b43cbcf2daacfb791d85135518dd970c
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 6eab9ac7cf4547cb7fe3e736c16c3c0bd5f5bd9d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747892"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425896"
 ---
 # <a name="add-or-remove-a-subnet-delegation"></a>Aggiungere o rimuovere una delega della subnet
 
 La delega di subnet offre esplicite autorizzazioni per creare le risorse specifiche del servizio nella subnet, tramite un identificatore univoco durante la distribuzione del servizio. Questo articolo descrive come aggiungere o rimuovere una subnet delegata per un servizio di Azure.
 
-## <a name="portal"></a>di Microsoft Azure
+## <a name="portal"></a>Portale
 
-### <a name="sign-in-to-azure"></a>Accedere ad Azure
+### <a name="sign-in-to-azure"></a>Accedere a Azure
 
 Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
@@ -38,17 +38,17 @@ Questa sezione illustra come creare una rete virtuale e la subnet da delegare in
 
     | Impostazione | Valore |
     | ------- | ----- |
-    | Name | Immettere *MyVirtualNetwork*. |
+    | Nome | Immettere *MyVirtualNetwork*. |
     | Spazio degli indirizzi | Immettere *10.0.0.0/16*. |
     | Sottoscrizione | Selezionare la propria sottoscrizione.|
-    | Resource group | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare **OK**. |
+    | Gruppo di risorse | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare **OK**. |
     | Percorso | Selezionare **eastus**.|
     | Subnet - Nome | Immettere *mySubnet*. |
     | Subnet - Intervallo di indirizzi | Immettere *10.0.0.0/24*. |
     |||
 1. Lasciare l'impostazione predefinita REST e quindi selezionare **Crea**.
 
-### <a name="permissions"></a>autorizzazioni
+### <a name="permissions"></a>Autorizzazioni
 
 Se non è stata creata la subnet da delegare a un servizio di Azure, è necessaria l'autorizzazione seguente: `Microsoft.Network/virtualNetworks/subnets/write`.
 
@@ -89,7 +89,7 @@ L'esempio seguente crea un gruppo di risorse denominato **myResourceGroup** nell
 
 ```
 
-### <a name="create-a-virtual-network"></a>Crea rete virtuale
+### <a name="create-a-virtual-network"></a>Crea una rete virtuale
 Creare una rete virtuale denominata **myVnet** con una subnet denominata **mySubnet** nel gruppo **myResourceGroup** con il comando [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
 
 ```azurecli-interactive
@@ -101,7 +101,7 @@ Creare una rete virtuale denominata **myVnet** con una subnet denominata **mySub
     --subnet-name mySubnet \
     --subnet-prefix 10.0.0.0/24
 ```
-### <a name="permissions"></a>autorizzazioni
+### <a name="permissions"></a>Autorizzazioni
 
 Se non è stata creata la subnet da delegare a un servizio di Azure, è necessaria l'autorizzazione seguente: `Microsoft.Network/virtualNetworks/subnets/write`.
 
@@ -124,7 +124,7 @@ Usare [AZ Network VNET subnet Update](https://docs.microsoft.com/cli/azure/netwo
 Per verificare che la delega sia stata applicata, usare [AZ Network VNET subnet Show](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-show). Verificare che il servizio sia delegato alla subnet sotto la proprietà **ServiceName**:
 
 ```azurecli-interactive
-  az network vnet show \
+  az network vnet subnet show \
   --resource-group myResourceGroup \
   --name mySubnet \
   --vnet-name myVnet
@@ -177,7 +177,7 @@ L'output del comando è una parentesi null:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-### <a name="connect-to-azure"></a>Connect to Azure
+### <a name="connect-to-azure"></a>Connettersi ad Azure
 
 ```azurepowershell-interactive
   Connect-AzAccount
@@ -200,7 +200,7 @@ Creare una rete virtuale denominata **myVnet** con una **subnet denominata subne
 
   New-AzVirtualNetwork -Name myVnet -ResourceGroupName myResourceGroup -Location eastus -AddressPrefix "10.0.0.0/16" -Subnet $subnet
 ```
-### <a name="permissions"></a>autorizzazioni
+### <a name="permissions"></a>Autorizzazioni
 
 Se non è stata creata la subnet da delegare a un servizio di Azure, è necessaria l'autorizzazione seguente: `Microsoft.Network/virtualNetworks/subnets/write`.
 

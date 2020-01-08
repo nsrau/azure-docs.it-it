@@ -1,27 +1,18 @@
 ---
-title: Creare il primo servizio affidabile di Azure Service Fabric in Java | Microsoft Docs
+title: Creare il primo servizio Reliable Services in Java
 description: Introduzione alla creazione di un’applicazione dell’infrastruttura di servizi di Microsoft Azure con i servizi con e senza stato.
-services: service-fabric
-documentationcenter: java
 author: suhuruli
-manager: chackdan
-editor: ''
-ms.assetid: 7831886f-7ec4-4aef-95c5-b2469a5b7b5d
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 6bf8c632a7513d018745bc74aa0a1db95a39af8b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c3b301a7a9039f1fe8095950f0a5a4e23eb52a9b
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130127"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614214"
 ---
-# <a name="get-started-with-reliable-services"></a>Introduzione a Reliable Services
+# <a name="get-started-with-reliable-services-in-java"></a>Introduzione a Reliable Services in Java
 > [!div class="op_single_selector"]
 > * [C# su Windows](service-fabric-reliable-services-quick-start.md)
 > * [Java su Linux](service-fabric-reliable-services-quick-start-java.md)
@@ -34,13 +25,13 @@ Questo articolo illustra le nozioni fondamentali di Reliable Services di Azure S
 Prima di iniziare, assicurarsi che nel computer sia configurato l'ambiente di sviluppo di Service Fabric.
 Se è necessario configurarlo, andare alla [guida introduttiva per Mac](service-fabric-get-started-mac.md) o alla [guida introduttiva per Linux](service-fabric-get-started-linux.md).
 
-## <a name="basic-concepts"></a>Concetti di base
+## <a name="basic-concepts"></a>Concetti fondamentali
 Per iniziare a usare Reliable Services, è sufficiente comprendere solo alcuni concetti di base:
 
-* **Tipo di servizio**: Si tratta dell'implementazione del servizio. Viene definito dalla classe scritta che estende `StatelessService` e qualsiasi altro codice o dipendenze usate, insieme al nome e al numero della versione.
-* **Istanza di servizio denominata**: Per eseguire il servizio, si creano le istanze denominate del tipo di servizio, analogamente al modo in cui si creano le istanze di un oggetto di un tipo di classe. Le istanze del servizio sono, di fatto, istanze di oggetto della classe del servizio che si scrive.
-* **Host servizio**: Le istanze di servizio denominate che si creano devono essere eseguite all'interno di un host. L'host del servizio è semplicemente un processo in cui eseguire le istanze del servizio.
-* **Registrazione del servizio**: La registrazione raccoglie tutti gli elementi. Il tipo di servizio deve essere registrato con il runtime di Service Fabric in un host del servizio per consentire a Service Fabric di creare istanze per l'esecuzione.  
+* **Tipo di servizio**: si tratta dell'implementazione del servizio. Viene definito dalla classe scritta che estende `StatelessService` e qualsiasi altro codice o dipendenze usate, insieme al nome e al numero della versione.
+* **Istanza di servizio denominata**: per eseguire il servizio, si creano le istanze denominate del tipo di servizio, analogamente al modo in cui si creano le istanze di un oggetto di un tipo di classe. Le istanze del servizio sono, di fatto, istanze di oggetto della classe del servizio che si scrive.
+* **Host del servizio**: le istanze del servizio denominate che si creano devono essere eseguite all'interno di un host. L'host del servizio è semplicemente un processo in cui eseguire le istanze del servizio.
+* **Registrazione del servizio**: la registrazione raccoglie tutti gli elementi. Il tipo di servizio deve essere registrato con il runtime di Service Fabric in un host del servizio per consentire a Service Fabric di creare istanze per l'esecuzione.  
 
 ## <a name="create-a-stateless-service"></a>Creare un servizio senza stato
 Iniziare a creare un'applicazione di Service Fabric. Service Fabric SDK per Linux include un generatore Yeoman per la creazione dello scaffolding per un'applicazione di Service Fabric con un servizio senza stato. Iniziare eseguendo il comando Yeoman seguente:
@@ -234,7 +225,7 @@ Le operazioni su Reliable HashMaps sono asincrone. Questo avviene perché le ope
 Le operazioni su Reliable HashMaps sono *transazionali* e consentono di mantenere lo stato coerente tra più Reliable HashMaps e operazioni. Ad esempio, è possibile ottenere un elemento di lavoro da un oggetto Reliable Dictionary, eseguire un'operazione su tale elemento e salvare il risultato in un altro oggetto Reliable HashMap, il tutto all'interno di una singola transazione. Questa viene considerata come un'operazione atomica e garantisce la riuscita o il rollback dell'intera operazione. Se si verifica un errore dopo aver rimosso l'elemento dalla coda ma prima di aver salvato il risultato, viene eseguito il rollback dell'intera transazione e l'elemento rimane nella coda per l'elaborazione.
 
 
-## <a name="build-the-application"></a>Compilare l'applicazione.
+## <a name="build-the-application"></a>Compilare l'applicazione
 
 Lo scaffolding Yeoman include uno script Gradle per compilare l'applicazione e script Bash per distribuire ed eliminare l'applicazione. Per eseguire l'applicazione, prima di tutto compilarla con Gradle:
 

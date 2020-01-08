@@ -1,5 +1,6 @@
 ---
-title: 'Esercitazione: Usare il Servizio Migrazione del database di Azure per eseguire la migrazione online di PostgreSQL in Database di Azure per PostgreSQL | Microsoft Docs'
+title: 'Esercitazione: eseguire la migrazione di PostgreSQL online al database di Azure per PostgreSQL'
+titleSuffix: Azure Database Migration Service
 description: Informazioni su come eseguire la migrazione online da PostgreSQL locale in Database di Azure per PostgreSQL con Servizio Migrazione del database di Azure.
 services: dms
 author: HJToland3
@@ -8,21 +9,21 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 10/28/2019
-ms.openlocfilehash: 1b4eebafadcdbebfc89ce7265f4d4f77f4f5ac8c
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
-ms.translationtype: HT
+ms.openlocfilehash: a710512d7063a73fde42e2b076a3bb67c5efbf7a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043240"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437352"
 ---
-# <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Esercitazione: Eseguire la migrazione di PostgreSQL in Database di Azure per PostgreSQL online mediante il Servizio Migrazione del database di Azure
+# <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Esercitazione: Eseguire la migrazione di PostgreSQL a Database di Azure per PostgreSQL online con il Servizio Migrazione del database
 
 È possibile usare Servizio Migrazione del database di Azure per eseguire la migrazione dei database da un'istanza di PostgreSQL locale a [Database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/) con tempi di inattività minimi. In altre parole, la migrazione può essere eseguita con tempi di inattività minimi per l'applicazione. In questa esercitazione si esegue la migrazione del database di esempio **DVD Rental** da un'istanza locale di PostgreSQL 9.6 a Database di Azure per PostgreSQL usando l'attività di migrazione online in Servizio Migrazione del database di Azure.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 >
 > * Eseguire la migrazione dello schema di esempio con l'utilità pg_dump.
@@ -56,7 +57,7 @@ Per completare questa esercitazione, è necessario:
     >
     > Questa configurazione è necessaria perché Servizio Migrazione del database di Azure non dispone di connettività Internet.
 
-* Verificare che le regole del gruppo di sicurezza di rete (NSG) per la rete virtuale non blocchino le porte di comunicazione in ingresso nel Servizio Migrazione del database di Azure: 443, 53, 9354, 445, 12000. Per informazioni dettagliate sui filtri del traffico dei gruppi di sicurezza di rete relativi alla rete virtuale di Azure, vedere l'articolo [Filtrare il traffico di rete con gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
+* Verificare che le regole del gruppo di sicurezza di rete VNet (NSG) non blocchino le porte di comunicazione in ingresso seguenti al servizio migrazione del database di Azure: 443, 53, 9354, 445, 12000. Per informazioni dettagliate sui filtri del traffico dei gruppi di sicurezza di rete relativi alla rete virtuale di Azure, vedere l'articolo [Filtrare il traffico di rete con gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
 * Configurare [Windows Firewall per l'accesso al motore di database](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Aprire Windows Firewall per consentire a Servizio Migrazione del database di Azure di accedere al server PostgreSQL di origine, per impostazione predefinita attraverso la porta TCP 5432.
 * Quando si usa un'appliance firewall all'ingresso dei database di origine, potrebbe essere necessario aggiungere regole del firewall per consentire al Servizio Migrazione del database di Azure di accedere ai database di origine per la migrazione.
@@ -208,10 +209,10 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
 
    Ad esempio il comando seguente creerà un servizio in:
 
-   * Posizione: Stati Uniti Orientali 2
+   * Posizione: Stati Uniti orientali 2
    * Sottoscrizione: 97181df2-909d-420b-ab93-1bff15acb6b7
-   * Nome gruppo di risorse: PostgresDemo
-   * Nome servizio Migrazione del database: PostgresCLI
+   * Nome del gruppo di risorse: PostgresDemo
+   * Nome del Servizio Migrazione del database: PostgresCLI
 
    ```
    az dms create -l eastus2 -g PostgresDemo -n PostgresCLI --subnet /subscriptions/97181df2-909d-420b-ab93-1bff15acb6b7/resourceGroups/ERNetwork/providers/Microsoft.Network/virtualNetworks/AzureDMS-CORP-USC-VNET-5044/subnets/Subnet-1 --sku-name BusinessCritical_4vCores
@@ -257,10 +258,10 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
 
     Ad esempio, il comando seguente crea un progetto usando questi parametri:
 
-   * Posizione: Stati Uniti centro-occidentali
-   * Nome gruppo di risorse: PostgresDemo
-   * Nome servizio: PostgresCLI
-   * Nome progetto: PGMigration
+   * Località: Stati Uniti centro-occidentali
+   * Nome del gruppo di risorse: PostgresDemo
+   * Nome del servizio: PostgresCLI
+   * Nome del progetto: PGMigration
    * Piattaforma di origine: PostgreSQL
    * Piattaforma di destinazione: AzureDbForPostgreSql
 
@@ -356,7 +357,7 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
    ```
 
-   Oppure
+   OPPURE
 
     ```
    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask --expand output
@@ -523,4 +524,4 @@ Se è necessario annullare o eliminare qualsiasi attività, progetto o servizio 
 
 * Per informazioni sulle limitazioni e i problemi noti delle migrazioni online verso il Database di Azure per PostgreSQL, vedere l'articolo sui [problemi noti e soluzioni alternative per le migrazioni online in Database di Azure per PostgreSQL](known-issues-azure-postgresql-online.md).
 * Per informazioni sul Servizio Migrazione del database di Azure, vedere l'articolo [Definizione del Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/dms-overview).
-* Per informazioni sul Database di Azure per PostgreSQL, vedere l'articolo [Database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/overview).
+* Per informazioni su Database di Azure per PostgreSQL, vedere l'articolo [Che cos'è Database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/overview).

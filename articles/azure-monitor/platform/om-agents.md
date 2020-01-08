@@ -4,15 +4,15 @@ description: Per gestire l'investimento esistente in System Center Operations Ma
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 08/13/2019
-ms.openlocfilehash: 79fcbb6f972eb022ce4d0e47a608e6f0d053a9ad
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5dc9412c7884eb62795fd04240f6cfa7d103e3be
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162231"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363660"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Connetti Operations Manager a monitoraggio di Azure
 
@@ -48,7 +48,7 @@ Prima di iniziare, esaminare i requisiti seguenti.
     - Stati Uniti centro-occidentali
     - Australia sud-orientale
     - Europa occidentale
-    - Stati Uniti Orientali
+    - Stati Uniti orientali
     - Asia sudorientale
     - Giappone orientale
     - Regno Unito meridionale
@@ -73,15 +73,15 @@ Nelle informazioni riportate di seguito sono elencate le informazioni di configu
 |Gruppi | Numero della porta| Ignorare l'analisi HTTPS|  
 |---------|------|-----------------------|  
 |**Agent**|||  
-|\*.ods.opinsights.azure.com| 443 |SÌ|  
-|\*.oms.opinsights.azure.com| 443|SÌ|  
-|\*.blob.core.windows.net| 443|SÌ|  
-|\*.azure-automation.net| 443|SÌ|  
+|\*.ods.opinsights.azure.com| 443 |Sì|  
+|\*.oms.opinsights.azure.com| 443|Sì|  
+|\*.blob.core.windows.net| 443|Sì|  
+|\*.azure-automation.net| 443|Sì|  
 |**Server di gestione**|||  
 |\*.service.opinsights.azure.com| 443||  
-|\*.blob.core.windows.net| 443| SÌ|  
-|\*.ods.opinsights.azure.com| 443| SÌ|  
-|*.azure-automation.net | 443| SÌ|  
+|\*.blob.core.windows.net| 443| Sì|  
+|\*.ods.opinsights.azure.com| 443| Sì|  
+|*.azure-automation.net | 443| Sì|  
 |**Da console di Operations Manager a monitoraggio di Azure**|||  
 |service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  
@@ -248,7 +248,7 @@ I Management Pack per le soluzioni abilitate che si integrano con Operations Man
     > Il collegamento **Rimuovi** non sarà disponibile finché non saranno trascorsi 14 giorni senza alcuna attività rilevata dal gruppo di gestione connesso.  
     >
 
-1. Verrà visualizzata una finestra in cui viene chiesto di confermare che si desidera procedere con la rimozione.  Fare clic su **Sì** per procedere.
+1. Verrà visualizzata una finestra in cui viene chiesto di confermare che si desidera procedere con la rimozione.  Fare clic su **Sì** per continuare.
 
 Per eliminare i due connettori, Microsoft.SystemCenter.Advisor.DataConnector e Advisor Connector, salvare lo script di PowerShell riportato di seguito nel computer ed eseguirlo usando gli esempi seguenti:
 

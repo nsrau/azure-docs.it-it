@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: dd2c29632d70da64251c5e1736a9cb7d82f5d0dc
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 495f53bc97835c4940f7b36d23349b768a7a637f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667342"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440973"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Usare il database di seguito per alleghi i database in Azure Esplora dati
 
@@ -32,7 +32,7 @@ Il fissaggio di un database a un cluster diverso mediante la funzionalità di se
 1. [Creare un cluster e un database](/azure/data-explorer/create-cluster-database-portal) per il leader e il follower.
 1. Inserire [i dati](/azure/data-explorer/ingest-sample-data) nel database leader usando uno dei diversi metodi descritti in [Cenni preliminari sull'](/azure/data-explorer/ingest-data-overview)inserimento.
 
-## <a name="attach-a-database"></a>Collegamento di un database
+## <a name="attach-a-database"></a>Collegare un database
 
 Esistono diversi metodi che è possibile utilizzare per alleghire un database. In questo articolo viene illustrato come aggiungere un database usando C# o un modello di Azure Resource Manager. Per allineare un database, è necessario disporre delle autorizzazioni per il cluster leader e il cluster di follower. Per ulteriori informazioni sulle autorizzazioni, vedere [gestire le autorizzazioni](#manage-permissions).
 
@@ -127,7 +127,7 @@ poller = kusto_management_client.attached_database_configurations.create_or_upda
 
 ### <a name="attach-a-database-using-an-azure-resource-manager-template"></a>Connessione di un database tramite un modello di Azure Resource Manager
 
-In questa sezione viene illustrato come aggiungere un database usando un [modello di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). 
+In questa sezione viene illustrato come aggiungere un database usando un [modello di Azure Resource Manager](../azure-resource-manager/management/overview.md). 
 
 ```json
 {
@@ -222,7 +222,7 @@ In questa sezione viene illustrato come aggiungere un database usando un [modell
 |Nome database     |      Nome del database da seguire. Se si desidera seguire tutti i database del leader, utilizzare "*".   |
 |ID risorsa cluster leader    |   ID risorsa del cluster leader.      |
 |Tipo di modifica delle entità predefinite    |   Tipo di modifica principale predefinito. Può essere `Union`, `Replace` o `None`. Per ulteriori informazioni sul tipo di modifica principale predefinito, vedere [comando di controllo del tipo di modifica principale](/azure/kusto/management/cluster-follower?branch=master#alter-follower-database-principals-modification-kind).      |
-|Località   |   Percorso di tutte le risorse. Il leader e il successivo devono trovarsi nella stessa posizione.       |
+|Percorso   |   Percorso di tutte le risorse. Il leader e il successivo devono trovarsi nella stessa posizione.       |
  
 ### <a name="verify-that-the-database-was-successfully-attached"></a>Verificare che il database sia stato collegato correttamente
 
@@ -376,13 +376,13 @@ Quando si connette un database, specificare il **tipo di modifica "entità prede
 
 |**Tipologia** |**Descrizione**  |
 |---------|---------|
-|**Unione**     |   Le entità di database associate includeranno sempre le entità di database originali, oltre alle nuove entità aggiuntive aggiunte al database di seguito.      |
+|**Union**     |   Le entità di database associate includeranno sempre le entità di database originali, oltre alle nuove entità aggiuntive aggiunte al database di seguito.      |
 |**Replace**   |    Nessuna ereditarietà delle entità del database originale. È necessario creare nuove entità per il database collegato.     |
 |**Nessuno**   |   Le entità di database associate includono solo le entità del database originale senza entità aggiuntive.      |
 
 Per ulteriori informazioni sull'utilizzo dei comandi di controllo per configurare le entità autorizzate, vedere [comandi di controllo per la gestione di un cluster di follower](/azure/kusto/management/cluster-follower).
 
-### <a name="manage-permissions"></a>Gestisci autorizzazioni
+### <a name="manage-permissions"></a>Gestione autorizzazioni
 
 La gestione dell'autorizzazione del database di sola lettura è identica a quella di tutti i tipi di database. Vedere [gestire le autorizzazioni nel portale di Azure](/azure/data-explorer/manage-database-permissions#manage-permissions-in-the-azure-portal).
 

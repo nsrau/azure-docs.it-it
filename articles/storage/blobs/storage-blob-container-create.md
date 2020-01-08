@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 12/17/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: d1218b10eadf0788752bab2aec4b21614666888c
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 70f905d15c69876ced56c25ec92f858bb15b7d36
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671289"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372211"
 ---
 # <a name="create-or-delete-a-container-in-azure-storage-with-net"></a>Creare o eliminare un contenitore in archiviazione di Azure con .NET
 
@@ -44,7 +44,7 @@ I metodi **create** e **CreateAsync** generano un'eccezione se esiste già un co
 
 I metodi **CreateIfNotExists** e **CreateIfNotExistsAsync** restituiscono un valore booleano che indica se il contenitore è stato creato. Se esiste già un contenitore con lo stesso nome, questi metodi restituiscono **false** per indicare che non è stato creato un nuovo contenitore.
 
-I contenitori vengono creati immediatamente sotto l'account di archiviazione. Non è possibile annidare un contenitore sotto un altro.
+I contenitori vengono creati immediatamente sotto l'account di archiviazione. Non è possibile annidare un contenitore in un altro.
 
 Nell'esempio seguente viene creato un contenitore in modo asincrono:
 
@@ -126,7 +126,7 @@ Per eliminare un contenitore in .NET, usare uno dei metodi seguenti:
 
 I metodi **Delete** e **DeleteAsync** generano un'eccezione se il contenitore non esiste.
 
-I metodi **DeleteIfNotExists** e **DeleteIfNotExistsAsync** restituiscono un valore booleano che indica se il contenitore è stato eliminato. Se il contenitore specificato non esiste, questi metodi restituiscono **false** per indicare che il contenitore non è stato eliminato.
+I metodi **DeleteIfExists** e **DeleteIfExistsAsync** restituiscono un valore booleano che indica se il contenitore è stato eliminato. Se il contenitore specificato non esiste, questi metodi restituiscono **false** per indicare che il contenitore non è stato eliminato.
 
 Dopo aver eliminato un contenitore, non è possibile creare un contenitore con lo stesso nome per almeno 30 secondi e possibilmente più lungo. Durante l'eliminazione del contenitore, un tentativo di creare un contenitore con lo stesso nome avrà esito negativo con codice di errore HTTP 409 (conflitto). Qualsiasi altra operazione nel contenitore o nei BLOB in esso contenuti avrà esito negativo con codice di errore HTTP 404 (non trovato) mentre è in corso l'eliminazione del contenitore.
 
@@ -185,7 +185,7 @@ private static async Task DeleteContainersWithPrefixAsync(CloudBlobClient blobCl
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Operazione di creazione del contenitore](/rest/api/storageservices/create-container)
 - [Delete Container operation](/rest/api/storageservices/delete-container) (Operazione di eliminazione contenitore)

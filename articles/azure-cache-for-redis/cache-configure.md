@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 7c0642377e75e621e1774936262ffddd166ff06d
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 62e0c9bbf8b1c7cef9b1cc239810cb554b5ffa45
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122868"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433544"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Come configurare Cache Redis di Azure
 Questo argomento illustra le configurazioni disponibili per le istanze di Cache Redis di Azure. Illustra inoltre la configurazione predefinita del server Redis per le istanze di Cache Redis di Azure.
@@ -30,7 +30,7 @@ Le impostazioni di Cache Redis di Azure sono visualizzate e configurate nel pann
 
 È possibile visualizzare e configurare le impostazioni seguenti tramite il **menu Risorse**.
 
-* [Panoramica](#overview)
+* [Overview](#overview)
 * [Log attività](#activity-log)
 * [Controllo di accesso (IAM)](#access-control-iam)
 * [Tag](#tags)
@@ -41,19 +41,19 @@ Le impostazioni di Cache Redis di Azure sono visualizzate e configurate nel pann
     * [Redis Cache Advisor](#azure-cache-for-redis-advisor)
     * [Ridimensionare](#scale)
     * [Dimensione del cluster Redis](#cluster-size)
-    * [Persistenza dei dati Redis:](#redis-data-persistence)
+    * [Persistenza dei dati Redis](#redis-data-persistence)
     * [Pianificare gli aggiornamenti](#schedule-updates)
     * [Replica geografica](#geo-replication)
     * [Rete virtuale](#virtual-network)
     * [Firewall](#firewall)
     * [Proprietà](#properties)
-    * [Blocchi](#locks)
+    * [Locks](#locks)
     * [Script di automazione](#automation-script)
-* amministrazione
-    * [Importazione dei dati](#importexport)
+* Amministrazione
+    * [Importare dati](#importexport)
     * [Esportazione dei dati](#importexport)
     * [Reboot](#reboot)
-* [Monitoraggio](#monitoring)
+* [Monitoring](#monitoring)
     * [Metriche di Redis](#redis-metrics)
     * [Regole di avviso](#alert-rules)
     * [Diagnostica](#diagnostics)
@@ -93,13 +93,13 @@ La sezione **Impostazioni** consente di accedere alle impostazioni seguenti per 
 * [Redis Cache Advisor](#azure-cache-for-redis-advisor)
 * [Ridimensionare](#scale)
 * [Dimensione del cluster Redis](#cluster-size)
-* [Persistenza dei dati Redis:](#redis-data-persistence)
+* [Persistenza dei dati Redis](#redis-data-persistence)
 * [Pianificare gli aggiornamenti](#schedule-updates)
 * [Replica geografica](#geo-replication)
 * [Rete virtuale](#virtual-network)
 * [Firewall](#firewall)
 * [Proprietà](#properties)
-* [Blocchi](#locks)
+* [Locks](#locks)
 * [Script di automazione](#automation-script)
 
 
@@ -120,7 +120,7 @@ Le impostazioni seguenti vengono configurate nel pannello **Impostazioni avanzat
 Per le nuove cache la porta senza SSL è disabilitata per impostazione predefinita. Per abilitare la porta non SSL, fare clic su **No** per **Consenti l'accesso solo tramite SSL** nel pannello **Impostazioni avanzate** e quindi fare clic su **Salva**.
 
 > [!NOTE]
-> L'accesso SSL di Cache Redis di Azure supporta TLS 1.0 per impostazione predefinita. Volendo, è possibile versione aumentare la versione minima di TLS supportata fino a TLS 1.2 selezionandola nell'elenco a discesa **Versione minima TLS** del pannello **Impostazioni avanzate** e quindi facendo clic su **Salva**.
+> L'accesso SSL alla cache di Azure per Redis supporta attualmente TLS 1,0, 1,1 e 1,2, mentre le versioni 1,0 e 1,1 verranno ritirate a breve.  Per altri dettagli, vedere la pagina relativa alla [rimozione di TLS 1,0 e 1,1](cache-remove-tls-10-11.md) .
 
 ![Porte di accesso di Cache Redis di Azure](./media/cache-configure/redis-cache-access-ports.png)
 
@@ -193,7 +193,7 @@ Ogni piano tariffario presenta diversi limiti di connessioni client, memoria e l
 Per aggiornare la cache, fare clic su **Aggiorna ora** per modificare il piano tariffario e [ridimensionare](#scale) la cache. Per altre informazioni su come scegliere un piano tariffario, vedere [Quali offerte e dimensioni della Cache Redis è consigliabile usare?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 
 
-### <a name="scale"></a>Ridimensionare
+### <a name="scale"></a>Scalare
 Fare clic su **Scalabilità** per visualizzare o modificare il piano tariffario della cache. Per altre informazioni sulla scalabilità, vedere [Come ridimensionare Cache Redis di Azure](cache-how-to-scale.md).
 
 ![Piano tariffario di Cache Redis di Azure](./media/cache-configure/pricing-tier.png)
@@ -213,15 +213,15 @@ Fare clic su **(ANTEPRIMA) dimensione del cluster Redis** per modificare la dime
 Per modificare la dimensione del cluster, usare il dispositivo di scorrimento oppure digitare un numero compreso tra 1 e 10 nella casella di testo **Numero di partizioni** e fare clic su **OK** per salvare.
 
 > [!IMPORTANT]
-> Il clustering Redis è disponibile esclusivamente per le cache Premium. Per altre informazioni, vedere [Come configurare il clustering per una Cache Redis di Azure Premium](cache-how-to-premium-clustering.md).
+> Il clustering Redis è disponibile esclusivamente per le cache Premium. Per altre informazioni, vedere [Come configurare il clustering per un'istanza di Cache Redis di Azure Premium](cache-how-to-premium-clustering.md).
 > 
 > 
 
 
-### <a name="redis-data-persistence"></a>Persistenza dei dati Redis:
+### <a name="redis-data-persistence"></a>Persistenza dei dati Redis
 Fare clic su **Persistenza dati Redis** per abilitare, disabilitare o configurare la persistenza dei dati per la cache premium. Cache Redis di Azure offre la persistenza dei dati Redis tramite la [persistenza RDB](cache-how-to-premium-persistence.md#configure-rdb-persistence) o la [persistenza AOF](cache-how-to-premium-persistence.md#configure-aof-persistence).
 
-Per altre informazioni, vedere [Come configurare la persistenza dei dati per una Cache Redis di Azure Premium](cache-how-to-premium-persistence.md).
+Per altre informazioni, vedere [Come configurare la persistenza dei dati per un'istanza di Cache Redis di Azure Premium](cache-how-to-premium-persistence.md).
 
 
 > [!IMPORTANT]
@@ -283,7 +283,7 @@ Fare clic su **Proprietà** per visualizzare le informazioni sulla cache, inclus
 
 ![Proprietà di Cache Redis di Azure](./media/cache-configure/redis-cache-properties.png)
 
-### <a name="locks"></a>Blocchi
+### <a name="locks"></a>Locks
 La sezione **Blocchi** consente di bloccare una sottoscrizione, una risorsa o un gruppo di risorse per impedire che altri utenti nell'organizzazione modifichino o eliminino accidentalmente risorse strategiche. Per altre informazioni, vedere [Bloccare le risorse con Gestione risorse di Azure](../azure-resource-manager/resource-group-lock-resources.md).
 
 ### <a name="automation-script"></a>Script di automazione
@@ -293,14 +293,14 @@ Fare clic su **Script di automazione** per creare ed esportare un modello per le
 ## <a name="administration-settings"></a>Impostazioni di amministrazione
 Le impostazioni della sezione **Amministrazione** consentono di eseguire le attività amministrative seguenti per la cache. 
 
-![amministrazione](./media/cache-configure/redis-cache-administration.png)
+![Amministrazione](./media/cache-configure/redis-cache-administration.png)
 
-* [Importazione dei dati](#importexport)
+* [Importare dati](#importexport)
 * [Esportazione dei dati](#importexport)
 * [Reboot](#reboot)
 
 
-### <a name="importexport"></a>Importazione/Esportazione
+### <a name="importexport"></a>Importa/Esporta
 L'importazione/esportazione è un'operazione di gestione dati di Cache Redis di Azure che consente di importare o esportare dati nella cache importando o esportando uno snapshot del database di Cache Redis (RDB) da una cache Premium a un BLOB di pagine in un account di archiviazione di Azure. L'operazione Importa/Esporta consente di eseguire la migrazione tra diverse istanze di Cache Redis di Azure o di popolare la cache con i dati prima dell'uso.
 
 L'importazione può essere usata per spostare i file RDB compatibili con Redis da qualsiasi server Redis in esecuzione su qualsiasi cloud o ambiente, compresi i server Redis in esecuzione su Linux, Windows o su altri provider di servizi cloud come Amazon Web Services e altri. L'importazione dei dati è un modo semplice per creare una cache con dati già popolati. Durante il processo di importazione Cache Redis di Azure carica i file RDB dall'archiviazione di Azure nella memoria e quindi inserisce le chiavi nella cache.
@@ -312,16 +312,16 @@ L'esportazione consente di esportare in i file RDB compatibili con Redis i dati 
 > 
 > 
 
-### <a name="reboot"></a>Riavvio
+### <a name="reboot"></a>Riavviare
 Il pannello **Riavvia** consente di riavviare i nodi della cache. La funzionalità di riavvio consente di testare la resilienza dell'applicazione in presenza di un errore di un nodo della cache.
 
-![Riavvio](./media/cache-configure/redis-cache-reboot.png)
+![Riavviare](./media/cache-configure/redis-cache-reboot.png)
 
 Se si dispone di una cache Premium con clustering abilitato, è possibile selezionare le partizioni della cache da riavviare.
 
-![Riavvio](./media/cache-configure/redis-cache-reboot-cluster.png)
+![Riavviare](./media/cache-configure/redis-cache-reboot-cluster.png)
 
-Per riavviare uno o più nodi della cache, selezionare i nodi desiderati e fare clic su **Reboot**(Riavvia). Se si ha una cache Premium con clustering abilitato, selezionare le partizioni per riavviare il computer e quindi fare clic su **Riavvia**. Dopo alcuni minuti, i nodi selezionati si riavviano e vengono ripristinati online pochi minuti dopo.
+Per riavviare uno o più nodi della cache, selezionare i nodi desiderati e fare clic su **Reboot**(Riavvia). Se si dispone di una cache Premium con clustering abilitato, selezionare le partizioni per riavviare il computer e quindi fare clic su **Reboot**(Riavvia). Dopo alcuni minuti, i nodi selezionati si riavviano e vengono ripristinati online pochi minuti dopo.
 
 > [!IMPORTANT]
 > Il riavvio ora è disponibile per tutti i piani tariffari. Per altre informazioni e istruzioni, vedere [Come amministrare Cache Redis di Azure - Riavvia](cache-administration.md#reboot).
@@ -329,7 +329,7 @@ Per riavviare uno o più nodi della cache, selezionare i nodi desiderati e fare 
 > 
 
 
-## <a name="monitoring"></a>Monitoraggio
+## <a name="monitoring"></a>Monitorare
 
 La sezione **Diagnostica** consente di configurare la diagnostica e il monitoraggio per la cache Redis. Per altre informazioni sulla diagnostica e il monitoraggio di Cache Redis di Azure, vedere [Come monitorare Cache Redis di Azure](cache-how-to-monitor.md).
 
@@ -390,7 +390,7 @@ Le nuove istanze di Cache Redis di Azure sono configurate con i valori predefini
 > 
 > 
 
-| Impostazione | Default value | Descrizione |
+| Impostazione | Valore predefinito | Description |
 | --- | --- | --- |
 | `databases` |16 |Il numero predefinito di database è 16, ma è possibile configurare un numero diverso in base al piano tariffario.<sup>1</sup> Il database predefinito è DB 0, ma è possibile selezionarne uno diverso in base alla connessione usando `connection.GetDatabase(dbid)` dove `dbid` è un numero compreso tra `0` e `databases - 1`. |
 | `maxclients` |Dipende dal piano tariffario<sup>2</sup> |Questo valore è il numero massimo consentito di client connessi contemporaneamente. Una volta raggiunto il limite, Redis chiude tutte le nuove connessioni inviando un errore di "numero massimo di client raggiunto". |
@@ -398,7 +398,7 @@ Le nuove istanze di Cache Redis di Azure sono configurate con i valori predefini
 | `maxmemory-samples` |3 |Per risparmiare memoria, gli algoritmi LRU e TTL minimo sono algoritmi approssimativi anziché precisi. Per impostazione predefinita Redis controlla tre chiavi e sceglie quella usata meno di recente. |
 | `lua-time-limit` |5\.000 |Tempo massimo di esecuzione di uno script Lua in millisecondi. Se viene raggiunto il tempo massimo di esecuzione, Redis registra che uno script è ancora in esecuzione dopo il tempo massimo consentito e inizia a rispondere alle query con un errore. |
 | `lua-event-limit` |500 |Dimensione massima della coda di eventi di script. |
-| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |I limiti del buffer di output del client possono essere utilizzati per forzare la disconnessione dei client che per qualche motivo non leggono i dati dal server in modo sufficientemente rapido. Ad esempio, è frequente che un client di pubblicazione o sottoscrizione non possa utilizzare i messaggi con la stessa velocità con cui il server di pubblicazione li produce. Per altre informazioni, vedere [https://redis.io/topics/clients](https://redis.io/topics/clients). |
+| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |I limiti del buffer di output del client possono essere utilizzati per forzare la disconnessione dei client che per qualche motivo non leggono i dati dal server in modo sufficientemente rapido. Ad esempio, è frequente che un client di pubblicazione o sottoscrizione non possa utilizzare i messaggi con la stessa velocità con cui il server di pubblicazione li produce. Per altre informazioni, vedi [https://redis.io/topics/clients](https://redis.io/topics/clients). |
 
 <a name="databases"></a>
 <sup>1</sup>Il limite per `databases` è diverso per ogni piano tariffario di Cache Redis di Azure e può essere impostato durante la creazione della cache. Se durante la creazione della cache non viene specificata alcuna impostazione `databases` , il valore predefinito è 16.
@@ -458,7 +458,7 @@ Per altre informazioni sui database SQL di Azure, vedere [What are Redis databas
 > * CONFIG
 > * DEBUG
 > * MIGRATE
-> * Salva
+> * SAVE
 > * SHUTDOWN
 > * SLAVEOF
 > * CLUSTER: i comandi di scrittura del cluster sono disabilitati, ma i comandi del cluster di sola lettura sono consentiti.

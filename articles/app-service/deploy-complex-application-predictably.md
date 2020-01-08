@@ -5,17 +5,17 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 9ec3a6b39a857f888514b0a3872ae411e1819f3a
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 1168faa1f39546dc75af28b885c9095cfffa1135
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671818"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422123"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure
 Questa esercitazione illustra come effettuare il provisioning di un'applicazione costituita da [microservizi](https://en.wikipedia.org/wiki/Microservices) e come distribuirla nel [servizio app di Azure](https://azure.microsoft.com/services/app-service/) come un'unità singola e in modo prevedibile usando modelli di gruppo di risorse JSON e script di PowerShell. 
 
-Quando si effettua il provisioning e si distribuiscono applicazioni su vasta scala costituite la microservizi altamente disaccoppiati, ripetibilità e prevedibilità sono fondamentali. [Servizio app di Azure](https://azure.microsoft.com/services/app-service/) consente di creare microservizi che includono app Web, back-end per dispositivi mobili e app per le API. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) consente di gestire tutti i microservizi come unità, insieme alle dipendenze delle risorse, ad esempio le impostazioni di controllo del codice sorgente e del database. A questo punto è possibile distribuire l'applicazione usando modelli JSON e semplici script di PowerShell. 
+Quando si effettua il provisioning e si distribuiscono applicazioni su vasta scala costituite la microservizi altamente disaccoppiati, ripetibilità e prevedibilità sono fondamentali. [Servizio app di Azure](https://azure.microsoft.com/services/app-service/) consente di creare microservizi che includono app Web, back-end per dispositivi mobili e app per le API. [Gestione risorse di Azure](../azure-resource-manager/management/overview.md) consente di gestire tutti i microservizi come unità, insieme alle dipendenze delle risorse, ad esempio le impostazioni di controllo del codice sorgente e del database. A questo punto è possibile distribuire l'applicazione usando modelli JSON e semplici script di PowerShell. 
 
 ## <a name="what-you-will-do"></a>Contenuto dell'esercitazione
 In questa esercitazione si distribuirà un'applicazione che include:
@@ -29,7 +29,7 @@ In questa esercitazione si distribuirà un'applicazione che include:
 In questa esercitazione si useranno gli strumenti seguenti. Non essendo una discussione completa sugli strumenti, verrà considerato solo lo scenario end-to-end, fornendo una breve introduzione per ogni strumento e dove è possibile trovare altre informazioni specifiche. 
 
 ### <a name="azure-resource-manager-templates-json"></a>Modelli di Gestione risorse di Azure (JSON)
-Ogni volta che si crea, ad esempio, un'app nel servizio app di Azure, Azure Resource Manager usa un modello JSON per creare l'intero gruppo di risorse con le risorse del componente. Un modello complesso disponibile in [Azure Marketplace](/azure/marketplace) può includere il database, account di archiviazione, il piano di servizio app, la stessa app, regole di avviso, impostazioni dell'app, impostazioni di scalabilità automatica e altro ancora. Tutti questi modelli sono disponibili tramite PowerShell. Per altre informazioni sui modelli di Gestione risorse di Azure, vedere [Creazione di modelli di Gestione risorse di Azure](../azure-resource-manager/resource-group-authoring-templates.md)
+Ogni volta che si crea, ad esempio, un'app nel servizio app di Azure, Azure Resource Manager usa un modello JSON per creare l'intero gruppo di risorse con le risorse del componente. Un modello complesso disponibile in [Azure Marketplace](/azure/marketplace) può includere il database, account di archiviazione, il piano di servizio app, la stessa app, regole di avviso, impostazioni dell'app, impostazioni di scalabilità automatica e altro ancora. Tutti questi modelli sono disponibili tramite PowerShell. Per altre informazioni sui modelli di Gestione risorse di Azure, vedere [Creazione di modelli di Gestione risorse di Azure](../azure-resource-manager/templates/template-syntax.md)
 
 ### <a name="azure-sdk-26-for-visual-studio"></a>Azure SDK 2.6 per Visual Studio
 L'SDK più recente include miglioramenti a livello di supporto per i modelli di Gestione risorse di Azure nell'editor JSON. È possibile usarlo per creare rapidamente da zero un modello di gruppo di risorse o aprire un modello JSON esistente (ad esempio, un modello della raccolta scaricato) per modificarlo, popolare il file di parametri e distribuire il gruppo di risorse direttamente da una soluzione del gruppo di risorse di Azure.
@@ -87,10 +87,10 @@ A questo punto si esaminerà come è stato configurato il repository GitHub. Si 
 
 Non verranno descritti tutti i dettagli del formato JSON, ma nella sezione [Altre risorse](#resources) sono disponibili collegamenti per l'apprendimento del linguaggio del modello di gruppo di risorse. In questa esercitazione verranno illustrate solo le interessanti funzionalità che possono semplificare le attività iniziali per creare un modello personalizzato per la distribuzione di app.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parametri
 Nella sezione dei parametri è possibile osservare che la maggior parte di essi corrisponde all'input richiesto tramite il pulsante **Deploy to Azure** . Il sito aperto tramite il pulsante **Deploy to Azure** popola l'interfaccia utente di input usando i parametri definiti nel file azuredeploy.json. Questi parametri sono usati in tutte le definizioni di risorse, ad esempio nomi delle risorse, valori delle proprietà e così via.
 
-### <a name="resources"></a>resources
+### <a name="resources"></a>Risorse
 Come si può vedere, nel nodo delle risorse sono definite 4 risorse di primo livello, quali un'istanza di SQL Server, un piano di servizio app e due app. 
 
 #### <a name="app-service-plan"></a>Piano di servizio app
@@ -117,7 +117,7 @@ Nel codice JSON evidenziato notare quando indicato di seguito:
 * Le risorse annidate in `“resources”: […]`, dove sono definite le regole di database e del firewall, includono un elemento `dependsOn` che specifica l'ID risorsa della risorsa SQLServer a livello di radice. Questo elemento indica a Gestione risorse di Azure che "prima di creare questa risorsa, deve esistere già l'altra risorsa e se l'altra risorsa è definita nel modello, dev'essere creata prima quella".
   
   > [!NOTE]
-  > Per altre informazioni sull'uso della funzione `resourceId()`, vedere [Funzioni del modello di Azure Resource Manager](../azure-resource-manager/resource-group-template-functions-resource.md#resourceid).
+  > Per altre informazioni sull'uso della funzione `resourceId()`, vedere [Funzioni del modello di Azure Resource Manager](../azure-resource-manager/templates/template-functions-resource.md#resourceid).
   > 
   > 
 * L'elemento `dependsOn` indica a Gestione risorse di Azure quali risorse possono essere create in parallelo e quali devono essere create in sequenza. 
@@ -244,14 +244,14 @@ L'ultimo passaggio viene eseguito facilmente da un cmdlet di PowerShell. Per ved
 
 L'ultimo cmdlet, `New-AzureResourceGroup`, è quello che esegue effettivamente l'azione. Tutto questo serve a dimostrare che con strumenti appropriati, distribuire l'applicazione cloud in modo prevedibile è relativamente semplice. Ogni volta che si esegue il cmdlet sullo stesso modello con lo stesso file di parametri si otterrà lo stesso risultato.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 In DevOps la ripetibilità e la prevedibilità sono fondamentali per la riuscita della distribuzione di un'applicazione su vasta scala costituita da microservizi. In questa esercitazione è stata distribuita in Azure un'applicazione con due microservizi come singolo gruppo di risorse usando il modello di Gestione risorse di Azure. È auspicabile che si siano acquisite le conoscenze necessarie per iniziare a convertire l'applicazione in Azure in un modello, in modo da poterne effettuare il provisioning e distribuirla in modo prevedibile. 
 
 <a name="resources"></a>
 
 ## <a name="more-resources"></a>Altre risorse
-* [Linguaggio del modello di Gestione risorse di Azure](../azure-resource-manager/resource-group-authoring-templates.md)
-* [Creazione di modelli di Gestione risorse di Azure](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Linguaggio del modello di Gestione risorse di Azure](../azure-resource-manager/templates/template-syntax.md)
+* [Creazione di modelli di Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 * [Funzioni del modello di Gestione risorse di Azure](../azure-resource-manager/resource-group-template-functions.md)
 * [Distribuire un'applicazione con un modello di Gestione risorse di Azure](../azure-resource-manager/resource-group-template-deploy.md)
 * [Uso di Azure PowerShell con Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)

@@ -3,16 +3,16 @@ title: Limiti e quote Plug and Play anteprima | Microsoft Docs
 description: Comprendere i limiti, le quote e le limitazioni che si applicano quando si usa la Plug and Play di anteprima.
 author: miagdp
 ms.author: miag
-ms.date: 08/01/2019
+ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 2df8a8820422a22b0512e24c4b052377cb0e61e0
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 48ecaaba6d956efd9da75d0582fa06d231cb3f80
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879565"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531378"
 ---
 # <a name="iot-plug-and-play-preview-limits-quotas-and-throttles"></a>Limiti, quote e limitazioni dell'anteprima Plug and Play
 

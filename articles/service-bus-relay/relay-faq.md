@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: 207f73bbf9a92d26be1791fc11ce81fe68252705
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 066ac1080f7ea378efe1665e7ebc70e57118191c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68422966"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459097"
 ---
 # <a name="azure-relay-faqs"></a>Domande frequenti sul servizio di inoltro di Azure
 
@@ -71,7 +71,7 @@ L'inoltro WCF è disponibile solo negli spazi dei nomi di livello Standard. Prez
 In alcuni casi, a un singolo inoltro possono essere connessi più listener. Un inoltro viene considerato "aperto" quando vi è connesso almeno un listener di inoltro. L'aggiunta di listener a un inoltro aperto genera ore per l'inoltro aggiuntive. Il numero di mittenti di inoltro, ossia di client che richiamano o inviano messaggi agli inoltri, connessi a un inoltro non influisce sul calcolo delle ore per l'inoltro.
 
 ### <a name="how-is-the-messages-meter-calculated-for-wcf-relays"></a>Come viene calcolata la misurazione dei messaggi per gli inoltri WCF?
-**Questo vale solo per gli inoltri WCF. I messaggi non implicano un costo per Connessioni ibride.**
+Si**applica solo agli inoltri WCF. I messaggi non sono un costo per Connessioni ibride.** )
 
 In generale, i messaggi fatturabili per gli inoltri vengono calcolati con lo stesso metodo usato per le entità con broker, come code, argomenti e sottoscrizioni, descritti in precedenza. Esistono tuttavia alcune differenze significative.
 
@@ -80,19 +80,19 @@ L'invio di un messaggio a un inoltro del bus di servizio viene considerato come 
 Gli inoltri aperti con il binding WCF **netTCPRelay** considerano i messaggi non come singoli messaggi, ma come flusso di dati che attraversa il sistema. Quando si usa questo binding, solo il mittente e il listener hanno visibilità sulla struttura dei singoli messaggi inviati/ricevuti. Per gli inoltri che usano il binding **netTCPRelay**, tutti i dati vengono considerati come flusso per il calcolo dei messaggi fatturabili. In questo caso, il bus di servizio calcola la quantità totale di dati inviati o ricevuti mediante ciascun inoltro ogni 5 minuti. Quindi divide la quantità totale di dati per 64 KB per determinare il numero di messaggi fatturabili per questo inoltro durante questo periodo di tempo.
 
 ## <a name="quotas"></a>Quote
-| Nome della quota | Ambito |  Note | Value |
+| Nome della quota | Ambito |  Note | Valore |
 | --- | --- | --- | --- |
-| Listener simultanei per un inoltro |Entità |Le richieste successive di connessioni aggiuntive vengono rifiutate e il codice chiamante riceverà un'eccezione. |25 |
+| Listener simultanei per un inoltro |Persona giuridica |Le richieste successive di connessioni aggiuntive vengono rifiutate e il codice chiamante riceverà un'eccezione. |25 |
 | Connessioni di inoltro simultanee per tutti gli endpoint di inoltro in uno spazio dei nomi del servizio |Spazio dei nomi |- |5\.000 |
 | Endpoint di inoltro per ogni spazio dei nomi del servizio |Spazio dei nomi |- |10,000 |
 | Dimensione dei messaggi per gli inoltri [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) e [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) |Spazio dei nomi |I messaggi in ingresso che superano queste quote vengono rifiutati e il codice chiamante riceve un'eccezione. |64 KB |
-| Dimensione dei messaggi per gli inoltri [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) e [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) |Spazio dei nomi |Nessun limite alla dimensione dei messaggi. |Senza limitazioni |
+| Dimensione dei messaggi per gli inoltri [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) e [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) |Spazio dei nomi |Nessun limite alla dimensione dei messaggi. |Senza limiti |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>Per il servizio di inoltro sono previste quote di utilizzo?
 Per impostazione predefinita per qualsiasi servizio cloud, Microsoft imposta una quota di utilizzo mensile aggregata che viene calcolata su tutte le sottoscrizioni di un cliente. In alcuni casi le esigenze del cliente possono superare questi limiti. È possibile contattare il servizio clienti in qualsiasi momento per comunicare esigenze specifiche e consentire un adeguamento appropriato di tali limiti. Per il bus di servizio, le quote di utilizzo aggregate sono le seguenti:
 
 * 5 miliardi di messaggi
-* 2 milioni di ore di inoltro
+* 2 milioni di ore di relè
 
 Anche se si riserva il diritto di disabilitare un account che superi le quote di utilizzo previste in un mese, Microsoft invierà una notifica tramite posta elettronica ed effettuerà diversi tentativi di contattare il cliente prima di intraprendere qualsiasi azione. I clienti che superano tali quote saranno comunque responsabili degli addebiti delle eccedenze.
 
@@ -106,7 +106,7 @@ Per spostare uno spazio dei nomi da una sottoscrizione di Azure a un'altra sotto
 
 #### <a name="azure-portal"></a>Portale di Azure
 
-Per usare il portale di Azure per migrare gli spazi dei nomi di inoltro di Azure da una sottoscrizione a un'altra sottoscrizione, vedere l'articolo relativo allo [spostamento di risorse in un nuovo gruppo di risorse o in una nuova sottoscrizione](../azure-resource-manager/resource-group-move-resources.md#use-the-portal). 
+Per usare il portale di Azure per migrare gli spazi dei nomi di inoltro di Azure da una sottoscrizione a un'altra sottoscrizione, vedere l'articolo relativo allo [spostamento di risorse in un nuovo gruppo di risorse o in una nuova sottoscrizione](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal). 
 
 #### <a name="powershell"></a>PowerShell
 
@@ -123,7 +123,7 @@ $res = Find-AzResource -ResourceNameContains mynamespace -ResourceType 'Microsof
 Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-relay-apis-and-suggested-actions-you-can-take"></a>Quali sono alcune eccezioni generate dalle API del servizio di inoltro di Azure e le azioni consigliate?
 Per una descrizione delle eccezioni comuni e delle azioni suggerite che è possibile eseguire, vedere [eccezioni di inoltro][Relay exceptions].
 

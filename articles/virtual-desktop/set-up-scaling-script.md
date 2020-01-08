@@ -5,16 +5,16 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 12/10/2019
 ms.author: helohr
-ms.openlocfilehash: 744f7d5c191180757620e87d926422c9f1e0baba
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: a991a41466d216b9f245c20dbd8054f3ae5ef3d0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607448"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451329"
 ---
-# <a name="scale-session-hosts-dynamically"></a>Ridimensionare gli host di sessione in modo dinamico
+# <a name="scale-session-hosts-dynamically"></a>Ridimensionare dinamicamente gli host della sessione
 
 Per molte distribuzioni di desktop virtuali Windows in Azure, i costi della macchina virtuale rappresentano una parte significativa del costo totale per la distribuzione di desktop virtuali Windows. Per ridurre i costi, è preferibile arrestare e deallocare le macchine virtuali (VM) host della sessione durante le ore di minore utilizzo, quindi riavviarle durante le ore di picco di utilizzo.
 
@@ -50,7 +50,7 @@ Prima di tutto, preparare l'ambiente per lo script di ridimensionamento:
 
 1. Accedere alla VM (scaler VM) che eseguirà l'attività pianificata con un account amministrativo di dominio.
 2. Creare una cartella nella macchina virtuale scaler per mantenere lo script di ridimensionamento e la relativa configurazione (ad esempio, **C:\\scaling-HostPool1**).
-3. Scaricare i file **basicScale. ps1**, **config. XML**e **Functions-PSStoredCredentials. ps1** e la cartella **PowershellModules** dal repository di [script di ridimensionamento](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) e copiarli nella cartella creata nel passaggio 2. Esistono due modi principali per ottenere i file prima di copiarli nella macchina virtuale scaler:
+3. Scaricare i file **basicScale. ps1**, **config. JSON**e **Functions-PSStoredCredentials. ps1** e la cartella **PowershellModules** dal repository di [script di ridimensionamento](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) e copiarli nella cartella creata nel passaggio 2. Esistono due modi principali per ottenere i file prima di copiarli nella macchina virtuale scaler:
     - Clonare il repository git nel computer locale.
     - Visualizzare la versione non **elaborata** di ogni file, copiare e incollare il contenuto di ogni file in un editor di testo, quindi salvare i file con il nome file e il tipo di file corrispondenti. 
 
@@ -73,15 +73,15 @@ Successivamente, è necessario creare le credenziali archiviate in modo sicuro:
     ```
     
     Ad esempio, **set-variable-name, percorso-valore globale "c:\\scaling-HostPool1"**
-5. Eseguire il cmdlet **New-StoredCredential-neuropatie \$il percorso** di un cmdlet. Quando richiesto, immettere le credenziali del desktop virtuale Windows con le autorizzazioni per eseguire una query sul pool host (il pool host è specificato nel **file config. XML**).
+5. Eseguire il cmdlet **New-StoredCredential-neuropatie \$il percorso** di un cmdlet. Quando richiesto, immettere le credenziali del desktop virtuale Windows con le autorizzazioni per eseguire una query sul pool host (il pool host è specificato nel **file config. JSON**).
     - Se si usano entità servizio o account standard diversi, eseguire una volta il cmdlet **New-StoredCredential--** getpath \$per ogni account per creare credenziali archiviate locali.
 6. Eseguire **Get-StoredCredential-list** per verificare che le credenziali siano state create correttamente.
 
-### <a name="configure-the-configxml-file"></a>Configurare il file config. XML
+### <a name="configure-the-configjson-file"></a>Configurare il file config. JSON
 
-Immettere i valori appropriati nei campi seguenti per aggiornare le impostazioni dello script di ridimensionamento nel file config. XML:
+Immettere i valori rilevanti nei campi seguenti per aggiornare le impostazioni dello script di ridimensionamento in config. JSON:
 
-| Campo                     | Descrizione                    |
+| Campo                     | Description                    |
 |-------------------------------|------------------------------------|
 | AADTenantId                   | Azure AD ID tenant che associa la sottoscrizione in cui vengono eseguite le VM host sessione     |
 | AADApplicationId              | ID applicazione dell'entità servizio                                                       |
@@ -90,7 +90,7 @@ Immettere i valori appropriati nei campi seguenti per aggiornare le impostazioni
 | tenantName                    | Nome del tenant di desktop virtuale Windows                                                    |
 | hostPoolName                  | Nome pool host per desktop virtuale Windows                                                 |
 | RDBroker                      | URL per il servizio WVD, valore predefinito https:\//rdbroker.wvd.microsoft.com             |
-| Nome utente                      | ID applicazione dell'entità servizio (è possibile avere la stessa entità servizio in AADApplicationId) o utente standard senza autenticazione a più fattori |
+| Username                      | ID applicazione dell'entità servizio (è possibile avere la stessa entità servizio in AADApplicationId) o utente standard senza autenticazione a più fattori |
 | isServicePrincipal            | I valori accettati sono **true** o **false**. Indica se il secondo set di credenziali utilizzato è un'entità servizio o un account standard. |
 | BeginPeakTime                 | Quando inizia il tempo di utilizzo massimo                                                            |
 | EndPeakTime                   | Al termine del tempo di utilizzo massimo                                                              |
@@ -103,7 +103,7 @@ Immettere i valori appropriati nei campi seguenti per aggiornare le impostazioni
 
 ### <a name="configure-the-task-scheduler"></a>Configurare la Utilità di pianificazione
 
-Dopo aver configurato il file Configuration. XML, è necessario configurare il Utilità di pianificazione per eseguire il file basicScaler. ps1 a intervalli regolari.
+Dopo aver configurato il file JSON di configurazione, è necessario configurare il Utilità di pianificazione per eseguire il file basicScaler. ps1 a intervalli regolari.
 
 1. Avviare **utilità di pianificazione**.
 2. Nella finestra di **utilità di pianificazione** selezionare **Crea attività...**
@@ -117,13 +117,13 @@ Dopo aver configurato il file Configuration. XML, è necessario configurare il U
 
 ## <a name="how-the-scaling-script-works"></a>Funzionamento dello script di ridimensionamento
 
-Questo script di ridimensionamento legge le impostazioni da un file config. XML, inclusi l'inizio e la fine del periodo di utilizzo massimo durante il giorno.
+Questo script di ridimensionamento legge le impostazioni da un file config. JSON, inclusi l'inizio e la fine del periodo di utilizzo massimo durante il giorno.
 
-Durante i picchi di utilizzo, lo script controlla il numero corrente di sessioni e la capacità RDSH corrente per ogni pool host. Viene calcolato se le VM host della sessione in esecuzione dispongono di capacità sufficiente per supportare le sessioni esistenti in base al parametro SessionThresholdPerCPU definito nel file config. XML. In caso contrario, lo script avvia altre VM host sessione nel pool host.
+Durante i picchi di utilizzo, lo script controlla il numero corrente di sessioni e la capacità RDSH corrente per ogni pool host. Viene calcolato se le VM host della sessione in esecuzione hanno una capacità sufficiente a supportare le sessioni esistenti in base al parametro SessionThresholdPerCPU definito nel file config. JSON. In caso contrario, lo script avvia altre VM host sessione nel pool host.
 
-Durante il tempo di utilizzo inferiore, lo script determina quali macchine virtuali host sessione devono essere arrestate in base al parametro MinimumNumberOfRDSH nel file config. XML. Lo script imposta le VM host della sessione sulla modalità di svuotamento per impedire che le nuove sessioni si connettano agli host. Se si imposta il parametro **LimitSecondsToForceLogOffUser** nel file config. XML su un valore positivo diverso da zero, lo script invierà una notifica a tutti gli utenti attualmente connessi per salvare il lavoro, attendere la quantità di tempo configurata e quindi forzare la disconnessione degli utenti. Una volta che tutte le sessioni utente sono state disposte in una macchina virtuale host sessione, lo script arresterà il server.
+Durante il tempo di utilizzo inferiore, lo script determina quali macchine virtuali host sessione devono essere arrestate in base al parametro MinimumNumberOfRDSH nel file config. JSON. Lo script imposta le VM host della sessione sulla modalità di svuotamento per impedire che le nuove sessioni si connettano agli host. Se si imposta il parametro **LimitSecondsToForceLogOffUser** nel file config. JSON su un valore positivo diverso da zero, lo script invierà una notifica a tutti gli utenti attualmente connessi per salvare il lavoro, attendere la quantità di tempo configurata e quindi forzare la disconnessione degli utenti. Una volta che tutte le sessioni utente sono state disposte in una macchina virtuale host sessione, lo script arresterà il server.
 
-Se si imposta il parametro **LimitSecondsToForceLogOffUser** nel file config. XML su zero, lo script consentirà all'impostazione di configurazione della sessione nelle proprietà del pool host di gestire la firma delle sessioni utente. Se sono presenti sessioni in una macchina virtuale host sessione, la macchina virtuale host sessione verrà lasciata in esecuzione. Se non sono presenti sessioni, lo script arresterà la macchina virtuale host sessione.
+Se si imposta il parametro **LimitSecondsToForceLogOffUser** nel file config. JSON su zero, lo script consentirà all'impostazione di configurazione della sessione nelle proprietà del pool host di gestire la firma delle sessioni utente. Se sono presenti sessioni in una macchina virtuale host sessione, la macchina virtuale host sessione verrà lasciata in esecuzione. Se non sono presenti sessioni, lo script arresterà la macchina virtuale host sessione.
 
 Lo script è progettato per l'esecuzione periodica nel Server VM scaler usando Utilità di pianificazione. Selezionare l'intervallo di tempo appropriato in base alle dimensioni dell'ambiente di Servizi Desktop remoto e tenere presente che l'avvio e l'arresto delle macchine virtuali possono richiedere del tempo. Si consiglia di eseguire lo script di ridimensionamento ogni 15 minuti.
 

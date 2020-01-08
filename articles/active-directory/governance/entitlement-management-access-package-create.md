@@ -1,5 +1,5 @@
 ---
-title: Creare un nuovo pacchetto di accesso in Azure AD gestione dei diritti-Azure Active Directory
+title: Creare un nuovo pacchetto di accesso nella gestione dei diritti-Azure AD
 description: Informazioni su come creare un nuovo pacchetto di risorse di accesso che si vuole condividere in Azure Active Directory gestione dei diritti.
 services: active-directory
 documentationCenter: ''
@@ -16,18 +16,18 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71aa999809ba3d3e32d38162dfaba869d9716031
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 68d34046a16787ca1c6790880592fb30667ff2dc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73602712"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422684"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Creare un nuovo pacchetto di accesso in Azure AD gestione dei diritti
 
 Un pacchetto di accesso consente di eseguire una singola installazione di risorse e criteri che amministra automaticamente l'accesso per la durata del pacchetto di accesso. Questo articolo descrive come creare un nuovo pacchetto di accesso.
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Tutti i pacchetti di accesso devono essere inseriti in un contenitore denominato catalogo. Un catalogo consente di definire le risorse che è possibile aggiungere al pacchetto di accesso. Se non si specifica un catalogo, il pacchetto di accesso verrà inserito nel catalogo generale. Attualmente non è possibile spostare un pacchetto di accesso esistente in un catalogo diverso.
 
@@ -107,7 +107,7 @@ Nella scheda **ruoli risorsa** selezionare le risorse da includere nel pacchetto
 
 1. Fare clic su **Avanti**.
 
-## <a name="requests"></a>Requests
+## <a name="requests"></a>Richieste
 
 Nella scheda **richieste** creare il primo criterio per specificare gli utenti che possono richiedere il pacchetto di accesso e anche le impostazioni di approvazione. Successivamente, è possibile creare altri criteri di richiesta per consentire a gruppi aggiuntivi di utenti di richiedere il pacchetto di accesso con le proprie impostazioni di approvazione.
 

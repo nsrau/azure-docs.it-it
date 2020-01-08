@@ -1,20 +1,16 @@
 ---
 title: Controlli di sicurezza per Azure Service Fabric
-description: Elenco di controllo dei controlli di sicurezza per la valutazione di Azure Service Fabric
-services: service-fabric
-documentationcenter: ''
+description: Informazioni sui controlli di sicurezza per Azure Service Fabric. Include un elenco di controllo dei controlli di sicurezza incorporati.
 author: msmbaldwin
-manager: rkarlin
-ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d62c7848588c494c8190f0d429ce2d6641928b52
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: a8bb49e20ec5812a4882966c6918cf2bd59f36a0
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886352"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645430"
 ---
 # <a name="security-controls-for-azure-service-fabric"></a>Controlli di sicurezza per Azure Service Fabric
 
@@ -35,22 +31,22 @@ Questo articolo descrive i controlli di sicurezza incorporati in Azure Service F
 
 | Controllo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Supporto di monitoraggio di Azure (log Analytics, Application Insights e così via)| Yes | Uso del supporto di monitoraggio di Azure e del supporto di terze parti. |
-| Registrazione e controllo del piano di gestione e controllo| Yes | Tutte le operazioni del piano di controllo vengono eseguite tramite i processi per il controllo e le approvazioni. |
+| Supporto di monitoraggio di Azure (log Analytics, Application Insights e così via)| Sì | Uso del supporto di monitoraggio di Azure e del supporto di terze parti. |
+| Registrazione e controllo del piano di gestione e controllo| Sì | Tutte le operazioni del piano di controllo vengono eseguite tramite i processi per il controllo e le approvazioni. |
 | Registrazione e controllo del piano dati| N/D | Il cliente è proprietario del cluster.  |
 
-## <a name="identity"></a>identità
+## <a name="identity"></a>Identità
 
 | Controllo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Authentication| Sì | L'autenticazione avviene tramite Azure Active Directory. |
-| Authorization| Yes | Gestione delle identità e degli accessi per le chiamate tramite provider di risorse di Service Fabric. Per le chiamate inviate direttamente all'endpoint del cluster sono supportati due ruoli: Utente e Amministratore. Il cliente può mappare le API a entrambi i ruoli. |
+| Autenticazione| Sì | L'autenticazione avviene tramite Azure Active Directory. |
+| Autorizzazione| Sì | Gestione delle identità e degli accessi per le chiamate tramite provider di risorse di Service Fabric. Chiamate dirette a endpoint cluster supporta due ruoli: utente e amministratore. Il cliente può eseguire il mapping delle API a entrambi i ruoli. |
 
-## <a name="data-protection"></a>Protezione dati
+## <a name="data-protection"></a>Protezione dei dati
 
 | Controllo di sicurezza | Sì/No | Note |
 |---|---|--|
-| Crittografia lato server: Chiavi gestite da Microsoft | Sì | Il cliente è proprietario del cluster e del set di scalabilità di macchine virtuali in cui viene compilato il cluster. Crittografia dischi di Azure può essere abilitata nel set di scalabilità di macchine virtuali. |
+| Crittografia lato server: chiavi gestite da Microsoft | Sì | Il cliente è proprietario del cluster e del set di scalabilità di macchine virtuali in cui viene compilato il cluster. Crittografia dischi di Azure può essere abilitata nel set di scalabilità di macchine virtuali. |
 | Crittografia lato server inattiva: chiavi gestite dal cliente (BYOK) | Sì | Il cliente è proprietario del cluster e del set di scalabilità di macchine virtuali in cui viene compilato il cluster. Crittografia dischi di Azure può essere abilitata nel set di scalabilità di macchine virtuali. |
 | Crittografia a livello di colonna (servizi dati di Azure)| N/D |  |
 | Crittografia in transito (ad esempio crittografia ExpressRoute, crittografia VNet e crittografia VNet-VNet)| Sì |  |
@@ -60,7 +56,7 @@ Questo articolo descrive i controlli di sicurezza incorporati in Azure Service F
 
 | Controllo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Supporto per la gestione della configurazione (controllo delle versioni della configurazione e così via)| Yes | |
+| Supporto per la gestione della configurazione (controllo delle versioni della configurazione e così via)| Sì | |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

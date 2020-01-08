@@ -1,20 +1,19 @@
 ---
 title: Eseguire esempi di Apache Hadoop MapReduce in HDInsight - Azure
 description: Introduzione all'uso di esempi di MapReduce in file JAR inclusi in HDInsight. Usare SSH per connettersi al cluster e quindi usare il comando di Hadoop per eseguire i processi di esempio.
-keywords: jar esempio di hadoop, jar esempi di hadoop, esempi di hadoop mapreduce, esempi di mapreduce
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 04/25/2019
-ms.author: hrasheed
-ms.openlocfilehash: f0251e3926c569b45ebebcd18b98df5af4564443
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 12/12/2019
+ms.openlocfilehash: 58f7d99af638c8d03bbce46b7fcf8204aaca11d9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64706673"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435742"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Eseguire gli esempi di MapReduce inclusi in HDInsight
 
@@ -30,34 +29,34 @@ Informazioni su come eseguire esempi di MapReduce inclusi con Apache Hadoop su H
 
 ## <a name="the-mapreduce-examples"></a>Gli esempi di MapReduce
 
-**Posizione**: Gli esempi si trovano nel cluster HDInsight in `/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar`.
+Gli esempi si trovano nel cluster HDInsight in `/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar`. Il codice sorgente per questi esempi è incluso nel cluster HDInsight in `/usr/hdp/current/hadoop-client/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`.
 
-**Contents**: Gli esempi seguenti sono contenuti in questo archivio:
+Gli esempi seguenti sono contenuti in questo archivio:
 
-* `aggregatewordcount`: Un programma MapReduce basato su aggregazione che conta le parole nei file di input.
-* `aggregatewordhist`: Un programma MapReduce basato su aggregazione che calcola l'istogramma delle parole nei file di input.
-* `bbp`: Un programma MapReduce che usa la formula Bailey-Borwein-Plouffe per calcolare le cifre esatte del pi greco.
-* `dbcount`: Un processo di esempio che conta i log di pageview archiviati in un database.
-* `distbbp`: Un programma MapReduce che usa una formula di tipo BBP per calcolare i bit esatti del pi greco.
-* `grep`: Un programma MapReduce che conta le corrispondenze di un regex nell'input.
-* `join`: Un processo che esegue un join su set di dati ordinati ed equamente partizionati.
-* `multifilewc`: Un processo che conta le parole da più file.
-* `pentomino`: Un programma di tassellatura MapReduce per trovare soluzioni ai problemi relativi ai pentamini.
-* `pi`: Un programma MapReduce che stima il pi greco usando un metodo simile al metodo Monte Carlo.
-* `randomtextwriter`: Un programma MapReduce che scrive 10 GB di dati testuali casuali per nodo.
-* `randomwriter`: Un programma MapReduce che scrive 10 GB di dati casuali per nodo.
-* `secondarysort`: Un esempio che definisce un ordinamento secondario per la fase di riduzione.
-* `sort`: Un programma MapReduce che ordina i dati scritti dal writer casuale.
-* `sudoku`: Un risolutore di sudoku.
-* `teragen`: Generare dati per terasort.
-* `terasort`: Eseguire il processo terasort.
-* `teravalidate`: Verificare i risultati di terasort.
-* `wordcount`: Un programma MapReduce che conta le parole nei file di input.
-* `wordmean`: Un programma MapReduce che conta la lunghezza media delle parole nei file di input.
-* `wordmedian`: Un programma MapReduce che conta la lunghezza mediana delle parole nei file di input.
-* `wordstandarddeviation`: Un programma MapReduce che conta la deviazione standard della lunghezza delle parole nei file di input.
-
-**Codice sorgente**: Il codice sorgente per questi esempi è incluso nel cluster HDInsight in `/usr/hdp/current/hadoop-client/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`.
+|Esempio |Description |
+|---|---|
+|aggregatewordcount|Conta le parole nei file di input.|
+|aggregatewordhist|Calcola l'istogramma delle parole nei file di input.|
+|BBP|USA Bailey-Borwein-Plouffe per calcolare le cifre esatte del pi greco.|
+|DBCOUNT|Conta i log di visualizzazione archiviati in un database.|
+|distbbp|Usa una formula di tipo BBP per calcolare i bit esatti del pi greco.|
+|grep|Conta le corrispondenze di un'espressione regolare nell'input.|
+|join|Esegue un join su set di impostazioni, equamente partizionati.|
+|multifilewc|Conta le parole da più file.|
+|Pentomino|Programma di disposizione dei riquadri per trovare soluzioni per Pentomino problemi.|
+|pi|Stima pi greco usando un metodo quasi-Monte Carlo.|
+|randomtextwriter|Scrive 10 GB di dati testuali casuali per nodo.|
+|randomtextwriter|Scrive 10 GB di dati casuali per nodo.|
+|secondarySort|Definisce un ordinamento secondario per la fase di riduzione.|
+|sort|Ordina i dati scritti dal writer casuale.|
+|Sudoku|Un risolutore di sudoku.|
+|teragen|Generare dati per terasort.|
+|terasort|Eseguire il processo terasort.|
+|teravalidate|Verificare i risultati di terasort.|
+|WordCount|Conta le parole nei file di input.|
+|WordCount|Conta la lunghezza media delle parole nei file di input.|
+|wordmedian|Conta la lunghezza mediana delle parole nei file di input.|
+|wordstandarddeviation|Conta la deviazione standard della lunghezza delle parole nei file di input.|
 
 ## <a name="run-the-wordcount-example"></a>Eseguire l'esempio wordcount
 
@@ -67,7 +66,7 @@ Informazioni su come eseguire esempi di MapReduce inclusi con Apache Hadoop su H
     ssh sshuser@CLUSTER-ssh.azurehdinsight.net
     ```
 
-2. Dal prompt di `username@#######:~$` usare il comando seguente per ottenere l'elenco degli esempi:
+2. Dalla sessione SSH usare il comando seguente per elencare gli esempi:
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
@@ -83,11 +82,13 @@ Informazioni su come eseguire esempi di MapReduce inclusi con Apache Hadoop su H
 
     Viene visualizzato il messaggio seguente:
 
-        Usage: wordcount <in> [<in>...] <out>
+    ```output
+    Usage: wordcount <in> [<in>...] <out>
+    ```
 
     Tale messaggio indica che è possibile specificare più percorsi di input per i documenti di origine. Il percorso finale corrisponde alla posizione in cui verrà memorizzato l'output (conteggio delle parole nei documenti di origine).
 
-4. Per contare tutte le parole nel notebook di Leonardo da Vinci, forniti come dati di esempio con il cluster, usare quanto segue:
+4. Usare quanto segue per conteggiare tutte le parole nei notebook di Leonardo da Vinci, che vengono forniti come dati di esempio con il cluster:
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
@@ -153,7 +154,7 @@ Il risultato è simile al testo seguente:
 
 ## <a name="pi--example"></a>Esempio di Pi greco (π)
 
-Per calcolare il valore di Pi greco, l'esempio usa un metodo statistico simile al metodo Monte Carlo. I punti vengono posizionati in modo casuale in un quadrato unitario. Il quadrato contiene anche un cerchio. La probabilità che i punti siano compresi nel cerchio sono uguali all'area del cerchio, pi greco/4. Il valore di pi greco può essere stimato dal valore di 4R. R indica il rapporto tra il numero di punti che si trovano all'interno del cerchio e il numero totale di punti che si trovano all'interno del quadrato. La precisione del calcolo è direttamente proporzionale al numero di punti utilizzati.
+Per calcolare il valore di Pi greco, l'esempio usa un metodo statistico simile al metodo Monte Carlo. I punti vengono posizionati in modo casuale in un quadrato unitario. Il quadrato contiene anche un cerchio. La probabilità che i punti rientrino nel cerchio è uguale all'area del cerchio, pi greco/4. Il valore di pi greco può essere stimato dal valore di 4R. R indica il rapporto tra il numero di punti che si trovano all'interno del cerchio e il numero totale di punti che si trovano all'interno del quadrato. La precisione del calcolo è direttamente proporzionale al numero di punti utilizzati.
 
 Usare il comando seguente per eseguire l'esempio. Il comando usa 16 mappe con 10.000.000 di esempi, ognuno per il calcolo del pi greco:
 
@@ -163,21 +164,21 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar 
 
 Il valore restituito da questo comando è simile a **3,14159155000000000000**. A scopo di riferimento, le prime 10 cifre decimali del pi greco sono 3,1415926535.
 
-## <a name="10-gb-graysort-example"></a>Esempio di GraySort da 10 GB
+## <a name="10-gb-graysort-example"></a>esempio di GraySort da 10 GB
 
 GraySort è un ordinamento benchmark. La metrica è la velocità di ordinamento (TB/minuto) ottenuta durante l'ordinamento di quantità di dati elevate, in genere almeno 100 TB.
 
-In questo esempio vengono usati solo 10 GB di dati, in modo da consentire un'esecuzione relativamente rapida. Usa le applicazioni di MapReduce sviluppate da Owen O'Malley e Arun Murthy. Queste applicazioni vincitrici del benchmark di ordinamento annuo di uso generico ("Daytona") terabyte nel 2009 con una frequenza pari a 0,578 TB/min (100 TB in 173 minuti). Per altre informazioni su questo e su altri benchmark di ordinamento, vedere la [Benchmark di ordinamento](https://sortbenchmark.org/) sito.
+In questo esempio vengono usati solo 10 GB di dati, in modo da consentire un'esecuzione relativamente rapida. Usa le applicazioni di MapReduce sviluppate da Owen O'Malley e Arun Murthy. Queste applicazioni hanno ottenuto il benchmark di ordinamento annuale per utilizzo generale ("Daytona") terabyte in 2009, con una frequenza di 0,578 TB/min (100 TB in 173 minuti). Per ulteriori informazioni su questo e altri benchmark di ordinamento, vedere il sito [benchmark di ordinamento](https://sortbenchmark.org/) .
 
 In questo esempio vengono utilizzati tre set di programmi MapReduce:
 
-* **TeraGen**: Un programma MapReduce che genera righe di dati da ordinare
+* **TeraGen**: programma MapReduce che genera righe di dati da ordinare.
 
-* **TeraSort**: Esegue il campionamento dei dati di input e usa MapReduce per organizzare i dati in un ordine totale
+* **TeraSort**esegue il campionamento dei dati di input e usa MapReduce per organizzare i dati in un ordine totale.
 
     TeraSort è un ordinamento standard di MapReduce, ad eccezione di un partitioner personalizzato. Il partitioner usa un elenco ordinato di chiavi campionate N-1 che definiscono l'intervallo di chiavi per ogni riduzione. In particolare, tutte le chiavi corrispondenti al criterio sample[i-1]<= chiave < sample[i] vengono inviate alla funzione reduce i. Il partitioner garantisce che tutti gli output di reduce i siano inferiori all'output della funzione reduce i+1.
 
-* **TeraValidate**: Un programma MapReduce che convalida l'ordinamento globale dell'output
+* **TeraValidate**: un programma MapReduce che convalida l'ordinamento globale dell'output
 
     Crea una funzione map per ogni file nella directory di output e ogni funzione map assicura che ogni chiave sia inferiore o uguale alla precedente. La funzione map genera i record delle prime e delle ultime chiavi di ogni file. La funzione reduce assicura che la prima chiave del file i sia maggiore dell'ultima chiave del file i-1. Eventuali problemi vengono segnalati come output della fase reduce insieme alle chiavi che non rispettano l'ordinamento.
 
@@ -209,6 +210,5 @@ Usare i passaggi seguenti per generare dati, ordinarli e quindi convalidare l'ou
 
 In questo articolo si è appreso come eseguire gli esempi inclusi nei cluster HDInsight basati su Linux. Per le esercitazioni sull'uso di Pig, Hive e MapReduce con HDInsight, vedere gli argomenti seguenti:
 
-* [Usare Apache Pig con Apache Hadoop su HDInsight](hdinsight-use-pig.md)
 * [Usare Apache Hive con Apache Hadoop su HDInsight](hdinsight-use-hive.md)
 * [Usare MapReduce con Apache Hadoop su HDInsight](hdinsight-use-mapreduce.md)

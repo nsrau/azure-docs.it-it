@@ -1,19 +1,18 @@
 ---
 title: Ridimensionare le funzioni di Machine Learning in Analisi di flusso di Azure
 description: Questo articolo descrive come ridimensionare processi di Analisi di flusso che usano funzioni di Machine Learning configurando unità di partizionamento e di flusso.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 28734e5eaa693ca4ee31603863b69605a1d92c88
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dedffab0b17515cedc54569d5debf6d29b273644
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467868"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458737"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Ridimensionare il processo di analisi di flusso con le funzioni Azure Machine Learning Studio (classiche)
 
@@ -90,7 +89,7 @@ Con la seconda opzione, sarà necessario eseguire il provisioning di più unità
 
 Si osservi il ridimensionamento usando le misure di latenza seguenti per ogni dimensione del batch:
 
-| Latency | Dimensioni dei batch |
+| Latenza | Dimensioni dei batch |
 | --- | --- |
 | 200 ms | 1000-batch di eventi o di seguito |
 | 250 ms | 5\.000-batch di eventi |
@@ -107,7 +106,7 @@ Di seguito è riportata una tabella della velocità effettiva del processo di An
 | **1 unità di archiviazione** |2\.500 |5\.000 |20.000 |30.000 |50.000 |
 | **3 unità di archiviazione** |2\.500 |5\.000 |20.000 |30.000 |50.000 |
 | **6 unità di archiviazione** |2\.500 |5\.000 |20.000 |30.000 |50.000 |
-| **12 unità di archiviazione** |5\.000 |10,000 |40.000 |60.000 |100,000 |
+| **12 unità di archiviazione** |5\.000 |10,000 |40.000 |60.000 |100.000 |
 | **18 unità di archiviazione** |7\.500 |15.000 |60.000 |90.000 |150.000 |
 | **24 unità di archiviazione** |10,000 |20.000 |80.000 |120.000 |200.000 |
 | **…** |… |… |… |… |… |
@@ -143,7 +142,7 @@ Per ridimensionare un processo di analisi di flusso con funzioni Machine Learnin
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su Analisi di flusso, vedere:
 
-* [Introduzione all’uso di Analisi di flusso di Azure](stream-analytics-real-time-fraud-detection.md)
+* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

@@ -4,14 +4,14 @@ description: Come definire le destinazioni di archiviazione in modo che la cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 11/18/2019
+ms.date: 12/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 396ed84856604c297551c4593e0d7b82b92ac924
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 75d657fd9f3ee13c331450b324fd3b99e9cb6ca5
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166638"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647221"
 ---
 # <a name="add-storage-targets"></a>Aggiungere destinazioni di archiviazione
 
@@ -33,6 +33,8 @@ Dalla portale di Azure aprire l'istanza di cache e fare clic su **destinazioni d
 
 Una nuova destinazione di archiviazione BLOB necessita di un contenitore BLOB vuoto o di un contenitore popolato con i dati nel formato file system del cloud di cache HPC di Azure. Altre informazioni sul precaricamento di un contenitore BLOB in [spostare i dati nell'archivio BLOB di Azure](hpc-cache-ingest.md).
 
+È possibile creare un nuovo contenitore da questa pagina immediatamente prima di aggiungerlo.
+
 Per definire un contenitore BLOB di Azure, immettere queste informazioni.
 
 ![screenshot della pagina Aggiungi destinazione di archiviazione, popolato con le informazioni per una nuova destinazione di archiviazione BLOB di Azure](media/hpc-cache-add-blob.png)
@@ -41,13 +43,15 @@ Per definire un contenitore BLOB di Azure, immettere queste informazioni.
 
 * **Nome destinazione di archiviazione** : impostare un nome che identifichi la destinazione di archiviazione nella cache HPC di Azure.
 * **Tipo di destinazione** : scegliere **BLOB**.
-* **Account di archiviazione** : selezionare l'account con il contenitore che si vuole usare.
+* **Account di archiviazione** : selezionare l'account che si vuole usare.
 
   Per accedere all'account di archiviazione, è necessario autorizzare l'istanza della cache, come descritto in [aggiungere i ruoli di accesso](#add-the-access-control-roles-to-your-account).
 
   Per informazioni sul tipo di account di archiviazione che è possibile usare, vedere [requisiti di archiviazione BLOB](hpc-cache-prereqs.md#blob-storage-requirements).
 
-* **Contenitore di archiviazione** : selezionare il contenitore BLOB per la destinazione.
+* **Contenitore di archiviazione** : selezionare il contenitore BLOB per la destinazione oppure fare clic su **Crea nuovo**.
+
+  ![screenshot della finestra di dialogo per specificare il nome e il livello di accesso (privato) per il nuovo contenitore](media/add-blob-new-container.png)
 
 * **Percorso dello spazio dei nomi virtuale** : impostare il percorso del file per il client per questa destinazione di archiviazione. Per ulteriori informazioni sulla funzionalità spazio dei nomi virtuale, vedere [configurare lo spazio dei nomi aggregato](hpc-cache-namespace.md) .
 
@@ -146,9 +150,9 @@ In questa tabella vengono riepilogate le differenze del modello di utilizzo:
 
 | Modello di utilizzo | Modalità di memorizzazione nella cache | Verifica del back-end | Ritardo massimo write-back |
 | ---- | ---- | ---- | ---- |
-| Lettura di scritture complesse e non frequenti | Read | Mai | nessuno |
+| Lettura di scritture complesse e non frequenti | Lettura | Mai | Nessuno |
 | Scritture superiori al 15% | Lettura/Scrittura | Mai | 1 ora |
-| Client che ignorano la cache | Read | 30 secondi | nessuno |
+| Client che ignorano la cache | Lettura | 30 secondi | Nessuno |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

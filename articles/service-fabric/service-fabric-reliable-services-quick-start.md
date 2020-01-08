@@ -1,27 +1,18 @@
 ---
-title: Creare la prima applicazione di Service Fabric in C# | Microsoft Docs
+title: Creare la prima applicazione Service Fabric inC#
 description: Introduzione alla creazione di un’applicazione dell’infrastruttura di servizi di Microsoft Azure con i servizi con e senza stato.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: d9b44d75-e905-468e-b867-2190ce97379a
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/10/2019
 ms.author: vturecek
-ms.openlocfilehash: f3b3d5c3dcea7d190724ae946a27c47b34a26c31
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: e7c5c30dc7cbfa0a3f5a8dc76899c5c8bad6e6ea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68225079"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462822"
 ---
-# <a name="get-started-with-reliable-services"></a>Introduzione a Reliable Services
+# <a name="get-started-with-reliable-services"></a>Introduzione ai servizi affidabili
 > [!div class="op_single_selector"]
 > * [C# su Windows](service-fabric-reliable-services-quick-start.md)
 > * [Java su Linux](service-fabric-reliable-services-quick-start-java.md)
@@ -30,13 +21,13 @@ ms.locfileid: "68225079"
 
 Un'applicazione di Azure Service Fabric contiene uno o più servizi che consentono l'esecuzione del codice. Questa guida illustra come creare applicazioni di Service Fabric con e senza stato con i servizi [Reliable Services](service-fabric-reliable-services-introduction.md).  
 
-## <a name="basic-concepts"></a>Concetti di base
+## <a name="basic-concepts"></a>Concetti fondamentali
 Per iniziare a usare Reliable Services, è sufficiente comprendere solo alcuni concetti di base:
 
-* **Tipo di servizio**: Si tratta dell'implementazione del servizio. Viene definito dalla classe scritta che estende `StatelessService` e qualsiasi altro codice o dipendenze usate, insieme al nome e al numero della versione.
-* **Istanza di servizio denominata**: Per eseguire il servizio, si creano le istanze denominate del tipo di servizio, analogamente al modo in cui si creano le istanze di un oggetto di un tipo di classe. Il formato del nome di un'istanza del servizio è un URI che usa lo schema "fabric:/", ad esempio "fabric:/MyApp/MyService".
-* **Host servizio**: Le istanze di servizio denominate che si creano devono essere eseguite all'interno di un processo host. L'host del servizio è semplicemente un processo in cui eseguire le istanze del servizio.
-* **Registrazione del servizio**: La registrazione raccoglie tutti gli elementi. Il tipo di servizio deve essere registrato con il runtime di Service Fabric in un host del servizio per consentire a Service Fabric di creare istanze per l'esecuzione.  
+* **Tipo di servizio**: si tratta dell'implementazione del servizio. Viene definito dalla classe scritta che estende `StatelessService` e qualsiasi altro codice o dipendenze usate, insieme al nome e al numero della versione.
+* **Istanza di servizio denominata**: per eseguire il servizio, si creano le istanze denominate del tipo di servizio, analogamente al modo in cui si creano le istanze di un oggetto di un tipo di classe. Il formato del nome di un'istanza del servizio è un URI che usa lo schema "fabric:/", ad esempio "fabric:/MyApp/MyService".
+* **Host del servizio**: le istanze del servizio denominate che si creano devono essere eseguite in un processo host. L'host del servizio è semplicemente un processo in cui eseguire le istanze del servizio.
+* **Registrazione del servizio**: la registrazione raccoglie tutti gli elementi. Il tipo di servizio deve essere registrato con il runtime di Service Fabric in un host del servizio per consentire a Service Fabric di creare istanze per l'esecuzione.  
 
 ## <a name="create-a-stateless-service"></a>Creare un servizio senza stato
 Il servizio senza stato è il tipo di servizio di norma presente nelle applicazioni cloud. Viene considerato senza stato perché il servizio stesso non contiene dati che devono essere archiviati in modo affidabile o resi a disponibilità elevata. Se un'istanza di un servizio senza stato si arresta, il relativo stato interno viene perso. In questi tipi di servizio lo stato deve essere reso persistente mediante un archivio esterno, ad esempio tabelle di Azure o un database SQL, in modo da assicurare elevata disponibilità e affidabilità.
@@ -202,7 +193,7 @@ Le raccolte Reliable Collections includono molte delle operazioni corrispondenti
 
 Le operazioni sulle raccolte Reliable Collections sono *transazionali*e consentono di mantenere lo stato coerente tra più raccolte Reliable Collections e operazioni. Ad esempio, è possibile rimuovere un elemento di lavoro da un oggetto ReliableQueue, eseguire un'operazione su tale elemento e salvare il risultato in un oggetto ReliableDictionary, il tutto all'interno di una singola transazione. Questa viene considerata come un'operazione atomica e garantisce la riuscita o il rollback dell'intera operazione. Se si verifica un errore dopo aver rimosso l'elemento dalla coda ma prima di aver salvato il risultato, viene eseguito il rollback dell'intera transazione e l'elemento rimane nella coda per l'elaborazione.
 
-## <a name="run-the-application"></a>Esecuzione dell'applicazione
+## <a name="run-the-application"></a>Eseguire l'applicazione
 Tornare all'applicazione *HelloWorld* . È ora possibile compilare e distribuire i servizi. Quando si preme **F5**, l'applicazione viene compilata e distribuita nel cluster locale.
 
 Dopo l'avvio dell'esecuzione dei servizi, è possibile visualizzare gli eventi generati di Event Tracing for Windows (ETW) in una finestra **Eventi di diagnostica** . Si noti che gli eventi visualizzati nell'applicazione provengono sia dal servizio senza stato sia dal servizio con stato. È possibile sospendere il flusso facendo clic sul pulsante **Pausa** . Espandendo un messaggio è possibile esaminarne i dettagli.

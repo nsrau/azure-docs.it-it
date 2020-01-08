@@ -1,7 +1,7 @@
 ---
 title: One-vs-All Multiclass
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo One-vs-All Multiclass nel servizio Azure Machine Learning per creare un modello di classificazione multiclasse da un insieme di modelli di classificazione binaria.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo One-vs-All Multiclass in Azure Machine Learning per creare un modello di classificazione multiclasse da un insieme di modelli di classificazione binaria.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,18 +9,18 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: 5c59f2865e7ebf768cdd8b80e59d69359f8607c6
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: bf4f176eef502cdd1c68f19904a24bd2500e1302
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717190"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428504"
 ---
 # <a name="one-vs-all-multiclass"></a>One-vs-All Multiclass
 
 Questo articolo descrive come usare il modulo One-vs-All Multiclass in Azure Machine Learning Designer (anteprima). L'obiettivo consiste nel creare un modello di classificazione in grado di prevedere più classi, utilizzando l'approccio *uno-a-tutti* .
 
-Questo modulo è utile per la creazione di modelli che consentono di stimare tre o più risultati possibili, quando il risultato dipende dalle variabili del predittore continuo o categorico. Questo metodo consente inoltre di utilizzare i metodi di classificazione binaria per i problemi che richiedono più classi di output.
+Questo modulo è utile per la creazione di modelli che stimano tre o più risultati possibili quando il risultato dipende da variabili predittive categoriche o continue. Questo metodo consente inoltre di usare metodi di classificazione binaria per problemi che richiedono più classi di output.
 
 ### <a name="more-about-one-versus-all-models"></a>Ulteriori informazioni sui modelli One-vs-All
 
@@ -61,4 +61,4 @@ In alternativa, è possibile passare il classificatore senza training a [Cross-V
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per il servizio Azure Machine Learning. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 

@@ -1,5 +1,6 @@
 ---
-title: Stato degli scenari di migrazione del database | Microsoft Docs
+title: Stato dello scenario di migrazione del database
+titleSuffix: Azure Database Migration Service
 description: Informazioni sullo stato degli scenari di migrazione supportati dal servizio migrazione del database di Azure.
 services: database-migration
 author: HJToland3
@@ -11,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/05/2019
-ms.openlocfilehash: 9ea070ea86a4d0d5e7101e82450235a59c936d2d
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 03fb6a1aff62df878417da55a7da7b42186b3462
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376398"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437683"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Stato degli scenari di migrazione supportati dal servizio migrazione del database di Azure
 
@@ -44,41 +45,41 @@ Le tabelle seguenti illustrano gli scenari di migrazione supportati quando si us
 
 La tabella seguente mostra il supporto del Servizio Migrazione del database di Azure per le migrazioni offline.
 
-| Destinazione  | Source | Supporto | Stato |
+| Obiettivo  | Origine | Supporto | Stato |
 | ------------- | ------------- |:-------------:|:-------------:|
-| **Database SQL di Azure** | SQL Server | ✔ | GA |
+| **Database SQL di Azure** | SQL Server | ✔ | Disponibilità a livello generale |
 |   | Servizi Desktop remoto SQL |  |  |
 |   | Oracle |  |  |
-| **Istanza gestita di database SQL di Azure** | SQL Server | ✔ | GA |
+| **Istanza gestita di database SQL di Azure** | SQL Server | ✔ | Disponibilità a livello generale |
 |   | Servizi Desktop remoto SQL |  |  |
 |   | Oracle |  |   |
-| **VM di Azure SQL** | SQL Server | ✔ | GA |
+| **VM di Azure SQL** | SQL Server | ✔ | Disponibilità a livello generale |
 |   | Oracle |   |   |
-| **Azure Cosmos DB** | MongoDB | ✔ | GA |
+| **Azure Cosmos DB** | MongoDB | ✔ | Disponibilità a livello generale |
 | **Database di Azure per MySQL** | MySQL |   |   |
 |   | Servizi Desktop remoto MySQL |   |   |
 | **Database di Azure per PostgreSQL** | PostgreSQL |  |
-|  | RDS PostgreSQL |   |   |
+|  | Servizi Desktop remoto PostgreSQL |   |   |
 
 ### <a name="online-continuous-sync-migration-support"></a>Supporto della migrazione online (sincronizzazione continua)
 
 La tabella seguente mostra il supporto del Servizio Migrazione del database di Azure per le migrazioni online.
 
-| Destinazione  | Source | Supporto | Stato |
+| Obiettivo  | Origine | Supporto | Stato |
 | ------------- | ------------- |:-------------:|:-------------:|
-| **Database SQL di Azure** | SQL Server | ✔ | GA |
-|   | Servizi Desktop remoto SQL | ✔ | GA |
+| **Database SQL di Azure** | SQL Server | ✔ | Disponibilità a livello generale |
+|   | Servizi Desktop remoto SQL | ✔ | Disponibilità a livello generale |
 |   | Oracle |  |  |
-| **Istanza gestita di database SQL di Azure** | SQL Server | ✔ | GA |
-|   | Servizi Desktop remoto SQL | ✔ | GA |
+| **Istanza gestita di database SQL di Azure** | SQL Server | ✔ | Disponibilità a livello generale |
+|   | Servizi Desktop remoto SQL | ✔ | Disponibilità a livello generale |
 |   | Oracle | ✔ | Anteprima privata |
 | **VM di Azure SQL** | SQL Server |   |   |
 |   | Oracle  |  |  |
-| **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **Database di Azure per MySQL** | MySQL | ✔ | GA |
-|   | Servizi Desktop remoto MySQL | ✔ | GA |
-| **Database di Azure per PostgreSQL** | PostgreSQL | ✔ | GA |
-|   | Servizi Desktop remoto PostgreSQL | ✔ | GA |
+| **Azure Cosmos DB** | MongoDB | ✔ | Disponibilità a livello generale |
+| **Database di Azure per MySQL** | MySQL | ✔ | Disponibilità a livello generale |
+|   | Servizi Desktop remoto MySQL | ✔ | Disponibilità a livello generale |
+| **Database di Azure per PostgreSQL** | PostgreSQL | ✔ | Disponibilità a livello generale |
+|   | Servizi Desktop remoto PostgreSQL | ✔ | Disponibilità a livello generale |
 |   | Oracle | ✔ | Anteprima pubblica |
 
 ## <a name="next-steps"></a>Passaggi successivi

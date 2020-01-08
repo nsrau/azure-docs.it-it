@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 7e309237589dfaf037114401172fc8f928a30077
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 8f243527461a95d963854d8d018602dd81115482
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176656"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497285"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure
 
@@ -82,7 +82,7 @@ Queste informazioni possono essere visualizzate nel [portale di Azure](../../aut
 
 Per il nome della configurazione del nodo, assicurarsi che la configurazione del nodo esista nella configurazione dello stato di Azure.  In caso contrario, la distribuzione dell'estensione restituirà un errore.  Assicurarsi inoltre di usare il nome della *configurazione del nodo* e non la configurazione.
 Una configurazione è definita in uno script utilizzato [per compilare la configurazione del nodo (file MOF)](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
-Il nome sarà sempre la configurazione seguita da un punto `.` e da `localhost` o da un nome di computer specifico.
+Il nome sarà sempre la configurazione seguita da un punto `.` e `localhost` o un nome di computer specifico.
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>Estensione DSC nei modelli di Resource Manager
 
@@ -115,7 +115,7 @@ Informazioni importanti sui cmdlet dell'estensione DSC di Resource Manager:
 
 L'estensione DSC di Azure può usare documenti di configurazione DSC per configurare direttamente macchine virtuali di Azure durante la distribuzione. Questa operazione non determina tuttavia la registrazione del nodo in Automazione. Il nodo *non* è gestito centralmente.
 
-Di seguito è riportato un semplice esempio di configurazione. Salvare la configurazione in locale come IisInstall.ps1.
+Di seguito è riportato un semplice esempio di configurazione. Salvare la configurazione localmente come iisInstall. ps1.
 
 ```powershell
 configuration IISInstall
@@ -131,7 +131,7 @@ configuration IISInstall
 }
 ```
 
-I comandi seguenti inseriscono lo script IisInstall.ps1 nella VM specificata, eseguono la configurazione e quindi inviano un report sullo stato.
+I comandi seguenti consentono di inserire lo script iisInstall. ps1 nella macchina virtuale specificata. eseguono la configurazione e quindi inviano un report sullo stato.
 
 ```powershell
 $resourceGroup = 'dscVmDemo'
@@ -184,13 +184,13 @@ Il portale consente di raccogliere l'input seguente:
 
 - **Configuration Modules or Script** (Moduli o script di configurazione): questo campo è obbligatorio. Il modulo non è stato aggiornato per lo [script di configurazione predefinito](#default-configuration-script). I moduli e gli script di configurazione richiedono un file con estensione ps1 contenente uno script di configurazione oppure un file ZIP con uno script di configurazione con estensione ps1 nella directory radice. Se si usa un file ZIP, tutte le risorse dipendenti devono essere incluse nelle cartelle del modulo all'interno del file ZIP. È possibile creare il file con estensione zip con il cmdlet **Publish-AzureVMDscConfiguration -OutputArchivePath** incluso in Azure PowerShell SDK. Il file ZIP viene caricato nell'archiviazione BLOB dell'utente e protetto da un token di firma di accesso condiviso.
 
-- **Module-qualified Name of Configuration** (Nome della configurazione qualificato dal modulo): è possibile includere più funzioni di configurazione in un file con estensione ps1. Immettere il nome dello script di configurazione con estensione ps1 seguito da \\ e dal nome della funzione di configurazione. Ad esempio, se lo script con estensione ps1 ha il nome configuration.ps1 e la configurazione è **IisInstall**, immettere **configuration.ps1\IisInstall**.
+- **Module-Qualified Name of Configuration** (Nome della configurazione qualificato dal modulo): è possibile includere più funzioni di configurazione in un file con estensione ps1. Immettere il nome dello script di configurazione con estensione ps1 seguito da \\ e dal nome della funzione di configurazione. Ad esempio, se lo script con estensione ps1 ha il nome configuration.ps1 e la configurazione è **IisInstall**, immettere **configuration.ps1\IisInstall**.
 
 - **Configuration Arguments** (Argomenti di configurazione): se la funzione di configurazione accetta argomenti, immetterli qui nel formato **argumentName1=value1,argumentName2=value2**. Questo è un formato diverso in cui vengono accettati gli argomenti di configurazione nei cmdlet di PowerShell o nei modelli di Resource Manager.
 
-- **Configuration Data PSD1 File** (File psd1 dati di configurazione): Questo campo è facoltativo. Se la configurazione richiede un file di dati della configurazione con estensione psd1, usare questo campo per selezionare il file di dati e quindi caricarlo nell'archiviazione BLOB dell'utente. Il file di dati della configurazione è protetto da un token di firma di accesso condiviso nell'archiviazione BLOB.
+- **Configuration Data PSD1 File**(File PSD1 dati di configurazione): questo è un campo facoltativo. Se la configurazione richiede un file di dati della configurazione con estensione psd1, usare questo campo per selezionare il file di dati e quindi caricarlo nell'archiviazione BLOB dell'utente. Il file di dati della configurazione è protetto da un token di firma di accesso condiviso nell'archiviazione BLOB.
 
-- **WMF Version** (Versione WMF): Specifica la versione di Windows Management Framework (WMF) da installare nella macchina virtuale. Impostando questa proprietà su latest (più recente) verrà installata la versione più recente di WMF. Attualmente, gli unici valori possibili per questa proprietà sono 4.0, 5.0, 5.1 e latest. Questi valori possibili sono soggetti ad aggiornamenti. Il valore predefinito è **latest**.
+- **WMF Version** (Versione WMF): specifica la versione di Windows Management Framework (WMF) da installare nella macchina virtuale. Impostando questa proprietà su latest (più recente) verrà installata la versione più recente di WMF. Attualmente, gli unici valori possibili per questa proprietà sono 4.0, 5.0, 5.1 e latest. Questi valori possibili sono soggetti ad aggiornamenti. Il valore predefinito è **latest**.
 
 - **Raccolta dati**: determina se l'estensione raccoglierà dati di telemetria. Per altre informazioni, vedere [Azure DSC extension data collection](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) (Raccolta di dati dell'estensione DSC di Azure).
 

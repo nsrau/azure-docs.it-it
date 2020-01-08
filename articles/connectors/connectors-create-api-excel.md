@@ -1,22 +1,22 @@
 ---
-title: Connetti a Excel online
-description: Gestire i dati con le API REST di Excel Online e App per la logica di Azure
+title: Gestire i dati, i fogli di lavoro e le tabelle in Excel online
+description: Gestire i dati in fogli di lavoro e tabelle in Excel online for business o Excel online per OneDrive usando app per la logica di Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: a4356b4f88df3fc457917be563a79e9054a1638e
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: b1df1219590aa94331a4404b1315eb7231c59699
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789793"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445873"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>Gestire i dati di Excel Online con App per la logica di Azure
 
-Con App per la logica di Azure e il connettore Excel Online, è possibile creare attività e flussi di lavoro automatizzati basati sui dati in Excel Online (Business o OneDrive). Questo connettore offre azioni che consentono di eseguire attività sui dati e gestire i fogli di calcolo, ad esempio:
+Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e il connettore Excel online [for business](/connectors/excelonlinebusiness/) o [Excel online per OneDrive](/connectors/excelonline/) Connector è possibile creare attività e flussi di lavoro automatizzati basati sui dati in Excel online for business o OneDrive. Questo connettore offre azioni che consentono di eseguire attività sui dati e gestire i fogli di calcolo, ad esempio:
 
 * Creare nuovi fogli di lavoro e tabelle.
 * Ottenere e gestire fogli di lavoro, tabelle e righe.
@@ -24,7 +24,7 @@ Con App per la logica di Azure e il connettore Excel Online, è possibile creare
 
 È quindi possibile usare gli output generati da queste azioni con azioni per altri servizi. Se ad esempio si usa un'azione che crea fogli di lavoro con frequenza settimanale, è possibile usare un'altra azione che invia un messaggio di posta elettronica di conferma usando il connettore Office 365 Outlook.
 
-Se non si ha familiarità con App per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md).
+Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
 
 > [!NOTE]
 > I connettori [Excel Online (Business)](/connectors/excelonlinebusiness/) ed [Excel Online (OneDrive)](/connectors/excelonline/) interagiscono con App per la logica di Azure e si distinguono dal [connettore Excel per PowerApps](/connectors/excel/).
@@ -44,11 +44,11 @@ Se non si ha familiarità con App per la logica, consultare [Informazioni su App
 
 ## <a name="add-excel-action"></a>Aggiungere un'azione di Excel
 
-1. Nel [portale di Azure](https://portal.azure.com) aprire l'app per la logica in Progettazione app per la logica, se ancora chiusa.
+1. Nel [portale di Azure](https://portal.azure.com) aprire l'app per la logica in Progettazione app per la logica, se non è già aperta.
 
 1. Nel trigger scegliere **Nuovo passaggio**.
 
-1. Nella casella di ricerca digitare "excel" come filtro. Nell'elenco delle azioni scegliere l'azione desiderata.
+1. Nella casella di ricerca digitare "excel" come filtro. Nell'elenco delle azioni selezionare l'azione desiderata.
 
    > [!NOTE]
    > La finestra di progettazione dell'app per la logica non può caricare tabelle con 100 o più colonne. Se possibile, ridurre il numero di colonne nella tabella selezionata in modo che la finestra di progettazione possa caricare la tabella.

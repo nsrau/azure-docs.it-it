@@ -3,17 +3,17 @@ title: Configurare un nome di dominio personalizzato nei servizi cloud | Microso
 description: Informazioni su come esporre i dati su internet o l'applicazione Azure in un dominio personalizzato configurando le impostazioni DNS.  Questi esempi utilizzano il portale di Azure.
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: gwallace
-ms.openlocfilehash: 8940d1a319d5bfabf8fd32b98f47cc6d283a8517
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: b1f75a5f7a97907bf5b8bb460ff2df420d053f9e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359375"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386800"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure
 Quando si crea un servizo cloud, Azure lo assegna a un sottodominio di **cloudapp.net**. Se ad esempio il servizio cloud è denominato "contoso", gli utenti saranno in grado di accedere all'applicazione da un URL come `http://contoso.cloudapp.net`. Azure assegna anche un indirizzo IP virtuale.
@@ -41,13 +41,13 @@ I record CNAME (o record Alias) e i record A consentono entrambi di associare un
 Un record CNAME esegue il mapping di un dominio *specifico* , ad esempio **contoso.com** o **www\.contoso.com**, a un nome di dominio canonico. In questo caso, il nome di dominio canonico è il nome di dominio **[myapp].cloudapp.net** dell'applicazione ospitata in Azure. Dopo la creazione, il record CNAME crea a sua volta un alias per **[myapp].cloudapp.net**. La voce CNAME viene risolta nell'indirizzo IP del servizio **[myapp].cloudapp.net** in modo automatico, pertanto se l'indirizzo IP del servizio cloud cambia non sarà necessaria alcuna azione.
 
 > [!NOTE]
-> Alcuni registrar consentono di eseguire il mapping solo dei sottodomini quando si usa un record CNAME, ad esempio\.www contoso.com, e non dei nomi radice, ad esempio contoso.com. Per altre informazioni sui record CNAME, vedere la documentazione fornita dal registrar, la [voce di Wikipedia sui record CNAME](https://en.wikipedia.org/wiki/CNAME_record) oppure il documento di IETF relativo a [implementazione e specifiche dei nomi di dominio](https://tools.ietf.org/html/rfc1035).
+> Alcuni registrar consentono di eseguire il mapping dei sottodomini solo quando si usa un record CNAME, ad esempio www\.contoso.com, e non i nomi radice, ad esempio contoso.com. Per altre informazioni sui record CNAME, vedere la documentazione fornita dal registrar, la [voce di Wikipedia sui record CNAME](https://en.wikipedia.org/wiki/CNAME_record) oppure il documento di IETF relativo a [implementazione e specifiche dei nomi di dominio](https://tools.ietf.org/html/rfc1035).
 
 ### <a name="a-record"></a>Record A
-Un record *a* esegue il mapping di un dominio, ad esempio **contoso.com** o **www\.contoso.com**, o di *un dominio con caratteri jolly* , ad esempio  **\*. contoso.com**, a un indirizzo IP. Nel caso di un servizio cloud di Azure, si tratta dell'IP virtuale del servizio. Il principale vantaggio di un record a su un record CNAME è il fatto che è possibile avere una voce che usa un carattere jolly, \*ad esempio **. contoso.com**, che gestirà le richieste per più sottodomini, ad esempio **mail.contoso.com**,  **login.contoso.com**o **www\.contso.com**.
+Un record *a* esegue il mapping di un dominio, ad esempio **contoso.com** o **www\.contoso.com**, *o di un dominio con caratteri jolly* , ad esempio **\*. contoso.com**, a un indirizzo IP. Nel caso di un servizio cloud di Azure, si tratta dell'IP virtuale del servizio. Il principale vantaggio di un record A su un record CNAME è il fatto che è possibile avere una voce che usa un carattere jolly, ad esempio \* **. contoso.com**, che gestirà le richieste per più sottodomini, ad esempio **mail.contoso.com**, **login.contoso.com**o **www\.contso.com**.
 
 > [!NOTE]
-> Poiché il mapping di un record A viene eseguito a un indirizzo IP statico, il record non è in grado di risolvere automaticamente le modifiche all'indirizzo IP del servizio cloud. L'indirizzo IP usato dal servizio cloud viene allocato la prima volta che si effettua una distribuzione in uno slot vuoto di produzione o di gestione temporanea. Se si elimina la distribuzione per lo slot, l'indirizzo IP viene rilasciato da Azure e le distribuzioni future in quello slot potrebbero ricevere un nuovo indirizzo IP.
+> Poiché il mapping di un record A viene eseguito a un indirizzo IP statico, il record non è in grado di risolvere automaticamente le modifiche all'indirizzo IP del servizio cloud. L'indirizzo IP usato dal servizio cloud viene allocato la prima volta che si esegue la distribuzione in uno slot vuoto, ovvero produzione o gestione temporanea. Se si elimina la distribuzione per lo slot, l'indirizzo IP viene rilasciato da Azure e tutte le distribuzioni future dello slot potrebbero ricevere un nuovo indirizzo IP.
 > 
 > L'indirizzo IP di un determinato slot di distribuzione (di produzione o di gestione temporanea) viene reso permanente durante i passaggi tra distribuzioni di produzione e di gestione temporanea o durante l'esecuzione di aggiornamenti sul posto di distribuzioni esistenti. Per ulteriori informazioni sull'esecuzione di queste azioni, vedere [Come gestire i servizi cloud](cloud-services-how-to-manage-portal.md).
 > 
@@ -58,7 +58,7 @@ Per creare un record CNAME è necessario aggiungere una nuova voce nella tabella
 
 1. Utilizzare uno dei metodi seguenti per trovare il nome di dominio **.cloudapp.net** assegnato al servizio cloud in questione.
 
-   * Accedere al [portale di Azure], selezionare il servizio cloud, esaminare la sezione **Panoramica** e quindi individuare la voce **URL sito** .
+   * Accedere al [Azure portal], selezionare il servizio cloud, esaminare la sezione **Panoramica** e quindi individuare la voce **URL sito** .
 
        ![Sezione quick glance in cui è visualizzato l'URL del sito][csurl]
 
@@ -75,7 +75,7 @@ Per creare un record CNAME è necessario aggiungere una nuova voce nella tabella
 4. È necessario fornire anche l'alias di dominio o sottodominio per CNAME, ad esempio **www** se si vuole creare un alias per **www\.customdomain.com**. Se si desidera creare un alias per il dominio radice, è possibile che sia elencato con il simbolo ' **\@** ' negli strumenti DNS del registrar.
 5. A questo punto, occorre fornire un nome host canonico, che in questo caso corrisponde al dominio **cloudapp.net** .
 
-Il record CNAME seguente, ad esempio, trasmette tutto il traffico **da\.www contoso.com** a **contoso.cloudapp.NET**, il nome di dominio personalizzato dell'applicazione distribuita:
+Il record CNAME seguente, ad esempio, trasmette tutto il traffico da **www\.contoso.com** a **contoso.cloudapp.NET**, il nome di dominio personalizzato dell'applicazione distribuita:
 
 | Alias/Nome host/Sottodominio | Dominio canonico |
 | --- | --- |
@@ -91,7 +91,7 @@ Per creare un record A, è necessario innanzitutto trovare l'indirizzo IP virtua
 
 1. Utilizzare uno dei metodi seguenti per ottenere l'indirizzo IP del servizio cloud.
 
-   * Accedere al [portale di Azure], selezionare il servizio cloud, esaminare la sezione **Panoramica** e quindi trovare la voce **indirizzi IP pubblici** .
+   * Accedere al [Azure portal], selezionare il servizio cloud, esaminare la sezione **Panoramica** e quindi trovare la voce **indirizzi IP pubblici** .
 
        ![Sezione quick glance in cui è visualizzato l'indirizzo VIP][vip]
 
@@ -105,7 +105,7 @@ Per creare un record A, è necessario innanzitutto trovare l'indirizzo IP virtua
      Salvare l'indirizzo IP, poiché sarà necessario per la creazione di un record A.
 2. Accedere al sito Web del registrar DNS e passare alla pagina di gestione dei DNS. Individuare collegamenti o aree del sito denominate **Domain Name**, **DNS** o **Name Server Management**.
 3. Trovare la sezione in cui è possibile selezionare o immettere i record A. Può essere necessario selezionare un tipo di record in un elenco a discesa oppure passare a una pagina di impostazioni avanzate.
-4. Selezionare o immettere il dominio o sottodominio che utilizzerà il record A. Ad esempio, selezionare **www** se si vuole creare un alias per **www\.customdomain.com**. Se si vuole creare una voce con caratteri jolly per tutti i sottodomini, immettere '*****'. Questo coprirà tutti i sottodomini, ad esempio **mail.customdomain.com**, **login.customdomain.com**e **www\.customdomain.com**.
+4. Selezionare o immettere il dominio o sottodominio che utilizzerà il record A. Ad esempio, selezionare **www** se si vuole creare un alias per **www\.customdomain.com**. Se si vuole creare una voce con caratteri jolly per tutti i sottodomini, immettere '*****'. In questo modo si tratteranno tutti i sottodomini, ad esempio **mail.customdomain.com**, **login.customdomain.com**e **www\.customdomain.com**.
 
     Se si desidera creare un record A per il dominio radice, è possibile che sia elencato con il simbolo ' **\@** ' negli strumenti DNS del registrar.
 5. Immettere l'indirizzo IP del servizio cloud nell'apposito campo. La voce del dominio usata nel record A verrà associata all'indirizzo IP della distribuzione del servizio cloud.
@@ -135,6 +135,9 @@ In questo esempio viene illustrata la creazione di un record A per il dominio ra
 [Expose Your Data on a Custom Domain]: #access-data
 [VIP swaps]: cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 [Create a CNAME record that associates the subdomain with the storage account]: #create-cname
-[Portale di Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
+
+
+

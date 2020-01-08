@@ -2,17 +2,17 @@
 title: "Disabilitare i criteri di rete per l'indirizzo IP di origine del servizio di collegamento privato di Azure "
 description: Informazioni su come disabilitare i criteri di rete per il collegamento privato di Azure
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 22dbb12de0793db8aac12f610ff94380542d426a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4c6bd64d141341e0b7fa5641e04320a95d7951bb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228112"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453000"
 ---
 # <a name="disable-network-policies-for-private-link-service-source-ip"></a>Disabilitare i criteri di rete per l'indirizzo IP di origine del servizio di collegamento privato
 
@@ -22,7 +22,7 @@ Quando si usa un client di Azure (PowerShell, CLI o modelli), è necessario un p
  
 Attenersi alla procedura seguente per disabilitare i criteri di rete del servizio di collegamento privato per una rete virtuale denominata *myVirtualNetwork* con una subnet *predefinita* ospitata in un gruppo di risorse denominato *myResourceGroup*. 
 
-## <a name="using-azure-powershell"></a>Usando Azure PowerShell
+## <a name="using-azure-powershell"></a>Uso di Azure PowerShell
 Questa sezione descrive come disabilitare i criteri dell'endpoint privato della subnet usando Azure PowerShell.
 
 ```azurepowershell

@@ -1,20 +1,16 @@
 ---
-title: Distribuire un'app .NET esistente in un contenitore per Service Fabric Mesh | Microsoft Docs
+title: Distribuire un'app .NET esistente in un contenitore per Service Fabric Mesh
 description: Aggiungere Service Fabric supporto dell'orchestrazione del contenitore mesh ai progetti ASP.NET e console che usano la versione completa di .NET Framework.
-services: service-fabric-mesh
-keywords: distribuire in un contenitore service fabric mesh
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/08/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: chakdan
-ms.openlocfilehash: 070d07316c0ff06a45e76936e75cb5345548e78f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d67ea5bb7df5910ec87e69adf3c414c303bf0182
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686287"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462040"
 ---
 # <a name="containerize-an-existing-net-app-for-service-fabric-mesh"></a>Distribuire un'app .NET esistente in un contenitore per Service Fabric Mesh
 

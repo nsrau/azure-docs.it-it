@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 305de556cc6e50af21cb38aa1b8073b420efbf43
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 006ea071ce1ab0354ecf191cdde2e031255ef4ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887760"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407677"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mappa delle applicazioni: valutare le applicazioni distribuite
 
@@ -69,13 +69,13 @@ Selezionare **Vai a dettagli** per esplorare l'esperienza di transazione end-to-
 
 ![Screenshot dei dettagli delle transazioni end-to-end](media/app-map/end-to-end-transaction.png)
 
-### <a name="view-in-analytics"></a>Visualizza in Analisi
+### <a name="view-logs-analytics"></a>Visualizzare i log (analisi)
 
-Per eseguire query ed esaminare ulteriormente i dati delle applicazioni, fare clic su **Visualizza in Analisi**.
+Per eseguire una query e analizzare i dati delle applicazioni, fare clic su **Visualizza nei log (analisi)** .
 
-![Screenshot del pulsante Visualizza in Analisi](media/app-map/view-in-analytics.png)
+![Screenshot del pulsante Visualizza in Analisi](media/app-map/view-logs.png)
 
-![Screenshot dell'esperienza di analisi](media/app-map/analytics.png)
+![Screenshot dell'esperienza di analisi. Grafico a linee che riepiloga la durata media della risposta di una richiesta nelle ultime 12 ore.](media/app-map/log-analytics.png)
 
 ### <a name="alerts"></a>Avvisi
 
@@ -230,7 +230,7 @@ Per le [definizioni ufficiali](https://github.com/Microsoft/ApplicationInsights-
     715: string      CloudRoleInstance = "ai.cloud.roleInstance";
 ```
 
-In alternativa, l' **istanza del ruolo Cloud** può essere utile per gli scenari in cui il **nome del ruolo Cloud** indica che il problema si trova nel front-end Web, ma è possibile che sia in esecuzione il front-end Web tra più server con carico bilanciato, in modo che sia possibile eseguire il drill-down di un livello più approfondito tramite le query kusto e sapere se il problema ha effetto su tutte le istanze o i server front-end Web oppure solo uno può essere estremamente importante.
+In alternativa, l' **istanza del ruolo Cloud** può essere utile per scenari in cui il **nome del ruolo Cloud** indica che il problema si trova in un punto del front-end Web, è tuttavia possibile che il front-end Web venga eseguito su più server con carico bilanciato, in modo da poter eseguire il drill-down di un livello più approfondito tramite query kusto e sapere se il problema ha un effetto su tutti i server o le istanze front-end Web oppure solo uno può essere estremamente importante.
 
 Uno scenario in cui potrebbe essere necessario eseguire l'override del valore per l'istanza del ruolo cloud potrebbe essere se l'app è in esecuzione in un ambiente contenitore in cui semplicemente la conoscenza del singolo server potrebbe non essere sufficiente per individuare un determinato problema.
 
@@ -240,7 +240,7 @@ Per altre informazioni su come eseguire l'override della proprietà del nome del
 
 Se si verificano problemi nel far funzionare come previsto la mappa delle applicazioni, provare questa procedura:
 
-### <a name="general"></a>Generale
+### <a name="general"></a>Informazioni di carattere generale
 
 1. Assicurarsi di usare un SDK supportato ufficialmente. Gli SDK non supportati/community potrebbero non supportare la correlazione.
 

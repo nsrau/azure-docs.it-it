@@ -1,5 +1,6 @@
 ---
-title: 'Esempio di criteri di Gestione API di Azure: impostare la durata della cache della risposta | Microsoft Docs'
+title: 'Criteri di gestione API di esempio: impostare la durata della cache della risposta'
+titleSuffix: Azure API Management
 description: Esempio di criteri di Gestione API di Azure - Illustra come impostare la durata della cache della risposta usando il valore maxAge nell'intestazione Cache-Control inviata dal back-end.
 services: api-management
 documentationcenter: ''
@@ -12,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 67d2f334e2088d96543fabd3b99cac71d95630eb
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 3101c5695272e8fa6b577ad313897cbc1fa29629
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071963"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442385"
 ---
 # <a name="set-response-cache-duration"></a>Impostare la durata della cache della risposta
 
 Questo articolo descrive un esempio di criteri di Gestione API di Azure che spiega come impostare la durata della cache della risposta usando il valore maxAge nell'intestazione Cache-Control inviata dal back-end. Per impostare o modificare il codice dei criteri, seguire la procedura descritta nell'articolo su come [impostare o modificare criteri](../set-edit-policies.md). Per altri esempi, vedere l'articolo relativo agli [esempi di criteri](../policy-samples.md).
 
-## <a name="policy"></a>Criteri
+## <a name="policy"></a>Criterio
 
 Incollare il codice nel blocco **inbound**.
 

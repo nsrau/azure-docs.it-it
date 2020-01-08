@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: c93198848058bad8c9af6903cc68253e71e2d668
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 72c44f47060a745c5a5266a0ca7173276eb5cb66
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996661"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658305"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Domande frequenti sul gateway applicazione
 
@@ -158,7 +158,7 @@ Vedere [route definite dall'utente supportate nella subnet del gateway applicazi
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Quali sono i limiti del gateway applicazione? È possibile aumentare questi limiti?
 
-Vedere [limiti del gateway applicazione](../azure-subscription-service-limits.md#application-gateway-limits).
+Vedere [limiti del gateway applicazione](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
 
 ### <a name="can-i-simultaneously-use-application-gateway-for-both-external-and-internal-traffic"></a>È possibile usare contemporaneamente il gateway applicazione per il traffico esterno e interno?
 
@@ -200,6 +200,9 @@ No.
 
 Sì. Per informazioni dettagliate, vedere [eseguire la migrazione di applicazione Azure gateway e del Web Application Firewall da V1 a V2](migrate-v1-v2.md).
 
+### <a name="does-application-gateway-support-ipv6"></a>Il gateway applicazione supporta IPv6?
+
+Il gateway applicazione V2 attualmente non supporta IPv6. Può funzionare in un VNet dual stack usando solo IPv4, ma la subnet del gateway deve essere solo IPv4. Il gateway applicazione V1 non supporta reti virtuali dual stack. 
 
 ## <a name="configuration---ssl"></a>Configurazione-SSL
 
@@ -380,6 +383,30 @@ Sì. Se la configurazione corrisponde al seguente scenario, non verrà visualizz
 - Il gateway applicazione V2 è stato distribuito
 - Si dispone di un NSG nella subnet del gateway applicazione
 - Sono stati abilitati i log di flusso NSG su tale NSG
+
+### <a name="how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address"></a>Ricerca per categorie usare il gateway applicazione V2 con solo indirizzi IP front-end privati?
+
+Il gateway applicazione V2 attualmente non supporta solo la modalità IP privato. Supporta le seguenti combinazioni
+* IP privato e indirizzo IP pubblico
+* Solo IP pubblico
+
+Tuttavia, se si vuole usare il gateway applicazione V2 con solo IP privato, è possibile seguire la procedura seguente:
+1. Creare un gateway applicazione con un indirizzo IP front-end pubblico e privato
+2. Non creare listener per l'indirizzo IP front-end pubblico. Il gateway applicazione non sarà in ascolto di alcun traffico sull'indirizzo IP pubblico se non viene creato alcun listener.
+3. Creare e associare un [gruppo di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/security-overview) per la subnet del gateway applicazione con la seguente configurazione in ordine di priorità:
+    
+    a. Consentire il traffico dall'origine come tag del servizio **GatewayManager** e destinazione come **qualsiasi** porta di destinazione e come **65200-65535**. Questo intervallo di porte è necessario per la comunicazione di infrastruttura di Azure. Queste porte sono protette (bloccate) tramite l'autenticazione del certificato. Le entità esterne, inclusi gli amministratori utenti del gateway, non possono avviare modifiche su tali endpoint senza certificati appropriati.
+    
+    b. Consenti il traffico dall'origine come tag del servizio **AzureLoadBalancer** e destinazione e porta di destinazione come **qualsiasi**
+    
+    c. Negare tutto il traffico in ingresso dall'origine come tag del servizio **Internet** e la porta di destinazione e destinazione come **qualsiasi**. Assegnare a questa regola la *priorità minima* nelle regole in ingresso
+    
+    d. Mantieni le regole predefinite come consentire VirtualNetwork in ingresso in modo che l'accesso all'indirizzo IP privato non venga bloccato
+    
+    e. La connettività Internet in uscita non può essere bloccata. In caso contrario, si affronteranno problemi con la registrazione, le metriche e così via.
+
+Configurazione di NSG di esempio per accesso solo IP privato: ![la configurazione del gateway applicazione V2 NSG solo per l'accesso IP privato](./media/application-gateway-faq/appgw-privip-nsg.png)
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

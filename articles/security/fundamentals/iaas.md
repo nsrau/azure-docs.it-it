@@ -1,5 +1,5 @@
 ---
-title: Procedure consigliate per la sicurezza dei carichi di lavoro IaaS in Azure | Microsoft Docs
+title: Procedure consigliate per la sicurezza dei carichi di lavoro IaaS in Azure | Documentazione Microsoft
 description: " La migrazione dei carichi di lavoro ad Azure IaaS offre l'opportunità di rivalutare i progetti "
 services: security
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: barclayn
-ms.openlocfilehash: 3368f72aeb7909c3e0a8653bb5b094729c4c45ed
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 44542fb299d769a3916407e09691a72efed01c79
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228031"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462424"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Procedure consigliate per la sicurezza dei carichi di lavoro IaaS in Azure
 Questo articolo descrive le procedure consigliate per la sicurezza delle macchine virtuali e dei sistemi operativi.
@@ -46,7 +46,7 @@ Se l'organizzazione dispone di molte sottoscrizioni, potrebbe essere necessario 
 **Dettagli**: usare i modelli di [Azure Resource Manager](/azure/azure-resource-manager/resource-group-authoring-templates) per rafforzare le opzioni di distribuzione e facilitare l'individuazione e la creazione di un inventario delle macchine virtuali dell'ambiente.
 
 **Procedura consigliata**: accesso sicuro con privilegi.   
-**Dettagli**: per consentire agli utenti di accedere e configurare le VM, usare un [approccio con privilegi minimi](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) e i ruoli predefiniti di Azure:
+[Dettagli](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models): per consentire agli utenti di accedere e configurare le VM, usare un **approccio con privilegi minimi** e i ruoli predefiniti di Azure:
 
 - [Collaboratore Macchina virtuale](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor): può gestire le VM, ma non la rete virtuale o l'account di archiviazione a cui sono connesse.
 - [Collaboratore Macchina virtuale classica](../../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): può gestire le VM create usando il modello di distribuzione classico ma non la rete virtuale o l'account di archiviazione a cui le VM sono connesse.
@@ -67,7 +67,7 @@ Se la VM esegue applicazioni critiche che richiedono un'elevata disponibilità, 
 
 Un set di disponibilità è un raggruppamento logico che è possibile usare in Azure per garantire che le risorse delle macchine virtuali inserite dall'utente siano isolate tra loro quando vengono distribuite all'interno di un data center di Azure. Azure garantisce che le macchine virtuali inserite all'interno di un set di disponibilità vengano eseguite tra più server fisici, rack di calcolo, unità di archiviazione e commutatori di rete. In caso di guasto hardware o errore software in Azure, viene interessato solo un subset delle macchine virtuali. L'applicazione nel suo complesso rimarrà disponibile per i clienti. I set di disponibilità sono una funzionalità essenziale da sfruttare quando si vogliono creare soluzioni cloud affidabili.
 
-## <a name="protect-against-malware"></a>Protezione dal malware
+## <a name="protect-against-malware"></a>Proteggiti dal malware
 È consigliabile installare una protezione antimalware per identificare e rimuovere virus, spyware e altro software dannoso. È possibile installare [Microsoft Antimalware](antimalware.md) o una soluzione di protezione degli endpoint di un partner Microsoft ([Trend Micro](https://help.deepsecurity.trendmicro.com/Welcome.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/windows/comprehensive-security) e [System Center Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).
 
 Microsoft Antimalware include caratteristiche come la protezione in tempo reale, l'analisi pianificata, il monitoraggio e aggiornamento malware, l'aggiornamento delle firme e del motore, il reporting di campioni e la raccolta degli eventi di esclusione. Per gli ambienti ospitati separatamente dall'ambiente di produzione, è possibile usare un'estensione antimalware per la protezione delle VM e dei servizi cloud.
@@ -99,7 +99,7 @@ Se si usa Windows Update, lasciare abilitata l'impostazione automatica di Window
 **Dettagli**: controllare e installare tutti gli aggiornamenti di Windows come primo passo di ogni distribuzione. Questa misura è particolarmente importante da applicare quando si distribuiscono immagini proprie o provenienti dalla propria libreria. Anche se le immagini di Azure Marketplace vengono aggiornate automaticamente per impostazione predefinita, dopo un rilascio pubblico può esserci un tempo di ritardo (fino a qualche settimana).
 
 **Procedura consigliata**: ridistribuire periodicamente le VM per forzare una versione aggiornata del sistema operativo.   
-**Dettagli**: definire la VM con un [modello di Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) in modo che sia possibile ridistribuirla facilmente. La scelta di un modello offre l'opportunità di avere una VM sicura e con patch applicate quando serve.
+**Dettagli**: definire la VM con un [modello di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) in modo che sia possibile ridistribuirla facilmente. La scelta di un modello offre l'opportunità di avere una VM sicura e con patch applicate quando serve.
 
 **Procedura consigliata**: applicare rapidamente gli aggiornamenti della sicurezza alle macchine virtuali.   
 **Dettagli**: abilitare il Centro sicurezza di Azure (livello gratuito o standard) per [identificare gli aggiornamenti della sicurezza mancanti e applicarli](../../security-center/security-center-apply-system-updates.md).

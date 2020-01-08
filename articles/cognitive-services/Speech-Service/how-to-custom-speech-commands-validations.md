@@ -1,7 +1,7 @@
 ---
 title: 'Procedura: aggiungere convalide a parametri di comando personalizzati (anteprima)'
 titleSuffix: Azure Cognitive Services
-description: In questo articolo, aggiungere convalide ai parametri di comando personalizzati
+description: In questo articolo viene illustrato come aggiungere convalide a un parametro nei comandi personalizzati.
 services: cognitive-services
 author: donkim
 manager: yetian
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: 64e092405686caca7baeaf58f19d577a3f80e169
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c89c388f919ca95a331d1d406f5b1776c127ebad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506934"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446922"
 ---
 # <a name="how-to-add-validations-to-custom-command-parameters-preview"></a>Procedura: aggiungere convalide a parametri di comando personalizzati (anteprima)
 
@@ -39,14 +39,14 @@ Per dimostrare le convalide, viene creato un nuovo comando che consente all'uten
    > [!div class="mx-imgBorder"]
    > ![aggiungere un](media/custom-speech-commands/validations-add-temperature.png) di convalida dell'intervallo
 
-   | Impostazione           | Valore consigliato                                          | Descrizione                                                                                      |
+   | Impostazione           | Valore consigliato                                          | Description                                                                                      |
    | ----------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-   | Name              | Temperatura                                              | Nome descrittivo per il parametro Command                                                    |
+   | Nome              | Temperatura                                              | Nome descrittivo per il parametro Command                                                    |
    | Obbligatorio          | true                                                     | Casella di controllo che indica se è necessario un valore per questo parametro prima di completare il comando |
-   | Modello di risposta | "Quale temperatura desideri?"                       | Messaggio di richiesta per richiedere il valore di questo parametro quando non è noto                              |
-   | Tipo              | Number                                                   | Tipo di parametro, ad esempio numero, stringa o data e ora                                      |
-   | Convalida        | Valore minimo: 60, valore massimo: 80                             | Per i parametri number, l'intervallo di valori consentito per il parametro                              |
-   | Modello di risposta | "Mi dispiace, posso impostare solo tra 60 e 80 gradi"        | Richiedi un valore aggiornato se la convalida ha esito negativo                                       |
+   | Modello di risposta | "-Quale temperatura desideri?"                     | Messaggio di richiesta per richiedere il valore di questo parametro quando non è noto                              |
+   | Tipo              | Numero                                                   | Tipo di parametro, ad esempio numero, stringa o data e ora                                      |
+   | Convalida        | Valore minimo: 60, valore massimo: 80                             | Per i parametri number, l'intervallo di valori consentito per il parametro                             |
+   | Modello di risposta | "-Mi dispiace, posso impostare solo tra 60 e 80 gradi"      | Richiedi un valore aggiornato se la convalida ha esito negativo                                       |
 
 1. Aggiungere alcune frasi di esempio
 
@@ -59,11 +59,11 @@ Per dimostrare le convalide, viene creato un nuovo comando che consente all'uten
 
 1. Aggiungere una regola di completamento per confermare il risultato
 
-   | Impostazione    | Valore consigliato                                         | Descrizione                                        |
-   | ---------- | ------------------------------------------------------- | -------------------------------------------------- |
-   | Nome regola  | Messaggio di conferma                                    | Nome che descrive lo scopo della regola          |
-   | Condizioni | Parametro obbligatorio-temperatura                        | Condizioni che determinano quando la regola può essere eseguita    |
-   | Azioni    | SpeechResponse-"OK, impostazione su {temperature} gradi" | Azione da eseguire quando la condizione della regola è true |
+   | Impostazione    | Valore consigliato                                           | Description                                        |
+   | ---------- | --------------------------------------------------------- | -------------------------------------------------- |
+   | Nome regola  | Messaggio di conferma                                      | Nome che descrive lo scopo della regola          |
+   | Condizioni | Parametro obbligatorio-temperatura                          | Condizioni che determinano quando la regola può essere eseguita    |
+   | Azioni    | SpeechResponse-"-OK, impostazione su {temperature} gradi" | Azione da eseguire quando la condizione della regola è true |
 
 > [!TIP]
 > In questo esempio viene utilizzata una risposta vocale per confermare il risultato. Per esempi sul completamento del comando con un'azione client, vedere [procedura: eseguire l'evasione dei comandi sul client con l'SDK di riconoscimento vocale (anteprima)](./how-to-custom-speech-commands-fulfill-sdk.md)
@@ -79,3 +79,8 @@ Selezionare il pannello test e provare alcune interazioni.
 - Output: "Mi dispiace, posso impostare solo tra 60 e 80 gradi"
 - Input: renderlo 72 gradi
 - Output: "OK, impostazione su 72 gradi"
+
+## <a name="next-steps"></a>Passaggi successivi
+
+> [!div class="nextstepaction"]
+> [Procedura: aggiungere una conferma a un comando personalizzato (anteprima)](./how-to-custom-speech-commands-confirmations.md)

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: abcd6dc8c50b819dd02347b938602af7f2152d04
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 358895f84b43437a174214eaf75e77574b3f02e8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996629"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462464"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guida alla pianificazione e alla gestione del Centro sicurezza di Azure
 Questa guida è destinata a professionisti IT, architetti IT, analisti della sicurezza delle informazioni e amministratori cloud che pianificano l'uso del Centro sicurezza di Azure.
@@ -41,7 +41,7 @@ A seconda delle dimensioni e della struttura dell'organizzazione, il Centro sicu
 
 ![Ruoli](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-new.png)
 
-Il Centro sicurezza consente a questi utenti di svolgere i relativi ruoli, Esempio:
+Il Centro sicurezza consente a questi utenti di svolgere i relativi ruoli, Ad esempio:
 
 **Jeff (proprietario del carico di lavoro)**
 
@@ -82,6 +82,10 @@ Con gli utenti tipo descritti nel diagramma precedente sarebbe necessario il con
 **Jeff (proprietario del carico di lavoro)**
 
 * Proprietario/collaboratore del gruppo di risorse
+
+**Ellen (CISO/CIO)**
+
+* Proprietario della sottoscrizione/collaboratore o amministratore della sicurezza
 
 **David (sicurezza IT)**
 
@@ -208,7 +212,7 @@ Come parte delle operazioni di sicurezza è consigliabile adottare misure preven
 È possibile usare i [controlli delle applicazioni adattivi](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application) per limitare le applicazioni che possono essere eseguite nelle macchine virtuali situate in Azure. Tra gli altri vantaggi, questo semplifica la protezione delle macchine virtuali da malware. Usando Machine Learning, il Centro sicurezza analizza i processi in esecuzione nella macchina virtuale per creare regole di inserimento nell'elenco elementi consentiti.
 
 
-## <a name="incident-response"></a>Risposta agli eventi imprevisti
+## <a name="incident-response"></a>Risposta agli avvenimenti
 Il Centro sicurezza rileva le minacce appena si verificano e avvisa l'utente. Le organizzazioni devono monitorare i nuovi avvisi di sicurezza e intraprendere le azioni necessarie per indagare più a fondo o correggere l'attacco. Per altre informazioni sul funzionamento del rilevamento delle minacce nel centro sicurezza, vedere [come il Centro sicurezza di Azure rileva e risponde alle minacce](security-center-alerts-overview.md#detect-threats).
 
 Per quanto offrire una guida alla creazione di un piano di risposta agli eventi imprevisti non rientri nelle finalità di questo articolo, il ciclo di vita della risposta del Centro sicurezza di Microsoft Azure nel cloud verrà usato come base per le fasi della risposta agli eventi imprevisti. Le fasi sono illustrate nel diagramma seguente:

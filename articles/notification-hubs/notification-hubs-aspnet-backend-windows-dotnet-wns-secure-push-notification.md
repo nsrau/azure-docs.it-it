@@ -1,5 +1,5 @@
 ---
-title: Push sicuro degli hub di notifica di Azure
+title: Push sicuro di hub di notifica di Azure per Windows
 description: Informazioni su come inviare notifiche push sicure in Azure. Gli esempi di codice sono scritti in C# mediante l'API .NET.
 documentationcenter: windows
 author: sethmanheim
@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 5d1cf2a74d4fe85bb85eb244da3e3757f36fba0a
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: db42cf7f886855af77073963e6f04ac088ca5612
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212041"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530732"
 ---
 # <a name="securely-push-notifications-from-azure-notification-hubs"></a>Inviare notifiche push in modo sicuro da Hub di notifica di Azure
 
@@ -30,7 +30,7 @@ ms.locfileid: "71212041"
 > * [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
 > * [Android](notification-hubs-aspnet-backend-android-secure-google-gcm-push-notification.md)
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Il supporto per le notifiche push in Microsoft Azure consente di accedere a un'infrastruttura push di facile utilizzo, multipiattaforma con scalabilità orizzontale, che semplifica considerevolmente l'implementazione delle notifiche push sia per le applicazioni consumer sia per quelle aziendali per piattaforme mobili.
 
@@ -159,7 +159,7 @@ Il passaggio successivo consiste nella creazione del componente push in backgrou
     using Windows.UI.Notifications;
     using Windows.Data.Xml.Dom;
     ```
-11. In Esplora soluzioni fare clic con il pulsante destro del mouse su **Riferimenti** nella cartella del progetto **NotifyUserWindowsPhone (Windows Phone 8.1)** , quindi scegliere **Aggiungi riferimento...** . Nella finestra di dialogo Gestione riferimenti selezionare la casella di controllo accanto a **PushBackgroundComponent**, quindi fare clic su **OK**.
+11. In Esplora soluzioni, nel progetto **NotifyUserWindowsPhone (Windows Phone 8,1)** , fare clic con il pulsante destro del mouse su **riferimenti**, quindi scegliere **Aggiungi riferimento.** Nella finestra di dialogo Gestione riferimenti selezionare la casella accanto a **PushBackgroundComponent**, quindi fare clic su **OK**.
 12. In Esplora soluzioni fare doppio clic sul file **Package.appxmanifest** nel progetto **NotifyUserWindowsPhone (Windows Phone 8.1)** . In **Notifiche** impostare **Popup supportati** su **Sì**.
 
     ![][3]

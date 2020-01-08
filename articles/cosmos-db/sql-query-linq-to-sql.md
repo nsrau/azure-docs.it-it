@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: d8dd6392cf22852a10c1dc2600edcbc647f3c510
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: d43f95b91df7d0c9c442339de51936200f4688e2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871160"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441262"
 ---
 # <a name="linq-to-sql-translation"></a>Traduzione LINQ in SQL
 
@@ -23,7 +23,7 @@ Il provider di query supporta le seguenti espressioni scalari:
 
 - Valori costanti, inclusi i valori costanti dei tipi di dati primitivi al momento della valutazione della query.
   
-- Espressioni di indice di proprietà/matrici che fanno riferimento alla proprietà di un oggetto o di un elemento di matrice. ad esempio:
+- Espressioni di indice di proprietà/matrici che fanno riferimento alla proprietà di un oggetto o di un elemento di matrice. Ad esempio:
   
   ```
     family.Id;
@@ -64,7 +64,7 @@ Il provider LINQ incluso in SQL .NET SDK supporta gli operatori seguenti:
 - **OrderBy** e **OrderByDescending**: translate in order by con ASC o DESC.
 - Operatori di aggregazione **Count**, **Sum**, **Min**, **Max** e **Average** e relativi equivalenti asincroni **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync** e **AverageAsync**.
 - **CompareTo**: converte in confronti di intervallo. Utilizzato comunemente per le stringhe, poiché non sono confrontabili in .NET.
-- **Take**: converte in SQL top per limitare i risultati di una query.
+- **Skip** and **Take**: converte in offset SQL e limite per limitare i risultati di una query e per eseguire l'impaginazione.
 - **Funzioni matematiche**: supporta la conversione da .NET `Abs`, `Acos`, `Asin`, `Atan`, `Ceiling`, `Cos`, `Exp`, `Floor`, `Log`, `Log10`, `Pow`, `Round`, `Sign`, `Sin`, `Sqrt`, `Tan`e `Truncate` alle funzioni predefinite SQL equivalenti.
 - **String Functions**: supporta la conversione da .NET `Concat`, `Contains`, `Count`, `EndsWith`,`IndexOf`, `Replace`, `Reverse`, `StartsWith`, `SubString`, `ToLower`, `ToUpper`, `TrimEnd`e `TrimStart` alle funzioni predefinite di SQL equivalenti.
 - **Funzioni di matrice**: supporta la conversione da .NET `Concat`, `Contains`e `Count` alle funzioni predefinite di SQL equivalenti.
@@ -72,7 +72,7 @@ Il provider LINQ incluso in SQL .NET SDK supporta gli operatori seguenti:
 - **Funzione di estensione della funzione definita dall'utente**: supporta la conversione dal metodo stub `UserDefinedFunctionProvider.Invoke` alla funzione corrispondente definita dall'utente.
 - **Varie**: supporta la conversione di operatori `Coalesce` e condizionali. Può tradurre `Contains` IN una stringa contenente, ARRAY_CONTAINS o SQL IN, a seconda del contesto.
 
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 
 Negli esempi seguenti viene illustrato il modo in cui alcuni degli operatori di query LINQ standard vengono convertiti in Cosmos DB query.
 

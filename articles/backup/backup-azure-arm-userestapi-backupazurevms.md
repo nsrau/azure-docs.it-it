@@ -4,12 +4,12 @@ description: Questo articolo illustra come configurare, avviare e gestire le ope
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 4f73958a46e408f85d1f23371552aad0d5540184
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 4789ef1e0e09df521f8cab539d972e9e669e0a58
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554917"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450154"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Eseguire il backup di una macchina virtuale di Azure con Backup di Azure tramite l'API REST
 
@@ -39,9 +39,9 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 L'operazione di aggiornamento è un'[operazione asincrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Ciò significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
 
-L'operazione restituisce due risposte: 202 (accettazione) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
+L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
 
-|name  |Type  |Description  |
+|Nome  |Tipo  |Description  |
 |---------|---------|---------|
 |204 No Content (Nessun contenuto)     |         |  OK senza alcun contenuto restituito      |
 |202 - Accettato     |         |     Accepted    |
@@ -100,11 +100,11 @@ Questa è un'operazione *GET*.
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupProtectableItems?api-version=2016-12-01&$filter=backupManagementType eq 'AzureIaasVM'
 ```
 
-All'URI di *GET* sono associati tutti i parametri obbligatori. Non è necessario alcun corpo della richiesta aggiuntivo.
+All'URI *GET* sono associati tutti i parametri obbligatori. Non è necessario alcun corpo della richiesta aggiuntivo.
 
 #### <a name="responses-1"></a>Risposte
 
-|name  |Type  |Description  |
+|Nome  |Tipo  |Description  |
 |---------|---------|---------|
 |200 - OK     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
@@ -180,7 +180,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 Di seguito vengono indicati i componenti del corpo della richiesta necessari per creare un elemento protetto.
 
-|name  |Type  |Description  |
+|Nome  |Tipo  |Description  |
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |Proprietà delle risorse ProtectedItem         |
 
@@ -206,9 +206,9 @@ Il corpo della richiesta seguente definisce le proprietà necessarie per creare 
 
 La creazione di un elemento protetto è un'[operazione asincrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Ciò significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
 
-L'operazione restituisce due risposte: 202 (accettazione) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
+L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
 
-|name  |Type  |Description  |
+|Nome  |Tipo  |Description  |
 |---------|---------|---------|
 |200 - OK     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
 |202 - Accettato     |         |     Accepted    |
@@ -294,7 +294,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 Di seguito vengono indicati i componenti del corpo della richiesta necessari per attivare un backup su richiesta.
 
-|name  |Type  |Description  |
+|Nome  |Tipo  |Description  |
 |---------|---------|---------|
 |properties     | [IaaSVMBackupRequest](https://docs.microsoft.com/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |Proprietà BackupRequestResource         |
 
@@ -317,9 +317,9 @@ Il corpo della richiesta seguente definisce le proprietà necessarie per attivar
 
 L'attivazione di un backup su richiesta è un'[operazione asincrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Ciò significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
 
-L'operazione restituisce due risposte: 202 (accettazione) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
+L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
 
-|name  |Type  |Description  |
+|Nome  |Tipo  |Description  |
 |---------|---------|---------|
 |202 - Accettato     |         |     Accepted    |
 
@@ -433,16 +433,38 @@ Gli elementi `{containerName}` e `{protectedItemName}` sono come creati [in prec
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2019-05-13
 ```
 
-### <a name="responses-2"></a>Risposte
+#### <a name="responses-2"></a>Risposte
 
 L'operazione *DELETE* applicata alla protezione è un'[operazione asincrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Ciò significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
 
 L'operazione restituisce due risposte: 202 (accettazione) quando viene creata un'altra operazione e 204 (nessun contenuto restituito) quando tale operazione viene completata.
 
-|name  |Type  |Description  |
+|Nome  |Tipo  |Description  |
 |---------|---------|---------|
 |204 NoContent (Nessun contenuto)     |         |  Nessun contenuto restituito       |
 |202 - Accettato     |         |     Accepted    |
+
+> [!IMPORTANT]
+> Per garantire la protezione da scenari di eliminazione accidentale, è [disponibile una funzionalità di eliminazione](use-restapi-update-vault-properties.md#soft-delete-state) temporanea per l'insieme di credenziali di servizi di ripristino. Se lo stato di eliminazione temporanea dell'insieme di credenziali è impostato su abilitato, l'operazione di eliminazione non eliminerà immediatamente i dati. Verranno conservati per 14 giorni e quindi eliminati definitivamente. Il cliente non viene addebitato per l'archiviazione per il periodo di 14 giorni. Per annullare l'operazione di eliminazione, fare riferimento alla [sezione Undo-Delete](#undo-the-stop-protection-and-delete-data).
+
+### <a name="undo-the-stop-protection-and-delete-data"></a>Annullare l'arresto della protezione ed eliminare i dati
+
+L'eliminazione accidentale è simile alla creazione dell'elemento di backup. Dopo aver annullato l'eliminazione, l'elemento viene mantenuto, ma non vengono attivati backup futuri.
+
+L'eliminazione Annulla è un'operazione *put* che è molto simile alla [modifica dei criteri](#changing-the-policy-of-protection) e/o [all'abilitazione della protezione](#enabling-protection-for-the-azure-vm). È sufficiente fornire l'intenzione di annullare l'eliminazione con la variabile *isRehydrate* nel [corpo della richiesta](#example-request-body) e inviare la richiesta. Ad esempio: per annullare l'eliminazione per testVM, è necessario usare il corpo della richiesta seguente.
+
+```http
+{
+  "properties": {
+    "protectedItemType": "Microsoft.Compute/virtualMachines",
+    "protectionState": "ProtectionStopped",
+    "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testVM",
+    "isRehydrate": true
+  }
+}
+```
+
+Il formato della risposta è analogo a quello indicato [per attivare un backup su richiesta](#example-responses-3). Il processo risultante deve essere rilevato come illustrato nel [documento per monitorare i processi usando l'API REST](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

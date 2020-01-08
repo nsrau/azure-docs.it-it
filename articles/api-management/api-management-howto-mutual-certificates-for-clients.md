@@ -1,5 +1,6 @@
 ---
-title: Proteggere le API usando l'autenticazione con certificato client in Gestione API - Gestione API di Azure | Documentazione Microsoft
+title: Proteggere le API usando l'autenticazione con certificati client in gestione API
+titleSuffix: Azure API Management
 description: Informazioni su come proteggere l'accesso alle API usando i certificati client
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: apimpm
-ms.openlocfilehash: 263f8495b9dbb0a1c5b3c54301b4b4deab425e31
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 85eeaaa052604c3198ca2ab8988f9e7a77e2a63d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072370"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430656"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Come proteggere le API usando l'autenticazione con certificati client in Gestione API
 
@@ -45,8 +46,8 @@ Per informazioni sulla protezione dell'accesso al servizio back-end di un'API us
 ```
 
 > [!NOTE]
-> Per disabilitare il controllo dell'elenco di revoche `context.Request.Certificate.VerifyNoRevocation()` di certificati `context.Request.Certificate.Verify()`, utilizzare invece di.
-> Se il certificato client è autofirmato, i certificati della CA radice (o intermedia) devono essere [caricati](api-management-howto-ca-certificates.md) in gestione API per `context.Request.Certificate.Verify()` il `context.Request.Certificate.VerifyNoRevocation()` funzionamento di e.
+> Per disabilitare il controllo dell'elenco di revoche di certificati, utilizzare `context.Request.Certificate.VerifyNoRevocation()` anziché `context.Request.Certificate.Verify()`.
+> Se il certificato client è autofirmato, i certificati della CA radice (o intermedia) devono essere [caricati](api-management-howto-ca-certificates.md) in gestione API affinché `context.Request.Certificate.Verify()` e `context.Request.Certificate.VerifyNoRevocation()` funzionino.
 
 ## <a name="checking-the-thumbprint"></a>Controllo dell'identificazione personale
 
@@ -63,8 +64,8 @@ I criteri riportati di seguito possono essere configurati per controllare l'iden
 ```
 
 > [!NOTE]
-> Per disabilitare il controllo dell'elenco di revoche `context.Request.Certificate.VerifyNoRevocation()` di certificati `context.Request.Certificate.Verify()`, utilizzare invece di.
-> Se il certificato client è autofirmato, i certificati della CA radice (o intermedia) devono essere [caricati](api-management-howto-ca-certificates.md) in gestione API per `context.Request.Certificate.Verify()` il `context.Request.Certificate.VerifyNoRevocation()` funzionamento di e.
+> Per disabilitare il controllo dell'elenco di revoche di certificati, utilizzare `context.Request.Certificate.VerifyNoRevocation()` anziché `context.Request.Certificate.Verify()`.
+> Se il certificato client è autofirmato, i certificati della CA radice (o intermedia) devono essere [caricati](api-management-howto-ca-certificates.md) in gestione API affinché `context.Request.Certificate.Verify()` e `context.Request.Certificate.VerifyNoRevocation()` funzionino.
 
 ## <a name="checking-a-thumbprint-against-certificates-uploaded-to-api-management"></a>Controllo di un'identificazione personale rispetto a certificati caricati in Gestione API
 
@@ -82,11 +83,11 @@ L'esempio seguente illustra come controllare l'identificazione personale di un c
 ```
 
 > [!NOTE]
-> Per disabilitare il controllo dell'elenco di revoche `context.Request.Certificate.VerifyNoRevocation()` di certificati `context.Request.Certificate.Verify()`, utilizzare invece di.
-> Se il certificato client è autofirmato, i certificati della CA radice (o intermedia) devono essere [caricati](api-management-howto-ca-certificates.md) in gestione API per `context.Request.Certificate.Verify()` il `context.Request.Certificate.VerifyNoRevocation()` funzionamento di e.
+> Per disabilitare il controllo dell'elenco di revoche di certificati, utilizzare `context.Request.Certificate.VerifyNoRevocation()` anziché `context.Request.Certificate.Verify()`.
+> Se il certificato client è autofirmato, i certificati della CA radice (o intermedia) devono essere [caricati](api-management-howto-ca-certificates.md) in gestione API affinché `context.Request.Certificate.Verify()` e `context.Request.Certificate.VerifyNoRevocation()` funzionino.
 
 > [!TIP]
-> Il problema di deadlock del certificato client descritto in questo [articolo](https://techcommunity.microsoft.com/t5/Networking-Blog/HTTPS-Client-Certificate-Request-freezes-when-the-Server-is/ba-p/339672) può manifestarsi in diversi modi, ad esempio le richieste bloccate, il risultato del codice `context.Request.Certificate` di `null` `403 Forbidden` stato dopo il timeout è. Questo problema in genere `POST` interessa `PUT` e richiede una lunghezza del contenuto di approssimativamente 60kb o superiore.
+> Il problema di deadlock del certificato client descritto in questo [articolo](https://techcommunity.microsoft.com/t5/Networking-Blog/HTTPS-Client-Certificate-Request-freezes-when-the-Server-is/ba-p/339672) può manifestarsi in diversi modi, ad esempio le richieste bloccate, le richieste generano `403 Forbidden` codice di stato dopo il timeout, `context.Request.Certificate` è `null`. Questo problema in genere interessa `POST` e `PUT` richieste con una lunghezza del contenuto di circa 60KB o superiore.
 > Per evitare che si verifichi questo problema, attivare l'impostazione "Negotiate client certificate" per i nomi host desiderati nel pannello "domini personalizzati", come illustrato di seguito. Questa funzionalità non è disponibile nel livello a consumo.
 
 ![Negozia certificato client](./media/api-management-howto-mutual-certificates-for-clients/negotiate-client-certificate.png)

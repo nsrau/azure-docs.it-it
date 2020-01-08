@@ -1,5 +1,5 @@
 ---
-title: Automatizzare i processi di Azure Application Insights con app per la logica.
+title: Automatizzare i processi di applicazione Azure Insights usando app per la logica
 description: Informazioni su come automatizzare in poco tempo i processi ripetibili aggiungendo il connettore di Application Insights all'app per la logica.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/11/2019
-ms.openlocfilehash: 8211598071d0835a32f9e25cfcf4e34576702770
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 95a3577d352b6bc4b56d36b5b79658571a6be1ff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677609"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407526"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatizzare i processi di Application Insights con app per la logica
 
@@ -50,7 +50,7 @@ Questa esercitazione illustra come creare un'app per la logica che usa l'algorit
 
     !["Scegliere un'azione" nella finestra Progettazione app per la logica](./media/automate-with-logic-apps/4visualize.png)
 
-### <a name="step-4-connect-to-an-application-insights-resource"></a>Passaggio 4: Connettersi a una risorsa di Application Insights
+### <a name="step-4-connect-to-an-application-insights-resource"></a>Passaggio 4: Connettersi a una risorsa di Application Insightss
 
 Per completare questo passaggio, sono necessari un ID applicazione e una chiave API per la risorsa. È possibile recuperare queste informazioni dal portale di Azure, come illustrato nell'immagine seguente:
 
@@ -90,7 +90,7 @@ Quando si creano query, verificare che funzionino correttamente in Analisi prima
 
 1. Nella casella di ricerca digitare **Office 365 Outlook**.
 
-1. Fare clic su **Office 365 Outlook - Send an email** (Office 365 Outlook: invia un messaggio di posta elettronica).
+1. Fare clic su **Office 365 Outlook - Send an email** (Office 365 Outlook - Invia un messaggio di posta elettronica).
 
     ![Selezione di Office 365 Outlook](./media/automate-with-logic-apps/9sendemail.png)
 

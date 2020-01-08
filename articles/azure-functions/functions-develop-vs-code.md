@@ -3,12 +3,12 @@ title: Sviluppare funzioni di Azure usando Visual Studio Code
 description: Informazioni su come sviluppare e testare funzioni di Azure usando l'estensione funzioni di Azure per Visual Studio Code.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: cf96a0630440904282f076de2f916fb3dbf3eb1c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 54bbc46c703646f4680f6dc22d5c4b6781614ae7
+ms.sourcegitcommit: 541e6139c535d38b9b4d4c5e3bfa7eef02446fdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975585"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75667549"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Sviluppare funzioni di Azure usando Visual Studio Code
 
@@ -94,10 +94,6 @@ A questo punto, è possibile aggiungere associazioni di input e di output alla f
 
 Ad eccezione dei trigger HTTP e timer, le associazioni sono implementate nei pacchetti di estensione. È necessario installare i pacchetti di estensione per i trigger e le associazioni per cui sono necessari. Il processo per l'installazione delle estensioni di binding dipende dalla lingua del progetto.
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
-
-[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
-
 # <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 Eseguire il comando [DotNet Add Package](/dotnet/core/tools/dotnet-add-package) nella finestra del terminale per installare i pacchetti di estensione necessari nel progetto. Il comando seguente installa l'estensione di archiviazione di Azure, che implementa le associazioni per l'archiviazione BLOB, di Accodamento e tabelle.
@@ -105,6 +101,10 @@ Eseguire il comando [DotNet Add Package](/dotnet/core/tools/dotnet-add-package) 
 ```bash
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 ```
+
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
 ---
 
@@ -114,13 +114,13 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 
 I risultati di questa azione dipendono dalla lingua del progetto:
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
-
-Nel progetto viene creata una nuova cartella. La cartella contiene un nuovo file function. JSON e il nuovo file di codice JavaScript.
-
 # <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 Un nuovo C# file di libreria di classi (con estensione CS) verrà aggiunto al progetto.
+
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+
+Nel progetto viene creata una nuova cartella. La cartella contiene un nuovo file function. JSON e il nuovo file di codice JavaScript.
 
 ---
 
@@ -130,6 +130,24 @@ Un nuovo C# file di libreria di classi (con estensione CS) verrà aggiunto al pr
 
 Gli esempi seguenti si connettono a una coda di archiviazione denominata `outqueue`, in cui la stringa di connessione per l'account di archiviazione viene impostata nell'impostazione dell'applicazione `MyStorageConnection` in local. Settings. JSON.
 
+# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+
+Aggiornare il metodo Function per aggiungere il parametro seguente alla definizione del metodo `Run`:
+
+```cs
+[Queue("outqueue"),StorageAccount("MyStorageConnection")] ICollector<string> msg
+```
+
+Per questo codice è necessario aggiungere l'istruzione `using` seguente:
+
+```cs
+using Microsoft.Azure.WebJobs.Extensions.Storage;
+```
+
+Il parametro `msg` è un tipo `ICollector<T>`, che rappresenta una raccolta di messaggi scritti in un binding di output al completamento della funzione. Si aggiungono uno o più messaggi alla raccolta. Questi messaggi vengono inviati alla coda al termine della funzione.
+
+Per altre informazioni, vedere la documentazione sull' [associazione di output dell'archiviazione code](functions-bindings-storage-queue.md#output---c-example) .
+
 # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
 Visual Studio Code consente di aggiungere binding al file function. JSON attenendosi a un set di istruzioni appropriato. Per creare un'associazione, fare clic con il pulsante destro del mouse (Ctrl + clic su macOS) nel file **Function. JSON** nella cartella della funzione e selezionare **Aggiungi binding**:
@@ -138,13 +156,13 @@ Visual Studio Code consente di aggiungere binding al file function. JSON attenen
 
 Di seguito sono riportate alcune richieste di esempio per definire una nuova associazione di output di archiviazione:
 
-| Prompt | Value | Description |
+| Prompt | Valore | Description |
 | -------- | ----- | ----------- |
 | **Selezionare la direzione di binding** | `out` | Il binding è un binding di output. |
 | **Seleziona binding con direzione** | `Azure Queue Storage` | Il binding è un binding della coda di archiviazione di Azure. |
 | **Il nome usato per identificare questo binding nel codice** | `msg` | Nome che identifica il parametro di binding a cui viene fatto riferimento nel codice. |
 | **La coda a cui verrà inviato il messaggio** | `outqueue` | Il nome della coda in cui scrive il binding. Se *queueName* non esiste, il binding lo crea al primo utilizzo. |
-| **Selezionare l'impostazione da "local.setting.json"** | `MyStorageConnection` | Nome di un'impostazione dell'applicazione che contiene la stringa di connessione per l'account di archiviazione. L'impostazione `AzureWebJobsStorage` contiene la stringa di connessione per l'account di archiviazione creato con l'app per le funzioni. |
+| **Selezionare l'impostazione da "local. Settings. JSON"** | `MyStorageConnection` | Nome di un'impostazione dell'applicazione che contiene la stringa di connessione per l'account di archiviazione. L'impostazione `AzureWebJobsStorage` contiene la stringa di connessione per l'account di archiviazione creato con l'app per le funzioni. |
 
 In questo esempio, l'associazione seguente viene aggiunta alla matrice `bindings` nel file function. JSON:
 
@@ -168,25 +186,7 @@ context.bindings.msg = "Name passed to the function: " req.query.name;
 
 Per altre informazioni, vedere riferimento dell' [associazione di output dell'archiviazione code](functions-bindings-storage-queue.md#output---javascript-example) .
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
-
-Aggiornare il metodo Function per aggiungere il parametro seguente alla definizione del metodo `Run`:
-
-```cs
-[Queue("outqueue"),StorageAccount("MyStorageConnection")] ICollector<string> msg
-```
-
-Per questo codice è necessario aggiungere l'istruzione `using` seguente:
-
-```cs
-using Microsoft.Azure.WebJobs.Extensions.Storage;
-```
-
 ---
-
-Il parametro `msg` è un tipo `ICollector<T>`, che rappresenta una raccolta di messaggi scritti in un binding di output al completamento della funzione. Si aggiungono uno o più messaggi alla raccolta. Questi messaggi vengono inviati alla coda al termine della funzione.
-
-Per altre informazioni, vedere la documentazione sull' [associazione di output dell'archiviazione code](functions-bindings-storage-queue.md#output---c-example) .
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
@@ -218,7 +218,7 @@ La procedura seguente consente di pubblicare il progetto in una nuova app per le
 
 1. Dopo i prompt, fornire le seguenti informazioni:
 
-    | Prompt | Value | Description |
+    | Prompt | Valore | Description |
     | ------ | ----- | ----------- |
     | Selezionare l'app per le funzioni in Azure | Crea nuovo app per le funzioni in Azure | Al prompt successivo, digitare un nome univoco globale che identifichi la nuova app per le funzioni e quindi premere INVIO. I caratteri validi per un nome di app per le funzioni sono `a-z`, `0-9` e `-`. |
     | Selezionare un sistema operativo | Windows | L'app per le funzioni viene eseguita in Windows. |
@@ -267,12 +267,12 @@ Per eseguire localmente il progetto di funzioni, è necessario soddisfare i requ
 
 * Installare i requisiti specifici per il linguaggio scelto:
 
-    | Linguaggio | Requisito |
+    | Lingua | Requisito |
     | -------- | --------- |
     | **C#** | [Estensione C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[Strumenti di interfaccia della riga di comando di .NET Core](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
     | **Java** | [Debugger per l'estensione Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 o versione successiva](https://maven.apache.org/) |
     | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> |  
-    | **Python** | [estensione Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[3.6.8 tramite Python](https://www.python.org/downloads/) consigliato|
+    | **Python** | [Estensione di Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[3.6.8 tramite Python](https://www.python.org/downloads/) consigliato|
 
     <sup>*</sup>Versioni di Active LTS e Maintenance LTS (consigliate 8.11.1 e 10.14.1).
 

@@ -1,19 +1,18 @@
 ---
 title: Elaborare flussi di dati in tempo reale con analisi di flusso di Azure
 description: Tag dei sensori IoT e flussi di dati con l'elaborazione dei dati in tempo reale e l'analisi di flusso
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 11/26/2019
-ms.openlocfilehash: 1cc9c6dbb700664e732a67245563e9a211456767
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 0755131f7d8071e37eadc1339ebc5e122725fa71
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559797"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426253"
 ---
 # <a name="process-real-time-iot-data-streams-with-azure-stream-analytics"></a>Elaborare flussi di dati in tempo reale con analisi di flusso di Azure
 
@@ -151,7 +150,7 @@ WHERE t2.dspl IS NULL
 
 In questo caso viene usato un **LEFT OUTER JOIN** per lo stesso flusso di dati (self-join). In caso di **INNER JOIN** viene restituito un risultato solo quando viene trovata una corrispondenza.  In caso di **LEFT OUTER JOIN**, se un evento del lato sinistro del join è senza corrispondenza viene restituita una riga con valore NULL per tutte le colonne del lato destro. Questa tecnica è molto utile per trovare un'assenza di eventi. Per ulteriori informazioni, vedere [join](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics).
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 
 Lo scopo di questo articolo è illustrare come scrivere query del linguaggio di query di analisi di flusso diverse e visualizzare i risultati nel browser. Tuttavia, questo è solo per iniziare. Analisi di flusso supporta un'ampia gamma di input e output e può anche usare le funzioni di Azure Machine Learning per offrire uno strumento efficace per l'analisi dei flussi di dati. Per altre informazioni su come scrivere le query, vedere l'articolo sui [modelli di query comuni](stream-analytics-stream-analytics-query-patterns.md).
 

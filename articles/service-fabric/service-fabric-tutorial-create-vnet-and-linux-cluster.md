@@ -1,26 +1,15 @@
 ---
-title: Creare un cluster Linux di Service Fabric in Azure | Microsoft Docs
+title: Creare un cluster Linux Service Fabric in Azure
 description: Informazioni su come distribuire un cluster Linux di Service Fabric in una rete virtuale di Azure esistente tramite l'interfaccia della riga di comando di Azure.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/14/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 2ba157d7bf2e6effbaf7ab129dbbbfd1ca8b9667
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 059f0f4b1eac9546f1adc05bf1f2799affc0dd8e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598848"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465404"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Distribuire un cluster Linux di Service Fabric in una rete virtuale di Azure
 
@@ -51,9 +40,9 @@ Questo modello distribuisce un cluster sicuro di sette macchine virtuali e tre t
 
 Nella risorsa **Microsoft.ServiceFabric/clusters** viene distribuito un cluster Linux con le caratteristiche seguenti:
 
-* Tre tipi di nodi
+* tre tipi di nodi
 * Cinque nodi del tipo di nodo primario (configurabile nei parametri del modello), un nodo di ognuno degli altri tipi di nodi
-* Sistema operativo: Ubuntu 16.04 LTS (configurabile nei parametri del modello)
+* Sistema operativo Ubuntu 16.04 LTS (configurabile nei parametri del modello)
 * Protezione con certificato (configurabile nei parametri del modello)
 * [Servizio DNS](service-fabric-dnsservice.md) abilitato
 * [Livello di durabilità](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Bronzo (configurabile nei parametri del modello)
@@ -61,7 +50,7 @@ Nella risorsa **Microsoft.ServiceFabric/clusters** viene distribuito un cluster 
 * Endpoint di connessione client: 19000 (configurabile nei parametri del modello)
 * Endpoint del gateway HTTP: 19080 (configurabile nei parametri del modello)
 
-### <a name="azure-load-balancer"></a>Azure Load Balancer
+### <a name="azure-load-balancer"></a>Servizio di bilanciamento del carico di Azure
 
 Nella risorsa **Microsoft.Network/loadBalancers** viene configurato un servizio di bilanciamento del carico e vengono impostate probe e regole per le porte seguenti:
 
@@ -74,8 +63,8 @@ Nella risorsa **Microsoft.Network/loadBalancers** viene configurato un servizio 
 
 I nomi della rete virtuale e della subnet sono dichiarati nei parametri del modello.  così come gli spazi indirizzi della rete virtuale e della subnet. Questi ultimi vengono configurati nella risorsa **Microsoft.Network/virtualNetworks**:
 
-* Spazio degli indirizzi della rete virtuale: 10.0.0.0/16
-* Spazio degli indirizzi della subnet di Service Fabric: 10.0.2.0/24
+* Spazio indirizzi della rete virtuale: 10.0.0.0/16
+* Spazio indirizzi della subnet di Service Fabric: 10.0.2.0/24
 
 Se sono necessarie altre porte dell'applicazione, si dovrà modificare la risorsa Microsoft.Network/loadBalancers in modo da consentire il traffico in ingresso.
 
@@ -88,7 +77,7 @@ Il file dei parametri [file azuredeploy. Parameters][parameters] dichiara molti 
 |adminUserName|vmadmin| Nome utente amministratore per le VM del cluster. |
 |adminPassword|Password#1234| Password amministratore per le VM del cluster.|
 |clusterName|mysfcluster123| Nome del cluster. |
-|location|southcentralus| Località del cluster. |
+|posizione|southcentralus| Località del cluster. |
 |certificateThumbprint|| <p>Il valore deve essere vuoto se si crea un certificato autofirmato o si specifica un file di certificato.</p><p>Per usare un certificato esistente precedentemente caricato in un insieme di credenziali delle chiavi, immettere il valore di identificazione personale SHA1 del certificato, ad esempio "6190390162C988701DB5676EB81083EA608DCCF3". </p>|
 |certificateUrlValue|| <p>Il valore deve essere vuoto se si crea un certificato autofirmato o si specifica un file di certificato.</p><p>Per usare un certificato esistente precedentemente caricato in un insieme di credenziali delle chiavi, immettere l'URL del certificato, ad esempio "https:\//mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>Il valore deve essere vuoto se si crea un certificato autofirmato o si specifica un file di certificato.</p><p>Per usare un certificato esistente precedentemente caricato in un insieme di credenziali delle chiavi, immettere il valore dell'insieme di credenziali di origine, ad esempio "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p>|
@@ -166,7 +155,7 @@ Se non si intende passare subito all'articolo successivo, è opportuno [eliminar
 
 Informazioni su come [ridimensionare un cluster](service-fabric-tutorial-scale-cluster.md).
 
-Il modello in questo articolo distribuisce un cluster che usa l'identificazione personale del certificato per identificare il certificato del cluster.  Nessun certificato può avere la stessa identificazione personale di un altro, il che rende più difficile gestire i certificati. Commutare un cluster distribuito dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato rende molto più semplice la gestione dei certificati.  Per informazioni su come aggiornare il cluster per usare i nomi comuni del certificato per la gestione dei certificati, vedere [Modificare il cluster per la gestione dei nomi comuni del certificato](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
+Il modello in questo articolo distribuisce un cluster che usa l'identificazione personale del certificato per identificare il certificato del cluster.  Nessun certificato può avere la stessa identificazione personale di un altro, il che rende più difficile gestire i certificati. Commutare un cluster distribuito dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato rende molto più semplice la gestione dei certificati.  Per informazioni su come aggiornare il cluster per l'uso dei nomi comuni del certificato per la gestione dei certificati, vedere [Passare dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato in un cluster](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.Parameters.json

@@ -7,12 +7,12 @@ ms.date: 11/14/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: b6b7d4614d3c63fe93e213fb830b85d0b7f9c474
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 87ffca1957d4ec449753f1966ed05cf3948f5ca2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974871"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453949"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Come usare i criteri di allocazione personalizzati
 
@@ -41,7 +41,10 @@ In questo articolo vengono eseguiti i passaggi seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 o versione successiva con il carico di lavoro [Sviluppo di applicazioni desktop con C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) abilitato.
+I prerequisiti seguenti sono per un ambiente di sviluppo Windows. Per Linux o macOS, vedere la sezione appropriata in [preparare l'ambiente di sviluppo](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) nella documentazione di SDK.
+
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 con il carico di lavoro [' C++sviluppo di applicazioni desktop con '](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) abilitato. Sono supportati anche Visual Studio 2015 e Visual Studio 2017.
+
 * La versione più recente di [Git](https://git-scm.com/download/) installata.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -349,7 +352,7 @@ Per l'esempio di questo articolo, usare i due ID di registrazione del dispositiv
 
 Se si usa una workstation Linux, è possibile usare OpenSSL per generare le chiavi del dispositivo derivate, come illustrato nell'esempio seguente.
 
-1. Sostituire il valore della **CHIAVE** con la **Chiave primaria** annotata in precedenza.
+1. Sostituire il valore della **CHIAVE** con la **chiave primaria** annotata in precedenza.
 
     ```bash
     KEY=oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA==
@@ -373,7 +376,7 @@ Se si usa una workstation Linux, è possibile usare OpenSSL per generare le chia
 
 Se si usa una workstation basata su Windows, è possibile usare PowerShell per generare la chiave del dispositivo derivata, come illustrato nell'esempio seguente.
 
-1. Sostituire il valore della **CHIAVE** con la **Chiave primaria** annotata in precedenza.
+1. Sostituire il valore della **CHIAVE** con la **chiave primaria** annotata in precedenza.
 
     ```powershell
     $KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
@@ -406,25 +409,28 @@ Questa sezione si riferisce a una workstation basata su Windows. Per un esempio 
 
 1. Scaricare il [sistema di compilazione CMake](https://cmake.org/download/).
 
-    È importante che i prerequisiti di Visual Studio (Visual Studio e il carico di lavoro "Sviluppo di applicazioni desktop con C++") siano installati nel computer **prima** di avviare l'installazione di `CMake`. Quando i prerequisiti sono pronti e il download è stato verificato, installare il sistema di compilazione CMake.
+    È importante che nel computer siano installati i prerequisiti di Visual Studio (Visual Studio e carico di lavoro 'Sviluppo di applicazioni desktop con C++') **prima** di avviare l'installazione di `CMake`. Quando i prerequisiti sono pronti e il download è stato verificato, installare il sistema di compilazione CMake.
 
-2. Aprire un prompt dei comandi o la shell Git Bash. Eseguire il comando seguente per clonare il repository GitHub Azure IoT C SDK:
+2. Trovare il nome del tag per la [versione più recente](https://github.com/Azure/azure-iot-sdk-c/releases/latest) dell'SDK.
+
+3. Aprire un prompt dei comandi o la shell Git Bash. Eseguire i comandi seguenti per clonare la versione più recente del repository GitHub di [Azure-C SDK](https://github.com/Azure/azure-iot-sdk-c) . Usare il tag trovato nel passaggio precedente come valore per il parametro `-b`:
 
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
 
     Il completamento di questa operazione richiederà alcuni minuti.
 
-3. Creare una sottodirectory `cmake` nella directory radice del repository Git e passare a tale cartella. 
+4. Creare una sottodirectory `cmake` nella directory radice del repository Git e passare a tale cartella. Eseguire i comandi seguenti dalla directory `azure-iot-sdk-c`:
 
     ```cmd/sh
-    cd azure-iot-sdk-c
     mkdir cmake
     cd cmake
     ```
 
-4. Eseguire il comando seguente che compila una versione dell'SDK specifica per la piattaforma di sviluppo client. Verrà generata una soluzione di Visual Studio per il dispositivo simulato nella directory `cmake`. 
+5. Eseguire il comando seguente che compila una versione dell'SDK specifica per la piattaforma di sviluppo client. Verrà generata una soluzione di Visual Studio per il dispositivo simulato nella directory `cmake`. 
 
     ```cmd
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
@@ -472,7 +478,7 @@ Questo codice di esempio simula una sequenza di avvio di dispositivo che invia l
     static const char* id_scope = "0ne00002193";
     ```
 
-5. Trovare la definizione per la funzione `main()` nello stesso file. Assicurarsi che la variabile `hsm_type` sia impostata su `SECURE_DEVICE_TYPE_SYMMETRIC_KEY` come illustrato di seguito:
+5. Trovare la definizione per la funzione `main()` nello stesso file. Assicurarsi che la variabile`hsm_type` sia impostata su `SECURE_DEVICE_TYPE_SYMMETRIC_KEY` come illustrato di seguito:
 
     ```c
     SECURE_DEVICE_TYPE hsm_type;

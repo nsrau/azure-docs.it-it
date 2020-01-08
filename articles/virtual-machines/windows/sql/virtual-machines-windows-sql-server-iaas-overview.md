@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: baa3444773c41bc91de7e35d2c80f066b96b9ed5
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 7d8d1505a268976161636abd0ed2d24398978284
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790405"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374303"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Cos'è SQL Server in Macchine virtuali di Azure? (Windows)
 
@@ -103,14 +103,16 @@ Se esiste già un database, è possibile spostarlo nella nuova VM di SQL di cui 
 
 Il portale di Azure fornisce un'unica pagina in cui è possibile gestire [tutte le risorse SQL di Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Sql%2Fazuresql) , incluse le macchine virtuali SQL.
 
-Per accedere alla pagina **risorse SQL di Azure** , selezionare **Azure SQL** nel menu a sinistra del portale di Azure. Se **Azure SQL** non è presente nell'elenco, selezionare **Tutti i servizi** e quindi digitare *Azure SQL* nella casella di ricerca.
+Per accedere alla pagina **risorse SQL di Azure** , selezionare **Azure sql** dal menu portale di Azure oppure cercare e selezionare **Azure SQL** da qualsiasi pagina.
+
+![Ricerca di Azure SQL](./media/quickstart-sql-vm-create-portal/search-for-azure-sql.png)
 
 > [!NOTE]
 > **Azure SQL** offre un modo semplice e rapido per accedere a tutti i database SQL, i pool elastici, i server di database, le istanze gestite di SQL e le macchine virtuali SQL. SQL di Azure non è un servizio o una risorsa. 
 
 Per gestire le risorse esistenti, selezionare l'elemento desiderato nell'elenco. Per creare nuove risorse SQL di Azure, selezionare **+ Aggiungi**. 
 
-![Pagina del portale SQL di Azure](./media/quickstart-sql-vm-create-portal/azure-sql.png)
+![Creare una risorsa SQL di Azure](./media/quickstart-sql-vm-create-portal/create-azure-sql-resource.png)
 
 Dopo aver selezionato **+ Aggiungi**, visualizzare altre informazioni sulle diverse opzioni selezionando **Mostra dettagli** in qualsiasi riquadro.
 
@@ -139,7 +141,7 @@ Il programma Analisi utilizzo software è abilitato per impostazione predefinita
 ### <a name="networking"></a>Rete
 * [Panoramica della rete virtuale](../../../virtual-network/virtual-networks-overview.md)
 * [Indirizzi IP in Azure](../../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
-* [Creare un nome di dominio completo nel portale di Azure.](../portal-create-fqdn.md)
+* [Creare un nome di dominio completo nel portale di Azure](../portal-create-fqdn.md)
 
 ### <a name="sql"></a>SQL
 * [Documentazione di SQL Server](https://docs.microsoft.com/sql/index)

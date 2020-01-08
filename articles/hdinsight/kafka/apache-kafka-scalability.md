@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/30/2018
-ms.openlocfilehash: ef32a5d3a1439cded6cd092f076e7b26c178cb7a
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.custom: hdinsightactive
+ms.date: 12/09/2019
+ms.openlocfilehash: 5ce8414376862b66314f754252aba3ab6afdaf25
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122100"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435299"
 ---
 # <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>Configurare l'archiviazione e la scalabilità per Apache Kafka in HDInsight
 
@@ -25,18 +25,18 @@ Il diagramma seguente offre un confronto tra Kafka in HDInsight prima dei dischi
 
 ![Kafka con architettura Managed Disks](./media/apache-kafka-scalability/kafka-with-managed-disks-architecture.png)
 
-## <a name="configure-managed-disks-azure-portal"></a>Configurare dischi gestiti: Portale di Azure
+## <a name="configure-managed-disks-azure-portal"></a>Configurare i dischi gestiti: portale di Azure
 
 1. Seguire i passaggi riportati in [Creare un cluster HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md) per comprendere le operazioni principali per creare un cluster tramite il portale. Non completare il processo di creazione del portale.
 
-2. Nella sezione __Dimensioni del cluster__ usare il campo __Disks per worker node__ (Dischi per nodo del ruolo di lavoro) per configurare il numero di dischi.
+2. Nella sezione **Configuration & pricing** usare il campo __Number of nodes__ per configurare il numero di dischi.
 
     > [!NOTE]  
     > Il tipo di disco gestito può essere __Standard__ (HDD) o __Premium__ (SSD). I dischi Premium sono usati con le macchine virtuali serie DS e GS. Tutti gli altri tipi di macchine virtuali usano dischi Standard.
 
-    ![sezione dimensioni cluster con i dischi per nodo del ruolo di lavoro evidenziato](./media/apache-kafka-scalability/set-managed-disks-portal.png)
+    ![sezione dimensioni cluster con i dischi per nodo del ruolo di lavoro evidenziato](./media/apache-kafka-scalability/azure-portal-cluster-configuration-pricing-kafka.png)
 
-## <a name="configure-managed-disks-resource-manager-template"></a>Configurare dischi gestiti: Modello di Resource Manager
+## <a name="configure-managed-disks-resource-manager-template"></a>Configurare i dischi gestiti: modello di Resource Manager
 
 Per controllare il numero di dischi usati dai nodi del ruolo di lavoro in un cluster Kafka, usare la sezione seguente del modello:
 

@@ -4,15 +4,15 @@ description: Questo articolo descrive come connettere i computer Windows ospitat
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: 42183ca7b02ba75b241ee1a83b5a0dc936a8c1c8
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 8918c18c9356c583b9ea23138f0d0a0fb4dcd845
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420428"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689986"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Connettere i computer Windows a monitoraggio di Azure
 
@@ -38,7 +38,7 @@ Per comprendere la configurazione supportata, vedere i [sistemi operativi Window
 ## <a name="obtain-workspace-id-and-key"></a>Ottenere l'ID e la chiave dell'area di lavoro
 Prima di installare l'agente di Log Analytics per Windows, sono necessari l'ID e la chiave dell'area di lavoro per l'area di lavoro Log Analytics.  Queste informazioni sono necessarie durante l'installazione da ogni metodo di installazione per configurare correttamente l'agente e assicurarsi che possa comunicare correttamente con monitoraggio di Azure nel cloud commerciale di Azure e nel cloud per enti pubblici degli Stati Uniti. 
 
-1. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.
+1. Nella portale di Azure cercare e selezionare **log Analytics aree di lavoro**.
 2. Nell'elenco delle aree di lavoro di Log Analytics selezionare quella che si intende configurare per l'uso come riferimento da parte dell'agente.
 3. Selezionare **Impostazioni avanzate**.<br><br> ![Impostazioni avanzate di Log Analytics](media/agent-windows/log-analytics-advanced-settings-01.png)<br><br>  
 4. Selezionare **Origini connesse** e quindi **Server Windows**.   
@@ -93,7 +93,7 @@ Il file scaricato per l'agente è un pacchetto di installazione autonomo.  Il pr
 
 La tabella seguente illustra i parametri specifici supportati dal programma di installazione per l'agente, inclusi quelli distribuiti tramite Automation DSC.
 
-|Opzioni specifiche di MMA                   |note         |
+|Opzioni specifiche di MMA                   |Note         |
 |---------------------------------------|--------------|
 | NOAPM=1                               | Parametro facoltativo. Installa l'agente senza .NET Application Performance Monitoring.|   
 |ADD_OPINSIGHTS_WORKSPACE               | 1 = Configura l'agente per fare riferimento a un'area di lavoro                |
@@ -188,9 +188,9 @@ Dal **Pannello di controllo** del computer, trovare l'elemento **Microsoft Monit
 
 È anche possibile eseguire una query di log semplice nel portale di Azure.  
 
-1. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco di risorse digitare monitoraggio di **Azure**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **monitoraggio di Azure**.  
-2. Selezionare **log** nel menu. 
-2. Nel riquadro Log, nel campo query, digitare:  
+1. Nella portale di Azure cercare e selezionare **monitoraggio**.
+1. Selezionare **log** nel menu.
+1. Nel riquadro **log** , nel campo query, digitare:  
 
     ```
     Heartbeat 

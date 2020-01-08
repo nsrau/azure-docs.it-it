@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: hamusa
-ms.openlocfilehash: d0e002f0f1e620c108b23790dfc81574bee23795
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: b13ad375adf20a606b48755a6d57851abf89e549
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158430"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454648"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>Configurare la visualizzazione delle dipendenze senza agenti per la valutazione
 
@@ -19,7 +19,7 @@ Questo articolo descrive come configurare il mapping delle dipendenze senza agen
 
 > [!IMPORTANT]
 > La visualizzazione delle dipendenze senza agenti è attualmente in anteprima per le macchine virtuali VMware di Azure individuate tramite un appliance Azure Migrate.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
+> Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Questa versione di anteprima è coperta dal supporto tecnico e può essere usata per i carichi di lavoro di produzione.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="about-dependency-mapping"></a>Informazioni sul mapping delle dipendenze
@@ -53,7 +53,7 @@ La visualizzazione delle dipendenze senza agente non richiede l'installazione di
 - Assicurarsi di aver [creato](how-to-add-tool-first-time.md) un progetto Azure migrate.
 - L'analisi delle dipendenze senza agenti è attualmente disponibile solo per i computer VMware.
 - Se è già stato creato un progetto, verificare di aver [aggiunto](how-to-assess.md) lo strumento Azure migrate: server assessment.
-- Assicurarsi di aver individuato i computer VMware in Azure Migrate; a tale scopo, è possibile configurare un appliance Azure Migrate per [VMware](how-to-set-up-appliance-vmware.md). L'appliance individua i computer locali e invia i metadati e i dati sulle prestazioni a Azure Migrate: server assessment. [Altre informazioni](migrate-appliance.md).
+- Assicurarsi di aver individuato i computer VMware in Azure Migrate; a tale scopo, è possibile configurare un appliance Azure Migrate per [VMware](how-to-set-up-appliance-vmware.md). L'appliance individua i computer locali e invia i metadati e i dati sulle prestazioni a Azure Migrate: server assessment. [Altre informazioni](migrate-appliance.md)
 - Verificare che le macchine virtuali VMware siano supportate per la visualizzazione delle dipendenze senza agenti, come riepilogato nella tabella seguente.
 
 
@@ -85,7 +85,7 @@ Aggiungere l'account come segue:
 3. Scegliere il **sistema operativo**.
 4. Consente di specificare un nome descrittivo per l'account.
 5. Specificare il **nome utente** e la **password**
-6. Fare clic su **Save**.
+6. Fare clic su **Salva**.
 7. Fare clic su **Salva e avvia individuazione**.
 
     ![Aggiungi account utente VM](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)

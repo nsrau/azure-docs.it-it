@@ -1,6 +1,6 @@
 ---
 title: Panoramica del supporto di cloud-init per macchine virtuali Linux in Azure
-description: Panoramica delle funzionalità di cloud-init in Microsoft Azure
+description: Panoramica delle funzionalità di cloud-init per configurare una macchina virtuale in fase di provisioning in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: danielsollondon
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/11/2019
 ms.author: danis
-ms.openlocfilehash: 6c522af44be51eb89ee9f64bae2dc4e9e7b24123
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 7b3f64d0629ba5d7aaf85b854e1ee8e5a1410f94
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873948"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458610"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Supporto di cloud-init per macchine virtuali in Azure
 Questo articolo illustra il supporto esistente per [cloud-init](https://cloudinit.readthedocs.io) per configurare una macchina virtuale (VM) o set di scalabilità di macchine virtuali in fase di provisioning in Azure. Questi script cloud-init vengono eseguiti al primo avvio dopo il provisioning delle risorse da parte di Azure.  
@@ -34,13 +34,13 @@ Microsoft sta collaborando attivamente con i partner di distribuzione Linux appr
 
 | Editore | Offerta | SKU | Versione | Pronta per cloud-init |
 |:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |18.04-LTS |latest |Sì | 
-|Canonical |UbuntuServer |16.04-LTS |latest |Sì | 
-|Canonical |UbuntuServer |14.04.5-LTS |latest |Sì |
-|CoreOS |CoreOS |Stabile |latest |Sì |
+|Canonical |UbuntuServer |18.04-LTS |latest |sì | 
+|Canonical |UbuntuServer |16.04-LTS |latest |sì | 
+|Canonical |UbuntuServer |14.04.5-LTS |latest |sì |
+|CoreOS |CoreOS |Stable |latest |sì |
 |OpenLogic 7,7 |CentOS |7-CI |7.7.20190920 |anteprima |
 |Oracle 7,7 |Oracle-Linux |77-ci |7.7.01|anteprima |
-|RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |Sì |
+|RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |sì |
 |RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 |anteprima |
     
 Attualmente Azure Stack non supporta il provisioning di RHEL 7. x e CentOS 7. x con cloud-init.

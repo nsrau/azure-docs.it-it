@@ -1,25 +1,14 @@
 ---
-title: "Aggiornamento di un'applicazione: parametri di aggiornamento | Documentazione Microsoft"
+title: "Aggiornamento delle applicazioni: parametri per l'aggiornamento"
 description: Vengono descritti i parametri relativi all'aggiornamento di un'applicazione dell’infrastruttura di servizi, inclusi i controlli di integrità per eseguire e i criteri per annullare automaticamente l'aggiornamento.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: a4170ac6-192e-44a8-b93d-7e39c92a347e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/08/2018
-ms.author: atsenthi
-ms.openlocfilehash: 8503b3c8a630575b917e3710ce4d7c5d6fbe70cb
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 42b5c52181cfb006ae57e43c183b96a059a9c63a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934043"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75377974"
 ---
 # <a name="application-upgrade-parameters"></a>Parametri di aggiornamento delle applicazioni
 Questo articolo descrive i diversi parametri che si applicano durante l'aggiornamento di un'applicazione di Azure Service Fabric. I parametri di aggiornamento di un'applicazione determinano i timeout e i controlli di integrità che vengono applicati durante l'aggiornamento e specificano i criteri da applicare quando un aggiornamento non riesce. I parametri dell'applicazione si applicano agli aggiornamenti tramite:
@@ -93,7 +82,7 @@ Gli aggiornamenti dell'applicazione Service Fabric che impiegano l'interfaccia d
 | --- | --- |
 | application-id  |ID dell'applicazione in corso di aggiornamento. <br> Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati con il carattere "\~". Ad esempio, se il nome dell'applicazione è "Fabric:/MyApp/App1", l'identità dell'applicazione sarà "MyApp\~App1" in 6.0 + e "MyApp/App1" nelle versioni precedenti.|
 application-version |Versione del tipo di applicazione a cui è destinato l'aggiornamento.|
-Parametri  |Elenco con codifica JSON di sostituzioni del parametro dell'applicazione da applicare quando si esegue l'aggiornamento dell'applicazione.|
+parametri  |Elenco con codifica JSON di sostituzioni del parametro dell'applicazione da applicare quando si esegue l'aggiornamento dell'applicazione.|
 
 ### <a name="optional-parameters"></a>Parametri facoltativi
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c22efe84826684e37abee65d64df13d63081aa79
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 71d9b2332d6d78e7bde63d0fa3f5b64b588e576b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848341"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425467"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrare l'infrastruttura Gateway Desktop remoto con Azure MFA usando l'estensione NPS (Network Policy Server, Server dei criteri di rete) e Azure AD
 
@@ -120,11 +120,11 @@ Questa sezione fornisce istruzioni per configurare l'infrastruttura Servizi Desk
 Come parte della configurazione dell'estensione NPS, è necessario fornire le credenziali di amministratore e l'ID di Azure AD per il tenant di Azure AD. La procedura seguente mostra come ottenere l'ID tenant.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore globale del tenant di Azure.
-1. Nel riquadro di spostamento sinistro fare clic sull'icona di **Azure Active Directory**.
+1. Nel menu portale di Azure selezionare **Azure Active Directory**oppure cercare e selezionare **Azure Active Directory** da qualsiasi pagina.
 1. Selezionare **Proprietà**.
 1. Nel pannello Proprietà, accanto all'ID directory, fare clic sull'icona **Copia**, mostrata di seguito, per copiare l'ID negli Appunti.
 
-   ![Recupero dell'ID directory dalla portale di Azure](./media/howto-mfa-nps-extension-rdg/image1.png)
+   ![Recupero dell'ID directory dalla portale di Azure](./media/howto-mfa-nps-extension-rdg/azure-active-directory-id-in-azure-portal.png)
 
 ### <a name="install-the-nps-extension"></a>Installare l'estensione di Server dei criteri di rete
 
@@ -193,7 +193,7 @@ I criteri di autorizzazione connessioni Desktop remoto specificano i requisiti p
 
    ![Immettere il nome o l'indirizzo IP del server NPS](./media/howto-mfa-nps-extension-rdg/image10.png)
   
-1. Fare clic su **Aggiungi**.
+1. Scegliere **Aggiungi**.
 1. Nella finestra di dialogo **Segreto condiviso** immettere un segreto condiviso e quindi fare clic su **OK**. Assicurarsi di registrare il segreto condiviso e di archiviare il record in modo sicuro.
 
    >[!NOTE]
@@ -202,7 +202,7 @@ I criteri di autorizzazione connessioni Desktop remoto specificano i requisiti p
 
    ![Creazione di un segreto condiviso per stabilire una relazione di trust](./media/howto-mfa-nps-extension-rdg/image11.png)
 
-1. Fare clic su **OK** per chiudere la finestra di dialogo.
+1. Scegliere **OK** per chiudere la finestra di dialogo.
 
 ### <a name="configure-radius-timeout-value-on-remote-desktop-gateway-nps"></a>Configurare il valore di timeout RADIUS in Server dei criteri di rete per Gateway Desktop remoto
 

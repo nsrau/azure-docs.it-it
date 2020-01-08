@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 7c5c1e91e97087bf28b03629659e5194f67c22b3
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 06c8784c235b157f5799bb727df9784dfaa2f376
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680036"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440519"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Integrazione e recapito continui (CI/CD) in Azure Data Factory
 
@@ -56,11 +56,11 @@ Nell'elenco a discesa **modello ARM** selezionare **Esporta modello ARM** per es
 
 Nelle data factory di test e di produzione selezionare **Importa modello ARM**. Questa azione consente di passare al portale di Azure, in cui è possibile importare il modello esportato. Selezionare **Compila un modello personalizzato nell'editor** per aprire l'editor del modello Gestione risorse.
 
-![](media/continuous-integration-deployment/continuous-integration-image3.png) 
+![Creazione di un modello personalizzato per la distribuzione personalizzata](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
 
 Fare clic su **Carica file** e selezionare il modello di gestione risorse generato.
 
-![](media/continuous-integration-deployment/continuous-integration-image4.png)
+![Modello di modifica della distribuzione personalizzata](media/continuous-integration-deployment/custom-deployment-edit-template.png)
 
 Nel riquadro Impostazioni, immettere i valori di configurazione, ad esempio le credenziali del servizio collegato. Al termine, fare clic su **Acquista** per distribuire il modello di gestione risorse.
 
@@ -424,7 +424,7 @@ Di seguito è riportata una spiegazione del modo in cui viene costruito il model
 #### <a name="triggers"></a>Trigger
 
 * In `typeProperties`, due proprietà sono parametrizzate. Il primo è `maxConcurrency`, che è specificato per avere un valore predefinito ed è di tipo`string`. Il nome del parametro predefinito è `<entityName>_properties_typeProperties_maxConcurrency`.
-* Anche la proprietà `recurrence` è parametrizzata. Al suo interno, tutte le proprietà a tale livello vengono specificate per essere parametrizzate come stringhe, con i valori predefiniti e i nomi di parametro. Un'eccezione è rappresentata dalla proprietà `interval`, che è parametrizzata come tipo di numero e con il nome del parametro con suffisso `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Analogamente, la proprietà `freq` è una stringa e viene parametrizzata come stringa. Tuttavia, la proprietà `freq` è parametrizzata senza un valore predefinito. Il nome viene abbreviato e viene suffissato. Ad esempio `<entityName>_freq`.
+* Anche la proprietà `recurrence` è parametrizzata. Al suo interno, tutte le proprietà a tale livello vengono specificate per essere parametrizzate come stringhe, con i valori predefiniti e i nomi di parametro. Un'eccezione è rappresentata dalla proprietà `interval`, che è parametrizzata come tipo di numero e con il nome del parametro con suffisso `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Analogamente, la proprietà `freq` è una stringa e viene parametrizzata come stringa. Tuttavia, la proprietà `freq` è parametrizzata senza un valore predefinito. Il nome viene abbreviato e viene suffissato. Ad esempio: `<entityName>_freq`.
 
 #### <a name="linkedservices"></a>LinkedServices
 
@@ -432,7 +432,7 @@ Di seguito è riportata una spiegazione del modo in cui viene costruito il model
 * La proprietà `connectionString` verrà parametrizzata come valore `securestring`, non avrà un valore predefinito e avrà un nome di parametro abbreviato con il suffisso `connectionString`.
 * La proprietà `secretAccessKey` è un `AzureKeyVaultSecret`, ad esempio in un servizio collegato di `AmazonS3`. Viene automaticamente parametrizzato come segreto Azure Key Vault e recuperato dall'insieme di credenziali delle chiavi configurato. È anche possibile parametrizzare l'insieme di credenziali delle chiavi.
 
-#### <a name="datasets"></a>DATASETS
+#### <a name="datasets"></a>Set di dati
 
 * Sebbene la personalizzazione specifica del tipo sia disponibile per i set di data, è possibile specificare la configurazione senza una configurazione a livello di \*. Nell'esempio precedente, vengono parametrizzate tutte le proprietà del set di dati in `typeProperties`.
 

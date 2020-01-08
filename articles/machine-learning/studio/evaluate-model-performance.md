@@ -10,18 +10,18 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: b37844ff93ed1cfb631c2d8da12d0729f61f44ed
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 2b9293e3c1ce280117ea40c43715f4dcd98de66d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837646"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427637"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Come valutare le prestazioni del modello in Azure Machine Learning Studio (classico)
 
 In questo articolo viene illustrato come valutare le prestazioni di un modello in Azure Machine Learning Studio (classico) e viene fornita una breve spiegazione delle metriche disponibili per questa attività. L'argomento presenta inoltre tre scenari di apprendimento sorvegliato comuni: 
 
-* regressione
+* Regressione
 * Classificazione binaria 
 * Classificazione multiclasse
 
@@ -41,14 +41,14 @@ In alternativa, è possibile usare la convalida incrociata per eseguire una seri
 Nelle sezioni seguenti verranno compilati modelli di regressione e classificazione semplici e ne verranno valutate le prestazioni, usando i moduli [Evaluate Model][evaluate-model] e [Cross-Validate Model][cross-validate-model] .
 
 ## <a name="evaluating-a-regression-model"></a>Valutazione di un modello di regressione
-Si supponga di voler stimare il prezzo di un'automobile usando funzionalità come dimensioni, potenza, specifiche del motore e così via. Si tratta di un tipico problema di regressione, in cui la variabile di destinazione (*price*) è un valore numerico continuo. È possibile adattare un modello di regressione lineare che, dati i valori delle funzionalità di una determinata automobile, può prevedere il prezzo di tale automobile. Questo modello di regressione può essere usato per calcolare il punteggio dello stesso set di dati su cui si sta effettuando il training Una volta ottenuto il prezzo stimato per le automobili, è possibile valutare le prestazioni del modello osservando la differenza tra le stime e i prezzi effettivi. Per illustrare questo problema, viene usato il *set di dati automobile price data (RAW)* disponibile nella sezione set di dati **salvati** in ml Studio (classico).
+Si supponga di voler stimare il prezzo di un'automobile usando funzionalità come dimensioni, potenza, specifiche del motore e così via. Si tratta di un tipico problema di regressione, in cui la variabile di destinazione (*price*) è un valore numerico continuo. È possibile adattare un modello di regressione lineare che, dati i valori delle funzionalità di una determinata automobile, può prevedere il prezzo di tale automobile. Questo modello di regressione può essere usato per calcolare il punteggio dello stesso set di dati su cui si sta effettuando il training Una volta ottenuto il prezzo stimato per le automobili, è possibile valutare le prestazioni del modello osservando la differenza tra le stime e i prezzi effettivi. Per illustrare questo problema, viene usato il *set di dati automobile price data (RAW)* disponibile nella sezione set di dati **salvati** in Machine Learning Studio (classico).
 
 ### <a name="creating-the-experiment"></a>Creazione di un esperimento
-Aggiungere i moduli seguenti all'area di lavoro nella versione classica di Azure Machine Learning Studio:
+Aggiungere i moduli seguenti all'area di lavoro in Azure Machine Learning Studio (versione classica):
 
 * Automobile price data (Raw)
 * [Regressione lineare][linear-regression]
-* [Train Model][train-model]
+* [Eseguire il training del modello][train-model]
 * [Modello di Punteggio][score-model]
 * [Valuta modello][evaluate-model]
 
@@ -83,14 +83,14 @@ Dopo aver eseguito l'esperimento, è possibile esaminare i risultati della valut
 Figura 4. Risultati della convalida incrociata di un modello di regressione.
 
 ## <a name="evaluating-a-binary-classification-model"></a>Valutazione di un modello di classificazione binaria
-In uno scenario di classificazione binaria la variabile di destinazione ha solo due risultati possibili, ad esempio: {0, 1} o {false, true}, {negative, positive}. Si presupponga di ricevere un set di dati di un dipendente adulto con alcune variabili demografiche e occupazionali e di dover stimare il livello di reddito, una variabile binaria con i valori {"<=50.000", ">50.000"}. In altri termini, la classe negativa rappresenta il caso in cui il dipendente realizza un valore inferiore o uguale a 50.000 l'anno, mentre la classe positiva rappresenta tutti gli altri dipendenti. Come nello scenario della regressione, verrà eseguito il training di un modello, verrà calcolato il punteggio di alcuni dati e verranno valutati i risultati. La differenza principale è la scelta delle metriche per la versione classica di Azure Machine Learning Studio calcoli e output. Per illustrare lo scenario di stima del livello di reddito, il set di dati per [adulti](https://archive.ics.uci.edu/ml/datasets/Adult) viene usato per creare un esperimento di studio (classico) e valutare le prestazioni di un modello di regressione logistica a due classi, un classificatore binario di uso comune.
+In uno scenario di classificazione binaria la variabile di destinazione ha solo due risultati possibili, ad esempio: {0, 1} o {false, true}, {negative, positive}. Si presupponga di ricevere un set di dati di un dipendente adulto con alcune variabili demografiche e occupazionali e di dover stimare il livello di reddito, una variabile binaria con i valori {"<=50.000", ">50.000"}. In altri termini, la classe negativa rappresenta il caso in cui il dipendente realizza un valore inferiore o uguale a 50.000 l'anno, mentre la classe positiva rappresenta tutti gli altri dipendenti. Come nello scenario della regressione, verrà eseguito il training di un modello, verrà calcolato il punteggio di alcuni dati e verranno valutati i risultati. La differenza principale è la scelta delle metriche Azure Machine Learning Studio (classiche) di calcolo e output. Per illustrare lo scenario di stima del livello di reddito, il set di dati per [adulti](https://archive.ics.uci.edu/ml/datasets/Adult) viene usato per creare un esperimento di studio (classico) e valutare le prestazioni di un modello di regressione logistica a due classi, un classificatore binario di uso comune.
 
 ### <a name="creating-the-experiment"></a>Creazione di un esperimento
-Aggiungere i moduli seguenti all'area di lavoro nella versione classica di Azure Machine Learning Studio:
+Aggiungere i moduli seguenti all'area di lavoro in Azure Machine Learning Studio (versione classica):
 
 * Adult Census Income Binary Classification dataset
 * [Regressione logistica a due classi][two-class-logistic-regression]
-* [Train Model][train-model]
+* [Eseguire il training del modello][train-model]
 * [Modello di Punteggio][score-model]
 * [Valuta modello][evaluate-model]
 
@@ -105,7 +105,7 @@ Dopo aver eseguito l'esperimento, è possibile fare clic sulla porta di output d
 
 L'accuratezza è semplicemente la percentuale delle istanze classificate correttamente. In genere è la prima metrica che viene osservata quando si valuta un classificatore. Tuttavia, quando i dati di test non sono bilanciati (se la maggior parte delle istanze appartiene a una delle classi) o se l'utente è più interessato alle prestazioni di una classe, l'accuratezza non mostra realmente l'efficacia di un classificatore. Nello scenario di classificazione del livello di reddito, si supponga di eseguire il test di alcuni dati in cui il 99% delle istanze rappresenta le persone che guadagnano una cifra inferiore o uguale a 50.000 l'anno. È possibile ottenere un'accuratezza pari a 0,99 facendo una stima della classe “<=50.000” per tutte le istanze. In questo caso sembra che il classificatore svolga un buon lavoro in linea generale, ma in realtà non è in grado di classificare correttamente gli individui con un reddito superiore (il restante 1%).
 
-Per questo motivo è utile calcolare metriche aggiuntive che raccolgano aspetti più specifici della valutazione. Prima di entrare nei dettagli di tali metriche, è importante comprendere la matrice di confusione della valutazione di una classificazione binaria. Le etichette di classe nel set di training possono assumere solo due valori possibili, che in genere fanno riferimento a positivo o negativo. Le istanze positive e negative stimate correttamente da un classificatore si definiscono rispettivamente valori veri positivi (VP) e veri negativi (VN). Analogamente, le istanze classificate in modo errato si definiscono valori falsi positivi (FP) e falsi negativi (FN). La matrice di confusione è semplicemente una tabella che mostra il numero di istanze che rientrano in ognuna delle quattro categorie. La versione classica di Azure Machine Learning Studio decide automaticamente quale delle due classi nel set di dati è la classe positiva. Se le etichette delle classi sono valori booleani o interi, le istanze con etichetta "true" o "1" vengono assegnate alla classe positiva. Se le etichette sono stringhe, ad esempio con il set di dati del reddito, le etichette vengono ordinate alfabeticamente e il primo livello viene scelto come classe negativa mentre il secondo livello è la classe positiva.
+Per questo motivo è utile calcolare metriche aggiuntive che raccolgano aspetti più specifici della valutazione. Prima di entrare nei dettagli di tali metriche, è importante comprendere la matrice di confusione della valutazione di una classificazione binaria. Le etichette di classe nel set di training possono assumere solo due valori possibili, che in genere fanno riferimento a positivo o negativo. Le istanze positive e negative stimate correttamente da un classificatore si definiscono rispettivamente valori veri positivi (VP) e veri negativi (VN). Analogamente, le istanze classificate in modo errato si definiscono valori falsi positivi (FP) e falsi negativi (FN). La matrice di confusione è semplicemente una tabella che mostra il numero di istanze che rientrano in ognuna delle quattro categorie. Azure Machine Learning Studio (classico) stabilisce automaticamente quale delle due classi nel set di dati è la classe positiva. Se le etichette delle classi sono valori booleani o interi, le istanze con etichetta "true" o "1" vengono assegnate alla classe positiva. Se le etichette sono stringhe, ad esempio con il set di dati del reddito, le etichette vengono ordinate alfabeticamente e il primo livello viene scelto come classe negativa mentre il secondo livello è la classe positiva.
 
 ![Matrice di confusione di classificazione binaria](./media/evaluate-model-performance/6a.png)
 
@@ -136,12 +136,12 @@ Figura 9. Risultati della convalida incrociata di un classificatore binario.
 In questo esperimento verrà usato il popolare set di dati [Iris](https://archive.ics.uci.edu/ml/datasets/Iris "Iris") , che contiene le istanze di tre tipi diversi (classi) del Plant Iris. Sono disponibili quattro valori di funzionalità (lunghezza/larghezza SEPA e lunghezza/larghezza petalo) per ogni istanza. Negli esperimenti precedenti è stato eseguito il training e il testing dei modelli usando gli stessi set di impostazioni. Qui viene usato il modulo [Split data][split] per creare due subset dei dati, eseguire il training sul primo e assegnare un punteggio e valutare il secondo. Il set di dati Iris è disponibile pubblicamente nel [repository UCI Machine Learning](https://archive.ics.uci.edu/ml/index.html)e può essere scaricato usando un modulo [Import Data][import-data] .
 
 ### <a name="creating-the-experiment"></a>Creazione di un esperimento
-Aggiungere i moduli seguenti all'area di lavoro nella versione classica di Azure Machine Learning Studio:
+Aggiungere i moduli seguenti all'area di lavoro in Azure Machine Learning Studio (versione classica):
 
 * [Importazione dei dati][import-data]
 * [Foresta delle decisioni multiclasse][multiclass-decision-forest]
-* [Suddividere i dati][split]
-* [Train Model][train-model]
+* [Dividere dati][split]
+* [Eseguire il training del modello][train-model]
 * [Modello di Punteggio][score-model]
 * [Valuta modello][evaluate-model]
 

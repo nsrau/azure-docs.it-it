@@ -1,5 +1,5 @@
 ---
-title: Snapshot Debugger di Azure Application Insights per app .NET | Microsoft Docs
+title: Snapshot Debugger di applicazione Azure Insights per le app .NET
 description: Gli snapshot di debug vengono raccolti automaticamente quando vengono generate eccezioni nelle app di produzione .NET
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/23/2019
 ms.reviewer: brahmnes
-ms.openlocfilehash: 33a9db5fa9f31a0c4548ecdeb6c0ca2f12ac8246
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 681190a23fd09402ae96c328b7d98044baf3444e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899788"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406401"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Snapshot di debug per le eccezioni nelle app .NET
 Quando si verifica un'eccezione, è possibile raccogliere automaticamente uno snapshot di debug dall'applicazione Web live. Lo snapshot mostra lo stato del codice sorgente e delle variabili nel momento in cui è stata generata l'eccezione. Snapshot Debugger (anteprima) di [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) monitora la telemetria delle eccezioni dall'app Web. Raccoglie snapshot per le eccezioni generate più frequentemente in modo che l'utente possa avere le informazioni necessarie per diagnosticare i problemi nell'ambiente di produzione. Includere il [pacchetto NuGet snapshot Collector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) nell'applicazione e, facoltativamente, configurare i parametri di raccolta in [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Gli snapshot vengono visualizzati nelle [eccezioni](../../azure-monitor/app/asp-net-exceptions.md) nel portale di Application Insights.
@@ -29,7 +29,7 @@ La raccolta di snapshot è disponibile per:
 
 Sono supportati i seguenti ambienti:
 
-* [Informazioni sul servizio app di Azure](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
+* [Servizio app di Azure](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
 * [Servizi cloud di Azure](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) che eseguono la famiglia di sistemi operativi 4 o versioni successive
 * [Servizi di Service fabric di Azure](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) in esecuzione in Windows Server 2012 R2 o versione successiva
 * [Macchine virtuali di Azure e set di scalabilità di macchine virtuali](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) che eseguono Windows Server 2012 R2 o versione successiva
@@ -134,7 +134,7 @@ Tuttavia, in Servizi app di Azure, l'agente di raccolta snapshot può deottimizz
 ## <a name="next-steps"></a>Passaggi successivi
 Abilitare Application Insights Snapshot Debugger per l'applicazione:
 
-* [Informazioni sul servizio app di Azure](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
+* [Servizio app di Azure](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
 * [Servizi cloud di Azure](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Servizi Service Fabric di Azure](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Macchine virtuali di Microsoft Azure e set di scalabilità di macchine virtuali](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)

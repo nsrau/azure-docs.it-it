@@ -1,5 +1,5 @@
 ---
-title: Creare un'app Azure AD & entità servizio con il portale
+title: Creare un'app Azure AD & entità servizio nel portale
 titleSuffix: Microsoft identity platform
 description: Creare una nuova Azure Active Directory app & entità servizio per gestire l'accesso alle risorse con il controllo degli accessi in base al ruolo in Azure Resource Manager.
 services: active-directory
@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 249c313f8f6195371985f3dad2e707638e52d0df
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0261c060358b9f0f42624008341f80245ff57aca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74967117"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424524"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedure: Usare il portale per creare un'applicazione Azure Active Directory (Azure AD) e un'entità servizio che possano accedere alle risorse
 

@@ -3,19 +3,15 @@ title: Il primo runbook PowerShell in Automazione di Azure
 description: Esercitazione che illustra la creazione, i test e la pubblicazione di un semplice runbook PowerShell.
 keywords: Azure PowerShell, esercitazione sugli script di PowerShell, automazione di PowerShell
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/27/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: f950a2fed2fbd355fc99453f09b655463e67102d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 07be9aa9ab576845c5b2ad94b1a2b3fb828ea514
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850874"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75366397"
 ---
 # <a name="my-first-powershell-runbook"></a>Il primo runbook PowerShell
 
@@ -34,7 +30,7 @@ Per completare questa esercitazione è necessario soddisfare i prerequisiti segu
 * Sottoscrizione di Azure. Se non si ha ancora una sottoscrizione, è possibile [attivare i vantaggi dell'abbonamento MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Account di Automazione](automation-quickstart-create-account.md) che conterrà il runbook ed eseguirà l'autenticazione con le risorse di Azure. Questo account deve avere l'autorizzazione per avviare e arrestare la macchina virtuale.
 * Macchina virtuale di Azure. La macchina virtuale viene arrestata e avviata, quindi non deve essere una macchina virtuale di produzione.
-* Potrebbe essere necessario [aggiornare i moduli di Azure](automation-update-azure-modules.md) in base ai cmdlet usati.
+* Potrebbe essere necessario [importare](shared-resources/modules.md)/[aggiornare i moduli di Azure](automation-update-azure-modules.md) in base ai cmdlet usati.
 
 ## <a name="create-new-runbook"></a>Creare un nuovo runbook
 
@@ -163,7 +159,7 @@ Il runbook è stato testato e pubblicato, ma finora non esegue alcuna attività 
 1. Fare clic su **Riquadro di test** in modo da testare il runbook.
 1. Fare clic su **Avvia** per avviare il test. Al termine verrà visualizzato un output simile al seguente, con le informazioni di base sull'account. Questo output conferma che l'account RunAs è valido.
 
-   ![Autentica](media/automation-first-runbook-textual-powershell/runbook-auth-output.png)
+   ![Authenticate](media/automation-first-runbook-textual-powershell/runbook-auth-output.png)
 
 ## <a name="add-code-to-start-a-virtual-machine"></a>Aggiungere il codice per avviare una macchina virtuale
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: b6e66bea6dd86409866db1fee3564d21236ecbce
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 05a05c46a49c0262bd5db33390bb995ebe849fd7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286173"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364119"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Inviare le metriche del sistema operativo guest all'archivio delle metriche di Monitoraggio di Azure usando un modello di Resource Manager per una macchina virtuale Windows
 
@@ -25,9 +25,9 @@ Questo articolo illustra il processo da eseguire per inviare le metriche delle p
 
 L'archiviazione in questa posizione consente di accedere alle stesse azioni disponibili per le metriche della piattaforma. Le azioni includono la creazione di avvisi in tempo quasi reale, la creazione di grafici, il routing, l'accesso da un'API REST e altro ancora. Le versioni precedenti dell'estensione Diagnostica eseguono operazioni di scrittura in Archiviazione di Azure, ma non nell'archivio dati di Monitoraggio di Azure.
 
-Se non si ha familiarità con i modelli di Resource Manager, vedere le [distribuzioni dei modelli](../../azure-resource-manager/resource-group-overview.md) e la struttura e la sintassi correlate.
+Se non si ha familiarità con i modelli di Resource Manager, vedere le [distribuzioni dei modelli](../../azure-resource-manager/management/overview.md) e la struttura e la sintassi correlate.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - La sottoscrizione deve essere registrata con [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
 
@@ -285,7 +285,7 @@ Per la distribuzione del modello di Resource Manager verrà usato Azure PowerShe
 
 6. Nell'elenco a discesa degli spazi dei nomi selezionare **azure.vm.windows.guest**.
 
-7. Nell'elenco a discesa delle metriche selezionare **Memory\%Committed Bytes in Use** (Memoria\Byte in uso di cui è stato eseguito il commit).
+7. Nell'elenco a discesa delle metriche selezionare **Memoria\%di byte vincolati in uso**.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

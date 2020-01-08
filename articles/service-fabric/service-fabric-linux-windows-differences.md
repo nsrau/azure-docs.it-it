@@ -1,25 +1,14 @@
 ---
-title: Differenze di Azure Service Fabric in Linux e Windows | Microsoft Docs
+title: Differenze di Service Fabric di Azure tra Linux e Windows
 description: Differenze tra Azure Service Fabric in Linux e Azure Service Fabric in Windows.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: 0010108a7f3f9341d28c0b2f146c2e2f421ce47d
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: bcb2b4b112cf5247da8ca6a5d735ca247b3c06f2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170577"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463013"
 ---
 # <a name="differences-between-service-fabric-on-linux-and-windows"></a>Differenze tra Service Fabric in Linux e in Windows
 

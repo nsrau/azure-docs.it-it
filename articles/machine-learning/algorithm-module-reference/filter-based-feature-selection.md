@@ -1,7 +1,7 @@
 ---
 title: 'Selezione delle funzioni basata su filtro: informazioni di riferimento sui moduli'
-titleSuffix: Azure Machine Learning service
-description: Informazioni su come usare il modulo Filter based feature selection nel servizio Azure Machine Learning per identificare le funzionalità in un set di dati con la massima potenza predittiva.
+titleSuffix: Azure Machine Learning
+description: Informazioni su come usare il modulo Filter based feature selection in Azure Machine Learning per identificare le funzionalità in un set di dati con la massima potenza predittiva.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: f8ae4982f7602cd7403a78517fec79fa95d33aa2
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 43565a72ce795c4ee0142ec48c13842a8c43e604
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717212"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428515"
 ---
-# <a name="filter-based-feature-selection"></a>Selezione delle funzioni basata su filtro
+# <a name="filter-based-feature-selection"></a>Filter Based Feature Selection
 
 Questo articolo descrive come usare il modulo Filter based feature selection in Azure Machine Learning Designer (Preview). Questo modulo consente di identificare le colonne nel set di dati di input con la massima potenza predittiva. 
 
@@ -30,7 +30,7 @@ Il modulo restituisce un set di dati che contiene le colonne di funzionalità mi
 
 Questo modulo per la selezione delle funzioni è denominato "basato su filtri" perché si usa la metrica selezionata per trovare attributi irrilevanti. È quindi possibile filtrare le colonne ridondanti dal modello. È possibile scegliere una singola misura statistica adatta ai dati e il modulo calcola un punteggio per ogni colonna della funzionalità. Le colonne vengono restituite in base ai punteggi delle funzionalità. 
 
-Scegliendo le funzionalità appropriate, è possibile migliorare la precisione e l'efficienza della classificazione. 
+La scelta delle funzioni appropriate può permettere di migliorare la precisione e l'efficienza della classificazione. 
 
 In genere si utilizzano solo le colonne con i punteggi migliori per compilare il modello predittivo. Le colonne con punteggi di selezione delle funzionalità non sufficienti possono essere lasciate nel set di dati e ignorate quando si compila un modello.  
 
@@ -40,13 +40,13 @@ Il modulo Filter-based feature selection fornisce un'ampia gamma di metriche per
 
 -   **Correlazione di Pearson**  
 
-    Le statistiche di correlazione di Pearson, o il coefficiente di correlazione di Pearson, sono note anche come valore `r` nei modelli statistici. Per due variabili qualsiasi, restituisce un valore che indica il livello di attendibilità della correlazione.
+    Le statistiche di correlazione di Pearson, o il coefficiente di correlazione di Pearson, sono note anche come valore `r` nei modelli statistici. Per due variabili qualsiasi restituisce un valore che indica la forza della correlazione.
 
-    Il coefficiente di correlazione di Pearson viene calcolato prendendo la covarianza di due variabili e dividendo in base al prodotto della relativa deviazione standard. Le modifiche alla scala nelle due variabili non influiscono sul coefficiente.  
+    Il coefficiente di correlazione di Pearson viene calcolato a partire dalla covarianza di due variabili e dalla divisione del prodotto delle rispettive deviazioni standard. Le modifiche alla scala nelle due variabili non influiscono sul coefficiente.  
 
 -   **Chi quadrato**  
 
-    Il test bidirezionale di chi quadrato è un metodo statistico che misura il modo in cui i valori previsti sono vicini ai risultati effettivi. Il metodo presuppone che le variabili siano casuali e disegnate da un campione appropriato di variabili indipendenti. La statistica del chi quadrato risultante indica la distanza dei risultati dal risultato previsto (casuale).  
+    Il test del chi quadrato a due vie è un metodo statistico che consente di misurare la distanza tra i valori previsti e i risultati effettivi. Il metodo presuppone che le variabili siano casuali e derivate da un adeguato campione di variabili indipendenti. La risultante statistica del chi quadrato indica la distanza dei risultati ottenuti da quelli previsti (casuali).  
 
 
 > [!TIP]
@@ -86,7 +86,7 @@ Si sceglie una metrica statistica standard. Il modulo calcola la correlazione tr
 
     - Il numero minimo di funzionalità che è possibile specificare è uno, ma si consiglia di aumentare questo valore.  
 
-    - Se il numero specificato di funzioni desiderate è maggiore del numero di colonne nel set di dati, vengono restituite tutte le funzionalità. Vengono restituite anche le funzionalità con zero punteggi.  
+    - Se il numero specificato di funzioni desiderate è superiore al numero di colonne disponibili nel set di dati, verranno restituite tutte le funzioni. Vengono restituite anche le funzionalità con zero punteggi.  
 
     - Se si specifica un numero inferiore di colonne di risultati rispetto alle colonne di funzionalità, le funzionalità vengono classificate in base al Punteggio decrescente. Vengono restituite solo le funzionalità principali. 
 
@@ -135,5 +135,5 @@ Se si usa la correlazione di Pearson su una funzionalità numerica e un'etichett
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per il servizio Azure Machine Learning. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 
 

@@ -1,26 +1,18 @@
 ---
-title: Microsoft Threat Modeling Tool - Azure | Microsoft Docs
-description: pagina principale per il Microsoft Threat Modeling Tool, contenente informazioni per iniziare a usare lo strumento, incluso il processo di modellazione delle minacce
-services: security
-documentationcenter: na
+title: Panoramica di Microsoft Threat Modeling Tool-Azure
+description: Panoramica dell'Microsoft Threat Modeling Tool, che contiene informazioni su come iniziare a usare lo strumento, incluso il processo di modellazione delle minacce.
 author: jegeib
-manager: jegeib
-editor: jegeib
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
-ms.author: jegeib
-ms.openlocfilehash: 47ae7661874bec211935315679e6e2c79e6d59ef
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 0d800102b6f6ff77944a2b625d3bcecef69c1ee9
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727814"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548759"
 ---
 # <a name="microsoft-threat-modeling-tool"></a>Microsoft Threat Modeling Tool
 
@@ -36,7 +28,7 @@ Ecco alcune funzionalità degli strumenti e innovazioni, solo per citarne alcune
 
 * **Automazione:** linee guida e feedback sulla definizione di un modello
 * **STRIDE per ogni elemento:** analisi guidata di minacce e soluzioni di prevenzione
-* **Reporting:** attività di sicurezza and testing nella fase di verifica
+* **Creazione di report:** attività di protezione e test in fase di verifica
 * **Metodologia univoca:** consente agli utenti di visualizzare meglio e conoscere le minacce
 * **Progettato per gli sviluppatori e incentrato sul software:** molti approcci sono incentrati su risorse o utenti malintenzionati. Noi ci siamo concentrati sul software. Facciamo leva sulle attività con cui tutti gli sviluppatori di software e i progettisti hanno familiarità, ad esempio il disegno di immagini per l'architettura software
 * **Concentrazione sull'analisi della progettazione:** il termine "modellazione delle minacce" può fare riferimento a un requisito o una tecnica di analisi della progettazione. In alcuni casi, si riferisce a una combinazione complessa dei due. L'approccio Microsoft SDL alla modellazione delle minacce è una tecnica di analisi di progettazione focalizzata
@@ -45,7 +37,7 @@ Ecco alcune funzionalità degli strumenti e innovazioni, solo per citarne alcune
 
 La tabella seguente contiene collegamenti importanti per iniziare a usare Threat Modeling Tool:
 
-| Passaggio  | Descrizione                                                                                   |
+| Passaggio  | Description                                                                                   |
 | ----- | --------------------------------------------------------------------------------------------- |
 | **1** | [Scaricare Threat Modeling Tool](https://aka.ms/threatmodelingtool)                                |
 | **2** | [Vedere la Guida introduttiva](threat-modeling-tool-getting-started.md)    |
@@ -57,7 +49,7 @@ La tabella seguente contiene collegamenti importanti per iniziare a usare Threat
 
 Di seguito sono illustrati alcuni articoli più datati ancora rilevanti per la modellazione delle minacce:
 
-* [Articolo sull'importanza della modellazione delle minacce](https://msdn.microsoft.com/magazine/dd347831.aspx)
+* [Articolo sull'importanza della modellazione delle minacce](https://docs.microsoft.com/archive/msdn-magazine/2009/january/security-briefs-getting-started-with-the-sdl-threat-modeling-tool)
 * [Training pubblicato da Trustworthy Computing](https://www.microsoft.com/download/details.aspx?id=16420)
 
 Controllare quello che hanno fatto alcuni esperti di Threat Modeling Tool:

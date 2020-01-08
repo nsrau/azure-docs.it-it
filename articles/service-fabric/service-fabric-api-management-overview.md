@@ -1,25 +1,16 @@
 ---
-title: Panoramica di Azure Service Fabric con Gestione API | Microsoft Docs
+title: Panoramica di Azure Service Fabric con gestione API
 description: In questo articolo viene illustrata un'introduzione all'uso di Gestione API di Azure come gateway per le applicazioni Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: 96176149-69bb-4b06-a72e-ebbfea84454b
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: 52f9584a2f793ff513100afcb7b7bd6acd2a4742
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 656bb6d400461c93540b77d871502b738c679f47
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900527"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378111"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Panoramica di Service Fabric con Gestione API di Azure
 
@@ -46,7 +37,7 @@ In questo scenario, l'interfaccia utente Web viene comunque gestita tramite un s
 
 ![Panoramica di Service Fabric con topologia di Gestione API di Azure][sf-apim-web-app]
 
-## <a name="application-scenarios"></a>Scenari applicativi
+## <a name="application-scenarios"></a>Scenari di applicazione
 
 I servizi in Service Fabric possono essere con stato o senza stato ed essere partizionati usando uno di tre schemi: singleton, Int64 range e named. La risoluzione degli endpoint di servizio richiede l'identificazione di una specifica partizione di una determinata istanza del servizio. Durante la risoluzione di un endpoint di un servizio, è necessario specificare il nome dell'istanza del servizio (ad esempio, `fabric:/myapp/myservice`) e la specifica partizione del servizio, tranne nel caso di una partizione singleton.
 

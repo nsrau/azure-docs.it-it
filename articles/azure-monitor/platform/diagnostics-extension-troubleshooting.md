@@ -4,15 +4,15 @@ description: Risoluzione dei problemi per l'uso di Diagnostica di Azure nelle ma
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 05/08/2019
-ms.openlocfilehash: 0a6322edccc2047ffd9d67e4e3ed113e668898da
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: facd52ea1fdaa2ad30d6b1544cb1f2d6d5833bfa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834698"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450567"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Risoluzione dei problemi di Diagnostica di Azure
 Questo articolo contiene informazioni sulla risoluzione dei problemi relativi all'uso di Diagnostica di Azure. Per altre informazioni su Diagnostica di Azure, vedere la [panoramica di Diagnostica di Azure](diagnostics-extension-overview.md).
@@ -28,7 +28,7 @@ Questo articolo contiene informazioni sulla risoluzione dei problemi relativi al
 Di seguito sono elencati i percorsi di alcuni log ed elementi importanti. Nel resto del documento verrà fatto riferimento a queste informazioni.
 
 ### <a name="azure-cloud-services"></a>Servizi cloud di Azure
-| Elemento | path |
+| Elemento | Path |
 | --- | --- |
 | **File di configurazione di Diagnostica di Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<versione>\Config.txt |
 | **File di log** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<versione>\ |
@@ -39,7 +39,7 @@ Di seguito sono elencati i percorsi di alcuni log ed elementi importanti. Nel re
 | **File di log MonAgentHost** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>Macchine virtuali
-| Elemento | path |
+| Elemento | Path |
 | --- | --- |
 | **File di configurazione di Diagnostica di Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<versione>\RuntimeSettings |
 | **File di log** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\ |
@@ -55,7 +55,7 @@ Diagnostica di Azure offre dati relativi alle metriche che possono essere visual
 
 Il valore **PartitionKey** della tabella è l'ID risorsa, la macchina virtuale o il set di scalabilità di macchine virtuali. **RowKey** è il nome della metrica (detto anche nome del contatore delle prestazioni).
 
-Se l'ID risorsa non è corretto, controllare in **Diagnostics** **Configuration** (Configurazione di diagnostica) > **Metriche** > **ResourceId** se l'ID risorsa è impostato correttamente.
+Se l'ID risorsa non è corretto, controllare la **configurazione** della **diagnostica** > **metrica** > **resourceId** per verificare se l'ID risorsa è impostato correttamente.
 
 Se non sono presenti dati per la metrica specifica, controllare in **Diagnostics Configuration** (Configurazione di diagnostica) > **PerformanceCounter** se la metrica (contatore delle prestazioni) è inclusa. Per impostazione predefinita sono abilitati i contatori seguenti:
 - \Processor(_Total)\% Processor Time
@@ -166,7 +166,7 @@ Le tabelle in Archiviazione di Azure contenenti gli eventi ETW vengono denominat
             tableName = "WAD" + eventDestination;
 ```
 
-Di seguito è fornito un esempio:
+Esempio:
 
 ```XML
         <EtwEventSourceProviderConfiguration provider="prov1">
@@ -229,9 +229,9 @@ Per il ruolo del servizio cloud, se si seleziona la configurazione dal disco, ai
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Codici di uscita del plug-in di Diagnostica di Azure
 Il plug-in restituisce i seguenti codici di uscita:
 
-| Codice di uscita | Descrizione |
+| Codice di uscita | Description |
 | --- | --- |
-| 0 |Completamento della procedura. |
+| 0 |Esito positivo. |
 | -1 |Errore generico. |
 | -2 |Impossibile caricare il file rcf.<p>Questo errore interno dovrebbe verificarsi solo se l'utilità di avvio del plug-in dell'agente guest viene richiamata manualmente in modo non corretto sulla VM. |
 | -3 |Impossibile caricare il file di configurazione di Diagnostica.<p><p>Soluzione: questo errore si verifica quando un file di configurazione non ha superato la convalida dello schema. La soluzione consiste nel fornire un file di configurazione conforme allo schema. |

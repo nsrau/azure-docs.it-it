@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/13/2019
-ms.openlocfilehash: aff6be1a6abf2550013b752ba4f796ffe255499f
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.date: 12/27/2019
+ms.openlocfilehash: 1c482166ffe27bde900a102c39def400728c102f
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539053"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529712"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Soluzione Gestione di Office 365 in Azure (Anteprima)
 
@@ -51,7 +51,7 @@ Prima di installare e configurare la soluzione, è richiesto quanto segue.
 Questa soluzione non installa alcun Management Pack nei [gruppi di gestione connessi](../platform/om-agents.md).
   
 
-## <a name="install-and-configure"></a>Installare e configurare
+## <a name="install-and-configure"></a>Installazione e configurazione
 
 Per iniziare, aggiungere la [soluzione di Office 365 alla sottoscrizione](solutions.md#install-a-monitoring-solution). Dopo aver aggiunto la soluzione, è necessario eseguire i passaggi di configurazione descritti in questa sezione per consentire l'accesso alla sottoscrizione di Office 365.
 
@@ -379,7 +379,7 @@ L'ultimo passaggio consiste nel creare la sottoscrizione dell'applicazione all'a
     .\office365_subscription.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeUsername 'admin@contoso.com' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx' -OfficeClientId 'f8f14c50-5438-4c51-8956-zzzzzzzzzzzz' -OfficeClientSecret 'y5Lrwthu6n5QgLOWlqhvKqtVUZXX0exrA2KRHmtHgQb='
     ```
 
-### <a name="troubleshooting"></a>risoluzione dei problemi
+### <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se è già stata eseguita la sottoscrizione dell'applicazione per quest'area di lavoro o se è stata eseguita la sottoscrizione del tenant per un'altra area di lavoro, è possibile che venga visualizzato l'errore seguente.
 
@@ -509,7 +509,7 @@ At line:12 char:18
 
 Verranno richieste le credenziali. Fornire le credenziali per l'area di lavoro Log Analytics.
 
-## <a name="data-collection"></a>Raccolta dei dati
+## <a name="data-collection"></a>Raccolta dati
 
 ### <a name="supported-agents"></a>Agenti supportati
 
@@ -552,7 +552,7 @@ Le proprietà seguenti sono comuni a tutti i record di Office 365.
 
 | Proprietà | Description |
 |:--- |:--- |
-| Type | *OfficeActivity* |
+| Tipo | *OfficeActivity* |
 | ClientIP | L'indirizzo IP del dispositivo usato quando l'attività è stata registrata. L'indirizzo IP viene visualizzato in formato di indirizzo IPv4 o IPv6. |
 | OfficeWorkload | Servizio di Office 365 a cui il record fa riferimento.<br><br>AzureActiveDirectory<br>Scambia<br>SharePoint|
 | Operazione | Il nome dell'attività utente o l'attività dell'amministratore.  |
@@ -561,7 +561,7 @@ Le proprietà seguenti sono comuni a tutti i record di Office 365.
 | ResultStatus | Indica se l'azione (specificata nella proprietà Operation) è andata a buon fine o meno. I possibili valori sono Succeeded, PartiallySucceded o Failed. Per le attività dell'amministratore di Exchange, il valore è True o False. |
 | UserId | Il nome UPN (User Principal Name) dell'utente che ha eseguito l'azione ha generato la registrazione del record, ad esempio my_name@my_domain_name. Si noti che sono inclusi anche i record per l'attività eseguita dall'account di sistema (ad esempio SHAREPOINT\system o NTAUTHORITY\SYSTEM). | 
 | UserKey | Un ID alternativo per l'utente identificato con la proprietà UserId.  Ad esempio, questa proprietà viene popolata con l'ID univoco passport (PUID) per gli eventi eseguiti dagli utenti in SharePoint, OneDrive for Business ed Exchange. Questa proprietà può inoltre specificare lo stesso valore della proprietà UserID per gli eventi che si verificano in altri servizi ed eventi eseguiti dall'account di sistema|
-| UserType | Il tipo di utente che ha eseguito l'operazione.<br><br>Admin<br>Richiesta<br>DcAdmin<br>Normale<br>Riservato<br>ServicePrincipal<br>Sistema |
+| UserType | Il tipo di utente che ha eseguito l'operazione.<br><br>Amministrativi<br>Richiesta<br>DcAdmin<br>Normale<br>Riservato<br>ServicePrincipal<br>Sistema |
 
 
 ### <a name="azure-active-directory-base"></a>Base di Azure Active Directory
@@ -636,7 +636,7 @@ Questi record vengono creati quando vengono apportate modifiche alla configurazi
 | ModifiedObjectResolvedName |  Questo è il nome descrittivo dell'oggetto modificato dal cmdlet. Viene registrato solo se il cmdlet modifica l'oggetto. |
 | OrganizationName | Nome del tenant. |
 | OriginatingServer | Il nome del server da cui è stato eseguito il cmdlet. |
-| parameters | Nome e valore per tutti i parametri usati con il cmdlet identificato nella proprietà Operations. |
+| Parametri | Nome e valore per tutti i parametri usati con il cmdlet identificato nella proprietà Operations. |
 
 
 ### <a name="exchange-mailbox"></a>Cassetta postale di Exchange
@@ -652,7 +652,7 @@ Questi record vengono creati quando vengono apportate modifiche o aggiunte alle 
 | ClientMachineName | Nome del computer che ospita il client di Outlook. |
 | ClientProcessName | Il client di posta elettronica usato per accedere alla cassetta postale. |
 | ClientVersion | Versione del client di posta elettronica. |
-| InternalLogonType | Riservato per uso interno. |
+| InternalLogonType | Riservato per utilizzo interno. |
 | Logon_Type | Indica il tipo di utente che ha eseguito l'accesso alla cassetta postale e ha compiuto l'operazione che è stata registrata. |
 | LogonUserDisplayName |    Il nome descrittivo dell'utente che ha eseguito l'operazione. |
 | LogonUserSid | L'ID di sicurezza dell'utente che ha eseguito l'operazione. |

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 057c77d4ddb4a760e196c0dc8d508efe15e6699d
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: c8d2ef0330a32d5cab88355cc749322ec3a5ea30
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69520127"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530936"
 ---
 # <a name="frequently-asked-questions-about-apache-kafka-in-azure-hdinsight"></a>Domande frequenti su Apache Kafka in Azure HDInsight
 
@@ -38,7 +38,7 @@ Per una descrizione più dettagliata dei vari tipi di nodo, vedere [architettura
 
 ## <a name="do-apache-kafka-apis-work-with-hdinsight"></a>Le API Apache Kafka funzionano con HDInsight?
 
-Sì, HDInsight usa le API Kafka native. Non è necessario modificare il codice dell'applicazione client. Per istruzioni dettagliate, vedere [Esercitazione: Usare le API](./apache-kafka-producer-consumer-api.md) Producer e consumer Apache Kafka per vedere come usare le API producer/consumer basate su Java con il cluster.
+Sì, HDInsight usa le API Kafka native. Non è necessario modificare il codice dell'applicazione client. Vedere [esercitazione: usare le API Producer e consumer Apache Kafka](./apache-kafka-producer-consumer-api.md) per vedere come è possibile usare le API producer/consumer basate su Java con il cluster.
 
 ## <a name="can-i-change-cluster-configurations"></a>È possibile modificare le configurazioni del cluster?
 
@@ -46,11 +46,11 @@ Sì, tramite il portale Ambari. Ogni componente nel portale include una sezione 
 
 ## <a name="what-type-of-authentication-does-hdinsight-support-for-apache-kafka"></a>Quale tipo di autenticazione supporta HDInsight per Apache Kafka?
 
-Usando [Enterprise Security Package (ESP)](../domain-joined/apache-domain-joined-architecture.md), è possibile ottenere la sicurezza a livello di argomento per i cluster Kafka. Per istruzioni dettagliate, vedere [Esercitazione: Per ulteriori informazioni, configurare i criteri di Apache Kafka in](../domain-joined/apache-domain-joined-run-kafka.md)HDInsight con Enterprise Security Package (anteprima).
+Usando [Enterprise Security Package (ESP)](../domain-joined/apache-domain-joined-architecture.md), è possibile ottenere la sicurezza a livello di argomento per i cluster Kafka. Per ulteriori informazioni, vedere [esercitazione: configurare i criteri di Apache Kafka in HDInsight con Enterprise Security Package (anteprima)](../domain-joined/apache-domain-joined-run-kafka.md).
 
 ## <a name="is-my-data-encrypted-can-i-use-my-own-keys"></a>I dati sono crittografati? Posso usare le mie chiavi?
 
-Tutti i messaggi Kafka nei dischi gestiti vengono crittografati con [Azure crittografia del servizio di archiviazione (SSE)](../../storage/common/storage-service-encryption.md). I dati in transito (ad esempio, i dati trasmessi dai client ai broker e viceversa) non sono crittografati per impostazione predefinita. È possibile crittografare tale traffico configurando [SSL autonomamente](./apache-kafka-ssl-encryption-authentication.md). HDInsight consente inoltre di gestire le proprie chiavi per crittografare i dati inattivi. Per altre informazioni, vedere [Bring your own key per Apache Kafka in Azure HDInsight](apache-kafka-byok.md).
+Tutti i messaggi Kafka nei dischi gestiti vengono crittografati con [Azure crittografia del servizio di archiviazione (SSE)](../../storage/common/storage-service-encryption.md). I dati in transito (ad esempio, i dati trasmessi dai client ai broker e viceversa) non sono crittografati per impostazione predefinita. È possibile crittografare tale traffico [configurando SSL autonomamente](./apache-kafka-ssl-encryption-authentication.md). HDInsight consente inoltre di gestire le proprie chiavi per crittografare i dati inattivi. Per altre informazioni, vedere [Bring your own key per Apache Kafka in Azure HDInsight](apache-kafka-byok.md).
 
 ## <a name="how-do-i-connect-clients-to-my-cluster"></a>Ricerca per categorie connettere i client al cluster?
 
@@ -65,6 +65,10 @@ Per consentire ai client Kafka di comunicare con i broker Kafka, questi devono e
 ## <a name="can-i-add-more-disk-space-on-an-existing-cluster"></a>È possibile aggiungere altro spazio su disco in un cluster esistente?
 
 Per aumentare la quantità di spazio disponibile per i messaggi Kafka, è possibile aumentare il numero di nodi. Attualmente, l'aggiunta di altri dischi a un cluster esistente non è supportata.
+
+## <a name="can-a-kafka-cluster-work-with-databricks"></a>Un cluster Kafka può funzionare con databricks? 
+
+Sì, i cluster Kafka possono funzionare con databricks purché si trovino nello stesso VNet. Per usare un cluster Kafka con databricks, creare una VNet con un cluster HDInsight Kafka, quindi specificare VNet quando si crea l'area di lavoro di databricks e si usa VNet injection. Per altre informazioni, vedere [Distribuire Azure Databricks nella rete virtuale di Azure (inserimento in rete virtuale)](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). Quando si crea l'area di lavoro di databricks, sarà necessario fornire i nomi del broker di bootstrap del cluster Kafka. Per informazioni sul recupero dei nomi del broker Kafka, vedere [ottenere le informazioni sull'host di Apache Zookeeper e broker](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started#getkafkainfo).
 
 ## <a name="how-can-i-have-maximum-data-durability"></a>Come è possibile ottenere la durabilità massima dei dati?
 

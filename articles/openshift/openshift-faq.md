@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 11/04/2019
-ms.openlocfilehash: d8707e2edccf144cbe58a530bcfe2c176e656915
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2b4e78db9f3aa3a8f678212c7fcd1b97ed4834b1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582407"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378212"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Domande frequenti su Azure Red Hat OpenShift
 
@@ -49,11 +49,11 @@ No, non all'ora corrente.
 
 ## <a name="is-the-docker-registry-available-externally-so-i-can-use-tools-such-as-jenkins"></a>Il registro Docker è disponibile esternamente per poter usare strumenti come Jenkins?
 
-Il registro Docker è disponibile da `https://docker-registry.apps.<clustername>.<region>.azmosa.io/`, tuttavia, non è stata fornita una garanzia di durabilità di archiviazione avanzata. È anche possibile usare [container Registry di Azure](https://azure.microsoft.com/services/container-registry/).
+Il registro Docker è disponibile da `https://docker-registry.apps.<clustername>.<region>.azmosa.io/` tuttavia non è stata fornita una garanzia di durabilità di archiviazione avanzata. È anche possibile usare [container Registry di Azure](https://azure.microsoft.com/services/container-registry/).
 
 ## <a name="is-cross-namespace-networking-supported"></a>La rete tra gli spazi dei nomi è supportata?
 
-Gli amministratori di singoli progetti e clienti possono personalizzare la rete tra spazi dei nomi (inclusa la negazione) per ogni progetto usando oggetti `NetworkPolicy`.
+Gli amministratori di singoli progetti e clienti possono personalizzare la rete tra gli spazi dei nomi (inclusa la negazione) in base al progetto usando oggetti `NetworkPolicy`.
 
 ## <a name="can-an-admin-manage-users-and-quotas"></a>Un amministratore può gestire gli utenti e le quote?
 
@@ -77,7 +77,7 @@ Sì. È possibile usare OSBA con Azure Red Hat OpenShift. Per altre informazioni
 
 ## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>Si sta tentando di eseguire il peering in una rete virtuale in una sottoscrizione diversa ma viene `Failed to get vnet CIDR` errore.
 
-Nella sottoscrizione in cui è presente la rete virtuale, assicurarsi di registrare il provider `Microsoft.ContainerService` con `az provider register -n Microsoft.ContainerService --wait` 
+Nella sottoscrizione in cui è presente la rete virtuale, assicurarsi di registrare `Microsoft.ContainerService` provider con `az provider register -n Microsoft.ContainerService --wait` 
 
 ## <a name="what-is-the-azure-red-hat-openshift-aro-maintenance-process"></a>Che cos'è il processo di manutenzione di Azure Red Hat OpenShift (ARO)?
 
@@ -121,7 +121,7 @@ Syslog, i log di Docker, Journal e dmesg vengono gestiti dal servizio gestito e 
 
 ## <a name="how-can-a-customer-get-access-to-metrics-like-cpumemory-at-the-node-level-to-take-action-to-scale-debug-issues-etc-i-cannot-seem-to-run-kubectl-top-on-an-aro-cluster"></a>In che modo un cliente può accedere a metriche come CPU/memoria a livello di nodo per intervenire su scalabilità, problemi di debug e così via. Non posso sembrare di eseguire `kubectl top` in un cluster ARO.
 
-`kubectl top` non è disponibile in Red Hat OpenShift. Richiede un'origine metrica di backup, Heapster (deprecata) o Metrics-Server (incubating o Alpha), nessuno dei quali è incluso nello stack di monitoraggio OpenShift.
+I clienti possono accedere alle metriche della CPU/memoria a livello di nodo usando il comando `oc adm top nodes` o `kubectl top nodes` con il clusterrole Customer-admin.  I clienti possono anche accedere alle metriche della CPU/memoria dei `pods` con il comando `oc adm top pods` o `kubectl top pods`
 
 ## <a name="what-is-the-default-pod-scheduler-configuration-for-aro"></a>Qual è la configurazione dell'utilità di pianificazione Pod predefinita per ARO?
 
@@ -137,7 +137,7 @@ Per altri dettagli, vedere [scelta del numero corretto di domini di errore per i
 
 ## <a name="is-there-a-way-to-manage-pod-placement"></a>Esiste un modo per gestire la selezione host di Pod?
 
-Con l'imminente aggiornamento dell'amministratore del cliente, i clienti avranno la possibilità di ottenere i nodi e visualizzare le etichette.  Questo consentirà di specificare come destinazione qualsiasi macchina virtuale nel set di scalabilità.
+I clienti hanno la possibilità di ottenere i nodi e visualizzare le etichette come amministratore del cliente.  Questo consentirà di specificare come destinazione qualsiasi macchina virtuale nel set di scalabilità.
 
 Quando si usano etichette specifiche, è necessario prestare attenzione:
 
@@ -147,7 +147,7 @@ Quando si usano etichette specifiche, è necessario prestare attenzione:
 
 ## <a name="what-is-the-maximum-number-of-pods-in-an-aro-cluster-what-is-the-maximum-number-of-pods-per-node-in-aro"></a>Qual è il numero massimo di pod in un cluster ARO?  Qual è il numero massimo di pod per nodo in ARO?
 
-Per altri dettagli, vedere la [documentazione di upstream OpenShift](https://docs.openshift.com/container-platform/3.11/scaling_performance/cluster_limits.html#scaling-performance-current-cluster-limits) . Red Hat OpenShift 3,11 ha un limite di 250 Pod/nodo, mentre [Aro ha un limite di 20 nodi di calcolo](https://docs.microsoft.com/azure/openshift/openshift-faq#what-cluster-operations-are-available), in modo che il numero massimo di Pod supportati in un cluster Aro sia pari a 250 * 20 = 5000.
+ Azure Red Hat OpenShift 3,11 dispone di un limite di 50-pod per nodo con [Aro con un limite di 20 nodi di calcolo](https://docs.microsoft.com/azure/openshift/openshift-faq#what-cluster-operations-are-available), in modo da limitare il numero massimo di Pod supportati in un cluster Aro a 50 * 20 = 1000.
 
 ## <a name="can-we-specify-ip-ranges-for-deployment-on-the-private-vnet-avoiding-clashes-with-other-corporate-vnets-once-peered"></a>È possibile specificare gli intervalli IP per la distribuzione nel VNET privato, evitando conflitti con altri reti virtuali aziendali una volta eseguito il peering?
 

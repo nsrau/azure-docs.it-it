@@ -1,6 +1,6 @@
 ---
-title: Scrivere un'app Web per l'accesso degli utenti a Microsoft Identity Platform | Azure
-description: Informazioni su come creare un'app Web per l'accesso degli utenti (accesso)
+title: Scrivere un'app Web per l'accesso/uscita degli utenti-piattaforma di identità Microsoft | Azure
+description: Informazioni su come creare un'app Web per l'accesso degli utenti
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8d7d5737a8332416a225154709ab7d66e447764
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 6bb32ae29c533b8ea27bf68e012040a17bb36355
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74961982"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423494"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>App Web per l'accesso degli utenti: accesso e disconnessione
 
@@ -118,7 +118,7 @@ Il codice per `AccountController` è disponibile dal repository ASP.NET Core in 
 
 In ASP.NET, la disconnessione viene attivata dal metodo `SignOut()` su un controller, ad esempio [AccountController. cs # L16-L23](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Controllers/AccountController.cs#L16-L23). Questo metodo non fa parte del framework ASP.NET (contrariamente a quanto accade in ASP.NET Core). Invia una richiesta di accesso OpenID dopo aver proposto un URI di reindirizzamento.
 
-```CSharp
+```csharp
 public void SignIn()
 {
     // Send an OpenID Connect sign-in request.
@@ -342,7 +342,7 @@ In ASP.NET, la disconnessione viene attivata dal metodo `SignOut()` su un contro
 - Cancella la cache.
 - Reindirizza alla pagina che desidera.
 
-```CSharp
+```csharp
 /// <summary>
 /// Send an OpenID Connect sign-out request.
 /// </summary>
@@ -396,7 +396,7 @@ L'URI di post-disconnessione consente alle applicazioni di partecipare alla disc
 
 Il middleware di OpenID Connect ASP.NET Core consente all'app di intercettare la chiamata all'endpoint `logout` della piattaforma di identità Microsoft fornendo un evento OpenID Connect denominato `OnRedirectToIdentityProviderForSignOut`. Per un esempio di come sottoscrivere questo evento (per cancellare la cache dei token), vedere [Microsoft. Identity. Web/WebAppServiceCollectionExtensions. cs # L151-L156](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L156).
 
-```CSharp
+```csharp
     // Handling the global sign-out
     options.Events.OnRedirectToIdentityProviderForSignOut = async context =>
     {
@@ -408,7 +408,7 @@ Il middleware di OpenID Connect ASP.NET Core consente all'app di intercettare la
 
 In ASP.NET si delega al middleware per eseguire la disconnessione, cancellando il cookie di sessione:
 
-```CSharp
+```csharp
 public class AccountController : Controller
 {
  ...
@@ -431,7 +431,7 @@ Nella Guida introduttiva di Python, l'URI di reindirizzamento di post-disconness
 
 ---
 
-## <a name="protocol"></a>Protocol
+## <a name="protocol"></a>Protocollo
 
 Per altre informazioni sulla disconnessione, vedere la documentazione del protocollo disponibile in [Open ID Connect](./v2-protocols-oidc.md).
 

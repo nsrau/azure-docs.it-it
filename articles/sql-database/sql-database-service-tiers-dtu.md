@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/26/2019
-ms.openlocfilehash: 6dee7642ac7ac0544db5b88981483bd1ea0f745e
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 2f316e57e407a0588e77f56d6e1fbe8c19ba5fee
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539319"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562120"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Livelli di servizio nel modello di acquisto basato su DTU
 
@@ -54,7 +54,7 @@ La scelta di un livello di servizio dipende soprattutto dai requisiti in termini
 
 ## <a name="single-database-dtu-and-storage-limits"></a>DTU database singolo e limiti di archiviazione
 
-Le dimensioni di calcolo per i database singoli sono espresse in unità di transazione di database (DTU), quelle per i pool elastici sono espresse in unità di transazione di database elastico (eDTU). Per altre informazioni su DTU ed EDTU, vedere [Modello di acquisto basato su DTU](sql-database-purchase-models.md#dtu-based-purchasing-model).
+Le dimensioni di calcolo per i database singoli sono espresse in unità di transazione di database (DTU), quelle per i pool elastici sono espresse in unità di transazione di database elastico (eDTU). Per altre informazioni su DTU e edtu, vedere [modello di acquisto basato su DTU](sql-database-purchase-models.md#dtu-based-purchasing-model).
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: |
@@ -67,7 +67,7 @@ Le dimensioni di calcolo per i database singoli sono espresse in unità di trans
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>eDTU pool elastico, archiviazione e limiti del database in pool
 
-| | **Basic** | **Standard** | **Premium** |
+| | **Base** | **Standard** | **Premium** |
 | :-- | --: | --: | --: |
 | Dimensioni massime di archiviazione per ogni database  | 2 GB | 1 TB | 1 TB |
 | Dimensioni massime di archiviazione per ogni pool | 156 GB | 4 TB | 4 TB |
@@ -118,7 +118,7 @@ Il carico di lavoro è costituito da nove tipi di transazioni, come illustrato n
 | Operazioni aggiornamento intense |UPDATE, principalmente non in memoria, lettura/scrittura |
 | Operazioni inserimento leggere |INSERT, in memoria, lettura/scrittura |
 | Operazioni inserimento intense |INSERT, principalmente non in memoria, lettura/scrittura |
-| Eliminazione |DELETE, combinazione in memoria e non in memoria, lettura/scrittura |
+| Elimina |DELETE, combinazione in memoria e non in memoria, lettura/scrittura |
 | Operazioni CPU intense |SELECT, in memoria, carico CPU relativamente pesante, sola lettura |
 
 ### <a name="workload-mix"></a>Combinazione di carichi di lavoro
@@ -134,7 +134,7 @@ Le transazioni vengono selezionate casualmente da una distribuzione ponderata co
 | Operazioni aggiornamento intense |3 |
 | Operazioni inserimento leggere |3 |
 | Operazioni inserimento intense |2 |
-| Eliminazione |2 |
+| Elimina |2 |
 | Operazioni CPU intense |10 |
 
 ### <a name="users-and-pacing"></a>Utenti e velocità

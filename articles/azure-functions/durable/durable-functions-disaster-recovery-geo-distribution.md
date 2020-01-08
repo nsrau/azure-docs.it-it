@@ -1,25 +1,23 @@
 ---
-title: Ripristino di emergenza e distribuzione geografica in Funzioni durevoli - Azure
+title: Ripristino di emergenza e distribuzione geografica di Azure Durable Functions
 description: Informazioni sul ripristino di emergenza e sulla distribuzione geografica in Funzioni durevoli.
 author: MS-Santi
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ba459d2d2f3aaf595c1d834e2b29a231e3b2bb12
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7951f216143bef0d48a6b751beff3f8f4316b9bd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232949"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433340"
 ---
-# <a name="disaster-recovery-and-geo-distribution"></a>Ripristino di emergenza e distribuzione geografica
-
-## <a name="overview"></a>Overview
+# <a name="disaster-recovery-and-geo-distribution-in-azure-durable-functions"></a>Ripristino di emergenza e distribuzione geografica in Azure Durable Functions
 
 In Durable Functions tutti gli stati vengono salvati in modo permanente in Archiviazione di Azure. Un [hub attività](durable-functions-task-hubs.md) è un contenitore logico per le risorse di Archiviazione di Azure che vengono usate per le orchestrazioni. Le funzioni attività e di orchestrazione possono interagire tra loro solo quando appartengono allo stesso hub attività.
 Gli scenari descritti propongono opzioni di distribuzione per aumentare la disponibilità e ridurre al minimo il tempo di inattività durante le attività di ripristino di emergenza.
 
-È importante notare che questi scenari sono basati sulle configurazioni attive-passive, dal momento che sono guidati dall'utilizzo di Archiviazione di Azure. Questo modello prevede la distribuzione di un'app per le funzioni di backup (passiva) in un'altra area. Gestione traffico monitorerà l'app per le funzioni primaria (attiva) per la disponibilità. In caso di errore dell'app primaria, verrà effettuato il failover all'app per le funzioni di backup. Per altre informazioni, vedere il [metodo di routing del traffico Priorità](https://azure.microsoft.com/services/traffic-manager/) di [Gestione traffico](../../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method).
+È importante notare che questi scenari sono basati sulle configurazioni attive-passive, dal momento che sono guidati dall'utilizzo di Archiviazione di Azure. Questo modello prevede la distribuzione di un'app per le funzioni di backup (passiva) in un'altra area. Gestione traffico monitorerà l'app per le funzioni primaria (attiva) per la disponibilità. In caso di errore dell'app primaria, verrà effettuato il failover all'app per le funzioni di backup. Per altre informazioni, vedere il [metodo di routing del traffico Priorità](../../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method) di [Gestione traffico](https://azure.microsoft.com/services/traffic-manager/).
 
 >[!NOTE]
 >

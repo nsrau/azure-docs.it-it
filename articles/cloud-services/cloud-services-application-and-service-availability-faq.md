@@ -1,5 +1,6 @@
 ---
-title: Domande frequenti relative ai problemi di disponibilità di applicazioni e servizi per Servizi cloud di Microsoft Azure| Microsoft Docs
+title: Domande frequenti sui problemi di disponibilità di applicazioni e servizi
+titleSuffix: Azure Cloud Services
 description: Questo articolo elenca le domande frequenti relative alla disponibilità di applicazioni e servizi per Servizi cloud di Microsoft Azure.
 services: cloud-services
 documentationcenter: ''
@@ -14,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: d229291793334964569f6c35eaec68a94ca6b69f
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: c294d4583ba2690e1f4952441ffb43bff1459059
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154888"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386919"
 ---
-# <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di disponibilità di applicazioni e servizi per servizi cloud di Azure: Domande frequenti (FAQ)
+# <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di disponibilità di applicazioni e servizi per Servizi cloud di Azure: domande frequenti
 
 Questo articolo include le domande frequenti relative ai problemi di disponibilità di applicazioni e servizi per [Servizi cloud di Microsoft Azure](https://azure.microsoft.com/services/cloud-services). Per informazioni sulle dimensioni, vedere la pagina [Dimensioni dei servizi cloud](cloud-services-sizes-specs.md) .
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="my-role-got-recycled-was-there-any-update-rolled-out-for-my-cloud-service"></a>Il ruolo è stato riciclato. È stato implementato un aggiornamento per il servizio cloud?
-Circa una volta al mese, Microsoft rilascia una nuova versione del sistema operativo guest per VM PaaS di Microsoft Azure. Il sistema operativo guest rappresenta solo uno di tali aggiornamenti nella pipeline. Una versione può essere influenzata da molti altri fattori. Inoltre, Azure è in esecuzione su centinaia di migliaia di computer. Ciò significa che è impossibile prevedere una data e un'ora esatte per il riavvio dei ruoli. Il feed RSS di aggiornamento del sistema operativo guest viene aggiornato con le informazioni più recenti disponibili, ma è necessario tenere presente che gli orari segnalati sono approssimativi. Microsoft è consapevole del fatto che questo rappresenti un problema per i clienti e sta lavorando a un piano per limitare i riavvii o impostare una tempistica precisa.
+Circa una volta al mese, Microsoft rilascia una nuova versione del sistema operativo guest per VM PaaS di Microsoft Azure. Il sistema operativo guest è solo uno di tali aggiornamenti nella pipeline. Una versione può essere influenzata da molti altri fattori. Inoltre, Azure è in esecuzione su centinaia di migliaia di computer. Ciò significa che è impossibile prevedere una data e un'ora esatte per il riavvio dei ruoli. Il feed RSS di aggiornamento del sistema operativo guest viene aggiornato con le informazioni più recenti disponibili, ma è necessario tenere presente che gli orari segnalati sono approssimativi. Microsoft è consapevole del fatto che questo rappresenti un problema per i clienti e sta lavorando a un piano per limitare i riavvii o impostare una tempistica precisa.
 
 Per informazioni complete sugli aggiornamenti recenti del sistema operativo guest vedere [Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK](cloud-services-guestos-update-matrix.md).
 

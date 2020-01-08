@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bfa8982fb49b31540d1926bdeb75a96dc1d79cf0
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: b82001b8bceac620dec9f1fe6ef47f4aa81b1011
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950902"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425613"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico autocertificato nei criteri personalizzati di Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "74950902"
 
 Tutte le interazioni in Azure Active Directory B2C (Azure AD B2C) in cui l'utente deve fornire l'input sono profili tecnici autocertificati. ad esempio una pagina di registrazione, una pagina di accesso o una pagina di reimpostazione della password.
 
-## <a name="protocol"></a>Protocol
+## <a name="protocol"></a>Protocollo
 
 L'attributo **Nome** dell'elemento **Protocollo** deve essere impostato su `Proprietary`. L'attributo **handler** deve contenere il nome completo dell'assembly del gestore di protocollo usato da Azure AD B2C per l'autocertificazione: `Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
 
@@ -38,7 +38,7 @@ L'esempio seguente illustra un profilo tecnico autocertificato per l'iscrizione 
 
 ## <a name="input-claims"></a>Attestazioni di input
 
-In un profilo tecnico autocertificato è possibile usare gli elementi **InputClaims** e **InputClaimsTransformations** per popolare automaticamente il valore delle attestazioni che vengono visualizzate nella pagina autocertificata (attestazioni di output). Nei criteri del profilo di modifica ad esempio il percorso utente legge prima il profilo utente dal servizio directory di Azure AD B2C, quindi il profilo tecnico autocertificato imposta le attestazioni di input con i dati utente archiviati nel profilo utente. Queste attestazioni vengono raccolte dal profilo utente e successivamente presentate all'utente che può quindi modificare i dati esistenti.
+In un profilo tecnico autocertificato, è possibile usare gli elementi **InputClaims** e **InputClaimsTransformations** per prepopolare il valore delle attestazioni visualizzate nella pagina autocertificata (visualizzare le attestazioni). Nei criteri del profilo di modifica ad esempio il percorso utente legge prima il profilo utente dal servizio directory di Azure AD B2C, quindi il profilo tecnico autocertificato imposta le attestazioni di input con i dati utente archiviati nel profilo utente. Queste attestazioni vengono raccolte dal profilo utente e successivamente presentate all'utente che può quindi modificare i dati esistenti.
 
 ```XML
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
@@ -51,31 +51,92 @@ In un profilo tecnico autocertificato è possibile usare gli elementi **InputCla
   </InputClaims>
 ```
 
+## <a name="display-claims"></a>Visualizza attestazioni
+
+La funzionalità di visualizzazione delle attestazioni è attualmente in **Anteprima**.
+
+L'elemento **DisplayClaims** contiene un elenco di attestazioni da presentare sullo schermo per la raccolta di dati da parte dell'utente. Per prepopolare i valori delle attestazioni di output, usare le attestazioni di input descritte in precedenza. L'elemento può contenere anche un valore predefinito.
+
+L'ordine delle attestazioni in **DisplayClaims** specifica l'ordine in cui Azure ad B2C esegue il rendering delle attestazioni sullo schermo. Per forzare l'utente a fornire un valore per un'attestazione specifica, impostare l'attributo **obbligatorio** dell'elemento **DisplayClaim** su `true`.
+
+L'elemento **ClaimType** nella raccolta **DisplayClaims** deve impostare l'elemento **tipo** su qualsiasi tipo di input utente supportato da Azure ad B2C. Ad esempio, `TextBox` o `DropdownSingleSelect`.
+
+### <a name="add-a-reference-to-a-displaycontrol"></a>Aggiungere un riferimento a un DisplayControl
+
+Nella raccolta di attestazioni di visualizzazione è possibile includere un riferimento a un [DisplayControl](display-controls.md) creato. Un controllo display è un elemento dell'interfaccia utente che dispone di funzionalità speciali e interagisce con il servizio back-end Azure AD B2C. Consente all'utente di eseguire azioni nella pagina che richiama un profilo tecnico di convalida nel back-end. Ad esempio, verificando un indirizzo di posta elettronica, un numero di telefono o un numero di fedeltà del cliente.
+
+Nell'esempio seguente `TechnicalProfile` illustra l'uso di attestazioni di visualizzazione con i controlli di visualizzazione.
+
+* La prima attestazione di visualizzazione contiene un riferimento al controllo `emailVerificationControl` display che raccoglie e verifica l'indirizzo di posta elettronica.
+* La Quinta attestazione di visualizzazione contiene un riferimento al controllo `phoneVerificationControl` display che raccoglie e verifica un numero di telefono.
+* Le altre attestazioni di visualizzazione sono ClaimTypes da raccogliere dall'utente.
+
+```XML
+<TechnicalProfile Id="Id">
+  <DisplayClaims>
+    <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
+    <DisplayClaim ClaimTypeReferenceId="displayName" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="givenName" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="surName" Required="true" />
+    <DisplayClaim DisplayControlReferenceId="phoneVerificationControl" />
+    <DisplayClaim ClaimTypeReferenceId="newPassword" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
+  </DisplayClaims>
+</TechnicalProfile>
+```
+
+Come indicato in precedenza, un'attestazione di visualizzazione con un riferimento a un controllo di visualizzazione può eseguire la propria convalida, ad esempio la verifica dell'indirizzo di posta elettronica. Inoltre, la pagina autocertificata supporta l'utilizzo di un profilo tecnico di convalida per convalidare l'intera pagina, inclusi eventuali input utente (tipi di attestazione o controlli di visualizzazione), prima di passare al passaggio successivo dell'orchestrazione.
+
+### <a name="combine-usage-of-display-claims-and-output-claims-carefully"></a>Combinare attentamente l'utilizzo delle attestazioni di visualizzazione e delle attestazioni di output
+
+Se si specificano uno o più elementi **DisplayClaim** in un profilo tecnico autocertificato, è necessario usare un DisplayClaim per *ogni* attestazione che si desidera visualizzare sullo schermo e raccogliere dall'utente. Nessuna attestazione di output viene visualizzata da un profilo tecnico autocertificato che contiene almeno un'attestazione di visualizzazione.
+
+Si consideri l'esempio seguente in cui un'attestazione `age` viene definita come attestazione di **output** in un criterio di base. Prima di aggiungere attestazioni di visualizzazione al profilo tecnico autocertificato, l'attestazione `age` viene visualizzata sullo schermo per la raccolta dati dall'utente:
+
+```XML
+<TechnicalProfile Id="id">
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="age" />
+  </OutputClaims>
+</TechnicalProfile>
+```
+
+Se un criterio foglia che eredita tale base successivamente specifica `officeNumber` come attestazione di **visualizzazione** :
+
+```XML
+<TechnicalProfile Id="id">
+  <DisplayClaims>
+    <DisplayClaim ClaimTypeReferenceId="officeNumber" />
+  </DisplayClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="officeNumber" />
+  </OutputClaims>
+</TechnicalProfile>
+```
+
+L'attestazione `age` nei criteri di base non viene più visualizzata sullo schermo per l'utente, perché è effettivamente "nascosta". Per visualizzare l'attestazione `age` e raccogliere il valore Age dall'utente, è necessario aggiungere un `age` **DisplayClaim**.
 
 ## <a name="output-claims"></a>Attestazioni di output
 
-L'elemento **OutputClaims** contiene un elenco di attestazioni da presentare per raccogliere i dati dall'utente. Per popolare automaticamente le attestazioni di output con alcuni valori, usare le attestazioni di input precedentemente descritte. L'elemento può contenere anche un valore predefinito. L'ordine delle attestazioni in **OutputClaims** controlla l'ordine in cui Azure AD B2C esegue il rendering delle attestazioni sullo schermo. L'attributo **DefaultValue** diventa effettivo solo se l'attestazione non è mai stata impostata prima. Se invece l'attestazione è stata impostata in un passaggio di orchestrazione precedente, anche se l'utente lascia vuoto il valore, il valore predefinito non diventa effettivo. Per forzare l'utilizzo di un valore predefinito, impostare l'attributo **AlwaysUseDefaultValue** su `true`. Per forzare l'utente a specificare un valore per un'attestazione di output specifica, impostare l'attributo **Required** dell'elemento **OutputClaims** su `true`.
+L'elemento **OutputClaims** contiene un elenco di attestazioni da restituire al passaggio di orchestrazione successivo. L'attributo **DefaultValue** viene applicato solo se l'attestazione non è mai stata impostata. Se è stato impostato in un passaggio di orchestrazione precedente, il valore predefinito non diventa effettivo anche se l'utente lascia vuoto il valore. Per forzare l'utilizzo di un valore predefinito, impostare l'attributo **AlwaysUseDefaultValue** su `true`.
 
-L'elemento **ClaimType** nella raccolta di **OutputClaims** deve impostare l'elemento **UserInputType** su un qualsiasi tipo di input utente supportato da Azure AD B2C, ad esempio `TextBox` o `DropdownSingleSelect`. In alternativa, l'elemento **OutputClaim** deve impostare un attributo **DefaultValue**.
+> [!NOTE]
+> Nelle versioni precedenti di Identity Experience Framework (Framework dell'esperienza), le attestazioni di output sono state usate per raccogliere dati dall'utente. Per raccogliere dati dall'utente, usare invece una raccolta **DisplayClaims** .
 
 L'elemento **OutputClaimsTransformations** può contenere una raccolta di elementi **OutputClaimsTransformation** che vengono usati per modificare le attestazioni di output o per generarne di nuove.
 
-L'attestazione di output seguente è sempre impostata su `live.com`:
+### <a name="when-you-should-use-output-claims"></a>Quando si usano le attestazioni di output
 
-```XML
-<OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="live.com" AlwaysUseDefaultValue="true" />
-```
+In un profilo tecnico autocertificato, la raccolta di attestazioni di output restituisce le attestazioni al passaggio di orchestrazione successivo.
 
-### <a name="use-case"></a>Caso d'uso
+È consigliabile usare le attestazioni di output nei casi seguenti:
 
-Esistono quattro scenari di attestazioni di output:
-
-- **Raccolta di attestazioni di output dall'utente** - Quando occorre raccogliere informazioni dall'utente, ad esempio la data di nascita, è consigliabile aggiungere l'attestazione alla raccolta di **OutputClaims**. Le attestazioni che vengono presentate all'utente devono specificare l'attributo **UserInputType**, ad esempio `TextBox` o `DropdownSingleSelect`. Se il profilo tecnico autocertificato contiene un profilo tecnico di convalida che genera la stessa attestazione, Azure AD B2C non visualizza l'attestazione all'utente. Se non è presente alcuna attestazione di output da visualizzare all'utente, Azure AD B2C ignora il profilo tecnico.
-- **Impostazione di un valore predefinito in un'attestazione di output** - Senza raccogliere i dati dall'utente o restituire i dati dal profilo tecnico di convalida. Il profilo tecnico autocertificato `LocalAccountSignUpWithLogonEmail` imposta l'attestazione **executed-SelfAsserted-Input** su `true`.
+- Le **attestazioni vengono restituite dalla trasformazione delle attestazioni di output**.
+- **Impostazione di un valore predefinito in un'attestazione di output** senza raccogliere dati dall'utente o restituire i dati dal profilo tecnico di convalida. Il profilo tecnico autocertificato `LocalAccountSignUpWithLogonEmail` imposta l'attestazione **executed-SelfAsserted-Input** su `true`.
 - **Un profilo tecnico di convalida restituisce le attestazioni di output** - Il profilo tecnico può chiamare un profilo tecnico di convalida che restituisce alcune attestazioni. È possibile che si desideri sviluppare le attestazioni e restituirle ai successivi passaggi dell'orchestrazione nel percorso utente. Quando si accede con un account locale, ad esempio, il profilo tecnico autocertificato denominato `SelfAsserted-LocalAccountSignin-Email` chiama il profilo tecnico di convalida denominato `login-NonInteractive`. Questo profilo tecnico convalida le credenziali utente e restituisce il profilo utente, ad esempio 'userPrincipalName', 'displayName', 'givenName' e 'surName'.
-- **Output delle attestazioni tramite trasformazione delle attestazioni di output**
+- **Un controllo di visualizzazione restituisce le attestazioni di output** . il profilo tecnico può avere un riferimento a un [controllo di visualizzazione](display-controls.md). Il controllo di visualizzazione restituisce alcune attestazioni, ad esempio l'indirizzo di posta elettronica verificato. È possibile che si desideri sviluppare le attestazioni e restituirle ai successivi passaggi dell'orchestrazione nel percorso utente. La funzionalità di controllo di visualizzazione è attualmente in **Anteprima**.
 
-Nell'esempio seguente il profilo tecnico autocertificato `LocalAccountSignUpWithLogonEmail` dimostra l'utilizzo delle attestazioni di output e imposta **executed-SelfAsserted-Input** su `true`. Le attestazioni `objectId`, `authenticationSource` e `newUser` sono output del profilo tecnico di convalida `AAD-UserWriteUsingLogonEmail` e non vengono visualizzate all'utente.
+Nell'esempio seguente viene illustrato l'utilizzo di un profilo tecnico autocertificato che utilizza sia le attestazioni di visualizzazione sia le attestazioni di output.
 
 ```XML
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
@@ -86,32 +147,30 @@ Nell'esempio seguente il profilo tecnico autocertificato `LocalAccountSignUpWith
     <Item Key="ContentDefinitionReferenceId">api.localaccountsignup</Item>
     <Item Key="language.button_continue">Create</Item>
   </Metadata>
-  <CryptographicKeys>
-    <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer" />
-  </CryptographicKeys>
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" />
   </InputClaims>
+  <DisplayClaims>
+    <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
+    <DisplayClaim DisplayControlReferenceId="SecondaryEmailVerificationControl" />
+    <DisplayClaim ClaimTypeReferenceId="displayName" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="givenName" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="surName" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="newPassword" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
+  </DisplayClaims>
   <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="email" Required="true" />
     <OutputClaim ClaimTypeReferenceId="objectId" />
-    <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
-    <OutputClaim ClaimTypeReferenceId="newPassword" Required="true" />
-    <OutputClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
     <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
     <OutputClaim ClaimTypeReferenceId="authenticationSource" />
     <OutputClaim ClaimTypeReferenceId="newUser" />
-
-    <!-- Optional claims, to be collected from the user -->
-    <OutputClaim ClaimTypeReferenceId="displayName" />
-    <OutputClaim ClaimTypeReferenceId="givenName" />
-    <OutputClaim ClaimTypeReferenceId="surName" />
   </OutputClaims>
   <ValidationTechnicalProfiles>
     <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingLogonEmail" />
   </ValidationTechnicalProfiles>
   <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
 </TechnicalProfile>
-
 ```
 
 ## <a name="persist-claims"></a>Rendere persistenti le attestazioni
@@ -126,14 +185,14 @@ Il profilo tecnico di convalida può essere un qualsiasi profilo tecnico nei cri
 
 È possibile anche chiamare un profilo tecnico di API REST usando la logica di business che si preferisce, sovrascrivere le attestazioni di input o arricchire i dati utente integrando ulteriormente con applicazioni line-of-business aziendali. Per altre informazioni, vedere [Validation technical profile](validation-technical-profile.md) (Profilo tecnico di convalida)
 
-## <a name="metadata"></a>Metadata
+## <a name="metadata"></a>Metadati
 
-| Attributo | Obbligatoria | Description |
+| Attributo | Obbligatorio | Description |
 | --------- | -------- | ----------- |
 | setting.showContinueButton | No | Visualizza il pulsante Continua. I valori possibili sono: `true` (impostazione predefinita) o `false` |
 | setting.showCancelButton | No | Visualizza il pulsante Annulla. I valori possibili sono: `true` (impostazione predefinita) o `false` |
 | setting.operatingMode | No | Per una pagina di accesso, questa proprietà controlla il comportamento del campo del nome utente, ad esempio i messaggi di errore e di convalida di input. I valori previsti sono: `Username` o `Email`. |
-| ContentDefinitionReferenceId | SÌ | Identificatore della [definizione di contenuto](contentdefinitions.md) associata a questo profilo tecnico. |
+| ContentDefinitionReferenceId | Sì | Identificatore della [definizione di contenuto](contentdefinitions.md) associata a questo profilo tecnico. |
 | EnforceEmailVerification | No | Per la registrazione o la modifica del profilo, applica la verifica tramite posta elettronica. I valori possibili sono: `true` (impostazione predefinita) o `false`. |
 | setting.showSignupLink | No | Visualizza il pulsante di iscrizione. I valori possibili sono: `true` (impostazione predefinita) o `false` |
 | setting.retryLimit | No | Controlla il numero di volte in cui un utente può provare a specificare i dati che vengono controllati rispetto a un profilo tecnico di convalida. Un utente tenta ad esempio di iscriversi con un account che esiste già e insiste fino a quando non raggiunge il limite.
@@ -142,16 +201,3 @@ Il profilo tecnico di convalida può essere un qualsiasi profilo tecnico nei cri
 ## <a name="cryptographic-keys"></a>Chiavi crittografiche
 
 L'elemento **CryptographicKeys** non viene usato.
-
-
-
-
-
-
-
-
-
-
-
-
-

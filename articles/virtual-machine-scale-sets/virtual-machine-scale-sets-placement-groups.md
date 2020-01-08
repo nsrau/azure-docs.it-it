@@ -1,6 +1,6 @@
 ---
-title: Uso di set di scalabilità di macchine virtuali di Azure di grandi dimensioni | Documentazione Microsoft
-description: Informazioni utili per usare set di scalabilità di macchine virtuali di Azure di grandi dimensioni
+title: Uso di set di scalabilità di macchine virtuali di Azure di grandi dimensioni
+description: Cosa è necessario sapere sui set di scalabilità di macchine virtuali di Azure di grandi dimensioni per usarli nell'applicazione.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: rajsqr
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/9/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 46ca46c99187b14974b78ccc4acc134a5f716b05
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 839d889783a7ef3bcd602c37a4975ddeea4e2a16
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326695"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459333"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Uso di set di scalabilità di macchine virtuali di grandi dimensioni
 È ora possibile creare [set di scalabilità di macchine virtuali](/azure/virtual-machine-scale-sets/) di Azure con capacità fino a 1.000 VM. In questo documento è definito _set di scalabilità di macchine virtuali di grandi dimensioni_ un set di scalabilità ridimensionabile fino a oltre 100 VM. Tale funzionalità è impostata da una proprietà del set di scalabilità (_singlePlacementGroup=False_). 
@@ -50,7 +50,7 @@ Quando si crea un set di scalabilità nel portale di Azure, è sufficiente speci
 
 ![](./media/virtual-machine-scale-sets-placement-groups/portal-large-scale.png)
 
-È possibile creare un set di scalabilità di macchine virtuali di grandi dimensioni con il comando _az vmss create_ dell'[interfaccia della riga di comando di Azure](https://github.com/Azure/azure-cli). Questo comando configura impostazioni predefinite intelligenti, ad esempio dimensioni di subnet basate sull'argomento _instance-count_:
+È possibile creare un set di scalabilità di macchine virtuali di grandi dimensioni usando l'interfaccia della riga di comando di [Azure](https://github.com/Azure/azure-cli) _AZ vmss create_ . Questo comando configura impostazioni predefinite intelligenti, ad esempio dimensioni di subnet basate sull'argomento _instance-count_:
 
 ```bash
 az group create -l southcentralus -n biginfra

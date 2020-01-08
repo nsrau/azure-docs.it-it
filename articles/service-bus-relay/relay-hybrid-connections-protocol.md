@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: clemensv
-ms.openlocfilehash: e96d0103a03e841f39e8adb88215f6d6e24a305a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45ba78645f754072c7f75b5b4f457c76bb9895b6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64706088"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355017"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocollo per le connessioni ibride di inoltro di Azure
 
@@ -51,7 +51,7 @@ I messaggi di ascolto, accettazione e richiesta vengono ricevuti dal servizio. L
 
 Un listener, per indicare al servizio che è pronto ad accettare le connessioni, crea una connessione WebSocket in uscita. L'handshake della connessione trasporta il nome di una connessione ibrida configurata nello spazio dei nomi dell'inoltro e un token di sicurezza che conferisce il diritto di "ascoltare" a tale nome.
 
-Quando il WebSocket viene accettato dal servizio, la registrazione è completa e il WebSocket stabilito viene mantenuto attivo come "canale di controllo" per abilitare tutte le interazioni successive. Il servizio consente fino a 25 listener simultanei in una connessione ibrida. La quota per AppHooks deve essere stabilita.
+Quando il WebSocket viene accettato dal servizio, la registrazione è completa e il WebSocket stabilito viene mantenuto attivo come "canale di controllo" per abilitare tutte le interazioni successive. Il servizio consente un massimo di 25 listener simultanei per una connessione ibrida. La quota per AppHooks deve essere stabilita.
 
 Per Connessioni ibride, se sono presenti due o più listener attivi, le connessioni in ingresso sono bilanciate tra loro in ordine casuale e non viene garantita una distribuzione equa.
 
@@ -144,25 +144,25 @@ Il canale di controllo viene aperto con la creazione di una connessione WebSocke
 
 Le opzioni dei parametri della stringa di query sono le seguenti.
 
-| Parametro        | Obbligatorio | Descrizione
+| Parametro        | Obbligatorio | Description
 | ---------------- | -------- | -------------------------------------------
-| `sb-hc-action`   | Yes      | Per il ruolo listener, il parametro deve essere **sb-hc-action=listen**
-| `{path}`         | Yes      | Percorso dello spazio dei nomi codificato con URL della connessione ibrida preconfigurata in cui registrare questo listener. Questa espressione viene aggiunta alla parte del percorso `$hc/` fissa.
+| `sb-hc-action`   | Sì      | Per il ruolo listener, il parametro deve essere **sb-hc-action=listen**
+| `{path}`         | Sì      | Percorso dello spazio dei nomi codificato con URL della connessione ibrida preconfigurata in cui registrare questo listener. Questa espressione viene aggiunta alla parte del percorso `$hc/` fissa.
 | `sb-hc-token`    | Sì\*    | Il listener deve fornire un token di accesso condiviso del bus di servizio codificato con URL valido per lo spazio dei nomi o la connessione ibrida che conferisce il diritto **Listen**.
 | `sb-hc-id`       | No       | Questo ID facoltativo fornito dal client consente la traccia diagnostica end-to-end.
 
 Se la connessione WebSocket non riesce perché il percorso della connessione ibrida non è registrato oppure a causa di un token mancante o non valido o di un altro errore, il feedback dell'errore viene specificato usando il normale modello di feedback dello stato HTTP 1.1. La descrizione dello stato contiene un ID di traccia dell'errore che può essere comunicato al personale del supporto di Azure:
 
-| Codice | Tipi di errore          | Descrizione
+| Codice | Errore          | Description
 | ---- | -------------- | -------------------------------------------------------------------
 | 404  | Non trovato      | Il percorso della connessione ibrida non è valido o il formato dell'URL di base non è corretto.
-| 401  | Non autorizzata   | Il token di sicurezza è mancante, non valido o non corretto.
+| 401  | Non autorizzato   | Il token di sicurezza è mancante, non valido o non corretto.
 | 403  | Accesso negato      | Il token di sicurezza non è valido per questo percorso per questa azione.
 | 500  | Errore interno | Si è verificato un errore nel servizio.
 
 Se la connessione WebSocket viene intenzionalmente arrestata dal servizio dopo la configurazione iniziale, il motivo viene comunicato usando un codice errore del protocollo WebSocket appropriato con un messaggio di errore descrittivo che include anche un ID di traccia. Il servizio non arresterà il canale di controllo senza riscontrare una condizione di errore. Le chiusure normali sono controllate dal client.
 
-| Stato Web Socket | Descrizione
+| Stato Web Socket | Description
 | --------- | -------------------------------------------------------------------------------
 | 1001      | Il percorso della connessione ibrida è stato eliminato o disabilitato.
 | 1008      | Il token di sicurezza è scaduto e i criteri di autorizzazione vengono quindi violati.
@@ -204,10 +204,10 @@ Lo stesso vale per l'intestazione `Sec-WebSocket-Extensions`. Se il framework su
 
 L'URL deve essere usato così com'è per stabilire il socket di accettazione, ma contiene i parametri seguenti:
 
-| Parametro      | Obbligatorio | Descrizione
+| Parametro      | Obbligatorio | Description
 | -------------- | -------- | -------------------------------------------------------------------
-| `sb-hc-action` | Yes      | Per accettare un socket, il parametro deve essere `sb-hc-action=accept`
-| `{path}`       | Yes      | (vedere il paragrafo seguente)
+| `sb-hc-action` | Sì      | Per accettare un socket, il parametro deve essere `sb-hc-action=accept`
+| `{path}`       | Sì      | (vedere il paragrafo seguente)
 | `sb-hc-id`     | No       | Vedere la descrizione precedente di **id**.
 
 `{path}` è il percorso dello spazio dei nomi codificato con URL della connessione ibrida preconfigurata in cui registrare questo listener. Questa espressione viene aggiunta alla parte del percorso `$hc/` fissa.
@@ -219,14 +219,14 @@ Per altre informazioni, vedere la sezione "Protocollo per il mittente" che segue
 
 In caso di errore il servizio può rispondere come segue:
 
-| Codice | Tipi di errore          | Descrizione
+| Codice | Errore          | Description
 | ---- | -------------- | -----------------------------------
 | 403  | Accesso negato      | URL non valido.
 | 500  | Errore interno | Si è verificato un errore nel servizio
 
  Dopo che la connessione è stata stabilita, il server arresta il WebSocket quando il WebSocket mittente si arresta o ha lo stato seguente:
 
-| Stato Web Socket | Descrizione                                                                     |
+| Stato Web Socket | Description                                                                     |
 | --------- | ------------------------------------------------------------------------------- |
 | 1001      | Il client mittente arresta la connessione.                                    |
 | 1001      | Il percorso della connessione ibrida è stato eliminato o disabilitato.                        |
@@ -241,16 +241,16 @@ In caso di errore il servizio può rispondere come segue:
 
  Per rifiutare il socket, il client accetta l'URI dell'indirizzo dal messaggio `accept` e vi aggiunge due parametri di stringa di query, come indicato di seguito:
 
-| Param                   | Obbligatorio | Descrizione                              |
+| Param                   | Obbligatorio | Description                              |
 | ----------------------- | -------- | ---------------------------------------- |
-| sb-hc-statusCode        | Yes      | Codice di stato HTTP numerico.                |
-| sb-hc-statusDescription | Yes      | Motivo leggibile del rifiuto. |
+| sb-hc-statusCode        | Sì      | Codice di stato HTTP numerico.                |
+| sb-hc-statusDescription | Sì      | Motivo leggibile del rifiuto. |
 
 L'URI risultante viene quindi usato per stabilire una connessione WebSocket.
 
 Se completato correttamente, questo handshake non riuscirà di proposito con il codice di errore HTTP 410, perché non è stato stabilito alcun WebSocket. Se si verificano problemi, i codici seguenti descrivono l'errore:
 
-| Codice | Tipi di errore          | Descrizione                          |
+| Codice | Errore          | Description                          |
 | ---- | -------------- | ------------------------------------ |
 | 403  | Accesso negato      | URL non valido.                |
 | 500  | Errore interno | Si è verificato un errore nel servizio. |
@@ -347,7 +347,7 @@ La risposta è un oggetto JSON denominato "response". Le regole per la gestione 
 
 * **requestId** - stringa. OBBLIGATORIO. Valore della proprietà `id` del messaggio `request` a cui rispondere.
 * **statusCode** - numero. OBBLIGATORIO. Codice di stato HTTP numerico che indica il risultato della notifica. Tutti i codici di stato di [RFC7231, Sezione 6](https://tools.ietf.org/html/rfc7231#section-6) sono consentiti, ad eccezione di [502 "Gateway non valido"](https://tools.ietf.org/html/rfc7231#section-6.6.3) e [504 "Timeout gateway"](https://tools.ietf.org/html/rfc7231#section-6.6.5).
-* **statusDescription** - stringa. FACOLTATIVO. Frase del motivo del codice di stato HTTP per [RFC7230, Sezione 3.1.2](https://tools.ietf.org/html/rfc7230#section-3.1.2)
+* **statusDescription** - stringa. FACOLTATIVO Frase del motivo del codice di stato HTTP per [RFC7230, Sezione 3.1.2](https://tools.ietf.org/html/rfc7230#section-3.1.2)
 * **responseHeaders** - intestazione HTTP da impostare in una risposta HTTP esterna.
   Come con `request`, le intestazioni RFC7230 definite NON DEVONO essere usate.
 * **body** - booleano. Indica se sono presenti frame di corpo binari.
@@ -376,13 +376,13 @@ Per le risposte che superano 64 KB, la risposta DEVE essere recapitata tramite u
 
 L'URL `address` nell'elemento `request` deve essere usato così com'è per stabilire il socket di incontro, ma contiene i parametri seguenti:
 
-| Parametro      | Obbligatorio | Descrizione
+| Parametro      | Obbligatorio | Description
 | -------------- | -------- | -------------------------------------------------------------------
-| `sb-hc-action` | Yes      | Per accettare un socket, il parametro deve essere `sb-hc-action=request`
+| `sb-hc-action` | Sì      | Per accettare un socket, il parametro deve essere `sb-hc-action=request`
 
 In caso di errore il servizio può rispondere come segue:
 
-| Codice | Tipi di errore           | Descrizione
+| Codice | Errore           | Description
 | ---- | --------------- | -----------------------------------
 | 400  | Richiesta non valida | Azione non riconosciuta o URL non valido.
 | 403  | Accesso negato       | L'URL è scaduto.
@@ -390,7 +390,7 @@ In caso di errore il servizio può rispondere come segue:
 
  Dopo che la connessione è stata stabilita, il server arresta il WebSocket quando il socket HTTP del client si arresta o ha lo stato seguente:
 
-| Stato Web Socket | Descrizione                                                                     |
+| Stato Web Socket | Description                                                                     |
 | --------- | ------------------------------------------------------------------------------- |
 | 1001      | Il client mittente arresta la connessione.                                    |
 | 1001      | Il percorso della connessione ibrida è stato eliminato o disabilitato.                        |
@@ -415,7 +415,7 @@ Quando il token del listener sta per scadere, può essere sostituito inviando un
 
 Se la convalida del token non riesce, l'accesso viene negato e il servizio cloud chiude il WebSocket del canale di controllo con un errore. In caso contrario non vi è alcuna risposta.
 
-| Stato Web Socket | Descrizione                                                                     |
+| Stato Web Socket | Description                                                                     |
 | --------- | ------------------------------------------------------------------------------- |
 | 1008      | Il token di sicurezza è scaduto e i criteri di autorizzazione vengono quindi violati. |
 
@@ -434,10 +434,10 @@ La richiesta può contenere intestazioni HTTP aggiuntive arbitrarie, incluse que
 
 Le opzioni dei parametri della stringa di query sono le seguenti:
 
-| Param          | Obbligatorio? | Descrizione
+| Param          | Obbligatorio? | Description
 | -------------- | --------- | -------------------------- |
-| `sb-hc-action` | Yes       | Per il ruolo mittente, il parametro deve essere `sb-hc-action=connect`.
-| `{path}`       | Yes       | (vedere il paragrafo seguente)
+| `sb-hc-action` | Sì       | Per il ruolo mittente, il parametro deve essere `sb-hc-action=connect`.
+| `{path}`       | Sì       | (vedere il paragrafo seguente)
 | `sb-hc-token`  | Sì\*     | Il listener deve fornire un token di accesso condiviso del bus di servizio codificato con URL valido per lo spazio dei nomi o la connessione ibrida che conferisce il diritto **Send**.
 | `sb-hc-id`     | No        | ID facoltativo che consente la traccia diagnostica end-to-end ed è disponibile per il listener durante l'handshake accept.
 
@@ -451,16 +451,16 @@ L'espressione `path` viene trasmessa al listener nell'URI dell'indirizzo contenu
 
 Se la connessione WebSocket non riesce perché il percorso della connessione ibrida non è registrato oppure a causa di un token mancante o non valido o di un altro errore, il feedback dell'errore viene specificato usando il normale modello di feedback dello stato HTTP 1.1. La descrizione dello stato contiene un ID di traccia dell'errore che può essere comunicato al personale del supporto di Azure:
 
-| Codice | Tipi di errore          | Descrizione
+| Codice | Errore          | Description
 | ---- | -------------- | -------------------------------------------------------------------
 | 404  | Non trovato      | Il percorso della connessione ibrida non è valido o il formato dell'URL di base non è corretto.
-| 401  | Non autorizzata   | Il token di sicurezza è mancante, non valido o non corretto.
+| 401  | Non autorizzato   | Il token di sicurezza è mancante, non valido o non corretto.
 | 403  | Accesso negato      | Il token di sicurezza non è valido per questo percorso e per questa azione.
 | 500  | Errore interno | Si è verificato un errore nel servizio.
 
 Se la connessione WebSocket viene intenzionalmente arrestata dal servizio dopo la configurazione iniziale, il motivo viene comunicato usando un codice di errore del protocollo WebSocket appropriato con un messaggio di errore descrittivo che include anche un ID di traccia.
 
-| Stato Web Socket | Descrizione
+| Stato Web Socket | Description
 | --------- | ------------------------------------------------------------------------------- 
 | 1000      | Il listener ha arrestato il socket.
 | 1001      | Il percorso della connessione ibrida è stato eliminato o disabilitato.
@@ -482,7 +482,7 @@ La richiesta può contenere intestazioni HTTP aggiuntive arbitrarie, incluse que
 
 Le opzioni dei parametri della stringa di query sono le seguenti:
 
-| Param          | Obbligatorio? | Descrizione
+| Param          | Obbligatorio? | Description
 | -------------- | --------- | ---------------- |
 | `sb-hc-token`  | Sì\*     | Il listener deve fornire un token di accesso condiviso del bus di servizio codificato con URL valido per lo spazio dei nomi o la connessione ibrida che conferisce il diritto **Send**.
 
@@ -491,17 +491,17 @@ Il token può essere spostato anche nell'intestazione HTTP `ServiceBusAuthorizat
 Il servizio funziona effettivamente come un proxy, anche se non come un proxy HTTP reale, e di conseguenza aggiunge un'intestazione `Via` o prende nota dell'intestazione `Via` esistente conforme a [RFC7230, Sezione 5.7.1](https://tools.ietf.org/html/rfc7230#section-5.7.1).
 Il servizio aggiunge il nome host dello spazio dei nomi di inoltro all'elemento `Via`.
 
-| Codice | `Message`  | Descrizione                    |
+| Codice | Messaggio  | Description                    |
 | ---- | -------- | ------------------------------ |
 | 200  | OK       | La richiesta è stata gestita da almeno un listener.  |
 | 202  | Accepted | La richiesta è stata accettata da almeno un listener. |
 
 In caso di errore il servizio può rispondere come indicato di seguito. Per determinare se la risposta viene generata dal servizio o da quella del listener, verificare la presenza dell'intestazione `Via`. Se l'intestazione è presente, la risposta proviene dal listener.
 
-| Codice | Tipi di errore           | Descrizione
+| Codice | Errore           | Description
 | ---- | --------------- |--------- |
 | 404  | Non trovato       | Il percorso della connessione ibrida non è valido o il formato dell'URL di base non è corretto.
-| 401  | Non autorizzata    | Il token di sicurezza è mancante, non valido o non corretto.
+| 401  | Non autorizzato    | Il token di sicurezza è mancante, non valido o non corretto.
 | 403  | Accesso negato       | Il token di sicurezza non è valido per questo percorso e per questa azione.
 | 500  | Errore interno  | Si è verificato un errore nel servizio.
 | 503  | Gateway non valido     | La richiesta potrebbe non essere indirizzata ad alcun listener.

@@ -7,18 +7,18 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 10/04/2019
 ms.author: victorh
-ms.openlocfilehash: 0ac37378797c59d79af5d026200b68154836c5ac
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 323f01e08007260d4fb6d651b20937c5d5d5e357
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585401"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645090"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Regole personalizzate per il Web Application Firewall V2 in applicazione Azure gateway
 
 Il applicazione Azure gateway Web Application Firewall (WAF) v2 include un set di regole preconfigurato, gestito dalla piattaforma che offre protezione da molti tipi diversi di attacchi. Questi attacchi includono lo scripting tra siti, SQL injection e altri. Se si è un amministratore di WAF, è consigliabile scrivere regole personalizzate per aumentare le regole del set di regole di base (CRS). Le regole possono bloccare o consentire il traffico richiesto in base ai criteri di corrispondenza.
 
-Le regole personalizzate consentono di creare regole personalizzate che vengono valutate per ogni richiesta che passa attraverso il WAF. Queste regole hanno una priorità più elevata rispetto alle altre regole nei set di regole gestiti. Le regole personalizzate contengono un nome di regola, una priorità della regola e una matrice di condizioni di corrispondenza. Se queste condizioni vengono soddisfatte, viene eseguita un'azione (per consentire o bloccare).
+Le regole personalizzate consentono di creare regole personalizzate che vengono valutate per ogni richiesta che passa attraverso il WAF. Queste regole hanno una priorità più elevata rispetto alle altre dei set di regole gestiti. Le regole personalizzate contengono un nome di regola, una priorità della regola e una matrice di condizioni di corrispondenza. Se queste condizioni vengono soddisfatte, viene eseguita un'azione (per consentire o bloccare).
 
 Ad esempio, è possibile bloccare tutte le richieste da un indirizzo IP compreso nell'intervallo 192.168.5.4/24. In questa regola, l'operatore è *IPMatch*, matchValues è l'intervallo di indirizzi IP (192.168.5.4/24) e l'azione consiste nel bloccare il traffico. È anche possibile impostare il nome e la priorità della regola.
 
@@ -29,7 +29,7 @@ Condizioni di corrispondenza diverse all'interno della stessa regola vengono sem
 Se si desiderano **o** due condizioni diverse, le due condizioni devono essere in regole diverse. È ad esempio possibile bloccare il traffico da un indirizzo IP specifico o bloccare il traffico se utilizzano un browser specifico.
 
 > [!NOTE]
-> Il numero massimo di regole personalizzate di WAF è 100. Per altre informazioni sui limiti del gateway applicazione, vedere [sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../../azure-subscription-service-limits.md#application-gateway-limits).
+> Il numero massimo di regole personalizzate di WAF è 100. Per altre informazioni sui limiti del gateway applicazione, vedere [sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
 
 Le espressioni regolari sono supportate anche nelle regole personalizzate, esattamente come nei RuleSet di CRS. Per esempi, vedere gli esempi 3 e 5 in [creare e usare regole Web Application Firewall personalizzate](create-custom-waf-rules.md).
 
@@ -131,7 +131,7 @@ Deve essere uno degli operatori seguenti:
 - GreaterThan
 - LessThanOrEqual
 - GreaterThanOrEqual
-- Inizia con
+- BeginsWith
 - EndsWith
 - Regex (Espressione regolare)
 - Geomatch (anteprima)
@@ -170,7 +170,7 @@ Le regole personalizzate consentono di creare regole personalizzate in base alle
 
 Se si utilizza l'operatore geomatch, i selettori possono essere uno qualsiasi dei seguenti codici paese a due cifre. 
 
-|Codice paese | Nome del paese |
+|Indicativo paese | Nome del paese |
 | ----- | ----- |
 | AD | Andorra |
 | AE | Emirati Arabi Uniti|
@@ -203,8 +203,8 @@ Se si utilizza l'operatore geomatch, i selettori possono essere uno qualsiasi de
 | BY | Bielorussia|
 | BZ | Belize|
 | CA | Canada|
-| CD | Congo, Repubblica democratica|
-| CF | Repubblica centrafricana|
+| CD | Repubblica democratica del Congo|
+| CF | Repubblica Centrafricana|
 | CH | Svizzera|
 | CI | Côte d'Ivoire (Costa d'Avorio)|
 | CL | Cile|
@@ -215,10 +215,10 @@ Se si utilizza l'operatore geomatch, i selettori possono essere uno qualsiasi de
 | CU | Cuba|
 | CV | Cabo Verde|
 | CY | Cipro|
-| CZ | Repubblica ceca|
+| CZ | Repubblica Ceca|
 | DE | Germania|
 | DK | Danimarca|
-| DO | Repubblica dominicana|
+| DO | Repubblica Domenicana|
 | DZ | Algeria|
 | EC | Ecuador|
 | EE | Estonia|
@@ -240,7 +240,7 @@ Se si utilizza l'operatore geomatch, i selettori possono essere uno qualsiasi de
 | GY | Guiana|
 | HK | RAS di Hong Kong|
 | HN | Honduras|
-| HR | Croazia|
+| Risorse umane | Croazia|
 | HT | Haiti|
 | HU | Ungheria|
 | ID | Indonesia|
@@ -258,13 +258,13 @@ Se si utilizza l'operatore geomatch, i selettori possono essere uno qualsiasi de
 | KG | Kirghizistan|
 | KH | Cambogia|
 | KI | Kiribati|
-| KN | Saint Kitts e Nevis|
+| KN | Saint Christopher e Nevis|
 | KP | Repubblica democratica popolare di Corea|
 | KR | Repubblica di Corea|
 | KW | Kuwait|
 | KY | Isole Cayman|
 | KZ | Kazakhstan|
-| LA | Repubblica democratica del Laos|
+| LA | Repubblica democratica popolare del Laos|
 | LB | Libano|
 | LI | Liechtenstein|
 | LK | Sri Lanka|
@@ -314,7 +314,7 @@ Se si utilizza l'operatore geomatch, i selettori possono essere uno qualsiasi de
 | RO | Romania|
 | RS | Serbia|
 | RU | Federazione russa|
-| RW | Ruanda|
+| LS | Ruanda|
 | SA | Arabia Saudita|
 | SD | Sudan|
 | SE | Svezia|
@@ -330,7 +330,7 @@ Se si utilizza l'operatore geomatch, i selettori possono essere uno qualsiasi de
 | SZ | Swaziland|
 | TC | Isole Turks e Caicos|
 | TG | Togo|
-| TH | Thailandia|
+| TH | Tailandia|
 | TN | Tunisia|
 | TR | Turchia|
 | TT | Trinidad e Tobago|
@@ -344,9 +344,9 @@ Se si utilizza l'operatore geomatch, i selettori possono essere uno qualsiasi de
 | VC | Saint Vincent e Grenadine|
 | VE | Venezuela|
 | VG | Isole Vergini britanniche|
-| VI | Isole Vergini americane|
+| VI | Isole Vergini Americane|
 | VN | Vietnam|
-| ZA | Sud Africa|
+| ZA | Sudafrica|
 | ZM | Zambia|
 | ZW | Zimbabwe|
 

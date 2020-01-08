@@ -1,5 +1,5 @@
 ---
-title: Richiedere il processo e le notifiche tramite posta elettronica in Azure AD gestione dei diritti-Azure Active Directory
+title: Notifiche & processo di richiesta-gestione dei diritti Azure AD
 description: Informazioni sul processo di richiesta per un pacchetto di accesso e quando le notifiche di posta elettronica vengono inviate in Azure Active Directory gestione dei diritti.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f336e9f2bdf1553a72bdc35fecc1b0b735fad274
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b86e4019b26eebb8b805a4846e583c68acb53ad6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74206967"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422613"
 ---
 # <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management"></a>Richiedere il processo e le notifiche tramite posta elettronica in Azure AD gestione dei diritti
 
@@ -33,19 +33,19 @@ Un utente che deve accedere a un pacchetto di accesso può inviare una richiesta
 
 ![Diagramma del processo di approvazione](./media/entitlement-management-process/request-process.png)
 
-| Stato | DESCRIZIONE |
+| Statale | Description |
 | --- | --- |
-| Inviato | L'utente invia una richiesta. |
+| Submitted | L'utente invia una richiesta. |
 | In attesa di approvazione | Se il criterio per un pacchetto di accesso richiede l'approvazione, una richiesta passa a approvazione in sospeso. |
 | Scaduto | Se nessun approvatore approva una richiesta entro il timeout della richiesta di approvazione, la richiesta scade. Per riprovare, l'utente dovrà inviare di nuovo la richiesta. |
-| Negato | Il responsabile approvazione nega una richiesta. |
+| Negate | Il responsabile approvazione nega una richiesta. |
 | Approved | Il responsabile approvazione approva una richiesta. |
 | Recapito | All'utente **non** è stato assegnato l'accesso a tutte le risorse nel pacchetto di accesso. Se si tratta di un utente esterno, è possibile che l'utente non abbia ancora eseguito l'accesso alla directory delle risorse. Potrebbero anche non avere accettato la richiesta di consenso. |
 | Recapitato | All'utente è stato assegnato l'accesso a tutte le risorse nel pacchetto di accesso. |
 | Accesso esteso | Se nel criterio sono consentite le estensioni, l'utente ha esteso l'assegnazione. |
 | Accesso scaduto | L'accesso dell'utente al pacchetto di accesso è scaduto. Per ottenere nuovamente l'accesso, l'utente dovrà inviare una richiesta. |
 
-## <a name="email-notifications"></a>Notifiche tramite posta elettronica
+## <a name="email-notifications"></a>Notifiche di posta elettronica
 
 Se si è un responsabile approvazione, vengono inviate notifiche tramite posta elettronica quando è necessario approvare una richiesta di accesso. È anche possibile ricevere notifiche quando una richiesta di accesso è stata completata. Vengono inoltre inviate notifiche tramite posta elettronica che indicano lo stato della richiesta, se si è un richiedente.
 
@@ -79,8 +79,8 @@ Nella tabella seguente vengono fornite informazioni più dettagliate su ognuna d
 | 6 | La richiesta è scaduta per *[access_package]* | Questo messaggio di posta elettronica verrà inviato al primo responsabile approvazione e alla prima scadenza della richiesta. | Primo responsabile approvazione, responsabili approvazione alternativi fase 1 |
 | 7 | Richiesta approvata per *[richiedente]* a *[access_package]* | Questo messaggio di posta elettronica verrà inviato al primo responsabile approvazione e ai responsabili di approvazione alternativi di fase 1 al completamento della richiesta. | Primo responsabile approvazione, responsabili approvazione alternativi fase 1 |
 | 8 | Richiesta approvata per *[richiedente]* a *[access_package]* | Questo messaggio di posta elettronica verrà inviato al primo responsabile approvazione e ai responsabili di approvazione alternativi di fase 1 di una richiesta a 2 fasi quando viene approvata la richiesta di fase 1. | Primo responsabile approvazione, responsabili approvazione alternativi fase 1 |
-| 9 | Richiesta negata a *[access_package]* | Questo messaggio di posta elettronica verrà inviato al richiedente quando la richiesta viene negata | Richiedente |
-| 10 | La richiesta è scaduta per *[access_package]* | Questo messaggio di posta elettronica verrà inviato al richiedente alla fine di una richiesta a una singola o a due fasi. Il messaggio di posta elettronica informa il richiedente che la richiesta è scaduta. | Richiedente |
+| 9 | Richiesta negata a *[access_package]* | Questo messaggio di posta elettronica verrà inviato al richiedente quando la richiesta viene negata | Utente supporto tecnico |
+| 10 | La richiesta è scaduta per *[access_package]* | Questo messaggio di posta elettronica verrà inviato al richiedente alla fine di una richiesta a una singola o a due fasi. Il messaggio di posta elettronica informa il richiedente che la richiesta è scaduta. | Utente supporto tecnico |
 | 11 | Azione richiesta: approva o Nega richiesta da *[DATE]* | Questo messaggio di posta elettronica verrà inviato al secondo responsabile approvazione, se l'escalation è disabilitato, per intervenire. | Secondo responsabile approvazione |
 | 12 | Azione richiesta promemoria: approva o nega la richiesta per *[DATE]* | Questo messaggio di promemoria verrà inviato al secondo responsabile approvazione, se l'escalation è disabilitata. La notifica chiede di intervenire se non ancora. | Secondo responsabile approvazione |
 | 13 | Azione richiesta: approvare o rifiutare la richiesta da *[DATE]* per *[richiedente]* | Questo messaggio di posta elettronica verrà inviato al secondo responsabile approvazione, se l'escalation è abilitato, per eseguire un'azione. | Secondo responsabile approvazione |
@@ -88,9 +88,9 @@ Nella tabella seguente vengono fornite informazioni più dettagliate su ognuna d
 | 15 | Azione richiesta: approvare o negare la richiesta con inoltri per *[DATE]* | Questo messaggio di posta elettronica verrà inviato ai responsabili approvazione alternativi di staging-2, se l'escalation è abilitata, per eseguire un'azione. | Fase 2 responsabili approvazione alternativi |
 | 16 | Richiesta approvata per *[richiedente]* a *[access_package]* | Questo messaggio di posta elettronica verrà inviato al secondo responsabile approvazione e al responsabile approvazione alternativo per fase 2 dopo l'approvazione della richiesta. | Secondo responsabile approvazione, fase 2 responsabili approvazione alternativi |
 | 17 | Una richiesta è scaduta per *[access_package]* | Questo messaggio di posta elettronica verrà inviato al secondo responsabile approvazione o a responsabili approvazione alternativi, dopo la scadenza della richiesta. | Secondo responsabile approvazione, fase 2 responsabili approvazione alternativi |
-| 18 | È ora possibile accedere a *[access_package]* | Questo messaggio di posta elettronica verrà inviato agli utenti finali per iniziare a usare l'accesso. | Richiedente |
-| 19 | Estendi accesso per *[access_package]* di *[DATE]* | Questo messaggio di posta elettronica verrà inviato agli utenti finali prima della scadenza dell'accesso. | Richiedente |
-| 20 | L'accesso è terminato per *[access_package]* | Questo messaggio di posta elettronica verrà inviato agli utenti finali dopo la scadenza dell'accesso. | Richiedente |
+| 18 | È ora possibile accedere a *[access_package]* | Questo messaggio di posta elettronica verrà inviato agli utenti finali per iniziare a usare l'accesso. | Utente supporto tecnico |
+| 19 | Estendi accesso per *[access_package]* di *[DATE]* | Questo messaggio di posta elettronica verrà inviato agli utenti finali prima della scadenza dell'accesso. | Utente supporto tecnico |
+| 20 | L'accesso è terminato per *[access_package]* | Questo messaggio di posta elettronica verrà inviato agli utenti finali dopo la scadenza dell'accesso. | Utente supporto tecnico |
 
 ### <a name="access-request-emails"></a>Messaggi di posta elettronica di richiesta di accesso
 

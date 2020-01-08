@@ -2,17 +2,17 @@
 title: Che cos'è il servizio di collegamento privato di Azure?
 description: Informazioni sul servizio di collegamento privato di Azure.
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: f9bdc180bf0dfd6f35fb18f5c76176a68d8f1644
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f8d49a62ae9006e65ef86db1ae90cd5a5e9f1c6d
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74912988"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647374"
 ---
 # <a name="what-is-azure-private-link-service"></a>Che cos'è il servizio di collegamento privato di Azure?
 
@@ -42,7 +42,7 @@ Quando un consumer avvia una connessione, il provider di servizi può accettare 
 
 Se il servizio di collegamento privato non è più in uso, è possibile eliminarlo. Tuttavia, prima di eliminare il servizio, assicurarsi che non esistano connessioni a un endpoint privato associato. È possibile rifiutare tutte le connessioni ed eliminare il servizio.
 
-## <a name="properties"></a>properties
+## <a name="properties"></a>Proprietà
 
 Un servizio di collegamento privato specifica le proprietà seguenti: 
 
@@ -68,7 +68,7 @@ Un servizio di collegamento privato specifica le proprietà seguenti:
  
 - È possibile accedere a un singolo servizio di collegamento privato da più endpoint privati appartenenti a reti virtuali, sottoscrizioni e/o Active Directory tenant diversi. La connessione viene stabilita tramite un flusso di lavoro di connessione. 
  
-- È possibile creare più servizi di collegamento privato nella stessa Load Balancer Standard usando diverse configurazioni IP front-end. Sono previsti limiti al numero di servizi di collegamento privato che è possibile creare per ogni Load Balancer Standard e per sottoscrizione. Per informazioni dettagliate, vedere [limiti di Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
+- È possibile creare più servizi di collegamento privato nella stessa Load Balancer Standard usando diverse configurazioni IP front-end. Sono previsti limiti al numero di servizi di collegamento privato che è possibile creare per ogni Load Balancer Standard e per sottoscrizione. Per informazioni dettagliate, vedere [limiti di Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
  
 - Il servizio di collegamento privato può avere più di una configurazione IP NAT collegata. La scelta di più configurazioni IP NAT può aiutare i provider di servizi a eseguire la scalabilità. Attualmente, i provider di servizi possono assegnare fino a otto indirizzi IP NAT per ogni servizio di collegamento privato. Con ogni indirizzo IP NAT è possibile assegnare più porte per le connessioni TCP e quindi aumentare il numero di porte. Dopo aver aggiunto più indirizzi IP NAT a un servizio di collegamento privato, non è possibile eliminare gli indirizzi IP NAT. Questa operazione viene eseguita per garantire che le connessioni attive non siano interessate durante l'eliminazione degli indirizzi IP NAT.
 

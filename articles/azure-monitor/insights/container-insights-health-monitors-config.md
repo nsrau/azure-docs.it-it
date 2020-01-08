@@ -1,23 +1,14 @@
 ---
 title: Configurazione di monitoraggio di Azure per il monitoraggio dello stato dei contenitori | Microsoft Docs
 description: Questo articolo fornisce contenuto che descrive la configurazione dettagliata dei monitoraggi di integrità in monitoraggio di Azure per i contenitori.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 11/12/2019
-ms.author: magoedte
-ms.openlocfilehash: 7d4400b563a1d0b8bf094f946a37d7ff4a17e7cf
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.date: 12/01/2019
+ms.openlocfilehash: d2d602d767fa6a39b7f72650c426c90be210a6ed
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664948"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75405049"
 ---
 # <a name="azure-monitor-for-containers-health-monitor-configuration-guide"></a>Guida alla configurazione di monitoraggio integrità dei contenitori di monitoraggio di Azure
 
@@ -29,13 +20,13 @@ I monitoraggi sono l'elemento principale per misurare lo stato di integrità e r
 
 ## <a name="monitors"></a>Monitoraggi
 
-Un monitoraggio misura l'integrità di alcuni aspetti di un oggetto gestito. Ogni monitoraggio ha due o tre stati di integrità. Un monitoraggio si troverà in uno solo dei relativi stati potenziali in un determinato momento. Quando un monitoraggio viene caricato dall'agente in contenitori, viene inizializzato a uno stato integro. Lo stato viene modificato solo se vengono rilevate le condizioni specificate per un altro stato.
+Un monitoraggio consente di misurare lo stato di integrità di alcuni aspetti di un oggetto gestito. Ogni monitoraggio ha due o tre stati di integrità. In un determinato momento un monitoraggio si troverà in uno solo dei relativi stati possibili. Quando un monitoraggio viene caricato dall'agente in contenitori, viene inizializzato a uno stato integro. Lo stato viene modificato solo se vengono rilevate le condizioni specificate per un altro stato.
 
-L'integrità complessiva di un determinato oggetto è determinata dall'integrità di ciascuno dei monitoraggi. Questa gerarchia è illustrata nel riquadro gerarchia di integrità di monitoraggio di Azure per i contenitori. I criteri per la modalità di rollup dell'integrità fanno parte della configurazione dei monitoraggi aggregati.
+L'integrità generale di un determinato oggetto è determinata dall'integrità di ogni singolo monitoraggio. Questa gerarchia è illustrata nel riquadro gerarchia di integrità di monitoraggio di Azure per i contenitori. I criteri per la modalità di rollup dell'integrità fanno parte della configurazione dei monitoraggi aggregati.
 
 ## <a name="types-of-monitors"></a>Tipi di monitoraggi
 
-|Monitorare | Description | 
+|Monitoraggio | Description | 
 |--------|-------------|
 | Monitoraggio unità |Un monitoraggio unità misura alcuni aspetti di una risorsa o di un'applicazione. Questo potrebbe controllare un contatore delle prestazioni per determinare le prestazioni della risorsa o la relativa disponibilità. |
 |Monitoraggio aggregato | I monitoraggi aggregati raggruppano più monitoraggi per fornire un unico stato di integrità aggregato. I monitoraggi unità vengono in genere configurati in un determinato monitoraggio aggregato. Un monitoraggio aggregato dei nodi, ad esempio, esegue il rollup dello stato del nodo utilizzo CPU, utilizzo memoria e stato nodo.

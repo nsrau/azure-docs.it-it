@@ -1,7 +1,6 @@
 ---
 title: Partizionamento dell'output dei BLOB personalizzato in Analisi di flusso di Azure
 description: Questo articolo descrive le funzionalità dei modelli di percorso di data/ora personalizzati e dei campi o attributi personalizzati per l'output di archiviazione BLOB dai processi di Analisi di flusso di Azure.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -9,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: e06313cf83768421bedc6c7baddd30c2ef2e4846
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e978771eaafafe4120f9eec802525c293fb9c7c9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65789412"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426373"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Partizionamento dell'output dei BLOB personalizzato in Analisi di flusso di Azure
 
@@ -26,7 +25,7 @@ Gli attributi o i campi personalizzati migliorano i flussi di lavoro di elaboraz
 
 ### <a name="partition-key-options"></a>Opzioni per la chiave di partizione
 
-La chiave di partizione, o nome di colonna, usata per partizionare i dati di input può contenere caratteri alfanumerici con spazi, caratteri di sottolineatura e trattini. Non è possibile usare campi annidati come chiave di partizione, se non in combinazione con alias. La chiave di partizione deve essere nvarchar (max).
+La chiave di partizione, o nome di colonna, usata per partizionare i dati di input può contenere caratteri alfanumerici con spazi, caratteri di sottolineatura e trattini. Non è possibile usare campi annidati come chiave di partizione, se non in combinazione con alias. La chiave di partizione deve essere di tipo NVARCHAR (MAX).
 
 ### <a name="example"></a>Esempio
 
@@ -72,7 +71,7 @@ I modelli di percorso di data/ora personalizzati consentono di specificare un fo
 
 I token di identificatore del formato seguenti possono essere usati da soli o in combinazione per ottenere formati di data/ora personalizzati:
 
-|Identificatore di formato   |Descrizione   |Risultati per l'ora di esempio 2018-01-02T10:06:08|
+|Identificatore di formato   |Description   |Risultati per l'ora di esempio 2018-01-02T10:06:08|
 |----------|-----------|------------|
 |{datetime:yyyy}|Anno come numero di quattro cifre|2018|
 |{datetime:MM}|Mese da 01 a 12|01|

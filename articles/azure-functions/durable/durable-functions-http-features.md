@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 3fcb777969f7d29b0e8698156dbdd0724f16f0b5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1c8f56810edb39db66cbb83750e5cff02e22662a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232879"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433277"
 ---
 # <a name="http-features"></a>Funzionalità HTTP
 
@@ -32,7 +32,8 @@ Sono supportate le API HTTP predefinite seguenti.
 * [Inviare un evento esterno a un'orchestrazione](durable-functions-http-api.md#raise-event)
 * [Elimina cronologia orchestrazione](durable-functions-http-api.md#purge-single-instance-history)
 * [Inviare un evento Operation a un'entità](durable-functions-http-api.md#signal-entity)
-* [Eseguire query sullo stato di un'entità](durable-functions-http-api.md#query-entity)
+* [Ottenere lo stato di un'entità](durable-functions-http-api.md#get-entity)
+* [Eseguire una query sull'elenco di entità](durable-functions-http-api.md#list-entities)
 
 Per una descrizione completa di tutte le API HTTP predefinite esposte dall'estensione Durable Functions, vedere l'articolo relativo alle [API HTTP](durable-functions-http-api.md) .
 
@@ -178,7 +179,7 @@ public static async Task RunOrchestrator(
 }
 ```
 
-Nell'esempio precedente, il parametro `tokenSource` è configurato per acquisire i token di Azure AD per [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). I token sono identificati dall'URI della risorsa `https://management.core.windows.net`. Nell'esempio si presuppone che l'app per le funzioni corrente sia in esecuzione localmente o sia stata distribuita come app per le funzioni con un'identità gestita. Si presuppone che l'identità locale o l'identità gestita disponga di autorizzazioni per gestire le macchine virtuali nel gruppo di risorse specificato `myRG`.
+Nell'esempio precedente, il parametro `tokenSource` è configurato per acquisire i token di Azure AD per [Azure Resource Manager](../../azure-resource-manager/management/overview.md). I token sono identificati dall'URI della risorsa `https://management.core.windows.net`. Nell'esempio si presuppone che l'app per le funzioni corrente sia in esecuzione localmente o sia stata distribuita come app per le funzioni con un'identità gestita. Si presuppone che l'identità locale o l'identità gestita disponga di autorizzazioni per gestire le macchine virtuali nel gruppo di risorse specificato `myRG`.
 
 In fase di esecuzione, l'origine del token configurata restituisce automaticamente un token di accesso OAuth 2,0. L'origine aggiunge quindi il token come bearer token all'intestazione di autorizzazione della richiesta in uscita. Questo modello rappresenta un miglioramento rispetto all'aggiunta manuale di intestazioni di autorizzazione alle richieste HTTP per i motivi seguenti:
 

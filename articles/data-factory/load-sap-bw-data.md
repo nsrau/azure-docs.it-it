@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.openlocfilehash: 7d9c0000964348b7c9c83ccbc2490677614c50cd
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 971871c28bd1b38b134c04b0334fbe99d1d655c1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931458"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440177"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Copiare dati da SAP Business Warehouse usando Azure Data Factory
 
@@ -76,7 +76,7 @@ Nel portale di Azure accedere alla data factory. Selezionare **crea & monitoragg
 
 6. Se necessario, specificare un filtro. Se il OHD contiene solo i dati di una singola esecuzione del processo di trasferimento dei dati (DTP) con un solo ID richiesta o se si è certi che il DTP è terminato e si vogliono copiare i dati, deselezionare la casella di controllo **Escludi ultima richiesta** .
 
-   Altre informazioni su queste impostazioni sono disponibili nella sezione [SAP BW configurazioni di destinazione dell'hub aperto](#sap-bw-open-hub-destination-configurations) di questo articolo. Selezionare **convalida** per controllare i dati che verranno restituiti. Quindi selezionare **Avanti**.
+   Altre informazioni su queste impostazioni sono disponibili nella sezione [SAP BW configurazioni di destinazione dell'hub aperto](#sap-bw-open-hub-destination-configurations) di questo articolo. Selezionare **convalida** per controllare i dati che verranno restituiti. Fare quindi clic su **Avanti**.
 
    ![Configurare SAP BW filtro Hub aperto](media/load-sap-bw-data/configure-sap-bw-open-hub-filter.png)
 
@@ -87,9 +87,9 @@ Nel portale di Azure accedere alla data factory. Selezionare **crea & monitoragg
    ![Creare una pagina del servizio collegato ADLS Gen2](media/load-sap-bw-data/create-adls-gen2-linked-service.png)
 
    1. Selezionare l'account che supporta Data Lake Storage Gen2 dall'elenco a discesa **nome** .
-   2. Selezionare **Fine** per creare la connessione. Quindi selezionare **Avanti**.
+   2. Selezionare **Fine** per creare la connessione. Fare quindi clic su **Avanti**.
 
-9. Nella pagina **scegliere il file o la cartella** di output immettere **copyfromopenhub** come nome della cartella di output. Quindi selezionare **Avanti**.
+9. Nella pagina **scegliere il file o la cartella** di output immettere **copyfromopenhub** come nome della cartella di output. Fare quindi clic su **Avanti**.
 
    ![Pagina Scegli cartella di output](media/load-sap-bw-data/choose-output-folder.png)
 
@@ -97,11 +97,11 @@ Nel portale di Azure accedere alla data factory. Selezionare **crea & monitoragg
 
     ![Pagina specifica formato sink](media/load-sap-bw-data/specify-sink-format.png)
 
-11. Nella pagina **Impostazioni** espandere **Impostazioni prestazioni**. Immettere un valore per il **grado di parallelismo di copia** , ad esempio 5, da caricare SAP BW in parallelo. Quindi selezionare **Avanti**.
+11. Nella pagina **Impostazioni** espandere **Impostazioni prestazioni**. Immettere un valore per il **grado di parallelismo di copia** , ad esempio 5, da caricare SAP BW in parallelo. Fare quindi clic su **Avanti**.
 
     ![Configurare le impostazioni di copia](media/load-sap-bw-data/configure-copy-settings.png)
 
-12. Nella pagina **Riepilogo** esaminare le impostazioni. Quindi selezionare **Avanti**.
+12. Nella pagina **Riepilogo** esaminare le impostazioni. Fare quindi clic su **Avanti**.
 
 13. Nella pagina **distribuzione** selezionare **monitoraggio** per monitorare la pipeline.
 
@@ -156,11 +156,15 @@ Nella pagina data factory attività **iniziali** selezionare **crea pipeline da 
 
    - **SAPOpenHubDestinationName**: specificare il nome della tabella Hub aperta da cui copiare i dati.
 
-   - **ADLSGen2SinkPath**: specificare il percorso di Azure Data Lake storage Gen2 di destinazione in cui copiare i dati. Se il percorso non esiste, l'attività di copia Data Factory crea un percorso durante l'esecuzione.
+   - **Data_Destination_Container**: specificare il contenitore Azure Data Lake storage Gen2 di destinazione in cui copiare i dati. Se il contenitore non esiste, l'attività di copia Data Factory ne crea una durante l'esecuzione.
+  
+   - **Data_Destination_Directory**: specificare il percorso della cartella nel contenitore Azure Data Lake storage Gen2 in cui copiare i dati. Se il percorso non esiste, l'attività di copia Data Factory crea un percorso durante l'esecuzione.
+  
+   - **HighWatermarkBlobContainer**: specificare il contenitore in cui archiviare il valore del limite massimo.
 
-   - **HighWatermarkBlobPath**: specificare il percorso in cui archiviare il valore del limite massimo, ad esempio `container/path`.
+   - **HighWatermarkBlobDirectory**: specificare il percorso della cartella nel contenitore in cui archiviare il valore del limite massimo.
 
-   - **HighWatermarkBlobName**: specificare il nome del BLOB per archiviare il valore del limite massimo, ad esempio `requestIdCache.txt`. Nell'archivio BLOB passare al percorso corrispondente di HighWatermarkBlobPath + HighWatermarkBlobName, ad esempio *container/Path/requestIdCache. txt*. Creare un BLOB con il contenuto 0.
+   - **HighWatermarkBlobName**: specificare il nome del BLOB per archiviare il valore del limite massimo, ad esempio `requestIdCache.txt`. Nell'archivio BLOB passare al percorso corrispondente di HighWatermarkBlobContainer + HighWatermarkBlobDirectory + HighWatermarkBlobName, ad esempio *container/Path/requestIdCache. txt*. Creare un BLOB con il contenuto 0.
 
       ![Contenuto BLOB](media/load-sap-bw-data/blob.png)
 
@@ -185,11 +189,11 @@ Nella pagina data factory attività **iniziali** selezionare **crea pipeline da 
          }
          ```
 
-      3. Aggiungere un'azione **Crea BLOB** . Per **percorso cartella** e **nome BLOB**usare gli stessi valori configurati in precedenza in **HighWatermarkBlobPath** e **HighWatermarkBlobName**.
+      3. Aggiungere un'azione **Crea BLOB** . Per **percorso cartella** e **nome BLOB**usare gli stessi valori configurati in precedenza in *HighWatermarkBlobContainer + HighWatermarkBlobDirectory* e *HighWatermarkBlobName*.
 
       4. Selezionare **Salva**. Quindi, copiare il valore dell' **URL http post** da usare nella pipeline Data Factory.
 
-4. Dopo aver fornito i parametri della pipeline di Data Factory, selezionare **Debug** > **fine** per richiamare un'esecuzione per convalidare la configurazione. In alternativa, selezionare **pubblica tutto** per pubblicare le modifiche e quindi selezionare **trigger** per eseguire un'esecuzione.
+4. Dopo aver fornito i parametri della pipeline di Data Factory, selezionare **Debug** > **fine** per richiamare un'esecuzione per convalidare la configurazione. In alternativa, selezionare **pubblica** per pubblicare tutte le modifiche e quindi selezionare **Aggiungi trigger** per eseguire un'esecuzione.
 
 ## <a name="sap-bw-open-hub-destination-configurations"></a>SAP BW configurazioni di destinazione dell'hub aperto
 

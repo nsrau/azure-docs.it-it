@@ -1,5 +1,6 @@
 ---
 title: Creare pool di risorse con il mapping della sottoscrizione di Azure
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Viene descritto come creare pool di risorse per il cloud privato tramite il mapping delle sottoscrizioni di Azure
 author: sharaths-cs
 ms.author: b-shsury
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3ea102ad8377da70b88a0e59834ebe3a09866632
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 474ef03d482288b6bf7b5a8b1c224349a8e2d3a8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563209"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425808"
 ---
 # <a name="create-resource-pools-for-your-private-cloud-with-azure-subscription-mapping"></a>Creare pool di risorse per il cloud privato con mapping della sottoscrizione di Azure
 Il mapping delle sottoscrizioni di Azure consente di creare pool di risorse per il cloud privato dai pool di risorse vSphere disponibili. Nel portale di CloudSimple è possibile visualizzare e gestire la sottoscrizione di Azure per i cloud privati.
@@ -27,6 +28,6 @@ Il mapping delle sottoscrizioni di Azure consente di creare pool di risorse per 
 4. Per mappare i pool di risorse disponibili, selezionarli a sinistra e fare clic sulla freccia rivolta verso destra. 
 5. Per rimuovere i mapping, selezionarli a destra e fare clic sulla freccia rivolta verso sinistra. 
 
-    ![Sottoscrizioni di Azure](media/resources-azure-mapping.png)
+    ![Sottoscrizioni Azure](media/resources-azure-mapping.png)
 
 6. Fare clic su **OK**.

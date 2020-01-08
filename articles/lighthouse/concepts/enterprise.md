@@ -3,12 +3,12 @@ title: Azure Lighthouse in scenari aziendali
 description: Le funzionalità di Azure Lighthouse possono essere usate per semplificare la gestione tra tenant all'interno di un'azienda che usa più tenant di Azure AD.
 ms.date: 09/25/2019
 ms.topic: conceptual
-ms.openlocfilehash: f610f943ed7faa0d2ad64ff2f1554cdd41d76ee8
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: ae10ef2a18ace13d7b86347674c04f972e1ab8d8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463907"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456889"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse in scenari aziendali
 
@@ -38,7 +38,7 @@ In entrambi i casi, quando si definiscono gli utenti che avranno accesso alle ri
 
 Azure Lighthouse e la gestione risorse delegate di Azure si limitano a fornire collegamenti logici tra un tenant di gestione e i tenant gestiti, anziché spostare fisicamente dati o risorse. L'accesso, inoltre, viene sempre eseguito in una sola direzione, dal tenant di gestione a quelli gestiti.  Gli utenti e i gruppi del tenant di gestione dovranno continuare a usare l'autenticazione a più fattori per eseguire le operazioni di gestione sulle risorse dei tenant gestiti.
 
-Le aziende con tutele interne o esterne per la governance e la conformità possono usare i [log attività di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview) per soddisfarne i requisiti di trasparenza. Quando nei tenant aziendali sono state stabilite le relazioni tra tenant di gestione e gestiti, gli utenti di ogni tenant possono ottenere la visibilità delle azioni eseguite dagli utenti dell'altro tenant e monitorarle visualizzando l'attività registrata.
+Le aziende con tutele interne o esterne per la governance e la conformità possono usare i [log attività di Azure](../../azure-monitor/platform/activity-logs-overview.md) per soddisfarne i requisiti di trasparenza. Quando nei tenant aziendali sono state stabilite le relazioni tra tenant di gestione e gestiti, gli utenti di ogni tenant possono ottenere la visibilità delle azioni eseguite dagli utenti dell'altro tenant e monitorarle visualizzando l'attività registrata.
 
 ## <a name="onboarding-process-considerations"></a>Considerazioni sul processo di onboarding
 

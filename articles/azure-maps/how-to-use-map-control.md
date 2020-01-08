@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: ff183261f67ff76f56fc034d8102e3aa3a4838a8
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: d70d0e1107a6ee1b53b178d8912c1b808472b142
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480525"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432905"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Usare il controllo mappa di mappe di Azure
 
@@ -36,7 +36,7 @@ La libreria JavaScript lato client del controllo mappa consente di eseguire il r
 
     b. In alternativa, caricare il codice sorgente di Azure Maps Web SDK in locale usando il pacchetto NPM [azure-maps-control](https://www.npmjs.com/package/azure-maps-control) e ospitarlo con l'app. Questo pacchetto include anche le definizioni TypeScript.
 
-    > npm install azure-maps-control
+    > **NPM installare Azure-Maps-Control**
 
     Aggiungere quindi i riferimenti alle origini del foglio di stile e dello script di Mappe di Azure all'elemento `<head>` del file:
 
@@ -66,7 +66,7 @@ La libreria JavaScript lato client del controllo mappa consente di eseguire il r
     </style>
     ```
 
-4. Nel corpo della pagina aggiungere un elemento `<div>` e assegnargli un `id` **myMap**.
+4. Nel corpo della pagina aggiungere un elemento `<div>` e assegnargli un `id`**myMap**.
 
     ```HTML
     <body>
@@ -74,7 +74,7 @@ La libreria JavaScript lato client del controllo mappa consente di eseguire il r
     </body>
     ```
 
-5. Per inizializzare il controllo mappa, definire una nuova sezione nel corpo HTML e creare uno script. Passare il `id` della `<div>` della mappa o un `HTMLElement` (ad esempio, `document.getElementById('myMap')`) come primo parametro durante la creazione di un'istanza della classe `Map`. Usare la propria chiave dell'account di Mappe di Azure oppure le credenziali di Azure Active Directory (AAD) per autenticare la mappa usando le [opzioni di autenticazione](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). Se è necessario creare un account o trovare la chiave, vedere [Come gestire l'account e le chiavi dell'account Mappe di Azure](how-to-manage-account-keys.md). L'opzione **language** specifica la lingua da usare per le etichette e i controlli mappa. Per altre informazioni sulle lingue supportate, vedere [Lingue supportate](supported-languages.md). Se si usa una chiave di sottoscrizione per l'autenticazione:
+5. Per inizializzare il controllo mappa, definire una nuova sezione nel corpo HTML e creare uno script. Passare il `id` della `<div>` della mappa o un `HTMLElement` (ad esempio, `document.getElementById('myMap')`) come primo parametro durante la creazione di un'istanza della classe `Map`. Usare la propria chiave dell'account di Mappe di Azure oppure le credenziali di Azure Active Directory (AAD) per autenticare la mappa usando le [opzioni di autenticazione](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). Se è necessario creare un account o trovare la chiave, seguire le istruzioni in [creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps) per creare una sottoscrizione dell'account Azure Maps e seguire la procedura in [ottenere](quick-demo-map-app.md#get-the-primary-key-for-your-account) la chiave primaria per ottenere la chiave primaria per l'account. L'opzione **language** specifica la lingua da usare per le etichette e i controlli mappa. Per altre informazioni sulle lingue supportate, vedere [Lingue supportate](supported-languages.md). Se si usa una chiave di sottoscrizione per l'autenticazione:
 
     ```HTML
     <script type="text/javascript">
@@ -210,6 +210,26 @@ Di seguito è riportato un esempio di mappe di Azure con la lingua impostata su 
 ![Immagine mappa che mostra le etichette in francese](./media/how-to-use-map-control/websdk-localization.png)
 
 Un elenco completo delle lingue supportate e delle viste internazionali è documentato [qui](supported-languages.md).
+
+## <a name="azure-government-cloud-support"></a>Supporto cloud di Azure per enti pubblici
+
+Azure Maps Web SDK supporta il cloud di Azure per enti pubblici. Tutti gli URL JavaScript e CSS usati per accedere ad Azure Maps Web SDK rimangono invariati, ma è necessario eseguire le attività seguenti per connettersi alla versione cloud di Azure per enti pubblici della piattaforma Azure maps.
+
+Quando si usa il controllo mappa interattiva, aggiungere la riga di codice seguente prima di creare un'istanza della classe `Map`. 
+
+```javascript
+atlas.setDomain('atlas.azure.us');
+```
+
+Assicurarsi di usare i dettagli di autenticazione di Azure Maps della piattaforma cloud di Azure per enti pubblici durante l'autenticazione della mappa e dei servizi.
+
+Quando si usa il modulo Services, il dominio per i servizi deve essere impostato quando si crea un'istanza di un endpoint dell'URL dell'API. Ad esempio, il codice seguente crea un'istanza della classe `SearchURL` e punta il dominio al cloud di Azure per enti pubblici.
+
+```javascript
+var searchURL = new atlas.service.SearchURL(pipeline, 'atlas.azure.us');
+```
+
+Se si accede direttamente ai servizi REST di Azure Maps, modificare il dominio dell'URL in `atlas.azure.us`. Se ad esempio si usa il servizio API di ricerca, modificare il dominio dell'URL da `https://atlas.microsoft.com/search/` a `https://atlas.azure.us/search/`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

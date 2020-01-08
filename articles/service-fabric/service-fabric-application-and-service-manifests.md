@@ -1,25 +1,14 @@
 ---
-title: Descrizione di app e servizi di Azure Service Fabric | Microsoft Docs
+title: Descrizione delle app e dei servizi di Azure Service Fabric
 description: Viene descritto come vengono usati i manifesti per descrivere applicazioni e servizi di Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: mani-ramaswamy
-ms.assetid: 17a99380-5ed8-4ed9-b884-e9b827431b02
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/12/2019
-ms.author: atsenthi
-ms.openlocfilehash: a5e452bf3dc9f35c345a5f27af829904b4839ece
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 6014ef6a9b6ec810aafd5e5be96223b8ed92d576
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977119"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75349972"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Manifesti delle applicazioni e dei servizi di Service Fabric
 Questo articolo illustra in che modo le applicazioni e i servizi di Service Fabric vengono definiti e sottoposti a controllo delle versioni con i file ApplicationManifest.xml e ServiceManifest.xml.  Per esempi più dettagliati, vedere [esempi del manifesto di servizio e dell'applicazione](service-fabric-manifest-examples.md).  Lo schema XML di questi file manifesto è documentato in [Documentazione dello schema ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
@@ -85,7 +74,7 @@ Per altre informazioni su come configurare SetupEntryPoint, vedere [Configurare 
 
 **DataPackage** (non impostato nell'esempio precedente) dichiara una cartella, denominata dall'attributo **Name**, che contiene i dati statici arbitrari che devono essere usati dal processo in fase di esecuzione.
 
-**ConfigPackage** dichiara una cartella, denominata dall'attributo **Name**, che contiene un file *Settings.xml*. Questo file di impostazioni contiene sezioni di impostazioni di coppie chiave-valore definite dall'utente che vengono lette dal processo in fase di esecuzione. Se durante un aggiornamento è cambiato solo l'attributo **version** **ConfigPackage**, il processo in esecuzione non viene riavviato. Un callback piuttosto notifica al processo che le impostazioni di configurazione sono cambiate affinché vengano ricaricate in modo dinamico. Questo è un esempio di file *Settings.xml* :
+**ConfigPackage** dichiara una cartella, denominata dall'attributo **Name**, che contiene un file *Settings.xml*. Questo file di impostazioni contiene sezioni di impostazioni di coppie chiave-valore definite dall'utente che vengono lette dal processo in fase di esecuzione. Durante un aggiornamento, se è stata modificata solo la **versione** **ConfigPackage** , il processo in esecuzione non viene riavviato. Un callback piuttosto notifica al processo che le impostazioni di configurazione sono cambiate affinché vengano ricaricate in modo dinamico. Questo è un esempio di file *Settings.xml* :
 
 ```xml
 <Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -170,10 +159,10 @@ Analogamente ai manifesti dei servizi, gli attributi **Version** sono stringhe n
 
 I **vincoli di posizionamento** sono le istruzioni che definiscono dove devono essere eseguiti i servizi. Queste istruzioni sono associate a singoli servizi selezionati per una o più proprietà del nodo. Per altre informazioni, vedere [vincoli di posizionamento e sintassi delle proprietà dei nodi](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#placement-constraints-and-node-property-syntax)
 
-**Criteri** di (non impostato nell'esempio precedente) descrive i criteri di raccolta dei log, [RunAs predefinito](service-fabric-application-runas-security.md), [integrità](service-fabric-health-introduction.md#health-policies)e [accesso di sicurezza](service-fabric-application-runas-security.md) da impostare a livello di applicazione, compreso se i servizi hanno accesso al runtime di Service Fabric.
+**Criteri** (non impostati nell'esempio precedente) descrive i criteri di raccolta dei log, [esecuzione predefinita](service-fabric-application-runas-security.md), [integrità](service-fabric-health-introduction.md#health-policies)e [accesso di sicurezza](service-fabric-application-runas-security.md) da impostare a livello di applicazione, compreso se i servizi hanno accesso al Runtime Service Fabric.
 
 > [!NOTE] 
-> Per impostazione predefinita, le applicazioni Service Fabric hanno accesso al runtime di Service Fabric, sotto forma di un endpoint che accetta richieste specifiche dell'applicazione e variabili di ambiente che puntano a percorsi di file nell'host che contiene file di infrastruttura e specifici dell'applicazione . Provare a disabilitare questo accesso quando l'applicazione ospita codice non attendibile (ad esempio il codice la cui origine è sconosciuta o il proprietario dell'applicazione non è sicuro per l'esecuzione). Per ulteriori informazioni, vedere la pagina relativa alle procedure consigliate per la [sicurezza in Service Fabric](service-fabric-best-practices-security.md#platform-isolation). 
+> Per impostazione predefinita, le applicazioni Service Fabric hanno accesso al runtime di Service Fabric, sotto forma di un endpoint che accetta richieste specifiche dell'applicazione e variabili di ambiente che puntano a percorsi di file nell'host che contiene file di infrastruttura e specifici dell'applicazione . Provare a disabilitare questo accesso quando l'applicazione ospita codice non attendibile (ad esempio il codice la cui origine è sconosciuta o il proprietario dell'applicazione non è sicuro per l'esecuzione). Per ulteriori informazioni, vedere la pagina relativa alle [procedure consigliate per la sicurezza in Service Fabric](service-fabric-best-practices-security.md#platform-isolation). 
 >
 
 **Principals** (non impostato nell'esempio precedente) descrive le entità di sicurezza (utenti o gruppi) necessarie per [eseguire i servizi e proteggere le risorse correlate](service-fabric-application-runas-security.md).  Alle entità di sicurezza viene fatto riferimento nelle sezioni **Policies**.

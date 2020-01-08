@@ -4,15 +4,15 @@ description: Pertinenti per la raccolta di contatori delle prestazioni in Macchi
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: reference
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 09/04/2019
-ms.openlocfilehash: fe07c93ada2e8635d0f64caf8451ccdf530f6a22
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: fe1c1018768c81248640521ae278bfb571934601
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552128"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395131"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Versioni e cronologia degli schemi di configurazione dell'estensione di Diagnostica di Azure
 Questa pagina rappresenta l'indice delle versioni degli schemi di estensione di Diagnostica di Azure forniti con Microsoft Azure SDK.  
@@ -38,7 +38,7 @@ L'estensione Diagnostica di Azure viene usata con altri prodotti di diagnostica 
 |2.5               |1.2                            |estensione|  
 |2.6               |1.3                            |"|  
 |2.7               |1.4                            |"|  
-|2.8               |1,5                            |"|  
+|2.8               |1.5                            |"|  
 |2,9               |1.6                            |"|
 |2.96              |1.7                            |"|
 |2.96              |1.8                            |"|

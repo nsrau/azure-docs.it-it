@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c17b344764fd9c1d18f787952a6193f0c8b634d0
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 2bda344c32d03425c7cfec4d253e18451eb1f5a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065009"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367504"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account QQ tramite Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "71065009"
 
 ## <a name="create-a-qq-application"></a>Creare un'applicazione QQ
 
-Per usare un account QQ come provider di identità in Azure Active Directory B2C (Azure AD B2C), è necessario creare un'applicazione nel tenant che la rappresenta. Se non si ha già un account QQ, è possibile iscriversi all' [https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033)indirizzo.
+Per usare un account QQ come provider di identità in Azure Active Directory B2C (Azure AD B2C), è necessario creare un'applicazione nel tenant che la rappresenta. Se non si ha già un account QQ, è possibile iscriversi all' [https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033).
 
 ### <a name="register-for-the-qq-developer-program"></a>Registrazione per il programma per sviluppatori QQ
 
@@ -47,9 +47,9 @@ Per usare un account QQ come provider di identità in Azure Active Directory B2C
 
 ## <a name="configure-qq-as-an-identity-provider"></a>Configurare QQ come provider di identità
 
-1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale del tenant di Azure AD B2C.
-1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C selezionando il filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene il tenant.
-1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra del portale di Azure, cercare **Azure AD B2C** e selezionarlo.
+1. Accedere al [portale di Azure](https://portal.azure.com/).
+1. Selezionare l'icona **directory + sottoscrizione** sulla barra degli strumenti del portale e quindi selezionare la directory che contiene il tenant Azure ad B2C.
+1. Nella portale di Azure cercare e selezionare **Azure ad B2C**.
 1. Selezionare **provider di identità**, quindi selezionare **QQ (anteprima)** .
 1. Immettere un **Nome**. Ad esempio, *QQ*.
 1. Per **ID client**immettere l'ID app dell'applicazione QQ creata in precedenza.

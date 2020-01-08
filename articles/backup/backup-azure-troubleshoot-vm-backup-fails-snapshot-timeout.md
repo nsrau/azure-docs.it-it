@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 8331d74528703df1d7c56f25af7df0f53cd1f9be
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 255c18144fe0089a3f630d90f527a57d2b4ed68b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996273"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75391854"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere i problemi di Backup di Azure: problemi relativi all'agente o all'estensione
 
@@ -28,6 +28,7 @@ L'agente di macchine virtuali di Azure potrebbe essere arrestato, obsoleto, in u
 - **Aprire il portale di Azure > impostazioni > vm > Pannello proprietà** > assicurarsi che **lo stato** della macchina virtuale sia **in esecuzione** e che **lo stato dell'agente** sia **pronto**. Se l'agente di macchine virtuali è stato arrestato o è in uno stato incoerente, riavviare l'agente<br>
   - Per le macchine virtuali Windows attenersi alla [seguente procedura](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) per riavviare l'agente guest.<br>
   - Per le VM Linux, attenersi alla [procedura seguente](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) per riavviare l'agente guest.
+- **Aprire il portale di Azure > impostazioni di > VM > estensioni** > assicurarsi che tutte le estensioni siano in stato di **provisioning riuscito** . In caso contrario, attenersi alla [seguente procedura](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) per risolvere il problema.
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError - Non è stato possibile comunicare con l'agente della macchina virtuale per lo stato dello snapshot
 
@@ -53,8 +54,8 @@ Dopo la registrazione e la pianificazione di una macchina virtuale per il serviz
 
 Questo errore si verifica quando uno degli errori di estensione inserisce la macchina virtuale in stato di errore di provisioning.<br>**Aprire il portale di Azure > impostazioni di > VM > estensioni > lo stato delle estensioni** e verificare se tutte le estensioni sono in stato di **provisioning riuscito** .
 
-- Se lo stato dell'estensione VMSnapshot è failed, fare clic con il pulsante destro del mouse sull'estensione non riuscita e rimuoverlo. Attivare un backup ad hoc. le estensioni vengono reinstallate ed è possibile eseguire il processo di backup.  <br>
-- Se un'altra estensione è in stato di errore, può interferire con il backup. Verificare che i problemi relativi all'estensione vengano risolti e ripetere l'operazione di backup.  
+- Se lo stato dell'estensione VMSnapshot è failed, fare clic con il pulsante destro del mouse sull'estensione non riuscita e rimuoverlo. Attivare un backup su richiesta. in questo modo le estensioni vengono reinstallate ed eseguito il processo di backup.  <br>
+- Se un'altra estensione si trova in uno stato di errore, può interferire con il backup. Verificare che i problemi relativi all'estensione vengano risolti e ripetere l'operazione di backup.  
 
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached - È stato raggiunto il limite massimo di raccolte di punti di ripristino
 
@@ -229,7 +230,7 @@ Per disinstallare l'estensione:
 1. Nel [portale di Azure](https://portal.azure.com/) passare alla macchina virtuale in cui si è verificato l'errore di backup.
 2. Selezionare **Impostazioni**.
 3. Selezionare **Estensioni**.
-4. Selezionare **Vmsnapshot Extension** (Estensione Vmsnapshot).
+4. Selezionare **estensione snapshot**.
 5. Selezionare **Disinstalla**.
 
 Per le macchine virtuali Linux, se l'estensione VMSnapshot non è visualizzata nel portale di Azure [aggiornare l'agente Linux di Azure](../virtual-machines/linux/update-agent.md) e quindi eseguire il backup.

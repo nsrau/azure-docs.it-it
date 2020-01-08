@@ -1,5 +1,5 @@
 ---
-title: Limitare gli utenti dell'app registrata Azure Active Directory | Azure
+title: Limitare Azure AD app a un set di utenti | Azure
 titleSuffix: Microsoft identity platform
 description: Informazioni su come limitare l'accesso alle app registrate in Azure AD a un set di utenti.
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1cd52a62d5ab8185e18c849f6009e4632c96ede
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: ff6e9d101159af33a05a2dc50e227bc97970b12d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917625"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424453"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users"></a>Procedura: limitare l'app Azure AD a un set di utenti
 
@@ -46,7 +46,7 @@ La possibilità di limitare un'app a un set specifico di utenti o gruppi di sicu
 
 Esistono due modi per creare un'applicazione con l'assegnazione utente abilitata. Uno richiede il ruolo di **amministratore globale** , il secondo no.
 
-### <a name="enterprise-applications-requires-the-global-adminstrator-role"></a>Applicazioni aziendali (richiede il ruolo amministratore globale)
+### <a name="enterprise-applications-requires-the-global-administrator-role"></a>Applicazioni aziendali (richiede il ruolo di amministratore globale)
 
 1. Passare alla [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale**.
 1. Nella barra superiore selezionare l'account connesso. 

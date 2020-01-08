@@ -3,12 +3,12 @@ title: Informazioni sul backup di macchine virtuali di Azure
 description: Questo articolo illustra come il servizio backup di Azure esegue il backup delle macchine virtuali di Azure e come seguire le procedure consigliate.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 4bd42acbf682b51e17f60702e5695cfb29db812b
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: b38c61adaf334eacb7d85292d4174189d6fddc46
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806440"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75391890"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Panoramica del backup delle macchine virtuali di Azure
 
@@ -60,7 +60,7 @@ Backup di Azure acquisisce gli snapshot in base alla pianificazione del backup.
 
 - **Macchine virtuali Windows:** Per le macchine virtuali Windows, il servizio di backup coordina con VSS per eseguire uno snapshot coerente con l'app dei dischi delle macchine virtuali.
 
-  - Per impostazione predefinita, Backup di Azure esegue backup VSS completi. [Altre informazioni](https://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx).
+  - Per impostazione predefinita, Backup di Azure esegue backup VSS completi. [Altre informazioni](https://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx)
   - Per modificare l'impostazione in modo che backup di Azure accetti backup di copia VSS, impostare la chiave del registro di sistema seguente da un prompt dei comandi:
 
     **REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent"/v USEVSSCOPYBACKUP/t REG_SZ/d TRUE/f**
@@ -109,7 +109,6 @@ Quando si configurano i backup delle VM, è consigliabile seguire queste procedu
 - Modificare i tempi di pianificazione predefiniti impostati in un criterio. Se, ad esempio, l'ora predefinita nel criterio è 12:00 AM, incrementare l'intervallo di alcuni minuti in modo che le risorse vengano utilizzate in modo ottimale.
 - Se si ripristinano le macchine virtuali da un unico insieme di credenziali, è consigliabile usare [account di archiviazione di uso generico V2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) diversi per assicurarsi che l'account di archiviazione di destinazione non venga limitato. Ogni macchina virtuale, ad esempio, deve avere un account di archiviazione diverso. Se, ad esempio, vengono ripristinate 10 macchine virtuali, usare 10 account di archiviazione diversi.
 - Per il backup delle macchine virtuali che usano archiviazione Premium, con il ripristino immediato è consigliabile allocare lo spazio disponibile del *50%* dello spazio di archiviazione totale allocato, che è necessario **solo** per il primo backup. Il 50% di spazio disponibile non è un requisito per i backup dopo il completamento del primo backup
-- Il ripristino da un livello di archiviazione V1 per utilizzo generico (snapshot) verrà completato in pochi minuti perché lo snapshot si trova nello stesso account di archiviazione. Il ripristino dal livello di archiviazione per utilizzo generico V2 (Vault) può richiedere ore. Nei casi in cui i dati sono disponibili nell'archiviazione per utilizzo generico V1, è consigliabile usare la funzionalità di [ripristino immediato](backup-instant-restore-capability.md) per i ripristini più veloci. Se è necessario ripristinare i dati da un insieme di credenziali, il tempo necessario è maggiore.
 - Il limite per il numero di dischi per account di archiviazione è relativo alla frequenza di accesso ai dischi da parte delle applicazioni in esecuzione in una macchina virtuale IaaS (Infrastructure as a Service). Come procedura generale, se in un singolo account di archiviazione sono presenti 5-10 o più dischi, bilanciare il carico spostando alcuni dischi in account di archiviazione separati.
 
 ## <a name="backup-costs"></a>Costi di backup
@@ -124,14 +123,14 @@ Il calcolo delle dimensioni dell'istanza protetta è basato sulle dimensioni *ef
 
 Analogamente, la fattura relativa all'archiviazione dei backup è basata sulla quantità di dati archiviati in backup di Azure, ovvero la somma dei dati effettivi in ogni punto di ripristino.
 
-Ad esempio, è consigliabile usare una macchina virtuale di dimensioni a2 con due dischi dati aggiuntivi con una dimensione massima di 4 TB. La tabella seguente mostra i dati effettivi archiviati in ciascuno di questi dischi:
+Ad esempio, è consigliabile usare una macchina virtuale di dimensioni a2 con due dischi dati aggiuntivi con una dimensione massima di 32 TB. La tabella seguente mostra i dati effettivi archiviati in ciascuno di questi dischi:
 
 **Disco** | **Dimensioni massime** | **Dati effettivi presenti**
 --- | --- | ---
-Disco del sistema operativo | 4095 GB | 17 GB
+Disco del sistema operativo | 32 TB | 17 GB
 Disco locale/temporaneo | 135 GB | 5 GB (non incluso per il backup)
-Disco dati 1 | 4095 GB | 30 GB
-Disco dati 2 | 4095 GB | 0 GB
+Disco dati 1 | 32 TB| 30 GB
+Disco dati 2 | 32 TB | 0 GB
 
 In questo caso, la dimensione effettiva della macchina virtuale è 17 GB + 30 GB + 0 GB = 47 GB. Questa dimensione dell'istanza protetta (47 GB) diventa la base per la fattura mensile. Con la crescita della quantità di dati nella macchina virtuale, le dimensioni dell'istanza protetta utilizzate per la fatturazione cambiano.
 
