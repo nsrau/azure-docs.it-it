@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fdfa01a45c0dd35da65b2ad7ce8b0d291148af1a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: a315b012cf103840eae6b141fe5177dfa709896d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931109"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463926"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 
@@ -129,7 +129,7 @@ La tabella seguente illustra alcuni esempi di queste formule per le dimensioni d
 |10.240      | 10.240  | Fino a 30.720  | 675 | 450   |
 |33.792      | 33.792  | Fino a 100.000 | 2\.088 | 1\.392   |
 |51.200      | 51.200  | Fino a 100.000 | 3\.132 | 2\.088   |
-|102.400     | 100,000 | Fino a 100.000 | 6\.204 | 4\.136   |
+|102.400     | 100.000 | Fino a 100.000 | 6\.204 | 4\.136   |
 
 > [!NOTE]
 > Le prestazioni delle condivisioni file sono soggette a limiti di rete del computer, larghezza di banda di rete disponibile, dimensioni i/o, parallelismo, tra molti altri fattori. Ad esempio, in base a test interni con 8 dimensioni di i/o in lettura/scrittura, una singola macchina virtuale Windows, una *F16s_v2 standard*, connessa alla condivisione file Premium tramite SMB, potrebbe raggiungere 20.000 IOPS di lettura e 15.000 di operazioni di i/o in scrittura. Con le dimensioni di i/o in lettura/scrittura di 512 MiB, la stessa VM potrebbe ottenere 1,1 GiB/s in uscita e 370 MiB/s di velocità effettiva in ingresso. Per ottenere la massima scalabilità delle prestazioni, suddividere il carico tra più macchine virtuali. Consultare la [Guida alla risoluzione dei](storage-troubleshooting-files-performance.md) problemi relativi a problemi di prestazioni e soluzioni alternative comuni.
@@ -203,23 +203,28 @@ Questa sezione si applica solo alle condivisioni file standard. Tutte le condivi
 
 Le condivisioni file standard sono disponibili in tutte le aree fino a 5 TiB. In determinate aree sono disponibili con un limite di 100 TiB, le aree sono elencate nella tabella seguente:
 
-|Area geografica |Ridondanza supportata |
+|Area |Ridondanza supportata |
 |-------|---------|
 |Australia orientale |LRS     |
-|Australia sud-orientale|LRS |
+|Australia sudorientale|LRS |
 |Canada centrale  |LRS     |
 |Canada orientale     |LRS     |
 |India centrale  |LRS     |
 |Stati Uniti centrali *   |LRS     |
 |Asia orientale      |LRS     |
-|Stati Uniti orientali *        |LRS     |
+|Stati Uniti orientali *        |CON RIDONDANZA LOCALE, ZRS|
 |Stati Uniti orientali 2 *      |LRS     |
 |Francia centrale |CON RIDONDANZA LOCALE, ZRS|
 |Francia meridionale   |LRS     |
-|Stati Uniti centro-settentrionali |LRS     |
+|Giappone orientale     |LRS     |
+|Stati Uniti centro-settentrionali |LRS   |
 |Europa settentrionale   |LRS     |
 |India meridionale    |LRS     |
+|Stati Uniti centro-meridionali |LRS     |
 |Asia sud-orientale |CON RIDONDANZA LOCALE, ZRS|
+|Emirati Arabi Uniti centrali    |LRS     |
+|Regno Unito meridionale   |LRS     |
+|Regno Unito occidentale    |LRS     |
 |Stati Uniti centro-occidentali|LRS     |
 |Europa occidentale *    |CON RIDONDANZA LOCALE, ZRS|
 |Stati Uniti occidentali *        |LRS     |

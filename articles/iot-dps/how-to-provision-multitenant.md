@@ -7,12 +7,12 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 5703db90307f679ff4728386dc24647437f9f9ba
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e0dec0a67ed33186797ccec8066aaad89ceb8dcb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974956"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434747"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Come effettuare il provisioning per la multi-tenancy 
 
@@ -24,7 +24,7 @@ I criteri di allocazione definiti dal servizio di provisioning supportano una va
 
 È comune combinare questi due scenari. Ad esempio, una soluzione IoT multi-tenant assegnerà comunemente dispositivi tenant usando un gruppo di hub IoT dislocati tra diverse aree. Questi dispositivi tenant possono essere assegnati all'hub IoT in tale gruppo, che ha la latenza più bassa in base alla posizione geografica.
 
-Questo articolo usa un esempio di dispositivo simulato proveniente da [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) per illustrare come effettuare il provisioning di dispositivi in uno scenario multi-tenant tra più aree geografiche. In questo articolo si eseguiranno i seguenti passaggi:
+Questo articolo usa un esempio di dispositivo simulato proveniente da [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) per illustrare come effettuare il provisioning di dispositivi in uno scenario multi-tenant tra più aree geografiche. In questo articolo si eseguiranno i passaggi seguenti:
 
 * Usare l'interfaccia della riga di comando di Azure per creare due hub IoT a livello di area (**Stati Uniti occidentali** e **Stati Uniti orientali**)
 * Creare una registrazione multi-tenant
@@ -38,7 +38,7 @@ Questo articolo usa un esempio di dispositivo simulato proveniente da [Azure IoT
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Completamento dell'avvio rapido della [configurazione del servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md).
+* Completamento della guida introduttiva per [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md).
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -89,7 +89,7 @@ Per semplicità, in questo articolo viene usata l'[attestazione con chiave simme
 
 2. Selezionare la scheda **Gestisci registrazioni**, quindi fare clic sul pulsante **Aggiungi gruppo di registrazioni** nella parte superiore della pagina. 
 
-3. In **Aggiungi gruppo di registrazione** immettere le informazioni seguenti e fare clic sul pulsante **Salva**.
+3. In **Aggiungi gruppo di registrazioni** immettere le informazioni seguenti e fare clic sul pulsante **Salva**.
 
     **Nome gruppo**: immettere **contoso-us-devices**.
 
@@ -191,20 +191,21 @@ Per rendere più semplici le operazioni di pulizia, queste macchine virtuali ver
 
 In questa sezione si clonerà Azure IoT C SDK in ogni macchina virtuale. L'SDK contiene un esempio che consentirà di simulare il provisioning di dispositivi del tenant da ogni area.
 
-
-1. Per ogni macchina virtuale, installare **Cmake**, **g++** , **gcc** e [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) usando i comandi seguenti:
+1. Per ogni macchina virtuale, installare **CMake**, **g + +** , **GCC**e [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) usando i comandi seguenti:
 
     ```bash
     sudo apt-get update
     sudo apt-get install cmake build-essential libssl-dev libcurl4-openssl-dev uuid-dev git-all
     ```
 
+1. Trovare il nome del tag per la [versione più recente](https://github.com/Azure/azure-iot-sdk-c/releases/latest) dell'SDK.
 
-1. Clonare [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) in entrambe le macchine virtuali.
+1. Clonare [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) in entrambe le macchine virtuali.  Usare il tag trovato nel passaggio precedente come valore per il parametro `-b`:
 
     ```bash
-    cd ~/
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
 
     Il completamento di questa operazione richiederà alcuni minuti.
@@ -248,9 +249,9 @@ In questa sezione si clonerà Azure IoT C SDK in ogni macchina virtuale. L'SDK c
 
 Quando si usa l'attestazione con chiave simmetrica con le registrazioni di gruppo, non si usano direttamente le chiavi dei gruppi di registrazione. Viene invece creata una chiave derivata univoca per ogni dispositivo, come indicato in [Group Enrollments with symmetric keys](concepts-symmetric-key-attestation.md#group-enrollments) (Registrazioni di gruppo con chiavi simmetriche).
 
-Per generare la chiave di dispositivo, usare la chiave master del gruppo per calcolare un valore [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) dell'ID registrazione univoco per il dispositivo e convertire il risultato nel formato Base64.
+Per generare la chiave di dispositivo, usare la chiave master di gruppo per calcolare un valore [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) dell'ID di registrazione univoco per il dispositivo e convertire il risultato nel formato Base64.
 
-Non includere la chiave master del gruppo nel codice del dispositivo.
+Non includere la chiave master di gruppo nel codice del dispositivo.
 
 Usare l'esempio di shell Bash per creare una chiave di dispositivo derivata per ogni dispositivo tramite **openssl**.
 

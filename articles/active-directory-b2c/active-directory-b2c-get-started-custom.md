@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 66b361a7eb82610d12a10c9c190f2872c072d7ba
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: f802c2d1f986f5da62f4ffd3205523423f04e49c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664064"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367893"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introduzione ai criteri personalizzati in Azure Active Directory B2C
 
@@ -31,10 +31,10 @@ I [criteri personalizzati](active-directory-b2c-overview-custom.md) sono file di
 
 ## <a name="add-signing-and-encryption-keys"></a>Aggiungere le chiavi di firma e di crittografia
 
-1. Accedere al [portale di Azure](https://portal.azure.com)
-1. Usare il filtro **directory + sottoscrizione** nel menu in alto per selezionare la directory che contiene il tenant del Azure ad B2C.
-1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
-1. Nella pagina Panoramica selezionare **Framework esperienza di identità** dal riquadro **criteri** .
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Selezionare l'icona **directory + sottoscrizione** sulla barra degli strumenti del portale e quindi selezionare la directory che contiene il tenant Azure ad B2C.
+1. Nella portale di Azure cercare e selezionare **Azure ad B2C**.
+1. Nella pagina Panoramica, in **criteri**, selezionare **Framework esperienza di identità**.
 
 ### <a name="create-the-signing-key"></a>Creazione della chiave di firma
 
@@ -67,7 +67,7 @@ Aggiungere il [segreto dell'app](active-directory-b2c-setup-fb-app.md) di Facebo
 
 ## <a name="register-identity-experience-framework-applications"></a>Registrare le applicazioni del framework dell'esperienza di gestione delle identità
 
-Azure AD B2C richiede di registrare due applicazioni che usa per iscriversi e accedere agli utenti con account locali: *IdentityExperienceFramework*, un'API Web e *ProxyIdentityExperienceFramework*, un'app nativa con autorizzazione delegata per il App IdentityExperienceFramework. Gli utenti possono iscriversi con un indirizzo di posta elettronica o un nome utente e una password per accedere alle applicazioni registrate dal tenant, che creano un "account locale". Gli account locali esistono solo nel tenant del Azure AD B2C.
+Azure AD B2C richiede di registrare due applicazioni che usa per iscriversi e accedere agli utenti con account locali: *IdentityExperienceFramework*, un'API Web e *ProxyIdentityExperienceFramework*, un'app nativa con autorizzazione delegata per l'app IdentityExperienceFramework. Gli utenti possono iscriversi con un indirizzo di posta elettronica o un nome utente e una password per accedere alle applicazioni registrate dal tenant, che creano un "account locale". Gli account locali esistono solo nel tenant del Azure AD B2C.
 
 È necessario registrare queste due applicazioni nel tenant di Azure AD B2C una sola volta.
 
@@ -77,10 +77,9 @@ Per registrare un'applicazione nel tenant di Azure AD B2C, è possibile usare l'
 
 #### <a name="applicationstabapplications"></a>[Applicazioni](#tab/applications/)
 
-1. Selezionare **tutti i servizi** nell'angolo superiore sinistro del portale di Azure.
-1. Nella casella di ricerca immettere `Azure Active Directory`.
-1. Selezionare **Azure Active Directory** dai risultati della ricerca.
-1. In **Gestisci** nel menu a sinistra selezionare **registrazioni app (legacy)** .
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Nel portale di Azure cercare e selezionare **Azure Active Directory**.
+1. Nel menu Panoramica **Azure Active Directory** , in **Gestisci**, selezionare **registrazioni app (legacy)** .
 1. Selezionare **Registrazione nuova applicazione**.
 1. Per **Nome** immettere `IdentityExperienceFramework`.
 1. Per **Tipo di applicazione** scegliere **App Web/API**.

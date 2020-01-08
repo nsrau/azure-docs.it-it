@@ -1,18 +1,18 @@
 ---
 title: Uso del Mapping dei servizi in Azure | Microsoft Docs
-description: Service Map è una soluzione di Azure che rileva automaticamente i componenti delle applicazioni nei sistemi Windows e Linux e mappa la comunicazione tra i servizi. Questo articolo fornisce informazioni dettagliate su come distribuire l'elenco dei servizi nell'ambiente e su come usarlo in svariati scenari.
+description: Service Map è una soluzione di Azure che rileva automaticamente i componenti delle applicazioni nei sistemi Windows e Linux e mappa la comunicazione tra i servizi. Questo articolo fornisce informazioni dettagliate su come distribuire Mapping dei servizi nell'ambiente e su come usarlo in svariati scenari.
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 00bb58c88b7dc535bf76e1a96e9748a2c366b338
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: d4fd443959604f1a50dffbcb646bbe66fa159f8d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554008"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75402589"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso del Mapping dei servizi in Azure
 
@@ -319,7 +319,7 @@ Sono disponibili proprietà generate internamente che è possibile usare per ide
 
 Poiché possono essere presenti vari record per un determinato processo o computer in un intervallo di tempo specificato, le query possono restituire più di un record per lo stesso computer o processo. Per includere solo il record più recente, aggiungere "| dedup ResourceId" alla query.
 
-### <a name="connections"></a>connessioni
+### <a name="connections"></a>Connessioni
 
 Le metriche relative alla connessione vengono scritte in una nuova tabella in Log Analytics, ovvero VMConnection. Questa tabella fornisce informazioni sulle connessioni di un computer (in ingresso e in uscita). Le metriche relative alla connessione vengono inoltre esposte con le API che forniscono i mezzi per ottenere una metrica specifica durante un intervallo di tempo.  Le connessioni TCP stabilite *accettando* l'operazione su un socket in ascolto sono connessioni in ingresso, mentre quelle create tramite *connessione* a un IP e una porta specifici sono in uscita. La direzione di una connessione è rappresentata dalla proprietà Direction, che può essere impostata su **inbound** o **outbound**. 
 
@@ -545,7 +545,7 @@ Tutti i dati relativi a server, processi e dipendenze in Mapping dei servizi son
 
 ## <a name="diagnostic-and-usage-data"></a>Dati di diagnostica e di utilizzo
 
-Microsoft raccoglie automaticamente i dati di utilizzo e prestazioni tramite l'uso del servizio relativo all'elenco dei servizi da parte dell'utente. Microsoft usa questi dati per offrire e migliorare la qualità, la sicurezza e l'integrità del servizio Mapping dei servizi. Per offrire capacità di risoluzione dei problemi accurate ed efficienti, i dati includono informazioni sulla configurazione del software, come il sistema operativo e la versione, l'indirizzo IP, il nome DNS e il nome della workstation. Microsoft non raccoglie nomi, indirizzi o altre informazioni di contatto.
+Microsoft raccoglie automaticamente i dati di utilizzo e prestazioni tramite l'uso del servizio Mapping dei servizi da parte dell'utente. Microsoft usa questi dati per offrire e migliorare la qualità, la sicurezza e l'integrità del servizio Mapping dei servizi. Per offrire capacità di risoluzione dei problemi accurate ed efficienti, i dati includono informazioni sulla configurazione del software, come il sistema operativo e la versione, l'indirizzo IP, il nome DNS e il nome della workstation. Microsoft non raccoglie nomi, indirizzi o altre informazioni di contatto.
 
 Per altre informazioni sulla raccolta e sull'uso dei dati , vedere l'[Informativa sulla privacy Servizi online Microsoft ](https://go.microsoft.com/fwlink/?LinkId=512132).
 
@@ -553,7 +553,7 @@ Per altre informazioni sulla raccolta e sull'uso dei dati , vedere l'[Informativ
 
 Altre informazioni sulle [ricerche nei log](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics per recuperare i dati raccolti da Mapping dei servizi.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se si verificano problemi di installazione o esecuzione di Mapping dei servizi, questa sezione può essere d'aiuto. Se si non riesce a risolvere il problema, contattare il supporto tecnico Microsoft.
 
@@ -603,4 +603,4 @@ Controllare la `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log fil
 
 ## <a name="feedback"></a>Commenti
 
-Per inviare commenti sull'elenco dei servizi e sulla relativa documentazione,  Visitare la [pagina per i suggerimenti degli utenti](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), in cui è possibile suggerire funzionalità o votare i suggerimenti esistenti.
+Per inviare commenti su Mapping dei servizi e sulla relativa documentazione,  Visitare la [pagina per i suggerimenti degli utenti](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), in cui è possibile suggerire funzionalità o votare i suggerimenti esistenti.

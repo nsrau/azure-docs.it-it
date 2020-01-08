@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: b631a370c64522c201f1208819b5a76895d83b09
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: d19b3d59c48cfc8fc91d4678c2f979b110575b1a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457514"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359154"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Estensione DSC per Linux (Microsoft. OSTCExtensions. DSCForLinux)
 
@@ -38,13 +38,13 @@ L'estensione DSCForLinux è pubblicata e supportata da Microsoft. L'estensione i
 
  
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="operating-system"></a>Sistema operativo
 
 L'estensione DSC Linux supporta tutte le [distribuzioni Linux approvate in Azure](/azure/virtual-machines/linux/endorsed-distros) tranne:
 
-| Distribuzione | Version |
+| Distribuzione | Versione |
 |---|---|
 | Debian | Tutte le versioni |
 | Ubuntu| 18,04 |
@@ -281,7 +281,7 @@ Le estensioni macchina virtuale di Azure possono essere distribuite con i modell
 
 Il modello di Resource Manager di esempio è [201-dsc-linux-azure-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-azure-storage-on-ubuntu) e [201-dsc-linux-public-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-public-storage-on-ubuntu).
 
-Per ulteriori informazioni sul modello di Azure Resource Manager, vedere [authoring Azure Resource Manager Templates](../../azure-resource-manager/resource-group-authoring-templates.md).
+Per ulteriori informazioni sul modello di Azure Resource Manager, vedere [authoring Azure Resource Manager Templates](../../azure-resource-manager/templates/template-syntax.md).
 
 
 ## <a name="azure-cli-deployment"></a>Distribuzione dell'interfaccia della riga di comando di Azure
@@ -306,7 +306,7 @@ Per conoscere la versione più recente dell'estensione, eseguire:
 $ azure vm extension list
 ```
 
-#### <a name="resource-manager"></a>Gestione risorse
+#### <a name="resource-manager"></a>Azure Resource Manager
 È possibile passare alla modalità Azure Resource Manager eseguendo:
 ```
 $ azure config mode arm
@@ -363,7 +363,7 @@ Set-AzureVMExtension -ExtensionName $extensionName -VM $vm -Publisher $publisher
   -PublicConfiguration $publicConfig | Update-AzureVM
 ```
 
-#### <a name="resource-manager"></a>Gestione risorse
+#### <a name="resource-manager"></a>Azure Resource Manager
 
 È possibile accedere al proprio account Azure in modalità Azure Resource Manager eseguendo:
 
@@ -431,4 +431,4 @@ In alcuni casi, l'estensione di Linux DSC non riesce a installare OMI quando nel
 Per ulteriori informazioni in qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [Forum MSDN Azure e stack overflow](https://azure.microsoft.com/support/community/). In alternativa, è possibile archiviare un evento imprevisto del supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/)e selezionare **ottenere supporto**. Per informazioni sull'uso del Supporto tecnico di Azure, leggere le [Domande frequenti sul supporto tecnico di Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulle estensioni, vedere [Estensioni e funzionalità della macchina virtuale per Linux](features-linux.md).
+Per altre informazioni sulle estensioni, vedere [Estensioni e funzionalità delle macchine virtuali per Linux](features-linux.md).

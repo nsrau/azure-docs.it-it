@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
-ms.openlocfilehash: 3b498911999e224003710eced8e0c34989672800
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0d0643adc56a3dcdeef163708c26f2425ab8af43
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73809189"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429247"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importare ed esportare le identità dei dispositivi dell'hub Internet in blocco
 
@@ -91,7 +91,7 @@ Sono consentiti solo 1 processo di importazione o esportazione di un dispositivo
 
 ## <a name="export-devices"></a>Esportare dispositivi
 
-Usare il metodo **ExportDevicesAsync** per esportare un intero registro delle identità di un hub IoT in un contenitore BLOB di [Archiviazione di Azure](../storage/index.yml) con una [firma di accesso condiviso](../storage/common/storage-security-guide.md#authorization).
+Usare il metodo **ExportDevicesAsync** per esportare l'intero registro delle identità dell'hub Internet in un contenitore BLOB di archiviazione di Azure usando una firma di accesso condiviso (SAS). Per altre informazioni sulle firme di accesso condiviso, vedere [concedere l'accesso limitato alle risorse di archiviazione di Azure usando le firme di accesso condiviso (SAS)](../storage/common/storage-sas-overview.md).
 
 Questo metodo consente di creare backup affidabili delle informazioni sui dispositivi in un contenitore BLOB che si controlla.
 
@@ -257,7 +257,7 @@ Se il file di importazione include metadati gemelli, questi metadati sovrascrivo
 
 Usare la proprietà facoltativa **importMode** nei dati di serializzazione dell'importazione per ogni dispositivo per controllare il processo di importazione per dispositivo. La proprietà **importMode** include le opzioni seguenti:
 
-| importMode | Descrizione |
+| importMode | Description |
 | --- | --- |
 | **createOrUpdate** |Se un dispositivo non esiste con l' **ID**specificato, viene appena registrato. <br/>Se il dispositivo esiste già, le informazioni esistenti vengono sovrascritte con i dati di input specificati senza tener conto del valore **ETag** . <br> L'utente può facoltativamente specificare i dati gemelli con i dati del dispositivo. L'ETag del gemello, se specificato, viene elaborato in modo indipendente dal valore etag del dispositivo. Se è presente una mancata corrispondenza con l'etag del gemello esistente, viene scritto un errore nel file di log. |
 | **create** |Se un dispositivo non esiste con l' **ID**specificato, viene appena registrato. <br/>Se il dispositivo esiste già, viene scritto un errore nel file di log. <br> L'utente può facoltativamente specificare i dati gemelli con i dati del dispositivo. L'ETag del gemello, se specificato, viene elaborato in modo indipendente dal valore etag del dispositivo. Se è presente una mancata corrispondenza con l'etag del gemello esistente, viene scritto un errore nel file di log. |

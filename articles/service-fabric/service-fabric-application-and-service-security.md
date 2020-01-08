@@ -1,25 +1,14 @@
 ---
-title: Informazioni sulla sicurezza dell'applicazione Azure Service Fabric | Microsoft Docs
+title: Informazioni sulla sicurezza delle applicazioni di Azure Service Fabric
 description: Panoramica su come eseguire in sicurezza applicazioni di microservizi in Service Fabric. Informazioni su come eseguire servizi e script di avvio con account di sicurezza diversi, autenticare e autorizzare utenti, gestire i segreti delle applicazioni, proteggere comunicazioni di servizio, usare un gateway API e proteggere i dati inattivi delle applicazioni.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/16/2018
-ms.author: atsenthi
-ms.openlocfilehash: 75a82a0915414d24ab9c58ea15d3fdc9c1922c63
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 6c40bf66d1068310790d1440174eeb5b2a571154
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600062"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452245"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Sicurezza del servizio e dell'applicazione Service Fabric
 Un'architettura di microservizi può apportare [numerosi vantaggi](service-fabric-overview-microservices.md). Gestire la sicurezza dei microservizi, tuttavia, richiede procedure complesse, diverse da quelle necessarie per gestire la sicurezza delle tradizionali applicazioni monolitiche. 
@@ -29,16 +18,16 @@ Con una struttura monolitica, l'applicazione viene normalmente eseguita su uno o
 Questo articolo non è una guida alla sicurezza dei microservizi, poiché online sono disponibili molte risorse di questo tipo, ma descrive come possono essere applicati in Service Fabric vari aspetti relativi alla sicurezza.
 
 ## <a name="authentication-and-authorization"></a>Autenticazione e autorizzazione
-È spesso necessario che le risorse e le API esposte da un servizio vengano limitate a determinati client o utenti attendibili. L'autenticazione è il processo con cui si accerta in modo affidabile l'identità di un utente,  mentre l'autorizzazione è il processo che rende le API o i servizi disponibili per alcuni utenti autenticati, ma non per altri.
+È spesso necessario che le risorse e le API esposte da un servizio vengano limitate a determinati client o utenti attendibili. ovvero il processo con cui si accerta in modo affidabile l'identità di un utente.  mentre l'autorizzazione è il processo che rende le API o i servizi disponibili per alcuni utenti autenticati, ma non per altri.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticazione
 Il primo passaggio del processo decisionale relativo all'attendibilità a livello di API è l'autenticazione, ovvero il processo con cui si accerta in modo affidabile l'identità di un utente.  In scenari di microservizi, l'autenticazione viene in genere gestita centralmente. Se si usa un gateway API, tuttavia, è possibile [scaricare l'autenticazione](/azure/architecture/patterns/gateway-offloading) sul gateway. Se si usa questo approccio, accertarsi che i singoli servizi non possano essere raggiunti direttamente (senza il gateway API), a meno che non siano stati configurati strumenti di sicurezza aggiuntivi per l'autenticazione dei messaggi, indipendentemente dal fatto che provengano o meno dal gateway.
 
 Se è possibile accedere direttamente ai servizi, per autenticare gli utenti è possibile usare un servizio di autenticazione come Azure Active Directory o un microservizio di autenticazione dedicato che svolge la funzione di servizio token di sicurezza. Le decisioni sull'attendibilità vengono condivise tra i servizi tramite cookie o token di sicurezza. 
 
 Per ASP.NET Core, il principale meccanismo di [autenticazione degli utenti](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) è il sistema di appartenenze ASP.NET Core Identity, che archivia le informazioni sugli utenti (inclusi dati di accesso, ruoli e attestazioni) in un archivio dati configurato dallo sviluppatore. ASP.NET Core Identity supporta l'autenticazione a due fattori,  Sono supportati anche i provider di autenticazione esterni, in modo che gli utenti possano accedere usando i processi di autenticazione esistenti da provider come Microsoft, Google, Facebook o Twitter.
 
-### <a name="authorization"></a>Authorization
+### <a name="authorization"></a>Autorizzazione
 Dopo l'autenticazione, i servizi devono autorizzare l'accesso utente o determinare cosa può fare un utente. Questo processo, ad esempio, consente a un servizio di rendere le API disponibili per alcuni utenti autenticati, ma non per tutti. L'autorizzazione è ortogonale e indipendente dall'autenticazione, che costituisce invece il processo con cui si accerta l'identità di un utente. L'autenticazione, inoltre, può creare una o più identità per l'utente corrente.
 
 L'[autorizzazione di ASP.NET Core](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/authorization-net-microservices-web-applications) può essere eseguita in base ai ruoli degli utenti o a criteri personalizzati come il controllo delle attestazioni o altre regole euristiche.

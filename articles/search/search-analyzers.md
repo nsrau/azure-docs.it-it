@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 32ac91df042eb29c39cc54b738dbb96aff3104f3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/10/2019
+ms.openlocfilehash: 2e4a6ab8825982969ffa4654c2418f7a9d168d2e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496512"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460722"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analizzatori per l'elaborazione del testo in Azure ricerca cognitiva
 
@@ -39,9 +39,9 @@ Viene usato automaticamente in ogni campo ricercabile. È possibile eseguire l'o
 
 Nell'elenco seguente vengono descritti gli analizzatori disponibili in Azure ricerca cognitiva.
 
-| Categoria | Descrizione |
+| Categoria | Description |
 |----------|-------------|
-| [Analizzatore Lucene standard](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Default. Non è necessaria alcun specifica o configurazione. Questo uso generale funziona correttamente per la maggior parte dei linguaggi e degli scenari.|
+| [Analizzatore Lucene standard](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Valore predefinito. Non è necessaria alcun specifica o configurazione. Questo uso generale funziona correttamente per la maggior parte dei linguaggi e degli scenari.|
 | Analizzatori predefiniti | Offerto come prodotto finito, da usare così com'è. <br/>Ne esistono due tipi: specializzato e del linguaggio. Ciò che li rende "predefiniti" è il fatto di farvi riferimento in base al nome, senza alcuna configurazione né personalizzazione. <br/><br/>Gli [analizzatori specializzati (indipendenti dal linguaggio)](index-add-custom-analyzers.md#AnalyzerTable) vengono usati quando gli input di testo richiedono un'elaborazione minima o specializzata. Gli analizzatori predefiniti indipendenti dal linguaggio includono **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop** e **Whitespace**.<br/><br/>Gli [analizzatori del linguaggio](index-add-language-analyzers.md) vengono usati quando è necessario un supporto linguistico avanzato per i singoli linguaggi. Azure ricerca cognitiva supporta gli analizzatori del linguaggio 35 Lucene e 50 gli analizzatori di elaborazione del linguaggio naturale Microsoft. |
 |[Analizzatori personalizzati](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Si riferisce a una configurazione definita dall'utente di una combinazione di elementi esistenti, costituiti da un tokenizer (obbligatorio) e da filtri facoltativi (char o token).|
 
@@ -55,9 +55,12 @@ Alcuni analizzatori predefiniti, ad esempio, **Pattern** o **Stop**, supportano 
 
 3. Invece di una proprietà **analizzatore**, è anche possibile impostare diversi analizzatori per l'indicizzazione e l'esecuzione di query usando i parametri di campo **indexAnalyzer** e **searchAnalyzer**. Usare analizzatori diversi per il recupero e la preparazione dei dati se una di tali attività necessitasse di una specifica trasformazione non richiesta dall'altro.
 
+> [!NOTE]
+> Non è possibile utilizzare un [analizzatore del linguaggio](index-add-language-analyzers.md) diverso in fase di indicizzazione rispetto al tempo di query per un campo. Questa funzionalità è riservata agli [analizzatori personalizzati](index-add-custom-analyzers.md). Per questo motivo, se si tenta di impostare le proprietà **searchAnalyzer** o **indexAnalyzer** sul nome di un analizzatore del linguaggio, l'API REST restituirà una risposta di errore. In alternativa, è necessario utilizzare la proprietà **Analyzer** .
+
 Non è consentita l'assegnazione di **analizzatore** oppure **indexAnalyzer** a un campo che è già stato creato fisicamente. Per eventuali chiarimenti, esaminare la tabella seguente per una suddivisione di quali azioni richiedono la ricompilazione e perché.
  
- | Scenario | Impatto | Passi |
+ | Scenario | Impatto | Procedure |
  |----------|--------|-------|
  | Aggiungere un nuovo campo | Minimo | Se il campo non esiste ancora nello schema, non occorre alcuna revisione perché il campo non è ancora presente fisicamente nell'indice. È possibile usare [Aggiornare un indice](https://docs.microsoft.com/rest/api/searchservice/update-index) per aggiungere un nuovo campo a un indice esistente, e [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) per compilarlo.|
  | Aggiungere un **analizzatore** o **indexAnalyzer** a un campo indicizzato esistente. | [rebuild](search-howto-reindex.md) | L'indice invertito per il campo deve essere ricreato da zero e il contenuto per questi campi deve essere reindicizzato. <br/> <br/>Per gli indici in fase di sviluppo, [eliminare](https://docs.microsoft.com/rest/api/searchservice/delete-index) e [creare](https://docs.microsoft.com/rest/api/searchservice/create-index) l'indice per selezionare la nuova definizione di campo. <br/> <br/>Per gli indici nell'ambiente di produzione, è possibile posticipare la ricompilazione mediante la creazione di un nuovo campo per fornire la definizione modificata e iniziare a usarla al posto di quella precedente. Usare [Aggiornare un indice](https://docs.microsoft.com/rest/api/searchservice/update-index) per incorporare il nuovo campo e [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) per compilarlo. In un secondo momento, nell'ambito della manutenzione pianificata dell'indice, sarà possibile pulire l'indice per rimuovere i campi obsoleti. |
@@ -344,7 +347,7 @@ Creare un oggetto [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microso
 
 + [Configurare gli analizzatori personalizzati](index-add-custom-analyzers.md) per un'elaborazione minima o specializzata per settori specifici.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
  [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) (API REST di Ricerca di documenti) 
 

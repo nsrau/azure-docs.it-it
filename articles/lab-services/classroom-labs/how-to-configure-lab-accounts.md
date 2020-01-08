@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 9faf7de25b8bf227dd4c7f3588972f98f7493439
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 1a1b1e662a2e9adedfc68f1818f868c0a5318652
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73583975"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428980"
 ---
 # <a name="configure-lab-accounts-in-azure-lab-services"></a>Configurare gli account Lab in Azure Lab Services 
 In Azure Lab Services, un account Lab è un contenitore per i tipi Lab gestiti, ad esempio Lab in aula. Un amministratore configura un account lab con Azure Lab Services e fornisce l'accesso ai proprietari del lab autorizzati a creare lab nell'account. Questo articolo descrive come creare un account lab, visualizzare tutti gli account lab o eliminare un account lab.
@@ -133,6 +133,14 @@ Nella pagina **Opzioni di accesso** selezionare **Accedi con GitHub**.
 
 Infine, viene richiesto di creare un account Microsoft collegato al proprio account GitHub. Viene eseguita automaticamente quando l'insegnante seleziona **Avanti**.  L'insegnante viene quindi sottoscritto immediatamente e connesso al Lab della classe.
 
+## <a name="automatic-shutdown-of-vms-on-disconnect"></a>Arresto automatico delle macchine virtuali in disconnessione
+È possibile abilitare o disabilitare l'arresto automatico delle VM di Windows Lab (modello o studente) dopo la disconnessione di una connessione Desktop remoto. È anche possibile specificare per quanto tempo le macchine virtuali devono attendere che l'utente si riconnetta prima di arrestarsi automaticamente.
+
+![Impostazione arresto automatico nell'account Lab](../media/how-to-configure-lab-accounts/automatic-shutdown-vm-disconnect.png)
+
+Questa impostazione si applica a tutti i Lab creati nell'account Lab. Un proprietario del Lab può eseguire l'override di questa impostazione a livello di Lab. La modifica apportata a questa impostazione nell'account Lab influirà solo sui Lab creati dopo la modifica.
+
+Per informazioni su come un proprietario del Lab può configurare questa impostazione a livello di Lab, vedere [questo articolo](how-to-enable-shutdown-disconnect.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti:

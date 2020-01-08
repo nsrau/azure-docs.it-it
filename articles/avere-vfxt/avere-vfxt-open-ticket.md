@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: rohogue
-ms.openlocfilehash: 068747fd51779bd8a20636355a9ce2b032f6151d
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 8a371f902703287ed3105ed53a57d6341b9528d4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255366"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75415118"
 ---
 # <a name="get-help-with-your-system"></a>Ottenere assistenza per il sistema
 
@@ -19,13 +19,13 @@ Se occorre assistenza con Avere vFXT per Azure, sono disponibili diversi modi pe
 
 * **Problemi con Avere vFXT**: usare il portale di Azure per aprire un ticket di supporto per Avere vFXT come descritto [di seguito](#open-a-support-ticket-for-your-avere-vfxt).
 * **Quota**: in caso di problemi relativi alle quota, [richiedere un aumento della quota](#request-a-quota-increase).
-* **Documentazione ed esempi**: in caso di problemi inerenti a questa documentazione o agli esempi, scorrere fino alla fine della pagina contenente il problema e usare la sezione **Commenti** per eseguire la ricerca tra i problemi esistenti e registrarne uno nuovo se necessario.  
+* **Documentazione ed esempi**: in caso di problemi inerenti a questa documentazione o agli esempi, scorrere fino alla fine della pagina contenente il problema e usare la sezione **Commenti** per eseguire la ricerca tra i problemi esistenti e registrarne uno nuovo se necessario.
 
 ## <a name="open-a-support-ticket-for-your-avere-vfxt"></a>Aprire un ticket di supporto per Avere vFXT
 
-Se si verificano problemi durante la distribuzione o l'uso di Avere vFXT, richiedere assistenza tramite il portale di Azure.  
+Se si verificano problemi durante la distribuzione o l'uso di Avere vFXT, richiedere assistenza tramite il portale di Azure.
 
-Seguire questa procedura per assicurarsi che il ticket di supporto sia contrassegnato con una risorsa del cluster. L'assegnazione di un tag al ticket consente di inoltrarlo alla risorsa di supporto corretto. 
+Seguire questa procedura per assicurarsi che il ticket di supporto sia contrassegnato con una risorsa del cluster. L'assegnazione di un tag al ticket consente di inoltrarlo alla risorsa di supporto corretto.
 
 1. Da [https://portal.azure.com](https://portal.azure.com) selezionare **Gruppi di risorse**.
 
@@ -43,7 +43,7 @@ Seguire questa procedura per assicurarsi che il ticket di supporto sia contrasse
 
     ![Screenshot della schermata Nuova richiesta di supporto nel portale di Azure con l'intestazione "Nozioni di base" e l'elemento Servizio evidenziato. Si seleziona il pulsante "Tutti i servizi" e il campo del menu a discesa contiene il valore "Avere vFXT".](media/avere-vfxt-ticket-service.png)
 
-1. Nella seconda pagina scegliere il tipo di problema e la categoria corrispondenti al problema. Aggiungere un breve titolo e una descrizione che includa l'ora in cui si è verificato il problema. 
+1. Nella seconda pagina scegliere il tipo di problema e la categoria corrispondenti al problema. Aggiungere un breve titolo e una descrizione che includa l'ora in cui si è verificato il problema.
 
    ![Screenshot della schermata Nuova richiesta di supporto con l'intestazione "Problema", contenente molti campi da completare](media/avere-vfxt-ticket-problem.png)
 

@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44392882a7d3e1816b952969dbadb518e2762142
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3d7148b104c723d124a954cf858ca77ff6552f94
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919954"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423805"
 ---
 # <a name="mobile-app-that-calls-web-apis---code-configuration"></a>App per dispositivi mobili che chiama API Web-configurazione del codice
 
@@ -77,7 +77,7 @@ Il paragrafo seguente illustra come creare un'istanza dell'applicazione per le a
 
 In Novell, o UWP, il modo più semplice per creare un'istanza dell'applicazione è il seguente, in cui il `ClientId` è il GUID dell'app registrata.
 
-```CSharp
+```csharp
 var app = PublicClientApplicationBuilder.Create(clientId)
                                         .Build();
 ```
@@ -88,7 +88,7 @@ Sono disponibili altri metodi con*parametri* che impostano l'elemento padre dell
 
 In Android è necessario passare l'attività padre prima di eseguire l'autenticazione interattiva. In iOS, quando si usa un broker, è necessario passare il ViewController. Allo stesso modo in UWP, potrebbe essere necessario passare la finestra padre. Questo è possibile quando si acquisisce il token, ma è anche possibile specificare un callback al momento della creazione dell'app un delegato che restituisce UIParent.
 
-```CSharp
+```csharp
 IPublicClientApplication application = PublicClientApplicationBuilder.Create(clientId)
   .ParentActivityOrWindowFunc(() => parentUi)
   .Build();
@@ -96,7 +96,7 @@ IPublicClientApplication application = PublicClientApplicationBuilder.Create(cli
 
 In Android è consigliabile usare il `CurrentActivityPlugin` [qui](https://github.com/jamesmontemagno/CurrentActivityPlugin).  Il codice del generatore di `PublicClientApplication` avrà quindi un aspetto simile al seguente:
 
-```CSharp
+```csharp
 // Requires MSAL.NET 4.2 or above
 var pca = PublicClientApplicationBuilder
   .Create("<your-client-id-here>")
@@ -135,7 +135,7 @@ Ecco le specifiche di Novell per Android:
 - [Assicurando che il controllo torni a MSAL una volta terminata la parte interattiva del flusso di autenticazione](msal-net-xamarin-android-considerations.md#ensuring-control-goes-back-to-msal-once-the-interactive-portion-of-the-authentication-flow-ends)
 - [Aggiornare il manifesto Android](msal-net-xamarin-android-considerations.md#update-the-android-manifest)
 - [Usare la visualizzazione Web incorporata (facoltativo)](msal-net-xamarin-android-considerations.md#use-the-embedded-web-view-optional)
-- [risoluzione dei problemi](msal-net-xamarin-android-considerations.md#troubleshooting)
+- [Risoluzione dei problemi](msal-net-xamarin-android-considerations.md#troubleshooting)
 
 Informazioni dettagliate sono disponibili in [considerazioni su Novell Android](msal-net-xamarin-android-considerations.md)
 
@@ -175,7 +175,7 @@ Seguire questa procedura per consentire all'app Novell. iOS di comunicare con l'
 
 Il supporto Broker è abilitato in base al`PublicClientApplication`. È disabilitata per impostazione predefinita. È necessario usare il parametro `WithBroker()` (impostato su true per impostazione predefinita) quando si crea il `PublicClientApplication` tramite il `PublicClientApplicationBuilder`.
 
-```CSharp
+```csharp
 var app = PublicClientApplicationBuilder
                 .Create(ClientId)
                 .WithBroker()
@@ -187,7 +187,7 @@ var app = PublicClientApplicationBuilder
 
 Quando MSAL.NET chiama il broker, il broker chiamerà, a sua volta, l'applicazione tramite il metodo `AppDelegate.OpenUrl`. Poiché MSAL attenderà la risposta dal broker, l'applicazione deve collaborare per chiamare MSAL.NET. Questa operazione viene eseguita aggiornando il file di `AppDelegate.cs` per eseguire l'override del metodo riportato di seguito.
 
-```CSharp
+```csharp
 public override bool OpenUrl(UIApplication app, NSUrl url,
                              string sourceApplication,
                              NSObject annotation)
@@ -219,16 +219,16 @@ Per impostare la finestra oggetto, eseguire le operazioni seguenti:
 **Ad esempio:**
 
 In `App.cs`:
-```CSharp
+```csharp
    public static object RootViewController { get; set; }
 ```
 In `AppDelegate.cs`:
-```CSharp
+```csharp
    LoadApplication(new App());
    App.RootViewController = new UIViewController();
 ```
 Nella chiamata al token di acquisizione:
-```CSharp
+```csharp
 result = await app.AcquireTokenInteractive(scopes)
              .WithParentActivityOrWindow(App.RootViewController)
              .ExecuteAsync();

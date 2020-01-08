@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09c1e31664b94dd814b33b630dfa4f8e24d4600f
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: e5f006832fd1f1386adaf89b0045272a70db2df3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547179"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429957"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>Configurare le identità gestite per le risorse di Azure in una scala di macchine virtuali di Azure usando un modello
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Le identità gestite per le risorse di Azure offrono ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza inserire le credenziali nel codice. 
+Le identità gestite per le risorse di Azure offrono ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. 
 
 Questo articolo illustra come eseguire le seguenti operazioni di identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali di Azure mediante il modello di distribuzione Azure Resource Manager:
 - Abilitare e disabilitare l'identità gestita assegnata dal sistema in un set di scalabilità di macchine virtuali di Azure
@@ -47,12 +47,12 @@ Questo articolo illustra come eseguire le seguenti operazioni di identità gesti
 
 ## <a name="azure-resource-manager-templates"></a>Modelli di Azure Resource Manager
 
-Analogamente al portale di Azure e all'esecuzione dello script, i modelli di gestione di [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) offrono la possibilità di distribuire risorse nuove o modificate definite da un gruppo di risorse di Azure. Diverse opzioni sono disponibili per la modifica e la distribuzione dei modelli, sia in locale che basati sul portale incluso quanto segue:
+Analogamente al portale di Azure e all'esecuzione dello script, i modelli di gestione di [Azure Resource Manager](../../azure-resource-manager/management/overview.md) offrono la possibilità di distribuire risorse nuove o modificate definite da un gruppo di risorse di Azure. Diverse opzioni sono disponibili per la modifica e la distribuzione dei modelli, sia in locale che basati sul portale incluso quanto segue:
 
-   - Uso di un [modello personalizzato da Azure Marketplace](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), che consente di creare un modello da zero o di basarlo su un modello comune o di [avvio rapido](https://azure.microsoft.com/documentation/templates/)esistente.
-   - Derivazione da un gruppo di risorse esistente, tramite l'esportazione di un modello da una [distribuzione originale](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) o dallo [stato attuale della distribuzione](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
+   - Uso di un [modello personalizzato da Azure Marketplace](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template), che consente di creare un modello da zero o di basarlo su un modello comune o di [avvio rapido](https://azure.microsoft.com/documentation/templates/)esistente.
+   - Derivazione da un gruppo di risorse esistente, tramite l'esportazione di un modello da una [distribuzione originale](../../azure-resource-manager/templates/export-template-portal.md) o dallo [stato attuale della distribuzione](../../azure-resource-manager/templates/export-template-portal.md).
    - Usare un [editor JSON, ad esempio il codice di Visual Studio,](../../azure-resource-manager/resource-manager-create-first-template.md) locale e di caricarlo e distribuirlo tramite PowerShell o l'interfaccia della riga di comando.
-   - Usare il [progetto del gruppo di risorse di Azure](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) di Visual Studio per creare e distribuire un modello.  
+   - Usare il [progetto del gruppo di risorse di Azure](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) di Visual Studio per creare e distribuire un modello.  
 
 Indipendentemente dall'opzione scelta, la sintassi dei modelli è la stessa durante la distribuzione iniziale e la ridistribuzione. L'abilitazione delle identità gestite per le risorse di Azure in una macchina virtuale nuova o esistente viene eseguita allo stesso modo. Per impostazione predefinita Azure Resource Manager esegue inoltre un [aggiornamento incrementale](../../azure-resource-manager/deployment-modes.md) per le distribuzioni.
 
@@ -156,7 +156,7 @@ In questa sezione verrà associata un'identità gestita assegnata dall'utente a 
 
 ### <a name="assign-a-user-assigned-managed-identity-to-a-virtual-machine-scale-set"></a>Associare l'identità gestita assegnata dall'utente a un set di scalabilità di macchine virtuali
 
-1. Nell'elemento `resources` aggiungere la voce seguente per associare un'identità gestita assegnata dall'utente al set di scalabilità di macchine virtuali.  Assicurarsi di sostituire `<USERASSIGNEDIDENTITY>` con il nome dell'identità gestita assegnata dall'utente creata.
+1. Nell'elemento `resources` aggiungere la voce seguente per associare un'identità gestita assegnata dall'utente al set di scalabilità di macchine virtuali.  Assicurarsi di sostituire `<USERASSIGNEDIDENTITY>` con il nome dell'identità gestita assegnata dall'utente che è stata creata.
    
    **Microsoft.Compute/virtualMachineScaleSets versione API 2018-06-01**
 

@@ -1,5 +1,5 @@
 ---
-title: Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso - Azure Active Directory | Microsoft Docs
+title: "Aggiungere la personalizzazione alla pagina di accesso dell'organizzazione: Azure AD"
 description: Istruzioni su come aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso di Azure Active Directory.
 services: active-directory
 author: msaburnley
@@ -13,23 +13,23 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7caf6eff9f5bd497ab6c3a500f3940549b198576
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: ea0bc131f7eb3fc66f3b024b4c9902f8c73f9a7d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959047"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422828"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso di Azure Active Directory
 Usare il logo e combinazioni colori personalizzate dell'azienda per offrire un aspetto coerente per le pagine di accesso di Azure Active Directory (Azure AD). La pagina di accesso viene visualizzata quando si accede alle applicazioni basate sul Web dell'organizzazione, come Office 365, che usano Azure AD come provider di identità.
 
 >[!Note]
->Per l'aggiunta di informazioni personalizzate distintive dell'azienda è necessario usare Azure Active Directory Premium 1, Premium 2 o le edizioni Basic, oppure disporre di una licenza di Office 365. Per altre informazioni sulle licenze e sulle edizioni, vedere [Iscriversi ad Azure AD Premium](active-directory-get-started-premium.md).<br><br>Le edizioni Premium e Basic di Azure AD sono disponibili per i clienti in Cina che usano l'istanza globale di Azure Active Directory. Le edizioni Azure AD Premium e Basic non sono attualmente supportate nel servizio di Azure gestito da 21Vianet in Cina. Per altre informazioni, è possibile contattare Microsoft attraverso il [forum di Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
+>Per l'aggiunta di informazioni personalizzate distintive dell'azienda è necessario usare Azure Active Directory Premium 1, Premium 2 o le edizioni Basic, oppure disporre di una licenza di Office 365. Per altre informazioni sulle licenze e sulle edizioni, vedere [Iscriversi ad Azure AD Premium](active-directory-get-started-premium.md).<br><br>Le edizioni Premium e Basic di Azure AD sono disponibili per i clienti in Cina che usano l'istanza globale di Azure Active Directory. Le edizioni Azure AD Premium e Basic non sono attualmente supportate nel servizio di Azure gestito da 21Vianet in Cina. Per altre informazioni, contattare Microsoft tramite il [forum di Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Personalizzare la pagina di accesso di Azure AD
 È possibile personalizzare le pagine di accesso di Azure AD che vengono visualizzate quando gli utenti accedono alle applicazioni specifiche del tenant dell'organizzazione, quali [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com), o passando la variabile del dominio, ad esempio [ *https://passwordreset.microsoftonline.com/?whr=contoso.com* ](https://passwordreset.microsoftonline.com/?whr=contoso.com).
 
-La personalizzazione personalizzata non verrà visualizzata immediatamente quando gli utenti passano a siti come, www\.Office.com. L'utente dovrà effettuare invece l'accesso prima che vengano visualizzate le informazioni distintive. Dopo che l'utente ha eseguito l'accesso, la visualizzazione della personalizzazione potrebbe richiedere 15 minuti o più. 
+La personalizzazione personalizzata non verrà visualizzata immediatamente quando gli utenti passano a siti come, www\.office.com. L'utente dovrà effettuare invece l'accesso prima che vengano visualizzate le informazioni distintive. Dopo che l'utente ha eseguito l'accesso, la visualizzazione della personalizzazione potrebbe richiedere 15 minuti o più. 
 
 > [!NOTE]
 > Tutti gli elementi personalizzati distintivi sono facoltativi. Se, ad esempio, si specifica un logo del banner senza immagine di sfondo, la pagina di accesso mostrerà il logo con un'immagine di sfondo predefinita ricavata dal sito di destinazione, ad esempio Office 365.<br><br>Inoltre, la personalizzazione della pagina di accesso non si applica agli account Microsoft personali. Se gli utenti o gli utenti guest aziendali accedono mediante un account Microsoft personale, la pagina di accesso non rifletterà le informazioni personalizzate distintive dell'azienda.
@@ -76,7 +76,7 @@ La personalizzazione personalizzata non verrà visualizzata immediatamente quand
     
         - **Immagine con logo quadrato, tema scuro.** Uguale all'immagine con logo quadrato precedente. Questa immagine del logo sostituisce l'immagine con logo quadrato quando viene utilizzata con uno sfondo scuro, come ad esempio con le schermate unite di Windows 10 Azure AD durante la configurazione guidata.  Se il logo ha un aspetto corretto su sfondi bianchi, blu scuro e neri, non è necessario aggiungere questa immagine. 
         
-        - **Mostra l'opzione per mantenere l'accesso.** È possibile scegliere di consentire agli utenti di restare connessi ad Azure AD fino alla disconnessione in modo esplicito. Se si sceglie **No**, questa opzione è nascosta e gli utenti devono accedere ogni volta che il browser viene chiuso e riaperto.
+        - **Mostra l'opzione per mantenere l'accesso.** È possibile scegliere di consentire agli utenti di rimanere connessi per Azure AD fino a quando non viene disconnesso in modo esplicito. Se si sceglie **No**, questa opzione è nascosta e gli utenti devono accedere ogni volta che il browser viene chiuso e riaperto.
         
             >[!Note]
             >Alcune funzionalità di SharePoint Online e di Office 2010 dipendono dal fatto che gli utenti possano o meno scegliere se restare connessi. Se si imposta l'opzione su **No**, gli utenti potrebbero visualizzare prompt aggiuntivi e imprevisti con richieste di accesso.

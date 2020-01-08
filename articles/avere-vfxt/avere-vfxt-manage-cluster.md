@@ -6,20 +6,20 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: rohogue
-ms.openlocfilehash: bcdba7f14147714c5e29c13bfe9e20fa44a27ef9
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: d963c951d2202b3f60f0dd93c440b36fabf6478d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256198"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75415294"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Gestire il cluster Avere vFXT
 
-Dopo aver creato il cluster, potrebbe essere necessario aggiungere nodi del cluster oppure interromperlo o riavviarlo. Quando un progetto è concluso, è inoltre necessario sapere come interrompere e rimuovere il cluster in modo definitivo. 
+Dopo aver creato il cluster, potrebbe essere necessario aggiungere nodi del cluster oppure interromperlo o riavviarlo. Quando un progetto è concluso, è inoltre necessario sapere come interrompere e rimuovere il cluster in modo definitivo.
 
-A seconda dell'attività di gestione del cluster, per l'esecuzione può essere necessario usare il pannello di controllo di Avere, lo script per la creazione del cluster dalla riga di comando di vfxt.py o il portale di Azure. 
+A seconda dell'attività di gestione del cluster, per l'esecuzione può essere necessario usare il pannello di controllo di Avere, lo script per la creazione del cluster dalla riga di comando di vfxt.py o il portale di Azure.
 
-Questa tabella offre una panoramica degli strumenti utilizzabili per ogni attività. 
+Questa tabella offre una panoramica degli strumenti utilizzabili per ogni attività.
 
 | Azione | Pannello di controllo di Avere | vfxt.py  | Portale di Azure |
 | --- | --- | --- | --- |
@@ -36,21 +36,21 @@ Di seguito vengono fornite istruzioni dettagliate per ogni strumento.
 
 ## <a name="about-stopped-instances-in-azure"></a>Informazioni sulle istanze interrotte in Azure
 
-Quando si arresta o si interrompe una macchina virtuale di Azure, non vengono più addebitati i costi di calcolo ma rimangono comunque applicabili i costi di archiviazione. Se si arresta un nodo vFXT o l'intero cluster vFXT e non si prevede di riavviarlo, si dovrebbe usare il portale di Azure per eliminare le relative macchine virtuali. 
+Quando si arresta o si interrompe una macchina virtuale di Azure, non vengono più addebitati i costi di calcolo ma rimangono comunque applicabili i costi di archiviazione. Se si arresta un nodo vFXT o l'intero cluster vFXT e non si prevede di riavviarlo, si dovrebbe usare il portale di Azure per eliminare le relative macchine virtuali.
 
 Nel portale di Azure per un nodo *interrotto* (che può essere riavviato) viene visualizzato lo stato **interrotto**; per un nodo *eliminato* viene visualizzato lo stato **interrotto (deallocato)** e non verranno più addebitati costi di calcolo o archiviazione.
 
 Prima di eliminare la macchina virtuale, assicurarsi che tutti i dati modificati siano stati scritti dalla cache nell'archiviazione back-end tramite le opzioni di vfxt.py o del pannello di controllo di Avere per interrompere o arrestare il cluster.
 
-## <a name="manage-the-cluster-with-avere-control-panel"></a>Gestire il cluster con il pannello di controllo di Avere 
+## <a name="manage-the-cluster-with-avere-control-panel"></a>Gestire il cluster con il pannello di controllo di Avere
 
-Il pannello di controllo di Avere può essere usato per queste attività: 
+Il pannello di controllo di Avere può essere usato per queste attività:
 
 * Interrompere o riavviare singoli nodi
 * Rimuovere un nodo dal cluster
 * Interrompere o riavviare l'intero cluster
 
-Il pannello di controllo di Avere considera prioritaria l'integrità dei dati, pertanto tenta di scrivere eventuali dati modificati in un archivio back-end prima di un'operazione potenzialmente distruttiva. Ciò lo rende un'opzione più sicura rispetto al portale di Avere. 
+Il pannello di controllo di Avere considera prioritaria l'integrità dei dati, pertanto tenta di scrivere eventuali dati modificati in un archivio back-end prima di un'operazione potenzialmente distruttiva. Ciò lo rende un'opzione più sicura rispetto al portale di Avere.
 
 È possibile accedere al pannello di controllo di Avere da un Web browser. Seguire le istruzioni in [Accedere al cluster vFXT](avere-vfxt-cluster-gui.md) se si ha bisogno di assistenza.
 
@@ -60,7 +60,7 @@ La pagina delle impostazioni **FXT Nodes** (Nodi FXT) include controlli per la g
 
 Per arrestare, riavviare o rimuovere un nodo, trovare il nodo nell'elenco nella pagina **FXT Nodes** (Nodi FXT) e fare clic sul pulsante appropriato nella colonna **Actions** (Azioni).
 
-> [!NOTE] 
+> [!NOTE]
 > Gli indirizzi IP potrebbero passare da un nodo del cluster a un altro quando il numero di nodi attivi viene modificato.
 
 Leggere [Cluster > FXT Nodes](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html#gui-fxt-nodes>) (Cluster > Nodi FXT) nella guida alle impostazioni del cluster Avere per altre informazioni.
@@ -73,7 +73,7 @@ Quando è in corso l'arresto di un cluster, per prima cosa vengono pubblicati me
 
 ## <a name="manage-the-cluster-with-vfxtpy"></a>Gestire il cluster con vfxt.py
 
-vfxt.py è uno strumento da riga di comando per la gestione e la creazione di cluster. 
+vfxt.py è uno strumento da riga di comando per la gestione e la creazione di cluster.
 
 vfxt.py è preinstallato nella macchina virtuale controller del cluster. Se si vuole installarlo in un altro sistema, vedere la documentazione all'indirizzo <https://github.com/Azure/AvereSDK>.
 
@@ -89,25 +89,25 @@ La guida completa all'utilizzo di vfxt.py è disponibile in GitHub: [Cloud clust
 
 ### <a name="add-cluster-nodes-with-vfxtpy"></a>Aggiungere nodi del cluster con vfxt.py
 
-Nel controller del cluster è incluso un esempio di script di comando per l'aggiunta di nodi del cluster. Individuare ``./add-nodes`` nel controller e aprirlo in un editor per personalizzarlo con le informazioni sul cluster. 
+Nel controller del cluster è incluso un esempio di script di comando per l'aggiunta di nodi del cluster. Individuare ``./add-nodes`` nel controller e aprirlo in un editor per personalizzarlo con le informazioni sul cluster.
 
-Il cluster deve essere in esecuzione per poter usare questo comando. 
+Il cluster deve essere in esecuzione per poter usare questo comando.
 
-Specificare i valori seguenti: 
+Specificare i valori seguenti:
 
 * Nome del gruppo di risorse per il cluster, oltre che per le risorse di rete e di archiviazione se non coincidono con il cluster
 * Percorso del cluster
-* Rete e subnet del cluster 
+* Rete e subnet del cluster
 * Ruolo di accesso ai nodi del cluster (usare l' [operatore](../role-based-access-control/built-in-roles.md#avere-operator)Role haveing predefinito)
-* Indirizzo IP e password amministrativa per la gestione del cluster 
+* Indirizzo IP e password amministrativa per la gestione del cluster
 * Numero di nodi da aggiungere (1, 2 o 3)
-* Tipo di istanza dei nodi e valori delle dimensioni della cache 
+* Tipo di istanza dei nodi e valori delle dimensioni della cache
 
-Se non si usa il prototipo, è necessario creare un comando simile al seguente, che includa tutte le informazioni descritte in precedenza. 
+Se non si usa il prototipo, è necessario creare un comando simile al seguente, che includa tutte le informazioni descritte in precedenza.
 
 ```bash
    vfxt.py --cloud-type azure --from-environment \
-   --resource-group GROUP_NAME \ 
+   --resource-group GROUP_NAME \
    [--network-resource-group GROUP_NAME --storage-resource-group GROUP_NAME]  \
    --location LOCATION --azure-network NETWORK_NAME --azure-subnet SUBNET_NAME \
    --add-nodes --nodes NODE_COUNT \
@@ -129,7 +129,7 @@ vfxt.py --cloud-type azure --from-environment --stop --resource-group GROUPNAME 
 
 ```bash
 vfxt.py --cloud-type azure --from-environment --start --resource-group GROUPNAME --admin-password PASSWORD --management-address ADMIN_IP --location LOCATION --azure-network NETWORK --azure-subnet SUBNET --instances INSTANCE1_ID INSTANCE2_ID INSTANCE3_ID ...
-```    
+```
 
 Dal momento che il cluster è interrotto, è necessario passare gli identificatori di istanza per specificare i nodi del cluster. Leggere [Specifying which cluster to modify](https://github.com/Azure/AvereSDK/blob/master/docs/using_vfxt_py.md#specifying-which-cluster-to-modify) (Specificare quale cluster modificare) nella guida all'utilizzo di vfxt.py per altre informazioni.
 
@@ -141,13 +141,13 @@ vfxt.py --cloud-type azure --from-environment --destroy --resource-group GROUPNA
 
 L'opzione ``--quick-destroy`` può essere usata se non si vogliono scrivere i dati modificati dalla cache del cluster.
 
-Fare riferimento alla [guida all'utilizzo di vfxt.py](<https://github.com/Azure/AvereSDK/blob/master/docs/README.md>) per altre informazioni.  
+Fare riferimento alla [guida all'utilizzo di vfxt.py](<https://github.com/Azure/AvereSDK/blob/master/docs/README.md>) per altre informazioni.
 
-## <a name="manage-cluster-vms-from-the-azure-portal"></a>Gestire le macchine virtuali di un cluster dal portale di Azure 
+## <a name="manage-cluster-vms-from-the-azure-portal"></a>Gestire le macchine virtuali di un cluster dal portale di Azure
 
-Il portale di Azure può essere usato per eliminare definitivamente le singole macchine virtuali di un cluster, ma l'integrità dei dati non è garantita se il cluster non viene prima arrestato correttamente. 
+Il portale di Azure può essere usato per eliminare definitivamente le singole macchine virtuali di un cluster, ma l'integrità dei dati non è garantita se il cluster non viene prima arrestato correttamente.
 
-Il portale di Azure può essere usato per queste attività di gestione del cluster: 
+Il portale di Azure può essere usato per queste attività di gestione del cluster:
 
 * Avviare un nodo vFXT interrotto
 * Interrompere un singolo nodo vFXT (il cluster interpreta questa operazione come un errore del nodo)
@@ -174,11 +174,11 @@ Selezionare **Macchine virtuali** nel menu a sinistra e quindi fare clic sul nom
 
 Scegliere il pulsante **Elimina** nella parte superiore della pagina di panoramica per eliminare definitivamente la macchina virtuale.
 
-È possibile usare questo metodo per rimuovere definitivamente i nodi del cluster dopo che sono stati arrestati in modo sicuro. 
+È possibile usare questo metodo per rimuovere definitivamente i nodi del cluster dopo che sono stati arrestati in modo sicuro.
 
 ### <a name="destroy-the-cluster-from-the-azure-portal"></a>Eliminare definitivamente il cluster dal portale di Azure
 
-> [!NOTE] 
+> [!NOTE]
 > Se si vuole che le restanti modifiche al client nella cache vengano scritte nell'archiviazione back-end, usare l'opzione `--destroy` di vfxt.py o il pannello di controllo di Avere per arrestare il cluster correttamente prima di rimuovere le istanze dei nodi nel portale di Azure.
 
 È possibile eliminare definitivamente le istanze dei nodi eliminandole nel portale di Azure. È possibile eliminarle una alla volta come descritto in precedenza oppure è possibile usare la pagina **Macchine virtuali** per trovare tutte le macchine virtuali del cluster, selezionarle tramite le relative caselle di controllo e fare clic sul pulsante **Elimina** per rimuoverle tutte con un'unica operazione.
@@ -189,24 +189,24 @@ Scegliere il pulsante **Elimina** nella parte superiore della pagina di panorami
 
 Se sono state create risorse aggiuntive espressamente per il cluster vFXT, potrebbe essere necessario rimuoverle nell'ambito del processo di eliminazione definitiva del cluster. Non eliminare definitivamente gli elementi che contengono i dati necessari o tutti gli elementi condivisi con altri progetti.
 
-Oltre a eliminare i nodi del cluster, considerare di rimuovere questi componenti: 
+Oltre a eliminare i nodi del cluster, considerare di rimuovere questi componenti:
 
 * Macchina virtuale controller del cluster
 * Dischi dati associati ai nodi del cluster
 * Interfacce di rete e indirizzi IP pubblici associati ai componenti del cluster
 * Reti virtuali
 * Account di archiviazione (**solo** se non contengono dati importanti)
-* Set di disponibilità 
+* Set di disponibilità
 
 ![Elenco "Tutte le risorse" del portale di Azure che mostra le risorse create per un cluster di test](media/avere-vfxt-all-resources-list.png)
 
 ### <a name="delete-a-clusters-resource-group-from-the-azure-portal"></a>Eliminare un gruppo di risorse del cluster dal portale di Azure
 
-Se è stato creato un gruppo di risorse espressamente per ospitare il cluster, è possibile eliminare definitivamente tutte le risorse correlate per il cluster eliminando definitivamente il gruppo di risorse. 
+Se è stato creato un gruppo di risorse espressamente per ospitare il cluster, è possibile eliminare definitivamente tutte le risorse correlate per il cluster eliminando definitivamente il gruppo di risorse.
 
-> [!Caution] 
+> [!Caution]
 > Eliminare definitivamente il gruppo di risorse solo se si è sicuri che non contenga elementi indispensabili. Ad esempio, accertarsi di aver spostato tutti i dati necessari da eventuali contenitori di archiviazione all'interno del gruppo di risorse.  
 
-Per eliminare un gruppo di risorse, fare clic su **Gruppi di risorse** nel menu a sinistra del portale e filtrare l'elenco dei gruppi di risorse per trovare quello creato per il cluster vFXT. Selezionare il gruppo di risorse e fare clic sui tre puntini a destra del pannello. Scegliere **Elimina gruppo di risorse**. All'interno del portale verrà chiesta conferma dell'operazione di eliminazione, che è irreversibile.  
+Per eliminare un gruppo di risorse, fare clic su **Gruppi di risorse** nel menu a sinistra del portale e filtrare l'elenco dei gruppi di risorse per trovare quello creato per il cluster vFXT. Selezionare il gruppo di risorse e fare clic sui tre puntini a destra del pannello. Scegliere **Elimina gruppo di risorse**. All'interno del portale verrà chiesta conferma dell'operazione di eliminazione, che è irreversibile.
 
 ![Gruppo di risorse che mostra l'azione "Elimina gruppo di risorse"](media/avere-vfxt-delete-resource-group.png)

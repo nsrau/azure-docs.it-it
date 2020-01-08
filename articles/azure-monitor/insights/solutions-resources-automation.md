@@ -8,12 +8,12 @@ author: bwren
 ms.author: bwren
 ms.date: 05/24/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 63e09bacd1ce70f05f04798f092d3eb4b3e36ab5
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: d55af7354ea7d78263e55872e257a2814ebe4130
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555251"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75401815"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Aggiunta di risorse di Automazione di Azure a una soluzione di gestione (anteprima)
 > [!NOTE]
@@ -31,7 +31,7 @@ Nell'articolo si presuppone che il lettore abbia già familiarità con le inform
 
 - Come [creare una soluzione di gestione]( solutions-creating.md).
 - La struttura di un [file di soluzione]( solutions-solution-file.md).
-- Come [creare modelli di Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md)
+- Come [creare modelli di Resource Manager](../../azure-resource-manager/templates/template-syntax.md)
 
 ## <a name="automation-account"></a>Account di Automazione
 Tutte le risorse di Automazione di Azure sono contenute in un [account di Automazione](../../automation/automation-security-overview.md#automation-account-overview).  Come descritto in [Log Analytics workspace and Automation account]( solutions.md#log-analytics-workspace-and-automation-account) (area di lavoro Log Analytics e account di Automazione), l'account di Automazione non è incluso nella soluzione di gestione, ma deve essere disponibile prima dell'installazione della soluzione.  Se non è disponibile, l'installazione della soluzione non riuscirà.
@@ -108,7 +108,7 @@ Le proprietà dei processi di automazione sono descritte nella tabella seguente.
 | Proprietà | Description |
 |:--- |:--- |
 | runbook |Entità name singola con il nome del runbook da avviare. |
-| Parametri |Entità relativa ad ogni valore di parametro richiesto dal runbook. |
+| parametri |Entità relativa ad ogni valore di parametro richiesto dal runbook. |
 
 Il processo include il nome del runbook e i valori dei parametri da inviare al runbook.  Il processo deve [dipendere]( solutions-solution-file.md#resources) dal runbook in fase di avvio, poiché questo deve essere creato prima del processo.  Se sono presenti più runbook da avviare, è possibile definire l'ordine di avvio impostando un processo in modo che dipenda da un altro processo che deve essere eseguito prima.
 
@@ -207,7 +207,7 @@ Applicare una delle due strategie seguenti quando si usano risorse di pianificaz
 - Creare le pianificazioni usando un runbook che viene avviato al momento dell'installazione della soluzione.  In questo modo viene eliminata la necessità per l'utente di specificare un'ora, ma la pianificazione non potrà essere contenuta nella soluzione e verrà quindi rimossa con l'eliminazione della soluzione.
 
 
-### <a name="job-schedules"></a>Pianificazioni dei processi
+### <a name="job-schedules"></a>Pianificazioni di processi
 Le risorse "pianificazione dei processi" collegano un runbook a una pianificazione.  Sono di tipo **Microsoft.Automation/automationAccounts/jobSchedules** e presentano la struttura seguente.  Nella struttura sono inclusi parametri e variabili comuni ed è quindi possibile copiare e incollare questo frammento di codice nel file della soluzione e, se necessario, modificare i nomi dei parametri. 
 
     {
@@ -266,7 +266,7 @@ Le proprietà delle risorse "variabile" sono descritte nella tabella seguente.
 | description | Descrizione facoltativa per la variabile. |
 | isEncrypted | Specifica se la variabile deve essere crittografata. |
 | type | Questa proprietà attualmente non ha alcun effetto.  Il tipo di dati della variabile verrà determinato dal valore iniziale. |
-| value | Valore per la variabile. |
+| Valore | Valore per la variabile. |
 
 > [!NOTE]
 > La proprietà **type** attualmente non ha alcun effetto sulla variabile che viene creata.  Il tipo di dati per la variabile verrà determinato dal valore.  
@@ -276,7 +276,7 @@ Se si imposta il valore iniziale per la variabile, è necessario configurarla co
 | Tipo di dati | Description | Esempio | Risoluzione |
 |:--|:--|:--|:--|
 | string   | Racchiude il valore tra virgolette doppie.  | "\"Hello world\"" | "Hello world" |
-| numeric  | Valore numerico con virgolette singole.| "64" | 64 |
+| NUMERIC  | Valore numerico con virgolette singole.| "64" | 64 |
 | boolean  | **true** o **false** tra virgolette.  Si noti che questo valore deve essere minuscolo. | "true" | true |
 | Datetime | Valore di data serializzato.<br>È possibile usare il cmdlet ConvertTo-Json in PowerShell per generare questo valore per una particolare data.<br>Esempio: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 

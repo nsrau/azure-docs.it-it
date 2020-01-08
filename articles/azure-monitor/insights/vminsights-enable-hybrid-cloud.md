@@ -4,15 +4,15 @@ description: Questo articolo descrive come abilitare Monitoraggio di Azure per l
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: e9e5504125920cedaf383f8fa4299a4b1b1d60ed
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 40d89dd675e063283d1ed90cf145575b8164e4e5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553860"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75400697"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>Abilitare Monitoraggio di Azure per le macchine virtuali (anteprima) per un ambiente ibrido
 
@@ -69,7 +69,7 @@ Dependency Agent viene installato nei server Linux con *InstallDependencyAgent-L
 | Parametro | Description |
 |:--|:--|
 | -help | Ottenere un elenco delle opzioni della riga di comando. |
-| -s | Eseguire un'installazione invisibile all'utente senza prompt per l'utente. |
+| -S | Eseguire un'installazione invisibile all'utente senza prompt per l'utente. |
 | --check | Controllare le autorizzazioni e il sistema operativo senza installare l'agente. |
 
 Ad esempio, per eseguire il programma di installazione con il parametro `-help`, immettere **installdependencyagent-linux64. bin-Help**.
@@ -80,7 +80,7 @@ Se Dependency Agent non si avvia, controllare i log per vedere le informazioni d
 
 I file relativi a Dependency Agent sono memorizzati nelle directory seguenti:
 
-| File | Località |
+| File | Percorso |
 |:--|:--|
 | File core | /opt/microsoft/dependency-agent |
 | File di log | /var/opt/microsoft/dependency-agent/log |
@@ -224,7 +224,7 @@ Per usare l'interfaccia della riga di comando di Azure, è prima necessario inst
     ```
    Dopo avere abilitato il monitoraggio, possono essere necessari circa 10 minuti prima di poter visualizzare lo stato di integrità e le metriche per il computer ibrido.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 ### <a name="vm-doesnt-appear-on-the-map"></a>La macchina virtuale non viene visualizzata nella mappa
 

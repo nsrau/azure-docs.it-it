@@ -1,24 +1,24 @@
 ---
-author: erikre
+author: georgewallace
 ms.service: multiple
 ms.topic: include
 ms.date: 11/25/2018
-ms.author: erikre
-ms.openlocfilehash: 96c4da8465a87fee4c00bfc6177515c94910704a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.author: gwallace
+ms.openlocfilehash: e38cecfe206f21f9189493e7ed6e8f0cadda9cd9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67179824"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463472"
 ---
-I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratuiti ogni mese. Questi 25.000 messaggi gratuiti mensili offrono l'accesso a funzionalità avanzate di creazione di report e analisi e a [tutte le API][all APIs] (Web, SMTP, Event, Parse e altre). Per informazioni sui servizi aggiuntivi offerti da SendGrid, vedere la pagina delle [soluzioni di SendGrid][SendGrid Solutions].
+I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratuiti ogni mese. Questi 25.000 di messaggi di posta elettronica mensili gratuiti ti consentono di accedere a report avanzati e analisi e a [tutte le API][all APIs] (Web, SMTP, Event, Parse e altro ancora). Per informazioni sui servizi aggiuntivi forniti da SendGrid, visitare la pagina [soluzioni SendGrid][SendGrid Solutions] .
 
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>Per iscriversi a un account SendGrid
 1. Accedere al [portale di Azure][Azure portal].
-2. Nel menu a sinistra fare clic su **Crea una risorsa**.
+2. Nel menu portale di Azure o nella home page selezionare **Crea una risorsa**.
 
     ![command-bar-new][command-bar-new]
-3. Fare clic su **Componenti aggiuntivi** e quindi **SendGrid Email Delivery** (Recapito email di SendGrid).
+3. Cercare e selezionare **SendGrid**.
 
     ![sendgrid-store][sendgrid-store]
 4. Completare il modulo di iscrizione e selezionare **Crea**.
@@ -34,11 +34,11 @@ I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratui
 10. Se disponibile, immettere un **codice di promozione**.
 11. Inserire le **informazioni di contatto**.
 12. Riesaminare e accettare le **Note legali**.
-13. Dopo aver confermato l'acquisto verrà visualizzato un popup che indica che la **distribuzione è riuscita** e il proprio account verrà elencato nella sezione **Tutte le risorse**.
+13. Dopo aver confermato l'acquisto, viene visualizzata una finestra popup con **esito positivo** e l'account viene visualizzato nell'elenco.
 
     ![all-resources][all-resources]
 
-    Dopo avere completato l'acquisto e avere fatto clic sul pulsante **Gestisci** per avviare il processo di verifica dei messaggi di posta elettronica, SendGrid invierà un'email in cui si chiede di verificare l'account. Se non si riceve questa email o se si hanno problemi nella verifica dell'account, consultare le domande frequenti.
+    Dopo avere completato l'acquisto e avere fatto clic sul pulsante **Gestisci** per avviare il processo di verifica dei messaggi di posta elettronica, SendGrid invierà un'email in cui si chiede di verificare l'account. Se non si riceve questo messaggio di posta elettronica o si verificano problemi durante la verifica dell'account, vedere le domande frequenti.
 
     ![manage][manage]
 
@@ -69,14 +69,14 @@ I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratui
 ### <a name="to-find-your-sendgrid-credentials"></a>Per individuare le credenziali di SendGrid
 1. Fare clic sull'icona della chiave per trovare il **nome utente**.
 
-    ![key][key]
+    ![Key][key]
 2. La password è quella specificata al momento della configurazione. È possibile selezionare **Cambia password** o **Reimposta password** per apportare modifiche.
 
 Per gestire le impostazioni di recapito della posta, fare clic sul **pulsante Gestisci**. Si verrà reindirizzati al dashboard di SendGrid.
 
 ![manage][manage]
 
-Per altre informazioni sull'invio di posta elettronica tramite SendGrid, vedere la [panoramica dell'API Email][Email API Overview].
+Per altre informazioni sull'invio di messaggi di posta elettronica tramite SendGrid, vedere la [Panoramica dell'API di posta elettronica][Email API Overview].
 
 <!--images-->
 

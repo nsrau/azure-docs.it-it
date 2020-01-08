@@ -3,12 +3,12 @@ title: Informazioni su criteri di Azure per il servizio Azure Kubernetes
 description: Informazioni su come i criteri di Azure usano Rego e Open Policy Agent per gestire i cluster nel servizio Azure Kubernetes.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: d8d5c1ebeded62f475804e4e704f823aba2c10eb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 9a4dd6bbc71c66c3ff37200ed57859b309909ae9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279386"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436403"
 ---
 # <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Informazioni sui criteri di Azure per il servizio Azure Kubernetes
 
@@ -29,11 +29,11 @@ Per abilitare e usare criteri di Azure per AKS con il cluster AKS, intraprendere
 
 ## <a name="opt-in-for-preview"></a>Consenso esplicito per l'anteprima
 
-Prima di installare il componente aggiuntivo criteri di Azure o abilitare le funzionalità del servizio, la sottoscrizione deve abilitare il provider di risorse **Microsoft. servizio contenitore** e il provider di risorse **Microsoft. PolicyInsights** , quindi essere approvati per partecipa all'anteprima. Per partecipare all'anteprima, seguire questa procedura nell'portale di Azure o con l'interfaccia della riga di comando di Azure:
+Prima di installare il componente aggiuntivo di criteri di Azure o di abilitare le funzionalità del servizio, la sottoscrizione deve abilitare il provider di risorse **Microsoft. servizio contenitore** e il provider di risorse **Microsoft. PolicyInsights** , quindi essere approvati per partecipare all'anteprima. Per partecipare all'anteprima, seguire questa procedura nell'portale di Azure o con l'interfaccia della riga di comando di Azure:
 
 - Portale di Azure:
 
-  1. Registrare i provider di risorse **Microsoft. servizio contenitore** e **Microsoft. PolicyInsights** . Per i passaggi, vedere [provider e tipi di risorse](../../../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
+  1. Registrare i provider di risorse **Microsoft. servizio contenitore** e **Microsoft. PolicyInsights** . Per i passaggi, vedere [provider e tipi di risorse](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
   1. Avviare il servizio Criteri di Azure nel portale di Azure facendo clic su **Tutti i servizi** e quindi cercando e selezionando **Criteri**.
 
@@ -89,7 +89,7 @@ Il _componente aggiuntivo criteri di Azure_ per Kubernetes connette il servizio 
 
 ### <a name="installing-the-add-on"></a>Installazione del componente aggiuntivo
 
-#### <a name="prerequisites"></a>prerequisiti
+#### <a name="prerequisites"></a>Prerequisiti
 
 Prima di installare il componente aggiuntivo nel cluster AKS, è necessario installare l'estensione di anteprima. Questa operazione viene eseguita con l'interfaccia della riga di comando di Azure:
 
@@ -123,7 +123,7 @@ Prima di installare il componente aggiuntivo nel cluster AKS, è necessario inst
 
 Una volta completati i prerequisiti, installare il componente aggiuntivo criteri di Azure nel cluster AKS che si vuole gestire.
 
-- portale di Azure
+- Portale di Azure
 
   1. Avviare il servizio AKS nella portale di Azure facendo clic su **tutti i servizi**, quindi cercando e selezionando **Servizi Kubernetes**.
 
@@ -206,7 +206,7 @@ Per visualizzare i log dei contenitori gatekeeper, seguire i passaggi descritti 
 
 Per rimuovere il componente aggiuntivo criteri di Azure dal cluster AKS, usare l'interfaccia della riga di comando portale di Azure o Azure:
 
-- portale di Azure
+- Portale di Azure
 
   1. Avviare il servizio AKS nella portale di Azure facendo clic su **tutti i servizi**, quindi cercando e selezionando **Servizi Kubernetes**.
 
@@ -230,7 +230,7 @@ Per rimuovere il componente aggiuntivo criteri di Azure dal cluster AKS, usare l
 
 ## <a name="diagnostic-data-collected-by-azure-policy-add-on"></a>Dati di diagnostica raccolti dal componente aggiuntivo criteri di Azure
 
-Il componente aggiuntivo criteri di Azure per Kubernetes raccoglie i dati di diagnostica del cluster limitati. Questi dati diagnostici sono dati tecnici essenziali correlati al software e alle prestazioni. Viene usato nei modi seguenti:
+Il componente aggiuntivo criteri di Azure per Kubernetes raccoglie i dati di diagnostica del cluster limitati. Questi dati diagnostici sono dati tecnici essenziali correlati al software e alle prestazioni. Viene usata nei modi seguenti:
 
 - Mantieni aggiornato il componente aggiuntivo criteri di Azure
 - Mantieni il componente aggiuntivo di criteri di Azure protetto, affidabile, efficiente
@@ -254,7 +254,7 @@ Le informazioni raccolte dal componente aggiuntivo non sono dati personali. Sono
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Esaminare gli esempi in [esempi di criteri di Azure](../samples/index.md).
-- Vedere la [struttura delle definizioni dei criteri](definition-structure.md).
+- Vedere [Struttura delle definizioni di criteri di Azure](definition-structure.md).
 - Leggere [Informazioni sugli effetti di Criteri](effects.md).
 - Informazioni su come [creare criteri a livello di codice](../how-to/programmatically-create.md).
 - Informazioni su come [ottenere i dati di conformità](../how-to/get-compliance-data.md).

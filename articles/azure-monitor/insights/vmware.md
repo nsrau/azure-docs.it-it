@@ -4,15 +4,15 @@ description: Informazioni su come la soluzione di monitoraggio VMware è in grad
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: dc453ad42312bb096aed1356d376b0906870a7b0
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: ac735c9131ebe7b7273d93a927cb4d4a8be24508
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900600"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75399198"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Soluzione Monitoraggio VMware (deprecata) in monitoraggio di Azure
 
@@ -51,14 +51,14 @@ Creare una VM del sistema operativo Linux per ricevere tutti i dati di Syslog da
     ![vspherefwproperties](./media/vmware/vsphere3.png)  
 1. Controllare vSphere Console per verificare che Syslog sia configurato correttamente. Verificare che nell'host ESXI sia configurata la porta **1514**.
 1. Scaricare e installare l'agente di Log Analytics per Linux sul server Linux. Per altre informazioni, vedere la [documentazione relativa all'agente di Log Analytics per Linux](https://github.com/Microsoft/OMS-Agent-for-Linux).
-1. Dopo l'installazione dell'agente di Log Analytics per Linux, passare alla directory /etc/opt/microsoft/omsagent/sysconf/omsagent.d e copiare il file vmware_esxi.conf nella directory /etc/opt/microsoft/omsagent/conf/omsagent.d, quindi modificare il proprietario o il gruppo e le autorizzazioni del file. ad esempio:
+1. Dopo l'installazione dell'agente di Log Analytics per Linux, passare alla directory /etc/opt/microsoft/omsagent/sysconf/omsagent.d e copiare il file vmware_esxi.conf nella directory /etc/opt/microsoft/omsagent/conf/omsagent.d, quindi modificare il proprietario o il gruppo e le autorizzazioni del file. Ad esempio:
 
     ```
     sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/vmware_esxi.conf /etc/opt/microsoft/omsagent/conf/omsagent.d
    sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf
     ```
 1. Riavviare l'agente di Log Analytics per Linux eseguendo `sudo /opt/microsoft/omsagent/bin/service_control restart`.
-1. Verificare la connettività tra il server Linux e l'host ESXi usando il `nc` comando nell'host ESXi. ad esempio:
+1. Verificare la connettività tra il server Linux e l'host ESXi usando il `nc` comando nell'host ESXi. Ad esempio:
 
     ```
     [root@ESXiHost:~] nc -z 123.456.789.101 1514
@@ -128,7 +128,7 @@ Da qui è possibile modificare la query di log per modificarla per un elemento s
 #### <a name="find-esxi-host-events"></a>Individuazione degli eventi host ESXi
 Un singolo host ESXi genera più log, in base ai loro processi. La soluzione di monitoraggio VMware li centralizza e riepiloga il conteggio degli eventi. Questa vista centralizzata aiuta a comprendere quale host ESXi ha un volume elevato di eventi e quali eventi si verificano più di frequente nell'ambiente.
 
-![event](./media/vmware/events.png)
+![evento](./media/vmware/events.png)
 
 È possibile approfondire più nel dettaglio facendo clic su un host ESXi o un tipo di evento.
 

@@ -1,25 +1,14 @@
 ---
-title: Aggiungere un tipo di nodo a un cluster di Azure Service Fabric | Microsoft Docs
+title: Aggiungere un tipo di nodo a un cluster di Azure Service Fabric
 description: Informazioni su come ridimensionare un cluster di Service Fabric aggiungendo un set di scalabilità di macchine virtuali.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/13/2019
-ms.author: atsenthi
-ms.openlocfilehash: 1414e656a358af1e258c823cc7ec747fefa986ba
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 1e7bae89561d43d717eb4d15e95183761b077443
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598700"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463966"
 ---
 # <a name="scale-a-service-fabric-cluster-out-by-adding-a-virtual-machine-scale-set"></a>Ridimensionare un cluster di Service Fabric aggiungendo un set di scalabilità di macchine virtuali
 Questo articolo descrive come ridimensionare un cluster di Azure Service Fabric aggiungendo un nuovo tipo di nodo a un cluster esistente. Un cluster di Service Fabric è un set di computer fisici o macchine virtuali connessi in rete, in cui vengono distribuiti e gestiti i microservizi. Un computer o una macchina virtuale che fa parte di un cluster viene detto nodo. I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire una raccolta di macchine virtuali come set. Ogni tipo di nodo definito in un cluster di Azure viene [configurato come set di scalabilità di macchine virtuali separato](service-fabric-cluster-nodetypes.md). Ogni tipo di nodo può essere gestito separatamente. Dopo aver creato un cluster di Service Fabric, è possibile ridimensionare un cluster orizzontalmente aggiungendo un nuovo tipo di nodo (set di scalabilità di macchine virtuali) a un cluster esistente.  È possibile ridimensionare il cluster in qualsiasi momento, anche quando sono in esecuzione carichi di lavoro nel cluster.  Quando si ridimensiona il cluster, vengono automaticamente ridimensionate anche le applicazioni.

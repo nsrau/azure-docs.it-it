@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: robinsh
-ms.openlocfilehash: 6e4d110221c7f360e8177505de2a7789f9616d51
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c54853717f7e0b234df013e5aee575682d0d3d97
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976146"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429161"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Come clonare un hub Azure Internet in un'altra area
 
@@ -29,7 +29,7 @@ Questo articolo illustra i modi per clonare un hub Internet e fornisce alcune do
 Per clonare un hub, è necessaria una sottoscrizione con accesso amministrativo all'Hub originale. È possibile inserire il nuovo hub in un nuovo gruppo di risorse e in un'area, nella stessa sottoscrizione dell'Hub originale o anche in una nuova sottoscrizione. Non è possibile usare lo stesso nome perché il nome dell'hub deve essere univoco a livello globale.
 
 > [!NOTE]
-> Attualmente non è disponibile una funzionalità di prima classe per la clonazione di un hub Internet. Si tratta principalmente di un processo manuale e pertanto è ragionevolmente soggetto a errori. La complessità della clonazione di un hub è direttamente proporzionale alla complessità dell'hub. Ad esempio, la clonazione di un hub Internet senza il routing dei messaggi è piuttosto semplice. Se si aggiunge il routing dei messaggi come una sola complessità, la clonazione dell'hub diventa almeno un ordine di grandezza più complicato. Se si spostano anche le risorse usate per il routing degli endpoint, si tratta di un altro ordine di magniture più complesso. 
+> Al momento non è disponibile alcuna funzionalità per la clonazione automatica di un hub Internet. Si tratta principalmente di un processo manuale e pertanto è ragionevolmente soggetto a errori. La complessità della clonazione di un hub è direttamente proporzionale alla complessità dell'hub. Ad esempio, la clonazione di un hub Internet senza il routing dei messaggi è piuttosto semplice. Se si aggiunge il routing dei messaggi come una sola complessità, la clonazione dell'hub diventa almeno un ordine di grandezza più complicato. Se si spostano anche le risorse usate per il routing degli endpoint, si tratta di un altro ordine di magniture più complesso. 
 
 ## <a name="things-to-consider"></a>Aspetti da considerare
 

@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: fa1aa8c560f4b9cc48c7a6a761abe4d69d5d0265
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: b84855057b43daa0aeff4878a69dac4ae765d2ef
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773181"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429299"
 ---
 # <a name="control-access-to-iot-hub"></a>Controllare l'accesso all'hub IoT
 
@@ -37,10 +37,10 @@ Per concedere le [autorizzazioni](#iot-hub-permissions) è possibile procedere n
 
 * **Criteri di accesso condivisi a livello di hub IoT**. I criteri di accesso condiviso possono concedere qualsiasi combinazione di [autorizzazioni](#iot-hub-permissions). È possibile definire i criteri nel [portale di Azure](https://portal.azure.com) a livello di codice tramite le [API REST di risorsa dell'hub IoT](/rest/api/iothub/iothubresource) o tramite il comando dell'interfaccia della riga di comando [az iot hub policy](/cli/azure/iot/hub/policy?view=azure-cli-latest). Un hub IoT appena creato ha i criteri predefiniti seguenti:
   
-  | Criteri di accesso condiviso | Autorizzazioni |
+  | Criterio di accesso condiviso | Autorizzazioni |
   | -------------------- | ----------- |
   | iothubowner | Tutte le autorizzazioni |
-  | servizio | Autorizzazioni **ServiceConnect** |
+  | service | Autorizzazioni **ServiceConnect** |
   | device | Autorizzazioni **DeviceConnect** |
   | registryRead | Autorizzazioni **RegistryRead** |
   | registryReadWrite | Autorizzazioni **RegistryRead** e **RegistryWrite** |
@@ -57,14 +57,14 @@ Ad esempio, in una soluzione IoT tipica:
 > [!NOTE]
 > Per informazioni dettagliate, vedere [Autorizzazioni](#iot-hub-permissions).
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 L'hub IoT di Azure concede l'accesso agli endpoint tramite la verifica di un token rispetto ai criteri di accesso condiviso e alle credenziali di sicurezza del registro delle identità.
 
 Le credenziali di sicurezza, ad esempio le chiavi asimmetriche, non vengono mai trasmesse in rete.
 
 > [!NOTE]
-> Il provider di risorse dell'hub IoT di Azure viene protetto tramite la sottoscrizione di Azure, analogamente a tutti i provider in [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+> Il provider di risorse dell'hub IoT di Azure viene protetto tramite la sottoscrizione di Azure, analogamente a tutti i provider in [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 
 Per altre informazioni sulla creazione e sull'uso di token di sicurezza, vedere [Token di sicurezza dell'hub IoT](iot-hub-devguide-security.md#security-tokens).
 
@@ -134,10 +134,10 @@ Il token di sicurezza ha il formato seguente:
 
 I valori previsti sono i seguenti:
 
-| Valore | Descrizione |
+| Valore | Description |
 | --- | --- |
 | {signature} |Stringa della firma HMAC-SHA256 nel formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: la chiave viene decodificata dalla codifica Base64 e usata come chiave per eseguire il calcolo di HMAC-SHA256. |
-| {resourceURI} |Prefisso URI (per segmento) degli endpoint a cui è possibile accedere tramite questo token e che inizia con il nome host dell'hub IoT senza il protocollo. Ad esempio: `myHub.azure-devices.net/devices/device1` |
+| {resourceURI} |Prefisso URI (per segmento) degli endpoint a cui è possibile accedere tramite questo token e che inizia con il nome host dell'hub IoT senza il protocollo. Ad esempio, usare `myHub.azure-devices.net/devices/device1` |
 | {expiry} |Stringhe UTF8 per il numero di secondi trascorsi dalle 00:00:00 UTC dell'1 gennaio 1970. |
 | {URL-encoded-resourceURI} |Codifica URL con lettere minuscole dell'URI della risorsa con lettere minuscole |
 | {policyName} |Nome del criterio di accesso condiviso a cui fa riferimento il token. Assente se il token fa riferimento a credenziali del registro dei dispositivi. |
@@ -441,7 +441,7 @@ Gli argomenti di riferimento seguenti offrono altre informazioni sul controllo d
 
 La tabella seguente elenca le autorizzazioni che è possibile usare per controllare l'accesso all'hub IoT.
 
-| Autorizzazioni | Note |
+| Autorizzazione | Note |
 | --- | --- |
 | **RegistryRead** |Concede l'accesso di sola lettura al registro di identità. Per altre informazioni, vedere [Registro delle identità](iot-hub-devguide-identity-registry.md). <br/>Questa autorizzazione viene usata dai servizi cloud back-end. |
 | **RegistryReadWrite** |Concede l'accesso di lettura e scrittura al registro di identità. Per altre informazioni, vedere [Registro delle identità](iot-hub-devguide-identity-registry.md). <br/>Questa autorizzazione viene usata dai servizi cloud back-end. |

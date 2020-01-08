@@ -4,18 +4,18 @@ description: Azure IoT Edge usa i certificati per convalidare i dispositivi, i m
 author: stevebus
 manager: philmea
 ms.author: stevebus
-ms.date: 09/13/2018
+ms.date: 10/29/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0aa70e591c7aac977fe13ed638f8ee56b88e4bd1
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 9e4fd0203d68ef1f39d6efbb9d17d3e517969bff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982902"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457267"
 ---
-# <a name="azure-iot-edge-certificate-usage-detail"></a>Dettagli di utilizzo dei certificati di Azure IoT Edge
+# <a name="understand-how-azure-iot-edge-uses-certificates"></a>Informazioni sul modo in cui Azure IoT Edge usa i certificati
 
 I certificati di IoT Edge vengono usati per i moduli e dispositivi IoT a valle per verificare l'identità e la legittimità del modulo di runtime dell'[hub di IoT Edge](iot-edge-runtime.md#iot-edge-hub) a cui si connettono. Queste verifiche consentono di attivare una connessione protetta TLS tra il runtime, i moduli e i dispositivi IoT. Esattamente come hub IoT, IoT Edge richiede la presenza di una connessione protetta e crittografata con i dispositivi IoT a valle e i moduli di IoT Edge. Per stabilire una connessione TLS sicura, il modulo dell'hub di IoT Edge presenta una catena di certificati del server ai client che si devono connettere affinché questi possano verificarne l'identità.
 
@@ -51,7 +51,7 @@ In ogni caso, il produttore usa un certificato CA intermedio alla fine della cat
 
 ### <a name="device-ca-certificate"></a>Certificato CA del dispositivo
 
-Il certificato CA del dispositivo è generato e firmato dal certificato intermedio finale del processo. Questo certificato viene installato nel dispositivo IoT Edge stesso, preferibilmente in un archivio protetto, ad esempio un modulo di protezione hardware. Inoltre, un certificato CA del dispositivo identifica in modo univoco un dispositivo IoT Edge. Per IoT Edge, il certificato CA del dispositivo può emettere altri certificati. Ad esempio, il certificato CA del dispositivo emette certificati foglia del dispositivo che vengono usati per autenticare i dispositivi per il [servizio Device Provisioning di Azure IoT](../iot-dps/about-iot-dps.md).
+Il certificato CA del dispositivo è generato e firmato dal certificato intermedio finale del processo. Questo certificato viene installato nel dispositivo IoT Edge stesso, preferibilmente in un archivio protetto, ad esempio un modulo di protezione hardware. Inoltre, un certificato CA del dispositivo identifica in modo univoco un dispositivo IoT Edge. Il certificato della CA del dispositivo può firmare altri certificati. 
 
 ### <a name="iot-edge-workload-ca"></a>Certificato CA del carico di lavoro di IoT Edge
 
@@ -78,29 +78,7 @@ Poiché i processi di produzione e operativi sono separati, tenere in consideraz
 
 ## <a name="devtest-implications"></a>Implicazioni di sviluppo/test
 
-Per facilitare la creazione di scenari di sviluppo e test, Microsoft mette a disposizione un set di [script rapidi](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) per la generazione di certificati non di produzione adatti per IoT Edge nello scenario gateway trasparente. Per esempi del funzionamento degli script, vedere [Configurare un dispositivo IoT Edge come gateway trasparente](how-to-create-transparent-gateway.md).
-
-Questi script generano certificati che ricalcano la struttura della catena di certificati descritta in questo articolo. I comandi seguenti generano il "certificato CA radice" e un singolo "certificato CA intermedio".
-
-```bash
-./certGen.sh create_root_and_intermediate 
-```
-
-```Powershell
-New-CACertsCertChain rsa 
-```
-
-Analogamente, questi comandi generano il "certificato CA del dispositivo".
-
-```bash
-./certGen.sh create_edge_device_ca_certificate "<gateway device name>"
-```
-
-```Powershell
-New-CACertsEdgeDeviceCA "<gateway device name>"
-```
-
-* Il  **\<nome\> del dispositivo gateway** passato a tali script non deve corrispondere al parametro "hostname" in config. yaml. Gli script consentono di evitare eventuali problemi aggiungendo la stringa ".ca" al **\<nome del dispositivo gateway\>** per evitare un conflitto di nomi nel caso in cui l'utente configuri IoT Edge con lo stesso nome per entrambi. Tuttavia, è buona norma evitare di usare lo stesso nome.
+Per facilitare la creazione di scenari di sviluppo e test, Microsoft mette a disposizione un set di [script rapidi](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) per la generazione di certificati non di produzione adatti per IoT Edge nello scenario gateway trasparente. Per esempi di funzionamento degli script, vedere [creare certificati demo per testare le funzionalità del dispositivo IOT Edge](how-to-create-test-certificates.md).
 
 >[!Tip]
 > Per connettere le applicazioni e i dispositivi "foglia" IoT che usano l'SDK per dispositivi IoT tramite IoT Edge, è necessario aggiungere il parametro facoltativo GatewayHostName alla fine della stringa di connessione del dispositivo. Il certificato del server Hub Edge che viene generato si basa su una versione in lettere minuscole del nome host di config.yaml, pertanto, per far coincidere i nomi e fare in modo che la verifica dei certificati TLS abbia esito positivo, immettere il parametro GatewayHostName in lettere minuscole.

@@ -1,18 +1,14 @@
 ---
 title: Panoramica dello stato di Azure | Microsoft Docs
 description: Visualizzazione globale dell'integrità dei servizi di Azure
-services: Azure status
 ms.topic: article
-author: stephbaron
-ms.author: stbaron
-ms.service: service-health
 ms.date: 06/11/2019
-ms.openlocfilehash: 8a902fab7cfea574c9eb2a3e9411d3cca0920f56
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 1257476234709380de3452015313e3a3bf71e04d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709900"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463996"
 ---
 # <a name="azure-status-overview"></a>Panoramica sullo stato di Azure
 
@@ -26,7 +22,7 @@ La pagina relativa allo stato di Azure viene aggiornata in tempo reale quando l'
 
 ![Aggiornamento dello stato di Azure](./media/azure-status-overview/update.PNG)
 
-## <a name="azure-status-history"></a>Cronologia dello stato di Azure
+## <a name="azure-status-history"></a>Cronologia stato di Azure
 
 Mentre la pagina relativa allo stato di Azure mostra sempre i dati sull'integrità più recenti, è possibile visualizzare gli eventi meno recenti usando la [pagina della cronologia dello stato di Azure](https://status.azure.com/status/history/).
 
@@ -36,7 +32,7 @@ Qui è possibile visualizzare gli eventi dei 90 giorni precedenti, incluso una c
 
 Lo stato di Azure offre anche un [feed RSS](https://status.azure.com/status/feed/) delle modifiche all'integrità dei servizi di Azure che è possibile sottoscrivere.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 * Informazioni su come ottenere una visualizzazione più personalizzata dello stato di integrità di Azure tramite [Integrità dei servizi](./service-health-overview.md).
 * Informazioni su come ottenere una visualizzazione più dettagliata dello stato di integrità di risorse di Azure specifiche tramite [Integrità risorsa](./resource-health-overview.md).

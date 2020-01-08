@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d899f477612e4c738314187f61551fe5c0b17f8d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 83a839d75757bcee14d7f696d2d11d1d7d8fa4cc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932411"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422849"
 ---
 # <a name="what-are-security-defaults"></a>Che cosa sono le impostazioni predefinite della sicurezza?
 
@@ -73,6 +73,9 @@ Attualmente, la maggior parte dei compromessi per i tentativi di accesso provien
 
 Una volta abilitate le impostazioni predefinite di sicurezza nel tenant, tutte le richieste di autenticazione effettuate da un protocollo precedente verranno bloccate. Le impostazioni predefinite di sicurezza non bloccano Exchange ActiveSync.
 
+> [!WARNING]
+> Prima di abilitare le impostazioni predefinite di sicurezza, assicurarsi che gli amministratori non utilizzino protocolli di autenticazione meno recenti. Per ulteriori informazioni, vedere [come uscire dall'autenticazione legacy](concept-fundamentals-block-legacy-authentication.md).
+
 ### <a name="protecting-privileged-actions"></a>Protezione delle azioni con privilegi
 
 Le organizzazioni usano un'ampia gamma di servizi di Azure gestiti tramite l'API Azure Resource Manager, tra cui:
@@ -89,22 +92,30 @@ Dopo aver abilitato le impostazioni predefinite di sicurezza nel tenant, gli ute
 
 Se l'utente non è registrato per Multi-Factor Authentication, l'utente dovrà eseguire la registrazione usando l'app Microsoft Authenticator per continuare. Non verrà fornito alcun periodo di registrazione di 14 giorni Multi-Factor Authentication.
 
+> [!NOTE]
+> L'account di sincronizzazione Azure AD Connect viene escluso dalle impostazioni predefinite di sicurezza e non verrà richiesto di eseguire la registrazione o l'esecuzione di autenticazione a più fattori. Le organizzazioni non devono usare questo account per altri scopi.
+
 ## <a name="deployment-considerations"></a>Considerazioni sulla distribuzione
 
 Di seguito sono riportate alcune considerazioni aggiuntive relative alla distribuzione delle impostazioni predefinite di sicurezza per il tenant.
 
-### <a name="older-protocols"></a>Protocolli meno recenti
+### <a name="authentication-methods"></a>Metodi di autenticazione
 
-I client di posta usano protocolli di autenticazione meno recenti (ad esempio IMAP, SMTP e POP3) per eseguire richieste di autenticazione. Questi protocolli non supportano Multi-Factor Authentication. La maggior parte dei compromessi degli account che Microsoft vede è da attacchi contro protocolli precedenti che tentano di ignorare Multi-Factor Authentication. 
+Le impostazioni predefinite della sicurezza consentono la registrazione e l'uso di Multi-Factor Authentication di Azure **usando solo l'app Microsoft Authenticator con le notifiche**. L'accesso condizionale consente di usare qualsiasi metodo di autenticazione che l'amministratore sceglie di abilitare.
 
-Per assicurarsi che Multi-Factor Authentication sia necessario per l'accesso a un account amministrativo e che gli utenti malintenzionati non possano ignorarlo, i valori predefiniti di sicurezza bloccano tutte le richieste di autenticazione effettuate agli account amministratore dai protocolli precedenti.
+|   | Impostazioni predefinite di sicurezza | Accesso condizionale |
+| --- | --- | --- |
+| Notifica tramite app per dispositivi mobili | X | X |
+| Codice di verifica dall'app per dispositivi mobili o dal token hardware |   | X |
+| SMS al telefono |   | X |
+| Chiamata al telefono |   | X |
+| Password app |   | X * * |
 
-> [!WARNING]
-> Prima di abilitare questa impostazione, assicurarsi che gli amministratori non utilizzino protocolli di autenticazione meno recenti. Per ulteriori informazioni, vedere [come uscire dall'autenticazione legacy](concept-fundamentals-block-legacy-authentication.md).
+\* * Le password dell'app sono disponibili solo nell'autenticazione a più fattori per utente con scenari di autenticazione legacy solo se abilitati dagli amministratori.
 
 ### <a name="conditional-access"></a>Accesso condizionale
 
-È possibile usare l'accesso condizionale per configurare i criteri che forniscono lo stesso comportamento abilitato dalle impostazioni predefinite di sicurezza. Se si usa l'accesso condizionale e i criteri di accesso condizionale sono abilitati nell'ambiente, le impostazioni predefinite di sicurezza non saranno disponibili. Se si dispone di una licenza che fornisce l'accesso condizionale, ma non sono abilitati criteri di accesso condizionale nell'ambiente in uso, è possibile usare le impostazioni predefinite di sicurezza finché non si abilitano i criteri di accesso condizionale.
+È possibile usare l'accesso condizionale per configurare criteri simili alle impostazioni predefinite di sicurezza, ma con maggiore granularità, incluse le esclusioni degli utenti, che non sono disponibili nelle impostazioni predefinite di sicurezza. Se si usa l'accesso condizionale e i criteri di accesso condizionale sono abilitati nell'ambiente, le impostazioni predefinite di sicurezza non saranno disponibili. Se si dispone di una licenza che fornisce l'accesso condizionale, ma non sono abilitati criteri di accesso condizionale nell'ambiente in uso, è possibile usare le impostazioni predefinite di sicurezza finché non si abilitano i criteri di accesso condizionale. Ulteriori informazioni sulle licenze Azure AD sono disponibili nella pagina relativa ai [prezzi Azure ad](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ![Messaggio di avviso indicante che è possibile avere impostazioni predefinite di sicurezza o l'accesso condizionale non entrambe](./media/concept-fundamentals-security-defaults/security-defaults-conditional-access.png)
 

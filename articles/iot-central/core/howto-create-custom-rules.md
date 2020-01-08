@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 8c0328c1d82af5e96afca29f05a065450eab9ae4
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 98b5cc707ca8b5ebd1ee88f02082fd3f10fa73dc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72950743"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434994"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Estendi IoT Central di Azure con regole personalizzate usando analisi di flusso, funzioni di Azure e SendGrid
 
@@ -38,17 +38,17 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Creare un'applicazione IoT Central nel sito Web di [Azure IOT Central Application Manager](https://aka.ms/iotcentral) con le impostazioni seguenti:
 
-| Impostazione | Value |
+| Impostazione | Valore |
 | ------- | ----- |
 | Piano di pagamento | Pagamento in base al consumo |
-| Modello di applicazione | Esempio Contoso |
-| Nome dell'applicazione | Accetta il nome predefinito o scegli il tuo nome |
+| Modello di applicazione | Applicazione legacy |
+| Nome applicazione | Accetta il nome predefinito o scegli il tuo nome |
 | URL | Accettare l'impostazione predefinita o scegliere il prefisso URL univoco |
 | Directory | Tenant di Azure Active Directory |
 | Sottoscrizione di Azure | Sottoscrizione di Azure |
-| Area geografica | Stati Uniti Orientali |
+| Area | Stati Uniti |
 
-Gli esempi e le schermate in questo articolo usano l'area **Stati Uniti orientali** . Scegliere una località vicina e assicurarsi di creare tutte le risorse nella stessa area.
+Gli esempi e le schermate in questo articolo usano l'area **Stati Uniti** . Scegliere una località vicina e assicurarsi di creare tutte le risorse nella stessa area.
 
 ### <a name="resource-group"></a>Gruppo di risorse
 
@@ -58,25 +58,25 @@ Usare il [portale di Azure per creare un gruppo di risorse](https://portal.azure
 
 Usare il [portale di Azure per creare uno spazio dei nomi di hub eventi](https://portal.azure.com/#create/Microsoft.EventHub) con le impostazioni seguenti:
 
-| Impostazione | Value |
+| Impostazione | Valore |
 | ------- | ----- |
-| name    | Scegliere il nome dello spazio dei nomi |
+| Nome    | Scegliere il nome dello spazio dei nomi |
 | Piano tariffario | Basic |
 | Sottoscrizione | Sottoscrizione in uso |
 | Gruppo di risorse | DetectStoppedDevices |
-| Località | Stati Uniti Orientali |
+| Percorso | Stati Uniti orientali |
 | Unità elaborate | 1 |
 
-### <a name="stream-analytics-job"></a>Processo di analisi di flusso
+### <a name="stream-analytics-job"></a>Processo di Analisi di flusso
 
 Usare il [portale di Azure per creare un processo di analisi di flusso](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) con le impostazioni seguenti:
 
-| Impostazione | Value |
+| Impostazione | Valore |
 | ------- | ----- |
-| name    | Scegliere il nome del processo |
+| Nome    | Scegliere il nome del processo |
 | Sottoscrizione | Sottoscrizione in uso |
 | Gruppo di risorse | DetectStoppedDevices |
-| Località | Stati Uniti Orientali |
+| Percorso | Stati Uniti orientali |
 | Ambiente di hosting | Cloud |
 | Unità di streaming | 3 |
 
@@ -84,14 +84,14 @@ Usare il [portale di Azure per creare un processo di analisi di flusso](https://
 
 Usare il [portale di Azure per creare un'app per le funzioni](https://portal.azure.com/#create/Microsoft.FunctionApp) con le impostazioni seguenti:
 
-| Impostazione | Value |
+| Impostazione | Valore |
 | ------- | ----- |
 | Nome app    | Scegliere il nome dell'app per le funzioni |
 | Sottoscrizione | Sottoscrizione in uso |
 | Gruppo di risorse | DetectStoppedDevices |
 | Sistema operativo | Windows |
 | Piano di hosting | Piano a consumo |
-| Località | Stati Uniti Orientali |
+| Percorso | Stati Uniti orientali |
 | Stack di runtime | .NET |
 | Archiviazione | Creare un nuovo gruppo di risorse |
 
@@ -99,9 +99,9 @@ Usare il [portale di Azure per creare un'app per le funzioni](https://portal.azu
 
 Usare il [portale di Azure per creare un account SendGrid](https://portal.azure.com/#create/Sendgrid.sendgrid) con le impostazioni seguenti:
 
-| Impostazione | Value |
+| Impostazione | Valore |
 | ------- | ----- |
-| name    | Scegliere il nome dell'account SendGrid |
+| Nome    | Scegliere il nome dell'account SendGrid |
 | Password | Creare una password |
 | Sottoscrizione | Sottoscrizione in uso |
 | Gruppo di risorse | DetectStoppedDevices |
@@ -240,7 +240,7 @@ Questa soluzione USA una query di analisi di flusso per rilevare quando un dispo
 1. Nel portale di Azure passare al processo di analisi di flusso, in **topologia processi** selezionare **input**, scegliere **+ Aggiungi input flusso**, quindi scegliere **Hub eventi**.
 1. Usare le informazioni nella tabella seguente per configurare l'input usando l'hub eventi creato in precedenza, quindi scegliere **Salva**:
 
-    | Impostazione | Value |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Alias di input | centraltelemetry |
     | Sottoscrizione | Sottoscrizione in uso |
@@ -250,7 +250,7 @@ Questa soluzione USA una query di analisi di flusso per rilevare quando un dispo
 1. In **topologia processi**selezionare **output**, fare clic su **+ Aggiungi**, quindi scegliere **funzione di Azure**.
 1. Usare le informazioni nella tabella seguente per configurare l'output, quindi scegliere **Salva**:
 
-    | Impostazione | Value |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Alias di output | emailnotification |
     | Sottoscrizione | Sottoscrizione in uso |
@@ -301,7 +301,7 @@ Questa soluzione USA una query di analisi di flusso per rilevare quando un dispo
 1. Selezionare **Salva**.
 1. Per avviare il processo di analisi di flusso, scegliere **Panoramica**, **Avvia**, quindi **ora**, quindi **Avvia**:
 
-    ![Analisi dei flussi](media/howto-create-custom-rules/stream-analytics.png)
+    ![Analisi di flusso](media/howto-create-custom-rules/stream-analytics.png)
 
 ## <a name="configure-export-in-iot-central"></a>Configurare l'esportazione in IoT Central
 
@@ -310,17 +310,17 @@ Nel sito Web di [Azure IOT Central Application Manager](https://aka.ms/iotcentra
 1. Passare alla pagina **esportazione dati continui** , selezionare **+ nuovo**, quindi **Hub eventi di Azure**.
 1. Usare le impostazioni seguenti per configurare l'esportazione, quindi selezionare **Salva**:
 
-    | Impostazione | Value |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Nome visualizzato | Esporta in hub eventi |
     | Attivato | On |
     | Spazio dei nomi di Hub eventi | Nome dello spazio dei nomi di hub eventi |
     | Hub eventi | centralexport |
-    | Measurements (Misure) | On |
+    | Misurazioni | On |
     | Dispositivi | Off |
     | Modelli di dispositivo | Off |
 
-![Configurazione esportazione dati continui](media/howto-create-custom-rules/cde-configuration.png)
+![Configurazione dell'esportazione continua dei dati](media/howto-create-custom-rules/cde-configuration.png)
 
 Prima di continuare, attendere che lo stato di esportazione sia **in esecuzione** .
 

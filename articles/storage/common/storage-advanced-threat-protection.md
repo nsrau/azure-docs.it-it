@@ -1,5 +1,6 @@
 ---
-title: Advanced Threat Protection per archiviazione di Azure
+title: Configurare Advanced Threat Protection
+titleSuffix: Azure Storage
 description: Configurare Advanced Threat Protection per archiviazione di Azure per rilevare le anomalie nell'attività dell'account e ricevere notifiche relative a tentativi potenzialmente dannosi di accesso all'account.
 services: storage
 author: tamram
@@ -8,14 +9,14 @@ ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: b9413807cda096adf1056c07e026373ea19359b9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8efbf2107104f31bcfc5e4e5669dbed1835a034b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495955"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457402"
 ---
-# <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection per archiviazione di Azure
+# <a name="configure-advanced-threat-protection-for-azure-storage"></a>Configurare Advanced Threat Protection per archiviazione di Azure
 
 Advanced Threat Protection per archiviazione di Azure offre un ulteriore livello di intelligence per la sicurezza che rileva tentativi insoliti e potenzialmente dannosi di accedere o sfruttare gli account di archiviazione. Questo livello di protezione consente di risolvere le minacce senza essere un esperto della sicurezza o gestire sistemi di monitoraggio della sicurezza.
 
@@ -48,13 +49,13 @@ Quando si sottoscrive il livello standard nel centro sicurezza di Azure, Advance
 1. Nel menu principale fare clic su **prezzi & impostazioni**.
 1. Fare clic sulla sottoscrizione che si vuole abilitare o disabilitare la protezione dalle minacce per gli account di archiviazione.
 
-    ![Selezionare la sottoscrizione](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-subscription.png)
+    ![Seleziona sottoscrizione](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-subscription.png)
 
 1. Fare clic su **Piano tariffario**.
 1. Nella sezione **selezionare il piano tariffario per tipo di risorsa** , nella riga **account di archiviazione** , fare clic su **abilitato** o **disabilitato**.
 
     ![Abilita ATP nel centro sicurezza](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing2.png)
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
 
 ### <a name="templatetabtemplate"></a>[Modello](#tab/template)
 
@@ -78,7 +79,7 @@ Usare un criterio di Azure per abilitare la protezione avanzata dalle minacce tr
 
     ![Pagina definizioni criteri](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
 
-### <a name="rest-apitabrest-api"></a>[API REST](#tab/rest-api)
+### <a name="rest-apitabrest-api"></a>[REST API](#tab/rest-api)
 
 Usare i comandi dell'API REST per creare, aggiornare o ottenere l'impostazione Advanced Threat Protection per un account di archiviazione specifico.
 

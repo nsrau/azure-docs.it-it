@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 7fac09ff236e4bb2c63691f9dc1ad41bb49edae4
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 099dc723db44ba71fc4672c382d24ac93ffe742f
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793354"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689134"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemi noti con Azure Data Lake Storage Gen2
 
@@ -50,12 +50,13 @@ I dischi delle macchine virtuali non gestiti non sono supportati negli account c
 
 ## <a name="filesystem-support-in-sdks"></a>Supporto del filesystem negli SDK
 
-- .NET, Java e Python sono disponibili in anteprima pubblica. Gli altri SDK non sono attualmente supportati.
+- Il supporto per [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md) e [Python](data-lake-storage-directory-file-acl-python.md) è in anteprima pubblica. Gli altri SDK non sono attualmente supportati.
 - Le operazioni get e set ACL non sono attualmente ricorsive.
 
 ## <a name="filesystem-support-in-powershell-and-azure-cli"></a>Supporto del filesystem in PowerShell e nell'interfaccia della riga di comando
 
-Le operazioni get e set ACL non sono attualmente ricorsive.
+- [PowerShell](data-lake-storage-directory-file-acl-powershell.md) e il supporto dell'interfaccia della riga di comando di [Azure](data-lake-storage-directory-file-acl-cli.md) sono in anteprima pubblica.
+- Le operazioni get e set ACL non sono attualmente ricorsive.
 
 ## <a name="support-for-other-blob-storage-features"></a>Supporto per altre funzionalità di archiviazione BLOB
 
@@ -63,9 +64,10 @@ La tabella seguente elenca tutte le altre funzionalità e gli strumenti non anco
 
 | Funzionalità/strumento    | Altre informazioni    |
 |--------|-----------|
+| **Failover dell'account** |Non ancora supportato|
 | **AzCopy** | Supporto specifico della versione <br><br>Usare solo la versione più recente di AzCopy ([AzCopy V10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Le versioni precedenti di AzCopy, ad esempio AzCopy v 8.1, non sono supportate.|
 | **Criteri di gestione del ciclo di vita dell'archiviazione BLOB di Azure** | Sono supportati i criteri di gestione del ciclo di vita (anteprima).  Sono supportati tutti i livelli di accesso. Il livello di accesso all'archivio è attualmente in anteprima. L'eliminazione degli snapshot BLOB non è ancora supportata. <br><br> Attualmente sono presenti bug che influiscono sui criteri di gestione del ciclo di vita e sul livello di accesso dell'archivio.  Iscriversi per l'anteprima dei criteri di gestione del ciclo di vita e del livello di accesso di archiviazione [qui](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).   |
-| **Rete per la distribuzione di contenuti (CDN) di Azure** | Non ancora supportato|
+| **Rete per la distribuzione di contenuti di Azure (CDN)** | Non ancora supportato|
 | **Ricerca di Azure** |Supportato (anteprima)|
 | **Azure Storage Explorer** | Supporto specifico della versione. <br><br>Utilizzare solo le versioni `1.6.0` o versione successiva. <br> Attualmente esiste un bug di archiviazione che influisce sulla versione `1.11.0` che può causare errori di autenticazione in determinati scenari. È in corso il rollup di una correzione per il bug di archiviazione, ma come soluzione alternativa è consigliabile usare la versione `1.10.x`, disponibile come [download gratuito](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-relnotes). `1.10.x` non è influenzato dal bug di archiviazione.|
 | **ACL del contenitore BLOB** |Non ancora supportato|

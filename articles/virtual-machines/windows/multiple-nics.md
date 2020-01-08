@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
-ms.openlocfilehash: 0e826442c816f83c875b907bbf3054793ebb382a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 20a595e1386a8d33c919ad4ff151d65e30b31eda
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033139"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358276"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Creare e gestire una macchina virtuale Windows che ha più schede di interfaccia di rete
 Alle macchine virtuali (VM) in Azure possono essere collegate più schede di interfaccia di rete virtuale. Uno scenario comune è quello di avere subnet diverse per la connettività front-end e back-end. È possibile associare più schede di interfaccia di rete in una macchina virtuale a più subnet, ma tutte le subnet devono trovarsi nella stessa rete virtuale. Questo articolo illustra come creare una macchina virtuale a cui sono collegate più schede di interfaccia di rete e come aggiungere o rimuovere le schede di interfaccia di rete da una VM esistente. Le differenti [dimensioni della macchina virtuale](sizes.md) supportano un numero variabile di schede di rete, pertanto scegliere le dimensioni della macchina virtuale di conseguenza.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-L'esempio seguente sostituisce i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myVnet* e *myVM*.
+Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myVnet* e *myVM*.
 
  
 
@@ -78,7 +78,7 @@ $myNic2 = New-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
 
 In genere si crea anche un [gruppo di sicurezza di rete](../../virtual-network/security-overview.md) per filtrare il traffico di rete alla macchina virtuale e un [bilanciamento del carico](../../load-balancer/load-balancer-overview.md) per distribuire il traffico tra più macchine virtuali.
 
-### <a name="create-the-virtual-machine"></a>Creazione della macchina virtuale
+### <a name="create-the-virtual-machine"></a>Creare la macchina virtuale
 Ora è possibile iniziare con la configurazione della macchina virtuale. Ad ogni dimensione della macchina virtuale corrisponde un limite del numero totale di schede di rete che è possibile aggiungere. Per altre informazioni, vedere [Dimensioni delle macchine virtuali in Azure](sizes.md).
 
 1. Impostare le credenziali della VM sulla variabile `$cred` come indicato di seguito:
@@ -218,7 +218,7 @@ Per rimuovere una scheda di interfaccia di rete virtuale da una VM esistente, si
     ```   
 
 ## <a name="create-multiple-nics-with-templates"></a>Creare più schede di interfaccia di rete con i modelli
-I modelli di Azure Resource Manager offrono un modo di creare più istanze di una risorsa durante la distribuzione, come ad esempio la creazione di più schede di interfaccia di rete. I modelli di Resource Manager usano i file JSON dichiarativi per definire l'ambiente. Per altre informazioni, vedere [Panoramica di Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). È possibile usare *copy* per specificare il numero di istanze da creare:
+I modelli di Azure Resource Manager offrono un modo di creare più istanze di una risorsa durante la distribuzione, come ad esempio la creazione di più schede di interfaccia di rete. I modelli di Resource Manager usano i file JSON dichiarativi per definire l'ambiente. Per altre informazioni, vedere [Panoramica di Azure Resource Manager](../../azure-resource-manager/management/overview.md). È possibile usare *copy* per specificare il numero di istanze da creare:
 
 ```json
 "copy": {

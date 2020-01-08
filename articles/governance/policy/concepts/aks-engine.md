@@ -3,16 +3,16 @@ title: Informazioni su criteri di Azure per il motore AKS
 description: Informazioni su come i criteri di Azure usano CustomResourceDefinitions e aprono l'agente criteri da Gatekeeper V3 per gestire i cluster con il motore AKS.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2d1ae33755dcb52c5fe65ec46f0d02e090f6f417
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c41a9d84dfe43e356e9a4a17af523a37209c2933
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74267260"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436433"
 ---
 # <a name="understand-azure-policy-for-aks-engine"></a>Informazioni sui criteri di Azure per il motore AKS
 
-Criteri di Azure si integra con il [motore AKS](https://github.com/Azure/aks-engine/blob/master/docs/README.md), un sistema che offre strumenti pratici per eseguire rapidamente il bootstrap di un cluster Kubernetes autogestito in Azure. Questa integrazione consente imposte su larga scala e misure di sicurezza nei cluster autogestiti del motore AKS in modo centralizzato e coerente. Estendendo l'uso di [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) [Gatekeeper](https://github.com/open-policy-agent/gatekeeper) V3 (beta), un _webhook del controller di ammissione_ per Kubernetes, i criteri di Azure consentono di gestire e creare report sullo stato di conformità delle risorse di Azure e del motore AKS cluster autogestiti da un'unica posizione.
+Criteri di Azure si integra con il [motore AKS](https://github.com/Azure/aks-engine/blob/master/docs/README.md), un sistema che offre strumenti pratici per eseguire rapidamente il bootstrap di un cluster Kubernetes autogestito in Azure. Questa integrazione consente imposte su larga scala e misure di sicurezza nei cluster autogestiti del motore AKS in modo centralizzato e coerente. Estendendo l'uso di [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) [Gatekeeper](https://github.com/open-policy-agent/gatekeeper) V3 (beta), un _webhook del controller di ammissione_ per Kubernetes, i criteri di Azure consentono di gestire e creare report sullo stato di conformità delle risorse di Azure e dei cluster autogestiti del motore AKS da un'unica posizione.
 
 > [!NOTE]
 > Criteri di Azure per il motore AKS è in versione di anteprima pubblica e non prevede alcun contratto di servizio. Gatekeeper V3 è in versione beta ed è supportato dalla community open source. Il servizio supporta solo le definizioni di criteri predefinite e un singolo cluster del motore AKS per ogni gruppo di risorse configurato con un'entità servizio.
@@ -29,11 +29,11 @@ Per abilitare e usare criteri di Azure per il motore AKS con il cluster Kubernet
 - [Assegnare una definizione di criteri per il motore AKS](#built-in-policies)
 - [Attendi convalida](#validation-and-reporting-frequency)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di installare il componente aggiuntivo di criteri di Azure o abilitare le funzionalità del servizio, la sottoscrizione deve abilitare il provider di risorse **Microsoft. PolicyInsights** e creare un'assegnazione di ruolo per l'entità servizio del cluster. 
 
-1. Per abilitare il provider di risorse, seguire la procedura descritta in [provider di risorse e tipi](../../../azure-resource-manager/resource-manager-supported-services.md#azure-portal) oppure eseguire l'interfaccia della riga di comando di Azure o il comando Azure PowerShell:
+1. Per abilitare il provider di risorse, seguire la procedura descritta in [provider di risorse e tipi](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) oppure eseguire l'interfaccia della riga di comando di Azure o il comando Azure PowerShell:
 
    - Interfaccia della riga di comando di Azure
 
@@ -233,7 +233,7 @@ Per rimuovere il componente aggiuntivo di criteri di Azure e il gatekeeper dal c
 
   1. Rimuovi vincoli obsoleti
 
-     Attualmente, il meccanismo di disinstallazione rimuove solo il sistema gatekeeper, non rimuove le risorse di _ConstraintTemplate_, _vincolo_o _config_ create dall'utente, né rimuove le relative _CRD_ .
+     Attualmente, il meccanismo di disinstallazione rimuove solo il sistema gatekeeper, non rimuove le risorse _ConstraintTemplate_, _Constraint_o _config_ create dall'utente, né rimuove i relativi _CRD_.
 
      Quando il gatekeeper è in esecuzione, è possibile rimuovere i vincoli indesiderati per:
 
@@ -255,7 +255,7 @@ Per rimuovere il componente aggiuntivo di criteri di Azure e il gatekeeper dal c
 
 ## <a name="diagnostic-data-collected-by-azure-policy-add-on"></a>Dati di diagnostica raccolti dal componente aggiuntivo criteri di Azure
 
-Il componente aggiuntivo criteri di Azure per Kubernetes raccoglie i dati di diagnostica del cluster limitati. Questi dati diagnostici sono dati tecnici essenziali correlati al software e alle prestazioni. Viene usato nei modi seguenti:
+Il componente aggiuntivo criteri di Azure per Kubernetes raccoglie i dati di diagnostica del cluster limitati. Questi dati diagnostici sono dati tecnici essenziali correlati al software e alle prestazioni. Viene usata nei modi seguenti:
 
 - Mantieni aggiornato il componente aggiuntivo criteri di Azure
 - Mantieni il componente aggiuntivo di criteri di Azure protetto, affidabile, efficiente
@@ -279,7 +279,7 @@ Le informazioni raccolte dal componente aggiuntivo non sono dati personali. Sono
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Esaminare gli esempi in [esempi di criteri di Azure](../samples/index.md).
-- Vedere la [struttura delle definizioni dei criteri](definition-structure.md).
+- Vedere [Struttura delle definizioni di criteri di Azure](definition-structure.md).
 - Leggere [Informazioni sugli effetti di Criteri](effects.md).
 - Informazioni su come [creare criteri a livello di codice](../how-to/programmatically-create.md).
 - Informazioni su come [ottenere i dati di conformità](../how-to/get-compliance-data.md).

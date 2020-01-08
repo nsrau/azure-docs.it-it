@@ -2,53 +2,63 @@
 title: Esercitazione-uso degli arricchimenti messaggi dell'hub Azure
 description: Esercitazione che illustra come usare gli arricchimenti dei messaggi per i messaggi dell'hub Azure
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 05/10/2019
+ms.date: 12/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 0dd6c410040eea9eb4039ab5da183cc0b6799493
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 323730fff4659c87058669016b69808a880994cf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005807"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453847"
 ---
 # <a name="tutorial-using-azure-iot-hub-message-enrichments"></a>Esercitazione: uso degli arricchimenti messaggi dell'hub Azure
 
 I miglioramenti apportati ai *messaggi sono la* possibilità dell'hub Internet di *contrassegnare* i messaggi con informazioni aggiuntive prima che i messaggi vengano inviati all'endpoint designato. Un motivo per utilizzare gli arricchimenti dei messaggi consiste nell'includere dati che possono essere utilizzati per semplificare l'elaborazione downstream. Ad esempio, l'arricchimento dei messaggi di telemetria del dispositivo con un tag del dispositivo gemello può ridurre il carico sui clienti per effettuare chiamate API dei dispositivi gemelli per queste informazioni. Per ulteriori informazioni, vedere la [Panoramica degli arricchimenti dei messaggi](iot-hub-message-enrichments-overview.md).
 
-In questa esercitazione si userà l'interfaccia della riga di comando di Azure per configurare le risorse, inclusi due endpoint che puntano a due contenitori di archiviazione diversi, **arricchiti** e **originali**. Quindi si usa il [portale di Azure](https://portal.azure.com) per configurare gli arricchimenti dei messaggi da applicare solo ai messaggi inviati all'endpoint con il contenitore di archiviazione **arricchito** . Si inviano messaggi all'hub Internet, che vengono instradati a entrambi i contenitori di archiviazione. Verranno arricchiti solo i messaggi inviati all'endpoint per il contenitore di archiviazione **arricchito** .
+In questa esercitazione vengono illustrati due modi per creare e configurare le risorse necessarie per testare gli arricchimenti dei messaggi per un hub Internet. Le risorse includono un account di archiviazione con due contenitori di archiviazione, uno per contenere i messaggi arricchiti e uno per contenere i messaggi originali. È incluso anche un hub Internet delle cose per ricevere i messaggi e instradarli al contenitore di archiviazione appropriato, a seconda che siano arricchiti o meno. 
 
-Ecco le attività che verranno eseguite per completare questa esercitazione:
+* Il primo metodo consiste nell'usare l'interfaccia della riga di comando di Azure per creare le risorse e configurare il routing dei messaggi. Definire quindi gli arricchimenti manualmente usando il [portale di Azure](https://portal.azure.com). 
+
+* Il secondo metodo consiste nell'utilizzare un modello di Azure Resource Manager per creare le risorse *e* le configurazioni per il routing dei messaggi e l'arricchimento dei messaggi. 
+
+Una volta completate le configurazioni per il routing dei messaggi e l'arricchimento dei messaggi, è possibile usare un'applicazione per inviare messaggi all'hub Internet e quindi indirizzarli a entrambi i contenitori di archiviazione. Vengono arricchiti solo i messaggi inviati all'endpoint per il contenitore di archiviazione **arricchito** .
+
+Ecco le attività da eseguire per completare questa esercitazione:
 
 **Uso degli arricchimenti messaggi dell'hub Internet**
 > [!div class="checklist"]
-> * Usando l'interfaccia della riga di comando di Azure, creare le risorse, ovvero un hub degli oggetti, un account di archiviazione con due endpoint e la configurazione del routing.
-> * Utilizzare il portale di Azure per configurare gli arricchimenti dei messaggi.
+> * Primo metodo: arricchimenti manuali del messaggio
+>   - Creare risorse e configurare il routing dei messaggi usando l'interfaccia della riga di comando di Azure.
+>   - Configurare manualmente gli arricchimenti dei messaggi usando il [portale di Azure](https://portal.azure.com).
+> * Secondo metodo: uso di un modello RM
+>   - Creazione di risorse, configurazione del routing di messaggi e arricchimento di messaggi tramite un modello di Azure Resource Manager. 
 > * Eseguire un'app che simula un dispositivo Internet delle cose che invia messaggi all'hub.
 > * Visualizzare i risultati e verificare che gli arricchimenti dei messaggi funzionino come previsto.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * È necessario disporre di una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-* [Installare Visual Studio](https://www.visualstudio.com/).
+* Installare [Visual Studio](https://www.visualstudio.com/).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="retrieve-the-sample-code"></a>Recuperare il codice di esempio
+## <a name="retrieve-the-iot-c-samples-repository"></a>Recuperare il repository C# degli esempi di Internet delle cose
 
-Scaricare la [simulazione dei dispositivi](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) e decomprimerla. Questo repository contiene diverse applicazioni, incluso quello che verrà usato per inviare i messaggi all'hub Internet delle cose.
+Scaricare gli [ C# esempi](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) di Internet delle cose da GitHub e decomprimerli. Questo repository contiene diversi modelli di applicazioni, script e Gestione risorse. Quelli da usare per questa esercitazione sono i seguenti:
 
-Questo download contiene anche lo script per la creazione delle risorse utilizzate per testare gli arricchimenti dei messaggi. Lo script si trova in/azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/iothub_msgenrichment_cli. azcli. Per il momento, è possibile esaminare lo script e usarlo. È anche possibile copiare lo script direttamente dall'articolo.
+* Per il metodo Manual è disponibile uno script dell'interfaccia della riga di comando per la creazione delle risorse. Questo script è in **/azure-iot-samples-csharp/iot-hub/tutorials/routing/simulateddevice/resources/iothub_msgenrichment_cli. azcli**. Questo script crea le risorse e configura il routing dei messaggi. Dopo aver eseguito questa operazione, è possibile creare manualmente gli arricchimenti dei messaggi usando il [portale di Azure](https://portal.azure.com) e quindi eseguire l'app DeviceSimulation per visualizzare gli arricchimenti che funzionano.
 
-Quando si è pronti per iniziare il test, si userà l'applicazione di simulazione del dispositivo da questo download per inviare un messaggio all'hub Internet.
+* Per il metodo automatico è disponibile un modello di Azure Resource Manager. Il modello è in **/azure-iot-samples-csharp/iot-hub/tutorials/routing/simulateddevice/resources/template_msgenrichments. JSON**. Questo modello consente di creare le risorse, configurare il routing dei messaggi e infine configurare gli arricchimenti dei messaggi. Dopo il caricamento di questo modello, è possibile eseguire l'app di simulazione del dispositivo per vedere il funzionamento degli arricchimenti.
 
-## <a name="set-up-and-configure-resources"></a>Configurare e configurare le risorse
+* La terza applicazione usata è l'app per la simulazione dei dispositivi, che consente di inviare messaggi all'hub Internet e testare gli arricchimenti dei messaggi.
 
-Oltre a creare le risorse necessarie, lo script dell'interfaccia della riga di comando di Azure configura anche le due route per gli endpoint che sono contenitori di archiviazione separati. Per ulteriori informazioni sulla configurazione del routing, vedere l' [esercitazione](tutorial-routing.md)relativa al routing. Una volta configurate le risorse, utilizzare il [portale di Azure](https://portal.azure.com) per configurare gli arricchimenti dei messaggi per ogni endpoint e quindi continuare con il passaggio di test.
+## <a name="manual-set-up-and-configuration-using-azure-cli"></a>Configurare e configurare manualmente usando l'interfaccia della riga di comando di Azure
+
+Oltre a creare le risorse necessarie, lo script dell'interfaccia della riga di comando di Azure configura anche le due route per gli endpoint che sono contenitori di archiviazione separati. Per ulteriori informazioni sulla configurazione del routing dei messaggi, vedere l'esercitazione relativa al [routing](tutorial-routing.md). Una volta configurate le risorse, utilizzare il [portale di Azure](https://portal.azure.com) per configurare gli arricchimenti dei messaggi per ogni endpoint e quindi continuare con il passaggio di test.
 
 > [!NOTE]
 > Tutti i messaggi vengono instradati a entrambi gli endpoint, ma verranno arricchiti solo i messaggi che passano all'endpoint con arricchimenti dei messaggi configurati.
@@ -65,14 +75,14 @@ Oltre a creare le risorse necessarie, lo script dell'interfaccia della riga di c
 
 Diversi nomi di risorse devono essere univoci globali, come il nome dell'hub IoT e il nome dell'account di archiviazione. Per semplificare l'esecuzione dello script, i nomi delle risorse vengono aggiunti con un valore alfanumerico casuale chiamato *randomValue*. Il valore randomValue viene generato una sola volta all'inizio dello script e viene aggiunto ai nomi delle risorse, se necessario, nell'intero script. Se non si vuole che il valore sia casuale, è possibile impostarlo su una stringa vuota o su un valore specifico.
 
-Se non è già stato fatto, aprire una [finestra cloud Shell](https://shell.azure.com) e verificare che sia impostata su bash. Aprire lo script nel repository decompresso, premere CTRL + a per selezionarlo, quindi premere CTRL + C per copiarlo. In alternativa, è possibile copiare il seguente script dell'interfaccia della riga di comando o aprirlo direttamente in Cloud Shell. Incollare lo script nella finestra di Cloud Shell facendo clic con il pulsante destro del mouse sulla riga di comando e scegliendo **Incolla**. Lo script viene eseguito un'istruzione alla volta. Dopo l'arresto dell'esecuzione dello script, premere **invio** per assicurarsi che esegua l'ultimo comando. Il blocco di codice seguente mostra lo script usato, con commenti che spiegano cosa sta facendo.
+Se non è già stato fatto, aprire una [finestra cloud Shell](https://shell.azure.com) e verificare che sia impostata su bash. Aprire lo script nel repository decompresso, premere CTRL + a per selezionarlo, quindi premere CTRL + C per copiarlo. In alternativa, è possibile copiare il seguente script dell'interfaccia della riga di comando o aprirlo direttamente in Cloud Shell. Incollare lo script nella finestra di Cloud Shell facendo clic con il pulsante destro del mouse sulla riga di comando e scegliendo **Incolla**. Lo script esegue un'istruzione alla volta. Dopo l'arresto dell'esecuzione dello script, premere **invio** per assicurarsi che esegua l'ultimo comando. Il blocco di codice seguente mostra lo script usato, con commenti che spiegano cosa sta facendo.
 
 Di seguito sono riportate le risorse create dallo script. **Arricchito** significa che la risorsa è destinata ai messaggi con arricchimenti. **Originale** significa che la risorsa è per i messaggi che non sono arricchiti.
 
 | Nome | Valore |
 |-----|-----|
 | resourceGroup | ContosoResourcesMsgEn |
-| nome del contenitore | Originale  |
+| nome del contenitore | originale  |
 | nome del contenitore | Arricchito  |
 | Nome del dispositivo Internet delle cose | Contoso-test-dispositivo |
 | Nome dell'hub IoT | ContosoTestHubMsgEn |
@@ -237,11 +247,11 @@ az iot hub route create \
   --condition $condition
 ```
 
-A questo punto, tutte le risorse sono impostate e il routing è configurato. È possibile visualizzare la configurazione del routing dei messaggi nel portale e configurare gli arricchimenti dei messaggi per i messaggi che passano al contenitore di archiviazione **arricchito** .
+A questo punto, tutte le risorse sono impostate e viene configurato il routing dei messaggi. È possibile visualizzare la configurazione del routing dei messaggi nel portale e configurare gli arricchimenti dei messaggi per i messaggi che passano al contenitore di archiviazione **arricchito** .
 
-### <a name="view-routing-and-configure-the-message-enrichments"></a>Visualizzazione del routing e configurazione degli arricchimenti dei messaggi
+### <a name="manually-configure-the-message-enrichments-using-the-azure-portal"></a>Configurare manualmente gli arricchimenti dei messaggi usando il portale di Azure
 
-1. Per accedere all'hub Internet delle cose, selezionare **gruppi di risorse**e quindi selezionare il gruppo di risorse configurato per questa esercitazione (**ContosoResources_MsgEn**). Trovare l'hub Internet delle cose nell'elenco e selezionarlo. Selezionare **routing messaggi** per l'hub Internet.
+1. Per accedere all'hub Internet delle cose, selezionare **gruppi di risorse**e quindi selezionare il gruppo di risorse configurato per questa esercitazione (**ContosoResourcesMsgEn**). Trovare l'hub Internet delle cose nell'elenco e selezionarlo. Selezionare **routing messaggi** per l'hub Internet.
 
    ![Selezionare il routing del messaggio](./media/tutorial-message-enrichments/select-iot-hub.png)
 
@@ -255,7 +265,7 @@ A questo punto, tutte le risorse sono impostate e il routing è configurato. È 
    | ---- | ----- | -------------------------|
    | myIotHub | $iothubname | AzureStorageContainers > ContosoStorageEndpointEnriched |
    | DeviceLocation | $twin.tags.location | AzureStorageContainers > ContosoStorageEndpointEnriched |
-   |CustomerID | 6ce345b8-1e4a-411e-9398-d34587459a3a | AzureStorageContainers > ContosoStorageEndpointEnriched |
+   |customerID | 6ce345b8-1e4a-411e-9398-d34587459a3a | AzureStorageContainers > ContosoStorageEndpointEnriched |
 
    > [!NOTE]
    > Se il dispositivo non ha un gemello, il valore inserito qui verrà timbrato come stringa per il valore negli arricchimenti dei messaggi. Per visualizzare le informazioni sul dispositivo gemello, passare all'hub nel portale, selezionare **dispositivi**Internet, selezionare il dispositivo e quindi selezionare **dispositivo gemello** nella parte superiore della pagina.
@@ -266,9 +276,58 @@ A questo punto, tutte le risorse sono impostate e il routing è configurato. È 
 
    ![Tabella con tutti gli arricchimenti aggiunti](./media/tutorial-message-enrichments/all-message-enrichments.png)
 
-4. Selezionare **applica** per salvare le modifiche.
+4. Selezionare **applica** per salvare le modifiche. Passare alla sezione relativa all' [arricchimento dei messaggi di test](#testing-message-enrichments) .
 
-## <a name="send-messages-to-the-iot-hub"></a>Inviare messaggi all'hub Internet delle cose
+## <a name="use-an-rm-template-to-create-and-configure-the-resources-message-routing-and-message-enrichments"></a>Usare un modello RM per creare e configurare le risorse, il routing dei messaggi e l'arricchimento dei messaggi 
+
+1. Accedere al portale di Azure. Fare clic su **+ Crea una risorsa**. Viene visualizzata la casella di ricerca. Cercare la **distribuzione del modello**. Nel riquadro dei risultati selezionare **distribuzione modelli (Distribuisci usando un modello personalizzato)** .
+
+   ![Distribuzione modelli nella portale di Azure](./media/tutorial-message-enrichments/template-select-deployment.png)
+
+1. Selezionare **Crea** nel riquadro distribuzione modello. 
+
+1. Nel riquadro distribuzione personalizzata. Selezionare **Compila un modello personalizzato nell'editor**.
+
+1. Nel riquadro Modifica modello selezionare **Carica file**. Viene visualizzata la finestra Esplora risorse. Individuare il file **template_messageenrichments. JSON** nel file di repository decompresso in **/IOT-Hub/Tutorials/routing/SimulatedDevice/Resources**. 
+
+   ![Seleziona modello dal computer locale](./media/tutorial-message-enrichments/template-select.png)
+
+1. Selezionare **Apri** per caricare il file modello dal computer locale. Lo carica nel riquadro di modifica e lo mostra all'utente.
+
+   Questo modello è configurato per l'uso di un nome dell'hub degli elementi di archiviazione univoco globale e del nome dell'account di archiviazione aggiungendo un valore casuale alla fine dei nomi predefiniti, quindi è possibile usare il modello senza apportare alcuna modifica. 
+
+   Di seguito sono riportate le risorse create caricando il modello. **Arricchito** significa che la risorsa è destinata ai messaggi con arricchimenti. **Originale** significa che la risorsa è per i messaggi che non sono arricchiti. Questi sono gli stessi valori usati nello script dell'interfaccia della riga di comando di Azure.
+
+   | Nome | Valore |
+   |-----|-----|
+   | resourceGroup | ContosoResourcesMsgEn |
+   | nome del contenitore | originale  |
+   | nome del contenitore | Arricchito  |
+   | Nome del dispositivo Internet delle cose | Contoso-test-dispositivo |
+   | Nome dell'hub IoT | ContosoTestHubMsgEn |
+   | Nome dell'account di archiviazione | contosostorage |
+   | Nome endpoint 1 | ContosoStorageEndpointOriginal |
+   | Nome endpoint 2 | ContosoStorageEndpointEnriched|
+   | Nome Route 1 | ContosoStorageRouteOriginal |
+   | Nome Route 2 | ContosoStorageRouteEnriched |
+
+1. Selezionare **Save (Salva**). verrà visualizzato il riquadro distribuzione personalizzata, che Mostra tutti i parametri usati dal modello. L'unico campo che è necessario impostare è il **gruppo di risorse**. Crearne uno nuovo o selezionarne uno dall'elenco a discesa.
+
+   Di seguito è illustrata la metà superiore del riquadro distribuzione personalizzata. È possibile visualizzare il percorso di riempimento del gruppo di risorse.
+
+   ![Metà superiore del riquadro distribuzione personalizzata](./media/tutorial-message-enrichments/template-deployment-top.png)
+
+1. Di seguito è illustrata la metà inferiore del riquadro distribuzione personalizzata. È possibile visualizzare i restanti parametri e i termini e le condizioni. 
+
+   ![Metà inferiore del riquadro distribuzione personalizzata](./media/tutorial-message-enrichments/template-deployment-bottom.png)
+
+1. Selezionare la casella di controllo che indica che si accettano i termini e le condizioni, quindi selezionare **Acquista** per continuare con la distribuzione del modello.
+
+1. Attendere che il modello sia completamente distribuito. È possibile selezionare l'icona a campana nella parte superiore della schermata per verificare lo stato di avanzamento. Al termine, è possibile continuare a testare gli [arricchimenti dei messaggi](#testing-message-enrichments).
+
+## <a name="testing-message-enrichments"></a>Test degli arricchimenti del messaggio
+
+È possibile visualizzare gli arricchimenti dei messaggi selezionando **gruppi di risorse**e quindi selezionare il gruppo di risorse che si sta usando per questa esercitazione. Selezionare quindi l'hub Internet delle cose dall'elenco di risorse e passare a **messaggistica**. Vengono visualizzati la configurazione del routing dei messaggi e gli arricchimenti configurati.
 
 Ora che gli arricchimenti dei messaggi sono configurati per l'endpoint, eseguire l'applicazione del dispositivo simulato per inviare i messaggi all'hub. L'hub è stato configurato con le impostazioni che eseguono le operazioni seguenti:
 
@@ -290,9 +349,9 @@ Se non si ha la chiave del dispositivo, è possibile recuperarla dal portale. Do
         private readonly static string s_deviceKey = "{your device key}";
    ```
 
-## <a name="run-and-test"></a>Esecuzione e test
+### <a name="run-and-test"></a>Esecuzione e test
 
-Eseguire l'applicazione console. Attendere qualche minuto. I messaggi inviati vengono visualizzati nella schermata della console dell'applicazione.
+Eseguire l'applicazione console per alcuni minuti. I messaggi inviati vengono visualizzati nella schermata della console dell'applicazione.
 
 L'app invia un nuovo messaggio da dispositivo a cloud all'hub IoT ogni secondo. Il messaggio contiene un oggetto serializzato JSON con l'ID del dispositivo, la temperatura, l'umidità e il livello del messaggio, che per impostazione predefinita è `normal`. Assegna in modo casuale un livello di `critical` o `storage`, causando il routing del messaggio all'account di archiviazione o all'endpoint predefinito. I messaggi inviati al contenitore **arricchito** nell'account di archiviazione verranno arricchiti.
 
@@ -328,7 +387,7 @@ Se si desidera rimuovere tutte le risorse create in questa esercitazione, elimin
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Usare l'interfaccia della riga di comando di Azure per pulire le risorse
 
-Per rimuovere il gruppo di risorse, usare il comando [eliminazione del gruppo az](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). `$resourceGroup` è stato impostato di nuovo su **ContosoResources** all'inizio di questa esercitazione.
+Per rimuovere il gruppo di risorse, usare il comando [eliminazione del gruppo az](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). `$resourceGroup` è stato impostato nuovamente **ContosoResourcesMsgEn** all'inizio di questa esercitazione.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
@@ -340,9 +399,12 @@ In questa esercitazione è stata configurata e testata l'aggiunta di arricchimen
 
 **Uso degli arricchimenti messaggi dell'hub Internet**
 > [!div class="checklist"]
-> * Usando l'interfaccia della riga di comando di Azure, creare le risorse, ovvero un hub degli oggetti, un account di archiviazione con due endpoint e la configurazione del routing.
-> * Utilizzare il portale di Azure per configurare gli arricchimenti dei messaggi.
-> * Eseguire un'app che simula un dispositivo dell'intero che invia messaggi all'hub.
+> * Primo metodo
+>   * Creare risorse e configurare il routing dei messaggi usando l'interfaccia della riga di comando di Azure.
+>   * Configurare manualmente gli arricchimenti dei messaggi usando il [portale di Azure](https://portal.azure.com).
+> * Secondo metodo
+>   * Creazione di risorse, configurazione del routing di messaggi e arricchimento di messaggi tramite un modello di Azure Resource Manager. 
+> * Eseguire un'app che simula un dispositivo Internet delle cose che invia messaggi all'hub.
 > * Visualizzare i risultati e verificare che gli arricchimenti dei messaggi funzionino come previsto.
 
 Per ulteriori informazioni sugli arricchimenti dei messaggi, vedere [Panoramica degli arricchimenti dei messaggi](iot-hub-message-enrichments-overview.md).

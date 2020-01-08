@@ -1,5 +1,5 @@
 ---
-title: Definizione di Servizi cloud di Azure Schema NetworkTrafficRules | Microsoft Docs
+title: Schema def. NetworkTrafficRules di servizi cloud di Azure | Microsoft Docs
 ms.custom: ''
 ms.date: 04/14/2015
 services: cloud-services
@@ -10,15 +10,14 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 351b369f-365e-46c1-82ce-03fc3655cc88
 caps.latest.revision: 17
-author: georgewallace
-ms.author: gwallace
-manager: gwallace
-ms.openlocfilehash: e99b9f0f601841fe6ff32eba0a43bfafd652e941
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+author: tgore03
+ms.author: tagore
+ms.openlocfilehash: e6d156810b9fdee69ddac122eec06db7267ddf36
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945940"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449045"
 ---
 # <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Schema NetworkTrafficRules di definizione di Servizi cloud di Azure
 Il nodo `NetworkTrafficRules` è un elemento facoltativo nel file di definizione del servizio che specifica come i ruoli comunicano tra loro. Impone un limite ai ruoli che possono accedere agli endpoint interni del ruolo specifico. `NetworkTrafficRules` non è un elemento autonomo. Viene combinato con due o più ruoli Web nel file di definizione del servizio.
@@ -76,10 +75,10 @@ L'elemento `Destinations` descrive una raccolta di RoleEndpoints con i quali è 
 ##  <a name="RoleEndpoint"></a>Elemento RoleEndpoint
 L'elemento `RoleEndpoint` descrive un endpoint in un ruolo per consentire le comunicazioni tra i due. È possibile specificare più elementi `RoleEndpoint` se sono presenti più di un endpoint nel ruolo.
 
-| Attributo      | Type     | Descrizione |
+| Attributo      | Tipo     | Description |
 | -------------- | -------- | ----------- |
-| `endpointName` | `string` | Richiesto. Il nome dell'endpoint verso il quale consentire il traffico.|
-| `roleName`     | `string` | Richiesto. Il nome del ruolo Web con il quale consentire le comunicazioni.|
+| `endpointName` | `string` | Obbligatorio. Il nome dell'endpoint verso il quale consentire il traffico.|
+| `roleName`     | `string` | Obbligatorio. Il nome del ruolo Web con il quale consentire le comunicazioni.|
 
 ## <a name="allowalltraffic-element"></a>Elemento AllowAllTraffic
 L'elemento `AllowAllTraffic` è una regola che consente a tutti i ruoli di comunicare con gli endpoint definiti nel nodo `Destinations`.
@@ -87,16 +86,20 @@ L'elemento `AllowAllTraffic` è una regola che consente a tutti i ruoli di comun
 ##  <a name="WhenSource"></a> Elemento WhenSource
 L'elemento `WhenSource` descrive una raccolta di ruoli che possono comunicare con gli endpoint definiti nel nodo `Destinations`.
 
-| Attributo | Type     | Descrizione |
+| Attributo | Tipo     | Description |
 | --------- | -------- | ----------- |
-| `matches` | `string` | Richiesto. Specifica la regola da applicare quando vengono consentite le comunicazioni. Al momento l'unico valore valido è `AnyRule`.|
+| `matches` | `string` | Obbligatorio. Specifica la regola da applicare quando vengono consentite le comunicazioni. Al momento l'unico valore valido è `AnyRule`.|
   
 ##  <a name="FromRole"></a> Elemento FromRole
 L'elemento `FromRole` specifica i ruoli che possono comunicare con gli endpoint definiti nel nodo `Destinations`. È possibile specificare più elementi `FromRole` se sono presenti più ruoli in grado di comunicare con gli endpoint.
 
-| Attributo  | Type     | DESCRIZIONE |
+| Attributo  | Tipo     | Description |
 | ---------- | -------- | ----------- |
-| `roleName` | `string` | Richiesto. Il nome del ruolo da cui consentire la comunicazione.|
+| `roleName` | `string` | Obbligatorio. Il nome del ruolo da cui consentire la comunicazione.|
 
 ## <a name="see-also"></a>Vedere anche
 [Cloud Service (classic) Definition Schema](schema-csdef-file.md) (Schema di definizione di Servizi cloud - Versione classica)
+
+
+
+

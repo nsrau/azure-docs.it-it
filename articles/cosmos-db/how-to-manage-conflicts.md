@@ -1,17 +1,17 @@
 ---
-title: Informazioni su come gestire i conflitti tra le aree in Azure Cosmos DB
+title: Gestire i conflitti tra le aree in Azure Cosmos DB
 description: Informazioni su come gestire i conflitti in Azure Cosmos DB mediante la creazione del criterio di risoluzione dei conflitti last-writer-WINS o Custom
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: 9aab8f9bd202728f8882377f8249f6ebb99f3362
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 6d364f1a9974d6d638bb0f824e88ed3866644c15
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873693"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441801"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Gestire i criteri di risoluzione dei conflitti in Azure Cosmos DB
 

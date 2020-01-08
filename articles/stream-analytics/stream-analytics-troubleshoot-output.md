@@ -1,7 +1,6 @@
 ---
 title: Risolvere i problemi degli output di Analisi di flusso di Azure
 description: Questo articolo descrive alcune tecniche per la risoluzione dei problemi delle connessioni di output nei processi di Analisi di flusso di Azure.
-services: stream-analytics
 author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
@@ -9,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: a07ac40ad3adda486b5216e83d683e00ec93265d
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 65d01c5c4dd852cb424c75f170ce52156f1633cc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620798"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354098"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Risolvere i problemi degli output di Analisi di flusso di Azure
 
@@ -23,7 +22,7 @@ Questa pagina descrive i problemi comuni relativi alle connessioni di output e s
 ## <a name="output-not-produced-by-job"></a>Output non prodotto dal processo 
 1.  Verificare la connettività agli output con il pulsante **Verifica connessione** per ogni output.
 
-2.  Esaminare le [**metriche di monitoraggio**](stream-analytics-monitoring.md) nella scheda **Monitor**. Poiché i valori sono aggregati, le metriche sono posticipate di alcuni minuti.
+2.  Esaminare le [**metriche di monitoraggio**](stream-analytics-monitoring.md) nella scheda **monitoraggio** . Poiché i valori vengono aggregati, le metriche vengono posticipate di pochi minuti.
     - Se Eventi di input è maggiore di zero, il processo è in grado di leggere i dati di input. Se Eventi di input non è maggiore di zero:
       - Per vedere se l'origine dati contiene dati validi, verificarla tramite [Service Bus Explorer](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a). Questa verifica viene eseguita se il processo usa Hub eventi come input.
       - Controllare se il formato di serializzazione dei dati e la codifica dei dati sono quelli previsti.
@@ -91,11 +90,11 @@ Quando si configura IGNORE_DUP_KEY per diversi tipi di indici, tenere presente l
 * È possibile impostare l'opzione IGNORE_DUP_KEY con ALTER INDEX per un indice univoco, diverso dal vincolo PRIMARY KEY/UNIQUE e creato con la definizione CREATE INDEX o INDEX.  
 * L'opzione IGNORE_DUP_KEY non è valida per gli indici columnstore perché non è possibile applicare l'univocità in tali indici.  
 
-## <a name="column-names-are-lower-cased-by-azure-stream-analytics"></a>I nomi delle colonne sono in minuscolo da Azure Stream Analitica
-Quando si usa il livello di compatibilità originale (1.0), Azure Stream Analitica utilizzato per modificare i nomi delle colonne in lettere minuscole. Questo comportamento è stato risolto nelle versioni successive i livelli di compatibilità. Per preservare il caso, si consiglia ai clienti di spostarsi il livello di compatibilità 1.1 e versioni successivo. È possibile trovare altre informazioni sul [a livello di compatibilità per i processi di Azure Stream Analitica](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level).
+## <a name="column-names-are-lower-cased-by-azure-stream-analytics"></a>I nomi delle colonne sono in lettere minuscole da analisi di flusso di Azure
+Quando si usa il livello di compatibilità originale (1,0), analisi di flusso di Azure usata per modificare i nomi di colonna in lettere minuscole. Questo comportamento è stato corretto nei livelli di compatibilità successivi. Per mantenere il caso, si consiglia ai clienti di passare al livello di compatibilità 1,1 e versioni successive. È possibile trovare altre informazioni sul [livello di compatibilità per i processi di analisi di flusso di Azure](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level).
 
 
-## <a name="get-help"></a>Ottenere aiuto
+## <a name="get-help"></a>Ottenere supporto
 
 Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 

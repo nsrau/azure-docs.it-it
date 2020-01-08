@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 4512fd8a236c888937eb60a75d01cfb0ef2c1913
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 616f10b32d0a9c1a05d759a0e27550cd2808808b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792633"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428873"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Esportare flussi da Power Automate e distribuirli in App per la logica di Azure
 
@@ -32,7 +32,7 @@ Per estendere ed espandere le funzionalità del flusso, è possibile eseguire la
 
 1. Accedere a [Power automatizzate](https://flow.microsoft.com)e selezionare **flussi personali**. Trovare e selezionare il flusso. Sulla barra degli strumenti, selezionare il pulsante con i puntini di sospensione ( **...** ). Selezionare **esporta** > **modello di app per la logica (. Json)** .
 
-   ![Esporta flusso](./media/export-from-microsoft-flow-logic-app-template/export-flow.png)
+   ![Esportare il flusso](./media/export-from-microsoft-flow-logic-app-template/export-flow.png)
 
 1. Salvare il modello nel percorso desiderato.
 
@@ -81,11 +81,11 @@ Per altre informazioni, vedere [crescita fino ad app per la logica di Azure](htt
 
       Ogni connessione che richiede l'autorizzazione Visualizza un'icona di avviso:
 
-      ![Icona di avviso](./media/export-from-microsoft-flow-logic-app-template/authorize-connections.png)
+      ![Icona avviso](./media/export-from-microsoft-flow-logic-app-template/authorize-connections.png)
 
    1. Per ogni passaggio che richiede una connessione autorizzata, espandere il passaggio e selezionare **Aggiungi nuovo**.
 
-      ![Aggiungi nuova connessione](./media/export-from-microsoft-flow-logic-app-template/add-new-connection.png)
+      ![Aggiungere una nuova connessione](./media/export-from-microsoft-flow-logic-app-template/add-new-connection.png)
 
    1. Accedere a ogni servizio o fornire le credenziali necessarie per autorizzare la connessione.
 
@@ -125,7 +125,7 @@ Se Visual Studio è stato configurato con i [prerequisiti](../logic-apps/quickst
 
    1. Per ogni passaggio che richiede una connessione autorizzata, espandere il passaggio e selezionare **Aggiungi nuovo**.
 
-      ![Aggiungi nuova connessione](./media/export-from-microsoft-flow-logic-app-template/add-new-connection-vs.png)
+      ![Aggiungere una nuova connessione](./media/export-from-microsoft-flow-logic-app-template/add-new-connection-vs.png)
 
    1. Accedere a ogni servizio o fornire le credenziali necessarie per autorizzare la connessione.
 
@@ -133,7 +133,7 @@ Se Visual Studio è stato configurato con i [prerequisiti](../logic-apps/quickst
 
 1. In Esplora soluzioni aprire il menu di scelta rapida del progetto e selezionare **distribuisci** > **nuovo**. Se richiesto, accedere con il proprio account di Azure.
 
-1. Quando richiesto, confermare la sottoscrizione di Azure, il gruppo di risorse di Azure e tutte le altre impostazioni che si vuole usare per la distribuzione, ad esempio un [file di parametri](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) da usare per passare i valori dei parametri di modello, quindi selezionare **Distribuisci**.
+1. Quando richiesto, confermare la sottoscrizione di Azure, il gruppo di risorse di Azure e tutte le altre impostazioni che si vuole usare per la distribuzione, ad esempio un [file di parametri](../azure-resource-manager/templates/parameter-files.md) da usare per passare i valori dei parametri di modello, quindi selezionare **Distribuisci**.
 
    ![Confermare le impostazioni di distribuzione](./media/export-from-microsoft-flow-logic-app-template/confirm-azure-subscription-resource-group-deployment.png)
 
@@ -141,7 +141,7 @@ Se Visual Studio è stato configurato con i [prerequisiti](../logic-apps/quickst
 
    ![Modifica parametri di distribuzione](./media/export-from-microsoft-flow-logic-app-template/edit-parameters-deployment.png)
 
-   All'avvio della distribuzione, lo stato di distribuzione dell'app sarà visualizzato nella finestra **Output** di Visual Studio. Se lo stato non è visualizzato, aprire l'elenco **Mostra output di** e selezionare il proprio gruppo di risorse di Azure. ad esempio:
+   All'avvio della distribuzione, lo stato di distribuzione dell'app sarà visualizzato nella finestra **Output** di Visual Studio. Se lo stato non è visualizzato, aprire l'elenco **Mostra output di** e selezionare il proprio gruppo di risorse di Azure. Ad esempio:
 
    ![Finestra Output](./media/export-from-microsoft-flow-logic-app-template/output-window.png)
 

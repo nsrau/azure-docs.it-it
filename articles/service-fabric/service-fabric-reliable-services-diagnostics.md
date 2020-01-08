@@ -1,25 +1,16 @@
 ---
-title: Diagnostica per i servizi Reliable con stato in Azure Service Fabric | Microsoft Docs
+title: Diagnostica Reliable Services con stato di Azure Service Fabric
 description: Funzionalità di diagnostica per i servizi Reliable Services con stato in Azure Service Fabric
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ae0e8f99-69ab-4d45-896d-1fa80ed45659
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
-ms.openlocfilehash: 50e3368aa8808307fa479a290eaf10ca3f22289d
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 37162287e130b05dc41453c579b3a628ac878fca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242866"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462922"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funzionalità di diagnostica per i servizi Reliable con stato
 La classe StatefulServiceBase dei servizi Reliable con stato in Azure Service Fabric genera eventi [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) che possono essere usati per eseguire il debug del servizio, ottenere informazioni dettagliate sul funzionamento del runtime e ottenere assistenza per la risoluzione dei problemi.
@@ -29,12 +20,12 @@ Il nome EventSource per la classe StatefulServiceBase dei servizi Reliable con s
 
 Esempi di strumenti e tecnologie che consentono di raccogliere e/o visualizzare eventi EventSource sono [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Diagnostica di Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) e la [libreria TraceEvent di Microsoft](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
-## <a name="events"></a>Events
-| Nome evento | ID evento | Level | Descrizione evento |
+## <a name="events"></a>Eventi
+| Nome evento | ID evento | Livello | Descrizione evento |
 | --- | --- | --- | --- |
-| StatefulRunAsyncInvocation |1 |Informazioni |Emesso quando l'attività RunAsync del servizio viene avviata |
-| StatefulRunAsyncCancellation |2 |Informazioni |Emesso quando l'attività RunAsync del servizio viene annullata |
-| StatefulRunAsyncCompletion |3 |Informazioni |Emesso quando l'attività RunAsync del servizio viene completata |
+| StatefulRunAsyncInvocation |1 |Informativo |Emesso quando l'attività RunAsync del servizio viene avviata |
+| StatefulRunAsyncCancellation |2 |Informativo |Emesso quando l'attività RunAsync del servizio viene annullata |
+| StatefulRunAsyncCompletion |3 |Informativo |Emesso quando l'attività RunAsync del servizio viene completata |
 | StatefulRunAsyncSlowCancellation |4 |Avviso |Emesso quando l'annullamento dell'attività RunAsync del servizio richiede troppo tempo |
 | StatefulRunAsyncFailure |5 |Errore |Emesso quando l'attività RunAsync del servizio genera un'eccezione |
 

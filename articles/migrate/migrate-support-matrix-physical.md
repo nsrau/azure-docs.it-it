@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: b5b5da6282b1df6c70fd58dcf8c417250de81b73
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 9e749297d831aeae7d785a9a9a29bea1f8c6d5e3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196342"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454625"
 ---
 # <a name="support-matrix-for-physical-server-assessment-and-migration"></a>Matrice di supporto per la valutazione e la migrazione di server fisici
 
@@ -40,8 +40,8 @@ Nella tabella sono riepilogati gli scenari supportati per i server fisici.
 
   **Area geografica** | **Posizione di archiviazione dei metadati**
   --- | ---
-  Azure Government | Governo degli Stati Uniti - Virginia
-  Asia/Pacifico | Asia orientale o Asia sud-orientale
+  Azure per enti pubblici | Governo degli Stati Uniti - Virginia
+  Asia Pacifico | Asia orientale o Asia sud-orientale
   Australia | Australia orientale o Australia sudorientale
   Brasile | Brasile meridionale
   Canada | Canada centrale o Canada orientale
@@ -49,7 +49,7 @@ Nella tabella sono riepilogati gli scenari supportati per i server fisici.
   Francia | Francia centrale
   India | India centrale o India meridionale
   Giappone |  Giappone orientale o Giappone occidentale
-  Corea del Sud | Corea centrale o Corea del sud
+  Corea | Corea centrale o Corea del sud
   Regno Unito | Regno Unito meridionale o Regno Unito occidentale
   Stati Uniti | Stati Uniti centrali o Stati Uniti occidentali 2
 
@@ -63,7 +63,7 @@ Nella tabella sono riepilogati gli scenari supportati per i server fisici.
 | **Supporto**                | **Dettagli**               
 | :-------------------       | :------------------- |
 | **Distribuzione server fisico**       | Il server fisico può essere autonomo o distribuito in un cluster. |
-| **autorizzazioni**           | **Windows:** Configurare un account utente locale in tutti i server Windows che si desidera includere nell'individuazione. L'account utente deve essere aggiunto a questi gruppi: Desktop remoto utenti, Performance Monitor Users e Performance Log Users. <br/> **Linux:** È necessario un account radice nei server Linux che si desidera individuare. |
+| **Autorizzazioni**           | **Windows:** Configurare un account utente locale in tutti i server Windows che si desidera includere nell'individuazione. L'account utente deve essere aggiunto a questi gruppi: Desktop remoto utenti, Performance Monitor Users e Performance Log Users. <br/> **Linux:** È necessario un account radice nei server Linux che si desidera individuare. |
 | **Sistema operativo** | Sono supportati tutti i sistemi operativi [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) , tranne i seguenti:<br/> Windows Server 2003 <br/> SUSE Linux|
 
 
@@ -73,7 +73,7 @@ Per la valutazione, Azure Migrate esegue un appliance leggero per individuare i 
 
 | **Supporto**                | **Dettagli**               
 | :-------------------       | :------------------- |
-| **Distribuzione dell'appliance**   |  L'Appliance viene distribuita in un server fisico o in una macchina virtuale.<br/>  Il computer host deve eseguire Windows Server 2012 R2 o versione successiva.<br/> L'host necessita di spazio sufficiente per allocare 16 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione e un commute esterno per la macchina virtuale dell'appliance.<br/> Per l'appliance sono necessari un indirizzo IP statico o dinamico e l'accesso a Internet.
+| **Distribuzione dell'appliance**   |  Lo script del programma di installazione del dispositivo può essere scaricato dal portale (in una cartella compressa). <br/> È possibile decomprimere la cartella ed eseguire lo script di PowerShell (AzureMigrateInstaller. ps1) in un server fisico dedicato o in una macchina virtuale per configurare l'appliance.<br/>  Il computer scelto per installare il dispositivo deve eseguire Windows Server 2016.<br/> Il computer richiede spazio sufficiente per allocare 16 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione e un commute esterno per la macchina virtuale dell'appliance.<br/> Per l'appliance sono necessari un indirizzo IP statico o dinamico e l'accesso a Internet.
 | **Progetto Azure Migrate**  |  Un appliance può essere associato a un singolo progetto.<br/> Un numero qualsiasi di Appliance può essere associato a un singolo progetto.<br/> È possibile valutare fino a 35.000 computer in un progetto.
 | **Individuazione**              | Una singola appliance può individuare fino a 250 Server.
 | **Gruppo di valutazione**       | È possibile aggiungere fino a 35.000 computer in un singolo gruppo.
@@ -92,7 +92,7 @@ Per valutare le VM, il dispositivo Azure Migrate necessita della connettività I
 **URL** | **Dettagli**  
 --- | ---
 *.portal.azure.com | Spostamento all'portale di Azure
-*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com  | Accedere alla sottoscrizione di Azure.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com  | Accedi alla tua sottoscrizione di Azure
 *.microsoftonline.com <br/> *.microsoftonline-p.com | Creazione di applicazioni Azure Active Directory per le comunicazioni da dispositivo a servizio.
 management.azure.com | Creazione di applicazioni Azure Active Directory per le comunicazioni da dispositivo a servizio.
 dc.services.visualstudio.com | Registrazione e monitoraggio
@@ -109,7 +109,7 @@ Nella tabella seguente sono riepilogati i requisiti di porta per la valutazione.
 **Dispositivo** | **Connection**
 --- | ---
 **Appliance** | Connessioni in ingresso sulla porta TCP 3389 per consentire le connessioni Desktop remoto al dispositivo.<br/> Connessioni in ingresso sulla porta 44368 per accedere in remoto all'app di gestione Appliance usando l'URL: ``` https://<appliance-ip-or-name>:44368 ```<br/> Connessioni in uscita sulle porte 443, 5671 e 5672 per inviare i metadati di individuazione e prestazioni a Azure Migrate.
-**Server fisici** | **Windows:** Connessioni in ingresso sulle porte 443, 5989 per eseguire il pull dei metadati di configurazione e delle prestazioni dai server Windows. <br/> **Linux:**  Connessioni in ingresso sulla porta 22 (UDP) per eseguire il pull dei metadati di configurazione e delle prestazioni dai server Linux. |
+**Server fisici** | **Windows:** Connessioni in ingresso sulla porta 443, porte WinRM 5985 (HTTP) e 5986 (HTTPS) per il pull dei metadati di configurazione e delle prestazioni dai server Windows. <br/> **Linux:**  Connessioni in ingresso sulla porta 22 (UDP) per eseguire il pull dei metadati di configurazione e delle prestazioni dai server Linux. |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

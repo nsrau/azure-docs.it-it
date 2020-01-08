@@ -5,12 +5,12 @@ author: stevelasker
 ms.topic: article
 ms.date: 07/10/2019
 ms.author: stevelas
-ms.openlocfilehash: 2d407f041456ea3856fbeedf98147356eaeb61d6
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: b483317960409fe1fbea181706f12375606fe659
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455004"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445747"
 ---
 # <a name="recommendations-for-tagging-and-versioning-container-images"></a>Suggerimenti per l'assegnazione di tag e il controllo delle versioni delle immagini del contenitore
 
@@ -38,6 +38,10 @@ Quando sono disponibili aggiornamenti di immagini di base o qualsiasi tipo di ve
 
 In questo caso, vengono continuamente serviti sia i tag principali che quelli secondari. Da uno scenario di immagine di base, ciò consente al proprietario dell'immagine di fornire immagini gestite.
 
+### <a name="delete-untagged-manifests"></a>Elimina manifesti senza tag
+
+Se viene aggiornata un'immagine con un tag stabile, l'immagine contrassegnata in precedenza non viene contrassegnata, ottenendo un'immagine orfana. Il manifesto dell'immagine precedente e i dati di livello univoco rimangono nel registro di sistema. Per mantenere le dimensioni del registro di sistema, è possibile eliminare periodicamente manifesti senza tag derivanti da aggiornamenti di immagini stabili. Ad esempio, [ripulire automaticamente](container-registry-auto-purge.md) i manifesti senza tag più vecchi di una durata specificata o impostare un [criterio di conservazione](container-registry-retention-policy.md) per i manifesti senza tag.
+
 ## <a name="unique-tags"></a>Tag univoci
 
 **Raccomandazione**: usare tag univoci per le **distribuzioni**, soprattutto in un ambiente che può essere ridimensionato in più nodi. È probabile che si desiderino distribuzioni intenzionali di una versione coerente dei componenti. Se il contenitore viene riavviato o un agente di orchestrazione scala più istanze, gli host non eseguiranno accidentalmente il pull di una versione più recente, incoerente con gli altri nodi.
@@ -50,6 +54,12 @@ Il contrassegno univoco significa semplicemente che ogni immagine inserita in un
 * **ID compilazione** : questa opzione può essere ottimale poiché è probabilmente incrementale e consente di eseguire la correlazione alla compilazione specifica per trovare tutti gli elementi e i log. Tuttavia, come un digest del manifesto, potrebbe essere difficile da leggere.
 
   Se l'organizzazione dispone di diversi sistemi di compilazione, il prefisso del tag con il nome del sistema di compilazione è una variante di questa opzione: `<build-system>-<build-id>`. È possibile, ad esempio, distinguere le compilazioni dal sistema di compilazione Jenkins del team API e dal sistema Azure Pipelines build del team Web.
+
+### <a name="lock-deployed-image-tags"></a>Blocca tag immagine distribuiti
+
+Come procedura consigliata, è consigliabile [bloccare](container-registry-image-lock.md) tutti i tag di immagine distribuiti, impostando il relativo attributo `write-enabled` su `false`. Questa procedura impedisce di rimuovere inavvertitamente un'immagine dal registro di sistema e probabilmente di danneggiare le distribuzioni. È possibile includere il passaggio di blocco nella pipeline di rilascio.
+
+Il blocco di un'immagine distribuita consente comunque di rimuovere altre immagini non distribuite dal registro di sistema usando le funzionalità di Container Registry di Azure per gestire il registro di sistema. Ad esempio, [ripulire automaticamente](container-registry-auto-purge.md) i manifesti senza tag o le immagini sbloccate anteriori a una durata specificata oppure impostare un [criterio di conservazione](container-registry-retention-policy.md) per i manifesti senza tag.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

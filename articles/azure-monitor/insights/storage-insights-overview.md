@@ -4,15 +4,15 @@ description: Questo articolo descrive il monitoraggio di Azure per la funzionali
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 08/15/2019
-ms.openlocfilehash: aaf7d1a38d4b809b904b6c607a4cfc23efd4dde5
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 790d6ad9fb26253697ea36b402799d3eb488ca47
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286314"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75401141"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>Monitoraggio del servizio di archiviazione con monitoraggio di Azure per l'archiviazione (anteprima)
 
@@ -255,7 +255,7 @@ Il numero di account di archiviazione selezionati ha un limite di 200, indipende
 
 Il portale visualizzerà solo i dati per le sottoscrizioni selezionate all'avvio del portale. Per modificare le sottoscrizioni selezionate, andare in alto a destra e fare clic sul notebook con un'icona di filtro. Verrà visualizzata la scheda Directory + sottoscrizioni.
 
-![Directory + sottoscrizione](./media/storage-insights-overview/fqa3.png)
+![Directory e sottoscrizione](./media/storage-insights-overview/fqa3.png)
 
 ### <a name="how-to-change-the-coloring-and-threshold-for-availability"></a>Come modificare la colorazione e la soglia per la disponibilità?
 

@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: wesmc
-ms.openlocfilehash: 28897ca6f80632210032b7f800404fc921143adf
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 5780477be71988653e89379ae17e9009337bbc0f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954550"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457108"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Connettere Raspberry Pi ad Azure IoT Hub (Node. js)
 
@@ -104,7 +104,7 @@ Preparare la scheda microSD per l'installazione dell'immagine di Raspbian.
 
    b. Eseguire Etcher e selezionare l'immagine di Raspbian estratta nel passaggio 1.
 
-   C. Selezionare l'unità della scheda microSD. Etcher potrebbe avere già selezionato l'unità corretta.
+   c. Selezionare l'unità della scheda microSD. Etcher potrebbe avere già selezionato l'unità corretta.
 
    d. Fare clic su Flash per installare Raspbian nella scheda microSD.
 
@@ -148,7 +148,7 @@ Per i pin dei sensori usare i collegamenti seguenti:
 | LED VDD (Pin 18F)        | GPIO 24 (Pin 18)       | Cavo bianco   |
 | LED GND (Pin 17F)        | GND (Pin 20)           | Cavo nero   |
 
-Fare clic per visualizzare i [mapping dei pin di Raspberry Pi 2 e 3](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi) come riferimento.
+Fare clic per visualizzare i [mapping dei pin di Raspberry Pi 2 e 3](/windows/iot-core/learn-about-hardware/pinmappings/pinmappingsrpi) come riferimento.
 
 Dopo aver correttamente collegato BME280 a Raspberry Pi, dovrebbe apparire come mostrato nell'immagine di seguito.
 
@@ -173,11 +173,11 @@ Accendere Pi usando il cavo micro USB e l'alimentatore. Usare il cavo Ethernet p
 
    a. Scaricare e installare [PuTTY](https://www.putty.org/) per Windows.
 
-   b. Copiare l'indirizzo IP di Pi nella sezione del nome host (o indirizzo IP) e selezionare SSH come tipo di connessione.
+   b. Copiare l'indirizzo IP di Pi nella sezione relativa a nome host o indirizzo IP e selezionare SSH come tipo di connessione.
 
    ![PuTTy](./media/iot-hub-raspberry-pi-kit-node-get-started/7-putty-windows.png)
 
-   **Utenti di Mac e Ubuntu**
+   **Utenti Mac e Ubuntu**
 
    Usare il client SSH predefinito in Ubuntu o macOS. Per connettere Pi tramite SSH potrebbe essere necessario eseguire `ssh pi@<ip address of pi>`.
 

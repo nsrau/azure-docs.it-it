@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/15/2019
+ms.date: 12/17/2019
 ms.author: kumud
-ms.openlocfilehash: c2f6c331e1f769f3d24fde9ab2adbd820b704d3b
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: f182ecc88f6b3362df4f3476a889fe15fb8e22e9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186340"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75368386"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---cli-preview"></a>Distribuire un'applicazione IPv6 dual stack in rete virtuale di Azure-interfaccia della riga di comando (anteprima)
 
@@ -33,7 +33,7 @@ Se non si ha una sottoscrizione di Azure, creare ora un [account gratuito](https
 
 Se invece si decide di installare e usare l'interfaccia della riga di comando di Azure in locale, questa Guida introduttiva richiede l'uso dell'interfaccia della riga di comando di Azure versione 2.0.49 Per trovare la versione installata, eseguire `az --version`. Per informazioni sull'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per usare la funzionalità IPv6 per la rete virtuale di Azure, è necessario configurare la sottoscrizione usando l'interfaccia della riga di comando di Azure come indicato di seguito:
 
 ```azurecli
@@ -150,9 +150,15 @@ az network lb address-pool create \
 --resource-group DsResourceGroup01
 ```
 
+### <a name="create-a-health-probe"></a>Creare un probe di integrità
+Creare un probe di integrità con il comando [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) per monitorare l'integrità delle macchine virtuali. 
+
+```azurecli
+az network lb probe create -g DsResourceGroup01  --lb-name dsLB -n dsProbe --protocol tcp --port 3389
+```
 ### <a name="create-a-load-balancer-rule"></a>Creare una regola di bilanciamento del carico
 
-Una regola di bilanciamento del carico consente di definire come il traffico verrà distribuito alle VM. Definire la configurazione IP front-end per il traffico in ingresso e il pool IP di back-end affinché riceva il traffico, insieme alla porta di origine e di destinazione necessaria. 
+Una regola di bilanciamento del carico consente di definire come il traffico verrà distribuito alle VM. Definire la configurazione IP front-end per il traffico in ingresso e il pool IP back-end che riceve il traffico, insieme alle porte di origine e di destinazione necessarie. 
 
 Creare una regola di bilanciamento del carico con [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create). L'esempio seguente crea regole di bilanciamento del carico denominate *dsLBrule_v4* e *dsLBrule_v6* e bilancia il traffico sulla porta *TCP* *80* alle configurazioni IP front-end IPv4 e IPv6:
 
@@ -165,6 +171,7 @@ az network lb rule create \
 --protocol Tcp  \
 --frontend-port 80  \
 --backend-port 80  \
+--probe-name dsProbe \
 --backend-pool-name dsLbBackEndPool_v4
 
 
@@ -176,13 +183,14 @@ az network lb rule create \
 --protocol Tcp  \
 --frontend-port 80 \
 --backend-port 80  \
+--probe-name dsProbe \
 --backend-pool-name dsLbBackEndPool_v6
 
 ```
 
 ## <a name="create-network-resources"></a>Creare risorse di rete
 Prima di distribuire alcune macchine virtuali, è necessario creare risorse di rete di supporto: set di disponibilità, gruppo di sicurezza di rete, rete virtuale e NIC virtuali. 
-### <a name="create-an-availability-set"></a>Creare un set di disponibilità
+### <a name="create-an-availability-set"></a>Crea un set di disponibilità
 Per migliorare la disponibilità dell'app, inserire le VM in un set di disponibilità.
 
 Creare un set di disponibilità con [az vm availability-set create](https://docs.microsoft.com/cli/azure/vm/availability-set?view=azure-cli-latest). Nell'esempio seguente viene creato un set di disponibilità denominato *dsAVset*:
@@ -266,7 +274,7 @@ az network nsg rule create \
 ```
 
 
-### <a name="create-a-virtual-network"></a>Crea rete virtuale
+### <a name="create-a-virtual-network"></a>Crea una rete virtuale
 
 Creare una rete virtuale con [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create). Nell'esempio seguente viene creata una rete virtuale denominata *dsVNET* con subnet *dsSubNET_v4* e *dsSubNET_v6*:
 

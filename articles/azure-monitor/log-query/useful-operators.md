@@ -1,18 +1,17 @@
 ---
 title: Operatori utili nelle query di log di Monitoraggio di Azure | Microsoft Docs
 description: Funzioni comuni da usare per diversi scenari nelle query dei log di Monitoraggio di Azure.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2018
-ms.openlocfilehash: 022a9f638b3a7d8ae4ebeff8062f258ada7a14f8
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: ff63b9b7027e99c70971230936ed98186c2208e8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932874"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75397716"
 ---
 # <a name="useful-operators-in-azure-monitor-log-queries"></a>Operatori utili nelle query di log di Monitoraggio di Azure
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
-ms.openlocfilehash: b5304f2f9af3f3dac5a1259669cdd78548c2e832
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 7ea7051b24deeddea25b1db771b73a226f650067
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933734"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75401159"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluzioni di monitoraggio in Monitoraggio di Azure
 Le soluzioni di monitoraggio sfruttano i servizi in Azure per offrire informazioni dettagliate aggiuntive sul funzionamento di un determinato servizio o di un'applicazione specifica. Questo articolo offre una breve panoramica delle soluzioni di monitoraggio in Azure e informazioni dettagliate sull'uso e l'installazione di tali soluzioni.
@@ -22,29 +22,27 @@ Le soluzioni di monitoraggio sfruttano i servizi in Azure per offrire informazio
 
 Le soluzioni di monitoraggio raccolgono in genere log di dati e offrono query e visualizzazioni per l'analisi dei dati raccolti. Possono anche sfruttare altri servizi, come Automazione di Azure, per eseguire azioni relative all'applicazione o al servizio.
 
-È possibile aggiungere soluzioni di monitoraggio a Monitoraggio di Azure per qualsiasi applicazione e servizio usati. Sono in genere disponibili gratuitamente, ma la raccolta dati potrebbe implicare addebiti per l'utilizzo. Oltre alle soluzioni fornite da Microsoft, i partner e i clienti possono [creare soluzioni di gestione](solutions-creating.md) da usare nel proprio ambiente o da rendere disponibili per i propri clienti attraverso la community.
+È possibile aggiungere soluzioni di monitoraggio a Monitoraggio di Azure per qualsiasi applicazione e servizio usati. Sono in genere disponibili senza costi aggiuntivi, ma raccolgono dati che potrebbero richiamare costi di utilizzo. Oltre alle soluzioni fornite da Microsoft, i partner e i clienti possono [creare soluzioni di gestione](solutions-creating.md) da usare nel proprio ambiente o da rendere disponibili per i propri clienti attraverso la community.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="use-monitoring-solutions"></a>Usare le soluzioni di monitoraggio
 Aprire la pagina **Panoramica** in Monitoraggio di Azure per visualizzare un riquadro per ogni soluzione installata nell'area di lavoro. 
 
-1. Accedere al portale di Azure.
-1. Aprire **Tutti i servizi** e individuare **Monitoraggio**.
+1. Accedere al [portale di Azure](https://ms.portal.azure.com). Cercare e selezionare **monitoraggio**.
 1. Nel menu **Informazioni dettagliate** selezionare **Altri**.
 1. Usare le caselle a discesa nella parte superiore della schermata per modificare l'area di lavoro o l'intervallo di tempo usato per i riquadri.
-1. Fare clic sul riquadro di una soluzione per aprire la visualizzazione corrispondente che include un'analisi più dettagliata dei dati raccolti.
+1. Fare clic sul riquadro per una soluzione per aprirne la visualizzazione, che include un'analisi più dettagliata dei dati raccolti.
 
-![Panoramica](media/solutions/overview.png)
+![Overview](media/solutions/overview.png)
 
 Le soluzioni di monitoraggio possono contenere più tipi di risorse di Azure ed è possibile visualizzare tutte le risorse incluse in una soluzione proprio come qualsiasi altra risorsa. Ad esempio, le query di log incluse nella soluzione sono elencate in **Solution Queries** (Query soluzione) in [Esplora query](../log-query/get-started-portal.md#load-queries). È possibile usare queste query durante l'esecuzione di analisi ad hoc con [query di log](../log-query/log-query-overview.md).
 
 ## <a name="list-installed-monitoring-solutions"></a>Elencare le soluzioni di monitoraggio installate 
 Usare la procedura seguente per elencare le soluzioni di monitoraggio installate nella sottoscrizione.
 
-1. Accedere al portale di Azure.
-1. Aprire **Tutti i servizi** e individuare **Soluzioni**.
-4. Vengono elencate le soluzioni installate in tutte le aree di lavoro. Il nome della soluzione è seguito dal nome dell'area di lavoro in cui è installata.
+1. Accedere al [portale di Azure](https://ms.portal.azure.com). Cercare e selezionare le **soluzioni**.
+1. Vengono elencate le soluzioni installate in tutte le aree di lavoro. Il nome della soluzione è seguito dal nome dell'area di lavoro in cui è installata.
 1. Usare le caselle a discesa nella parte superiore della schermata per filtrare in base alla sottoscrizione o al gruppo di risorse.
 
 
@@ -89,7 +87,7 @@ Tutte le soluzioni di monitoraggio richiedono un'[area di lavoro Log Analytics](
 ### <a name="create-a-link-between-a-log-analytics-workspace-and-automation-account"></a>Creare un collegamento tra un'area di lavoro Log Analytics e un account di Automazione
 La modalità con cui si specificano l'area di lavoro Log Analytics e l'account di Automazione dipende dal metodo di installazione per la soluzione.
 
-* Quando si installa una soluzione tramite Azure Marketplace, vengono richiesti un'area di lavoro e un account di Automazione. Se non sono già collegati, viene creato il collegamento tra di essi.
+* Quando si installa una soluzione tramite Azure Marketplace, vengono richiesti un'area di lavoro e un account di automazione. Se non sono già collegati, viene creato il collegamento tra di essi.
 * Per le soluzioni esterne ad Azure Marketplace, è necessario collegare l'area di lavoro Log Analytics e l'account di Automazione prima di installare la soluzione. A tale scopo, è possibile selezionare qualsiasi soluzione in Azure Marketplace e quindi selezionare l'area di lavoro Log Analytics e l'account di Automazione. Non è necessario installare effettivamente la soluzione, perché il collegamento viene creato non appena si selezionano l'area di lavoro Log Analytics e l'account di Automazione. Una volta creato il collegamento, è possibile usare l'area di lavoro Log Analytics e l'account di Automazione per qualsiasi soluzione.
 
 ### <a name="verify-the-link-between-a-log-analytics-workspace-and-automation-account"></a>Verificare il collegamento tra un'area di lavoro Log Analytics e un account di Automazione

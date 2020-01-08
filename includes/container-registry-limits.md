@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 11/05/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: bc4ac68cb415a43ac34d36afc2adc30307e6d37c
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 6707e844948ac76d4cec29faf69d80b3c9cb3c0f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795233"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392334"
 ---
-| Risorsa | Basic | Standard | Premium |
+| Gruppi | Basic | Standard | Premium |
 |---|---|---|---|
 | Archiviazione<sup>1</sup> | 10 GiB | 100 GiB| 500 GiB |
 | Dimensioni massime livello immagine | GiB 200 | GiB 200 | GiB 200 |
-| Operazioni di lettura al minuto<sup>2, 3</sup> | 1\.000 | 3,000 | 10.000 |
+| Operazioni di lettura al minuto<sup>2, 3</sup> | 1\.000 | 3\.000 | 10,000 |
 | Operazioni di scrittura al minuto<sup>2, 4</sup> | 100 | 500 | 2\.000 |
 | MBps di larghezza di banda per il download<sup>2</sup> | 30 | 60 | 100 |
 | MBps di larghezza di banda per l'upload<sup>2</sup> | 10 | 20 | 50 |
-| Webhook | 2 | 10 | 100 |
+| Webhook | 2 | 10 | 500 |
 | Replica geografica | N/D | N/D | [Supportato][geo-replication] |
 | Attendibilità del contenuto | N/D | N/D | [Supportato][content-trust] |
 | Accesso alla rete virtuale | N/D | N/D | [Anteprima][vnet] |
@@ -35,7 +35,7 @@ ms.locfileid: "73795233"
 
 <sup>1</sup> I limiti di archiviazione specificati sono la quantità di spazio di archiviazione *incluso* per ogni livello. Viene addebitata una tariffa giornaliera aggiuntiva per GiB di archiviazione di immagini oltre questi limiti. Per informazioni sulla frequenza, vedere [prezzi di Azure container Registry][pricing].
 
-<sup>2</sup>*operazioni lettura*, *operazioni scrittura*e *Bandwidth* sono stime minime. Azure Container Registry si impegna a migliorare le prestazioni in quanto richiede l'utilizzo.
+<sup>2</sup> I dati delle *operazioni di lettura*, *operazioni di scrittura* e *larghezza di banda* sono stime minime. Azure Container Registry si impegna a migliorare le prestazioni in quanto richiede l'utilizzo.
 
 <sup>3</sup> Una [Docker pull](https://docs.docker.com/registry/spec/api/#pulling-an-image) si traduce in più operazioni di lettura in base al numero di livelli nell'immagine, più il recupero del manifesto.
 

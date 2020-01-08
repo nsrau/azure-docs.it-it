@@ -1,5 +1,5 @@
 ---
-title: Configurare un'app desktop che chiama API Web-piattaforma di identità Microsoft | Azure
+title: Configurare le app desktop che chiamano API Web-piattaforma di identità Microsoft | Azure
 description: Informazioni su come configurare il codice di un'app desktop che chiama API Web
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d31a70ebc63a5e9a16e0da00623bd5855f0a7d1
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 33b1724c25ef2d85aa8f838811864104b49576a3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920260"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423905"
 ---
 # <a name="desktop-app-that-calls-web-apis---code-configuration"></a>App desktop che chiama API Web-configurazione del codice
 
@@ -33,8 +33,8 @@ Le librerie Microsoft che supportano le applicazioni desktop sono:
   Libreria MSAL | Description
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Supporta la creazione di un'applicazione desktop in più piattaforme: Linux, Windows e MacOS
-  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Supporta la creazione di un'applicazione desktop in più piattaforme. Sviluppo in corso-anteprima pubblica
-  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Supporta la creazione di un'applicazione desktop in più piattaforme. Sviluppo in corso-anteprima pubblica
+  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Supporta la creazione di un'applicazione desktop in più piattaforme.
+  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Supporta la creazione di un'applicazione desktop in più piattaforme.
   ![MSAL iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL iOS | Supporta le applicazioni desktop in esecuzione solo in macOS
 
 ## <a name="public-client-application"></a>Applicazione client pubblica
@@ -51,14 +51,14 @@ Dal punto di vista del codice, le applicazioni desktop sono applicazioni client 
 
 Il codice seguente crea un'istanza di un'applicazione client pubblica, gli utenti che accedono all'Microsoft Azure cloud pubblico, un account aziendale o dell'Istituto di istruzione o un account Microsoft personale.
 
-```CSharp
+```csharp
 IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
     .Build();
 ```
 
 Se si intende usare l'autenticazione interattiva o il flusso del codice del dispositivo, come illustrato in precedenza, si vuole usare il modificatore `.WithRedirectUri`:
 
-```CSharp
+```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
         .WithDefaultRedirectUri()
@@ -69,7 +69,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 Il codice seguente crea un'istanza di un'applicazione client pubblica da un oggetto di configurazione, che può essere compilato a livello di codice o letto da un file di configurazione
 
-```CSharp
+```csharp
 PublicClientApplicationOptions options = GetOptions(); // your own method
 IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicationOptions(options)
         .WithDefaultRedirectUri()
@@ -80,7 +80,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicat
 
 Per elaborare la compilazione di applicazioni, è possibile aggiungere un numero di modificatori. Ad esempio, se si vuole che l'applicazione sia un'applicazione multi-tenant in un cloud nazionale (in questo governo degli Stati Uniti), è possibile scrivere:
 
-```CSharp
+```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
         .WithDefaultRedirectUri()
@@ -91,7 +91,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 MSAL.NET contiene anche un modificatore per ADFS 2019:
 
-```CSharp
+```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
         .WithAdfsAuthority("https://consoso.com/adfs")
@@ -100,7 +100,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 Infine, se si desidera acquisire i token per un tenant di Azure AD B2C, è possibile specificare il tenant come illustrato nel frammento di codice seguente:
 
-```CSharp
+```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
         .WithB2CAuthority("https://fabrikamb2c.b2clogin.com/tfp/{tenant}/{PolicySignInSignUp}")
@@ -134,7 +134,7 @@ Si supponga di disporre di un'applicazione console .NET Core con il seguente `ap
 
 Il codice per la lettura di questo file è minimo con il Framework di configurazione .NET fornito.
 
-```CSharp
+```csharp
 public class SampleConfiguration
 {
  /// <summary>
@@ -177,7 +177,7 @@ public class SampleConfiguration
 
 A questo punto, per creare l'applicazione, è sufficiente scrivere il codice seguente:
 
-```CSharp
+```csharp
 SampleConfiguration config = SampleConfiguration.ReadFromJsonFile("appsettings.json");
 var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(config.PublicClientApplicationOptions)
            .WithDefaultRedirectUri()

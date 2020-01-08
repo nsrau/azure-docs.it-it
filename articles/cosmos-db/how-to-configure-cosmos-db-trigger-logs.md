@@ -1,17 +1,17 @@
 ---
-title: Configurare e leggere i log quando si usa il trigger di Funzioni di Azure per Cosmos DB
+title: Configurare e leggere i log con il trigger di funzioni di Azure per Cosmos DB
 description: Informazioni su come esporre i log nella pipeline di registrazione di Funzioni di Azure usando il trigger di Funzioni di Azure per Cosmos DB
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 17b2d4854e3222e5bdb607c6c80b0ec5ed6177d3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5ff747b225f8984bcaafd80015e85a9f014bdb50
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093590"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441837"
 ---
 # <a name="how-to-configure-and-read-the-logs-when-using-azure-functions-trigger-for-cosmos-db"></a>Come configurare e leggere i log quando si usa il trigger di Funzioni di Azure per Cosmos DB
 
@@ -39,7 +39,7 @@ Per abilitare la registrazione usando il trigger di Funzioni di Azure per Cosmos
 }
 ```
 
-Dopo la distribuzione di Funzioni di Azure con la configurazione aggiornata, verranno visualizzati i log del trigger di Funzioni di Azure per Cosmos DB come parte delle tracce. È possibile visualizzare i log nel provider di registrazione configurato in *Category* `Host.Triggers.CosmosDB`.
+Dopo la distribuzione di Funzioni di Azure con la configurazione aggiornata, verranno visualizzati i log del trigger di Funzioni di Azure per Cosmos DB come parte delle tracce. È possibile visualizzare i log nel provider di registrazione configurato nella *categoria* `Host.Triggers.CosmosDB`.
 
 ## <a name="query-the-logs"></a>Eseguire query sui log
 

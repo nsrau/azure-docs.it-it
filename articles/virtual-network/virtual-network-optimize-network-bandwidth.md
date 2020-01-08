@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: 50d7ca73e5e18f88f5d789e12fc7f26908e8b8f0
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: be5f38bdeaf51dbe23006ecf30b4deb66aa7402a
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67202911"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690894"
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Ottimizzare la velocità effettiva di rete per le macchine virtuali di Azure
 
 Le macchine virtuali di Azure hanno impostazioni di rete predefinite che possono essere ottimizzate ulteriormente per una migliore velocità effettiva di rete. Questo articolo illustra come ottimizzare la velocità effettiva di rete per macchine virtuali di Microsoft Azure Windows e Linux, incluse le distribuzioni principali, ad esempio Ubuntu, CentOS e Red Hat.
 
-## <a name="windows-vm"></a>Macchina virtuale Windows
+## <a name="windows-vm"></a>VM Windows
 
 Se la macchina virtuale di Windows supporta la funzione [Rete accelerata](create-vm-accelerated-networking-powershell.md), la velocità effettiva è configurata in modo ottimale se questa funzione è abilitata. Per tutte le altre macchine virtuali di Windows, tramite Receive-Side Scaling (RSS) esse possono raggiungere una velocità effettiva massima superiore rispetto a una VM senza RSS. È possibile disabilitare RSS per impostazione predefinita in una macchina virtuale Windows. Per determinare se RSS è abilitato e abilitarlo se è disabilitato, eseguire la procedura seguente:
 
@@ -143,12 +143,10 @@ Per ottenere le ottimizzazioni, l'ideale è creare una VM con la versione suppor
 Le VM nuove ed esistenti possono trarre vantaggio dall'installazione della versione più recente di Linux Integration Services (LIS). L'ottimizzazione della velocità effettiva è disponibile in LIS a partire dalla versione 4.2. Immettere i comandi seguenti per scaricare e installare LIS:
 
 ```bash
-mkdir lis4.2.3-5
-cd lis4.2.3-5
-wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-5.tar.gz
-tar xvzf lis-rpms-4.2.3-5.tar.gz
+wget https://aka.ms/lis
+tar xvf lis
 cd LISISO
-install.sh #or upgrade.sh if prior LIS was previously installed
+sudo ./install.sh #or upgrade.sh if prior LIS was previously installed
 ```
 
 Per altre informazioni su Linux Integration Services versione 4.2 per Hyper-V, vedere la [pagina di download](https://www.microsoft.com/download/details.aspx?id=55106).

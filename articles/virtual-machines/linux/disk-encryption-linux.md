@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2e7646d2f84696d0b04183d8d06b96405909de87
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: ff4ccb4409bd9a41f390668cb94ef91b1b565421
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750049"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358813"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scenari di crittografia dischi di Azure nelle macchine virtuali Linux
 
@@ -66,7 +66,7 @@ az account set --subscription "<subscription name or ID>"
 Per altre informazioni, vedere [Azure Service Fabric e interfaccia della riga di comando di Azure 2.0](/cli/azure/get-started-with-azure-cli). 
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Il [Azure PowerShell AZ Module](/powershell/azure/new-azureps-module-az) fornisce un set di cmdlet che usa il modello di [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) per la gestione delle risorse di Azure. È possibile usarlo nel browser con [Azure cloud Shell](../../cloud-shell/overview.md)oppure è possibile installarlo nel computer locale seguendo le istruzioni riportate in [Install the Azure PowerShell Module](/powershell/azure/install-az-ps). 
+Il [Azure PowerShell AZ Module](/powershell/azure/new-azureps-module-az) fornisce un set di cmdlet che usa il modello di [Azure Resource Manager](../../azure-resource-manager/management/overview.md) per la gestione delle risorse di Azure. È possibile usarlo nel browser con [Azure cloud Shell](../../cloud-shell/overview.md)oppure è possibile installarlo nel computer locale seguendo le istruzioni riportate in [Install the Azure PowerShell Module](/powershell/azure/install-az-ps). 
 
 Se è già installato in locale, assicurarsi di usare la versione più recente di Azure PowerShell SDK per configurare Crittografia dischi di Azure. Scaricare la versione più recente di [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
@@ -193,16 +193,16 @@ Usare il cmdlet [set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/
 
 La tabella seguente elenca i parametri del modello di Resource Manager per macchine virtuali esistenti o in esecuzione:
 
-| Parametro | Descrizione |
+| Parametro | Description |
 | --- | --- |
 | vmName | Nome della macchina virtuale per eseguire l'operazione di crittografia. |
-| keyVaultName | Nome dell'insieme di credenziali delle chiavi in cui deve essere caricata la chiave di crittografia. È possibile ottenerlo usando il cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` o il comando dell'interfaccia della riga di comando di Azure `az keyvault list --resource-group "MyKeyVaultResourceGroupName"`.|
+| keyVaultName | Nome dell'insieme di credenziali delle chiavi in cui deve essere caricata la chiave di crittografia. È possibile ottenerlo usando il cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` o l'interfaccia della riga di comando di Azure `az keyvault list --resource-group "MyKeyVaultResourceGroupName"`.|
 | keyVaultResourceGroup | Nome del gruppo di risorse che contiene l'insieme di credenziali delle chiavi. |
 |  keyEncryptionKeyURL | URL della chiave di crittografia della chiave usata per crittografare la chiave di crittografia. Questo parametro è facoltativo se si seleziona **nokek** dall'elenco a discesa UseExistingKek. Se si seleziona **kek** dall'elenco a discesa UseExistingKek, è necessario immettere il valore _keyEncryptionKeyURL_. |
 | volumeType | Tipo del volume in cui viene eseguita l'operazione di crittografia. I valori validi sono _OS_, _Data_ e _All_. 
 | forceUpdateTag | Ogni volta che è necessario forzare l'esecuzione dell'operazione, passare un valore univoco, ad esempio un GUID. |
 | resizeOSDisk | La partizione del sistema operativo deve essere ridimensionata in modo da occupare il disco rigido virtuale completo del sistema operativo prima della divisione del volume di sistema. |
-| location | Posizione per tutte le risorse. |
+| posizione | Posizione per tutte le risorse. |
 
 
 ## <a name="use-encryptformatall-feature-for-data-disks-on-linux-vms"></a>Usare la funzionalità EncryptFormatAll per i dischi dati nelle macchine virtuali Linux
@@ -345,7 +345,7 @@ A differenza della sintassi di PowerShell, l'interfaccia della riga di comando n
 
       Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType 'data' –SequenceVersion $sequenceVersion -skipVmBackup;
       ```
-- **Crittografare i volumi di dati di una macchina virtuale in esecuzione tramite una chiave di crittografia della chiave:** i valori accettabili per il parametro -VolumeType sono All, OS e Data. Se la macchina virtuale è stata precedentemente crittografata con un tipo di volume "OS" o "All", impostare il parametro -VolumeType su All, in modo che vengano inclusi sia il disco del sistema operativo che il nuovo disco dati.
+- **Crittografare i volumi di dati di una macchina virtuale in esecuzione tramite una chiave di crittografia della chiave:** i valori accettabili per il parametro -VolumeType sono All, OS e Data. Se la macchina virtuale è stata precedentemente crittografata con un tipo di volume "OS" o "All", il parametro -VolumeType deve essere modificato in All, in modo che vengano inclusi sia il disco del sistema operativo sia il nuovo disco dati.
 
      ```azurepowershell
       $KVRGname = 'MyKeyVaultResourceGroup';
@@ -399,9 +399,10 @@ Crittografia dischi di Azure non funziona per gli scenari, le funzionalità e la
 - Volumi dinamici.
 - Dischi del sistema operativo effimeri.
 - Crittografia dei file system condivisi/distribuiti, ad esempio (ma non limitati): DFS, GFS, DRDB e CephFS.
+- Dump di arresto anomalo del kernel (kdump).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Panoramica di crittografia dischi di Azure](disk-encryption-overview.md)
-- [Script di esempio di crittografia dischi di Azure](disk-encryption-sample-scripts.md)
-- [Risoluzione dei problemi di crittografia dischi di Azure](disk-encryption-troubleshooting.md)
+- [Informazioni su Crittografia dischi di Azure](disk-encryption-overview.md)
+- [Script di esempio per la crittografia dischi di Azure](disk-encryption-sample-scripts.md)
+- [Guida alla risoluzione dei problemi di crittografia dischi di Azure](disk-encryption-troubleshooting.md)

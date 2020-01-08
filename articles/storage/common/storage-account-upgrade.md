@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 7c7b0a0bb79f3f00d7a8dff64ec1b7143241a1f8
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: e7228556659a7a4a9f01ea31f61e75b5e870d50c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892227"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457425"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Eseguire l'aggiornamento a un account di archiviazione per utilizzo generico v2
 
@@ -24,7 +24,7 @@ L'aggiornamento a un account di archiviazione per utilizzo generico v2 da un acc
 > [!IMPORTANT]
 > L'aggiornamento di un account di archiviazione BLOB o per utilizzo generico V1 a utilizzo generico V2 è permanente e non può essere annullato.
 
-# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Passare all'account di archiviazione.
@@ -46,7 +46,7 @@ Chiamare quindi il comando seguente per aggiornare l'account, sostituendo il nom
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
 ```
-# <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Per aggiornare un account per utilizzo generico v1 a un account per utilizzo generico v2 con l'interfaccia della riga di comando di Azure, installare prima l'ultima versione dell'interfaccia della riga di comando di Azure. Per informazioni sull'installazione dell'interfaccia della riga di comando, vedere [Install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) (Installare l'interfaccia della riga di comando di Azure 2.0).
 
@@ -168,4 +168,3 @@ I costi di trasferimento dati con replica geografica per gli account di archivia
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Creare un account di archiviazione](storage-quickstart-create-account.md)
-* [Gestire gli account di archiviazione di Azure](storage-account-manage.md)

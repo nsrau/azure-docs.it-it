@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 34975a1752467c61ea5b329210473eee266c98d1
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: ca60ed68277486ca5ed7d7d90ad72506a4844936
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900407"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398078"
 ---
 # <a name="creating-charts-and-diagrams-from-azure-monitor-log-queries"></a>Creazione di grafici e diagrammi da query di Monitoraggio di Azure
 
@@ -34,7 +34,7 @@ Heartbeat
 
 Per impostazione predefinita, i risultati vengono visualizzati sotto forma di tabella:
 
-![Table](media/charts/table-display.png)
+![Tabella](media/charts/table-display.png)
 
 Per una visualizzazione più efficace dei risultati, selezionare **Grafico** e scegliere l'opzione **Torta**:
 

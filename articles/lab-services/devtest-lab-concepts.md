@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 08cae51da20b6093b284618de92c61aab4bf5b55
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22fd78ccd58be1790fcd167da396600e8b876564
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65508376"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428908"
 ---
-# <a name="devtest-labs-concepts"></a>Concetti di Lab di sviluppo e test
-## <a name="overview"></a>Panoramica
+# <a name="devtest-labs-concepts"></a>Concetti relativi a DevTest Labs
+## <a name="overview"></a>Overview
 L'elenco seguente contiene le definizioni e i concetti chiave di Lab di sviluppo e test:
 
 ## <a name="labs"></a>Lab
@@ -38,25 +38,25 @@ Una macchina virtuale di Azure a disposizione degli utenti è una macchina virtu
 
 Una macchina virtuale a disposizione degli utenti non viene inizialmente assegnata ad alcun utente specifico, ma viene visualizzata nell'elenco di ogni utente in "Claimable virtual machines" (Macchine virtuali a disposizione degli utenti). Se una macchina virtuale viene richiesta da un utente, viene spostata nell'area "My virtual machines" (Le mie macchine virtuali) e non è più disponibile per altri utenti.
 
-## <a name="environment"></a>Environment
+## <a name="environment"></a>Ambiente
 In DevTest Labs il termine ambiente indica una raccolta di risorse di Azure in un lab. In [questo post di blog](https://blogs.msdn.microsoft.com/devtestlab/2016/11/16/connect-2016-news-for-azure-devtest-labs-azure-resource-manager-template-based-environments-vm-auto-shutdown-and-more/) viene discussa la creazione di ambienti con più macchine virtuali a partire da modelli di Azure Resource Manager.
 
 ## <a name="base-images"></a>Immagini di base
 Le immagini di base sono immagini di macchine virtuali con tutti gli strumenti e le impostazioni preinstallati e configurati per creare rapidamente una macchina virtuale. È possibile eseguire il provisioning di una macchina virtuale scegliendo una base esistente e aggiungendo un elemento per installare l'agente di test. È quindi possibile salvare la macchina virtuale di cui è stato effettuato il provisioning come base in modo che la base possa essere utilizzata senza la necessità di reinstallare l'agente di test per ogni processo di provisioning della macchina virtuale.
 
-## <a name="artifacts"></a>Elementi
+## <a name="artifacts"></a>Artefatti
 Gli elementi vengono usati per distribuire e configurare l'applicazione dopo il provisioning di una macchina virtuale. Gli elementi possono essere:
 
 * Strumenti che si vuole installare nella VM, come agenti, Fiddler, Visual Studio.
 * Azioni che si desidera eseguire sulla macchina virtuale, ad esempio la clonazione di un archivio.
-* Applicazioni che si vuole testare.
+* Applicazioni che vuoi testare.
 
-Gli elementi sono file JSON basati su [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) che contengono istruzioni per eseguire la distribuzione e applicare la configurazione.
+Gli elementi sono file JSON basati su [Azure Resource Manager](../azure-resource-manager/management/overview.md) che contengono istruzioni per eseguire la distribuzione e applicare la configurazione.
 
 ## <a name="artifact-repositories"></a>Repository di elementi
 I repository di elementi sono repository git in cui vengono archiviati gli elementi. È possibile aggiungere gli stessi archivi di elementi a più lab all'interno dell'organizzazione consentendone il riuso e la condivisione.
 
-## <a name="formulas"></a>Formule
+## <a name="formulas"></a>formule
 Le formule, oltre alle immagini di base, offrono un meccanismo per il provisioning rapido di VM. Una formula è un elenco di valori predefiniti di proprietà usati nei lab di sviluppo/test per creare macchine virtuali.
 Con le formule, è possibile creare VM con lo stesso insieme di proprietà (come l'immagine base, la dimensione della VM, la rete virtuale e gli elementi), senza il bisogno di specificare tali proprietà ogni volta. Quando si crea una VM da una formula, i valori predefiniti possono essere modificati o usati così come sono.
 
@@ -82,7 +82,7 @@ Per informazioni sulla creazione di ruoli personalizzati in DevTest Labs, vedere
 
 Poiché gli ambiti sono gerarchici, quando un utente ha le autorizzazioni per un determinato ambito, gli vengono automaticamente concesse tali autorizzazioni per ogni ambito di livello inferiore incluso. Ad esempio, se un utente è assegnato al ruolo di proprietario della sottoscrizione, ha accesso a tutte le risorse in una sottoscrizione, che includono tutte le macchine virtuali, tutte le reti virtuali e tutti i lab. Il proprietario di una sottoscrizione eredita quindi automaticamente il ruolo di proprietario del lab, ma non il contrario. Il proprietario di un lab ha accesso a un lab, che è un ambito più basso del livello della sottoscrizione. Il proprietario di un lab quindi non potrà visualizzare le macchine virtuali, le reti virtuali o nessuna altra risorsa esterna al lab.
 
-## <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
+## <a name="azure-resource-manager-templates"></a>Modelli di Azure Resource Manager
 Tutti i concetti illustrati in questo articolo possono essere configurati con i modelli di Azure Resource Manager, che consentono di definire l'infrastruttura e la configurazione della soluzione di Azure e distribuirle ripetutamente in uno stato coerente.
 
 L'articolo [Comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#template-format) descrive la struttura di un modello di Azure Resource Manager e le proprietà disponibili nelle diverse sezioni di un modello.

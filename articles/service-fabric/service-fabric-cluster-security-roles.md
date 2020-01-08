@@ -1,25 +1,14 @@
 ---
-title: 'Sicurezza di un cluster di Service Fabric: ruoli client | Microsoft Docs'
+title: 'Sicurezza del cluster Service Fabric: ruoli client'
 description: In questo articolo vengono descritti i due ruoli client e le autorizzazioni fornite per i ruoli.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: coreysa
-editor: ''
-ms.assetid: 7bc808d9-3609-46a1-ac12-b4f53bff98dd
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: 38656d286cae631cb5def0e0c8b171268e4cf428
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: abca19e686d39338fcaa2e0b0c8126913135170b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167256"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451891"
 ---
 # <a name="role-based-access-control-for-service-fabric-clients"></a>Controllo di accesso basato sui ruoli per i client di Service Fabric
 Azure Service Fabric supporta due tipi di controllo di accesso diversi per i client connessi a un cluster di Service Fabric: amministratore e utente. Il Controllo di accesso consente all'amministratore del cluster di limitare l'accesso a determinate operazioni del cluster per diversi gruppi di utenti, rendendo più sicuro il cluster.  
@@ -52,9 +41,9 @@ Il tipo di controllo di accesso dell’amministratore ha accesso completo a tutt
 * **RecoverSystemPartitions**: ripristino di partizioni del servizio di sistema                             
 
 ### <a name="cluster-operations"></a>Operazioni del cluster
-* **ProvisionFabric**: Provisioning del manifesto del cluster e/o MSI                             
+* **ProvisionFabric**: provisioning del manifesto del cluster e/o del file con estensione msi                             
 * **UpgradeFabric**: avvio degli aggiornamenti del cluster                             
-* **UnprovisionFabric**: Annullamento del provisioning del manifesto del cluster e/o MSI                         
+* **UnprovisionFabric**: annullamento del provisioning del manifesto del cluster e/o del file con estensione msi                         
 * **MoveNextFabricUpgradeDomain**: ripresa degli aggiornamenti del cluster con un dominio di aggiornamento esplicito                             
 * **ReportFabricUpgradeHealth**: ripresa degli aggiornamenti del cluster con lo stato di avanzamento corrente                             
 * **StartInfrastructureTask**: avvio delle attività di infrastruttura                             

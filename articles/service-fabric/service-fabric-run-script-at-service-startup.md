@@ -1,25 +1,16 @@
 ---
-title: Eseguire uno script all'avvio di un servizio di Azure Service Fabric | Microsoft Docs
+title: Eseguire uno script all'avvio di un servizio Service Fabric di Azure
 description: Informazioni su come configurare criteri per un punto di ingresso dell'installazione di un servizio di Service Fabric e su come eseguire uno script al momento dell'avvio del servizio.
-services: service-fabric
-documentationcenter: .net
 author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/21/2018
 ms.author: atsenthi
-ms.openlocfilehash: 76be814e0dd4c054fc3a873716dbfe395eeeb2dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a25f16f08ab8ae9564363f179d19d4b30c5315fa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837786"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464280"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Eseguire uno script di avvio del servizio come account utente o di sistema locale
 Prima dell'avvio del file eseguibile di un servizio di Service Fabric può essere necessario eseguire alcune operazioni di configurazione o di installazione,  ad esempio la configurazione delle variabili di ambiente. Nel manifesto del servizio è possibile specificare di eseguire uno script prima dell'avvio dell'eseguibile del servizio stesso. La configurazione di criteri RunAs per il punto di ingresso dell'installazione del servizio consente di modificare l'account di esecuzione dell'eseguibile di installazione.  Un punto di ingresso dell'installazione separato consente di eseguire una configurazione con privilegi elevati per un breve periodo di tempo, in modo che non sia necessario eseguire con privilegi elevati il file eseguibile dell'host servizio per periodi di tempo prolungati.

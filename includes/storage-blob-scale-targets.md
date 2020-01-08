@@ -4,14 +4,14 @@ ms.service: storage
 ms.topic: include
 ms.date: 11/08/2019
 ms.author: tamram
-ms.openlocfilehash: 0fda881b805eb3a967cf3b05f6c6df8c65d20730
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 2ed88d8abb7cbe96093b68d89030e6e464a35541
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73905786"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392315"
 ---
-| Risorsa | Destinazione        |
+| Gruppi | Obiettivo        |
 |----------|---------------|
 | Dimensioni massime di un singolo contenitore BLOB | Uguale alla capacità massima dell'account di archiviazione |
 | Numero massimo di blocchi in un BLOB in blocchi o in un BLOB di Accodamento | 50.000 blocchi |
@@ -25,4 +25,4 @@ ms.locfileid: "73905786"
 |Velocità effettiva di destinazione per un singolo BLOB di pagine | Fino a 60 MiB al secondo |
 |Velocità effettiva di destinazione per un singolo BLOB in blocchi |Fino a limiti di ingresso/uscita dell'account di archiviazione<sup>1</sup> |
 
-<sup>1</sup> la velocità effettiva di un singolo oggetto dipende da diversi fattori, tra cui: concorrenza, dimensioni della richiesta, livello di prestazioni, velocità dell'origine per i caricamenti e destinazione per i download. Per sfruttare i vantaggi offerti dai miglioramenti delle prestazioni dei [BLOB in blocchi con velocità effettiva elevata](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) , usare una dimensione Put Blob o Put Block request di > 4 MiB (> 256 KiB per l'archiviazione BLOB in blocchi a prestazioni Premium o per data Lake storage Gen2).
+<sup>1</sup> la velocità effettiva per un singolo BLOB dipende da diversi fattori, tra cui: concorrenza, dimensioni della richiesta, livello di prestazioni, velocità dell'origine per i caricamenti e destinazione per i download. Per sfruttare i miglioramenti apportati alle prestazioni di [BLOB in blocchi con velocità effettiva elevata](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/), caricare BLOB o blocchi più grandi. In particolare, chiamare l'operazione [Put Blob](/rest/api/storageservices/put-blob) o [Put Block](/rest/api/storageservices/put-block) con un BLOB o una dimensione del blocco maggiore di 4 MiB per gli account di archiviazione standard. Per i BLOB in blocchi Premium o per Data Lake Storage Gen2 account di archiviazione, usare una dimensione del BLOB o del blocco maggiore di 256 KiB.

@@ -3,12 +3,12 @@ title: Dettagli della struttura delle definizioni dei criteri
 description: Viene descritto come vengono usate le definizioni dei criteri per stabilire le convenzioni per le risorse di Azure nell'organizzazione.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2126415c3ae7ecb14a47c79dacd67aee656cd745
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f1baffb60234a154df544552dba3c34ced25b518
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894296"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436420"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -20,7 +20,7 @@ Lo schema di definizione dei criteri è disponibile qui: [https://schema.managem
 Per creare una definizione di criterio è possibile usare JSON. La definizione dei criteri contiene gli elementi per:
 
 - mode
-- Parametri
+- parametri
 - nome visualizzato
 - description
 - regola dei criteri
@@ -90,7 +90,7 @@ Le modalità del provider di risorse seguenti sono attualmente supportate durant
 > [!NOTE]
 > Le modalità del provider di risorse supportano solo le definizioni dei criteri predefinite e non supportano le iniziative in fase di anteprima.
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>Parametri
 
 I parametri consentono di semplificare la gestione dei criteri, riducendone il numero di definizioni. I parametri possono essere paragonati ai campi di un modulo: `name`, `address`, `city`, `state`. Questi parametri rimangono sempre invariati, ma i loro valori cambiano a seconda dei dati immessi durante la compilazione del modulo da parte dei singoli utenti.
 I parametri funzionano nello stesso modo durante la creazione di criteri. L'inclusione dei parametri in una definizione dei criteri consente di riutilizzare i singoli criteri in vari scenari mediante l'uso di valori diversi.
@@ -308,7 +308,7 @@ Nell'esempio seguente, `concat` viene usato per creare una ricerca nei campi di 
 }
 ```
 
-### <a name="value"></a>Value
+### <a name="value"></a>Valore
 
 Le condizioni possono essere formate anche usando **value**. **value** controlla le condizioni rispetto a [parametri](#parameters), [funzioni di modello supportate](#policy-functions) o valori letterali.
 **value** è associato a qualsiasi [condizione](#conditions) supportata.
@@ -318,7 +318,7 @@ Le condizioni possono essere formate anche usando **value**. **value** controlla
 
 #### <a name="value-examples"></a>Esempi d'uso di value
 
-Questa regola dei criteri usa **value** per confrontare il risultato della funzione `resourceGroup()` e la proprietà restituita **name** rispetto a una condizione **like** di `*netrg`. La regola respinge qualsiasi risorsa che non faccia parte di **type** `Microsoft.Network/*` in qualsiasi gruppo di risorse il cui nome termina con `*netrg`.
+Questa regola dei criteri usa **value** per confrontare il risultato della funzione `resourceGroup()` e la proprietà restituita **name** rispetto a una condizione **like** di `*netrg`. La regola nega qualsiasi risorsa non del **tipo** di `Microsoft.Network/*` in un gruppo di risorse il cui nome termina con `*netrg`.
 
 ```json
 {
@@ -339,7 +339,7 @@ Questa regola dei criteri usa **value** per confrontare il risultato della funzi
 }
 ```
 
-Questa regola dei criteri usa **value** per verificare se il risultato di più funzioni annidate corrisponde a **equals** `true`. La regola respinge qualsiasi risorsa che non dispone di almeno tre tag.
+Questo esempio di regola dei criteri USA **value** per verificare se il risultato di più funzioni annidate **è uguale** a `true`. La regola respinge qualsiasi risorsa che non dispone di almeno tre tag.
 
 ```json
 {
@@ -374,9 +374,9 @@ L'utilizzo delle _funzioni di modello_ in **value** consente numerose funzioni a
 }
 ```
 
-La regola dei criteri di esempio precedente USA [substring ()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring) per confrontare i primi tre caratteri di **nome** in **ABC**. Se il **nome** è più breve di tre caratteri, la funzione `substring()` genera un errore. Questo errore fa sì che i criteri diventino un effetto **negato** .
+La regola dei criteri di esempio precedente USA [substring ()](../../../azure-resource-manager/templates/template-functions-string.md#substring) per confrontare i primi tre caratteri di **nome** in **ABC**. Se il **nome** è più breve di tre caratteri, la funzione `substring()` genera un errore. Questo errore fa sì che i criteri diventino un effetto **negato** .
 
-Utilizzare invece la funzione [if ()](../../../azure-resource-manager/resource-group-template-functions-logical.md#if) per verificare se i primi tre caratteri del **nome** corrispondono a **ABC** senza consentire a un **nome** più breve di tre caratteri di generare un errore:
+Utilizzare invece la funzione [if ()](../../../azure-resource-manager/templates/template-functions-logical.md#if) per verificare se i primi tre caratteri del **nome** corrispondono a **ABC** senza consentire a un **nome** più breve di tre caratteri di generare un errore:
 
 ```json
 {
@@ -655,7 +655,7 @@ L'elenco degli alias è in costante crescita. Per scoprire quali alias sono attu
 
 ### <a name="understanding-the--alias"></a>Informazioni sull'alias [*]
 
-Molti degli alias disponibili hanno una versione che viene visualizzata come nome "normale" e un'altra con **\[\*\]** collegato. ad esempio:
+Molti degli alias disponibili hanno una versione che viene visualizzata come nome "normale" e un'altra con **\[\*\]** collegato. Ad esempio:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`

@@ -1,25 +1,16 @@
 ---
-title: Configurare l'aggiornamento di un'applicazione di Service Fabric | Documentazione Microsoft
+title: Configurare l'aggiornamento di un'applicazione di Service Fabric
 description: Informazioni su come configurare le impostazioni per l'aggiornamento di un'applicazione di Infrastruttura di servizi con Microsoft Visual Studio.
-services: service-fabric
-documentationcenter: na
 author: mikkelhegn
-manager: mfussell
-editor: tglee
-ms.assetid: 1757ba85-0b7b-4f16-8a23-2ddaa61c86c6
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 06/29/2017
 ms.author: mikhegn
-ms.openlocfilehash: 5979541146b7cd7b854f35c5bf204e71208f066b
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: ef88a528dbb6d326e5cc742d14c27218eb7502f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876749"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464071"
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Configurare l'aggiornamento di un'applicazione di Infrastruttura di servizi in Visual Studio
 Gli strumenti di Visual Studio per Service Fabric di Azure forniscono supporto per l'aggiornamento per la pubblicazione nei cluster locali o remoti. Esistono tre scenari in cui è consigliabile eseguire l'aggiornamento dell'applicazione a una versione più recente anziché sostituirla durante il test e il debug:
@@ -31,7 +22,7 @@ Gli strumenti di Visual Studio per Service Fabric di Azure forniscono supporto p
 ## <a name="parameters-needed-to-upgrade"></a>Parametri necessari per l'aggiornamento
 È possibile scegliere tra due tipi di distribuzione: normale o aggiornata. Una distribuzione regolare cancella qualsiasi informazione di distribuzioni precedenti e i dati nel cluster, mentre una distribuzione di un aggiornamento li conserva. Quando si aggiorna un'applicazione di Infrastruttura di servizi in Visual Studio, è necessario fornire parametri di aggiornamento dell’applicazione e criteri per il controllo dell’integrità. I parametri di aggiornamento dell'applicazione consentono di controllare l'aggiornamento, mentre i criteri di controllo dell'integrità determinano se l'aggiornamento è avvenuto correttamente. Vedere l'articolo relativo all' [aggiornamento di un'applicazione di Service Fabric e i parametri di aggiornamento](service-fabric-application-upgrade-parameters.md) per ulteriori dettagli.
 
-Sono disponibili tre modalità di aggiornamento: *Monitored*, *UnmonitoredAuto*e *UnmonitoredManual*.
+Sono disponibili tre modalità di aggiornamento: *Monitored*, *UnmonitoredAuto* e *UnmonitoredManual*.
 
 * Un aggiornamento Monitored consente di automatizzare l'aggiornamento e il controllo dell'integrità dell'applicazione.
 * Un aggiornamento UnmonitoredAuto consente di automatizzare l'aggiornamento, ma ignorando il controllo dell'integrità dell'applicazione.

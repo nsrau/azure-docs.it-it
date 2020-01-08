@@ -7,18 +7,18 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: daeb09acd11d727b11ad8a7b98d97ff90fddc6d8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c17576bb8cd772742b5335000a2453ff34753779
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228253"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457076"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Riferimento - Quote e limitazioni dell'hub IoT
 
 Questo articolo illustra le quote per un hub Internet e fornisce informazioni utili per comprendere il funzionamento della limitazione delle richieste.
 
-## <a name="quotas-and-throttling"></a>Quote e limitazione
+## <a name="quotas-and-throttling"></a>Quote e limitazioni
 
 Ogni sottoscrizione di Azure può avere al massimo 50 hub IoT e al massimo un hub gratuito.
 
@@ -26,7 +26,7 @@ Il provisioning di ogni hub IoT viene eseguito con un determinato numero di unit
 
 Il livello determina anche le limitazioni che l'hub IoT applica alle operazioni.
 
-### <a name="iot-plug-and-play"></a>Plug and Play IoT
+### <a name="iot-plug-and-play"></a>IoT Plug and Play
 
 Durante la fase di anteprima pubblica, gli Plug and Play dispositivi invieranno messaggi distinti per interfaccia, che potrebbero aumentare il numero di messaggi conteggiati per la quota del messaggio.
 
@@ -104,8 +104,8 @@ L'hub IoT applica altri limiti operativi:
 | Messaggistica da dispositivo a cloud | Dimensioni massime dei messaggi 256 KB |
 | Messaggistica da cloud a dispositivo<sup>1</sup> | La dimensione massima dei messaggi è 64 KB. Il numero massimo di messaggi in sospeso per il recapito è 50 per ogni dispositivo. |
 | Metodo diretto<sup>1</sup> | La dimensione massima del payload del metodo diretto è 128 KB. |
-| Configurazioni automatiche dei dispositivi<sup>1</sup> | 100 configurazioni per hub SKU a pagamento. 20 configurazioni per hub SKU gratuito. |
-| IoT Edge le distribuzioni automatiche<sup>1</sup> | 20 moduli per distribuzione. 100 distribuzioni per hub SKU a pagamento. 10 distribuzioni per hub SKU gratuito. |
+| Configurazioni automatiche di dispositivi e moduli<sup>1</sup> | 100 configurazioni per hub SKU a pagamento. 20 configurazioni per hub SKU gratuito. |
+| IoT Edge le distribuzioni automatiche<sup>1</sup> | 20 moduli per distribuzione. 100 distribuzioni (incluse le distribuzioni su più livelli) per hub SKU a pagamento. 10 distribuzioni per hub SKU gratuito. |
 | Dispositivi gemelli<sup>1</sup> | Le sezioni dimensioni massime delle proprietà desiderate e delle proprietà segnalate sono 32 KB ognuna. La dimensione massima della sezione dei tag è 8 KB. |
 
 <sup>1</sup>Questa funzionalità non è disponibile nel livello di base dell'hub IoT. Per altre informazioni, vedere [How to choose the right IoT Hub](iot-hub-scaling.md) (Come scegliere il livello dell'hub IoT corretto).

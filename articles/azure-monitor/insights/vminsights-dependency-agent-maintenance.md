@@ -4,15 +4,15 @@ description: In questo articolo viene descritto come aggiornare il Monitoraggio 
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 09/30/2019
-ms.openlocfilehash: f062dead8d479fe4da5de46b76b82cee9207bd83
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 548a578365b03162396fb8618718ab1e7ce5b081
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933707"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75400807"
 ---
 # <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>Come aggiornare l'agente di dipendenza Monitoraggio di Azure per le macchine virtuali
 
@@ -46,7 +46,7 @@ Per aggiornare l'agente in una macchina virtuale Windows alla versione più rece
 
 6. Nella finestra di dialogo **Dependency Agent disinstallazione 9.9.0** fare clic su **Disinstalla** per procedere con la disinstallazione della versione precedente dal percorso specificato nella finestra di dialogo. 
 
-7. Nella finestra di dialogo **Dependency Agent 9.9.0 Uninstall** lo stato della disinstallazione viene visualizzato e, al termine, viene visualizzata la pagina **completamento Dependency Agent disinstallazione** . Fare clic su **Finish** (Fine).
+7. Nella finestra di dialogo **Dependency Agent 9.9.0 Uninstall** lo stato della disinstallazione viene visualizzato e, al termine, viene visualizzata la pagina **completamento Dependency Agent disinstallazione** . Fare clic su **Fine**.
 
 8. Nella finestra di dialogo **Dependency Agent installazione 9.9.1** viene visualizzato lo stato di avanzamento dell'installazione. Quando viene visualizzata la pagina **completamento Dependency Agent disinstallazione** , fare clic su **fine**. 
 
@@ -54,7 +54,7 @@ Per aggiornare l'agente in una macchina virtuale Windows alla versione più rece
 
 1. Accedere al computer con un account con diritti amministrativi.
 
-2. Eseguire il comando indicato di seguito.
+2. Eseguire il comando seguente.
 
     ```dos
     InstallDependencyAgent-Windows.exe /S /RebootMode=manual

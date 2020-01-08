@@ -7,13 +7,13 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: 12372c1f00e994382338adf9bd078018ba702da1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 01/06/2020
+ms.openlocfilehash: 0c2441aaf0cffd357f917a8c600f7399b339bfb6
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74213356"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689080"
 ---
 # <a name="create-a-new-saas-offer"></a>Creare una nuova offerta SaaS
 
@@ -24,19 +24,19 @@ Per iniziare a creare offerte SaaS (software as a Service), prima di tutto è ne
 >[!Note]
 > Dopo la pubblicazione di un'offerta, le modifiche apportate all'offerta nel centro per i partner verranno aggiornate solo nel sistema e archiviano i front-end dopo la nuova pubblicazione. Assicurarsi di inviare l'offerta per la pubblicazione dopo avere apportato le modifiche.
 
-Selezionare l' **offerta + nuova...** , quindi selezionare la voce **di menu software come servizio** . 
+Selezionare l' **offerta + nuova...** , quindi selezionare la voce **di menu software come servizio** .
 
 Se si seleziona un altro tipo di offerta, è possibile che venga reindirizzato al [portale cloud partner](https://cloudpartner.azure.com/)precedente. Solo le offerte SaaS e Dynamics 365 sono disponibili nel portale del Marketplace commerciale al momento nel centro per i partner.
 
 ![Crea finestra offerta nel centro per i partner](./media/new-offer-click.png)
 
-Verrà visualizzata la finestra di dialogo **nuova offerta** . 
+Verrà visualizzata la finestra di dialogo **nuova offerta** .
 
 ![Finestra di dialogo nuova offerta](./media/new-offer-popup.png)
 
 ## <a name="offer-id-and-alias"></a>ID offerta e alias
 
-- **ID offerta**: identificatore univoco per ogni offerta nell'account. Questo ID sarà visibile ai clienti nell'indirizzo URL per l'offerta del Marketplace e i modelli Azure Resource Manager (se applicabile). L'ID offerta deve essere minuscolo, alfanumerico (inclusi trattini e caratteri di sottolineatura, ma senza spazi vuoti). Questa operazione è limitata a 50 caratteri e non può essere modificata dopo aver selezionato *Crea*.  
+- **ID offerta**: identificatore univoco per ogni offerta nell'account. Questo ID sarà visibile ai clienti nell'indirizzo URL per l'offerta del Marketplace e i modelli Azure Resource Manager (se applicabile). L'ID offerta deve essere minuscolo, alfanumerico (inclusi trattini e caratteri di sottolineatura, ma senza spazi vuoti). L' **ID offerta** è limitato a 50 caratteri e non può essere modificato dopo aver selezionato *Crea*.  
 Esempio: test-offer-1
 <br>Risultato dell'URL: `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
 
@@ -44,7 +44,7 @@ Esempio: test-offer-1
 
 <br>Esempio: offerta di test 1&#8482;
 
-Selezionare **Create**.  Viene creata una pagina di **Panoramica dell'offerta** per questa offerta.  
+Selezionare **Create** (Crea).  Viene creata una pagina di **Panoramica dell'offerta** per questa offerta.  
 
 <!---
 ![Offer overview on Partner Center](./media/commercial-marketplace-offer-overview.png)
@@ -52,23 +52,23 @@ Selezionare **Create**.  Viene creata una pagina di **Panoramica dell'offerta** 
 
 ## <a name="offer-overview"></a>Panoramica dell'offerta
 
-La pagina **Panoramica dell'offerta** include: 
+La pagina **Panoramica dell'offerta** include:
 
-- Lo **stato di pubblicazione** consente di visualizzare una rappresentazione visiva dei passaggi necessari per pubblicare l'offerta e il tempo necessario per il completamento di ogni passaggio. Le icone delle fasi di pubblicazione incomplete saranno visualizzate in grigio. 
+- Lo **stato di pubblicazione** consente di visualizzare una rappresentazione visiva dei passaggi necessari per pubblicare l'offerta e il tempo necessario per il completamento di ogni passaggio. Le icone delle fasi di pubblicazione incomplete saranno visualizzate in grigio.
 
 - Il menu **Panoramica dell'offerta** contiene un elenco di collegamenti per l'esecuzione di operazioni su questa offerta. Questo elenco di operazioni verrà modificato in base alla selezione effettuata per l'offerta.  
-    - Se l'offerta è una bozza di eliminazione 
-    - Se l'offerta è un'offerta di vendita Live-stop 
-    - Se l'offerta è in anteprima-Go-Live 
+    - Se l'offerta è una bozza di eliminazione
+    - Se l'offerta è un'offerta di vendita Live-stop
+    - Se l'offerta è in anteprima-Go-Live
     - Se la disconnessione del server di pubblicazione non è stata completata, Annulla pubblicazione
 
 ## <a name="offer-setup"></a>Installazione dell'offerta
 
 La scheda **installazione offerta** richiede le informazioni seguenti. Selezionare **Salva** dopo aver completato questi campi.
 
-- **Si vuole vendere tramite Microsoft?** (Sì/no)
+- **Si vuole vendere tramite Microsoft?** (Sì/No)
     - **Sì**, vuoi vendere la tua offerta tramite Microsoft, con Microsoft che ospita le transazioni del Marketplace per conto tuo. o 
-    - **No**, preferisci semplicemente elencare l'offerta attraverso i Marketplace, elaborando le transazioni monetarie in modo indipendente da Microsoft.    
+    - **No**, preferisci semplicemente elencare l'offerta attraverso i Marketplace, elaborando le transazioni monetarie in modo indipendente da Microsoft.
 
 ### <a name="sell-through-microsoft"></a>Vendita tramite Microsoft
 
@@ -102,11 +102,11 @@ La tabella seguente illustra un esempio di suddivisione dei costi e dei pagament
 - Ai partner qualificati per la **Tariffa ridotta del servizio Marketplace** verrà visualizzato un importo ridotto delle transazioni sulle offerte SaaS, dal 2019 maggio fino al giugno 2020. In questo scenario Microsoft fattura $100,00 per la licenza software e paga $90,00 all'editore.
 
 > [!NOTE]
-> **Costo del servizio Marketplace ridotto**: per alcune offerte SaaS pubblicate sul nostro Marketplace commerciale, Microsoft ridurrà la tariffa del servizio Marketplace dal 20% (come descritto nel contratto Microsoft Publisher) al 10%. Per qualificare l'offerta, è necessario che almeno una delle offerte sia stata designata da Microsoft come indirizzo di co-selling IP pronto o co-selling IP in ordine di priorità.  L'idoneità deve essere soddisfatta per almeno cinque (5) giorni lavorativi prima della fine di ogni mese di calendario per poter ricevere questa tariffa per il servizio Marketplace ridotta per il mese.  La tariffa ridotta del servizio Marketplace non si applica alle macchine virtuali, alle app gestite o ad altri prodotti resi disponibili tramite il Marketplace commerciale.  Il costo del servizio Marketplace ridotto sarà disponibile solo per le offerte qualificate per i costi di licenza raccolti da Microsoft tra il 1 ° maggio 2019 e il 30 giugno 2020.  Al termine di questo periodo di tempo, la tariffa del servizio Marketplace tornerà al valore normale. 
+> **Costo del servizio Marketplace ridotto**: per alcune offerte SaaS pubblicate sul nostro Marketplace commerciale, Microsoft ridurrà la tariffa del servizio Marketplace dal 20% (come descritto nel contratto Microsoft Publisher) al 10%. Per qualificare l'offerta, è necessario che almeno una delle offerte sia stata designata da Microsoft come indirizzo di co-selling IP pronto o co-selling IP in ordine di priorità.  L'idoneità deve essere soddisfatta per almeno cinque (5) giorni lavorativi prima della fine di ogni mese di calendario per poter ricevere questa tariffa per il servizio Marketplace ridotta per il mese.  La tariffa ridotta del servizio Marketplace non si applica alle macchine virtuali, alle app gestite o ad altri prodotti resi disponibili tramite il Marketplace commerciale.  Il costo del servizio Marketplace ridotto sarà disponibile solo per le offerte qualificate per i costi di licenza raccolti da Microsoft tra il 1 ° maggio 2019 e il 30 giugno 2020.  Al termine di questo periodo di tempo, la tariffa del servizio Marketplace tornerà al valore normale.
 
 ### <a name="list-through-microsoft"></a>Elenca tramite Microsoft
 
-Promuovere la propria azienda con Microsoft creando un elenco di Marketplace. Se si seleziona per elencare solo l'offerta e non la transazione tramite Microsoft, Microsoft non partecipa direttamente alle transazioni di licenza software. Non viene addebitata alcuna tariffa per le transazioni e l'editore mantiene il 100% dei costi di licenza software raccolti dal cliente. Tuttavia, il server di pubblicazione è responsabile del supporto di tutti gli aspetti della transazione di licenza software, inclusi, a titolo esemplificativo, evasione degli ordini, misurazione, fatturazione, fatturazione, pagamento e raccolta. 
+Promuovere la propria azienda con Microsoft creando un elenco di Marketplace. Se si seleziona per elencare solo l'offerta e non la transazione tramite Microsoft, Microsoft non partecipa direttamente alle transazioni di licenza software. Non viene addebitata alcuna tariffa per le transazioni e l'editore mantiene il 100% dei costi di licenza software raccolti dal cliente. Tuttavia, il server di pubblicazione è responsabile del supporto di tutti gli aspetti della transazione di licenza software, inclusi, a titolo esemplificativo, evasione degli ordini, misurazione, fatturazione, fatturazione, pagamento e raccolta.
 
 - **In che modo si desidera che i clienti possano interagire con questa offerta di inserzione?**
 
@@ -119,8 +119,8 @@ Elencare l'offerta ai clienti con un collegamento a una versione di valutazione 
 > [!NOTE]
 > I token che l'applicazione riceverà tramite il collegamento alla versione di valutazione può essere usato solo per ottenere informazioni sugli utenti tramite Azure AD per automatizzare la creazione di account nell'app. Gli account Microsoft (MSA) non sono supportati per l'autenticazione con questo token.
 
-##### <a name="contact-me"></a>Contact me (Contattami)
-Raccogliere le informazioni di contatto del cliente connettendosi al sistema CRM (Customer Relationship Management). Al cliente verrà richiesta l'autorizzazione a condividere le informazioni. Queste informazioni sui clienti, insieme al nome dell'offerta, all'ID e all'origine del Marketplace in cui è stata trovata l'offerta, verranno inviate al sistema CRM configurato. Per ulteriori informazioni sulla configurazione del CRM, vedere [Connect Lead Management](#connect-lead-management). 
+##### <a name="contact-me"></a>Contattami
+Raccogliere le informazioni di contatto del cliente connettendosi al sistema CRM (Customer Relationship Management). Al cliente verrà richiesta l'autorizzazione a condividere le informazioni. Queste informazioni sui clienti, insieme al nome dell'offerta, all'ID e all'origine del Marketplace in cui è stata trovata l'offerta, verranno inviate al sistema CRM configurato. Per ulteriori informazioni sulla configurazione del CRM, vedere [Connect Lead Management](#connect-lead-management).
 
 ## <a name="example-marketplace-offer-listing"></a>Elenco di offerte del Marketplace di esempio
 
@@ -160,35 +160,63 @@ Abilitando test drive, verrà richiesto di configurare un ambiente dimostrativo 
 Ricordarsi di **salvare** prima di procedere alla sezione successiva.
 
 ## <a name="properties"></a>Proprietà
-La scheda **Proprietà** richiede di definire le categorie e i settori usati per raggruppare l'offerta nei Marketplace, i contratti legali che supportano l'offerta e la versione dell'app. 
 
-Selezionare **Salva** dopo aver completato questi campi. 
+La scheda **Proprietà** richiede di definire le categorie e i settori usati per raggruppare l'offerta nei Marketplace, i contratti legali che supportano l'offerta e la versione dell'app.
+
+Selezionare **Salva** dopo aver completato questi campi.
 
 ### <a name="category"></a>Categoria
-Selezionare almeno uno (1) e un massimo di tre (3) categorie utilizzate per raggruppare l'offerta nelle aree di ricerca del Marketplace appropriate. Per scoprire come l'offerta supporta queste categorie nella descrizione dell'offerta. 
+
+Selezionare almeno uno (1) e un massimo di tre (3) categorie utilizzate per raggruppare l'offerta nelle aree di ricerca del Marketplace appropriate. Nella descrizione dell'offerta, richiamare il modo in cui l'offerta supporta queste categorie.
 
 ### <a name="industry"></a>Settore
 
 [!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### <a name="app-version"></a>Versione dell'app
-Si tratta di un campo facoltativo usato in AppSource Marketplace per identificare il numero di versione dell'offerta. 
 
-### <a name="standard-contract"></a>Contratto standard
+Si tratta di un campo facoltativo usato in AppSource Marketplace per identificare il numero di versione dell'offerta.
 
-- **Usare il contratto standard?**
+### <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Contratto standard per Microsoft Commercial Marketplace
 
-Per semplificare il processo di approvvigionamento per i clienti e ridurre la complessità giuridica per i fornitori di software, Microsoft offre un modello di contratto standard per facilitare una transazione nel Marketplace. 
+Microsoft fornisce un modello di contratto standard.
 
-Anziché creare termini e condizioni personalizzati, gli editori di Azure Marketplace possono scegliere di offrire il proprio software al di sotto del contratto standard, che i clienti devono solo controllare e accettare una sola volta. 
+- **Usare il contratto standard per Microsoft Commercial Marketplace?**
 
-Il contratto standard è disponibile qui: https://go.microsoft.com/fwlink/?linkid=2041178.
+Per semplificare il processo di approvvigionamento per i clienti e ridurre la complessità giuridica per i fornitori di software, Microsoft offre un contratto standard per Microsoft Commercial Marketplace, che consente di semplificare le transazioni nel Marketplace. Anziché creare termini e condizioni personalizzati, gli editori del Marketplace commerciale possono scegliere di offrire il proprio software al di sotto del contratto standard, che i clienti devono solo controllare e accettare una sola volta. Il contratto standard è disponibile qui: https://go.microsoft.com/fwlink/?linkid=2041178.
 
-#### <a name="terms-of-use"></a>Condizioni per l'utilizzo
+È possibile scegliere di utilizzare il contratto standard anziché fornire i termini e le condizioni personalizzati selezionando la casella di controllo "utilizza il contratto standard per il Marketplace commerciale".
 
-Se le condizioni di licenza sono diverse da quelle del contratto standard, è possibile scegliere di immettere le condizioni legali per l'utilizzo qui. Questi possono essere immessi come testo normale o come singolo URL che si collega alle condizioni di licenza.
+![Uso della casella di controllo contratto standard](./media/use-standard-contract.png)
 
-Per ottenere la versione di prova dell'app, i clienti devono accettare tali condizioni. 
+> [!NOTE]
+> Dopo la pubblicazione di un'offerta con il contratto standard per Microsoft Commercial Marketplace, non è possibile usare i termini e le condizioni personalizzati. Si tratta di uno scenario "or". È possibile offrire la propria soluzione in base al contratto standard **o** a termini e condizioni. Se si desidera modificare le condizioni del contratto standard, è possibile utilizzare le modifiche del contratto standard.
+
+#### <a name="standard-contract-amendments"></a>Modifiche contrattuali standard
+
+Le modifiche contrattuali standard consentono agli editori di selezionare le condizioni di contratto standard per semplificare e personalizzare le condizioni per il prodotto o l'azienda. I clienti devono solo esaminare le modifiche apportate al contratto, se hanno già esaminato e accettato il contratto standard Microsoft.
+
+Per gli editori di Marketplace commerciali sono disponibili due tipi di modifiche:
+
+- Modifiche universali: queste modifiche vengono applicate in modo universale al contratto standard per tutti i clienti. Gli emendamenti universali vengono visualizzati a ogni cliente dell'offerta nel flusso di acquisto. I clienti devono accettare le condizioni del contratto standard e la relativa rettifica prima di poter usare l'offerta.
+- Modifiche personalizzate: queste modifiche sono modifiche speciali al contratto standard destinate a specifici clienti solo tramite ID tenant di Azure. Gli editori possono scegliere il tenant di destinazione. Solo i clienti del tenant verranno presentati con le condizioni di modifica personalizzate nel flusso di acquisto dell'offerta.  Prima di poter usare l'offerta, i clienti devono accettare le condizioni del contratto standard e le modifiche.
+
+>[!NOTE]
+> Questi due tipi di modifiche si impilano tra loro. I clienti destinati a modifiche personalizzate riceveranno anche la modifica universale del contratto standard durante l'acquisto.
+
+**Termini dell'emendamento universale per il contratto standard per il Marketplace commerciale di Microsoft**: immettere le condizioni per la modifica universale in questa casella. È possibile specificare una singola modifica universale per ogni offerta. In questa casella è possibile immettere un numero illimitato di caratteri. Questi vengono visualizzati ai clienti in AppSource, Azure Marketplace e/o portale di Azure durante il flusso di individuazione e di acquisto.
+
+**Condizioni di modifica personalizzate per il contratto standard per il Marketplace commerciale di Microsoft**: iniziare selezionando **Aggiungi condizioni di modifica personalizzate**. È possibile specificare fino a 10 termini di modifica personalizzati per ogni offerta.
+
+- **Condizioni di modifica personalizzate**: immettere le condizioni di modifica personalizzate nella casella condizioni di modifica personalizzate. In questa casella è possibile immettere un numero illimitato di caratteri. Solo i clienti degli ID tenant specificati per questi termini personalizzati verranno presentati con le condizioni di modifica personalizzate nel flusso di acquisto dell'offerta nel portale di Azure.  
+- **ID tenant** (obbligatorio): ogni modifica personalizzata può essere destinata a un massimo di 20 ID tenant. Se si aggiunge una rettifica personalizzata, è necessario specificare almeno un ID tenant. L'ID tenant identifica il cliente in Azure. È possibile chiedere al cliente questo ID e trovarlo passando a portal.azure.com > Azure Active Directory > Proprietà. Il valore di ID directory è l'ID tenant, ad esempio 50c464d3-4930-494c-963C-1e951d15360e. È anche possibile cercare l'ID tenant dell'organizzazione del cliente usando l'URL del nome di dominio in cui [si trova il Microsoft Azure e l'ID tenant di Office 365?](https://www.whatismytenantid.com).
+- **Descrizione** (facoltativo): specificare facoltativamente una descrizione per l'ID tenant che consente di identificare il cliente di destinazione con la modifica.
+
+#### <a name="terms-and-conditions"></a>Condizioni
+
+Se si desidera fornire termini e condizioni personalizzati, è possibile scegliere di immetterli nel campo termini e condizioni. In questo campo è possibile immettere fino a 10.000 caratteri di testo. Se i termini e le condizioni richiedono una descrizione più lunga, immettere un solo collegamento URL in questo campo in cui è possibile trovare i termini e le condizioni. Verrà visualizzato come collegamento attivo ai clienti.
+
+I clienti devono accettare queste condizioni per poter provare l'offerta.
 
 Ricordarsi di **salvare** prima di procedere alla sezione successiva.
 
@@ -208,28 +236,28 @@ Fornire i dettagli da visualizzare nel Marketplace, incluse le descrizioni dell'
 - **Descrizione** (obbligatoria): fornire una descrizione dell'offerta da visualizzare nella panoramica degli annunci del Marketplace. Si consiglia di includere una proposta di valore, i vantaggi principali, le associazioni di categoria o di settore, le opportunità di acquisto in-app, le divulgazioni richieste e un collegamento per ottenere ulteriori informazioni.
 In questo campo è possibile immettere fino a 3.000 caratteri di testo. Per altri suggerimenti, vedere l'articolo [scrivere un'ottima descrizione dell'app](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
 - **Parole chiave di ricerca**: immettere fino a tre parole chiave di ricerca che i clienti possono usare per trovare l'offerta nel Marketplace.
-- **Istruzioni introduttive** (obbligatorio): spiegare come configurare e iniziare a usare l'app per i potenziali clienti.  Questa Guida introduttiva può contenere collegamenti a documentazione online più dettagliata. In questo campo è possibile immettere fino a 3.000 caratteri di testo. 
+- **Istruzioni introduttive** (obbligatorio): spiegare come configurare e iniziare a usare l'app per i potenziali clienti.  Questa Guida introduttiva può contenere collegamenti a documentazione online più dettagliata. In questo campo è possibile immettere fino a 3.000 caratteri di testo.
 
 #### <a name="description"></a>**Descrizione**
 
-Si tratta di un campo obbligatorio. Elementi da includere nella descrizione: 
+Questo campo è obbligatorio. Elementi da includere nella descrizione:
 
 * Descrivere chiaramente la proposta di valore dell'offerta subito nelle prime frasi della descrizione.  
 * Tenere presente che le prime frasi possono essere visualizzate nei risultati dei motori di ricerca.  
 * Per vendere un prodotto, non basarsi sulle funzionalità, ma concentrarsi sul valore che può offrire.  
-* Usare il più possibile la terminologia specifica del settore o formule che mettano in evidenza i vantaggi offerti. 
+* Usare il più possibile la terminologia specifica del settore o formule che mettano in evidenza i vantaggi offerti.
 
-I componenti fondamentali di una proposta di valore devono includere le informazioni seguenti: 
+I componenti fondamentali di una proposta di valore devono includere le informazioni seguenti:
 
-* Descrizione del prodotto. 
-* Tipo di utente che ottiene vantaggi dal prodotto. 
-* Esigenze del cliente o dolore che il prodotto indirizzi. 
+* Descrizione del prodotto.
+* Tipo di utente che ottiene vantaggi dal prodotto.
+* Esigenze del cliente o dolore che il prodotto indirizzi.
 
-Per rendere più accattivante la descrizione dell'offerta, è possibile usare i tag HTML per formattare la descrizione. 
+Per rendere più accattivante la descrizione dell'offerta, è possibile usare i tag HTML per formattare la descrizione.
 
 1. Se si desidera creare paragrafi, aggiungere `<p>` al momento dell'accattonaggio del testo e aggiungere `</p>` alla fine.
 
-    **Esempio**: 
+    **Esempio**:
 
     `<p>` questo è il primo paragrafo. `</p>` <br>
     `<p>` questo è il secondo paragrafo. `</p>` <br>
@@ -239,44 +267,44 @@ Per rendere più accattivante la descrizione dell'offerta, è possibile usare i 
     <p> Questo è il primo paragrafo. </p>
     <p> Questo è il secondo paragrafo. </p>
 
-1. Se si desidera aggiungere un **elenco puntato di elementi**, inserire il testo all'interno dei tag `<li>` di seguito. È possibile copiare e incollare più elementi puntati (elementi tra i tag `<li>` e `</li>`) all'interno dei tag `<ul>` e `</ul>`. Assicurarsi di aggiungere la `<ul></ul>`. 
+1. Se si desidera aggiungere un **elenco puntato di elementi**, inserire il testo all'interno dei tag `<li>` di seguito. È possibile copiare e incollare più elementi puntati (elementi tra i tag `<li>` e `</li>`) all'interno dei tag `<ul>` e `</ul>`. Assicurarsi di aggiungere la `<ul></ul>`.
 
     **Esempio**:
 
     ```
     <ul> 
-        <li>add text here</li> 
-        <li> add text here </li> 
-        <li> add text here </li> 
-    </ul> 
+        <li>add text here</li>
+        <li> add text here </li>
+        <li> add text here </li>
+    </ul>
     ```
 
     Il precedente avrà un aspetto simile al seguente:
     <ul> 
-        <li>aggiungere qui il testo</li> 
-        <li> aggiungere qui il testo </li> 
-        <li> aggiungere qui il testo </li> 
+        <li>aggiungere qui il testo</li>
+        <li> aggiungere qui il testo </li>
+        <li> aggiungere qui il testo </li>
     </ul> 
 
-1. Per il contenuto in **grassetto** , aggiungere `<b>` all'inizio del testo che si desidera grassetto e aggiungere `</b>` alla fine del testo che si desidera grassetto. 
+1. Per il contenuto in **grassetto** , aggiungere `<b>` all'inizio del testo che si desidera grassetto e aggiungere `</b>` alla fine del testo che si desidera grassetto.
 
     **Esempio**: `<b>` versione di valutazione gratuita `</b>`
     
-    Il precedente comporterebbe il grassetto della versione di valutazione gratuita nella descrizione dell'offerta nello storefront. 
+    Il precedente comporterebbe il grassetto della versione di valutazione gratuita nella descrizione dell'offerta nello storefront.
 
     **VERSIONE DI VALUTAZIONE GRATUITA**
 
-1. Per aggiungere **interruzioni di riga** tra il contenuto, aggiungere `<br>` prima del contenuto che si desidera avviare in una nuova riga. Se si desidera lasciare uno spazio e verificare che il contenuto venga avviato in una nuova riga, aggiungere `<br><br>` prima del contenuto. 
+1. Per aggiungere **interruzioni di riga** tra il contenuto, aggiungere `<br>` prima del contenuto che si desidera avviare in una nuova riga. Se si desidera lasciare uno spazio e verificare che il contenuto venga avviato in una nuova riga, aggiungere `<br><br>` prima del contenuto.
 
     **Esempio**:
 
-    Si tratta di una riga di testo. `<br>` si tratta di una riga di testo che verrà avviata in una nuova riga. `<br><br>` si tratta di una linea che avvierà due righe sotto. 
+    Si tratta di una riga di testo. `<br>` si tratta di una riga di testo che verrà avviata in una nuova riga. `<br><br>` si tratta di una linea che avvierà due righe sotto.
 
     Il precedente avrà un aspetto simile al seguente:
 
-    Si tratta di una riga di testo. <br> Si tratta di una riga di testo che verrà avviata in una nuova riga. <br><br> Si tratta di una linea che avvierà due righe sotto. 
+    Si tratta di una riga di testo. <br> Si tratta di una riga di testo che verrà avviata in una nuova riga. <br><br> Si tratta di una linea che avvierà due righe sotto.
 
-1. Se si desidera **aumentare le dimensioni del testo**, è necessario innanzitutto scegliere la dimensione desiderata per il testo. Usare gli esempi seguenti. Dopo aver selezionato le dimensioni del testo, aggiungere i tag `<H*></H*>` corrispondenti all'inizio e alla fine del testo. 
+1. Se si desidera **aumentare le dimensioni del testo**, è necessario innanzitutto scegliere la dimensione desiderata per il testo. Usare gli esempi seguenti. Dopo aver selezionato le dimensioni del testo, aggiungere i tag `<H*></H*>` corrispondenti all'inizio e alla fine del testo.
 
     **Esempio**:
 
@@ -297,9 +325,9 @@ Per rendere più accattivante la descrizione dell'offerta, è possibile usare i 
 - **Materiali di marketing del programma CSP** (facoltativo): è necessario fornire un collegamento ai materiali di marketing se si sceglie di estendere l'offerta al programma [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) . CSP estende l'offerta a una gamma più ampia di clienti qualificati, permettendo ai partner CSP di aggregare, commercializzare e rivendere l'offerta. Questi rivenditori dovranno avere accesso ai materiali per il marketing dell'offerta. Per ulteriori informazioni, vedere la pagina relativa ai [Servizi go-to-Market](https://partner.microsoft.com/reach-customers/gtm).
 - **Collegamenti utili** (facoltativo): documenti online supplementari facoltativi sull'app o sui servizi correlati elencati fornendo un **titolo** e un **URL**. Aggiungere altri collegamenti utili facendo clic su **+ Aggiungi URL**.
 
-#### <a name="contact-information"></a>Informazioni contatto
+#### <a name="contact-information"></a>Informazioni di contatto
 
-- **Contatti**: per ogni contatto del cliente, fornire un **nome** di dipendente, un **numero di telefono**e un indirizzo di **posta elettronica** .  (Questi *non verranno* visualizzati pubblicamente). Per il gruppo di **contatti di supporto** è necessario anche un **URL di supporto** .  (Queste informazioni *verranno* visualizzate pubblicamente).
+- **Contatti**: per ogni contatto del cliente, fornire un **nome**di dipendente, un **numero di telefono**e un indirizzo di **posta elettronica** .  (Questi *non verranno* visualizzati pubblicamente). Per il gruppo di **contatti di supporto** è necessario anche un **URL di supporto** .  (Queste informazioni *verranno* visualizzate pubblicamente).
 
 **Contatto per il supporto tecnico** (obbligatorio): per domande di supporto generale.
 
@@ -310,7 +338,7 @@ Per rendere più accattivante la descrizione dell'offerta, è possibile usare i 
 #### <a name="files-and-images"></a>File e immagini
 
 - **Documenti** (obbligatorio): aggiungere i documenti di marketing correlati per l'offerta in formato PDF, specificando almeno uno (1) e un massimo di tre (3) documenti per ogni offerta.
-- **Immagini** (facoltativo): sono presenti più posizioni in cui le immagini del logo dell'offerta possono apparire in tutti i Marketplace, richiedendo le dimensioni seguenti: Small: 48 x 48 pixel _(obbligatorio),_ Medium: 90 x 90 pixel, Large: 216 x 216 pixel _( obbligatorio),_ Wide: 255 x 115 pixels e Hero: 815 x 290 pixel. Tutte le immagini devono essere presenti in. Formato PNG.
+- **Immagini** (facoltativo): sono presenti più posizioni in cui le immagini del logo dell'offerta possono apparire in tutti i Marketplace, richiedendo le dimensioni seguenti: dimensioni ridotte: 48 x 48 pixel _(obbligatorio),_ medio: 90 x 90 pixel, grandi: 216 x 216 pixel _(obbligatorio),_ Wide: 255 x 115 pixel e Hero: 815 x 290 pixel. Tutte le immagini devono essere presenti in. Formato PNG.
 - **Screenshot** (obbligatorio): aggiungere screenshot che dimostrano l'offerta. È possibile aggiungere un massimo di cinque (5) schermate e dimensionarle a 1280 x 720 pixel. Tutte le immagini devono essere presenti in. Formato PNG.
 - **Video** (facoltativo): aggiungere collegamenti a video che illustrano l'offerta. È possibile usare collegamenti a video di YouTube e/o Vimeo che vengono visualizzati insieme all'offerta ai clienti. Sarà inoltre necessario immettere un'immagine di anteprima del video, ridimensionata a 1280 x 720 pixel in formato PNG. È possibile visualizzare un massimo di quattro video per ogni offerta.
 
@@ -425,7 +453,7 @@ Selezionare la frequenza con cui i clienti devono pagare il prezzo elencato. È 
 - **Prezzo**: USD al mese o USD all'anno
 
 I prezzi impostati nella valuta locale (USD = Stati Uniti dollaro) vengono convertiti nella valuta locale di tutti i mercati selezionati usando i tassi di cambio correnti disponibili durante l'installazione. Convalidare questi prezzi prima della pubblicazione esportando il foglio di calcolo dei prezzi e esaminando il prezzo in ogni mercato. Se si desidera impostare prezzi personalizzati in un singolo mercato, modificare e importare il foglio di calcolo dei prezzi. L'utente è responsabile della convalida dei prezzi ed è proprietario di queste impostazioni.
-*\*è necessario prima salvare le modifiche ai prezzi per consentire l'esportazione dei dati sui prezzi.*
+*\*È innanzitutto necessario salvare le modifiche ai prezzi per consentire l'esportazione dei dati dei prezzi.*
 
 Esaminare attentamente i prezzi prima della pubblicazione, in quanto esistono alcune restrizioni su cosa può cambiare dopo la pubblicazione di un piano:
 
@@ -466,7 +494,7 @@ Sebbene le offerte SaaS usino gli ID tenant per definire un pubblico privato, al
 
 La scelta di rendere disponibile l'offerta nel programma CSP consente ai provider di soluzioni cloud di vendere il prodotto come parte di una soluzione in bundle ai clienti. Per altre informazioni, vedere [provider di soluzioni cloud](https://go.microsoft.com/fwlink/?linkid=2111109).
 
-## <a name="publish"></a>Publish
+## <a name="publish"></a>Pubblica
 
 Una volta completate tutte le sezioni obbligatorie dell'offerta, selezionare **pubblica** nell'angolo superiore destro del portale. Si verrà reindirizzati alla pagina di **revisione e pubblicazione** .
 
@@ -476,7 +504,7 @@ Se è la prima volta che si pubblica questa offerta, è possibile:
 
 - Vedere lo stato di completamento di ogni sezione dell'offerta.
     - *Non avviato* : indica che la sezione non è stata toccata e deve essere completata.
-    - *Incompleto* : indica che la sezione contiene errori che devono essere corretti o che sono necessarie altre informazioni. Tornare alla sezione o aggiornarla.
+    - *Incompleto* : indica che la sezione contiene errori che devono essere corretti o che sono necessarie altre informazioni. È necessario tornare alla sezione e aggiornarla.
     - *Complete* : indica che la sezione è completa, sono stati forniti tutti i dati necessari e non sono presenti errori. Tutte le sezioni dell'offerta devono essere in uno stato completo prima di poter inviare l'offerta.
 - Fornire istruzioni di test al team di certificazione per assicurarsi che l'app venga testata correttamente, oltre a eventuali note supplementari utili per comprendere l'app.
 - Inviare l'offerta per la pubblicazione selezionando **Invia**. Verrà inviato un messaggio di posta elettronica per informare l'utente quando sarà disponibile una versione di anteprima dell'offerta da rivedere e approvare. È necessario tornare al centro per i partner e selezionare **Go-Live** per l'offerta per pubblicare l'offerta al pubblico (o se un'offerta privata, per i destinatari privati).

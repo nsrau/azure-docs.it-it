@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/08/2019
+ms.date: 12/17/2019
 ms.author: kumud
-ms.openlocfilehash: 0b7f7a9198664693819143c306eeb1a020d22b7c
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 003d677dcdead5792f932ecfe6350df63184cee2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185494"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75368331"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---powershell-preview"></a>Distribuire un'applicazione IPv6 dual stack usando Load Balancer di base-PowerShell (anteprima)
 
@@ -31,9 +31,9 @@ Per distribuire un'applicazione dual stack (IPV4 + IPv6) con Load Balancer Stand
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare PowerShell in locale, per questo articolo è necessario il modulo Azure PowerShell versione 6.9.0 o successiva. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installare il modulo di Azure PowerShell). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
+Se si sceglie di installare e usare PowerShell in locale, per questo articolo è necessario il modulo Azure PowerShell versione 6.9.0 o successiva. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Prima di distribuire un'applicazione dual stack in Azure, è necessario configurare la sottoscrizione per questa funzionalità di anteprima usando i Azure PowerShell seguenti:
 
 Registra come segue:
@@ -129,10 +129,14 @@ $backendPoolv4 = New-AzLoadBalancerBackendAddressPoolConfig `
 $backendPoolv6 = New-AzLoadBalancerBackendAddressPoolConfig `
 -Name "dsLbBackEndPool_v6"
 ```
-
+### <a name="create-a-health-probe"></a>Creare un probe di integrità
+Usare [Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig) per creare un probe di integrità per monitorare l'integrità delle macchine virtuali.
+```azurepowershell
+$probe = New-AzLoadBalancerProbeConfig -Name MyProbe -Protocol tcp -Port 3389 -IntervalInSeconds 15 -ProbeCount 2
+```
 ### <a name="create-a-load-balancer-rule"></a>Creare una regola di bilanciamento del carico
 
-Una regola di bilanciamento del carico consente di definire come il traffico verrà distribuito alle VM. Definire la configurazione IP front-end per il traffico in ingresso e il pool IP di back-end affinché riceva il traffico, insieme alla porta di origine e di destinazione necessaria. Per assicurarsi che solo le macchine virtuali integre ricevano il traffico, è possibile definire facoltativamente un probe di integrità. Il servizio di bilanciamento del carico di base usa un probe IPv4 per valutare l'integrità degli endpoint IPv4 e IPv6 nelle VM. Load Balancer standard include il supporto per i probe di integrità IPv6 espliciti.
+Una regola di bilanciamento del carico consente di definire come il traffico verrà distribuito alle VM. Definire la configurazione IP front-end per il traffico in ingresso e il pool IP back-end che riceve il traffico, insieme alle porte di origine e di destinazione necessarie. Per assicurarsi che solo le macchine virtuali integre ricevano il traffico, è possibile definire facoltativamente un probe di integrità. Il servizio di bilanciamento del carico di base usa un probe IPv4 per valutare l'integrità degli endpoint IPv4 e IPv6 nelle VM. Load Balancer standard include il supporto per i probe di integrità IPv6 espliciti.
 
 Creare una regola di bilanciamento del carico con [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig). L'esempio seguente crea regole di bilanciamento del carico denominate *dsLBrule_v4* e *dsLBrule_v6* e bilancia il traffico sulla porta *TCP* *80* alle configurazioni IP front-end IPv4 e IPv6:
 
@@ -143,7 +147,8 @@ $lbrule_v4 = New-AzLoadBalancerRuleConfig `
   -BackendAddressPool $backendPoolv4 `
   -Protocol Tcp `
   -FrontendPort 80 `
-  -BackendPort 80
+  -BackendPort 80 `
+  -probe $probe
 
 $lbrule_v6 = New-AzLoadBalancerRuleConfig `
   -Name "dsLBrule_v6" `
@@ -151,7 +156,8 @@ $lbrule_v6 = New-AzLoadBalancerRuleConfig `
   -BackendAddressPool $backendPoolv6 `
   -Protocol Tcp `
   -FrontendPort 80 `
-  -BackendPort 80
+  -BackendPort 80 `
+  -probe $probe
 ```
 
 ### <a name="create-load-balancer"></a>Creare un servizio di bilanciamento del carico
@@ -172,7 +178,7 @@ $lb = New-AzLoadBalancer `
 
 ## <a name="create-network-resources"></a>Creare risorse di rete
 Prima di distribuire alcune macchine virtuali e testare il servizio di bilanciamento, è necessario creare risorse di rete di supporto: set di disponibilità, gruppo di sicurezza di rete, rete virtuale e NIC virtuali. 
-### <a name="create-an-availability-set"></a>Creare un set di disponibilità
+### <a name="create-an-availability-set"></a>Crea un set di disponibilità
 Per aumentare la disponibilità elevata dell'app, posizionare le macchine virtuali in un set di disponibilità.
 
 Creare un set di disponibilità con [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset). L'esempio seguente crea un set di disponibilità denominato *myAvailabilitySet*:
@@ -236,7 +242,7 @@ $nsg = New-AzNetworkSecurityGroup `
 -Name "dsNSG1"  `
 -SecurityRules $rule1,$rule2
 ```
-### <a name="create-a-virtual-network"></a>Crea rete virtuale
+### <a name="create-a-virtual-network"></a>Crea una rete virtuale
 
 Creare una rete virtuale con [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). Nell'esempio seguente viene creata una rete virtuale denominata *myVnet* con una subnet denominata *mySubnet*:
 

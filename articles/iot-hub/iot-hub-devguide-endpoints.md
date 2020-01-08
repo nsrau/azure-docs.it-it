@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 689a702863dda53870f775bd8520d5dd406d242f
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: da6d17e42407048b7ecbcacade67ef48046d7fe1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640611"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457115"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Informazioni di riferimento - Endpoint dell'hub IoT
 
@@ -27,11 +27,11 @@ ms.locfileid: "68640611"
 
 L'hub IoT di Azure è un servizio multi-tenant che espone le proprie funzionalità a diversi attori. Il diagramma seguente mostra i vari endpoint esposti dall'hub IoT.
 
-![Endpoint hub IoT](./media/iot-hub-devguide-endpoints/endpoints.png)
+![Endpoint dell'hub IoT](./media/iot-hub-devguide-endpoints/endpoints.png)
 
 L'elenco seguente offre una descrizione degli endpoint:
 
-* **Provider di risorse**. Il provider di risorse dell'hub IoT espone un'interfaccia [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Questa interfaccia consente ai proprietari della sottoscrizione di Azure di creare ed eliminare gli hub IoT, nonché di aggiornare le proprietà degli hub IoT. Le proprietà dell'hub IoT disciplinano i [criteri di sicurezza a livello di hub](iot-hub-devguide-security.md#access-control-and-permissions), in contrasto con il controllo di accesso a livello di dispositivo, e le opzioni funzionali per la messaggistica da cloud a dispositivo e da dispositivo a cloud. Il provider di risorse dell'hub IoT consente anche di [esportare le identità dei dispositivi](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
+* **Provider di risorse**. Il provider di risorse dell'hub IoT espone un'interfaccia [Azure Resource Manager](../azure-resource-manager/management/overview.md). Questa interfaccia consente ai proprietari della sottoscrizione di Azure di creare ed eliminare gli hub IoT, nonché di aggiornare le proprietà degli hub IoT. Le proprietà dell'hub IoT disciplinano i [criteri di sicurezza a livello di hub](iot-hub-devguide-security.md#access-control-and-permissions), in contrasto con il controllo di accesso a livello di dispositivo, e le opzioni funzionali per la messaggistica da cloud a dispositivo e da dispositivo a cloud. Il provider di risorse dell'hub IoT consente anche di [esportare le identità dei dispositivi](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
 
 * **Gestione delle identità dei dispositivi**. Ogni hub IoT espone un set di endpoint REST HTTPS per gestire le identità dei dispositivi (per operazioni di creazione, recupero, aggiornamento ed eliminazione). Le [identità dei dispositivi](iot-hub-devguide-identity-registry.md) vengono usate per l'autenticazione dei dispositivi e il controllo di accesso.
 
@@ -75,7 +75,7 @@ Tutti gli endpoint dell'hub IoT usano il protocollo [TLS](https://tools.ietf.org
 
 Hub IoT supporta attualmente i servizi di Azure seguenti come endpoint aggiuntivi:
 
-* Contenitori di archiviazione di Azure
+* Contenitori di Archiviazione di Azure
 * Hub eventi
 * Code del bus di servizio
 * Argomenti del bus di servizio
@@ -84,11 +84,11 @@ Per i limiti sul numero di endpoint che è possibile aggiungere, vedere [Quotas 
 
 È possibile usare l'API REST per [ottenere l'integrità dell'endpoint](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) per ottenere lo stato di integrità degli endpoint. Si consiglia di usare le [metriche dell'hub](iot-hub-metrics.md) delle cose correlate alla latenza dei messaggi di routing per identificare ed eseguire il debug degli errori quando l'integrità dell'endpoint è inattiva o non integra, perché si prevede che la latenza sia superiore quando l'endpoint si trova in uno di questi Stati.
 
-|Stato integrità|DESCRIZIONE|
+|Stato integrità|Description|
 |---|---|
 |healthy|L'endpoint accetta messaggi come previsto.|
-|non integro|L'endpoint non accetta messaggi come previsto e l'hub Internet sta tentando di inviare i dati a questo endpoint. Lo stato di un endpoint non integro verrà aggiornato a integro quando lo stato di integrità dell'hub Internet è stabile.|
-|sconosciuto|L'hub cose non ha stabilito una connessione con l'endpoint. Nessun messaggio è stato recapitato o rifiutato da questo endpoint.|
+|Non integro|L'endpoint non accetta messaggi come previsto e l'hub Internet sta tentando di inviare i dati a questo endpoint. Lo stato di un endpoint non integro verrà aggiornato a integro quando lo stato di integrità dell'hub Internet è stabile.|
+|unknown|L'hub cose non ha stabilito una connessione con l'endpoint. Nessun messaggio è stato recapitato o rifiutato da questo endpoint.|
 |morto|L'endpoint non accetta messaggi, dopo che l'hub di Internet delle cose ha ritentato l'invio di messaggi per il periodo di prova.|
 
 ## <a name="field-gateways"></a>Gateway sul campo

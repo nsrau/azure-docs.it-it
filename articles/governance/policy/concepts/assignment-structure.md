@@ -3,25 +3,25 @@ title: Dettagli della struttura di assegnazione dei criteri
 description: Descrive la definizione di assegnazione dei criteri usata da criteri di Azure per mettere in relazione le definizioni dei criteri e i parametri alle risorse per la valutazione.
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9301004fe05afa77f3e73c6ec97335a17c237ce9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5f6b097b82d31926b7b5d3099d1f3f23669e78c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279474"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436370"
 ---
 # <a name="azure-policy-assignment-structure"></a>Struttura di assegnazione di Criteri di Azure
 
-Le assegnazioni di criteri vengono usate dai criteri di Azure per definire quali risorse vengono assegnate durante i criteri o le iniziative. L'assegnazione di criteri può determinare i valori dei parametri per il gruppo di risorse in fase di assegnazione, rendendo possibile il riutilizzo delle definizioni dei criteri che indirizzano le stesse proprietà delle risorse con diverse esigenze di conformità.
+Le assegnazioni di criteri vengono usate dai criteri di Azure per definire a quali risorse sono assegnati i criteri o le iniziative. L'assegnazione di criteri può determinare i valori dei parametri per il gruppo di risorse in fase di assegnazione, rendendo possibile il riutilizzo delle definizioni dei criteri che indirizzano le stesse proprietà delle risorse con diverse esigenze di conformità.
 
 Si usa JSON per creare un'assegnazione di criteri. L'assegnazione di criteri contiene elementi per:
 
 - nome visualizzato
-- Descrizione
+- description
 - metadata
 - modalità di imposizione
 - definizione dei criteri
-- parameters
+- parametri
 
 Ad esempio, il codice JSON seguente mostra un'assegnazione di criteri in modalità _DoNotEnforce_ con i parametri dinamici:
 
@@ -59,10 +59,10 @@ La proprietà **enforcementMode** fornisce ai clienti la possibilità di testare
 
 Questa proprietà presenta i valori seguenti:
 
-|Mode |Valore JSON |digitare |Correzione manuale |Voce del log attività |DESCRIZIONE |
+|Mode |Valore JSON |Tipo |Correzione manuale |Voce del log attività |Description |
 |-|-|-|-|-|-|
-|Enabled |Default |stringa |Sì |Sì |L'effetto dei criteri viene applicato durante la creazione o l'aggiornamento delle risorse. |
-|Disabled |DoNotEnforce |stringa |Sì |No | L'effetto dei criteri non viene applicato durante la creazione o l'aggiornamento delle risorse. |
+|Attivato |Predefinito |string |Sì |Sì |L'effetto dei criteri viene applicato durante la creazione o l'aggiornamento delle risorse. |
+|Disabled |DoNotEnforce |string |Sì |No | L'effetto dei criteri non viene applicato durante la creazione o l'aggiornamento delle risorse. |
 
 Se **enforcementMode** non è specificato nella definizione di un criterio o di un'iniziativa, viene usato il valore _predefinito_ . È possibile avviare le [attività di correzione](../how-to/remediate-resources.md) per i criteri [deployIfNotExists](./effects.md#deployifnotexists) , anche quando **enforcementMode** è impostato su _DoNotEnforce_.
 
@@ -71,7 +71,7 @@ Se **enforcementMode** non è specificato nella definizione di un criterio o di 
 Questo campo deve essere il nome completo del percorso di una definizione di criteri o di una definizione di iniziativa.
 `policyDefinitionId` è una stringa e non una matrice. Se più criteri vengono spesso assegnati insieme, è consigliabile usare invece un' [iniziativa](./definition-structure.md#initiatives) .
 
-## <a name="parameters"></a>parametri
+## <a name="parameters"></a>Parametri
 
 Questo segmento dell'assegnazione di criteri fornisce i valori per i parametri definiti nella definizione dei [criteri o nella definizione di iniziativa](./definition-structure.md#parameters).
 Questa progettazione rende possibile il riutilizzo di una definizione di criteri o di un'iniziativa con diverse risorse, ma verificare la presenza di valori o risultati aziendali diversi.

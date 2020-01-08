@@ -2,19 +2,15 @@
 title: Gestione degli errori nei runbook grafici di Automazione di Azure
 description: Questo articolo descrive come implementare la logica di gestione degli errori nei runbook grafici di Automazione di Azure.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/16/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: cb4f6827f58b882b8b1ae0ef8c093a09e090f17a
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: db14ee3d7e28ba7896b7558a7d01cbe77ad4496b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850704"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421023"
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Gestione degli errori nei runbook grafici di Automazione di Azure
 

@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione dei dati in Sincronizzazione file di Azure tramite Azure Data Box e altri metodi
+title: Migrare i dati in Sincronizzazione file di Azure con Azure Data Box
 description: Eseguire la migrazione dei dati in blocco in modo che sia compatibile con Sincronizzazione file di Azure.
 author: roygara
 ms.service: storage
@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9264aa6d24256b991abefe35b41045caa2e76d67
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: b00948f8d0e1eb8538354a6c16febf81bd4d1f16
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997774"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457377"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync"></a>Eseguire la migrazione dei dati in blocco al Sincronizzazione file di Azure
 È possibile eseguire la migrazione dei dati in blocco a Sincronizzazione file di Azure in due modi:
 
-* **Caricare i file usando Sincronizzazione file di Azure.** Questo è il metodo più semplice. Spostare i file in locale in Windows Server 2012 R2 o versione successiva e installare l'agente di Sincronizzazione file di Azure. Dopo aver impostato la sincronizzazione, i file verranno caricati dal server. I clienti hanno attualmente una velocità di caricamento media di 1 TiB ogni due giorni. Per assicurarsi che il server non usi troppa larghezza di banda per il Data Center, potrebbe essere necessario configurare una pianificazione della [limitazione della larghezza di banda](storage-sync-files-server-registration.md#ensuring-azure-file-sync-is-a-good-neighbor-in-your-datacenter).
+* **Caricare i file usando sincronizzazione file di Azure.** Questo è il metodo più semplice. Spostare i file in locale in Windows Server 2012 R2 o versione successiva e installare l'agente di Sincronizzazione file di Azure. Dopo aver impostato la sincronizzazione, i file verranno caricati dal server. I clienti hanno attualmente una velocità di caricamento media di 1 TiB ogni due giorni. Per assicurarsi che il server non usi troppa larghezza di banda per il Data Center, potrebbe essere necessario configurare una pianificazione della [limitazione della larghezza di banda](storage-sync-files-server-registration.md#ensuring-azure-file-sync-is-a-good-neighbor-in-your-datacenter).
 * **Trasferire i file offline.** Se la larghezza di banda non è sufficiente, potrebbe non essere possibile caricare i file in Azure in un periodo di tempo ragionevole. La richiesta è la sincronizzazione iniziale dell'intero set di file. Per ovviare a questo problema, utilizzare strumenti di migrazione in blocco offline, ad esempio la [famiglia di Azure Data Box](https://azure.microsoft.com/services/storage/databox). 
 
 Questo articolo illustra come eseguire la migrazione di file offline in modo compatibile con Sincronizzazione file di Azure. Seguire queste istruzioni per evitare conflitti di file e per mantenere gli elenchi di controllo di accesso (ACL) e i timestamp dei file e delle cartelle dopo aver abilitato la sincronizzazione.
@@ -25,7 +25,7 @@ Questo articolo illustra come eseguire la migrazione di file offline in modo com
 ## <a name="migration-tools"></a>Strumenti di migrazione
 Il processo descritto in questo articolo funziona non solo per Data Box ma anche per altri strumenti di migrazione offline. Funziona anche per strumenti quali AzCopy, Robocopy o strumenti e servizi partner che funzionano direttamente su Internet. Tuttavia, per superare la richiesta di caricamento iniziale, attenersi alla procedura descritta in questo articolo per usare questi strumenti in modo compatibile con Sincronizzazione file di Azure.
 
-In alcuni casi è necessario spostarsi da un server Windows a un altro Windows Server prima di adottare Sincronizzazione file di Azure. [Servizio migrazione archiviazione](https://aka.ms/storagemigrationservice) (SMS) può risultare utile. Se è necessario eseguire la migrazione a una versione del sistema operativo del server supportata da Sincronizzazione file di Azure (Windows Server 2012R2) o semplicemente è necessario eseguire la migrazione perché si sta acquistando un nuovo sistema per Sincronizzazione file di Azure, SMS presenta numerose funzionalità e vantaggi che consentiranno di ottenere il MIGR zione eseguita senza problemi.
+In alcuni casi è necessario spostarsi da un server Windows a un altro Windows Server prima di adottare Sincronizzazione file di Azure. Il [servizio di migrazione archiviazione](https://aka.ms/storagemigrationservice) (SMS) può risultare utile. Se è necessario eseguire la migrazione a una versione del sistema operativo del server supportata da Sincronizzazione file di Azure (Windows Server 2012R2) o semplicemente è necessario eseguire la migrazione perché si sta acquistando un nuovo sistema per Sincronizzazione file di Azure, SMS presenta numerose funzionalità e vantaggi che consentiranno di ottenere il MIGR zione eseguita senza problemi.
 
 ## <a name="benefits-of-using-a-tool-to-transfer-data-offline"></a>Vantaggi dell'utilizzo di uno strumento per trasferire i dati offline
 Ecco i principali vantaggi dell'uso di uno strumento di trasferimento come Data Box per la migrazione offline:
@@ -38,8 +38,8 @@ Ecco i principali vantaggi dell'uso di uno strumento di trasferimento come Data 
 ## <a name="prerequisites-for-the-offline-data-transfer"></a>Prerequisiti per il trasferimento di dati offline
 Non abilitare la sincronizzazione nel server di cui si sta eseguendo la migrazione prima di completare il trasferimento dei dati offline. Gli altri aspetti da considerare prima di iniziare sono i seguenti:
 
-- Se si prevede di usare Data Box per la migrazione in blocco: Esaminare i [prerequisiti della distribuzione per Data Box](../../databox/data-box-deploy-ordered.md#prerequisites).
-- Pianificare la topologia di Sincronizzazione file di Azure finale: [Pianificare una distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md)
+- Se si prevede di usare Data Box per la migrazione in blocco: esaminare i [prerequisiti di distribuzione per data box](../../databox/data-box-deploy-ordered.md#prerequisites).
+- Pianificare la topologia di Sincronizzazione file di Azure finale: [pianificare una distribuzione di sincronizzazione file di Azure](storage-sync-files-planning.md)
 - Selezionare gli account di archiviazione di Azure che conterranno le condivisioni file con cui si vuole eseguire la sincronizzazione. Assicurarsi che la migrazione in blocco venga eseguita in condivisioni di staging temporanee negli stessi account di archiviazione. La migrazione in blocco può essere abilitata solo usando una condivisione finale e una condivisione di staging che si trovano nello stesso account di archiviazione.
 - Una migrazione in blocco può essere usata solo quando si crea una nuova relazione di sincronizzazione con un percorso server. Non è possibile abilitare una migrazione in blocco con una relazione di sincronizzazione esistente.
 
@@ -51,7 +51,7 @@ Di seguito viene illustrato come configurare Sincronizzazione file di Azure in m
 
 | Passaggio | Dettagli |
 |---|---------------------------------------------------------------------------------------|
-| ![Passaggio 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Ordinare il Data Box](../../databox/data-box-deploy-ordered.md). La famiglia di Data Box offre [diversi prodotti](https://azure.microsoft.com/services/storage/databox/data) che soddisfino le proprie esigenze. Quando si riceve la data box, seguire la [documentazione per copiare i dati](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) in questo percorso UNC nel data box:  *\\< DeviceIPAddres StorageAccountName_AzFile\> \>\<\< \>ShareName*. Qui *ShareName* è il nome della condivisione di staging. Inviare il Data Box ad Azure. |
+| ![Passaggio 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Ordinare il Data Box](../../databox/data-box-deploy-ordered.md). La famiglia di Data Box offre [diversi prodotti](https://azure.microsoft.com/services/storage/databox/data) che soddisfino le proprie esigenze. Quando si riceve la Data Box, seguire la relativa [documentazione per copiare i dati](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) in questo percorso UNC nell'Data Box: *\\< DeviceIPAddres* \>\<StorageAccountName_AzFile\>\<ShareName\>. Qui *ShareName* è il nome della condivisione di staging. Inviare il Data Box ad Azure. |
 | ![Passaggio 2](media/storage-sync-files-offline-data-transfer/bullet_2.png) | Attendere che i file vengano visualizzati nelle condivisioni file di Azure selezionate come condivisioni di staging temporanee. *Non abilitare la sincronizzazione per queste condivisioni.* |
 | ![Passaggio 3](media/storage-sync-files-offline-data-transfer/bullet_3.png) | Creare una nuova condivisione vuota per ogni condivisione file che Data Box creata automaticamente. Questa nuova condivisione deve trovarsi nello stesso account di archiviazione della condivisione Data Box. [Come creare una nuova condivisione file di Azure](storage-how-to-create-file-share.md). |
 | ![Passaggio 4](media/storage-sync-files-offline-data-transfer/bullet_4.png) | [Creare un gruppo di sincronizzazione](storage-sync-files-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) in un servizio di sincronizzazione archiviazione. Fare riferimento alla condivisione vuota come endpoint cloud. Ripetere questo passaggio per ogni condivisione file del Data Box. [Configurare sincronizzazione file di Azure](storage-sync-files-deployment-guide.md). |

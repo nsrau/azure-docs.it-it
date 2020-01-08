@@ -4,15 +4,15 @@ description: Prestazioni è una funzionalità di Monitoraggio di Azure per le ma
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: f8879ac2d7827732112fa1a7504484209461b196
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 0d679675758b736455c66066f3df4cb9ea43fdea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555182"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75399289"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>Come creare un grafico delle prestazioni con Monitoraggio di Azure per le macchine virtuali (anteprima)
 
@@ -22,7 +22,7 @@ Monitoraggio di Azure per le macchine virtuali include un set di grafici delle p
 
 Da monitoraggio di Azure, la funzionalità prestazioni fornisce una visualizzazione di tutte le macchine virtuali monitorate distribuite tra gruppi di lavoro nelle sottoscrizioni o nell'ambiente in uso. Per accedere da Monitoraggio di Azure, eseguire la procedura seguente. 
 
-1. Nel portale di Azure selezionare **Monitor**. 
+1. Nel portale di Azure selezionare **Monitoraggio**. 
 2. Scegliere **Macchine virtuali (anteprima)** nella sezione **Soluzioni**.
 3. Selezionare la scheda **Prestazioni**.
 
@@ -38,7 +38,7 @@ I cinque grafici dell'utilizzo della capacità visualizzati nella pagina sono:
 * Memoria disponibile: mostra i primi cinque computer con il valore medio più basso di quantità di memoria disponibile 
 * % spazio su disco logico utilizzato: mostra i primi cinque computer con il valore medio più alto di percentuale di spazio su disco in tutti i volumi del disco 
 * Frequenza byte inviati: mostra i primi cinque computer con la media più alta di byte inviati 
-* Frequenza byte ricevuti: mostra i primi cinque computer con la media più alta di byte ricevuti 
+* Frequenza ricezione byte: Mostra i primi cinque computer con la media massima di byte ricevuti 
 
 Facendo clic sull'icona Aggiungi nell'angolo superiore destro di uno dei cinque grafici, il grafico selezionato viene aggiunto all'ultimo dashboard di Azure visualizzato per ultimo.  Dal dashboard è possibile ridimensionare e riposizionare il grafico. Selezionando il grafico dal dashboard si reindirizza l'utente a Monitoraggio di Azure per le macchine virtuali e si caricano l'ambito e la visualizzazione corretti.  
 
@@ -83,7 +83,7 @@ Selezionando una macchina virtuale dall'elenco si apre il riquadro **Proprietà*
 Per accedere direttamente da una macchina virtuale, seguire questa procedura.
 
 1. Nel portale di Azure selezionare **Macchine virtuali**. 
-2. Dall'elenco scegliere una macchina virtuale e nella sezione **Monitoraggio** scegliere **Informazioni dettagliate (anteprima)** .  
+2. Nell'elenco scegliere una macchina virtuale e nella sezione **Monitoraggio** scegliere **Informazioni dettagliate (anteprima)** .  
 3. Selezionare la scheda **Prestazioni**. 
 
 Questa pagina non solo include i grafici di utilizzo delle prestazioni, ma anche una tabella che mostra capacità, utilizzo e media totale di ogni disco logico individuato per ogni misura.  

@@ -1,5 +1,5 @@
 ---
-title: Schema LoadBalancerProbe di definizione di Servizi cloud di Azure | Microsoft Docs
+title: Schema def. LoadBalancerProbe di servizi cloud di Azure | Microsoft Docs
 ms.custom: ''
 ms.date: 04/14/2015
 services: cloud-services
@@ -7,13 +7,13 @@ ms.service: cloud-services
 ms.topic: reference
 caps.latest.revision: 14
 author: georgewallace
-ms.author: gwallace
-ms.openlocfilehash: 6f82406772f650b4565f2c9240efe580545dcad9
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: bc2c0f5137ce78392a8df7c6c2fdd402ded5355a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360598"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449064"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Schema LoadBalancerProbe di definizione di Servizi cloud di Azure
 Il probe di bilanciamento del carico è un probe di integrità definito dal cliente per gli endpoint UDP e gli endpoint nelle istanze del ruolo. `LoadBalancerProbe` non è un elemento autonomo. Viene combinato con il ruolo Web o il ruolo di lavoro in un file di definizione del servizio. `LoadBalancerProbe` può essere usato da più di un ruolo.
@@ -54,14 +54,14 @@ L'elemento `LoadBalancerProbe` definisce il probe di integrità per un modello. 
 
 La tabella seguente descrive gli attributi dell'elemento `LoadBalancerProbe`:
 
-|Attributo|Type|Descrizione|
+|Attributo|Tipo|Description|
 | ------------------- | -------- | -----------------|
-| `name`              | `string` | Richiesto. Nome del probe di bilanciamento del carico. Il nome deve essere univoco.|
-| `protocol`          | `string` | Richiesto. Specifica il protocollo dell'endpoint. I possibili valori sono `http` o `tcp`. Se viene specificato `tcp`, è necessario ricevere una risposta ACK per completare il probe. Se viene specificato `http`, è necessario ricevere una risposta 200 OK dall'URI specificato per completare il probe.|
+| `name`              | `string` | Obbligatorio. Nome del probe di bilanciamento del carico. Il nome deve essere univoco.|
+| `protocol`          | `string` | Obbligatorio. Specifica il protocollo dell'endpoint. I possibili valori sono `http` o `tcp`. Se viene specificato `tcp`, è necessario ricevere una risposta ACK per completare il probe. Se viene specificato `http`, è necessario ricevere una risposta 200 OK dall'URI specificato per completare il probe.|
 | `path`              | `string` | URI usato per richiedere lo stato di integrità alla macchina virtuale. `path` è obbligatorio se `protocol` impostato su `http`. In caso contrario, non è consentito.<br /><br /> Non esistono valori predefiniti.|
-| `port`              | `integer` | facoltativo. Porta per la comunicazione del probe. È facoltativo per qualsiasi endpoint, perché verrà usata la stessa porta per il probe. È anche possibile configurare una porta diversa per il probe. L'intervallo di valori possibili è compresa tra 1 e 65535 inclusi.<br /><br /> Il valore predefinito viene impostato dall'endpoint.|
-| `intervalInSeconds` | `integer` | facoltativo. Intervallo, in secondi, per la frequenza con cui controllare lo stato di integrità dell'endpoint. L'intervallo è in genere leggermente inferiore alla metà del periodo di timeout allocato (in secondi) il che consente due probe completi prima di escludere l'istanza dalla rotazione.<br /><br /> Il valore predefinito è 15, il valore minimo è 5.|
-| `timeoutInSeconds`  | `integer` | facoltativo. Periodo di timeout, in secondi, applicato al probe, entro il quale nessuna risposta interromperà l'invio di altro traffico all'endpoint. Questo valore consente agli endpoint di essere esclusi dalla rotazione in tempi più rapidi o più brevi di quelli abitualmente usati in Azure (valori predefiniti).<br /><br /> Il valore predefinito è 31, il valore minimo è 11.|
+| `port`              | `integer` | Facoltativa. Porta per la comunicazione del probe. È facoltativo per qualsiasi endpoint, perché verrà usata la stessa porta per il probe. È anche possibile configurare una porta diversa per il probe. L'intervallo di valori possibili è compresa tra 1 e 65535 inclusi.<br /><br /> Il valore predefinito viene impostato dall'endpoint.|
+| `intervalInSeconds` | `integer` | Facoltativa. Intervallo, in secondi, per la frequenza con cui controllare lo stato di integrità dell'endpoint. L'intervallo è in genere leggermente inferiore alla metà del periodo di timeout allocato (in secondi) il che consente due probe completi prima di escludere l'istanza dalla rotazione.<br /><br /> Il valore predefinito è 15, il valore minimo è 5.|
+| `timeoutInSeconds`  | `integer` | Facoltativa. Periodo di timeout, in secondi, applicato al probe, entro il quale nessuna risposta interromperà l'invio di altro traffico all'endpoint. Questo valore consente agli endpoint di essere esclusi dalla rotazione in tempi più rapidi o più brevi di quelli abitualmente usati in Azure (valori predefiniti).<br /><br /> Il valore predefinito è 31, il valore minimo è 11.|
 
 ## <a name="see-also"></a>Vedere anche
 [Cloud Service (classic) Definition Schema](schema-csdef-file.md) (Schema di definizione di Servizi cloud - Versione classica)

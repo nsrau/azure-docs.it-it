@@ -1,20 +1,18 @@
 ---
 title: Monitorare e gestire processi di Analisi di flusso di Azure a livello di codice
 description: Questo articolo descrive come monitorare a livello di codice processi di Analisi di flusso creati tramite le API REST, Azure SDK o PowerShell.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: bf84a5b89e4769e37c45714a30d5d98300a4328d
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 23c0cc0d0e4a007fdf46021f857b559266f6a193
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612246"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431662"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Creare un monitoraggio dei processi di Analisi di flusso a livello di codice
 
@@ -22,9 +20,9 @@ In questo articolo viene illustrato come abilitare il monitoraggio per un proces
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare questo processo, sono necessari i prerequisiti seguenti:
+Prima di iniziare questo processo, è necessario che siano soddisfatti i prerequisiti seguenti:
 
-* Visual Studio 2019 or 2015
+* Visual Studio 2019 o 2015
 * [Azure .NET SDK](https://azure.microsoft.com/downloads/) scaricato e installato
 * Un processo di analisi di flusso esistente che richiede l'abilitazione del monitoraggio.
 
@@ -137,7 +135,7 @@ Il codice seguente configurerà le variabili e i client di gestione necessari.
 
 ## <a name="enable-monitoring-for-an-existing-stream-analytics-job"></a>Abilitare il monitoraggio per un processo di analisi di flusso esistente
 
-Il codice seguente abilita il monitoraggio per un processo di analisi di flusso **esistente**. La prima parte del codice esegue una richiesta GET al servizio di Analisi dei flussi per recuperare informazioni sul processo di Analisi dei flussi specifico. Usa il *ID* proprietà (recuperata dalla richiesta GET) come parametro per il metodo Put nella seconda metà del codice, che consente di inviare un'operazione PUT richiesta al servizio Insights per abilitare il monitoraggio per il processo di Stream Analitica.
+Il codice seguente abilita il monitoraggio per un processo di analisi di flusso **esistente**. La prima parte del codice esegue una richiesta GET al servizio di Analisi dei flussi per recuperare informazioni sul processo di Analisi dei flussi specifico. Usa la proprietà *ID* (recuperata dalla richiesta Get) come parametro per il metodo Put nella seconda metà del codice, che invia una richiesta PUT al servizio Insights per abilitare il monitoraggio del processo di analisi di flusso.
 
 > [!WARNING]
 > Se la funzione di monitoraggio è stata precedentemente abilitata per un processo di analisi di flusso diverso, tramite il portale di Azure o a livello di programmazione con il codice riportato di seguito, **è consigliabile specificare lo stesso nome di account di archiviazione usato nel monitoraggio abilitato precedentemente.**
@@ -169,7 +167,7 @@ Il codice seguente abilita il monitoraggio per un processo di analisi di flusso 
 >   ```
 
 
-## <a name="get-support"></a>Supporto
+## <a name="get-support"></a>Ottenere supporto
 
 Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 

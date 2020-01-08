@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: gwallace
-ms.openlocfilehash: b8a5a344f2f1d8280ca60169786e72a0e1dd291e
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 046e61d82893bf1fcdb2d6697cfaaa9f5bde8c2c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073159"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359363"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Usare l'estensione Diagnostica per Linux per monitorare le metriche e i log
 
@@ -49,10 +49,10 @@ Le istruzioni di installazione e la [configurazione di esempio scaricabile](http
 
 La configurazione scaricabile è solo un esempio; modificarla per adattarla alle proprie esigenze.
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 
 * **Agente Linux di Azure 2.2.0 o versione successiva**. La maggior parte delle immagini della raccolta Linux di macchine virtuali di Azure include la versione 2.2.7 o successive. Eseguire `/usr/sbin/waagent -version` per verificare la versione installata nella macchina virtuale. Se la macchina virtuale esegue una versione precedente dell'agente guest, seguire [queste istruzioni](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) per aggiornarla.
-* L'**interfaccia della riga di comando di Azure**. [Configurare l'ambiente dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) nella macchina virtuale.
+* **Interfaccia della riga di comando di Azure**. [Configurare l'ambiente dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) nella macchina virtuale.
 * Il comando wget. Se non è già disponibile, eseguire `sudo apt-get install wget`.
 * Una sottoscrizione di Azure esistente e un account di archiviazione al suo interno per l'archiviazione dei dati.
 * L'elenco delle distribuzioni Linux supportate è disponibile all'indirizzo https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions
@@ -135,7 +135,7 @@ storageAccountSasToken | Un [token SAS dell'account](https://azure.microsoft.com
 mdsdHttpProxy | (facoltativo) Informazioni sul proxy HTTP necessarie per abilitare l'estensione affinché si connetta all'account di archiviazione e all'endpoint specificati.
 sinksConfig | (facoltativo) Informazioni sulle destinazioni alternative a cui possono essere inviati le metriche e gli eventi. Nelle sezioni che seguono vengono illustrati i dettagli specifici di ogni sink di dati supportato dall'estensione.
 
-Per ottenere un token di firma di accesso condiviso all'interno di un modello di Gestione risorse, usare la funzione **listAccountSas** . Per un modello di esempio, vedere [esempio di funzione List](../../azure-resource-manager/resource-group-template-functions-resource.md#list-example).
+Per ottenere un token di firma di accesso condiviso all'interno di un modello di Gestione risorse, usare la funzione **listAccountSas** . Per un modello di esempio, vedere [esempio di funzione List](../../azure-resource-manager/templates/template-functions-resource.md#list-example).
 
 È possibile costruire con facilità il token SAS richiesto tramite il portale di Azure.
 
@@ -144,7 +144,7 @@ Per ottenere un token di firma di accesso condiviso all'interno di un modello di
 1. Creare le sezioni appropriate come descritto in precedenza
 1. Fare clic sul pulsante "Genera firma di accesso condiviso".
 
-![immagine](./media/diagnostics-linux/make_sas.png)
+![image](./media/diagnostics-linux/make_sas.png)
 
 Copiare la firma di accesso condiviso generata nel campo storageAccountSasToken; rimuovere il punto interrogativo ("?") principale.
 
@@ -167,7 +167,7 @@ Questa sezione facoltativa definisce altre destinazioni a cui l'estensione invia
 
 Elemento | Valore
 ------- | -----
-Nome | Una stringa usata per fare riferimento a questo sink altrove nella configurazione dell'estensione.
+name | Una stringa usata per fare riferimento a questo sink altrove nella configurazione dell'estensione.
 type | Il tipo di sink da definire. Determina gli altri valori, se presenti, nelle istanze di questo tipo.
 
 La versione 3.0 dell'estensione Diagnostica per Linux supporta due tipi di sink: EventHub e JsonBlob.
@@ -314,12 +314,12 @@ type | Identifica il provider effettivo della metrica.
 class | Con "counter" identifica la metrica specifica all'interno dello spazio dei nomi del provider.
 counter | Con "class" identifica la metrica specifica all'interno dello spazio dei nomi del provider.
 counterSpecifier | Identifica la metrica specifica all'interno dello spazio dei nomi di Metriche di Azure.
-condition | (facoltativo) Seleziona un'istanza specifica dell'oggetto a cui si applica la metrica oppure seleziona l'aggregazione in tutte le istanze di tale oggetto. Per altre informazioni, vedere le definizioni delle metriche `builtin`.
+condizione | (facoltativo) Seleziona un'istanza specifica dell'oggetto a cui si applica la metrica oppure seleziona l'aggregazione in tutte le istanze di tale oggetto. Per altre informazioni, vedere le definizioni delle metriche `builtin`.
 sampleRate | Intervallo IS 8601 che imposta la frequenza con cui vengono raccolti gli esempi non elaborati per questa metrica. Se non viene impostata, l'intervallo di raccolta viene impostato dal valore di [sampleRateInSeconds](#ladcfg). La frequenza di esempio più piccola supportata è 15 secondi (PT15S).
 unit | Deve essere una delle seguenti stringhe: "Count", "Bytes", "Seconds", "Percent", "CountPerSecond", "BytesPerSecond", "Millisecond". Definisce l'unità per la metrica. Gli utenti dei dati raccolti prevedono che i valori dei dati raccolti corrispondano a questa unità. LAD ignora questo campo.
 displayName | L'etichetta, nella lingua specificata dall'impostazione locale associata, da allegare a questi dati in Metriche di Azure. LAD ignora questo campo.
 
-counterSpecifier è un identificatore arbitrario. Gli utenti di metriche, quali le funzionalità dei grafici del portale di Azure e gli avvisi, usano counterSpecifier come la "chiave" che identifica una metrica o un'istanza di una metrica. Per le metriche `builtin`, è consigliabile usare i valori di counterSpecifier che iniziano con `/builtin/`. Se si raccoglie un'istanza specifica di una metrica, è consigliabile allegare l'identificatore dell'istanza del valore counterSpecifier. Di seguito sono riportati alcuni esempi:
+counterSpecifier è un identificatore arbitrario. Gli utenti di metriche, quali le funzionalità dei grafici del portale di Azure e gli avvisi, usano counterSpecifier come la "chiave" che identifica una metrica o un'istanza di una metrica. Per le metriche `builtin`, è consigliabile usare i valori di counterSpecifier che iniziano con `/builtin/`. Se si raccoglie un'istanza specifica di una metrica, è consigliabile allegare l'identificatore dell'istanza del valore counterSpecifier. Di seguito alcuni esempi:
 
 * `/builtin/Processor/PercentIdleTime` - Tempo di inattività medio calcolato per tutte le CPU virtuali
 * `/builtin/Disk/FreeSpace(/mnt)` - Spazio libero per il file system /mnt
@@ -384,9 +384,9 @@ Questa sezione facoltativa consente di controllare l'esecuzione delle query arbi
 
 Elemento | Valore
 ------- | -----
-namespace | (facoltativo) Lo spazio dei nomi OMI entro il quale deve essere eseguita la query. Se non viene specificato, il valore predefinito è "root/scx", implementato dai [provider multipiattaforma dei System Center](https://github.com/Microsoft/SCXcore).
+spazio dei nomi | (facoltativo) Lo spazio dei nomi OMI entro il quale deve essere eseguita la query. Se non viene specificato, il valore predefinito è "root/scx", implementato dai [provider multipiattaforma dei System Center](https://github.com/Microsoft/SCXcore).
 query | La query OMI da eseguire.
-table | (facoltativo) La tabella di archiviazione di Azure, nell'account di archiviazione designato. Vedere [Impostazioni protette](#protected-settings).
+tabella | (facoltativo) La tabella di archiviazione di Azure, nell'account di archiviazione designato. Vedere [Impostazioni protette](#protected-settings).
 frequency | (facoltativo) Il numero di secondi tra le esecuzioni della query. Il valore predefinito è 300, ovvero 5 minuti; il valore minimo è 15 secondi.
 sinks | (facoltativo) Un elenco di nomi delimitato da virgole di sink aggiuntivi in cui pubblicare i risultati di metrica di esempio non elaborati. Nessuna aggregazione di questi esempi non elaborati viene calcolata dall'estensione o da Metriche di Azure.
 
@@ -409,7 +409,7 @@ Consente di controllare l'acquisizione dei file di registro. LAD acquisisce le n
 Elemento | Valore
 ------- | -----
 file | Il percorso completo del file di registro da esaminate e acquisire. Il percorso deve indicare solo un file. Non è possibile indicare una directory o i caratteri jolly.
-table | (facoltativo) La tabella di archiviazione di Azure, nell'account di archiviazione designato, come specificato nella configurazione protetta, in cui vengono scritte nuove righe dalla "coda" del file.
+tabella | (facoltativo) La tabella di archiviazione di Azure, nell'account di archiviazione designato, come specificato nella configurazione protetta, in cui vengono scritte nuove righe dalla "coda" del file.
 sinks | (facoltativo) Un elenco di nomi delimitato da virgole di sink aggiuntivi a cui vengono inviate le righe del registro.
 
 È necessario specificare "table" o "sink" o entrambi.
@@ -420,8 +420,8 @@ Il provider di metriche Builtin è un'origine metriche più interessante per mol
 
 * Processore
 * Memoria
-* Network
-* File system
+* Rete
+* File System
 * Disco
 
 ### <a name="builtin-metrics-for-the-processor-class"></a>Metriche Builtin per la classe Processore
@@ -686,7 +686,7 @@ Nella configurazione `resourceId` deve corrispondere al valore della macchina vi
 
 Usare il portale di Azure per visualizzare i dati sulle prestazioni o impostare gli avvisi:
 
-![immagine](./media/diagnostics-linux/graph_metrics.png)
+![image](./media/diagnostics-linux/graph_metrics.png)
 
 I dati `performanceCounters` sono sempre archiviati in una tabella di archiviazione di Azure. Le API di Archiviazione di Azure sono disponibili per più linguaggi e piattaforme.
 
@@ -699,7 +699,7 @@ I dati inviati ai sink JsonBlob sono archiviati nei BLOB nell'account di archivi
 
 Questo snapshot di una sessione di Microsoft Azure Storage Explorer mostra le tabelle di archiviazione di Azure e i contenitori generati da un'estensione LAD 3.0 correttamente configurata su una macchina virtuale di test. L'immagine non corrisponde esattamente alla [configurazione LAD 3.0 di esempio](#an-example-lad-30-configuration).
 
-![immagine](./media/diagnostics-linux/stg_explorer.png)
+![image](./media/diagnostics-linux/stg_explorer.png)
 
 Vedere la relativa [documentazione di EventHubs](../../event-hubs/event-hubs-what-is-event-hubs.md) per avere informazioni su come usare i messaggi pubblicati in un endpoint EventHubs.
 

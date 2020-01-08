@@ -5,15 +5,14 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 12/13/2019
 ms.author: jaredro
-ms.custom: seodec18
-ms.openlocfilehash: f27a6df86ebbe2b07b73016f304ac364e88664bb
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 734bb48d1ddb50af7c28e948c8267b4cd88fcdf7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891042"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437035"
 ---
 # <a name="expressroute-faq"></a>Domande frequenti su ExpressRoute
 
@@ -55,38 +54,39 @@ Per informazioni, vedere [Contratto di servizio di ExpressRoute](https://azure.m
 
 ## <a name="supported-services"></a>Servizi supportati
 
-ExpressRoute supporta [tre domini di routing](expressroute-circuit-peerings.md) per diversi tipi di servizi: peering privato, peering Microsoft e peering pubblico.
+ExpressRoute supporta [tre domini di routing](expressroute-circuit-peerings.md) per diversi tipi di servizi: peering privato, peering Microsoft e peering pubblico (deprecato).
 
 ### <a name="private-peering"></a>Peering privato
+
+**Supportato**
 
 * Reti virtuali, inclusi tutti i servizi cloud e tutte le macchine virtuali
 
 ### <a name="microsoft-peering"></a>Peering Microsoft
+
+Se il circuito ExpressRoute è abilitato per il peering Microsoft di Azure, è possibile accedere agli [intervalli di indirizzi IP pubblici](../virtual-network/virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) usati in Azure tramite il circuito. Il peering Microsoft di Azure fornirà l'accesso ai servizi attualmente ospitati in Azure (con restrizioni geografiche a seconda dello SKU del circuito). Per convalidare la disponibilità per un servizio specifico, è possibile controllare la documentazione relativa a tale servizio per verificare se è stato pubblicato un intervallo riservato per il servizio. Cercare quindi gli intervalli IP del servizio di destinazione e confrontarli con gli intervalli elencati negli [intervalli IP di Azure e nei tag del servizio-file XML del cloud pubblico](https://www.microsoft.com/download/details.aspx?id=56519). In alternativa, è possibile aprire un ticket di supporto per il servizio in questione per chiarimenti.
+
+**Supportato**
 
 * [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Power BI-disponibile tramite una community regionale di Azure, vedere [qui](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) per informazioni su come individuare l'area del tenant di Power bi.
 * Azure Active Directory
 * [Desktop virtuale Windows](https://azure.microsoft.com/services/virtual-desktop/)
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (community di Servizi globali di Azure)
-* È supportata la maggior parte dei servizi di Azure. Contattare direttamente il servizio che si vuole usare per verificarne il supporto.<br><br>**I servizi seguenti NON sono supportati**:
-    * RETE CDN
-    * Frontdoor di Azure
-    * Server di autenticazione a più fattori (legacy)
-    * Gestione traffico
+* È supportata la maggior parte dei servizi di Azure. Contattare direttamente il servizio che si vuole usare per verificarne il supporto.
+
+**Non supportato:**
+
+* Rete CDN
+* Frontdoor di Azure
+* Server di autenticazione a più fattori (legacy)
+* Gestione traffico
 
 ### <a name="public-peering"></a>Peering pubblico
 
->[!NOTE]
->Il peering pubblico è stato disabilitato sui circuiti nuovi di ExpressRoute. I servizi di Azure sono disponibili nel peering Microsoft.
->
+Il peering pubblico è stato disabilitato sui circuiti nuovi di ExpressRoute. I servizi di Azure sono ora disponibili nel peering Microsoft. Se un circuito creato prima del peering pubblico è deprecato, è possibile scegliere di usare il peering Microsoft o il peering pubblico, a seconda dei servizi desiderati.
 
-* Power BI
-* È supportata la maggior parte dei servizi di Azure. Contattare direttamente il servizio che si vuole usare per verificarne il supporto.<br><br>
-  **I servizi seguenti NON sono supportati**:
-    * RETE CDN
-    * Frontdoor di Azure
-    * Server di autenticazione a più fattori (legacy)
-    * Gestione traffico
+Per altre informazioni e procedure di configurazione per il peering pubblico, vedere [peering pubblico di ExpressRoute](about-public-peering.md).
 
 ### <a name="why-i-see-advertised-public-prefixes-status-as-validation-needed-while-configuring-microsoft-peering"></a>Perché viene visualizzato lo stato ' prefissi pubblici annunciati ' come ' convalida necessaria ' durante la configurazione del peering Microsoft?
 
@@ -149,7 +149,7 @@ Per la progettazione per la disponibilità elevata, vedere [qui](https://docs.mi
 
 È possibile ottenere la disponibilità elevata connettendo alla rete virtuale circuiti ExpressRoute presenti in posizioni di peering diverse, ad esempio Singapore e Singapore2. Se si arresta un circuito ExpressRoute, la connettività eseguirà il failover su un altro circuito ExpressRoute. Per impostazione predefinita, il traffico in uscita dalla rete virtuale viene instradato sul routing ECMP (Equal-Cost-Multi-Path). È possibile usare il peso della connessione per preferire un circuito a un altro. Per altre informazioni, vedere [Optimizing ExpressRoute Routing](expressroute-optimize-routing.md) (Ottimizzazione del routing di ExpressRoute).
 
-### <a name="how-do-i-ensure-that-my-traffic-destined-for-azure-public-services-like-azure-storage-and-azure-sql-on-microsoft-or-public-peering-is-preferred-on-the-expressroute-path"></a>Ricerca per categorie assicurarsi che il traffico destinato ai servizi pubblici di Azure, ad esempio archiviazione di Azure e Azure SQL in Microsoft o il peering pubblico, sia preferibile nel percorso ExpressRoute?
+### <a name="how-do-i-ensure-that-my-traffic-destined-for-azure-public-services-like-azure-storage-and-azure-sql-on-microsoft-peering-or-public-peering-is-preferred-on-the-expressroute-path"></a>Ricerca per categorie assicurarsi che il traffico destinato ai servizi pubblici di Azure, ad esempio archiviazione di Azure e Azure SQL sul peering Microsoft o sul peering pubblico, sia preferibile nel percorso ExpressRoute?
 
 È necessario implementare l'attributo *preferenza locale* nei router per assicurarsi che il percorso dall'ambiente locale ad Azure sia sempre preferito nei circuiti ExpressRoute in uso.
 
@@ -386,9 +386,9 @@ Il circuito esistente continuerà a annunciare i prefissi per Office 365. Se si 
 
 ### <a name="i-have-microsoft-peering-at-one-location-now-i-am-trying-to-enable-it-at-another-location-and-i-am-not-seeing-any-prefixes"></a>Ho un peering Microsoft in una località, ora sto cercando di abilitarlo in un'altra località e non vengono visualizzati i prefissi.
 
-* Per i circuiti ExpressRoute configurati prima del 1 agosto 2017, tutti i prefissi dei servizi verranno annunciati tramite il peering Microsoft, anche in mancanza di filtri di route definiti.
+* Il peering Microsoft dei circuiti ExpressRoute che sono stati configurati prima del 1° agosto 2017, avranno tutti i prefissi di servizio pubblicati tramite il peering Microsoft, anche se non sono definiti i filtri di route.
 
-* Per il peering Microsoft dei circuiti ExpressRoute configurati dopo il 1 agosto 2017 non verrà annunciato alcun prefisso fino a quando non viene associato un filtro di route al circuito. Per impostazione predefinita, non verrà visualizzato alcun prefisso.
+* Il peering Microsoft dei circuiti ExpressRoute che vengono configurati dopo il 1° agosto 2017 non avrà alcun prefisso annunciato fino a quando non viene associato un filtro di route per il circuito. Per impostazione predefinita, non verrà visualizzato alcun prefisso.
 
 ## <a name="expressRouteDirect"></a>ExpressRoute Direct
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 1/24/2019
-ms.openlocfilehash: 5ff3ade800b2a3474a68a34dc77d0c9b009e8822
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 05696ae2fed31c267aa37013fac32db0916e24bf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74923148"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439310"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Copia i file nuovi e modificati in modo incrementale in base a LastModifiedDate utilizzando lo strumento Copia dati
 
@@ -68,7 +68,7 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
 
     * Selezionare **Crea nuovo** e immettere un nome per il gruppo di risorse. 
          
-    Per informazioni sui gruppi di risorse, vedere l'articolo su come [usare gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/resource-group-overview.md).
+    Per informazioni sui gruppi di risorse, vedere l'articolo su come [usare gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/management/overview.md).
 
 5. In **versione**selezionare **v2**.
 6. In **Località** selezionare la località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati (ad esempio, archiviazione di Azure e il database SQL) e le risorse di calcolo (ad esempio, Azure HDInsight) usati dal data factory possono trovarsi in altre località e aree.
@@ -136,7 +136,7 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
     
      ![Scegliere il file o la cartella di input](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/check-binary-copy.png)
      
-5. Nella pagina **archivio dati di destinazione** selezionare **AzureBlobStorage**. Si tratta dello stesso account di archiviazione dell'archivio dati di origine. Quindi selezionare **Avanti**.
+5. Nella pagina **archivio dati di destinazione** selezionare **AzureBlobStorage**. Si tratta dello stesso account di archiviazione dell'archivio dati di origine. Fare quindi clic su **Avanti**.
 
     ![Pagina dell'archivio dati di destinazione](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/destination-data-store-page-select-linkedservice.png)
     

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 932540c830940ec18c439352d54f671db7387b94
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 7e0339f5118d4745b6abe0268f021f8284a5f11f
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379154"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689128"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Risoluzione dei problemi relativi ai dispositivi ibridi Azure Active Directory aggiunti 
 
@@ -26,7 +26,7 @@ Per altri client Windows, vedere l'articolo [risoluzione dei problemi relativi a
 
 Questo articolo presuppone che siano stati [configurati dispositivi aggiunti all'identità ibrida di Azure Active Directory](hybrid-azuread-join-plan.md) per supportare gli scenari seguenti:
 
-- Accesso condizionale basato su dispositivo
+- Accesso condizionale basato sul dispositivo
 - [Roaming aziendale delle impostazioni](../active-directory-windows-enterprise-state-roaming-overview.md)
 - [Windows Hello for Business](../active-directory-azureadjoin-passport-deployment.md) (Configurare Windows Hello for Business)
 
@@ -102,7 +102,8 @@ Questo campo mostra se il dispositivo è registrato con Azure AD come dispositiv
 
 #### <a name="azureadjoined--yes"></a>AzureAdJoined: YES  
 
-Questo campo mostra se il dispositivo è aggiunto ad Azure AD. Se il valore è **NO**, l'aggiunta ad Azure AD non è ancora completata. 
+Questo campo indica se il dispositivo è unito in join. Il valore sarà **Sì** se il dispositivo è un dispositivo Azure ad aggiunto o un dispositivo ibrido Azure ad aggiunto.
+Se il valore è **NO**, l'aggiunta ad Azure AD non è ancora completata. 
 
 Per ulteriori operazioni di risoluzione dei problemi, procedere con i passaggi successivi.
 
@@ -210,7 +211,7 @@ Usare i log di Visualizzatore eventi per individuare la fase e il codice ErrorCo
 
 ![Evento del log degli errori](./media/troubleshoot-hybrid-join-windows-current/5.png)
 
-###### <a name="network-errors"></a>Errori di rete
+###### <a name="network-errors"></a>errori di rete
 
 - **WININET_E_CANNOT_CONNECT** (0x80072EFD/-2147012867)
    - Motivo: non è stato possibile stabilire una connessione con il server
@@ -267,7 +268,7 @@ Utilizzare i registri Visualizzatore eventi per individuare il codice di errore,
    - Motivo: Impossibile individuare l'endpoint per l'autenticazione con nome utente/password.
    - Soluzione: controllare le impostazioni del provider di identità locale. Verificare che gli endpoint WS-Trust siano abilitati e assicurarsi che la risposta MEX contenga questi endpoint corretti.
 
-##### <a name="network-errors"></a>Errori di rete
+##### <a name="network-errors"></a>errori di rete
 
 - **ERROR_ADAL_INTERNET_TIMEOUT** (0xcaa82ee2/-894947614)
    - Motivo: timeout di rete generale.
@@ -371,13 +372,13 @@ Usare i log di Visualizzatore eventi per individuare la fase e il codice ErrorCo
 
 ##### <a name="federated-join-server-errors"></a>Errori del server join federato
 
-| Codice di errore del server | Messaggio di errore del server | Possibili cause | Risoluzione |
+| Codice di errore del server | Messaggio di errore del server | Di seguito sono indicati i motivi possibili: | Risoluzione |
 | --- | --- | --- | --- |
 | DirectoryError | La richiesta è limitata temporaneamente. Provare dopo 300 secondi. | Errore previsto. Probabilmente a causa dell'esecuzione di più richieste di registrazione in rapida successione. | Riprova join dopo il periodo di ricarica |
 
 ##### <a name="sync-join-server-errors"></a>Errori del server di sincronizzazione join
 
-| Codice di errore del server | Messaggio di errore del server | Possibili cause | Risoluzione |
+| Codice di errore del server | Messaggio di errore del server | Di seguito sono indicati i motivi possibili: | Risoluzione |
 | --- | --- | --- | --- |
 | DirectoryError | AADSTS90002: Impossibile trovare il tenant <UUID>. Questo errore può verificarsi se non sono presenti sottoscrizioni attive per il tenant. Rivolgersi all'amministratore della sottoscrizione. | L'ID tenant nell'oggetto SCP non è corretto | Verificare che l'oggetto SCP sia configurato con l'ID tenant Azure AD corretto e con le sottoscrizioni attive e presenti nel tenant. |
 | DirectoryError | L'oggetto dispositivo in base all'ID specificato non è stato trovato. | Errore previsto per Sync join. L'oggetto dispositivo non è stato sincronizzato da AD Azure AD | Attendere il completamento della sincronizzazione del Azure AD Connect e il successivo tentativo di join dopo il completamento della sincronizzazione risolverà il problema |

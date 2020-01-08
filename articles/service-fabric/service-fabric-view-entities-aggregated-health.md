@@ -1,25 +1,16 @@
 ---
-title: Come visualizzare l'integrità aggregata delle entità di Azure Service Fabric | Microsoft Docs
+title: Come visualizzare l'integrità aggregata delle entità Service Fabric di Azure
 description: Descrive come eseguire una query dell'integrità aggregata delle entità di Azure Service Fabric, come visualizzarla e come valutarla con query di integrità e query generali.
-services: service-fabric
-documentationcenter: .net
 author: oanapl
-manager: chackdan
-editor: ''
-ms.assetid: fa34c52d-3a74-4b90-b045-ad67afa43fe5
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: c4a312654fb54660a229c334071d33a5d6bc172f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d02d8f717801bf51e43c9dafa5eb9379d0737674
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496370"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464123"
 ---
 # <a name="view-service-fabric-health-reports"></a>Come visualizzare i report sull'integrità di Service Fabric
 Azure Service Fabric introduce un [modello di integrità](service-fabric-health-introduction.md) con entità di integrità per le quali i componenti di sistema e i watchdog possono creare report sulle condizioni locali sottoposte a monitoraggio. L' [archivio integrità](service-fabric-health-introduction.md#health-store) aggrega tutti i dati di integrità per determinare se le entità sono integre.
@@ -67,7 +58,7 @@ Visualizzazione del cluster con Service Fabric Explorer:
 Infrastruttura di servizi espone le query relative all’integrità per ognuno dei [tipi di entità](service-fabric-health-introduction.md#health-entities-and-hierarchy)supportati. È possibile accedervi tramite l'API, usando i metodi in [FabricClient.HealthManager](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet), i cmdlet di PowerShell e REST. Queste query restituiscono informazioni complete sull'integrità per l'entità, come lo stato aggregato dell'integrità, gli eventi di integrità dell'entità, gli stati di integrità degli elementi figlio, se applicabili, le valutazioni di non integrità (quando l'entità non è integra) e le statistiche sull'integrità degli elementi figlio, quando applicabili.
 
 > [!NOTE]
-> Un'entità integra viene restituita quando è popolata completamente nell'archivio integrità. L'entità deve essere attiva (non eliminata) e avere un report di sistema. Anche le entità padre nella catena della gerarchia devono avere report di sistema. Se una di queste condizioni non viene soddisfatta, le query relative all'integrità restituiscono un oggetto [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) con [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) `FabricHealthEntityNotFound` che illustra il motivo per cui l'entità non viene restituita.
+> Un'entità integra viene restituita quando è popolata completamente nell'archivio integrità. L'entità deve essere attiva (non eliminata) e avere un report di sistema. Anche le entità padre nella catena della gerarchia devono avere report di sistema. Se una di queste condizioni non viene soddisfatta, le query di integrità restituiscono un' [infrastrutturaexception](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) con [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) `FabricHealthEntityNotFound` che mostra il motivo per cui l'entità non viene restituita.
 >
 >
 
@@ -95,7 +86,7 @@ Restituisce l'integrità dell'entità cluster e contiene gli stati di integrità
 * [Facoltativo] Filtrare per escludere le statistiche di integrità.
 * [Facoltativo] Filtrare per includere le statistiche di integrità di fabric:/System. Applicabile solo quando le statistiche di integrità non sono escluse. Per impostazione predefinita, le statistiche di integrità includono solo le statistiche per le applicazioni utente e non per l'applicazione System.
 
-### <a name="api"></a>API
+### <a name="api"></a>API SmartBear Ready!
 Per ottenere l'integrità del cluster, creare un oggetto `FabricClient` e chiamare il metodo [GetClusterHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthasync) sul relativo **HealthManager**.
 
 La chiamata seguente permette di ottenere l'integrità del cluster:
@@ -243,7 +234,7 @@ Restituisce l'integrità di un'entità nodo e contiene gli eventi di integrità 
 * [Facoltativo] Impostazioni dei criteri di integrità usate per valutare l'integrità.
 * [Facoltativo] Filtri per gli eventi che specificano le voci di interesse che devono essere restituite nel risultato (ad esempio, solo gli errori o avvisi ed errori). Per valutare l'integrità aggregata dell'entità, vengono usati tutti gli eventi, indipendentemente dal filtro.
 
-### <a name="api"></a>API
+### <a name="api"></a>API SmartBear Ready!
 Per ottenere l'integrità del nodo tramite l'API, creare un oggetto `FabricClient` e chiamare il metodo [GetNodeHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getnodehealthasync) sul relativo HealthManager.
 
 Il codice seguente permette di ottenere l'integrità del nodo per il nome del nodo specificato:
@@ -313,7 +304,7 @@ Restituisce lo stato di un'entità applicazione. Contiene gli stati di integrit�
 * [Facoltativo] Filtri per eventi, servizi e applicazioni distribuite che specificano le voci di interesse che devono essere restituite nel risultato (ad esempio, solo gli errori o avvisi ed errori). Per valutare l'integrità aggregata dell'entità, vengono usati tutti gli eventi, i servizi e le applicazioni distribuite, indipendentemente dal filtro.
 * [Facoltativo] Filtrare per escludere le statistiche di integrità. Se non specificato, le statistiche di integrità includono il numero di stati ok, di avviso e di errore per tutti gli elementi figlio dell'applicazione: servizi, partizioni, repliche, applicazioni distribuite e pacchetti del servizio distribuiti.
 
-### <a name="api"></a>API
+### <a name="api"></a>API SmartBear Ready!
 Per ottenere l'integrità dell'applicazione, creare un oggetto `FabricClient` e chiamare il metodo [GetApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getapplicationhealthasync) sul relativo HealthManager.
 
 Il codice seguente permette di ottenere l'integrità dell'applicazione per il nome dell'applicazione (URI) specificato:
@@ -459,7 +450,7 @@ Restituisce lo stato di un'entità di servizio. Contiene gli stati di integrità
 * [Facoltativo] Filtri per eventi e partizioni che specificano le voci di interesse che devono essere restituite nel risultato (ad esempio, solo gli errori o avvisi ed errori). Per valutare l'integrità aggregata dell'entità, vengono usati tutti gli eventi e tutte le partizioni, indipendentemente dal filtro.
 * [Facoltativo] Filtrare per escludere le statistiche di integrità. Se non specificato, le statistiche di integrità mostrano il numero di stati ok, di avviso e di errore per tutte le partizioni e le repliche del servizio.
 
-### <a name="api"></a>API
+### <a name="api"></a>API SmartBear Ready!
 Per ottenere l'integrità del servizio tramite l'API, creare un oggetto `FabricClient` e chiamare il metodo [GetServiceHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getservicehealthasync) sul relativo HealthManager.
 
 L'esempio seguente ottiene l'integrità di un servizio con il nome di servizio (URI) specificato:
@@ -531,7 +522,7 @@ Restituisce lo stato di un'entità partizione. Contiene gli stati di integrità 
 * [Facoltativo] Filtri per eventi e repliche che specificano le voci di interesse che devono essere restituite nel risultato (ad esempio, solo gli errori o avvisi ed errori). Per valutare l'integrità aggregata dell'entità, vengono usati tutti gli eventi e tutte le repliche, indipendentemente dal filtro.
 * [Facoltativo] Filtrare per escludere le statistiche di integrità. Se non specificato, le statistiche di integrità mostrano il numero di repliche con stati ok, di avviso e di errore.
 
-### <a name="api"></a>API
+### <a name="api"></a>API SmartBear Ready!
 Per ottenere l'integrità della partizione tramite l'API, creare un oggetto `FabricClient` e chiamare il metodo [GetPartitionHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getpartitionhealthasync) sul relativo HealthManager. Per specificare parametri facoltativi, creare [PartitionHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.partitionhealthquerydescription).
 
 ```csharp
@@ -622,7 +613,7 @@ Restituisce l'integrità di una replica di un servizio con stato o di un'istanza
 * [Facoltativo] Parametri dei criteri di integrità dell'applicazione usati per sostituire i criteri del manifesto dell'applicazione.
 * [Facoltativo] Filtri per gli eventi che specificano le voci di interesse che devono essere restituite nel risultato (ad esempio, solo gli errori o avvisi ed errori). Per valutare l'integrità aggregata dell'entità, vengono usati tutti gli eventi, indipendentemente dal filtro.
 
-### <a name="api"></a>API
+### <a name="api"></a>API SmartBear Ready!
 Per ottenere l'integrità della replica tramite l'API, creare un oggetto `FabricClient` e chiamare il metodo [GetReplicaHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getreplicahealthasync) sul relativo HealthManager. Per specificare parametri avanzati, usare [ReplicaHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.replicahealthquerydescription).
 
 ```csharp
@@ -666,7 +657,7 @@ Restituisce l’integrità di un’applicazione distribuita in un’entità nodo
 * [Facoltativo] Filtri per eventi e pacchetti di servizi distribuiti che specificano le voci di interesse che devono essere restituite nel risultato (ad esempio, solo gli errori o avvisi ed errori). Per valutare l'integrità aggregata dell'entità, vengono usati tutti gli eventi e i pacchetti di servizi distribuiti, indipendentemente dal filtro.
 * [Facoltativo] Filtrare per escludere le statistiche di integrità. Se non specificato, le statistiche di integrità mostrano il numero di pacchetti del servizio distribuiti con stati di integrità ok, di avviso e di errore.
 
-### <a name="api"></a>API
+### <a name="api"></a>API SmartBear Ready!
 Per ottenere l'integrità di un'applicazione distribuita in un nodo tramite l'API, creare un oggetto `FabricClient` e chiamare il metodo [GetDeployedApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedapplicationhealthasync) sul relativo HealthManager. Per specificare parametri facoltativi, usare [DeployedApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedapplicationhealthquerydescription).
 
 ```csharp
@@ -724,7 +715,7 @@ Restituisce lo stato di un'entità di pacchetto di servizi distribuito. Input:
 * [Facoltativo] Criteri di integrità dell'applicazione usati per sostituire i criteri del manifesto dell'applicazione.
 * [Facoltativo] Filtri per gli eventi che specificano le voci di interesse che devono essere restituite nel risultato (ad esempio, solo gli errori o avvisi ed errori). Per valutare l'integrità aggregata dell'entità, vengono usati tutti gli eventi, indipendentemente dal filtro.
 
-### <a name="api"></a>API
+### <a name="api"></a>API SmartBear Ready!
 Per ottenere l'integrità di un pacchetto del servizio distribuito tramite l'API, creare un oggetto `FabricClient` e chiamare il metodo [GetDeployedServicePackageHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedservicepackagehealthasync) sul relativo HealthManager. Per specificare parametri facoltativi, usare [DeployedServicePackageHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedservicepackagehealthquerydescription).
 
 ```csharp
@@ -819,7 +810,7 @@ I risultati del blocco includono gli elementi figlio che rispettano i filtri.
 
 Analogamente, la query sul blocco non restituisce valutazioni non integre o eventi dell'entità. Tali informazioni aggiuntive possono essere ottenute usando la query sull'integrità del cluster esistente.
 
-### <a name="api"></a>API
+### <a name="api"></a>API SmartBear Ready!
 Per ottenere il blocco di integrità del cluster, creare un oggetto `FabricClient` e chiamare il metodo [GetClusterHealthChunkAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthchunkasync) sul relativo **HealthManager**. È possibile passare [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthchunkquerydescription) per descrivere i criteri di integrità e i filtri avanzati.
 
 Il codice seguente permette di ottenere il blocco di integrità del cluster con filtri avanzati.

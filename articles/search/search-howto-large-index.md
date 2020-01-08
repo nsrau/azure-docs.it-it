@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: bd158eaf22025a64d7464c632d3f0fa510a4b5a3
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 12/17/2019
+ms.openlocfilehash: b4b6c57b08de07cae431f015c8d8f53cdf3a50a4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793769"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460734"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Come indicizzare set di dati di grandi dimensioni in ricerca cognitiva di Azure
 
@@ -74,7 +74,7 @@ L'elaborazione parallela prevede le operazioni seguenti:
 + Pianificare l'esecuzione di tutti gli indicizzatori nello stesso momento.
 
 > [!NOTE]
-> Azure ricerca cognitiva non supporta la dedizione di repliche o partizioni a carichi di lavoro specifici. Il rischio di indicizzazioni pesante simultanee sovraccarica il sistema a scapito delle prestazioni di query. In un ambiente di testing implementare prima l'indicizzazione parallela per comprendere i compromessi.
+> In ricerca cognitiva di Azure non è possibile assegnare singole repliche o partizioni per l'indicizzazione o l'elaborazione delle query. Il sistema determina la modalità di utilizzo delle risorse. Per comprendere l'impatto sulle prestazioni delle query, è possibile provare a eseguire l'indicizzazione parallela in un ambiente di test prima di eseguirne il rollforward in produzione.  
 
 ### <a name="how-to-configure-parallel-indexing"></a>Come configurare l'indicizzazione parallela
 
@@ -82,7 +82,7 @@ Per gli indicizzatori la capacità di elaborazione si basa vagamente su un sotto
 
 1. Nella pagina **Panoramica** della dashboard del servizio di ricerca del [portale di Azure](https://portal.azure.com) controllare il **Piano tariffario** per confermarne la possibilità di gestione dell'indicizzazione parallela. I livelli Basic e Standard offrono più repliche.
 
-2. In **Impostazioni** > **Scalabilità** [aumentare le repliche](search-capacity-planning.md) per l'elaborazione parallela: una replica aggiuntiva per ogni carico di lavoro dell'indicizzatore. Indicare un numero sufficiente per il volume di query esistente. Sacrificare i carichi di lavoro delle query per l'indicizzazione non è un buon compromesso.
+2. In **Impostazioni** > **Scalabilità**[aumentare le repliche](search-capacity-planning.md) per l'elaborazione parallela: una replica aggiuntiva per ogni carico di lavoro dell'indicizzatore. Indicare un numero sufficiente per il volume di query esistente. Sacrificare i carichi di lavoro delle query per l'indicizzazione non è un buon compromesso.
 
 3. Distribuire i dati in più contenitori a un livello che può raggiungere gli indicizzatori di Azure ricerca cognitiva. Potrebbe trattarsi di tabelle multiple nel database SQL di Azure, contenitori multipli nel servizio Archiviazione BLOB di Azure o di raccolte multiple. Definire un oggetto di origine dati per ogni tabella o contenitore.
 

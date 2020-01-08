@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 9004e74d1b42a2b50ef57da58d9a79497e17f1ed
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 1e921059caa0d34c9ba1e303ff7f4a8de027a021
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895757"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434977"
 ---
 # <a name="azure-iot-central-architecture-preview-features"></a>Architettura del IoT Central di Azure (funzionalità di anteprima)
 
@@ -119,7 +119,7 @@ Azure IoT Central archivia i dati dell'applicazione nel cloud. I dati archiviati
 
 Azure IoT Central usa un archivio di serie temporali per i dati di misura inviati dai dispositivi. Dati di serie temporali dei dispositivi utilizzati dal servizio di analisi.
 
-## <a name="analytics"></a>Analytics
+## <a name="analytics"></a>Analisi
 
 Il servizio di analisi è responsabile della generazione dei dati dei report personalizzati mostrati dall'applicazione. Un operatore può [personalizzare le analisi](howto-create-analytics.md) visualizzate nell'applicazione. Il servizio di analisi si basa su [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) ed elabora i dati di misura inviati dai dispositivi.
 
@@ -152,7 +152,7 @@ In un'applicazione IoT Central di Azure è possibile [creare ed eseguire process
 
 ## <a name="role-based-access-control-rbac"></a>Controllo degli accessi in base al ruolo
 
-Un [amministratore può definire le regole di accesso](howto-administer.md) per un'applicazione Azure IoT Central tramite i ruoli predefiniti. Un amministratore può assegnare gli utenti ai ruoli determinando a quali aree dell'applicazione l'utente può accedere.
+Un [amministratore può definire le regole di accesso](howto-manage-users-roles.md) per un'applicazione IoT Central di Azure usando uno dei ruoli predefiniti oppure creando un ruolo personalizzato. I ruoli determinano le aree dell'applicazione a cui un utente può accedere e le azioni che possono eseguire.
 
 ## <a name="security"></a>Sicurezza
 

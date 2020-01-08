@@ -10,12 +10,12 @@ ms.service: lab-services
 ms.topic: article
 ms.date: 11/21/2019
 ms.author: enewman
-ms.openlocfilehash: e8c0e67567bd5ddbfdd45762edd52112c1fd4c70
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: d7cff4e2afff4678bf7aa437aefa9d8deea220bc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74897273"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428956"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Guida alla configurazione di un computer modello Windows in Azure Lab Services
 
@@ -142,7 +142,7 @@ Se il computer modello richiede Office, è consigliabile installare Office trami
 
 ### <a name="change-the-microsoft-office-365-update-channel"></a>Modificare il canale di aggiornamento Microsoft Office 365
 
-Utilizzando lo strumento di configurazione di Office, è possibile impostare la frequenza con cui Office riceve gli aggiornamenti.  Tuttavia, se è necessario modificare la frequenza con cui Office riceve gli aggiornamenti dopo l'installazione, è possibile modificare l'URL del canale di aggiornamento.  Gli indirizzi URL del canale di aggiornamento sono reperibili in [modificare il canale di aggiornamento dopo aver abilitato i client di Office 365 per la ricezione di aggiornamenti da Configuration Manager](https://docs.microsoft.com/sccm/sum/deploy-use/manage-office-365-proplus-updates#change-the-update-channel-after-you-enable-office-365-clients-to-receive-updates-from-configuration-manager). Nell'esempio seguente viene illustrato come impostare Office 365 per l'utilizzo del canale di aggiornamento mensile.
+Utilizzando lo strumento di configurazione di Office, è possibile impostare la frequenza con cui Office riceve gli aggiornamenti.  Tuttavia, se è necessario modificare la frequenza con cui Office riceve gli aggiornamenti dopo l'installazione, è possibile modificare l'URL del canale di aggiornamento.  Gli indirizzi URL del canale di aggiornamento sono disponibili in [modificare il canale di aggiornamento dopo aver abilitato i client di Office 365 per la ricezione degli aggiornamenti da Configuration Manager]/ConfigMgr/Sum/deploy-use/Manage-Office-365-ProPlus-Updates # bkmk_channel). Nell'esempio seguente viene illustrato come impostare Office 365 per l'utilizzo del canale di aggiornamento mensile.
 
 ```powershell
 # Update to the Office 365 Monthly Channel
@@ -231,6 +231,6 @@ Get-AppxPackage -Name *xbox* | foreach { if (-not $_.NonRemovable) { Remove-Appx
 
 Installare altre app comunemente usate per l'insegnamento tramite l'app di Windows Store. I suggerimenti includono applicazioni come [Microsoft whiteboard app](https://www.microsoft.com/store/productId/9MSPC6MP8FM4), [Microsoft teams](https://www.microsoft.com/store/productId/9MSPC6MP8FM4)e [Minecraft Education Edition](https://education.minecraft.net/). Queste applicazioni devono essere installate manualmente tramite Windows Store o tramite i rispettivi siti Web nella macchina virtuale del modello.
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 
 Questo articolo ha illustrato i passaggi facoltativi per preparare la VM modello di Windows per una classe efficace.  I passaggi includono l'installazione di OneDrive e l'installazione di Office 365, l'installazione degli aggiornamenti per Windows e l'installazione degli aggiornamenti per Microsoft Store app.  È stato inoltre illustrato come impostare gli aggiornamenti di una pianificazione più adatta per la classe.  

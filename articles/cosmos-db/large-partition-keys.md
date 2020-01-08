@@ -1,17 +1,17 @@
 ---
-title: Creare contenitori di Azure Cosmos con una chiave di partizione di grandi dimensioni usando il portale di Azure e vari SDK.
+title: Creare contenitori di Azure Cosmos con una chiave di partizione di grandi dimensioni
 description: Informazioni su come creare un contenitore in Azure Cosmos DB con una chiave di partizione di grandi dimensioni usando portale di Azure e SDK diversi.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: e2ea934140322a13f07a90f4246bacd3f9dbe6c9
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 42e92fa2b088fc04d4aa670e6586fcfe26ff3a70
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721087"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441692"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Creare contenitori con una chiave di partizione grande
 
@@ -68,7 +68,7 @@ Le chiavi di partizione di grandi dimensioni sono supportate con le seguenti ver
 
 |Tipo di SDK  | Versione minima   |
 |---------|---------|
-|.NET     |    1,18     |
+|.NET     |    1.18     |
 |Sincronizzazione Java     |   2.4.0      |
 |Java asincrono   |  2.5.0        |
 | API REST | versione superiore a `2017-05-03` usando l'intestazione della richiesta `x-ms-version`.|

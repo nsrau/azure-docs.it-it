@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 618216208b61051d5446f96fb5b28a451b188c35
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 5c22e29e51d9f2fc58720c555b8ad3b03d791db6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72954110"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435043"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Estendi IoT Central di Azure con analisi personalizzate con Azure Databricks
 
@@ -37,17 +37,17 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Creare un'applicazione IoT Central nel sito Web di [Azure IOT Central Application Manager](https://aka.ms/iotcentral) con le impostazioni seguenti:
 
-| Impostazione | Value |
+| Impostazione | Valore |
 | ------- | ----- |
 | Piano di pagamento | Pagamento in base al consumo |
-| Modello di applicazione | Esempio Contoso |
-| Nome dell'applicazione | Accetta il nome predefinito o scegli il tuo nome |
+| Modello di applicazione | Applicazione legacy |
+| Nome applicazione | Accetta il nome predefinito o scegli il tuo nome |
 | URL | Accettare l'impostazione predefinita o scegliere il prefisso URL univoco |
 | Directory | Tenant di Azure Active Directory |
 | Sottoscrizione di Azure | Sottoscrizione di Azure |
-| Area geografica | Stati Uniti Orientali |
+| Area | Stati Uniti |
 
-Gli esempi e le schermate in questo articolo usano l'area **Stati Uniti orientali** . Scegliere una località vicina e assicurarsi di creare tutte le risorse nella stessa area.
+Gli esempi e le schermate in questo articolo usano l'area **Stati Uniti** . Scegliere una località vicina e assicurarsi di creare tutte le risorse nella stessa area.
 
 ### <a name="resource-group"></a>Gruppo di risorse
 
@@ -57,25 +57,25 @@ Usare il [portale di Azure per creare un gruppo di risorse](https://portal.azure
 
 Usare il [portale di Azure per creare uno spazio dei nomi di hub eventi](https://portal.azure.com/#create/Microsoft.EventHub) con le impostazioni seguenti:
 
-| Impostazione | Value |
+| Impostazione | Valore |
 | ------- | ----- |
-| name    | Scegliere il nome dello spazio dei nomi |
+| Nome    | Scegliere il nome dello spazio dei nomi |
 | Piano tariffario | Basic |
 | Sottoscrizione | Sottoscrizione in uso |
 | Gruppo di risorse | IoTCentralAnalysis |
-| Località | Stati Uniti Orientali |
+| Percorso | Stati Uniti orientali |
 | Unità elaborate | 1 |
 
 ### <a name="azure-databricks-workspace"></a>Area di lavoro Azure Databricks
 
 Usare il [portale di Azure per creare un servizio Azure Databricks](https://portal.azure.com/#create/Microsoft.Databricks) con le impostazioni seguenti:
 
-| Impostazione | Value |
+| Impostazione | Valore |
 | ------- | ----- |
 | Nome dell'area di lavoro    | Scegliere il nome dell'area di lavoro |
 | Sottoscrizione | Sottoscrizione in uso |
 | Gruppo di risorse | IoTCentralAnalysis |
-| Località | Stati Uniti Orientali |
+| Percorso | Stati Uniti orientali |
 | Piano tariffario | Standard |
 
 Quando sono state create le risorse necessarie, il gruppo di risorse **IoTCentralAnalysis** è simile allo screenshot seguente:
@@ -104,17 +104,17 @@ Nel sito Web di [Azure IOT Central Application Manager](https://aka.ms/iotcentra
 1. Passare alla pagina **esportazione dati continui** , selezionare **+ nuovo**, quindi **Hub eventi di Azure**.
 1. Usare le impostazioni seguenti per configurare l'esportazione, quindi selezionare **Salva**:
 
-    | Impostazione | Value |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Nome visualizzato | Esporta in hub eventi |
     | Attivato | On |
     | Spazio dei nomi di Hub eventi | Nome dello spazio dei nomi di hub eventi |
     | Hub eventi | centralexport |
-    | Measurements (Misure) | On |
+    | Misurazioni | On |
     | Dispositivi | Off |
     | Modelli di dispositivo | Off |
 
-![Configurazione esportazione dati continui](media/howto-create-custom-analytics/cde-configuration.png)
+![Configurazione dell'esportazione continua dei dati](media/howto-create-custom-analytics/cde-configuration.png)
 
 Prima di continuare, attendere che lo stato di esportazione sia **in esecuzione** .
 
@@ -128,17 +128,17 @@ Nell'elenco delle attività comuni della pagina **Azure Databricks** selezionare
 
 Usare le informazioni nella tabella seguente per creare il cluster:
 
-| Impostazione | Value |
+| Impostazione | Valore |
 | ------- | ----- |
 | Cluster Name | centralanalysis |
-| Modalità cluster | Standard |
-| Versione Databricks Runtime | 5,3 (scala 2,11, Spark 2.4.0) |
+| Cluster Mode | Standard |
+| Databricks Runtime Version | 5.3 (Scala 2.11, Spark 2.4.0) |
 | Versione di Python | 3 |
 | Abilita la scalabilità automatica | No |
 | Termina dopo minuti di inattività | 30 |
-| Tipo di lavoro | Standard_DS3_v2 |
+| Worker Type | Standard_DS3_v2 |
 | Ruoli di lavoro | 1 |
-| Tipo di driver | Uguale al ruolo di lavoro |
+| Driver Type | Same as worker |
 
 La creazione di un cluster può richiedere alcuni minuti, attendere il completamento della creazione del cluster prima di continuare.
 

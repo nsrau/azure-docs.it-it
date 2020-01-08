@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 42378c4377057902937b718555489636bc5dcbaa
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 74375fdb5bf8d571cbdbc778c3c6e7b7b93f59ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900010"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75368004"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: usare l'API Graph di Azure AD
 
@@ -29,9 +29,6 @@ Per i tenant B2C, esistono due modalità principali di comunicazione con i API G
 * Per le attività **automatiche**continue, è necessario utilizzare un tipo di account del servizio fornito con i privilegi necessari per eseguire le attività di gestione. In Azure AD è possibile ottenere questo risultato registrando un'applicazione ed effettuando l'autenticazione in Azure AD. A questo scopo usare un *ID applicazione* che usa la [concessione delle credenziali client OAuth 2.0](../active-directory/develop/service-to-service.md). In questo caso l'applicazione agisce autonomamente, non come utente, per chiamare l'API Graph.
 
 In questo articolo si apprenderà come eseguire il caso di utilizzo automatico. Verrà compilato un `B2CGraphClient` .NET 4.5 che esegue operazioni di creazione, lettura, aggiornamento ed eliminazione (CRUD, Create, Read, Update, Delete) di utenti. Il client avrà un'interfaccia della riga di comando di Windows che consente di richiamare diversi metodi. Tuttavia, il codice viene scritto per comportarsi in modo automatico e non interattivo.
-
->[!IMPORTANT]
-> Per gestire gli utenti in una directory Azure AD B2C, è **necessario** utilizzare il [Azure ad API Graph](../active-directory/develop/active-directory-graph-api-quickstart.md) . Il API Graph Azure AD è diverso dall'API Microsoft Graph. Per altre informazioni, vedere il post di Blog di MSDN [Microsoft Graph o Azure AD Graph](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -63,8 +60,9 @@ L'autorizzazione per la *lettura e la scrittura dei dati della directory* conces
 
 Se si desidera consentire all'applicazione di eliminare gli utenti o aggiornare le password, è necessario concedergli il ruolo di *amministratore utente* .
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e passare alla directory che contiene il tenant del Azure ad B2C.
-1. Selezionare **Azure ad B2C** nel menu a sinistra. In alternativa, selezionare **tutti i servizi** e quindi cercare e selezionare **Azure ad B2C**.
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Selezionare l'icona **directory + sottoscrizione** sulla barra degli strumenti del portale e quindi selezionare la directory che contiene il tenant Azure ad B2C.
+1. Nella portale di Azure cercare e selezionare **Azure ad B2C**.
 1. In **Gestisci**selezionare **ruoli e amministratori**.
 1. Selezionare il ruolo di **amministratore utente** .
 1. Selezionare **Aggiungi assegnazione**.
@@ -290,7 +288,7 @@ B2C Get-User <user-object-id>
 B2C Get-User <filter-query-expression>
 ```
 
-ad esempio:
+Ad esempio:
 
 ```cmd
 B2C Get-User 2bcf1067-90b6-4253-9991-7f16449c2d91
@@ -332,7 +330,7 @@ B2C Get-B2C-Application
 B2C Get-Extension-Attribute <object-id-in-the-output-of-the-above-command>
 ```
 
-L'output rivela i dettagli di ogni attributo personalizzato. ad esempio:
+L'output rivela i dettagli di ogni attributo personalizzato. Ad esempio:
 
 ```json
 {

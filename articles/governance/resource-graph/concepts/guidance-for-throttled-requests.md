@@ -1,14 +1,14 @@
 ---
 title: Istruzioni per le richieste con limitazioni
-description: Impara a eseguire batch, scaglionare, impaginare ed eseguire query in parallelo per evitare che le richieste vengano limitate da Azure Resource Graph.
-ms.date: 11/21/2019
+description: Impara a raggruppare, sfalsare, paginare ed eseguire query in parallelo per evitare che le richieste vengano limitate da Azure Resource Graph.
+ms.date: 12/02/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4405cce567a75f83823cc2d441b2a59985c196ad
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: fbd4bec715b187bcc643fe32b8452b0e062e7713
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304679"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436070"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Linee guida per le richieste limitate in Azure Resource Graph
 
@@ -17,7 +17,7 @@ Quando si crea un uso programmatico e frequente dei dati del grafo delle risorse
 Questo articolo illustra quattro aree e modelli correlati alla creazione di query in Azure Resource Graph:
 
 - Informazioni sulle intestazioni di limitazione
-- Invio in batch di query
+- Raggruppamento di query
 - Query di sfalsamento
 - L'effetto della paginazione
 
@@ -37,9 +37,9 @@ Per illustrare il funzionamento delle intestazioni, viene ora esaminata una risp
 
 Per un esempio dell'uso delle intestazioni per _backoff_ sulle richieste di query, vedere l'esempio in [query in parallelo](#query-in-parallel).
 
-## <a name="batching-queries"></a>Invio in batch di query
+## <a name="grouping-queries"></a>Raggruppamento di query
 
-L'invio in batch di query in base alla sottoscrizione, al gruppo di risorse o a una singola risorsa è più efficiente delle query parallelizzazione. Il costo della quota di una query di dimensioni maggiori è spesso inferiore al costo della quota di molte query di piccole e di destinazione. È consigliabile che le dimensioni del batch siano minori di _300_.
+Il raggruppamento delle query in base alla sottoscrizione, al gruppo di risorse o a una singola risorsa è più efficiente delle query parallelizzazione. Il costo della quota di una query di dimensioni maggiori è spesso inferiore al costo della quota di molte query di piccole e di destinazione. È consigliabile che le dimensioni del gruppo siano minori di _300_.
 
 - Esempio di approccio poco ottimizzato
 
@@ -62,19 +62,19 @@ L'invio in batch di query in base alla sottoscrizione, al gruppo di risorse o a 
   }
   ```
 
-- Esempio #1 di un approccio di batch ottimizzato
+- Esempio #1 di un approccio di raggruppamento ottimizzato
 
   ```csharp
   // RECOMMENDED
   var header = /* your request header */
   var subscriptionIds = /* A big list of subscriptionIds */
 
-  const int batchSize = 100;
-  for (var i = 0; i <= subscriptionIds.Count / batchSize; ++i)
+  const int groupSize = 100;
+  for (var i = 0; i <= subscriptionIds.Count / groupSize; ++i)
   {
-      var currSubscriptionBatch = subscriptionIds.Skip(i * batchSize).Take(batchSize).ToList();
+      var currSubscriptionGroup = subscriptionIds.Skip(i * groupSize).Take(groupSize).ToList();
       var userQueryRequest = new QueryRequest(
-          subscriptions: currSubscriptionBatch,
+          subscriptions: currSubscriptionGroup,
           query: "Resources | project name, type");
 
       var azureOperationResponse = await this.resourceGraphClient
@@ -85,21 +85,25 @@ L'invio in batch di query in base alla sottoscrizione, al gruppo di risorse o a 
   }
   ```
 
-- Esempio #2 di un approccio di batch ottimizzato
+- Esempio #2 di un approccio di raggruppamento ottimizzato per ottenere più risorse in un'unica query
+
+  ```kusto
+  Resources | where id in~ ({resourceIdGroup}) | project name, type
+  ```
 
   ```csharp
   // RECOMMENDED
   var header = /* your request header */
   var resourceIds = /* A big list of resourceIds */
 
-  const int batchSize = 100;
-  for (var i = 0; i <= resourceIds.Count / batchSize; ++i)
+  const int groupSize = 100;
+  for (var i = 0; i <= resourceIds.Count / groupSize; ++i)
   {
-      var resourceIdBatch = string.Join(",",
-          resourceIds.Skip(i * batchSize).Take(batchSize).Select(id => string.Format("'{0}'", id)));
+      var resourceIdGroup = string.Join(",",
+          resourceIds.Skip(i * groupSize).Take(groupSize).Select(id => string.Format("'{0}'", id)));
       var userQueryRequest = new QueryRequest(
           subscriptions: subscriptionList,
-          query: $"Resources | where id in~ ({resourceIds}) | project name, type");
+          query: $"Resources | where id in~ ({resourceIdGroup}) | project name, type");
 
       var azureOperationResponse = await this.resourceGraphClient
           .ResourcesWithHttpMessagesAsync(userQueryRequest, header)
@@ -115,13 +119,13 @@ A causa del modo in cui viene applicata la limitazione, è consigliabile scaglio
 
 - Pianificazione di query non sfalsate
 
-  | Conteggio query         | 60  | 0    | 0     | 0     |
+  | Query Count         | 60  | 0    | 0     | 0     |
   |---------------------|-----|------|-------|-------|
   | Intervallo di tempo (sec) | 0-5 | 5-10 | 10-15 | 15-20 |
 
 - Pianificazione di query sfalsate
 
-  | Conteggio query         | 15  | 15   | 15    | 15    |
+  | Query Count         | 15  | 15   | 15    | 15    |
   |---------------------|-----|------|-------|-------|
   | Intervallo di tempo (sec) | 0-5 | 5-10 | 10-15 | 15-20 |
 
@@ -149,12 +153,12 @@ while (/* Need to query more? */)
 
 ### <a name="query-in-parallel"></a>Esecuzione di query in parallelo
 
-Anche se la suddivisione in batch è consigliata rispetto alla parallelizzazione, in alcuni casi non è possibile eseguire facilmente il batch delle query. In questi casi, è possibile eseguire una query sul grafico delle risorse di Azure inviando più query in modo parallelo. Di seguito è riportato un esempio di come _backoff_ in base alle intestazioni di limitazione in scenari di questo tipo:
+Anche se il raggruppamento è consigliato rispetto alla parallelizzazione, in alcuni casi non è possibile raggruppare facilmente le query. In questi casi, è possibile eseguire una query sul grafico delle risorse di Azure inviando più query in modo parallelo. Di seguito è riportato un esempio di come _backoff_ in base alle intestazioni di limitazione in scenari di questo tipo:
 
 ```csharp
-IEnumerable<IEnumerable<string>> queryBatches = /* Batches of queries  */
-// Run batches in parallel.
-await Task.WhenAll(queryBatches.Select(ExecuteQueries)).ConfigureAwait(false);
+IEnumerable<IEnumerable<string>> queryGroup = /* Groups of queries  */
+// Run groups in parallel.
+await Task.WhenAll(queryGroup.Select(ExecuteQueries)).ConfigureAwait(false);
 
 async Task ExecuteQueries(IEnumerable<string> queries)
 {
@@ -181,7 +185,7 @@ async Task ExecuteQueries(IEnumerable<string> queries)
 }
 ```
 
-## <a name="pagination"></a>Paginazione
+## <a name="pagination"></a>Impaginazione
 
 Poiché il grafico risorse di Azure restituisce al massimo 1000 voci in una singola risposta di query, potrebbe essere necessario [impaginare](./work-with-data.md#paging-results) le query per ottenere il set di dati completo che si sta cercando. Tuttavia, alcuni client di Azure Resource Graph gestiscono l'impaginazione in modo diverso rispetto ad altri.
 

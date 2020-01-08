@@ -3,17 +3,17 @@ title: Monitorare la connettività dei dispositivi con Azure IoT Central Explore
 description: Monitorare i messaggi dei dispositivi e osservare le modifiche del dispositivo gemello usando l'interfaccia della riga di comando di IoT Central Explorer.
 author: viv-liu
 ms.author: viviali
-ms.date: 09/27/2019
+ms.date: 12/18/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 2b1c4c64fc02df67f38e36194072efd5db3b8e38
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 90cf83f86acb647b8194619bc1b572e5147cc0cf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895696"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434956"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli-preview-features"></a>Monitorare la connettività dei dispositivi usando l'interfaccia della riga di comando di Azure
 
@@ -45,11 +45,11 @@ Si noterà che l'estensione Azure-CLI-Internet è 0.8.1 o successiva. In caso co
 az extension update --name azure-cli-iot-ext
 ```
 
-## <a name="using-the-extension"></a>Utilizzo dell'estensione
+## <a name="using-the-extension"></a>Uso dell'estensione
 
 Nelle sezioni seguenti vengono descritti i comandi e le opzioni comuni che è possibile utilizzare quando si esegue `az iot central`. Per visualizzare il set completo di comandi e opzioni, passare `--help` al `az iot central` o a uno dei relativi sottocomandi.
 
-### <a name="login"></a>Login
+### <a name="login"></a>Accesso
 
 Per iniziare, accedere all'interfaccia della riga di comando di Azure. 
 

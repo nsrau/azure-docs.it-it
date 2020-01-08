@@ -8,12 +8,12 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: af16643ed877ca427a22428afec028264de7a5d8
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 83b4e1e10af8e398f6671f6b2561485bfdb6b7f4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928989"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432491"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Configurare monitoraggio di Azure per l'applicazione Python (anteprima)
 
@@ -38,11 +38,11 @@ Prima di tutto è necessario creare una risorsa Application Insights in monitora
 
 1. Viene visualizzata una finestra di configurazione. Usare la tabella seguente per compilare i campi di input.
 
-   | Impostazione        | Value           | Description  |
+   | Impostazione        | Valore           | Description  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valore univoco globale | Nome che identifica l'app che si sta monitorando |
    | **Gruppo di risorse**     | myResourceGroup      | Nome del nuovo gruppo di risorse per ospitare i dati Application Insights |
-   | **Località** | Stati Uniti Orientali | Una località nelle vicinanze o vicino alla posizione in cui è ospitata l'app |
+   | **Posizione** | Stati Uniti orientali | Una località nelle vicinanze o vicino alla posizione in cui è ospitata l'app |
 
 1. Selezionare **Create** (Crea).
 
@@ -353,7 +353,7 @@ Ecco gli esportatori che OpenCensus fornisce mappato ai tipi di dati di telemetr
     logger.warning('action', {'key-1': 'value-1', 'key-2': 'value2'})
     ```
 
-7. Per informazioni dettagliate su come arricchire i log con i dati del contesto di traccia, vedere OpenCensus Python [logs Integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#logs-correlation).
+7. Per informazioni dettagliate su come arricchire i log con i dati del contesto di traccia, vedere OpenCensus Python [logs Integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#log-correlation).
 
 ## <a name="view-your-data-with-queries"></a>Visualizzare i dati con le query
 

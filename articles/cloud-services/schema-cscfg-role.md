@@ -6,14 +6,14 @@ services: cloud-services
 ms.service: cloud-services
 ms.topic: reference
 caps.latest.revision: 12
-author: georgewallace
-ms.author: gwallace
-ms.openlocfilehash: 481301333ada39297bf2813bbea5f096c2abd3ad
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+author: tgore03
+ms.author: tagore
+ms.openlocfilehash: 0f0e79b462726b1aa6a953a4b8c92334d6b16492
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360663"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449093"
 ---
 # <a name="azure-cloud-services-config-role-schema"></a>Schema del ruolo di configurazione di Servizi cloud di Azure
 
@@ -40,18 +40,18 @@ L'esempio seguente illustra l'elemento `Role` e i relativi elementi figlio.
 
 La tabella seguente descrive gli attributi dell'elemento `Role`.
 
-| Attributo | DESCRIZIONE |
+| Attributo | Description |
 | --------- | ----------- |
-| name   | Richiesto. Specifica il nome del ruolo. Il nome deve corrispondere al nome specificato per il ruolo nel file di definizione del servizio.|
-| vmName | facoltativo. Specifica il nome DNS per una macchina virtuale. Il nome non può contenere più di 10 caratteri.|
+| name   | Obbligatorio. Specifica il nome del ruolo. Il nome deve corrispondere al nome specificato per il ruolo nel file di definizione del servizio.|
+| vmName | Facoltativa. Specifica il nome DNS per una macchina virtuale. Il nome non può contenere più di 10 caratteri.|
 
 La tabella seguente descrive gli elementi figlio dell'elemento `Role`.
 
-| Elemento | DESCRIZIONE |
+| Elemento | Description |
 | ------- | ----------- |
-| Istanze | Richiesto. Specifica il numero di istanze da distribuire per il ruolo. Il numero di istanze è definito da un numero intero per l'attributo `count`.|
-| Impostazione   | facoltativo. Specifica un nome e un valore per l'impostazione in una raccolta di impostazioni per un ruolo. Il nome dell'impostazione è definito da una stringa per l'attributo `name` e il valore dell'impostazione è definito da una stringa per l'attributo `value`.|
-| Certificato | facoltativo. Specifica il nome, l'identificazione personale e l'algoritmo del certificato di servizio che deve essere associato al ruolo. Il nome del certificato è definito da una stringa per l'attributo `name`. L'identificazione personale del certificato è definita da una stringa di numeri esadecimali senza spazi per l'attributo `thumbprint`. I numeri esadecimali devono essere rappresentati usando cifre e caratteri alfabetici maiuscoli. L'algoritmo del certificato è definito da una stringa per l'attributo `thumbprintAlgorithm`.|
+| Istanze | Obbligatorio. Specifica il numero di istanze da distribuire per il ruolo. Il numero di istanze è definito da un numero intero per l'attributo `count`.|
+| Impostazione   | Facoltativa. Specifica un nome e un valore per l'impostazione in una raccolta di impostazioni per un ruolo. Il nome dell'impostazione è definito da una stringa per l'attributo `name` e il valore dell'impostazione è definito da una stringa per l'attributo `value`.|
+| Certificato | Facoltativa. Specifica il nome, l'identificazione personale e l'algoritmo del certificato di servizio che deve essere associato al ruolo. Il nome del certificato è definito da una stringa per l'attributo `name`. L'identificazione personale del certificato è definita da una stringa di numeri esadecimali senza spazi per l'attributo `thumbprint`. I numeri esadecimali devono essere rappresentati usando cifre e caratteri alfabetici maiuscoli. L'algoritmo del certificato è definito da una stringa per l'attributo `thumbprintAlgorithm`.|
 
 ## <a name="see-also"></a>Vedere anche
 [Cloud Service (classic) Configuration Schema](schema-cscfg-file.md) (Schema di configurazione di Servizi cloud - Versione classica)

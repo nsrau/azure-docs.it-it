@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2019
-ms.openlocfilehash: b738d532cb458506ca50a07dea11687040f99e02
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: a8d0469d57901f53d8e615f800b5d804944163fa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900338"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398150"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Transizione dalla ricerca log di Log Analytics ai log di Monitoraggio di Azure
 La ricerca log in Log Analytics di recente è stata sostituita da una nuova esperienza per l'analisi dei log di Monitoraggio di Azure. La pagina Ricerca log attualmente è ancora accessibile mediante la voce di menu **Log (versione classica)** nella pagina **Aree di lavoro di Log Analytics** del portale di Azure, ma verrà rimossa il 15 febbraio 2019. Questo articolo descrive le differenze tra le due esperienze allo scopo di agevolare la transizione dalla ricerca log. 

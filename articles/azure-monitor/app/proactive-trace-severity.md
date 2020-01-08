@@ -1,18 +1,18 @@
 ---
-title: Rilevamento intelligente - Degradazione del rapporto tra i livelli di gravità delle tracce, in Azure Application Insights | Microsoft Docs
-description: Monitorare le tracce delle applicazioni con Azure Application Insights per individuare i modelli anomali nei dati di telemetria relativi alle tracce.
+title: Riduzione delle prestazioni nel rapporto gravità della traccia-applicazione Azure Insights
+description: Monitora le tracce dell'applicazione con applicazione Azure Insights per modelli insoliti nella telemetria delle tracce con rilevamento intelligente.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/27/2017
-ms.openlocfilehash: 83c1296beabaaae78289a653c6b30f6665f725c2
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: b51cb66b59589c9b58d9115dfa6cefce0a20f3c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820537"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432425"
 ---
 # <a name="degradation-in-trace-severity-ratio-preview"></a>Degradazione del rapporto tra i livelli di gravità delle tracce (anteprima)
 
@@ -21,7 +21,7 @@ Le tracce vengono usate di frequente nelle applicazioni, perché permettono di c
 Questa funzionalità non richiede una configurazione speciale, oltre a quella della registrazione delle tracce per la propria app (vedere come configurare un listener di log di traccia per [.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-trace-logs) o [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-trace-logs)). È attiva quando l'app genera un numero sufficiente di dati di telemetria per le eccezioni.
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Quando si riceve questo tipo di notifica di rilevamento intelligente?
-Questo tipo di notifica può essere visualizzato se il rapporto tra le tracce "valide" (tracce registrate con un livello di *informazioni* o *dettagliato*) e le tracce "negative" (tracce registrate con un livello di *avviso*, *errore*o *irreversibile*) sta peggiorando in un giorno specifico, rispetto a una linea di base calcolata nei sette giorni precedenti.
+Questo tipo di notifica può essere visualizzato se il rapporto tra le tracce "valide" (tracce registrate con un livello di *informazioni* o *dettagliato*) e le tracce "negative" (tracce registrate con un livello di *avviso*, *errore*o *irreversibile*) viene degradato in un giorno specifico, rispetto a una baseline calcolata nei sette giorni precedenti.
 
 ## <a name="does-my-app-definitely-have-a-problem"></a>Verifica di eventuali problemi dell'app
 Una notifica non significa che l'app ha sicuramente un problema. Sebbene un deterioramento del rapporto tra le tracce "positive" e "negative" può indicare una problema a livello applicativo, questa modifica nel rapporto potrebbe essere benigna. Ad esempio, l'aumento potrebbe essere dovuto a un nuovo flusso nell'applicazione che emette più tracce "negative" rispetto ai flussi esistenti.

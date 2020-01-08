@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: b0a647fe3499590c0307b89d45d662ecf7e53392
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4d9fe58457f9a74466128273dcffee08e17aeb75
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65827790"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457031"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Creare un hub IoT usando un modello di Azure Resource Manager (.NET)
 
@@ -23,16 +23,16 @@ ms.locfileid: "65827790"
 È possibile utilizzare Gestione risorse di Azure per creare e gestire hub IoT di Azure a livello di codice. In questa esercitazione viene mostrato come usare un modello di Azure Resource Manager per creare un hub IoT da un programma C#.
 
 > [!NOTE]
-> Azure offre due modelli di distribuzione diversi per creare e usare le risorse:  [Azure Resource Manager e distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md).  In questo articolo viene illustrato l'uso del modello di distribuzione Azure Resource Manager.
+> Azure offre due modelli di distribuzione per creare e usare le risorse: [modello di distribuzione classica e Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md).  In questo articolo viene illustrato l'uso del modello di distribuzione Azure Resource Manager.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Visual Studio.
-* Un account Azure attivo. <br/>Se non si ha un account, è possibile crearne uno [gratuito][lnk-free-trial] in pochi minuti.
+* Un account Azure attivo. <br/>Se non si ha un account, è possibile creare un [account gratuito][lnk-free-trial] in pochi minuti.
 * Un [account di archiviazione di Azure][lnk-storage-account] in cui è possibile archiviare i file del modello di Azure Resource Manager.
-* [Azure PowerShell 1.0][lnk-powershell-install] o versione successiva.
+* [Azure PowerShell 1,0][lnk-powershell-install] o versione successiva.
 
 [!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
@@ -76,7 +76,7 @@ Usare un modello JSON e un file di parametri per creare un hub IoT nel gruppo di
 
 1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto, quindi su **Aggiungi** e infine su **Nuovo elemento**. Aggiungere un file JSON denominato **template.json** al progetto.
 
-2. Per aggiungere un hub IoT standard per l'area **Stati Uniti orientali**, sostituire il contenuto di **template.json** con la definizione di risorsa seguente. Per un elenco aggiornato delle aree in cui è supportato l'hub IoT, vedere lo [Stato di Azure][lnk-status]:
+2. Per aggiungere un hub IoT standard per l'area **Stati Uniti orientali**, sostituire il contenuto di **template.json** con la definizione di risorsa seguente. Per l'elenco corrente delle aree che supportano l'hub Internet, vedere [stato di Azure][lnk-status]:
 
     ```json
     {
@@ -195,22 +195,22 @@ Usare un modello JSON e un file di parametri per creare un hub IoT nel gruppo di
 
 3. Fare clic su **Debug** e quindi su **Avvia debug** per eseguire l'applicazione. Potrebbero occorrere alcuni minuti per l'esecuzione della distribuzione.
 
-4. Per verificare che l'applicazione abbia aggiunto il nuovo hub IoT, visitare il [portale di Azure][lnk-azure-portal] e visualizzare l'elenco delle risorse. In alternativa, usare il **Get-AzResource** cmdlet di PowerShell.
+4. Per verificare che l'applicazione abbia aggiunto il nuovo hub Internet, visitare il [portale di Azure][lnk-azure-portal] e visualizzare l'elenco delle risorse. In alternativa, usare il cmdlet **Get-AzResource** di PowerShell.
 
 > [!NOTE]
-> Questa applicazione di esempio aggiunge un hub IoT Standard S1 che viene addebitato. È possibile eliminare l'hub IoT tramite il [portale di Azure] [ lnk-azure-portal] o utilizzando il **Remove-AzResource** cmdlet di PowerShell dopo averli completati.
+> Questa applicazione di esempio aggiunge un hub IoT Standard S1 che viene addebitato. Al termine, è possibile eliminare l'hub Internet delle cose tramite il [portale di Azure][lnk-azure-portal] o usando il cmdlet di PowerShell **Remove-AzResource** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo avere distribuito un hub IoT usando un modello di Azure Resource Manager con un programma C#, può essere opportuno ottenere informazioni più dettagliate:
 
-* Informazioni sulle funzionalità dell'[API REST del provider di risorse dell'hub IoT][lnk-rest-api].
-* Per altre informazioni sulle funzionalità di Azure Resource Manager, vedere la [Panoramica di Azure Resource Manager][lnk-azure-rm-overview].
+* Leggere le informazioni sulle funzionalità dell' [API REST del provider di risorse dell'hub][lnk-rest-api]Internet.
+* Per altre informazioni sulle funzionalità di Azure Resource Manager, vedere [Azure Resource Manager Overview][lnk-azure-rm-overview] .
 * Per la sintassi e le proprietà JSON da usare nei modelli, vedere i [tipi di risorsa Microsoft.Devices](/azure/templates/microsoft.devices/iothub-allversions).
 
 Per altre informazioni sulle attività di sviluppo per l'hub IoT, vedere gli articoli seguenti:
 
 * [Introduzione a C SDK][lnk-c-sdk]
-* [Azure IoT SDKs][lnk-sdks] (SDK di IoT di Azure)
+* [Azure IoT SDK][lnk-sdks]
 
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
@@ -222,7 +222,7 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 [lnk-status]: https://azure.microsoft.com/status/
 [lnk-powershell-install]: /powershell/azure/install-Az-ps
 [lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
-[lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
+[lnk-azure-rm-overview]: ../azure-resource-manager/management/overview.md
 [lnk-storage-account]:../storage/common/storage-create-storage-account.md
 
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md

@@ -1,14 +1,14 @@
 ---
 title: Come lavorare con i gruppi di gestione-governance di Azure
 description: Informazioni su come visualizzare, gestire, aggiornare ed eliminare la gerarchia dei gruppi di gestione.
-ms.date: 05/22/2019
+ms.date: 12/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: 90f4bacf462ed5f2590f51d15b6b660057c51738
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 3b5b67dbf1fad5c74570c4bf70401df1a5ed943f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960232"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436548"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gestire le risorse con i gruppi di gestione
 
@@ -64,11 +64,9 @@ Per eliminare un gruppo di gestione è necessario che siano soddisfatti i requis
 
 1. Nel gruppo di gestione non esistono gruppi di gestione o sottoscrizioni figlio.
 
-   - Per spostare una sottoscrizione da un gruppo di gestione, vedere [Spostare sottoscrizioni in un altro gruppo di gestione](#move-subscriptions-in-the-hierarchy).
+   - Per spostare una sottoscrizione o un gruppo di gestione in un altro gruppo di gestione, vedere Spostamento di gruppi di gestione [e sottoscrizioni nella gerarchia](#moving-management-groups-and-subscriptions).
 
-   - Per spostare un gruppo di gestione in un altro gruppo di gestione, vedere [Spostare gruppi di gestione nella gerarchia](#move-management-groups-in-the-hierarchy).
-
-1. Si dispone delle autorizzazioni di scrittura per il gruppo di gestione ("proprietario", "collaboratore" o "collaboratore gruppo di gestione"). Per controllare le proprie autorizzazioni, selezionare il gruppo di gestione e quindi selezionare **IAM**. Per altre informazioni sui ruoli Controllo degli accessi in base al ruolo, vedere [Gestire accessi e autorizzazioni con il controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md).  
+1. Sono necessarie autorizzazioni di scrittura per il gruppo di gestione ("proprietario", "collaboratore" o "collaboratore gruppo di gestione"). Per controllare le proprie autorizzazioni, selezionare il gruppo di gestione e quindi selezionare **IAM**. Per altre informazioni sui ruoli Controllo degli accessi in base al ruolo, vedere [Gestire accessi e autorizzazioni con il controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md).  
 
 ### <a name="delete-in-the-portal"></a>Eseguire l'eliminazione nel portale
 
@@ -194,25 +192,31 @@ Per restituire un gruppo di gestione specifico e tutti i livelli della gerarchia
 az account management-group show --name 'Contoso' -e -r
 ```
 
-## <a name="move-subscriptions-in-the-hierarchy"></a>Spostare sottoscrizioni nella gerarchia
+## <a name="moving-management-groups-and-subscriptions"></a>Trasferimento di sottoscrizioni e gruppi di gestione   
 
-Uno dei motivi per creare un gruppo di gestione è l'accorpamento delle sottoscrizioni. Solo i gruppi di gestione e le sottoscrizioni possono essere resi elementi figlio di un altro gruppo di gestione. Una sottoscrizione che viene spostata in un gruppo di gestione eredita tutti i criteri e le autorizzazioni di accesso utente dal gruppo di gestione padre.
+Uno dei motivi per creare un gruppo di gestione è l'accorpamento delle sottoscrizioni. Solo i gruppi di gestione e le sottoscrizioni possono essere resi elementi figlio di un altro gruppo di gestione. Una sottoscrizione che passa a un gruppo di gestione eredita tutti i criteri e l'accesso utente dal gruppo di gestione padre
 
-Per spostare la sottoscrizione, è necessario che siano soddisfatte tutte le autorizzazioni RBAC seguenti:
+Quando si trasferisce un gruppo di gestione o una sottoscrizione come elemento figlio di un altro gruppo di gestione, tre regole devono essere valutate come true.
 
-- Ruolo "Proprietario" sulla sottoscrizione figlio.
-- Ruolo "proprietario", "collaboratore" o "collaboratore gruppo di gestione" nel gruppo di gestione padre di destinazione.
-- Ruolo "proprietario", "collaboratore" o "collaboratore gruppo di gestione" per il gruppo di gestione padre esistente.
+Se si sta eseguendo l'azione di spostamento, è necessario: 
 
-Se la destinazione o il gruppo di gestione padre esistente è il gruppo di gestione radice, i requisiti delle autorizzazioni non sono applicabili. Poiché il gruppo di gestione radice è il punto di destinazione predefinito per tutti i nuovi gruppi di gestione e sottoscrizioni, non è necessario disporre delle autorizzazioni per spostare un elemento.
+-  Autorizzazioni di scrittura e assegnazione ruolo del gruppo di gestione per la sottoscrizione o il gruppo di gestione figlio.
+    - **Proprietario** dell'esempio di ruolo predefinito
+- Accesso in scrittura al gruppo di gestione nel gruppo di gestione padre di destinazione.
+    - Esempio di ruolo predefinito: **proprietario**, **collaboratore**, **collaboratore gruppo di gestione**
+- Accesso in scrittura al gruppo di gestione per il gruppo di gestione padre esistente.
+    - Esempio di ruolo predefinito: **proprietario**, **collaboratore**, **collaboratore gruppo di gestione**
 
-Se il ruolo proprietario nella sottoscrizione viene ereditato dal gruppo di gestione corrente, le destinazioni di spostamento sono limitate. È possibile spostare la sottoscrizione solo in un altro gruppo di gestione in cui si dispone del ruolo proprietario. Non è possibile spostarlo in un gruppo di gestione in cui si è collaboratori perché si perde la proprietà della sottoscrizione. Se si è direttamente assegnati al ruolo proprietario per la sottoscrizione (non ereditato dal gruppo di gestione), è possibile spostarlo in qualsiasi gruppo di gestione in cui si è collaboratore.
+**Eccezione**: se la destinazione o il gruppo di gestione padre esistente è il gruppo di gestione radice, i requisiti delle autorizzazioni non sono applicabili. Poiché il gruppo di gestione radice è il punto di destinazione predefinito per tutti i nuovi gruppi di gestione e sottoscrizioni, non è necessario disporre delle autorizzazioni per spostare un elemento.
+
+Se il ruolo proprietario nella sottoscrizione viene ereditato dal gruppo di gestione corrente, le destinazioni di spostamento sono limitate. È possibile spostare la sottoscrizione solo in un altro gruppo di gestione in cui si dispone del ruolo proprietario. Non è possibile spostarlo in un gruppo di gestione in cui si è collaboratori perché si perde la proprietà della sottoscrizione. Se si è direttamente assegnati al ruolo proprietario per la sottoscrizione (non ereditato dal gruppo di gestione), è possibile spostarlo in qualsiasi gruppo di gestione in cui si è collaboratore. 
 
 Per visualizzare le autorizzazioni disponibili nella portale di Azure, selezionare il gruppo di gestione e quindi selezionare **IAM**. Per altre informazioni sui ruoli Controllo degli accessi in base al ruolo, vedere [Gestire accessi e autorizzazioni con il controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md).
 
-### <a name="move-subscriptions-in-the-portal"></a>Spostare sottoscrizioni nel portale
 
-#### <a name="add-an-existing-subscription-to-a-management-group"></a>Aggiungere una sottoscrizione esistente a un gruppo di gestione
+## <a name="move-subscriptions"></a>Sposta sottoscrizioni 
+
+#### <a name="add-an-existing-subscription-to-a-management-group-in-the-portal"></a>Aggiungere una sottoscrizione esistente a un gruppo di gestione nel portale
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
@@ -228,7 +232,7 @@ Per visualizzare le autorizzazioni disponibili nella portale di Azure, seleziona
 
 1. Selezionare "Salva".
 
-#### <a name="remove-a-subscription-from-a-management-group"></a>Rimuovere una sottoscrizione da un gruppo di gestione
+#### <a name="remove-a-subscription-from-a-management-group-in-the-portal"></a>Rimuovere una sottoscrizione da un gruppo di gestione nel portale
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
@@ -276,9 +280,7 @@ Per rimuovere la sottoscrizione dal gruppo di gestione, usare il comando remove.
 az account management-group subscription remove --name 'Contoso' --subscription '12345678-1234-1234-1234-123456789012'
 ```
 
-## <a name="move-management-groups-in-the-hierarchy"></a>Spostare gruppi di gestione nella gerarchia  
-
-Quando si sposta un gruppo di gestione padre, viene spostata la gerarchia sotto tale gruppo. Per l'accesso è necessario spostare i gruppi di gestione, vedere [accesso al gruppo di gestione](overview.md#management-group-access).
+## <a name="move-management-groups"></a>Spostare gruppi di gestione 
 
 ### <a name="move-management-groups-in-the-portal"></a>Spostare gruppi di gestione nel portale
 

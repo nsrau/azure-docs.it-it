@@ -1,5 +1,5 @@
 ---
-title: Cos'è Gestione entitlement di Azure AD? -Azure Active Directory
+title: Informazioni su Gestione entitlement -Azure AD
 description: Panoramica della gestione dei diritti Azure Active Directory e del modo in cui è possibile utilizzarla per gestire l'accesso a gruppi, applicazioni e siti di SharePoint Online per utenti interni ed esterni.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/24/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fd72bba6e8c01644adebaa333c8fe588c35b8c7
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: b0a99b9089e568351cf736310e778ba477441407
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927307"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422566"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Cos'è Gestione entitlement di Azure AD?
 
@@ -114,13 +114,13 @@ I pacchetti di accesso non sostituiscono altri meccanismi per l'assegnazione di 
 
 Per comprendere meglio la gestione dei diritti e la relativa documentazione, è possibile fare riferimento all'elenco di termini seguente.
 
-| Termine | DESCRIZIONE |
+| Durata | Description |
 | --- | --- |
 | pacchetto di accesso | Un bundle di risorse necessarie a un team o a un progetto e viene regolato con i criteri. Un pacchetto di accesso è sempre contenuto in un catalogo. È possibile creare un nuovo pacchetto di accesso per uno scenario in cui gli utenti devono richiedere l'accesso.  |
 | richiesta di accesso | Richiesta di accesso alle risorse in un pacchetto di accesso. Una richiesta viene in genere attraversata da un flusso di lavoro di approvazione.  Se approvata, l'utente richiedente riceve un'assegnazione del pacchetto di accesso. |
 | assegnazione | Un'assegnazione di un pacchetto di accesso a un utente garantisce che l'utente disponga di tutti i ruoli delle risorse del pacchetto di accesso.  Le assegnazioni dei pacchetti di accesso in genere hanno un limite di tempo prima della scadenza. |
-| catalog | Contenitore di risorse correlate e pacchetti di accesso.  I cataloghi vengono usati per la delega, in modo che gli amministratori non possano creare i propri pacchetti di accesso. I proprietari del catalogo possono aggiungere risorse di cui sono proprietari in un catalogo. |
-| creatore del catalogo | Raccolta di utenti autorizzati a creare nuovi cataloghi.  Quando un utente non amministratore autorizzato a essere un creatore del catalogo crea un nuovo catalogo, diventa automaticamente il proprietario di tale catalogo. |
+| catalogo | Contenitore di risorse correlate e pacchetti di accesso.  I cataloghi vengono usati per la delega, in modo che gli amministratori non possano creare i propri pacchetti di accesso. I proprietari del catalogo possono aggiungere risorse di cui sono proprietari in un catalogo. |
+| Creatore del catalogo | Raccolta di utenti autorizzati a creare nuovi cataloghi.  Quando un utente non amministratore autorizzato a essere un creatore del catalogo crea un nuovo catalogo, diventa automaticamente il proprietario di tale catalogo. |
 | organizzazione connessa | Una directory o un dominio di Azure AD esterno con una relazione. Gli utenti di un'organizzazione connessa possono essere specificati in un criterio come consentito per richiedere l'accesso. |
 | policy | Set di regole che definisce il ciclo di vita dell'accesso, ad esempio il modo in cui gli utenti ottengono l'accesso, gli utenti che possono approvare e il tempo di accesso degli utenti attraverso un'assegnazione. Un criterio è collegato a un pacchetto di accesso. Un pacchetto di accesso, ad esempio, può avere due criteri, uno per i dipendenti per richiedere l'accesso e un secondo per consentire agli utenti esterni di richiedere l'accesso. |
 | resource | Un asset, ad esempio un gruppo di Office, un gruppo di sicurezza, un'applicazione o un sito di SharePoint Online, con un ruolo a cui un utente può concedere le autorizzazioni. |

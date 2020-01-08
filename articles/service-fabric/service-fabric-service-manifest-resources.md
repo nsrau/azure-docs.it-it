@@ -1,28 +1,17 @@
 ---
-title: Specifica degli endpoint di servizio di Service Fabric | Documentazione Microsoft
+title: Specifica degli endpoint di servizio Service Fabric
 description: Come descrivere le risorse di endpoint in un manifesto del servizio, inclusa l'impostazione di endpoint HTTPS
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: da36cbdb-6531-4dae-88e8-a311ab71520d
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: bb3fd77df60be68408fceea683ee4b8b74d77427
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: cc4eedf5e5fee0bbfa0a763e9b9ec0dd25409afa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242927"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464176"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Specificare le risorse in un manifesto del servizio
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 Il manifesto del servizio consente alle risorse di essere usate dal servizio per essere dichiarate/modificate senza modificare il codice compilato. Azure Service Fabric supporta la configurazione delle risorse dell'endpoint del servizio. È possibile controllare l'accesso alle risorse specificate nel manifesto del servizio tramite SecurityGroup nel manifesto dell'applicazione. La dichiarazione delle risorse consente a queste ultime di essere modificate in fase di distribuzione, in questo modo il servizio non deve introdurre un nuovo meccanismo di configurazione. La definizione dello schema per il file ServiceManifest.xml viene installata con l'SDK e gli strumenti di Service Fabric in *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
 ## <a name="endpoints"></a>Endpoint
@@ -198,7 +187,7 @@ In Parameters aggiungere quanto riportato di seguito:
   </Parameters>
 ```
 
-Durante la distribuzione dell'applicazione è possibile trasmettere questi valori come ApplicationParameters.  ad esempio:
+Durante la distribuzione dell'applicazione è possibile trasmettere questi valori come ApplicationParameters.  Ad esempio:
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
@@ -206,7 +195,7 @@ PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -Application
 
 Nota: se i valori forniti per ApplicationParameters sono vuoti, si torna al valore predefinito fornito in ServiceManifest per l'EndPointName corrispondente.
 
-ad esempio:
+Ad esempio:
 
 Se in ServiceManifest è stato specificato
 

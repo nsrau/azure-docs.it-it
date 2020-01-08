@@ -1,53 +1,56 @@
 ---
 title: Usare una shell Spark interattiva in Azure HDInsight
 description: Una shell Spark interattiva fornisce un processo di lettura-esecuzione-stampa per eseguire i comandi di Spark uno alla volta e visualizzare i risultati.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/09/2018
-ms.openlocfilehash: 7aac2812787a7c14d99377754a4f85e699ef3f09
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.custom: hdinsightactive
+ms.date: 12/12/2019
+ms.openlocfilehash: f088b8210b8170d22e84d131f0a72f5f8caa3b92
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68441882"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435219"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Eseguire Apache Spark dalla shell Spark
 
 Una shell [Apache Spark](https://spark.apache.org/) interattiva fornisce un ambiente REPL (Read-Execute-Print Loop, ciclo di lettura-esecuzione-stampa) per eseguire i comandi di Spark uno alla volta e visualizzare i risultati. Questo processo è utile per lo sviluppo e il debug. Spark fornisce una shell per ognuno dei linguaggi supportati: Scala, Python e R.
 
-## <a name="get-to-an-apache-spark-shell-with-ssh"></a>Accedere a una Shell Apache Spark con SSH
-
-Accedere a una shell Apache Spark in HDInsight connettendosi al nodo head primario del cluster tramite SSH:
-
-     ssh <sshusername>@<clustername>-ssh.azurehdinsight.net
-
-È possibile ottenere il comando SSH completo per il cluster dal portale di Azure:
-
-1. Accedere al [Portale di Azure](https://portal.azure.com).
-2. Passare al riquadro per il cluster HDInsight Spark.
-3. Selezionare Secure Shell (SSH).
-
-    ![Riquadro di HDInsight nel portale di Azure](./media/apache-spark-shell/hdinsight-spark-blade.png)
-
-4. Copiare il comando SSH visualizzato ed eseguirlo nel terminale.
-
-    ![Riquadro SSH di HDInsight nel portale di Azure](./media/apache-spark-shell/hdinsight-spark-ssh-blade.png)
-
-Per informazioni dettagliate sull'uso di SSH per connettersi a HDInsight, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
-
 ## <a name="run-an-apache-spark-shell"></a>Eseguire una Shell Apache Spark
 
-Spark fornisce shell per Scala (spark-shell), Python (pyspark) e R (sparkR). Nella sessione SSH in corrispondenza del nodo head del cluster HDInsight immettere uno dei comandi seguenti:
+1. Usare il [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) per connettersi al cluster. Modificare il comando seguente sostituendo CLUSTERname con il nome del cluster e quindi immettere il comando:
 
-    ./bin/spark-shell
-    ./bin/pyspark
-    ./bin/sparkR
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
 
-È ora possibile immettere i comandi Spark nel linguaggio appropriato.
+1. Spark fornisce le shell per scala (Spark-Shell) e Python (pyspark). Nella sessione SSH, immettere uno dei comandi seguenti:
+
+    ```bash
+    spark-shell
+    pyspark
+    ```
+
+    È ora possibile immettere i comandi Spark nel linguaggio appropriato.
+
+1. Alcuni comandi di esempio di base:
+
+    ```scala
+    // Load data
+    var data = spark.read.format("csv").option("header", "true").option("inferSchema", "true").load("/HdiSamples/HdiSamples/SensorSampleData/building/building.csv")
+
+    // Show data
+    data.show()
+
+    // Select certain columns
+    data.select($"BuildingID", $"Country").show(10)
+
+    // exit shell
+    :q
+    ```
 
 ## <a name="sparksession-and-sparkcontext-instances"></a>Istanze di SparkSession e SparkContext
 
@@ -57,7 +60,7 @@ Per accedere all'istanza di SparkSession, immettere `spark`. Per accedere all'is
 
 ## <a name="important-shell-parameters"></a>Parametri importanti della shell
 
-Il comando della shell Spark (`spark-shell`, `pyspark` o `sparkR`) supporta numerosi parametri della riga di comando. Per visualizzare un elenco completo dei parametri, avviare la shell Spark con l'opzione `--help`. Si noti che alcuni di questi parametri potrebbero applicarsi solo a `spark-submit`, di cui la shell Spark esegue il wrapping.
+Il comando della shell Spark (`spark-shell`o `pyspark`) supporta molti parametri della riga di comando. Per visualizzare un elenco completo dei parametri, avviare la shell Spark con l'opzione `--help`. Alcuni di questi parametri possono essere applicati solo a `spark-submit`, a cui viene eseguito il wrapping della shell di Spark.
 
 | opzione | description | esempio |
 | --- | --- | --- |

@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 51c699f9b392be5f2e2bc16b5729d6567ace7f17
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 9e80bc3e176f831f8609dd7f2a2ee22a2495e89b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016180"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428927"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Creare ambienti con più macchine virtuali e risorse PaaS con i modelli di Azure Resource Manager
 
-Gli ambienti Azure DevTest Labs consentono agli utenti di distribuire prontamente infrastrutture complesse in modo coerente entro i confini del Lab. È possibile usare i [modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) per creare ambienti con set di risorse in DevTest Labs. Questi ambienti possono contenere tutte le risorse di Azure che possono essere create da Gestione risorse modelli. 
+Gli ambienti Azure DevTest Labs consentono agli utenti di distribuire prontamente infrastrutture complesse in modo coerente entro i confini del Lab. È possibile usare i [modelli di Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md) per creare ambienti con set di risorse in DevTest Labs. Questi ambienti possono contenere tutte le risorse di Azure che possono essere create da Gestione risorse modelli. 
 
 È possibile [aggiungere facilmente una macchina virtuale (VM) alla volta](devtest-lab-add-vm.md) a un Lab usando il [portale di Azure](https://portal.azure.com). Tuttavia, scenari come app Web a più livelli o una farm di SharePoint necessitano di un meccanismo per creare più macchine virtuali in un unico passaggio. Usando i modelli di Azure Resource Manager, è possibile definire l'infrastruttura e la configurazione della soluzione di Azure e distribuire ripetutamente più macchine virtuali in uno stato coerente. 
 
@@ -34,7 +34,7 @@ I modelli di Azure Resource Manager offrono inoltre i vantaggi seguenti:
 - È possibile eseguire il provisioning di risorse PaaS di Azure e di macchine virtuali IaaS in un ambiente da un modello di Azure Resource Manager.
 - È possibile tenere traccia del costo degli ambienti nel Lab, oltre alle singole macchine virtuali create da altri tipi di basi. Le risorse di PaaS vengono create e verranno visualizzate nella verifica dei costi. Tuttavia, l'arresto automatico della macchina virtuale non si applica alle risorse PaaS.
 
-Per ulteriori informazioni sui vantaggi derivanti dall'utilizzo di modelli di Gestione risorse per distribuire, aggiornare o eliminare molte risorse lab in un'unica operazione, vedere l'articolo relativo ai [vantaggi dell'utilizzo di modelli gestione risorse](../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager).
+Per ulteriori informazioni sui vantaggi derivanti dall'utilizzo di modelli di Gestione risorse per distribuire, aggiornare o eliminare molte risorse lab in un'unica operazione, vedere l'articolo relativo ai [vantaggi dell'utilizzo di modelli gestione risorse](../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager).
 
 > [!NOTE]
 > Quando si usa un modello di Gestione risorse come base per creare macchine virtuali del Lab, esistono alcune differenze tra la creazione di più macchine virtuali o una singola macchina virtuale. Per altre informazioni, vedere [usare il modello di Azure Resource Manager di una macchina virtuale](devtest-lab-use-resource-manager-template.md).
@@ -88,13 +88,13 @@ Dopo aver creato e configurato il repository, è possibile aggiungerlo al Lab us
    
 1. Nel riquadro **repository** immettere le informazioni seguenti:
    
-   - **Nome**: Immettere un nome di repository da usare nel Lab.
-   - **URL clone git**: Immettere l'URL del clone di git HTTPS da GitHub o Azure Repos. 
-   - **Ramo** di (facoltativo): Immettere il nome del ramo per accedere alle definizioni del modello di Azure Resource Manager.
-   - **Token di accesso personale**: Immettere il token di accesso personale usato per accedere in modo sicuro al repository.
-     - Per ottenere il token da Azure Repos, nel profilo selezionare **Impostazioni** > utente**sicurezza** > **token di accesso personale**.
-     - Per ottenere il token da GitHub, nel profilo selezionare **Impostazioni** > **sviluppatore impostazioni** > per i**token di accesso personali**.
-   - **Percorsi cartella**: Immettere il percorso della cartella relativo all'URI del clone git per le definizioni di artefatto o per le definizioni di modello di Azure Resource Manager. 
+   - **Nome**: immettere un nome di repository da usare nel Lab.
+   - **URL clone git**: immettere l'URL del clone git HTTPS da GitHub o Azure Repos. 
+   - **Branch** (facoltativo): immettere il nome del ramo per accedere alle definizioni del modello di Azure Resource Manager.
+   - **Token di accesso personale**: immettere il token di accesso personale usato per accedere in modo sicuro al repository.
+     - Per ottenere il token da Azure Repos, nel profilo selezionare **impostazioni utente** > **sicurezza** > token di **accesso personale**.
+     - Per ottenere il token da GitHub, nel profilo selezionare **impostazioni** > **Impostazioni sviluppatore** > token di **accesso personali**.
+   - **Percorsi cartella**: immettere il percorso della cartella relativo all'URI del clone git per le definizioni di artefatto o per le definizioni di modello di Azure Resource Manager. 
    
 1. Selezionare **Salva**.
    
@@ -110,7 +110,7 @@ Per assegnare il ruolo **collaboratore** agli utenti del Lab in modo che possano
 
 1. Nella finestra di [portale di Azure](https://portal.azure.com), nel riquadro **Panoramica** del Lab selezionare **configurazione e criteri**e quindi selezionare **impostazioni Lab**.
    
-1. Nel riquadro **impostazioni Lab** selezionare collaboratoree quindi fare clic su **Salva** per concedere autorizzazioni di scrittura agli utenti del Lab.
+1. Nel riquadro **impostazioni Lab** selezionare **collaboratore**e quindi fare clic su **Salva** per concedere autorizzazioni di scrittura agli utenti del Lab.
    
    ![Configurare i diritti di accesso per l'utente del lab](./media/devtest-lab-create-environment-from-arm/config-access-rights.png)
 

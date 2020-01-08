@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce8cf2d75257bb3d751de1c3b251a9a3326bce0a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 75bb919b73791b78084e82351d7d6b7d93edc322
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920158"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423858"
 ---
 # <a name="desktop-app-that-calls-web-apis---call-a-web-api"></a>App desktop che chiama le API Web-chiamare un'API Web
 
@@ -100,7 +100,7 @@ task.resume()
 
 Se è necessario chiamare diverse API per lo stesso utente, una volta ottenuto un token per la prima API, è possibile chiamare semplicemente `AcquireTokenSilent`e si otterrà un token per le altre API in modo invisibile all'utente nella maggior parte dei casi.
 
-```CSharp
+```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
                       .ExecuteAsync();
 
@@ -113,7 +113,7 @@ I casi in cui è necessaria l'interazione sono i seguenti:
 - L'utente ha acconsentito alla prima API, ma ora deve fornire il consenso per più ambiti (consenso incrementale)
 - La prima API non richiede l'autenticazione a più fattori, ma la successiva.
 
-```CSharp
+```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
                       .ExecuteAsync();
 

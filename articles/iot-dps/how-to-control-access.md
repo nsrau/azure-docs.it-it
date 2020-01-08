@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: wesmc
-ms.openlocfilehash: f36a48e0cedc309deda8416face5549a54eb8c73
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 2a7e0932d226b1533c039b8529c2c11de06cf525
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975126"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453797"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Controllo dell'accesso al servizio Device Provisioning in hub IoT di Azure
 
@@ -39,7 +39,7 @@ Per concedere le [autorizzazioni](#device-provisioning-service-permissions) è p
 > [!NOTE]
 > Per informazioni dettagliate, vedere [Autorizzazioni](#device-provisioning-service-permissions).
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 Servizio Device Provisioning in hub IoT di Azure concede l'accesso agli endpoint tramite la verifica di un token rispetto ai criteri di accesso condiviso. Le credenziali di sicurezza, ad esempio le chiavi asimmetriche, non vengono mai trasmesse in rete.
 
@@ -75,11 +75,11 @@ Il token di sicurezza ha il formato seguente:
 
 I valori previsti sono i seguenti:
 
-| Value | Description |
+| Valore | Description |
 | --- | --- |
 | {signature} |Stringa della firma HMAC-SHA256 nel formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: la chiave viene decodificata dalla codifica Base64 e usata come chiave per eseguire il calcolo di HMAC-SHA256.|
 | {expiry} |Stringhe UTF8 per il numero di secondi trascorsi dalle 00:00:00 UTC dell'1 gennaio 1970. |
-| {URL-encoded-resourceURI} | Codifica URL con lettere minuscole dell'URI della risorsa con lettere minuscole Prefisso URI (per segmento) degli endpoint a cui è possibile accedere tramite questo token e che inizia con il nome host del servizio Device Provisioning in hub IoT senza il protocollo. Ad esempio `mydps.azure-devices-provisioning.net`. |
+| {URL-encoded-resourceURI} | Codifica URL con lettere minuscole dell'URI della risorsa con lettere minuscole Prefisso URI (per segmento) degli endpoint a cui è possibile accedere tramite questo token e che inizia con il nome host del servizio Device Provisioning in hub IoT senza il protocollo. Ad esempio: `mydps.azure-devices-provisioning.net`. |
 | {policyName} |Nome del criterio di accesso condiviso a cui fa riferimento il token. |
 
 **Nota sul prefisso**: il prefisso dell'URI viene calcolato in base al segmento e non in base al carattere. Ad esempio `/a/b` è un prefisso per `/a/b/c` ma non per `/a/bc`.
@@ -190,5 +190,5 @@ La tabella seguente elenca le autorizzazioni che è possibile usare per controll
 [img-add-shared-access-policy]: ./media/how-to-control-access/how-to-add-shared-access-policy.PNG
 [lnk-sdks]: ../iot-hub/iot-hub-devguide-sdks.md
 [lnk-management-portal]: https://portal.azure.com
-[lnk-azure-resource-manager]: ../azure-resource-manager/resource-group-overview.md
+[lnk-azure-resource-manager]: ../azure-resource-manager/management/overview.md
 [lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iot-dps/

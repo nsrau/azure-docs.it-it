@@ -2,19 +2,15 @@
 title: Visualizza le valutazioni degli aggiornamenti di Azure Gestione aggiornamenti
 description: Questo articolo descrive come visualizzare le valutazioni degli aggiornamenti per le distribuzioni degli aggiornamenti.
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 05/17/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: d27df57e9371f16a15d3a18b7722598062377d88
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: b6f86c72bfc1a1d51ed509a70d786e67f11d8166
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850517"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75419891"
 ---
 # <a name="view-azure-update-management-update-assessments"></a>Visualizza le valutazioni degli aggiornamenti di Azure Gestione aggiornamenti
 
@@ -41,7 +37,7 @@ Nelle tabelle che seguono sono riportate le classificazioni degli aggiornamenti 
 |Classificazione  |Description  |
 |---------|---------|
 |Aggiornamenti critici     | Un aggiornamento per un problema specifico che risolve un bug critico non correlato alla sicurezza.        |
-|Aggiornamenti della sicurezza     | Un aggiornamento per un problema specifico del prodotto correlato alla sicurezza.        |
+|Aggiornamenti per la sicurezza     | Un aggiornamento per un problema specifico del prodotto correlato alla sicurezza.        |
 |Aggiornamenti cumulativi     | Un set cumulativo di aggiornamenti rapidi, contenuti nello stesso pacchetto per facilitarne la distribuzione.        |
 |Feature Pack     | Nuove funzionalità del prodotto distribuite di fuori di una versione del prodotto.        |
 |Service Pack     | Un set cumulativo di aggiornamenti rapidi applicati a un'applicazione.        |

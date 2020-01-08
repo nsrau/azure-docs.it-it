@@ -4,15 +4,15 @@ description: Descrivere i sintomi, le cause e la risoluzione dei problemi più c
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: d31351a6ab679fdc3ff3f9af9644b1761716c64b
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 486c68cb32b5f4c8c8a18b21d1aee139ffda45bf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305360"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75397447"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Come risolvere i problemi relativi all'agente Log Analytics per Windows 
 
@@ -34,7 +34,7 @@ Se l'agente comunica tramite un server proxy o un firewall, è possibile che si 
 
 Verificare che il firewall o il proxy sia configurato per consentire le porte e gli URL seguenti descritti nella tabella seguente. Verificare inoltre che l'ispezione HTTP non sia abilitata per il traffico Web, in quanto può impedire un canale TLS sicuro tra l'agente e il monitoraggio di Azure.  
 
-|Risorsa agente|Porte |Direzione |Ignorare l'analisi HTTPS|
+|Risorsa agente|Porte |Direction |Ignorare l'analisi HTTPS|
 |------|---------|--------|--------|   
 |*.ods.opinsights.azure.com |Porta 443 |In uscita|Sì |  
 |*.oms.opinsights.azure.com |Porta 443 |In uscita|Sì |  
@@ -62,15 +62,15 @@ Esistono diversi modi per verificare se l'agente è in grado di comunicare corre
 
 - Filtrare il registro eventi *Operations Manager* per **origini evento** - *servizio integrità Modules*, *HealthService*e *Service Connector* e filtrare per *avviso* a **livello di evento** ed *errore* per verificare se sono stati scritti eventi dalla tabella seguente. In caso affermativo, rivedere i passaggi di risoluzione inclusi per ogni possibile evento.
 
-    |ID evento |Source |DESCRIZIONE |Risoluzione |
+    |ID evento |Origine |Description |Risoluzione |
     |---------|-------|------------|-----------|
     |2133 & 2129 |Servizio integrità |Connessione al servizio dall'agente non riuscita |Questo errore può verificarsi quando l'agente non è in grado di comunicare direttamente o tramite un firewall o un server proxy per il servizio monitoraggio di Azure. Verificare le impostazioni del proxy di Agent o che il firewall/proxy di rete consenta il traffico TCP dal computer al servizio.|
-    |2138 |Moduli Servizio integrità |Il proxy richiede l'autenticazione |Configurare le impostazioni proxy di Agent e specificare il nome utente e la password necessari per l'autenticazione con il server proxy. |
-    |2129 |Moduli Servizio integrità |Connessione non riuscita/negoziazione SSL non riuscita |Controllare le impostazioni TCP/IP della scheda di rete e le impostazioni del proxy di Agent.|
-    |2127 |Moduli Servizio integrità |Errore durante l'invio di dati. codice di errore ricevuto |Se si verifica solo periodicamente durante il giorno, potrebbe essere semplicemente un'anomalia casuale che può essere ignorata. Monitorare per comprendere la frequenza con cui si verifica. Se si verifica spesso nel corso della giornata, verificare prima di tutto la configurazione di rete e le impostazioni del proxy. Se la descrizione include il codice di errore HTTP 404 ed è la prima volta che l'agente tenta di inviare dati al servizio, verrà incluso un errore 500 con un codice di errore 404 interno. 404 indica che non è stato trovato, che indica che è ancora in corso il provisioning dell'area di archiviazione per la nuova area di lavoro. Al successivo tentativo, i dati vengono scritti correttamente nell'area di lavoro come previsto. Un errore HTTP 403 potrebbe indicare un problema di autorizzazione o di credenziali. Per risolvere il problema, sono disponibili altre informazioni con l'errore 403.|
-    |4000 |Connettore di servizi |Risoluzione del nome DNS non riuscita |Il computer non è riuscito a risolvere l'indirizzo Internet usato durante l'invio di dati al servizio. Potrebbe trattarsi di impostazioni del resolver DNS nel computer, impostazioni proxy non corrette o problemi DNS temporanei con il provider. Se il problema si verifica periodicamente, potrebbe essere causato da un problema temporaneo relativo alla rete.|
-    |4001 |Connettore di servizi |Connessione al servizio non riuscita. |Questo errore può verificarsi quando l'agente non è in grado di comunicare direttamente o tramite un firewall o un server proxy per il servizio monitoraggio di Azure. Verificare le impostazioni del proxy di Agent o che il firewall/proxy di rete consenta il traffico TCP dal computer al servizio.|
-    |4002 |Connettore di servizi |Il servizio ha restituito il codice di stato HTTP 403 in risposta a una query. Rivolgersi all'amministratore del servizio per l'integrità del servizio. La query verrà ritentata in un secondo momento. |Questo errore viene scritto durante la fase di registrazione iniziale dell'agente. verrà visualizzato un URL simile al seguente: *https://\<workspaceID >. OMS. opinsights. Azure. com/agentservice. svc/AgentTopologyRequest*. Il codice di errore 403 indica non consentito e può essere causato da un ID o una chiave dell'area di lavoro tipizzata in modo errato oppure che i dati e l'ora non sono corretti nel computer. Se l'ora è sfasata di +/- 15 minuti rispetto all'ora corrente, l'onboarding ha esito negativo. Per risolvere il problema, aggiornare la data e/o il fuso orario del computer Windows.|
+    |2138 |Moduli del servizio integrità |Il proxy richiede l'autenticazione |Configurare le impostazioni proxy di Agent e specificare il nome utente e la password necessari per l'autenticazione con il server proxy. |
+    |2129 |Moduli del servizio integrità |Connessione non riuscita/negoziazione SSL non riuscita |Controllare le impostazioni TCP/IP della scheda di rete e le impostazioni del proxy di Agent.|
+    |2127 |Moduli del servizio integrità |Errore durante l'invio di dati. codice di errore ricevuto |Se si verifica solo periodicamente durante il giorno, potrebbe essere semplicemente un'anomalia casuale che può essere ignorata. Monitorare per comprendere la frequenza con cui si verifica. Se si verifica spesso nel corso della giornata, verificare prima di tutto la configurazione di rete e le impostazioni del proxy. Se la descrizione include il codice di errore HTTP 404 ed è la prima volta che l'agente tenta di inviare dati al servizio, verrà incluso un errore 500 con un codice di errore 404 interno. 404 indica che non è stato trovato, che indica che è ancora in corso il provisioning dell'area di archiviazione per la nuova area di lavoro. Al successivo tentativo, i dati vengono scritti correttamente nell'area di lavoro come previsto. Un errore HTTP 403 potrebbe indicare un problema di autorizzazione o di credenziali. Per risolvere il problema, sono disponibili altre informazioni con l'errore 403.|
+    |4000 |Service Connector |Risoluzione del nome DNS non riuscita |Il computer non è riuscito a risolvere l'indirizzo Internet usato durante l'invio di dati al servizio. Potrebbe trattarsi di impostazioni del resolver DNS nel computer, impostazioni proxy non corrette o problemi DNS temporanei con il provider. Se il problema si verifica periodicamente, potrebbe essere causato da un problema temporaneo relativo alla rete.|
+    |4001 |Service Connector |Connessione al servizio non riuscita. |Questo errore può verificarsi quando l'agente non è in grado di comunicare direttamente o tramite un firewall o un server proxy per il servizio monitoraggio di Azure. Verificare le impostazioni del proxy di Agent o che il firewall/proxy di rete consenta il traffico TCP dal computer al servizio.|
+    |4002 |Service Connector |Il servizio ha restituito il codice di stato HTTP 403 in risposta a una query. Rivolgersi all'amministratore del servizio per l'integrità del servizio. L'esecuzione della query verrà tentata di nuovo in seguito. |Questo errore viene scritto durante la fase di registrazione iniziale dell'agente. verrà visualizzato un URL simile al seguente: *https://\<workspaceID >. OMS. opinsights. Azure. com/agentservice. svc/AgentTopologyRequest*. Il codice di errore 403 indica non consentito e può essere causato da un ID o una chiave dell'area di lavoro tipizzata in modo errato oppure che i dati e l'ora non sono corretti nel computer. Se l'ora è sfasata di +/- 15 minuti rispetto all'ora corrente, l'onboarding ha esito negativo. Per risolvere il problema, aggiornare la data e/o il fuso orario del computer Windows.|
 
 ## <a name="data-collection-issues"></a>Problemi di raccolta dati
 
@@ -100,9 +100,9 @@ Se la query restituisce risultati, è necessario determinare se un particolare t
 
 3. Se dopo alcuni minuti non vengono visualizzati i dati previsti nei risultati della query o nella visualizzazione, a seconda che si stiano visualizzando i dati da una soluzione o da informazioni dettagliate, dal registro eventi *Operations Manager* cercare le **origini evento** *HealthService* e *servizio integrità moduli* e filtrare in base a livello di **evento** *avviso* ed *errore* per verificare se sono stati scritti eventi dalla tabella seguente.
 
-    |ID evento |Source |DESCRIZIONE |Risoluzione |
+    |ID evento |Origine |Description |Risoluzione |
     |---------|-------|------------|
-    |8000 |HealthService |Questo evento specifica se un flusso di lavoro relativo a prestazioni, eventi o altri tipi di dati raccolti non è in grado di eseguire l'invio al servizio per l'inserimento nell'area di lavoro. | L'ID evento 2136 dall'origine HealthService viene scritto insieme a questo evento e può indicare che l'agente non è in grado di comunicare con il servizio, probabilmente a causa di una configurazione errata del proxy e delle impostazioni di autenticazione, interruzione della rete o il firewall/proxy di rete non consente il traffico TCP dal computer al servizio.| 
-    |10102 e 10103 |Moduli Servizio integrità |Impossibile risolvere l'origine dati. |Questo problema può verificarsi se l'istanza o il contatore delle prestazioni specificato non esiste nel computer o non è definito correttamente nelle impostazioni dei dati dell'area di lavoro. Se si tratta di un [contatore delle prestazioni](data-sources-performance-counters.md#configuring-performance-counters)specificato dall'utente, verificare che le informazioni specificate siano successive al formato corretto e che esista nei computer di destinazione. |
-    |26002 |Moduli Servizio integrità |Impossibile risolvere l'origine dati. |Questo problema può verificarsi se il registro eventi di Windows specificato non esiste nel computer. Questo errore può essere ignorato se nel computer non è previsto che il registro eventi sia registrato. in caso contrario, se si tratta di un [registro eventi](data-sources-windows-events.md#configuring-windows-event-logs)specificato dall'utente, verificare che le informazioni specificate siano corrette. |
+    |8000 |Servizio integrità |Questo evento specifica se un flusso di lavoro relativo a prestazioni, eventi o altri tipi di dati raccolti non è in grado di eseguire l'invio al servizio per l'inserimento nell'area di lavoro. | L'ID evento 2136 dall'origine HealthService viene scritto insieme a questo evento e può indicare che l'agente non è in grado di comunicare con il servizio, probabilmente a causa di una configurazione errata del proxy e delle impostazioni di autenticazione, interruzione della rete o il firewall/proxy di rete non consente il traffico TCP dal computer al servizio.| 
+    |10102 e 10103 |Moduli del servizio integrità |Impossibile risolvere l'origine dati. |Questo problema può verificarsi se l'istanza o il contatore delle prestazioni specificato non esiste nel computer o non è definito correttamente nelle impostazioni dei dati dell'area di lavoro. Se si tratta di un [contatore delle prestazioni](data-sources-performance-counters.md#configuring-performance-counters)specificato dall'utente, verificare che le informazioni specificate siano successive al formato corretto e che esista nei computer di destinazione. |
+    |26002 |Moduli del servizio integrità |Impossibile risolvere l'origine dati. |Questo problema può verificarsi se il registro eventi di Windows specificato non esiste nel computer. Questo errore può essere ignorato se nel computer non è previsto che il registro eventi sia registrato. in caso contrario, se si tratta di un [registro eventi](data-sources-windows-events.md#configuring-windows-event-logs)specificato dall'utente, verificare che le informazioni specificate siano corrette. |
 

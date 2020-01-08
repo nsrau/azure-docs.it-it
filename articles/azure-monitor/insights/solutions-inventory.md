@@ -4,15 +4,15 @@ description: Le soluzioni di monitoraggio in Monitoraggio di Azure sono una racc
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
+author: bwren
 ms.author: bwren
 ms.date: 06/26/2018
-ms.openlocfilehash: 6012a74c00b64c818434ea1744d86c6cf67dd463
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9b0140b843d7da1b892463bff7d6014a3f9584ad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931341"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75402013"
 ---
 # <a name="inventory-and-data-collection-details-for-monitoring-solutions-in-azure"></a>Dettagli sull'inventario e sulla raccolta dei dati per le soluzioni di monitoraggio in Azure
 Le [soluzioni di monitoraggio](solutions.md) sfruttano i servizi in Azure per fornire informazioni aggiuntive sul funzionamento di un'applicazione o un servizio specifico. Le soluzioni di monitoraggio raccolgono in genere log di dati e offrono query e visualizzazioni per l'analisi dei dati raccolti. È possibile aggiungere soluzioni di monitoraggio a Monitoraggio di Azure per qualsiasi applicazione e servizio usati. Sono in genere disponibili gratuitamente, ma la raccolta dati potrebbe implicare addebiti per l'utilizzo.
@@ -42,7 +42,7 @@ L'elenco seguente include le spiegazioni per le colonne:
 | [Valutazione di AD](ad-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 giorni |
 | [Stato della replica di AD](ad-replication-status.md) |Windows |&#8226; |&#8226; | | |&#8226; |5 giorni |
 | [Integrità agente](solution-agenthealth.md) | Windows e Linux | &#8226; | &#8226; | | | &#8226; | 1 minuto |
-| [Alert Management](../platform/alert-management-solution.md) (Nagios) |Linux |&#8226; | | | | |All'arrivo |
+| [Alert Management](../platform/alert-management-solution.md) (Nagios) |Linux |&#8226; | | | | |all'arrivo |
 | [Alert Management](../platform/alert-management-solution.md) (Zabbix) |Linux |&#8226; | | | | |1 minuto |
 | [Gestione avvisi](../platform/alert-management-solution.md) (Operations Manager) |Windows | |&#8226; | |&#8226; |&#8226; |3 minuti |
 | [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) | Azure | | | | | | N/D |
@@ -53,7 +53,7 @@ L'elenco seguente include le spiegazioni per le colonne:
 | [Analisi gruppo di sicurezza di rete di Azure](azure-networking-analytics.md) | Azure |  |  |  |  |  | su notifica |
 | [Azure SQL Analytics (Anteprima)](azure-sql.md) | Windows | | | | | | 1 minuto |
 | [Backup](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | su notifica |
-| [Capacità e prestazioni (anteprima)](capacity-performance.md) |Windows |&#8226; |&#8226; | | |&#8226; |All'arrivo |
+| [Capacità e prestazioni (anteprima)](capacity-performance.md) |Windows |&#8226; |&#8226; | | |&#8226; |all'arrivo |
 | [Rilevamento delle modifiche](../../automation/change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |[varia](../../automation/change-tracking.md#change-tracking-data-collection-details) |
 | [Rilevamento delle modifiche](../../automation/change-tracking.md) |Linux |&#8226; | | | | |[varia](../../automation/change-tracking.md#change-tracking-data-collection-details) |
 | [Contenitori](containers.md) | Windows e Linux | &#8226; | &#8226; |  |  |  | 3 minuti |
@@ -65,7 +65,7 @@ L'elenco seguente include le spiegazioni per le colonne:
 | [Analisi di Service Fabric](../../service-fabric/service-fabric-diagnostics-oms-setup.md) |Windows | | |&#8226; | | |5 minuti |
 | [Elenco dei servizi](service-map.md) | Windows e Linux | &#8226; | &#8226; |  |  |  | 5 secondi |
 | [SQL Assessment](sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 giorni |
-| [SurfaceHub](surface-hubs.md) |Windows |&#8226; | | | | |All'arrivo |
+| [SurfaceHub](surface-hubs.md) |Windows |&#8226; | | | | |all'arrivo |
 | [Valutazione System Center Operations Manager (anteprima)](scom-assessment.md) | Windows | &#8226; | &#8226; |  |  | &#8226; | 7 giorni |
 | [Gestione degli aggiornamenti](../../automation/automation-update-management.md) | Windows |&#8226; |&#8226; | | |&#8226; |almeno 2 volte al giorno e 15 minuti dopo l'installazione di un aggiornamento |
 | [Preparazione dell'aggiornamento](https://docs.microsoft.com/windows/deployment/upgrade/upgrade-readiness-get-started) | Windows | &#8226; |  |  |  |  | 2 giorni |

@@ -3,17 +3,17 @@ title: Raccogliere dati con i contatori delle prestazioni in Servizi cloud di Az
 description: Informazioni su come individuare, usare e creare contatori delle prestazioni in Servizi cloud con Diagnostica di Azure e Application Insights.
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 02/02/2018
-ms.author: gwallace
-ms.openlocfilehash: d6b16b859b29ef835bca75c5fca0ea1a9d35a306
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.author: tagore
+ms.openlocfilehash: 16b0727a78ad8ad582535fa1f5b0e57079cc4c05
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68358943"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385587"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Raccogliere dati con i contatori delle prestazioni per il servizio cloud di Azure
 
@@ -103,7 +103,7 @@ Ogni contatore delle prestazioni è rappresentato come elemento `<Add>` in `<Cou
 
 Application Insights raccoglie automaticamente i dati per i contatori delle prestazioni seguenti:
 
-* \Process(??APP_WIN32_PROC??)\% Processor Time
+* \Processo (?? APP_WIN32_PROC? Tempo processore\%
 * \Memory\Available Bytes
 * \.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec
 * \Process(??APP_WIN32_PROC??)\Private Bytes
@@ -112,7 +112,7 @@ Application Insights raccoglie automaticamente i dati per i contatori delle pres
 
 Per altre informazioni, vedere [Contatori delle prestazioni di sistema in Application Insights](../azure-monitor/app/performance-counters.md) e [Application Insights per Servizi cloud di Azure](../azure-monitor/app/cloudservices.md#performance-counters).
 
-### <a name="azure-diagnostics"></a>Diagnostica Azure
+### <a name="azure-diagnostics"></a>Diagnostica di Azure
 
 > [!IMPORTANT]
 > Tutti questi dati vengono aggregati nell'account di archiviazione, ma il portale **non** fornisce un modo nativo per rappresentarli graficamente. È consigliabile integrare un altro servizio di diagnostica, come Application Insights, nell'applicazione.
@@ -257,7 +257,7 @@ Come già indicato, i contatori delle prestazioni per Application Insights vengo
 <!-- ... cut to save space ... -->
 ```
 
-### <a name="azure-diagnostics"></a>Diagnostica Azure
+### <a name="azure-diagnostics"></a>Diagnostica di Azure
 
 Come indicato in precedenza, i contatori delle prestazioni da includere nella raccolta sono definiti nel file **diagnostics.wadcfgx**. Aprire questo file (è definito per ogni ruolo) in Visual Studio e individuare l'elemento **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration** > **PerformanceCounters**. Aggiungere un nuovo elemento **PerformanceCounterConfiguration** come elemento figlio. Impostare l'attributo `counterSpecifier` sulla categoria e il nome del contatore delle prestazioni creato nel codice. 
 
@@ -292,3 +292,6 @@ Come indicato in precedenza, i contatori delle prestazioni da includere nella ra
 - [Contatori delle prestazioni di sistema in Application Insights](../azure-monitor/app/performance-counters.md)
 - [Specifying a Counter Path](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85)) (Specifica di un percorso di contatore)
 - [Schema di Diagnostica di Azure - Contatori delle prestazioni](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)
+
+
+

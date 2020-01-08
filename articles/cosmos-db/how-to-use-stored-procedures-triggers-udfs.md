@@ -1,17 +1,17 @@
 ---
-title: Come chiamare stored procedure, trigger e funzioni definite dall'utente con gli SDK di Azure Cosmos DB
+title: Registrare e usare stored procedure, trigger e funzioni definite dall'utente in Azure Cosmos DB SDK
 description: Informazioni su come registrare e chiamare stored procedure, trigger e funzioni definite dall'utente con gli SDK di Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: 3cc144c1b8748710f0500b6ca2a418cd8bf5a2b7
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 5aea7c0b6b2008724a4a84bca7a63ae745f2dd1b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104840"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441746"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Come registrare e usare stored procedure, trigger e funzioni definite dall'utente in Azure Cosmos DB
 
@@ -144,7 +144,7 @@ L'esempio seguente illustra come registrare una stored procedure con l'SDK JavaS
 ```javascript
 const container = client.database("myDatabase").container("myContainer");
 const sprocId = "spCreateToDoItem";
-await container.storedProcedures.create({
+await container.scripts.storedProcedures.create({
     id: sprocId,
     body: require(`../js/${sprocId}`)
 });
@@ -161,7 +161,7 @@ const newItem = [{
 }];
 const container = client.database("myDatabase").container("myContainer");
 const sprocId = "spCreateToDoItem";
-const {body: result} = await container.storedProcedure(sprocId).execute(newItem, {partitionKey: newItem[0].category});
+const {body: result} = await container.scripts.storedProcedure(sprocId).execute(newItem, {partitionKey: newItem[0].category});
 ```
 
 ### <a name="stored-procedures---python-sdk"></a>Stored procedure - SDK Python

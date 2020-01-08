@@ -3,12 +3,12 @@ title: Comprendere il funzionamento degli effetti
 description: Le definizioni di criteri di Azure hanno diversi effetti che determinano la modalità di gestione e di segnalazione della conformità.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8338f3bf965f121a553a56c551d2095bf60e4880
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: fec2f966260d997b45be50554e0f41d5fd0491aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279519"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436356"
 ---
 # <a name="understand-azure-policy-effects"></a>Informazioni sugli effetti di Criteri di Azure
 
@@ -16,10 +16,10 @@ Ogni definizione di criteri in Criteri di Azure ha un effetto. Questo effetto de
 
 Questi effetti sono attualmente supportati in una definizione dei criteri:
 
-- [Aggiungere](#append)
+- [Append](#append)
 - [Controllo](#audit)
 - [AuditIfNotExists](#auditifnotexists)
-- [Negare](#deny)
+- [Nega](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [Disabilitato](#disabled)
 - [EnforceOPAConstraint](#enforceopaconstraint) (anteprima)
@@ -28,7 +28,7 @@ Questi effetti sono attualmente supportati in una definizione dei criteri:
 
 ## <a name="order-of-evaluation"></a>Ordine di valutazione
 
-Le richieste di creazione o aggiornamento di una risorsa tramite Azure Resource Manager vengono valutate prima in base ai criteri di Azure. Criteri di Azure crea un elenco di tutte le assegnazioni che si applicano alla risorsa e quindi valuta la risorsa rispetto a ogni definizione. Criteri di Azure elabora diversi effetti prima di passare la richiesta al provider di risorse appropriato. Questa operazione impedisce l'elaborazione non necessaria da parte di un provider di risorse quando una risorsa non soddisfa i controlli di governance designati di criteri di Azure.
+Le richieste di creare o aggiornare una risorsa tramite Azure Resource Manager vengono valutate per prima cosa da Criteri di Azure. Criteri di Azure crea un elenco di tutte le assegnazioni che si applicano alla risorsa e quindi valuta la risorsa rispetto a ogni definizione. Criteri di Azure elabora diversi effetti prima di passare la richiesta al provider di risorse appropriato. Questa operazione impedisce l'elaborazione non necessaria da parte di un provider di risorse quando una risorsa non soddisfa i controlli di governance designati di criteri di Azure.
 
 - **Disabled** viene verificato per primo, per determinare se valutare la regola dei criteri.
 - Vengono quindi valutate le **aggiunte** e le **modifiche** . Poiché potrebbe modificare la richiesta, una modifica apportata potrebbe impedire l'attivazione di un controllo o di un effetto negato.
@@ -46,7 +46,7 @@ Questo effetto è utile per gli scenari di test o quando la definizione dei crit
 Un'alternativa all'effetto disabilitato è **enforcementMode** , che viene impostato nell'assegnazione dei criteri.
 Quando **enforcementMode** è _disabilitato_, le risorse vengono comunque valutate. La registrazione, ad esempio i log attività, e l'effetto dei criteri non si verificano. Per altre informazioni, vedere [modalità di imposizione dell'assegnazione dei criteri](./assignment-structure.md#enforcement-mode).
 
-## <a name="append"></a>Append
+## <a name="append"></a>Accoda
 
 Append viene usato per aggiungere altri campi alla risorsa richiesta durante la creazione o l'aggiornamento. Un esempio comune è la specifica di indirizzi IP consentiti per una risorsa di archiviazione.
 
@@ -108,7 +108,7 @@ Modifica valuta prima che la richiesta venga elaborata da un provider di risorse
 
 Quando una definizione dei criteri che usa l'effetto modifica viene eseguita come parte di un ciclo di valutazione, non modifica le risorse già esistenti. Al contrario, contrassegna qualsiasi risorsa che soddisfi la condizione **if** come non conforme.
 
-### <a name="modify-properties"></a>Modifica proprietà
+### <a name="modify-properties"></a>Modifica di proprietà
 
 La proprietà **Details** dell'effetto di modifica include tutte le sottoproprietà che definiscono le autorizzazioni necessarie per la correzione e le **operazioni** usate per aggiungere, aggiornare o rimuovere i valori dei tag.
 
@@ -158,11 +158,11 @@ La matrice di proprietà **Operations** consente di modificare diversi tag in mo
 
 Per la proprietà **Operation** sono disponibili le opzioni seguenti:
 
-|Operazione |DESCRIZIONE |
+|Operazione |Description |
 |-|-|
 |addOrReplace |Aggiunge il tag e il valore definiti alla risorsa, anche se il tag esiste già con un valore diverso. |
-|Add |Aggiunge il tag e il valore definiti alla risorsa. |
-|Rimuovere |Rimuove il tag definito dalla risorsa. |
+|Aggiungi |Aggiunge il tag e il valore definiti alla risorsa. |
+|Rimuovi |Rimuove il tag definito dalla risorsa. |
 
 ### <a name="modify-examples"></a>Modificare esempi
 
@@ -210,7 +210,7 @@ Esempio 2: rimuovere il tag `env` e aggiungere il tag `environment` o sostituire
 }
 ```
 
-## <a name="deny"></a>NEGA
+## <a name="deny"></a>Deny
 
 Deny viene usato per impedire una richiesta di risorse che non corrisponde agli standard definiti tramite una definizione dei criteri e che genera un errore della richiesta.
 
@@ -327,7 +327,7 @@ Esempio: valuta le macchine virtuali per determinare se esiste l'estensione anti
 Analogamente a AuditIfNotExists, una definizione dei criteri DeployIfNotExists esegue una distribuzione modello quando viene soddisfatta la condizione.
 
 > [!NOTE]
-> I [Modelli nidificati](../../../azure-resource-manager/resource-group-linked-templates.md#nested-template) sono supportati con **deployIfNotExists** ma i [Modelli collegati](../../../azure-resource-manager/resource-group-linked-templates.md) non sono attualmente supportati.
+> I [Modelli nidificati](../../../azure-resource-manager/templates/linked-templates.md#nested-template) sono supportati con **deployIfNotExists** ma i [Modelli collegati](../../../azure-resource-manager/templates/linked-templates.md#linked-template) non sono attualmente supportati.
 
 ### <a name="deployifnotexists-evaluation"></a>Valutazione di DeployIfNotExists
 

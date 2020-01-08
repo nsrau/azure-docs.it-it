@@ -14,18 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2019
 ms.author: damaerte
-ms.openlocfilehash: 8e04e7c1919deaf60e083aba4588943147ebd6bf
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 0b3b0b2cc97c86fefe37055e0744b747d4f31687
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74284820"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385557"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Rendere persistenti i file in Azure Cloud Shell
 Cloud Shell utilizza l'archiviazione dei file di Azure per mantenere i file in più sessioni. Al primo avvio Cloud Shell richiede di associare una condivisione file nuova o esistente per mantenere i file in più sessioni.
 
 > [!NOTE]
 > La condivisione Bash e PowerShell sono la stessa condivisione file. Solo una condivisione file può essere associata con il montaggio automatico in Cloud Shell.
+
+> [!NOTE]
+> Il firewall di archiviazione di Azure non è supportato per gli account di archiviazione cloud Shell.
 
 ## <a name="create-new-storage"></a>Creare una nuova risorsa di archiviazione
 
@@ -67,7 +70,7 @@ I computer Cloud Shell esistono nelle aree seguenti:
 |---|---|
 |Americhe|Stati Uniti orientali, Stati Uniti centro-meridionali, Stati Uniti occidentali|
 |Europa|Europa settentrionale, Europa occidentale|
-|Asia/Pacifico|India centrale, Asia sud-orientale|
+|Asia Pacifico|India centrale, Asia sud-orientale|
 
 ## <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Limitare la creazione di risorse con i criteri delle risorse di Azure
 Gli account di archiviazione che si creano in Cloud Shell sono contrassegnati con `ms-resource-usage:azure-cloud-shell`. Se si desidera impedire agli utenti di creare account di archiviazione con Cloud Shell, creare [criteri di risorse di Azure per tag](../azure-policy/json-samples.md) che vengono attivati dal tag specificato.
@@ -89,7 +92,7 @@ In Cloud Shell, è possibile eseguire un comando denominato `clouddrive`, che co
 ### <a name="list-clouddrive"></a>Elenco `clouddrive`
 Per sapere quale condivisione file è montata come `clouddrive`, eseguire il comando `df`. 
 
-Il percorso file a clouddrive indica il nome dell'account di archiviazione e la condivisione file nell'URL. Ad esempio, `//storageaccountname.file.core.windows.net/filesharename`
+Il percorso file a clouddrive indica il nome dell'account di archiviazione e la condivisione file nell'URL. Ad esempio, usare `//storageaccountname.file.core.windows.net/filesharename`
 
 ```
 justin@Azure:~$ df

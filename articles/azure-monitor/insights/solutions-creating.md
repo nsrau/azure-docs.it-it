@@ -8,12 +8,12 @@ author: bwren
 ms.author: bwren
 ms.date: 03/20/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 97472a65af6eb2c5c2da93d93f38450cc021f680
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 8c08dc5091e7ab0eec5d4e6dd455e6adb3caa35f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555299"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75402054"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Progettare e creare una soluzione di gestione in Azure (anteprima)
 > [!NOTE]
@@ -60,7 +60,7 @@ Le visualizzazioni in Log Analytics vengono usate per visualizzare i dati dal re
 
 
 ## <a name="create-solution-file"></a>Creare il file di soluzione
-Dopo avere configurato e testato i componenti che faranno parte della soluzione, è possibile [creare il file di soluzione]( solutions-solution-file.md).  Si implementeranno i componenti della soluzione in un [modello di Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) che include le [risorse della soluzione]( solutions-solution-file.md#solution-resource) con relazioni ad altre risorse nel file.  
+Dopo avere configurato e testato i componenti che faranno parte della soluzione, è possibile [creare il file di soluzione]( solutions-solution-file.md).  Si implementeranno i componenti della soluzione in un [modello di Resource Manager](../../azure-resource-manager/templates/template-syntax.md) che include le [risorse della soluzione]( solutions-solution-file.md#solution-resource) con relazioni ad altre risorse nel file.  
 
 
 ## <a name="test-your-solution"></a>Testare la soluzione personalizzata
@@ -76,5 +76,5 @@ Dopo avere completato e testato la soluzione, è possibile renderla disponibile 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [creare un file di soluzione]( solutions-solution-file.md) per la soluzione di gestione.
-* Informazioni dettagliate sulla [Creazione di modelli di Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md).
+* Informazioni dettagliate sulla [Creazione di modelli di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
 * Cercare i [modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates) per esempi di modelli di Resource Manager.

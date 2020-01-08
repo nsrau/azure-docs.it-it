@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: af1870ecc9714eceaf69f2892537e59f068c6a70
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 85d882cff968c9b68ece104e850a7f16c33947b2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480315"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435096"
 ---
 # <a name="what-are-application-templates"></a>Che cosa i modelli di applicazione?
 
@@ -30,11 +30,10 @@ I modelli di applicazione sono costituiti da:
 
 Il modello di applicazione scelto determina se l'applicazione usa IoT Central funzionalità di anteprima, ad esempio Plug and Play per i dispositivi.
 
-Attualmente, i modelli di applicazione che usano le funzionalità disponibili a livello _generale_ sono:
+Attualmente, il modello di applicazione che usa le funzionalità disponibili a livello _generale_ è:
 
-- App personalizzata > applicazione personalizzata
-- App personalizzata > esempio contoso
-- App personalizzata > esempio devkits
+- App personalizzata > applicazione legacy
+
 
 Attualmente, i modelli di applicazione che usano le funzionalità di _anteprima pubblica_ sono:
 
@@ -52,7 +51,7 @@ Attualmente, i modelli di applicazione che usano le funzionalità di _anteprima 
 - Assistenza sanitaria > monitoraggio continuo del paziente
 
 > [!NOTE]
-> L' **applicazione personalizzata, esempio contoso,** modelli di devkits di esempio è attualmente disponibile in **Stati Uniti**, **Australia**, **Asia Pacifico**o nelle località dell' **Europa** , mentre altri modelli sono attualmente disponibili solo in **Europa** e negli **Stati Uniti** .
+> I modelli di **applicazione legacy** sono attualmente disponibili nelle località **Stati Uniti**, **Australia**, **Asia Pacifico**o **Europa** , mentre altri modelli sono attualmente disponibili solo in **Europa** e negli **Stati Uniti** .
 
 ## <a name="industry-focused-templates"></a>Modelli mirati al settore
 

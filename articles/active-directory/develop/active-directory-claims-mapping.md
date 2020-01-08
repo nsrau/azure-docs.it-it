@@ -1,5 +1,5 @@
 ---
-title: Personalizzare le attestazioni per Azure AD app tenant
+title: Personalizzare le attestazioni delle app tenant di Azure AD (PowerShell)
 titleSuffix: Microsoft identity platform
 description: Questa pagina descrive il mapping delle attestazioni di Azure Active Directory.
 services: active-directory
@@ -14,12 +14,12 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8d15631c30566d7588b562f1bb0d6ba5280e699
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6ad2d6ec7a98a82917916bba2930149705ebfd87
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918424"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531072"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedura: Personalizzare le attestazioni generate nei token per un'app specifica in un tenant (anteprima)
 
@@ -88,7 +88,7 @@ Alcuni set di attestazioni definiscono come e quando vengono usate nei token.
 | cloud_graph_host_name |
 | cloud_instance_name |
 | cnf |
-| code |
+| codice |
 | controls |
 | credential_keys |
 | csr |
@@ -158,12 +158,12 @@ Alcuni set di attestazioni definiscono come e quando vengono usate nei token.
 | refreshtoken |
 | request_nonce |
 | resource |
-| role |
+| ruolo |
 | roles |
 | scope |
 | scp |
 | sid |
-| signature |
+| firma |
 | signin_state |
 | src1 |
 | src2 |
@@ -178,7 +178,7 @@ Alcuni set di attestazioni definiscono come e quando vengono usate nei token.
 | unique_name |
 | upn |
 | user_setting_sync_url |
-| Nome utente |
+| username |
 | uti |
 | ver |
 | verified_primary_email |
@@ -285,15 +285,15 @@ L'elemento ID identifica la proprietà dell'origine che indica il valore per l'a
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabella 3: Valori di ID validi per ogni Source
 
-| Source (Sorgente) | ID | Description |
+| Origine | ID | Description |
 |-----|-----|-----|
 | Utente | surname | Cognome |
 | Utente | givenname | Nome |
 | Utente | displayname | Nome visualizzato |
-| Utente | objectId | ObjectID |
+| Utente | objectid | ObjectID |
 | Utente | mail | Indirizzo di posta elettronica |
-| Utente | userprincipalname | Nome dell'entità utente |
-| Utente | department|Department|
+| Utente | userprincipalname | Nome entità utente |
+| Utente | department|department|
 | Utente | onpremisessamaccountname | Nome account SAM locale |
 | Utente | netbiosname| Nome NetBios |
 | Utente | dnsdomainname | Nome di dominio DNS |
@@ -385,10 +385,10 @@ In base al metodo scelto è previsto un set di input e output. Definire gli inpu
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabella 5: Attributi consentiti come origine dati per NameID di SAML
 
-|Source (Sorgente)|ID|Description|
+|Origine|ID|Description|
 |-----|-----|-----|
 | Utente | mail|Indirizzo di posta elettronica|
-| Utente | userprincipalname|Nome dell'entità utente|
+| Utente | userprincipalname|Nome entità utente|
 | Utente | onpremisessamaccountname|Nome account SAM locale|
 | Utente | employeeid|ID dipendente|
 | Utente | extensionattribute1 | Attributo di estensione 1 |
@@ -416,7 +416,13 @@ In base al metodo scelto è previsto un set di input e output. Definire gli inpu
 
 ### <a name="custom-signing-key"></a>Chiave di firma personalizzata
 
-È necessario assegnare una chiave di firma personalizzata all'oggetto entità servizio per poter applicare criteri di mapping di attestazioni. In questo modo si conferma che i token sono stati modificati dall'autore del criterio di mapping delle attestazioni e si proteggono le applicazioni dai criteri di mapping di attestazioni creati da malintenzionati.  Per le app con mapping delle attestazioni abilitato è necessario controllare un URI speciale per le relative chiavi di firma del token aggiungendo `appid={client_id}` alle [richieste di metadati OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document).  
+È necessario assegnare una chiave di firma personalizzata all'oggetto entità servizio per poter applicare criteri di mapping di attestazioni. In questo modo si conferma che i token sono stati modificati dall'autore del criterio di mapping delle attestazioni e si proteggono le applicazioni dai criteri di mapping di attestazioni creati da malintenzionati. Per aggiungere una chiave di firma personalizzata, è possibile usare il cmdlet di Azure PowerShell `new-azureadapplicationkeycredential` per creare una credenziale di chiave simmetrica per l'oggetto applicazione. Per altre informazioni su questo cmdlet di Azure PowerShell, fare clic [qui](https://docs.microsoft.com/powershell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
+
+Per le app con mapping delle attestazioni abilitato è necessario convalidare le chiavi di firma del token aggiungendo `appid={client_id}` alle [richieste di metadati OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Di seguito è riportato il formato del documento di metadati OpenID Connect da usare: 
+
+```
+https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
+```
 
 ### <a name="cross-tenant-scenarios"></a>Scenari tra tenant
 

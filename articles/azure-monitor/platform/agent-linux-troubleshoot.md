@@ -4,15 +4,15 @@ description: Descrivere i sintomi, le cause e la risoluzione dei problemi più c
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: ca0fcd3b68722d44fc285b2dff52b560c591d0be
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 35c050a17219b80348857494ad41f834d3a60c85
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74306554"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75397291"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Come risolvere i problemi relativi all'agente di Log Analytics per Linux 
 
@@ -160,7 +160,7 @@ Al di sotto del plug-in dell'output, rimuovere il carattere di commento `#` all'
 2. Vedere la sezione [Aggiornare le impostazioni proxy](agent-manage.md#update-proxy-settings) per verificare di aver configurato correttamente l'agente per la comunicazione tramite un server proxy.    
 * Verificare che gli endpoint di monitoraggio di Azure seguenti siano consentiti:
 
-    |Risorsa agente| Porte | Direzione |
+    |Risorsa agente| Porte | Direction |
     |------|---------|----------|  
     |*.ods.opinsights.azure.com | Porta 443| In ingresso e in uscita |  
     |*.oms.opinsights.azure.com | Porta 443| In ingresso e in uscita |  
@@ -374,7 +374,7 @@ Questo errore indica che l'estensione di diagnostica per Linux (LAD) è installa
 * Le impostazioni modificate nel portale non sono state applicate
 
 ### <a name="resolution"></a>Risoluzione
-**Contesto:** `omsconfig` è l'agente di configurazione dell'agente di Log Analytics per Linux che verifica la presenza di una nuova configurazione sul lato portale ogni cinque minuti. Questa configurazione viene quindi applicata al file di configurazione dell'agente di Log Analytics per Linux che si trova in /etc/OPT/Microsoft/omsagent/conf/omsagent.conf.
+**Background:** `omsconfig` è l'agente di configurazione di log Analytics Agent per Linux che cerca la nuova configurazione lato portale ogni cinque minuti. Questa configurazione viene quindi applicata al file di configurazione dell'agente di Log Analytics per Linux che si trova in /etc/OPT/Microsoft/omsagent/conf/omsagent.conf.
 
 * In alcuni casi, l'agente di configurazione dell'agente di Log Analytics per Linux può non essere in grado di comunicare con il servizio di configurazione del portale e pertanto la configurazione più recente non viene applicata.
   1. Verificare che l'agente `omsconfig` sia installato eseguendo `dpkg --list omsconfig` o `rpm -qi omsconfig`.  Se non è installato, reinstallare la versione più recente dell'agente di Log Analytics per Linux.
@@ -413,7 +413,7 @@ Quando si prova a eseguire nuovamente l'onboarding a una nuova area di lavoro, �
 ```
 sudo sh ./omsagent-*.universal.x64.sh --purge
 ```
-oppure
+Oppure
 
 ```
 sudo sh ./onboard_agent.sh --purge

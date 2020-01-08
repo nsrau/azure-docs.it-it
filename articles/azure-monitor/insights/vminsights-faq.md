@@ -4,15 +4,15 @@ description: Risposte alle domande comuni per Monitoraggio di Azure per le macch
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 01/09/2018
-ms.openlocfilehash: 579538996e934c7068c397a284d819f5ddb92f08
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: fa47606112c562402a42bd5ca503ed2d9a311268
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305453"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75400390"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Domande frequenti su Monitoraggio di Azure per le macchine virtuali (anteprima)
 Le Domande frequenti Microsoft sono un elenco di domande frequenti su Monitoraggio di Azure per le macchine virtuali. Per altre domande sulla soluzione, visitare il [forum di discussione](https://feedback.azure.com/forums/34192--general-feedback) e inviare le proprie domande. Se una domanda viene posta più volte, viene aggiunta a questo articolo per poter essere recuperata in modo rapido e semplice.

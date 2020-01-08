@@ -4,15 +4,15 @@ description: Questo articolo descrive come abilitare Monitoraggio di Azure per l
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/14/2019
-ms.openlocfilehash: 7d5107279654aa883a040a9168eb099a6543caa8
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 5f37971e9680468c29efd5733517cb900852431f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286224"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75400745"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-using-azure-powershell-or-resource-manager-templates"></a>Abilitare Monitoraggio di Azure per le macchine virtuali (anteprima) utilizzando i modelli Azure PowerShell o Gestione risorse
 
@@ -185,7 +185,7 @@ Per abilitare Monitoraggio di Azure per le macchine virtuali per più macchine v
 
 Per ogni macchina virtuale o set di scalabilità di macchine virtuali, lo script verifica se l'estensione della macchina virtuale è già installata. Se è installata l'estensione della macchina virtuale, lo script tenterà di reinstallarlo. Se l'estensione della macchina virtuale non è installata, lo script installa il Log Analytics e le estensioni della macchina virtuale dell'agente di dipendenza.
 
-Verificare di usare Azure PowerShell modulo AZ versione 1.0.0 o versione successiva con `Enable-AzureRM` alias di compatibilità abilitati. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) (Installare il modulo di Azure PowerShell). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
+Verificare di usare Azure PowerShell modulo AZ versione 1.0.0 o versione successiva con `Enable-AzureRM` alias di compatibilità abilitati. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 
 Per ottenere un elenco di dettagli sugli argomenti dello script con esempi di utilizzo, eseguire `Get-Help`.
 

@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 12/5/2019
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 496e8673e1cbf31f4c71db00b7eaf1c0618e509f
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 7b2751957bf341b37527697f92931bacfb425c09
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872945"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75397348"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Creare un avviso sulle metriche con un modello di Resource Manager
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Questo articolo illustra come usare un [modello di Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) per configurare gli [avvisi delle metriche più recenti](../../azure-monitor/platform/alerts-metric-near-real-time.md) in Monitoraggio di Azure. I modelli di Resource Manager consentono di configurare gli avvisi a livello di codice in modo coerente e riproducibile tra gli ambienti. Gli avvisi delle metriche più recenti sono attualmente disponibili in [questo set di tipi di risorse](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
+Questo articolo illustra come usare un [modello di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) per configurare gli [avvisi delle metriche più recenti](../../azure-monitor/platform/alerts-metric-near-real-time.md) in Monitoraggio di Azure. I modelli di Resource Manager consentono di configurare gli avvisi a livello di codice in modo coerente e riproducibile tra gli ambienti. Gli avvisi delle metriche più recenti sono attualmente disponibili in [questo set di tipi di risorse](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
 > Modello di risorsa per la creazione di avvisi delle metriche per il tipo di risorsa: area di lavoro di Azure Log Analytics (ad esempio) `Microsoft.OperationalInsights/workspaces`, richiede passaggi aggiuntivi. Per informazioni dettagliate, vedere l'articolo [Avviso delle metriche per i log - modello di risorsa](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
@@ -3552,6 +3552,11 @@ Salvare il file JSON seguente come availabilityalert. JSON ai fini di questa pro
 ```
 
 È possibile impostare i valori per i parametri nella riga di comando o tramite un file di parametri. Di seguito viene fornito un file di parametri di esempio.
+
+
+> [!NOTE]
+>
+> `&amp`; è il riferimento all'entità HTML per &. I parametri URL sono ancora separati da un singolo &, ma se si cita l'URL in HTML, è necessario codificarlo. Quindi, se si dispone di "&" nel valore del parametro pingURL, è necessario eseguire l'escape con "`&amp`;"
 
 Salvare il file JSON seguente come availabilityalert. Parameters. JSON e modificarlo come richiesto.
 

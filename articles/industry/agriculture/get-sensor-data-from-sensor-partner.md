@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: ece310a248140b7913ffcc9f7146d382ee44fb5d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 455652795a13fe9755c1ed57681bedaf7a70a5d5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851299"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435164"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Ottenere i dati dei sensori dai partner dei sensori
 
@@ -18,16 +18,16 @@ Azure FarmBeats consente di portare i dati in streaming dai dispositivi e dai se
 
   ![Partner FarmBeats](./media/get-sensor-data-from-sensor-partner/partner-information-1.png)
 
-L'integrazione dei dati del dispositivo con Azure FarmBeats consente di ottenere dati di base dai sensori di Internet delle cose distribuiti nella farm nell'hub dati. I dati, una volta disponibili, possono essere visualizzati tramite l'acceleratore FarmBeats. I dati possono essere usati per la compilazione di modelli di data fusion e Machine Learning/intelligenza artificiale (ML/AI) usando FarmBeats.
+L'integrazione dei dati del dispositivo con Azure FarmBeats consente di ottenere dati di base dai sensori di Internet delle cose distribuiti nella farm alla datahub. I dati, una volta disponibili, possono essere visualizzati tramite l'acceleratore FarmBeats. I dati possono essere usati per la compilazione di modelli di data fusion e Machine Learning/intelligenza artificiale (ML/AI) usando FarmBeats.
 
 Per avviare il flusso di dati dei sensori, verificare quanto segue:
 
 -  FarmBeats è stato installato in Azure Marketplace.
 -  Si è deciso di scegliere i sensori e i dispositivi da installare nella farm.
--  Se si prevede di usare i sensori di umidità del suolo, usare la mappa di posizionamento del sensore di umidità del suolo FarmBeats per ottenere una raccomandazione sul numero di sensori e sul percorso in cui devono essere posizionati esattamente. Per altre informazioni, vedere [generate Maps](generate-maps.md).
+-  Se si prevede di usare i sensori di umidità del suolo, usare la mappa di posizionamento del sensore di umidità del suolo FarmBeats per ottenere una raccomandazione sul numero di sensori e sul percorso in cui devono essere posizionati esattamente. Per altre informazioni, vedere [generate Maps](generate-maps-in-azure-farmbeats.md).
 - È possibile acquistare e distribuire i dispositivi o i sensori dal partner del dispositivo nella farm. Assicurarsi che sia possibile accedere ai dati dei sensori tramite la soluzione per i partner del dispositivo.
 
-## <a name="enable-device-integration-with-farmbeats"></a>Abilitare l'integrazione dei dispositivi con FarmBeats 
+## <a name="enable-device-integration-with-farmbeats"></a>Abilitare l'integrazione dei dispositivi con FarmBeats
 
 Dopo aver avviato il flusso dei dati del sensore, è possibile iniziare il processo di recupero dei dati nel sistema FarmBeats. Fornire le informazioni seguenti al provider di dispositivi per abilitare l'integrazione con FarmBeats:
 
@@ -55,7 +55,7 @@ In alternativa, è possibile generare le credenziali eseguendo questo script da 
     ![Pulsante carica barra degli strumenti](./media/get-sensor-data-from-sensor-partner/power-shell-two-1.png)
 
 5. Passare alla directory in cui sono stati caricati i file. Per impostazione predefinita, vengono caricati nella home directory sotto il nome utente.
-6. Eseguire lo script seguente:
+6. Eseguire lo script riportato di seguito:
 
     ```azurepowershell-interactive 
 
@@ -155,4 +155,4 @@ Seguire questa procedura.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È ora possibile passare i dati del sensore nell'istanza di Azure FarmBeats. A questo punto, viene illustrato come [generare mappe](generate-maps.md#generate-maps) per le farm.
+È ora possibile passare i dati del sensore nell'istanza di Azure FarmBeats. A questo punto, viene illustrato come [generare mappe](generate-maps-in-azure-farmbeats.md#generate-maps) per le farm.

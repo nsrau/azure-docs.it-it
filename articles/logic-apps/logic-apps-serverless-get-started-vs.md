@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 06/20/2019
-ms.openlocfilehash: 4ed2ad2d2ff92e9320a7b9c773c4d6e5857fb905
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: a3fcff9f895fba3574bbce976087295018ab51c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792958"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428751"
 ---
 # <a name="build-your-first-serverless-app-by-using-azure-logic-apps-and-azure-functions-in-visual-studio"></a>Creare la prima app senza server usando app per la logica di Azure e funzioni di Azure in Visual Studio
 
@@ -45,18 +45,18 @@ Per creare un'app senza server in Visual Studio, è necessario:
     * [Visual Studio 2015](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015)
   
     È anche possibile scaricare e installare Strumenti App per la logica di Azure direttamente da Visual Studio Marketplace o [installare questa estensione da Visual Studio](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). 
-    Assicurarsi di riavviare Visual Studio dopo avere completato l'installazione.
+    Assicurarsi di riavviare Visual Studio al termine dell'installazione.
 
   * [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) per le funzioni di debug locale.
 
 * Accesso al Web con la finestra di progettazione di app per la logica incorporata.
 
   La finestra di progettazione richiede una connessione Internet per creare le risorse in Azure e leggere le proprietà e i dati dai connettori nell'app per la logica. 
-  Ad esempio, se si usa il connettore di Dynamics CRM Online, la finestra di progettazione verifica le proprietà predefinite e personalizzate disponibili nell'istanza di CRM.
+  Ad esempio, se si usa il connettore per Dynamics CRM Online, la finestra di progettazione verifica la disponibilità di proprietà predefinite e personalizzate nell'istanza di CRM.
 
 ## <a name="create-a-resource-group-project"></a>Creare un progetto gruppo di risorse
 
-Per iniziare, creare un [progetto Gruppo di risorse di Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) per l'app senza server. In Azure è possibile creare risorse all'interno di un *gruppo di risorse*, ovvero una raccolta logica da usare per organizzare, gestire e distribuire le risorse per un'intera app come singolo asset. Per un'app senza server in Azure, il gruppo di risorse include risorse sia per App per la logica di Azure sia per Funzioni di Azure. È possibile accedere ad altre informazioni sui [gruppi di risorse e le risorse di Azure](../azure-resource-manager/resource-group-overview.md).
+Per iniziare, creare un [progetto Gruppo di risorse di Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) per l'app senza server. In Azure è possibile creare risorse all'interno di un *gruppo di risorse*, ovvero una raccolta logica da usare per organizzare, gestire e distribuire le risorse per un'intera app come singolo asset. Per un'app senza server in Azure, il gruppo di risorse include risorse sia per App per la logica di Azure sia per Funzioni di Azure. È possibile accedere ad altre informazioni sui [gruppi di risorse e le risorse di Azure](../azure-resource-manager/management/overview.md).
 
 1. Avviare Visual Studio e accedere usando l'account Azure.
 

@@ -1,25 +1,16 @@
 ---
-title: Cluster Resource Manager di Service Fabric - Criteri di posizionamento | Microsoft Docs
+title: Criteri di posizionamento Gestione risorse del cluster Service Fabric
 description: Panoramica su altre politiche e regole per i servizi di Service Fabric
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 5c2d19c6-dd40-4c4b-abd3-5c5ec0abed38
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: d5aea441f15cbf7a2a444439c06cd5f74a559d3f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f9861faeaf4ab4049de7404a9e6f8b59a9445fe5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60386470"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452180"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Criteri di posizionamento per i servizi di Service Fabric
 I criteri di posizionamento sono le regole aggiuntive che possono essere usate per definire la posizione del servizio in alcuni scenari specifici, meno comuni. Alcuni esempi di questi scenari sono:
@@ -45,8 +36,8 @@ Il criterio di posizionamento **InvalidDomain** consente di specificare che un p
 
 <center>
 
-![Esempio di dominio non valido][Image1]
-</center>
+![][Image1]
+di esempio di dominio non valido </center>
 
 Codice:
 
@@ -66,8 +57,8 @@ I criteri di selezione del dominio richiesto richiedono che il servizio sia pres
 
 <center>
 
-![Esempio di dominio obbligatorio][Image2]
-</center>
+![][Image2]
+di esempio di dominio necessario </center>
 
 Codice:
 
@@ -88,8 +79,8 @@ Il dominio primario preferito specifica il dominio di errore per posizionare il 
 
 <center>
 
-![Failover e domini primari Preferiti][Image3]
-</center>
+![domini primari preferiti e][Image3]
+di failover </center>
 
 ```csharp
 ServicePlacementPreferPrimaryDomainPolicyDescription primaryDomain = new ServicePlacementPreferPrimaryDomainPolicyDescription();

@@ -4,15 +4,15 @@ description: Con monitoraggio di Azure è possibile usare la soluzione controllo
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 03/28/2019
-ms.openlocfilehash: 7808ead7ec4191bdf17e3ab225aeaa909abd7d08
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: e3e399e99dca453a84c4daef782027b2b1ad6da1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900672"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75401041"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Ottimizzare l'ambiente SQL con la soluzione controllo integrità SQL Server in monitoraggio di Azure
 
@@ -34,7 +34,7 @@ Dopo aver aggiunto la soluzione e completato una valutazione, nel dashboard di *
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* La soluzione Controllo integrità SQL richiede l'installazione di una versione supportata di .NET Framework 4 in ogni computer in cui è installato Microsoft Monitoring Agent (MMA).  L'agente MMA viene usato da System Center 2016 Operations Manager e Operations Manager 2012 R2, nonché da Monitoraggio di Azure.  
+* La soluzione controllo integrità SQL richiede una versione supportata di .NET Framework 4.6.2 installato in ogni computer in cui è installato il Microsoft Monitoring Agent (MMA).  L'agente MMA viene usato da System Center 2016 Operations Manager e Operations Manager 2012 R2, nonché da Monitoraggio di Azure.  
 * La soluzione supporta SQL Server versioni 2012, 2014 e 2016.
 * area di lavoro Log Analytics per aggiungere la soluzione Controllo integrità SQL da Azure Marketplace al portale di Azure.  Per installare la soluzione, l'utente deve essere amministratore o collaboratore per la sottoscrizione di Azure.
 
@@ -56,7 +56,7 @@ Se l'istanza di SQL Server è monitorata da Operations Manager, è necessario co
 ## <a name="sql-health-check-data-collection-details"></a>Informazioni dettagliate sulla raccolta dati di Controllo integrità SQL
 Controllo integrità SQL raccoglie i dati dalle origini seguenti usando l'agente abilitato:
 
-* Strumentazione gestione Windows (WMI)
+* Strumentazione gestione Windows (WMI, Windows Management Instrumentation)
 * Registro
 * Contatori delle prestazioni
 * Risultati della DMV (Dynamic Management View, vista a gestione dinamica) di SQL Server
@@ -86,7 +86,7 @@ Usare le informazioni seguenti per impostare l'account RunAs di Operations Manag
    > Il tipo dell'account RunAs deve essere Windows. L'account RunAs deve appartenere anche al gruppo Local Administrators in tutti i server Windows che ospitano istanze di SQL Server.
    >
    >
-5. Fare clic su **Salva**
+5. Fare clic su **Salva**.
 6. Modificare ed eseguire l'esempio T-SQL seguente in ogni istanza di SQL Server per concedere le autorizzazioni minime richieste dall'account RunAs per eseguire il controllo integrità. Non è tuttavia necessario farlo se l'account RunAs fa già parte del ruolo del server sysadmin nelle istanze di SQL Server.
 
 ```
@@ -193,7 +193,7 @@ Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Mo
     ```
     SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
-3. Se in seguito si decide che si vogliono vedere le raccomandazioni ignorate, rimuovere eventuali file IgnoreRecommendations.txt oppure è possibile rimuovere gli ID raccomandazione dagli stessi.
+3. Se in seguito si decide che si vogliono vedere le raccomandazioni ignorate, rimuovere eventuali file IgnoreRecommendations.txt oppure rimuovere gli ID raccomandazione dagli stessi.
 
 ## <a name="sql-health-check-solution-faq"></a>Domande frequenti sulla soluzione Controllo integrità SQL
 *Con che frequenza viene eseguito un controllo integrità?*

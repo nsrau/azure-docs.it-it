@@ -16,12 +16,12 @@ ms.date: 08/05/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65def17622f026aa4869a4c60e7cb5146d56c5b0
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 4d9922f1c4cbb0afca74c911d9b2bc9f0eab0714
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389537"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422759"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Cosa sono le verifiche di accesso di Azure AD?
 
@@ -58,19 +58,21 @@ A seconda di ciò che si vuole rivedere, si creerà la verifica di accesso in Az
 | --- | --- | --- | --- |
 | Membri di gruppi di sicurezza</br>Membri di gruppi di Office | Revisori specificati</br>Proprietari del gruppo</br>Revisione automatica | Verifiche di accesso di Azure AD</br>Gruppi di Azure AD | Pannello di accesso |
 | Assegnati a un'app connessa | Revisori specificati</br>Revisione automatica | Verifiche di accesso di Azure AD</br>App aziendali di Azure AD (in anteprima) | Pannello di accesso |
-| Ruolo Azure AD | Revisori specificati</br>Revisione automatica | [PIM Azure AD](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | portale di Azure |
-| Ruolo delle risorse di Azure | Revisori specificati</br>Revisione automatica | [PIM Azure AD](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | portale di Azure |
+| Ruolo di Azure AD | Revisori specificati</br>Revisione automatica | [PIM Azure AD](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Portale di Azure |
+| Ruolo delle risorse di Azure | Revisori specificati</br>Revisione automatica | [PIM Azure AD](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Portale di Azure |
 
 
 ## <a name="onboard-access-reviews"></a>Onboarding delle verifiche di accesso
 
 Per eseguire l'onboarding delle verifiche di accesso, seguire questa procedura.
 
-1. In qualità di amministratore globale o Amministratore utenti, accedere al [portale di Azure](https://portal.azure.com) in cui si desidera utilizzare le verifiche di accesso.
+1. Passare alla [portale di Azure](https://portal.azure.com) per gestire le verifiche di accesso e accedere come amministratore globale o utente.
 
-1. Nel menu di spostamento a sinistra fare clic su **Azure Active Directory**.
+1. Cercare e selezionare **Azure Active Directory**.
 
-1. Nel menu a sinistra fare clic su **governance identità**.
+      ![portale di Azure cercare Azure Active Directory](media/access-reviews-overview/search-azure-active-directory.png)
+
+1. Selezionare **governance identità**.
 
 1. Fare clic su verifiche di **accesso**.
  
@@ -97,7 +99,7 @@ Se si è pronti per distribuire le verifiche di accesso nell'organizzazione, seg
 
 ### <a name="which-users-must-have-licenses"></a>Quali utenti devono avere le licenze?
 
-Ogni utente che interagisce con le verifiche di accesso deve disporre di una licenza a pagamento Azure AD Premium P2. Ecco alcuni esempi:
+Ogni utente che interagisce con le verifiche di accesso deve disporre di una licenza a pagamento Azure AD Premium P2. Ad esempio:
 
 - Amministratori che creano una verifica di accesso
 - Proprietari del gruppo che eseguono una verifica di accesso

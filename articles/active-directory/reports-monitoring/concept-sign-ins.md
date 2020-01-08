@@ -17,12 +17,12 @@ ms.date: 12/09/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc996c7b5d8a63834f548689c83f7a72685120d2
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 256194d8b0b5e6b08210e9338d945774603ac328
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951174"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429788"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di accesso nel portale di Azure Active Directory
 
@@ -57,9 +57,15 @@ Il report relativo agli accessi utente fornisce le risposte alle domande seguent
 * Quanti utenti hanno effettuato l'accesso nell'arco di una settimana?
 * Qual è lo stato di questi accessi?
 
-Iniziare con [portale di Azure](https://portal.azure.com). Per accedere al report degli accessi, **selezionare**accessi, continuare con il **monitoraggio.** Potrebbero essere necessarie fino a due ore per la visualizzazione di alcuni record di accesso nel portale.
+Scegliere **Azure Active Directory**dal menu [portale di Azure](https://portal.azure.com) oppure cercare e selezionare **Azure Active Directory** da qualsiasi pagina.
 
-![Attività di accesso](./media/concept-sign-ins/reporting-azure-sign-in-screen.png "Attività di accesso")
+![Selezionare Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
+
+In **monitoraggio**selezionare **accessi** per aprire il report degli [accessi](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
+
+![Attività di accesso](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Attività di accesso")
+
+Potrebbero essere necessarie fino a due ore per la visualizzazione di alcuni record di accesso nel portale.
 
 > [!IMPORTANT]
 > Il report degli accessi mostra solo gli accessi **interattivi**, ovvero gli accessi eseguiti manualmente da un utente usando nome utente e password. Gli accessi non interattivi, ad esempio l'autenticazione da servizio a servizio, non vengono visualizzati nel report degli accessi. 
@@ -79,7 +85,7 @@ Per personalizzare la visualizzazione elenco, fare clic su **Colonne** nella bar
 
 ![Attività di accesso](./media/concept-sign-ins/19.png "Attività di accesso")
 
-La finestra di dialogo **colonne** consente di accedere agli attributi selezionabili. In un report di accesso è possibile avere solo attributi che non hanno una relazione uno-a-molti con altri attributi come colonna.
+La finestra di dialogo **colonne** consente di accedere agli attributi selezionabili. In un report di accesso non è possibile avere campi con più di un valore per una richiesta di accesso specificata come colonna. Ad esempio, true per i dettagli di autenticazione, i dati di accesso condizionale e il percorso di rete.   
 
 ![Attività di accesso](./media/concept-sign-ins/columns.png "Attività di accesso")
 
@@ -106,15 +112,15 @@ Il filtro **Applicazione** permette di specificare il nome dell'applicazione ric
 Il filtro **Stato accesso** permette di selezionare:
 
 - Tutto
-- Success
-- Esito negativo
+- Operazione completata
+- Operazioni non riuscite
 
 Il filtro **Accesso condizionale** consente di selezionare lo stato dei criteri di accesso condizionale per l'accesso:
 
 - Tutto
 - Non applicato
-- Success
-- Esito negativo
+- Operazione completata
+- Operazioni non riuscite
 
 Il filtro **Date** (Data) permette di definire un intervallo di tempo per i dati restituiti.  
 I valori possibili sono:
@@ -191,7 +197,7 @@ Facendo clic su un elemento, si ottengono altri dettagli sull'operazione di acce
 - ID applicazione
 - Richiesta
 - Client
-- Località
+- Percorso
 - Indirizzo IP
 - Data
 - Autenticazione a più fattori obbligatoria
@@ -222,7 +228,7 @@ I grafici dell'utilizzo delle app sono aggregazioni settimanali degli accessi pe
 
 Se si preferisce, è possibile mettere in evidenza un'applicazione specifica.
 
-![Creazione di report](./media/concept-sign-ins/single-app-usage-graph.png "Creazione report")
+![Reporting](./media/concept-sign-ins/single-app-usage-graph.png "Creazione report")
 
 Quando si fa clic su un giorno nel grafico dell'utilizzo dell'app, si ottiene un elenco dettagliato delle attività di accesso.
 

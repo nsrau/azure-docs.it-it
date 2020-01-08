@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/03/2019
 ms.author: spelluru
-ms.openlocfilehash: a0505b987deb67f93de6f6166154211359515ad7
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: fc5051667100a2ebaa01b7815f825fadd766b08f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74807888"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456980"
 ---
 # <a name="troubleshoot-issues-when-applying-artifacts-in-an-azure-devtest-labs-virtual-machine"></a>Risolvere i problemi relativi all'applicazione di elementi in una macchina virtuale Azure DevTest Labs
 L'applicazione di artefatti in una macchina virtuale può avere esito negativo per diversi motivi. Questo articolo illustra alcuni dei metodi che consentono di identificare le possibili cause.
@@ -66,10 +66,10 @@ Quando un artefatto sembra bloccarsi, determinare innanzitutto dove è bloccato.
     - È possibile accedere al log attività dalla barra di spostamento della pagina VM Lab. Quando si seleziona questa opzione, viene visualizzata una voce per **applicare gli artefatti alla macchina virtuale** (se l'operazione applica elementi è stata attivata direttamente) o **aggiungere o modificare macchine virtuali** (se l'operazione di applicazione degli artefatti faceva parte del processo di creazione della macchina virtuale).
     - Individuare gli errori in queste voci. In alcuni casi, l'errore non verrà contrassegnato di conseguenza e sarà necessario esaminare ogni voce.
     - Quando si esaminano i dettagli di ogni voce, assicurarsi di esaminare il contenuto del payload JSON. È possibile che venga visualizzato un errore nella parte inferiore del documento.
-- **Quando si tenta di eseguire l'artefatto**. Il problema potrebbe essere causato da problemi di rete o di archiviazione. Per informazioni dettagliate, vedere la sezione corrispondente più avanti in questo articolo. Può anche verificarsi a causa del modo in cui viene creato lo script. ad esempio:
+- **Quando si tenta di eseguire l'artefatto**. Il problema potrebbe essere causato da problemi di rete o di archiviazione. Per informazioni dettagliate, vedere la sezione corrispondente più avanti in questo articolo. Può anche verificarsi a causa del modo in cui viene creato lo script. Ad esempio:
     - Uno script di PowerShell ha **parametri obbligatori**, ma uno non riesce a passarvi un valore, perché consente all'utente di lasciarlo vuoto o perché non si dispone di un valore predefinito per la proprietà nel file di definizione artifactfile. JSON. Lo script si bloccherà perché è in attesa dell'input dell'utente.
     - Uno script di PowerShell **richiede l'input dell'utente** come parte dell'esecuzione. Gli script devono essere scritti per funzionare in modo invisibile all'utente senza richiedere alcun intervento da parte dell'utente.
-- **L'agente VM impiega molto tempo per essere pronto**. Quando la macchina virtuale viene avviata per la prima volta o quando l'estensione di script personalizzata viene installata per la prima volta per soddisfare la richiesta di applicazione degli artefatti, è possibile che la macchina virtuale richieda l'aggiornamento dell'agente di macchine virtuali o l'inizializzazione dell'agente di macchine virtuali. Potrebbero essere presenti servizi da cui l'agente di macchine virtuali dipende da molto tempo per l'inizializzazione. In questi casi, vedere [Panoramica dell'agente di macchine virtuali di Azure](/virtual-machines/extensions/agent-windows.md) per ulteriori informazioni sulla risoluzione dei problemi.
+- **L'agente VM impiega molto tempo per essere pronto**. Quando la macchina virtuale viene avviata per la prima volta o quando l'estensione di script personalizzata viene installata per la prima volta per soddisfare la richiesta di applicazione degli artefatti, è possibile che la macchina virtuale richieda l'aggiornamento dell'agente di macchine virtuali o l'inizializzazione dell'agente di macchine virtuali. Potrebbero essere presenti servizi da cui l'agente di macchine virtuali dipende da molto tempo per l'inizializzazione. In questi casi, vedere [Panoramica dell'agente di macchine virtuali di Azure](../virtual-machines/extensions/agent-windows.md) per ulteriori informazioni sulla risoluzione dei problemi.
 
 ### <a name="to-verify-if-the-artifact-appears-to-hang-because-of-the-script"></a>Per verificare se l'artefatto sembra bloccarsi a causa dello script
 
@@ -101,7 +101,7 @@ Quando un artefatto sembra bloccarsi, determinare innanzitutto dove è bloccato.
     In questo esempio, è possibile vedere che l'ora di inizio dell'agente VM ha richiesto 10 minuti e 20 secondi perché è stato inviato un heartbeat. La causa in questo caso è il fatto che il servizio OOBE impiega molto tempo per l'avvio.
 
 > [!TIP]
-> Per informazioni generali sulle estensioni di Azure, vedere [estensioni e funzionalità delle macchine virtuali di Azure](/virtual-machines/extensions/overview.md).
+> Per informazioni generali sulle estensioni di Azure, vedere [estensioni e funzionalità delle macchine virtuali di Azure](../virtual-machines/extensions/overview.md).
 
 ## <a name="storage-errors"></a>Errori di archiviazione
 DevTest Labs richiede l'accesso all'account di archiviazione del Lab creato per memorizzare nella cache gli artefatti. Quando DevTest Labs applica un artefatto, la configurazione dell'artefatto e i relativi file vengono letti dai repository configurati. Per impostazione predefinita, DevTest Labs configura l'accesso al **repository di artefatti pubblici**.
@@ -136,5 +136,5 @@ Sono presenti altre possibili origini di errore meno frequenti. Assicurarsi di v
 - **Il token di accesso personale è scaduto per il repository privato**. Quando è scaduto, l'artefatto non viene elencato e tutti gli script che fanno riferimento agli artefatti di un repository con un token di accesso privato scaduto avranno esito negativo.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Se non si è verificato alcun errore e non è ancora possibile applicare elementi, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al sito del [supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Richiedi supporto**.
+Se non si è verificato alcun errore e non è ancora possibile applicare elementi, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**.
 

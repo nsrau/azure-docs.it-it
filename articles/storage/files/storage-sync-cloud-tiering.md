@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: efaa1ef4c5b82da9b905f75483daf9eb3536b15a
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 483f13f89acd1bce0ceb8486ac252e6f844d881f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219339"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431732"
 ---
 # <a name="cloud-tiering-overview"></a>Panoramica della suddivisione in livelli nel cloud
 La suddivisione in livelli nel cloud è una funzionalità facoltativa di Sincronizzazione file di Azure in base alla quale i file a cui si accede di frequente vengono memorizzati nella cache locale del server, mentre tutti gli altri file vengono archiviati a livelli in File di Azure in base alle impostazioni dei criteri. Quando un file è archiviato a livelli, il filtro del file system di Sincronizzazione file di Azure (StorageSync.sys) sostituisce il file in locale con un puntatore, o punto di analisi. Il punto di analisi rappresenta un URL del file in File di Azure. Un file archiviato a livelli include sia l'attributo "offline" sia l'attributo FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS impostato in NTFS, in modo che le applicazioni di terze parti possano identificare in modo sicuro questo tipo di file.
@@ -72,8 +72,9 @@ Esistono diversi modi per verificare se un file è archiviato a livelli in una c
         
         | Lettera di attributo | Attributo | Definizione |
         |:----------------:|-----------|------------|
-        | Una | Archiviazione | Indica che deve essere eseguito un backup del file tramite il software di backup. Questo attributo è sempre impostato indipendentemente dal fatto che il file sia archiviato a livelli o archiviato completamente su disco. |
-        | P | File sparse | Indica che il file è un file sparse. Un file sparse è un tipo specializzato di file offerto da NTFS per un uso efficiente quando il flusso di file su disco è pressoché vuoto. Sincronizzazione file di Azure usa i file sparse perché un file è completamente archiviato a livelli o parzialmente richiamato. In un file completamente archiviato a livelli, il flusso di file viene archiviato nel cloud. In un file parzialmente richiamato, tale parte del file è già su disco. Se un file è completamente richiamato su disco, Sincronizzazione file di Azure lo converte da file sparse in un file regolare. |
+        | A | Archivio | Indica che deve essere eseguito un backup del file tramite il software di backup. Questo attributo è sempre impostato indipendentemente dal fatto che il file sia archiviato a livelli o archiviato completamente su disco. |
+        | P | File sparse | Indica che il file è un file sparse. Un file sparse è un tipo specializzato di file offerto da NTFS per un uso efficiente quando il flusso di file su disco è pressoché vuoto. Sincronizzazione file di Azure usa i file sparse perché un file è completamente archiviato a livelli o parzialmente richiamato. In un file completamente archiviato a livelli, il flusso di file viene archiviato nel cloud. In un file parzialmente richiamato, tale parte del file è già su disco. Se un file è completamente richiamato su disco, Sincronizzazione file di Azure lo converte da file sparse in un file regolare. Questo attributo viene impostato solo in Windows Server 2016 e versioni precedenti.|
+        | M | Richiama nell'accesso ai dati | Indica che i dati del file non sono completamente presenti nella risorsa di archiviazione locale. La lettura del file provocherà il recupero di almeno parte del contenuto del file da una condivisione file di Azure a cui è connesso l'endpoint server. Questo attributo è impostato solo in Windows Server 2019. |
         | L | Reparse point | Indica che il file contiene un reparse point. Un reparse point è un puntatore speciale utilizzabile da un filtro del file system. Sincronizzazione file di Azure usa i reparse point per definire la posizione nel cloud dove è archiviato il file per il filtro del file system di Sincronizzazione file di Azure (StorageSync.sys). È supportato l'accesso facile. Non è necessario che gli utenti sappiano che è in uso Sincronizzazione file di Azure o come ottenere l'accesso al file nella condivisione file di Azure. Quando un file viene richiamato completamente, Sincronizzazione file di Azure rimuove il reparse point dal file. |
         | O | Offline | Indica che il contenuto del file non è archiviato interamente o parzialmente su disco. Quando un file viene richiamato completamente, Sincronizzazione file di Azure rimuove questo attributo. |
 
@@ -88,7 +89,7 @@ Esistono diversi modi per verificare se un file è archiviato a livelli in una c
         fsutil reparsepoint query <your-file-name>
         ```
 
-        Se il file contiene un reparse point, dovrebbe essere visualizzato **Valore tag di reparse: 0x8000001e**. Questo valore esadecimale è il valore del reparse point di proprietà di Sincronizzazione file di Azure. L'output contiene anche i dati di reparse che rappresentano il percorso del file nella condivisione file di Azure.
+        Se il file contiene un reparse point, dovrebbe essere visualizzato **Reparse Tag Value: 0x8000001e** (Valore tag di reparse: 0x8000001e). Questo valore esadecimale è il valore del reparse point di proprietà di Sincronizzazione file di Azure. L'output contiene anche i dati di reparse che rappresentano il percorso del file nella condivisione file di Azure.
 
         > [!WARNING]  
         > Il comando dell'utilità `fsutil reparsepoint` offre anche la possibilità di eliminare un reparse point. Non eseguire questo comando, a meno che non venga richiesto dal team di progettazione di Sincronizzazione file di Azure. L'esecuzione di questo comando può causare la perdita di dati. 
@@ -105,10 +106,10 @@ Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.Se
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Order CloudTieringPolicy
 ```
 
-Se `-Order CloudTieringPolicy` si specifica, vengono richiamati prima i file modificati più di recente.
+Se si specifica `-Order CloudTieringPolicy` si richiameranno prima i file modificati più di recente.
 Altri parametri facoltativi:
-* `-ThreadCount`determina il numero di file che possono essere richiamati in parallelo.
-* `-PerFileRetryCount`determina la frequenza con cui viene eseguito il tentativo di richiamo di un file attualmente bloccato.
+* `-ThreadCount` determina il numero di file che possono essere richiamati in parallelo.
+* `-PerFileRetryCount`determina la frequenza con cui viene eseguito un tentativo di richiamo di un file attualmente bloccato.
 * `-PerFileRetryDelaySeconds`determina il tempo in secondi tra i tentativi per richiamare i tentativi e deve essere sempre utilizzato in combinazione con il parametro precedente.
 
 > [!Note]  
@@ -116,7 +117,7 @@ Altri parametri facoltativi:
 
 <a id="sizeondisk-versus-size"></a>
 ### <a name="why-doesnt-the-size-on-disk-property-for-a-file-match-the-size-property-after-using-azure-file-sync"></a>Perché la proprietà *Dimensioni su disco* per un file non corrisponde alla proprietà *Dimensioni* dopo l'uso di Sincronizzazione file di Azure? 
-Esplora file di Windows espone due proprietà per rappresentare le dimensioni di un file: **Dimensioni** e **Dimensioni su disco**. Queste proprietà hanno un significato leggermente diverso. **Dimensioni** rappresenta le dimensioni complete del file. **Dimensioni su disco** rappresenta le dimensioni del flusso di file archiviato sul disco. I valori di queste proprietà possono essere diversi per svariati motivi, ad esempio la compressione, l'uso della deduplicazione dei dati o la suddivisione in livelli nel cloud con Sincronizzazione file di Azure. Se un file è archiviato a livelli in una condivisione file di Azure, le dimensioni su disco sono pari a zero perché il flusso di file viene archiviato nella condivisione file di Azure e non sul disco. È anche possibile che un file sia parzialmente a livelli (o parzialmente richiamato). In un file parzialmente a livelli, parte del file è su disco. Questa situazione può verificarsi quando i file vengono letti parzialmente da applicazioni come i lettori multimediali o le utilità di compressione. 
+Esplora file di Windows espone due proprietà per rappresentare le dimensioni di un file: **Dimensioni** e **Dimensioni su disco**. Queste proprietà hanno un significato leggermente diverso. **Dimensioni** rappresenta le dimensioni complete del file. **Dimensioni su disco** rappresenta le dimensioni del flusso di file archiviato sul disco. I valori di queste proprietà possono essere diversi per svariati motivi, ad esempio la compressione, l'uso della deduplicazione dei dati o la suddivisione in livelli nel cloud con Sincronizzazione file di Azure. Se un file è a livelli in una condivisione file di Azure, le dimensioni sul disco sono pari a zero perché il flusso di file viene archiviato nella condivisione file di Azure e non sul disco. È anche possibile che un file sia parzialmente a livelli (o parzialmente richiamato). In un file parzialmente a livelli, parte del file è su disco. Questa situazione può verificarsi quando i file vengono letti parzialmente da applicazioni come i lettori multimediali o le utilità di compressione. 
 
 <a id="afs-force-tiering"></a>
 ### <a name="how-do-i-force-a-file-or-directory-to-be-tiered"></a>Come è possibile forzare l'archiviazione a livelli di un file o una directory?
@@ -127,5 +128,5 @@ Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.Se
 Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
 ```
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 * [Planning for an Azure File Sync Deployment](storage-sync-files-planning.md) (Pianificazione della distribuzione di Sincronizzazione file di Azure)

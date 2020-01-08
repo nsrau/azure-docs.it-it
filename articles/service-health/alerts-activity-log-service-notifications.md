@@ -1,21 +1,17 @@
 ---
 title: Ricevere gli avvisi del log attività nelle notifiche del servizio di Azure
 description: Ricevere le notifiche tramite SMS, posta elettronica o webhook nel servizio di Azure.
-author: stephbaron
-ms.author: stbaron
-services: monitoring
-ms.service: service-health
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 40ffe0b377a5cbb21f07c479097958d7c15a2879
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: bc8e935b9d44cb5236c7a1ef38da24e12b877e14
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383152"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464031"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Creare gli avvisi del log attività per le notifiche del servizio
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Questo articolo descrive come impostare gli avvisi del log attività per le notifiche sull'integrità del servizio usando il portale di Azure.  
 
@@ -64,7 +60,7 @@ Per informazioni su come configurare gli avvisi di notifica sull'integrità del 
     > [!NOTE]
     > Questa sottoscrizione viene usata per salvare l'avviso del log attività. Questa è la sottoscrizione in cui verrà distribuita la risorsa di avviso e in cui verranno monitorati gli eventi nel log attività.
 
-1. Scegliere i **tipi di evento** per cui si desidera ricevere avvisi: *Problema del servizio*, *Manutenzione pianificata* e *Avvisi di integrità* 
+1. Scegliere i **Tipi di evento** per i quali si vogliono ricevere gli avvisi relativi a: *Problema del servizio*, *Manutenzione pianificata* e *Avvisi di integrità* 
 
 1. Definire i dettagli dell'avviso immettendo un **Nome regola di avviso** e una **Descrizione**.
 
@@ -80,7 +76,7 @@ Per informazioni su come configurare gli avvisi di notifica sull'integrità del 
 
     b. **Tipo di azione**: selezionare SMS, posta elettronica, webhook, app di Azure e altro.
 
-    c. **Dettagli**: in base al tipo di azione selezionato, immettere un numero di telefono, un indirizzo di posta elettronica, l'URI del webhook, ecc.
+    c. **Dettagli:** in base al tipo di azione selezionato, immettere un numero di telefono, un indirizzo di posta elettronica, l'URI del webhook, ecc.
 
 1. Selezionare **OK** per creare il gruppo di azioni e quindi **Crea regola di avviso** per completare l'avviso.
 
